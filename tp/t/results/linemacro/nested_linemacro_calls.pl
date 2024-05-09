@@ -230,10 +230,15 @@ $result_trees{'nested_linemacro_calls'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'type'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'type'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

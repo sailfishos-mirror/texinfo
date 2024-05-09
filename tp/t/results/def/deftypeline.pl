@@ -31,10 +31,15 @@ $result_trees{'deftypeline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Function'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Function'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -65,10 +70,15 @@ $result_trees{'deftypeline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -98,23 +108,28 @@ $result_trees{'deftypeline'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'bar'
+                              'contents' => [
+                                {
+                                  'text' => 'bar'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 2
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -144,23 +159,28 @@ $result_trees{'deftypeline'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'baz'
+                              'contents' => [
+                                {
+                                  'text' => 'baz'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 2
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

@@ -31,10 +31,15 @@ $result_trees{'defline_no_params'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Builtin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Builtin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -44,10 +49,15 @@ $result_trees{'defline_no_params'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

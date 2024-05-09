@@ -104,13 +104,18 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -120,10 +125,15 @@ $result_trees{'omit_def_space'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'function'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'function'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -205,13 +215,18 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -221,10 +236,15 @@ $result_trees{'omit_def_space'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'another'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'another'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

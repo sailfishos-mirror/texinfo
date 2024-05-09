@@ -215,13 +215,18 @@ $result_trees{'test_deftypefnnewline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -231,10 +236,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'data-type'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 'data-type'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -244,10 +254,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -354,10 +369,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -367,10 +387,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -380,10 +405,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypefn_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypefn_name'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -477,10 +507,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -490,10 +525,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -503,10 +543,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -516,10 +561,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -549,38 +599,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -663,10 +733,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -676,10 +751,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -689,10 +769,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -702,10 +787,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -722,38 +812,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -836,10 +946,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -849,10 +964,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -862,10 +982,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -875,10 +1000,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -895,38 +1025,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -1009,10 +1159,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1022,10 +1177,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1035,10 +1195,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1048,10 +1213,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1081,38 +1251,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -1195,10 +1385,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fun'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'fun'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1208,10 +1403,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'arg'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1344,13 +1544,18 @@ $result_trees{'test_deftypefnnewline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1360,10 +1565,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'data-type2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 'data-type2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1373,10 +1583,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1483,10 +1698,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1496,10 +1716,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1509,10 +1734,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypefn_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypefn_name2'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1606,10 +1836,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1619,10 +1854,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1632,10 +1872,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1645,10 +1890,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1678,38 +1928,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -1792,10 +2062,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1805,10 +2080,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1818,10 +2098,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1831,10 +2116,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name2'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1851,38 +2141,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypeop_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypeop_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -1965,10 +2275,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1978,10 +2293,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1991,10 +2311,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -2004,10 +2329,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name2'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2024,38 +2354,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -2138,10 +2488,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--ategory2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c--ategory2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -2151,10 +2506,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -2164,10 +2524,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 't--ype2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 't--ype2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -2177,10 +2542,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -2210,38 +2580,58 @@ $result_trees{'test_deftypefnnewline'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypecv_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--eftypecv_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c--lass2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c--lass2'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -2324,10 +2714,15 @@ $result_trees{'test_deftypefnnewline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fun2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'fun2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -2337,10 +2732,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'arg2'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2861,7 +3261,7 @@ $result_converted{'xml'}->{'test_deftypefnnewline'} = '<setfilename file="test_d
 <node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap</sectiontitle>
 
-<deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">name</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deftype>data-type</deftype> <deffunction>name</deffunction> <defparamtype>arguments...</defparamtype></definitionterm>
+<deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">name</indexterm><defcategory automatic="on">Function</defcategory> <deftype>data-type</deftype> <deffunction>name</deffunction> <defparamtype>arguments...</defparamtype></definitionterm>
 <definitionitem><para>aaa
 </para></definitionitem></deftypefun>
 
@@ -2891,7 +3291,7 @@ $result_converted{'xml'}->{'test_deftypefnnewline'} = '<setfilename file="test_d
 
 <deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
-<deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="6">name2</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
+<deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="6">name2</indexterm><defcategory automatic="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
 <definitionitem><para>aaa2
 </para></definitionitem></deftypefun>
 

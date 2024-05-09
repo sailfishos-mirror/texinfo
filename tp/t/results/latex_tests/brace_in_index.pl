@@ -276,13 +276,18 @@ $result_trees{'brace_in_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

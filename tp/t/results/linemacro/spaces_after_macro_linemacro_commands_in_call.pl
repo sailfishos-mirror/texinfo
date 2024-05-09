@@ -289,10 +289,15 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'category'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'category'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -512,10 +517,15 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'category'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'category'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

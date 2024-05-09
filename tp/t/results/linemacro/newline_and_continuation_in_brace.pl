@@ -165,10 +165,15 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'category'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'category'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

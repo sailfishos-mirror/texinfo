@@ -17,10 +17,15 @@ $result_trees{'defx_after_empty_line'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fset'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'fset'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,23 +35,28 @@ $result_trees{'defx_after_empty_line'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'i'
+                              'contents' => [
+                                {
+                                  'text' => 'i'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -134,10 +144,15 @@ $result_trees{'defx_after_empty_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidulr'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'bidulr'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

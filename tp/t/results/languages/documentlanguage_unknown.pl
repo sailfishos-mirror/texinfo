@@ -427,16 +427,23 @@ $result_trees{'documentlanguage_unknown'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Method',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'unknown',
+                            'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
+                          },
+                          'type' => 'untranslated_def_category_inserted'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'unknown',
-                        'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
+                        'def_role' => 'category'
                       },
-                      'type' => 'untranslated_def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -446,10 +453,15 @@ $result_trees{'documentlanguage_unknown'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'class'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'class'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -459,10 +471,15 @@ $result_trees{'documentlanguage_unknown'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'data-type'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 'data-type'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -472,10 +489,15 @@ $result_trees{'documentlanguage_unknown'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -505,38 +527,58 @@ $result_trees{'documentlanguage_unknown'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'class'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'class'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'class'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'class'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },

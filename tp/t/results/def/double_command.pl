@@ -17,10 +17,15 @@ $result_trees{'double_command'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'func'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'func'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'plot'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'plot'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -130,166 +140,183 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'extra' => {
-                                'def_role' => 'category'
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'func'
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'def_role' => 'category'
+                                  },
+                                  'type' => 'def_aggregate'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'spaces'
+                                  },
+                                  'text' => ' ',
+                                  'type' => 'spaces'
+                                },
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'plot2'
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'def_role' => 'name'
+                                  },
+                                  'type' => 'def_aggregate'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'spaces'
+                                  },
+                                  'text' => ' ',
+                                  'type' => 'spaces'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'delimiter'
+                                  },
+                                  'text' => '(',
+                                  'type' => 'delimiter'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'arg'
+                                  },
+                                  'text' => 'a'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'delimiter'
+                                  },
+                                  'text' => ',',
+                                  'type' => 'delimiter'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'spaces'
+                                  },
+                                  'text' => ' ',
+                                  'type' => 'spaces'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'arg'
+                                  },
+                                  'text' => 'b'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'delimiter'
+                                  },
+                                  'text' => ',',
+                                  'type' => 'delimiter'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'spaces'
+                                  },
+                                  'text' => ' ',
+                                  'type' => 'spaces'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'arg'
+                                  },
+                                  'text' => 'c'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'delimiter'
+                                  },
+                                  'text' => ',',
+                                  'type' => 'delimiter'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'spaces'
+                                  },
+                                  'text' => ' ',
+                                  'type' => 'spaces'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'arg'
+                                  },
+                                  'text' => '...'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'delimiter'
+                                  },
+                                  'text' => ',',
+                                  'type' => 'delimiter'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'spaces'
+                                  },
+                                  'text' => ' ',
+                                  'type' => 'spaces'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'arg'
+                                  },
+                                  'text' => 'd'
+                                },
+                                {
+                                  'extra' => {
+                                    'def_role' => 'delimiter'
+                                  },
+                                  'text' => ')',
+                                  'type' => 'delimiter'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
                               },
-                              'text' => 'func'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'name'
-                              },
-                              'text' => 'plot2'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'delimiter'
-                              },
-                              'text' => '(',
-                              'type' => 'delimiter'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'arg'
-                              },
-                              'text' => 'a'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'delimiter'
-                              },
-                              'text' => ',',
-                              'type' => 'delimiter'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'arg'
-                              },
-                              'text' => 'b'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'delimiter'
-                              },
-                              'text' => ',',
-                              'type' => 'delimiter'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'arg'
-                              },
-                              'text' => 'c'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'delimiter'
-                              },
-                              'text' => ',',
-                              'type' => 'delimiter'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'arg'
-                              },
-                              'text' => '...'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'delimiter'
-                              },
-                              'text' => ',',
-                              'type' => 'delimiter'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'arg'
-                              },
-                              'text' => 'd'
-                            },
-                            {
-                              'extra' => {
-                                'def_role' => 'delimiter'
-                              },
-                              'text' => ')',
-                              'type' => 'delimiter'
+                              'type' => 'line_arg'
                             }
                           ],
+                          'cmdname' => 'deffnx',
+                          'extra' => {
+                            'def_command' => 'deffn',
+                            'def_index_element' => {},
+                            'index_entry' => [
+                              'fn',
+                              1
+                            ],
+                            'not_after_command' => 1,
+                            'original_def_cmdname' => 'deffnx'
+                          },
                           'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
+                            'spaces_before_argument' => {
+                              'text' => ' '
                             }
                           },
-                          'type' => 'line_arg'
+                          'source_info' => {
+                            'line_nr' => 1
+                          },
+                          'type' => 'def_line'
                         }
                       ],
-                      'cmdname' => 'deffnx',
                       'extra' => {
-                        'def_command' => 'deffn',
-                        'def_index_element' => {},
-                        'def_role' => 'arg',
-                        'index_entry' => [
-                          'fn',
-                          1
-                        ],
-                        'not_after_command' => 1,
-                        'original_def_cmdname' => 'deffnx'
+                        'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'def_line'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -376,10 +403,15 @@ $result_trees{'double_command'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'func'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'func'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -389,10 +421,15 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'aaaa'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'aaaa'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -415,67 +452,82 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'cmdname' => 'defvr',
                       'contents' => [
                         {
-                          'args' => [
+                          'cmdname' => 'defvr',
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'extra' => {
-                                    'def_role' => 'category'
+                                  'contents' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'c--ategory'
+                                        }
+                                      ],
+                                      'extra' => {
+                                        'def_role' => 'category'
+                                      },
+                                      'type' => 'def_aggregate'
+                                    },
+                                    {
+                                      'extra' => {
+                                        'def_role' => 'spaces'
+                                      },
+                                      'text' => ' ',
+                                      'type' => 'spaces'
+                                    },
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'd--efvr_name'
+                                        }
+                                      ],
+                                      'extra' => {
+                                        'def_role' => 'name'
+                                      },
+                                      'type' => 'def_aggregate'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
                                   },
-                                  'text' => 'c--ategory'
-                                },
-                                {
-                                  'extra' => {
-                                    'def_role' => 'spaces'
-                                  },
-                                  'text' => ' ',
-                                  'type' => 'spaces'
-                                },
-                                {
-                                  'extra' => {
-                                    'def_role' => 'name'
-                                  },
-                                  'text' => 'd--efvr_name'
+                                  'type' => 'block_line_arg'
                                 }
                               ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
+                              'extra' => {
+                                'def_command' => 'defvr',
+                                'def_index_element' => {},
+                                'index_entry' => [
+                                  'vr',
+                                  1
+                                ],
+                                'original_def_cmdname' => 'defvr'
                               },
-                              'type' => 'block_line_arg'
+                              'source_info' => {
+                                'line_nr' => 5
+                              },
+                              'type' => 'def_line'
                             }
                           ],
-                          'extra' => {
-                            'def_command' => 'defvr',
-                            'def_index_element' => {},
-                            'index_entry' => [
-                              'vr',
-                              1
-                            ],
-                            'original_def_cmdname' => 'defvr'
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
                           },
                           'source_info' => {
                             'line_nr' => 5
-                          },
-                          'type' => 'def_line'
+                          }
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -555,9 +607,9 @@ $result_trees{'double_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[17]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[17]{'args'}[0]{'contents'}[2];
+$result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[17]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'double_command'} = '@deffn func plot (a, b, c, ...) @deffnx func plot2 (a, b, c, ..., d)

@@ -17,10 +17,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -151,10 +161,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -164,10 +179,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -298,10 +318,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -311,10 +336,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -448,10 +478,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -461,10 +496,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -606,10 +646,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -619,10 +664,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -692,10 +742,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -705,10 +760,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -784,10 +844,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -797,10 +862,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -889,10 +959,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -902,10 +977,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -997,10 +1077,15 @@ $result_trees{'wrong_braces_simple'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1010,10 +1095,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

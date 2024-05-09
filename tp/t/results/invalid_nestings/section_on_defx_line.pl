@@ -17,10 +17,15 @@ $result_trees{'section_on_defx_line'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'h'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'h'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'section_on_defx_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'j'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'j'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -90,10 +100,15 @@ $result_trees{'section_on_defx_line'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -103,10 +118,15 @@ $result_trees{'section_on_defx_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

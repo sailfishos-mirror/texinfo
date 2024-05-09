@@ -134,10 +134,15 @@ $result_trees{'protected_spaces_on_line'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Function'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Function'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -147,10 +152,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -374,10 +384,15 @@ $result_trees{'protected_spaces_on_line'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Function'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Function'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -464,10 +479,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'text' => 'rest'
                     },
                     {
-                      'cmdname' => ' ',
+                      'contents' => [
+                        {
+                          'cmdname' => ' '
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
-                      }
+                      },
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -630,10 +650,15 @@ $result_trees{'protected_spaces_on_line'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Function'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Function'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -643,10 +668,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -696,10 +726,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'delimiter'
                     },
                     {
-                      'cmdname' => '@',
+                      'contents' => [
+                        {
+                          'cmdname' => '@'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
-                      }
+                      },
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

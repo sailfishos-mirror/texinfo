@@ -72,10 +72,15 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                             {
                               'contents' => [
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'bidule'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'category'
                                   },
-                                  'text' => 'bidule'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -85,10 +90,15 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'truc'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'name'
                                   },
-                                  'text' => 'truc'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {

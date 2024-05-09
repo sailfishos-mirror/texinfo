@@ -19,13 +19,18 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -69,23 +74,28 @@ $result_trees{'def_defx_mismatch'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'arg'
+                              'contents' => [
+                                {
+                                  'text' => 'arg'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -95,18 +105,23 @@ $result_trees{'def_defx_mismatch'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'args' => [
+                            {
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'dots',
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'cmdname' => 'dots',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

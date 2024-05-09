@@ -189,10 +189,15 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Command'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Command'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -202,10 +207,15 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'mmm-mode'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'mmm-mode'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -215,23 +225,28 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'arg'
+                              'contents' => [
+                                {
+                                  'text' => 'arg'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 11
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 11
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -327,13 +342,18 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Variable'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -343,10 +363,15 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'mmm-mode'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'mmm-mode'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -788,7 +813,7 @@ $result_converted{'xml'}->{'same_index_entry_merged_indices'} = '<syncodeindex s
 <definitionitem><para>Toggle the state of MMM Mode.
 </para></definitionitem></deffn>
 
-<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1" mergedindex="fn">mmm-mode</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>mmm-mode</defvariable></definitionterm>
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1" mergedindex="fn">mmm-mode</indexterm><defcategory automatic="on">Variable</defcategory> <defvariable>mmm-mode</defvariable></definitionterm>
 <definitionitem><para>This variable represents MMM Mode.
 </para></definitionitem></defvar>
 

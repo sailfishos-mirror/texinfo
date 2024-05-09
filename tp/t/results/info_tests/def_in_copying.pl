@@ -191,10 +191,15 @@ $result_trees{'def_in_copying'} = {
                     {
                       'contents' => [
                         {
+                          'contents' => [
+                            {
+                              'text' => 'aa'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'text' => 'aa'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -204,10 +209,15 @@ $result_trees{'def_in_copying'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'bb'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'text' => 'bb'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -253,10 +263,15 @@ $result_trees{'def_in_copying'} = {
                     {
                       'contents' => [
                         {
+                          'contents' => [
+                            {
+                              'text' => 'aax'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'text' => 'aax'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -266,10 +281,15 @@ $result_trees{'def_in_copying'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'bbx'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'text' => 'bbx'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -456,10 +476,15 @@ $result_trees{'def_in_copying'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'aa'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'aa'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -469,10 +494,15 @@ $result_trees{'def_in_copying'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bb'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'bb'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -518,10 +548,15 @@ $result_trees{'def_in_copying'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'aax'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'aax'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -531,10 +566,15 @@ $result_trees{'def_in_copying'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bbx'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'bbx'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

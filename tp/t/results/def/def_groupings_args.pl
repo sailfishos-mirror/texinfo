@@ -17,10 +17,15 @@ $result_trees{'def_groupings_args'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -311,23 +316,28 @@ $result_trees{'def_groupings_args'} = {
                       'text' => 'c'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'arg'
+                              'contents' => [
+                                {
+                                  'text' => 'arg'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 7
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

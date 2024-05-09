@@ -71,10 +71,15 @@ $result_trees{'block_not_matching'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'print_navigation'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'print_navigation'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

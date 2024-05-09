@@ -255,10 +255,15 @@ $result_trees{'verb_in_linemacro_call'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -268,10 +273,15 @@ $result_trees{'verb_in_linemacro_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'other'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'other'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

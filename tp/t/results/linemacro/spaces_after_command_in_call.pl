@@ -160,10 +160,15 @@ $result_trees{'spaces_after_command_in_call'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'category'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'category'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -173,29 +178,34 @@ $result_trees{'spaces_after_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'd'
+                              'contents' => [
+                                {
+                                  'text' => 'd'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'info' => {
+                            'spaces_after_cmd_before_arg' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 7,
+                            'macro' => 'mylinecommand'
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_after_cmd_before_arg' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 7,
-                        'macro' => 'mylinecommand'
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -218,29 +228,34 @@ $result_trees{'spaces_after_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'b'
+                              'contents' => [
+                                {
+                                  'text' => 'b'
+                                }
+                              ],
+                              'type' => 'following_arg'
                             }
                           ],
-                          'type' => 'following_arg'
+                          'cmdname' => 'ringaccent',
+                          'info' => {
+                            'spaces_after_cmd_before_arg' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 7,
+                            'macro' => 'mylinecommand'
+                          }
                         }
                       ],
-                      'cmdname' => 'ringaccent',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_cmd_before_arg' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 7,
-                        'macro' => 'mylinecommand'
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

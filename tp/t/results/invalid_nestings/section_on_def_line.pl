@@ -17,10 +17,15 @@ $result_trees{'section_on_def_line'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'section_on_def_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

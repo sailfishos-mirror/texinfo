@@ -10,6 +10,11 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Consider text in def_category_inserted and untranslated_def_category_inserted
+never to be true text but always be Texinfo?  Currently it is different for
+untranslated_def_category_inserted (nevever recusrse in the element in
+converters) and def_category_inserted?  Or use args instead of contents
+to mark that it is special?
 
 Bugs
 ====

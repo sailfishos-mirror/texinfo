@@ -70,16 +70,23 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Instance Variable',
-                                  'type' => 'untranslated'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Instance Variable',
+                                      'type' => 'untranslated'
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'documentlanguage' => 'fr',
+                                    'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                                  },
+                                  'type' => 'untranslated_def_category_inserted'
                                 }
                               ],
                               'extra' => {
-                                'def_role' => 'category',
-                                'documentlanguage' => 'fr',
-                                'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                                'def_role' => 'category'
                               },
-                              'type' => 'untranslated_def_category_inserted'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -89,10 +96,15 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                               'type' => 'spaces_inserted'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'copying'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'text' => 'copying'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -102,10 +114,15 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'a'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'a'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -135,38 +152,58 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                         'def_index_element' => {
                           'contents' => [
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'a'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'a'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'text' => ' de '
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'copying'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'text' => 'copying'
+                              'type' => 'def_aggregate'
                             }
                           ]
                         },
                         'def_index_ref_element' => {
                           'contents' => [
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'a'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'a'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'text' => ' of '
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'copying'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'text' => 'copying'
+                              'type' => 'def_aggregate'
                             }
                           ]
                         },
@@ -509,16 +546,23 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'de',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                          },
+                          'type' => 'untranslated_def_category_inserted'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'de',
-                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                        'def_role' => 'category'
                       },
-                      'type' => 'untranslated_def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -528,10 +572,15 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -541,10 +590,15 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -574,38 +628,58 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' von '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -981,7 +1055,7 @@ Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a h
 $result_converted{'xml'}->{'multiple_in_preamble_before_node'} = '<documentlanguage xml:lang="fr" spaces=" ">fr</documentlanguage>
 
 <copying endspaces=" ">
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
 <definitionitem><para>&errorglyph;
 </para></definitionitem></defivar>
 </copying>
@@ -999,7 +1073,7 @@ $result_converted{'xml'}->{'multiple_in_preamble_before_node'} = '<documentlangu
 <node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap</sectiontitle>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB von c</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB von c</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>c</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
 <definitionitem><para>&errorglyph;
 </para></definitionitem></defivar>
 </chapter>

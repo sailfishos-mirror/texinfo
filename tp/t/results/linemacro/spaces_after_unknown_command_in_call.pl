@@ -161,10 +161,15 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'category'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'category'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -174,10 +179,15 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'A'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'A'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -213,29 +223,34 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'b'
+                              'contents' => [
+                                {
+                                  'text' => 'b'
+                                }
+                              ],
+                              'type' => 'following_arg'
                             }
                           ],
-                          'type' => 'following_arg'
+                          'cmdname' => 'ringaccent',
+                          'info' => {
+                            'spaces_after_cmd_before_arg' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 7,
+                            'macro' => 'mylinecommand'
+                          }
                         }
                       ],
-                      'cmdname' => 'ringaccent',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_cmd_before_arg' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 7,
-                        'macro' => 'mylinecommand'
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

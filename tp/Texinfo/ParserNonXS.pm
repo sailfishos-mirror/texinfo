@@ -3125,9 +3125,14 @@ sub _split_delimiters
 {
   my ($self, $root, $current, $source_info) = @_;
 
-  if (defined $root->{'type'} # 'spaces' for spaces
-      or !defined $root->{'text'}) {
+  if ($root->{'type'} and ($root->{'type'} eq 'bracketed_arg'
+                           or defined $root->{'text'})) {
     return $root;
+  } elsif (!defined $root->{'text'}) {
+    my $new = {'type' => 'def_aggregate', 'parent' => $current,
+               'contents' => [$root]};
+    $root->{'parent'} = $current;
+    return $new;
   } else {
     my @elements;
     my $type;
@@ -3219,8 +3224,7 @@ sub _split_def_args
   return $root;
 }
 
-# the index is set past the gathered or aggregated
-# element.
+# the index is set past the gathered or aggregated element.
 sub _next_bracketed_or_word_agg($$)
 {
   my $current = shift;
@@ -3248,9 +3252,13 @@ sub _next_bracketed_or_word_agg($$)
 
   return undef if ($num == 0);
 
-  return $current->{'contents'}->[$$index_ref -1]
-    if ($num == 1);
-
+  if ($num == 1) {
+    my $element = $current->{'contents'}->[$$index_ref -1];
+    if ($element->{'type'} and $element->{'type'} eq 'bracketed_arg') {
+      # there is only one bracketed element
+      return $element;
+    }
+  }
   my @gathered_contents
     = splice(@{$current->{'contents'}}, $$index_ref - $num, $num);
   my $new = {'type' => 'def_aggregate', 'parent' => $current,
@@ -3368,7 +3376,11 @@ sub _parse_def($$$$)
     if ($content->{'type'} and $content->{'type'} eq 'spaces') {
     } elsif ($content->{'type'} and $content->{'type'} eq 'delimiter') {
       $type = $set_type_not_arg;
-    } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'code') {
+    } elsif ($content->{'type'} and $content->{'type'} eq 'def_aggregate'
+             and $content->{'contents'}
+             and scalar(@{$content->{'contents'}}) == 1
+             and $content->{'contents'}->[0]->{'cmdname'}
+             and $content->{'contents'}->[0]->{'cmdname'} ne 'code') {
       $content->{'extra'} = {} if (!$content->{'extra'});
       $content->{'extra'}->{'def_role'} = 'arg';
       $type = $set_type_not_arg;

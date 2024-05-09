@@ -22,10 +22,15 @@ $result_trees{'end_of_line_protect_at_end'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'category2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'category2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -35,10 +40,15 @@ $result_trees{'end_of_line_protect_at_end'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deffn_name2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'deffn_name2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

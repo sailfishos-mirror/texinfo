@@ -31,10 +31,15 @@ $result_trees{'defx_in_example'} = {
                     {
                       'contents' => [
                         {
+                          'contents' => [
+                            {
+                              'text' => 'fset'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'text' => 'fset'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -44,23 +49,28 @@ $result_trees{'defx_in_example'} = {
                           'type' => 'spaces'
                         },
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'i'
+                                  'contents' => [
+                                    {
+                                      'text' => 'i'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 2
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -138,10 +148,15 @@ $result_trees{'defx_in_example'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'bidulr'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'text' => 'bidulr'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {

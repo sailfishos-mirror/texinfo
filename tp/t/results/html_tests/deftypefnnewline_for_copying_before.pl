@@ -75,13 +75,18 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'Function'
+                              'contents' => [
+                                {
+                                  'text' => 'Function'
+                                }
+                              ],
+                              'type' => 'def_category_inserted'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'type' => 'def_category_inserted'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -91,10 +96,15 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                           'type' => 'spaces_inserted'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'TYPE'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'type'
                           },
-                          'text' => 'TYPE'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -104,10 +114,15 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'NAME'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'text' => 'NAME'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -375,13 +390,18 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_category_inserted'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -391,10 +411,15 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'void'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 'void'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -404,10 +429,15 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'something'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'something'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

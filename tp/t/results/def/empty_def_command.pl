@@ -17,10 +17,15 @@ $result_trees{'empty_def_command'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'empty'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'empty'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'empty_def_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deffn'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'deffn'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -112,10 +122,15 @@ $result_trees{'empty_def_command'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'empty'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'empty'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -125,10 +140,15 @@ $result_trees{'empty_def_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deffn'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'deffn'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -185,10 +205,15 @@ $result_trees{'empty_def_command'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'empty'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'empty'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -198,10 +223,15 @@ $result_trees{'empty_def_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deffnx'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'deffnx'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

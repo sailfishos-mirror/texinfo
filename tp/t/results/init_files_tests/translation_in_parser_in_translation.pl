@@ -181,10 +181,15 @@ $result_trees{'translation_in_parser_in_translation'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'da'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'da'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -194,10 +199,15 @@ $result_trees{'translation_in_parser_in_translation'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'db'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'db'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -207,10 +217,15 @@ $result_trees{'translation_in_parser_in_translation'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'dc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 'dc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -220,10 +235,15 @@ $result_trees{'translation_in_parser_in_translation'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'dd'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'dd'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -253,38 +273,58 @@ $result_trees{'translation_in_parser_in_translation'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'dd'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'dd'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' de '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'db'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'db'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'dd'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'dd'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'db'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'db'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },

@@ -17,10 +17,15 @@ $result_trees{'protected_brace'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'protected_brace'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'cmdname' => '{',
+                      'contents' => [
+                        {
+                          'cmdname' => '{'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
-                      }
+                      },
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

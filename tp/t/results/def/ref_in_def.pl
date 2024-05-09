@@ -49,31 +49,36 @@ $result_trees{'ref_in_def'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'ref',
+                          'source_info' => {
+                            'line_nr' => 4
+                          }
                         }
                       ],
-                      'cmdname' => 'ref',
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -83,31 +88,36 @@ $result_trees{'ref_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'ref',
+                          'source_info' => {
+                            'line_nr' => 4
+                          }
                         }
                       ],
-                      'cmdname' => 'ref',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -159,31 +169,36 @@ $result_trees{'ref_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'pxref',
+                          'source_info' => {
+                            'line_nr' => 4
+                          }
                         }
                       ],
-                      'cmdname' => 'pxref',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -193,31 +208,36 @@ $result_trees{'ref_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'pxref',
+                          'source_info' => {
+                            'line_nr' => 4
+                          }
                         }
                       ],
-                      'cmdname' => 'pxref',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -249,31 +269,36 @@ $result_trees{'ref_in_def'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'ref',
+                          'source_info' => {
+                            'line_nr' => 5
+                          }
                         }
                       ],
-                      'cmdname' => 'ref',
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -283,31 +308,36 @@ $result_trees{'ref_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'ref',
+                          'source_info' => {
+                            'line_nr' => 5
+                          }
                         }
                       ],
-                      'cmdname' => 'ref',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -359,31 +389,36 @@ $result_trees{'ref_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'pxref',
+                          'source_info' => {
+                            'line_nr' => 5
+                          }
                         }
                       ],
-                      'cmdname' => 'pxref',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -393,31 +428,36 @@ $result_trees{'ref_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'myanchor'
+                              'contents' => [
+                                {
+                                  'text' => 'myanchor'
+                                }
+                              ],
+                              'extra' => {
+                                'node_content' => {
+                                  'contents' => [
+                                    {}
+                                  ]
+                                },
+                                'normalized' => 'myanchor'
+                              },
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'myanchor'
-                          },
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'pxref',
+                          'source_info' => {
+                            'line_nr' => 5
+                          }
                         }
                       ],
-                      'cmdname' => 'pxref',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -551,18 +591,18 @@ $result_trees{'ref_in_def'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'ref_in_def'}{'contents'}[1];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'ref_in_def'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'ref_in_def'}{'contents'}[1];
 

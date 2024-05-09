@@ -413,23 +413,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'v: g. h'
+                              'contents' => [
+                                {
+                                  'text' => 'v: g. h'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 18
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 18
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -439,23 +444,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'code? is: k'
+                              'contents' => [
+                                {
+                                  'text' => 'code? is: k'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 18
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 18
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -708,23 +718,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'vv: g? b'
+                              'contents' => [
+                                {
+                                  'text' => 'vv: g? b'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 22
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 22
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -734,23 +749,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'vcode? is: a'
+                              'contents' => [
+                                {
+                                  'text' => 'vcode? is: a'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 22
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 22
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1231,23 +1251,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'v: g. h'
+                              'contents' => [
+                                {
+                                  'text' => 'v: g. h'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 38
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 38
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1257,23 +1282,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'code? is: k'
+                              'contents' => [
+                                {
+                                  'text' => 'code? is: k'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 38
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 38
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1526,23 +1556,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'vv: g? b'
+                              'contents' => [
+                                {
+                                  'text' => 'vv: g? b'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 42
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 42
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1552,23 +1587,28 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'vcode? is: a'
+                              'contents' => [
+                                {
+                                  'text' => 'vcode? is: a'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 42
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 42
-                      }
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

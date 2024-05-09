@@ -17,10 +17,15 @@ $result_trees{'leading_space_in_def_arg'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'category'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'category'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

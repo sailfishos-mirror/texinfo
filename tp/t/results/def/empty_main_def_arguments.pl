@@ -17,10 +17,15 @@ $result_trees{'empty_main_def_arguments'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'NNN'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'NNN'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

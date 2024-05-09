@@ -127,7 +127,14 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
     return 0;
 
   if (num == 1)
-    return current->contents.list[*i - 1];
+    {
+      /* FIXME e is probably already this element */
+      e = current->contents.list[*i - 1];
+
+      /* there is only one bracketed element */
+      if (e->type == ET_bracketed_arg)
+        return e;
+    }
 
   new = new_element (ET_def_aggregate);
   for (j = 0; j < num; j++)
@@ -199,9 +206,18 @@ split_delimiters (ELEMENT *current, int starting_idx)
       uint8_t *u8_p;
       size_t u8_len;
 
-      if (e->type != ET_NONE
-          || e->text.end == 0)
+      if (e->type != ET_NONE && (e->type == ET_bracketed_arg
+                                 || e->text.end > 0))
         continue;
+      else if (e->text.end == 0)
+        {
+          new = new_element (ET_def_aggregate);
+          new->parent = e->parent;
+          add_to_element_contents (new, e);
+          current->contents.list[i] = new;
+          continue;
+        }
+
       p = e->text.text;
 
       if (e->source_mark_list.number)
@@ -467,7 +483,8 @@ parse_def (enum command_id command, ELEMENT *current)
           type = set_type_not_arg;
           continue;
         }
-      if (e->cmd && e->cmd != CM_code)
+      if (e->type == ET_def_aggregate && e->contents.number == 1
+          && e->contents.list[0]->cmd && e->contents.list[0]->cmd != CM_code)
         {
           add_extra_string_dup (e, "def_role", "arg");
           type = set_type_not_arg;

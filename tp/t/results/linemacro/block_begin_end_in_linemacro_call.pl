@@ -787,10 +787,15 @@ args \\e\\|\\f\\|
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

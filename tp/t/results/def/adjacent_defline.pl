@@ -31,10 +31,15 @@ $result_trees{'adjacent_defline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Funoid'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Funoid'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -44,10 +49,15 @@ $result_trees{'adjacent_defline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -107,10 +117,15 @@ $result_trees{'adjacent_defline'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Funnyoid'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Funnyoid'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -120,10 +135,15 @@ $result_trees{'adjacent_defline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

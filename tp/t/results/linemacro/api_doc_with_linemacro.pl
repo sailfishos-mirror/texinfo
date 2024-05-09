@@ -247,10 +247,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Function'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Function'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -260,10 +265,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fft.fft'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'fft.fft'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -306,23 +316,28 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'text' => 'n='
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'None'
+                              'contents' => [
+                                {
+                                  'text' => 'None'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 15
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -345,23 +360,28 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'text' => 'axis='
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => '-1'
+                              'contents' => [
+                                {
+                                  'text' => '-1'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 15
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -384,23 +404,28 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'text' => 'norm='
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'None'
+                              'contents' => [
+                                {
+                                  'text' => 'None'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 15
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -518,10 +543,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                         {
                           'contents' => [
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'Parameter'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'text' => 'Parameter'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -531,24 +561,29 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => 'a'
+                                      'contents' => [
+                                        {
+                                          'text' => 'a'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'var',
+                                  'source_info' => {
+                                    'line_nr' => 19,
+                                    'macro' => 'param'
+                                  }
                                 }
                               ],
-                              'cmdname' => 'var',
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'source_info' => {
-                                'line_nr' => 19,
-                                'macro' => 'param'
-                              }
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -558,31 +593,36 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => ' : array_like'
+                                      'contents' => [
+                                        {
+                                          'text' => ' : array_like'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'code',
+                                  'source_info' => {
+                                    'line_nr' => 19,
+                                    'macro' => 'param'
+                                  },
+                                  'source_marks' => [
+                                    {
+                                      'counter' => 1,
+                                      'sourcemark_type' => 'linemacro_expansion',
+                                      'status' => 'end'
+                                    }
+                                  ]
                                 }
                               ],
-                              'cmdname' => 'code',
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'source_info' => {
-                                'line_nr' => 19,
-                                'macro' => 'param'
-                              },
-                              'source_marks' => [
-                                {
-                                  'counter' => 1,
-                                  'sourcemark_type' => 'linemacro_expansion',
-                                  'status' => 'end'
-                                }
-                              ]
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -676,10 +716,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                         {
                           'contents' => [
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'Parameter'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'text' => 'Parameter'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -689,24 +734,29 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => 'n'
+                                      'contents' => [
+                                        {
+                                          'text' => 'n'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'var',
+                                  'source_info' => {
+                                    'line_nr' => 22,
+                                    'macro' => 'param'
+                                  }
                                 }
                               ],
-                              'cmdname' => 'var',
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'source_info' => {
-                                'line_nr' => 22,
-                                'macro' => 'param'
-                              }
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -716,31 +766,36 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => ' : int, optional'
+                                      'contents' => [
+                                        {
+                                          'text' => ' : int, optional'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'code',
+                                  'source_info' => {
+                                    'line_nr' => 22,
+                                    'macro' => 'param'
+                                  },
+                                  'source_marks' => [
+                                    {
+                                      'counter' => 2,
+                                      'sourcemark_type' => 'linemacro_expansion',
+                                      'status' => 'end'
+                                    }
+                                  ]
                                 }
                               ],
-                              'cmdname' => 'code',
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'source_info' => {
-                                'line_nr' => 22,
-                                'macro' => 'param'
-                              },
-                              'source_marks' => [
-                                {
-                                  'counter' => 2,
-                                  'sourcemark_type' => 'linemacro_expansion',
-                                  'status' => 'end'
-                                }
-                              ]
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -857,10 +912,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                         {
                           'contents' => [
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'Parameter'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'text' => 'Parameter'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -870,24 +930,29 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => 'axis'
+                                      'contents' => [
+                                        {
+                                          'text' => 'axis'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'var',
+                                  'source_info' => {
+                                    'line_nr' => 26,
+                                    'macro' => 'param'
+                                  }
                                 }
                               ],
-                              'cmdname' => 'var',
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'source_info' => {
-                                'line_nr' => 26,
-                                'macro' => 'param'
-                              }
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -897,31 +962,36 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => ' : int, optional'
+                                      'contents' => [
+                                        {
+                                          'text' => ' : int, optional'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'code',
+                                  'source_info' => {
+                                    'line_nr' => 26,
+                                    'macro' => 'param'
+                                  },
+                                  'source_marks' => [
+                                    {
+                                      'counter' => 3,
+                                      'sourcemark_type' => 'linemacro_expansion',
+                                      'status' => 'end'
+                                    }
+                                  ]
                                 }
                               ],
-                              'cmdname' => 'code',
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'source_info' => {
-                                'line_nr' => 26,
-                                'macro' => 'param'
-                              },
-                              'source_marks' => [
-                                {
-                                  'counter' => 3,
-                                  'sourcemark_type' => 'linemacro_expansion',
-                                  'status' => 'end'
-                                }
-                              ]
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -1037,24 +1107,29 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => 'out'
+                                      'contents' => [
+                                        {
+                                          'text' => 'out'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'var',
+                                  'source_info' => {
+                                    'line_nr' => 29,
+                                    'macro' => 'returns'
+                                  }
                                 }
                               ],
-                              'cmdname' => 'var',
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'source_info' => {
-                                'line_nr' => 29,
-                                'macro' => 'returns'
-                              }
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -1064,31 +1139,36 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'args' => [
                                     {
-                                      'text' => ' : complex ndarray'
+                                      'contents' => [
+                                        {
+                                          'text' => ' : complex ndarray'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'code',
+                                  'source_info' => {
+                                    'line_nr' => 29,
+                                    'macro' => 'returns'
+                                  },
+                                  'source_marks' => [
+                                    {
+                                      'counter' => 4,
+                                      'sourcemark_type' => 'linemacro_expansion',
+                                      'status' => 'end'
+                                    }
+                                  ]
                                 }
                               ],
-                              'cmdname' => 'code',
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'source_info' => {
-                                'line_nr' => 29,
-                                'macro' => 'returns'
-                              },
-                              'source_marks' => [
-                                {
-                                  'counter' => 4,
-                                  'sourcemark_type' => 'linemacro_expansion',
-                                  'status' => 'end'
-                                }
-                              ]
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -1192,18 +1272,23 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'source_marks' => [
+                                    {
+                                      'counter' => 5,
+                                      'position' => 10,
+                                      'sourcemark_type' => 'linemacro_expansion',
+                                      'status' => 'end'
+                                    }
+                                  ],
+                                  'text' => 'IndexError'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'source_marks' => [
-                                {
-                                  'counter' => 5,
-                                  'position' => 10,
-                                  'sourcemark_type' => 'linemacro_expansion',
-                                  'status' => 'end'
-                                }
-                              ],
-                              'text' => 'IndexError'
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {

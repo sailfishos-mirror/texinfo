@@ -104,10 +104,15 @@ $result_trees{'defcondx_Ubar'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

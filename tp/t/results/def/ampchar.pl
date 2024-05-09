@@ -38,10 +38,15 @@ $result_trees{'ampchar'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -51,10 +56,15 @@ $result_trees{'ampchar'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -71,26 +81,31 @@ $result_trees{'ampchar'} = {
                       'type' => 'delimiter'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'const std::vector<int>'
-                            },
-                            {
-                              'cmdname' => '&'
+                              'contents' => [
+                                {
+                                  'text' => 'const std::vector<int>'
+                                },
+                                {
+                                  'cmdname' => '&'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -114,38 +129,58 @@ $result_trees{'ampchar'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' on '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },

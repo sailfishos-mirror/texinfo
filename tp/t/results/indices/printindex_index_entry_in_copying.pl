@@ -81,13 +81,18 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Function'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Function'
+                                    }
+                                  ],
+                                  'type' => 'def_category_inserted'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'def_category_inserted'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -97,10 +102,15 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                               'type' => 'spaces_inserted'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'fun'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'fun'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -147,13 +157,18 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Function'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Function'
+                                    }
+                                  ],
+                                  'type' => 'def_category_inserted'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'def_category_inserted'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -163,10 +178,15 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                               'type' => 'spaces_inserted'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'xf'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'xf'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -1293,8 +1313,8 @@ $result_converted{'xml'}->{'printindex_index_entry_in_copying'} = '<copying ends
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">Copying this document</indexterm></findex>
 
-<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">fun</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>fun</deffunction> <defparam>arg</defparam></definitionterm>
-<defunx spaces=" "><definitionterm><indexterm index="fn" number="3">xf</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>xf</deffunction> <defparam>arg</defparam></definitionterm></defunx>
+<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">fun</indexterm><defcategory automatic="on">Function</defcategory> <deffunction>fun</deffunction> <defparam>arg</defparam></definitionterm>
+<defunx spaces=" "><definitionterm><indexterm index="fn" number="3">xf</indexterm><defcategory automatic="on">Function</defcategory> <deffunction>xf</deffunction> <defparam>arg</defparam></definitionterm></defunx>
 <definitionitem><para>Defun
 </para></definitionitem></defun>
 

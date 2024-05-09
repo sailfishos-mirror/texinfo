@@ -75,10 +75,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Command'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Command'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -88,10 +93,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'forward-word'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'forward-word'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

@@ -1,3 +1,13 @@
+2024-05-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_split_delimiters)
+	(_next_bracketed_or_word_agg, _parse_def),
+	tp/Texinfo/XS/parsetexi/def.c (next_bracketed_or_word_agg)
+	(split_delimiters, parse_def): put lone commands definition line
+	arguments in a def_aggregate type container.  When parsing remaining
+	arguments of a definition line, put everything that is not a lone
+	bracketed_arg in a def_aggregate.
+
 2024-05-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_def),

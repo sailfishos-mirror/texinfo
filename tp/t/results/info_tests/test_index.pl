@@ -277,10 +277,15 @@ $result_trees{'test_index'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fset'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'fset'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -290,23 +295,28 @@ $result_trees{'test_index'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'i'
+                              'contents' => [
+                                {
+                                  'text' => 'i'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 12
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -364,10 +374,15 @@ $result_trees{'test_index'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -377,10 +392,15 @@ $result_trees{'test_index'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

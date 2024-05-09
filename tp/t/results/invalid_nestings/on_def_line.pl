@@ -55,54 +55,29 @@ $result_trees{'on_def_line'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'in titlefont'
-                            }
-                          ],
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'titlefont',
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
+                          'args' => [
                             {
                               'contents' => [
                                 {
-                                  'text' => 'footnote'
+                                  'text' => 'in titlefont'
                                 }
                               ],
-                              'type' => 'paragraph'
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_context'
+                          'cmdname' => 'titlefont',
+                          'extra' => {},
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'cmdname' => 'footnote',
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -112,34 +87,76 @@ $result_trees{'on_def_line'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'exdent'
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'footnote'
+                                    }
+                                  ],
+                                  'type' => 'paragraph'
+                                }
+                              ],
+                              'type' => 'brace_command_context'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
+                          'cmdname' => 'footnote',
+                          'extra' => {},
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'cmdname' => 'exdent',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
+                      'type' => 'def_aggregate'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'exdent'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'exdent',
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -202,54 +219,29 @@ $result_trees{'on_def_line'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'in titlefontx'
-                            }
-                          ],
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'titlefont',
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
+                          'args' => [
                             {
                               'contents' => [
                                 {
-                                  'text' => 'footnotex'
+                                  'text' => 'in titlefontx'
                                 }
                               ],
-                              'type' => 'paragraph'
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_context'
+                          'cmdname' => 'titlefont',
+                          'extra' => {},
+                          'source_info' => {
+                            'line_nr' => 2
+                          }
                         }
                       ],
-                      'cmdname' => 'footnote',
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -259,34 +251,76 @@ $result_trees{'on_def_line'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'exdentx'
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'footnotex'
+                                    }
+                                  ],
+                                  'type' => 'paragraph'
+                                }
+                              ],
+                              'type' => 'brace_command_context'
                             }
                           ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
+                          'cmdname' => 'footnote',
+                          'extra' => {},
+                          'source_info' => {
+                            'line_nr' => 2
+                          }
                         }
                       ],
-                      'cmdname' => 'exdent',
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
+                      'type' => 'def_aggregate'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'exdentx'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => {
+                                  'text' => '
+'
+                                }
+                              },
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'exdent',
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 2
+                          }
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'type' => 'line_arg'

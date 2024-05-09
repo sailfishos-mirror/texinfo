@@ -23,10 +23,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                             {
                               'contents' => [
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'category'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'category'
                                   },
-                                  'text' => 'category'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -36,10 +41,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'deffn_name'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'name'
                                   },
-                                  'text' => 'deffn_name'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -149,10 +159,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
-                                  'cmdname' => '@',
+                                  'contents' => [
+                                    {
+                                      'cmdname' => '@'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
-                                  }
+                                  },
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -162,16 +177,21 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
-                                  'cmdname' => '@',
+                                  'contents' => [
+                                    {
+                                      'cmdname' => '@',
+                                      'source_marks' => [
+                                        {
+                                          'counter' => 3,
+                                          'sourcemark_type' => 'defline_continuation'
+                                        }
+                                      ]
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'source_marks' => [
-                                    {
-                                      'counter' => 3,
-                                      'sourcemark_type' => 'defline_continuation'
-                                    }
-                                  ]
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {

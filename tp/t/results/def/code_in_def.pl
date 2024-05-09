@@ -17,10 +17,15 @@ $result_trees{'code_in_def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Function'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Function'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'code_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'int'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'text' => 'int'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -43,10 +53,15 @@ $result_trees{'code_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -63,26 +78,31 @@ $result_trees{'code_in_def'} = {
                       'type' => 'delimiter'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'const std::vector<int>'
-                            },
-                            {
-                              'cmdname' => '&'
+                              'contents' => [
+                                {
+                                  'text' => 'const std::vector<int>'
+                                },
+                                {
+                                  'cmdname' => '&'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'code',
+                          'source_info' => {
+                            'line_nr' => 1
+                          }
                         }
                       ],
-                      'cmdname' => 'code',
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

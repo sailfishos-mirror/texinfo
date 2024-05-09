@@ -70,16 +70,23 @@ $result_trees{'multiple_documentlanguage'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Instance Variable',
-                                  'type' => 'untranslated'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Instance Variable',
+                                      'type' => 'untranslated'
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'documentlanguage' => 'fr',
+                                    'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                                  },
+                                  'type' => 'untranslated_def_category_inserted'
                                 }
                               ],
                               'extra' => {
-                                'def_role' => 'category',
-                                'documentlanguage' => 'fr',
-                                'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                                'def_role' => 'category'
                               },
-                              'type' => 'untranslated_def_category_inserted'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -89,10 +96,15 @@ $result_trees{'multiple_documentlanguage'} = {
                               'type' => 'spaces_inserted'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'copying'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'text' => 'copying'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -102,10 +114,15 @@ $result_trees{'multiple_documentlanguage'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'a'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'a'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -135,38 +152,58 @@ $result_trees{'multiple_documentlanguage'} = {
                         'def_index_element' => {
                           'contents' => [
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'a'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'a'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'text' => ' de '
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'copying'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'text' => 'copying'
+                              'type' => 'def_aggregate'
                             }
                           ]
                         },
                         'def_index_ref_element' => {
                           'contents' => [
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'a'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'a'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'text' => ' of '
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'copying'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'text' => 'copying'
+                              'type' => 'def_aggregate'
                             }
                           ]
                         },
@@ -426,16 +463,23 @@ $result_trees{'multiple_documentlanguage'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'fr',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                          },
+                          'type' => 'untranslated_def_category_inserted'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'fr',
-                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                        'def_role' => 'category'
                       },
-                      'type' => 'untranslated_def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -445,10 +489,15 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fr'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'fr'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -458,10 +507,15 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -491,38 +545,58 @@ $result_trees{'multiple_documentlanguage'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' de '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fr'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'fr'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fr'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'fr'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -708,16 +782,23 @@ $result_trees{'multiple_documentlanguage'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'hr',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                          },
+                          'type' => 'untranslated_def_category_inserted'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'hr',
-                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                        'def_role' => 'category'
                       },
-                      'type' => 'untranslated_def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -727,10 +808,15 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'hr'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'hr'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -740,10 +826,15 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -773,38 +864,58 @@ $result_trees{'multiple_documentlanguage'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' od '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'hr'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'hr'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'hr'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'hr'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
@@ -1323,7 +1434,7 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
 $result_converted{'xml'}->{'multiple_documentlanguage'} = '<documentlanguage xml:lang="fr" spaces=" ">fr</documentlanguage>
 
 <copying endspaces=" ">
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
 <definitionitem><para>&errorglyph;
 </para></definitionitem></defivar>
 </copying>
@@ -1335,7 +1446,7 @@ $result_converted{'xml'}->{'multiple_documentlanguage'} = '<documentlanguage xml
 <node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB de fr</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>fr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB de fr</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>fr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
 <definitionitem><para>&errorglyph;
 </para></definitionitem></defivar>
 
@@ -1345,7 +1456,7 @@ $result_converted{'xml'}->{'multiple_documentlanguage'} = '<documentlanguage xml
 
 <documentlanguage xml:lang="hr" spaces=" ">hr</documentlanguage>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3">BBB od hr</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>hr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3">BBB od hr</indexterm><defcategory automatic="on">Instance Variable</defcategory> <defclass>hr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
 <definitionitem><para>&errorglyph;
 </para></definitionitem></defivar>
 

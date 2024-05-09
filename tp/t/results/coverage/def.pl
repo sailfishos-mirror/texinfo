@@ -43,10 +43,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd--effn_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'd--effn_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -152,10 +157,15 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'cate--gory'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'cate--gory'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -165,10 +175,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'de--ffn_name'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'de--ffn_name'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -224,10 +239,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'cmdname' => '*',
+                      'contents' => [
+                        {
+                          'cmdname' => '*'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
-                      }
+                      },
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -359,10 +379,15 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'fset'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'fset'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -372,23 +397,28 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'i'
+                              'contents' => [
+                                {
+                                  'text' => 'i'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'var',
+                          'source_info' => {
+                            'line_nr' => 11
+                          }
                         }
                       ],
-                      'cmdname' => 'var',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 11
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -466,10 +496,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -522,10 +557,15 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Command'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Command'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -599,10 +639,15 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Command'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Command'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -681,10 +726,15 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Command'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Command'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -763,10 +813,15 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'cmde'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'cmde'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -776,23 +831,28 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'id ule'
+                              'contents' => [
+                                {
+                                  'text' => 'id ule'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'b',
+                          'source_info' => {
+                            'line_nr' => 16
+                          }
                         }
                       ],
-                      'cmdname' => 'b',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -842,10 +902,15 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'cmde2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'cmde2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -855,42 +920,47 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'args' => [
+                      'contents' => [
                         {
-                          'contents' => [
+                          'args' => [
                             {
-                              'text' => 'id '
-                            },
-                            {
-                              'args' => [
+                              'contents' => [
                                 {
-                                  'contents' => [
+                                  'text' => 'id '
+                                },
+                                {
+                                  'args' => [
                                     {
-                                      'text' => 'i'
+                                      'contents' => [
+                                        {
+                                          'text' => 'i'
+                                        }
+                                      ],
+                                      'type' => 'brace_command_arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'cmdname' => 'samp',
+                                  'source_info' => {
+                                    'line_nr' => 17
+                                  }
+                                },
+                                {
+                                  'text' => ' ule'
                                 }
                               ],
-                              'cmdname' => 'samp',
-                              'source_info' => {
-                                'line_nr' => 17
-                              }
-                            },
-                            {
-                              'text' => ' ule'
+                              'type' => 'brace_command_arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'cmdname' => 'b',
+                          'source_info' => {
+                            'line_nr' => 17
+                          }
                         }
                       ],
-                      'cmdname' => 'b',
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 17
-                      }
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -956,10 +1026,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1071,10 +1146,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1127,10 +1207,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'followed'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'followed'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1242,10 +1327,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'after'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'after'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1357,10 +1447,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deffnx'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'deffnx'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

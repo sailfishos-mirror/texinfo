@@ -147,10 +147,15 @@ $result_trees{'last_argument_with_braces'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'my'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'my'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -160,10 +165,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -223,10 +233,15 @@ $result_trees{'last_argument_with_braces'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'expand'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'expand'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -236,10 +251,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Builtin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'Builtin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -415,10 +435,15 @@ $result_trees{'last_argument_with_braces'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'my'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'my'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -428,10 +453,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -491,10 +521,15 @@ $result_trees{'last_argument_with_braces'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'expand'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'expand'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -504,10 +539,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Builtin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'Builtin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -646,10 +686,15 @@ $result_trees{'last_argument_with_braces'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'my'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'my'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -659,10 +704,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -722,10 +772,15 @@ $result_trees{'last_argument_with_braces'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'expand'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'expand'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -735,10 +790,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Builtin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'Builtin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

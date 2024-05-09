@@ -17,10 +17,15 @@ $result_trees{'not_closed'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -30,10 +35,15 @@ $result_trees{'not_closed'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -77,10 +87,15 @@ $result_trees{'not_closed'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -90,10 +105,15 @@ $result_trees{'not_closed'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -150,13 +170,18 @@ $result_trees{'not_closed'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Variable'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Variable'
+                                    }
+                                  ],
+                                  'type' => 'def_category_inserted'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'def_category_inserted'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -166,10 +191,15 @@ $result_trees{'not_closed'} = {
                               'type' => 'spaces_inserted'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'type1'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'text' => 'type1'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {

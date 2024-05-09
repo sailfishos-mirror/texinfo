@@ -215,10 +215,15 @@ $result_trees{'empty_last_argument'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Builtin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Builtin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -228,10 +233,15 @@ $result_trees{'empty_last_argument'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -347,10 +357,15 @@ $result_trees{'empty_last_argument'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Builtin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Builtin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -360,10 +375,15 @@ $result_trees{'empty_last_argument'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -492,10 +512,15 @@ $result_trees{'empty_last_argument'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Builtin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'text' => 'Builtin'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -505,10 +530,15 @@ $result_trees{'empty_last_argument'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'foo'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

@@ -117,16 +117,23 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'fr_NOWHERE',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                          },
+                          'type' => 'untranslated_def_category_inserted'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'fr_NOWHERE',
-                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                        'def_role' => 'category'
                       },
-                      'type' => 'untranslated_def_category_inserted'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -136,10 +143,15 @@ $result_trees{'unknown_region'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'AAA'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'AAA'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -149,10 +161,15 @@ $result_trees{'unknown_region'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -182,38 +199,58 @@ $result_trees{'unknown_region'} = {
                 'def_index_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' de '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'AAA'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'AAA'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
                 'def_index_ref_element' => {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'text' => ' of '
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'AAA'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'AAA'
+                      'type' => 'def_aggregate'
                     }
                   ]
                 },
