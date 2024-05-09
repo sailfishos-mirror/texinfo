@@ -84,8 +84,7 @@ balanced_braces
 bracketed_arg
 bracketed_linemacro_arg
 def_line_arg
-def_category
-untranslated_def_category
+untranslated_def_line_arg
 
 # for unexpanded parts of conditionals
 elided_rawpreformatted

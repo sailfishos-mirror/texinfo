@@ -342,19 +342,14 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Variable'
-                            }
-                          ],
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'def_category'
+                          'text' => 'Variable'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
+                      },
+                      'info' => {
+                        'inserted' => 1
                       },
                       'type' => 'def_line_arg'
                     },

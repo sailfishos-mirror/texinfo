@@ -3256,7 +3256,9 @@ sub _next_bracketed_or_word_agg($$)
 
   if ($num == 1) {
     my $element = $current->{'contents'}->[$$index_ref -1];
-    if ($element->{'type'} and $element->{'type'} eq 'bracketed_arg') {
+    if ($element->{'type'} and ($element->{'type'} eq 'bracketed_arg'
+                                or $element->{'type'} eq 'def_line_arg'
+                       or $element->{'type'} eq 'untranslated_def_line_arg')) {
       # there is only one bracketed element
       return $element;
     }
@@ -3288,6 +3290,8 @@ sub _parse_def($$$$)
   my $arg_type;
   my $arg_types_nr;
 
+  my $inserted_category = 0;
+
   # could have used def_aliases, but use code more similar with the XS parser
   if ($def_alias_commands{$command}) {
     my $real_command = $def_aliases{$command};
@@ -3302,25 +3306,25 @@ sub _parse_def($$$$)
       ($translation_context, $category) = @$category_translation_context;
     }
 
-    my $inserted_category = { 'type' => 'def_category',
-                              'info' => {'inserted' => 1},
-                              'parent' => $current };
-    my $content = { 'text' => $category, 'parent' => $inserted_category };
+    $inserted_category = 1;
+    my $def_line_arg = {'type' => 'def_line_arg',
+                        'parent' => $current};
+    my $content = { 'text' => $category, 'parent' => $def_line_arg };
     # the category string is an english string (such as Function).  If
     # documentlanguage is set it needs to be translated during the conversion.
     if (defined($self->{'documentlanguage'})) {
-      $inserted_category->{'type'} = 'untranslated_def_category';
+      $def_line_arg->{'type'} = 'untranslated_def_line_arg';
       $content->{'type'} = 'untranslated';
-      $inserted_category->{'extra'}
+      $def_line_arg->{'extra'}
          = {'documentlanguage' => $self->{'documentlanguage'}};
       if (defined($translation_context)) {
-        $inserted_category->{'extra'}->{'translation_context'}
+        $def_line_arg->{'extra'}->{'translation_context'}
           = $translation_context;
       }
     }
-    @{$inserted_category->{'contents'}} = ($content);
+    @{$def_line_arg->{'contents'}} = ($content);
 
-    unshift @contents, $inserted_category,
+    unshift @contents, $def_line_arg,
                        { 'text' => ' ', 'type' => 'spaces',
                          'info' => {'inserted' => 1},
                          'parent' => $current,
@@ -3329,6 +3333,7 @@ sub _parse_def($$$$)
 
     $command = $def_aliases{$command};
   }
+
   @args = @{$def_map{$command}};
   $arg_type = pop @args if ($args[-1] eq 'arg' or $args[-1] eq 'argtype');
   # If $arg_type is not set (for @def* commands that are not documented
@@ -3354,6 +3359,9 @@ sub _parse_def($$$$)
     } else {
       last;
     }
+  }
+  if ($inserted_category) {
+    $current->{'contents'}->[0]->{'info'} = {'inserted' => 1};
   }
 
   foreach my $type (keys(%result)) {

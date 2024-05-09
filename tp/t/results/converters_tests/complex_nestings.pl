@@ -164,19 +164,14 @@ $result_trees{'complex_nestings'} = {
                         {
                           'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'Function'
-                                }
-                              ],
-                              'info' => {
-                                'inserted' => 1
-                              },
-                              'type' => 'def_category'
+                              'text' => 'Function'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'category'
+                          },
+                          'info' => {
+                            'inserted' => 1
                           },
                           'type' => 'def_line_arg'
                         },
@@ -311,19 +306,14 @@ $result_trees{'complex_nestings'} = {
                         {
                           'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'Function'
-                                }
-                              ],
-                              'info' => {
-                                'inserted' => 1
-                              },
-                              'type' => 'def_category'
+                              'text' => 'Function'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'category'
+                          },
+                          'info' => {
+                            'inserted' => 1
                           },
                           'type' => 'def_line_arg'
                         },
@@ -571,19 +561,14 @@ $result_trees{'complex_nestings'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'Variable'
-                                                }
-                                              ],
-                                              'info' => {
-                                                'inserted' => 1
-                                              },
-                                              'type' => 'def_category'
+                                              'text' => 'Variable'
                                             }
                                           ],
                                           'extra' => {
                                             'def_role' => 'category'
+                                          },
+                                          'info' => {
+                                            'inserted' => 1
                                           },
                                           'type' => 'def_line_arg'
                                         },
@@ -676,19 +661,14 @@ $result_trees{'complex_nestings'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'Variable'
-                                                }
-                                              ],
-                                              'info' => {
-                                                'inserted' => 1
-                                              },
-                                              'type' => 'def_category'
+                                              'text' => 'Variable'
                                             }
                                           ],
                                           'extra' => {
                                             'def_role' => 'category'
+                                          },
+                                          'info' => {
+                                            'inserted' => 1
                                           },
                                           'type' => 'def_line_arg'
                                         },

@@ -1539,12 +1539,7 @@ sub _convert($$;$)
             } else {
               $format_element = $type;
             }
-            if ($arg->{'type'}
-                and
-                ($arg->{'type'} eq 'bracketed_arg'
-                 # FIXME remove def_category and untranslated_def_category?
-                 or ($arg->{'type'} eq 'def_category')
-                 or ($arg->{'type'} eq 'untranslated_def_category'))) {
+            if ($arg->{'type'} and $arg->{'type'} eq 'bracketed_arg') {
               push @$attribute, ['bracketed', 'on'];
               push @$attribute, _leading_trailing_spaces_arg($arg);
             }

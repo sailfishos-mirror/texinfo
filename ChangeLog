@@ -1,5 +1,23 @@
 2024-05-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm
+	(_convert_untranslated_def_line_arg_type, _convert),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/Text.pm (_convert), tp/Texinfo/ParserNonXS.pm
+	(_next_bracketed_or_word_agg, _parse_def),
+	tp/Texinfo/XS/convert/convert_html.c
+	(convert_untranslated_def_line_arg_type, convert_to_html_internal),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/parsetexi/def.c
+	(next_bracketed_or_word_agg, parse_def): use def_line_arg for
+	def_category and untranslated_def_line_arg instead of
+	untranslated_def_category and put them directly on def line, to get
+	the same tree as for other def line arguments.
+
+2024-05-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_split_delimiters)
 	(_next_bracketed_or_word_agg, _parse_def),
 	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/parsetexi/def.c

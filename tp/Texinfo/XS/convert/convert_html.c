@@ -14172,7 +14172,7 @@ convert_definfoenclose_type (CONVERTER *self, const enum element_type type,
 }
 
 void
-convert_untranslated_def_category_type
+convert_untranslated_def_line_arg_type
                       (CONVERTER *self, const enum element_type type,
                        const ELEMENT *element, const char *content,
                        TEXT *result)
@@ -15239,8 +15239,8 @@ static const TYPE_INTERNAL_CONVERSION types_internal_conversion_table[] = {
   {ET_row, &convert_row_type},
   {ET_table_term, &convert_table_term_type},
   {ET_text, &convert_text},
-  {ET_untranslated_def_category,
-   &convert_untranslated_def_category_type},
+  {ET_untranslated_def_line_arg,
+   &convert_untranslated_def_line_arg_type},
   {0, 0},
 };
 
@@ -18417,7 +18417,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             }
         }
       else if (element->contents.number > 0
-               && type != ET_untranslated_def_category)
+               && type != ET_untranslated_def_line_arg)
         {
           int content_idx;
           text_append (&content_formatted, "");

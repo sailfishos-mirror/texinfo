@@ -252,19 +252,14 @@ $result_trees{'empty_string_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'def_category'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
+                      },
+                      'info' => {
+                        'inserted' => 1
                       },
                       'type' => 'def_line_arg'
                     },
@@ -364,19 +359,14 @@ $result_trees{'empty_string_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'def_category'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
+                      },
+                      'info' => {
+                        'inserted' => 1
                       },
                       'type' => 'def_line_arg'
                     },

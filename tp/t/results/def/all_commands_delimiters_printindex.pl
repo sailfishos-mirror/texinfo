@@ -8545,19 +8545,14 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'def_category'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
+                      },
+                      'info' => {
+                        'inserted' => 1
                       },
                       'type' => 'def_line_arg'
                     },

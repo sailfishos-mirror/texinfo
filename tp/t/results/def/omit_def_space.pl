@@ -104,19 +104,14 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'def_category'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
+                      },
+                      'info' => {
+                        'inserted' => 1
                       },
                       'type' => 'def_line_arg'
                     },
@@ -231,19 +226,14 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'def_category'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
+                      },
+                      'info' => {
+                        'inserted' => 1
                       },
                       'type' => 'def_line_arg'
                     },

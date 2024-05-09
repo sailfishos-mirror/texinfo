@@ -976,7 +976,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       destroy_parsed_def (parsed_def);
     }
-   else if (element->type == ET_untranslated_def_category)
+   else if (element->type == ET_untranslated_def_line_arg)
     {
       ELEMENT *tree = 0;
       const char *category_text = element->contents.list[0]->text.text;

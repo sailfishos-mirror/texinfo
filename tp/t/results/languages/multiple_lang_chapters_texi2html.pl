@@ -677,26 +677,19 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'ja',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'untranslated_def_category'
+                          'text' => 'Instance Variable',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category'
+                        'def_role' => 'category',
+                        'documentlanguage' => 'ja',
+                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                       },
-                      'type' => 'def_line_arg'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'untranslated_def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1027,26 +1020,19 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'en',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'untranslated_def_category'
+                          'text' => 'Instance Variable',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category'
+                        'def_role' => 'category',
+                        'documentlanguage' => 'en',
+                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                       },
-                      'type' => 'def_line_arg'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'untranslated_def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1341,26 +1327,19 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'fr_FR',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'untranslated_def_category'
+                          'text' => 'Instance Variable',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category'
+                        'def_role' => 'category',
+                        'documentlanguage' => 'fr_FR',
+                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                       },
-                      'type' => 'def_line_arg'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'untranslated_def_line_arg'
                     },
                     {
                       'extra' => {

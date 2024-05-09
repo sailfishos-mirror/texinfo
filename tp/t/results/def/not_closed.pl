@@ -180,19 +180,14 @@ $result_trees{'not_closed'} = {
                             {
                               'contents' => [
                                 {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Variable'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'inserted' => 1
-                                  },
-                                  'type' => 'def_category'
+                                  'text' => 'Variable'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'category'
+                              },
+                              'info' => {
+                                'inserted' => 1
                               },
                               'type' => 'def_line_arg'
                             },

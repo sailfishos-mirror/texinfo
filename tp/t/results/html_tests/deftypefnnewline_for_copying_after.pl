@@ -33,19 +33,14 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                         {
                           'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'Function'
-                                }
-                              ],
-                              'info' => {
-                                'inserted' => 1
-                              },
-                              'type' => 'def_category'
+                              'text' => 'Function'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'category'
+                          },
+                          'info' => {
+                            'inserted' => 1
                           },
                           'type' => 'def_line_arg'
                         },
@@ -434,19 +429,14 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'def_category'
+                          'text' => 'Function'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
+                      },
+                      'info' => {
+                        'inserted' => 1
                       },
                       'type' => 'def_line_arg'
                     },

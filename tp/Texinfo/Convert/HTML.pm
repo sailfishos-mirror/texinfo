@@ -7379,7 +7379,7 @@ sub _simplify_text_for_comparison($)
   return $text;
 }
 
-sub _convert_untranslated_def_category_type($$$$) {
+sub _convert_untranslated_def_line_arg_type($$$$) {
   my $self = shift;
   my $type = shift;
   my $element = shift;
@@ -7399,8 +7399,8 @@ sub _convert_untranslated_def_category_type($$$$) {
   return $result;
 }
 
-$default_types_conversion{'untranslated_def_category'}
-   = \&_convert_untranslated_def_category_type;
+$default_types_conversion{'untranslated_def_line_arg'}
+   = \&_convert_untranslated_def_line_arg_type;
 
 
 sub _convert_row_type($$$$) {
@@ -13713,7 +13713,7 @@ sub _convert($$;$)
                                              "DEFINFOENCLOSE_ARG");
       }
     } elsif ($element->{'contents'}
-             and $type_name ne 'untranslated_def_category') {
+             and $type_name ne 'untranslated_def_line_arg') {
       my $content_idx = 0;
       foreach my $content (@{$element->{'contents'}}) {
         $content_formatted

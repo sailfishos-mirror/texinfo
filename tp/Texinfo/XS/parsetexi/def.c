@@ -131,7 +131,9 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
       e = current->contents.list[*i - 1];
 
       /* there is only one bracketed element */
-      if (e->type == ET_bracketed_arg)
+      if (e->type == ET_bracketed_arg
+          || e->type == ET_def_line_arg
+          || e->type == ET_untranslated_def_line_arg)
         return e;
     }
 
@@ -367,6 +369,7 @@ parse_def (enum command_id command, ELEMENT *current)
   ELEMENT *e, *e1;
   DEF_ARG **result;
   char **arguments_list;
+  int inserted_category = 0;
 
   split_def_args (current, contents_idx);
 
@@ -388,16 +391,15 @@ parse_def (enum command_id command, ELEMENT *current)
       category = def_aliases[i].category;
       command = def_aliases[i].command;
 
-      /* Used when category text has a space in it. */
-      e = new_element (ET_def_category);
-      add_info_integer (e, "inserted", 1);
+      inserted_category = 1;
+      e = new_element (ET_def_line_arg);
       insert_into_contents (current, e, contents_idx);
       e1 = new_element (ET_NONE);
       text_append_n (&e1->text, category, strlen (category));
       add_to_element_contents (e, e1);
       if (global_documentlanguage && *global_documentlanguage)
         {
-          e->type = ET_untranslated_def_category;
+          e->type = ET_untranslated_def_line_arg;
           e1->type = ET_untranslated;
           add_extra_string_dup (e, "documentlanguage",
                                 global_documentlanguage);
@@ -466,6 +468,11 @@ parse_def (enum command_id command, ELEMENT *current)
         }
       else
         break;
+    }
+
+  if (inserted_category)
+    {
+      add_info_integer (current->contents.list[0], "inserted", 1);
     }
 
   /* Process args */

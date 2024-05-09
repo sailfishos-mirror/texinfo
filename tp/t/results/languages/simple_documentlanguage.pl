@@ -117,26 +117,19 @@ $result_trees{'simple_documentlanguage'} = {
                     {
                       'contents' => [
                         {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'fr',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'info' => {
-                            'inserted' => 1
-                          },
-                          'type' => 'untranslated_def_category'
+                          'text' => 'Instance Variable',
+                          'type' => 'untranslated'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category'
+                        'def_role' => 'category',
+                        'documentlanguage' => 'fr',
+                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                       },
-                      'type' => 'def_line_arg'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'untranslated_def_line_arg'
                     },
                     {
                       'extra' => {
