@@ -1,5 +1,27 @@
 2024-05-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm
+	(_convert_untranslated_def_category_type, _convert),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/Texinfo.pm (@ignored_types)
+	(_expand_cmd_args_to_texi), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_parse_def),
+	tp/Texinfo/XS/convert/convert_html.c
+	(convert_untranslated_def_category_type)
+	(types_internal_conversion_table, convert_to_html_internal),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/convert_to_text.c
+	(convert_to_text_internal), tp/Texinfo/XS/main/element_types.c
+	(convert_to_text_internal), tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/def.c (parse_def): rename
+	def_category_inserted as def_category and
+	untranslated_def_category_inserted as untranslated_def_category
+	and add the inserted information as an info integer.
+
+2024-05-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/extra.c (add_info_integer)
 	(lookup_key_pair_integer, lookup_extra_integer, lookup_info_integer):
 	add add_info_integer and lookup_info_integer.

@@ -389,14 +389,15 @@ parse_def (enum command_id command, ELEMENT *current)
       command = def_aliases[i].command;
 
       /* Used when category text has a space in it. */
-      e = new_element (ET_def_category_inserted);
+      e = new_element (ET_def_category);
+      add_info_integer (e, "inserted", 1);
       insert_into_contents (current, e, contents_idx);
       e1 = new_element (ET_NONE);
       text_append_n (&e1->text, category, strlen (category));
       add_to_element_contents (e, e1);
       if (global_documentlanguage && *global_documentlanguage)
         {
-          e->type = ET_untranslated_def_category_inserted;
+          e->type = ET_untranslated_def_category;
           e1->type = ET_untranslated;
           add_extra_string_dup (e, "documentlanguage",
                                 global_documentlanguage);

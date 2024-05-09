@@ -347,7 +347,10 @@ $result_trees{'same_index_entry_merged_indices'} = {
                               'text' => 'Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {

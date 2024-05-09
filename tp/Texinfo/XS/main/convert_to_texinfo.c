@@ -101,8 +101,6 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
           int status;
           int inserted = lookup_info_integer (arg, "inserted", &status);
           if (inserted
-              || arg->type == ET_def_category_inserted
-              || arg->type == ET_untranslated_def_category_inserted
               || arg->type == ET_command_as_argument_inserted)
             continue;
 
@@ -139,8 +137,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
   int inserted = lookup_info_integer (e, "inserted", &status);
 
   if (inserted
-      || e->type == ET_def_category_inserted
-      || e->type == ET_untranslated_def_category_inserted
       || e->type == ET_command_as_argument_inserted)
     {}
   else if (e->text.end > 0)

@@ -437,7 +437,10 @@ $result_trees{'documentlanguage_unknown'} = {
                             'documentlanguage' => 'unknown',
                             'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
                           },
-                          'type' => 'untranslated_def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'untranslated_def_category'
                         }
                       ],
                       'extra' => {

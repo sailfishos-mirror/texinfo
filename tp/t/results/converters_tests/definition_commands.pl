@@ -811,7 +811,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -1009,7 +1012,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -1257,7 +1263,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -1505,7 +1514,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -1753,7 +1765,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2001,7 +2016,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2249,7 +2267,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2536,7 +2557,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2823,7 +2847,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3110,7 +3137,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3397,7 +3427,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3684,7 +3717,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3971,7 +4007,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4258,7 +4297,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4545,7 +4587,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4894,7 +4939,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4996,7 +5044,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -5117,7 +5168,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -5238,7 +5292,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -5359,7 +5416,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -5480,7 +5540,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -5601,7 +5664,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -5735,7 +5801,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -5869,7 +5938,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -6003,7 +6075,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -6137,7 +6212,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -6271,7 +6349,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -6405,7 +6486,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -6539,7 +6623,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -6673,7 +6760,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -7738,7 +7828,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -8785,7 +8878,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -10625,7 +10721,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -10861,7 +10960,10 @@ $result_trees{'definition_commands'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {

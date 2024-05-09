@@ -86,7 +86,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                       'text' => 'Function'
                                     }
                                   ],
-                                  'type' => 'def_category_inserted'
+                                  'info' => {
+                                    'inserted' => 1
+                                  },
+                                  'type' => 'def_category'
                                 }
                               ],
                               'extra' => {
@@ -170,7 +173,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                       'text' => 'Function'
                                     }
                                   ],
-                                  'type' => 'def_category_inserted'
+                                  'info' => {
+                                    'inserted' => 1
+                                  },
+                                  'type' => 'def_category'
                                 }
                               ],
                               'extra' => {

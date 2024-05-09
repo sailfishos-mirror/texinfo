@@ -8468,7 +8468,10 @@ $result_trees{'all_commands_delimiters'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {

@@ -77,9 +77,7 @@ my %def_commands             = %Texinfo::Commands::def_commands;
 # used in root_heading_command_to_texinfo
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
 
-my @ignored_types = ('command_as_argument_inserted',
-                     'def_category_inserted',
-                     'untranslated_def_category_inserted');
+my @ignored_types = ('command_as_argument_inserted');
 my %ignored_types;
 for my $a (@ignored_types) {
   $ignored_types{$a} = 1;
@@ -290,7 +288,8 @@ sub _expand_cmd_args_to_texi($) {
     }
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'args'}}) {
-      next if $arg->{'type'} and $ignored_types{$arg->{'type'}};
+      next if (($arg->{'type'} and $ignored_types{$arg->{'type'}})
+               or ($arg->{'info'} and $arg->{'info'}->{'inserted'}));
       if ($with_commas) {
         $result .= ',' if ($arg_nr);
         $arg_nr++;

@@ -24,7 +24,10 @@ $result_trees{'empty_deftype'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -235,7 +238,10 @@ $result_trees{'empty_deftype'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -430,7 +436,10 @@ $result_trees{'empty_deftype'} = {
                               'text' => 'Method'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -716,7 +725,10 @@ $result_trees{'empty_deftype'} = {
                               'text' => 'Method'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {

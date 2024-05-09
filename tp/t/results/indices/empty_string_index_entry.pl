@@ -257,7 +257,10 @@ $result_trees{'empty_string_index_entry'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -366,7 +369,10 @@ $result_trees{'empty_string_index_entry'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {

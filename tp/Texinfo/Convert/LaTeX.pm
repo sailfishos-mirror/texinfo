@@ -4294,7 +4294,7 @@ sub _convert($$)
       $result .= _open_preformatted($self, $element);
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
-    } elsif ($element->{'type'} eq 'untranslated_def_category_inserted') {
+    } elsif ($element->{'type'} eq 'untranslated_def_category') {
       my $tree;
       if ($element->{'extra'}
           and $element->{'extra'}->{'translation_context'}) {

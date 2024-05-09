@@ -4039,7 +4039,7 @@ sub _convert($$)
       _open_code($formatter);
     } elsif ($type eq '_stop_upper_case') {
       push @{$formatter->{'upper_case_stack'}}, {};
-    } elsif ($type eq 'untranslated_def_category_inserted') {
+    } elsif ($type eq 'untranslated_def_category') {
       my $tree;
       if ($element->{'extra'}
           and $element->{'extra'}->{'translation_context'}) {

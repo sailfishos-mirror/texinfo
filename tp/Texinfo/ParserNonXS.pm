@@ -3302,13 +3302,14 @@ sub _parse_def($$$$)
       ($translation_context, $category) = @$category_translation_context;
     }
 
-    my $inserted_category = { 'type' => 'def_category_inserted',
-                      'parent' => $current };
+    my $inserted_category = { 'type' => 'def_category',
+                              'info' => {'inserted' => 1},
+                              'parent' => $current };
     my $content = { 'text' => $category, 'parent' => $inserted_category };
     # the category string is an english string (such as Function).  If
     # documentlanguage is set it needs to be translated during the conversion.
     if (defined($self->{'documentlanguage'})) {
-      $inserted_category->{'type'} = 'untranslated_def_category_inserted';
+      $inserted_category->{'type'} = 'untranslated_def_category';
       $content->{'type'} = 'untranslated';
       $inserted_category->{'extra'}
          = {'documentlanguage' => $self->{'documentlanguage'}};

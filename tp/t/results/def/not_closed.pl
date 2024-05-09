@@ -185,7 +185,10 @@ $result_trees{'not_closed'} = {
                                       'text' => 'Variable'
                                     }
                                   ],
-                                  'type' => 'def_category_inserted'
+                                  'info' => {
+                                    'inserted' => 1
+                                  },
+                                  'type' => 'def_category'
                                 }
                               ],
                               'extra' => {

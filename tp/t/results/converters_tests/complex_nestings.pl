@@ -169,7 +169,10 @@ $result_trees{'complex_nestings'} = {
                                   'text' => 'Function'
                                 }
                               ],
-                              'type' => 'def_category_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'def_category'
                             }
                           ],
                           'extra' => {
@@ -313,7 +316,10 @@ $result_trees{'complex_nestings'} = {
                                   'text' => 'Function'
                                 }
                               ],
-                              'type' => 'def_category_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'def_category'
                             }
                           ],
                           'extra' => {
@@ -570,7 +576,10 @@ $result_trees{'complex_nestings'} = {
                                                   'text' => 'Variable'
                                                 }
                                               ],
-                                              'type' => 'def_category_inserted'
+                                              'info' => {
+                                                'inserted' => 1
+                                              },
+                                              'type' => 'def_category'
                                             }
                                           ],
                                           'extra' => {
@@ -672,7 +681,10 @@ $result_trees{'complex_nestings'} = {
                                                   'text' => 'Variable'
                                                 }
                                               ],
-                                              'type' => 'def_category_inserted'
+                                              'info' => {
+                                                'inserted' => 1
+                                              },
+                                              'type' => 'def_category'
                                             }
                                           ],
                                           'extra' => {

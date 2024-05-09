@@ -2547,7 +2547,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2692,7 +2695,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Macro'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2837,7 +2843,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2982,7 +2991,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3109,7 +3121,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3272,7 +3287,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'User Option'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3399,7 +3417,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3562,7 +3583,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3707,7 +3731,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Instance Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3909,7 +3936,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Instance Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4129,7 +4159,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Method'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4349,7 +4382,10 @@ $result_trees{'all_commands'} = {
                               'text' => 'Method'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {

@@ -698,7 +698,7 @@ sub _convert($$)
         $result = _convert($options, $converted_element);
         $options->{'_code_state'}--;
       }
-    } elsif ($element->{'type'} eq 'untranslated_def_category_inserted') {
+    } elsif ($element->{'type'} eq 'untranslated_def_category') {
       my $tree;
       my $category_text = $element->{'contents'}->[0]->{'text'};
       my $translation_context;

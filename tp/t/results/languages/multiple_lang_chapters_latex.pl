@@ -718,7 +718,10 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                             'documentlanguage' => 'ja',
                             'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
-                          'type' => 'untranslated_def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'untranslated_def_category'
                         }
                       ],
                       'extra' => {
@@ -1065,7 +1068,10 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                             'documentlanguage' => 'en',
                             'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
-                          'type' => 'untranslated_def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'untranslated_def_category'
                         }
                       ],
                       'extra' => {
@@ -1376,7 +1382,10 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                             'documentlanguage' => 'fr_FR',
                             'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
-                          'type' => 'untranslated_def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'untranslated_def_category'
                         }
                       ],
                       'extra' => {

@@ -38,7 +38,10 @@ $result_trees{'def_in_example'} = {
                                   'text' => 'Function'
                                 }
                               ],
-                              'type' => 'def_category_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'def_category'
                             }
                           ],
                           'extra' => {

@@ -2618,7 +2618,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2764,7 +2767,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Macro'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -2910,7 +2916,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Special Form'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3056,7 +3065,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3184,7 +3196,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3348,7 +3363,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'User Option'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3476,7 +3494,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Function'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3640,7 +3661,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3786,7 +3810,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Instance Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -3989,7 +4016,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Instance Variable'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4210,7 +4240,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Method'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {
@@ -4431,7 +4464,10 @@ $result_trees{'all_commands_printindex'} = {
                               'text' => 'Method'
                             }
                           ],
-                          'type' => 'def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'def_category'
                         }
                       ],
                       'extra' => {

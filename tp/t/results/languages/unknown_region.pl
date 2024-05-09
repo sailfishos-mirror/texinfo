@@ -127,7 +127,10 @@ $result_trees{'unknown_region'} = {
                             'documentlanguage' => 'fr_NOWHERE',
                             'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
                           },
-                          'type' => 'untranslated_def_category_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'untranslated_def_category'
                         }
                       ],
                       'extra' => {
