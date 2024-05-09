@@ -8480,8 +8480,11 @@ $result_trees{'all_commands_delimiters'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'info' => {
+                        'inserted' => 1
+                      },
                       'text' => ' ',
-                      'type' => 'spaces_inserted'
+                      'type' => 'spaces'
                     },
                     {
                       'contents' => [

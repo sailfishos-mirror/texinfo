@@ -98,8 +98,11 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'extra' => {
                                 'def_role' => 'spaces'
                               },
+                              'info' => {
+                                'inserted' => 1
+                              },
                               'text' => ' ',
-                              'type' => 'spaces_inserted'
+                              'type' => 'spaces'
                             },
                             {
                               'contents' => [
@@ -179,8 +182,11 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'extra' => {
                                 'def_role' => 'spaces'
                               },
+                              'info' => {
+                                'inserted' => 1
+                              },
                               'text' => ' ',
-                              'type' => 'spaces_inserted'
+                              'type' => 'spaces'
                             },
                             {
                               'contents' => [

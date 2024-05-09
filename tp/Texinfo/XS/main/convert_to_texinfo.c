@@ -98,7 +98,9 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       for (i = 0; i < e->args.number; i++)
         {
           ELEMENT *arg = e->args.list[i];
-          if (arg->type == ET_spaces_inserted
+          int status;
+          int inserted = lookup_info_integer (arg, "inserted", &status);
+          if (inserted
               || arg->type == ET_def_category_inserted
               || arg->type == ET_untranslated_def_category_inserted
               || arg->type == ET_command_as_argument_inserted)
@@ -133,8 +135,10 @@ static void
 convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 {
   ELEMENT *elt;
+  int status;
+  int inserted = lookup_info_integer (e, "inserted", &status);
 
-  if (e->type == ET_spaces_inserted
+  if (inserted
       || e->type == ET_def_category_inserted
       || e->type == ET_untranslated_def_category_inserted
       || e->type == ET_command_as_argument_inserted)

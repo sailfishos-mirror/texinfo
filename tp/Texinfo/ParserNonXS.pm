@@ -3179,7 +3179,8 @@ sub _split_def_args
 {
   my ($self, $root, $current, $source_info) = @_;
 
-  if ($root->{'type'} and $root->{'type'} eq 'spaces_inserted') {
+  if ($root->{'type'} and $root->{'type'} eq 'spaces'
+      and $root->{'info'} and $root->{'info'}->{'inserted'}) {
     return $root;
   } elsif (defined $root->{'text'}) {
     my @elements;
@@ -3240,7 +3241,6 @@ sub _next_bracketed_or_word_agg($$)
     }
     my $element = $current->{'contents'}->[$$index_ref];
     if ($element->{'type'} and ($element->{'type'} eq 'spaces'
-                                or $element->{'type'} eq 'spaces_inserted'
                                 or $element->{'type'} eq 'delimiter')) {
       last if ($num > 0);
 
@@ -3320,7 +3320,8 @@ sub _parse_def($$$$)
     @{$inserted_category->{'contents'}} = ($content);
 
     unshift @contents, $inserted_category,
-                       { 'text' => ' ', 'type' => 'spaces_inserted',
+                       { 'text' => ' ', 'type' => 'spaces',
+                         'info' => {'inserted' => 1},
                          'parent' => $current,
                          'extra' => {'def_role' => 'spaces'},
                        };

@@ -449,8 +449,11 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
+                      'info' => {
+                        'inserted' => 1
+                      },
                       'text' => ' ',
-                      'type' => 'spaces_inserted'
+                      'type' => 'spaces'
                     },
                     {
                       'contents' => [

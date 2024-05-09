@@ -1,5 +1,21 @@
 2024-05-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/extra.c (add_info_integer)
+	(lookup_key_pair_integer, lookup_extra_integer, lookup_info_integer):
+	add add_info_integer and lookup_info_integer.
+
+	* tp/Texinfo/Convert/Texinfo.pm (@ignored_types, _convert_to_texinfo),
+	tp/Texinfo/ParserNonXS.pm (_split_def_args)
+	(_next_bracketed_or_word_agg, _parse_def),
+	tp/Texinfo/XS/parsetexi/def.c (next_bracketed_or_word_agg),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/def.c (next_bracketed_or_word_agg)
+	(split_def_args, parse_def): rename spaces_inserted as spaces and add
+	the inserted information as an info integer.
+
+2024-05-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_split_delimiters),
 	tp/Texinfo/XS/parsetexi/def.c (split_delimiters): put text appearing
 	along with delimiters in def_aggregate containers.

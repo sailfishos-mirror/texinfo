@@ -35,7 +35,6 @@ text_before_beginning
 space_at_end_menu_node
 after_menu_description_line
 spaces_after_cmd_before_arg
-spaces_inserted
 
 # Other special types
 document_root

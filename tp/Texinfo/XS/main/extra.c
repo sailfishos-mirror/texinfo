@@ -55,7 +55,7 @@ get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
   return &a->info[i];
 }
 
-/* Add an extra key that is a reference to another element (for example, 
+/* Add an extra key that is a reference to another element (for example,
    'associated_section' on a node command element. */
 /* TODO would be good to have ELEMENT be const */
 void
@@ -205,6 +205,13 @@ add_extra_integer (ELEMENT *e, char *key, long value)
   k->integer = value;
 }
 
+void
+add_info_integer (ELEMENT *e, char *key, long value)
+{
+  KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_integer);
+  k->integer = value;
+}
+
 KEY_PAIR *
 lookup_associated_info (const ASSOCIATED_INFO *a, const char *key)
 {
@@ -269,11 +276,9 @@ lookup_extra (const ELEMENT *e, const char *key)
 }
 
 /* *ret is negative if not found or not an integer */
-int
-lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
+static int
+lookup_key_pair_integer (const KEY_PAIR *k, const char *key, int *ret)
 {
-  const KEY_PAIR *k;
-  k = lookup_associated_info (&e->extra_info, key);
   if (!k)
     {
       *ret = -1;
@@ -289,6 +294,24 @@ lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
     }
   *ret = 0;
   return k->integer;
+}
+
+/* *ret is negative if not found or not an integer */
+int
+lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
+{
+  const KEY_PAIR *k;
+  k = lookup_associated_info (&e->extra_info, key);
+  return lookup_key_pair_integer (k, key, ret);
+}
+
+/* *ret is negative if not found or not an integer */
+int
+lookup_info_integer (const ELEMENT *e, const char *key, int *ret)
+{
+  const KEY_PAIR *k;
+  k = lookup_associated_info (&e->info_info, key);
+  return lookup_key_pair_integer (k, key, ret);
 }
 
 ELEMENT_LIST *

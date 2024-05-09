@@ -105,7 +105,6 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
         break;
       e = current->contents.list[*i];
       if (e->type == ET_spaces
-          || e->type == ET_spaces_inserted
           || e->type == ET_delimiter)
         {
           if (num > 0)
@@ -306,6 +305,14 @@ split_def_args (ELEMENT *current, int starting_idx)
       if (e->text.end == 0)
         continue;
 
+      if (e->type == ET_spaces)
+        {
+          int status;
+          int inserted = lookup_info_integer (e, "inserted", &status);
+          if (inserted > 0)
+            continue;
+        }
+
       p = e->text.text;
 
       if (e->source_mark_list.number)
@@ -398,9 +405,10 @@ parse_def (enum command_id command, ELEMENT *current)
                                   def_aliases[i].translation_context);
         }
 
-      e = new_element (ET_spaces_inserted);
+      e = new_element (ET_spaces);
       text_append_n (&e->text, " ", 1);
       add_extra_string_dup (e, "def_role", "spaces");
+      add_info_integer (e, "inserted", 1);
       insert_into_contents (current, e, contents_idx + 1);
     }
 
@@ -476,8 +484,7 @@ parse_def (enum command_id command, ELEMENT *current)
   for (i = contents_idx; i < current->contents.number; i++)
     {
       e = contents_child_by_index (current, i);
-      if (e->type == ET_spaces
-          || e->type == ET_spaces_inserted)
+      if (e->type == ET_spaces)
         {
           continue;
         }

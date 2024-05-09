@@ -78,7 +78,7 @@ my %def_commands             = %Texinfo::Commands::def_commands;
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
 
 my @ignored_types = ('command_as_argument_inserted',
-                     'spaces_inserted', 'def_category_inserted',
+                     'def_category_inserted',
                      'untranslated_def_category_inserted');
 my %ignored_types;
 for my $a (@ignored_types) {
@@ -205,7 +205,9 @@ sub _convert_to_texinfo($)
   my $result = '';
 
   return '' if ($element->{'type'}
-                and ($ignored_types{$element->{'type'}}));
+                and (($ignored_types{$element->{'type'}}
+                      or ($element->{'info'}
+                          and $element->{'info'}->{'inserted'}))));
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
   } else {
