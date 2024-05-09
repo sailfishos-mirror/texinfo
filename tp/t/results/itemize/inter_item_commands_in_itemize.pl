@@ -490,7 +490,10 @@ $result_trees{'inter_item_commands_in_itemize'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'type' => 'command_as_argument_inserted'
+                  'info' => {
+                    'inserted' => 1
+                  },
+                  'type' => 'command_as_argument'
                 }
               ],
               'info' => {

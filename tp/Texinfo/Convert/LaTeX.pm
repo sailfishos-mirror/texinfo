@@ -553,18 +553,10 @@ foreach my $type ('ignorable_spaces_after_command',
   $ignorable_space_types{$type} = 1;
 }
 
-# ignore 'command_as_argument_inserted' in order to use the default
-# setting for @itemize if there is no argument
 my %ignored_types;
-foreach my $type ('command_as_argument_inserted',
-            'postamble_after_end', 'preamble_before_beginning',
-            'preamble_before_setfilename', 'command_as_argument_inserted') {
+foreach my $type ('postamble_after_end', 'preamble_before_beginning',
+            'preamble_before_setfilename') {
   $ignored_types{$type} = 1;
-}
-
-my %ignorable_types = %ignorable_space_types;
-foreach my $ignored_type(keys(%ignored_types)) {
-  $ignorable_types{$ignored_type} = 1;
 }
 
 # The following code is used to define style commands with more
@@ -2647,7 +2639,12 @@ sub _convert($$)
   my $type = $element->{'type'};
   my $cmdname = $element->{'cmdname'};
 
-  if ((defined($type) and $self->{'ignored_types'}->{$type})
+  if ((defined($type) and ($self->{'ignored_types'}->{$type}
+      # ignore 'command_as_argument' inserted in order to use the default
+      # setting for @itemize if there is no argument
+                           or ($type eq 'command_as_argument'
+                               and $element->{'info'}
+                               and $element->{'info'}->{'inserted'})))
        or (defined($cmdname)
             and ($self->{'ignored_commands'}->{$cmdname}
                  or ($Texinfo::Commands::brace_commands{$cmdname}

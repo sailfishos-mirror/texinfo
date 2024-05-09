@@ -437,7 +437,10 @@ $result_trees{'itemize_and_empty_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'type' => 'command_as_argument_inserted'
+                  'info' => {
+                    'inserted' => 1
+                  },
+                  'type' => 'command_as_argument'
                 }
               ],
               'info' => {

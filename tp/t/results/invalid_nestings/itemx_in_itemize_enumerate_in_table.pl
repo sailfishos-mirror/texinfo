@@ -88,7 +88,10 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           'contents' => [
                             {
                               'cmdname' => 'bullet',
-                              'type' => 'command_as_argument_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'command_as_argument'
                             }
                           ],
                           'info' => {

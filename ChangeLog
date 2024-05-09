@@ -1,5 +1,20 @@
 2024-05-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (%ignored_types, _convert),
+	tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo)
+	(_expand_cmd_args_to_texi), tp/Texinfo/Convert/TexinfoMarkup.pm
+	(_convert), tp/Texinfo/ParserNonXS.pm (_end_line_starting_block),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): rename
+	command_as_argument_inserted as command_as_argument and set info
+	inserted instead. Remove %ignored_types in Texinfo.pm.
+
+	* tp/Texinfo/Convert/LaTeX.pm (%ignorable_types): remove unused
+	variable.
+
+2024-05-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm
 	(_convert_untranslated_def_category_type, _convert),
 	tp/Texinfo/Convert/LaTeX.pm (_convert),

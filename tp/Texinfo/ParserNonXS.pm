@@ -4249,7 +4249,8 @@ sub _end_line_starting_block($$$)
           unshift @{$current->{'args'}}, $block_line_arg;
         }
         my $inserted = { 'cmdname' => 'bullet',
-                         'type' => 'command_as_argument_inserted',
+                         'type' => 'command_as_argument',
+                         'info' => {'inserted' => 1},
                          'parent' => $block_line_arg };
         unshift @{$block_line_arg->{'contents'}}, $inserted;
         $current->{'extra'} = {} if (!$current->{'extra'});
@@ -4259,7 +4260,8 @@ sub _end_line_starting_block($$$)
       $current->{'extra'} = {} if (!$current->{'extra'});
       if (!$current->{'extra'}->{'command_as_argument'}) {
         my $inserted =  { 'cmdname' => 'asis',
-                          'type' => 'command_as_argument_inserted',
+                          'type' => 'command_as_argument',
+                         'info' => {'inserted' => 1},
                           'parent' => $current };
         unshift @{$current->{'args'}}, $inserted;
         $current->{'extra'}->{'command_as_argument'} = $inserted;

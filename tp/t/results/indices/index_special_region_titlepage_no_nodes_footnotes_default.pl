@@ -990,7 +990,10 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'type' => 'command_as_argument_inserted'
+              'info' => {
+                'inserted' => 1
+              },
+              'type' => 'command_as_argument'
             },
             {
               'info' => {

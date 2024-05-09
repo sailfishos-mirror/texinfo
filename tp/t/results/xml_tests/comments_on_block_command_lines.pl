@@ -15,7 +15,10 @@ $result_trees{'comments_on_block_command_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'type' => 'command_as_argument_inserted'
+                  'info' => {
+                    'inserted' => 1
+                  },
+                  'type' => 'command_as_argument'
                 }
               ],
               'info' => {

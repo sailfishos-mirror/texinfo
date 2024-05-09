@@ -13,7 +13,10 @@ $result_trees{'no_argument_for_table'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'type' => 'command_as_argument_inserted'
+              'info' => {
+                'inserted' => 1
+              },
+              'type' => 'command_as_argument'
             },
             {
               'info' => {

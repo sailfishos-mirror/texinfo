@@ -127,7 +127,10 @@ $result_trees{'block_commands_in_menu_description'} = {
                           'contents' => [
                             {
                               'cmdname' => 'bullet',
-                              'type' => 'command_as_argument_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'command_as_argument'
                             }
                           ],
                           'info' => {

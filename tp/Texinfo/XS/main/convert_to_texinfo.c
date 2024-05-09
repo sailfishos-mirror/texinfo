@@ -100,8 +100,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
           ELEMENT *arg = e->args.list[i];
           int status;
           int inserted = lookup_info_integer (arg, "inserted", &status);
-          if (inserted
-              || arg->type == ET_command_as_argument_inserted)
+          if (inserted)
             continue;
 
           if (with_commas)
@@ -136,8 +135,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
   int status;
   int inserted = lookup_info_integer (e, "inserted", &status);
 
-  if (inserted
-      || e->type == ET_command_as_argument_inserted)
+  if (inserted)
     {}
   else if (e->text.end > 0)
     ADD(e->text.text);

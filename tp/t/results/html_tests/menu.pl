@@ -129,7 +129,10 @@ $result_trees{'menu'} = {
                           'contents' => [
                             {
                               'cmdname' => 'bullet',
-                              'type' => 'command_as_argument_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'command_as_argument'
                             }
                           ],
                           'info' => {
@@ -308,7 +311,10 @@ $result_trees{'menu'} = {
                       'contents' => [
                         {
                           'cmdname' => 'bullet',
-                          'type' => 'command_as_argument_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'command_as_argument'
                         }
                       ],
                       'info' => {
@@ -472,7 +478,10 @@ $result_trees{'menu'} = {
                       'contents' => [
                         {
                           'cmdname' => 'bullet',
-                          'type' => 'command_as_argument_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'command_as_argument'
                         }
                       ],
                       'info' => {
@@ -809,7 +818,10 @@ $result_trees{'menu'} = {
                               'contents' => [
                                 {
                                   'cmdname' => 'bullet',
-                                  'type' => 'command_as_argument_inserted'
+                                  'info' => {
+                                    'inserted' => 1
+                                  },
+                                  'type' => 'command_as_argument'
                                 }
                               ],
                               'info' => {
@@ -988,7 +1000,10 @@ $result_trees{'menu'} = {
                           'contents' => [
                             {
                               'cmdname' => 'bullet',
-                              'type' => 'command_as_argument_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'command_as_argument'
                             }
                           ],
                           'info' => {
@@ -1152,7 +1167,10 @@ $result_trees{'menu'} = {
                           'contents' => [
                             {
                               'cmdname' => 'bullet',
-                              'type' => 'command_as_argument_inserted'
+                              'info' => {
+                                'inserted' => 1
+                              },
+                              'type' => 'command_as_argument'
                             }
                           ],
                           'info' => {

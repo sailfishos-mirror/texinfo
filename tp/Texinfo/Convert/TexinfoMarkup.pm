@@ -630,12 +630,11 @@ sub _convert($$;$)
                         [['command', $element->{'extra'}->{'clickstyle'}]]);
       }
       if ($self->{'itemize_line'} and $element->{'type'}
-          and ($element->{'type'} eq 'command_as_argument'
-               or $element->{'type'} eq 'command_as_argument_inserted')
+          and $element->{'type'} eq 'command_as_argument'
           and !$element->{'args'}) {
         my $arguments = [['command', $element->{'cmdname'}]];
         push @$arguments, ['automatic', 'on']
-          if ($element->{'type'} eq 'command_as_argument_inserted');
+          if ($element->{'info'} and $element->{'info'}->{'inserted'});
         return $self->txi_markup_element('formattingcommand', $arguments);
       }
       return $self->_format_command($element->{'cmdname'});
@@ -1260,8 +1259,8 @@ sub _convert($$;$)
         push @$attribute,
          (['commandarg', $command_as_arg->{'cmdname'}],
              $self->_infoenclose_attribute($command_as_arg));
-        if ($command_as_arg->{'type'}
-            and $command_as_arg->{'type'} eq 'command_as_argument_inserted') {
+        if ($command_as_arg->{'info'}
+            and $command_as_arg->{'info'}->{'inserted'}) {
           push @$attribute, ['automaticcommandarg', 'on'];
         }
       } elsif ($element->{'extra'}

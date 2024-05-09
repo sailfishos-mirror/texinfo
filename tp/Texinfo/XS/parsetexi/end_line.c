@@ -1035,7 +1035,8 @@ end_line_starting_block (ELEMENT *current)
               insert_into_args (current, block_line_arg, 0);
             }
 
-          e = new_element (ET_command_as_argument_inserted);
+          e = new_element (ET_command_as_argument);
+          add_info_integer (e, "inserted", 1);
           e->cmd = CM_bullet;
           insert_into_contents (block_line_arg, e, 0);
           add_extra_element (current, "command_as_argument", e);
@@ -1045,7 +1046,8 @@ end_line_starting_block (ELEMENT *current)
         {
           ELEMENT *e;
 
-          e = new_element (ET_command_as_argument_inserted);
+          e = new_element (ET_command_as_argument);
+          add_info_integer (e, "inserted", 1);
           e->cmd = CM_asis;
           insert_into_args (current, e, 0);
           add_extra_element (current, "command_as_argument", e);

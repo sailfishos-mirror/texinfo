@@ -13,7 +13,10 @@ $result_trees{'section_on_xtable_line'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'type' => 'command_as_argument_inserted'
+              'info' => {
+                'inserted' => 1
+              },
+              'type' => 'command_as_argument'
             },
             {
               'type' => 'block_line_arg'
@@ -63,7 +66,10 @@ $result_trees{'section_on_xtable_line'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'type' => 'command_as_argument_inserted'
+              'info' => {
+                'inserted' => 1
+              },
+              'type' => 'command_as_argument'
             },
             {
               'contents' => [
@@ -207,7 +213,10 @@ $result_trees{'section_on_xtable_line'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'type' => 'command_as_argument_inserted'
+              'info' => {
+                'inserted' => 1
+              },
+              'type' => 'command_as_argument'
             },
             {
               'contents' => [

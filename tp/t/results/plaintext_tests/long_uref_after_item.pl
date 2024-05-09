@@ -15,7 +15,10 @@ $result_trees{'long_uref_after_item'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'type' => 'command_as_argument_inserted'
+                  'info' => {
+                    'inserted' => 1
+                  },
+                  'type' => 'command_as_argument'
                 }
               ],
               'info' => {

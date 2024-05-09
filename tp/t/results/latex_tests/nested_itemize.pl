@@ -18,7 +18,10 @@ $result_trees{'nested_itemize'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'type' => 'command_as_argument_inserted'
+                  'info' => {
+                    'inserted' => 1
+                  },
+                  'type' => 'command_as_argument'
                 }
               ],
               'info' => {
@@ -90,7 +93,10 @@ $result_trees{'nested_itemize'} = {
                       'contents' => [
                         {
                           'cmdname' => 'bullet',
-                          'type' => 'command_as_argument_inserted'
+                          'info' => {
+                            'inserted' => 1
+                          },
+                          'type' => 'command_as_argument'
                         }
                       ],
                       'info' => {
@@ -162,7 +168,10 @@ $result_trees{'nested_itemize'} = {
                               'contents' => [
                                 {
                                   'cmdname' => 'bullet',
-                                  'type' => 'command_as_argument_inserted'
+                                  'info' => {
+                                    'inserted' => 1
+                                  },
+                                  'type' => 'command_as_argument'
                                 }
                               ],
                               'info' => {
@@ -234,7 +243,10 @@ $result_trees{'nested_itemize'} = {
                                       'contents' => [
                                         {
                                           'cmdname' => 'bullet',
-                                          'type' => 'command_as_argument_inserted'
+                                          'info' => {
+                                            'inserted' => 1
+                                          },
+                                          'type' => 'command_as_argument'
                                         }
                                       ],
                                       'info' => {

@@ -4,7 +4,6 @@
 enum element_type {
 ET_NONE,
 ET_command_as_argument,
-ET_command_as_argument_inserted,
 ET_index_entry_command,
 ET_following_arg,
 ET_space_command_arg,

@@ -29,7 +29,10 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'type' => 'command_as_argument_inserted'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'command_as_argument'
                     }
                   ],
                   'info' => {
@@ -115,7 +118,10 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'type' => 'command_as_argument_inserted'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'command_as_argument'
                     }
                   ],
                   'info' => {
@@ -220,7 +226,10 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'type' => 'command_as_argument_inserted'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'command_as_argument'
                     }
                   ],
                   'info' => {
@@ -330,7 +339,10 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'type' => 'command_as_argument_inserted'
+                      'info' => {
+                        'inserted' => 1
+                      },
+                      'type' => 'command_as_argument'
                     }
                   ],
                   'info' => {
