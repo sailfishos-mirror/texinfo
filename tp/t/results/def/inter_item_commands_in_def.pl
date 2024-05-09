@@ -66,10 +66,15 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -79,10 +84,15 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'g'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'g'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -328,10 +338,15 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

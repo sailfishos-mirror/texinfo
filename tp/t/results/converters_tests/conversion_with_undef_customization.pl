@@ -465,10 +465,15 @@ $result_trees{'conversion_with_undef_customization'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'something'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'something'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -492,10 +497,15 @@ $result_trees{'conversion_with_undef_customization'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'aa'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'aa'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

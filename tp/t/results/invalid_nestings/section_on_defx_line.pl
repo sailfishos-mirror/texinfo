@@ -53,10 +53,15 @@ $result_trees{'section_on_defx_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'k'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'k'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -66,10 +71,15 @@ $result_trees{'section_on_defx_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'l'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'l'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

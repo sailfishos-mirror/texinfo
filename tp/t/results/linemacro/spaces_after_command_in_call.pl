@@ -215,10 +215,15 @@ $result_trees{'spaces_after_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'A'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'A'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -265,10 +270,15 @@ $result_trees{'spaces_after_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'B'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'B'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -278,10 +288,15 @@ $result_trees{'spaces_after_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'rest'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'rest'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

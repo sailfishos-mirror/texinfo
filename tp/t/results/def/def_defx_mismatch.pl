@@ -61,10 +61,15 @@ $result_trees{'def_defx_mismatch'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -194,10 +199,15 @@ $result_trees{'def_defx_mismatch'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -207,10 +217,15 @@ $result_trees{'def_defx_mismatch'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'now'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'now'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -220,10 +235,15 @@ $result_trees{'def_defx_mismatch'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'the'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'the'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -233,10 +253,15 @@ $result_trees{'def_defx_mismatch'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

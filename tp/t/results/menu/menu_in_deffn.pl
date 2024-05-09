@@ -78,10 +78,15 @@ $result_trees{'menu_in_deffn'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

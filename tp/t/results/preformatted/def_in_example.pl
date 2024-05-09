@@ -72,10 +72,15 @@ $result_trees{'def_in_example'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'text' => 'arg'
+                          'type' => 'def_aggregate'
                         }
                       ],
                       'info' => {

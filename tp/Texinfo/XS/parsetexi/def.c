@@ -252,9 +252,9 @@ split_delimiters (ELEMENT *current, int starting_idx)
               continue;
             }
 
+          ELEMENT *new_text = new_element (ET_NONE);
           len = strcspn (p, chars);
-          new = new_element (ET_NONE);
-          text_append_n (&new->text, p, len);
+          text_append_n (&new_text->text, p, len);
 
           if (u8_text)
             {
@@ -262,9 +262,12 @@ split_delimiters (ELEMENT *current, int starting_idx)
               u8_p += u8_len;
 
              current_position
-               = relocate_source_marks (&(e->source_mark_list), new,
+               = relocate_source_marks (&(e->source_mark_list), new_text,
                                           current_position, u8_len);
             }
+
+          new = new_element (ET_def_aggregate);
+          add_to_element_contents (new, new_text);
 
           insert_into_contents (current, new, i++);
           if (!*(p += len))

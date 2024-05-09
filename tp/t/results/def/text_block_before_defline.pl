@@ -403,10 +403,15 @@ $result_trees{'text_block_before_defline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -416,10 +421,15 @@ $result_trees{'text_block_before_defline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'd'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

@@ -112,10 +112,15 @@ $result_trees{'code_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bar'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bar'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

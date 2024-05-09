@@ -229,10 +229,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -500,10 +505,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -807,10 +817,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1504,10 +1519,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1886,10 +1906,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2094,10 +2119,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2479,10 +2509,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--ttributes...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'a--ttributes...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2617,10 +2652,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2755,10 +2795,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2893,10 +2938,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -3156,10 +3206,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg--var'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg--var'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -3169,10 +3224,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg--var1'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg--var1'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -3450,10 +3510,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -4167,10 +4232,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -4398,10 +4468,15 @@ $result_trees{'all_commands_printindex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

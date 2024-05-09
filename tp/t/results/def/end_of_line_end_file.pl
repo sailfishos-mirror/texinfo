@@ -53,10 +53,15 @@ $result_trees{'end_of_line_end_file'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arguments'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arguments'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

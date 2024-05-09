@@ -227,10 +227,15 @@ $result_trees{'def_in_copying'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'cc'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'text' => 'cc'
+                          'type' => 'def_aggregate'
                         }
                       ],
                       'info' => {
@@ -299,10 +304,15 @@ $result_trees{'def_in_copying'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'ccx'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'text' => 'ccx'
+                          'type' => 'def_aggregate'
                         }
                       ],
                       'info' => {
@@ -512,10 +522,15 @@ $result_trees{'def_in_copying'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'cc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'cc'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -584,10 +599,15 @@ $result_trees{'def_in_copying'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'ccx'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'ccx'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

@@ -132,10 +132,15 @@ $result_trees{'multiple_in_preamble'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'b'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'text' => 'b'
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -559,10 +564,15 @@ $result_trees{'multiple_in_preamble'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'CCC'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'CCC'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -824,10 +834,15 @@ $result_trees{'multiple_in_preamble'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'GGG'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'GGG'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

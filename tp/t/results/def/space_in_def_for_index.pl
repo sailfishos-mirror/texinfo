@@ -160,10 +160,15 @@ $result_trees{'space_in_def_for_index'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'argument2...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'argument2...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -237,10 +242,15 @@ $result_trees{'space_in_def_for_index'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg3'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg3'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

@@ -66,10 +66,15 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => "\x{e0}rguments"
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => "\x{e0}rguments"
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -86,10 +91,15 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'more'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'more'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -128,10 +138,15 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'with'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'with'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -141,10 +156,15 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => '3'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => '3'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

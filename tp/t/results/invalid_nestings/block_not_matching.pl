@@ -89,10 +89,15 @@ $result_trees{'block_not_matching'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => '$filehandle'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => '$filehandle'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

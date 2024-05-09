@@ -1,5 +1,11 @@
 2024-05-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_split_delimiters),
+	tp/Texinfo/XS/parsetexi/def.c (split_delimiters): put text appearing
+	along with delimiters in def_aggregate containers.
+
+2024-05-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_split_delimiters)
 	(_next_bracketed_or_word_agg, _parse_def),
 	tp/Texinfo/XS/parsetexi/def.c (next_bracketed_or_word_agg)

@@ -61,10 +61,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -193,10 +198,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'ar--guments'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'ar--guments'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -213,10 +223,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'more'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'more'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -226,10 +241,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -257,10 +277,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'even'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'even'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -270,10 +295,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'more'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'more'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -283,10 +313,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'so'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'so'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -428,10 +463,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -441,10 +481,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'g'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'g'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -862,10 +907,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -970,10 +1020,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'truc'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1225,10 +1280,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'by'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'by'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1238,10 +1298,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1251,10 +1316,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'comment'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'comment'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1345,10 +1415,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1358,10 +1433,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deff'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'deff'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1371,10 +1451,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'item'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'item'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1465,10 +1550,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'before'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'before'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1478,10 +1568,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'end'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'end'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1491,10 +1586,15 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deffn'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'deffn'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

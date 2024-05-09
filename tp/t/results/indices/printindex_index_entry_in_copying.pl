@@ -120,10 +120,15 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'arg'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'text' => 'arg'
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -196,10 +201,15 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'arg'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'text' => 'arg'
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {

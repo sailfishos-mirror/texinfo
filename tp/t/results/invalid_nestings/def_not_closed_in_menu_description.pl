@@ -108,10 +108,15 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'chose'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'chose'
+                                  'type' => 'def_aggregate'
                                 }
                               ],
                               'info' => {

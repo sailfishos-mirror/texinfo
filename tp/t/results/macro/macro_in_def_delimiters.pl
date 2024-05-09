@@ -111,10 +111,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'count'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'count'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -124,29 +129,34 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'element' => {
+                                'args' => [
+                                  {
+                                    'type' => 'brace_command_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'string'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 3,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
+                            }
+                          ],
+                          'text' => 'argaa'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'args' => [
-                              {
-                                'type' => 'brace_command_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'string'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 3,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'argaa'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -156,10 +166,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -169,10 +184,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => '*c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => '*c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -197,10 +217,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -236,10 +261,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'aa'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'aa'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -249,10 +279,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -262,10 +297,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => '*c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => '*c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -290,29 +330,34 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 3,
+                              'element' => {
+                                'args' => [
+                                  {
+                                    'type' => 'brace_command_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'string'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'position' => 2,
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
+                            }
+                          ],
+                          'text' => 'bbaa'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'element' => {
-                            'args' => [
-                              {
-                                'type' => 'brace_command_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'string'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'bbaa'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -322,10 +367,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -335,10 +385,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => '*c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => '*c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -382,10 +437,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'aa'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'aa'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -395,10 +455,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -408,10 +473,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => '*c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => '*c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -436,10 +506,15 @@ $result_trees{'macro_in_def_delimiters'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

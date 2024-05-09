@@ -290,10 +290,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -310,10 +315,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'n='
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'n='
+                      'type' => 'def_aggregate'
                     },
                     {
                       'contents' => [
@@ -354,10 +364,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'axis='
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'axis='
+                      'type' => 'def_aggregate'
                     },
                     {
                       'contents' => [
@@ -398,10 +413,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'norm='
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'norm='
+                      'type' => 'def_aggregate'
                     },
                     {
                       'contents' => [

@@ -90,10 +90,15 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'ARGUMENTS...'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'typearg'
                           },
-                          'text' => 'ARGUMENTS...'
+                          'type' => 'def_aggregate'
                         }
                       ],
                       'info' => {
@@ -480,10 +485,15 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'input'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'input'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

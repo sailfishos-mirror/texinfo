@@ -374,10 +374,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg?'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'arg?'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -387,10 +392,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'e:'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'e:'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -400,10 +410,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'f.'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'f.'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -679,10 +694,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'varg?'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'varg?'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -692,10 +712,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 've:'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 've:'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -705,10 +730,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'f.'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'f.'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1212,10 +1242,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'narg?'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'narg?'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1225,10 +1260,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'e:'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'e:'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1238,10 +1278,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'f.'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'f.'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1517,10 +1562,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'varg?'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'varg?'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1530,10 +1580,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 've:'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 've:'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1543,10 +1598,15 @@ $result_trees{'frenchspacing_and_code'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'f.'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'f.'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

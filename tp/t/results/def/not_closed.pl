@@ -53,10 +53,15 @@ $result_trees{'not_closed'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'machin'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -123,10 +128,15 @@ $result_trees{'not_closed'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -209,10 +219,15 @@ $result_trees{'not_closed'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'var'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'text' => 'var'
+                              'type' => 'def_aggregate'
                             },
                             {
                               'extra' => {
@@ -222,10 +237,15 @@ $result_trees{'not_closed'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'bidule'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'text' => 'bidule'
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {

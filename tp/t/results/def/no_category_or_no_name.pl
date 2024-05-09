@@ -230,10 +230,15 @@ $result_trees{'no_category_or_no_name'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -243,10 +248,15 @@ $result_trees{'no_category_or_no_name'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'd'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

@@ -80,10 +80,15 @@ $result_trees{'def_in_style_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

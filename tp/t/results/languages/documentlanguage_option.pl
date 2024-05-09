@@ -507,10 +507,15 @@ $result_trees{'documentlanguage_option'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arguments'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'arguments'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

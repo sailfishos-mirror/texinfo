@@ -150,10 +150,15 @@ $result_trees{'omit_def_space'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg1'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg1'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -170,10 +175,15 @@ $result_trees{'omit_def_space'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -261,10 +271,15 @@ $result_trees{'omit_def_space'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'aarg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'aarg'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

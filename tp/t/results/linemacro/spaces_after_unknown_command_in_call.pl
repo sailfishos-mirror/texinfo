@@ -197,10 +197,15 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'd'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -210,10 +215,15 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'B'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'B'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -260,10 +270,15 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'rest'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'rest'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

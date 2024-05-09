@@ -132,10 +132,15 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'b'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'text' => 'b'
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -608,10 +613,15 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'CCC'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'CCC'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

@@ -81,10 +81,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'const'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'const'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -94,10 +99,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'type&'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'type&'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -107,10 +117,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'x'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'x'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -258,10 +273,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'const'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'const'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -271,10 +291,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'type&'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'type&'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -284,10 +309,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'x'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'x'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -469,10 +499,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'const'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'const'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -482,10 +517,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'type&'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'type&'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -495,10 +535,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'x'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'x'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -721,10 +766,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'const'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'const'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -734,10 +784,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'type&'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'type&'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -747,10 +802,15 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'x'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'x'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

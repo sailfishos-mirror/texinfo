@@ -132,10 +132,15 @@ $result_trees{'multiple_documentlanguage'} = {
                               'type' => 'spaces'
                             },
                             {
+                              'contents' => [
+                                {
+                                  'text' => 'b'
+                                }
+                              ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'text' => 'b'
+                              'type' => 'def_aggregate'
                             }
                           ],
                           'info' => {
@@ -525,10 +530,15 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'CCC'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'CCC'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -844,10 +854,15 @@ $result_trees{'multiple_documentlanguage'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'CCC'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'CCC'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

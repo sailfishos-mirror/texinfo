@@ -770,10 +770,15 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'CCC'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'CCC'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1109,10 +1114,15 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'CCC'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'CCC'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1412,10 +1422,15 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'CCC'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'CCC'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

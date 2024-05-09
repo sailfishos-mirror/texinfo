@@ -66,10 +66,15 @@ $result_trees{'defx_after_empty_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -79,10 +84,15 @@ $result_trees{'defx_after_empty_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'g'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'g'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -162,10 +172,15 @@ $result_trees{'defx_after_empty_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'machin...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'machin...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

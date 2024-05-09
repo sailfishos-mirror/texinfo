@@ -60,10 +60,15 @@ $result_trees{'double_command'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -80,10 +85,15 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -100,10 +110,15 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -120,10 +135,15 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => '...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => '...'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -189,10 +209,15 @@ $result_trees{'double_command'} = {
                                   'type' => 'delimiter'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'a'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'a'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -209,10 +234,15 @@ $result_trees{'double_command'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'b'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'b'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -229,10 +259,15 @@ $result_trees{'double_command'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'c'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'c'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -249,10 +284,15 @@ $result_trees{'double_command'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => '...'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => '...'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -269,10 +309,15 @@ $result_trees{'double_command'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'd'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'd'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -439,10 +484,15 @@ $result_trees{'double_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

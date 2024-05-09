@@ -849,18 +849,23 @@ args \\e\\|\\f\\|
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 6,
+                              'position' => 1,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 6,
-                          'position' => 1,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

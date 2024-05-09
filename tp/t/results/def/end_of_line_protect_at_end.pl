@@ -58,10 +58,15 @@ $result_trees{'end_of_line_protect_at_end'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arguments2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arguments2'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

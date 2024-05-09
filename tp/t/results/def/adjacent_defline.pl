@@ -74,10 +74,15 @@ $result_trees{'adjacent_defline'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bar'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bar'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -160,10 +165,15 @@ $result_trees{'adjacent_defline'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bar2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bar2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -180,10 +190,15 @@ $result_trees{'adjacent_defline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'baz2'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'baz2'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

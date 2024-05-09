@@ -61,10 +61,15 @@ $result_trees{'leading_space_in_def_arg'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

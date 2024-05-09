@@ -272,10 +272,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'arguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -579,10 +584,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1231,10 +1241,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1601,10 +1616,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arguments2...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'arguments2...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -1908,10 +1928,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments2...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'text' => 'a--rguments2...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -2560,10 +2585,15 @@ $result_trees{'test_deftypefnnewline'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a--rguments2...'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a--rguments2...'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

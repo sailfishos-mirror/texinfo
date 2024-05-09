@@ -59,10 +59,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'arguments'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'arguments'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -72,10 +77,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'arg2'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'arg2'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -92,10 +102,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'more'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'more'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -133,10 +148,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'with'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'with'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -146,10 +166,15 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => '3'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => '3'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {

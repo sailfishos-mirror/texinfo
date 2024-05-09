@@ -53,10 +53,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -66,10 +71,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -79,10 +89,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -197,10 +212,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -210,10 +230,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -223,10 +248,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -236,10 +266,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'after'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'after'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -354,10 +389,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -367,10 +407,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -380,10 +425,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -514,10 +564,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -527,10 +582,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -540,10 +600,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -682,10 +747,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'c'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'c'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -695,10 +765,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'd'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'd'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -708,10 +783,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'e'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'e'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -778,10 +858,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -791,10 +876,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -804,10 +894,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -880,10 +975,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -893,10 +993,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -906,10 +1011,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -919,10 +1029,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'after'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'after'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -995,10 +1110,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1008,10 +1128,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1021,10 +1146,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1113,10 +1243,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bidule'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bidule'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1126,10 +1261,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'chose'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'chose'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -1139,10 +1279,15 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

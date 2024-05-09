@@ -328,10 +328,15 @@ $result_trees{'brace_in_index'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'BBB'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'BBB'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

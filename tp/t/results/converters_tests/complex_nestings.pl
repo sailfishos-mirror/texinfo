@@ -206,10 +206,15 @@ $result_trees{'complex_nestings'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'args'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'text' => 'args'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -342,10 +347,15 @@ $result_trees{'complex_nestings'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'no'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'text' => 'no'
+                          'type' => 'def_aggregate'
                         },
                         {
                           'extra' => {
@@ -355,10 +365,15 @@ $result_trees{'complex_nestings'} = {
                           'type' => 'spaces'
                         },
                         {
+                          'contents' => [
+                            {
+                              'text' => 'args'
+                            }
+                          ],
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'text' => 'args'
+                          'type' => 'def_aggregate'
                         }
                       ],
                       'info' => {
@@ -443,10 +458,15 @@ $result_trees{'complex_nestings'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'and'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'and'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -456,10 +476,15 @@ $result_trees{'complex_nestings'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'now'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'now'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -469,10 +494,15 @@ $result_trees{'complex_nestings'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'the'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'the'
+                                  'type' => 'def_aggregate'
                                 },
                                 {
                                   'extra' => {
@@ -482,10 +512,15 @@ $result_trees{'complex_nestings'} = {
                                   'type' => 'spaces'
                                 },
                                 {
+                                  'contents' => [
+                                    {
+                                      'text' => 'args'
+                                    }
+                                  ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'text' => 'args'
+                                  'type' => 'def_aggregate'
                                 }
                               ],
                               'info' => {
@@ -566,10 +601,15 @@ $result_trees{'complex_nestings'} = {
                                           'type' => 'spaces'
                                         },
                                         {
+                                          'contents' => [
+                                            {
+                                              'text' => 'variable-name'
+                                            }
+                                          ],
                                           'extra' => {
                                             'def_role' => 'arg'
                                           },
-                                          'text' => 'variable-name'
+                                          'type' => 'def_aggregate'
                                         }
                                       ],
                                       'info' => {
@@ -660,10 +700,15 @@ $result_trees{'complex_nestings'} = {
                                           'type' => 'spaces'
                                         },
                                         {
+                                          'contents' => [
+                                            {
+                                              'text' => 'other-variable'
+                                            }
+                                          ],
                                           'extra' => {
                                             'def_role' => 'arg'
                                           },
-                                          'text' => 'other-variable'
+                                          'type' => 'def_aggregate'
                                         }
                                       ],
                                       'info' => {

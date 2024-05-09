@@ -183,10 +183,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'f'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'f'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -196,10 +201,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'r'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'r'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -269,10 +279,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -282,10 +297,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'a'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -295,10 +315,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'last'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'last'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -325,10 +350,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'contents' => [
@@ -471,10 +501,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'f'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'f'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -484,10 +519,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'r'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'r'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -557,10 +597,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -722,10 +767,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'f'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'f'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -735,10 +785,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'r'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'r'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -808,10 +863,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -843,10 +903,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'remaining'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'remaining'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -856,10 +921,15 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'on'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'on'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

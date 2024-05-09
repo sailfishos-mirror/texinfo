@@ -221,10 +221,15 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'some'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'some'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -234,10 +239,15 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'arg'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -254,10 +264,15 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'b'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -296,18 +311,23 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'position' => 4,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'text' => 'line'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 4,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'line'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

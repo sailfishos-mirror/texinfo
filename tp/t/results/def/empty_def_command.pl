@@ -158,10 +158,15 @@ $result_trees{'empty_def_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'with'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'with'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -171,10 +176,15 @@ $result_trees{'empty_def_command'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'deffnx'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'deffnx'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

@@ -83,10 +83,15 @@ $result_trees{'bracketed_arg_no_space'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'm'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'm'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'contents' => [

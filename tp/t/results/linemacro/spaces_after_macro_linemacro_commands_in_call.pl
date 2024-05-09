@@ -591,10 +591,15 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'A'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'A'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -604,10 +609,15 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'Fun'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'Fun'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -617,10 +627,15 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'B'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'B'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -652,10 +667,15 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -665,18 +685,23 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_marks' => [
+                            {
+                              'counter' => 3,
+                              'position' => 9,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'text' => 'remaining'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'position' => 9,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'remaining'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

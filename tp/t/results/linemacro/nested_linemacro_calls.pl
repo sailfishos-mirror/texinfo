@@ -327,10 +327,15 @@ $result_trees{'nested_linemacro_calls'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'remaining'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'remaining'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -347,10 +352,15 @@ $result_trees{'nested_linemacro_calls'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'type'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'type'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -360,10 +370,15 @@ $result_trees{'nested_linemacro_calls'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'typed'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'typed'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

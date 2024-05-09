@@ -53,10 +53,15 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -222,10 +227,15 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -242,10 +252,15 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'more'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'more'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -255,10 +270,15 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'args'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'args'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {

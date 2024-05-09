@@ -177,10 +177,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bar'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bar'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -197,10 +202,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'baz'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'baz'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -224,10 +234,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'continuation'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'continuation'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -237,10 +252,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'line'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'line'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -433,10 +453,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bar'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bar'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -453,10 +478,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'baz'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'baz'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -473,10 +503,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'rest'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'rest'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'contents' => [
@@ -490,10 +525,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'def_aggregate'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'and'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'and'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -503,10 +543,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'more'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'more'
+                      'type' => 'def_aggregate'
                     }
                   ],
                   'info' => {
@@ -693,10 +738,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'bar'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'bar'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {
@@ -713,10 +763,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'text' => 'baz'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'text' => 'baz'
+                      'type' => 'def_aggregate'
                     },
                     {
                       'extra' => {

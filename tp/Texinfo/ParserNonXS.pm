@@ -3146,10 +3146,12 @@ sub _split_delimiters
     }
     while (1) {
       if ($text =~ s/^([^$chars]+)//) {
-        push @elements, {'text' => $1, 'parent' => $root->{'parent'}};
+        my $new = {'type' => 'def_aggregate', 'parent' => $root->{'parent'}};
+        $new->{'contents'} = [{'text' => $1, 'parent' => $new}];
+        push @elements, $new;
         $current_position = Texinfo::Common::relocate_source_marks(
-                                 $remaining_source_marks, $elements[-1],
-                                 $current_position, length($1));
+                              $remaining_source_marks, $new->{'contents'}->[0],
+                              $current_position, length($1));
       } elsif ($text =~ s/^([$chars])//) {
         push @elements, {'text' => $1, 'type' => 'delimiter',
                          'extra' => {'def_role' => 'delimiter'},
