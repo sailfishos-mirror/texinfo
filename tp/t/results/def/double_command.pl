@@ -25,7 +25,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -43,7 +43,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -68,7 +68,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -93,7 +93,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -118,7 +118,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -143,7 +143,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -174,7 +174,7 @@ $result_trees{'double_command'} = {
                                   'extra' => {
                                     'def_role' => 'category'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -192,7 +192,7 @@ $result_trees{'double_command'} = {
                                   'extra' => {
                                     'def_role' => 'name'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -217,7 +217,7 @@ $result_trees{'double_command'} = {
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -242,7 +242,7 @@ $result_trees{'double_command'} = {
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -267,7 +267,7 @@ $result_trees{'double_command'} = {
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -292,7 +292,7 @@ $result_trees{'double_command'} = {
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -317,7 +317,7 @@ $result_trees{'double_command'} = {
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -361,7 +361,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -456,7 +456,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -474,7 +474,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -492,7 +492,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -519,7 +519,7 @@ $result_trees{'double_command'} = {
                                       'extra' => {
                                         'def_role' => 'category'
                                       },
-                                      'type' => 'def_aggregate'
+                                      'type' => 'def_line_arg'
                                     },
                                     {
                                       'extra' => {
@@ -537,7 +537,7 @@ $result_trees{'double_command'} = {
                                       'extra' => {
                                         'def_role' => 'name'
                                       },
-                                      'type' => 'def_aggregate'
+                                      'type' => 'def_line_arg'
                                     }
                                   ],
                                   'info' => {
@@ -577,7 +577,7 @@ $result_trees{'double_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'type' => 'block_line_arg'

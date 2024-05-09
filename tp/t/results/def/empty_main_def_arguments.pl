@@ -25,7 +25,7 @@ $result_trees{'empty_main_def_arguments'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {

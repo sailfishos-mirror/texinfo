@@ -78,7 +78,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -117,7 +117,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -198,7 +198,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -237,7 +237,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -298,7 +298,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -337,7 +337,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -418,7 +418,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -457,7 +457,7 @@ $result_trees{'ref_in_def'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {

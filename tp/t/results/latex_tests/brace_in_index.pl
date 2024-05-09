@@ -290,7 +290,7 @@ $result_trees{'brace_in_index'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -317,7 +317,7 @@ $result_trees{'brace_in_index'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -342,7 +342,7 @@ $result_trees{'brace_in_index'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {

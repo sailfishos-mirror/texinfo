@@ -25,7 +25,7 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -43,7 +43,7 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -61,7 +61,7 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -102,7 +102,7 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -120,7 +120,7 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {

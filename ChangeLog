@@ -1,5 +1,13 @@
 2024-05-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_split_delimiters)
+	(_next_bracketed_or_word_agg, _parse_def),
+	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/parsetexi/def.c
+	(next_bracketed_or_word_agg) (split_delimiters, parse_def): rename
+	def_aggregate type as def_line_arg type.
+
+2024-05-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (%ignored_types, _convert),
 	tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo)
 	(_expand_cmd_args_to_texi), tp/Texinfo/Convert/TexinfoMarkup.pm

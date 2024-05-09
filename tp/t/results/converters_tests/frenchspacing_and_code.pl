@@ -382,7 +382,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -400,7 +400,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -418,7 +418,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -449,7 +449,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -480,7 +480,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -702,7 +702,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -720,7 +720,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -738,7 +738,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -769,7 +769,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -800,7 +800,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -1250,7 +1250,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1268,7 +1268,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1286,7 +1286,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1317,7 +1317,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1348,7 +1348,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -1570,7 +1570,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1588,7 +1588,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1606,7 +1606,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1637,7 +1637,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1668,7 +1668,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {

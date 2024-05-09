@@ -39,7 +39,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'type' => 'def_aggregate'
+                          'type' => 'def_line_arg'
                         },
                         {
                           'extra' => {
@@ -70,7 +70,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'type' => 'def_aggregate'
+                          'type' => 'def_line_arg'
                         },
                         {
                           'extra' => {
@@ -88,7 +88,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'type' => 'def_aggregate'
+                          'type' => 'def_line_arg'
                         },
                         {
                           'extra' => {
@@ -106,7 +106,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'type' => 'def_aggregate'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'info' => {
@@ -206,7 +206,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'type' => 'def_aggregate'
+                          'type' => 'def_line_arg'
                         },
                         {
                           'extra' => {
@@ -224,7 +224,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'type' => 'def_aggregate'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'info' => {

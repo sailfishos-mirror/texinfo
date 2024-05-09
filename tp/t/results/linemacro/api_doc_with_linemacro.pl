@@ -255,7 +255,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -273,7 +273,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -298,7 +298,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -323,7 +323,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'contents' => [
@@ -347,7 +347,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -372,7 +372,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'contents' => [
@@ -396,7 +396,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -421,7 +421,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'contents' => [
@@ -445,7 +445,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -571,7 +571,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             },
                             {
                               'extra' => {
@@ -603,7 +603,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             },
                             {
                               'extra' => {
@@ -642,7 +642,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'info' => {
@@ -744,7 +744,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             },
                             {
                               'extra' => {
@@ -776,7 +776,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             },
                             {
                               'extra' => {
@@ -815,7 +815,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'info' => {
@@ -940,7 +940,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'category'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             },
                             {
                               'extra' => {
@@ -972,7 +972,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             },
                             {
                               'extra' => {
@@ -1011,7 +1011,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'info' => {
@@ -1149,7 +1149,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             },
                             {
                               'extra' => {
@@ -1188,7 +1188,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'info' => {
@@ -1308,7 +1308,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_aggregate'
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'info' => {

@@ -112,7 +112,7 @@ $result_trees{'defcondx_Dbar'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -193,7 +193,7 @@ $result_trees{'defcondx_Dbar'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {

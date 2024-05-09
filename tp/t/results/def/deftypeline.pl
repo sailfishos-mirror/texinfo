@@ -39,7 +39,7 @@ $result_trees{'deftypeline'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -78,7 +78,7 @@ $result_trees{'deftypeline'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -103,7 +103,7 @@ $result_trees{'deftypeline'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -134,7 +134,7 @@ $result_trees{'deftypeline'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -159,7 +159,7 @@ $result_trees{'deftypeline'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -190,7 +190,7 @@ $result_trees{'deftypeline'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {

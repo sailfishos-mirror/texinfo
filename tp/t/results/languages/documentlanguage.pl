@@ -446,7 +446,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -467,7 +467,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -485,7 +485,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -503,7 +503,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -521,7 +521,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -546,7 +546,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' na '
@@ -560,7 +560,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },
@@ -575,7 +575,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' on '
@@ -589,7 +589,7 @@ $result_trees{'documentlanguage'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },

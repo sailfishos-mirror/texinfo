@@ -41,7 +41,7 @@ $result_trees{'empty_deftypeop_name'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -112,7 +112,7 @@ $result_trees{'empty_deftypeop_name'} = {
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {

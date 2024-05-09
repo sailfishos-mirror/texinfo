@@ -3129,7 +3129,7 @@ sub _split_delimiters
                            or defined $root->{'text'})) {
     return $root;
   } elsif (!defined $root->{'text'}) {
-    my $new = {'type' => 'def_aggregate', 'parent' => $current,
+    my $new = {'type' => 'def_line_arg', 'parent' => $current,
                'contents' => [$root]};
     $root->{'parent'} = $current;
     return $new;
@@ -3146,7 +3146,7 @@ sub _split_delimiters
     }
     while (1) {
       if ($text =~ s/^([^$chars]+)//) {
-        my $new = {'type' => 'def_aggregate', 'parent' => $root->{'parent'}};
+        my $new = {'type' => 'def_line_arg', 'parent' => $root->{'parent'}};
         $new->{'contents'} = [{'text' => $1, 'parent' => $new}];
         push @elements, $new;
         $current_position = Texinfo::Common::relocate_source_marks(
@@ -3263,7 +3263,7 @@ sub _next_bracketed_or_word_agg($$)
   }
   my @gathered_contents
     = splice(@{$current->{'contents'}}, $$index_ref - $num, $num);
-  my $new = {'type' => 'def_aggregate', 'parent' => $current,
+  my $new = {'type' => 'def_line_arg', 'parent' => $current,
              'contents' => \@gathered_contents};
   foreach my $content (@gathered_contents) {
     $content->{'parent'} = $new;
@@ -3380,7 +3380,7 @@ sub _parse_def($$$$)
     if ($content->{'type'} and $content->{'type'} eq 'spaces') {
     } elsif ($content->{'type'} and $content->{'type'} eq 'delimiter') {
       $type = $set_type_not_arg;
-    } elsif ($content->{'type'} and $content->{'type'} eq 'def_aggregate'
+    } elsif ($content->{'type'} and $content->{'type'} eq 'def_line_arg'
              and $content->{'contents'}
              and scalar(@{$content->{'contents'}}) == 1
              and $content->{'contents'}->[0]->{'cmdname'}
@@ -8576,7 +8576,7 @@ argument text (which does not contain the braces) and does not contain other
 elements.  It should not appear directly in the tree as the user defined
 linemacro call is replaced by the linemacro body.
 
-=item def_aggregate
+=item def_line_arg
 
 Contains several elements that together are a single unit on a @def* line.
 

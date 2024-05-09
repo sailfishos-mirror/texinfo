@@ -727,7 +727,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -748,7 +748,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -766,7 +766,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -784,7 +784,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -809,7 +809,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' of '
@@ -823,7 +823,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },
@@ -838,7 +838,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' of '
@@ -852,7 +852,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },
@@ -1077,7 +1077,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1098,7 +1098,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1116,7 +1116,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1134,7 +1134,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -1159,7 +1159,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' of '
@@ -1173,7 +1173,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },
@@ -1188,7 +1188,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' of '
@@ -1202,7 +1202,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },
@@ -1391,7 +1391,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1412,7 +1412,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1430,7 +1430,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'extra' => {
@@ -1448,7 +1448,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ],
                   'info' => {
@@ -1473,7 +1473,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' de '
@@ -1487,7 +1487,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },
@@ -1502,7 +1502,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     },
                     {
                       'text' => ' of '
@@ -1516,7 +1516,7 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_aggregate'
+                      'type' => 'def_line_arg'
                     }
                   ]
                 },

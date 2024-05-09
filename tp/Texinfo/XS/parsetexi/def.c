@@ -135,7 +135,7 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
         return e;
     }
 
-  new = new_element (ET_def_aggregate);
+  new = new_element (ET_def_line_arg);
   for (j = 0; j < num; j++)
     {
       add_to_element_contents (new,
@@ -210,7 +210,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
         continue;
       else if (e->text.end == 0)
         {
-          new = new_element (ET_def_aggregate);
+          new = new_element (ET_def_line_arg);
           new->parent = e->parent;
           add_to_element_contents (new, e);
           current->contents.list[i] = new;
@@ -265,7 +265,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
                                           current_position, u8_len);
             }
 
-          new = new_element (ET_def_aggregate);
+          new = new_element (ET_def_line_arg);
           add_to_element_contents (new, new_text);
 
           insert_into_contents (current, new, i++);
@@ -494,7 +494,7 @@ parse_def (enum command_id command, ELEMENT *current)
           type = set_type_not_arg;
           continue;
         }
-      if (e->type == ET_def_aggregate && e->contents.number == 1
+      if (e->type == ET_def_line_arg && e->contents.number == 1
           && e->contents.list[0]->cmd && e->contents.list[0]->cmd != CM_code)
         {
           add_extra_string_dup (e, "def_role", "arg");

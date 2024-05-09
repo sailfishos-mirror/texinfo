@@ -80,7 +80,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                   'extra' => {
                                     'def_role' => 'category'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -98,7 +98,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                   'extra' => {
                                     'def_role' => 'name'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 },
                                 {
                                   'extra' => {
@@ -116,7 +116,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'type' => 'def_aggregate'
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'info' => {
