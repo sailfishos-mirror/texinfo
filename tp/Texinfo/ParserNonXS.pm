@@ -8736,6 +8736,12 @@ call.
 
 C<@verb> delimiter is in I<delimiter>.
 
+=item inserted
+
+Set if the element is not in the Texinfo input code, but is inserted
+as a default for @-command argument or as a definition command automatically
+inserted category (for example I<Function> for C<@defun>).
+
 =item spaces_after_argument
 
 A reference to an element containing the spaces after @-command arguments
