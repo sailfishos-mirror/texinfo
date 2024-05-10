@@ -661,7 +661,7 @@ ELEMENT *
 end_line_def_line (ELEMENT *current)
 {
   enum command_id def_command;
-  DEF_ARG **def_info = 0;
+  ELEMENT **def_info = 0;
   char *def_cmdname;
   ELEMENT *index_entry = 0; /* Index entry text. */
   ELEMENT *def_info_name = 0;
@@ -687,16 +687,14 @@ end_line_def_line (ELEMENT *current)
 
   /* Record the index entry if def_info is not empty. */
 
-  while (def_info[i] != 0 && def_info[i]->element != 0)
+  while (def_info[i] != 0)
     {
-      if (!strcmp(def_info[i]->arg_type, "name"))
-        def_info_name = def_info[i]->element;
-      else if (!strcmp(def_info[i]->arg_type, "class"))
-        def_info_class = def_info[i]->element;
-      else if (!strcmp(def_info[i]->arg_type, "category"))
-        def_info_category = def_info[i]->element;
-      free (def_info[i]->arg_type);
-      free (def_info[i]);
+      if (def_info[i]->type == ET_def_name)
+        def_info_name = def_info[i];
+      else if (def_info[i]->type == ET_def_class)
+        def_info_class = def_info[i];
+      else if (def_info[i]->type == ET_def_category)
+        def_info_category = def_info[i];
       i++;
     }
   free (def_info);

@@ -1,5 +1,13 @@
 2024-05-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/def.c (DEF_MAP, parse_def),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): remove
+	arguments field from DEF_MAP, have parse_def return an array of
+	ELEMENT and use the type of elements in end_line_def_line instead
+	of a string.
+
+2024-05-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_split_delimiters, _split_def_args)
 	(_parse_def), tp/Texinfo/XS/parsetexi/def.c (split_delimiters)
 	(split_def_args, parse_def): remove completly extra def_role from the

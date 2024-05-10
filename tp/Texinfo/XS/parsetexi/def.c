@@ -152,7 +152,6 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
 
 typedef struct {
     enum command_id command;
-    char **arguments;
     enum command_id *argument_types;
 } DEF_MAP;
 
@@ -163,17 +162,6 @@ typedef struct {
      TYPE - data type of a variable or function return value
      NAME - name of entity being documented
      ARGUMENTS - arguments to a function or macro                  */
-
-char *defline_arguments[] = {"category", "name", "arg", 0};
-char *deftypeline_arguments[] = {"category", "type", "name", "argtype", 0};
-char *defvr_arguments[] = {"category", "name", 0};
-char *deftypefn_arguments[] = {"category", "type", "name", "argtype", 0};
-char *deftypeop_arguments[] = {"category", "class" , "type", "name", "argtype", 0};
-char *deftypevr_arguments[] = {"category", "type", "name", 0};
-char *defcv_arguments[] = {"category", "class" , "name", 0};
-char *deftypecv_arguments[] = {"category", "class" , "type", "name", 0};
-char *defop_arguments[] = {"category", "class" , "name", "arg", 0};
-char *deftp_arguments[] = {"category", "name", "argtype", 0};
 
 enum command_id defline_types[] = {ET_def_category, ET_def_name, ET_def_arg, 0};
 enum command_id deftypeline_types[] = {ET_def_category, ET_def_type, ET_def_name, ET_def_typearg, 0};
@@ -187,17 +175,17 @@ enum command_id defop_types[] = {ET_def_category, ET_def_class , ET_def_name, ET
 enum command_id deftp_types[] = {ET_def_category, ET_def_name, ET_def_typearg, 0};
 
 DEF_MAP def_maps[] = {
-  CM_defline, defline_arguments, defline_types,
-  CM_deftypeline, deftypeline_arguments, deftypeline_types,
-  CM_deffn, defline_arguments, defline_types,
-  CM_defvr, defvr_arguments, defvr_types,
-  CM_deftypefn, deftypefn_arguments, deftypefn_types,
-  CM_deftypeop, deftypeop_arguments, deftypeop_types,
-  CM_deftypevr, deftypevr_arguments, deftypevr_types,
-  CM_defcv, defcv_arguments, defcv_types,
-  CM_deftypecv, deftypecv_arguments, deftypecv_types,
-  CM_defop, defop_arguments, defop_types,
-  CM_deftp, deftp_arguments, deftp_types,
+  CM_defline, defline_types,
+  CM_deftypeline, deftypeline_types,
+  CM_deffn, defline_types,
+  CM_defvr, defvr_types,
+  CM_deftypefn, deftypefn_types,
+  CM_deftypeop, deftypeop_types,
+  CM_deftypevr, deftypevr_types,
+  CM_defcv, defcv_types,
+  CM_deftypecv, deftypecv_types,
+  CM_defop, defop_types,
+  CM_deftp, deftp_types,
 };
 
 /* Split non-space text elements into strings without [ ] ( ) , and single
@@ -369,7 +357,7 @@ split_def_args (ELEMENT *current, int starting_idx)
     }
 }
 
-DEF_ARG **
+ELEMENT **
 parse_def (enum command_id command, ELEMENT *current)
 {
   int contents_idx = 0;
@@ -377,8 +365,7 @@ parse_def (enum command_id command, ELEMENT *current)
   int i, i_def;
   int arg_types_nr;
   ELEMENT *e, *e1;
-  DEF_ARG **result;
-  char **arguments_list;
+  ELEMENT **result;
   enum command_id *arguments_types_list;
   int inserted_category = 0;
 
@@ -437,9 +424,8 @@ parse_def (enum command_id command, ELEMENT *current)
 
   /* determine non arg/argtype number of arguments */
   arg_types_nr = 0;
-  arguments_list = def_maps[i_def].arguments;
   arguments_types_list = def_maps[i_def].argument_types;
-  while (arguments_list[arg_types_nr])
+  while (arguments_types_list[arg_types_nr])
     {
       enum element_type arg_type = arguments_types_list[arg_types_nr];
 
@@ -447,7 +433,7 @@ parse_def (enum command_id command, ELEMENT *current)
         break;
       arg_types_nr++;
     }
-  result = malloc ((arg_types_nr+1) * sizeof (DEF_ARG *));
+  result = malloc ((arg_types_nr+1) * sizeof (ELEMENT *));
 
   for (i = 0; i < arg_types_nr; i++)
     {
@@ -455,33 +441,19 @@ parse_def (enum command_id command, ELEMENT *current)
 
       if (e)
         {
-          char *arg_type_name = arguments_list[i];
           enum element_type arg_type = arguments_types_list[i];
-          DEF_ARG *def_arg = malloc (sizeof (DEF_ARG));
           ELEMENT *new_def_type = new_element (arg_type);
 
           new_def_type->parent = e->parent;
           current->contents.list[contents_idx - 1] = new_def_type;
           add_to_element_contents (new_def_type, e);
-          result[i] = def_arg;
-          def_arg->arg_type = strdup(arg_type_name);
-          def_arg->element = new_def_type;
+          result[i] = new_def_type;
         }
       else
         break;
     }
 
   result[i] = 0;
-
-  for (i = 0; i < arg_types_nr; i++)
-    {
-      if (result[i])
-        {
-          DEF_ARG *def_arg = result[i];
-        }
-      else
-        break;
-    }
 
   if (inserted_category)
     {
