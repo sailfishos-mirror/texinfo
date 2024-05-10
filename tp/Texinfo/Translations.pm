@@ -409,13 +409,13 @@ sub complete_indices($;$)
         my ($name, $class);
         if ($main_entry_element->{'args'}->[0]->{'contents'}) {
           foreach my $arg (@{$main_entry_element->{'args'}->[0]->{'contents'}}) {
-            my $role = $arg->{'extra'}->{'def_role'};
-            if ($role eq 'name') {
+            my $type = $arg->{'type'};
+            if ($type eq 'def_name') {
               $name = $arg;
-            } elsif ($role eq 'class') {
+            } elsif ($type eq 'def_class') {
               $class = $arg;
-            } elsif ($role eq 'arg' or $role eq 'typearg'
-                     or $role eq 'delimiter') {
+            } elsif ($type eq 'def_arg' or $type eq 'def_typearg'
+                     or $type eq 'delimiter') {
               last;
             }
           }

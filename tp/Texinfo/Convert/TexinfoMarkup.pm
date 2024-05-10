@@ -1516,28 +1516,29 @@ sub _convert($$;$)
           $alias = 0;
         }
         foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
+          my $type = $arg->{'type'};
           # should only happen for dubious trees in which the def line
           # was not split in def roles
-          next if (not $arg->{'extra'} or not $arg->{'extra'}->{'def_role'});
-          my $type = $arg->{'extra'}->{'def_role'};
+          next if (!defined($type));
           my $content = $self->_convert($arg);
           if ($type eq 'spaces') {
             $content =~ s/\n$//;
             $result .= $content;
           } else {
             my $attribute = [];
-            if ($type eq 'category' and $alias) {
+            if ($type eq 'def_category' and $alias) {
               push @$attribute, ['automatic', 'on'];
             }
             my $format_element;
-            if ($type eq 'name') {
+            if ($type eq 'def_name') {
               $format_element = $defcommand_name_type{$main_command};
-            } elsif ($type eq 'arg') {
+            } elsif ($type eq 'def_arg') {
               $format_element = 'param';
-            } elsif ($type eq 'typearg') {
+            } elsif ($type eq 'def_typearg') {
               $format_element = 'paramtype';
             } else {
               $format_element = $type;
+              $format_element =~ s/^def_//;
             }
             if ($arg->{'contents'} and scalar($arg->{'contents'})
                 and $arg->{'contents'}->[0]->{'type'}
@@ -1571,8 +1572,13 @@ sub _convert($$;$)
              and not ($element->{'parent'}->{'parent'}->{'cmdname'}
                       and $element->{'parent'}->{'parent'}->{'cmdname'}
                                                            eq 'multitable')
-             and (!$element->{'parent'}->{'extra'}
-                  or !defined($element->{'parent'}->{'extra'}->{'def_role'}))) {
+             and (!$element->{'parent'}->{'type'}
+                  or ($element->{'parent'}->{'type'} ne 'def_category'
+                      and $element->{'parent'}->{'type'} ne 'def_type'
+                      and $element->{'parent'}->{'type'} ne 'def_name'
+                      and $element->{'parent'}->{'type'} ne 'def_typearg'
+                      and $element->{'parent'}->{'type'} ne 'def_arg'
+                      and $element->{'parent'}->{'type'} ne 'def_class'))) {
       my $attribute = [];
       push @$attribute, ['bracketed', 'on'];
       push @$attribute, _leading_trailing_spaces_arg($element);

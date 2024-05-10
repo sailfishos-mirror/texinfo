@@ -418,14 +418,13 @@ complete_indices (int document_descriptor, int debug_level)
                       for (ic = 0; ic < def_l_e->contents.number; ic++)
                         {
                           ELEMENT *arg = def_l_e->contents.list[ic];
-                          char *role = lookup_extra_string (arg, "def_role");
-                          if (!strcmp (role, "name"))
+                          if (arg->type == ET_def_name)
                             name = arg;
-                          else if (!strcmp (role, "class"))
+                          else if (arg->type == ET_def_class)
                             class = arg;
-                          else if (!strcmp (role, "arg")
-                                   || !strcmp (role, "typearg")
-                                   || !strcmp (role, "delimiter"))
+                          else if (arg->type == ET_def_arg
+                                   || arg->type == ET_def_typearg
+                                   || arg->type == ET_delimiter)
                             break;
                         }
                     }

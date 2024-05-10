@@ -461,19 +461,16 @@ definition_arguments_content (const ELEMENT *element)
           for (i = 0; i < def_line->contents.number; i++)
             {
               ELEMENT *arg = def_line->contents.list[i];
-              char *role = lookup_extra_string (arg, "def_role");
-              if (!role)
-                fprintf (stderr, "BUG: NO ROLE %s\n", print_element_debug (arg, 0));
-              if (!strcmp (role, "class"))
+              if (arg->type == ET_def_class)
                 result->class = arg;
-              else if (!strcmp (role, "category"))
+              else if (arg->type == ET_def_category)
                 result->category = arg;
-              else if (!strcmp (role, "type"))
+              else if (arg->type == ET_def_type)
                 result->type = arg;
-              else if (!strcmp (role, "name"))
+              else if (arg->type == ET_def_name)
                 result->name = arg;
-              else if (!strcmp (role, "arg") || !strcmp (role, "typearg")
-                       || !strcmp (role, "delimiter"))
+              else if (arg->type == ET_def_arg || arg->type == ET_def_typearg
+                       || arg->type == ET_delimiter)
                 {
                   i--;
                   break;
@@ -518,13 +515,12 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
       for (i = 0; i < def_line->contents.number; i++)
         {
           ELEMENT *arg = def_line->contents.list[i];
-          char *role = lookup_extra_string (arg, "def_role");
-          if (!strcmp (role, "class"))
+          if (arg->type == ET_def_class)
             arg_class = arg;
-          else if (!strcmp (role, "category"))
+          else if (arg->type == ET_def_category)
             arg_category = arg;
-          else if (!strcmp (role, "arg") || !strcmp (role, "typearg")
-                   || !strcmp (role, "delimiter"))
+          else if (arg->type == ET_def_arg || arg->type == ET_def_typearg
+                   || arg->type == ET_delimiter)
             break;
         }
     }

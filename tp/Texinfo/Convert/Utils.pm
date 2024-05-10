@@ -106,16 +106,17 @@ sub definition_arguments_content($)
 
   my @args = @{$element->{'args'}->[0]->{'contents'}};
   while (@args) {
-    my $role = $args[0]->{'extra'}->{'def_role'};
-    if ($role eq 'category') {
+    my $arg_type = $args[0]->{'type'};
+    if ($arg_type eq 'def_category') {
       $category = shift @args;
-    } elsif ($role eq 'class') {
+    } elsif ($arg_type eq 'def_class') {
       $class = shift @args;
-    } elsif ($role eq 'type') {
+    } elsif ($arg_type eq 'def_type') {
       $type = shift @args;
-    } elsif ($role eq 'name') {
+    } elsif ($arg_type eq 'def_name') {
       $name = shift @args;
-    } elsif ($role eq 'arg' or $role eq 'typearg' or $role eq 'delimiter') {
+    } elsif ($arg_type eq 'def_arg' or $arg_type eq 'def_typearg'
+             or $arg_type eq 'delimiter') {
       last;
     }
     shift @args;
@@ -140,13 +141,14 @@ sub definition_category_tree($$)
   my $arg_category;
   my $arg_class;
   foreach my $arg (@{$current->{'args'}->[0]->{'contents'}}) {
-    my $role = $arg->{'extra'}->{'def_role'};
-    if ($role eq 'category') {
+    my $type = $arg->{'type'};
+    if ($type eq 'def_category') {
       $arg_category = $arg;
-    } elsif ($role eq 'class') {
+    } elsif ($type eq 'def_class') {
       $arg_class = $arg;
-    } elsif ($role eq 'space') {
-    } elsif ($role eq 'arg' or $role eq 'typearg' or $role eq 'delimiter') {
+    } elsif ($type eq 'space') {
+    } elsif ($type eq 'def_arg' or $type eq 'def_typearg'
+             or $type eq 'delimiter') {
       last;
     }
   }

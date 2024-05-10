@@ -210,13 +210,13 @@ my %defcommand_name_type = (
 );
 
 my %def_argument_types_docbook = (
-  'type' => ['returnvalue'],
-  'class' => ['ooclass', 'classname'],
+  'def_type' => ['returnvalue'],
+  'def_class' => ['ooclass', 'classname'],
   # TODO or a simple emphasis?
   # replaceable is not used here, such that replaceable is only
   # used if there is an explicit @var{}
-  'arg' => ['emphasis role="arg"'],
-  'typearg' => ['type'],
+  'def_arg' => ['emphasis role="arg"'],
+  'def_typearg' => ['type'],
 );
 
 my %ignored_block_commands;
@@ -1703,15 +1703,15 @@ sub _convert($$;$)
           $main_command = $element->{'extra'}->{'def_command'};
         }
         foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
-          my $type = $arg->{'extra'}->{'def_role'};
+          my $type = $arg->{'type'};
           next if !$type and $arg->{'type'} eq 'spaces';
 
           my $content = $self->_convert($arg);
           if ($type eq 'spaces' or $type eq 'delimiter') {
             $result .= $content;
-          } elsif ($type eq 'category') {
+          } elsif ($type eq 'def_category') {
             $result .= "<phrase role=\"category\"><emphasis role=\"bold\">$content</emphasis>:</phrase>";
-          } elsif ($type eq 'name') {
+          } elsif ($type eq 'def_name') {
             $result .= "<$defcommand_name_type{$main_command}>$content</$defcommand_name_type{$main_command}>";
           } else {
             if (!defined($def_argument_types_docbook{$type})) {
