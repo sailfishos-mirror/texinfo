@@ -191,15 +191,9 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -214,15 +208,9 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -237,15 +225,9 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'type'
-                      },
                       'type' => 'def_type'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -260,15 +242,9 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -283,9 +259,6 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
                       'type' => 'def_typearg'
                     }
                   ],
@@ -313,9 +286,6 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
@@ -332,9 +302,6 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     }
                   ]
@@ -352,9 +319,6 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
@@ -371,9 +335,6 @@ $result_trees{'translation_in_parser_in_translation'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     }
                   ]

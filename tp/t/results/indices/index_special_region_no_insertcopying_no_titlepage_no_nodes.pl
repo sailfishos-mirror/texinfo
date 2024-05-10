@@ -805,15 +805,9 @@ $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = {
                           'type' => 'bracketed_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -832,9 +826,6 @@ $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = {
                           'type' => 'bracketed_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     }
                   ],
@@ -876,9 +867,6 @@ $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = {
                           'type' => 'bracketed_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'type' => 'def_category'
                     }
                   ],
@@ -916,15 +904,9 @@ $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = {
                           'type' => 'bracketed_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -938,9 +920,6 @@ $result_trees{'index_special_region_no_insertcopying_no_titlepage_no_nodes'} = {
                           'type' => 'bracketed_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     }
                   ],

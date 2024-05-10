@@ -41,15 +41,9 @@ $result_trees{'multiple_defline'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -64,22 +58,13 @@ $result_trees{'multiple_defline'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
                       'text' => '(',
                       'type' => 'delimiter'
                     },
@@ -94,15 +79,9 @@ $result_trees{'multiple_defline'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
                       'type' => 'def_arg'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
                       'text' => ')',
                       'type' => 'delimiter'
                     }
@@ -165,15 +144,9 @@ $result_trees{'multiple_defline'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -188,22 +161,13 @@ $result_trees{'multiple_defline'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
                       'text' => '(',
                       'type' => 'delimiter'
                     },
@@ -218,22 +182,13 @@ $result_trees{'multiple_defline'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
                       'type' => 'def_arg'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
                       'text' => ',',
                       'type' => 'delimiter'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -248,15 +203,9 @@ $result_trees{'multiple_defline'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
                       'type' => 'def_arg'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
                       'text' => ')',
                       'type' => 'delimiter'
                     }

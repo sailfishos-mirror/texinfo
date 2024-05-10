@@ -83,18 +83,12 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'untranslated_def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'category'
-                              },
                               'info' => {
                                 'inserted' => 1
                               },
                               'type' => 'def_category'
                             },
                             {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
                               'info' => {
                                 'inserted' => 1
                               },
@@ -112,15 +106,9 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'class'
-                              },
                               'type' => 'def_class'
                             },
                             {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
                               'text' => ' ',
                               'type' => 'spaces'
                             },
@@ -135,15 +123,9 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'name'
-                              },
                               'type' => 'def_name'
                             },
                             {
-                              'extra' => {
-                                'def_role' => 'spaces'
-                              },
                               'text' => ' ',
                               'type' => 'spaces'
                             },
@@ -158,9 +140,6 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'arg'
-                              },
                               'type' => 'def_arg'
                             }
                           ],
@@ -188,9 +167,6 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'name'
-                              },
                               'type' => 'def_name'
                             },
                             {
@@ -207,9 +183,6 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'class'
-                              },
                               'type' => 'def_class'
                             }
                           ]
@@ -227,9 +200,6 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'name'
-                              },
                               'type' => 'def_name'
                             },
                             {
@@ -246,9 +216,6 @@ $result_trees{'multiple_in_preamble'} = {
                                   'type' => 'def_line_arg'
                                 }
                               ],
-                              'extra' => {
-                                'def_role' => 'class'
-                              },
                               'type' => 'def_class'
                             }
                           ]
@@ -556,18 +523,12 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'untranslated_def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'info' => {
                         'inserted' => 1
                       },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'info' => {
                         'inserted' => 1
                       },
@@ -585,15 +546,9 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -608,15 +563,9 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -631,9 +580,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
                       'type' => 'def_arg'
                     }
                   ],
@@ -661,9 +607,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
@@ -680,9 +623,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     }
                   ]
@@ -700,9 +640,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
@@ -719,9 +656,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     }
                   ]
@@ -867,18 +801,12 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'untranslated_def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'info' => {
                         'inserted' => 1
                       },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'info' => {
                         'inserted' => 1
                       },
@@ -896,15 +824,9 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -919,15 +841,9 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -942,9 +858,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
                       'type' => 'def_arg'
                     }
                   ],
@@ -972,9 +885,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
@@ -991,9 +901,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     }
                   ]
@@ -1011,9 +918,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
@@ -1030,9 +934,6 @@ $result_trees{'multiple_in_preamble'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'class'
-                      },
                       'type' => 'def_class'
                     }
                   ]

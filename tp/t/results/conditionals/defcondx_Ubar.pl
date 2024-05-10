@@ -114,9 +114,6 @@ $result_trees{'defcondx_Ubar'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'type' => 'def_category'
                     }
                   ],

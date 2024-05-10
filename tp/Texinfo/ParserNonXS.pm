@@ -3154,7 +3154,6 @@ sub _split_delimiters
                               $current_position, length($1));
       } elsif ($text =~ s/^([$chars])//) {
         push @elements, {'text' => $1, 'type' => 'delimiter',
-                         'extra' => {'def_role' => 'delimiter'},
                          'parent' => $root->{'parent'}};
         $current_position = Texinfo::Common::relocate_source_marks(
                                  $remaining_source_marks, $elements[-1],
@@ -3203,9 +3202,6 @@ sub _split_def_args
                                $current_position, length($t));
       if ($type) {
         $e->{'type'} = $type;
-        if ($type eq 'spaces') {
-          $e->{'extra'} = {'def_role' => 'spaces'};
-        }
         $type = undef;
       } else {
         $type = 'spaces';
@@ -3328,7 +3324,6 @@ sub _parse_def($$$$)
                        { 'text' => ' ', 'type' => 'spaces',
                          'info' => {'inserted' => 1},
                          'parent' => $current,
-                         'extra' => {'def_role' => 'spaces'},
                        };
 
     $command = $def_aliases{$command};
@@ -3371,17 +3366,10 @@ sub _parse_def($$$$)
     $current->{'contents'}->[0]->{'info'} = {'inserted' => 1};
   }
 
-  foreach my $type (keys(%result)) {
-    my $element = $result{$type};
-    $element->{'extra'} = {} if (!$element->{'extra'});
-    $element->{'extra'}->{'def_role'} = $type;
-  }
-
   my @args_results = map (_split_delimiters($self, $_, $current, $source_info),
                           splice(@{$current->{'contents'}}, $contents_idx,
                                  scalar(@{$current->{'contents'}}) - $contents_idx));
 
-  # set def_role for the rest of arguments.
   my $set_type_not_arg = 1;
   # For some commands, alternate between "arg" and "typearg".
   # In that case $set_type_not_arg is both used to set to argtype and
@@ -3392,7 +3380,7 @@ sub _parse_def($$$$)
 
   for (my $j = 0; $j < scalar(@args_results); $j++) {
     my $content = $args_results[$j];
-    my $def_role;
+    my $def_type;
     if ($content->{'type'} and $content->{'type'} eq 'spaces') {
     } elsif ($content->{'type'} and $content->{'type'} eq 'delimiter') {
       $type = $set_type_not_arg;
@@ -3401,20 +3389,19 @@ sub _parse_def($$$$)
              and scalar(@{$content->{'contents'}}) == 1
              and $content->{'contents'}->[0]->{'cmdname'}
              and $content->{'contents'}->[0]->{'cmdname'} ne 'code') {
-      $def_role = 'arg';
+      $def_type = 'def_arg';
       $type = $set_type_not_arg;
     } else {
       if ($type == 1) {
-        $def_role = 'arg';
+        $def_type = 'def_arg';
       } else {
-        $def_role = 'typearg';
+        $def_type = 'def_typearg';
       }
       $type = $type * $set_type_not_arg;
     }
-    if (defined($def_role)) {
-      my $new_def_type = {'type' => 'def_'.$def_role,
-                          'parent' => $content->{'parent'},
-                          'extra' => {'def_role' => $def_role}};
+    if (defined($def_type)) {
+      my $new_def_type = {'type' => $def_type,
+                          'parent' => $content->{'parent'},};
       $new_def_type->{'contents'} = [$content];
       $content->{'parent'} = $new_def_type;
       $args_results[$j] = $new_def_type;
@@ -8900,10 +8887,10 @@ appearing after the definition command without x.
 
 =item C<def_line>
 
-For each element in a C<def_line>, the key I<def_role> holds a string
-describing the meaning of the element.  It is one of
-I<category>, I<name>, I<class>, I<type>, I<arg>, I<typearg>,
-I<spaces> or I<delimiter>, depending on the definition.
+For each element in a C<def_line>, the type of the element
+describes the meaning of the element.  It is one of
+I<def_category>, I<def_name>, I<def_class>, I<def_type>, I<def_arg>,
+I<def_typearg>, I<spaces> or I<delimiter>, depending on the definition.
 
 The I<def_index_element> is a Texinfo tree element corresponding to
 the index entry associated to the definition line, based on the

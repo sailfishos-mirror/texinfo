@@ -1,5 +1,13 @@
 2024-05-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_split_delimiters, _split_def_args)
+	(_parse_def), tp/Texinfo/XS/parsetexi/def.c (split_delimiters)
+	(split_def_args, parse_def): remove completly extra def_role from the
+	tree now that definition line arguments container types are used
+	instead.
+
+2024-05-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (%def_argument_types_docbook)
 	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
 	tp/Texinfo/Convert/Utils.pm (definition_arguments_content)

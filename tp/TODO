@@ -94,8 +94,7 @@ ELEMENT *elements[3]
   marks aren't recorded.
 
 4) separate the structure of text elements and other elements, as text elements
-   never have contents/args/info, have cmd != 0.
-  extra: only diverse def_role
+   never have contents/args/info/extra, have cmd != 0.
 
 
 check for comma after @xref{...}, in parser to simplify checking for

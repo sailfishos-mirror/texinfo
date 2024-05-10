@@ -259,7 +259,6 @@ split_delimiters (ELEMENT *current, int starting_idx)
                 }
 
               insert_into_contents (current, new, i++);
-              add_extra_string_dup (new, "def_role", "delimiter");
               if (!*++p)
                 break;
               continue;
@@ -343,7 +342,6 @@ split_def_args (ELEMENT *current, int starting_idx)
           if (len)
             {
               new = new_element (ET_spaces);
-              add_extra_string_dup (new, "def_role", "spaces");
             }
           else
             {
@@ -423,7 +421,6 @@ parse_def (enum command_id command, ELEMENT *current)
 
       e = new_element (ET_spaces);
       text_append_n (&e->text, " ", 1);
-      add_extra_string_dup (e, "def_role", "spaces");
       add_info_integer (e, "inserted", 1);
       insert_into_contents (current, e, contents_idx + 1);
     }
@@ -481,8 +478,6 @@ parse_def (enum command_id command, ELEMENT *current)
       if (result[i])
         {
           DEF_ARG *def_arg = result[i];
-          if (def_arg->element)
-            add_extra_string_dup (def_arg->element, "def_role", def_arg->arg_type);
         }
       else
         break;
@@ -536,8 +531,6 @@ parse_def (enum command_id command, ELEMENT *current)
       new_def_type->parent = e->parent;
       add_to_element_contents (new_def_type, e);
       current->contents.list[i] = new_def_type;
-      add_extra_string_dup (new_def_type, "def_role",
-                            ((def_arg_type == ET_def_arg) ? "arg" : "typearg"));
     }
   return result;
 }

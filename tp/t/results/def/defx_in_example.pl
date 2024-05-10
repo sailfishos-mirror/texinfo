@@ -41,15 +41,9 @@ $result_trees{'defx_in_example'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'category'
-                          },
                           'type' => 'def_category'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'text' => ' ',
                           'type' => 'spaces'
                         },
@@ -77,15 +71,9 @@ $result_trees{'defx_in_example'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'name'
-                          },
                           'type' => 'def_name'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'text' => ' ',
                           'type' => 'spaces'
                         },
@@ -100,15 +88,9 @@ $result_trees{'defx_in_example'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'arg'
-                          },
                           'type' => 'def_arg'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'text' => ' ',
                           'type' => 'spaces'
                         },
@@ -123,9 +105,6 @@ $result_trees{'defx_in_example'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'arg'
-                          },
                           'type' => 'def_arg'
                         }
                       ],
@@ -170,15 +149,9 @@ $result_trees{'defx_in_example'} = {
                               'type' => 'bracketed_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'category'
-                          },
                           'type' => 'def_category'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'text' => ' ',
                           'type' => 'spaces'
                         },
@@ -193,15 +166,9 @@ $result_trees{'defx_in_example'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'name'
-                          },
                           'type' => 'def_name'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'text' => ' ',
                           'type' => 'spaces'
                         },
@@ -216,9 +183,6 @@ $result_trees{'defx_in_example'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'arg'
-                          },
                           'type' => 'def_arg'
                         }
                       ],

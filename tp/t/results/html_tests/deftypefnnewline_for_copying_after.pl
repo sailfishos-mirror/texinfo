@@ -41,18 +41,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'category'
-                          },
                           'info' => {
                             'inserted' => 1
                           },
                           'type' => 'def_category'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'info' => {
                             'inserted' => 1
                           },
@@ -70,15 +64,9 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'type'
-                          },
                           'type' => 'def_type'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'text' => ' ',
                           'type' => 'spaces'
                         },
@@ -93,15 +81,9 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'name'
-                          },
                           'type' => 'def_name'
                         },
                         {
-                          'extra' => {
-                            'def_role' => 'spaces'
-                          },
                           'text' => ' ',
                           'type' => 'spaces'
                         },
@@ -116,9 +98,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                               'type' => 'def_line_arg'
                             }
                           ],
-                          'extra' => {
-                            'def_role' => 'typearg'
-                          },
                           'type' => 'def_typearg'
                         }
                       ],
@@ -457,18 +436,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
                       'info' => {
                         'inserted' => 1
                       },
                       'type' => 'def_category'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'info' => {
                         'inserted' => 1
                       },
@@ -486,15 +459,9 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'type'
-                      },
                       'type' => 'def_type'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -509,15 +476,9 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
                       'type' => 'def_name'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -532,9 +493,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'type' => 'def_line_arg'
                         }
                       ],
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
                       'type' => 'def_typearg'
                     }
                   ],
