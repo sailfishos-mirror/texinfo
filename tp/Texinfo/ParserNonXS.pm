@@ -3356,7 +3356,6 @@ sub _parse_def($$$$)
       $element->{'parent'} = $new_def_type;
       $current->{'contents'}->[$contents_idx - 1] = $new_def_type;
 
-      #$result{$args[$i]} = $element;
       $result{$args[$i]} = $new_def_type;
     } else {
       last;

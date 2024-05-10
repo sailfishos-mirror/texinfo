@@ -273,11 +273,6 @@ typedef struct {
 } NODE_SPEC_EXTRA;
 
 typedef struct {
-    char *arg_type;
-    ELEMENT *element;
-} DEF_ARG;
-
-typedef struct {
     size_t label_number;
     const char *identifier;
     ELEMENT *element;
