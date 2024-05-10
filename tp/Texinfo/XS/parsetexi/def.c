@@ -444,10 +444,9 @@ parse_def (enum command_id command, ELEMENT *current)
   arguments_types_list = def_maps[i_def].argument_types;
   while (arguments_list[arg_types_nr])
     {
-      char *arg_type_name = arguments_list[arg_types_nr];
+      enum element_type arg_type = arguments_types_list[arg_types_nr];
 
-      if (!strcmp (arg_type_name, "arg")
-          || !strcmp (arg_type_name, "argtype"))
+      if (arg_type == ET_def_typearg || arg_type == ET_def_arg)
         break;
       arg_types_nr++;
     }
@@ -460,7 +459,7 @@ parse_def (enum command_id command, ELEMENT *current)
       if (e)
         {
           char *arg_type_name = arguments_list[i];
-          enum command_id arg_type = arguments_types_list[i];
+          enum element_type arg_type = arguments_types_list[i];
           DEF_ARG *def_arg = malloc (sizeof (DEF_ARG));
           ELEMENT *new_def_type = new_element (arg_type);
 

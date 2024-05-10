@@ -1,5 +1,11 @@
 2024-05-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/def.c (parse_def): use definition line
+	argument element type instead of role string to determine the type of
+	argument on definition line.
+
+2024-05-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
 	tp/Texinfo/ParserNonXS.pm (_parse_def, _end_line_def_line),
 	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/parsetexi/def.c
