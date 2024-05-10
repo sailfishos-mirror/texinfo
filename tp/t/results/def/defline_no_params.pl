@@ -33,13 +33,18 @@ $result_trees{'defline_no_params'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Builtin'
+                          'contents' => [
+                            {
+                              'text' => 'Builtin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -51,13 +56,18 @@ $result_trees{'defline_no_params'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {

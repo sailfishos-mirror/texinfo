@@ -183,13 +183,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'da'
+                          'contents' => [
+                            {
+                              'text' => 'da'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -201,13 +206,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'db'
+                          'contents' => [
+                            {
+                              'text' => 'db'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -219,13 +229,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'dc'
+                          'contents' => [
+                            {
+                              'text' => 'dc'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -237,13 +252,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'dd'
+                          'contents' => [
+                            {
+                              'text' => 'dd'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -255,13 +275,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'de'
+                          'contents' => [
+                            {
+                              'text' => 'de'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -280,13 +305,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'dd'
+                          'contents' => [
+                            {
+                              'text' => 'dd'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' de '
@@ -294,13 +324,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'db'
+                          'contents' => [
+                            {
+                              'text' => 'db'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -309,13 +344,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'dd'
+                          'contents' => [
+                            {
+                              'text' => 'dd'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -323,13 +363,18 @@ $result_trees{'translation_in_parser_in_translation'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'db'
+                          'contents' => [
+                            {
+                              'text' => 'db'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },

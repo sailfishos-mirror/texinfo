@@ -44,13 +44,18 @@ $result_trees{'menu_in_deffn'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -62,13 +67,18 @@ $result_trees{'menu_in_deffn'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'b'
+                          'contents' => [
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -80,13 +90,18 @@ $result_trees{'menu_in_deffn'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

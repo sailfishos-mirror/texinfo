@@ -97,16 +97,21 @@ $result_trees{'no_category_or_no_name'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'only category'
+                          'contents' => [
+                            {
+                              'text' => 'only category'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 5
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {
@@ -196,13 +201,18 @@ $result_trees{'no_category_or_no_name'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -214,13 +224,18 @@ $result_trees{'no_category_or_no_name'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'b'
+                          'contents' => [
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -232,13 +247,18 @@ $result_trees{'no_category_or_no_name'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -250,13 +270,18 @@ $result_trees{'no_category_or_no_name'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd'
+                          'contents' => [
+                            {
+                              'text' => 'd'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -289,13 +314,18 @@ $result_trees{'no_category_or_no_name'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'deffnx_category'
+                          'contents' => [
+                            {
+                              'text' => 'deffnx_category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {

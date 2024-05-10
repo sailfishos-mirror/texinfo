@@ -427,19 +427,26 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Method',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'fr',
+                            'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
+                          },
+                          'type' => 'untranslated_def_line_arg'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'fr',
-                        'translation_context' => 'category of methods with data type in object-oriented programming for @deftypemethod'
+                        'def_role' => 'category'
                       },
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'untranslated_def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -454,13 +461,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class'
+                          'contents' => [
+                            {
+                              'text' => 'class'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -472,13 +484,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'data-type'
+                          'contents' => [
+                            {
+                              'text' => 'data-type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -490,13 +507,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -508,13 +530,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arguments'
+                          'contents' => [
+                            {
+                              'text' => 'arguments'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -533,13 +560,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' de '
@@ -547,13 +579,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class'
+                          'contents' => [
+                            {
+                              'text' => 'class'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -562,13 +599,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -576,13 +618,18 @@ $result_trees{'documentlanguage_option'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class'
+                          'contents' => [
+                            {
+                              'text' => 'class'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },

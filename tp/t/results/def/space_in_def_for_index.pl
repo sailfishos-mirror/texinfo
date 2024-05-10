@@ -75,24 +75,29 @@ $result_trees{'space_in_def_for_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Category'
+                          'contents' => [
+                            {
+                              'text' => 'Category'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 4
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -104,24 +109,29 @@ $result_trees{'space_in_def_for_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 4
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -133,24 +143,29 @@ $result_trees{'space_in_def_for_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'argument'
+                          'contents' => [
+                            {
+                              'text' => 'argument'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 4
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -162,13 +177,18 @@ $result_trees{'space_in_def_for_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'argument2...'
+                          'contents' => [
+                            {
+                              'text' => 'argument2...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -202,16 +222,21 @@ $result_trees{'space_in_def_for_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'AAA1'
+                          'contents' => [
+                            {
+                              'text' => 'AAA1'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 5
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -223,16 +248,21 @@ $result_trees{'space_in_def_for_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'AAA2'
+                          'contents' => [
+                            {
+                              'text' => 'AAA2'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 5
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -244,13 +274,18 @@ $result_trees{'space_in_def_for_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg3'
+                          'contents' => [
+                            {
+                              'text' => 'arg3'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

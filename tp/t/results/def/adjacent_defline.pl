@@ -33,13 +33,18 @@ $result_trees{'adjacent_defline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Funoid'
+                          'contents' => [
+                            {
+                              'text' => 'Funoid'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -51,13 +56,18 @@ $result_trees{'adjacent_defline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -76,13 +86,18 @@ $result_trees{'adjacent_defline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bar'
+                          'contents' => [
+                            {
+                              'text' => 'bar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -124,13 +139,18 @@ $result_trees{'adjacent_defline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Funnyoid'
+                          'contents' => [
+                            {
+                              'text' => 'Funnyoid'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -142,13 +162,18 @@ $result_trees{'adjacent_defline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo2'
+                          'contents' => [
+                            {
+                              'text' => 'foo2'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -167,13 +192,18 @@ $result_trees{'adjacent_defline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bar2'
+                          'contents' => [
+                            {
+                              'text' => 'bar2'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -192,13 +222,18 @@ $result_trees{'adjacent_defline'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'baz2'
+                          'contents' => [
+                            {
+                              'text' => 'baz2'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {

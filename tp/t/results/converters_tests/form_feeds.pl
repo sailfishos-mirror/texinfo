@@ -428,24 +428,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 28
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 28
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -457,24 +462,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'machin'
+                          'contents' => [
+                            {
+                              'text' => 'machin'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 28
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 28
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -486,24 +496,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bidule'
+                          'contents' => [
+                            {
+                              'text' => 'bidule'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 28
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 28
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -515,24 +530,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'chose'
+                          'contents' => [
+                            {
+                              'text' => 'chose'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => '  '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 28
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => '  '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 28
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -544,24 +564,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => '  '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 28
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => '  '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 28
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -595,24 +620,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'xtruc'
+                          'contents' => [
+                            {
+                              'text' => 'xtruc'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 29
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 29
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -624,24 +654,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'xmachin'
+                          'contents' => [
+                            {
+                              'text' => 'xmachin'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 29
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 29
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -653,24 +688,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'xbidule'
+                          'contents' => [
+                            {
+                              'text' => 'xbidule'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 29
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 29
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -682,24 +722,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'xchose'
+                          'contents' => [
+                            {
+                              'text' => 'xchose'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => '  '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 29
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => '  '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 29
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -711,24 +756,29 @@ $result_trees{'form_feeds'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'xarg'
+                          'contents' => [
+                            {
+                              'text' => 'xarg'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            },
+                            'spaces_before_argument' => {
+                              'text' => '  '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 29
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => '  '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 29
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

@@ -19,33 +19,38 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in anchor'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in anchor'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'anchor',
+                              'extra' => {
+                                'is_target' => 1,
+                                'normalized' => 'in-anchor'
+                              },
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'anchor',
-                          'extra' => {
-                            'is_target' => 1,
-                            'normalized' => 'in-anchor'
-                          },
                           'source_info' => {
                             'line_nr' => 1
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -57,27 +62,32 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in titlefont'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in titlefont'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'titlefont',
+                              'extra' => {},
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'titlefont',
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -89,32 +99,37 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
                                   'contents' => [
                                     {
-                                      'text' => 'footnote'
+                                      'contents' => [
+                                        {
+                                          'text' => 'footnote'
+                                        }
+                                      ],
+                                      'type' => 'paragraph'
                                     }
                                   ],
-                                  'type' => 'paragraph'
+                                  'type' => 'brace_command_context'
                                 }
                               ],
-                              'type' => 'brace_command_context'
+                              'cmdname' => 'footnote',
+                              'extra' => {},
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'footnote',
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -126,37 +141,42 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'exdent'
+                                  'contents' => [
+                                    {
+                                      'text' => 'exdent'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
                                 }
                               ],
+                              'cmdname' => 'exdent',
                               'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
+                                'spaces_before_argument' => {
+                                  'text' => ' '
                                 }
                               },
-                              'type' => 'line_arg'
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'exdent',
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -183,33 +203,38 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in anchorx'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in anchorx'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'anchor',
+                              'extra' => {
+                                'is_target' => 1,
+                                'normalized' => 'in-anchorx'
+                              },
+                              'source_info' => {
+                                'line_nr' => 2
+                              }
                             }
                           ],
-                          'cmdname' => 'anchor',
-                          'extra' => {
-                            'is_target' => 1,
-                            'normalized' => 'in-anchorx'
-                          },
                           'source_info' => {
                             'line_nr' => 2
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -221,27 +246,32 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in titlefontx'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in titlefontx'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'titlefont',
+                              'extra' => {},
+                              'source_info' => {
+                                'line_nr' => 2
+                              }
                             }
                           ],
-                          'cmdname' => 'titlefont',
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -253,32 +283,37 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
                                   'contents' => [
                                     {
-                                      'text' => 'footnotex'
+                                      'contents' => [
+                                        {
+                                          'text' => 'footnotex'
+                                        }
+                                      ],
+                                      'type' => 'paragraph'
                                     }
                                   ],
-                                  'type' => 'paragraph'
+                                  'type' => 'brace_command_context'
                                 }
                               ],
-                              'type' => 'brace_command_context'
+                              'cmdname' => 'footnote',
+                              'extra' => {},
+                              'source_info' => {
+                                'line_nr' => 2
+                              }
                             }
                           ],
-                          'cmdname' => 'footnote',
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -290,37 +325,42 @@ $result_trees{'on_def_line'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'exdentx'
+                                  'contents' => [
+                                    {
+                                      'text' => 'exdentx'
+                                    }
+                                  ],
+                                  'info' => {
+                                    'spaces_after_argument' => {
+                                      'text' => '
+'
+                                    }
+                                  },
+                                  'type' => 'line_arg'
                                 }
                               ],
+                              'cmdname' => 'exdent',
                               'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
+                                'spaces_before_argument' => {
+                                  'text' => ' '
                                 }
                               },
-                              'type' => 'line_arg'
+                              'source_info' => {
+                                'line_nr' => 2
+                              }
                             }
                           ],
-                          'cmdname' => 'exdent',
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'type' => 'line_arg'

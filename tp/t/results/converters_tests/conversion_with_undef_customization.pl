@@ -413,13 +413,18 @@ $result_trees{'conversion_with_undef_customization'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -431,13 +436,18 @@ $result_trees{'conversion_with_undef_customization'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -449,13 +459,18 @@ $result_trees{'conversion_with_undef_customization'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -467,13 +482,18 @@ $result_trees{'conversion_with_undef_customization'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -499,13 +519,18 @@ $result_trees{'conversion_with_undef_customization'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'aa'
+                          'contents' => [
+                            {
+                              'text' => 'aa'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {

@@ -117,19 +117,26 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'fr_NOWHERE',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                          },
+                          'type' => 'untranslated_def_line_arg'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'fr_NOWHERE',
-                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                        'def_role' => 'category'
                       },
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'untranslated_def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -144,13 +151,18 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'AAA'
+                          'contents' => [
+                            {
+                              'text' => 'AAA'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -162,13 +174,18 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'BBB'
+                          'contents' => [
+                            {
+                              'text' => 'BBB'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -180,13 +197,18 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'CCC'
+                          'contents' => [
+                            {
+                              'text' => 'CCC'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -205,13 +227,18 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'BBB'
+                          'contents' => [
+                            {
+                              'text' => 'BBB'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' de '
@@ -219,13 +246,18 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'AAA'
+                          'contents' => [
+                            {
+                              'text' => 'AAA'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -234,13 +266,18 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'BBB'
+                          'contents' => [
+                            {
+                              'text' => 'BBB'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -248,13 +285,18 @@ $result_trees{'unknown_region'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'AAA'
+                          'contents' => [
+                            {
+                              'text' => 'AAA'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },

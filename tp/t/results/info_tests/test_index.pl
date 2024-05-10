@@ -279,13 +279,18 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'fset'
+                          'contents' => [
+                            {
+                              'text' => 'fset'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -297,26 +302,31 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'i'
+                                  'contents' => [
+                                    {
+                                      'text' => 'i'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 12
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 12
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -328,13 +338,18 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -346,13 +361,18 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'g'
+                          'contents' => [
+                            {
+                              'text' => 'g'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -386,13 +406,18 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -404,13 +429,18 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'machin'
+                          'contents' => [
+                            {
+                              'text' => 'machin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -422,13 +452,18 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bidule'
+                          'contents' => [
+                            {
+                              'text' => 'bidule'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -440,13 +475,18 @@ $result_trees{'test_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'chose'
+                          'contents' => [
+                            {
+                              'text' => 'chose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

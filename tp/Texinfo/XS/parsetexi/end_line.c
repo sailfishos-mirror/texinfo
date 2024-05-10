@@ -706,11 +706,12 @@ end_line_def_line (ELEMENT *current)
       if (def_info_name)
         {
           char *t;
+          ELEMENT *arg = def_info_name->contents.list[0];
           /* Set index_entry unless an empty ET_bracketed_arg. */
-          if (def_info_name->type == ET_bracketed_arg
-              && (def_info_name->contents.number == 0
-                  || (def_info_name->contents.number == 1
-                      && (t = def_info_name->contents.list[0]->text.text)
+          if (arg->type == ET_bracketed_arg
+              && (arg->contents.number == 0
+                  || (arg->contents.number == 1
+                      && (t = arg->contents.list[0]->text.text)
                       && t[strspn (t, whitespace_chars)] == '\0')))
             {
             }

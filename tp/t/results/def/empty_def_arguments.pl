@@ -19,13 +19,18 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'fset'
+                          'contents' => [
+                            {
+                              'text' => 'fset'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -37,26 +42,31 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'i'
+                                  'contents' => [
+                                    {
+                                      'text' => 'i'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -68,13 +78,18 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -86,13 +101,18 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'g'
+                          'contents' => [
+                            {
+                              'text' => 'g'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -125,45 +145,50 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'id '
-                                },
-                                {
-                                  'args' => [
+                                  'contents' => [
                                     {
-                                      'contents' => [
+                                      'text' => 'id '
+                                    },
+                                    {
+                                      'args' => [
                                         {
-                                          'text' => 'i'
+                                          'contents' => [
+                                            {
+                                              'text' => 'i'
+                                            }
+                                          ],
+                                          'type' => 'brace_command_arg'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'cmdname' => 'samp',
+                                      'source_info' => {
+                                        'line_nr' => 2
+                                      }
+                                    },
+                                    {
+                                      'text' => ' ule'
                                     }
                                   ],
-                                  'cmdname' => 'samp',
-                                  'source_info' => {
-                                    'line_nr' => 2
-                                  }
-                                },
-                                {
-                                  'text' => ' ule'
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 2
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {
@@ -219,13 +244,18 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'aaa'
+                          'contents' => [
+                            {
+                              'text' => 'aaa'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {
@@ -257,13 +287,18 @@ $result_trees{'empty_def_arguments'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 5
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -273,13 +308,18 @@ $result_trees{'empty_def_arguments'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 5
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 5
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -311,13 +351,18 @@ $result_trees{'empty_def_arguments'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 6
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 6
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {
@@ -346,16 +391,21 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 7
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 7
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -365,18 +415,23 @@ $result_trees{'empty_def_arguments'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 7
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 7
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -405,16 +460,21 @@ $result_trees{'empty_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 8
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 8
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {
@@ -441,13 +501,18 @@ $result_trees{'empty_def_arguments'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 9
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -457,13 +522,18 @@ $result_trees{'empty_def_arguments'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 9
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {

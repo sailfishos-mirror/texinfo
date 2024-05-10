@@ -1539,9 +1539,12 @@ sub _convert($$;$)
             } else {
               $format_element = $type;
             }
-            if ($arg->{'type'} and $arg->{'type'} eq 'bracketed_arg') {
+            if ($arg->{'contents'} and scalar($arg->{'contents'})
+                and $arg->{'contents'}->[0]->{'type'}
+                and $arg->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
               push @$attribute, ['bracketed', 'on'];
-              push @$attribute, _leading_trailing_spaces_arg($arg);
+              push @$attribute,
+                 _leading_trailing_spaces_arg($arg->{'contents'}->[0]);
             }
             $result
               .= $self->txi_markup_open_element("def$format_element", $attribute)
@@ -1568,8 +1571,8 @@ sub _convert($$;$)
              and not ($element->{'parent'}->{'parent'}->{'cmdname'}
                       and $element->{'parent'}->{'parent'}->{'cmdname'}
                                                            eq 'multitable')
-             and (!$element->{'extra'}
-                  or !defined($element->{'extra'}->{'def_role'}))) {
+             and (!$element->{'parent'}->{'extra'}
+                  or !defined($element->{'parent'}->{'extra'}->{'def_role'}))) {
       my $attribute = [];
       push @$attribute, ['bracketed', 'on'];
       push @$attribute, _leading_trailing_spaces_arg($element);

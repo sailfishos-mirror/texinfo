@@ -292,16 +292,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'cat: r. a'
+                          'contents' => [
+                            {
+                              'text' => 'cat: r. a'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 18
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 18
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -313,16 +318,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class: MyC. b'
+                          'contents' => [
+                            {
+                              'text' => 'class: MyC. b'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 18
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 18
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -334,16 +344,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type: t. c'
+                          'contents' => [
+                            {
+                              'text' => 'type: t. c'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 18
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'source_info' => {
-                        'line_nr' => 18
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -355,16 +370,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name? n. d'
+                          'contents' => [
+                            {
+                              'text' => 'name? n. d'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 18
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 18
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -376,13 +396,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg?'
+                          'contents' => [
+                            {
+                              'text' => 'arg?'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -394,13 +419,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e:'
+                          'contents' => [
+                            {
+                              'text' => 'e:'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -412,13 +442,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f.'
+                          'contents' => [
+                            {
+                              'text' => 'f.'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -430,26 +465,31 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'v: g. h'
+                                  'contents' => [
+                                    {
+                                      'text' => 'v: g. h'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 18
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 18
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -461,26 +501,31 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'code? is: k'
+                                  'contents' => [
+                                    {
+                                      'text' => 'code? is: k'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 18
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 18
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -499,13 +544,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name? n. d'
+                          'contents' => [
+                            {
+                              'text' => 'name? n. d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -513,13 +563,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class: MyC. b'
+                          'contents' => [
+                            {
+                              'text' => 'class: MyC. b'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -528,13 +583,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name? n. d'
+                          'contents' => [
+                            {
+                              'text' => 'name? n. d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -542,13 +602,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class: MyC. b'
+                          'contents' => [
+                            {
+                              'text' => 'class: MyC. b'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -633,16 +698,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vcat: r. z'
+                          'contents' => [
+                            {
+                              'text' => 'vcat: r. z'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 22
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 22
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -654,16 +724,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vclass: MyC. u'
+                          'contents' => [
+                            {
+                              'text' => 'vclass: MyC. u'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 22
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 22
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -675,16 +750,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vname? n; d'
+                          'contents' => [
+                            {
+                              'text' => 'vname? n; d'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 22
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 22
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -696,80 +776,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'varg?'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 've:'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f.'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'vv: g? b'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
+                              'text' => 'varg?'
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 22
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -781,26 +799,113 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'vcode? is: a'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
+                              'text' => 've:'
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 22
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'f.'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'vv: g? b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 22
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'vcode? is: a'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 22
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -819,13 +924,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vname? n; d'
+                          'contents' => [
+                            {
+                              'text' => 'vname? n; d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -833,13 +943,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vclass: MyC. u'
+                          'contents' => [
+                            {
+                              'text' => 'vclass: MyC. u'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -848,13 +963,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vname? n; d'
+                          'contents' => [
+                            {
+                              'text' => 'vname? n; d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -862,13 +982,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vclass: MyC. u'
+                          'contents' => [
+                            {
+                              'text' => 'vclass: MyC. u'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1160,16 +1285,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'cat: r. a'
+                          'contents' => [
+                            {
+                              'text' => 'cat: r. a'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 38
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 38
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1181,16 +1311,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class: MyC. b'
+                          'contents' => [
+                            {
+                              'text' => 'class: MyC. b'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 38
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 38
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -1202,16 +1337,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type: t. c'
+                          'contents' => [
+                            {
+                              'text' => 'type: t. c'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 38
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'source_info' => {
-                        'line_nr' => 38
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1223,16 +1363,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name? n. d'
+                          'contents' => [
+                            {
+                              'text' => 'name? n. d'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 38
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 38
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1244,13 +1389,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'narg?'
+                          'contents' => [
+                            {
+                              'text' => 'narg?'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1262,13 +1412,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e:'
+                          'contents' => [
+                            {
+                              'text' => 'e:'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1280,13 +1435,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f.'
+                          'contents' => [
+                            {
+                              'text' => 'f.'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1298,26 +1458,31 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'v: g. h'
+                                  'contents' => [
+                                    {
+                                      'text' => 'v: g. h'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 38
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 38
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1329,26 +1494,31 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'code? is: k'
+                                  'contents' => [
+                                    {
+                                      'text' => 'code? is: k'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 38
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 38
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -1367,13 +1537,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name? n. d'
+                          'contents' => [
+                            {
+                              'text' => 'name? n. d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -1381,13 +1556,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class: MyC. b'
+                          'contents' => [
+                            {
+                              'text' => 'class: MyC. b'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1396,13 +1576,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name? n. d'
+                          'contents' => [
+                            {
+                              'text' => 'name? n. d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -1410,13 +1595,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'class: MyC. b'
+                          'contents' => [
+                            {
+                              'text' => 'class: MyC. b'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1501,16 +1691,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vcat: r. z'
+                          'contents' => [
+                            {
+                              'text' => 'vcat: r. z'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 42
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 42
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1522,16 +1717,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'nvclass: MyC. u'
+                          'contents' => [
+                            {
+                              'text' => 'nvclass: MyC. u'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 42
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 42
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -1543,16 +1743,21 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vname? n; d'
+                          'contents' => [
+                            {
+                              'text' => 'vname? n; d'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 42
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 42
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1564,80 +1769,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'varg?'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 've:'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f.'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'vv: g? b'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
+                              'text' => 'varg?'
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 42
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1649,26 +1792,113 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'vcode? is: a'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
+                              'text' => 've:'
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 42
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'f.'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'vv: g? b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 42
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'vcode? is: a'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 42
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -1687,13 +1917,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vname? n; d'
+                          'contents' => [
+                            {
+                              'text' => 'vname? n; d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -1701,13 +1936,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'nvclass: MyC. u'
+                          'contents' => [
+                            {
+                              'text' => 'nvclass: MyC. u'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1716,13 +1956,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'vname? n; d'
+                          'contents' => [
+                            {
+                              'text' => 'vname? n; d'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -1730,13 +1975,18 @@ $result_trees{'frenchspacing_and_code'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'nvclass: MyC. u'
+                          'contents' => [
+                            {
+                              'text' => 'nvclass: MyC. u'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },

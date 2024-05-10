@@ -19,7 +19,12 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -28,7 +33,7 @@ $result_trees{'def_defx_mismatch'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -43,16 +48,21 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'my def'
+                          'contents' => [
+                            {
+                              'text' => 'my def'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 1
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -64,13 +74,18 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'args'
+                          'contents' => [
+                            {
+                              'text' => 'args'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -82,26 +97,31 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'arg'
+                                  'contents' => [
+                                    {
+                                      'text' => 'arg'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -113,21 +133,26 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'args' => [
+                                {
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'dots',
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'dots',
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -160,16 +185,21 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 2
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -181,16 +211,21 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 2
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -202,13 +237,18 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'and'
+                          'contents' => [
+                            {
+                              'text' => 'and'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -220,13 +260,18 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'now'
+                          'contents' => [
+                            {
+                              'text' => 'now'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -238,13 +283,18 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'the'
+                          'contents' => [
+                            {
+                              'text' => 'the'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -256,13 +306,18 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'args'
+                          'contents' => [
+                            {
+                              'text' => 'args'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

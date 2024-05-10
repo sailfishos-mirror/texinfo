@@ -167,13 +167,18 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -185,33 +190,38 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
-                        },
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'a'
+                            },
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'b c'
+                                  'contents' => [
+                                    {
+                                      'text' => 'b c'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 9,
+                                'macro' => 'mylinecommand'
+                              }
+                            },
+                            {
+                              'text' => 'd'
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'mylinecommand'
-                          }
-                        },
-                        {
-                          'text' => 'd'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -223,13 +233,18 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'some'
+                          'contents' => [
+                            {
+                              'text' => 'some'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -241,13 +256,18 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -266,13 +286,18 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'b'
+                          'contents' => [
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -284,24 +309,29 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'contents' => [
                         {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 2,
-                              'position' => 5,
-                              'sourcemark_type' => 'defline_continuation'
+                              'source_marks' => [
+                                {
+                                  'counter' => 2,
+                                  'position' => 5,
+                                  'sourcemark_type' => 'defline_continuation'
+                                }
+                              ],
+                              'text' => 'next    last'
                             }
                           ],
-                          'text' => 'next    last'
+                          'source_info' => {
+                            'line_nr' => 9,
+                            'macro' => 'mylinecommand'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 9,
-                        'macro' => 'mylinecommand'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -313,21 +343,26 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                     {
                       'contents' => [
                         {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 1,
-                              'position' => 4,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'end'
+                              'source_marks' => [
+                                {
+                                  'counter' => 1,
+                                  'position' => 4,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ],
+                              'text' => 'line'
                             }
                           ],
-                          'text' => 'line'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

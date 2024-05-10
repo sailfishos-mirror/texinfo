@@ -104,7 +104,12 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -113,7 +118,7 @@ $result_trees{'omit_def_space'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -128,13 +133,18 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'function'
+                          'contents' => [
+                            {
+                              'text' => 'function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -153,13 +163,18 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg1'
+                          'contents' => [
+                            {
+                              'text' => 'arg1'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -178,13 +193,18 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg2'
+                          'contents' => [
+                            {
+                              'text' => 'arg2'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -226,7 +246,12 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -235,7 +260,7 @@ $result_trees{'omit_def_space'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -250,13 +275,18 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'another'
+                          'contents' => [
+                            {
+                              'text' => 'another'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -275,13 +305,18 @@ $result_trees{'omit_def_space'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'aarg'
+                          'contents' => [
+                            {
+                              'text' => 'aarg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {

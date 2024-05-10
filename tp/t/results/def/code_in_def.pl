@@ -19,13 +19,18 @@ $result_trees{'code_in_def'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -37,13 +42,18 @@ $result_trees{'code_in_def'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'int'
+                          'contents' => [
+                            {
+                              'text' => 'int'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -55,13 +65,18 @@ $result_trees{'code_in_def'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -80,29 +95,34 @@ $result_trees{'code_in_def'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'const std::vector<int>'
-                                },
-                                {
-                                  'cmdname' => '&'
+                                  'contents' => [
+                                    {
+                                      'text' => 'const std::vector<int>'
+                                    },
+                                    {
+                                      'cmdname' => '&'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 1
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -114,13 +134,18 @@ $result_trees{'code_in_def'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bar'
+                          'contents' => [
+                            {
+                              'text' => 'bar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {

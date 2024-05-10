@@ -85,6 +85,12 @@ bracketed_arg
 bracketed_linemacro_arg
 def_line_arg
 untranslated_def_line_arg
+def_category
+def_type
+def_name
+def_typearg
+def_arg
+def_class
 
 # for unexpanded parts of conditionals
 elided_rawpreformatted

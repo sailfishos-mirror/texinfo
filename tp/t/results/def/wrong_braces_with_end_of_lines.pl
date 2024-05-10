@@ -19,13 +19,18 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -37,13 +42,18 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -55,50 +65,60 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'args'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'more args'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 1,
-                              'position' => 1,
-                              'sourcemark_type' => 'defline_continuation'
+                              'text' => 'args'
                             }
                           ],
-                          'text' => '   '
+                          'type' => 'def_line_arg'
                         }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
                       },
-                      'type' => 'bracketed_arg'
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'more args'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            },
+                            'spaces_before_argument' => {
+                              'source_marks' => [
+                                {
+                                  'counter' => 1,
+                                  'position' => 1,
+                                  'sourcemark_type' => 'defline_continuation'
+                                }
+                              ],
+                              'text' => '   '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 1
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'type' => 'block_line_arg'
@@ -193,13 +213,18 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -211,13 +236,18 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -229,13 +259,18 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'args'
+                          'contents' => [
+                            {
+                              'text' => 'args'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -254,13 +289,18 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'more'
+                          'contents' => [
+                            {
+                              'text' => 'more'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -272,13 +312,18 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'args'
+                          'contents' => [
+                            {
+                              'text' => 'args'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

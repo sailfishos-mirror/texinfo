@@ -19,13 +19,18 @@ $result_trees{'end_of_lines_protected'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -37,13 +42,18 @@ $result_trees{'end_of_lines_protected'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'deffn_name'
+                          'contents' => [
+                            {
+                              'text' => 'deffn_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -55,13 +65,18 @@ $result_trees{'end_of_lines_protected'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arguments'
+                          'contents' => [
+                            {
+                              'text' => 'arguments'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -80,41 +95,18 @@ $result_trees{'end_of_lines_protected'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'more'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 2,
-                              'position' => 5,
-                              'sourcemark_type' => 'defline_continuation'
+                              'text' => 'more'
                             }
                           ],
-                          'text' => 'args   with end of line within'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -126,73 +118,28 @@ $result_trees{'end_of_lines_protected'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'with'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '3'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@',
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 3,
-                              'sourcemark_type' => 'defline_continuation'
+                              'source_marks' => [
+                                {
+                                  'counter' => 2,
+                                  'position' => 5,
+                                  'sourcemark_type' => 'defline_continuation'
+                                }
+                              ],
+                              'text' => 'args   with end of line within'
                             }
-                          ]
+                          ],
+                          'source_info' => {
+                            'line_nr' => 2
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -204,16 +151,119 @@ $result_trees{'end_of_lines_protected'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'one last arg'
+                          'contents' => [
+                            {
+                              'text' => 'with'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 4
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
                       },
-                      'type' => 'bracketed_arg'
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => '3'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'cmdname' => '@'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'cmdname' => '@',
+                              'source_marks' => [
+                                {
+                                  'counter' => 3,
+                                  'sourcemark_type' => 'defline_continuation'
+                                }
+                              ]
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'one last arg'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 4
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

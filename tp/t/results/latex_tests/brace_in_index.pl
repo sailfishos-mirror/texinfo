@@ -276,7 +276,12 @@ $result_trees{'brace_in_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -285,7 +290,7 @@ $result_trees{'brace_in_index'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -300,19 +305,24 @@ $result_trees{'brace_in_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'A'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'A'
+                          'contents' => [
+                            {
+                              'text' => 'A'
+                            },
+                            {
+                              'cmdname' => '{'
+                            },
+                            {
+                              'text' => 'A'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -331,13 +341,18 @@ $result_trees{'brace_in_index'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'BBB'
+                          'contents' => [
+                            {
+                              'text' => 'BBB'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {

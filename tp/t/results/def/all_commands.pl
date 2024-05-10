@@ -19,13 +19,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -37,13 +42,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efvr_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efvr_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -138,13 +148,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -156,13 +171,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'n--ame'
+                          'contents' => [
+                            {
+                              'text' => 'n--ame'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -174,13 +194,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -275,13 +300,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -293,13 +323,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'n--ame'
+                          'contents' => [
+                            {
+                              'text' => 'n--ame'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -394,13 +429,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -412,13 +452,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -430,13 +475,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypefn_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypefn_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -448,13 +498,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -549,13 +604,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -567,13 +627,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -585,13 +650,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypefn_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypefn_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -686,13 +756,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -704,13 +779,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -722,13 +802,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -740,13 +825,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -758,13 +848,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -783,13 +878,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -797,13 +897,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -812,13 +917,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -826,13 +936,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -916,13 +1031,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -934,13 +1054,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -952,13 +1077,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -970,13 +1100,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -995,13 +1130,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -1009,13 +1149,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1024,13 +1169,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -1038,13 +1188,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1128,13 +1283,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1146,13 +1306,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1164,13 +1329,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypevr_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypevr_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -1265,13 +1435,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1283,13 +1458,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -1301,13 +1481,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efcv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efcv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -1402,13 +1587,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1420,13 +1610,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -1438,13 +1633,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efcv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efcv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1456,13 +1656,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -1557,13 +1762,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1575,13 +1785,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -1593,13 +1808,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1611,13 +1831,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypecv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypecv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -1636,13 +1861,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypecv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypecv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -1650,13 +1880,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1665,13 +1900,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypecv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypecv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -1679,13 +1919,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1769,13 +2014,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1787,13 +2037,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -1805,13 +2060,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1823,13 +2083,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypecv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypecv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1841,13 +2106,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -1866,13 +2136,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypecv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypecv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -1880,13 +2155,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1895,13 +2175,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypecv_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypecv_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -1909,13 +2194,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -1999,13 +2289,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2017,13 +2312,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -2035,13 +2335,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -2053,13 +2358,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -2078,13 +2388,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -2092,13 +2407,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -2107,13 +2427,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -2121,13 +2446,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -2211,13 +2541,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2229,13 +2564,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -2247,13 +2587,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -2272,13 +2617,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -2286,13 +2636,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -2301,13 +2656,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efop_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efop_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -2315,13 +2675,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -2405,13 +2770,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--ategory'
+                          'contents' => [
+                            {
+                              'text' => 'c--ategory'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2423,13 +2793,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftp_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftp_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -2441,13 +2816,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--ttributes...'
+                          'contents' => [
+                            {
+                              'text' => 'a--ttributes...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -2542,7 +2922,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -2551,7 +2936,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2566,13 +2951,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efun_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efun_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -2584,13 +2974,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -2685,7 +3080,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Macro'
+                          'contents' => [
+                            {
+                              'text' => 'Macro'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -2694,7 +3094,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2709,13 +3109,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efmac_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efmac_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -2727,13 +3132,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -2828,7 +3238,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Special Form'
+                          'contents' => [
+                            {
+                              'text' => 'Special Form'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -2837,7 +3252,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2852,13 +3267,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efspec_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efspec_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -2870,13 +3290,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -2971,7 +3396,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Variable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -2980,7 +3410,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2995,13 +3425,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efvar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efvar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -3096,7 +3531,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Variable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -3105,7 +3545,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3120,13 +3560,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efvar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efvar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -3138,13 +3583,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg--var'
+                          'contents' => [
+                            {
+                              'text' => 'arg--var'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3156,13 +3606,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg--var1'
+                          'contents' => [
+                            {
+                              'text' => 'arg--var1'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -3257,7 +3712,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'User Option'
+                          'contents' => [
+                            {
+                              'text' => 'User Option'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -3266,7 +3726,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3281,13 +3741,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efopt_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efopt_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -3382,7 +3847,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -3391,7 +3861,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3406,13 +3876,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -3424,13 +3899,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypefun_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypefun_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -3442,13 +3922,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -3543,7 +4028,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Variable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -3552,7 +4042,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3567,13 +4057,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -3585,13 +4080,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypevar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypevar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -3686,7 +4186,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -3695,7 +4200,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3710,13 +4215,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -3728,13 +4238,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efivar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efivar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -3753,13 +4268,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efivar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efivar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -3767,13 +4287,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -3782,13 +4307,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efivar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efivar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -3796,13 +4326,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -3886,7 +4421,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -3895,7 +4435,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3910,13 +4450,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -3928,13 +4473,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -3946,13 +4496,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeivar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeivar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -3971,13 +4526,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeivar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeivar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -3985,13 +4545,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4000,13 +4565,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypeivar_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypeivar_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -4014,13 +4584,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4104,7 +4679,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method'
+                          'contents' => [
+                            {
+                              'text' => 'Method'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -4113,7 +4693,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -4128,13 +4708,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -4146,13 +4731,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efmethod_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efmethod_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -4164,13 +4754,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -4189,13 +4784,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efmethod_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efmethod_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4203,13 +4803,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4218,13 +4823,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--efmethod_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--efmethod_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4232,13 +4842,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4322,7 +4937,12 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method'
+                          'contents' => [
+                            {
+                              'text' => 'Method'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -4331,7 +4951,7 @@ $result_trees{'all_commands'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -4346,13 +4966,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -4364,13 +4989,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 't--ype'
+                          'contents' => [
+                            {
+                              'text' => 't--ype'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -4382,13 +5012,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypemethod_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypemethod_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -4400,13 +5035,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a--rguments...'
+                          'contents' => [
+                            {
+                              'text' => 'a--rguments...'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -4425,13 +5065,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypemethod_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypemethod_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4439,13 +5084,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4454,13 +5104,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'd--eftypemethod_name'
+                          'contents' => [
+                            {
+                              'text' => 'd--eftypemethod_name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4468,13 +5123,18 @@ $result_trees{'all_commands'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c--lass'
+                          'contents' => [
+                            {
+                              'text' => 'c--lass'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },

@@ -19,7 +19,12 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -28,7 +33,7 @@ $result_trees{'empty_deftype'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -41,13 +46,18 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 1
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -59,13 +69,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -84,13 +99,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'const'
+                          'contents' => [
+                            {
+                              'text' => 'const'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -102,13 +122,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type&'
+                          'contents' => [
+                            {
+                              'text' => 'type&'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -120,13 +145,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x'
+                          'contents' => [
+                            {
+                              'text' => 'x'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -228,7 +258,12 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -237,7 +272,7 @@ $result_trees{'empty_deftype'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -252,13 +287,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -277,13 +317,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'const'
+                          'contents' => [
+                            {
+                              'text' => 'const'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -295,13 +340,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type&'
+                          'contents' => [
+                            {
+                              'text' => 'type&'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -313,13 +363,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x'
+                          'contents' => [
+                            {
+                              'text' => 'x'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -421,7 +476,12 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method'
+                          'contents' => [
+                            {
+                              'text' => 'Method'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -430,7 +490,7 @@ $result_trees{'empty_deftype'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -445,29 +505,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'type'
-                      },
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -479,13 +528,39 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'source_info' => {
+                            'line_nr' => 9
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'type'
+                      },
+                      'type' => 'def_type'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -504,13 +579,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'const'
+                          'contents' => [
+                            {
+                              'text' => 'const'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -522,13 +602,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type&'
+                          'contents' => [
+                            {
+                              'text' => 'type&'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -540,13 +625,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x'
+                          'contents' => [
+                            {
+                              'text' => 'x'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -572,13 +662,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -586,13 +681,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -601,13 +701,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -615,13 +720,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -705,7 +815,12 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Method'
+                          'contents' => [
+                            {
+                              'text' => 'Method'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -714,7 +829,7 @@ $result_trees{'empty_deftype'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -729,13 +844,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -747,13 +867,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -772,13 +897,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'const'
+                          'contents' => [
+                            {
+                              'text' => 'const'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -790,13 +920,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type&'
+                          'contents' => [
+                            {
+                              'text' => 'type&'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -808,13 +943,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x'
+                          'contents' => [
+                            {
+                              'text' => 'x'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -840,13 +980,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -854,13 +999,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -869,13 +1019,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -883,13 +1038,18 @@ $result_trees{'empty_deftype'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c'
+                          'contents' => [
+                            {
+                              'text' => 'c'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },

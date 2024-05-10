@@ -261,13 +261,18 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -279,17 +284,22 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a function'
+                          'contents' => [
+                            {
+                              'text' => 'a function'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 13,
+                            'macro' => 'outside'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 13,
-                        'macro' => 'outside'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -355,13 +365,18 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'inside'
+                          'contents' => [
+                            {
+                              'text' => 'inside'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -373,17 +388,22 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'X operator Y'
+                          'contents' => [
+                            {
+                              'text' => 'X operator Y'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 13,
+                            'macro' => 'inside'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 13,
-                        'macro' => 'inside'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -409,13 +429,18 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'remaining'
+                          'contents' => [
+                            {
+                              'text' => 'remaining'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -434,13 +459,18 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -452,13 +482,18 @@ $result_trees{'simple_nested_linemacro_calls'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'typed'
+                          'contents' => [
+                            {
+                              'text' => 'typed'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {

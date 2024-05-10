@@ -291,13 +291,18 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -309,70 +314,75 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 1,
-                              'element' => {
-                                'args' => [
-                                  {
-                                    'contents' => [
+                              'source_marks' => [
+                                {
+                                  'counter' => 1,
+                                  'element' => {
+                                    'args' => [
                                       {
-                                        'text' => '} A aa B @mymac {bb}'
+                                        'contents' => [
+                                          {
+                                            'text' => '} A aa B @mymac {bb}'
+                                          }
+                                        ],
+                                        'type' => 'line_arg'
                                       }
                                     ],
-                                    'type' => 'line_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'mymac'
-                                },
-                                'type' => 'macro_call'
-                              },
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => ''
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'arg1'
+                                    'info' => {
+                                      'command_name' => 'mymac'
+                                    },
+                                    'type' => 'macro_call'
+                                  },
+                                  'sourcemark_type' => 'macro_expansion',
+                                  'status' => 'start'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'text' => ''
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'arg1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'samp',
+                              'source_info' => {
+                                'line_nr' => 15,
+                                'macro' => 'mymac'
+                              },
+                              'source_marks' => [
+                                {
+                                  'counter' => 1,
+                                  'sourcemark_type' => 'macro_expansion',
+                                  'status' => 'end'
+                                }
+                              ]
                             }
                           ],
-                          'cmdname' => 'samp',
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => '
+'
+                            }
+                          },
                           'source_info' => {
                             'line_nr' => 15,
-                            'macro' => 'mymac'
+                            'macro' => 'mylinecommand'
                           },
-                          'source_marks' => [
-                            {
-                              'counter' => 1,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ]
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 15,
-                        'macro' => 'mylinecommand'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'type' => 'line_arg'
@@ -519,13 +529,18 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -537,51 +552,56 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 3,
-                              'element' => {
-                                'args' => [
-                                  {
-                                    'contents' => [
+                              'source_marks' => [
+                                {
+                                  'counter' => 3,
+                                  'element' => {
+                                    'args' => [
                                       {
-                                        'text' => '}'
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    'contents' => [
+                                        'contents' => [
+                                          {
+                                            'text' => '}'
+                                          }
+                                        ]
+                                      },
                                       {
-                                        'text' => 'A Fun B {other} and remaining'
+                                        'contents' => [
+                                          {
+                                            'text' => 'A Fun B {other} and remaining'
+                                          }
+                                        ],
+                                        'info' => {
+                                          'spaces_before_argument' => {
+                                            'text' => ' '
+                                          }
+                                        }
                                       }
                                     ],
                                     'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    }
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'mylinemac'
-                                },
-                                'type' => 'linemacro_call'
-                              },
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'start'
+                                      'command_name' => 'mylinemac'
+                                    },
+                                    'type' => 'linemacro_call'
+                                  },
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'start'
+                                }
+                              ],
+                              'text' => ''
                             }
                           ],
-                          'text' => ''
+                          'source_info' => {
+                            'line_nr' => 17,
+                            'macro' => 'mylinecommand'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 17,
-                        'macro' => 'mylinecommand'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -593,115 +613,145 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'A'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Fun'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'B'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'other'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 17,
-                        'macro' => 'mylinemac'
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'and'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 3,
-                              'position' => 9,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'end'
+                              'text' => 'A'
                             }
                           ],
-                          'text' => 'remaining'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'Fun'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'B'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'other'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 17,
+                            'macro' => 'mylinemac'
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'and'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'source_marks' => [
+                                {
+                                  'counter' => 3,
+                                  'position' => 9,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ],
+                              'text' => 'remaining'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

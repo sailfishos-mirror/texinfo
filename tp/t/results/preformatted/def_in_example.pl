@@ -33,7 +33,12 @@ $result_trees{'def_in_example'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'Function'
+                              'contents' => [
+                                {
+                                  'text' => 'Function'
+                                }
+                              ],
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'extra' => {
@@ -42,7 +47,7 @@ $result_trees{'def_in_example'} = {
                           'info' => {
                             'inserted' => 1
                           },
-                          'type' => 'def_line_arg'
+                          'type' => 'def_category'
                         },
                         {
                           'extra' => {
@@ -57,13 +62,18 @@ $result_trees{'def_in_example'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'name'
+                              'contents' => [
+                                {
+                                  'text' => 'name'
+                                }
+                              ],
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'type' => 'def_line_arg'
+                          'type' => 'def_name'
                         },
                         {
                           'extra' => {
@@ -75,13 +85,18 @@ $result_trees{'def_in_example'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'arg'
+                              'contents' => [
+                                {
+                                  'text' => 'arg'
+                                }
+                              ],
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'type' => 'def_line_arg'
+                          'type' => 'def_arg'
                         }
                       ],
                       'info' => {

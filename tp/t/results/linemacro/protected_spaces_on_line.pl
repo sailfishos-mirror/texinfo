@@ -136,13 +136,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -154,13 +159,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -179,13 +189,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bar'
+                          'contents' => [
+                            {
+                              'text' => 'bar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -204,13 +219,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'baz'
+                          'contents' => [
+                            {
+                              'text' => 'baz'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -236,13 +256,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'continuation'
+                          'contents' => [
+                            {
+                              'text' => 'continuation'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -254,13 +279,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'line'
+                          'contents' => [
+                            {
+                              'text' => 'line'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -406,13 +436,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -424,19 +459,24 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
-                        },
-                        {
-                          'cmdname' => ' '
-                        },
-                        {
-                          'text' => 'b'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            },
+                            {
+                              'cmdname' => ' '
+                            },
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -455,13 +495,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bar'
+                          'contents' => [
+                            {
+                              'text' => 'bar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -480,13 +525,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'baz'
+                          'contents' => [
+                            {
+                              'text' => 'baz'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -505,35 +555,50 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'rest'
+                          'contents' => [
+                            {
+                              'text' => 'rest'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'cmdname' => ' '
+                          'contents' => [
+                            {
+                              'cmdname' => ' '
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'text' => 'and'
+                          'contents' => [
+                            {
+                              'text' => 'and'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -545,13 +610,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'more'
+                          'contents' => [
+                            {
+                              'text' => 'more'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -697,13 +767,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -715,13 +790,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -740,13 +820,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bar'
+                          'contents' => [
+                            {
+                              'text' => 'bar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -765,13 +850,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'baz'
+                          'contents' => [
+                            {
+                              'text' => 'baz'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -783,13 +873,18 @@ $result_trees{'protected_spaces_on_line'} = {
                     {
                       'contents' => [
                         {
-                          'cmdname' => '@'
+                          'contents' => [
+                            {
+                              'cmdname' => '@'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

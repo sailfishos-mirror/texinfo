@@ -149,13 +149,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'my'
+                          'contents' => [
+                            {
+                              'text' => 'my'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -167,13 +172,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -185,13 +195,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -203,13 +218,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'r'
+                          'contents' => [
+                            {
+                              'text' => 'r'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -245,13 +265,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expand'
+                          'contents' => [
+                            {
+                              'text' => 'expand'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -263,13 +288,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Builtin'
+                          'contents' => [
+                            {
+                              'text' => 'Builtin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -281,13 +311,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'and'
+                          'contents' => [
+                            {
+                              'text' => 'and'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -299,13 +334,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
+                          'contents' => [
+                            {
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -317,30 +357,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 7,
-                        'macro' => 'defbuiltin'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -352,35 +380,67 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'source_info' => {
+                            'line_nr' => 7,
+                            'macro' => 'defbuiltin'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
                     },
                     {
                       'contents' => [
                         {
-                          'text' => 'ument'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 7,
-                        'macro' => 'defbuiltin'
-                      },
-                      'source_marks' => [
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
                         {
-                          'counter' => 1,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
+                          'contents' => [
+                            {
+                              'text' => 'ument'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 7,
+                            'macro' => 'defbuiltin'
+                          },
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
-                      'type' => 'bracketed_arg'
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -467,13 +527,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'my'
+                          'contents' => [
+                            {
+                              'text' => 'my'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -485,13 +550,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -503,13 +573,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -521,13 +596,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'r'
+                          'contents' => [
+                            {
+                              'text' => 'r'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -563,13 +643,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expand'
+                          'contents' => [
+                            {
+                              'text' => 'expand'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -581,13 +666,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Builtin'
+                          'contents' => [
+                            {
+                              'text' => 'Builtin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -599,13 +689,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'and'
+                          'contents' => [
+                            {
+                              'text' => 'and'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -615,38 +710,48 @@ $result_trees{'last_argument_with_braces'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 9,
-                        'macro' => 'defbuiltin'
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 9,
-                        'macro' => 'defbuiltin'
-                      },
-                      'source_marks' => [
+                      'contents' => [
                         {
-                          'counter' => 2,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
+                          'source_info' => {
+                            'line_nr' => 9,
+                            'macro' => 'defbuiltin'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
-                      'type' => 'bracketed_arg'
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 9,
+                            'macro' => 'defbuiltin'
+                          },
+                          'source_marks' => [
+                            {
+                              'counter' => 2,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -733,13 +838,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'my'
+                          'contents' => [
+                            {
+                              'text' => 'my'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -751,13 +861,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -769,13 +884,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -787,13 +907,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'r'
+                          'contents' => [
+                            {
+                              'text' => 'r'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -829,13 +954,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expand'
+                          'contents' => [
+                            {
+                              'text' => 'expand'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -847,13 +977,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Builtin'
+                          'contents' => [
+                            {
+                              'text' => 'Builtin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -865,13 +1000,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'and'
+                          'contents' => [
+                            {
+                              'text' => 'and'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -883,17 +1023,22 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'second arg'
+                          'contents' => [
+                            {
+                              'text' => 'second arg'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 11,
+                            'macro' => 'defbuiltin'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 11,
-                        'macro' => 'defbuiltin'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -905,13 +1050,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'remaining'
+                          'contents' => [
+                            {
+                              'text' => 'remaining'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -923,13 +1073,18 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'on'
+                          'contents' => [
+                            {
+                              'text' => 'on'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -941,24 +1096,29 @@ $result_trees{'last_argument_with_braces'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'line'
+                          'contents' => [
+                            {
+                              'text' => 'line'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 11,
+                            'macro' => 'defbuiltin'
+                          },
+                          'source_marks' => [
+                            {
+                              'counter' => 3,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 11,
-                        'macro' => 'defbuiltin'
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

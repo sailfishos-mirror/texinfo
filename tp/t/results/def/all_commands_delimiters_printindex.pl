@@ -75,13 +75,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Command'
+                          'contents' => [
+                            {
+                              'text' => 'Command'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -93,26 +98,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'forward--char'
+                                  'contents' => [
+                                    {
+                                      'text' => 'forward--char'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 4
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 4
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -124,26 +134,57 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'nchars'
+                                  'contents' => [
+                                    {
+                                      'text' => 'nchars'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 4
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'argument2'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 4
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -155,37 +196,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'argument2'
+                          'contents' => [
+                            {
+                              'text' => 'argument3'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 4
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 4
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'argument3'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -211,13 +236,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -229,13 +259,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -247,13 +282,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -279,13 +319,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -297,26 +342,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 5
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 5
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -335,26 +385,57 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 5
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 5
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -366,58 +447,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'pref'
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 5
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 5
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -429,13 +499,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -461,13 +536,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -549,13 +629,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Variable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -567,13 +652,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'fill-column'
+                          'contents' => [
+                            {
+                              'text' => 'fill-column'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -585,16 +675,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'argument1'
+                          'contents' => [
+                            {
+                              'text' => 'argument1'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 8
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 8
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -606,16 +701,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'argument2'
+                          'contents' => [
+                            {
+                              'text' => 'argument2'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 8
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 8
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -641,13 +741,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -659,13 +764,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -677,13 +787,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -709,13 +824,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -727,26 +847,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 9
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -765,26 +890,57 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 9
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 9
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -796,58 +952,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'pref'
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 9
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -859,13 +1004,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -891,13 +1041,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -979,16 +1134,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Library Function'
+                          'contents' => [
+                            {
+                              'text' => 'Library Function'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 12
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 12
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1000,13 +1160,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'int'
+                          'contents' => [
+                            {
+                              'text' => 'int'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1018,13 +1183,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foobar'
+                          'contents' => [
+                            {
+                              'text' => 'foobar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1043,13 +1213,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'int'
+                          'contents' => [
+                            {
+                              'text' => 'int'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1061,26 +1236,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'foo'
+                                  'contents' => [
+                                    {
+                                      'text' => 'foo'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 12
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 12
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1099,13 +1279,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'float'
+                          'contents' => [
+                            {
+                              'text' => 'float'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1117,26 +1302,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'bar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'bar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 12
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 12
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1225,16 +1415,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Library Function'
+                          'contents' => [
+                            {
+                              'text' => 'Library Function'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 15
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 15
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1246,13 +1441,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'int'
+                          'contents' => [
+                            {
+                              'text' => 'int'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1264,13 +1464,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foobar'
+                          'contents' => [
+                            {
+                              'text' => 'foobar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1289,13 +1494,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'int'
+                          'contents' => [
+                            {
+                              'text' => 'int'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1307,26 +1517,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'foo'
+                                  'contents' => [
+                                    {
+                                      'text' => 'foo'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 15
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 15
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1345,13 +1560,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'float'
+                          'contents' => [
+                            {
+                              'text' => 'float'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1363,26 +1583,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'bar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'bar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 15
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 15
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1415,13 +1640,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1433,13 +1663,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1451,13 +1686,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1476,16 +1716,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => '[something'
+                          'contents' => [
+                            {
+                              'text' => '[something'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 16
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 16
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1497,26 +1742,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 16
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 16
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1535,26 +1785,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 16
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
-                          'source_info' => {
-                            'line_nr' => 16
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1566,16 +1821,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 16
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 16
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1587,37 +1847,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'pref'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
+                              'text' => 'a'
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 16
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 16
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1629,13 +1899,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -1661,35 +1936,50 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'ct'
+                          'contents' => [
+                            {
+                              'text' => 'ct'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'contents' => [
                         {
-                          'cmdname' => '*'
+                          'contents' => [
+                            {
+                              'cmdname' => '*'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'cmdname' => '*'
+                          'contents' => [
+                            {
+                              'cmdname' => '*'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -1701,13 +1991,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -1789,16 +2084,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Library Function'
+                          'contents' => [
+                            {
+                              'text' => 'Library Function'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 19
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 19
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1810,13 +2110,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'int'
+                          'contents' => [
+                            {
+                              'text' => 'int'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1828,13 +2133,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foobug'
+                          'contents' => [
+                            {
+                              'text' => 'foobug'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1846,16 +2156,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => '[something'
+                          'contents' => [
+                            {
+                              'text' => '[something'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 19
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 19
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -1937,13 +2252,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'stacks'
+                          'contents' => [
+                            {
+                              'text' => 'stacks'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -1955,13 +2275,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'private'
+                          'contents' => [
+                            {
+                              'text' => 'private'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -1973,13 +2298,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'push'
+                          'contents' => [
+                            {
+                              'text' => 'push'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -1998,37 +2328,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 's'
+                                  'contents' => [
+                                    {
+                                      'text' => 's'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 22
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 22
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'text' => ':in'
+                          'contents' => [
+                            {
+                              'text' => ':in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2040,13 +2380,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'out'
+                          'contents' => [
+                            {
+                              'text' => 'out'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2058,13 +2403,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'stack;'
+                          'contents' => [
+                            {
+                              'text' => 'stack;'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2083,37 +2433,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'n'
+                                  'contents' => [
+                                    {
+                                      'text' => 'n'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 23
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 23
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'text' => ':in'
+                          'contents' => [
+                            {
+                              'text' => ':in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2125,13 +2485,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'integer'
+                          'contents' => [
+                            {
+                              'text' => 'integer'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2150,13 +2515,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';'
+                          'contents' => [
+                            {
+                              'text' => ';'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2168,13 +2538,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';barg'
+                          'contents' => [
+                            {
+                              'text' => ';barg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2186,13 +2561,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'aarg;'
+                          'contents' => [
+                            {
+                              'text' => 'aarg;'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2204,13 +2584,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';'
+                          'contents' => [
+                            {
+                              'text' => ';'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2222,13 +2607,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'end'
+                          'contents' => [
+                            {
+                              'text' => 'end'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -2310,16 +2700,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Global Flag'
+                          'contents' => [
+                            {
+                              'text' => 'Global Flag'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 26
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 26
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2331,13 +2726,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'int'
+                          'contents' => [
+                            {
+                              'text' => 'int'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -2349,13 +2749,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'enable'
+                          'contents' => [
+                            {
+                              'text' => 'enable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -2381,13 +2786,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2399,13 +2809,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2417,13 +2832,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2449,13 +2869,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2467,26 +2892,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 27
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 27
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2505,26 +2935,57 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 27
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 27
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2536,58 +2997,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 27
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'pref'
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 27
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 27
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2599,13 +3049,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2631,13 +3086,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -2719,16 +3179,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Data type'
+                          'contents' => [
+                            {
+                              'text' => 'Data type'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 30
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 30
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -2740,13 +3205,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'pair'
+                          'contents' => [
+                            {
+                              'text' => 'pair'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -2758,13 +3228,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'car'
+                          'contents' => [
+                            {
+                              'text' => 'car'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2776,13 +3251,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'cdr'
+                          'contents' => [
+                            {
+                              'text' => 'cdr'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2808,13 +3288,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2826,13 +3311,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2844,13 +3334,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2876,13 +3371,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2894,26 +3394,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 31
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 31
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2932,26 +3437,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 31
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
-                          'source_info' => {
-                            'line_nr' => 31
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -2963,16 +3473,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 31
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 31
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -2984,37 +3499,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'pref'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
+                              'text' => 'a'
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 31
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 31
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3026,13 +3551,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -3058,13 +3588,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -3146,16 +3681,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Class Option'
+                          'contents' => [
+                            {
+                              'text' => 'Class Option'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 34
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 34
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3167,13 +3707,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
+                          'contents' => [
+                            {
+                              'text' => 'Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -3185,13 +3730,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'border-pattern'
+                          'contents' => [
+                            {
+                              'text' => 'border-pattern'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -3217,13 +3767,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3235,13 +3790,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3253,13 +3813,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3285,13 +3850,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3303,26 +3873,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 35
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 35
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3341,26 +3916,57 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 35
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 35
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3372,58 +3978,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 35
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'pref'
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 35
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 35
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3435,13 +4030,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3467,13 +4067,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -3555,16 +4160,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Class Option2'
+                          'contents' => [
+                            {
+                              'text' => 'Class Option2'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 38
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 38
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -3576,13 +4186,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
+                          'contents' => [
+                            {
+                              'text' => 'Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -3594,26 +4209,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 38
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 38
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -3625,13 +4245,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'border-pattern'
+                          'contents' => [
+                            {
+                              'text' => 'border-pattern'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -3657,13 +4282,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3675,13 +4305,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3693,13 +4328,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3725,13 +4365,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3743,26 +4388,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 39
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 39
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3781,26 +4431,57 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 39
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 39
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3812,58 +4493,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 39
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'pref'
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 39
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 39
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3875,13 +4545,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -3907,13 +4582,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -3932,13 +4612,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'border-pattern'
+                          'contents' => [
+                            {
+                              'text' => 'border-pattern'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -3946,13 +4631,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
+                          'contents' => [
+                            {
+                              'text' => 'Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -3961,13 +4651,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'border-pattern'
+                          'contents' => [
+                            {
+                              'text' => 'border-pattern'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -3975,13 +4670,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
+                          'contents' => [
+                            {
+                              'text' => 'Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4052,13 +4752,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation'
+                          'contents' => [
+                            {
+                              'text' => 'Operation'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -4070,13 +4775,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'windows'
+                          'contents' => [
+                            {
+                              'text' => 'windows'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -4088,13 +4798,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -4120,13 +4835,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4138,13 +4858,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4156,13 +4881,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4188,13 +4918,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4206,26 +4941,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 43
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 43
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4244,26 +4984,57 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 43
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
                           'source_info' => {
                             'line_nr' => 43
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4275,58 +5046,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 43
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'pref'
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 43
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 43
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4338,13 +5098,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4370,13 +5135,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -4395,13 +5165,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4409,13 +5184,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'windows'
+                          'contents' => [
+                            {
+                              'text' => 'windows'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4424,13 +5204,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4438,13 +5223,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'windows'
+                          'contents' => [
+                            {
+                              'text' => 'windows'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4515,13 +5305,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation2'
+                          'contents' => [
+                            {
+                              'text' => 'Operation2'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -4533,13 +5328,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -4551,26 +5351,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 46
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 46
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -4582,13 +5387,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -4614,13 +5424,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -4632,13 +5447,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'in'
+                          'contents' => [
+                            {
+                              'text' => 'in'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4650,13 +5470,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'brace'
+                          'contents' => [
+                            {
+                              'text' => 'brace'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -4682,13 +5507,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -4700,26 +5530,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in v--ar'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in v--ar'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 47
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 47
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4738,26 +5573,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'in, b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'in, b'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'b',
+                              'source_info' => {
+                                'line_nr' => 47
+                              }
                             }
                           ],
-                          'cmdname' => 'b',
-                          'source_info' => {
-                            'line_nr' => 47
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4769,16 +5609,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ', comma'
+                          'contents' => [
+                            {
+                              'text' => ', comma'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 47
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'source_info' => {
-                        'line_nr' => 47
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -4790,37 +5635,47 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'pref'
-                                }
-                              ],
-                              'type' => 'brace_command_arg'
+                              'text' => 'a'
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 47
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'pref'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 47
+                              }
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -4832,13 +5687,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'p'
+                          'contents' => [
+                            {
+                              'text' => 'p'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -4864,13 +5724,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'last'
+                          'contents' => [
+                            {
+                              'text' => 'last'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -4889,13 +5754,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4903,13 +5773,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -4918,13 +5793,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -4932,13 +5812,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5009,13 +5894,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation5'
+                          'contents' => [
+                            {
+                              'text' => 'Operation5'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -5027,13 +5917,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
+                          'contents' => [
+                            {
+                              'text' => 'Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -5045,26 +5940,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 50
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 50
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -5076,13 +5976,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -5094,13 +5999,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -5112,13 +6022,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -5137,13 +6052,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5151,13 +6071,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
+                          'contents' => [
+                            {
+                              'text' => 'Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5166,13 +6091,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
+                          'contents' => [
+                            {
+                              'text' => 'expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5180,13 +6110,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
+                          'contents' => [
+                            {
+                              'text' => 'Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5257,13 +6192,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation3'
+                          'contents' => [
+                            {
+                              'text' => 'Operation3'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -5275,16 +6215,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 53
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 53
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -5296,26 +6241,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 53
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 53
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -5327,16 +6277,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e,xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e,xpose'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 53
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 53
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -5348,13 +6303,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -5366,13 +6326,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -5391,13 +6356,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e,xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e,xpose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5405,13 +6375,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5420,13 +6395,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e,xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e,xpose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5434,13 +6414,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5511,13 +6496,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation4'
+                          'contents' => [
+                            {
+                              'text' => 'Operation4'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -5529,16 +6519,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',Window'
+                          'contents' => [
+                            {
+                              'text' => ',Window'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 56
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 56
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -5550,26 +6545,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 56
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 56
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -5581,16 +6581,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',expose'
+                          'contents' => [
+                            {
+                              'text' => ',expose'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 56
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 56
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -5602,13 +6607,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -5620,13 +6630,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -5645,13 +6660,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',expose'
+                          'contents' => [
+                            {
+                              'text' => ',expose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5659,13 +6679,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',Window'
+                          'contents' => [
+                            {
+                              'text' => ',Window'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5674,13 +6699,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',expose'
+                          'contents' => [
+                            {
+                              'text' => ',expose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5688,13 +6718,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',Window'
+                          'contents' => [
+                            {
+                              'text' => ',Window'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5765,13 +6800,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation6'
+                          'contents' => [
+                            {
+                              'text' => 'Operation6'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -5783,13 +6823,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -5801,26 +6846,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 59
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 59
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -5832,13 +6882,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e,xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e,xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -5850,13 +6905,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -5868,13 +6928,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -5893,13 +6958,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e,xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e,xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5907,13 +6977,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -5922,13 +6997,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e,xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e,xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -5936,13 +7016,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W,indow'
+                          'contents' => [
+                            {
+                              'text' => 'W,indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6013,13 +7098,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation7'
+                          'contents' => [
+                            {
+                              'text' => 'Operation7'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -6031,13 +7121,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',Window'
+                          'contents' => [
+                            {
+                              'text' => ',Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -6049,26 +7144,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 62
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 62
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -6080,13 +7180,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',expose'
+                          'contents' => [
+                            {
+                              'text' => ',expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -6098,13 +7203,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -6116,13 +7226,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -6141,13 +7256,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',expose'
+                          'contents' => [
+                            {
+                              'text' => ',expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6155,13 +7275,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',Window'
+                          'contents' => [
+                            {
+                              'text' => ',Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6170,13 +7295,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',expose'
+                          'contents' => [
+                            {
+                              'text' => ',expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6184,13 +7314,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ',Window'
+                          'contents' => [
+                            {
+                              'text' => ',Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6261,13 +7396,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation13'
+                          'contents' => [
+                            {
+                              'text' => 'Operation13'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -6279,16 +7419,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W)indow'
+                          'contents' => [
+                            {
+                              'text' => 'W)indow'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 65
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 65
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -6300,26 +7445,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 65
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 65
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -6331,16 +7481,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e)xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e)xpose'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 65
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 65
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -6352,13 +7507,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -6370,13 +7530,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -6395,13 +7560,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e)xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e)xpose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6409,13 +7579,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W)indow'
+                          'contents' => [
+                            {
+                              'text' => 'W)indow'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6424,13 +7599,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e)xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e)xpose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6438,13 +7618,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W)indow'
+                          'contents' => [
+                            {
+                              'text' => 'W)indow'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6515,13 +7700,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation14'
+                          'contents' => [
+                            {
+                              'text' => 'Operation14'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -6533,16 +7723,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')Window'
+                          'contents' => [
+                            {
+                              'text' => ')Window'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 68
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 68
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -6554,26 +7749,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 68
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 68
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -6585,16 +7785,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')expose'
+                          'contents' => [
+                            {
+                              'text' => ')expose'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 68
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 68
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -6606,13 +7811,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -6624,13 +7834,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -6649,13 +7864,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')expose'
+                          'contents' => [
+                            {
+                              'text' => ')expose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6663,13 +7883,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')Window'
+                          'contents' => [
+                            {
+                              'text' => ')Window'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6678,13 +7903,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')expose'
+                          'contents' => [
+                            {
+                              'text' => ')expose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6692,13 +7922,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')Window'
+                          'contents' => [
+                            {
+                              'text' => ')Window'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6769,13 +8004,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation16'
+                          'contents' => [
+                            {
+                              'text' => 'Operation16'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -6787,13 +8027,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W)indow'
+                          'contents' => [
+                            {
+                              'text' => 'W)indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -6805,26 +8050,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 71
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 71
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -6836,13 +8086,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e)xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e)xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -6854,13 +8109,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -6872,13 +8132,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -6897,13 +8162,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e)xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e)xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6911,13 +8181,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W)indow'
+                          'contents' => [
+                            {
+                              'text' => 'W)indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -6926,13 +8201,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e)xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e)xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -6940,13 +8220,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W)indow'
+                          'contents' => [
+                            {
+                              'text' => 'W)indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7017,13 +8302,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation17'
+                          'contents' => [
+                            {
+                              'text' => 'Operation17'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -7035,13 +8325,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')Window'
+                          'contents' => [
+                            {
+                              'text' => ')Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -7053,26 +8348,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 74
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 74
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -7084,13 +8384,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')expose'
+                          'contents' => [
+                            {
+                              'text' => ')expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -7102,13 +8407,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -7120,13 +8430,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -7145,13 +8460,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')expose'
+                          'contents' => [
+                            {
+                              'text' => ')expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7159,13 +8479,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')Window'
+                          'contents' => [
+                            {
+                              'text' => ')Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7174,13 +8499,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')expose'
+                          'contents' => [
+                            {
+                              'text' => ')expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7188,13 +8518,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ')Window'
+                          'contents' => [
+                            {
+                              'text' => ')Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7265,13 +8600,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation18'
+                          'contents' => [
+                            {
+                              'text' => 'Operation18'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -7283,16 +8623,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W;indow'
+                          'contents' => [
+                            {
+                              'text' => 'W;indow'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 77
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 77
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -7304,26 +8649,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 77
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 77
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -7335,16 +8685,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e;xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e;xpose'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 77
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 77
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -7356,13 +8711,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -7374,13 +8734,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -7399,13 +8764,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e;xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e;xpose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7413,13 +8783,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W;indow'
+                          'contents' => [
+                            {
+                              'text' => 'W;indow'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7428,13 +8803,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e;xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e;xpose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7442,13 +8822,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W;indow'
+                          'contents' => [
+                            {
+                              'text' => 'W;indow'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7519,13 +8904,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation19'
+                          'contents' => [
+                            {
+                              'text' => 'Operation19'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -7537,16 +8927,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';Window'
+                          'contents' => [
+                            {
+                              'text' => ';Window'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 80
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 80
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -7558,26 +8953,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 80
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 80
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -7589,16 +8989,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';expose'
+                          'contents' => [
+                            {
+                              'text' => ';expose'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 80
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 80
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -7610,13 +9015,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -7628,13 +9038,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -7653,13 +9068,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';expose'
+                          'contents' => [
+                            {
+                              'text' => ';expose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7667,13 +9087,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';Window'
+                          'contents' => [
+                            {
+                              'text' => ';Window'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7682,13 +9107,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';expose'
+                          'contents' => [
+                            {
+                              'text' => ';expose'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7696,13 +9126,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';Window'
+                          'contents' => [
+                            {
+                              'text' => ';Window'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7773,13 +9208,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation20'
+                          'contents' => [
+                            {
+                              'text' => 'Operation20'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -7791,13 +9231,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W;indow'
+                          'contents' => [
+                            {
+                              'text' => 'W;indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -7809,26 +9254,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 83
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 83
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -7840,13 +9290,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e;xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e;xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -7858,13 +9313,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -7876,13 +9336,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -7901,13 +9366,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e;xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e;xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7915,13 +9385,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W;indow'
+                          'contents' => [
+                            {
+                              'text' => 'W;indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -7930,13 +9405,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e;xpose'
+                          'contents' => [
+                            {
+                              'text' => 'e;xpose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -7944,13 +9424,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'W;indow'
+                          'contents' => [
+                            {
+                              'text' => 'W;indow'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -8021,13 +9506,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Operation21'
+                          'contents' => [
+                            {
+                              'text' => 'Operation21'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -8039,13 +9529,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';Window'
+                          'contents' => [
+                            {
+                              'text' => ';Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -8057,26 +9552,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 86
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 86
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -8088,13 +9588,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';expose'
+                          'contents' => [
+                            {
+                              'text' => ';expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -8106,13 +9611,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'type'
+                          'contents' => [
+                            {
+                              'text' => 'type'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -8124,13 +9634,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arg'
+                          'contents' => [
+                            {
+                              'text' => 'arg'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -8149,13 +9664,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';expose'
+                          'contents' => [
+                            {
+                              'text' => ';expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -8163,13 +9683,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';Window'
+                          'contents' => [
+                            {
+                              'text' => ';Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -8178,13 +9703,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';expose'
+                          'contents' => [
+                            {
+                              'text' => ';expose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -8192,13 +9722,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => ';Window'
+                          'contents' => [
+                            {
+                              'text' => ';Window'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -8269,29 +9804,34 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Command'
-                        },
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'Command'
+                            },
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'com'
+                                  'contents' => [
+                                    {
+                                      'text' => 'com'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 89
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 89
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -8303,32 +9843,37 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
-                        },
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'Window'
+                            },
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 89
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
                           'source_info' => {
                             'line_nr' => 89
-                          }
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'source_info' => {
-                        'line_nr' => 89
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -8340,29 +9885,34 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'expose'
-                        },
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'expose'
+                            },
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'exp'
+                                  'contents' => [
+                                    {
+                                      'text' => 'exp'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 89
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 89
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -8374,13 +9924,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -8399,13 +9954,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -8413,26 +9973,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
-                        },
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'Window'
+                            },
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -8441,13 +10006,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'name'
+                          'contents' => [
+                            {
+                              'text' => 'name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -8455,26 +10025,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Window'
-                        },
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'text' => 'Window'
+                            },
+                            {
+                              'args' => [
                                 {
-                                  'text' => 'int'
+                                  'contents' => [
+                                    {
+                                      'text' => 'int'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -8545,7 +10120,12 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -8554,7 +10134,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -8569,13 +10149,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'apply'
+                          'contents' => [
+                            {
+                              'text' => 'apply'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -8587,13 +10172,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'function'
+                          'contents' => [
+                            {
+                              'text' => 'function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -8605,13 +10195,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => '&rest'
+                          'contents' => [
+                            {
+                              'text' => '&rest'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -8623,13 +10218,18 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'arguments'
+                          'contents' => [
+                            {
+                              'text' => 'arguments'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -8711,26 +10311,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 95
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 95
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -8742,26 +10347,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 95
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 95
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -8773,26 +10383,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 95
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 95
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -8804,26 +10419,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 95
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 95
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -8905,26 +10525,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 98
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 98
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -8936,26 +10561,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 98
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 98
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -8967,26 +10597,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 98
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 98
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -8998,26 +10633,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 98
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 98
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -9099,26 +10739,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 101
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 101
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -9130,26 +10775,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 101
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 101
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -9161,26 +10811,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 101
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 101
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -9192,26 +10847,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 101
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 101
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -9293,26 +10953,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 104
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 104
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -9324,26 +10989,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 104
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 104
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -9355,26 +11025,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 104
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 104
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -9386,26 +11061,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 104
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 104
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -9487,26 +11167,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 107
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 107
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -9518,26 +11203,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 107
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 107
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -9549,26 +11239,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 107
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 107
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -9580,26 +11275,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 107
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 107
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -9611,26 +11311,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 107
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 107
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -9712,26 +11417,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 110
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 110
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -9743,26 +11453,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 110
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 110
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -9774,26 +11489,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 110
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 110
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -9805,26 +11525,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 110
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 110
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -9836,26 +11561,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 110
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 110
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -9937,26 +11667,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 113
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 113
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -9968,26 +11703,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 113
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 113
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -9999,26 +11739,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 113
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 113
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -10030,26 +11775,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 113
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 113
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -10061,26 +11811,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 113
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 113
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -10162,26 +11917,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 116
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 116
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -10193,26 +11953,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 't',
+                              'source_info' => {
+                                'line_nr' => 116
+                              }
                             }
                           ],
-                          'cmdname' => 't',
-                          'source_info' => {
-                            'line_nr' => 116
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -10224,26 +11989,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 116
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 116
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -10255,26 +12025,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 116
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 116
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -10286,26 +12061,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 116
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 116
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -10387,26 +12167,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 119
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 119
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -10418,26 +12203,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 119
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 119
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -10449,26 +12239,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 119
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 119
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -10480,26 +12275,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 119
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 119
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -10581,26 +12381,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 122
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 122
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -10612,26 +12417,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 122
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 122
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -10643,26 +12453,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 122
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 122
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -10674,26 +12489,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 122
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 122
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -10775,26 +12595,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 125
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 125
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -10806,26 +12631,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 125
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 125
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -10837,26 +12667,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 125
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 125
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -10868,26 +12703,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 125
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 125
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -10899,26 +12739,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 125
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 125
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -11000,26 +12845,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 128
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 128
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -11031,26 +12881,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 128
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 128
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -11062,26 +12917,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 128
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 128
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -11093,26 +12953,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 128
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 128
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -11124,26 +12989,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 128
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 128
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {
@@ -11225,26 +13095,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 131
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -11256,26 +13131,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 131
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -11287,26 +13167,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 131
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -11318,26 +13203,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 131
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -11349,26 +13239,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 131
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -11380,26 +13275,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A6'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A6'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 131
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -11418,23 +13318,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -11442,23 +13347,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -11467,23 +13377,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -11491,23 +13406,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -11578,26 +13498,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 134
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 134
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -11609,26 +13534,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 134
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 134
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -11640,26 +13570,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'option',
+                              'source_info' => {
+                                'line_nr' => 134
+                              }
                             }
                           ],
-                          'cmdname' => 'option',
-                          'source_info' => {
-                            'line_nr' => 134
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -11671,26 +13606,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 134
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 134
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -11702,26 +13642,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 134
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 134
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -11733,26 +13678,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A6'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A6'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 134
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 134
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -11771,23 +13721,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -11795,23 +13750,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -11820,23 +13780,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -11844,23 +13809,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -11931,26 +13901,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 137
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 137
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -11962,26 +13937,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 137
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 137
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -11993,26 +13973,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 137
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 137
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -12024,26 +14009,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 137
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 137
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -12055,26 +14045,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 137
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 137
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -12093,23 +14088,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -12117,23 +14117,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -12142,23 +14147,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -12166,23 +14176,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -12253,26 +14268,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 140
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 140
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -12284,26 +14304,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 140
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 140
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -12315,26 +14340,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 140
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 140
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -12346,26 +14376,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 140
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 140
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -12377,26 +14412,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 140
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 140
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -12415,23 +14455,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -12439,23 +14484,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -12464,23 +14514,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -12488,23 +14543,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -12575,26 +14635,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 143
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 143
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -12606,26 +14671,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 143
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 143
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -12637,26 +14707,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 143
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 143
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -12668,26 +14743,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 143
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 143
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -12699,26 +14779,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 143
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 143
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -12730,26 +14815,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A6'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A6'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 143
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 143
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -12768,23 +14858,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -12792,23 +14887,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -12817,23 +14917,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -12841,23 +14946,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var'
                             }
                           ],
-                          'cmdname' => 'var'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -12928,26 +15038,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 146
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 146
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -12959,26 +15074,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 146
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 146
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -12990,26 +15110,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 146
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 146
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -13021,26 +15146,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 146
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 146
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -13052,26 +15182,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A5'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A5'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 146
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 146
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -13083,26 +15218,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A6'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A6'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 146
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 146
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -13121,23 +15261,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -13145,23 +15290,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -13170,23 +15320,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' on '
@@ -13194,23 +15349,28 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code'
                             }
                           ],
-                          'cmdname' => 'code'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -13281,16 +15441,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'code then var'
+                          'contents' => [
+                            {
+                              'text' => 'code then var'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 149
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 149
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -13302,16 +15467,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'ret_type'
+                          'contents' => [
+                            {
+                              'text' => 'ret_type'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 149
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'source_info' => {
-                        'line_nr' => 149
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -13323,16 +15493,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'fun_name'
+                          'contents' => [
+                            {
+                              'text' => 'fun_name'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 149
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 149
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -13344,26 +15519,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 149
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 149
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -13375,26 +15555,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 149
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 149
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -13406,26 +15591,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 149
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 149
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -13437,26 +15627,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 149
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 149
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -13538,16 +15733,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'var then code'
+                          'contents' => [
+                            {
+                              'text' => 'var then code'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 152
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 152
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -13559,16 +15759,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'ret_type1'
+                          'contents' => [
+                            {
+                              'text' => 'ret_type1'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 152
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'source_info' => {
-                        'line_nr' => 152
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -13580,16 +15785,21 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'fun_name1'
+                          'contents' => [
+                            {
+                              'text' => 'fun_name1'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 152
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 152
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -13601,26 +15811,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A1'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 152
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 152
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -13632,26 +15847,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A2'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A2'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 152
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 152
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     },
                     {
                       'extra' => {
@@ -13663,26 +15883,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A3'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A3'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 152
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 152
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -13694,26 +15919,31 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'A4'
+                                  'contents' => [
+                                    {
+                                      'text' => 'A4'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'source_info' => {
+                                'line_nr' => 152
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'source_info' => {
-                            'line_nr' => 152
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {

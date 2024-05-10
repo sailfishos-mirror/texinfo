@@ -74,13 +74,18 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'text' => 'bidule'
+                                      'contents' => [
+                                        {
+                                          'text' => 'bidule'
+                                        }
+                                      ],
+                                      'type' => 'def_line_arg'
                                     }
                                   ],
                                   'extra' => {
                                     'def_role' => 'category'
                                   },
-                                  'type' => 'def_line_arg'
+                                  'type' => 'def_category'
                                 },
                                 {
                                   'extra' => {
@@ -92,13 +97,18 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'text' => 'truc'
+                                      'contents' => [
+                                        {
+                                          'text' => 'truc'
+                                        }
+                                      ],
+                                      'type' => 'def_line_arg'
                                     }
                                   ],
                                   'extra' => {
                                     'def_role' => 'name'
                                   },
-                                  'type' => 'def_line_arg'
+                                  'type' => 'def_name'
                                 },
                                 {
                                   'extra' => {
@@ -110,13 +120,18 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'text' => 'chose'
+                                      'contents' => [
+                                        {
+                                          'text' => 'chose'
+                                        }
+                                      ],
+                                      'type' => 'def_line_arg'
                                     }
                                   ],
                                   'extra' => {
                                     'def_role' => 'arg'
                                   },
-                                  'type' => 'def_line_arg'
+                                  'type' => 'def_arg'
                                 }
                               ],
                               'info' => {

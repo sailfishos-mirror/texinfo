@@ -257,13 +257,18 @@ $result_trees{'verb_in_linemacro_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Name'
+                          'contents' => [
+                            {
+                              'text' => 'Name'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -275,13 +280,18 @@ $result_trees{'verb_in_linemacro_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'other'
+                          'contents' => [
+                            {
+                              'text' => 'other'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -293,24 +303,29 @@ $result_trees{'verb_in_linemacro_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'j'
+                          'contents' => [
+                            {
+                              'text' => 'j'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 9,
+                            'macro' => 'mycommand'
+                          },
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 9,
-                        'macro' => 'mycommand'
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

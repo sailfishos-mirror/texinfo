@@ -160,25 +160,30 @@ $result_trees{'braces_after_text'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'text'
-                        },
-                        {
                           'contents' => [
                             {
-                              'text' => 'in paren'
+                              'text' => 'text'
+                            },
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'in paren'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 6,
+                                'macro' => 'mymacro'
+                              },
+                              'type' => 'bracketed_arg'
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 6,
-                            'macro' => 'mymacro'
-                          },
-                          'type' => 'bracketed_arg'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -190,25 +195,30 @@ $result_trees{'braces_after_text'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'rest'
-                        },
-                        {
                           'contents' => [
                             {
-                              'text' => 'in paren'
+                              'text' => 'rest'
+                            },
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'in paren'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 6,
+                                'macro' => 'mymacro'
+                              },
+                              'type' => 'bracketed_arg'
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 6,
-                            'macro' => 'mymacro'
-                          },
-                          'type' => 'bracketed_arg'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {

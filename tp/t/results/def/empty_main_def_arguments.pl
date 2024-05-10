@@ -19,13 +19,18 @@ $result_trees{'empty_main_def_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'NNN'
+                          'contents' => [
+                            {
+                              'text' => 'NNN'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {

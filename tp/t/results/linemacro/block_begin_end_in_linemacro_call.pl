@@ -789,13 +789,18 @@ args \\e\\|\\f\\|
                     {
                       'contents' => [
                         {
-                          'text' => 'b'
+                          'contents' => [
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -807,17 +812,22 @@ args \\e\\|\\f\\|
                     {
                       'contents' => [
                         {
-                          'text' => 'arg1'
+                          'contents' => [
+                            {
+                              'text' => 'arg1'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 38,
+                            'macro' => 'lm'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 38,
-                        'macro' => 'lm'
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -829,43 +839,53 @@ args \\e\\|\\f\\|
                     {
                       'contents' => [
                         {
-                          'text' => 'arg2'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 38,
-                        'macro' => 'lm'
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
+                          'contents' => [
                             {
-                              'counter' => 6,
-                              'position' => 1,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'end'
+                              'text' => 'arg2'
                             }
                           ],
-                          'text' => 'a'
+                          'source_info' => {
+                            'line_nr' => 38,
+                            'macro' => 'lm'
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'source_marks' => [
+                                {
+                                  'counter' => 6,
+                                  'position' => 1,
+                                  'sourcemark_type' => 'linemacro_expansion',
+                                  'status' => 'end'
+                                }
+                              ],
+                              'text' => 'a'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

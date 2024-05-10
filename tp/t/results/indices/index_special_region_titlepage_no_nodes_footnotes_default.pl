@@ -798,17 +798,22 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'source_info' => {
+                            'file_name' => 'index_special_region.texi',
+                            'line_nr' => 45
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 45
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -818,19 +823,24 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'info' => {
+                            'spaces_before_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'file_name' => 'index_special_region.texi',
+                            'line_nr' => 45
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 45
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -859,17 +869,22 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'source_info' => {
+                            'file_name' => 'index_special_region.texi',
+                            'line_nr' => 46
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 46
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     }
                   ],
                   'info' => {
@@ -897,14 +912,19 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'file_name' => 'index_special_region.texi',
+                            'line_nr' => 47
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 47
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -914,14 +934,19 @@ $result_trees{'index_special_region_titlepage_no_nodes_footnotes_default'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'file_name' => 'index_special_region.texi',
+                            'line_nr' => 47
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 47
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {

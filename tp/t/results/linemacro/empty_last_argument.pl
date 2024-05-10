@@ -217,13 +217,18 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Builtin'
+                          'contents' => [
+                            {
+                              'text' => 'Builtin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -235,13 +240,18 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -359,13 +369,18 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Builtin'
+                          'contents' => [
+                            {
+                              'text' => 'Builtin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -377,13 +392,18 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {
@@ -514,13 +534,18 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Builtin'
+                          'contents' => [
+                            {
+                              'text' => 'Builtin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -532,13 +557,18 @@ $result_trees{'empty_last_argument'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'foo'
+                          'contents' => [
+                            {
+                              'text' => 'foo'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -548,21 +578,26 @@ $result_trees{'empty_last_argument'} = {
                       'type' => 'spaces'
                     },
                     {
+                      'contents' => [
+                        {
+                          'source_info' => {
+                            'line_nr' => 12,
+                            'macro' => 'defbuiltin'
+                          },
+                          'source_marks' => [
+                            {
+                              'counter' => 3,
+                              'sourcemark_type' => 'linemacro_expansion',
+                              'status' => 'end'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'source_info' => {
-                        'line_nr' => 12,
-                        'macro' => 'defbuiltin'
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

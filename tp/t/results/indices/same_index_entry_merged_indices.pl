@@ -191,13 +191,18 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Command'
+                          'contents' => [
+                            {
+                              'text' => 'Command'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -209,13 +214,18 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'mmm-mode'
+                          'contents' => [
+                            {
+                              'text' => 'mmm-mode'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -227,26 +237,31 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'arg'
+                                  'contents' => [
+                                    {
+                                      'text' => 'arg'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'var',
+                              'source_info' => {
+                                'line_nr' => 11
+                              }
                             }
                           ],
-                          'cmdname' => 'var',
-                          'source_info' => {
-                            'line_nr' => 11
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -342,7 +357,12 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Variable'
+                          'contents' => [
+                            {
+                              'text' => 'Variable'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -351,7 +371,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -366,13 +386,18 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'mmm-mode'
+                          'contents' => [
+                            {
+                              'text' => 'mmm-mode'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     }
                   ],
                   'info' => {

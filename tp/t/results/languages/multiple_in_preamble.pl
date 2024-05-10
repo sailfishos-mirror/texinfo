@@ -70,19 +70,26 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Instance Variable',
-                                  'type' => 'untranslated'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Instance Variable',
+                                      'type' => 'untranslated'
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'documentlanguage' => 'fr',
+                                    'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                                  },
+                                  'type' => 'untranslated_def_line_arg'
                                 }
                               ],
                               'extra' => {
-                                'def_role' => 'category',
-                                'documentlanguage' => 'fr',
-                                'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                                'def_role' => 'category'
                               },
                               'info' => {
                                 'inserted' => 1
                               },
-                              'type' => 'untranslated_def_line_arg'
+                              'type' => 'def_category'
                             },
                             {
                               'extra' => {
@@ -97,13 +104,18 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'copying'
+                                  'contents' => [
+                                    {
+                                      'text' => 'copying'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_class'
                             },
                             {
                               'extra' => {
@@ -115,13 +127,18 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'a'
+                                  'contents' => [
+                                    {
+                                      'text' => 'a'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_name'
                             },
                             {
                               'extra' => {
@@ -133,13 +150,18 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'b'
+                                  'contents' => [
+                                    {
+                                      'text' => 'b'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_arg'
                             }
                           ],
                           'info' => {
@@ -158,13 +180,18 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'a'
+                                  'contents' => [
+                                    {
+                                      'text' => 'a'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_name'
                             },
                             {
                               'text' => ' de '
@@ -172,13 +199,18 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'copying'
+                                  'contents' => [
+                                    {
+                                      'text' => 'copying'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_class'
                             }
                           ]
                         },
@@ -187,13 +219,18 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'a'
+                                  'contents' => [
+                                    {
+                                      'text' => 'a'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_name'
                             },
                             {
                               'text' => ' of '
@@ -201,13 +238,18 @@ $result_trees{'multiple_in_preamble'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'copying'
+                                  'contents' => [
+                                    {
+                                      'text' => 'copying'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'class'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_class'
                             }
                           ]
                         },
@@ -501,19 +543,26 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'hr',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                          },
+                          'type' => 'untranslated_def_line_arg'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'hr',
-                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                        'def_role' => 'category'
                       },
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'untranslated_def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -528,13 +577,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'hr'
+                          'contents' => [
+                            {
+                              'text' => 'hr'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -546,13 +600,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'BBB'
+                          'contents' => [
+                            {
+                              'text' => 'BBB'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -564,13 +623,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'CCC'
+                          'contents' => [
+                            {
+                              'text' => 'CCC'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -589,13 +653,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'BBB'
+                          'contents' => [
+                            {
+                              'text' => 'BBB'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' od '
@@ -603,13 +672,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'hr'
+                          'contents' => [
+                            {
+                              'text' => 'hr'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -618,13 +692,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'BBB'
+                          'contents' => [
+                            {
+                              'text' => 'BBB'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -632,13 +711,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'hr'
+                          'contents' => [
+                            {
+                              'text' => 'hr'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -770,19 +854,26 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Instance Variable',
-                          'type' => 'untranslated'
+                          'contents' => [
+                            {
+                              'text' => 'Instance Variable',
+                              'type' => 'untranslated'
+                            }
+                          ],
+                          'extra' => {
+                            'documentlanguage' => 'de',
+                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                          },
+                          'type' => 'untranslated_def_line_arg'
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
-                        'documentlanguage' => 'de',
-                        'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
+                        'def_role' => 'category'
                       },
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'untranslated_def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -797,13 +888,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'de'
+                          'contents' => [
+                            {
+                              'text' => 'de'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     },
                     {
                       'extra' => {
@@ -815,13 +911,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'FFF'
+                          'contents' => [
+                            {
+                              'text' => 'FFF'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -833,13 +934,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'GGG'
+                          'contents' => [
+                            {
+                              'text' => 'GGG'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -858,13 +964,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'FFF'
+                          'contents' => [
+                            {
+                              'text' => 'FFF'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' von '
@@ -872,13 +983,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'de'
+                          'contents' => [
+                            {
+                              'text' => 'de'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },
@@ -887,13 +1003,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'FFF'
+                          'contents' => [
+                            {
+                              'text' => 'FFF'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'text' => ' of '
@@ -901,13 +1022,18 @@ $result_trees{'multiple_in_preamble'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'de'
+                          'contents' => [
+                            {
+                              'text' => 'de'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_class'
                     }
                   ]
                 },

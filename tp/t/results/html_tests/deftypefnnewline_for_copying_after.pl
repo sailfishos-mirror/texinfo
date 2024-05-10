@@ -33,7 +33,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'Function'
+                              'contents' => [
+                                {
+                                  'text' => 'Function'
+                                }
+                              ],
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'extra' => {
@@ -42,7 +47,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'info' => {
                             'inserted' => 1
                           },
-                          'type' => 'def_line_arg'
+                          'type' => 'def_category'
                         },
                         {
                           'extra' => {
@@ -57,13 +62,18 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'TYPE'
+                              'contents' => [
+                                {
+                                  'text' => 'TYPE'
+                                }
+                              ],
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'type'
                           },
-                          'type' => 'def_line_arg'
+                          'type' => 'def_type'
                         },
                         {
                           'extra' => {
@@ -75,13 +85,18 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'NAME'
+                              'contents' => [
+                                {
+                                  'text' => 'NAME'
+                                }
+                              ],
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'type' => 'def_line_arg'
+                          'type' => 'def_name'
                         },
                         {
                           'extra' => {
@@ -93,13 +108,18 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'ARGUMENTS...'
+                              'contents' => [
+                                {
+                                  'text' => 'ARGUMENTS...'
+                                }
+                              ],
+                              'type' => 'def_line_arg'
                             }
                           ],
                           'extra' => {
                             'def_role' => 'typearg'
                           },
-                          'type' => 'def_line_arg'
+                          'type' => 'def_typearg'
                         }
                       ],
                       'info' => {
@@ -429,7 +449,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'Function'
+                          'contents' => [
+                            {
+                              'text' => 'Function'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
@@ -438,7 +463,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                       'info' => {
                         'inserted' => 1
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -453,13 +478,18 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'void'
+                          'contents' => [
+                            {
+                              'text' => 'void'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_type'
                     },
                     {
                       'extra' => {
@@ -471,13 +501,18 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'something'
+                          'contents' => [
+                            {
+                              'text' => 'something'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -489,13 +524,18 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'input'
+                          'contents' => [
+                            {
+                              'text' => 'input'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_typearg'
                     }
                   ],
                   'info' => {

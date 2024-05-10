@@ -162,13 +162,18 @@ $result_trees{'spaces_after_command_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -180,32 +185,37 @@ $result_trees{'spaces_after_command_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
+                              'args' => [
                                 {
-                                  'text' => 'd'
+                                  'contents' => [
+                                    {
+                                      'text' => 'd'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'cmdname' => 'code',
+                              'info' => {
+                                'spaces_after_cmd_before_arg' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'line_nr' => 7,
+                                'macro' => 'mylinecommand'
+                              }
                             }
                           ],
-                          'cmdname' => 'code',
-                          'info' => {
-                            'spaces_after_cmd_before_arg' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 7,
-                            'macro' => 'mylinecommand'
-                          }
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -217,50 +227,60 @@ $result_trees{'spaces_after_command_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'A'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
+                          'contents' => [
                             {
-                              'contents' => [
-                                {
-                                  'text' => 'b'
-                                }
-                              ],
-                              'type' => 'following_arg'
+                              'text' => 'A'
                             }
                           ],
-                          'cmdname' => 'ringaccent',
-                          'info' => {
-                            'spaces_after_cmd_before_arg' => {
-                              'text' => ' '
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'b'
+                                    }
+                                  ],
+                                  'type' => 'following_arg'
+                                }
+                              ],
+                              'cmdname' => 'ringaccent',
+                              'info' => {
+                                'spaces_after_cmd_before_arg' => {
+                                  'text' => ' '
+                                }
+                              },
+                              'source_info' => {
+                                'line_nr' => 7,
+                                'macro' => 'mylinecommand'
+                              }
                             }
-                          },
-                          'source_info' => {
-                            'line_nr' => 7,
-                            'macro' => 'mylinecommand'
-                          }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -272,13 +292,18 @@ $result_trees{'spaces_after_command_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'B'
+                          'contents' => [
+                            {
+                              'text' => 'B'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -290,13 +315,18 @@ $result_trees{'spaces_after_command_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'rest'
+                          'contents' => [
+                            {
+                              'text' => 'rest'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

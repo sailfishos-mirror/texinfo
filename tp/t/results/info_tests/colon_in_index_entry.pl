@@ -238,16 +238,21 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'a:b'
+                          'contents' => [
+                            {
+                              'text' => 'a:b'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 11
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 11
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -259,16 +264,21 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'c:d'
+                          'contents' => [
+                            {
+                              'text' => 'c:d'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 11
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 11
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -280,13 +290,18 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'e'
+                          'contents' => [
+                            {
+                              'text' => 'e'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -298,13 +313,18 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'f'
+                          'contents' => [
+                            {
+                              'text' => 'f'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -338,16 +358,21 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'x:y'
+                          'contents' => [
+                            {
+                              'text' => 'x:y'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 12
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'source_info' => {
-                        'line_nr' => 12
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -359,16 +384,21 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'z:t'
+                          'contents' => [
+                            {
+                              'text' => 'z:t'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 12
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'source_info' => {
-                        'line_nr' => 12
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -380,13 +410,18 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'n'
+                          'contents' => [
+                            {
+                              'text' => 'n'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -398,13 +433,18 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'm'
+                          'contents' => [
+                            {
+                              'text' => 'm'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -416,13 +456,18 @@ $result_trees{'colon_in_index_entry'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'o'
+                          'contents' => [
+                            {
+                              'text' => 'o'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

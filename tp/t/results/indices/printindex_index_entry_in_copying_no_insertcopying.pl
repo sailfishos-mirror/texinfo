@@ -81,7 +81,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Function'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Function'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
@@ -90,7 +95,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'info' => {
                                 'inserted' => 1
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_category'
                             },
                             {
                               'extra' => {
@@ -105,13 +110,18 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'fun'
+                                  'contents' => [
+                                    {
+                                      'text' => 'fun'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_name'
                             },
                             {
                               'extra' => {
@@ -123,13 +133,18 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'arg'
+                                  'contents' => [
+                                    {
+                                      'text' => 'arg'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_arg'
                             }
                           ],
                           'info' => {
@@ -163,7 +178,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Function'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Function'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
@@ -172,7 +192,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'info' => {
                                 'inserted' => 1
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_category'
                             },
                             {
                               'extra' => {
@@ -187,13 +207,18 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'xf'
+                                  'contents' => [
+                                    {
+                                      'text' => 'xf'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_name'
                             },
                             {
                               'extra' => {
@@ -205,13 +230,18 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'arg'
+                                  'contents' => [
+                                    {
+                                      'text' => 'arg'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_arg'
                             }
                           ],
                           'info' => {

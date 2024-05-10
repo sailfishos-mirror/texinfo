@@ -153,6 +153,7 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
 typedef struct {
     enum command_id command;
     char **arguments;
+    enum command_id *argument_types;
 } DEF_MAP;
 
   /*
@@ -174,18 +175,29 @@ char *deftypecv_arguments[] = {"category", "class" , "type", "name", 0};
 char *defop_arguments[] = {"category", "class" , "name", "arg", 0};
 char *deftp_arguments[] = {"category", "name", "argtype", 0};
 
+enum command_id defline_types[] = {ET_def_category, ET_def_name, ET_def_arg, 0};
+enum command_id deftypeline_types[] = {ET_def_category, ET_def_type, ET_def_name, ET_def_typearg, 0};
+enum command_id defvr_types[] = {ET_def_category, ET_def_name, 0};
+enum command_id deftypefn_types[] = {ET_def_category, ET_def_type, ET_def_name, ET_def_typearg, 0};
+enum command_id deftypeop_types[] = {ET_def_category, ET_def_class , ET_def_type, ET_def_name, ET_def_typearg, 0};
+enum command_id deftypevr_types[] = {ET_def_category, ET_def_type, ET_def_name, 0};
+enum command_id defcv_types[] = {ET_def_category, ET_def_class , ET_def_name, 0};
+enum command_id deftypecv_types[] = {ET_def_category, ET_def_class , ET_def_type, ET_def_name, 0};
+enum command_id defop_types[] = {ET_def_category, ET_def_class , ET_def_name, ET_def_arg, 0};
+enum command_id deftp_types[] = {ET_def_category, ET_def_name, ET_def_typearg, 0};
+
 DEF_MAP def_maps[] = {
-  CM_defline, defline_arguments,
-  CM_deftypeline, deftypeline_arguments,
-  CM_deffn, defline_arguments,
-  CM_defvr, defvr_arguments,
-  CM_deftypefn, deftypefn_arguments,
-  CM_deftypeop, deftypeop_arguments,
-  CM_deftypevr, deftypevr_arguments,
-  CM_defcv, defcv_arguments,
-  CM_deftypecv, deftypecv_arguments,
-  CM_defop, defop_arguments,
-  CM_deftp, deftp_arguments,
+  CM_defline, defline_arguments, defline_types,
+  CM_deftypeline, deftypeline_arguments, deftypeline_types,
+  CM_deffn, defline_arguments, defline_types,
+  CM_defvr, defvr_arguments, defvr_types,
+  CM_deftypefn, deftypefn_arguments, deftypefn_types,
+  CM_deftypeop, deftypeop_arguments, deftypeop_types,
+  CM_deftypevr, deftypevr_arguments, deftypevr_types,
+  CM_defcv, defcv_arguments, defcv_types,
+  CM_deftypecv, deftypecv_arguments, deftypecv_types,
+  CM_defop, defop_arguments, defop_types,
+  CM_deftp, deftp_arguments, deftp_types,
 };
 
 /* Split non-space text elements into strings without [ ] ( ) , and single
@@ -369,6 +381,7 @@ parse_def (enum command_id command, ELEMENT *current)
   ELEMENT *e, *e1;
   DEF_ARG **result;
   char **arguments_list;
+  enum command_id *arguments_types_list;
   int inserted_category = 0;
 
   split_def_args (current, contents_idx);
@@ -428,6 +441,7 @@ parse_def (enum command_id command, ELEMENT *current)
   /* determine non arg/argtype number of arguments */
   arg_types_nr = 0;
   arguments_list = def_maps[i_def].arguments;
+  arguments_types_list = def_maps[i_def].argument_types;
   while (arguments_list[arg_types_nr])
     {
       char *arg_type_name = arguments_list[arg_types_nr];
@@ -446,11 +460,16 @@ parse_def (enum command_id command, ELEMENT *current)
       if (e)
         {
           char *arg_type_name = arguments_list[i];
+          enum command_id arg_type = arguments_types_list[i];
           DEF_ARG *def_arg = malloc (sizeof (DEF_ARG));
+          ELEMENT *new_def_type = new_element (arg_type);
 
+          new_def_type->parent = e->parent;
+          current->contents.list[contents_idx - 1] = new_def_type;
+          add_to_element_contents (new_def_type, e);
           result[i] = def_arg;
           def_arg->arg_type = strdup(arg_type_name);
-          def_arg->element = e;
+          def_arg->element = new_def_type;
         }
       else
         break;
@@ -491,6 +510,7 @@ parse_def (enum command_id command, ELEMENT *current)
   type = set_type_not_arg;
   for (i = contents_idx; i < current->contents.number; i++)
     {
+      enum element_type def_arg_type = ET_def_arg;
       e = contents_child_by_index (current, i);
       if (e->type == ET_spaces)
         {
@@ -504,13 +524,21 @@ parse_def (enum command_id command, ELEMENT *current)
       if (e->type == ET_def_line_arg && e->contents.number == 1
           && e->contents.list[0]->cmd && e->contents.list[0]->cmd != CM_code)
         {
-          add_extra_string_dup (e, "def_role", "arg");
           type = set_type_not_arg;
-          continue;
         }
-      add_extra_string_dup (e, "def_role",
-                            (type == 1 ? "arg" : "typearg"));
-      type *= set_type_not_arg;
+      else
+        {
+          if (type != 1) {
+            def_arg_type = ET_def_typearg;
+          }
+          type *= set_type_not_arg;
+        }
+      ELEMENT *new_def_type = new_element (def_arg_type);
+      new_def_type->parent = e->parent;
+      add_to_element_contents (new_def_type, e);
+      current->contents.list[i] = new_def_type;
+      add_extra_string_dup (new_def_type, "def_role",
+                            ((def_arg_type == ET_def_arg) ? "arg" : "typearg"));
     }
   return result;
 }

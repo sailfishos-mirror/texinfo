@@ -21,30 +21,35 @@ $result_trees{'bracketed_arg_no_space'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'a b'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          },
-                          'type' => 'bracketed_arg'
-                        },
-                        {
-                          'contents' => [
+                              'contents' => [
+                                {
+                                  'text' => 'a b'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 1
+                              },
+                              'type' => 'bracketed_arg'
+                            },
                             {
-                              'text' => 'c d'
+                              'contents' => [
+                                {
+                                  'text' => 'c d'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 1
+                              },
+                              'type' => 'bracketed_arg'
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          },
-                          'type' => 'bracketed_arg'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -58,94 +63,119 @@ $result_trees{'bracketed_arg_no_space'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'e g'
+                              'contents' => [
+                                {
+                                  'text' => 'e g'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 1
+                              },
+                              'type' => 'bracketed_arg'
+                            },
+                            {
+                              'text' => 'h'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'type' => 'def_name'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'm'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'll'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => {
+                              'text' => ' '
+                            }
+                          },
+                          'source_info' => {
+                            'line_nr' => 1
+                          },
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'type' => 'def_arg'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'rest'
                             }
                           ],
                           'source_info' => {
                             'line_nr' => 1
                           },
                           'type' => 'bracketed_arg'
-                        },
-                        {
-                          'text' => 'h'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'type' => 'def_line_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'm'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'text' => 'll'
+                          'contents' => [
+                            {
+                              'text' => 'and more'
+                            }
+                          ],
+                          'source_info' => {
+                            'line_nr' => 1
+                          },
+                          'type' => 'bracketed_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'rest'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'and more'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

@@ -3355,7 +3355,14 @@ sub _parse_def($$$$)
   for ($i = 0; $i < $arg_types_nr; $i++) {
     my $element = _next_bracketed_or_word_agg($current, \$contents_idx);
     if ($element) {
-      $result{$args[$i]} = $element;
+      my $new_def_type = {'type' => 'def_'.$args[$i],
+                          'parent' => $element->{'parent'}};
+      $new_def_type->{'contents'} = [$element];
+      $element->{'parent'} = $new_def_type;
+      $current->{'contents'}->[$contents_idx - 1] = $new_def_type;
+
+      #$result{$args[$i]} = $element;
+      $result{$args[$i]} = $new_def_type;
     } else {
       last;
     }
@@ -3373,7 +3380,6 @@ sub _parse_def($$$$)
   my @args_results = map (_split_delimiters($self, $_, $current, $source_info),
                           splice(@{$current->{'contents'}}, $contents_idx,
                                  scalar(@{$current->{'contents'}}) - $contents_idx));
-  push @{$current->{'contents'}}, @args_results;
 
   # set def_role for the rest of arguments.
   my $set_type_not_arg = 1;
@@ -3384,7 +3390,9 @@ sub _parse_def($$$$)
 
   my $type = $set_type_not_arg;
 
-  foreach my $content (@args_results) {
+  for (my $j = 0; $j < scalar(@args_results); $j++) {
+    my $content = $args_results[$j];
+    my $def_role;
     if ($content->{'type'} and $content->{'type'} eq 'spaces') {
     } elsif ($content->{'type'} and $content->{'type'} eq 'delimiter') {
       $type = $set_type_not_arg;
@@ -3393,19 +3401,26 @@ sub _parse_def($$$$)
              and scalar(@{$content->{'contents'}}) == 1
              and $content->{'contents'}->[0]->{'cmdname'}
              and $content->{'contents'}->[0]->{'cmdname'} ne 'code') {
-      $content->{'extra'} = {} if (!$content->{'extra'});
-      $content->{'extra'}->{'def_role'} = 'arg';
+      $def_role = 'arg';
       $type = $set_type_not_arg;
     } else {
-      $content->{'extra'} = {} if (!$content->{'extra'});
       if ($type == 1) {
-        $content->{'extra'}->{'def_role'} = 'arg';
+        $def_role = 'arg';
       } else {
-        $content->{'extra'}->{'def_role'} = 'typearg';
+        $def_role = 'typearg';
       }
       $type = $type * $set_type_not_arg;
     }
+    if (defined($def_role)) {
+      my $new_def_type = {'type' => 'def_'.$def_role,
+                          'parent' => $content->{'parent'},
+                          'extra' => {'def_role' => $def_role}};
+      $new_def_type->{'contents'} = [$content];
+      $content->{'parent'} = $new_def_type;
+      $args_results[$j] = $new_def_type;
+    }
   }
+  push @{$current->{'contents'}}, @args_results;
 
   return \%result;
 }
@@ -3986,15 +4001,16 @@ sub _end_line_def_line($$$)
     # do a standard index entry tree
     my $index_entry;
     if (defined($name_element)) {
+      my $arg = $name_element->{'contents'}->[0];
       $index_entry = $name_element
        # empty bracketed
-        unless ($name_element->{'type'}
-                and $name_element->{'type'} eq 'bracketed_arg'
-                and (!$name_element->{'contents'}
-                     or (!scalar(@{$name_element->{'contents'}}))
-                     or (scalar(@{$name_element->{'contents'}}) == 1
-                        and defined($name_element->{'contents'}->[0]->{'text'})
-                        and $name_element->{'contents'}->[0]->{'text'} !~ /\S/)));
+        unless ($arg->{'type'}
+                and $arg->{'type'} eq 'bracketed_arg'
+                and (!$arg->{'contents'}
+                     or (!scalar(@{$arg->{'contents'}}))
+                     or (scalar(@{$arg->{'contents'}}) == 1
+                        and defined($arg->{'contents'}->[0]->{'text'})
+                        and $arg->{'contents'}->[0]->{'text'} !~ /\S/)));
     }
     if (defined($index_entry)) {
       if ($class_element) {

@@ -133,13 +133,18 @@ $result_trees{'spaces_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'category'
+                          'contents' => [
+                            {
+                              'text' => 'category'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -153,44 +158,49 @@ $result_trees{'spaces_in_call'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'a b'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 7,
-                            'macro' => 'mylinecommand'
-                          },
-                          'type' => 'bracketed_arg'
-                        },
-                        {
-                          'contents' => [
+                              'contents' => [
+                                {
+                                  'text' => 'a b'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 7,
+                                'macro' => 'mylinecommand'
+                              },
+                              'type' => 'bracketed_arg'
+                            },
                             {
-                              'text' => 'c d'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 7,
-                            'macro' => 'mylinecommand'
-                          },
-                          'type' => 'bracketed_arg'
-                        },
-                        {
-                          'contents' => [
+                              'contents' => [
+                                {
+                                  'text' => 'c d'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 7,
+                                'macro' => 'mylinecommand'
+                              },
+                              'type' => 'bracketed_arg'
+                            },
                             {
-                              'text' => 'rest'
+                              'contents' => [
+                                {
+                                  'text' => 'rest'
+                                }
+                              ],
+                              'source_info' => {
+                                'line_nr' => 7,
+                                'macro' => 'mylinecommand'
+                              },
+                              'type' => 'bracketed_arg'
                             }
                           ],
-                          'source_info' => {
-                            'line_nr' => 7,
-                            'macro' => 'mylinecommand'
-                          },
-                          'type' => 'bracketed_arg'
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -202,13 +212,18 @@ $result_trees{'spaces_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'A'
+                          'contents' => [
+                            {
+                              'text' => 'A'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     },
                     {
                       'extra' => {
@@ -220,13 +235,18 @@ $result_trees{'spaces_in_call'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'B'
+                          'contents' => [
+                            {
+                              'text' => 'B'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {

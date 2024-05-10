@@ -19,13 +19,18 @@ $result_trees{'not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -37,13 +42,18 @@ $result_trees{'not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'bidule'
+                          'contents' => [
+                            {
+                              'text' => 'bidule'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -55,13 +65,18 @@ $result_trees{'not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'machin'
+                          'contents' => [
+                            {
+                              'text' => 'machin'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -94,13 +109,18 @@ $result_trees{'not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'truc'
+                          'contents' => [
+                            {
+                              'text' => 'truc'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_category'
                     },
                     {
                       'extra' => {
@@ -112,13 +132,18 @@ $result_trees{'not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'chose'
+                          'contents' => [
+                            {
+                              'text' => 'chose'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_name'
                     },
                     {
                       'extra' => {
@@ -130,13 +155,18 @@ $result_trees{'not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'text' => 'args'
+                          'contents' => [
+                            {
+                              'text' => 'args'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'type' => 'def_line_arg'
+                      'type' => 'def_arg'
                     }
                   ],
                   'info' => {
@@ -180,7 +210,12 @@ $result_trees{'not_closed'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'Variable'
+                                  'contents' => [
+                                    {
+                                      'text' => 'Variable'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
@@ -189,7 +224,7 @@ $result_trees{'not_closed'} = {
                               'info' => {
                                 'inserted' => 1
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_category'
                             },
                             {
                               'extra' => {
@@ -204,13 +239,18 @@ $result_trees{'not_closed'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'type1'
+                                  'contents' => [
+                                    {
+                                      'text' => 'type1'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'name'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_name'
                             },
                             {
                               'extra' => {
@@ -222,13 +262,18 @@ $result_trees{'not_closed'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'var'
+                                  'contents' => [
+                                    {
+                                      'text' => 'var'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_arg'
                             },
                             {
                               'extra' => {
@@ -240,13 +285,18 @@ $result_trees{'not_closed'} = {
                             {
                               'contents' => [
                                 {
-                                  'text' => 'bidule'
+                                  'contents' => [
+                                    {
+                                      'text' => 'bidule'
+                                    }
+                                  ],
+                                  'type' => 'def_line_arg'
                                 }
                               ],
                               'extra' => {
                                 'def_role' => 'arg'
                               },
-                              'type' => 'def_line_arg'
+                              'type' => 'def_arg'
                             }
                           ],
                           'info' => {
