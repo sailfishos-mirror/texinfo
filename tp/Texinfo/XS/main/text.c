@@ -19,8 +19,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-/* for fatal */
-#include "utils.h"
 #include "text.h"
 
 /* wrapper for vasprintf */
@@ -46,7 +44,10 @@ text_alloc (TEXT *t, size_t len)
       t->space *= 2;
       t->text = realloc (t->text, t->space);
       if (!t->text)
-        fatal ("realloc failed");
+        {
+          fprintf (stderr, "text realloc failed\n");
+          abort ();
+        }
     }
 }
 

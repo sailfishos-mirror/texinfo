@@ -1,3 +1,14 @@
+2024-05-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/text.c (text_alloc): inline fatal() call
+	in order not to depend on utils.h.
+
+	* tp/Texinfo/XS/main/utils.c (bug): change message.
+
+	* tp/Texinfo/XS/xspara_text.c: remove unused text_destroy.
+
+	Other minor changes in texts and comments.
+
 2024-05-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/tree_types.h: remove now unused DEF_ARG.

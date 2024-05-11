@@ -187,7 +187,7 @@ xasprintf (char **ptr, const char *template, ...)
 
 void bug (char *message)
 {
-  fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
+  fprintf (stderr, "texi2any (XS): bug: %s\n", message);
 }
 
 void fatal (char *message)

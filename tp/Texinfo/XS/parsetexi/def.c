@@ -127,7 +127,6 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
 
   if (num == 1)
     {
-      /* FIXME e is probably already this element */
       e = current->contents.list[*i - 1];
 
       /* there is only one bracketed element */

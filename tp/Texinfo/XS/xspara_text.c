@@ -87,9 +87,3 @@ text_init (TEXT *t)
   t->text = 0;
 }
 
-void
-text_destroy (TEXT *t)
-{
-  t->end = t->space = 0;
-  free(t->text); t->text = 0;
-}
