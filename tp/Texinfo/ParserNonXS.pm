@@ -8857,9 +8857,15 @@ associated index entry and for @anchor.
 The index entry information is associated to @-commands that have an associated
 index entry.  The associated information should not be directly accessed,
 instead L<C<Texinfo::Common::lookup_index_entry>|Texinfo::Common/($index_entry, $index_info) = lookup_index_entry($index_entry_info, $indices_information)>
-should be called on the C<extra> I<index_entry> value.  The
-I<$indices_information> is the information on a Texinfo manual indices obtained
-from
+should be called on the C<extra> I<index_entry> value:
+
+   my ($index_entry, $index_info)
+    = Texinfo::Common::lookup_index_entry(
+                        $element->{'extra'}->{'index_entry'},
+                        $indices_information);
+
+The I<$indices_information> is the information on a Texinfo manual indices
+obtained from
 L<< C<Texinfo::Document::indices_information>|Texinfo::Document/$indices_information = $document->indices_information() >>.
 The index entry information hash returned by
 C<Texinfo::Common::lookup_index_entry> is described in
