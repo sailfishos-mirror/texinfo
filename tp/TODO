@@ -35,8 +35,7 @@ Missing documentation
 Tree documentation in ParserNonXS.pm
 ------------------------------------
 
-elided_rawpreformatted, elided_brace_command_arg, def_category_inserted,
-untranslated_def_category_inserted types.
+elided_rawpreformatted, elided_brace_command_arg types.
 
 'comment_at_end' in info hash
 
@@ -76,11 +75,12 @@ Gavin and Patrice
  One possibility.  It requires some testing as it should allow for
  faster code, but it is not clear that memory use would be smaller.
 char *alias_of
-char *command_info_string (for arg_line or command_name or delimiter)
+char *command_info_string (for arg_line or command_name or @verb delimiter)
 ELEMENT *elements[3]
  spaces_after_cmd_before_arg (brace commands) or comment_at_end (line/block commands)
  spaces_before_argument
  spaces_after_argument
+ int inserted (could also be flags if more information is added).
 
 3) make building "source marks" optional.
   With 8 byte pointers and integers, the 24 byte section of ELEMENT relating

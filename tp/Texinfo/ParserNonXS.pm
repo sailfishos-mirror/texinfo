@@ -5400,7 +5400,6 @@ sub _handle_other_command($$$$$)
       }
     }
     if ($arg_spec eq 'symbol') {
-      # TODO generalize?
       if ($command eq '\\' and $self->_top_context() ne 'ct_math') {
         $self->_line_warn(sprintf(
                    __("\@%s should only appear in math context"),
