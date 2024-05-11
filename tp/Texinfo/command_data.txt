@@ -275,6 +275,19 @@ title                   line,formatted_line,global_unique,contain_basic_inline  
 sp                      line,formattable_line,close_paragraph,contain_plain_text    LINE_specific  1
 page                    line,formatted_line,close_paragraph        LINE_lineraw
 
+# index commands
+cpindex                 line,index_entry_command,contain_basic_inline      LINE_line
+cindex                  line,index_entry_command,contain_basic_inline      LINE_line
+fnindex                 line,index_entry_command,contain_basic_inline      LINE_line
+findex                  line,index_entry_command,contain_basic_inline      LINE_line
+vrindex                 line,index_entry_command,contain_basic_inline      LINE_line
+vindex                  line,index_entry_command,contain_basic_inline      LINE_line
+kyindex                 line,index_entry_command,contain_basic_inline      LINE_line
+kindex                  line,index_entry_command,contain_basic_inline      LINE_line
+pgindex                 line,index_entry_command,contain_basic_inline      LINE_line
+pindex                  line,index_entry_command,contain_basic_inline      LINE_line
+tpindex                 line,index_entry_command,contain_basic_inline      LINE_line
+tindex                  line,index_entry_command,contain_basic_inline      LINE_line
 
 ##########################################################
 #

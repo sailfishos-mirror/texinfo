@@ -93,7 +93,6 @@ add_index_command (char *cmdname, INDEX *idx)
   enum command_id new = add_texinfo_command (cmdname);
   user_defined_command_data[new & ~USER_COMMAND_BIT].flags
     |= CF_line | CF_index_entry_command | CF_contain_basic_inline
-    /*  | CF_close_paragraph */
       | CF_no_paragraph;
   user_defined_command_data[new & ~USER_COMMAND_BIT].data = LINE_line;
   associate_command_to_index (new, idx);
@@ -142,20 +141,18 @@ init_index_commands (void)
 {
   INDEX *idx;
 
-  struct def { char *name; int in_code; }
+  struct def { char *name; int in_code;
+               enum command_id cmd2; enum command_id cmd1;}
   *p, default_indices[] = {
-    "cp", 0, /* concepts */
-    "fn", 1, /* functions */
-    "vr", 1, /* variables */
-    "ky", 1, /* keystrokes */
-    "pg", 1, /* programs */
-    "tp", 1, /* types */
-    0, 0
+    "cp", 0, CM_cpindex, CM_cindex, /* concepts */
+    "fn", 1, CM_fnindex, CM_findex, /* functions */
+    "vr", 1, CM_vrindex, CM_vindex, /* variables */
+    "ky", 1, CM_kyindex, CM_kindex, /* keystrokes */
+    "pg", 1, CM_pgindex, CM_pindex, /* programs */
+    "tp", 1, CM_tpindex, CM_tindex, /* types */
+    0, 0, 0, 0
   };
   int i, j;
-
-  char name[] = "?index";
-  char name2[] = "??index";
 
 #define MAX (10 * 2)
 
@@ -200,15 +197,11 @@ init_index_commands (void)
 
   for (p = default_indices; p->name; p++)
     {
-      /* Both @cindex and @cpindex are added. */
       idx = add_index_internal (strdup (p->name), p->in_code);
 
-      *name = p->name[0];
-      add_index_command (name, idx); /* @cindex */
-
-      name2[0] = p->name[0];
-      name2[1] = p->name[1];
-      add_index_command (name2, idx); /* @cpindex */
+      /* Both @cpindex and @cindex are associated. */
+      associate_command_to_index (p->cmd2, idx);
+      associate_command_to_index (p->cmd1, idx);
     }
 
   associate_command_to_index (CM_vtable,

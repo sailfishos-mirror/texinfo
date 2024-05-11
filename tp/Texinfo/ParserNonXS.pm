@@ -229,13 +229,14 @@ my %parser_default_configuration = (
 #                         is also in that structure.
 # line_commands           the same as %line_commands in Texinfo::Common,
 #                         but with index entry commands dynamically added
-# close_paragraph_commands      same as %default_close_paragraph_commands, with
-#                               index commands dynamically added.
+# close_paragraph_commands      same as %close_paragraph_commands, with
+#                               commands dynamically added (no command added
+#                               in 2024).
 # close_preformatted_commands   same as %close_preformatted_commands
-# no_paragraph_commands   the same as %default_no_paragraph_commands
-#                         below, with index entry commands dynamically added.
+# no_paragraph_commands   the same as %no_paragraph_commands below,
+#                         with new index entry commands dynamically added.
 # basic_inline_commands   the same as %contain_basic_inline_commands below, but
-#                         with index entry commands dynamically added
+#                         with new index entry commands dynamically added
 # current_node            last seen node.
 # current_section         last seen section.
 # nodes                   list of nodes.
@@ -386,18 +387,7 @@ foreach my $not_begin_line_command ('comment', 'c', 'columnfractions',
 my %index_names = %Texinfo::Commands::index_names;
 
 # @-commands that do not start a paragraph
-my %default_no_paragraph_commands = %Texinfo::Commands::no_paragraph_commands;
-
-my %default_close_paragraph_commands = %close_paragraph_commands;
-my %default_basic_inline_commands = %contain_basic_inline_commands;
-foreach my $index (keys(%index_names)) {
-  my $one_letter_prefix = substr($index, 0, 1);
-  foreach my $prefix ($index, $one_letter_prefix) {
-    #$default_close_paragraph_commands{$prefix.'index'} = 1;
-    $default_basic_inline_commands{$prefix.'index'} = 1;
-    $default_no_paragraph_commands{$prefix.'index'} = 1;
-  }
-}
+my %no_paragraph_commands = %Texinfo::Commands::no_paragraph_commands;
 
 # does not include index commands
 my %close_preformatted_commands = %close_paragraph_commands;
@@ -588,10 +578,10 @@ sub parser(;$$)
   $parser->{'line_commands'} = dclone(\%line_commands);
   $parser->{'brace_commands'} = dclone(\%brace_commands);
   $parser->{'valid_nestings'} = dclone(\%default_valid_nestings);
-  $parser->{'no_paragraph_commands'} = {%default_no_paragraph_commands};
+  $parser->{'no_paragraph_commands'} = {%no_paragraph_commands};
   $parser->{'index_names'} = dclone(\%index_names);
   $parser->{'command_index'} = {%command_index};
-  $parser->{'close_paragraph_commands'} = {%default_close_paragraph_commands};
+  $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
 
   # following is common with simple_parser
@@ -603,7 +593,7 @@ sub parser(;$$)
   $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
   $parser->{'nesting_context'}->{'regions_stack'} = [];
-  $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
+  $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
 
   $parser->_init_context_stack();
 
@@ -629,10 +619,10 @@ sub parser(;$$)
 my $simple_parser_line_commands = dclone(\%line_commands);
 my $simple_parser_brace_commands = dclone(\%brace_commands);
 my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
-my $simple_parser_no_paragraph_commands = {%default_no_paragraph_commands};
+my $simple_parser_no_paragraph_commands = {%no_paragraph_commands};
 my $simple_parser_index_names = dclone(\%index_names);
 my $simple_parser_command_index = {%command_index};
-my $simple_parser_close_paragraph_commands = {%default_close_paragraph_commands};
+my $simple_parser_close_paragraph_commands = {%close_paragraph_commands};
 my $simple_parser_close_preformatted_commands = {%close_preformatted_commands};
 sub simple_parser(;$)
 {
@@ -667,7 +657,7 @@ sub simple_parser(;$)
   $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
   $parser->{'nesting_context'}->{'regions_stack'} = [];
-  $parser->{'basic_inline_commands'} = {%default_basic_inline_commands};
+  $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
 
   $parser->_init_context_stack();
 
@@ -7794,7 +7784,6 @@ sub _parse_line_command_args($$$)
         delete $self->{'aliases'}->{$cmd_name};
         # unset @def*index effect
         delete $self->{'line_commands'}->{$cmd_name};
-        #delete $self->{'close_paragraph_commands'}->{$cmd_name};
         delete $self->{'no_paragraph_commands'}->{$cmd_name};
         delete $self->{'basic_inline_commands'}->{$cmd_name};
         delete $self->{'command_index'}->{$cmd_name};
@@ -7861,7 +7850,6 @@ sub _parse_line_command_args($$$)
         delete $self->{'brace_commands'}->{$index_cmdname};
         delete $self->{'valid_nestings'}->{$index_cmdname};
         $self->{'line_commands'}->{$index_cmdname} = 'line';
-        #$self->{'close_paragraph_commands'}->{$index_cmdname} = 1;
         $self->{'no_paragraph_commands'}->{$index_cmdname} = 1;
         $self->{'basic_inline_commands'}->{$index_cmdname} = 1;
         $self->{'command_index'}->{$index_cmdname} = $name;

@@ -171,7 +171,8 @@ foreach my $index_name (sort(keys(%index_in_code))) {
 }
 print OUT ");\n\n";
 
-# add code that sets %line_commands for index commands based on %index_names
+# add code that sets %default_index_commands for index commands based
+# on %index_names
 print OUT 'foreach my $index (keys(%index_names)) {
   $index_names{$index}->{"name"} = $index;
 }
@@ -180,7 +181,6 @@ our %default_index_commands;
 foreach my $index_name (keys (%index_names)) {
   my $one_letter_prefix = substr($index_name, 0, 1);
   foreach my $prefix ($index_name, $one_letter_prefix) {
-    $line_commands{$prefix."index"} = "line";
     $default_index_commands{$prefix."index"} = $index_name;
   }
 }

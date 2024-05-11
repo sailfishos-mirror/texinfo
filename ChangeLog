@@ -1,5 +1,15 @@
 2024-05-11  Patrice Dumas  <pertusus@free.fr>
 
+	Handle default index commands similarly to other @-commands
+
+	* tp/Texinfo/ParserNonXS.pm (parser, simple_parser),
+	tp/Texinfo/XS/parsetexi/indices.c (struct def, default_indices)
+	(init_index_commands), tp/Texinfo/command_data.txt,
+	tp/maintain/regenerate_commands_perl_info.pl: add default index
+	commands to tp/Texinfo/command_data.txt like other builtin @-commands.
+
+2024-05-11  Patrice Dumas  <pertusus@free.fr>
+
 	Update POD of index_entry extra key.
 
 2024-05-11  Patrice Dumas  <pertusus@free.fr>
