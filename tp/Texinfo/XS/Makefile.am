@@ -299,10 +299,6 @@ libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
 
-# FIXME libtexinfo.so.* and libtexinfoxs.so.* are sought in system
-# directories first (${libdir}) before the correct installed location, so
-# there is potential for the wrong library file to be dynamically loaded.
-
 
 ########################## Parsetexi XS parser
 

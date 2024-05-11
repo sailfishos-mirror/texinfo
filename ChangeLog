@@ -1,5 +1,10 @@
 2024-05-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am: remove an obsolete FIXME on libraries
+	being searched for in libdir, as it is not the case (Gavin tests).
+
+2024-05-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (XSParagraph_la_SOURCES),
 	tp/Texinfo/XS/xspara.c, tp/Texinfo/XS/xspara.h: use main/text.c.
 	Remove Texinfo/XS/xspara_text.c and Texinfo/XS/xspara_text.h.
