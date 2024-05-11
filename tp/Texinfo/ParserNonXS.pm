@@ -8410,6 +8410,15 @@ at all):
 Space after a node in the menu entry, when there is no description,
 and space appearing after the description line.
 
+=item delimiter
+
+=item spaces
+
+Spaces on definition command line separating the definition command arguments.
+Delimiters, such as comma, square brackets and parentheses appearing in
+definition command line arguments at the end of the line, separated from
+surrounding texts during the parsing phase.
+
 =item empty_line
 
 An empty line (possibly containing whitespace characters only).
@@ -8457,8 +8466,8 @@ Text appearing before real content, including the C<\input texinfo.tex>.
 =item untranslated
 
 English text added by the parser that may need to be translated
-during conversion.  Happens for C<@def*> @-commands aliases that
-leads to prepending text such as 'Function'.
+during conversion.  Happens for definition line @-commands aliases that
+leads to prepending text such as ``Function''.
 
 =back
 
@@ -8586,9 +8595,21 @@ argument text (which does not contain the braces) and does not contain other
 elements.  It should not appear directly in the tree as the user defined
 linemacro call is replaced by the linemacro body.
 
-=item def_line_arg
+=item def_category
 
-Contains several elements that together are a single unit on a @def* line.
+=item def_class
+
+=item def_type
+
+=item def_name
+
+=item def_typearg
+
+=item def_arg
+
+Definition line arguments containers corresponding to the different parts of a
+definition line command.  Contains one C<bracketed_arg>, C<def_line_arg> or
+C<untranslated_def_line_arg> container.
 
 =item def_line
 
@@ -8599,9 +8620,34 @@ Contains several elements that together are a single unit on a @def* line.
 The I<def_line> type is either associated with a container within a
 definition command, or is the type of a definition command with a x form,
 like C<@deffnx>, or C<@defline>.  It holds the definition line arguments.
+For each element in a C<def_line> I<line_arg> or I<block_line_arg>, the type of
+the element describes the meaning of the element.  It is one of
+I<def_category>, I<def_name>, I<def_class>, I<def_type>, I<def_arg>,
+I<def_typearg>, I<spaces> or I<delimiter>, depending on the definition.
+
 The container with type I<def_item> holds the definition text content.
 Content appearing before a definition command with a x form is in
 an I<inter_def_item> container.
+
+=item def_line_arg
+
+=item untranslated_def_line_arg
+
+the I<def_line_arg> contains one or several elements that together are a single
+unit on a definition command line.  This container is very similar with a
+I<bracketed_arg> on a definition line, except that there is no bracket.
+Appears in definition line arguments containers such as I<def_category>,
+I<def_arg> or similar.
+
+The I<untranslated_def_line_arg> is similar, but only happens for automatically
+added categories and contains only a text element.  For example, the C<deffun>
+line I<def_category> container may contain an I<untranslated_def_line_arg> type
+container containing itself a text element with ``Function'' as text, if the
+document language demands a translation.  Note that the
+I<untranslated_def_line_arg> is special, as, in general, it should not be
+recursed into, as the text within is untranslated, but the untranslated text
+should be gathered when converting the I<untranslated_def_line_arg> type
+container.
 
 =item macro_call
 
@@ -8886,11 +8932,6 @@ appearing after the definition command without x.
 
 =item C<def_line>
 
-For each element in a C<def_line>, the type of the element
-describes the meaning of the element.  It is one of
-I<def_category>, I<def_name>, I<def_class>, I<def_type>, I<def_arg>,
-I<def_typearg>, I<spaces> or I<delimiter>, depending on the definition.
-
 The I<def_index_element> is a Texinfo tree element corresponding to
 the index entry associated to the definition line, based on the
 name and class.  If needed this element is based on translated strings.
@@ -9061,7 +9102,7 @@ The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<level_modifier>.
 
-=item C<untranslated>
+=item C<untranslated_def_line_arg>
 
 I<documentlanguage> holds the C<@documentlanguage> value.
 If there is a translation context, it should be in I<translation_context>.

@@ -83,25 +83,31 @@ row
 balanced_braces
 bracketed_arg
 bracketed_linemacro_arg
+
+# container of definition line argument content
 def_line_arg
+# A special case, as in general it should not be recursed into,
+# instead the text within should be translated
 untranslated_def_line_arg
+
+# definition line direct arguments containers.  Contains bracketed_arg
+# and *def_line_arg.
 def_category
+def_class
 def_type
 def_name
 def_typearg
 def_arg
-def_class
+
+# text for def commands, definition line direct arguments
+delimiter
+spaces
+# type of text element inserted in untranslated_def_line_arg
+untranslated
 
 # for unexpanded parts of conditionals
 elided_rawpreformatted
 elided_brace_command_arg
-
-# for def commands
-delimiter
-spaces
-
-# for inserted text in def commands
-untranslated
 
 # for macro expansion source marks
 macro_call
