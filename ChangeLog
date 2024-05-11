@@ -1,5 +1,11 @@
 2024-05-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (XSParagraph_la_SOURCES),
+	tp/Texinfo/XS/xspara.c, tp/Texinfo/XS/xspara.h: use main/text.c.
+	Remove Texinfo/XS/xspara_text.c and Texinfo/XS/xspara_text.h.
+
+2024-05-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/text.c (text_alloc): inline fatal() call
 	in order not to depend on utils.h.
 

@@ -86,9 +86,8 @@ MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 xs_LTLIBRARIES += XSParagraph.la
 nodist_XSParagraph_la_SOURCES = XSParagraph.c
 CLEANFILES += XSParagraph.c
-# FIXME use main/text.*?
 XSParagraph_la_SOURCES = xspara.c xspara.h \
-                         xspara_text.c xspara_text.h ppport.h
+                         main/text.c main/text.h ppport.h
 XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la

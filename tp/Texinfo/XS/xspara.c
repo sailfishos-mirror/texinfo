@@ -37,9 +37,8 @@
 #endif
 #include "XSUB.h"
 
+#include "main/text.h"
 #include "xspara.h"
-
-#include "xspara_text.h"
 
 static int debug = 0;
 
