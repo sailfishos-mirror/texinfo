@@ -140,7 +140,7 @@ vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
   if (translation_context)
     xvasprintf (&message, pgettext_expr (translation_context, format), v);
   else
-    xvasprintf (&message, gettext(format), v);
+    xvasprintf (&message, gettext (format), v);
 #else
   xvasprintf (&message, format, v);
 #endif
@@ -229,7 +229,7 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
   char *message;
 
 #ifdef ENABLE_NLS
-  xvasprintf (&message, gettext(format), v);
+  xvasprintf (&message, gettext (format), v);
 #else
   xvasprintf (&message, format, v);
 #endif

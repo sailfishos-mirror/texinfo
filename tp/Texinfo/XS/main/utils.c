@@ -199,31 +199,31 @@ void fatal (char *message)
 int
 isascii_alnum (int c)
 {
-  return (((c & ~0x7f) == 0) && isalnum(c));
+  return (((c & ~0x7f) == 0) && isalnum (c));
 }
 
 int
 isascii_alpha (int c)
 {
-  return (((c & ~0x7f) == 0) && isalpha(c));
+  return (((c & ~0x7f) == 0) && isalpha (c));
 }
 
 int
 isascii_digit (int c)
 {
-  return (((c & ~0x7f) == 0) && isdigit(c));
+  return (((c & ~0x7f) == 0) && isdigit (c));
 }
 
 int
 isascii_lower (int c)
 {
-  return (((c & ~0x7f) == 0) && islower(c));
+  return (((c & ~0x7f) == 0) && islower (c));
 }
 
 int
 isascii_upper (int c)
 {
-  return (((c & ~0x7f) == 0) && isupper(c));
+  return (((c & ~0x7f) == 0) && isupper (c));
 }
 
 
@@ -476,11 +476,11 @@ encode_with_iconv (iconv_t our_iconv, char *s,
         case EILSEQ:
         default:
           if (source_info)
-            fprintf(stderr, "%s:%d: encoding error at byte 0x%02x\n",
+            fprintf (stderr, "%s:%d: encoding error at byte 0x%02x\n",
               source_info->file_name, source_info->line_nr,
                                              *(unsigned char *)inptr);
           else
-            fprintf(stderr, "encoding error at byte 0x%02x\n",
+            fprintf (stderr, "encoding error at byte 0x%02x\n",
                     *(unsigned char *)inptr);
           inptr++; bytes_left--;
           break;
@@ -499,13 +499,13 @@ decode_string (char *input_string, const char *encoding, int *status,
   *status = 0;
   /* not sure this can happen */
   if (!encoding)
-    return strdup(input_string);
+    return strdup (input_string);
 
   ENCODING_CONVERSION *conversion
     = get_encoding_conversion (encoding, &input_conversions);
 
   if (!conversion)
-    return strdup(input_string);
+    return strdup (input_string);
 
   *status = 1;
 
@@ -523,13 +523,13 @@ encode_string (char *input_string, const char *encoding, int *status,
      DOC_ENCODING_FOR_INPUT_FILE_NAME set to 0 and no locales encoding
      information */
   if (!encoding)
-    return strdup(input_string);
+    return strdup (input_string);
 
   ENCODING_CONVERSION *conversion
     = get_encoding_conversion (encoding, &output_conversions);
 
   if (!conversion)
-    return strdup(input_string);
+    return strdup (input_string);
 
   *status = 1;
 
@@ -824,7 +824,7 @@ normalize_encoding_name (const char *text, int *possible_encoding)
   for (p = text; *p; p++)
     {
       /* check if ascii and alphanumeric */
-      if (isascii_alnum(*p))
+      if (isascii_alnum (*p))
         {
           *possible_encoding = 1;
           *q = tolower (*p);
@@ -1146,7 +1146,7 @@ informative_command_value (const ELEMENT *element)
         return "1";
       /* NOTE only @set, which should be ignored, can have args.number > 1.
          We handle this case with TEXT text, but do not free memory
-         as should be, as this case should never happen. 
+         as should be, as this case should never happen.
        */
       else if (element->args.number > 0)
         {
@@ -1488,7 +1488,7 @@ enumerate_item_representation (char *specification, int number)
 
   if (specification[strspn (specification, digit_chars)] == '\0')
     {
-      int spec = strtol(specification, NULL, 10) + number -1;
+      int spec = strtol (specification, NULL, 10) + number -1;
       text_printf (&result, "%d", spec);
       return result.text;
     }

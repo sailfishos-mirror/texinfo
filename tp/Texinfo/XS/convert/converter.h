@@ -1,6 +1,6 @@
 /* converter.h - definitions for converter.c */
 #ifndef CONVERTER_H
-#define CONVERTER_H 
+#define CONVERTER_H
 
 #include <stddef.h>
 
@@ -76,7 +76,7 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
 extern enum command_id no_brace_command_accent_upper_case[][2];
 
 CONVERTER *retrieve_converter (int converter_descriptor);
-size_t new_converter(void);
+size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);
 
 void set_global_document_commands (CONVERTER *converter,

@@ -420,7 +420,7 @@ output_unit_texi (const OUTPUT_UNIT *output_unit)
   ELEMENT *unit_command;
 
   if (!output_unit)
-    return strdup("UNDEF OUTPUT UNIT");
+    return strdup ("UNDEF OUTPUT UNIT");
 
   unit_command = output_unit->unit_command;
 
@@ -443,7 +443,7 @@ output_unit_texi (const OUTPUT_UNIT *output_unit)
       return result;
     }
 
-  return root_heading_command_to_texinfo(unit_command);
+  return root_heading_command_to_texinfo (unit_command);
 }
 
 static OUTPUT_UNIT *
@@ -476,7 +476,7 @@ print_output_unit_directions (OUTPUT_UNIT *output_unit)
   int with_direction = 0;
   text_init (&result);
   text_printf (&result, "output unit: %s\n",
-               output_unit_texi(output_unit));
+               output_unit_texi (output_unit));
 
   for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
     {

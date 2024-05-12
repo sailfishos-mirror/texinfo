@@ -193,12 +193,12 @@ protect_unicode_char (const char *text, TEXT *result)
 
   if (next_char <= 0xFFFF)
     {
-      xasprintf(&str, "%04lx", next_char);
+      xasprintf (&str, "%04lx", next_char);
       text_append_n (result, "_", 1);
     }
   else
     {
-      xasprintf(&str, "%06lx", next_char);
+      xasprintf (&str, "%06lx", next_char);
       text_append_n (result, "__", 2);
     }
   text_append (result, str);

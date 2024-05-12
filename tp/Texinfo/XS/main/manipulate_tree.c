@@ -74,7 +74,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         {
         case extra_element:
         case extra_element_oot:
-          if (!strcmp(key, "_copy"))
+          if (!strcmp (key, "_copy"))
             break;
           k_copy = lookup_extra_by_index (f, "_copy", -1);
           if (k_copy)
@@ -161,7 +161,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
       return new;
     }
 
-  new = new_element(ET_NONE);
+  new = new_element (ET_NONE);
   if (current->type)
     new->type = current->type;
   if (current->cmd)
@@ -179,10 +179,10 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 
   for (i = 0; i < current->args.number; i++)
     add_to_element_args (new,
-                copy_tree_internal(current->args.list[i], new));
+                copy_tree_internal (current->args.list[i], new));
   for (i = 0; i < current->contents.number; i++)
     add_to_element_contents (new,
-                copy_tree_internal(current->contents.list[i], new));
+                copy_tree_internal (current->contents.list[i], new));
   copy_associated_info (&current->info_info, &new->info_info);
   copy_associated_info (&current->extra_info, &new->extra_info);
   return new;
@@ -233,7 +233,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
         {
         case extra_element:
         case extra_element_oot:
-          if (!strcmp(key, "_copy"))
+          if (!strcmp (key, "_copy"))
             break;
           {
             KEY_PAIR *k;
@@ -307,7 +307,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             break;
           }
         case extra_integer:
-          if (!strcmp(key, "_counter"))
+          if (!strcmp (key, "_counter"))
             break;
           { /* A simple integer. */
             KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
@@ -871,7 +871,7 @@ protect_text (ELEMENT *current, const char *to_protect)
                                  || current->type == ET_rawline_arg)
       && strpbrk (current->text.text, to_protect))
     {
-      ELEMENT_LIST *container = new_list();
+      ELEMENT_LIST *container = new_list ();
       char *p = current->text.text;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       uint8_t *u8_text = 0;
@@ -951,8 +951,8 @@ protect_text (ELEMENT *current, const char *to_protect)
                   ELEMENT *new_command;
                   char saved = p[to_protect_nr];
                   p[to_protect_nr] = '\0';
-                  new_command = new_asis_command_with_text(p, current->parent,
-                                                           current->type);
+                  new_command = new_asis_command_with_text (p, current->parent,
+                                                            current->type);
                   add_to_element_list (container, new_command);
                   if (u8_text)
                     {

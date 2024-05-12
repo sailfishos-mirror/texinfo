@@ -444,7 +444,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                 {
                   const char *entry_cmdname;
 
-                  subentry_sort_string->sort_string = strdup("");
+                  subentry_sort_string->sort_string = strdup ("");
                   free (sort_string);
 
                   entry_cmdname = element_command_name (main_entry_element);
@@ -496,7 +496,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     {
                       const char *entry_cmdname;
 
-                      subentry_sort_string->sort_string = strdup("");
+                      subentry_sort_string->sort_string = strdup ("");
                       free (sort_string);
 
                       entry_cmdname = element_command_name (main_entry_element);
@@ -1064,7 +1064,7 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
               if (!uc_is_general_category (next_char, UC_NON_SPACING_MARK))
                 {
                   char *first_char_text;
-                  uint8_t *first_char_u8 = malloc (7 * sizeof(uint8_t));
+                  uint8_t *first_char_u8 = malloc (7 * sizeof (uint8_t));
                   int first_char_len = u8_uctomb (first_char_u8, next_char, 6);
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
@@ -1369,7 +1369,7 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
       else
         parsed_element = entry_tree_element;
 
-      result = idx_leading_text_or_command(parsed_element, index_ignore_chars);
+      result = idx_leading_text_or_command (parsed_element, index_ignore_chars);
       if (parsed_element != entry_tree_element)
         destroy_element (parsed_element);
 

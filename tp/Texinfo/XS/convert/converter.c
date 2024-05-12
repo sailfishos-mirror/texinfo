@@ -106,7 +106,7 @@ new_converter (void)
   registered_converter->converter_descriptor = converter_index +1;
 
   /*
-  fprintf(stderr, "REGISTER CONVERTER %zu %p %p %p\n", converter_index +1,
+  fprintf (stderr, "REGISTER CONVERTER %zu %p %p %p\n", converter_index +1,
                        converter, registered_converter, converter->document);
    */
   return converter_index +1;
@@ -1028,7 +1028,7 @@ next_for_tieaccent (const char *text, const char **next)
     }
   if (text[0] == '&')
     {
-      if (strlen (text) > 3 && isascii_alnum(*(text+1)))
+      if (strlen (text) > 3 && isascii_alnum (*(text+1)))
         {
           p = text +2;
           while (*p)
@@ -1060,7 +1060,7 @@ next_for_tieaccent (const char *text, const char **next)
           || (first_char >= 0x0030 && first_char <= 0x0039))
         {
           char *first_char_text;
-          uint8_t *first_char_u8 = malloc (7 * sizeof(uint8_t));
+          uint8_t *first_char_u8 = malloc (7 * sizeof (uint8_t));
           int first_char_len = u8_uctomb (first_char_u8, first_char, 6);
           if (first_char_len < 0)
             fatal ("u8_uctomb returns negative value");

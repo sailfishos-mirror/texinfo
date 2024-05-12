@@ -178,7 +178,7 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
       else
         cmd = CM_lowersections;
 
-      remaining_level = abs(level_to_remove);
+      remaining_level = abs (level_to_remove);
       while (remaining_level > 0)
         {
           ELEMENT *element = new_element (ET_NONE);
@@ -788,8 +788,8 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                 }
               else
                 {
-                  new_node_tree = copy_contents(content->args.list[0],
-                                                ET_NONE);
+                  new_node_tree = copy_contents (content->args.list[0],
+                                                 ET_NONE);
                 }
               added_node = new_node (document->error_messages, new_node_tree,
                                      document);
@@ -948,7 +948,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
       if (menus)
         {
           existing_entries
-           = malloc(existing_entries_space * sizeof (EXISTING_ENTRY));
+           = malloc (existing_entries_space * sizeof (EXISTING_ENTRY));
 
           for (i = 0; i < menus->number; i++)
             {
@@ -966,7 +966,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
                           if (existing_entries_nr == existing_entries_space)
                             {
                               existing_entries_space += 5;
-                              existing_entries = realloc(existing_entries,
+                              existing_entries = realloc (existing_entries,
                            existing_entries_space * sizeof (EXISTING_ENTRY));
                             }
                           existing_entries[existing_entries_nr].normalized
@@ -1231,7 +1231,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
       if (last_element->type == ET_menu_comment
           && last_element->contents.number > 0)
         {
-          ELEMENT *last_menu_comment_elt = last_contents_child(last_element);
+          ELEMENT *last_menu_comment_elt = last_contents_child (last_element);
           if (last_menu_comment_elt->type == ET_preformatted)
             preformatted = last_menu_comment_elt;
         }

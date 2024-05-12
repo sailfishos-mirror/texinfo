@@ -46,7 +46,7 @@
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
 
-#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen (#key), 0);
 
 /* used for debugging only */
 /* This function mixes Perl and gnulib allocation functions, but since it is
@@ -102,7 +102,7 @@ debug_print_element_sv (SV *element_sv)
     }
   else
     {
-      fprintf(stderr, "debug_print_element_sv: NUL\n");
+      fprintf (stderr, "debug_print_element_sv: NUL\n");
     }
 }
 #undef FETCH
@@ -261,7 +261,7 @@ add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
     }
 }
 
-#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen (#key), 0);
 SOURCE_INFO *
 get_source_info (SV *source_info_sv)
 {
@@ -348,7 +348,7 @@ get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
     {
       char *key;
       I32 retlen;
-      SV *value = hv_iternextsv(hv, &key, &retlen);
+      SV *value = hv_iternextsv (hv, &key, &retlen);
       if (value && SvOK (value))
         {
           get_sv_option (options, key, value, force, converter);
@@ -372,7 +372,7 @@ get_sv_configured_options (SV *configured_sv_in, OPTIONS *options)
     {
       char *key;
       I32 retlen;
-      SV *value = hv_iternextsv(configured_hv, &key, &retlen);
+      SV *value = hv_iternextsv (configured_hv, &key, &retlen);
       if (value && SvOK (value))
         {
           int configured = SvIV (value);
@@ -572,7 +572,7 @@ converter_initialize (SV *converter_sv)
 
   hv_in = (HV *)SvRV (converter_sv);
 
-#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen (#key), 0);
   FETCH(output_format)
 
   if (output_format_sv && SvOK (*output_format_sv))
@@ -611,7 +611,7 @@ converter_initialize (SV *converter_sv)
 
   /* store converter_descriptor in perl converter */
   hv_store (hv_in, "converter_descriptor",
-            strlen("converter_descriptor"),
+            strlen ("converter_descriptor"),
             newSViv (converter_descriptor), 0);
 
   return converter_descriptor;
@@ -724,7 +724,7 @@ get_sv_index_entries_sorted_by_letter (INDEX **index_names,
   for (i = 0; i < index_names_nr; i++)
     {
       HE *next = hv_iternext (hv_in);
-      SV *index_name_sv = hv_iterkeysv(next);
+      SV *index_name_sv = hv_iterkeysv (next);
       av_push (index_names_av, index_name_sv);
     }
    */
@@ -919,7 +919,7 @@ force_conf (CONVERTER *converter, const char *conf, SV *value)
 /* _raw_state is not fetched, as it is not documented as an option,
    and there is no way to set it through text options either, it can only
    be set as a state during conversion */
-#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen (#key), 0);
 TEXT_OPTIONS *
 copy_sv_options_for_convert_text (SV *sv_in)
 {
@@ -1325,7 +1325,7 @@ find_element_extra_index_entry_sv (const DOCUMENT *document,
   return index_entry;
 }
 
-#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen (#key), 0);
 /* find C tree root element corresponding to perl tree element element_hv */
 const ELEMENT *
 find_root_command (const DOCUMENT *document, HV *element_hv,
@@ -1402,7 +1402,7 @@ find_index_entry_subentry (const ELEMENT *index_element, HV *element_hv)
     }
 }
 
-#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen(#key), 0);
+#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen (#key), 0);
 
 /* returns the subentry direct parent based on "subentry_parent" */
 static SV *

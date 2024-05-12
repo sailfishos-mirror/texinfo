@@ -80,7 +80,7 @@ expand_today (OPTIONS *options)
     {
    /* This assumes that the SOURCE_DATE_EPOCH environment variable will contain
       a correct, positive integer in the time_t range */
-      tloc = (time_t)strtoll(source_date_epoch, NULL, 10);
+      tloc = (time_t)strtoll (source_date_epoch, NULL, 10);
       time_tm = gmtime (&tloc);
     }
   else
@@ -554,10 +554,10 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
   def_command = lookup_extra_string (current, "def_command");
 
   /* do something more efficient */
-  if (!strcmp(def_command, "defop")
-      || !strcmp(def_command, "deftypeop")
-      || !strcmp(def_command, "defmethod")
-      || !strcmp(def_command, "deftypemethod"))
+  if (!strcmp (def_command, "defop")
+      || !strcmp (def_command, "deftypeop")
+      || !strcmp (def_command, "defmethod")
+      || !strcmp (def_command, "deftypemethod"))
     {
       ELEMENT *category_copy = copy_tree (arg_category);
       NAMED_STRING_ELEMENT_LIST *substrings
@@ -593,10 +593,10 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
            */
         }
       destroy_named_string_element_list (substrings);
-    } else if (!strcmp(def_command, "defivar")
-      || !strcmp(def_command, "deftypeivar")
-      || !strcmp(def_command, "defcv")
-      || !strcmp(def_command, "deftypecv"))
+    } else if (!strcmp (def_command, "defivar")
+      || !strcmp (def_command, "deftypeivar")
+      || !strcmp (def_command, "defcv")
+      || !strcmp (def_command, "deftypecv"))
     {
       ELEMENT *category_copy = copy_tree (arg_category);
       NAMED_STRING_ELEMENT_LIST *substrings
@@ -902,13 +902,13 @@ find_root_command_next_heading_command (const ELEMENT *root,
                 /* ignored conditional */
                || builtin_command_data[data_cmd].data == BLOCK_conditional
                || (builtin_command_data[data_cmd].data == BLOCK_format_raw
-                   && !format_expanded_p 
+                   && !format_expanded_p
                              (formats, element_command_name (content))))
                 continue;
               else
                 return 0;
             }
-          else 
+          else
             { /* brace commands */
               if (other_flags & CF_non_formatted_brace)
                 continue;

@@ -110,12 +110,12 @@ unicode_accent (const char *text, const ELEMENT *e)
         {
           if (!strcmp (text, "i"))
             /* dotless i in UTF-8 */
-            return strdup("\xc4\xb1");
+            return strdup ("\xc4\xb1");
           else if (!strcmp (text, "j"))
-            return strdup("\xc8\xb7");
+            return strdup ("\xc8\xb7");
         }
       /* also correct for dotless I as dotless I is I */
-      return strdup(text);
+      return strdup (text);
     }
 
   if (unicode_diacritics[e->cmd].text)
@@ -142,7 +142,7 @@ unicode_accent (const char *text, const ELEMENT *e)
                 {
                   char *first_char_text;
                   char *next_text;
-                  uint8_t *first_char_u8 = malloc (7 * sizeof(uint8_t));
+                  uint8_t *first_char_u8 = malloc (7 * sizeof (uint8_t));
                   int first_char_len = u8_uctomb (first_char_u8, first_char, 6);
                   if (first_char_len < 0)
                     fatal ("u8_uctomb returns negative value");
@@ -243,7 +243,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
       u8_next (&first_char, encoded_u8);
       free (encoded_u8);
       if (first_char < 127)
-        xasprintf(&new_eight_bit, "%02lX", first_char);
+        xasprintf (&new_eight_bit, "%02lX", first_char);
       else
         {
           char *codepoint;
@@ -253,7 +253,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
               char *found = (char *)bsearch (&codepoint,
                              unicode_to_eight_bit[encoding_index].codepoints,
                              unicode_to_eight_bit[encoding_index].number,
-                             sizeof(char *), compare_strings);
+                             sizeof (char *), compare_strings);
               if (found)
                 new_eight_bit = strdup (found);
 
@@ -447,7 +447,7 @@ int unicode_point_decoded_in_encoding (const char *encoding,
                   char *found = (char *)bsearch (&codepoint,
                              unicode_to_eight_bit[i].codepoints,
                              unicode_to_eight_bit[i].number,
-                             sizeof(char *), compare_strings);
+                             sizeof (char *), compare_strings);
                   if (found)
                     {
                       free (normalized_encoding);

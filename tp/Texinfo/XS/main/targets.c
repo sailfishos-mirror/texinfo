@@ -58,7 +58,7 @@ find_identifier_target (const LABEL_LIST *identifiers_target,
   LABEL *result;
   target_key.identifier = (char *) normalized;
   result = (LABEL *)bsearch (&target_key, identifiers_target->list,
-                             identifiers_target->number, sizeof(LABEL),
+                             identifiers_target->number, sizeof (LABEL),
                              compare_targets);
   if (result)
     return result->element;
@@ -106,14 +106,14 @@ some_fun (LABEL_LIST *labels_list)
 LABEL_LIST *
 set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
 {
-  LABEL *targets = malloc (labels_number * sizeof(LABEL));
-  LABEL_LIST *result = malloc (sizeof(LABEL_LIST));
+  LABEL *targets = malloc (labels_number * sizeof (LABEL));
+  LABEL_LIST *result = malloc (sizeof (LABEL_LIST));
   size_t targets_number = labels_number;
 
   int i;
 
-  memcpy (targets, list_of_labels, labels_number * sizeof(LABEL));
-  qsort (targets, labels_number, sizeof(LABEL), compare_labels);
+  memcpy (targets, list_of_labels, labels_number * sizeof (LABEL));
+  qsort (targets, labels_number, sizeof (LABEL), compare_labels);
 
   i = 0;
   while (i < targets_number)
@@ -158,7 +158,7 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
               if (j < targets_number - 1)
                 {
                   memmove (&targets[i+1], &targets[j+1],
-                         (targets_number - (j + 1))* sizeof(LABEL));
+                         (targets_number - (j + 1))* sizeof (LABEL));
                 }
               targets_number -= (j - i);
             }
@@ -177,11 +177,11 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
 LABEL_LIST *
 sort_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
 {
-  LABEL *targets = malloc (labels_number * sizeof(LABEL));
-  LABEL_LIST *result = malloc (sizeof(LABEL_LIST));
+  LABEL *targets = malloc (labels_number * sizeof (LABEL));
+  LABEL_LIST *result = malloc (sizeof (LABEL_LIST));
 
-  memcpy (targets, list_of_labels, labels_number * sizeof(LABEL));
-  qsort (targets, labels_number, sizeof(LABEL), compare_labels);
+  memcpy (targets, list_of_labels, labels_number * sizeof (LABEL));
+  qsort (targets, labels_number, sizeof (LABEL), compare_labels);
 
   result->list = targets;
   result->number = labels_number;

@@ -53,7 +53,7 @@ new_block_command (ELEMENT *element, enum command_id cmd)
   ELEMENT *end_spaces_before = new_element (ET_NONE);
   ELEMENT *end_spaces_after = new_element (ET_NONE);
   ELEMENT *command_name_text = new_element (ET_NONE);
-  const char *command_name = builtin_command_name(cmd);
+  const char *command_name = builtin_command_name (cmd);
 
   element->cmd = cmd;
 
@@ -646,7 +646,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                   if (menu_content->type == ET_menu_entry)
                     {
                       ELEMENT *menu_node
-                        = normalized_entry_associated_internal_node(
+                        = normalized_entry_associated_internal_node (
                                             menu_content, identifiers_target);
                       if (menu_node)
                         referenced_identifiers =
@@ -744,7 +744,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                 {
                   memmove (&referenced_identifiers[i+1],
                            &referenced_identifiers[j+1],
-                    (referenced_identifier_number - (j + 1))* sizeof(char*));
+                    (referenced_identifier_number - (j + 1))* sizeof (char*));
                 }
               referenced_identifier_number -= (j - i);
             }
@@ -776,11 +776,11 @@ check_nodes_are_referenced (DOCUMENT *document)
         {
           char *normalized = lookup_extra_string (node, "normalized");
           char *found = (char *)bsearch (&normalized, referenced_identifiers,
-                             referenced_identifier_number, sizeof(char *),
+                             referenced_identifier_number, sizeof (char *),
                              compare_strings);
           if (!found)
             {
-              char *node_texi = target_element_to_texi_label(node);
+              char *node_texi = target_element_to_texi_label (node);
               nr_not_found++;
               message_list_command_warn (error_messages, options, node, 0,
                                          "node `%s' unreferenced",
@@ -1057,7 +1057,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       if (part_section)
                         node_direction_section = part_section;
                       direction_associated_node
-                        = section_direction_associated_node(
+                        = section_direction_associated_node (
                                                   node_direction_section, d);
                       if (direction_associated_node)
                         {
@@ -1120,7 +1120,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               && section)
                             {
                               char *node_texi
-                                = target_element_to_texi_label(node);
+                                = target_element_to_texi_label (node);
                               char *entry_texi
                                 = target_element_to_texi_label
                                                  (elt_menu_direction);
@@ -1144,7 +1144,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                    || !node_directions->list[D_next])
             {
               /* use first menu entry if available as next for Top */
-              ELEMENT *menu_child = first_menu_node(node, identifiers_target);
+              ELEMENT *menu_child = first_menu_node (node, identifiers_target);
               if (menu_child)
                 {
                   node_directions = add_extra_directions (node,
@@ -1280,7 +1280,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                           if (menu_content->type == ET_menu_entry)
                             {
                               ELEMENT *menu_node
-                                = normalized_entry_associated_internal_node(
+                                = normalized_entry_associated_internal_node (
                                                          menu_content,
                                                           identifiers_target);
                               if (menu_node == node)
@@ -1379,7 +1379,7 @@ nodes_tree (DOCUMENT *document)
                     if (part_section)
                       section = part_section;
                     direction_associated_node
-                      = section_direction_associated_node(section, d);
+                      = section_direction_associated_node (section, d);
                     if (direction_associated_node)
                       {
                         node_directions = add_extra_directions (node,
@@ -1484,7 +1484,7 @@ nodes_tree (DOCUMENT *document)
                                || options->novalidate.integer <= 0)
                             {
                               char *direction_texi
-                                 = link_element_to_texi(direction_element);
+                                 = link_element_to_texi (direction_element);
                               message_list_command_error (
                                      error_messages, options, node,
                                      "%s reference to nonexistent `%s'",
@@ -2108,11 +2108,11 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
               if (entry->type == ET_menu_entry)
                 {
                   ELEMENT *menu_node
-                   = normalized_entry_associated_internal_node(entry,
+                   = normalized_entry_associated_internal_node (entry,
                                                   identifiers_target);
                   if (menu_node)
                     {
-                      ELEMENT_LIST *down_menus = print_down_menus(menu_node,
+                      ELEMENT_LIST *down_menus = print_down_menus (menu_node,
                                           0, error_messages, options,
                                           identifiers_target, use_sections);
                       if (down_menus)

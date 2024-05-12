@@ -9,12 +9,12 @@
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-  
+
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
-  
+
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -150,7 +150,7 @@ set_element_type_name_info (void)
       type_name_index[i-1].type = i;
     }
 
-  qsort (type_name_index, TXI_TREE_TYPES_NUMBER -1, sizeof(TYPE_INDEX),
+  qsort (type_name_index, TXI_TREE_TYPES_NUMBER -1, sizeof (TYPE_INDEX),
          compare_type_index_fn);
 
    /*
@@ -168,7 +168,7 @@ find_element_type (char *type_name)
   static TYPE_INDEX searched_type;
   searched_type.name = type_name;
   result = (TYPE_INDEX *) bsearch (&searched_type, type_name_index,
-                              TXI_TREE_TYPES_NUMBER -1, sizeof(TYPE_INDEX),
+                              TXI_TREE_TYPES_NUMBER -1, sizeof (TYPE_INDEX),
                                compare_type_index_fn);
   if (result)
     return result->type;

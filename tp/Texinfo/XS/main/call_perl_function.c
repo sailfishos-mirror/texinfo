@@ -67,7 +67,7 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
   SPAGAIN;
 
   if (count != 1)
-    croak("_unicode_to_transliterate should return 1 item\n");
+    croak ("_unicode_to_transliterate should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -133,7 +133,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
   SPAGAIN;
 
   if (count != 1)
-    croak("convert_to_latex_math should return 1 item\n");
+    croak ("convert_to_latex_math should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -175,7 +175,7 @@ call_setup_collator (int use_unicode_collation, const char *locale_lang)
   SPAGAIN;
 
   if (count != 1)
-    croak("_setup_collator should return 1 item\n");
+    croak ("_setup_collator should return 1 item\n");
 
   collator_sv = POPs;
   if (SvOK (collator_sv))
@@ -223,7 +223,7 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
   SPAGAIN;
 
   if (count != 1)
-    croak("getSortKey should return 1 item\n");
+    croak ("getSortKey should return 1 item\n");
 
   result_sv = POPs;
   result_ret = (unsigned char *)SvPVbyte (result_sv, len);

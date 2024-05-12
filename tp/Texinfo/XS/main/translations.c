@@ -1,5 +1,5 @@
 /* Copyright 2010-2024 Free Software Foundation, Inc.
-          
+
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
@@ -14,7 +14,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 /* In sync with Texinfo::Translations */
-    
+
 #include <config.h>
 
 #include <string.h>
@@ -65,7 +65,7 @@ configure_output_strings_translations (char *localesdir,
   if (!textdomain_directory)
     {
       fprintf (stderr, "bindtextdomain: error setting %s to `%s': %s\n",
-               strings_textdomain, localesdir, strerror(errno));
+               strings_textdomain, localesdir, strerror (errno));
     }
   #endif
 }
@@ -95,7 +95,7 @@ switch_messages_locale (void)
     {
       FILE *p;
       locale_command = "locale -a";
-      
+
       p = popen (locale_command, "r");
       if (p)
         {
@@ -185,7 +185,7 @@ translate_string (const char * string, const char *in_lang,
      global locales as we use setlocale */
   call_switch_to_global_locale ();
 
-  /*  
+  /*
   We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
   for translation via LANGUAGE to work.  (The locale is "C" if the
   tests are being run.)
@@ -212,7 +212,7 @@ translate_string (const char * string, const char *in_lang,
       saved_LANG = strdup (saved_LANG);
     }
 
-  saved_LC_MESSAGES = setlocale(LC_MESSAGES, NULL);
+  saved_LC_MESSAGES = setlocale (LC_MESSAGES, NULL);
 
   if (saved_LC_MESSAGES)
     saved_LC_MESSAGES = strdup (saved_LC_MESSAGES);
@@ -268,7 +268,7 @@ translate_string (const char * string, const char *in_lang,
     {
       fprintf (stderr,
               "translate_string: setenv `%s' error for string `%s': %s\n",
-              language_locales.text, string, strerror(errno));
+              language_locales.text, string, strerror (errno));
     }
 
   /* pgettext only works with string litterals, so use pgettext_expr */
@@ -327,7 +327,7 @@ replace_substrings (const char *string,
     return strdup (string);
 
   text_init (&substituted);
-  text_append (&substituted, "");  
+  text_append (&substituted, "");
 
   while (*p)
     {
@@ -357,7 +357,7 @@ replace_substrings (const char *string,
                                    flag))
                         {
                           text_append (&substituted,
-                                     replaced_substrings->list[i].string);     
+                                     replaced_substrings->list[i].string);
                           found = 1;
                           break;
                         }
@@ -458,9 +458,9 @@ replace_convert_substrings (char *translated_string,
     texinfo_line = translated_string;
 
   /*
-  fprintf(stderr, "INTERNAL V CMDS '%s' '%s'\n", translated_string,
+  fprintf (stderr, "INTERNAL V CMDS '%s' '%s'\n", translated_string,
                                                  texinfo_line);
-   */ 
+   */
 
   /* set parser debug level to one less than debug_level */
   if (debug_level > 0)

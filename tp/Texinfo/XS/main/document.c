@@ -116,7 +116,7 @@ register_document (ELEMENT *root, INDEX **index_names,
      | F_DOCM_global_commands;
 
   /*
-  fprintf(stderr, "REGISTER %zu %p %p %p %p\n", document_index +1, document,
+  fprintf (stderr, "REGISTER %zu %p %p %p %p\n", document_index +1, document,
                        document->tree, document->index_names, document->options);
    */
   return document_index +1;
@@ -505,7 +505,7 @@ remove_document_descriptor (int document_descriptor)
     }
   document->tree = 0;
   /*
-  fprintf(stderr, "REMOVE %d %p\n", document_descriptor, document);
+  fprintf (stderr, "REMOVE %d %p\n", document_descriptor, document);
    */
 }
 
@@ -527,7 +527,7 @@ unregister_document_merge_with_document (int document_descriptor,
   removed_document->tree = 0;
 
   /*
-  fprintf(stderr, "UNREGISTER %p\n", removed_document);
+  fprintf (stderr, "UNREGISTER %p\n", removed_document);
    */
 
   if (removed_document->small_strings)

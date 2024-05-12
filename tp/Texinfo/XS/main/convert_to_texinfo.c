@@ -299,7 +299,7 @@ check_node_same_texinfo_code (const ELEMENT *reference_node,
   else
     node_texi = strdup ("");
 
-  equal_texi = !strcmp(reference_node_texi, node_texi);
+  equal_texi = !strcmp (reference_node_texi, node_texi);
   free (reference_node_texi);
   free (node_texi);
 
@@ -325,7 +325,7 @@ root_heading_command_to_texinfo (const ELEMENT *element)
         tree = element->args.list[0];
     }
   else
-    return strdup("Not a command");
+    return strdup ("Not a command");
 
   text_init (&text);
   if (tree)

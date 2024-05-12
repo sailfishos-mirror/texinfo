@@ -91,7 +91,7 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
       SPAGAIN;
 
       if (count != 2)
-        croak("special_unit_target_file_name should return 2 items\n");
+        croak ("special_unit_target_file_name should return 2 items\n");
 
       filename_sv = POPs;
       if (SvOK (filename_sv))
@@ -164,7 +164,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
       SPAGAIN;
 
       if (count != 1)
-        croak("label_target_name should return 1 item\n");
+        croak ("label_target_name should return 1 item\n");
 
       target_ret_sv = POPs;
       target_ret = SvPVutf8 (target_ret_sv, len);
@@ -220,7 +220,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
       SPAGAIN;
 
       if (count != 1)
-        croak("node_file_name should return 1 item\n");
+        croak ("node_file_name should return 1 item\n");
 
       node_filename_ret_sv = POPs;
       /* user can return undef */
@@ -292,7 +292,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
       SPAGAIN;
 
       if (count != 4)
-        croak("sectioning_command_target_name should return 4 items\n");
+        croak ("sectioning_command_target_name should return 4 items\n");
 
       filename_ret_sv = POPs;
       filename_ret = SvPVutf8 (filename_ret_sv, len);
@@ -357,7 +357,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
       SPAGAIN;
 
       if (count != 2)
-        croak("unit_file_name should return 2 items\n");
+        croak ("unit_file_name should return 2 items\n");
 
       filepath_ret_sv = POPs;
       if (SvOK (filepath_ret_sv))
@@ -427,7 +427,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
       SPAGAIN;
 
       if (count != 3)
-        croak("external_target_split_name should return 3 items\n");
+        croak ("external_target_split_name should return 3 items\n");
 
       filename_sv = POPs;
       if (SvOK (filename_sv))
@@ -508,7 +508,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
       SPAGAIN;
 
       if (count != 2)
-        croak("external_target_non_split_name should return 2 items\n");
+        croak ("external_target_non_split_name should return 2 items\n");
 
       file_sv = POPs;
       if (SvOK (file_sv))
@@ -579,7 +579,7 @@ call_formatting_function_format_comment (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_comment should return 1 item\n");
+    croak ("format_comment should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -631,7 +631,7 @@ call_formatting_function_format_program_string (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_program_string should return 1 item\n");
+    croak ("format_program_string should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -683,7 +683,7 @@ call_formatting_function_format_titlepage (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_titlepage should return 1 item\n");
+    croak ("format_titlepage should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -735,7 +735,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_title_titlepage should return 1 item\n");
+    croak ("format_title_titlepage should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -789,7 +789,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_protect_text should return 1 item\n");
+    croak ("format_protect_text should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -841,7 +841,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_footnotes_segment should return 1 item\n");
+    croak ("format_footnotes_segment should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -893,7 +893,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_footnotes_sequence should return 1 item\n");
+    croak ("format_footnotes_sequence should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -947,7 +947,7 @@ call_formatting_function_format_css_lines (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_css_lines should return 1 item\n");
+    croak ("format_css_lines should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1008,7 +1008,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_end_file should return 1 item\n");
+    croak ("format_end_file should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1070,7 +1070,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_begin_file should return 1 item\n");
+    croak ("format_begin_file should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1127,7 +1127,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_translate_message should return 1 item\n");
+    croak ("format_translate_message should return 1 item\n");
 
   result_sv = POPs;
   if (SvOK (result_sv))
@@ -1196,7 +1196,7 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_button_icon_img should return 1 item\n");
+    croak ("format_button_icon_img should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1257,7 +1257,7 @@ call_formatting_function_format_button (CONVERTER *self,
   SPAGAIN;
 
   if (count != 3)
-    croak("format_button should return 3 items\n");
+    croak ("format_button should return 3 items\n");
 
   need_delimiter_sv = POPs;
   if (SvOK (need_delimiter_sv))
@@ -1336,7 +1336,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_navigation_panel should return 1 item\n");
+    croak ("format_navigation_panel should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1396,7 +1396,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_navigation_header should return 1 item\n");
+    croak ("format_navigation_header should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1484,7 +1484,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_heading_text should return 1 item\n");
+    croak ("format_heading_text should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1549,7 +1549,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_contents should return 1 item\n");
+    croak ("format_contents should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1606,7 +1606,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_separate_anchor should return 1 item\n");
+    croak ("format_separate_anchor should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1665,7 +1665,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_element_header should return 1 item\n");
+    croak ("format_element_header should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1728,7 +1728,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_element_footer should return 1 item\n");
+    croak ("format_element_footer should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1785,7 +1785,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("format_node_redirection_page should return 1 item\n");
+    croak ("format_node_redirection_page should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -1856,7 +1856,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   SPAGAIN;
 
   if (count != 1)
-    croak("types_conversion should return 1 item\n");
+    croak ("types_conversion should return 1 item\n");
 
   result_sv = POPs;
   /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
@@ -1912,7 +1912,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
   SPAGAIN;
 
   if (count != 1)
-    croak("types_open should return 1 item\n");
+    croak ("types_open should return 1 item\n");
 
   result_sv = POPs;
   /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
@@ -1982,7 +1982,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   SPAGAIN;
 
   if (count != 1)
-    croak("commands_conversion should return 1 item\n");
+    croak ("commands_conversion should return 1 item\n");
 
   result_sv = POPs;
   /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
@@ -2042,7 +2042,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
   SPAGAIN;
 
   if (count != 1)
-    croak("commands_open should return 1 item\n");
+    croak ("commands_open should return 1 item\n");
 
   result_sv = POPs;
   /* it is encoded using non strict encoding, so the UTF-8 could be invalid.
@@ -2104,7 +2104,7 @@ call_output_units_conversion (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("output_units_conversion should return 1 item\n");
+    croak ("output_units_conversion should return 1 item\n");
 
 
   result_sv = POPs;
@@ -2165,7 +2165,7 @@ call_special_unit_body_formatting (CONVERTER *self,
   SPAGAIN;
 
   if (count != 1)
-    croak("special_unit_body_formatting should return 1 item\n");
+    croak ("special_unit_body_formatting should return 1 item\n");
 
 
   result_sv = POPs;
@@ -2221,7 +2221,7 @@ call_button_simple_function (CONVERTER *self,
   SPAGAIN;
 
   if (count != 2)
-    croak("button_simple_function should return 2 items\n");
+    croak ("button_simple_function should return 2 items\n");
 
   need_delimiter_sv = POPs;
   if (SvOK (need_delimiter_sv))
@@ -2288,7 +2288,7 @@ call_button_direction_function (CONVERTER *self,
   SPAGAIN;
 
   if (count != 2)
-    croak("button_direction_function should return 2 items\n");
+    croak ("button_direction_function should return 2 items\n");
 
   need_delimiter_sv = POPs;
   if (SvOK (need_delimiter_sv))

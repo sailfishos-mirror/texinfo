@@ -435,14 +435,14 @@ store_additional_info (const ELEMENT *e, ASSOCIATED_INFO *a, char *key,
 
   /* Use sv_2mortal so that reference count is decremented if
          the hash is not saved. */
-  additional_info_hv = (HV *) sv_2mortal((SV *)newHV ());
+  additional_info_hv = (HV *) sv_2mortal ((SV *)newHV ());
 
 
   build_additional_info (additional_info_hv, a, avoid_recursion, &nr_info);
 
   if (nr_info > 0)
     hv_store (e->hv, key, strlen (key),
-              newRV_inc((SV *)additional_info_hv), 0);
+              newRV_inc ((SV *)additional_info_hv), 0);
 }
 
 static void
@@ -698,7 +698,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       SOURCE_INFO *source_info = &e->source_info;
       HV *hv = newHV ();
       hv_store (e->hv, "source_info", strlen ("source_info"),
-                newRV_noinc((SV *)hv), HSH_source_info);
+                newRV_noinc ((SV *)hv), HSH_source_info);
 
       if (source_info->file_name)
         {
@@ -888,7 +888,7 @@ build_single_index_data (INDEX *index)
   hv = newHV ();
 
   STORE("name", newSVpv_utf8 (index->name, 0));
-  STORE("in_code", index->in_code ? newSViv(1) : newSViv(0));
+  STORE("in_code", index->in_code ? newSViv (1) : newSViv (0));
 
   if (index->merged_in)
     {
@@ -1183,8 +1183,8 @@ convert_error (ERROR_MESSAGE e)
   hv_store (hv, "error_line", strlen ("error_line"), err_line, 0);
   hv_store (hv, "type", strlen ("type"),
               (e.type == MSG_error || e.type == MSG_document_error)
-                                  ? newSVpv("error", strlen("error"))
-                                  : newSVpv("warning", strlen("warning")),
+                                  ? newSVpv ("error", strlen ("error"))
+                                  : newSVpv ("warning", strlen ("warning")),
             0);
 
   if (e.continuation)
@@ -1291,7 +1291,7 @@ add_formatted_error_messages (ERROR_MESSAGE_LIST *error_messages,
             {
               if (error_nrs_sv && SvOK (*error_nrs_sv))
                 {
-                  sv_setiv(*error_nrs_sv, error_nrs);
+                  sv_setiv (*error_nrs_sv, error_nrs);
                 }
               else
                 {

@@ -87,7 +87,7 @@ register_formatting_reference_with_default (char *type_string,
 
   dTHX;
 
-  default_formatting_reference_sv = register_formatting_reference_default(
+  default_formatting_reference_sv = register_formatting_reference_default (
                  type_string, formatting_reference, ref_name, default_hv);
 
   formatting_reference_sv
@@ -179,7 +179,7 @@ html_converter_initialize_sv (SV *converter_sv,
   default_css_string_formatting_references_hv
     = (HV *)SvRV (default_css_string_formatting_references);
 
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(htmlxref)
 
   if (htmlxref_sv)
@@ -1254,7 +1254,7 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
 
 #undef FETCH
 
-#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen(#key), 0);
+#define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen (#key), 0);
 
 /* find C Texinfo tree element based on element_sv perl tree element.
    Only for elements that can be targets of links. */
@@ -1370,7 +1370,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
   index_entry_hv = (HV *) SvRV (index_entry_sv);
 
   index_name_sv = hv_fetch (index_entry_hv, "index_name",
-                            strlen("index_name") ,0);
+                            strlen ("index_name") ,0);
   if (index_name_sv)
     {
       index_name = SvPVutf8_nolen (*index_name_sv);
@@ -1379,7 +1379,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
   if (index_name)
     {
       SV **number_sv = hv_fetch (index_entry_hv, "entry_number",
-                                 strlen("entry_number") ,0);
+                                 strlen ("entry_number") ,0);
 
       if (number_sv)
         {
@@ -1460,7 +1460,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
   else if (!strcmp (state_name, "footnote_id_numbers"))
     {
-      char *footnote_id = (char *)SvPVutf8_nolen(args_sv[0]);
+      char *footnote_id = (char *)SvPVutf8_nolen (args_sv[0]);
       int number = SvIV (args_sv[1]);
       FOOTNOTE_ID_NUMBER *footnote_id_number
        = find_footnote_id_number (converter, footnote_id);
@@ -1474,8 +1474,8 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       EXPLAINED_COMMAND_TYPE_LIST *type_explanations
        = &converter->shared_conversion_state.explained_commands;
       enum command_id cmd = lookup_builtin_command (cmdname);
-      char *type = (char *)SvPVutf8_nolen(args_sv[0]);
-      char *explanation = (char *)SvPVutf8_nolen(args_sv[1]);
+      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
+      char *explanation = (char *)SvPVutf8_nolen (args_sv[1]);
       register_explained_command_string (type_explanations,
                                          cmd, type, explanation);
     }
@@ -1490,7 +1490,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
   else if (!strcmp (state_name, "formatted_listoffloats"))
     {
-      char *type = (char *)SvPVutf8_nolen(args_sv[0]);
+      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
       int number = SvIV (args_sv[1]);
       if (converter->document && converter->document->listoffloats)
         {
@@ -1539,29 +1539,29 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       if (entry_number <= 0 || index_nr == 0)
         fatal ("index entry not found");
 
-      return newSViv(converter->shared_conversion_state
+      return newSViv (converter->shared_conversion_state
          .formatted_index_entries[index_nr-1][entry_number-1]);
     }
   else if (!strcmp (state_name, "html_menu_entry_index"))
-    return newSViv(converter->shared_conversion_state.html_menu_entry_index);
+    return newSViv (converter->shared_conversion_state.html_menu_entry_index);
   else if (!strcmp (state_name, "footnote_number"))
-    return newSViv(converter->shared_conversion_state.footnote_number);
+    return newSViv (converter->shared_conversion_state.footnote_number);
   else if (!strcmp (state_name, "footnote_id_numbers"))
     {
-      const char *footnote_id = (char *)SvPVutf8_nolen(args_sv[0]);
+      const char *footnote_id = (char *)SvPVutf8_nolen (args_sv[0]);
       const FOOTNOTE_ID_NUMBER *footnote_id_number
        = find_footnote_id_number (converter, footnote_id);
       if (footnote_id_number->number > 0)
-        return newSViv(footnote_id_number->number);
+        return newSViv (footnote_id_number->number);
     }
   else if (!strcmp (state_name, "explained_commands"))
     {
-      char *type = (char *)SvPVutf8_nolen(args_sv[0]);
+      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
       enum command_id cmd = lookup_builtin_command (cmdname);
       EXPLAINED_COMMAND_TYPE_LIST *type_explanations
        = &converter->shared_conversion_state.explained_commands;
       EXPLAINED_COMMAND_TYPE *type_explanation
-         = find_explained_command_string(type_explanations, cmd, type);
+         = find_explained_command_string (type_explanations, cmd, type);
       if (type_explanation)
         {
           char *explanation_string = type_explanation->explanation;
@@ -1578,7 +1578,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
   else if (!strcmp (state_name, "formatted_listoffloats"))
     {
-      char *type = (char *)SvPVutf8_nolen(args_sv[0]);
+      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
       if (converter->document && converter->document->listoffloats)
         {
           int i;
@@ -1601,7 +1601,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
         }
     }
   else if (!strcmp (state_name, "in_skipped_node_top"))
-    return newSViv(converter->shared_conversion_state.in_skipped_node_top);
+    return newSViv (converter->shared_conversion_state.in_skipped_node_top);
   return newSV (0);
 }
 
