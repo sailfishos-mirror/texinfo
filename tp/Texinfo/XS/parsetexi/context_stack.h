@@ -65,5 +65,5 @@ typedef struct {
 extern NESTING_CONTEXT nesting_context;
 
 
-int in_preformatted_context_not_menu(void);
+int in_preformatted_context_not_menu (void);
 #endif

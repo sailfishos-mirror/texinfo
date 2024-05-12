@@ -110,8 +110,8 @@ new_macro (char *name, ELEMENT *macro)
   m->macrobody = convert_contents_to_texinfo (macro);
 }
 
-/* CMD will be either CM_macro or CM_rmacro.  Read the line defining a macro's 
-   name and the arguments it takes, and return this information in a new 
+/* CMD will be either CM_macro or CM_rmacro.  Read the line defining a macro's
+   name and the arguments it takes, and return this information in a new
    ELEMENT. */
 ELEMENT *
 parse_macro_command_line (enum command_id cmd, char **line_inout,
@@ -269,7 +269,7 @@ lookup_macro_parameter (char *name, ELEMENT *macro)
 {
   int i, pos;
   ELEMENT **args;
-  
+
   /* Find 'arg' in MACRO parameters. */
   args = macro->args.list;
   pos = 0;
@@ -639,7 +639,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
         {
           if (k_toplevel_braces_nr->integer == 1)
             {
-              int text_len = strlen(argument_content->text.text);
+              int text_len = strlen (argument_content->text.text);
               if (argument_content->text.text[0] == '{'
                   && argument_content->text.text[text_len -1] == '}')
                 {
@@ -650,7 +650,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
                   text_reset (&argument_content->text);
                   text_append_n (&argument_content->text,
                                  braced_text+1, text_len -2);
-                  free(braced_text);
+                  free (braced_text);
                   argument_content->type = ET_bracketed_linemacro_arg;
                 }
             }
@@ -935,7 +935,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
                       if (!p)
                         {
                           arg_elt = merge_text (arg_elt, line, 0);
-                          line += strlen(line);
+                          line += strlen (line);
                         }
                       else
                         {
@@ -1061,7 +1061,7 @@ store_value (const char *name, const char *value)
   /* Internal Texinfo flag */
   if (!strncmp (name, "txi", 3))
     {
-      int val = (strcmp(value, "0") != 0);
+      int val = (strcmp (value, "0") != 0);
       if (!strcmp (name, "txiindexbackslashignore"))
         global_info.ignored_chars.backslash = val;
       else if (!strcmp (name, "txiindexhyphenignore"))

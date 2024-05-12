@@ -209,7 +209,7 @@ parse_rawline_command (char *line, enum command_id cmd,
       else /* very specific case of end of text fragment after name
               without anything following the name, in particular
               without new line */
-        q = p + strlen(p);
+        q = p + strlen (p);
 
       ADD_ARG(p, q - p); /* name */
 
@@ -322,7 +322,7 @@ parse_rawline_command (char *line, enum command_id cmd,
       break;
     default:
       *special_arg = 0;
-      ADD_ARG (line, strlen(line));
+      ADD_ARG (line, strlen (line));
     }
 
   return args;
@@ -350,7 +350,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
       if (command_data(cmd).flags & CF_in_heading_spec
           && (nesting_context.basic_inline_stack_on_line.top <= 0
               || !(command_data(
-          top_command(&nesting_context.basic_inline_stack_on_line)).flags
+          top_command (&nesting_context.basic_inline_stack_on_line)).flags
                     & CF_heading_spec)))
 
         {
@@ -373,7 +373,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
       else  /* NOBRACE_other */
         {
           register_global_command (command_e);
-          if (close_preformatted_command(cmd))
+          if (close_preformatted_command (cmd))
             current = begin_preformatted (current);
         }
     }
@@ -722,7 +722,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
           goto funexit;
         }
 
-      if (close_preformatted_command(cmd))
+      if (close_preformatted_command (cmd))
         current = begin_preformatted (current);
 
       *status = GET_A_NEW_LINE;
@@ -1038,10 +1038,10 @@ handle_block_command (ELEMENT *current, char **line_inout,
         {
           /* This is, in general, caused by @detailmenu within @menu */
           if (current->type == ET_menu_comment)
-            current = close_container(current);
+            current = close_container (current);
           else /* menu_entry_description */
             {
-              current = close_container(current);
+              current = close_container (current);
               if (current->type == ET_menu_entry)
                 current = current->parent;
               else
@@ -1227,7 +1227,7 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd,
     }
   else if (cmd == CM_kbd)
     {
-      if (kbd_formatted_as_code(current))
+      if (kbd_formatted_as_code (current))
         {
           add_extra_integer (command_e, "code", 1);
         }

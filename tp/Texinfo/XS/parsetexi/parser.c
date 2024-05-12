@@ -649,7 +649,7 @@ begin_paragraph (ELEMENT *current)
 ELEMENT *
 begin_preformatted (ELEMENT *current)
 {
-  if (current_context() == ct_preformatted)
+  if (current_context () == ct_preformatted)
     {
       ELEMENT *preformatted = new_element (ET_preformatted);
       add_to_element_contents (current, preformatted);
@@ -669,7 +669,7 @@ end_paragraph (ELEMENT *current,
   if (current->type == ET_paragraph)
     {
       debug ("CLOSE PARA");
-      current = close_container(current);
+      current = close_container (current);
     }
 
   return current;
@@ -685,7 +685,7 @@ end_preformatted (ELEMENT *current,
   if (current->type == ET_preformatted)
     {
       debug ("CLOSE PREFORMATTED");
-      current = close_container(current);
+      current = close_container (current);
     }
   return current;
 }
@@ -970,8 +970,8 @@ isolate_last_space (ELEMENT *current)
   /* Store a final comment command in the 'info' hash, except for brace
      commands */
   if (current->type != ET_brace_command_arg
-      && (last_contents_child(current)->cmd == CM_c
-          || last_contents_child(current)->cmd == CM_comment))
+      && (last_contents_child (current)->cmd == CM_c
+          || last_contents_child (current)->cmd == CM_comment))
     {
       add_info_element_oot (current, "comment_at_end",
                             pop_element_from_contents (current));
@@ -1090,14 +1090,14 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
   add_extra_element (cmd_as_arg->parent->parent,
                      "command_as_argument", cmd_as_arg);
   if (cmd_as_arg->cmd == CM_kbd
-      && kbd_formatted_as_code(cmd_as_arg->parent->parent)) {
+      && kbd_formatted_as_code (cmd_as_arg->parent->parent)) {
     add_extra_integer (cmd_as_arg->parent->parent,
                        "command_as_argument_kbd_code", 1);
   }
 }
 
 void
-gather_spaces_after_cmd_before_arg(ELEMENT *current)
+gather_spaces_after_cmd_before_arg (ELEMENT *current)
 {
   ELEMENT *spaces_element = pop_element_from_contents (current);
   spaces_element->type = ET_NONE;
@@ -1398,7 +1398,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   char *command = 0;
 
   /*
-  debug_nonl("PROCESS "); debug_print_protected_string (line); debug ("");
+  debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
   */
 
   /********* BLOCK_raw ******************/
@@ -1533,7 +1533,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                   closed_nested_raw = 1;
                 }
               else
-                pop_raw_block_stack();
+                pop_raw_block_stack ();
             }
      /* a temporary element was created based on the top stack cmd, remove */
           if (top_stack_cmd != CM_NONE)
@@ -1636,9 +1636,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           while (1)
             {
               q = strstr (q, delimiter);
-              if (!q || q[strlen(delimiter)] == '}')
+              if (!q || q[strlen (delimiter)] == '}')
                 break;
-              q += strlen(delimiter);
+              q += strlen (delimiter);
             }
         }
       else
@@ -1874,7 +1874,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                       value_source_mark
                           = new_source_mark (SM_type_value_expansion);
                       value_source_mark->status = SM_status_start;
-                      value_source_mark->line = strdup(value);
+                      value_source_mark->line = strdup (value);
                       sm_value_element = new_value_element (cmd, flag,
                                                             spaces_element);
                       value_source_mark->element = sm_value_element;
@@ -2003,8 +2003,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                  {
                    line_warn ("command `@%s' must not be followed by new line",
                               command_name(current->cmd));
-                   if (current_context() == ct_def
-                       || current_context() == ct_line)
+                   if (current_context () == ct_def
+                       || current_context () == ct_line)
                      {
                     /* do not consider the end of line to be possibly between
                        the @-command and the argument if at the end of a
@@ -2073,7 +2073,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                                   line, whitespaces_len);
                    debug ("BRACE CMD before brace add spaces '%s'",
                           current->contents.list[0]->text.text
-                            + strlen(current->contents.list[0]->text.text)
+                            + strlen (current->contents.list[0]->text.text)
                                                          - whitespaces_len);
                    line += whitespaces_len;
                  }
@@ -2134,7 +2134,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       enum command_id data_cmd = cmd;
       ELEMENT *command_element;
 
-      debug ("COMMAND @%s", debug_parser_command_name(cmd));
+      debug ("COMMAND @%s", debug_parser_command_name (cmd));
 
       line = line_after_command;
 
@@ -2252,7 +2252,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       /* special case with @ followed by a newline protecting end of lines
          in  @def* */
-      def_line_continuation = (current_context() == ct_def
+      def_line_continuation = (current_context () == ct_def
                                && cmd == CM_NEWLINE);
 
       /* warn on not appearing at line beginning.  Need to do before closing
@@ -2308,7 +2308,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
            || cmd == CM_seealso
            || cmd == CM_subentry)
           && current->contents.number > 0
-          && last_contents_child(current)->text.end > 0
+          && last_contents_child (current)->text.end > 0
        /* it is important to check if in an index command, as otherwise
           the internal space type is not processed and remains as is in
           the final tree. */
@@ -2665,7 +2665,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           debug ("BEGIN LINE");
 
           if (current->contents.number > 0
-              && last_contents_child(current)->type
+              && last_contents_child (current)->type
                  == ET_internal_spaces_before_argument)
             {
               /* Remove this element and update 'info' values. */
@@ -2780,7 +2780,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   identifiers_target
     = set_labels_identifiers_target (labels_list, labels_number);
 
-  document_descriptor = store_document(current);
+  document_descriptor = store_document (current);
 
   complete_indices (document_descriptor, debug_output);
 

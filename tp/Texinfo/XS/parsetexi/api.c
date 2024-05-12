@@ -99,7 +99,7 @@ reset_parser_except_conf (void)
 void
 reset_parser (int local_debug_output)
 {
-  /* We cannot call debug() here, because the configuration of the previous
+  /* We cannot call debug () here, because the configuration of the previous
      parser invokation has not been reset already, and new configuration has
      not been read, so we need to pass the configuration information
      directly */
@@ -274,5 +274,5 @@ parser_set_accept_internalvalue (int value)
 void
 parser_set_restricted (int value)
 {
-  set_restricted(value);
+  set_restricted (value);
 }

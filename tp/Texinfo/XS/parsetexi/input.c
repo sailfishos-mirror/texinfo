@@ -98,10 +98,10 @@ int value_expansion_nr = 0;
    of cases where this happens */
 int after_end_fetch_nr = -1;
 
-/* Collect text from the input sources until a newline is found.  This is used 
-   instead of next_text when we need to be sure we get an entire line of 
-   Texinfo input (for example as a line argument to a command), which might not 
-   be the case if the input is the result of a macro expansion.
+/* Collect text from the input sources until a newline is found.  This is used
+   instead of next_text when we need to be sure we get an entire line of
+   Texinfo input (for example as a line argument to a command), which might
+   not be the case if the input is the result of a macro expansion.
 
    Return value should not be freed by caller, and becomes invalid after
    a subsequent call. */
@@ -362,7 +362,7 @@ next_text (ELEMENT *current)
                     source_mark->line = convert_to_utf8 (strdup (comment+1));
                   else
                     source_mark->line = 0;
-                  input_push_text(strdup (""),
+                  input_push_text (strdup (""),
                                   input->source_info.line_nr, 0, 0);
                   /* if the input_stack was reallocated in input_push_text,
                      the input pointer for the file may have been freed and
@@ -400,7 +400,7 @@ next_text (ELEMENT *current)
              messages.
           */
                   char *decoded_file_name
-                    = convert_to_utf8 (strdup(input->input_file_path));
+                    = convert_to_utf8 (strdup (input->input_file_path));
                   line_warn ("error on closing %s: %s",
                              decoded_file_name,
                              strerror (errno));
@@ -532,8 +532,8 @@ set_input_source_mark (SOURCE_MARK *source_mark)
   input_stack[input_number - 1].input_source_mark = source_mark;
 }
 
-/* For filenames and macro names, it is possible that they won't be referenced 
-   in the line number of any element.  It would be too much work to keep track, 
+/* For filenames and macro names, it is possible that they won't be referenced
+   in the line number of any element.  It would be too much work to keep track,
    so just keep them all here, and free them all together at the end. */
 char **small_strings = 0;
 size_t small_strings_num = 0;

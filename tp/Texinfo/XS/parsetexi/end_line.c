@@ -59,7 +59,7 @@ is_decimal_number (char *string)
   char *p = string;
   char *first_digits = 0;
   char *second_digits = 0;
-  
+
   if (string[0] == '\0')
     return 0;
 
@@ -74,8 +74,8 @@ is_decimal_number (char *string)
     }
 
   if (*p /* Bytes remaining at end of argument. */
-      || (!first_digits && !second_digits)) /* Need digits either 
-                                               before or after the 
+      || (!first_digits && !second_digits)) /* Need digits either
+                                               before or after the
                                                decimal point. */
     {
       return 0;
@@ -93,7 +93,7 @@ is_whole_number (char *string)
 }
 
 /* Parse the arguments to a line command.  Return an element whose contents
-   is an array of the arguments.  For some commands, there is further 
+   is an array of the arguments.  For some commands, there is further
    processing of the arguments (for example, for an @alias, remember the
    alias.) */
 ELEMENT *
@@ -178,7 +178,7 @@ parse_line_command_args (ELEMENT *line_command)
         if (command_data(existing_cmd).flags & CF_ALIAS)
           {
             enum command_id alias_exist_cmd = command_data(existing_cmd).data;
-            if (! strcmp(command_name(alias_exist_cmd), new))
+            if (! strcmp (command_name(alias_exist_cmd), new))
               line_warn ("recursive alias definition of %s through %s ignored",
                             new, command_name(existing_cmd));
             else
@@ -299,7 +299,7 @@ parse_line_command_args (ELEMENT *line_command)
             q = strpbrk (p, whitespace_chars);
             if (!q)
               q = p + strlen (p);
-            
+
             arg = strndup (p, q - p);
 
             /* Check argument is valid. */
@@ -423,7 +423,7 @@ parse_line_command_args (ELEMENT *line_command)
                 ADD_ARG(index_name_from);
                 ADD_ARG(index_name_to);
                 /* Note that 'current_to' may not end up as the index
-                   'from_index' merges into if there are further @synindex 
+                   'from_index' merges into if there are further @synindex
                    commands. */
               }
             else
@@ -815,7 +815,7 @@ end_line_starting_block (ELEMENT *current)
 
       for (i = 0; i < current->contents.number; i++)
         {
-          ELEMENT *e = contents_child_by_index(current, i);
+          ELEMENT *e = contents_child_by_index (current, i);
 
           if (e->type == ET_bracketed_arg)
             {
@@ -1023,10 +1023,10 @@ end_line_starting_block (ELEMENT *current)
         {
           ELEMENT *e;
           ELEMENT *block_line_arg;
-          if (last_args_child(current)
-              && last_args_child(current)->type == ET_block_line_arg)
+          if (last_args_child (current)
+              && last_args_child (current)->type == ET_block_line_arg)
             {
-              block_line_arg = last_args_child(current);
+              block_line_arg = last_args_child (current);
             }
           else
             {
@@ -1312,7 +1312,7 @@ end_line_misc_line (ELEMENT *current)
                   if (status)
                     {
                       char *decoded_file_path
-                         = convert_to_utf8 (strdup(fullpath));
+                         = convert_to_utf8 (strdup (fullpath));
                       command_error (current,
                                      "@include: could not open %s: %s",
                                      decoded_file_path,
@@ -1514,7 +1514,7 @@ end_line_misc_line (ELEMENT *current)
       if (superfluous_arg)
         {
           char *texi_line, *p, *p1;
-          p = convert_to_texinfo (args_child_by_index(current, 0));
+          p = convert_to_texinfo (args_child_by_index (current, 0));
 
           texi_line = p;
 
@@ -1528,7 +1528,7 @@ end_line_misc_line (ELEMENT *current)
                 p1--;
               *p1 = '\0';
             }
-          command_error (current, "bad argument to @%s: %s", 
+          command_error (current, "bad argument to @%s: %s",
                          command_name(current->cmd), texi_line);
           free (p);
         }
@@ -1597,12 +1597,12 @@ end_line_misc_line (ELEMENT *current)
           add_info_string_dup (current, "command_name",
                                command_name(current->cmd));
         }
-      /* All the other "line" commands. Check they have an argument. Empty 
+      /* All the other "line" commands. Check they have an argument. Empty
          @top is allowed. */
       if (current->args.list[0]->contents.number == 0
           && current->cmd != CM_top)
         {
-          command_warn (current, "@%s missing argument", 
+          command_warn (current, "@%s missing argument",
                         command_name(current->cmd));
         }
       else
@@ -1626,7 +1626,7 @@ end_line_misc_line (ELEMENT *current)
           if ((command_flags(current) & CF_index_entry_command
                 || current->cmd == CM_subentry))
             {
-              set_non_ignored_space_in_index_before_command(
+              set_non_ignored_space_in_index_before_command (
                                                      current->args.list[0]);
             }
         }
@@ -1666,7 +1666,8 @@ end_line_misc_line (ELEMENT *current)
               add_to_element_contents (closed_command, end_elt);
 
               if (command_data(closed_command->cmd).data == BLOCK_menu
-                  && command_data(current_context_command()).data == BLOCK_menu)
+                  && command_data(current_context_command ()).data
+                                                              == BLOCK_menu)
                 {
                   ELEMENT *e;
                   debug ("CLOSE menu but still in menu context");
@@ -1750,7 +1751,7 @@ end_line_misc_line (ELEMENT *current)
       current = last_contents_child (current);
       if (cmd == CM_node)
         counter_pop (&count_remaining_args);
-      
+
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
         {
@@ -1879,7 +1880,7 @@ end_line (ELEMENT *current)
     {
       debug_nonl ("Still opened line/block command %s: ",
                   context_name (current_context ()));
-      debug_parser_print_element (current, 1); debug("");
+      debug_parser_print_element (current, 1); debug ("");
       if (current_context () == ct_def)
         {
           while (current->parent

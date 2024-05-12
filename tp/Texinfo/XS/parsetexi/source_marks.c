@@ -85,8 +85,8 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
          source_mark->status == SM_status_start ? "start"
           : source_mark->status == SM_status_end ? "end"
           : "UNDEF", add_element_string);
-  debug_parser_print_element(mark_element, 0); debug_nonl (" ");
-  debug_parser_print_element(e, 0); debug ("");
+  debug_parser_print_element (mark_element, 0); debug_nonl (" ");
+  debug_parser_print_element (e, 0); debug ("");
 
   add_source_mark (source_mark, mark_element);
 }

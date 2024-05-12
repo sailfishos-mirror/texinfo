@@ -61,8 +61,8 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   int i, contents_count;
   int begin = -1, end = -1, term_begin = -1;
 
-  if (last_contents_child(current)
-      && last_contents_child(current)->type == ET_before_item)
+  if (last_contents_child (current)
+      && last_contents_child (current)->type == ET_before_item)
     {
       /* before_item before the first @item, nothing to do for now */
       if (next_command == CM_itemx)
@@ -110,7 +110,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
      table_after_terms. */
   insert_slice_into_contents (table_after_terms, 0, current, begin, end);
   for (i = 0; i < table_after_terms->contents.number; i++)
-    contents_child_by_index(table_after_terms, i)->parent = table_after_terms;
+    contents_child_by_index (table_after_terms, i)->parent = table_after_terms;
   remove_slice_from_contents (current, begin, end);
 
   if (type == ET_table_definition)
@@ -142,7 +142,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       insert_slice_into_contents (table_term, 0, current,
                                   term_begin, begin);
       for (i = 0; i < table_term->contents.number; i++)
-        contents_child_by_index(table_term, i)->parent = table_term;
+        contents_child_by_index (table_term, i)->parent = table_term;
       remove_slice_from_contents (current, term_begin, begin);
       if (before_item)
         {
@@ -152,10 +152,10 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
           /* Reparent any trailing index entries in the before_item to the
              beginning of table term. */
           while (before_item->contents.number > 0
-                   && (last_contents_child(before_item)->type
+                   && (last_contents_child (before_item)->type
                          == ET_index_entry_command
-                       || last_contents_child(before_item)->cmd == CM_c
-                       || last_contents_child(before_item)->cmd
+                       || last_contents_child (before_item)->cmd == CM_c
+                       || last_contents_child (before_item)->cmd
                          == CM_comment))
             {
               ELEMENT *e = pop_element_from_contents (before_item);

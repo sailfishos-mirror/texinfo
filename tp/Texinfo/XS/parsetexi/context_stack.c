@@ -130,7 +130,7 @@ NESTING_CONTEXT nesting_context;
 
 /* used for @kbd */
 int
-in_preformatted_context_not_menu()
+in_preformatted_context_not_menu ()
 {
   int i;
 

@@ -226,9 +226,9 @@ handle_open_brace (ELEMENT *current, char **line_inout)
      math.  Note that for rawpreformatted, it can only happen
      within an @-command as { is simply added as seen just above.
    */
-  else if (current_context() == ct_math
-           || current_context() == ct_rawpreformatted
-           || current_context() == ct_inlineraw)
+  else if (current_context () == ct_math
+           || current_context () == ct_rawpreformatted
+           || current_context () == ct_inlineraw)
     {
       ELEMENT *b = new_element (ET_balanced_braces);
       ELEMENT *open_brace = new_element (ET_NONE);
@@ -260,7 +260,7 @@ check_empty_expansion (ELEMENT *e)
   for (i = 0; i < e->contents.number; i++)
     {
       ELEMENT *f = e->contents.list[i];
-      if (!check_space_element(f))
+      if (!check_space_element (f))
         {
           return 0;
         }
@@ -325,7 +325,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
               if (nesting_context.regions_stack.top > 0)
                 {
                   add_extra_string_dup (current, "element_region",
-                    command_name(top_command(&nesting_context.regions_stack)));
+                    command_name(top_command (&nesting_context.regions_stack)));
                 }
             }
         }
@@ -585,7 +585,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 
       current = close_brace_command (current->parent, 0, 0, 0);
 
-      if (close_preformatted_command(closed_command))
+      if (close_preformatted_command (closed_command))
         current = begin_preformatted (current);
     } /* CF_brace */
   else if (current->type == ET_rawpreformatted)

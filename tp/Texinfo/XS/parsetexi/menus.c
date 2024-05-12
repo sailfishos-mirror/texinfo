@@ -124,8 +124,8 @@ handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
       && (current->parent->type == ET_menu_comment
           || current->parent->type == ET_menu_entry_description)
       && current->contents.number > 0
-      && last_contents_child(current)->type == ET_empty_line
-      && last_contents_child(current)->text.end == 0)
+      && last_contents_child (current)->type == ET_empty_line
+      && last_contents_child (current)->text.end == 0)
     {
       ELEMENT *star;
 
@@ -142,7 +142,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
   /* A space after a "*" at the beginning of a line. */
   else if (strchr (whitespace_chars, *line)
            && current->contents.number > 0
-           && last_contents_child(current)->type == ET_internal_menu_star)
+           && last_contents_child (current)->type == ET_internal_menu_star)
     {
       ELEMENT *menu_entry, *leading_text, *entry_name;
       ELEMENT *menu_star_element;
@@ -191,12 +191,12 @@ handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
     }
   /* A "*" followed by anything other than a space. */
   else if (current->contents.number > 0
-           && last_contents_child(current)->type == ET_internal_menu_star)
+           && last_contents_child (current)->type == ET_internal_menu_star)
     {
       debug_nonl ("ABORT MENU STAR before: ");
       debug_print_protected_string (line); debug ("");
 
-      last_contents_child(current)->type = ET_NONE;
+      last_contents_child (current)->type = ET_NONE;
     }
   /* After a separator in a menu, end of menu entry node or menu entry name
    (. must be followed by a space to stop the node). */
@@ -330,12 +330,12 @@ end_line_menu_entry (ELEMENT *current)
       menu = current->parent->parent;
       menu_entry = pop_element_from_contents (menu);
       if (menu->contents.number > 0
-          && last_contents_child(menu)->type == ET_menu_entry)
+          && last_contents_child (menu)->type == ET_menu_entry)
         {
           ELEMENT *entry, *description = 0;
           int j;
 
-          entry = last_contents_child(menu);
+          entry = last_contents_child (menu);
           for (j = entry->contents.number - 1; j >= 0; j--)
             {
               ELEMENT *e = contents_child_by_index (entry, j);
@@ -358,16 +358,16 @@ end_line_menu_entry (ELEMENT *current)
             }
         }
       else if (menu->contents.number > 0
-               && last_contents_child(menu)->type == ET_menu_comment)
+               && last_contents_child (menu)->type == ET_menu_comment)
         {
-          description_or_menu_comment = last_contents_child(menu);
+          description_or_menu_comment = last_contents_child (menu);
         }
       if (description_or_menu_comment)
         {
           current = description_or_menu_comment;
           if (current->contents.number > 0
-              && last_contents_child(current)->type == ET_preformatted)
-            current = last_contents_child(current);
+              && last_contents_child (current)->type == ET_preformatted)
+            current = last_contents_child (current);
           else
             {
               ELEMENT *e;
@@ -393,7 +393,7 @@ end_line_menu_entry (ELEMENT *current)
       int i, j;
       for (i = 0; i < menu_entry->contents.number; i++)
         {
-          ELEMENT *arg = contents_child_by_index(menu_entry, i);
+          ELEMENT *arg = contents_child_by_index (menu_entry, i);
           if (arg->text.end > 0)
             current = merge_text (current, arg->text.text, arg);
           else

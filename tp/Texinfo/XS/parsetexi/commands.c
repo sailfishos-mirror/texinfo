@@ -39,7 +39,7 @@ lookup_command (char *cmdname)
   int i;
 
   /* Check for user-defined commands: macros, indexes, etc. */
-  /* Do this before looking in the built-in commands, in case the user uses 
+  /* Do this before looking in the built-in commands, in case the user uses
      @definfoenclose or similar to override a command.
      If speed is a problem, then we could set a bit in the flags on the
      builtin command (maybe reusing CF_INFOENCLOSE) to say to look in the
@@ -61,8 +61,8 @@ lookup_command (char *cmdname)
   return cmd;
 }
 
-/* Add a new user-defined Texinfo command, like an index or macro command.  No 
-   reference to NAME is retained. */
+/* Add a new user-defined Texinfo command, like an index or macro command.
+   No reference to NAME is retained. */
 enum command_id
 add_texinfo_command (char *name)
 {
