@@ -104,6 +104,9 @@ $current->{'extra'}->{'following_punctuation'} or similar.
 
 Using callgrind to find the time used by functions
 
+valgrind --tool=callgrind perl -w texi2any.pl ../doc/texinfo.texi --html
+kcachegrind callgrind.out.XXXXXX
+
 C code could be checked to see if using an hash map implementation,
 by compiling C code as C++ and using the standard C++ library hash map
 could be interesting (Patrice 2023-10-14).
@@ -111,10 +114,12 @@ Could be interesting for find_string:
  unique_target -> find_string
  (and, though much less used output_files_open_out -> find_string)
 
-Other possibility for optimisation, do something similar as in Perl with
-shared index information when parser is called from gdt/convert_substring,
-through simple_parser, to avoid the init_index_command call (in particular
-the call to add_index_command).
+Other possibility for optimisation (small expected gain except may be for
+manuals with lots of translations, for instance lots of @def needing a
+translation), do something similar as in Perl with shared index information
+when parser is called from gdt/convert_substring, through simple_parser, to
+avoid the init_index_command call and instead share indices and only reset
+them.
 
 Another possibility for optimization would be to call Perl less, as it
 still uses about 40% of the time (for html) even though it should mainly be
