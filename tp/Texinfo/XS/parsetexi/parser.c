@@ -2630,6 +2630,12 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   char *line;
   int status;
 
+  /* done here and not in reset_parser_except_conf as usually done
+     as restricted is set after reset_parser_except_conf and before
+     calling parsing functions */
+  if (!global_restricted)
+    init_index_commands ();
+
   /* Read input file line-by-line. */
   while (1)
     {

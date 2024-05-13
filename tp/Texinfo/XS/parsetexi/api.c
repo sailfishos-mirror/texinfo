@@ -74,7 +74,6 @@ reset_parser_except_conf (void)
   */
   wipe_index_names (index_names);
   forget_indices ();
-  init_index_commands ();
   wipe_identifiers_target ();
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);

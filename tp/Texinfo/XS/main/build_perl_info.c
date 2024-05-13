@@ -942,10 +942,14 @@ build_index_data (INDEX **index_names_in)
 
   hv = newHV ();
 
-  for (i = index_names_in; (idx = *i); i++)
+  if (index_names_in)
     {
-      HV *hv2 = build_single_index_data (idx);
-      hv_store (hv, idx->name, strlen (idx->name), newRV_noinc ((SV *)hv2), 0);
+      for (i = index_names_in; (idx = *i); i++)
+        {
+          HV *hv2 = build_single_index_data (idx);
+          hv_store (hv, idx->name, strlen (idx->name),
+                                           newRV_noinc ((SV *)hv2), 0);
+        }
     }
 
   return hv;

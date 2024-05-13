@@ -401,6 +401,13 @@ parse_line_command_args (ELEMENT *line_command)
         if (*p)
           goto synindex_invalid; /* More at end of line. */
 
+        if (global_restricted)
+          {
+            free (index_name_from);
+            free (index_name_to);
+            break;
+          }
+
         from_index = indices_info_index_by_name (index_names, index_name_from);
         to_index = indices_info_index_by_name (index_names, index_name_to);
         if (!from_index)
@@ -448,6 +455,8 @@ parse_line_command_args (ELEMENT *line_command)
         arg = read_command_name (&p);
         if (!arg || *p)
           line_error ("bad argument to @printindex: %s", line);
+        else if (global_restricted)
+          {}
         else
           {
             INDEX *idx = indices_info_index_by_name (index_names,arg);

@@ -192,8 +192,20 @@ init_index_commands (void)
     };
 #undef X
 
-  number_of_indices = 0;
-  num_index_commands = 0;
+  /* number_of_indices and num_index_commands
+   * should already be reset to 0 by forget_indices
+
+  if (number_of_indices != 0)
+    {
+      fprintf (stderr, "BUG: init_index_commands: number_of_indices != 0\n");
+      number_of_indices = 0;
+    }
+  if (num_index_commands != 0)
+    {
+      fprintf (stderr, "BUG: init_index_commands: num_index_commands != 0\n");
+      num_index_commands = 0;
+    }
+   */
 
   for (p = default_indices; p->name; p++)
     {
@@ -345,6 +357,7 @@ forget_indices (void)
   index_names = 0;
   number_of_indices = 0;
   space_for_indices = 0;
+  num_index_commands = 0;
 }
 
 void
@@ -352,13 +365,16 @@ resolve_indices_merged_in (void)
 {
   INDEX **i, *idx;
 
-  for (i = index_names; (idx = *i); i++)
+  if (index_names)
     {
-      if (idx->merged_in)
+      for (i = index_names; (idx = *i); i++)
         {
-          /* This index is merged in another one. */
-          INDEX *ultimate = ultimate_index (idx);
-          idx->merged_in = ultimate;
+          if (idx->merged_in)
+            {
+              /* This index is merged in another one. */
+              INDEX *ultimate = ultimate_index (idx);
+              idx->merged_in = ultimate;
+            }
         }
     }
 }
@@ -377,6 +393,9 @@ complete_indices (int document_descriptor, int debug_level)
      the documents list is called in gdt.  So only use it here and
      not after gdt call */
   document = retrieve_document (document_descriptor);
+
+  if (!document->index_names)
+    return;
 
   index_names = document->index_names;
 

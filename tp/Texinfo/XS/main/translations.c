@@ -474,6 +474,7 @@ replace_convert_substrings (char *translated_string,
    location in tree of substituted brace enclosed strings.
    */
   parser_set_accept_internalvalue (1);
+  parser_set_restricted (1);
 
   document_descriptor = parse_string (texinfo_line, 1);
 

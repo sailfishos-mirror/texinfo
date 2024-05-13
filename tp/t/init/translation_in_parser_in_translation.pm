@@ -10,6 +10,7 @@ use Texinfo::Convert::NodeNameNormalization;
 
 # a translation of the Next button for which there is a translation
 # by the parser of index of @def* commands like '{name} of {class}'.
+# also test commands in simple_parser restricted mode.
 my %translations = (
   'fr' => {
            'Next' => {'NodeNext direction string'
@@ -23,6 +24,14 @@ AA
 @deftypemethod g h i j k l
 BB
 @end deftypemethod
+
+@defcodeindex xx
+@xxindex entry
+
+@synindex fn xx
+
+@printindex fn
+@printindex xx
 '},
             # this is not used, as it is translated in the parser.
             # To be used, should be in po/gmo file
@@ -36,6 +45,14 @@ CC
 @deftypemethod s t u v w x
 DD
 @end deftypemethod
+
+@defcodeindex xx
+@xxindex entry
+
+@synindex fn xx
+
+@printindex fn
+@printindex xx
 '},
 });
 

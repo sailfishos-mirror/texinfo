@@ -620,7 +620,11 @@ my $simple_parser_line_commands = dclone(\%line_commands);
 my $simple_parser_brace_commands = dclone(\%brace_commands);
 my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
 my $simple_parser_no_paragraph_commands = {%no_paragraph_commands};
-my $simple_parser_index_names = dclone(\%index_names);
+#my $simple_parser_index_names = dclone(\%index_names);
+# Same as in XS, no indices, all the indices commands are ignored with
+# restricted.
+my $simple_parser_index_names = {};
+# FIXME make it empty as in the XS parser
 my $simple_parser_command_index = {%command_index};
 my $simple_parser_close_paragraph_commands = {%close_paragraph_commands};
 my $simple_parser_close_preformatted_commands = {%close_preformatted_commands};
@@ -3794,7 +3798,8 @@ sub _end_line_misc_line($$$)
     } else {
       if (($command eq 'item' or $command eq 'itemx')
           and $current->{'parent'}->{'cmdname'}
-          and $self->{'command_index'}->{$current->{'parent'}->{'cmdname'}}) {
+          and ($current->{'parent'}->{'cmdname'} eq 'ftable'
+               or $current->{'parent'}->{'cmdname'} eq 'vtable') {
         _enter_index_entry($self, $current->{'parent'}->{'cmdname'},
                            $current, $source_info);
       } elsif ($self->{'command_index'}->{$current->{'cmdname'}}) {
@@ -3994,9 +3999,12 @@ sub _end_line_def_line($$$)
         # in order to avoid calling gdt.
         # We need to store the language as well in case there are multiple
         # languages in the document.
-        if ($command_index{$def_command} eq 'fn'
-            or $command_index{$def_command} eq 'vr'
-                and $def_command ne 'defcv') {
+        if ($def_command eq 'defop'
+            or $def_command eq 'defmethod'
+            or $def_command eq 'deftypemethod'
+            or $def_command eq 'defivar'
+            or $def_command eq 'deftypeivar'
+            or $def_command eq 'deftypecv') {
           undef $index_entry;
           if (defined($self->{'documentlanguage'})) {
             $current->{'extra'}->{'documentlanguage'}
@@ -7861,30 +7869,35 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'synindex' || $command eq 'syncodeindex') {
     # REMACRO
     if ($line =~ /^([[:alnum:]][[:alnum:]\-]*)\s+([[:alnum:]][[:alnum:]\-]*)$/) {
-      my $index_name_from = $1;
-      my $index_name_to = $2;
-      my $index_from = $self->{'index_names'}->{$index_name_from};
-      my $index_to = $self->{'index_names'}->{$index_name_to};
-      $self->_line_error(sprintf(__("unknown source index in \@%s: %s"),
-                                 $command, $index_name_from), $source_info)
-        unless $index_from;
-      $self->_line_error(sprintf(__("unknown destination index in \@%s: %s"),
-                                 $command, $index_name_to), $source_info)
-        unless $index_to;
-      if ($index_from and $index_to) {
-        my $current_to = Texinfo::Common::ultimate_index($self->{'index_names'},
+      if ($self->{'restricted'}) {
+        # do nothing
+      } else {
+        my $index_name_from = $1;
+        my $index_name_to = $2;
+        my $index_from = $self->{'index_names'}->{$index_name_from};
+        my $index_to = $self->{'index_names'}->{$index_name_to};
+        $self->_line_error(sprintf(__("unknown source index in \@%s: %s"),
+                                   $command, $index_name_from), $source_info)
+          unless $index_from;
+        $self->_line_error(sprintf(__("unknown destination index in \@%s: %s"),
+                                   $command, $index_name_to), $source_info)
+          unless $index_to;
+        if ($index_from and $index_to) {
+          my $current_to
+               = Texinfo::Common::ultimate_index($self->{'index_names'},
                                                          $index_to);
-        # find the merged indices recursively avoiding loops
-        if ($current_to->{'name'} ne $index_name_from) {
-          my $in_code = 0;
-          $in_code = 1 if ($command eq 'syncodeindex');
-          $index_from->{'in_code'} = $in_code;
-          $index_from->{'merged_in'} = $current_to->{'name'};
-          $args = [$index_name_from, $index_name_to];
-        } else {
-          $self->_line_warn(sprintf(__(
-                         "\@%s leads to a merging of %s in itself, ignoring"),
-                             $command, $index_name_from), $source_info);
+          # find the merged indices recursively avoiding loops
+          if ($current_to->{'name'} ne $index_name_from) {
+            my $in_code = 0;
+            $in_code = 1 if ($command eq 'syncodeindex');
+            $index_from->{'in_code'} = $in_code;
+            $index_from->{'merged_in'} = $current_to->{'name'};
+            $args = [$index_name_from, $index_name_to];
+          } else {
+            $self->_line_warn(sprintf(__(
+                           "\@%s leads to a merging of %s in itself, ignoring"),
+                               $command, $index_name_from), $source_info);
+          }
         }
       }
     } else {
@@ -7892,8 +7905,10 @@ sub _parse_line_command_args($$$)
                                 $command, $line), $source_info);
     }
   } elsif ($command eq 'printindex') {
+    if ($self->{'restricted'}) {
+      # do nothing
     # REMACRO
-    if ($line =~ /^([[:alnum:]][[:alnum:]\-]*)$/) {
+    } elsif ($line =~ /^([[:alnum:]][[:alnum:]\-]*)$/) {
       my $name = $1;
       if (!exists($self->{'index_names'}->{$name})) {
         $self->_line_error(sprintf(__("unknown index `%s' in \@printindex"),

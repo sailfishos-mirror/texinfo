@@ -1,3 +1,34 @@
+2024-05-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line): use command names
+	instead of %command_index for @*table commands and @def* commands
+	with index entries names, for clearer a code, a code more similar to C
+	and to avoid using %command_index for something else that associating
+	an index to a command.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): do not
+	set synindex, syncodeindex and printindex arguments if in restricted
+	parser.
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings): set
+	restricted on the parser used for translations to be in restricted
+	mode as if simple_parser had been called from Perl.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_index_data),
+	tp/Texinfo/XS/parsetexi/indices.c (resolve_indices_merged_in)
+	(complete_indices): handle the case of no indices at all.
+
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi):
+
+	* tp/Texinfo/XS/parsetexi/indices.c (init_index_commands)
+	(forget_indices): set num_index_commands and number_of_indices to 0 in
+	forget_indices only.
+
+	* tp/t/init/translation_in_parser_in_translation.pm: test more
+	index related functions in gdt/parse_texi_line.
+
 2024-05-11  Patrice Dumas  <pertusus@free.fr>
 
 	Handle default index commands similarly to other @-commands
