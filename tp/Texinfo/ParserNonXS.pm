@@ -241,6 +241,7 @@ my %parser_default_configuration = (
 # current_section         last seen section.
 # nodes                   list of nodes.
 # command_index           associate a command name with an index name.
+# index_entry_commands    index entry commands, including added index commands.
 # internal_references     an array holding all the internal references.
 
 # set                     points to the value set when initializing, for
@@ -298,6 +299,7 @@ my %global_unique_commands    = %Texinfo::Commands::global_unique_commands;
 my %in_index_commands         = %Texinfo::Commands::in_index_commands;
 my %explained_commands        = %Texinfo::Commands::explained_commands;
 my %inline_format_commands    = %Texinfo::Commands::inline_format_commands;
+my %index_entry_command_commands    = %Texinfo::Commands::index_entry_command_commands;
 
 my %def_map                   = %Texinfo::Common::def_map;
 my %def_aliases               = %Texinfo::Common::def_aliases;
@@ -581,6 +583,7 @@ sub parser(;$$)
   $parser->{'no_paragraph_commands'} = {%no_paragraph_commands};
   $parser->{'index_names'} = dclone(\%index_names);
   $parser->{'command_index'} = {%command_index};
+  $parser->{'index_entry_commands'} = {%index_entry_command_commands};
   $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
 
@@ -626,6 +629,7 @@ my $simple_parser_no_paragraph_commands = {%no_paragraph_commands};
 my $simple_parser_index_names = {};
 # FIXME make it empty as in the XS parser
 my $simple_parser_command_index = {%command_index};
+my $simple_parser_index_entry_commands = {%index_entry_command_commands};
 my $simple_parser_close_paragraph_commands = {%close_paragraph_commands};
 my $simple_parser_close_preformatted_commands = {%close_preformatted_commands};
 sub simple_parser(;$)
@@ -650,6 +654,7 @@ sub simple_parser(;$)
   $parser->{'no_paragraph_commands'} = $simple_parser_no_paragraph_commands;
   $parser->{'index_names'} = $simple_parser_index_names;
   $parser->{'command_index'} = $simple_parser_command_index;
+  $parser->{'index_entry_commands'} = $simple_parser_index_entry_commands;
   $parser->{'close_paragraph_commands'} = $simple_parser_close_paragraph_commands;
   $parser->{'close_preformatted_commands'} = $simple_parser_close_preformatted_commands;
 
@@ -3785,7 +3790,7 @@ sub _end_line_misc_line($$$)
   } elsif ($command eq 'listoffloats') {
     _parse_float_type($current);
   } else {
-    if ($self->{'command_index'}->{$current->{'cmdname'}}) {
+    if ($self->{'index_entry_commands'}->{$current->{'cmdname'}}) {
       $current->{'type'} = 'index_entry_command';
       $current->{'info'} = {} if (!$current->{'info'});
       $current->{'info'}->{'command_name'} = $current->{'cmdname'};
@@ -3799,10 +3804,10 @@ sub _end_line_misc_line($$$)
       if (($command eq 'item' or $command eq 'itemx')
           and $current->{'parent'}->{'cmdname'}
           and ($current->{'parent'}->{'cmdname'} eq 'ftable'
-               or $current->{'parent'}->{'cmdname'} eq 'vtable') {
+               or $current->{'parent'}->{'cmdname'} eq 'vtable')) {
         _enter_index_entry($self, $current->{'parent'}->{'cmdname'},
                            $current, $source_info);
-      } elsif ($self->{'command_index'}->{$current->{'cmdname'}}) {
+      } elsif ($self->{'index_entry_commands'}->{$current->{'cmdname'}}) {
         _enter_index_entry($self, $current->{'cmdname'},
                            $current, $source_info);
       }
@@ -4000,6 +4005,7 @@ sub _end_line_def_line($$$)
         # We need to store the language as well in case there are multiple
         # languages in the document.
         if ($def_command eq 'defop'
+            or $def_command eq 'deftypeop'
             or $def_command eq 'defmethod'
             or $def_command eq 'deftypemethod'
             or $def_command eq 'defivar'
@@ -4327,7 +4333,7 @@ sub _end_line_starting_block($$$)
                   or $self->{'macros'}->{$name}
                   or $self->{'definfoenclose'}->{$name}
                   or $self->{'aliases'}->{$name}
-                  or $self->{'command_index'}->{$name}
+                  or $self->{'index_entry_commands'}->{$name}
                 );
                 if (($command_is_defined
                      and $command eq 'ifcommanddefined')
@@ -4810,7 +4816,7 @@ sub _is_index_element {
   my ($self, $element) = @_;
 
   if (!$element->{'cmdname'}
-        or (!$self->{'command_index'}->{$element->{'cmdname'}}
+      or (!$self->{'command_index'}->{$element->{'cmdname'}}
              and $element->{'cmdname'} ne 'subentry')) {
     return 0;
   }
@@ -7070,7 +7076,7 @@ sub _process_remaining_on_line($$$$)
   # handle unknown @-command
   if ($command and !$all_commands{$command}
       and !$self->{'definfoenclose'}->{$command}
-      and !$self->{'command_index'}->{$command}
+      and !$self->{'index_entry_commands'}->{$command}
       # @txiinternalvalue is invalid unless accept_internalvalue is set
       and !($command eq 'txiinternalvalue'
             and $self->{'accept_internalvalue'})
@@ -7794,6 +7800,7 @@ sub _parse_line_command_args($$$)
         delete $self->{'line_commands'}->{$cmd_name};
         delete $self->{'no_paragraph_commands'}->{$cmd_name};
         delete $self->{'basic_inline_commands'}->{$cmd_name};
+        delete $self->{'index_entry_commands'}->{$cmd_name};
         delete $self->{'command_index'}->{$cmd_name};
         # consistent with XS parser, value not actually used anywhere.
         $self->{'brace_commands'}->{$cmd_name} = 'style_other';
@@ -7860,6 +7867,7 @@ sub _parse_line_command_args($$$)
         $self->{'line_commands'}->{$index_cmdname} = 'line';
         $self->{'no_paragraph_commands'}->{$index_cmdname} = 1;
         $self->{'basic_inline_commands'}->{$index_cmdname} = 1;
+        $self->{'index_entry_commands'}->{$index_cmdname} = $name;
         $self->{'command_index'}->{$index_cmdname} = $name;
       }
     } else {
