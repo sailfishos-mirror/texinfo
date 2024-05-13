@@ -580,28 +580,6 @@ free_small_strings (void)
 }
 
 void
-input_reset_input_stack (void)
-{
-  int i;
-  for (i = 0; i < input_number; i++)
-    {
-      switch (input_stack[i].type)
-        {
-        case IN_file:
-          if (input_stack[i].file != stdin)
-            fclose (input_stack[i].file);
-          break;
-        case IN_text:
-          free (input_stack[i].text);
-          break;
-        }
-    }
-  input_number = 0;
-  macro_expansion_nr = 0;
-  value_expansion_nr = 0;
-}
-
-void
 parser_reset_encoding_list (void)
 {
   reset_encoding_list (&parser_input_conversions);

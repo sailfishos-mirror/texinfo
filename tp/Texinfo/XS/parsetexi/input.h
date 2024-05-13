@@ -16,7 +16,6 @@ void input_push_text (char *text, int line_number, const char *macro_name,
 int input_push_file (const char *filename);
 void input_pushback (char *line);
 void set_input_source_mark (SOURCE_MARK *source_mark);
-void input_reset_input_stack (void);
 void parser_reset_encoding_list (void);
 int expanding_macro (const char *macro);
 int top_file_index (void);

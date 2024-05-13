@@ -87,7 +87,6 @@ reset_parser_except_conf (void)
      opened handlers */
   parser_reset_encoding_list ();
   set_input_encoding ("utf-8");
-  input_reset_input_stack ();
   source_marks_reset_counters ();
 
   reset_obstacks ();
