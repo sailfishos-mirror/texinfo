@@ -586,6 +586,7 @@ sub parser(;$$)
   $parser->{'index_entry_commands'} = {%index_entry_command_commands};
   $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
+  $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
 
   # following is common with simple_parser
   # other initializations
@@ -596,7 +597,6 @@ sub parser(;$$)
   $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
   $parser->{'nesting_context'}->{'regions_stack'} = [];
-  $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
 
   $parser->_init_context_stack();
 
@@ -614,24 +614,12 @@ sub parser(;$$)
   return $parser;
 }
 
-# simple parser initialization.  The only difference with a regular parser
-# is that the dynamical @-commands groups and indices information references
-# that are initialized in each regular parser are initialized once for all
-# and shared among simple parsers.  It is used in gdt() and this has a sizable
-# effect on performance.
-my $simple_parser_line_commands = dclone(\%line_commands);
-my $simple_parser_brace_commands = dclone(\%brace_commands);
-my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
-my $simple_parser_no_paragraph_commands = {%no_paragraph_commands};
-#my $simple_parser_index_names = dclone(\%index_names);
-# Same as in XS, no indices, all the indices commands are ignored with
-# restricted.
-my $simple_parser_index_names = {};
-# FIXME make it empty as in the XS parser
-my $simple_parser_command_index = {%command_index};
-my $simple_parser_index_entry_commands = {%index_entry_command_commands};
-my $simple_parser_close_paragraph_commands = {%close_paragraph_commands};
-my $simple_parser_close_preformatted_commands = {%close_preformatted_commands};
+# simple parser initialization.  A simple parser is a restricted parser,
+# in which new commands are not defined (no user-defined macros, alias,
+# no new index commands), and index entries are not set.  Therefore,
+# the default data can be used as it won't be modified and most
+# indices information is not needed at all.  It is used in gdt() and this
+# has a sizable effect on performance.
 sub simple_parser(;$)
 {
   my $conf = shift;
@@ -639,8 +627,7 @@ sub simple_parser(;$)
   my $parser = dclone(\%parser_default_configuration);
   bless $parser;
 
-  # Flag to say that some parts of the parser should not be modified,
-  # as they are reused among all parsers returned from this function.
+  # Flag to say that some parts of the parser should not be modified.
   $parser->{'restricted'} = 1;
 
   _setup_conf($parser, $conf);
@@ -648,15 +635,18 @@ sub simple_parser(;$)
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
     if ($parser->{'DEBUG'});
 
-  $parser->{'line_commands'} = $simple_parser_line_commands;
-  $parser->{'brace_commands'} = $simple_parser_brace_commands;
-  $parser->{'valid_nestings'} = $simple_parser_valid_nestings;
-  $parser->{'no_paragraph_commands'} = $simple_parser_no_paragraph_commands;
-  $parser->{'index_names'} = $simple_parser_index_names;
-  $parser->{'command_index'} = $simple_parser_command_index;
-  $parser->{'index_entry_commands'} = $simple_parser_index_entry_commands;
-  $parser->{'close_paragraph_commands'} = $simple_parser_close_paragraph_commands;
-  $parser->{'close_preformatted_commands'} = $simple_parser_close_preformatted_commands;
+  $parser->{'line_commands'} = \%line_commands;
+  $parser->{'brace_commands'} = \%brace_commands;
+  $parser->{'valid_nestings'} = \%default_valid_nestings;
+  $parser->{'no_paragraph_commands'} = \%no_paragraph_commands;
+  # not needed, but not undef because it is exported to document
+  $parser->{'index_names'} = {};
+  # not needed
+  #$parser->{'command_index'} = {};
+  $parser->{'index_entry_commands'} = \%index_entry_command_commands;
+  $parser->{'close_paragraph_commands'} = \%close_paragraph_commands;
+  $parser->{'close_preformatted_commands'} = \%close_preformatted_commands;
+  $parser->{'basic_inline_commands'} = \%contain_basic_inline_commands;
 
   # other initializations
   $parser->{'definfoenclose'} = {};
@@ -666,7 +656,6 @@ sub simple_parser(;$)
   $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
   $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
   $parser->{'nesting_context'}->{'regions_stack'} = [];
-  $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
 
   $parser->_init_context_stack();
 
@@ -4816,8 +4805,8 @@ sub _is_index_element {
   my ($self, $element) = @_;
 
   if (!$element->{'cmdname'}
-      or (!$self->{'command_index'}->{$element->{'cmdname'}}
-             and $element->{'cmdname'} ne 'subentry')) {
+      or (!$self->{'index_entry_commands'}->{$element->{'cmdname'}}
+          and $element->{'cmdname'} ne 'subentry')) {
     return 0;
   }
   return 1;

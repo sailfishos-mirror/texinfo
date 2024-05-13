@@ -1,5 +1,15 @@
 2024-05-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_is_index_element): use
+	index_entry_commands instead of command_index.
+
+	* tp/Texinfo/ParserNonXS.pm (simple_parser): do not set simple parser
+	state hash reference if they are not used at all (for indices), or set
+	directly to the default hashes if it is sure that they won't be
+	modified.
+
+2024-05-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line): add missing
 	parenthesis.
 
