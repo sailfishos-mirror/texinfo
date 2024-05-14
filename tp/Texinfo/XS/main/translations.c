@@ -431,6 +431,7 @@ replace_convert_substrings (char *translated_string,
   char *texinfo_line;
   int document_descriptor;
   int parser_debug_level = 0;
+  int previous_debug_level;
   DOCUMENT *document;
 
   if (replaced_substrings)
@@ -466,8 +467,8 @@ replace_convert_substrings (char *translated_string,
   if (debug_level > 0)
     parser_debug_level = debug_level - 1;
 
-  reset_parser (parser_debug_level);
-  parser_set_debug (parser_debug_level);
+  previous_debug_level = parser_set_debug (parser_debug_level);
+  reset_parser_except_conf ();
 
   /*
    accept @txiinternalvalue as a valid Texinfo command, used to mark
@@ -495,6 +496,8 @@ replace_convert_substrings (char *translated_string,
   clear_document_parser_errors (document_descriptor);
 
   parser_set_accept_internalvalue (0);
+  parser_set_restricted (0);
+  parser_set_debug (previous_debug_level);
 
   if (replaced_substrings)
     {

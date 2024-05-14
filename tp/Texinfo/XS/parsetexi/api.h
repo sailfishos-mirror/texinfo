@@ -12,7 +12,7 @@ int parse_text (const char *, int line_nr);
 void reset_parser (int debug_output);
 void reset_parser_except_conf (void);
 
-void parser_set_debug (int value);
+int parser_set_debug (int value);
 void parser_store_value (const char *name, const char *value);
 void parser_add_include_directory (const char *filename);
 void parser_add_expanded_format (const char *format);

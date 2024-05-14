@@ -12,10 +12,8 @@ use Data::Dumper;
 use File::Spec;
 #use Text::Diff;
 
-use Texinfo::Common;
 use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
-use Texinfo::Document;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 
@@ -27,6 +25,7 @@ if (defined($srcdir)) {
 }
 
 my $debug = 0;
+#my $debug = 1;
 
 my $with_XS = ((not defined($ENV{TEXINFO_XS})
                 or $ENV{TEXINFO_XS} ne 'omit')

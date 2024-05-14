@@ -215,10 +215,10 @@ parse_piece (const char *string, int line_nr)
 }
 
 /* for debugging */
-void
+int
 parser_set_debug (int value)
 {
-  set_debug_output (value);
+  return set_debug_output (value);
 }
 
 void

@@ -27,10 +27,12 @@
 /* Whether to dump debugging output on stderr. */
 int debug_output = 0;
 
-void
+int
 set_debug_output (int value)
 {
+  int previous_debug_output = debug_output;
   debug_output = value;
+  return previous_debug_output;
 }
 
 /* debug functions used in parser, depending on debug_output */
