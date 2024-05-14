@@ -197,11 +197,12 @@ foreach my $test (
   test_enable_encoding($test);
 }
 
-my $res_e = Texinfo::Parser::parse_texi_line(undef, '@^e');
+my $parser = Texinfo::Parser::parser();
+my $res_e = $parser->parse_texi_line('@^e');
 my $result = Texinfo::Convert::Text::convert_to_text($res_e, {'enabled_encoding' => 'utf-8'});
 is ($result, "\x{00EA}", 'enable encoding @^e');
 
-my $res_aa = Texinfo::Parser::parse_texi_line(undef, '@aa{}');
+my $res_aa = $parser->parse_texi_line('@aa{}');
 $result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'utf-8'});
 is ($result, "\x{00E5}", 'enable encoding @aa{}');
 

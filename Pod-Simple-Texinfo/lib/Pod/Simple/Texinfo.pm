@@ -54,7 +54,7 @@ use Pod::Simple::PullParser ();
 #use Pod::ParseLink;
 
 use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier);
-use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
+use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::TextContent;
 use Texinfo::Document;
@@ -361,7 +361,8 @@ sub pod_title_to_file_name($)
 sub _protect_comma($)
 {
   my $texinfo = shift;
-  my $tree = parse_texi_line(undef, $texinfo);
+  my $parser = Texinfo::Parser::parser();
+  my $tree = $parser->parse_texi_line($texinfo);
   Texinfo::ManipulateTree::protect_comma_in_tree($tree);
   $tree = Texinfo::Document::rebuild_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -370,7 +371,8 @@ sub _protect_comma($)
 sub _protect_colon($)
 {
   my $texinfo = shift;
-  my $tree = parse_texi_line(undef, $texinfo);
+  my $parser = Texinfo::Parser::parser();
+  my $tree = $parser->parse_texi_line($texinfo);
   Texinfo::ManipulateTree::protect_colon_in_tree($tree);
   $tree = Texinfo::Document::rebuild_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -381,7 +383,8 @@ sub _protect_hashchar($)
   my $texinfo = shift;
   # protect # first in line
   if ($texinfo =~ /#/) {
-    my $document = parse_texi_piece(undef, $texinfo);
+    my $parser = Texinfo::Parser::parser();
+    my $document = $parser->parse_texi_piece($texinfo);
     my $tree = $document->tree();
     Texinfo::Transformations::protect_hashchar_at_line_beginning($tree);
     # rebuild the tree
@@ -395,7 +398,8 @@ sub _protect_hashchar($)
 sub _reference_to_text_in_texi($)
 {
   my $texinfo = shift;
-  my $document = parse_texi_piece(undef, $texinfo);
+  my $parser = Texinfo::Parser::parser();
+  my $document = $parser->parse_texi_piece($texinfo);
   my $tree = $document->tree();
   Texinfo::Transformations::reference_to_arg_in_tree($tree);
   # rebuild the tree
@@ -533,7 +537,8 @@ sub _prepare_anchor($$)
     return '';
   }
   # Now we know that we have something.
-  my $node_tree = parse_texi_line(undef, $node);
+  my $parser = Texinfo::Parser::parser();
+  my $node_tree = $parser->parse_texi_line($node);
   my $normalized_base = convert_to_identifier($node_tree);
   my $normalized = $normalized_base;
   my $number_appended = 0;
@@ -544,7 +549,7 @@ sub _prepare_anchor($$)
   my $node_name;
   if ($number_appended) {
     $texinfo_node_name = "$node $number_appended";
-    $node_tree = parse_texi_line(undef, $texinfo_node_name);
+    $node_tree = $parser->parse_texi_line($texinfo_node_name);
   }
   Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
   Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);
@@ -900,7 +905,8 @@ sub _texinfo_handle_element_end($$$)
         if ($result =~ /\S/
             and (!defined($command_argument) or $command_argument !~ /\S/)) {
           # use some raw text if the expansion lead to empty Texinfo code
-          my $tree = parse_texi_line(undef, $result);
+          my $parser = Texinfo::Parser::parse();
+          my $tree = $parser->parse_texi_line($result);
           my $converter = Texinfo::Convert::TextContent->converter();
           $command_argument = protect_text($converter->convert_tree($tree));
         }

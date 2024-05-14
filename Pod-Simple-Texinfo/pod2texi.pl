@@ -337,8 +337,8 @@ sub _parsed_manual_tree($$$$$)
     if ($self->texinfo_sectioning_base_level() > 0) {
       my $manual_texi = Pod::Simple::Texinfo::protect_text(
              $self->texinfo_short_title(), 1, 1);
-      $commands_heading_content
-        = Texinfo::Parser::parse_texi_line(undef, $manual_texi);
+      my $parser = Texinfo::Parser::parser();
+      $commands_heading_content = $parser->parse_texi_line($manual_texi);
     }
     Texinfo::Transformations::fill_gaps_in_sectioning($tree,
                                               $commands_heading_content);

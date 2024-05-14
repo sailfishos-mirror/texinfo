@@ -7,7 +7,7 @@ use Test::More;
 
 BEGIN { plan tests => 7; }
 
-use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
+use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 use Texinfo::ManipulateTree;
@@ -37,10 +37,12 @@ sub run_test($$$$)
     $reference_as_line = $reference_as_text if not defined($reference_as_line);
   }
 
-  my $document = parse_texi_piece(undef, $in);
+  my $parser = Texinfo::Parser::parser();
+  my $document = $parser->parse_texi_piece($in);
   my $tree_as_text = $document->tree();
 
-  my $tree_as_line = parse_texi_line(undef, $in);
+  my $line_parser = Texinfo::Parser::parser();
+  my $tree_as_line = $line_parser->parse_texi_line($in);
 
   foreach my $tree ($tree_as_text, $tree_as_line) {
     if ($do->{'protect_comma'}) {

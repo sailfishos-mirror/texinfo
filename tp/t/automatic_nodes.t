@@ -87,7 +87,8 @@ my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_text('@node a node
 ');
 my $tree = $document->tree();
-my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
+my $line_parser = Texinfo::Parser::parser();
+my $line_tree = $line_parser->parse_texi_line ('a node');
 
 SKIP:
 {

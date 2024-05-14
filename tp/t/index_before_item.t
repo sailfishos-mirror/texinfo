@@ -7,7 +7,7 @@ use Test::More;
 
 BEGIN { plan tests => 6; }
 
-use Texinfo::Parser qw(parse_texi_piece);
+use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 use Texinfo::ManipulateTree;
@@ -21,7 +21,8 @@ sub run_test($$$)
   my $out = shift;
   my $name = shift;
 
-  my $document = parse_texi_piece(undef, $in);
+  my $parser = Texinfo::Parser::parser();
+  my $document = $parser->parse_texi_piece($in);
   my $tree = $document->tree();
 
   #print STDERR Texinfo::DebugTree::convert_tree(undef, $tree)."\n";

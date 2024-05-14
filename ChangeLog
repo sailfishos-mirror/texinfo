@@ -1,5 +1,22 @@
 2024-05-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_piece, parse_texi_line)
+	(parse_texi_text, parse_texi_file),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
+	(parse_texi_piece, parse_texi_text, parse_texi_line): require a parser
+	in argument of parse_texi_* instead of creating one if undef.  Do not
+	export any function explicitly.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
+	Pod-Simple-Texinfo/pod2texi.pl, tp/t/accents.t,
+	tp/t/automatic_nodes.t, tp/t/index_before_item.t,
+	tp/t/protect_character_in_texinfo.t, tp/t/test_brace_count.t,
+	tp/t/test_fill_gaps_in_sectioning.t, tp/t/test_is_content_empty.t,
+	tp/t/test_protect_contents.t, tp/t/test_sort.t: update for need of
+	parser in parse_texi_*.
+
+2024-05-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (parser_set_debug),
 	tp/Texinfo/XS/parsetexi/debug_parser.c (set_debug_output): return the
 	previous value.

@@ -94,7 +94,6 @@ use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
 
 require Exporter;
-our @ISA = qw(Exporter);
 
 our $module_loaded = 0;
 sub import {
@@ -108,14 +107,6 @@ sub import {
   # The usual import method
   goto &Exporter::import;
 }
-
-our @EXPORT_OK = qw(
-    parser
-    parse_texi_file
-    parse_texi_line
-    parse_texi_piece
-    parse_texi_text
-);
 
 our $VERSION = '7.1dev';
 
@@ -760,11 +751,9 @@ sub parse_texi_piece($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
-  return undef if (!defined($text));
+  return undef if (!defined($text) or !defined($self));
 
   $line_nr = 1 if (not defined($line_nr));
-
-  $self = parser() if (!defined($self));
 
   _input_push_text($self, $text, $line_nr);
 
@@ -781,11 +770,9 @@ sub parse_texi_line($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
-  return undef if (!defined($text));
+  return undef if (!defined($text) or !defined($self));
 
   $line_nr = 1 if (not defined($line_nr));
-
-  $self = parser() if (!defined($self));
 
   _input_push_text($self, $text, $line_nr);
 
@@ -799,11 +786,9 @@ sub parse_texi_text($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
-  return undef if (!defined($text));
+  return undef if (!defined($text) or !defined($self));
 
   $line_nr = 1 if (not defined($line_nr));
-
-  $self = parser() if (!defined($self));
 
   _input_push_text($self, $text, $line_nr);
 
@@ -911,6 +896,8 @@ sub parse_texi_file($$)
 {
   my ($self, $input_file_path) = @_;
 
+  return undef if (!defined($self));
+
   my ($status, $file_name, $directories, $error_message)
     = _input_push_file($self, $input_file_path);
   if (!$status) {
@@ -924,8 +911,6 @@ sub parse_texi_file($$)
                                   $input_file_name, $error_message));
     return undef;
   }
-
-  $self = parser() if (!defined($self));
 
   my $document = $self->_parse_texi_document();
   get_parser_info($self);
@@ -8156,11 +8141,8 @@ Same as values set by C<@set>.
 Different methods may be called to parse some Texinfo code:
 C<parse_texi_line> for a line, C<parse_texi_piece> for a fragment of
 Texinfo, C<parse_texi_text> for a string corresponding to a full document
-and C<parse_texi_file> for a file.
-
-For all those functions, if the I<$parser> argument is undef, a new
-parser object is generated to parse the line.  Otherwise the parser given
-as an argument is used to parse into a tree.
+and C<parse_texi_file> for a file.  The first argument of these functions
+is a parser.
 
 When C<parse_texi_line> is used, the resulting tree is rooted at
 a C<root_line> type container.  Otherwise, the resulting tree should be
@@ -8168,7 +8150,7 @@ rooted at a C<document_root> type container.
 
 =over
 
-=item $tree = parse_texi_line($parser, $text, $first_line_number)
+=item $tree = $parser->parse_texi_line($text, $first_line_number)
 X<C<parse_texi_line>>
 
 This function is used to parse a short fragment of Texinfo code.
@@ -8176,7 +8158,7 @@ This function is used to parse a short fragment of Texinfo code.
 I<$text> is the string containing the texinfo line.  I<$first_line_number> is
 the line number of the line, if undef, it will be set to 1.
 
-=item $document = parse_texi_piece($parser, $text, $first_line_number)
+=item $document = $parser->parse_texi_piece($text, $first_line_number)
 X<C<parse_texi_piece>>
 
 This function is used to parse Texinfo fragments.
@@ -8184,7 +8166,7 @@ This function is used to parse Texinfo fragments.
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
 
-=item $document = parse_texi_text($parser, $text, $first_line_number)
+=item $document = $parser->parse_texi_text($text, $first_line_number)
 X<C<parse_texi_text>>
 
 This function is used to parse a text as a whole document.
@@ -8192,7 +8174,7 @@ This function is used to parse a text as a whole document.
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
 
-=item $document = parse_texi_file($parser, $file_name)
+=item $document = $parser->parse_texi_file($file_name)
 X<C<parse_texi_file>>
 
 The file with name I<$file_name> is considered to be a Texinfo file and

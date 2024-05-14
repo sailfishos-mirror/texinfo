@@ -16,7 +16,8 @@ use Texinfo::Config;
 
 ok(1, "modules loading");
 
-my $tree = Texinfo::Parser::parse_texi_line(undef, '@copyright{} @quotedblbase{}');
+my $parser = Texinfo::Parser::parser();
+my $tree = $parser->parse_texi_line('@copyright{} @quotedblbase{}');
 my $result = Texinfo::Convert::Text::convert_to_text($tree, {'sort_string' => 1});
 is ($result, 'C ,,', 'sort no encoding');
 
@@ -30,7 +31,7 @@ $result = Texinfo::Convert::Text::convert_to_text($tree, {'sort_string' => 1,
 
 is ($result, "\x{00A9} ,,", 'sort iso-8859-1');
 
-my $parser = Texinfo::Parser::parser();
+$parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_text('@node Top
 
 @cindex !

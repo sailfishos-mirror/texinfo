@@ -50,19 +50,6 @@ use Texinfo::Translations;
 # to return a resulting document
 use Texinfo::Document;
 
-require Exporter;
-
-our @ISA = qw(Exporter);
-our %EXPORT_TAGS = ( 'all' => [ qw(
-    parser
-    parse_texi_file
-    parse_texi_line
-    parse_texi_piece
-    parse_texi_text
-) ] );
-
-our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
 my %parser_default_configuration =
   (%Texinfo::Common::default_parser_customization_values);
 
@@ -236,6 +223,8 @@ sub parse_texi_file ($$)
   my $input_file_path = shift;
   my $tree_stream;
 
+  return undef if (!defined($self));
+
   # the file is already a byte string, taken as is from the command
   # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
   # it is not useful for the XS parser.
@@ -268,11 +257,9 @@ sub parse_texi_piece($$;$$)
 {
   my ($self, $text, $line_nr, $no_store) = @_;
 
-  return undef if (!defined($text));
+  return undef if (!defined($text) or !defined($self));
 
   $line_nr = 1 if (not defined($line_nr));
-
-  $self = parser() if (!defined($self));
 
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
@@ -288,11 +275,9 @@ sub parse_texi_text($$;$)
 {
   my ($self, $text, $line_nr) = @_;
 
-  return undef if (!defined($text));
+  return undef if (!defined($text) or !defined($self));
 
   $line_nr = 1 if (not defined($line_nr));
-
-  $self = parser() if (!defined($self));
 
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
@@ -307,11 +292,9 @@ sub parse_texi_line($$;$$)
 {
   my ($self, $text, $line_nr, $no_store) = @_;
 
-  return undef if (!defined($text));
+  return undef if (!defined($text) or !defined($self));
 
   $line_nr = 1 if (not defined($line_nr));
-
-  $self = parser() if (!defined($self));
 
   # pass a binary UTF-8 encoded string to C code
   my $utf8_bytes = Encode::encode('utf-8', $text);
