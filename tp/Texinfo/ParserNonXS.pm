@@ -190,7 +190,7 @@ my %parser_default_configuration = (
 # expanded_formats_hash   each key comes from EXPANDED_FORMATS, value is 1
 # index_names             a structure holding the link between index
 #                         names and merged indices;
-#                         initial value is %index_names in Texinfo::Common.
+#                         initial value is %index_names in Texinfo::Commands.
 # context_stack           stack of the contexts, more recent on top.
 #                         'ct_line' is added when on a line or
 #                         block @-command line,
@@ -230,7 +230,6 @@ my %parser_default_configuration = (
 #                         with new index entry commands dynamically added
 # current_node            last seen node.
 # current_section         last seen section.
-# nodes                   list of nodes.
 # command_index           associate a command name with an index name.
 # index_entry_commands    index entry commands, including added index commands.
 # internal_references     an array holding all the internal references.
@@ -244,18 +243,28 @@ my %parser_default_configuration = (
 # line_nr        the line number.
 # file_name      the file name, a binary string.
 # macro          if in a macro expansion, the name of the macro.
-#
-# A text fragment with source information is a 2 element array reference,
-# the first is the text, the second is the source information.
 
 # The input structure is an array, the first is the most recently included
-# file.  The last element may corresponnd to a file if the parsing is done
-# on a file, with parse_texi_file, or just hold pending text, if called on text.
-# each element of the array is a hash reference.  The key are:
-# th                  handle for text given in input or expansion text
-#                     of value or macro.
-# source_info         source information corresponding to the current file.
-# fh                  filehandle for the file.
+# file.  The last element may correspond to a file if the parsing is done
+# on a file, with parse_texi_file, or hold pending text, if called on text.
+# each element of the array is a hash reference.
+#
+# The key are:
+# for both text and file:
+#  source_info         source information corresponding to the current file.
+#  input_source_mark   source mark associated with the input (include file,
+#                      macro or value expansion).
+#
+# for text:
+#  th                  handle for text given in input or expansion text
+#                      of value or macro.
+#  value_flag          set if the text corresponds to a @value command
+#                      expansion.
+#  macro_name          set if the text corresponds to a new macro expansion.
+#
+# for a file:
+#  fh                  filehandle for the file.
+#  input_file_path     file path.
 
 # The commands in initialization_overrides are not set in the document if
 # set at the parser initialization.
