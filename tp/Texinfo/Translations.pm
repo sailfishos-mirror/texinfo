@@ -310,7 +310,9 @@ sub _replace_convert_substrings($;$$)
 
   # accept @txiinternalvalue as a valid Texinfo command, used to mark
   # location in tree of substituted brace enclosed strings.
-  my $parser_conf = {'accept_internalvalue' => 1};
+  my $parser_conf = {'accept_internalvalue' => 1,
+           # Flag to say that some parts of the parser should not be modified.
+                     'restricted' => 1};
 
   # set parser debug level to one less than $debug_level
   if (defined($debug_level)) {
@@ -320,7 +322,7 @@ sub _replace_convert_substrings($;$$)
     }
     $parser_conf->{'DEBUG'} = $parser_debug_level;
   }
-  my $parser = Texinfo::Parser::simple_parser($parser_conf);
+  my $parser = Texinfo::Parser::parser($parser_conf);
 
   if ($debug_level) {
     print STDERR "IN TR PARSER '$texinfo_line'\n";

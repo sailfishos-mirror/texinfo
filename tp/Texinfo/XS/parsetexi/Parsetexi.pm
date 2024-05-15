@@ -60,17 +60,6 @@ sub get_conf($$)
   return $self->{'conf'}->{$var};
 }
 
-sub simple_parser {
-  my $conf = shift;
-
-  my $new_conf = {'restricted' => 1};
-  if ($conf) {
-    %$new_conf = (%$new_conf, %$conf);
-  }
-
-  return parser($new_conf);
-}
-
 # Initialize the parser
 sub parser (;$$)
 {

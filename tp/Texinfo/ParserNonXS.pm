@@ -575,20 +575,40 @@ sub parser(;$$)
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
     if ($parser->{'DEBUG'});
 
-  # Initialize command hash that are dynamically modified, notably
-  # those for index commands, and definoenclose, based on defaults
-  $parser->{'line_commands'} = dclone(\%line_commands);
-  $parser->{'brace_commands'} = dclone(\%brace_commands);
-  $parser->{'valid_nestings'} = dclone(\%default_valid_nestings);
-  $parser->{'no_paragraph_commands'} = {%no_paragraph_commands};
-  $parser->{'index_names'} = dclone(\%index_names);
-  $parser->{'command_index'} = {%command_index};
-  $parser->{'index_entry_commands'} = {%index_entry_command_commands};
-  $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
-  $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
-  $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
+  if (!$self->{'restricted'}) {
+    # Initialize command hash that are dynamically modified, notably
+    # those for index commands, and definoenclose, based on defaults
+    $parser->{'line_commands'} = dclone(\%line_commands);
+    $parser->{'brace_commands'} = dclone(\%brace_commands);
+    $parser->{'valid_nestings'} = dclone(\%default_valid_nestings);
+    $parser->{'no_paragraph_commands'} = {%no_paragraph_commands};
+    $parser->{'index_names'} = dclone(\%index_names);
+    $parser->{'command_index'} = {%command_index};
+    $parser->{'index_entry_commands'} = {%index_entry_command_commands};
+    $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
+    $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
+    $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
+  } else {
+    # in a restricted parser, new commands are not defined (no user-defined
+    # macros, alias, no new index commands), and index entries are not set.
+    # Therefore, the default data can be used as it won't be modified and most
+    # indices information is not needed at all.  It is used in gdt() and this
+    # has a sizable effect on performance.
 
-  # following is common with simple_parser
+    $parser->{'line_commands'} = \%line_commands;
+    $parser->{'brace_commands'} = \%brace_commands;
+    $parser->{'valid_nestings'} = \%default_valid_nestings;
+    $parser->{'no_paragraph_commands'} = \%no_paragraph_commands;
+    # not needed, but not undef because it is exported to document
+    $parser->{'index_names'} = {};
+    # not needed
+    #$parser->{'command_index'} = {};
+    $parser->{'index_entry_commands'} = \%index_entry_command_commands;
+    $parser->{'close_paragraph_commands'} = \%close_paragraph_commands;
+    $parser->{'close_preformatted_commands'} = \%close_preformatted_commands;
+    $parser->{'basic_inline_commands'} = \%contain_basic_inline_commands;
+  }
+
   # other initializations
   $parser->{'definfoenclose'} = {};
   $parser->{'source_mark_counters'} = {};
@@ -603,64 +623,6 @@ sub parser(;$$)
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
   $parser->{'expanded_formats_hash'} = {};
-  foreach my $expanded_format(@{$parser->{'EXPANDED_FORMATS'}}) {
-    $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
-  }
-
-  if (not defined($parser->{'registrar'})) {
-    $parser->{'registrar'} = Texinfo::Report::new();
-  }
-
-  return $parser;
-}
-
-# simple parser initialization.  A simple parser is a restricted parser,
-# in which new commands are not defined (no user-defined macros, alias,
-# no new index commands), and index entries are not set.  Therefore,
-# the default data can be used as it won't be modified and most
-# indices information is not needed at all.  It is used in gdt() and this
-# has a sizable effect on performance.
-sub simple_parser(;$)
-{
-  my $conf = shift;
-
-  my $parser = dclone(\%parser_default_configuration);
-  bless $parser;
-
-  # Flag to say that some parts of the parser should not be modified.
-  $parser->{'restricted'} = 1;
-
-  _setup_conf($parser, $conf);
-  # This is not very useful in perl, but mimics the XS parser
-  print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
-    if ($parser->{'DEBUG'});
-
-  $parser->{'line_commands'} = \%line_commands;
-  $parser->{'brace_commands'} = \%brace_commands;
-  $parser->{'valid_nestings'} = \%default_valid_nestings;
-  $parser->{'no_paragraph_commands'} = \%no_paragraph_commands;
-  # not needed, but not undef because it is exported to document
-  $parser->{'index_names'} = {};
-  # not needed
-  #$parser->{'command_index'} = {};
-  $parser->{'index_entry_commands'} = \%index_entry_command_commands;
-  $parser->{'close_paragraph_commands'} = \%close_paragraph_commands;
-  $parser->{'close_preformatted_commands'} = \%close_preformatted_commands;
-  $parser->{'basic_inline_commands'} = \%contain_basic_inline_commands;
-
-  # other initializations
-  $parser->{'definfoenclose'} = {};
-  $parser->{'source_mark_counters'} = {};
-  $parser->{'nesting_context'} = {%nesting_context_init};
-  $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
-  $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
-  $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
-  $parser->{'nesting_context'}->{'regions_stack'} = [];
-
-  $parser->_init_context_stack();
-
-  # turn the array to a hash for speed.  Not sure it really matters for such
-  # a small array.
   foreach my $expanded_format(@{$parser->{'EXPANDED_FORMATS'}}) {
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }

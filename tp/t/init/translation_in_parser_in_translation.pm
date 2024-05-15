@@ -10,7 +10,7 @@ use Texinfo::Convert::NodeNameNormalization;
 
 # a translation of the Next button for which there is a translation
 # by the parser of index of @def* commands like '{name} of {class}'.
-# also test commands in simple_parser restricted mode.
+# also test commands in parser restricted mode.
 my %translations = (
   'fr' => {
            'Next' => {'NodeNext direction string'
