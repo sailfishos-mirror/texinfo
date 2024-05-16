@@ -111,21 +111,16 @@ sub import {
 our $VERSION = '7.1dev';
 
 
-# these are the default values for the parser state
+# these are the default values for the parsing state
 # some could become configurable if moved to the next hash, but they
 # are not configurable/implemented in the XS parser, so they are best
 # left internal.  In general they are dynamically modified during parsing.
 my %parser_state_initialization = (
-  'aliases' => {},            # key is a command name value is the alias
+   # parsed document information registered in output document
   'commands_info' => {},      # keys are @-commands names (without @) and
                               # values are arrays for global multiple
                               # @-commands and a value for non multiple
                               # global @-commands.
-  'conditional_stack' => [],  # a stack of conditional commands that are
-                              # expanded.
-  'clickstyle' => 'arrow',       #
-  'kbdinputstyle' => 'distinct', #
-  'raw_block_stack' => [],    # a stack of raw block commands that are nested.
   'floats' => {},             # key is the normalized float type, value is
                               # an array reference holding all the floats
                               # of that type.
@@ -136,34 +131,90 @@ my %parser_state_initialization = (
                                # commands like @ref without books or external
                                # manual files, and menu entries without
                                # external manual.
+  'labels_list' => [],        # array of elements associated with labels.
+                              # information on document
+  'global_info' => {'input_perl_encoding' => 'utf-8',
+                    'input_encoding_name' => 'utf-8',
+                    'included_files' => [],},
+
+  # parsed document parsing information still relevant after parsing
+  'aliases' => {},            # key is a command name value is the alias
   'macros' => {},             # the key is the user-defined macro name.  The
                               # value is the reference on a macro element
                               # as obtained by parsing the @macro
+  'definfoenclose' => {},     # key is the command name, value is an array
+                              # reference with 2 values, beginning and ending.
+
+  # parsing information still relevant at the end of the parsing
+  'clickstyle' => 'arrow',       #
+  'kbdinputstyle' => 'distinct', #
+  'source_mark_counters' => {},  #
+  'current_node'    => undef,    # last seen node.
+  'current_section' => undef,    # last seen section.
+
+  # parsing information only relevant during parsing
+  'input' => [],       # a stack, with last at bottom.  Holds the opened files
+                       # or text.  Pending macro expansion or text expansion
+                       # is also in that structure.
+  'conditional_stack' => [],  # a stack of conditional commands that are
+                              # expanded.
+  'raw_block_stack' => [],    # a stack of raw block commands that are nested.
   'macro_expansion_nr' => 0,  # number of macros being expanded
   'value_expansion_nr' => 0,  # number of values being expanded
   'sections_level_modifier' => 0, # modified by raise/lowersections
-  'labels_list' => [],            # array of elements associated with labels
+  'nesting_context'    => {
+                         # key is the context name, value is the
+                         # depth of the context.
+                           'basic_inline_stack' => [],
+                           'basic_inline_stack_on_line' => [],
+                           'basic_inline_stack_block' => [],
+                           'regions_stack' => [],
+                           'footnote' => 0,
+                           'caption' => 0,
+                          },
+  'context_stack'      => ['_root'],
+                         # stack of the contexts, more recent on top.
+                         # 'ct_line' is added when on a line or
+                         # block @-command line,
+                         # 'ct_def' is added instead if on a definition line.
+                         # 'ct_preformatted' is added in block commands
+                         # where there is no paragraphs and spaces are kept
+                         # (format, example, display and menu commands...)
+                         # 'ct_math' is added in math block commands
+                         # (displaymath) and @math brace commands
+                         # 'ct_rawpreformatted' is added in raw block commands
+                         # (html, xml, docbook...)
+                         # 'ct_inlineraw' is added when in inlineraw
+                         # 'ct_brace_command' is added when in footnote,
+                         # caption, or shortcaption (context brace_commands
+                         # that does not already start another context, ie not
+                         # math).
+  'context_command_stack' => [''],
+                         # the stack of @-commands. An @-command name can
+                         # be added each time a context is pushed on
+                         # 'context_stack'.  Could be undef if there
+                         # is no @-command associated with the context.
   'input_file_encoding' => 'utf-8', # perl encoding name used for the input
                                     # file
   'input_encoding_name' => 'utf-8', # current input encoding name, based on
                                     # mime type encoding names
-  # initialization of information returned by global_information()
-  'global_info' => {},
-  # for get_conf, set for all the configuration keys that are also in
-  # %Texinfo::Common::default_parser_customization_values to the
-  # values set at parser initialization
-  'conf' => {},
 );
 
-# configurable parser state
-my %parser_state_configuration = (
+# Set when initializing a parser, but never from command-line/init files
+my %parser_inner_configuration = (
   'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
                                # to the tree or considered invalid.
                                # currently set if called by gdt.
   'restricted' => 0,           # cannot define new commands or make index
                                # entries.  currently set when called from gdt.
+)
+
+# configurable parser state
+my %parser_state_configuration = (
   'registrar' => undef,        # Texinfo::Report object used for error
                                # reporting.
+
+  # parsed document parsing information still relevant after parsing
   'values' => {'txicommandconditionals' => 1},
                               # the key is the name, the value the @set name
                               # argument.
@@ -176,67 +227,45 @@ my %parser_state_configuration = (
 # customization options informations is gathered here, and also
 # because it is used in other codes, in particular the XS parser.
 my %parser_settable_configuration = (
+  %parser_inner_configuration,
   %parser_state_configuration,
   %Texinfo::Common::default_parser_customization_values,
 );
 
-my %parser_default_configuration = (
-  %parser_state_initialization,
-  %parser_settable_configuration
-);
-
-# the other possible keys for the parser state are:
-#
-# expanded_formats_hash   each key comes from EXPANDED_FORMATS, value is 1
+# The other possible keys for the parser state are initialized based
+# on customization variables.
+# parsed document information registered in output document
 # index_names             a structure holding the link between index
 #                         names and merged indices;
 #                         initial value is %index_names in Texinfo::Commands.
-# context_stack           stack of the contexts, more recent on top.
-#                         'ct_line' is added when on a line or
-#                         block @-command line,
-#                         'ct_def' is added instead if on a definition line.
-#                         'ct_preformatted' is added in block commands
-#                         where there is no paragraphs and spaces are kept
-#                         (format, example, display and menu commands...)
-#                         'ct_math' is added in math block commands
-#                         (displaymath) and @math brace commands
-#                         'ct_rawpreformatted' is added in raw block commands
-#                         (html, xml, docbook...)
-#                         'ct_inlineraw' is added when in inlineraw
-#                         'ct_brace_command' is added when in footnote,
-#                         caption, or shortcaption (context brace_commands
-#                         that does not already start another context, ie not
-#                         math).
-# context_command_stack   the stack of @-commands. An @-command name can
-#                         be added each time a context is pushed on
-#                         'context_stack'.  Could be undef if there
-#                         is no @-command associated with the context.
-# definfoenclose          an hash, key is the command name, value is an array
-#                         reference with 2 values, beginning and ending.
-# nesting_context         an hash, key is the context name, value is the
-#                         depth of the context.
-# input                   a stack, with last at bottom.  Holds the opened files
-#                         or text.  Pending macro expansion or text expansion
-#                         is also in that structure.
-# line_commands           the same as %line_commands in Texinfo::Common,
-#                         but with index entry commands dynamically added
+
+# parsing information still relevant at the end of the parsing
+# line_commands           the same as %line_commands, but with index entry
+#                         commands dynamically added.
+# brace_commands          the same as %brace_commands, but with definfoenclose
+#                         commands dynamically added.
+# valid_nestings          direct command valid nesting information, with
+#                         index entry commands dynamically added.
 # close_paragraph_commands      same as %close_paragraph_commands, with
 #                               commands dynamically added (no command added
 #                               in 2024).
-# close_preformatted_commands   same as %close_preformatted_commands
-# no_paragraph_commands   the same as %no_paragraph_commands below,
+# close_preformatted_commands   same as %close_preformatted_commands, with
+#                               commands dynamically added (no command added
+#                               in 2024).
+# no_paragraph_commands   the same as %no_paragraph_commands,
 #                         with new index entry commands dynamically added.
 # basic_inline_commands   the same as %contain_basic_inline_commands below, but
 #                         with new index entry commands dynamically added
-# current_node            last seen node.
-# current_section         last seen section.
 # command_index           associate a command name with an index name.
 # index_entry_commands    index entry commands, including added index commands.
-# internal_references     an array holding all the internal references.
 
+
+# parser keys related to customization
+# expanded_formats_hash   each key comes from EXPANDED_FORMATS, value is 1
 # set                     points to the value set when initializing, for
 #                         configuration items that are not to be overriden
 #                         by @-commands.  For example documentlanguage.
+# conf                    For get_conf
 
 
 # A source information is an hash reference with the keys:
@@ -553,72 +582,23 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
 
 
 
-my %nesting_context_init = (
-                         'footnote' => 0,
-                         'caption' => 0,
-);
-
 # Interface and internal functions for input management
 
 # initialization entry point.  Set up a parser.
 # The last argument, optional, is a hash provided by the user to change
-# the default values for what is present in %parser_default_configuration.
+# the default values for what is present in %parser_settable_configuration.
 sub parser(;$$)
 {
   my $conf = shift;
 
-  my $parser = dclone(\%parser_default_configuration);
+  my $parser = dclone(\%parser_settable_configuration);
   bless $parser;
 
   _setup_conf($parser, $conf);
+
   # This is not very useful in perl, but mimics the XS parser
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
     if ($parser->{'DEBUG'});
-
-  if (!$self->{'restricted'}) {
-    # Initialize command hash that are dynamically modified, notably
-    # those for index commands, and definoenclose, based on defaults
-    $parser->{'line_commands'} = dclone(\%line_commands);
-    $parser->{'brace_commands'} = dclone(\%brace_commands);
-    $parser->{'valid_nestings'} = dclone(\%default_valid_nestings);
-    $parser->{'no_paragraph_commands'} = {%no_paragraph_commands};
-    $parser->{'index_names'} = dclone(\%index_names);
-    $parser->{'command_index'} = {%command_index};
-    $parser->{'index_entry_commands'} = {%index_entry_command_commands};
-    $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
-    $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
-    $parser->{'basic_inline_commands'} = {%contain_basic_inline_commands};
-  } else {
-    # in a restricted parser, new commands are not defined (no user-defined
-    # macros, alias, no new index commands), and index entries are not set.
-    # Therefore, the default data can be used as it won't be modified and most
-    # indices information is not needed at all.  It is used in gdt() and this
-    # has a sizable effect on performance.
-
-    $parser->{'line_commands'} = \%line_commands;
-    $parser->{'brace_commands'} = \%brace_commands;
-    $parser->{'valid_nestings'} = \%default_valid_nestings;
-    $parser->{'no_paragraph_commands'} = \%no_paragraph_commands;
-    # not needed, but not undef because it is exported to document
-    $parser->{'index_names'} = {};
-    # not needed
-    #$parser->{'command_index'} = {};
-    $parser->{'index_entry_commands'} = \%index_entry_command_commands;
-    $parser->{'close_paragraph_commands'} = \%close_paragraph_commands;
-    $parser->{'close_preformatted_commands'} = \%close_preformatted_commands;
-    $parser->{'basic_inline_commands'} = \%contain_basic_inline_commands;
-  }
-
-  # other initializations
-  $parser->{'definfoenclose'} = {};
-  $parser->{'source_mark_counters'} = {};
-  $parser->{'nesting_context'} = {%nesting_context_init};
-  $parser->{'nesting_context'}->{'basic_inline_stack'} = [];
-  $parser->{'nesting_context'}->{'basic_inline_stack_on_line'} = [];
-  $parser->{'nesting_context'}->{'basic_inline_stack_block'} = [];
-  $parser->{'nesting_context'}->{'regions_stack'} = [];
-
-  $parser->_init_context_stack();
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
@@ -632,6 +612,51 @@ sub parser(;$$)
   }
 
   return $parser;
+}
+
+sub _initialize_parsing()
+{
+  my $parser = shift;
+
+  my $parser_state = dclone(\%parser_state_initialization);
+
+  if (!$parser->{'restricted'}) {
+    # Initialize command hash that are dynamically modified, notably
+    # those for index commands, and definoenclose, based on defaults
+    $parser_state->{'line_commands'} = dclone(\%line_commands);
+    $parser_state->{'brace_commands'} = dclone(\%brace_commands);
+    $parser_state->{'valid_nestings'} = dclone(\%default_valid_nestings);
+    $parser_state->{'no_paragraph_commands'} = {%no_paragraph_commands};
+    $parser_state->{'index_names'} = dclone(\%index_names);
+    $parser_state->{'command_index'} = {%command_index};
+    $parser_state->{'index_entry_commands'} = {%index_entry_command_commands};
+    $parser_state->{'close_paragraph_commands'} = {%close_paragraph_commands};
+    $parser_state->{'close_preformatted_commands'}
+                                        = {%close_preformatted_commands};
+    $parser_state->{'basic_inline_commands'} = {%contain_basic_inline_commands};
+  } else {
+    # in a restricted parser, new commands are not defined (no user-defined
+    # macros, alias, no new index commands), and index entries are not set.
+    # Therefore, the default data can be used as it won't be modified and most
+    # indices information is not needed at all.  It is used in gdt() and this
+    # has a sizable effect on performance.
+
+    $parser_state->{'line_commands'} = \%line_commands;
+    $parser_state->{'brace_commands'} = \%brace_commands;
+    $parser_state->{'valid_nestings'} = \%default_valid_nestings;
+    $parser_state->{'no_paragraph_commands'} = \%no_paragraph_commands;
+    # not needed, but not undef because it is exported to document
+    $parser_state->{'index_names'} = {};
+    # not needed
+    #$parser_state->{'command_index'} = {};
+    $parser_state->{'index_entry_commands'} = \%index_entry_command_commands;
+    $parser_state->{'close_paragraph_commands'} = \%close_paragraph_commands;
+    $parser_state->{'close_preformatted_commands'}
+         = \%close_preformatted_commands;
+    $parser_state->{'basic_inline_commands'} = \%contain_basic_inline_commands;
+  }
+
+  return $parser_state;
 }
 
 sub get_conf($$)
@@ -671,9 +696,6 @@ sub _input_push_text($$$;$$)
 {
   my ($self, $text, $line_nr, $macro_name, $value_name) = @_;
 
-  if (not $self->{'input'}) {
-    $self->{'input'} = [];
-  }
   my $input_source_info = {'line_nr' => $line_nr};
   if (scalar(@{$self->{'input'}})) {
     if (exists($self->{'input'}->[0]->{'input_source_info'}->{'file_name'})) {
@@ -726,6 +748,9 @@ sub parse_texi_piece($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
+  my $parser_state = $self->_initialize_parsing();
+  %$self = (%$self, %$parser_state);
+
   _input_push_text($self, $text, $line_nr);
 
   my ($document_root, $before_node_section)
@@ -745,6 +770,9 @@ sub parse_texi_line($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
+  my $parser_state = $self->_initialize_parsing();
+  %$self = (%$self, %$parser_state);
+
   _input_push_text($self, $text, $line_nr);
 
   my $root = {'type' => 'root_line'};
@@ -760,6 +788,9 @@ sub parse_texi_text($$;$)
   return undef if (!defined($text) or !defined($self));
 
   $line_nr = 1 if (not defined($line_nr));
+
+  my $parser_state = $self->_initialize_parsing();
+  %$self = (%$self, %$parser_state);
 
   _input_push_text($self, $text, $line_nr);
 
@@ -812,7 +843,6 @@ sub _input_push_file
 
   $file_input->{'file_name_encoding'} = $file_name_encoding
        if (defined($file_name_encoding));
-  $self->{'input'} = [] if (!defined($self->{'input'}));
   unshift @{$self->{'input'}}, $file_input;
 
   return 1, $file_name, $directories, undef;
@@ -827,14 +857,10 @@ sub get_parser_info($)
                                          $self->{'registrar'}, $self);
   if (defined($perl_encoding)) {
     $self->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
-  } else {
-    $self->{'global_info'}->{'input_perl_encoding'} = 'utf-8';
   }
   if (defined($self->{'input_encoding_name'})) {
     $self->{'global_info'}->{'input_encoding_name'}
                                = $self->{'input_encoding_name'};
-  } else {
-    $self->{'global_info'}->{'input_encoding_name'} = 'utf-8';
   }
 
   my $global_commands = $self->{'commands_info'};
@@ -868,6 +894,9 @@ sub parse_texi_file($$)
   my ($self, $input_file_path) = @_;
 
   return undef if (!defined($self));
+
+  my $parser_state = $self->_initialize_parsing();
+  %$self = (%$self, %$parser_state);
 
   my ($status, $file_name, $directories, $error_message)
     = _input_push_file($self, $input_file_path);
@@ -953,6 +982,10 @@ sub _setup_conf($$)
 {
   my ($parser, $conf) = @_;
 
+  # for get_conf, set for all the configuration keys that are also in
+  # %Texinfo::Common::default_parser_customization_values to the
+  # values set at parser initialization
+  $parser->{'conf'} = {};
   $parser->{'set'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
@@ -989,13 +1022,6 @@ sub _setup_conf($$)
 #                             pending text or line.
 
 # context stack functions
-sub _init_context_stack($)
-{
-  my $self = shift;
-  $self->{'context_stack'} = ['_root'];
-  $self->{'context_command_stack'} = [''];
-}
-
 sub _push_context($$$)
 {
   my ($self, $context, $command) = @_;

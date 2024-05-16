@@ -112,6 +112,8 @@ $current->{'extra'}->{'following_punctuation'} or similar.
 Using callgrind to find the time used by functions
 
 valgrind --tool=callgrind perl -w texi2any.pl ../doc/texinfo.texi --html
+# to avoid cycles (some remain in Perl only code) that mess up the graph:
+valgrind --tool=callgrind --separate-callers=3 --separate-recs=10 perl -w texi2any.pl ../doc/texinfo.texi --html
 kcachegrind callgrind.out.XXXXXX
 
 C code could be checked to see if using an hash map implementation,
@@ -121,9 +123,9 @@ Could be interesting for find_string:
  unique_target -> find_string
  (and, though much less used output_files_open_out -> find_string)
 
-Another possibility for optimization would be to call Perl less, as it
-still uses about 40% of the time (for html) even though it should mainly be
-for code called once (and not for Perl functions called from C).
+For the Texinfo manual with full XS, Perl uses 22% of the time (for html),
+now only for code hopefully called once.  Calling Perl getSortKey uses about
+28% (more on sorting and C below).
 
 
 hyphenation: should only appear in toplevel.
