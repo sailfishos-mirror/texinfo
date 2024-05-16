@@ -1,5 +1,9 @@
 2024-05-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm: fix a syntax error.
+
+2024-05-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
 	(%parser_inner_configuration, %parser_state_configuration)
 	(parser, _initialize_parsing, parse_texi_piece, parse_texi_text)

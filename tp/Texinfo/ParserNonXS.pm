@@ -207,7 +207,7 @@ my %parser_inner_configuration = (
                                # currently set if called by gdt.
   'restricted' => 0,           # cannot define new commands or make index
                                # entries.  currently set when called from gdt.
-)
+);
 
 # configurable parser state
 my %parser_state_configuration = (
@@ -278,7 +278,7 @@ my %parser_settable_configuration = (
 # on a file, with parse_texi_file, or hold pending text, if called on text.
 # each element of the array is a hash reference.
 #
-# The key are:
+# The keys are:
 # for both text and file:
 #  source_info         source information corresponding to the current file.
 #  input_source_mark   source mark associated with the input (include file,
