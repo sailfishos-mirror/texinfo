@@ -97,32 +97,32 @@ sub import {
   goto &Exporter::import;
 }
 
-sub register
+sub new_document($)
 {
-  my $tree = shift;
-  my $global_information = shift;
   my $indices_information = shift;
-  my $floats_information = shift;
-  my $internal_references_information = shift;
-  my $global_commands_information = shift;
-  my $identifier_target = shift;
-  my $labels_list = shift;
-
   my $document = {
-    'tree' => $tree,
     'indices' => $indices_information,
-    'listoffloats_list' => $floats_information,
-    'internal_references' => $internal_references_information,
-    'commands_info' => $global_commands_information,
-    'global_info' => $global_information,
-    'identifiers_target' => $identifier_target,
-    'labels_list' => $labels_list,
-    # New error registrar for the document
+    'listoffloats_list' => {},
+    'internal_references' => [],
+    'global_info' => {'input_perl_encoding' => 'utf-8',
+                    'input_encoding_name' => 'utf-8',
+                    'included_files' => [],},
+    'commands_info' => {},
+    'identifiers_target' => {},
+    'labels_list' => [],
+     # New error registrar for the document for structuring, not for parsing
     'registrar' => Texinfo::Report::new(),
   };
 
   bless $document;
   return $document;
+}
+
+sub register_tree($$)
+{
+  my $document = shift;
+  my $tree = shift;
+  $document->{'tree'} = $tree;
 }
 
 sub register_document_nodes_list($$)

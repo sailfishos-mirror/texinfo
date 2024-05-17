@@ -1,3 +1,22 @@
+2024-05-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing, get_parser_info)
+	(parse_texi_file, _register_global_command, _enter_index_entry)
+	(_end_line_misc_line, _end_line_starting_block)
+	(_check_register_target_element_label, _handle_line_command)
+	(_handle_block_command, _parse_texi, _parse_line_command_args),
+	tp/Texinfo/Document.pm (new_document): setup the document in
+	_initialize_parsing, by calling a new function in Texinfo::Document,
+	new_document.  Associate the document to the parser as the docuemnt
+	key.  Set directly in the document the information registered in the
+	document in the parser.  Remove tp/Texinfo/Document.pm register
+	function.
+
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
+	(%parser_document_state_initialization)
+	(%parsing_state_initialization): split %parser_state_initialization
+	in two.
+
 2024-05-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm: fix a syntax error.
