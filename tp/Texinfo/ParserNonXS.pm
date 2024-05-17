@@ -621,7 +621,7 @@ sub _initialize_parsing()
   my $parser = shift;
 
   my $index_names;
-  if (!$parser->{'restricted'}) {
+  if (!$parser->{'NO_INDEX'}) {
     $index_names = dclone(\%index_names);
   } else {
     # not needed, but not undef because it is exported to document
@@ -3416,7 +3416,7 @@ sub _enter_index_entry($$$$)
 {
   my ($self, $command_container, $element, $source_info) = @_;
 
-  return if $self->{'restricted'};
+  return if $self->{'NO_INDEX'};
 
   my $document = $self->{'document'};
 

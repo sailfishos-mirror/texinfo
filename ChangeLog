@@ -1,5 +1,10 @@
 2024-05-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing, _enter_index_entry):
+	replace restricted by NO_INDEX where needed.
+
+2024-05-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing): update parser
 	initialization for NO_INDEX and NO_USER_COMMANDS.
 
