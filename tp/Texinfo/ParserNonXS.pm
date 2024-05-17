@@ -222,12 +222,6 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 #                         commands dynamically added.
 # valid_nestings          direct command valid nesting information, with
 #                         index entry commands dynamically added.
-# close_paragraph_commands      same as %close_paragraph_commands, with
-#                               commands dynamically added (no command added
-#                               in 2024).
-# close_preformatted_commands   same as %close_preformatted_commands, with
-#                               commands dynamically added (no command added
-#                               in 2024).
 # no_paragraph_commands   the same as %no_paragraph_commands,
 #                         with new index entry commands dynamically added.
 # basic_inline_commands   the same as %contain_basic_inline_commands below, but
@@ -640,37 +634,47 @@ sub _initialize_parsing()
 
   $parser_state->{'document'} = $document;
 
-  if (!$parser->{'restricted'}) {
-    # Initialize command hash that are dynamically modified, notably
-    # those for index commands, and definoenclose, based on defaults
-    $parser_state->{'line_commands'} = dclone(\%line_commands);
-    $parser_state->{'brace_commands'} = dclone(\%brace_commands);
-    $parser_state->{'valid_nestings'} = dclone(\%default_valid_nestings);
-    $parser_state->{'no_paragraph_commands'} = {%no_paragraph_commands};
+  # In gdt(), both NO_INDEX and NO_USER_COMMANDS are set and this has a sizable
+  # effect on performance.
+
+  if (!$parser->{'NO_INDEX'}) {
+    # Initialize command hash that are dynamically modified for index
+    # commands.
     $parser_state->{'command_index'} = {%command_index};
     $parser_state->{'index_entry_commands'} = {%index_entry_command_commands};
-    $parser_state->{'close_paragraph_commands'} = {%close_paragraph_commands};
-    $parser_state->{'close_preformatted_commands'}
-                                        = {%close_preformatted_commands};
-    $parser_state->{'basic_inline_commands'} = {%contain_basic_inline_commands};
   } else {
-    # in a restricted parser, new commands are not defined (no user-defined
-    # macros, alias, no new index commands), and index entries are not set.
-    # Therefore, the default data can be used as it won't be modified and most
-    # indices information is not needed at all.  It is used in gdt() and this
-    # has a sizable effect on performance.
-
-    $parser_state->{'line_commands'} = \%line_commands;
-    $parser_state->{'brace_commands'} = \%brace_commands;
-    $parser_state->{'valid_nestings'} = \%default_valid_nestings;
-    $parser_state->{'no_paragraph_commands'} = \%no_paragraph_commands;
+    # with NO_INDEX index entries are not set and most indices information
+    # is not needed at all.
     # not needed
     #$parser_state->{'command_index'} = {};
     $parser_state->{'index_entry_commands'} = \%index_entry_command_commands;
-    $parser_state->{'close_paragraph_commands'} = \%close_paragraph_commands;
-    $parser_state->{'close_preformatted_commands'}
-         = \%close_preformatted_commands;
+  }
+
+  if (!$parser->{'NO_USER_COMMANDS'}) {
+    # Initialize command hash that are dynamically modified for
+    # definfoenclose, based on defaults.
+    $parser_state->{'brace_commands'} = dclone(\%brace_commands);
+    $parser_state->{'valid_nestings'} = dclone(\%default_valid_nestings);
+  } else {
+    # with NO_USER_COMMANDS, new commands are not defined (no user-defined
+    # macros, alias, no new index commands).  Therefore, the default data can
+    # be used as it won't be modified.
+    $parser_state->{'brace_commands'} = \%brace_commands;
+    $parser_state->{'valid_nestings'} = \%default_valid_nestings;
+  }
+
+  if ($parser->{'NO_USER_COMMANDS'} or $parser->{'NO_INDEX'}) {
+    # with NO_USER_COMMANDS or NO_INDEX, new index commands are not defined.
+    # Therefore, the default data can be used as it won't be modified.
+    $parser_state->{'line_commands'} = \%line_commands;
+    $parser_state->{'no_paragraph_commands'} = \%no_paragraph_commands;
     $parser_state->{'basic_inline_commands'} = \%contain_basic_inline_commands;
+  } else {
+    # Initialize command hash that are dynamically modified for index commands,
+    # based on defaults.
+    $parser_state->{'line_commands'} = dclone(\%line_commands);
+    $parser_state->{'no_paragraph_commands'} = {%no_paragraph_commands};
+    $parser_state->{'basic_inline_commands'} = {%contain_basic_inline_commands};
   }
 
   return $parser_state;
@@ -1368,8 +1372,8 @@ sub _begin_paragraph($$;$)
               and ($current->{'contents'}->[$index]->{'type'} eq 'empty_line'
                    or $current->{'contents'}->[$index]->{'type'} eq 'paragraph'))
             and !($current->{'contents'}->[$index]->{'cmdname'}
-                  and $self->{'close_paragraph_commands'}
-                           ->{$current->{'contents'}->[$index]->{'cmdname'}})) {
+                  and $close_paragraph_commands
+                           {$current->{'contents'}->[$index]->{'cmdname'}})) {
         if ($current->{'contents'}->[$index]->{'cmdname'}
           and ($current->{'contents'}->[$index]->{'cmdname'} eq 'indent'
               or $current->{'contents'}->[$index]->{'cmdname'} eq 'noindent')) {
@@ -7286,10 +7290,10 @@ sub _process_remaining_on_line($$$$)
                   $command), $source_info);
     }
 
-    if ($self->{'close_paragraph_commands'}->{$command}) {
+    if ($close_paragraph_commands{$command}) {
       $current = _end_paragraph($self, $current, $source_info);
     }
-    if ($self->{'close_preformatted_commands'}->{$command}) {
+    if ($close_preformatted_commands{$command}) {
       $current = _end_preformatted($self, $current, $source_info);
     }
 

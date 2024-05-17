@@ -1,5 +1,13 @@
 2024-05-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing): update parser
+	initialization for NO_INDEX and NO_USER_COMMANDS.
+
+	* tp/Texinfo/ParserNonXS.pm: remove close_paragraph_commands and
+	close_preformatted_commands as states, as they never change.
+
+2024-05-17  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Global Customization Variables),
 	tp/Texinfo/Common.pm (%parser_options), tp/Texinfo/ParserNonXS.pm
 	(%parser_inner_configuration, _new_macro, _parse_line_command_args),
