@@ -46,6 +46,22 @@ conf_set_MAX_MACRO_CALL_NESTING (int i)
   conf.max_macro_call_nesting = i;
 }
 
+int
+conf_set_NO_INDEX (int i)
+{
+  int previous = conf.no_index;
+  conf.no_index = i;
+  return previous;
+}
+
+int
+conf_set_NO_USER_COMMANDS (int i)
+{
+  int previous = conf.no_user_commands;
+  conf.no_user_commands = i;
+  return previous;
+}
+
 void
 reset_conf (void)
 {

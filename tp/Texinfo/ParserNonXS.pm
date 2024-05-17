@@ -112,8 +112,9 @@ our $VERSION = '7.1dev';
 
 
 # Document information set in the parser.  The initialization is done by
-# Texinfo::Document::new_document but afterwards the document and
-# keys are directly accessed in the parser for efficiency
+# Texinfo::Document::new_document and afterwards the Texinfo::Document
+# document is available in the 'document' key in the parser and
+# document hash keys are directly accessed in the parser for efficiency
   #'commands_info' => {},     # keys are @-commands names (without @) and
                               # values are arrays for global multiple
                               # @-commands and a value for non multiple
@@ -255,8 +256,6 @@ my %parser_inner_configuration = (
   'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
                                # to the tree or considered invalid.
                                # currently set if called by gdt.
-  'restricted' => 0,           # cannot define new commands or make index
-                               # entries.  currently set when called from gdt.
 );
 
 # expanded_formats_hash   each key comes from EXPANDED_FORMATS, value is 1
@@ -1259,7 +1258,6 @@ sub _place_source_mark
    ." $add_element_string ".Texinfo::Common::debug_print_element($mark_element)
       .' '.Texinfo::Common::debug_print_element($element)."\n"
         if ($self->{'DEBUG'});
-        ;
 
   if (!$mark_element->{'source_marks'}) {
     $mark_element->{'source_marks'} = [];
@@ -6692,7 +6690,7 @@ sub _new_macro($$$)
   my $name = shift;
   my $current = shift;
 
-  return if $self->{'restricted'};
+  return if $self->{'NO_USER_COMMANDS'};
 
   my $macrobody;
   if (defined($current->{'contents'})) {
@@ -7746,7 +7744,7 @@ sub _parse_line_command_args($$$)
 
   if ($command eq 'alias') {
     # REMACRO
-    if ($self->{'restricted'}) {
+    if ($self->{'NO_USER_COMMANDS'}) {
       # do nothing
     } elsif ($line =~ s/^([[:alnum:]][[:alnum:]-]*)(\s*=\s*)([[:alnum:]][[:alnum:]-]*)$//) {
       my $new_command = $1;
@@ -7778,7 +7776,7 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'definfoenclose') {
     # REMACRO
     # FIXME how to handle non ascii space?  As space or in argument?
-    if ($self->{'restricted'}) {
+    if ($self->{'NO_USER_COMMANDS'}) {
       # do nothing
     } elsif ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
       $args = [$1, $2, $3 ];
@@ -7841,7 +7839,7 @@ sub _parse_line_command_args($$$)
     }
   } elsif ($command eq 'defindex' || $command eq 'defcodeindex') {
     # REMACRO
-    if ($self->{'restricted'}) {
+    if ($self->{'NO_USER_COMMANDS'} or $self->{'NO_INDEX'}) {
       # do nothing
     } elsif ($line =~ /^([[:alnum:]][[:alnum:]\-]*)$/) {
       my $name = $1;
@@ -7879,7 +7877,7 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'synindex' || $command eq 'syncodeindex') {
     # REMACRO
     if ($line =~ /^([[:alnum:]][[:alnum:]\-]*)\s+([[:alnum:]][[:alnum:]\-]*)$/) {
-      if ($self->{'restricted'}) {
+      if ($self->{'NO_INDEX'}) {
         # do nothing
       } else {
         my $document = $self->{'document'};
@@ -7916,7 +7914,7 @@ sub _parse_line_command_args($$$)
                                 $command, $line), $source_info);
     }
   } elsif ($command eq 'printindex') {
-    if ($self->{'restricted'}) {
+    if ($self->{'NO_INDEX'}) {
       # do nothing
     # REMACRO
     } elsif ($line =~ /^([[:alnum:]][[:alnum:]\-]*)$/) {

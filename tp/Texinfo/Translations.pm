@@ -311,8 +311,9 @@ sub _replace_convert_substrings($;$$)
   # accept @txiinternalvalue as a valid Texinfo command, used to mark
   # location in tree of substituted brace enclosed strings.
   my $parser_conf = {'accept_internalvalue' => 1,
-           # Flag to say that some parts of the parser should not be modified.
-                     'restricted' => 1};
+           # Ignore index and user-defined commands.
+                     'NO_INDEX' => 1,
+                     'NO_USER_COMMANDS' => 1,};
 
   # set parser debug level to one less than $debug_level
   if (defined($debug_level)) {

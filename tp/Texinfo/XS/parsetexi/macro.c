@@ -68,7 +68,7 @@ new_macro (char *name, ELEMENT *macro)
   MACRO *m = 0;
   size_t free_slot = 0;
 
-  if (global_restricted)
+  if (conf.no_user_commands)
     return;
 
   /* Check for an existing definition first for us to overwrite. */

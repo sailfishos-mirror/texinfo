@@ -15689,6 +15689,16 @@ It is also used for command-line argument passed to commands called from
 @command{texi2any}.  For example, @command{latex2html} will be called from
 @command{texi2any} if @code{HTML_MATH} is set to @samp{l2h}.
 
+@item NO_INDEX
+If set, index entries are not recorded and @@-commands related to
+indices, such as @code{@@printindex}, @code{@@synindex} or @code{@@defindex}
+have no effect.  Default false.
+
+@item NO_USER_COMMANDS
+If set, definitions of user-defined @@-command are ignored.  @code{@@alias},
+@code{@@definfoenclose}, @code{@@defindex}, @code{@@macro} and similar
+@@-commands have no effect.  Default false.
+
 @item OUTPUT_ENCODING_NAME
 Normalized encoding name used for output files.  Should be a usable
 charset name in HTML, typically one of the preferred IANA encoding

@@ -1,5 +1,26 @@
 2024-05-17  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Global Customization Variables),
+	tp/Texinfo/Common.pm (%parser_options), tp/Texinfo/ParserNonXS.pm
+	(%parser_inner_configuration, _new_macro, _parse_line_command_args),
+	tp/Texinfo/Translations.pm (_replace_convert_substrings),
+	tp/Texinfo/XS/main/translations.c (replace_convert_substrings),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (conf_set_NO_INDEX)
+	(conf_set_NO_USER_COMMANDS), tp/Texinfo/XS/parsetexi/api.c,
+	tp/Texinfo/XS/parsetexi/conf.c (conf_set_NO_INDEX)
+	(conf_set_NO_USER_COMMANDS), tp/Texinfo/XS/parsetexi/conf.h (CONF),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry),
+	tp/Texinfo/XS/parsetexi/macro.c (new_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): add customization
+	variables NO_INDEX to ignore index commands and NO_USER_COMMANDS
+	to ignore @*macro, @alias, @def*index and @definfoenclose.  Replace
+	restricted internal variable and associated variables and functions by
+	setting those two variables for translations.
+
+2024-05-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing, get_parser_info)
 	(parse_texi_file, _register_global_command, _enter_index_entry)
 	(_end_line_misc_line, _end_line_starting_block)
@@ -7,7 +28,7 @@
 	(_handle_block_command, _parse_texi, _parse_line_command_args),
 	tp/Texinfo/Document.pm (new_document): setup the document in
 	_initialize_parsing, by calling a new function in Texinfo::Document,
-	new_document.  Associate the document to the parser as the docuemnt
+	new_document.  Associate the document to the parser as the document
 	key.  Set directly in the document the information registered in the
 	document in the parser.  Remove tp/Texinfo/Document.pm register
 	function.

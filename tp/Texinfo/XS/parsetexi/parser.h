@@ -133,7 +133,6 @@ extern char *global_clickstyle;
 extern char *global_documentlanguage;
 extern int global_documentlanguage_fixed;
 extern int global_accept_internalvalue;
-extern int global_restricted;
 
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };
 extern enum kbd_enum global_kbdinputstyle;

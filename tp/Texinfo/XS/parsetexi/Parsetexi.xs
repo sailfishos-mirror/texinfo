@@ -132,6 +132,12 @@ conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i)
 void
 conf_set_MAX_MACRO_CALL_NESTING (int i)
 
+int
+conf_set_NO_INDEX (int i)
+
+int
+conf_set_NO_USER_COMMANDS (int i)
+
 void
 parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
@@ -153,6 +159,4 @@ parser_set_debug (int i)
 void
 parser_set_accept_internalvalue (int value)
 
-void
-parser_set_restricted (int value)
 

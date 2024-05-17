@@ -253,7 +253,7 @@ enter_index_entry (enum command_id index_type_cmd,
   INDEX_ENTRY *entry;
   TEXT ignored_chars;
 
-  if (global_restricted)
+  if (conf.no_index)
     return;
 
   idx = index_of_command (index_type_cmd);

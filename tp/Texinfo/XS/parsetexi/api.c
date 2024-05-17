@@ -122,7 +122,6 @@ reset_parser (int local_debug_output)
   set_locale_encoding (0);
 
   global_accept_internalvalue = 0;
-  global_restricted = 0;
 }
 
 /* Determine directory path based on file name.
@@ -269,8 +268,3 @@ parser_set_accept_internalvalue (int value)
   set_accept_internalvalue (value);
 }
 
-void
-parser_set_restricted (int value)
-{
-  set_restricted (value);
-}

@@ -150,6 +150,10 @@ my %parser_options = (
   'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME' => 1,
   'CPP_LINE_DIRECTIVES' => 1, # handle cpp like synchronization lines
   'MAX_MACRO_CALL_NESTING' => 100000, # max number of nested macro calls
+  'NO_INDEX' => 0, # if set, do not record index entries and ignore
+                   # index related @-commands
+  'NO_USER_COMMANDS' => 0, # if set, ignore @*macro, @def*index, @alias and
+                           # @definfoenclose
 );
 
 # this serves both to set defaults and list customization variable

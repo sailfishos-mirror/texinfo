@@ -319,7 +319,6 @@ char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
 int global_documentlanguage_fixed = 0;
 int global_accept_internalvalue = 0;
-int global_restricted = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 
@@ -347,12 +346,6 @@ void
 set_accept_internalvalue (int value)
 {
   global_accept_internalvalue = value;
-}
-
-void
-set_restricted (int value)
-{
-  global_restricted = value;
 }
 
 /* Record the information from a command of global effect. */
@@ -2633,7 +2626,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   /* done here and not in reset_parser_except_conf as usually done
      as restricted is set after reset_parser_except_conf and before
      calling parsing functions */
-  if (!global_restricted)
+  if (!conf.no_index)
     init_index_commands ();
 
   /* Read input file line-by-line. */

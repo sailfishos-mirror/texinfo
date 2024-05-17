@@ -131,7 +131,7 @@ parse_line_command_args (ELEMENT *line_command)
     {
     case CM_alias:
       {
-        if (global_restricted)
+        if (conf.no_user_commands)
           break;
         /* @alias NEW = EXISTING */
         char *new = 0, *existing = 0;
@@ -210,7 +210,7 @@ parse_line_command_args (ELEMENT *line_command)
       }
     case CM_definfoenclose:
       {
-        if (global_restricted)
+        if (conf.no_user_commands)
           break;
 
         /* @definfoenclose phoo,//,\\ */
@@ -333,7 +333,7 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_defindex:
     case CM_defcodeindex:
       {
-        if (global_restricted)
+        if (conf.no_user_commands || conf.no_index)
           break;
 
         char *name = 0;
@@ -401,7 +401,7 @@ parse_line_command_args (ELEMENT *line_command)
         if (*p)
           goto synindex_invalid; /* More at end of line. */
 
-        if (global_restricted)
+        if (conf.no_index)
           {
             free (index_name_from);
             free (index_name_to);
@@ -455,7 +455,7 @@ parse_line_command_args (ELEMENT *line_command)
         arg = read_command_name (&p);
         if (!arg || *p)
           line_error ("bad argument to @printindex: %s", line);
-        else if (global_restricted)
+        else if (conf.no_index)
           {}
         else
           {

@@ -21,6 +21,8 @@ typedef struct CONF {
     int cpp_line_directives;
     int ignore_space_after_braced_command_name;
     int max_macro_call_nesting;
+    int no_index;
+    int no_user_commands;
 } CONF;
 
 extern CONF conf;
@@ -30,6 +32,8 @@ void conf_set_show_menu (int i);
 void conf_set_CPP_LINE_DIRECTIVES (int i);
 void conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i);
 void conf_set_MAX_MACRO_CALL_NESTING (int i);
+int conf_set_NO_INDEX (int i);
+int conf_set_NO_USER_COMMANDS (int i);
 
 void reset_conf (void);
 
