@@ -698,11 +698,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
       if (cmd == CM_raisesections)
         {
-          parsed_document->global_info->sections_level_modifier++;
+          parsed_document->global_info.sections_level_modifier++;
         }
       else if (cmd == CM_lowersections)
         {
-          parsed_document->global_info->sections_level_modifier--;
+          parsed_document->global_info.sections_level_modifier--;
         }
 
       if (command_e)
@@ -825,11 +825,12 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
           if (command_data(data_cmd).flags & CF_sectioning_heading)
             {
-              GLOBAL_INFO *global_info = parsed_document->global_info;
-              if (global_info->sections_level_modifier)
+              int sections_level_modifier
+                = parsed_document->global_info.sections_level_modifier;
+              if (sections_level_modifier)
                 {
                   add_extra_integer (command_e, "level_modifier",
-                                     global_info->sections_level_modifier);
+                                     sections_level_modifier);
                 }
             }
 

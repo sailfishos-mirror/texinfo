@@ -892,7 +892,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               DOCUMENT *document
                 = retrieve_document (text_options->document_descriptor);
               if (document)
-                global_information = document->global_info;
+                global_information = &document->global_info;
             }
             verbatim_include_verbatim
               = expand_verbatiminclude (0, text_options->self_converter_options,

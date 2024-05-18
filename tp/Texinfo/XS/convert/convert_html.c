@@ -9114,7 +9114,7 @@ find_image_extension_file (CONVERTER *self, const ELEMENT *element,
   char *located_image_path;
 
   xasprintf (&image_file, "%s%s", image_basefile, extension);
-  file_name = encoded_input_file_name (self->conf, self->document->global_info,
+  file_name = encoded_input_file_name (self->conf, &self->document->global_info,
                    image_file, 0, &input_file_encoding, &element->source_info);
 
   located_image_path = locate_include_file (file_name,
@@ -10696,7 +10696,7 @@ convert_verbatiminclude_command (CONVERTER *self, const enum command_id cmd,
 {
   ELEMENT *verbatim_include_verbatim
     = expand_verbatiminclude (&self->error_messages, self->conf,
-                              self->document->global_info, element);
+                              &self->document->global_info, element);
 
   if (verbatim_include_verbatim)
     {
@@ -15953,12 +15953,12 @@ html_prepare_converted_output_info (CONVERTER *self)
 
       self->added_title_tree = 1;
 
-      if (self->document->global_info->input_file_name)
+      if (self->document->global_info.input_file_name)
         {
           /* setup a source info with file only */
           memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
           cmd_source_info.file_name
-           = self->document->global_info->input_file_name;
+           = self->document->global_info.input_file_name;
           /* this is more in line with the Perl function used, as DEBUG is
              checked in the called function */
           message_list_line_error_ext (&self->error_messages, self->conf,
@@ -18711,7 +18711,7 @@ convert_output_output_unit_internal (CONVERTER *self,
       int overwritten_file;
 
       char *encoded_out_filepath = encoded_output_file_name (self->conf,
-                               self->document->global_info, out_filepath,
+                               &self->document->global_info, out_filepath,
                                                        &path_encoding, 0);
       /* overwritten_file being set cannot happen */
       FILE *file_fh = output_files_open_out (&self->output_files_information,
@@ -19159,7 +19159,7 @@ html_node_redirections (CONVERTER *self,
 
                   char *encoded_out_filepath
                      = encoded_output_file_name (self->conf,
-                                   self->document->global_info, out_filepath,
+                                   &self->document->global_info, out_filepath,
                                                            &path_encoding, 0);
                   /* overwritten_file being set cannot happen */
                   FILE *file_fh

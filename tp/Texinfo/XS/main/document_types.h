@@ -186,7 +186,9 @@ typedef struct DOCUMENT {
     LABEL_LIST labels_list;
   /* Array of target elements with unique identifiers, sorted by identifier */
     LABEL_LIST identifiers_target;
-    GLOBAL_INFO *global_info;
+  /* Information that is not local to where it is set in the Texinfo input,
+   for example document language and encoding. */
+    GLOBAL_INFO global_info;
     GLOBAL_COMMANDS *global_commands;
     STRING_LIST *small_strings;
     ELEMENT_LIST *nodes_list;

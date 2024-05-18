@@ -1305,7 +1305,6 @@ end_line_misc_line (ELEMENT *current)
             {
               int status;
               char *fullpath, *sys_filename;
-              GLOBAL_INFO *global_info = parsed_document->global_info;
 
               sys_filename = encode_file_name (text);
               fullpath = parser_locate_include_file (sys_filename);
@@ -1336,7 +1335,8 @@ end_line_misc_line (ELEMENT *current)
                       include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
                       set_input_source_mark (include_source_mark);
-                      add_string (fullpath, &global_info->included_files);
+                      add_string (fullpath,
+                                  &parsed_document->global_info.included_files);
                     }
                   free (fullpath);
                 }
@@ -1344,7 +1344,7 @@ end_line_misc_line (ELEMENT *current)
           else if (current->cmd == CM_verbatiminclude)
             {
               char *fullpath, *sys_filename;
-              GLOBAL_INFO *global_info = parsed_document->global_info;
+              GLOBAL_INFO *global_info = &parsed_document->global_info;
 
               if (global_info->input_encoding_name)
                 add_extra_string_dup (current, "input_encoding_name",

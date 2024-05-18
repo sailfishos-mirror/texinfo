@@ -430,7 +430,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
         }
       else if (closed_command == CM_image)
         {
-          GLOBAL_INFO *global_info = parsed_document->global_info;
+          GLOBAL_INFO *global_info = &parsed_document->global_info;
           ELEMENT *image = current->parent;
           if (image->args.number == 0
               || image->args.list[0]->contents.number == 0)

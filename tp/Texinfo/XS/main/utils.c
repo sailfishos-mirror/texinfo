@@ -1044,10 +1044,9 @@ void
 set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 {
   if (customization_information
-      && document && document->global_info
-      && document->global_info->input_encoding_name) {
+      && document && document->global_info.input_encoding_name) {
     set_conf_string (&customization_information->OUTPUT_ENCODING_NAME,
-                      document->global_info->input_encoding_name);
+                      document->global_info.input_encoding_name);
   }
 }
 

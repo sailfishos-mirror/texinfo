@@ -132,7 +132,7 @@ parse_file (const char *filename, const char *input_file_name,
       return 0;
     }
 
-  global_info = parsed_document->global_info;
+  global_info = &parsed_document->global_info;
 
   free (global_info->input_file_name);
   free (global_info->input_directory);

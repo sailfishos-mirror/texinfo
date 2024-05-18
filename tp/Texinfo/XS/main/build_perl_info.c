@@ -1390,7 +1390,8 @@ get_document (size_t document_descriptor)
   hv = newHV ();
   hv_tree = newHV ();
 
-  hv_info = build_global_info (document->global_info, document->global_commands);
+  hv_info = build_global_info (&document->global_info,
+                               document->global_commands);
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   STORE("tree", hv_tree);
@@ -1434,7 +1435,7 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   hv_tree = build_texinfo_tree (document->tree, 0);
 
-  hv_info = build_global_info (document->global_info,
+  hv_info = build_global_info (&document->global_info,
                                document->global_commands);
 
   hv_commands_info = build_global_commands (document->global_commands);
@@ -1588,6 +1589,11 @@ store_texinfo_tree (DOCUMENT *document, HV *document_hv)
   return result_sv;
 }
 
+/* there are 2 differences between BUILD_PERL_DOCUMENT_ITEM and
+   BUILD_PERL_DOCUMENT_LIST: in BUILD_PERL_DOCUMENT_LIST no check on existing
+    and the address of document->fieldname is passed.
+ */
+
 #define BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV) \
 SV * \
 funcname (SV *document_in) \
@@ -1718,7 +1724,7 @@ document_global_information (SV *document_in)
     {
       if (document->modified_information & F_DOCM_global_info)
         {
-          HV *result_hv = build_global_info (document->global_info,
+          HV *result_hv = build_global_info (&document->global_info,
                                              document->global_commands);
           result_sv = newRV_inc ((SV *) result_hv);
           hv_store (document_hv, key, strlen (key), result_sv, 0);

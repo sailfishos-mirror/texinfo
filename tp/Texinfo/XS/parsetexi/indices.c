@@ -241,7 +241,8 @@ enter_index_entry (enum command_id index_type_cmd,
   INDEX *idx;
   INDEX_ENTRY *entry;
   TEXT ignored_chars;
-  GLOBAL_INFO *global_info = parsed_document->global_info;
+  const IGNORED_CHARS *ignored_chars_info
+    = &parsed_document->global_info.ignored_chars;
 
   if (conf.no_index)
     return;
@@ -265,13 +266,13 @@ enter_index_entry (enum command_id index_type_cmd,
 
   /* Create ignored_chars string. */
   text_init (&ignored_chars);
-  if (global_info->ignored_chars.backslash)
+  if (ignored_chars_info->backslash)
     text_append (&ignored_chars, "\\");
-  if (global_info->ignored_chars.hyphen)
+  if (ignored_chars_info->hyphen)
     text_append (&ignored_chars, "-");
-  if (global_info->ignored_chars.lessthan)
+  if (ignored_chars_info->lessthan)
     text_append (&ignored_chars, "<");
-  if (global_info->ignored_chars.atsign)
+  if (ignored_chars_info->atsign)
     text_append (&ignored_chars, "@");
   if (ignored_chars.end > 0)
     {

@@ -79,7 +79,7 @@ set_input_encoding (const char *encoding)
   if (current_encoding_conversion)
     {
       encoding_set = 1;
-      GLOBAL_INFO *global_info = parsed_document->global_info;
+      GLOBAL_INFO *global_info = &parsed_document->global_info;
       free (global_info->input_encoding_name);
       global_info->input_encoding_name = strdup (encoding);
     }
@@ -210,7 +210,7 @@ encode_file_name (char *filename)
       else if (doc_encoding_for_input_file_name)
         {
           if (current_encoding_conversion
-              && strcmp (parsed_document->global_info->input_encoding_name,
+              && strcmp (parsed_document->global_info.input_encoding_name,
                          "utf-8"))
             {
               char *conversion_encoding

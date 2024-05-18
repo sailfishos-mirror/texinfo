@@ -1061,16 +1061,17 @@ store_value (const char *name, const char *value)
   /* Internal Texinfo flag */
   if (!strncmp (name, "txi", 3) && parsed_document)
     {
-      GLOBAL_INFO *global_info = parsed_document->global_info;
+      IGNORED_CHARS *ignored_chars_info
+        = &parsed_document->global_info.ignored_chars;
       int val = (strcmp (value, "0") != 0);
       if (!strcmp (name, "txiindexbackslashignore"))
-        global_info->ignored_chars.backslash = val;
+        ignored_chars_info->backslash = val;
       else if (!strcmp (name, "txiindexhyphenignore"))
-        global_info->ignored_chars.hyphen = val;
+        ignored_chars_info->hyphen = val;
       else if (!strcmp (name, "txiindexlessthanignore"))
-        global_info->ignored_chars.lessthan = val;
+        ignored_chars_info->lessthan = val;
       else if (!strcmp (name, "txiindexatsignignore"))
-        global_info->ignored_chars.atsign = val;
+        ignored_chars_info->atsign = val;
 
       /* also: txicodequotebacktick, txicodequoteundirected,
          txicommandconditionals.  Deal with them here? */
@@ -1092,15 +1093,16 @@ clear_value (char *name)
   /* Internal Texinfo flag */
   if (!strncmp (name, "txi", 3))
     {
-      GLOBAL_INFO *global_info = parsed_document->global_info;
+      IGNORED_CHARS *ignored_chars_info
+        = &parsed_document->global_info.ignored_chars;
       if (!strcmp (name, "txiindexbackslashignore"))
-        global_info->ignored_chars.backslash = 0;
+        ignored_chars_info->backslash = 0;
       else if (!strcmp (name, "txiindexhyphenignore"))
-        global_info->ignored_chars.hyphen = 0;
+        ignored_chars_info->hyphen = 0;
       else if (!strcmp (name, "txiindexlessthanignore"))
-        global_info->ignored_chars.lessthan = 0;
+        ignored_chars_info->lessthan = 0;
       else if (!strcmp (name, "txiindexatsignignore"))
-        global_info->ignored_chars.atsign = 0;
+        ignored_chars_info->atsign = 0;
 
       /* also: txicodequotebacktick, txicodequoteundirected,
          txicommandconditionals.  Deal with them here? */

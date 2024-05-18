@@ -81,11 +81,6 @@ new_document (void)
   memset (document, 0, sizeof (DOCUMENT));
   document->descriptor = document_index +1;
 
-  /* Information that is not local to where it is set in the Texinfo input,
-   for example document language and encoding. */
-  document->global_info = malloc (sizeof (GLOBAL_INFO));
-  memset (document->global_info, 0, sizeof (GLOBAL_INFO));
-
   document->global_commands = malloc (sizeof (GLOBAL_COMMANDS));
   memset (document->global_commands, 0, sizeof (GLOBAL_COMMANDS));
   /* For filenames and macro names, it is possible that they won't be referenced
@@ -401,8 +396,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
 {
   if (document->tree)
     {
-      delete_global_info (document->global_info);
-      free (document->global_info);
+      delete_global_info (&document->global_info);
       delete_global_commands (document->global_commands);
       free (document->global_commands);
       free (document->internal_references.list);
