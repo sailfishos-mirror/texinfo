@@ -159,6 +159,7 @@ my %parser_document_state_initialization = (
   'source_mark_counters' => {},  #
   'current_node'    => undef,    # last seen node.
   'current_section' => undef,    # last seen section.
+  'current_part'    => undef,    # last seen part.
 );
 
 my %parsing_state_initialization = (
