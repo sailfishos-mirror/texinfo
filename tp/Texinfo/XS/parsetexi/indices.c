@@ -368,13 +368,11 @@ resolve_indices_merged_in (const INDEX_LIST *indices_info)
    Done in a separate function and not inside the main parser loop because
    it requires parsing Texinfo code in gdt_tree too */
 void
-complete_indices (int document_descriptor, int debug_level)
+complete_indices (DOCUMENT *document, int debug_level)
 {
-  DOCUMENT *document;
   INDEX_LIST *indices;
   size_t i;
 
-  document = retrieve_document (document_descriptor);
   indices = &document->indices_info;
 
   for (i = 0; i < indices->number; i++)

@@ -3,6 +3,7 @@
 #define INDICES_H
 
 #include "tree_types.h"
+#include "document_types.h"
 
 void init_index_commands (void);
 
@@ -15,6 +16,6 @@ void set_non_ignored_space_in_index_before_command (ELEMENT *content);
 void forget_indices (void);
 
 void resolve_indices_merged_in (const INDEX_LIST *indices_info);
-void complete_indices (int document_descriptor, int debug_level);
+void complete_indices (DOCUMENT *document, int debug_level);
 
 #endif

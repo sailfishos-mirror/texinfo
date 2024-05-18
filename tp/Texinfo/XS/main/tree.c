@@ -23,7 +23,7 @@
  be allocated on the heap and be available in the parser.  It could
  also be passed to the parsed document but it seems complicated to
  make it available to alloc_element outside of the parser (more
- precisely after a call to store_document), in code related to
+ precisely after parse_texi has returned), in code related to
  tree modification and conversion.
 
  If obstack is used again, in addition to the obvious changes,

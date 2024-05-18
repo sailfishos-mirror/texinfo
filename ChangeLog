@@ -1,5 +1,15 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (parse_texi): set a document
+	variable to keep track of the parsed document when the global variable
+	is overwritten.
+
+	* tp/Texinfo/XS/parsetexi/indices.c (complete_indices),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): use a DOCUMENT in
+	complete_indices call.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c (new_document)
 	(destroy_document_information_except_tree, clear_document_errors)
 	(clear_document_parser_errors), tp/Texinfo/XS/main/document_types.h

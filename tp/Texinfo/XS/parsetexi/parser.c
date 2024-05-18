@@ -2504,10 +2504,10 @@ int
 parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 {
   ELEMENT *current = current_elt;
-  int document_descriptor;
   static char *allocated_line;
   char *line;
   int status;
+  DOCUMENT *document = parsed_document;
 
   /* done here and not in reset_parser_except_conf as usually done
      as restricted is set after reset_parser_except_conf and before
@@ -2660,22 +2660,20 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   /* update merged_in.  Only needed for merging happening after first
      index merge */
-  resolve_indices_merged_in (&parsed_document->indices_info);
+  resolve_indices_merged_in (&document->indices_info);
 
-  set_labels_identifiers_target (&parsed_document->labels_list,
-                                 &parsed_document->identifiers_target);
+  set_labels_identifiers_target (&document->labels_list,
+                                 &document->identifiers_target);
 
-  parsed_document->tree = current;
+  document->tree = current;
 
-  float_list_to_listoffloats_list (&parsed_document->floats,
-                                   &parsed_document->listoffloats);
-
-  document_descriptor = parsed_document->descriptor;
-
-  complete_indices (document_descriptor, debug_output);
+  float_list_to_listoffloats_list (&document->floats,
+                                   &document->listoffloats);
 
   parsed_document = 0;
   forget_indices ();
 
-  return document_descriptor;
+  complete_indices (document, debug_output);
+
+  return document->descriptor;
 }

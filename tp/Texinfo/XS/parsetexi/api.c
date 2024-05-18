@@ -45,12 +45,12 @@
 #include "conf.h"
 #include "api.h"
 
-/* When reset_parser_except_conf is called in parse_*, store_document will
+/* When reset_parser_except_conf is called in parse_*, parse_texi will
    be called afterwards.
    When reset_parser_except_conf is called by reset_parser in parser
    initialization, however, there will be a call to parse_* afterwards
    leading to calling reset_parser_except_conf again without a call to
-   store_document inbetween.
+   parse_texi inbetween.
  */
 void
 reset_parser_except_conf (void)
