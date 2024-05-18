@@ -34,10 +34,7 @@
 #include "manipulate_indices.h"
 #include "document.h"
 
-/* note that each time the document list is reallocated, pointers
-   to documents need to be reset, so in general the document should be
-   retrieved with the index in the list */
-static DOCUMENT *document_list;
+static DOCUMENT **document_list;
 static size_t document_number;
 static size_t document_space;
 
@@ -45,25 +42,23 @@ DOCUMENT *
 retrieve_document (int document_descriptor)
 {
   if (document_descriptor <= document_number
-      && document_list[document_descriptor -1].tree != 0)
-    return &document_list[document_descriptor -1];
+      && document_list[document_descriptor -1] != 0)
+    return document_list[document_descriptor -1];
   return 0;
 }
 
-/* note that the returned document will become invalid if there is a
-   realloc of the documents list */
 /* descriptor starts at 1, 0 is an error */
 DOCUMENT *
 new_document (void)
 {
   size_t document_index;
   int slot_found = 0;
-  DOCUMENT *document = 0;
   int i;
+  DOCUMENT *document = (DOCUMENT *) malloc (sizeof (DOCUMENT));
 
   for (i = 0; i < document_number; i++)
     {
-      if (document_list[i].tree == 0)
+      if (document_list[i] == 0)
         {
           slot_found = 1;
           document_index = i;
@@ -74,14 +69,15 @@ new_document (void)
       if (document_number == document_space)
         {
           document_list = realloc (document_list,
-                              (document_space += 5) * sizeof (DOCUMENT));
+                              (document_space += 5) * sizeof (DOCUMENT *));
           if (!document_list)
             fatal ("realloc failed");
         }
       document_index = document_number;
       document_number++;
     }
-  document = &document_list[document_index];
+  document_list[document_index] = document;
+
   memset (document, 0, sizeof (DOCUMENT));
   document->descriptor = document_index +1;
 
@@ -118,9 +114,6 @@ new_document (void)
 
   /*
   fprintf (stderr, "DOCUMENT %zu %p\n", document_index +1, document);
-   */
-  /*
-  return document_index +1;
    */
   return document;
 }
@@ -498,7 +491,7 @@ remove_document_descriptor (int document_descriptor)
   if (document_descriptor > document_number)
     return;
 
-  document = &document_list[document_descriptor -1];
+  document = document_list[document_descriptor -1];
 
   destroy_document_information_except_tree (document);
 
@@ -507,7 +500,8 @@ remove_document_descriptor (int document_descriptor)
       destroy_element_and_children (document->tree);
       destroy_strings_list (document->small_strings);
     }
-  document->tree = 0;
+  free (document);
+  document_list[document_descriptor -1] = 0;
   /*
   fprintf (stderr, "REMOVE %d %p\n", document_descriptor, document);
    */

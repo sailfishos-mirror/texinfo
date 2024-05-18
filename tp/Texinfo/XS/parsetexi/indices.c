@@ -375,9 +375,6 @@ complete_indices (int document_descriptor, int debug_level)
   INDEX_LIST *indices;
   size_t i;
 
-  /* beware that document may have a change in adress if realloc on
-     the documents list is called in gdt.  So only use it here and
-     not after gdt call */
   document = retrieve_document (document_descriptor);
   indices = document->indices_info;
 
