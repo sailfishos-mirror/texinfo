@@ -1,5 +1,10 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser, parse_file): call
+	reset_parser_except_conf in parse_file instead of reset_parser.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parser_document_state_initialization):
 	initialize explicitely 'current_part'.
 

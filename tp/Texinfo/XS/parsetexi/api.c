@@ -45,13 +45,6 @@
 #include "conf.h"
 #include "api.h"
 
-/* When reset_parser_except_conf is called in parse_*, parse_texi will
-   be called afterwards.
-   When reset_parser_except_conf is called by reset_parser in parser
-   initialization, however, there will be a call to parse_* afterwards
-   leading to calling reset_parser_except_conf again without a call to
-   parse_texi inbetween.
- */
 void
 reset_parser_except_conf (void)
 {
@@ -92,7 +85,6 @@ reset_parser (int local_debug_output)
     fprintf (stderr,
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
-  reset_parser_except_conf ();
   wipe_values ();
   clear_parser_expanded_formats ();
   parser_clear_include_directories ();
@@ -121,6 +113,8 @@ parse_file (const char *filename, const char *input_file_name,
   GLOBAL_INFO *global_info;
 
   int status;
+
+  reset_parser_except_conf ();
 
   parsed_document = new_document ();
   set_input_encoding ("utf-8");
