@@ -178,7 +178,7 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
                 if (document->global_info->input_file_name)
                   {
                     fprintf (stderr,
-                        "BUG: %d: reset input_file_name '%s' -> '%s'\n",
+                        "BUG: %zu: reset input_file_name '%s' -> '%s'\n",
                         document->descriptor,
                         document->global_info->input_file_name, value);
                     non_perl_free (document->global_info->input_file_name);

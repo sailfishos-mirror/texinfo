@@ -221,7 +221,7 @@ set_global_document_commands (CONVERTER *converter,
       int i;
       for (i = 0; cmd_list[i] > 0; i++)
         {
-          ELEMENT *element;
+          const ELEMENT *element;
           enum command_id cmd = cmd_list[i];
           if (converter->conf->DEBUG.integer > 0)
             {

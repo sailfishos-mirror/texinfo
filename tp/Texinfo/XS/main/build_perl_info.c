@@ -289,8 +289,8 @@ newSVpv_byte (const char *str, STRLEN len)
 }
 
 static void
-build_additional_info (HV *extra, ASSOCIATED_INFO *a, int avoid_recursion,
-                       int *nr_info)
+build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
+                       int avoid_recursion, int *nr_info)
 {
   dTHX;
 
@@ -740,7 +740,7 @@ build_texinfo_tree (ELEMENT *root, int avoid_recursion)
 /* Return array of target elements.  build_texinfo_tree must
    be called first. */
 AV *
-build_target_elements_list (LABEL_LIST *labels_list)
+build_target_elements_list (const LABEL_LIST *labels_list)
 {
   AV *target_array;
   SV *sv;
@@ -761,7 +761,7 @@ build_target_elements_list (LABEL_LIST *labels_list)
 }
 
 HV *
-build_identifiers_target (LABEL_LIST *identifiers_target)
+build_identifiers_target (const LABEL_LIST *identifiers_target)
 {
   HV* hv;
 
@@ -784,7 +784,7 @@ build_identifiers_target (LABEL_LIST *identifiers_target)
 }
 
 AV *
-build_internal_xref_list (ELEMENT_LIST *internal_xref_list)
+build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
 {
   AV *list_av;
   SV *sv;
@@ -805,7 +805,7 @@ build_internal_xref_list (ELEMENT_LIST *internal_xref_list)
 }
 
 AV *
-build_elements_list (ELEMENT_LIST *list)
+build_elements_list (const ELEMENT_LIST *list)
 {
   AV *list_av;
   SV *sv;
@@ -873,7 +873,7 @@ build_float_types_list (const FLOAT_RECORD_LIST *floats)
 /* returns a hash for a single entry in $self->{'index_names'}, containing
    information about a single index. */
 static HV *
-build_single_index_data (INDEX *index)
+build_single_index_data (const INDEX *index)
 {
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
 
@@ -906,7 +906,7 @@ build_single_index_data (INDEX *index)
         {
 #define STORE2(key, value) hv_store (entry, key, strlen (key), value, 0)
           HV *entry;
-          INDEX_ENTRY *e;
+          const INDEX_ENTRY *e;
 
           e = &index->index_entries[j];
           entry = newHV ();
@@ -932,7 +932,7 @@ build_single_index_data (INDEX *index)
    build_texinfo_tree must be called before this so all the 'hv' fields
    are set on the elements in the tree. */
 HV *
-build_index_data (INDEX_LIST *indices_info)
+build_index_data (const INDEX_LIST *indices_info)
 {
   size_t i;
   HV *hv;
@@ -943,7 +943,7 @@ build_index_data (INDEX_LIST *indices_info)
 
   for (i = 0; i < indices_info->number; i++)
     {
-      INDEX *idx = indices_info->list[i];
+      const INDEX *idx = indices_info->list[i];
       HV *hv2 = build_single_index_data (idx);
       hv_store (hv, idx->name, strlen (idx->name),
                 newRV_noinc ((SV *)hv2), 0);
@@ -980,13 +980,13 @@ build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
 /* Return object to be used as 'info', retrievable with the
    'global_information' function. */
 HV *
-build_global_info (GLOBAL_INFO *global_info_ref,
-                   GLOBAL_COMMANDS *global_commands_ref)
+build_global_info (const GLOBAL_INFO *global_info_ref,
+                   const GLOBAL_COMMANDS *global_commands_ref)
 {
   HV *hv;
-  GLOBAL_INFO global_info = *global_info_ref;
-  GLOBAL_COMMANDS global_commands = *global_commands_ref;
-  ELEMENT *document_language;
+  const GLOBAL_INFO global_info = *global_info_ref;
+  const GLOBAL_COMMANDS global_commands = *global_commands_ref;
+  const ELEMENT *document_language;
   int nr_info;
 
   dTHX;

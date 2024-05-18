@@ -37,11 +37,7 @@ void rebuild_document (SV *document_in, int no_store);
 HV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 SV *store_texinfo_tree (DOCUMENT *document, HV *document_hv);
 AV *build_errors (ERROR_MESSAGE* error_list, size_t error_number);
-HV* build_identifiers_target (LABEL_LIST *identifiers_target);
 HV *build_float_list (FLOAT_RECORD *floats_list, size_t floats_number);
-HV *build_index_data (INDEX_LIST *indices_info);
-HV *build_global_info (GLOBAL_INFO *global_info_ref,
-                       GLOBAL_COMMANDS *global_commands_ref);
 void build_global_info_tree_info (HV *hv, GLOBAL_INFO *global_info_ref);
 HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 

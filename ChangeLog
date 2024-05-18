@@ -1,5 +1,15 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/DocumentXS.xs (set_document_global_info): fix
+	format.
+
+	* tp/Texinfo/XS/convert/converter.c,
+	tp/Texinfo/XS/main/build_perl_info.c,
+	tp/Texinfo/XS/main/get_perl_info.c, tp/Texinfo/XS/main/utils.c: add
+	const.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (build_target_elements_list)
 	(build_internal_xref_list, build_float_types_list)
 	(BUILD_PERL_DOCUMENT_LIST): use a list as input argument.  Update

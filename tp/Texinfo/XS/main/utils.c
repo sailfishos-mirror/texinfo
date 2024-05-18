@@ -1088,8 +1088,8 @@ delete_global_commands (GLOBAL_COMMANDS *global_commands_ref)
 #undef GLOBAL_CASE
 }
 
-ELEMENT_LIST *
-get_cmd_global_multi_command (GLOBAL_COMMANDS *global_commands_ref,
+const ELEMENT_LIST *
+get_cmd_global_multi_command (const GLOBAL_COMMANDS *global_commands_ref,
                               enum command_id cmd)
 {
 
@@ -1113,8 +1113,8 @@ get_cmd_global_multi_command (GLOBAL_COMMANDS *global_commands_ref,
    }
 }
 
-ELEMENT *
-get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
+const ELEMENT *
+get_cmd_global_uniq_command (const GLOBAL_COMMANDS *global_commands_ref,
                              enum command_id cmd)
 {
 
@@ -1244,18 +1244,18 @@ in_preamble (ELEMENT *element)
 
   For unique command, the last may be considered to be the same as the first.
 */
-ELEMENT *
-get_global_document_command (GLOBAL_COMMANDS *global_commands,
+const ELEMENT *
+get_global_document_command (const GLOBAL_COMMANDS *global_commands,
                              enum command_id cmd,
                              enum command_location command_location)
 {
-  ELEMENT *element = 0;
+  const ELEMENT *element = 0;
   if (command_location != CL_last && command_location != CL_preamble_or_first
       && command_location != CL_preamble)
     fprintf (stderr, "BUG: get_global_document_command: unknown CL: %d\n",
                      command_location);
 
-  ELEMENT_LIST *command_list
+  const ELEMENT_LIST *command_list
      = get_cmd_global_multi_command (global_commands, cmd);
   if (builtin_command_data[cmd].flags & CF_global)
     {
@@ -1291,7 +1291,7 @@ get_global_document_command (GLOBAL_COMMANDS *global_commands,
     }
   else
     {
-      ELEMENT *command
+      const ELEMENT *command
         = get_cmd_global_uniq_command (global_commands, cmd);
       if (command)
         element = command;
@@ -1304,12 +1304,12 @@ get_global_document_command (GLOBAL_COMMANDS *global_commands,
   set_informative_command_value), no @-commands setting side effects are done
   and associated customization variables are not set/reset either.
  */
-ELEMENT *
+const ELEMENT *
 set_global_document_command (GLOBAL_COMMANDS *global_commands, OPTIONS *options,
                              enum command_id cmd,
                              enum command_location command_location)
 {
-  ELEMENT *element
+  const ELEMENT *element
      = get_global_document_command (global_commands, cmd,
                                     command_location);
   if (element)

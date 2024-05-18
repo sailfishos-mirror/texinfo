@@ -241,18 +241,21 @@ void set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
 
 char *enumerate_item_representation (char *specification, int number);
 
-ELEMENT *get_global_document_command (GLOBAL_COMMANDS *global_commands,
+const ELEMENT *get_global_document_command (
+                                      const GLOBAL_COMMANDS *global_commands,
                                       enum command_id cmd,
                                       enum command_location command_location);
 char *informative_command_value (const ELEMENT *element);
 void set_informative_command_value (OPTIONS *options, const ELEMENT *element);
-ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
+const ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
                              OPTIONS *options, enum command_id cmd,
                              enum command_location command_location);
-ELEMENT_LIST *get_cmd_global_multi_command (GLOBAL_COMMANDS *global_commands_ref,
-                                      enum command_id cmd);
-ELEMENT *get_cmd_global_uniq_command (GLOBAL_COMMANDS *global_commands_ref,
-                                      enum command_id cmd);
+const ELEMENT_LIST *get_cmd_global_multi_command (
+                                    const GLOBAL_COMMANDS *global_commands_ref,
+                                    enum command_id cmd);
+const ELEMENT *get_cmd_global_uniq_command (
+                                    const GLOBAL_COMMANDS *global_commands_ref,
+                                    enum command_id cmd);
 
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
 void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons);
