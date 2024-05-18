@@ -351,7 +351,7 @@ set_accept_internalvalue (int value)
 int
 register_global_command (ELEMENT *current)
 {
-  GLOBAL_COMMANDS *global_commands = parsed_document->global_commands;
+  GLOBAL_COMMANDS *global_commands = &parsed_document->global_commands;
   enum command_id cmd = current->cmd;
   if (cmd == CM_summarycontents)
     cmd = CM_shortcontents;
@@ -468,8 +468,8 @@ rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
 
   /* Put everything before @setfilename in a special type.  This allows to
      ignore everything before @setfilename. */
-  if (document->global_commands->setfilename
-      && document->global_commands->setfilename->parent
+  if (document->global_commands.setfilename
+      && document->global_commands.setfilename->parent
                                           == before_node_section)
     {
       ELEMENT *before_setfilename

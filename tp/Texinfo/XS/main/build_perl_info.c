@@ -1391,7 +1391,7 @@ get_document (size_t document_descriptor)
   hv_tree = newHV ();
 
   hv_info = build_global_info (&document->global_info,
-                               document->global_commands);
+                               &document->global_commands);
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   STORE("tree", hv_tree);
@@ -1436,9 +1436,9 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   hv_tree = build_texinfo_tree (document->tree, 0);
 
   hv_info = build_global_info (&document->global_info,
-                               document->global_commands);
+                               &document->global_commands);
 
-  hv_commands_info = build_global_commands (document->global_commands);
+  hv_commands_info = build_global_commands (&document->global_commands);
 
   hv_index_names = build_index_data (&document->indices_info);
 
@@ -1640,7 +1640,6 @@ funcname (SV *document_in) \
 BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV)
  */
 
-BUILD_PERL_DOCUMENT_ITEM(document_global_commands_information,global_commands,"commands_info",F_DOCM_global_commands,build_global_commands,HV)
 
 
 BUILD_PERL_DOCUMENT_ITEM(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_elements_list,AV)
@@ -1705,6 +1704,8 @@ BUILD_PERL_DOCUMENT_LIST(document_indices_information,indices_info,"indices",F_D
 
 BUILD_PERL_DOCUMENT_LIST(document_labels_information,identifiers_target,"identifiers_target",F_DOCM_identifiers_target,build_identifiers_target,HV)
 
+BUILD_PERL_DOCUMENT_LIST(document_global_commands_information,global_commands,"commands_info",F_DOCM_global_commands,build_global_commands,HV)
+
 #undef BUILD_PERL_DOCUMENT_LIST
 
 SV *
@@ -1725,7 +1726,7 @@ document_global_information (SV *document_in)
       if (document->modified_information & F_DOCM_global_info)
         {
           HV *result_hv = build_global_info (&document->global_info,
-                                             document->global_commands);
+                                             &document->global_commands);
           result_sv = newRV_inc ((SV *) result_hv);
           hv_store (document_hv, key, strlen (key), result_sv, 0);
           document->modified_information &= ~F_DOCM_global_info;

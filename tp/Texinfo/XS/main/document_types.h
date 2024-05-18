@@ -189,7 +189,7 @@ typedef struct DOCUMENT {
   /* Information that is not local to where it is set in the Texinfo input,
    for example document language and encoding. */
     GLOBAL_INFO global_info;
-    GLOBAL_COMMANDS *global_commands;
+    GLOBAL_COMMANDS global_commands;
     STRING_LIST *small_strings;
     ELEMENT_LIST *nodes_list;
     ELEMENT_LIST *sections_list;

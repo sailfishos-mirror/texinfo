@@ -972,7 +972,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
     register_global_command (command_e);
   if (cmd == CM_dircategory)
     add_to_element_list (&parsed_document->global_commands
-                                             ->dircategory_direntry,
+                                             .dircategory_direntry,
                          command_e);
 
 funexit:
@@ -1109,7 +1109,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
 
           if (cmd == CM_direntry)
             add_to_element_list (&parsed_document->global_commands
-                                                     ->dircategory_direntry,
+                                                     .dircategory_direntry,
                                  block);
 
           if (current_node)

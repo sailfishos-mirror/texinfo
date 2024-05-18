@@ -288,7 +288,7 @@ get_top_unit (DOCUMENT *document, const OUTPUT_UNIT_LIST *output_units)
 {
   const ELEMENT *node_top = find_identifier_target
                           (&document->identifiers_target, "Top");
-  const ELEMENT *section_top = document->global_commands->top;
+  const ELEMENT *section_top = document->global_commands.top;
 
   if (section_top)
     return section_top->associated_unit;
@@ -356,10 +356,10 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
           const OUTPUT_UNIT_LIST *output_units
          = retrieve_output_units (self->output_units_descriptors[OUDT_units]);
           if (data_cmd == CM_copying
-              && self->document->global_commands->insertcopying.number > 0)
+              && self->document->global_commands.insertcopying.number > 0)
             {
               const ELEMENT_LIST global_insertcopying
-                = self->document->global_commands->insertcopying;
+                = self->document->global_commands.insertcopying;
               int i;
               for (i = 0; i < global_insertcopying.number; i++)
                 {
@@ -1497,10 +1497,10 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor)
                   else if (contents_location
                            && !strcmp (contents_location, "after_top"))
                     {
-                      if (self->document->global_commands->top)
+                      if (self->document->global_commands.top)
                         {/* note that top is a uniq command */
                           const ELEMENT *section_top
-                             = self->document->global_commands->top;
+                             = self->document->global_commands.top;
 
                           if (section_top->associated_unit)
                             associated_output_unit
@@ -1514,7 +1514,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor)
                     {
                       const ELEMENT_LIST *global_command
                        = get_cmd_global_multi_command (
-                                      self->document->global_commands, cmd);
+                                      &self->document->global_commands, cmd);
                       if (global_command->number > 0)
                         {
                           int i;
@@ -1547,7 +1547,7 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor)
         }
     }
 
-  if (self->document->global_commands->footnotes.number > 0
+  if (self->document->global_commands.footnotes.number > 0
       && self->conf->footnotestyle.string
       && !strcmp (self->conf->footnotestyle.string, "separate")
       && output_units->number > 1)
@@ -4800,7 +4800,7 @@ FOOTNOTE_ID_NUMBER *
 find_footnote_id_number (const CONVERTER *self, const char *footnote_id)
 {
   const ELEMENT_LIST *global_footnotes
-    = &self->document->global_commands->footnotes;
+    = &self->document->global_commands.footnotes;
 
   FOOTNOTE_ID_NUMBER *result = 0;
   static FOOTNOTE_ID_NUMBER searched_footnote_id;
@@ -4827,7 +4827,7 @@ static void
 prepare_footnotes_targets (CONVERTER *self)
 {
   const ELEMENT_LIST *global_footnotes
-    = &self->document->global_commands->footnotes;
+    = &self->document->global_commands.footnotes;
   if (global_footnotes->number > 0)
     {
       int i;
@@ -4903,7 +4903,7 @@ set_heading_commands_targets (CONVERTER *self)
     {
       enum command_id cmd = heading_commands_list[i];
       const ELEMENT_LIST *global_command
-        = get_cmd_global_multi_command (self->document->global_commands, cmd);
+        = get_cmd_global_multi_command (&self->document->global_commands, cmd);
 
       if (global_command->number > 0)
         {
@@ -5046,10 +5046,10 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   /* It is always the first printindex, even if it is not output (for example
      it is in @copying and @titlepage, which are certainly wrong constructs).
    */
-  if (self->document->global_commands->printindex.number > 0)
+  if (self->document->global_commands.printindex.number > 0)
     {
       const ELEMENT *printindex
-        = self->document->global_commands->printindex.list[0];
+        = self->document->global_commands.printindex.list[0];
       ROOT_AND_UNIT *root_unit
         = html_get_tree_root_element (self, printindex, 0);
       if (root_unit->output_unit)
@@ -6151,8 +6151,8 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                  && (!self->conf->CONTENTS_OUTPUT_LOCATION.string
                      || strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.string,
                                 "inline")
-                     || self->document->global_commands->contents.number > 0
-                || self->document->global_commands->shortcontents.number > 0));
+                     || self->document->global_commands.contents.number > 0
+                || self->document->global_commands.shortcontents.number > 0));
 
   for (i = 0; i < root_children->number; i++)
     {
@@ -10981,10 +10981,10 @@ convert_insertcopying_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  if (self->document->global_commands->copying)
+  if (self->document->global_commands.copying)
     {
       ELEMENT *tmp = new_element (ET_NONE);
-      tmp->contents = self->document->global_commands->copying->contents;
+      tmp->contents = self->document->global_commands.copying->contents;
       convert_to_html_internal (self, tmp, result, "convert insertcopying");
       tmp->contents.list = 0;
       destroy_element (tmp);
@@ -15489,10 +15489,10 @@ html_default_format_titlepage (CONVERTER *self)
   TEXT result;
   text_init (&result);
   text_append (&result, "");
-  if (self->document->global_commands->titlepage)
+  if (self->document->global_commands.titlepage)
     {
       ELEMENT *tmp = new_element (ET_NONE);
-      tmp->contents = self->document->global_commands->titlepage->contents;
+      tmp->contents = self->document->global_commands.titlepage->contents;
       convert_to_html_internal (self, tmp, &result, "convert titlepage");
       tmp->contents.list = 0;
       destroy_element (tmp);
@@ -15875,7 +15875,7 @@ html_prepare_simpletitle (CONVERTER *self)
     {
       enum command_id cmd = simpletitle_cmds[i];
       const ELEMENT *command
-        = get_cmd_global_uniq_command (self->document->global_commands, cmd);
+        = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
       if (command && command->args.number > 0
           && command->args.list[0]->contents.number > 0)
         {
@@ -15908,7 +15908,7 @@ html_prepare_converted_output_info (CONVERTER *self)
     {
       enum command_id cmd = fulltitle_cmds[i];
       const ELEMENT *command
-        = get_cmd_global_uniq_command (self->document->global_commands, cmd);
+        = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
       if (command && command->args.number > 0
           && command->args.list[0]->contents.number > 0)
         {
@@ -15918,12 +15918,12 @@ html_prepare_converted_output_info (CONVERTER *self)
     }
 
   if (!fulltitle_tree
-      && self->document->global_commands->titlefont.number > 0
-      && self->document->global_commands->titlefont.list[0]->args.number > 0
-      && self->document->global_commands->titlefont.list[0]->args.list[0]
+      && self->document->global_commands.titlefont.number > 0
+      && self->document->global_commands.titlefont.list[0]->args.number > 0
+      && self->document->global_commands.titlefont.list[0]->args.list[0]
                                     ->contents.number > 0)
     {
-      fulltitle_tree = self->document->global_commands->titlefont.list[0];
+      fulltitle_tree = self->document->global_commands.titlefont.list[0];
     }
 
   if (fulltitle_tree)
@@ -15976,12 +15976,12 @@ html_prepare_converted_output_info (CONVERTER *self)
 
   /* copying comment */
 
-  if (self->document->global_commands->copying)
+  if (self->document->global_commands.copying)
     {
       char *copying_comment;
       ELEMENT *tmp = new_element (ET_NONE);
 
-      tmp->contents = self->document->global_commands->copying->contents;
+      tmp->contents = self->document->global_commands.copying->contents;
 
       copying_comment = convert_to_text (tmp, self->convert_text_options);
 
@@ -15999,14 +15999,14 @@ html_prepare_converted_output_info (CONVERTER *self)
   if (self->conf->documentdescription.string)
     self->documentdescription_string
      = strdup (self->conf->documentdescription.string);
-  else if (self->document->global_commands->documentdescription)
+  else if (self->document->global_commands.documentdescription)
     {
       ELEMENT *tmp = new_element (ET_NONE);
       char *documentdescription_string;
       size_t documentdescription_string_len;
 
       tmp->contents
-        = self->document->global_commands->documentdescription->contents;
+        = self->document->global_commands.documentdescription->contents;
 
       documentdescription_string
                  = convert_string_tree_new_formatting_context (self,

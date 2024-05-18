@@ -81,8 +81,6 @@ new_document (void)
   memset (document, 0, sizeof (DOCUMENT));
   document->descriptor = document_index +1;
 
-  document->global_commands = malloc (sizeof (GLOBAL_COMMANDS));
-  memset (document->global_commands, 0, sizeof (GLOBAL_COMMANDS));
   /* For filenames and macro names, it is possible that they won't be referenced
    in the line number of any element.  It would be too much work to keep track,
    so just keep them all here, and free them all together at the end. */
@@ -397,8 +395,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
   if (document->tree)
     {
       delete_global_info (&document->global_info);
-      delete_global_commands (document->global_commands);
-      free (document->global_commands);
+      delete_global_commands (&document->global_commands);
       free (document->internal_references.list);
       free (document->floats.list);
       free_listoffloats_list (&document->listoffloats);

@@ -230,9 +230,9 @@ set_global_document_commands (CONVERTER *converter,
                        builtin_command_data[cmd].cmdname);
             }
           element
-            = set_global_document_command (converter->document->global_commands,
-                                           converter->conf,
-                                           cmd, location);
+          = set_global_document_command (&converter->document->global_commands,
+                                         converter->conf,
+                                         cmd, location);
           if (!element)
             {
               OPTION *option_value = command_init (cmd,

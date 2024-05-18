@@ -395,7 +395,7 @@ sectioning_structure (DOCUMENT *document)
 void
 warn_non_empty_parts (DOCUMENT *document)
 {
-  GLOBAL_COMMANDS *global_commands = document->global_commands;
+  const GLOBAL_COMMANDS *global_commands = &document->global_commands;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
 
@@ -403,7 +403,7 @@ warn_non_empty_parts (DOCUMENT *document)
 
   for (i = 0; i < global_commands->part.number; i++)
     {
-      ELEMENT *part = global_commands->part.list[i];
+      const ELEMENT *part = global_commands->part.list[i];
       if (!is_content_empty (part, 0))
         message_list_command_warn (error_messages, options, part, 0,
                       "@%s not empty", builtin_command_name (part->cmd));
@@ -802,7 +802,7 @@ check_nodes_are_referenced (DOCUMENT *document)
 void
 set_menus_node_directions (DOCUMENT *document)
 {
-  GLOBAL_COMMANDS *global_commands = document->global_commands;
+  GLOBAL_COMMANDS *global_commands = &document->global_commands;
   ELEMENT_LIST *nodes_list = document->nodes_list;
   LABEL_LIST *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
@@ -935,7 +935,7 @@ set_menus_node_directions (DOCUMENT *document)
       int i;
       for (i = 0; i < global_commands->detailmenu.number; i++)
         {
-          ELEMENT *detailmenu = global_commands->detailmenu.list[i];
+          const ELEMENT *detailmenu = global_commands->detailmenu.list[i];
           int k;
           for (k = 0; k < detailmenu->contents.number; k++)
             {

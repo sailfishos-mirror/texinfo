@@ -1677,7 +1677,7 @@ html_register_footnote (SV *converter_in, SV *command, footid, docid, int number
                 which command we are searching for */
              /* find footnote in XS using index in global commands */
              ELEMENT_LIST *footnotes
-                = &self->document->global_commands->footnotes;
+                = &self->document->global_commands.footnotes;
              HV *command_hv = (HV *) SvRV (command);
              SV **extra_sv
                  = hv_fetch (command_hv, "extra", strlen ("extra"), 0);

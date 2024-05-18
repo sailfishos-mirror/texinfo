@@ -1174,7 +1174,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
             {
               size_t j;
               ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
-              replace_element_in_list (&document->global_commands->detailmenu,
+              replace_element_in_list (&document->global_commands.detailmenu,
                                        removed, new_detailmenu_e);
               /* remove internal refs of removed entries */
               for (j = 0; j < removed->contents.number; j++)
@@ -1259,7 +1259,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
     }
   /* insert master menu */
   insert_into_contents (last_menu, new_detailmenu_e, index);
-  add_to_element_list (&document->global_commands->detailmenu,
+  add_to_element_list (&document->global_commands.detailmenu,
                        new_detailmenu_e);
   return 1;
 }

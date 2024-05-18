@@ -1562,7 +1562,7 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
               int global_command_number = SvIV (*global_command_number_sv);
               const ELEMENT_LIST *global_cmd_list
                 = get_cmd_global_multi_command (
-                              document->global_commands, cmd);
+                              &document->global_commands, cmd);
 
               if (global_command_number > 0
                   && global_command_number - 1 < global_cmd_list->number)
