@@ -18,8 +18,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* definitions of labels_list, labels_number and identifiers_target
-   as extern are in parser.h */
 #include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
@@ -34,50 +32,30 @@
 #include "extra.h"
 #include "labels.h"
 
-/* Array of recorded elements with labels space. */
-LABEL *labels_list = 0;
-size_t labels_number = 0;
-static size_t labels_space = 0;
-
-/* Array of target elements with unique identifiers, sorted by identifier */
-LABEL_LIST *identifiers_target = 0;
-
 /* Register a target element associated to a label that may be the target of
    a reference and must be unique in the document.  Corresponds to @node,
    @anchor, and @float (float label corresponds to the second argument). */
 void
 register_label (ELEMENT *target_element, char *normalized)
 {
+  LABEL_LIST *labels_list = parsed_document->labels_list;
+  LABEL *label;
   /* register the element in the list. */
-  if (labels_number == labels_space)
+  if (labels_list->number == labels_list->space)
     {
-      labels_space += 1;
-      labels_space *= 1.5;
-      labels_list = realloc (labels_list,
-                             labels_space * sizeof (LABEL));
+      labels_list->space += 1;
+      labels_list->space *= 1.5;
+      labels_list->list = realloc (labels_list->list,
+                                   labels_list->space * sizeof (LABEL));
       if (!labels_list)
         fatal ("realloc failed");
     }
-  labels_list[labels_number].element = target_element;
-  labels_list[labels_number].label_number = labels_number;
-  labels_list[labels_number].identifier = normalized;
-  labels_list[labels_number].reference = 0;
-  labels_number++;
-}
-
-/* not used */
-void
-reset_labels (void)
-{
-  labels_number = 0;
-}
-
-void
-forget_labels (void)
-{
-  labels_number = 0;
-  labels_space = 0;
-  labels_list = 0;
+  label = &labels_list->list[labels_list->number];
+  label->element = target_element;
+  label->label_number = labels_list->number;
+  label->identifier = normalized;
+  label->reference = 0;
+  labels_list->number++;
 }
 
 void
@@ -119,39 +97,11 @@ check_register_target_element_label (ELEMENT *label_element,
   register_label (target_element, normalized);
 }
 
-void
-wipe_identifiers_target (void)
-{
-  if (identifiers_target != 0)
-    {
-      free (identifiers_target->list);
-      free (identifiers_target);
-      identifiers_target = 0;
-    }
-}
-
 
-
-ELEMENT_LIST internal_xref_list = {0, 0, 0};
 
 void
 remember_internal_xref (ELEMENT *element)
 {
-  add_to_element_list (&internal_xref_list, element);
-}
-
-/* not used */
-void
-reset_internal_xrefs (void)
-{
-  internal_xref_list.number = 0;
-}
-
-void
-forget_internal_xrefs (void)
-{
-  internal_xref_list.number = 0;
-  internal_xref_list.space = 0;
-  internal_xref_list.list = 0;
+  add_to_element_list (parsed_document->internal_references, element);
 }
 

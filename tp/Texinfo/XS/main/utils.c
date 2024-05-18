@@ -1004,7 +1004,6 @@ clear_strings_list (STRING_LIST *strings)
   strings->number = 0;
 }
 
-/* very similar to parsetexi/input.c free_small_strings */
 void
 free_strings_list (STRING_LIST *strings)
 {

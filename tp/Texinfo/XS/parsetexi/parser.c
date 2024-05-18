@@ -29,13 +29,11 @@
 /* for relocate_source_marks */
 #include "manipulate_tree.h"
 #include "debug_parser.h"
-/* error_messages_list forget_errors ... */
 #include "errors_parser.h"
 #include "text.h"
 #include "counter.h"
 #include "builtin_commands.h"
 #include "macro.h"
-/* forget_small_strings small_strings ... */
 #include "input.h"
 #include "source_marks.h"
 #include "extra.h"
@@ -47,12 +45,14 @@
 #include "commands.h"
 /* for labels_list labels_number forget_labels forget_internal_xrefs */
 #include "labels.h"
-/* for register_document */
+/* for retrieve_document */
 #include "document.h"
 /* for set_labels_identifiers_target */
 #include "targets.h"
-/* for complete_indices forget_indices */
+/* for forget_indices complete_indices */
 #include "indices.h"
+/* for float_list_to_listoffloats_list */
+#include "floats.h"
 #include "parser.h"
 
 
@@ -65,6 +65,9 @@ const char *whitespace_chars_except_newline = WHITESPACE_CHARS_EXCEPT_NEWLINE;
 const char *linecommand_expansion_delimiters = WHITESPACE_CHARS_EXCEPT_NEWLINE
                                                "{}@";
 #undef WHITESPACE_CHARS_EXCEPT_NEWLINE
+
+DOCUMENT *parsed_document = 0;
+
 
 /* Check if the contents of S2 appear at S1). */
 int
@@ -311,10 +314,6 @@ reset_parser_counters (void)
 }
 
 
-/* Information that is not local to where it is set in the Texinfo input,
-   for example document language and encoding. */
-GLOBAL_INFO global_info;
-GLOBAL_COMMANDS global_commands;
 char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
 int global_documentlanguage_fixed = 0;
@@ -352,6 +351,7 @@ set_accept_internalvalue (int value)
 int
 register_global_command (ELEMENT *current)
 {
+  GLOBAL_COMMANDS *global_commands = parsed_document->global_commands;
   enum command_id cmd = current->cmd;
   if (cmd == CM_summarycontents)
     cmd = CM_shortcontents;
@@ -364,21 +364,21 @@ register_global_command (ELEMENT *current)
         {
 #define GLOBAL_CASE(cmx) \
         case CM_##cmx:   \
-          add_to_element_list (&global_commands.cmx, current); \
+          add_to_element_list (&global_commands->cmx, current); \
           add_extra_integer (current, "global_command_number", \
-                             global_commands.cmx.number); \
+                             global_commands->cmx.number); \
           break
 
         case CM_footnote:
-          add_to_element_list (&global_commands.footnotes, current);
+          add_to_element_list (&global_commands->footnotes, current);
           add_extra_integer (current, "global_command_number",
-                             global_commands.footnotes.number);
+                             global_commands->footnotes.number);
           break;
 
         case CM_float:
-          add_to_element_list (&global_commands.floats, current);
+          add_to_element_list (&global_commands->floats, current);
           add_extra_integer (current, "global_command_number",
-                             global_commands.floats.number);
+                             global_commands->floats.number);
           break;
 
 #include "global_multi_commands_case.c"
@@ -402,12 +402,12 @@ register_global_command (ELEMENT *current)
           /* Check if we are inside an @include, and if so, do nothing. */
           if (top_file_index () > 0)
             break;
-          where = &global_commands.setfilename;
+          where = &global_commands->setfilename;
           break;
 
 #define GLOBAL_UNIQUE_CASE(cmd) \
         case CM_##cmd: \
-          where = &global_commands.cmd; \
+          where = &global_commands->cmd; \
           break
 
 #include "main/global_unique_commands_case.c"
@@ -432,7 +432,7 @@ register_global_command (ELEMENT *current)
 
 
 void
-wipe_parser_global_info (void)
+wipe_parser_global_variables (void)
 {
   free (global_clickstyle);
   global_clickstyle = strdup ("arrow");
@@ -442,13 +442,6 @@ wipe_parser_global_info (void)
       global_documentlanguage = 0;
     }
   global_kbdinputstyle = kbd_distinct;
-
-  delete_global_info (&global_info);
-  memset (&global_info, 0, sizeof (global_info));
-
-  delete_global_commands (&global_commands);
-  /* clear the fields and reset elements lists */
-  memset (&global_commands, 0, sizeof (global_commands));
 }
 
 /* setup a Texinfo tree with document_root as root and before_node_section
@@ -466,16 +459,18 @@ setup_document_root_and_before_node_section (void)
 /* Put everything before @setfilename in a special type and separate
    a preamble for informative commands */
 void
-rearrange_tree_beginning (ELEMENT *before_node_section)
+rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
 {
+  DOCUMENT *document = retrieve_document (document_descriptor);
   ELEMENT *informational_preamble;
   /* temporary placeholder */
   ELEMENT_LIST *first_types = new_list ();
 
   /* Put everything before @setfilename in a special type.  This allows to
      ignore everything before @setfilename. */
-  if (global_commands.setfilename
-      && global_commands.setfilename->parent == before_node_section)
+  if (document->global_commands->setfilename
+      && document->global_commands->setfilename->parent
+                                          == before_node_section)
     {
       ELEMENT *before_setfilename
          = new_element (ET_preamble_before_setfilename);
@@ -575,7 +570,7 @@ parse_texi_document (void)
 
   document_descriptor = parse_texi (document_root, before_node_section);
 
-  rearrange_tree_beginning (before_node_section);
+  rearrange_tree_beginning (before_node_section, document_descriptor);
 
   return document_descriptor;
 }
@@ -2497,121 +2492,6 @@ check_line_directive (char *line)
   return 0;
 }
 
-/* store global parser information in a document calling register_document
-   and forgetting about the global information that got registered */
-int
-store_document (ELEMENT *root)
-{
-  int document_descriptor;
-  int i;
-  LABEL_LIST *labels;
-  FLOAT_RECORD_LIST *floats;
-  ELEMENT_LIST *internal_references;
-  STRING_LIST *small_strings_list;
-  ERROR_MESSAGE_LIST *error_messages;
-  GLOBAL_INFO *doc_global_info = malloc (sizeof (GLOBAL_INFO));
-  GLOBAL_COMMANDS *doc_global_commands = malloc (sizeof (GLOBAL_COMMANDS));
-
-  labels = malloc (sizeof (LABEL_LIST));
-
-  /* this is actually used to deallocate above labels_number */
-  labels_list = realloc (labels_list,
-                         labels_number * sizeof (LABEL));
-
-  labels->list = labels_list;
-  labels->number = labels_number;
-  labels->space = labels_number;
-
-  floats = malloc (sizeof (FLOAT_RECORD_LIST));
-  parser_float_list.list = realloc (parser_float_list.list,
-        parser_float_list.number * sizeof (FLOAT_RECORD));
-
-  floats->list = parser_float_list.list;
-  floats->number = parser_float_list.number;
-  floats->space = parser_float_list.number;
-
-  internal_references = malloc (sizeof (ELEMENT_LIST));
-
-  internal_xref_list.list = realloc (internal_xref_list.list,
-                             internal_xref_list.number * sizeof (ELEMENT));
-
-  internal_references->list = internal_xref_list.list;
-  internal_references->number = internal_xref_list.number;
-  internal_references->space = internal_xref_list.number;
-
-  memcpy (doc_global_info, &global_info, sizeof (GLOBAL_INFO));
-  if (global_info.input_encoding_name)
-    doc_global_info->input_encoding_name
-      = strdup (global_info.input_encoding_name);
-  if (global_info.input_file_name)
-    doc_global_info->input_file_name
-      = strdup (global_info.input_file_name);
-  if (global_info.input_directory)
-    doc_global_info->input_directory
-      = strdup (global_info.input_directory);
-
-  #define COPY_GLOBAL_ARRAY(type,cmd) \
-   doc_global_##type->cmd.list = 0;                            \
-   doc_global_##type->cmd.number = 0;                          \
-   doc_global_##type->cmd.space = 0;                           \
-   if (global_##type.cmd.number > 0)                           \
-    {                                                                   \
-      for (i = 0; i < global_##type.cmd.number; i++)           \
-        {                                                               \
-          ELEMENT *e = global_##type.cmd.list[i]; \
-          add_to_element_list (&doc_global_##type->cmd, e);        \
-        }                                                               \
-    }
-  memcpy (doc_global_commands, &global_commands, sizeof (GLOBAL_COMMANDS));
-
-  COPY_GLOBAL_ARRAY(commands,dircategory_direntry);
-
-  #define GLOBAL_CASE(cmd) \
-   COPY_GLOBAL_ARRAY(commands,cmd)
-
-  GLOBAL_CASE(footnotes);
-  GLOBAL_CASE(floats);
-
-#include "global_multi_commands_case.c"
-
-  #undef GLOBAL_CASE
-  #undef COPY_GLOBAL_ARRAY
-
-  small_strings = realloc (small_strings, small_strings_num * sizeof (char *));
-  small_strings_list = malloc (sizeof (STRING_LIST));
-  small_strings_list->list = small_strings;
-  small_strings_list->number = small_strings_num;
-  small_strings_list->space = small_strings_num;
-
-  error_messages_list.list = realloc (error_messages_list.list,
-                        error_messages_list.number * sizeof (ERROR_MESSAGE));
-  error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
-  error_messages->list = error_messages_list.list;
-  error_messages->number = error_messages_list.number;
-  error_messages->space = error_messages_list.number;
-
-  document_descriptor
-   = register_document (root, index_names, floats, internal_references,
-                        labels, identifiers_target, doc_global_info,
-                        doc_global_commands,
-                        small_strings_list, error_messages);
-  forget_indices ();
-  forget_labels ();
-
-  memset (&parser_float_list, 0, sizeof (FLOAT_RECORD_LIST));
-
-  forget_internal_xrefs ();
-
-  memset (&global_info.included_files, 0, sizeof (STRING_LIST));
-
-  forget_small_strings ();
-  forget_errors ();
-
-  identifiers_target = 0;
-
-  return document_descriptor;
-}
-
 /* Pass in a ROOT_ELT root of "Texinfo tree".  Starting point for adding
    to the tree is CURRENT_ELT.  Returns a stored DOCUMENT_DESCRIPTOR */
 int
@@ -2776,12 +2656,21 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
      index merge */
   resolve_indices_merged_in ();
 
-  identifiers_target
-    = set_labels_identifiers_target (labels_list, labels_number);
+  parsed_document->identifiers_target
+    = set_labels_identifiers_target (parsed_document->labels_list->list,
+                                     parsed_document->labels_list->number);
 
-  document_descriptor = store_document (current);
+  parsed_document->tree = current;
+
+  parsed_document->listoffloats
+    = float_list_to_listoffloats_list (parsed_document->floats);
+
+  document_descriptor = parsed_document->descriptor;
 
   complete_indices (document_descriptor, debug_output);
+
+  parsed_document = 0;
+  forget_indices ();
 
   return document_descriptor;
 }

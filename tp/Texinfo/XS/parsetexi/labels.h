@@ -23,16 +23,11 @@
 /* declaration of extern data is in parser.h to avoid exposure
    to code including labels.h */
 
-void reset_labels (void);
-void forget_labels (void);
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
-void wipe_identifiers_target (void);
 
 
-extern ELEMENT_LIST internal_xref_list;
 
 void remember_internal_xref (ELEMENT *element);
-void reset_internal_xrefs (void);
-void forget_internal_xrefs (void);
+
 #endif

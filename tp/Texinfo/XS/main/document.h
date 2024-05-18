@@ -13,15 +13,7 @@ struct TEXT_OPTIONS;
 
 
 DOCUMENT *retrieve_document (int document_descriptor);
-size_t register_document (ELEMENT *root, INDEX **index_names,
-                          FLOAT_RECORD_LIST *floats_list,
-                          ELEMENT_LIST *internal_references,
-                          LABEL_LIST *labels_list,
-                          LABEL_LIST *identifiers_target,
-                          GLOBAL_INFO *global_info,
-                          GLOBAL_COMMANDS *global_commands,
-                          STRING_LIST *small_strings,
-                          ERROR_MESSAGE_LIST *parser_error_messages);
+DOCUMENT *new_document (void);
 void register_document_nodes_list (DOCUMENT *document,
                                    ELEMENT_LIST *nodes_list);
 void register_document_sections_list (DOCUMENT *document,

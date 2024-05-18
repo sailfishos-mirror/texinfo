@@ -21,10 +21,7 @@
 
 #include <stddef.h>
 
-#include "global_commands_types.h"
 #include "tree_types.h"
-/* for GLOBAL_INFO */
-#include "document_types.h"
 #include "tree.h"
 #include "context_stack.h"
 #include "commands.h"
@@ -57,13 +54,6 @@ void close_ignored_block_conditional (ELEMENT *current);
 ELEMENT *end_line (ELEMENT *current);
 ELEMENT *end_line_misc_line (ELEMENT *current);
 ELEMENT *end_line_starting_block (ELEMENT *current);
-
-extern FLOAT_RECORD_LIST parser_float_list;
-
-/* In labels.c */
-extern LABEL *labels_list;
-extern LABEL_LIST *identifiers_target;
-extern size_t labels_number;
 
 /* In separator.c */
 ELEMENT * handle_open_brace (ELEMENT *current, char **line_inout);
@@ -123,12 +113,12 @@ char *parse_command_name (char **ptr, int *single_char);
 extern const char *whitespace_chars_except_newline;
 extern const char *linecommand_expansion_delimiters;
 
+extern DOCUMENT *parsed_document;
+
 extern ELEMENT *current_node;
 extern ELEMENT *current_section;
 extern ELEMENT *current_part;
 
-extern GLOBAL_INFO global_info;
-extern GLOBAL_COMMANDS global_commands;
 extern char *global_clickstyle;
 extern char *global_documentlanguage;
 extern int global_documentlanguage_fixed;
@@ -138,7 +128,7 @@ enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };
 extern enum kbd_enum global_kbdinputstyle;
 
 int register_global_command (ELEMENT *current);
-void wipe_parser_global_info (void);
+void wipe_parser_global_variables (void);
 
 extern COUNTER count_remaining_args, count_items, count_cells;
 void reset_parser_counters (void);

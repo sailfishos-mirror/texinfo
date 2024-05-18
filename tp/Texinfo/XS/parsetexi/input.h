@@ -27,12 +27,7 @@ int set_input_encoding (const char *encoding);
 void parser_add_include_directory (const char *filename);
 void parser_clear_include_directories (void);
 
-extern char **small_strings;
-extern size_t small_strings_num;
-
 char *save_string (const char *string);
-void free_small_strings (void);
-void forget_small_strings (void);
 
 extern int input_number;
 extern int macro_expansion_nr;

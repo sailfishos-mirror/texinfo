@@ -41,7 +41,6 @@
 #include "parser.h"
 #include "indices.h"
 
-INDEX **index_names = 0;
 int number_of_indices = 0;
 int space_for_indices = 0;
 
@@ -110,11 +109,12 @@ add_index_internal (char *name, int in_code)
   if (number_of_indices == space_for_indices)
     {
       space_for_indices += 5;
-      index_names = realloc (index_names, (space_for_indices + 1)
-                             * sizeof (INDEX *));
+      parsed_document->index_names
+        = realloc (parsed_document->index_names, (space_for_indices + 1)
+                                                 * sizeof (INDEX *));
     }
-  index_names[number_of_indices++] = idx;
-  index_names[number_of_indices] = 0;
+  parsed_document->index_names[number_of_indices++] = idx;
+  parsed_document->index_names[number_of_indices] = 0;
   return idx;
 }
 
@@ -124,7 +124,7 @@ add_index_internal (char *name, int in_code)
 void
 add_index (const char *name, int in_code)
 {
-  INDEX *idx = indices_info_index_by_name (index_names, name);
+  INDEX *idx = indices_info_index_by_name (parsed_document->index_names, name);
   char *cmdname;
 
   if (!idx)
@@ -140,6 +140,7 @@ void
 init_index_commands (void)
 {
   INDEX *idx;
+  INDEX **index_names;
 
   struct def { char *name; int in_code;
                enum command_id cmd2; enum command_id cmd1;}
@@ -215,6 +216,8 @@ init_index_commands (void)
       associate_command_to_index (p->cmd2, idx);
       associate_command_to_index (p->cmd1, idx);
     }
+  /* set the variable now that the realloc have been done */
+  index_names = parsed_document->index_names;
 
   associate_command_to_index (CM_vtable,
     indices_info_index_by_name (index_names, "vr"));
@@ -252,6 +255,7 @@ enter_index_entry (enum command_id index_type_cmd,
   INDEX *idx;
   INDEX_ENTRY *entry;
   TEXT ignored_chars;
+  GLOBAL_INFO *global_info = parsed_document->global_info;
 
   if (conf.no_index)
     return;
@@ -275,13 +279,13 @@ enter_index_entry (enum command_id index_type_cmd,
 
   /* Create ignored_chars string. */
   text_init (&ignored_chars);
-  if (global_info.ignored_chars.backslash)
+  if (global_info->ignored_chars.backslash)
     text_append (&ignored_chars, "\\");
-  if (global_info.ignored_chars.hyphen)
+  if (global_info->ignored_chars.hyphen)
     text_append (&ignored_chars, "-");
-  if (global_info.ignored_chars.lessthan)
+  if (global_info->ignored_chars.lessthan)
     text_append (&ignored_chars, "<");
-  if (global_info.ignored_chars.atsign)
+  if (global_info->ignored_chars.atsign)
     text_append (&ignored_chars, "@");
   if (ignored_chars.end > 0)
     {
@@ -350,11 +354,9 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
 
 
 
-/* reset indices without unallocating them nor the list of indices */
 void
 forget_indices (void)
 {
-  index_names = 0;
   number_of_indices = 0;
   space_for_indices = 0;
   num_index_commands = 0;
@@ -365,9 +367,9 @@ resolve_indices_merged_in (void)
 {
   INDEX **i, *idx;
 
-  if (index_names)
+  if (parsed_document->index_names)
     {
-      for (i = index_names; (idx = *i); i++)
+      for (i = parsed_document->index_names; (idx = *i); i++)
         {
           if (idx->merged_in)
             {

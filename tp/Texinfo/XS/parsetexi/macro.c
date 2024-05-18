@@ -1059,17 +1059,18 @@ store_value (const char *name, const char *value)
   v->value = strdup (value);
 
   /* Internal Texinfo flag */
-  if (!strncmp (name, "txi", 3))
+  if (!strncmp (name, "txi", 3) && parsed_document)
     {
+      GLOBAL_INFO *global_info = parsed_document->global_info;
       int val = (strcmp (value, "0") != 0);
       if (!strcmp (name, "txiindexbackslashignore"))
-        global_info.ignored_chars.backslash = val;
+        global_info->ignored_chars.backslash = val;
       else if (!strcmp (name, "txiindexhyphenignore"))
-        global_info.ignored_chars.hyphen = val;
+        global_info->ignored_chars.hyphen = val;
       else if (!strcmp (name, "txiindexlessthanignore"))
-        global_info.ignored_chars.lessthan = val;
+        global_info->ignored_chars.lessthan = val;
       else if (!strcmp (name, "txiindexatsignignore"))
-        global_info.ignored_chars.atsign = val;
+        global_info->ignored_chars.atsign = val;
 
       /* also: txicodequotebacktick, txicodequoteundirected,
          txicommandconditionals.  Deal with them here? */
@@ -1091,14 +1092,15 @@ clear_value (char *name)
   /* Internal Texinfo flag */
   if (!strncmp (name, "txi", 3))
     {
+      GLOBAL_INFO *global_info = parsed_document->global_info;
       if (!strcmp (name, "txiindexbackslashignore"))
-        global_info.ignored_chars.backslash = 0;
+        global_info->ignored_chars.backslash = 0;
       else if (!strcmp (name, "txiindexhyphenignore"))
-        global_info.ignored_chars.hyphen = 0;
+        global_info->ignored_chars.hyphen = 0;
       else if (!strcmp (name, "txiindexlessthanignore"))
-        global_info.ignored_chars.lessthan = 0;
+        global_info->ignored_chars.lessthan = 0;
       else if (!strcmp (name, "txiindexatsignignore"))
-        global_info.ignored_chars.atsign = 0;
+        global_info->ignored_chars.atsign = 0;
 
       /* also: txicodequotebacktick, txicodequoteundirected,
          txicommandconditionals.  Deal with them here? */

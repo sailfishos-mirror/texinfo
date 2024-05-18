@@ -79,8 +79,9 @@ set_input_encoding (const char *encoding)
   if (current_encoding_conversion)
     {
       encoding_set = 1;
-      free (global_info.input_encoding_name);
-      global_info.input_encoding_name = strdup (encoding);
+      GLOBAL_INFO *global_info = parsed_document->global_info;
+      free (global_info->input_encoding_name);
+      global_info->input_encoding_name = strdup (encoding);
     }
 
   return encoding_set;
@@ -196,7 +197,7 @@ set_doc_encoding_for_input_file_name (int value)
 
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return
-   value is freed by free_small_strings. */
+   value is freed when freeing small_strings. */
 char *
 encode_file_name (char *filename)
 {
@@ -209,7 +210,8 @@ encode_file_name (char *filename)
       else if (doc_encoding_for_input_file_name)
         {
           if (current_encoding_conversion
-              && strcmp (global_info.input_encoding_name, "utf-8"))
+              && strcmp (parsed_document->global_info->input_encoding_name,
+                         "utf-8"))
             {
               char *conversion_encoding
                 = current_encoding_conversion->encoding_name;
@@ -532,51 +534,13 @@ set_input_source_mark (SOURCE_MARK *source_mark)
   input_stack[input_number - 1].input_source_mark = source_mark;
 }
 
-/* For filenames and macro names, it is possible that they won't be referenced
-   in the line number of any element.  It would be too much work to keep track,
-   so just keep them all here, and free them all together at the end. */
-char **small_strings = 0;
-size_t small_strings_num = 0;
-static size_t small_strings_space;
-
 char *
 save_string (const char *string)
 {
-  char *ret = string ? strdup (string) : 0;
-  if (ret)
-    {
-      if (small_strings_num == small_strings_space)
-        {
-          small_strings_space++;
-          small_strings_space += (small_strings_space >> 2);
-          small_strings = realloc (small_strings, small_strings_space
-                                   * sizeof (char *));
-          if (!small_strings)
-            fatal ("realloc failed");
-        }
-      small_strings[small_strings_num++] = ret;
-    }
-  return ret;
-}
+  if (!string)
+    return 0;
 
-void
-forget_small_strings (void)
-{
-  small_strings = 0;
-  small_strings_num = 0;
-  small_strings_space = 0;
-}
-
-/* not used */
-void
-free_small_strings (void)
-{
-  size_t i;
-  for (i = 0; i < small_strings_num; i++)
-    {
-      free (small_strings[i]);
-    }
-  small_strings_num = 0;
+  return add_string (string, parsed_document->small_strings);
 }
 
 void

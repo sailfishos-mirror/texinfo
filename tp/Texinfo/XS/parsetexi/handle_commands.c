@@ -698,11 +698,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
       if (cmd == CM_raisesections)
         {
-          global_info.sections_level_modifier++;
+          parsed_document->global_info->sections_level_modifier++;
         }
       else if (cmd == CM_lowersections)
         {
-          global_info.sections_level_modifier--;
+          parsed_document->global_info->sections_level_modifier--;
         }
 
       if (command_e)
@@ -825,10 +825,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
           if (command_data(data_cmd).flags & CF_sectioning_heading)
             {
-              if (global_info.sections_level_modifier)
+              GLOBAL_INFO *global_info = parsed_document->global_info;
+              if (global_info->sections_level_modifier)
                 {
                   add_extra_integer (command_e, "level_modifier",
-                                     global_info.sections_level_modifier);
+                                     global_info->sections_level_modifier);
                 }
             }
 
@@ -969,7 +970,9 @@ handle_line_command (ELEMENT *current, char **line_inout,
   if (command_e)
     register_global_command (command_e);
   if (cmd == CM_dircategory)
-    add_to_element_list (&global_commands.dircategory_direntry, command_e);
+    add_to_element_list (&parsed_document->global_commands
+                                             ->dircategory_direntry,
+                         command_e);
 
 funexit:
   *line_inout = line;
@@ -1104,7 +1107,8 @@ handle_block_command (ELEMENT *current, char **line_inout,
           push_context (ct_preformatted, cmd);
 
           if (cmd == CM_direntry)
-            add_to_element_list (&global_commands.dircategory_direntry,
+            add_to_element_list (&parsed_document->global_commands
+                                                     ->dircategory_direntry,
                                  block);
 
           if (current_node)

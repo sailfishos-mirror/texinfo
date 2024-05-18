@@ -50,26 +50,16 @@ retrieve_document (int document_descriptor)
   return 0;
 }
 
+/* note that the returned document will become invalid if there is a
+   realloc of the documents list */
 /* descriptor starts at 1, 0 is an error */
-size_t
-register_document (ELEMENT *root, INDEX **index_names,
-                   FLOAT_RECORD_LIST *floats_list,
-                   ELEMENT_LIST *internal_references,
-                   LABEL_LIST *labels_list,
-                   LABEL_LIST *identifiers_target,
-                   GLOBAL_INFO *global_info,
-                   GLOBAL_COMMANDS *global_commands,
-                   STRING_LIST *small_strings,
-                   ERROR_MESSAGE_LIST *parser_error_messages)
+DOCUMENT *
+new_document (void)
 {
   size_t document_index;
   int slot_found = 0;
   DOCUMENT *document = 0;
   int i;
-
-  /* error? */
-  if (root == 0)
-    return 0;
 
   for (i = 0; i < document_number; i++)
     {
@@ -92,23 +82,32 @@ register_document (ELEMENT *root, INDEX **index_names,
       document_number++;
     }
   document = &document_list[document_index];
-  /* this initializes the other fields */
   memset (document, 0, sizeof (DOCUMENT));
   document->descriptor = document_index +1;
-  document->tree = root;
-  document->index_names = index_names;
-  document->floats = floats_list;
-  document->internal_references = internal_references;
-  document->labels_list = labels_list;
-  document->identifiers_target = identifiers_target;
-  document->global_info = global_info;
-  document->global_commands = global_commands;
-  document->small_strings = small_strings;
-  document->parser_error_messages = parser_error_messages;
+
+  /* Information that is not local to where it is set in the Texinfo input,
+   for example document language and encoding. */
+  document->global_info = malloc (sizeof (GLOBAL_INFO));
+  memset (document->global_info, 0, sizeof (GLOBAL_INFO));
+
+  document->global_commands = malloc (sizeof (GLOBAL_COMMANDS));
+  memset (document->global_commands, 0, sizeof (GLOBAL_COMMANDS));
+  document->labels_list = malloc (sizeof (LABEL_LIST));
+  memset (document->labels_list, 0, sizeof (LABEL_LIST));
+  /* Array of recorded @float's. */
+  document->floats = malloc (sizeof (FLOAT_RECORD_LIST));
+  memset (document->floats, 0, sizeof (FLOAT_RECORD_LIST));
+  document->internal_references = malloc (sizeof (ELEMENT_LIST));
+  memset (document->internal_references, 0, sizeof (ELEMENT_LIST));
+  /* For filenames and macro names, it is possible that they won't be referenced
+   in the line number of any element.  It would be too much work to keep track,
+   so just keep them all here, and free them all together at the end. */
+  document->small_strings = new_string_list ();
+
+  document->parser_error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
+  memset (document->parser_error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
   document->error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
   memset (document->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
-
-  document->listoffloats = float_list_to_listoffloats_list (floats_list);
 
   document->modified_information |= F_DOCM_tree | F_DOCM_index_names
      | F_DOCM_floats | F_DOCM_internal_references | F_DOCM_labels_list
@@ -116,10 +115,12 @@ register_document (ELEMENT *root, INDEX **index_names,
      | F_DOCM_global_commands;
 
   /*
-  fprintf (stderr, "REGISTER %zu %p %p %p %p\n", document_index +1, document,
-                       document->tree, document->index_names, document->options);
+  fprintf (stderr, "DOCUMENT %zu %p\n", document_index +1, document);
    */
+  /*
   return document_index +1;
+   */
+  return document;
 }
 
 void

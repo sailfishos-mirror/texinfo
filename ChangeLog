@@ -1,3 +1,41 @@
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
+	Setup an empty document early instead of storing variables at the end
+
+	* tp/Texinfo/XS/main/document.c (new_document),
+	tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf, parse_file)
+	(parse_text, parse_string, parse_piece),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
+	(end_line_starting_block, end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/errors_parser.c (line_error_internal),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command),
+	(handle_block_command), tp/Texinfo/XS/parsetexi/indices.c
+	(add_index_internal, add_index, init_index_commands)
+	(enter_index_entry, forget_indices, resolve_indices_merged_in),
+	tp/Texinfo/XS/parsetexi/input.c (set_input_encoding, encode_file_name)
+	(save_string), tp/Texinfo/XS/parsetexi/labels.c (register_label)
+	(remember_internal_xref), tp/Texinfo/XS/parsetexi/macro.c
+	(store_value, clear_value), tp/Texinfo/XS/parsetexi/parser.c
+	(parsed_document, register_global_command)
+	(wipe_parser_global_variables, rearrange_tree_beginning)
+	(parse_texi_document, parse_texi), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_close_brace),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs (copy_tree):
+	setup a document global variable named parsed_document early on in
+	parsing functions, parse_file, parse_text, parse_string and
+	parse_piece and use the document structure for information that end up
+	in the document instead of using global variables that are stored at
+	the end of parsing.  Add new_document to create an empty document
+	and remove store_document, now unused.  Add a document_descriptor
+	argument to rearrange_tree_beginning.  Rename wipe_parser_global_info
+	as wipe_parser_global_variables.  Remove register_document,
+	wipe_errors, forget_errors, forget_small_strings, free_small_strings,
+	reset_labels, forget_labels, wipe_identifiers_target,
+	reset_internal_xrefs and forget_internal_xrefs functions and
+	parser_float_list, error_messages_list, global_info, index_names,
+	small_strings, labels_list, identifiers_target, internal_xref_list and
+	global_commands global variables as parsed_document is directly used.
+
 2024-05-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing, _enter_index_entry):

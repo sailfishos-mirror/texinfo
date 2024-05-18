@@ -430,15 +430,16 @@ handle_close_brace (ELEMENT *current, char **line_inout)
         }
       else if (closed_command == CM_image)
         {
+          GLOBAL_INFO *global_info = parsed_document->global_info;
           ELEMENT *image = current->parent;
           if (image->args.number == 0
               || image->args.list[0]->contents.number == 0)
             {
               line_error ("@image missing filename argument");
             }
-          if (global_info.input_encoding_name)
+          if (global_info->input_encoding_name)
             add_extra_string_dup (image, "input_encoding_name",
-                                  global_info.input_encoding_name);
+                                  global_info->input_encoding_name);
         }
       else if (closed_command == CM_dotless)
         {

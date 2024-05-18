@@ -87,17 +87,17 @@ copy_tree (SV *tree_in)
         if (document)
           {
             ELEMENT *result = copy_tree (document->tree);
+            DOCUMENT *copy_document = new_document ();
           /* document additional information, global info, labels, indices...
              is not setup with copy_tree, so we only have the tree to store.
              This is not different from the Perl code and, in general,
              it is best that way.
            */
-            int copy_document_descriptor = register_document (result, 0, 0, 0,
-                                                      0, 0, 0, 0, 0, 0);
             HV *hv = build_texinfo_tree (result, 0);
+            copy_document->tree = result;
             hv_store (hv, "tree_document_descriptor",
                       strlen ("tree_document_descriptor"),
-                      newSViv ((IV) copy_document_descriptor), 0);
+                      newSViv ((IV) copy_document->descriptor), 0);
             RETVAL = newRV_inc ((SV *) hv);
           }
         else

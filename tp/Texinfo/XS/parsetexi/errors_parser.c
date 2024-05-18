@@ -28,6 +28,7 @@
 
 #include "tree_types.h"
 #include "document_types.h"
+#include "parser.h"
 /* for debug_output */
 #include "debug_parser.h"
 #include "errors.h"
@@ -37,14 +38,12 @@
 /* Current filename and line number.  Used for reporting. */
 SOURCE_INFO current_source_info;
 
-ERROR_MESSAGE_LIST error_messages_list;
-
 static void
 line_error_internal (enum error_type type, int continuation,
                      const SOURCE_INFO *cmd_source_info,
                      const char *format, va_list v)
 {
-  vmessage_list_line_error (&error_messages_list,
+  vmessage_list_line_error (parsed_document->parser_error_messages,
                       type, continuation, debug_output, cmd_source_info,
                       0, format, v);
 }
@@ -94,19 +93,6 @@ command_error (const ELEMENT *e, const char *format, ...)
 
   va_start (v, format);
   line_error_internal (MSG_error, 0, &e->source_info, format, v);
-}
-
-/* not used */
-void
-wipe_errors (void)
-{
-  wipe_error_message_list (&error_messages_list);
-}
-
-void
-forget_errors (void)
-{
-  memset (&error_messages_list, 0, sizeof (ERROR_MESSAGE_LIST));
 }
 
 static void

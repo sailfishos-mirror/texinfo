@@ -4,8 +4,6 @@
 
 #include "tree_types.h"
 
-extern INDEX **index_names;
-
 void init_index_commands (void);
 
 void add_index (const char *name, int in_code);

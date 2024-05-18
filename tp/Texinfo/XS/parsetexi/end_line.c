@@ -408,8 +408,10 @@ parse_line_command_args (ELEMENT *line_command)
             break;
           }
 
-        from_index = indices_info_index_by_name (index_names, index_name_from);
-        to_index = indices_info_index_by_name (index_names, index_name_to);
+        from_index = indices_info_index_by_name (parsed_document->index_names,
+                                                 index_name_from);
+        to_index = indices_info_index_by_name (parsed_document->index_names,
+                                               index_name_to);
         if (!from_index)
           line_error ("unknown source index in @%s: %s",
                       command_name(cmd), index_name_from);
@@ -459,7 +461,8 @@ parse_line_command_args (ELEMENT *line_command)
           {}
         else
           {
-            INDEX *idx = indices_info_index_by_name (index_names,arg);
+            INDEX *idx
+             = indices_info_index_by_name (parsed_document->index_names, arg);
             if (!idx)
               line_error ("unknown index `%s' in @printindex", arg);
             else
@@ -661,10 +664,6 @@ parse_line_command_args (ELEMENT *line_command)
 
 #undef ADD_ARG
 }
-
-/* Array of recorded @float's. */
-FLOAT_RECORD_LIST parser_float_list = {0, 0, 0};
-
 
 ELEMENT *
 end_line_def_line (ELEMENT *current)
@@ -877,7 +876,7 @@ end_line_starting_block (ELEMENT *current)
       float_type = parse_float_type (current);
 
       /* add to global 'floats' array */
-      add_to_float_record_list (&parser_float_list, float_type, current);
+      add_to_float_record_list (parsed_document->floats, float_type, current);
 
       if (current_section)
         add_extra_element (current, "float_section", current_section);
@@ -1306,6 +1305,7 @@ end_line_misc_line (ELEMENT *current)
             {
               int status;
               char *fullpath, *sys_filename;
+              GLOBAL_INFO *global_info = parsed_document->global_info;
 
               sys_filename = encode_file_name (text);
               fullpath = parser_locate_include_file (sys_filename);
@@ -1336,7 +1336,7 @@ end_line_misc_line (ELEMENT *current)
                       include_source_mark = new_source_mark (SM_type_include);
                       include_source_mark->status = SM_status_start;
                       set_input_source_mark (include_source_mark);
-                      add_string (fullpath, &global_info.included_files);
+                      add_string (fullpath, &global_info->included_files);
                     }
                   free (fullpath);
                 }
@@ -1344,16 +1344,17 @@ end_line_misc_line (ELEMENT *current)
           else if (current->cmd == CM_verbatiminclude)
             {
               char *fullpath, *sys_filename;
+              GLOBAL_INFO *global_info = parsed_document->global_info;
 
-              if (global_info.input_encoding_name)
+              if (global_info->input_encoding_name)
                 add_extra_string_dup (current, "input_encoding_name",
-                                      global_info.input_encoding_name);
+                                      global_info->input_encoding_name);
               /* gather included file for 'included_files'.  No errors, they
                  should be output by converters */
               sys_filename = encode_file_name (text);
               fullpath = parser_locate_include_file (sys_filename);
               if (fullpath && access (fullpath, R_OK) == 0)
-                add_string (fullpath, &global_info.included_files);
+                add_string (fullpath, &global_info->included_files);
               free (fullpath);
             }
           else if (current->cmd == CM_documentencoding)
@@ -1458,7 +1459,7 @@ end_line_misc_line (ELEMENT *current)
                     }
 
                   /* set_input_encoding also sets
-                     global_info.input_encoding_name */
+                     global_info->input_encoding_name */
                   encoding_set = set_input_encoding (input_encoding);
                   if (encoding_set)
                     {
