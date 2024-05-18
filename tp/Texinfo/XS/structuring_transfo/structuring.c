@@ -415,7 +415,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
                   ELEMENT *menu_content, ELEMENT *menu_entry_node)
 {
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
-  LABEL_LIST *identifiers_target = document->identifiers_target;
+  LABEL_LIST *identifiers_target = &document->identifiers_target;
   OPTIONS *options = document->options;
 
   char *normalized_menu_node = lookup_extra_string (menu_entry_node,
@@ -572,8 +572,8 @@ void
 check_nodes_are_referenced (DOCUMENT *document)
 {
   ELEMENT_LIST *nodes_list = document->nodes_list;
-  LABEL_LIST *identifiers_target = document->identifiers_target;
-  ELEMENT_LIST *refs = document->internal_references;
+  LABEL_LIST *identifiers_target = &document->identifiers_target;
+  ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
 
@@ -804,7 +804,7 @@ set_menus_node_directions (DOCUMENT *document)
 {
   GLOBAL_COMMANDS *global_commands = document->global_commands;
   ELEMENT_LIST *nodes_list = document->nodes_list;
-  LABEL_LIST *identifiers_target = document->identifiers_target;
+  LABEL_LIST *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1000,7 +1000,7 @@ void
 complete_node_tree_with_menus (DOCUMENT *document)
 {
   ELEMENT_LIST *nodes_list = document->nodes_list;
-  LABEL_LIST *identifiers_target = document->identifiers_target;
+  LABEL_LIST *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1312,7 +1312,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 ELEMENT_LIST *
 nodes_tree (DOCUMENT *document)
 {
-  LABEL_LIST *identifiers_target = document->identifiers_target;
+  LABEL_LIST *identifiers_target = &document->identifiers_target;
   ELEMENT *root = document->tree;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
@@ -1504,8 +1504,8 @@ nodes_tree (DOCUMENT *document)
 void
 associate_internal_references (DOCUMENT *document)
 {
-  LABEL_LIST *identifiers_target = document->identifiers_target;
-  ELEMENT_LIST *refs = document->internal_references;
+  LABEL_LIST *identifiers_target = &document->identifiers_target;
+  ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1602,7 +1602,7 @@ associate_internal_references (DOCUMENT *document)
 void
 number_floats (DOCUMENT *document)
 {
-  const LISTOFFLOATS_TYPE_LIST *listoffloats_list = document->listoffloats;
+  const LISTOFFLOATS_TYPE_LIST *listoffloats_list = &document->listoffloats;
   size_t i;
 
   if (!listoffloats_list)

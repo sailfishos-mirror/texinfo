@@ -99,7 +99,7 @@ add_index_command (char *cmdname, INDEX *idx)
 static INDEX *
 add_index_internal (char *name, int in_code)
 {
-  INDEX_LIST *indices = parsed_document->indices_info;
+  INDEX_LIST *indices = &parsed_document->indices_info;
   INDEX *idx = (INDEX *) malloc (sizeof (INDEX));
 
   memset (idx, 0, sizeof (INDEX));
@@ -127,7 +127,7 @@ void
 add_index (const char *name, int in_code)
 {
   INDEX *idx
-    = indices_info_index_by_name (parsed_document->indices_info, name);
+    = indices_info_index_by_name (&parsed_document->indices_info, name);
   char *cmdname;
 
   if (!idx)
@@ -143,7 +143,7 @@ void
 init_index_commands (void)
 {
   INDEX *idx;
-  INDEX_LIST *indices;
+  INDEX_LIST *indices = &parsed_document->indices_info;
 
   struct def { char *name; int in_code;
                enum command_id cmd2; enum command_id cmd1;}
@@ -204,8 +204,6 @@ init_index_commands (void)
       associate_command_to_index (p->cmd2, idx);
       associate_command_to_index (p->cmd1, idx);
     }
-  /* set the variable now that the realloc have been done */
-  indices = parsed_document->indices_info;
 
   associate_command_to_index (CM_vtable,
     indices_info_index_by_name (indices, "vr"));
@@ -350,7 +348,7 @@ forget_indices (void)
 }
 
 void
-resolve_indices_merged_in (INDEX_LIST *indices_info)
+resolve_indices_merged_in (const INDEX_LIST *indices_info)
 {
   size_t i;
   for (i = 0; i < indices_info->number; i++)
@@ -376,7 +374,7 @@ complete_indices (int document_descriptor, int debug_level)
   size_t i;
 
   document = retrieve_document (document_descriptor);
-  indices = document->indices_info;
+  indices = &document->indices_info;
 
   for (i = 0; i < indices->number; i++)
     {

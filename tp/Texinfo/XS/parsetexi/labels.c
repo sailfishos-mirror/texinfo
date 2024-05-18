@@ -38,7 +38,7 @@
 void
 register_label (ELEMENT *target_element, char *normalized)
 {
-  LABEL_LIST *labels_list = parsed_document->labels_list;
+  LABEL_LIST *labels_list = &parsed_document->labels_list;
   LABEL *label;
   /* register the element in the list. */
   if (labels_list->number == labels_list->space)
@@ -102,6 +102,6 @@ check_register_target_element_label (ELEMENT *label_element,
 void
 remember_internal_xref (ELEMENT *element)
 {
-  add_to_element_list (parsed_document->internal_references, element);
+  add_to_element_list (&parsed_document->internal_references, element);
 }
 

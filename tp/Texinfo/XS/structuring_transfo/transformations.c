@@ -549,7 +549,7 @@ ELEMENT *
 new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
           DOCUMENT *document)
 {
-  LABEL_LIST *identifiers_target = document->identifiers_target;
+  const LABEL_LIST *identifiers_target = &document->identifiers_target;
   int document_descriptor = document->descriptor;
   int empty_node = 0;
   int appended_number;
@@ -651,7 +651,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       non_hyphen_char = normalized + strspn (normalized, "-");
       if (*non_hyphen_char)
         {
-          if (identifiers_target)
+          if (identifiers_target->number > 0)
             {
               target = find_identifier_target (identifiers_target, normalized);
             }
@@ -883,11 +883,10 @@ reference_to_arg_internal (const char *type,
             }
           index++;
         }
-      if (document && document->internal_references
-          && document->internal_references->number > 0)
+      if (document && document->internal_references.number > 0)
         {
           const ELEMENT *removed_internal_ref =
-              remove_element_from_list (document->internal_references, e);
+              remove_element_from_list (&document->internal_references, e);
           if (removed_internal_ref)
             document->modified_information |= F_DOCM_internal_references;
         }
@@ -1134,7 +1133,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
 int
 regenerate_master_menu (DOCUMENT *document, int use_sections)
 {
-  const LABEL_LIST *identifiers_target = document->identifiers_target;
+  const LABEL_LIST *identifiers_target = &document->identifiers_target;
 
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
   const ELEMENT_LIST *menus;
@@ -1191,7 +1190,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                             {
                               const ELEMENT *removed_internal_ref =
                                 remove_element_from_list (
-                                        document->internal_references,
+                                        &document->internal_references,
                                                         entry_content);
                               if (removed_internal_ref)
                                 document->modified_information

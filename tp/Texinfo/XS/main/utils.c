@@ -853,16 +853,16 @@ wipe_index (INDEX *idx)
 }
 
 void
-wipe_index_names (INDEX_LIST *indices_information)
+free_indices_info (INDEX_LIST *indices_info)
 {
   size_t i;
-  for (i = 0; i < indices_information->number; i++)
+  for (i = 0; i < indices_info->number; i++)
     {
-      INDEX *idx = indices_information->list[i];
+      INDEX *idx = indices_info->list[i];
       wipe_index (idx);
       free (idx);
     }
-  free (indices_information);
+  free (indices_info->list);
 }
 
 

@@ -287,7 +287,7 @@ static OUTPUT_UNIT *
 get_top_unit (DOCUMENT *document, const OUTPUT_UNIT_LIST *output_units)
 {
   const ELEMENT *node_top = find_identifier_target
-                          (document->identifiers_target, "Top");
+                          (&document->identifiers_target, "Top");
   const ELEMENT *section_top = document->global_commands->top;
 
   if (section_top)
@@ -2075,7 +2075,7 @@ void
 set_root_commands_targets_node_files (CONVERTER *self)
 {
 
-  if (self->document->identifiers_target)
+  if (self->document->identifiers_target.number > 0)
     {
       const char *extension = 0;
 
@@ -2083,7 +2083,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
         extension = self->conf->EXTENSION.string;
       /* use labels_list and not identifiers_target to process in the
          document order */
-      LABEL_LIST *label_targets = self->document->labels_list;
+      const LABEL_LIST *label_targets = &self->document->labels_list;
       int i;
       for (i = 0; i < label_targets->number; i++)
         {
@@ -4693,7 +4693,7 @@ compare_index_name (const void *a, const void *b)
 void
 prepare_index_entries_targets (CONVERTER *self)
 {
-  if (self->document->indices_info->number)
+  if (self->document->indices_info.number > 0)
     {
       size_t i;
       self->shared_conversion_state.formatted_index_entries
@@ -5297,8 +5297,8 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
       int i;
 
       /* first determine the top node file name. */
-      if (self->document->identifiers_target)
-        node_top = find_identifier_target (self->document->identifiers_target,
+      if (self->document->identifiers_target.number > 0)
+        node_top = find_identifier_target (&self->document->identifiers_target,
                                            "Top");
 
       top_node_filename_str = top_node_filename (self, document_name);
@@ -5348,7 +5348,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                       if (normalized)
                         node_target
                          = find_identifier_target (
-                                  self->document->identifiers_target,
+                                  &self->document->identifiers_target,
                                   normalized);
                    /* double node are not normalized, they are handled here */
                       if (!node_target)
@@ -5804,7 +5804,7 @@ html_prepare_units_directions_files (CONVERTER *self,
     setup_output_simple_page (self, output_filename);
 
 
-  units_directions (self->document->identifiers_target, output_units,
+  units_directions (&self->document->identifiers_target, output_units,
                     self->conf->DEBUG.integer);
 
   prepare_special_units_directions (self, special_units);
@@ -10051,7 +10051,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                 {
                   ELEMENT *menu_node
                    = new_complete_menu_master_menu (&self->error_messages,
-                         self->conf, self->document->identifiers_target, node);
+                         self->conf, &self->document->identifiers_target, node);
 
                   if (menu_node)
                     {
@@ -11012,7 +11012,7 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
   if (html_in_string (self))
     return;
 
-  listoffloats = self->document->listoffloats;
+  listoffloats = &self->document->listoffloats;
 
   if (!listoffloats->number)
     return;
@@ -12058,7 +12058,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       if (normalized && !manual_content)
         {
           target_node = find_identifier_target (
-                                  self->document->identifiers_target,
+                                  &self->document->identifiers_target,
                                   normalized);
         }
     }
@@ -14337,7 +14337,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
       if (normalized)
         {
           const ELEMENT *node
-           = find_identifier_target (self->document->identifiers_target,
+           = find_identifier_target (&self->document->identifiers_target,
                                      normalized);
           if (node)
             {
@@ -16923,11 +16923,11 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
   html_new_document_context (self, context, 0, 0);
 
-  if (self->document && self->document->indices_info->number)
+  if (self->document && self->document->indices_info.number)
     {
       size_t i;
       size_t j;
-      INDEX_LIST *indices_info = self->document->indices_info;
+      INDEX_LIST *indices_info = &self->document->indices_info;
       const INDEX **sorted_index_names;
       size_t index_nr = indices_info->number;
       size_t non_empty_index_nr = 0;
@@ -16966,9 +16966,9 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   if (self->document)
     {
       const LISTOFFLOATS_TYPE_LIST *listoffloats
-         = self->document->listoffloats;
+         = &self->document->listoffloats;
 
-      if (listoffloats && listoffloats->number)
+      if (listoffloats->number)
         {
           self->shared_conversion_state.formatted_listoffloats_nr
            = (int *) malloc (listoffloats->number * sizeof (int));
@@ -17083,7 +17083,7 @@ html_reset_converter (CONVERTER *self)
   free (self->shared_conversion_state.formatted_listoffloats_nr);
   self->shared_conversion_state.formatted_listoffloats_nr = 0;
 
-  if (self->document->indices_info->number)
+  if (self->document->indices_info.number)
     {
       for (i = 0; i < self->sorted_index_names.number; i++)
         {
@@ -18973,10 +18973,11 @@ html_node_redirections (CONVERTER *self,
 {
   FILE_SOURCE_INFO_LIST *files_source_info = &self->files_source_info;
   int redirection_files_done = 0;
-  if (self->document->identifiers_target && self->conf->NODE_FILES.integer > 0
+  if (self->document->identifiers_target.number > 0
+      && self->conf->NODE_FILES.integer > 0
       && strlen (output_file) > 0)
     {
-      const LABEL_LIST *label_targets = self->document->labels_list;
+      const LABEL_LIST *label_targets = &self->document->labels_list;
       int i;
       const ENCODING_CONVERSION *conversion = 0;
 

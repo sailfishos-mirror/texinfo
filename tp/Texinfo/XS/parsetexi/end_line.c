@@ -408,9 +408,9 @@ parse_line_command_args (ELEMENT *line_command)
             break;
           }
 
-        from_index = indices_info_index_by_name (parsed_document->indices_info,
+        from_index = indices_info_index_by_name (&parsed_document->indices_info,
                                                  index_name_from);
-        to_index = indices_info_index_by_name (parsed_document->indices_info,
+        to_index = indices_info_index_by_name (&parsed_document->indices_info,
                                                index_name_to);
         if (!from_index)
           line_error ("unknown source index in @%s: %s",
@@ -462,7 +462,7 @@ parse_line_command_args (ELEMENT *line_command)
         else
           {
             INDEX *idx
-             = indices_info_index_by_name (parsed_document->indices_info, arg);
+             = indices_info_index_by_name (&parsed_document->indices_info, arg);
             if (!idx)
               line_error ("unknown index `%s' in @printindex", arg);
             else
@@ -876,7 +876,7 @@ end_line_starting_block (ELEMENT *current)
       float_type = parse_float_type (current);
 
       /* add to global 'floats' array */
-      add_to_float_record_list (parsed_document->floats, float_type, current);
+      add_to_float_record_list (&parsed_document->floats, float_type, current);
 
       if (current_section)
         add_extra_element (current, "float_section", current_section);

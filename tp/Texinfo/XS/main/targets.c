@@ -100,17 +100,17 @@ some_fun (LABEL_LIST *labels_list)
 }
  */
 
-/* returns a LABEL_LIST that is sorted with unique identifiers such that
+/* fill a LABEL_LIST that is sorted with unique identifiers such that
    elements are easy to find.
    Called from parser */
-LABEL_LIST *
-set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
+void
+set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number,
+                               LABEL_LIST *result)
 {
   LABEL *targets = malloc (labels_number * sizeof (LABEL));
-  LABEL_LIST *result = malloc (sizeof (LABEL_LIST));
   size_t targets_number = labels_number;
 
-  int i;
+  size_t i;
 
   memcpy (targets, list_of_labels, labels_number * sizeof (LABEL));
   qsort (targets, labels_number, sizeof (LABEL), compare_labels);
@@ -171,22 +171,17 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
   result->list = targets;
   result->number = targets_number;
   result->space = labels_number;
-  return result;
 }
 
-LABEL_LIST *
+LABEL *
 sort_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
 {
   LABEL *targets = malloc (labels_number * sizeof (LABEL));
-  LABEL_LIST *result = malloc (sizeof (LABEL_LIST));
 
   memcpy (targets, list_of_labels, labels_number * sizeof (LABEL));
   qsort (targets, labels_number, sizeof (LABEL), compare_labels);
 
-  result->list = targets;
-  result->number = labels_number;
-  result->space = labels_number;
-  return result;
+  return targets;
 }
 
 
@@ -201,7 +196,7 @@ register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
       labels_list->space *= 1.5;
       labels_list->list = realloc (labels_list->list,
                              labels_list->space * sizeof (LABEL));
-      if (!labels_list)
+      if (!labels_list->list)
         fatal ("realloc failed");
     }
   labels_list->list[labels_number].element = element;
@@ -219,22 +214,25 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
   *status = 2;
   if (normalized)
     {
-      LABEL_LIST *identifiers_target = document->identifiers_target;
+      LABEL_LIST *identifiers_target = &document->identifiers_target;
       ELEMENT *target = find_identifier_target (identifiers_target,
                                                 normalized);
       if (!target)
         {
-          LABEL_LIST *sorted_identifiers_target;
+          LABEL *sorted_identifiers_target;
 
           add_extra_integer (element, "is_target", 1);
           register_label_in_list (identifiers_target, element,
                                   normalized);
           sorted_identifiers_target
-            = sort_labels_identifiers_target (
-                           identifiers_target->list,
-                           identifiers_target->number);
-          destroy_label_list (identifiers_target);
-          document->identifiers_target = sorted_identifiers_target;
+            = sort_labels_identifiers_target (identifiers_target->list,
+                                              identifiers_target->number);
+          free (identifiers_target->list);
+          identifiers_target->list = sorted_identifiers_target;
+          /* knowing that space is the same as number requires looking at
+             sort_labels_identifiers_target to know the space
+             allocated for sorted_identifiers_target in that function */
+          identifiers_target->space = identifiers_target->number;
           *status = 0;
           document->modified_information |= F_DOCM_labels_list
                                    | F_DOCM_identifiers_target;
@@ -256,7 +254,7 @@ existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized,
   if (normalized && error_messages)
     {
       ELEMENT *existing_target
-        = find_identifier_target (document->identifiers_target, normalized);
+        = find_identifier_target (&document->identifiers_target, normalized);
       const ELEMENT *label_element = get_label_element (element);
       char *label_element_texi = convert_contents_to_texinfo (label_element);
       message_list_command_error (error_messages, document->options,
@@ -285,7 +283,7 @@ register_label_element (int document_descriptor, ELEMENT *element,
     {
       existing_label_error (document, element, normalized, error_messages);
     }
-  register_label_in_list (document->labels_list, element,
+  register_label_in_list (&document->labels_list, element,
                           normalized);
   return !status;
 }

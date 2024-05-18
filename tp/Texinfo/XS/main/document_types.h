@@ -175,16 +175,17 @@ typedef struct COLLATIONS_INDICES_SORTED_BY_LETTER {
 } COLLATIONS_INDICES_SORTED_BY_LETTER;
 
 typedef struct DOCUMENT {
-    int descriptor;
+    size_t descriptor;
     ELEMENT *tree;
-    INDEX_LIST *indices_info;
+    INDEX_LIST indices_info;
     MERGED_INDICES *merged_indices;
-    FLOAT_RECORD_LIST *floats;
-    LISTOFFLOATS_TYPE_LIST *listoffloats;
-    ELEMENT_LIST *internal_references;
-    LABEL_LIST *labels_list;
+  /* Array of recorded @float's. */
+    FLOAT_RECORD_LIST floats;
+    LISTOFFLOATS_TYPE_LIST listoffloats;
+    ELEMENT_LIST internal_references;
+    LABEL_LIST labels_list;
   /* Array of target elements with unique identifiers, sorted by identifier */
-    LABEL_LIST *identifiers_target;
+    LABEL_LIST identifiers_target;
     GLOBAL_INFO *global_info;
     GLOBAL_COMMANDS *global_commands;
     STRING_LIST *small_strings;

@@ -204,7 +204,7 @@ size_t find_string (const STRING_LIST *strings_list, const char *string);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 void wipe_index (INDEX *idx);
-void wipe_index_names (INDEX_LIST *indices_information);
+void free_indices_info (INDEX_LIST *indices_info);
 
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);

@@ -2660,16 +2660,16 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   /* update merged_in.  Only needed for merging happening after first
      index merge */
-  resolve_indices_merged_in (parsed_document->indices_info);
+  resolve_indices_merged_in (&parsed_document->indices_info);
 
-  parsed_document->identifiers_target
-    = set_labels_identifiers_target (parsed_document->labels_list->list,
-                                     parsed_document->labels_list->number);
+  set_labels_identifiers_target (parsed_document->labels_list.list,
+                                 parsed_document->labels_list.number,
+                                 &parsed_document->identifiers_target);
 
   parsed_document->tree = current;
 
-  parsed_document->listoffloats
-    = float_list_to_listoffloats_list (parsed_document->floats);
+  float_list_to_listoffloats_list (&parsed_document->floats,
+                                   &parsed_document->listoffloats);
 
   document_descriptor = parsed_document->descriptor;
 

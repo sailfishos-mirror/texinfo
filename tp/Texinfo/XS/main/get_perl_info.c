@@ -1271,7 +1271,7 @@ find_document_index_entry_extra_index_entry_sv (const DOCUMENT *document,
   SV **index_name_sv;
   char *index_name = 0;
   const INDEX *idx = 0;
-  INDEX_LIST *indices_info = document->indices_info;
+  const INDEX_LIST *indices_info = &document->indices_info;
 
   dTHX;
 
@@ -1309,7 +1309,7 @@ find_element_extra_index_entry_sv (const DOCUMENT *document,
                                    const SV *extra_index_entry_sv)
 {
   const INDEX_ENTRY *index_entry;
-  if (!converter || !converter->document || !converter->document->indices_info)
+  if (!converter || !converter->document)
     {
       if (document)
         index_entry
@@ -1570,7 +1570,7 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
             }
         }
 
-      if (document && document->identifiers_target)
+      if (document && document->identifiers_target.number)
         {
           SV **normalized_sv;
           EXTRA(normalized)
@@ -1579,7 +1579,7 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
               char *normalized = SvPVutf8_nolen (*normalized_sv);
               ELEMENT *element_found
                 = find_identifier_target
-                      (document->identifiers_target, normalized);
+                      (&document->identifiers_target, normalized);
          /* check the element found in case of multiple defined identifier */
               if (element_found && element_hv == element_found->hv)
                 return element_found;

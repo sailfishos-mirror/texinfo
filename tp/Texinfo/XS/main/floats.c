@@ -87,37 +87,27 @@ add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *type)
   return result;
 }
 
-LISTOFFLOATS_TYPE_LIST *
-float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list)
+void
+float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list,
+                                 LISTOFFLOATS_TYPE_LIST *result)
 {
-  LISTOFFLOATS_TYPE_LIST *result = malloc (sizeof (LISTOFFLOATS_TYPE_LIST));
-  memset (result, 0, sizeof (LISTOFFLOATS_TYPE_LIST));
+  size_t i;
 
-  /* a zero floats_list is unusual, it cannot happen when a document
-     comes from parsing of Texinfo, but it may happen with a document
-     created from code */
-
-  if (floats_list && floats_list->number > 0)
+  for (i = 0; i < floats_list->number; i++)
     {
-      size_t i;
+      FLOAT_RECORD *float_record = &floats_list->list[i];
+      char *float_type = float_record->type;
 
-      for (i = 0; i < floats_list->number; i++)
-        {
-          FLOAT_RECORD *float_record = &floats_list->list[i];
-          char *float_type = float_record->type;
+      LISTOFFLOATS_TYPE *listoffloats_type
+        = add_to_listoffloats_list (result, float_type);
 
-          LISTOFFLOATS_TYPE *listoffloats_type
-            = add_to_listoffloats_list (result, float_type);
-
-          add_to_element_list (&listoffloats_type->float_list,
-                               float_record->element);
-        }
+      add_to_element_list (&listoffloats_type->float_list,
+                           float_record->element);
     }
-  return result;
 }
 
 void
-destroy_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
+free_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
 {
   size_t i;
   for (i = 0; i < listoffloats_list->number; i++)
@@ -128,7 +118,6 @@ destroy_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
       free (listoffloats_type->float_list.list);
     }
   free (listoffloats_list->float_types);
-  free (listoffloats_list);
 }
 
 

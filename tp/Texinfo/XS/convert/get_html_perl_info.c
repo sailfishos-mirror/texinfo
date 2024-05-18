@@ -1364,7 +1364,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
 
   dTHX;
 
-  if (!converter->document->indices_info->number)
+  if (!converter->document->indices_info.number)
     return 0;
 
   index_entry_hv = (HV *) SvRV (index_entry_sv);
@@ -1492,11 +1492,11 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     {
       char *type = (char *)SvPVutf8_nolen (args_sv[0]);
       int number = SvIV (args_sv[1]);
-      if (converter->document && converter->document->listoffloats)
+      if (converter->document && converter->document->listoffloats.number > 0)
         {
           int i;
-          LISTOFFLOATS_TYPE_LIST
-            *listoffloats = converter->document->listoffloats;
+          const LISTOFFLOATS_TYPE_LIST
+            *listoffloats = &converter->document->listoffloats;
           for (i = 0; i < listoffloats->number; i++)
             {
               LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
@@ -1579,14 +1579,14 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
   else if (!strcmp (state_name, "formatted_listoffloats"))
     {
       char *type = (char *)SvPVutf8_nolen (args_sv[0]);
-      if (converter->document && converter->document->listoffloats)
+      if (converter->document && converter->document->listoffloats.number > 0)
         {
-          int i;
-          LISTOFFLOATS_TYPE_LIST *listoffloats
-            = converter->document->listoffloats;
+          size_t i;
+          const LISTOFFLOATS_TYPE_LIST *listoffloats
+            = &converter->document->listoffloats;
           for (i = 0; i < listoffloats->number; i++)
             {
-              LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
+              const LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
               if (!strcmp (float_types->type, type))
                 {
                   if (float_types->float_list.number >= 0)

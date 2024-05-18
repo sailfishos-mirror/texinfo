@@ -52,8 +52,8 @@ DOCUMENT *
 new_document (void)
 {
   size_t document_index;
+  size_t i;
   int slot_found = 0;
-  int i;
   DOCUMENT *document = (DOCUMENT *) malloc (sizeof (DOCUMENT));
 
   for (i = 0; i < document_number; i++)
@@ -88,15 +88,6 @@ new_document (void)
 
   document->global_commands = malloc (sizeof (GLOBAL_COMMANDS));
   memset (document->global_commands, 0, sizeof (GLOBAL_COMMANDS));
-  document->labels_list = malloc (sizeof (LABEL_LIST));
-  memset (document->labels_list, 0, sizeof (LABEL_LIST));
-  /* Array of recorded @float's. */
-  document->floats = malloc (sizeof (FLOAT_RECORD_LIST));
-  memset (document->floats, 0, sizeof (FLOAT_RECORD_LIST));
-  document->internal_references = malloc (sizeof (ELEMENT_LIST));
-  memset (document->internal_references, 0, sizeof (ELEMENT_LIST));
-  document->indices_info = malloc (sizeof (INDEX_LIST));
-  memset (document->indices_info, 0, sizeof (INDEX_LIST));
   /* For filenames and macro names, it is possible that they won't be referenced
    in the line number of any element.  It would be too much work to keep track,
    so just keep them all here, and free them all together at the end. */
@@ -142,12 +133,12 @@ register_document_options (DOCUMENT *document, OPTIONS *options)
 const MERGED_INDICES *
 document_merged_indices (DOCUMENT *document)
 {
-  if (document->indices_info->number)
+  if (document->indices_info.number)
     {
       if (!document->merged_indices)
         {
           document->merged_indices
-            = merge_indices (document->indices_info);
+            = merge_indices (&document->indices_info);
           document->modified_information |= F_DOCM_merged_indices;
         }
     }
@@ -176,7 +167,7 @@ document_indices_sort_strings (DOCUMENT *document,
 
       document->indices_sort_strings
        = setup_index_entries_sort_strings (error_messages, options,
-                        merged_indices, document->indices_info, 0);
+                        merged_indices, &document->indices_info, 0);
 
       document->modified_information |= F_DOCM_indices_sort_strings;
     }
@@ -414,16 +405,12 @@ destroy_document_information_except_tree (DOCUMENT *document)
       free (document->global_info);
       delete_global_commands (document->global_commands);
       free (document->global_commands);
-      free (document->internal_references->list);
-      free (document->internal_references);
-      free (document->floats->list);
-      free (document->floats);
-      destroy_listoffloats_list (document->listoffloats);
-      free (document->labels_list->list);
-      free (document->labels_list);
-      free (document->identifiers_target->list);
-      free (document->identifiers_target);
-      wipe_index_names (document->indices_info);
+      free (document->internal_references.list);
+      free (document->floats.list);
+      free_listoffloats_list (&document->listoffloats);
+      free (document->labels_list.list);
+      free (document->identifiers_target.list);
+      free_indices_info (&document->indices_info);
       wipe_error_message_list (document->error_messages);
       free (document->error_messages);
       wipe_error_message_list (document->parser_error_messages);

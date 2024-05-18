@@ -121,7 +121,7 @@ index_entry_element_sort_string (SV *customization_info_sv, SV *main_entry_sv, S
             const ELEMENT *element = find_element_from_sv (0, document,
                                                            element_sv, 0);
             INDEX_ENTRY *main_entry = find_index_entry_sv (main_entry_sv,
-                                          document->indices_info, 0,
+                                          &document->indices_info, 0,
                                           &entry_idx, &entry_number);
             in_code = entry_idx->in_code;
 

@@ -1,5 +1,39 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_target_elements_list)
+	(build_internal_xref_list, build_float_types_list)
+	(BUILD_PERL_DOCUMENT_LIST): use a list as input argument.  Update
+	callers.  Modify BUILD_PERL_DOCUMENT_LIST to use a list too, using the
+	address of the fieldname.
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/get_html_perl_info.c,
+	tp/Texinfo/XS/main/IndicesXS.xs, tp/Texinfo/XS/main/document.c
+	(new_document, destroy_document_information_except_tree),
+	tp/Texinfo/XS/main/document_types.h (DOCUMENT),
+	tp/Texinfo/XS/main/floats.c (float_list_to_listoffloats_list)
+	(free_listoffloats_list), tp/Texinfo/XS/main/targets.c
+	(set_labels_identifiers_target, sort_labels_identifiers_target)
+	(add_element_to_identifiers_target), tp/Texinfo/XS/main/utils.c
+	(free_indices_info), tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/parsetexi/indices.c, tp/Texinfo/XS/parsetexi/labels.c,
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(relate_index_entries_to_table_items_in_tree),
+	tp/Texinfo/XS/structuring_transfo/structuring.c,
+	tp/Texinfo/XS/structuring_transfo/transformations.c: put directly
+	structures in DOCUMENT instead of pointers for some fields that are
+	not moved around.  Modify float_list_to_listoffloats_list and
+	set_labels_identifiers_target to take in argument the list where the
+	generated structure will be put instead of returning it.  Replace
+	destroy_listoffloats_list by free_listoffloats_list, which does not
+	destroy the argument.  Modify sort_labels_identifiers_target and
+	add_element_to_identifiers_target to change only the list of
+	identifiers_target, not the LABEL_LIST.  Replace wipe_index_names by
+	free_indices_info that does not destroy the argument.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c (document_list, retrieve_document)
 	(new_document, remove_document_descriptor): store a document pointer
 	in document_list, not a document, such that the document pointer

@@ -12,7 +12,7 @@ ELEMENT *find_identifier_target (const LABEL_LIST *identifiers_target,
 int register_label_element (int document_descriptor, ELEMENT *element,
                             ERROR_MESSAGE_LIST *error_messages);
 
-LABEL_LIST *set_labels_identifiers_target (LABEL *list_of_labels,
-                                           size_t labels_number);
+void set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number,
+                                    LABEL_LIST *result);
 
 #endif

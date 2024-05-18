@@ -740,7 +740,7 @@ build_texinfo_tree (ELEMENT *root, int avoid_recursion)
 /* Return array of target elements.  build_texinfo_tree must
    be called first. */
 AV *
-build_target_elements_list (LABEL *labels_list, size_t labels_number)
+build_target_elements_list (LABEL_LIST *labels_list)
 {
   AV *target_array;
   SV *sv;
@@ -749,11 +749,11 @@ build_target_elements_list (LABEL *labels_list, size_t labels_number)
   dTHX;
 
   target_array = newAV ();
-  av_unshift (target_array, labels_number);
+  av_unshift (target_array, labels_list->number);
 
-  for (i = 0; i < labels_number; i++)
+  for (i = 0; i < labels_list->number; i++)
     {
-      sv = newRV_inc (labels_list[i].element->hv);
+      sv = newRV_inc (labels_list->list[i].element->hv);
       av_store (target_array, i, sv);
     }
 
@@ -784,8 +784,7 @@ build_identifiers_target (LABEL_LIST *identifiers_target)
 }
 
 AV *
-build_internal_xref_list (ELEMENT **internal_xref_list,
-                          size_t internal_xref_number)
+build_internal_xref_list (ELEMENT_LIST *internal_xref_list)
 {
   AV *list_av;
   SV *sv;
@@ -794,11 +793,11 @@ build_internal_xref_list (ELEMENT **internal_xref_list,
   dTHX;
 
   list_av = newAV ();
-  av_unshift (list_av, internal_xref_number);
+  av_unshift (list_av, internal_xref_list->number);
 
-  for (i = 0; i < internal_xref_number; i++)
+  for (i = 0; i < internal_xref_list->number; i++)
     {
-      sv = newRV_inc (internal_xref_list[i]->hv);
+      sv = newRV_inc (internal_xref_list->list[i]->hv);
       av_store (list_av, i, sv);
     }
 
@@ -829,7 +828,7 @@ build_elements_list (ELEMENT_LIST *list)
 
 /* Return hash for list of @float's that appeared in the file. */
 HV *
-build_float_types_list (FLOAT_RECORD *floats_list, size_t floats_number)
+build_float_types_list (const FLOAT_RECORD_LIST *floats)
 {
   HV *float_hash;
   SV *sv;
@@ -839,10 +838,10 @@ build_float_types_list (FLOAT_RECORD *floats_list, size_t floats_number)
 
   float_hash = newHV ();
 
-  for (i = 0; i < floats_number; i++)
+  for (i = 0; i < floats->number; i++)
     {
       AV *av = 0;
-      SV *float_type = newSVpv_utf8 (floats_list[i].type, 0);
+      SV *float_type = newSVpv_utf8 (floats->list[i].type, 0);
       /* use hv_fetch_ent to be able to pass a SV string for the key and
          not a char to be able to signal that it is UTF-8 encoded.  In recent
          perlapi, it is said that a negative len can be used to specify
@@ -864,7 +863,7 @@ build_float_types_list (FLOAT_RECORD *floats_list, size_t floats_number)
           hv_store_ent (float_hash, float_type,
                         newRV_noinc ((SV *)av), 0);
         }
-      sv = newRV_inc ((SV *)floats_list[i].element->hv);
+      sv = newRV_inc ((SV *)floats->list[i].element->hv);
       av_push (av, sv);
     }
 
@@ -1433,7 +1432,7 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   hv_commands_info = build_global_commands (document->global_commands);
 
-  hv_index_names = build_index_data (document->indices_info);
+  hv_index_names = build_index_data (&document->indices_info);
 
   /* NOTE there is also a document->listoffloats which structure
      is more like the hv_listoffloats_list, so it could be
@@ -1441,17 +1440,13 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
      for example build_listoffloats_list that would create the
      hv_listoffloats_list based on document->listoffloats. */
   hv_listoffloats_list
-         = build_float_types_list (document->floats->list,
-                                   document->floats->number);
+         = build_float_types_list (&document->floats);
 
-  av_internal_xref = build_internal_xref_list (
-                    document->internal_references->list,
-                    document->internal_references->number);
+  av_internal_xref = build_internal_xref_list (&document->internal_references);
 
-  hv_identifiers_target = build_identifiers_target (document->identifiers_target);
+  hv_identifiers_target = build_identifiers_target (&document->identifiers_target);
 
-  av_labels_list = build_target_elements_list (document->labels_list->list,
-                                               document->labels_list->number);
+  av_labels_list = build_target_elements_list (&document->labels_list);
 
   if (document->nodes_list)
     av_nodes_list = build_elements_list (document->nodes_list);
@@ -1632,11 +1627,8 @@ funcname (SV *document_in) \
 BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV)
  */
 
-BUILD_PERL_DOCUMENT_ITEM(document_indices_information,indices_info,"indices",F_DOCM_index_names,build_index_data,HV)
-
 BUILD_PERL_DOCUMENT_ITEM(document_global_commands_information,global_commands,"commands_info",F_DOCM_global_commands,build_global_commands,HV)
 
-BUILD_PERL_DOCUMENT_ITEM(document_labels_information,identifiers_target,"identifiers_target",F_DOCM_identifiers_target,build_identifiers_target,HV)
 
 BUILD_PERL_DOCUMENT_ITEM(document_nodes_list,nodes_list,"nodes_list",F_DOCM_nodes_list,build_elements_list,AV)
 
@@ -1657,13 +1649,12 @@ funcname (SV *document_in) \
   document_hv = (HV *) SvRV (document_in); \
   DOCUMENT *document = get_sv_document_document (document_in, #funcname); \
 \
-  if (document && document->fieldname)\
+  if (document)\
     {\
       store_texinfo_tree (document, document_hv);\
       if (document->modified_information & flagname)\
         {\
-          HVAV *result_av_hv = buildname (document->fieldname->list,\
-                                     document->fieldname->number);\
+          HVAV *result_av_hv = buildname (&document->fieldname);\
           result_sv = newRV_inc ((SV *) result_av_hv);\
           hv_store (document_hv, key, strlen (key), result_sv, 0);\
           document->modified_information &= ~flagname;\
@@ -1696,6 +1687,10 @@ BUILD_PERL_DOCUMENT_LIST(document_floats_information,floats,"listoffloats_list",
 BUILD_PERL_DOCUMENT_LIST(document_internal_references_information,internal_references,"internal_references",F_DOCM_internal_references,build_internal_xref_list,AV)
 
 BUILD_PERL_DOCUMENT_LIST(document_labels_list,labels_list,"labels_list",F_DOCM_labels_list,build_target_elements_list,AV)
+
+BUILD_PERL_DOCUMENT_LIST(document_indices_information,indices_info,"indices",F_DOCM_index_names,build_index_data,HV)
+
+BUILD_PERL_DOCUMENT_LIST(document_labels_information,identifiers_target,"identifiers_target",F_DOCM_identifiers_target,build_identifiers_target,HV)
 
 #undef BUILD_PERL_DOCUMENT_LIST
 
