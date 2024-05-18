@@ -105,11 +105,7 @@ sub parser (;$$)
           parser_add_include_directory ($d);
         }
       } elsif ($key eq 'values') {
-        for my $flag (keys %{$conf->{'values'}}) {
-          my $bytes_flag = Encode::encode('utf-8', $flag);
-          my $bytes_value = Encode::encode('utf-8', $conf->{'values'}->{$flag});
-          parser_store_value ($bytes_flag, $bytes_value);
-        }
+        parser_store_values($conf->{'values'});
       } elsif ($key eq 'EXPANDED_FORMATS') {
         parser_clear_expanded_formats ();
 

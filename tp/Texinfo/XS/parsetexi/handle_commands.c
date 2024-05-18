@@ -221,8 +221,8 @@ parse_rawline_command (char *line, enum command_id cmd,
       else
         ADD_ARG("", 0);
 
-      store_value (args->contents.list[0]->text.text,
-                   args->contents.list[1]->text.text);
+      store_parser_value (args->contents.list[0]->text.text,
+                          args->contents.list[1]->text.text);
 
       break;
     set_no_name:

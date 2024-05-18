@@ -38,7 +38,7 @@
 #include "context_stack.h"
 /* for clear_parser_expanded_formats and add_parser_expanded_format */
 #include "handle_commands.h"
-/* for wipe_macros and store_value */
+/* for wipe_macros store_value init_values */
 #include "macro.h"
 #include "document.h"
 /* for reset_conf */
@@ -52,6 +52,7 @@ reset_parser_except_conf (void)
 
   wipe_user_commands ();
   wipe_macros ();
+  init_values ();
 
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
@@ -85,7 +86,6 @@ reset_parser (int local_debug_output)
     fprintf (stderr,
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
-  wipe_values ();
   clear_parser_expanded_formats ();
   parser_clear_include_directories ();
   reset_conf ();
@@ -243,9 +243,15 @@ parser_set_locale_encoding (const char *value)
 }
 
 void
+parser_reset_values_conf (void)
+{
+  conf.values.number = 0;
+}
+
+void
 parser_store_value (const char *name, const char *value)
 {
-  store_value (name, value);
+  store_value (&conf.values, name, value);
 }
 
 void

@@ -1,5 +1,44 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document_types.h (VALUE, VALUE_LIST): move VALUE
+	definition to document_types.h, define VALUE_LIST.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (wipe_values): wipe values from a
+	VALUE_LIST passed in argument.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (store_value, store_parser_value),
+	(parser_values, clear_value, fetch_value),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (parse_rawline_command):
+	modify store_value to store in a VALUE_LIST passed in argument.  Add
+	the parser_values VALUE_LIST variable for the parser, replacing
+	value_list, value_number and value_space that are removed.  Add
+	store_parser_value that does the same as store_value previously by
+	calling store_value with parser_values.  Update fetch_value and
+	clear_value to use parser_values.  
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parser_store_values),
+	tp/Texinfo/XS/parsetexi/api.c (parser_reset_values_conf)
+	(reset_parser_except_conf, reset_parser, parser_store_value),
+	tp/Texinfo/XS/parsetexi/conf.c (reset_conf),
+	tp/Texinfo/XS/parsetexi/conf.h (CONF), tp/Texinfo/XS/parsetexi/macro.c
+	(init_values): add values field in CONF to store default values and
+	values from parser initialization.  Pass all the values from Perl hash
+	at once through parser_store_values.  Reset the default values in CONF
+	in parser_store_values by calling parser_reset_values_conf before
+	setting customization values.  Modify reset_conf to set the default for
+	CONF values, setting txicommandconditionals.
+	Add init_values to initialize the parser values by copying CONF
+	values.  Call init_values in reset_parser_except_conf.
+	Do not call wipe_values in reset_parser, init_values now initialize
+	the parser values based on configuration.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (fetch_value): remove the special
+	case for txicommandconditionals, it should be set in reset_conf or
+	from Perl through parser_store_values.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser, parse_file): call
 	reset_parser_except_conf in parse_file instead of reset_parser.
 

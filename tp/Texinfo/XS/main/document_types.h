@@ -206,10 +206,21 @@ typedef struct DOCUMENT {
     unsigned long modified_information;
 } DOCUMENT;
 
-/* not in document, but used in parser */
+/* following not in document, but used in parser */
 typedef struct EXPANDED_FORMAT {
     char *format;
     int expandedp;
 } EXPANDED_FORMAT;
+
+typedef struct {
+    char *name;
+    char *value;
+} VALUE;
+
+typedef struct {
+    size_t number;
+    size_t space;
+    VALUE *list;
+} VALUE_LIST;
 
 #endif

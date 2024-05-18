@@ -17,6 +17,7 @@
 #include <string.h>
 
 #include "tree_types.h"
+#include "macro.h"
 #include "conf.h"
 
 /* Configuration values. */
@@ -70,4 +71,6 @@ reset_conf (void)
   conf.cpp_line_directives = 1;
   conf.ignore_space_after_braced_command_name = 1;
   conf.max_macro_call_nesting = 100000;
+  conf.values.number = 0;
+  store_value (&conf.values, "txicommandconditionals", "1");
 }

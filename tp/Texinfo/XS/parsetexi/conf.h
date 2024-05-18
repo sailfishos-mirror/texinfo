@@ -16,6 +16,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include "document_types.h"
+
 typedef struct CONF {
     int show_menu;
     int cpp_line_directives;
@@ -23,6 +25,7 @@ typedef struct CONF {
     int max_macro_call_nesting;
     int no_index;
     int no_user_commands;
+    VALUE_LIST values;
 } CONF;
 
 extern CONF conf;

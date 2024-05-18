@@ -24,6 +24,8 @@
 #include "utils.h"
 #include "tree.h"
 #include "tree_types.h"
+/* for VALUE */
+#include "document_types.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
 #include "text.h"
@@ -1005,29 +1007,39 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
 /* @set and @value */
 
-typedef struct {
-    char *name;
-    char *value;
-} VALUE;
-
-static VALUE *value_list;
-static size_t value_number;
-static size_t value_space;
+static VALUE_LIST parser_values;
 
 void
-wipe_values (void)
+wipe_values (VALUE_LIST *values)
 {
   size_t i;
-  for (i = 0; i < value_number; i++)
+  for (i = 0; i < values->number; i++)
     {
-      free (value_list[i].name);
-      free (value_list[i].value);
+      free (values->list[i].name);
+      free (values->list[i].value);
     }
-  value_number = 0;
+  values->number = 0;
 }
 
 void
-store_value (const char *name, const char *value)
+init_values (void)
+{
+  size_t i;
+
+  parser_values.number = 0;
+  if (parser_values.space < conf.values.number)
+    {
+      parser_values.space = conf.values.number;
+      parser_values.list = realloc (parser_values.list,
+                                    parser_values.space * sizeof (VALUE));
+    }
+  for (i = 0; i < conf.values.number; i++)
+    store_value (&parser_values, conf.values.list[i].name,
+                 conf.values.list[i].value);
+}
+
+void
+store_value (VALUE_LIST *values, const char *name, const char *value)
 {
   int i;
   VALUE *v = 0;
@@ -1036,11 +1048,12 @@ store_value (const char *name, const char *value)
   len = strlen (name);
 
   /* Check if already defined. */
-  for (i = 0; i < value_number; i++)
+  for (i = 0; i < values->number; i++)
     {
-      if (!strncmp (value_list[i].name, name, len) && !value_list[i].name[len])
+      if (!strncmp (values->list[i].name, name, len)
+          && !values->list[i].name[len])
         {
-          v = &value_list[i];
+          v = &values->list[i];
           free (v->name); free (v->value);
           break;
         }
@@ -1048,11 +1061,12 @@ store_value (const char *name, const char *value)
 
   if (!v)
     {
-      if (value_number == value_space)
+      if (values->number == values->space)
         {
-          value_list = realloc (value_list, (value_space += 5) * sizeof (VALUE));
+          values->list = realloc (values->list,
+                                  (values->space += 5) * sizeof (VALUE));
         }
-      v = &value_list[value_number++];
+      v = &values->list[values->number++];
     }
 
   v->name = strdup (name);
@@ -1079,15 +1093,22 @@ store_value (const char *name, const char *value)
 }
 
 void
+store_parser_value (const char *name, const char *value)
+{
+  store_value (&parser_values, name, value);
+}
+
+void
 clear_value (char *name)
 {
   int i;
-  for (i = 0; i < value_number; i++)
+  VALUE_LIST *values = &parser_values;
+  for (i = 0; i < values->number; i++)
     {
-      if (!strcmp (value_list[i].name, name))
+      if (!strcmp (values->list[i].name, name))
         {
-          value_list[i].name[0] = '\0';
-          value_list[i].value[0] = '\0';
+          values->list[i].name[0] = '\0';
+          values->list[i].value[0] = '\0';
         }
     }
   /* Internal Texinfo flag */
@@ -1113,17 +1134,13 @@ char *
 fetch_value (char *name)
 {
   int i;
-  for (i = 0; i < value_number; i++)
+  VALUE_LIST *values = &parser_values;
+  for (i = 0; i < values->number; i++)
     {
-      if (!strcmp (value_list[i].name, name))
-        return value_list[i].value;
+      if (!strcmp (values->list[i].name, name))
+        return values->list[i].value;
     }
 
-  /* special value always returned as 1 to mark that @ifcommandnotdefined
-      is implemented.  Note that in most cases it is also set from perl
-      using the configuration passed to the parser */
-  if (!strcmp (name, "txicommandconditionals"))
-    return "1";
   return 0;
 }
 

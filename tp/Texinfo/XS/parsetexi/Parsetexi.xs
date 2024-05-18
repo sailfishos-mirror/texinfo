@@ -104,9 +104,28 @@ void
 pass_document_parser_errors_to_registrar (int document_descriptor, SV *parser_sv)
 
 void
-parser_store_value (name, value)
-        char *name = (char *)SvPVbyte_nolen($arg);
-        char *value = (char *)SvPVbyte_nolen($arg);
+parser_store_values (SV *values)
+      CODE:
+        parser_reset_values_conf ();
+        if (SvOK (values))
+          {
+            I32 i;
+            HV *values_hv = (HV *)SvRV (values);
+            I32 hv_number = hv_iterinit (values_hv);
+
+            for (i = 0; i < hv_number; i++)
+              {
+                HE *next = hv_iternext (values_hv);
+                SV *flag_sv = hv_iterkeysv (next);
+                char *key = SvPVutf8_nolen (flag_sv);
+                SV *value_sv = hv_iterval (values_hv, next);
+                if (value_sv && SvOK (value_sv))
+                  {
+                    char *value_text = SvPVutf8_nolen (value_sv);
+                    parser_store_value (key, value_text);
+                  }
+              }
+          }
 
 # file path, can be in any encoding
 void

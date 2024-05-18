@@ -17,6 +17,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include "tree_types.h"
+#include "document_types.h"
 
 typedef struct {
     enum command_id cmd;
@@ -43,10 +44,12 @@ void expand_macro_body (MACRO *macro_record, ELEMENT *arguments,
 MACRO *lookup_macro (enum command_id cmd);
 void wipe_macros (void);
 
-void store_value (const char *name, const char *value);
+void store_value (VALUE_LIST *values, const char *name, const char *value);
 char *fetch_value (char *name);
 void clear_value (char *name);
-void wipe_values (void);
+void wipe_values (VALUE_LIST *values);
+void init_values (void);
+void store_parser_value (const char *name, const char *value);
 
 INFO_ENCLOSE *lookup_infoenclose (enum command_id cmd);
 void add_infoenclose (enum command_id cmd, char *begin, char *end);
