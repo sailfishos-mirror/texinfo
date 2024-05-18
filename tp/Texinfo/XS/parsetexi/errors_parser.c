@@ -43,7 +43,7 @@ line_error_internal (enum error_type type, int continuation,
                      const SOURCE_INFO *cmd_source_info,
                      const char *format, va_list v)
 {
-  vmessage_list_line_error (parsed_document->parser_error_messages,
+  vmessage_list_line_error (&parsed_document->parser_error_messages,
                       type, continuation, debug_output, cmd_source_info,
                       0, format, v);
 }

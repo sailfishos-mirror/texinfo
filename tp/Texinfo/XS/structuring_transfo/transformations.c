@@ -791,7 +791,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   new_node_tree = copy_contents (content->args.list[0],
                                                  ET_NONE);
                 }
-              added_node = new_node (document->error_messages, new_node_tree,
+              added_node = new_node (&document->error_messages, new_node_tree,
                                      document);
               destroy_element (new_node_tree);
               if (added_node)
@@ -1152,7 +1152,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   else
     return 0;
 
-  new_detailmenu_e = new_detailmenu (document->error_messages,
+  new_detailmenu_e = new_detailmenu (&document->error_messages,
                                     document->options, identifiers_target,
                                     menus, use_sections);
 
@@ -1325,13 +1325,11 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                   && parent_for_warn->source_info.line_nr)
                                 {
                                   DOCUMENT *document = (DOCUMENT *) argument;
-                                  ERROR_MESSAGE_LIST *error_messages
-                                      = document->error_messages;
                                   const OPTIONS *options = document->options;
 
                                   message_list_command_warn (
-                                    error_messages, options,
-                                    parent_for_warn, 0,
+                                    &document->error_messages,
+                                    options, parent_for_warn, 0,
                                     "could not protect hash character in @%s",
                                 builtin_command_name (parent_for_warn->cmd));
                                   break;

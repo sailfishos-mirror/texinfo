@@ -116,7 +116,7 @@ document_errors (SV *document_in)
      PPCODE:
         document = get_sv_document_document (document_in, 0);
         if (document)
-          error_messages = document->error_messages;
+          error_messages = &document->error_messages;
 
         pass_errors_to_registrar (error_messages, document_in,
                                   &errors_warnings_sv,
@@ -277,7 +277,7 @@ setup_indices_sort_strings (SV *document_in, ...)
         document = get_sv_document_document (document_in,
                                              "setup_indices_sort_strings");
         if (document)
-          document_indices_sort_strings (document, document->error_messages,
+          document_indices_sort_strings (document, &document->error_messages,
                                          document->options);
 
 # customization_information
@@ -294,7 +294,7 @@ indices_sort_strings (SV *document_in, ...)
                                              "indices_sort_strings");
         if (document)
           indices_sort_strings
-           = document_indices_sort_strings (document, document->error_messages,
+           = document_indices_sort_strings (document, &document->error_messages,
                                              document->options);
 
         if (indices_sort_strings)

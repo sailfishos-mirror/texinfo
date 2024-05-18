@@ -1363,9 +1363,9 @@ pass_document_parser_errors_to_registrar (int document_descriptor,
   if (!document)
     return;
 
-  pass_errors_to_registrar (document->parser_error_messages, parser_sv,
+  pass_errors_to_registrar (&document->parser_error_messages, parser_sv,
                             &errors_warnings_sv, &error_nrs_sv);
-  clear_error_message_list (document->parser_error_messages);
+  clear_error_message_list (&document->parser_error_messages);
 }
 
 

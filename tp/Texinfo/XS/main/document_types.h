@@ -191,10 +191,10 @@ typedef struct DOCUMENT {
     GLOBAL_INFO global_info;
     GLOBAL_COMMANDS global_commands;
     STRING_LIST *small_strings;
+    ERROR_MESSAGE_LIST error_messages;
+    ERROR_MESSAGE_LIST parser_error_messages;
     ELEMENT_LIST *nodes_list;
     ELEMENT_LIST *sections_list;
-    ERROR_MESSAGE_LIST *error_messages;
-    ERROR_MESSAGE_LIST *parser_error_messages;
     struct OPTIONS *options; /* for options used in structuring */
     struct TEXT_OPTIONS *convert_index_text_options; /* for index
                                        sorting without converter */

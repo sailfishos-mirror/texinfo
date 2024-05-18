@@ -86,11 +86,6 @@ new_document (void)
    so just keep them all here, and free them all together at the end. */
   document->small_strings = new_string_list ();
 
-  document->parser_error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
-  memset (document->parser_error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
-  document->error_messages = malloc (sizeof (ERROR_MESSAGE_LIST));
-  memset (document->error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
-
   document->modified_information |= F_DOCM_tree | F_DOCM_index_names
      | F_DOCM_floats | F_DOCM_internal_references | F_DOCM_labels_list
      | F_DOCM_identifiers_target | F_DOCM_global_info
@@ -402,10 +397,8 @@ destroy_document_information_except_tree (DOCUMENT *document)
       free (document->labels_list.list);
       free (document->identifiers_target.list);
       free_indices_info (&document->indices_info);
-      wipe_error_message_list (document->error_messages);
-      free (document->error_messages);
-      wipe_error_message_list (document->parser_error_messages);
-      free (document->parser_error_messages);
+      wipe_error_message_list (&document->error_messages);
+      wipe_error_message_list (&document->parser_error_messages);
       if (document->nodes_list)
         destroy_list (document->nodes_list);
       if (document->sections_list)
@@ -528,7 +521,7 @@ clear_document_errors (int document_descriptor)
 {
   DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
-    wipe_error_message_list (document->error_messages);
+    wipe_error_message_list (&document->error_messages);
 }
 
 void
@@ -536,5 +529,5 @@ clear_document_parser_errors (int document_descriptor)
 {
   DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
-    wipe_error_message_list (document->parser_error_messages);
+    wipe_error_message_list (&document->parser_error_messages);
 }

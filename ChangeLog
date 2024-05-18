@@ -1,6 +1,20 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/document.c (new_document)
+	(destroy_document_information_except_tree, clear_document_errors)
+	(clear_document_parser_errors), tp/Texinfo/XS/main/document_types.h
+	(DOCUMENT), tp/Texinfo/XS/main/DocumentXS.xs,
+	tp/Texinfo/XS/main/build_perl_info.c,
+	tp/Texinfo/XS/main/translations.c,
+	tp/Texinfo/XS/parsetexi/errors_parser.c,
+	tp/Texinfo/XS/structuring_transfo/structuring.c,
+	tp/Texinfo/XS/structuring_transfo/transformations.c: put
+	error_messages and parser_error_messages directly in DOCUMENT, not as
+	a pointer.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/document.c (new_document)
 	(destroy_document_information_except_tree),
 	tp/Texinfo/XS/main/document_types.h (DOCUMENT),
 	tp/Texinfo/XS/convert/ConvertXS.xs,

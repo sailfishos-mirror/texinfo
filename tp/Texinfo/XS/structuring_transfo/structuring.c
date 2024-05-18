@@ -80,7 +80,7 @@ ELEMENT_LIST *
 sectioning_structure (DOCUMENT *document)
 {
   ELEMENT *root = document->tree;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
   ELEMENT *sec_root = 0;
@@ -396,7 +396,7 @@ void
 warn_non_empty_parts (DOCUMENT *document)
 {
   const GLOBAL_COMMANDS *global_commands = &document->global_commands;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
   int i;
@@ -414,7 +414,7 @@ void
 check_menu_entry (DOCUMENT *document, enum command_id cmd,
                   ELEMENT *menu_content, ELEMENT *menu_entry_node)
 {
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   LABEL_LIST *identifiers_target = &document->identifiers_target;
   OPTIONS *options = document->options;
 
@@ -574,7 +574,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   ELEMENT_LIST *nodes_list = document->nodes_list;
   LABEL_LIST *identifiers_target = &document->identifiers_target;
   ELEMENT_LIST *refs = &document->internal_references;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
   char **referenced_identifiers;
@@ -805,7 +805,7 @@ set_menus_node_directions (DOCUMENT *document)
   GLOBAL_COMMANDS *global_commands = &document->global_commands;
   ELEMENT_LIST *nodes_list = document->nodes_list;
   LABEL_LIST *identifiers_target = &document->identifiers_target;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
   int check_menu_entries = 1;
@@ -1001,7 +1001,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 {
   ELEMENT_LIST *nodes_list = document->nodes_list;
   LABEL_LIST *identifiers_target = &document->identifiers_target;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
   int i;
@@ -1314,7 +1314,7 @@ nodes_tree (DOCUMENT *document)
 {
   LABEL_LIST *identifiers_target = &document->identifiers_target;
   ELEMENT *root = document->tree;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
   ELEMENT *top_node = 0;
@@ -1506,7 +1506,7 @@ associate_internal_references (DOCUMENT *document)
 {
   LABEL_LIST *identifiers_target = &document->identifiers_target;
   ELEMENT_LIST *refs = &document->internal_references;
-  ERROR_MESSAGE_LIST *error_messages = document->error_messages;
+  ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
   int i;

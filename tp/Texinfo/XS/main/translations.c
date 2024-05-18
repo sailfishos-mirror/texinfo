@@ -487,9 +487,9 @@ replace_convert_substrings (char *translated_string,
     fprintf (stderr, "XS|IN TR PARSER '%s'\n", texinfo_line);
 
   document = retrieve_document (document_descriptor);
-  if (document->parser_error_messages->number > 0)
+  if (document->parser_error_messages.number > 0)
     {
-      ERROR_MESSAGE_LIST *error_messages = document->parser_error_messages;
+      ERROR_MESSAGE_LIST *error_messages = &document->parser_error_messages;
       fprintf (stderr, "translation %zu error(s)\n",
                error_messages->number);
       fprintf (stderr, "translated string: %s\n", translated_string);
