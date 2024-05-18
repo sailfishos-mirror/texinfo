@@ -2662,8 +2662,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
      index merge */
   resolve_indices_merged_in (&parsed_document->indices_info);
 
-  set_labels_identifiers_target (parsed_document->labels_list.list,
-                                 parsed_document->labels_list.number,
+  set_labels_identifiers_target (&parsed_document->labels_list,
                                  &parsed_document->identifiers_target);
 
   parsed_document->tree = current;

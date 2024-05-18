@@ -92,27 +92,19 @@ compare_labels (const void *a, const void *b)
 */
 }
 
-/*
-some_fun (LABEL_LIST *labels_list)
-{
-  LABEL *list_of_labels = labels_list->list;
-  set_labels_identifiers_target (list_of_labels, labels_list->number);
-}
- */
-
 /* fill a LABEL_LIST that is sorted with unique identifiers such that
    elements are easy to find.
    Called from parser */
 void
-set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number,
+set_labels_identifiers_target (const LABEL_LIST *labels,
                                LABEL_LIST *result)
 {
+  size_t labels_number = labels->number;
   LABEL *targets = malloc (labels_number * sizeof (LABEL));
   size_t targets_number = labels_number;
-
   size_t i;
 
-  memcpy (targets, list_of_labels, labels_number * sizeof (LABEL));
+  memcpy (targets, labels->list, labels_number * sizeof (LABEL));
   qsort (targets, labels_number, sizeof (LABEL), compare_labels);
 
   i = 0;
@@ -133,7 +125,7 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number,
           while (j < targets_number - 1 && targets[j+1].identifier
                  && !strcmp (targets[i].identifier, targets[j+1].identifier))
             {
-              list_of_labels[targets[j+1].label_number].reference
+              labels->list[targets[j+1].label_number].reference
                                    = targets[i].element;
               j++;
             }
@@ -173,8 +165,9 @@ set_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number,
   result->space = labels_number;
 }
 
-LABEL *
-sort_labels_identifiers_target (LABEL *list_of_labels, size_t labels_number)
+static LABEL *
+sort_labels_identifiers_target (const LABEL *list_of_labels,
+                                size_t labels_number)
 {
   LABEL *targets = malloc (labels_number * sizeof (LABEL));
 
@@ -230,8 +223,8 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
           free (identifiers_target->list);
           identifiers_target->list = sorted_identifiers_target;
           /* knowing that space is the same as number requires looking at
-             sort_labels_identifiers_target to know the space
-             allocated for sorted_identifiers_target in that function */
+             sort_labels_identifiers_target to figure out the total space
+             allocated for sorted_identifiers_target */
           identifiers_target->space = identifiers_target->number;
           *status = 0;
           document->modified_information |= F_DOCM_labels_list

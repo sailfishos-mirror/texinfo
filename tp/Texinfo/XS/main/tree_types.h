@@ -275,6 +275,7 @@ typedef struct {
 typedef struct {
     size_t label_number;
     const char *identifier;
+ /* cannot be const because is_target is added */
     ELEMENT *element;
  /* for label that is a duplicate, points to the element used in links */
     const ELEMENT *reference;

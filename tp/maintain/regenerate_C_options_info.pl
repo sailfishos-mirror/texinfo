@@ -366,7 +366,8 @@ print GET '}
 ';
 
 print GET 'SV *
-build_sv_option (OPTIONS *options, const char *key, CONVERTER *converter)
+build_sv_option (const OPTIONS *options, const char *key,
+                 const CONVERTER *converter)
 {
   dTHX;
 

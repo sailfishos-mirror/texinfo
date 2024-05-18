@@ -31,6 +31,8 @@
 #include "extra.h"
 /* for non_perl_* */
 #include "utils.h"
+/* for clear_error_message_list */
+#include "errors.h"
 #include "document.h"
 #include "translations.h"
 #include "get_perl_info.h"
@@ -119,6 +121,7 @@ document_errors (SV *document_in)
         pass_errors_to_registrar (error_messages, document_in,
                                   &errors_warnings_sv,
                                   &error_nrs_sv);
+        clear_error_message_list (error_messages);
 
         if (!errors_warnings_sv)
           errors_warnings_sv = newSV (0);

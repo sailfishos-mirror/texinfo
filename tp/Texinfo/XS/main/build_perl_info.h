@@ -22,7 +22,8 @@ char *perl_only_strndup (const char *s, size_t n);
 int init (int texinfo_uninstalled, char *srcdir_in);
 
 /* in options_get_perl.c */
-SV *build_sv_option (OPTIONS *options, const char *key, CONVERTER *converter);
+SV *build_sv_option (const OPTIONS *options, const char *key,
+                     const CONVERTER *converter);
 
 /* does not exist as perl macro */
 SV *newSVpv_utf8 (const char *str, STRLEN len);
@@ -36,10 +37,9 @@ void rebuild_document (SV *document_in, int no_store);
 
 HV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 SV *store_texinfo_tree (DOCUMENT *document, HV *document_hv);
-AV *build_errors (ERROR_MESSAGE* error_list, size_t error_number);
+AV *build_errors (const ERROR_MESSAGE* error_list, size_t error_number);
 HV *build_float_list (FLOAT_RECORD *floats_list, size_t floats_number);
 void build_global_info_tree_info (HV *hv, GLOBAL_INFO *global_info_ref);
-HV *build_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 SV *document_indices_information (SV *document_in);
 SV *document_global_commands_information (SV *document_in);
@@ -55,7 +55,7 @@ SV *document_global_information (SV *document_in);
 
 void pass_document_parser_errors_to_registrar (int document_descriptor,
                                                SV *parser_sv);
-SV *pass_errors_to_registrar (ERROR_MESSAGE_LIST *error_messages,
+SV *pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
                               SV *object_sv,
                               SV **errors_warnings_out, SV **error_nrs_out);
 
@@ -68,10 +68,10 @@ AV *build_integer_stack (const INTEGER_STACK *integer_stack);
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);
 
 void pass_output_unit_files (SV *converter_sv,
-                        FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
+                       const FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
 void build_output_files_information (SV *converter_sv,
-                   OUTPUT_FILES_INFORMATION *output_files_information);
+                const OUTPUT_FILES_INFORMATION *output_files_information);
 
 HV *build_indices_sort_strings (
                   const INDICES_SORT_STRINGS *indices_sort_strings,
@@ -83,9 +83,9 @@ HV *build_sorted_indices_by_index (
                       const INDEX_SORTED_BY_INDEX *index_entries_by_index,
                       HV *indices_information_hv);
 
-SV *html_build_direction_icons (CONVERTER *converter,
-                            DIRECTION_ICON_LIST *direction_icons);
-SV *get_conf (CONVERTER *converter, const char *option_name);
+SV *html_build_direction_icons (const CONVERTER *converter,
+                            const DIRECTION_ICON_LIST *direction_icons);
+SV *get_conf (const CONVERTER *converter, const char *option_name);
 
 void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 

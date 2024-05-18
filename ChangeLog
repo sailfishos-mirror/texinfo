@@ -1,5 +1,21 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document.c
+	(unregister_document_merge_with_document): simplify code.
+
+	* tp/Texinfo/XS/main/targets.c (set_labels_identifiers_target): pass a
+	LABEL_LIST.  Update callers.
+
+	* tp/Texinfo/XS/main/DocumentXS.xs (document_errors),
+	tp/Texinfo/XS/main/build_perl_info.c (add_formatted_error_messages)
+	(pass_errors_to_registrar): call clear_error_message_list out of code
+	building Perl as far as possible.
+
+	* tp/Texinfo/XS/main/build_perl_info.c, tp/Texinfo/XS/main/targets.c,
+	tp/maintain/regenerate_C_options_info.pl: add const.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/DocumentXS.xs (set_document_global_info): fix
 	format.
 

@@ -515,22 +515,19 @@ unregister_document_merge_with_document (int document_descriptor,
   fprintf (stderr, "UNREGISTER %p\n", removed_document);
    */
 
-  if (removed_document->small_strings)
+  if (removed_document->small_strings->number)
     {
-      if (removed_document->small_strings->number)
-        {
-          if (document)
-            merge_strings (document->small_strings,
-                           removed_document->small_strings);
-          else
-            fatal ("unregister_document_merge_with_document "
-                   "no document but small_strings");
-        }
-      free (removed_document->small_strings->list);
-      free (removed_document->small_strings);
-
-      removed_document->small_strings = 0;
+      if (document)
+        merge_strings (document->small_strings,
+                       removed_document->small_strings);
+      else
+       fatal ("unregister_document_merge_with_document "
+               "no document but small_strings");
     }
+  free (removed_document->small_strings->list);
+  free (removed_document->small_strings);
+
+  removed_document->small_strings = 0;
 
   return tree;
 }
