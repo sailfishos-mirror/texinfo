@@ -1,5 +1,39 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (prepare_index_entries_targets)
+	(convert_printindex_command, html_initialize_output_state)
+	(html_reset_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(find_index_entry_numbers_index_entry_sv),
+	tp/Texinfo/XS/main/IndicesXS.xs (index_entry_element_sort_string),
+	tp/Texinfo/XS/main/build_perl_info.c (build_index_data)
+	(fill_document_hv), tp/Texinfo/XS/main/document.c
+	(document_merged_indices, document_indices_sort_strings)
+	(destroy_document_information_except_tree),
+	tp/Texinfo/XS/main/document_types.h (INDEX_LIST),
+	tp/Texinfo/XS/main/get_perl_info.c (find_index_entry_sv)
+	(get_sv_index_entries_sorted_by_letter)
+	(find_document_index_entry_extra_index_entry_sv)
+	(find_element_extra_index_entry_sv),
+	tp/Texinfo/XS/main/manipulate_indices.c (merge_indices)
+	(setup_index_entries_sort_strings), tp/Texinfo/XS/main/utils.c
+	(indices_info_index_by_name, wipe_index_names),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/indices.c (add_index_internal)
+	(add_index, init_index_commands, forget_indices)
+	(resolve_indices_merged_in, complete_indices),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(relate_index_entries_to_table_items_in_tree),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(lookup_index_entry, relate_index_entries_to_table_items_in)
+	(relate_index_entries_to_table_items_internal)
+	(relate_index_entries_to_table_items_in_tree): replace the index_names
+	indices list by indices_info INDEX_LIST structure, with the number of
+	indices. Pass an indices list as argument to
+	resolve_indices_merged_in.
+
+2024-05-18  Patrice Dumas  <pertusus@free.fr>
+
 	Setup an empty document early instead of storing variables at the end
 
 	* tp/Texinfo/XS/main/document.c (new_document),

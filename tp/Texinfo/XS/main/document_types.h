@@ -78,6 +78,11 @@ typedef struct GLOBAL_INFO {
     char *input_perl_encoding;
 } GLOBAL_INFO;
 
+typedef struct INDEX_LIST {
+    size_t number;
+    INDEX **list;
+} INDEX_LIST;
+
 typedef struct MERGED_INDEX {
     char *name;
     INDEX_ENTRY *index_entries;
@@ -172,7 +177,7 @@ typedef struct COLLATIONS_INDICES_SORTED_BY_LETTER {
 typedef struct DOCUMENT {
     int descriptor;
     ELEMENT *tree;
-    INDEX **index_names;
+    INDEX_LIST *indices_info;
     MERGED_INDICES *merged_indices;
     FLOAT_RECORD_LIST *floats;
     LISTOFFLOATS_TYPE_LIST *listoffloats;

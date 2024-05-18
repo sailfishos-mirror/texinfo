@@ -408,9 +408,9 @@ parse_line_command_args (ELEMENT *line_command)
             break;
           }
 
-        from_index = indices_info_index_by_name (parsed_document->index_names,
+        from_index = indices_info_index_by_name (parsed_document->indices_info,
                                                  index_name_from);
-        to_index = indices_info_index_by_name (parsed_document->index_names,
+        to_index = indices_info_index_by_name (parsed_document->indices_info,
                                                index_name_to);
         if (!from_index)
           line_error ("unknown source index in @%s: %s",
@@ -462,7 +462,7 @@ parse_line_command_args (ELEMENT *line_command)
         else
           {
             INDEX *idx
-             = indices_info_index_by_name (parsed_document->index_names, arg);
+             = indices_info_index_by_name (parsed_document->indices_info, arg);
             if (!idx)
               line_error ("unknown index `%s' in @printindex", arg);
             else

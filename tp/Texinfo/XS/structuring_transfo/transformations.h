@@ -8,7 +8,7 @@
 ELEMENT_LIST *fill_gaps_in_sectioning (ELEMENT *root,
                                    ELEMENT *commands_heading_content);
 void relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
-                                    INDEX **indices_information);
+                                        INDEX_LIST *indices_info);
 void move_index_entries_after_items_in_tree (ELEMENT *tree);
 ELEMENT *reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document);
 void complete_tree_nodes_menus (const ELEMENT *root, int use_sections);

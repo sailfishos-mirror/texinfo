@@ -179,7 +179,7 @@ void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 char *normalize_encoding_name (const char *text, int *possible_encoding);
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *get_label_element (const ELEMENT *e);
-INDEX *indices_info_index_by_name (INDEX **indices_information,
+INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,
                                    const char *name);
 INDEX *ultimate_index (INDEX *index);
 size_t index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
@@ -204,7 +204,7 @@ size_t find_string (const STRING_LIST *strings_list, const char *string);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 void wipe_index (INDEX *idx);
-void wipe_index_names (INDEX **index_names);
+void wipe_index_names (INDEX_LIST *indices_information);
 
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);

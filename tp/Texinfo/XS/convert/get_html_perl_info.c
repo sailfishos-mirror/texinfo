@@ -1364,7 +1364,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
 
   dTHX;
 
-  if (!converter->document->index_names)
+  if (!converter->document->indices_info->number)
     return 0;
 
   index_entry_hv = (HV *) SvRV (index_entry_sv);

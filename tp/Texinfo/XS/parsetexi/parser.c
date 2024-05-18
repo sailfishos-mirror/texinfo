@@ -570,6 +570,12 @@ parse_texi_document (void)
 
   document_descriptor = parse_texi (document_root, before_node_section);
 
+  /* TODO the document information often use more memory than needed,
+     when space > number.  We could realloc here the diverse structures
+     to number. No need to do it in parse_texi, it should only be
+     truely interesting for a whole document.
+   */
+
   rearrange_tree_beginning (before_node_section, document_descriptor);
 
   return document_descriptor;
@@ -2654,7 +2660,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   /* update merged_in.  Only needed for merging happening after first
      index merge */
-  resolve_indices_merged_in ();
+  resolve_indices_merged_in (parsed_document->indices_info);
 
   parsed_document->identifiers_target
     = set_labels_identifiers_target (parsed_document->labels_list->list,

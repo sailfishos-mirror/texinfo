@@ -114,15 +114,15 @@ relate_index_entries_to_table_items_in_tree (SV *document_in)
                    "relate_index_entries_to_table_items_in_tree");
         if (document)
           {
-            if (!document->index_names)
+            if (!document->indices_info)
               {
-                fprintf (stderr, "ERROR: %d: no index_names\n",
+                fprintf (stderr, "ERROR: %d: no indices_info\n",
                                           document->descriptor);
               }
             else
               {
                 relate_index_entries_to_table_items_in_tree (document->tree,
-                                                      document->index_names);
+                                                      document->indices_info);
                 document->modified_information |= F_DOCM_tree
                                                  | F_DOCM_index_names;
               }

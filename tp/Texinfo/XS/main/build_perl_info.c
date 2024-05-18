@@ -933,23 +933,21 @@ build_single_index_data (INDEX *index)
    build_texinfo_tree must be called before this so all the 'hv' fields
    are set on the elements in the tree. */
 HV *
-build_index_data (INDEX **index_names_in)
+build_index_data (INDEX_LIST *indices_info)
 {
+  size_t i;
   HV *hv;
-  INDEX **i, *idx;
 
   dTHX;
 
   hv = newHV ();
 
-  if (index_names_in)
+  for (i = 0; i < indices_info->number; i++)
     {
-      for (i = index_names_in; (idx = *i); i++)
-        {
-          HV *hv2 = build_single_index_data (idx);
-          hv_store (hv, idx->name, strlen (idx->name),
-                                           newRV_noinc ((SV *)hv2), 0);
-        }
+      INDEX *idx = indices_info->list[i];
+      HV *hv2 = build_single_index_data (idx);
+      hv_store (hv, idx->name, strlen (idx->name),
+                newRV_noinc ((SV *)hv2), 0);
     }
 
   return hv;
@@ -1435,7 +1433,7 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   hv_commands_info = build_global_commands (document->global_commands);
 
-  hv_index_names = build_index_data (document->index_names);
+  hv_index_names = build_index_data (document->indices_info);
 
   /* NOTE there is also a document->listoffloats which structure
      is more like the hv_listoffloats_list, so it could be
@@ -1634,7 +1632,7 @@ funcname (SV *document_in) \
 BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV)
  */
 
-BUILD_PERL_DOCUMENT_ITEM(document_indices_information,index_names,"indices",F_DOCM_index_names,build_index_data,HV)
+BUILD_PERL_DOCUMENT_ITEM(document_indices_information,indices_info,"indices",F_DOCM_index_names,build_index_data,HV)
 
 BUILD_PERL_DOCUMENT_ITEM(document_global_commands_information,global_commands,"commands_info",F_DOCM_global_commands,build_global_commands,HV)
 

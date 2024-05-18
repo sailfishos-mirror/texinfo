@@ -99,6 +99,8 @@ new_document (void)
   memset (document->floats, 0, sizeof (FLOAT_RECORD_LIST));
   document->internal_references = malloc (sizeof (ELEMENT_LIST));
   memset (document->internal_references, 0, sizeof (ELEMENT_LIST));
+  document->indices_info = malloc (sizeof (INDEX_LIST));
+  memset (document->indices_info, 0, sizeof (INDEX_LIST));
   /* For filenames and macro names, it is possible that they won't be referenced
    in the line number of any element.  It would be too much work to keep track,
    so just keep them all here, and free them all together at the end. */
@@ -147,11 +149,12 @@ register_document_options (DOCUMENT *document, OPTIONS *options)
 const MERGED_INDICES *
 document_merged_indices (DOCUMENT *document)
 {
-  if (document->index_names)
+  if (document->indices_info->number)
     {
       if (!document->merged_indices)
         {
-          document->merged_indices = merge_indices (document->index_names);
+          document->merged_indices
+            = merge_indices (document->indices_info);
           document->modified_information |= F_DOCM_merged_indices;
         }
     }
@@ -180,7 +183,7 @@ document_indices_sort_strings (DOCUMENT *document,
 
       document->indices_sort_strings
        = setup_index_entries_sort_strings (error_messages, options,
-                               merged_indices, document->index_names, 0);
+                        merged_indices, document->indices_info, 0);
 
       document->modified_information |= F_DOCM_indices_sort_strings;
     }
@@ -427,7 +430,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
       free (document->labels_list);
       free (document->identifiers_target->list);
       free (document->identifiers_target);
-      wipe_index_names (document->index_names);
+      wipe_index_names (document->indices_info);
       wipe_error_message_list (document->error_messages);
       free (document->error_messages);
       wipe_error_message_list (document->parser_error_messages);

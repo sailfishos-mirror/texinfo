@@ -4693,7 +4693,7 @@ compare_index_name (const void *a, const void *b)
 void
 prepare_index_entries_targets (CONVERTER *self)
 {
-  if (self->document->index_names)
+  if (self->document->indices_info->number)
     {
       size_t i;
       self->shared_conversion_state.formatted_index_entries
@@ -12771,7 +12771,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           entry_content_element = index_content_element (main_entry_element, 0);
           entry_index_nr
              = index_number_index_by_name (&self->sorted_index_names,
-                                                   index_entry_ref->index_name);
+                                           index_entry_ref->index_name);
           entry_index = self->sorted_index_names.list[entry_index_nr-1];
 
  /* to avoid double error messages, call convert_tree_new_formatting_context
@@ -16923,26 +16923,27 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
   html_new_document_context (self, context, 0, 0);
 
-  if (self->document && self->document->index_names)
+  if (self->document && self->document->indices_info->number)
     {
-      INDEX **i, *idx;
+      size_t i;
       size_t j;
-      INDEX **index_names = self->document->index_names;
+      INDEX_LIST *indices_info = self->document->indices_info;
       const INDEX **sorted_index_names;
-      size_t index_nr = 0;
+      size_t index_nr = indices_info->number;
       size_t non_empty_index_nr = 0;
       size_t idx_non_empty = 0;
 
-      for (i = index_names; (idx = *i); i++)
+      for (i = 0; i < index_nr; i++)
         {
-          index_nr++;
+          INDEX *idx = indices_info->list[i];
           if (idx->entries_number > 0)
             non_empty_index_nr++;
         }
 
       sorted_index_names = (const INDEX **) malloc (index_nr * sizeof (INDEX *));
 
-      memcpy (sorted_index_names, index_names, index_nr * sizeof (INDEX *));
+      memcpy (sorted_index_names, indices_info->list,
+              index_nr * sizeof (INDEX *));
       qsort (sorted_index_names, index_nr, sizeof (INDEX *),
              compare_index_name);
 
@@ -17082,7 +17083,7 @@ html_reset_converter (CONVERTER *self)
   free (self->shared_conversion_state.formatted_listoffloats_nr);
   self->shared_conversion_state.formatted_listoffloats_nr = 0;
 
-  if (self->document->index_names)
+  if (self->document->indices_info->number)
     {
       for (i = 0; i < self->sorted_index_names.number; i++)
         {
@@ -17092,7 +17093,7 @@ html_reset_converter (CONVERTER *self)
   }
 
   free (self->sorted_index_names.list);
-  memset (&self->sorted_index_names, 0, sizeof (SORTED_INDEX_NAMES));
+  memset (&self->sorted_index_names, 0, sizeof (INDEX_LIST));
 
   free (self->special_units_direction_name);
   self->special_units_direction_name = 0;

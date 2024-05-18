@@ -37,7 +37,7 @@ typedef struct INDEX_ENTRY_TEXT_OR_COMMAND {
     ELEMENT *command;
 } INDEX_ENTRY_TEXT_OR_COMMAND;
 
-MERGED_INDICES *merge_indices (INDEX **index_names);
+MERGED_INDICES *merge_indices (INDEX_LIST *indices_information);
 void destroy_merged_indices (MERGED_INDICES *merged_indices);
 
 void destroy_indices_sorted_by_index (
@@ -57,7 +57,8 @@ void destroy_index_entries_sort_strings (
 INDICES_SORT_STRINGS *setup_index_entries_sort_strings (
                     ERROR_MESSAGE_LIST *error_messages,
                     OPTIONS *options, const MERGED_INDICES *merged_indices,
-                    INDEX **indices_information, int prefer_reference_element);
+                    INDEX_LIST *indices_information,
+                    int prefer_reference_element);
 
 INDEX_SORTED_BY_INDEX *sort_indices_by_index (
                        DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,

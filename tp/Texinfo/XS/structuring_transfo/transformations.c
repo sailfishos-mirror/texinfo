@@ -50,7 +50,7 @@
 
 /* in Common.pm */
 INDEX_ENTRY_AND_INDEX *
-lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
+lookup_index_entry (ELEMENT *index_entry_info, INDEX_LIST *indices_info)
 {
   INDEX_ENTRY_AND_INDEX *result = 0;
   int status;
@@ -60,7 +60,7 @@ lookup_index_entry (ELEMENT *index_entry_info, INDEX **indices_information)
   char *entry_index_name = index_entry_info->contents.list[0]->text.text;
   INDEX *index_info;
 
-  index_info = indices_info_index_by_name (indices_information,
+  index_info = indices_info_index_by_name (indices_info,
                                            entry_index_name);
   if (!index_info)
     return 0;
@@ -315,7 +315,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
 
 void
 relate_index_entries_to_table_items_in (ELEMENT *table,
-                                        INDEX **indices_information)
+                                        INDEX_LIST *indices_info)
 {
   int i;
 
@@ -385,7 +385,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                       ELEMENT *index_entry_info = lookup_extra_element (content,
                                                                  "index_entry");
                       idx_info = lookup_index_entry (index_entry_info,
-                                                     indices_information);
+                                                     indices_info);
                       if (idx_info->index_entry)
                         entry_idx_info = idx_info;
                       else
@@ -431,18 +431,18 @@ relate_index_entries_to_table_items_internal (const char *type,
 {
   if (current->cmd && current->cmd == CM_table)
     {
-      INDEX **indices_information = (INDEX **)argument;
-      relate_index_entries_to_table_items_in (current, indices_information);
+      INDEX_LIST *indices_info = (INDEX_LIST *)argument;
+      relate_index_entries_to_table_items_in (current, indices_info);
     }
   return 0;
 }
 
 void
 relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
-                                             INDEX **indices_information)
+                                             INDEX_LIST *indices_info)
 {
   modify_tree (tree, &relate_index_entries_to_table_items_internal,
-               indices_information);
+               indices_info);
 }
 
 void

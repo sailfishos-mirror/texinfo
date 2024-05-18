@@ -44,12 +44,13 @@ int converter_initialize (SV *converter_sv);
 void reset_output_init_conf (SV *sv_in);
 void converter_set_document (SV *converter_in, SV *document_in);
 
-INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv, INDEX **index_names,
+INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
+                     INDEX_LIST *indices_info,
                      const char *warn_string, const INDEX **entry_idx,
                      int *entry_number);
 
 INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
-                 (INDEX **index_names, SV *index_entries_sorted_by_letter);
+                 (INDEX_LIST *indices_info, SV *index_entries_sorted_by_letter);
 
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 

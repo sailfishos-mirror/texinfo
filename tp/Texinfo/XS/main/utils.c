@@ -647,14 +647,17 @@ get_label_element (const ELEMENT *e)
 /* index related code used both in parsing and conversion */
 /* NAME is the name of an index, e.g. "cp" */
 INDEX *
-indices_info_index_by_name (INDEX **indices_information, const char *name)
+indices_info_index_by_name (const INDEX_LIST *indices_information,
+                            const char *name)
 {
-  INDEX **i;
-  INDEX *idx;
+  size_t i;
 
-  for (i = indices_information; (idx = *i); i++)
-    if (!strcmp (idx->name, name))
-      return idx;
+  for (i = 0; i < indices_information->number; i++)
+    {
+      INDEX *idx = indices_information->list[i];
+      if (!strcmp (idx->name, name))
+        return idx;
+    }
   return 0;
 }
 
@@ -850,18 +853,16 @@ wipe_index (INDEX *idx)
 }
 
 void
-wipe_index_names (INDEX **index_names)
+wipe_index_names (INDEX_LIST *indices_information)
 {
-  INDEX **i, *idx;
-  if (index_names)
+  size_t i;
+  for (i = 0; i < indices_information->number; i++)
     {
-      for (i = index_names; (idx = *i); i++)
-        {
-          wipe_index (idx);
-          free (idx);
-        }
+      INDEX *idx = indices_information->list[i];
+      wipe_index (idx);
+      free (idx);
     }
-  free (index_names);
+  free (indices_information);
 }
 
 

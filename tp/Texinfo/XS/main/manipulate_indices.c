@@ -40,13 +40,13 @@
 /* corresponding perl code in Texinfo::Indices */
 
 MERGED_INDICES *
-merge_indices (INDEX **index_names)
+merge_indices (INDEX_LIST *indices_information)
 {
   size_t merged_indices_space = 4;
   size_t merged_indices_number = 0;
-  INDEX **i, *idx;
+  size_t i;
 
-  if (!index_names)
+  if (!indices_information->number)
     return 0;
 
   MERGED_INDEX *merged_indices_list
@@ -55,8 +55,9 @@ merge_indices (INDEX **index_names)
   MERGED_INDICES *merged_indices
     = (MERGED_INDICES *) malloc (sizeof (MERGED_INDICES));
 
-  for (i = index_names; (idx = *i); i++)
+  for (i = 0; i < indices_information->number; i++)
     {
+      INDEX *idx = indices_information->list[i];
       if (idx->index_entries && idx->entries_number)
         {
           size_t j;
@@ -366,7 +367,7 @@ destroy_index_entries_sort_strings (INDICES_SORT_STRINGS *indices_sort_strings)
 INDICES_SORT_STRINGS *
 setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     OPTIONS *options, const MERGED_INDICES *merged_indices,
-                    INDEX **indices_information, int prefer_reference_element)
+                    INDEX_LIST *indices_information, int prefer_reference_element)
 {
   size_t i;
   TEXT_OPTIONS *convert_text_options;

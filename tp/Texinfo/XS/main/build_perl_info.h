@@ -43,7 +43,7 @@ HV* build_identifiers_target (LABEL_LIST *identifiers_target);
 AV *build_internal_xref_list (ELEMENT **internal_xref_list,
                               size_t internal_xref_number);
 HV *build_float_list (FLOAT_RECORD *floats_list, size_t floats_number);
-HV *build_index_data (INDEX **index_names_in);
+HV *build_index_data (INDEX_LIST *indices_info);
 HV *build_global_info (GLOBAL_INFO *global_info_ref,
                        GLOBAL_COMMANDS *global_commands_ref);
 void build_global_info_tree_info (HV *hv, GLOBAL_INFO *global_info_ref);
