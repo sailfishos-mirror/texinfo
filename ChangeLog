@@ -1,5 +1,10 @@
 2024-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (initialize_parsing): rename
+	reset_parser_except_conf to initialize_parsing and make it static.
+
+2024-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf),
 	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): call
 	init_index_commands in reset_parser_except_conf and not in parse_texi,

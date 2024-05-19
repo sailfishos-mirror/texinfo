@@ -10,7 +10,6 @@ int parse_piece (const char *, int line_nr);
 int parse_string (const char *, int line_nr);
 int parse_text (const char *, int line_nr);
 void reset_parser (int debug_output);
-void reset_parser_except_conf (void);
 
 int parser_set_debug (int value);
 void parser_reset_values_conf (void);

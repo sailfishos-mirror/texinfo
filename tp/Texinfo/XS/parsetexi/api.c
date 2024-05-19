@@ -47,8 +47,8 @@
 #include "indices.h"
 #include "api.h"
 
-void
-reset_parser_except_conf (void)
+static void
+initialize_parsing (void)
 {
   parsed_document = new_document ();
 
@@ -124,7 +124,7 @@ parse_file (const char *filename, const char *input_file_name,
 
   int status;
 
-  reset_parser_except_conf ();
+  initialize_parsing ();
 
   status = input_push_file (filename);
   if (status)
@@ -169,7 +169,7 @@ parse_text (const char *string, int line_nr)
 {
   int document_descriptor;
 
-  reset_parser_except_conf ();
+  initialize_parsing ();
 
   input_push_text (strdup (string), line_nr, 0, 0);
   document_descriptor = parse_texi_document ();
@@ -185,7 +185,7 @@ parse_string (const char *string, int line_nr)
   ELEMENT *root_elt;
   int document_descriptor;
 
-  reset_parser_except_conf ();
+  initialize_parsing ();
 
   root_elt = new_element (ET_root_line);
 
@@ -201,7 +201,7 @@ parse_piece (const char *string, int line_nr)
   int document_descriptor;
   ELEMENT *before_node_section, *document_root;
 
-  reset_parser_except_conf ();
+  initialize_parsing ();
 
   before_node_section = setup_document_root_and_before_node_section ();
   document_root = before_node_section->parent;
