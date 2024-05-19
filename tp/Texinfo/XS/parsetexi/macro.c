@@ -1021,12 +1021,14 @@ wipe_values (VALUE_LIST *values)
   values->number = 0;
 }
 
+/* initialize parsing run values to the configuration values */
 void
 init_values (void)
 {
   size_t i;
 
-  parser_values.number = 0;
+  wipe_values (&parser_values);
+
   if (parser_values.space < conf.values.number)
     {
       parser_values.space = conf.values.number;

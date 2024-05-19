@@ -5612,9 +5612,12 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
       self->output_unit_file_indices[i] = output_unit_file_idx;
       output_unit_file = &self->output_unit_files.list[output_unit_file_idx];
       if (self->conf->DEBUG.integer > 0)
-        fprintf (stderr, "Page %s: %s(%d)\n",
-                 output_unit_texi (output_unit),
+        {
+          char *output_unit_text = output_unit_texi (output_unit);
+          fprintf (stderr, "Page %s: %s(%d)\n", output_unit_text,
                  output_unit->unit_filename, output_unit_file->counter);
+          free (output_unit_text);
+        }
       free (filename);
     }
 
@@ -7920,6 +7923,7 @@ html_default_format_element_header (CONVERTER *self,
     {
       int i;
       TEXT debug_txt;
+      char *output_unit_text;
       text_init (&debug_txt);
       text_append (&debug_txt, "FORMAT elt header (");
       for (i = 0; i < output_unit->unit_contents.number; i++)
@@ -7931,7 +7935,9 @@ html_default_format_element_header (CONVERTER *self,
           text_append (&debug_txt, elt_str);
           free (elt_str);
         }
-      text_printf (&debug_txt, ") %s\n", output_unit_texi (output_unit));
+      output_unit_text = output_unit_texi (output_unit);
+      text_printf (&debug_txt, ") %s\n", output_unit_text);
+      free (output_unit_text);
       fprintf (stderr, "%s", debug_txt.text);
       free (debug_txt.text);
     }
@@ -7965,9 +7971,12 @@ html_default_format_element_header (CONVERTER *self,
         previous_is_top = 1;
 
       if (self->conf->DEBUG.integer > 0)
-        fprintf (stderr, "Header (%d, %d, %d): %s\n", previous_is_top, is_top,
-                         first_in_page,
-                         root_heading_command_to_texinfo (command));
+        {
+          char *root_heading_texi = root_heading_command_to_texinfo (command);
+          fprintf (stderr, "Header (%d, %d, %d): %s\n", previous_is_top,
+                         is_top, first_in_page, root_heading_texi);
+          free (root_heading_texi);
+        }
 
       if (is_top)
        /* use TOP_BUTTONS for top. */
@@ -9985,8 +9994,11 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   element_id = html_command_id (self, element);
 
   if (self->conf->DEBUG.integer > 0)
-    fprintf (stderr, "CONVERT elt heading %s\n",
-                     root_heading_command_to_texinfo (element));
+    {
+      char *root_heading_texi = root_heading_command_to_texinfo (element);
+      fprintf (stderr, "CONVERT elt heading %s\n", root_heading_texi);
+      free (root_heading_texi);
+    }
 
   /* All the root commands are associated to an output unit, the condition
      on associated_unit is always true. */

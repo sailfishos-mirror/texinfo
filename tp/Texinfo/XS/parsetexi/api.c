@@ -38,7 +38,7 @@
 #include "context_stack.h"
 /* for clear_parser_expanded_formats and add_parser_expanded_format */
 #include "handle_commands.h"
-/* for wipe_macros store_value init_values */
+/* for wipe_macros store_value init_values wipe_values */
 #include "macro.h"
 #include "document.h"
 /* for reset_conf */
@@ -245,7 +245,7 @@ parser_set_locale_encoding (const char *value)
 void
 parser_reset_values_conf (void)
 {
-  conf.values.number = 0;
+  wipe_values (&conf.values);
 }
 
 void

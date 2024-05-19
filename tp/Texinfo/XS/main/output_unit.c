@@ -474,17 +474,21 @@ print_output_unit_directions (OUTPUT_UNIT *output_unit)
   TEXT result;
   int i;
   int with_direction = 0;
+  char *output_unit_text = output_unit_texi (output_unit);
+
   text_init (&result);
-  text_printf (&result, "output unit: %s\n",
-               output_unit_texi (output_unit));
+  text_printf (&result, "output unit: %s\n", output_unit_text);
+  free (output_unit_text);
 
   for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
     {
       OUTPUT_UNIT *direction = output_unit->directions[i];
       if (direction)
         {
+          char *direction_text = output_unit_texi (direction);
           text_printf (&result, "  %s: %s\n", relative_unit_direction_name[i],
-                       output_unit_texi (direction));
+                       direction_text);
+          free (direction_text);
           with_direction++;
         }
     }

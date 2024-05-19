@@ -791,6 +791,13 @@ export TEXINFO_XS_PARSER=0
 for file in t/*.t ; do bfile=`basename $file .t`; perl -w $file -d 1 2>t/check_debug_differences/PL_$bfile.err ; done
 for file in t/*.t ; do bfile=`basename $file .t`; sed 's/^XS|//' t/check_debug_differences/XS_$bfile.err | diff -u t/check_debug_differences/PL_$bfile.err - > t/check_debug_differences/debug_$bfile.diff; done
 
+Full check, including XS conversion and memory leaks in debug:
+export TEXINFO_XS_CONVERT=1
+PERL_DESTRUCT_LEVEL=2
+export PERL_DESTRUCT_LEVEL
+for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
+
+
 Setting flags
 our_CFLAGS='-g -Wformat-security -Wall -Wno-parentheses -Wno-missing-braces'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
