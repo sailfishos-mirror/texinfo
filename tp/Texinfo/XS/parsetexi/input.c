@@ -563,24 +563,10 @@ top_file_index (void)
 }
 
 
-static STRING_LIST parser_include_dirs_list = {0, 0, 0};
-
-void
-parser_add_include_directory (const char *filename)
-{
-  add_include_directory (filename, &parser_include_dirs_list);
-}
-
-void
-parser_clear_include_directories (void)
-{
-  clear_strings_list (&parser_include_dirs_list);
-}
-
 char *
 parser_locate_include_file (const char *filename)
 {
-  return locate_include_file (filename, &parser_include_dirs_list);
+  return locate_include_file (filename, &conf.include_directories);
 }
 
 /* Try to open a file called FILENAME */

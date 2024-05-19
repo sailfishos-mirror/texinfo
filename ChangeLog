@@ -1,5 +1,24 @@
 2024-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	Replace parser_include_dirs_list by conf.include_directories
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(parser_store_INCLUDE_DIRECTORIES), tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser, parse_file), tp/Texinfo/XS/parsetexi/conf.c
+	(conf_clear_INCLUDE_DIRECTORIES, conf_add_include_directory)
+	(reset_conf), tp/Texinfo/XS/parsetexi/conf.h (CONF),
+	tp/Texinfo/XS/parsetexi/input.c (parser_locate_include_file): iterate
+	over the INCLUDE_DIRECTORIES array reference in XS
+	parser_store_INCLUDE_DIRECTORIES function instead of doing it in Perl.
+	Add include_directories STRING_LIST in CONF, add
+	conf_clear_INCLUDE_DIRECTORIES to clear it and
+	conf_add_include_directory to add to it and replace
+	parser_include_dirs_list by conf.include_directories.  Remove
+	parser_add_include_directory and parser_clear_include_directories.
+
+2024-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	Replace debug_output by conf.debug
 
 	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings),

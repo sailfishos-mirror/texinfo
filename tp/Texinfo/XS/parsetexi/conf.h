@@ -22,6 +22,7 @@ typedef struct CONF {
     int cpp_line_directives;
     int debug;
     int ignore_space_after_braced_command_name;
+    STRING_LIST include_directories;
     int max_macro_call_nesting;
     int no_index;
     int no_user_commands;
@@ -40,6 +41,8 @@ void conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i);
 void conf_set_MAX_MACRO_CALL_NESTING (int i);
 int conf_set_NO_INDEX (int i);
 int conf_set_NO_USER_COMMANDS (int i);
+void conf_clear_INCLUDE_DIRECTORIES (void);
+void conf_add_include_directory (const char *filename);
 
 void reset_conf (void);
 

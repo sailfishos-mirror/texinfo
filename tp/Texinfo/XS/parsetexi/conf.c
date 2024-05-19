@@ -17,6 +17,7 @@
 #include <string.h>
 
 #include "tree_types.h"
+#include "utils.h"
 #include "macro.h"
 #include "conf.h"
 
@@ -72,9 +73,22 @@ conf_set_DEBUG (int i)
 }
 
 void
+conf_clear_INCLUDE_DIRECTORIES (void)
+{
+  clear_strings_list (&conf.include_directories);
+}
+
+void
+conf_add_include_directory (const char *filename)
+{
+  add_include_directory (filename, &conf.include_directories);
+}
+
+void
 reset_conf (void)
 {
   wipe_values (&conf.values);
+  clear_strings_list (&conf.include_directories);
 
   conf.cpp_line_directives = 1;
   conf.debug = 1;
@@ -83,6 +97,8 @@ reset_conf (void)
   conf.no_index = 0;
   conf.no_user_commands = 0;
   conf.show_menu = 1;
+
+  add_include_directory (".", &conf.include_directories);
 
   /* special value always returned as 1 to mark that @ifcommandnotdefined
      is implemented.  Note that when called from the main program it is set

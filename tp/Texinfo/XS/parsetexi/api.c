@@ -28,7 +28,7 @@
 #include "debug_parser.h"
 /* reset_obstacks */
 #include "tree.h"
-/* for parser_add_include_directory, set_input_file_name_encoding ... */
+/* for set_input_file_name_encoding ... */
 #include "input.h"
 #include "source_marks.h"
 #include "errors.h"
@@ -41,7 +41,7 @@
 /* for wipe_macros store_value init_values wipe_values */
 #include "macro.h"
 #include "document.h"
-/* for reset_conf */
+/* for reset_conf conf_add_include_directory */
 #include "conf.h"
 /* for init_index_commands */
 #include "indices.h"
@@ -97,7 +97,6 @@ reset_parser (int local_debug_output)
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
   clear_parser_expanded_formats ();
-  parser_clear_include_directories ();
   reset_conf ();
 
   global_documentlanguage_fixed = 0;
@@ -154,7 +153,7 @@ parse_file (const char *filename, const char *input_file_name,
     {
       char saved = *p;
       *p = '\0';
-      parser_add_include_directory (filename);
+      conf_add_include_directory (filename);
       *p = saved;
     }
 

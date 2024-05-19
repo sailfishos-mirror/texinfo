@@ -24,8 +24,6 @@ char *parser_locate_include_file (const char *filename);
 char *encode_file_name (char *filename);
 char *convert_to_utf8 (char *s);
 int set_input_encoding (const char *encoding);
-void parser_add_include_directory (const char *filename);
-void parser_clear_include_directories (void);
 
 char *save_string (const char *string);
 

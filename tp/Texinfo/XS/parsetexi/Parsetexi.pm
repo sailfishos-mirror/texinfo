@@ -98,12 +98,7 @@ sub parser (;$$)
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if ($key eq 'INCLUDE_DIRECTORIES') {
-        # the directories from the command line or the input file name
-        # are already byte strings (or ascii).  The encoding was detected
-        # as COMMAND_LINE_ENCODING, but it is not used in the XS parser.
-        foreach my $d (@{$conf->{'INCLUDE_DIRECTORIES'}}) {
-          parser_add_include_directory($d);
-        }
+        parser_store_INCLUDE_DIRECTORIES($conf->{'INCLUDE_DIRECTORIES'});
       } elsif ($key eq 'values') {
         parser_store_values($conf->{'values'});
       } elsif ($key eq 'EXPANDED_FORMATS') {

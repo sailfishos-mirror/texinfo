@@ -13,7 +13,6 @@ void reset_parser (int debug_output);
 
 void parser_reset_values_conf (void);
 void parser_store_value (const char *name, const char *value);
-void parser_add_include_directory (const char *filename);
 void parser_add_expanded_format (const char *format);
 void parser_clear_expanded_formats (void);
 void parser_set_accept_internalvalue (int value);
