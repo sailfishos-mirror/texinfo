@@ -43,15 +43,20 @@
 #include "document.h"
 /* for reset_conf */
 #include "conf.h"
+/* for init_index_commands */
+#include "indices.h"
 #include "api.h"
 
 void
 reset_parser_except_conf (void)
 {
+  parsed_document = new_document ();
+
   wipe_parser_global_variables ();
 
   wipe_user_commands ();
   wipe_macros ();
+
   init_values ();
 
   reset_context_stack ();
@@ -71,7 +76,9 @@ reset_parser_except_conf (void)
 
   current_node = current_section = current_part = 0;
 
-  parsed_document = new_document ();
+  if (!conf.no_index)
+    init_index_commands ();
+
   set_input_encoding ("utf-8");
 }
 

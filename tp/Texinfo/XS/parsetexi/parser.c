@@ -2509,12 +2509,6 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   int status;
   DOCUMENT *document = parsed_document;
 
-  /* done here and not in reset_parser_except_conf as usually done
-     as restricted is set after reset_parser_except_conf and before
-     calling parsing functions */
-  if (!conf.no_index)
-    init_index_commands ();
-
   /* Read input file line-by-line. */
   while (1)
     {

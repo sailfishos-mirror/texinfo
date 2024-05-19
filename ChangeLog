@@ -1,5 +1,13 @@
 2024-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): call
+	init_index_commands in reset_parser_except_conf and not in parse_texi,
+	now that reset_parser_except_conf only called right before parse_texi
+	and not in reset_parser anymore.
+
+2024-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser_except_conf, parse_file)
 	(parse_text, parse_string, parse_texi): call new_document and
 	set_input_encoding in reset_parser_except_conf.
