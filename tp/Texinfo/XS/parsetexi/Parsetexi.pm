@@ -142,8 +142,10 @@ sub parser (;$$)
         if (defined($conf->{$key})) {
           parser_set_locale_encoding($conf->{$key});
         }
-      } elsif ($key eq 'accept_internalvalue' and $conf->{$key}) {
-        parser_set_accept_internalvalue(1);
+      } elsif ($key eq 'accept_internalvalue') {
+        if ($conf->{$key}) {
+          parser_set_accept_internalvalue(1);
+        }
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING'
                or $key eq 'DEBUG') {
         # no action needed, already taken into account or only for Perl code

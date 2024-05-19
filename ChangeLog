@@ -1,5 +1,10 @@
 2024-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): check on keys
+	independentely of values.
+
+2024-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser, parse_texi_piece)
 	(parse_texi_text, parse_texi_line),
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_piece, parse_piece)
