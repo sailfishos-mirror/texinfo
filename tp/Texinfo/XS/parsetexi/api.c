@@ -70,6 +70,9 @@ reset_parser_except_conf (void)
   reset_obstacks ();
 
   current_node = current_section = current_part = 0;
+
+  parsed_document = new_document ();
+  set_input_encoding ("utf-8");
 }
 
 void
@@ -116,9 +119,6 @@ parse_file (const char *filename, const char *input_file_name,
 
   reset_parser_except_conf ();
 
-  parsed_document = new_document ();
-  set_input_encoding ("utf-8");
-
   status = input_push_file (filename);
   if (status)
     {
@@ -164,9 +164,6 @@ parse_text (const char *string, int line_nr)
 
   reset_parser_except_conf ();
 
-  parsed_document = new_document ();
-  set_input_encoding ("utf-8");
-
   input_push_text (strdup (string), line_nr, 0, 0);
   document_descriptor = parse_texi_document ();
   return document_descriptor;
@@ -182,10 +179,8 @@ parse_string (const char *string, int line_nr)
   int document_descriptor;
 
   reset_parser_except_conf ();
-  root_elt = new_element (ET_root_line);
 
-  parsed_document = new_document ();
-  set_input_encoding ("utf-8");
+  root_elt = new_element (ET_root_line);
 
   input_push_text (strdup (string), line_nr, 0, 0);
   document_descriptor = parse_texi (root_elt, root_elt);
@@ -200,11 +195,9 @@ parse_piece (const char *string, int line_nr)
   ELEMENT *before_node_section, *document_root;
 
   reset_parser_except_conf ();
+
   before_node_section = setup_document_root_and_before_node_section ();
   document_root = before_node_section->parent;
-
-  parsed_document = new_document ();
-  set_input_encoding ("utf-8");
 
   input_push_text (strdup (string), line_nr, 0, 0);
   document_descriptor = parse_texi (document_root, before_node_section);
