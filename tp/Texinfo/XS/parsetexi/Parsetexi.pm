@@ -91,41 +91,39 @@ sub parser (;$$)
   # configuration is set afterwards.
   my $debug = 0;
   $debug = $parser->{'DEBUG'} if ($parser->{'DEBUG'});
-  reset_parser ($debug);
+  reset_parser($debug);
   # (re)set debug in any case, assuming that undef DEBUG is no debug
-  parser_set_debug ($debug);
+  parser_set_debug($debug);
 
   if (defined($conf)) {
-    foreach my $key (keys (%$conf)) {
+    foreach my $key (keys(%$conf)) {
       if ($key eq 'INCLUDE_DIRECTORIES') {
         # the directories from the command line or the input file name
         # are already byte strings (or ascii).  The encoding was detected
         # as COMMAND_LINE_ENCODING, but it is not used in the XS parser.
         foreach my $d (@{$conf->{'INCLUDE_DIRECTORIES'}}) {
-          parser_add_include_directory ($d);
+          parser_add_include_directory($d);
         }
       } elsif ($key eq 'values') {
         parser_store_values($conf->{'values'});
       } elsif ($key eq 'EXPANDED_FORMATS') {
-        parser_clear_expanded_formats ();
+        parser_clear_expanded_formats();
 
         for my $f (@{$conf->{$key}}) {
-          my $utf8_bytes = Encode::encode('utf-8', $f);
-          parser_add_expanded_format ($utf8_bytes);
+          parser_add_expanded_format($f);
         }
       } elsif ($key eq 'documentlanguage') {
         if (defined ($conf->{$key})) {
-          my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
-          parser_set_documentlanguage_override ($utf8_bytes);
+          parser_set_documentlanguage_override($conf->{$key});
         }
       } elsif ($key eq 'FORMAT_MENU') {
         if ($conf->{$key} and $conf->{$key} eq 'menu') {
-          conf_set_show_menu (1);
+          conf_set_show_menu(1);
         } else {
-          conf_set_show_menu (0);
+          conf_set_show_menu(0);
         }
       } elsif ($key eq 'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME') {
-        conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME ($conf->{$key});
+        conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME($conf->{$key});
       } elsif ($key eq 'CPP_LINE_DIRECTIVES') {
         conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
       } elsif ($key eq 'MAX_MACRO_CALL_NESTING') {
@@ -135,13 +133,15 @@ sub parser (;$$)
       } elsif ($key eq 'NO_USER_COMMANDS') {
         conf_set_NO_USER_COMMANDS($conf->{$key});
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
-        parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
-      } elsif ($key eq 'INPUT_FILE_NAME_ENCODING' and defined($conf->{$key})) {
-        my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
-        parser_set_input_file_name_encoding ($utf8_bytes);
-      } elsif ($key eq 'LOCALE_ENCODING' and defined($conf->{$key})) {
-        my $utf8_bytes = Encode::encode('utf-8', $conf->{$key});
-        parser_set_locale_encoding ($utf8_bytes);
+        parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME($conf->{$key});
+      } elsif ($key eq 'INPUT_FILE_NAME_ENCODING') {
+        if (defined($conf->{$key})) {
+          parser_set_input_file_name_encoding($conf->{$key});
+        }
+      } elsif ($key eq 'LOCALE_ENCODING') {
+        if (defined($conf->{$key})) {
+          parser_set_locale_encoding($conf->{$key});
+        }
       } elsif ($key eq 'accept_internalvalue' and $conf->{$key}) {
         parser_set_accept_internalvalue(1);
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING'
@@ -218,8 +218,8 @@ sub parse_texi_file ($$)
   # TODO instead of using fileparse here, reimplement fileparse
   # in XS, or use a file name parsing code from somewhere else?
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
-  my $document_descriptor = parse_file ($input_file_path,
-                                        $basename, $directories);
+  my $document_descriptor = parse_file($input_file_path,
+                                       $basename, $directories);
   if (!$document_descriptor) {
     my ($parser_registrar, $configuration_information)
        = _get_parser_error_registrar($self);
@@ -248,9 +248,7 @@ sub parse_texi_piece($$;$$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  # pass a binary UTF-8 encoded string to C code
-  my $utf8_bytes = Encode::encode('utf-8', $text);
-  my $document_descriptor = parse_piece($utf8_bytes, $line_nr);
+  my $document_descriptor = parse_piece($text, $line_nr);
 
   my $document = _get_parser_info($self, $document_descriptor, $no_store);
 
@@ -266,9 +264,7 @@ sub parse_texi_text($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  # pass a binary UTF-8 encoded string to C code
-  my $utf8_bytes = Encode::encode('utf-8', $text);
-  my $document_descriptor = parse_text($utf8_bytes, $line_nr);
+  my $document_descriptor = parse_text($text, $line_nr);
 
   my $document = _get_parser_info($self, $document_descriptor);
 
@@ -283,9 +279,7 @@ sub parse_texi_line($$;$$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  # pass a binary UTF-8 encoded string to C code
-  my $utf8_bytes = Encode::encode('utf-8', $text);
-  my $document_descriptor = parse_string($utf8_bytes, $line_nr);
+  my $document_descriptor = parse_string($text, $line_nr);
 
   my $document = _get_parser_info($self, $document_descriptor, $no_store);
 

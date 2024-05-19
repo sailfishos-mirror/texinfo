@@ -1,5 +1,24 @@
 2024-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser, parse_texi_piece)
+	(parse_texi_text, parse_texi_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_piece, parse_piece)
+	(parse_string, parse_text, parser_add_expanded_format)
+	(parser_set_input_file_name_encoding, parser_set_locale_encoding)
+	(parser_set_documentlanguage_override): do not encode to UTF-8 in Perl
+	code and get binary strings in XS, instead use SvPVutf8 to get string
+	and convert to UTF-8 in XS.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): check on keys
+	independentely of values, i.e. do not test in one condition the key name
+	and whether the value is defined, use only the key name in the first
+	condition and test afterwards if the value is defined.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs: change in spacing.
+
+2024-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	Remove memory leaks (valgrind)
 
 	* tp/Texinfo/XS/parsetexi/api.c (parser_reset_values_conf): wipe

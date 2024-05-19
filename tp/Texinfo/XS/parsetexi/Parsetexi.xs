@@ -54,31 +54,31 @@ PROTOTYPES: ENABLE
 int
 init (texinfo_uninstalled, builddir)
      int texinfo_uninstalled
-     char *builddir = (char *)SvPVbyte_nolen($arg);
+     char *builddir = (char *)SvPVbyte_nolen ($arg);
 
 void
 reset_parser (int debug_output)
 
 # file path, can be in any encoding
 int
-parse_file(filename, input_file_name, input_directory)
-        char *filename = (char *)SvPVbyte_nolen($arg);
-        char *input_file_name = (char *)SvPVbyte_nolen($arg);
-        char *input_directory = (char *)SvPVbyte_nolen($arg);
+parse_file (filename, input_file_name, input_directory)
+        char *filename = (char *)SvPVbyte_nolen ($arg);
+        char *input_file_name = (char *)SvPVbyte_nolen ($arg);
+        char *input_directory = (char *)SvPVbyte_nolen ($arg);
 
 int
-parse_piece(string, line_nr)
-        char *string = (char *)SvPVbyte_nolen($arg);
+parse_piece (string, line_nr)
+        char *string = (char *)SvPVutf8_nolen ($arg);
         int line_nr
 
 int
-parse_string(string, line_nr)
-        char *string = (char *)SvPVbyte_nolen($arg);
+parse_string (string, line_nr)
+        char *string = (char *)SvPVutf8_nolen ($arg);
         int line_nr
 
 int
-parse_text(string, line_nr)
-        char *string = (char *)SvPVbyte_nolen($arg);
+parse_text (string, line_nr)
+        char *string = (char *)SvPVutf8_nolen ($arg);
         int line_nr
 
 # note that giving optional arguments, like: int no_store=0
@@ -137,7 +137,7 @@ parser_clear_expanded_formats ()
 
 void
 parser_add_expanded_format (format)
-     char *format = (char *)SvPVbyte_nolen($arg);
+     char *format = (char *)SvPVutf8_nolen ($arg);
 
 void
 conf_set_show_menu (int i)
@@ -162,15 +162,15 @@ parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
 void
 parser_set_input_file_name_encoding (value)
-     char *value = (char *)SvPVbyte_nolen($arg);
+     char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
 parser_set_locale_encoding (value)
-     char *value = (char *)SvPVbyte_nolen($arg);
+     char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
 parser_set_documentlanguage_override (value)
-     char *value = (char *)SvPVbyte_nolen($arg);
+     char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
 parser_set_debug (int i)
