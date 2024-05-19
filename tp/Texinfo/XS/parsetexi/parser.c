@@ -2667,7 +2667,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   parsed_document = 0;
   forget_indices ();
 
-  complete_indices (document, debug_output);
+  complete_indices (document, conf.debug);
 
   return document->descriptor;
 }

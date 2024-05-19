@@ -11,7 +11,6 @@ int parse_string (const char *, int line_nr);
 int parse_text (const char *, int line_nr);
 void reset_parser (int debug_output);
 
-int parser_set_debug (int value);
 void parser_reset_values_conf (void);
 void parser_store_value (const char *name, const char *value);
 void parser_add_include_directory (const char *filename);

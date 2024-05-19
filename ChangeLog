@@ -1,5 +1,21 @@
 2024-05-19  Patrice Dumas  <pertusus@free.fr>
 
+	Replace debug_output by conf.debug
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (conf_set_DEBUG),
+	tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/parsetexi/conf.c
+	(conf_set_DEBUG, reset_conf), tp/Texinfo/XS/parsetexi/conf.h (CONF),
+	tp/Texinfo/XS/parsetexi/debug_parser.c,
+	tp/Texinfo/XS/parsetexi/errors_parser.c (line_error_internal),
+	tp/Texinfo/XS/parsetexi/parser.c (complete_indices): add debug field
+	in CONF, add conf_set_DEBUG function to set it, and replace
+	debug_output by conf.debug.  Remove set_debug_output and
+	parser_set_debug.
+
+2024-05-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (initialize_parsing): rename
 	reset_parser_except_conf to initialize_parsing and make it static.
 

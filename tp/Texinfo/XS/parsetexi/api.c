@@ -211,13 +211,6 @@ parse_piece (const char *string, int line_nr)
   return document_descriptor;
 }
 
-/* for debugging */
-int
-parser_set_debug (int value)
-{
-  return set_debug_output (value);
-}
-
 void
 parser_set_documentlanguage_override (const char *value)
 {

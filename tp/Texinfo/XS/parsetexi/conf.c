@@ -63,17 +63,26 @@ conf_set_NO_USER_COMMANDS (int i)
   return previous;
 }
 
+int
+conf_set_DEBUG (int i)
+{
+  int previous = conf.debug;
+  conf.debug = i;
+  return previous;
+}
+
 void
 reset_conf (void)
 {
   wipe_values (&conf.values);
 
-  conf.show_menu = 1;
   conf.cpp_line_directives = 1;
+  conf.debug = 1;
   conf.ignore_space_after_braced_command_name = 1;
   conf.max_macro_call_nesting = 100000;
   conf.no_index = 0;
   conf.no_user_commands = 0;
+  conf.show_menu = 1;
 
   /* special value always returned as 1 to mark that @ifcommandnotdefined
      is implemented.  Note that when called from the main program it is set

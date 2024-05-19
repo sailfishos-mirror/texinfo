@@ -172,8 +172,8 @@ void
 parser_set_documentlanguage_override (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
-void
-parser_set_debug (int i)
+int
+conf_set_DEBUG (int i)
 
 void
 parser_set_accept_internalvalue (int value)

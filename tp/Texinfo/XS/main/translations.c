@@ -34,7 +34,6 @@
 #include "text.h"
 #include "utils.h"
 #include "tree.h"
-#include "errors_parser.h"
 #include "debug.h"
 #include "conf.h"
 #include "api.h"
@@ -470,7 +469,7 @@ replace_convert_substrings (char *translated_string,
   if (debug_level > 0)
     parser_debug_level = debug_level - 1;
 
-  previous_debug_level = parser_set_debug (parser_debug_level);
+  previous_debug_level = conf_set_DEBUG (parser_debug_level);
 
   /*
    accept @txiinternalvalue as a valid Texinfo command, used to mark
@@ -501,7 +500,7 @@ replace_convert_substrings (char *translated_string,
   parser_set_accept_internalvalue (0);
   conf_set_NO_INDEX (previous_no_index);
   conf_set_NO_USER_COMMANDS (previous_no_user_commands);
-  parser_set_debug (previous_debug_level);
+  conf_set_DEBUG (previous_debug_level);
 
   if (replaced_substrings)
     {

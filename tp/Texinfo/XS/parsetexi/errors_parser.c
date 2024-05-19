@@ -29,8 +29,6 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "parser.h"
-/* for debug_output */
-#include "debug_parser.h"
 #include "errors.h"
 #include "errors_parser.h"
 
@@ -44,7 +42,7 @@ line_error_internal (enum error_type type, int continuation,
                      const char *format, va_list v)
 {
   vmessage_list_line_error (&parsed_document->parser_error_messages,
-                      type, continuation, debug_output, cmd_source_info,
+                      type, continuation, conf.debug, cmd_source_info,
                       0, format, v);
 }
 

@@ -22,27 +22,17 @@
 #include "text.h"
 #include "element_types.h"
 #include "debug.h"
+#include "conf.h"
 #include "debug_parser.h"
 
-/* Whether to dump debugging output on stderr. */
-int debug_output = 0;
-
-int
-set_debug_output (int value)
-{
-  int previous_debug_output = debug_output;
-  debug_output = value;
-  return previous_debug_output;
-}
-
-/* debug functions used in parser, depending on debug_output */
+/* debug functions used in parser, depending on conf.debug */
 
 void
 debug (char *s, ...)
 {
   va_list v;
 
-  if (!debug_output)
+  if (!conf.debug)
     return;
   va_start (v, s);
   vfprintf (stderr, s, v);
@@ -54,7 +44,7 @@ debug_nonl (char *s, ...)
 {
   va_list v;
 
-  if (!debug_output)
+  if (!conf.debug)
     return;
   va_start (v, s);
   vfprintf (stderr, s, v);
@@ -63,7 +53,7 @@ debug_nonl (char *s, ...)
 void
 debug_print_element (const ELEMENT *e, int print_parent)
 {
-  if (debug_output)
+  if (conf.debug)
     {
       char *result;
       result = print_element_debug (e, print_parent);
@@ -75,7 +65,7 @@ debug_print_element (const ELEMENT *e, int print_parent)
 void
 debug_print_protected_string (char *input_string)
 {
-  if (debug_output)
+  if (conf.debug)
     {
       int allocated = 0;
       char *result = debug_protect_eol (input_string, &allocated);
@@ -143,7 +133,7 @@ print_element_debug_parser (ELEMENT *e, int print_parent)
 void
 debug_parser_print_element (ELEMENT *e, int print_parent)
 {
-  if (debug_output)
+  if (conf.debug)
     {
       char *result;
       result = print_element_debug_parser (e, print_parent);

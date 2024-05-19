@@ -4,11 +4,8 @@
 
 #include "tree_types.h"
 
-extern int debug_output;
-
 void debug (char *s, ...);
 void debug_nonl (char *s, ...);
-int set_debug_output (int value);
 void debug_print_element (const ELEMENT *e, int print_parent);
 void debug_print_protected_string (char *input_string);
 

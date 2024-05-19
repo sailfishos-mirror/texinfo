@@ -93,7 +93,7 @@ sub parser (;$$)
   $debug = $parser->{'DEBUG'} if ($parser->{'DEBUG'});
   reset_parser($debug);
   # (re)set debug in any case, assuming that undef DEBUG is no debug
-  parser_set_debug($debug);
+  conf_set_DEBUG($debug);
 
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
