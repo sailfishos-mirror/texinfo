@@ -471,7 +471,6 @@ replace_convert_substrings (char *translated_string,
     parser_debug_level = debug_level - 1;
 
   previous_debug_level = parser_set_debug (parser_debug_level);
-  reset_parser_except_conf ();
 
   /*
    accept @txiinternalvalue as a valid Texinfo command, used to mark
