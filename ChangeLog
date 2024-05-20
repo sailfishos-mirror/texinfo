@@ -1,5 +1,12 @@
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (parser_conf_reset_values)
+	(parser_conf_add_value): rename parser_reset_values_conf as
+	parser_conf_reset_values and parser_store_value as
+	parser_conf_add_value.  Update users.
+
+2024-05-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/conf.c: add parser_ in the name of all the
 	functions in conf.c that are part of the parser public API.
 

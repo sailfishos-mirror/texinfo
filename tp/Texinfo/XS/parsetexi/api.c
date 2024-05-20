@@ -209,13 +209,13 @@ parse_piece (const char *string, int line_nr)
 }
 
 void
-parser_reset_values_conf (void)
+parser_conf_reset_values (void)
 {
   wipe_values (&parser_conf.values);
 }
 
 void
-parser_store_value (const char *name, const char *value)
+parser_conf_add_value (const char *name, const char *value)
 {
   store_value (&parser_conf.values, name, value);
 }

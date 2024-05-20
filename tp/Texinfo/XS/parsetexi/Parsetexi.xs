@@ -32,7 +32,6 @@
 #include "api.h"
 #include "conf.h"
 #include "build_perl_info.h"
-#include "input.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -106,7 +105,7 @@ pass_document_parser_errors_to_registrar (int document_descriptor, SV *parser_sv
 void
 parser_store_values (SV *values)
       CODE:
-        parser_reset_values_conf ();
+        parser_conf_reset_values ();
         if (SvOK (values))
           {
             I32 i;
@@ -122,7 +121,7 @@ parser_store_values (SV *values)
                 if (value_sv && SvOK (value_sv))
                   {
                     char *value_text = SvPVutf8_nolen (value_sv);
-                    parser_store_value (key, value_text);
+                    parser_conf_add_value (key, value_text);
                   }
               }
           }

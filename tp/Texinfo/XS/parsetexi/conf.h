@@ -18,7 +18,10 @@
 
 #include "document_types.h"
 
-typedef struct CONF {
+/* TODO there is no reason to have the structure and extern included in
+   codes only interested by the parser API, which only need the functions */
+
+typedef struct PARSER_CONF {
     int accept_internalvalue;
     int cpp_line_directives;
     int doc_encoding_for_input_file_name;
@@ -41,7 +44,7 @@ typedef struct CONF {
 
 extern PARSER_CONF parser_conf;
 
-/* part of public API */
+/* part of parser public API */
 void parser_conf_set_show_menu (int i);
 void parser_conf_set_CPP_LINE_DIRECTIVES (int i);
 int parser_conf_set_DEBUG (int i);

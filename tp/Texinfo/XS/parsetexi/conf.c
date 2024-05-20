@@ -16,7 +16,6 @@
 #include <config.h>
 #include <string.h>
 
-#include "tree_types.h"
 #include "utils.h"
 #include "macro.h"
 #include "conf.h"
