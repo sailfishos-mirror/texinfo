@@ -18,8 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* for global_accept_internalvalue */
-#include "parser.h"
+#include "conf.h"
 #include "command_ids.h"
 #include "builtin_commands.h"
 /* for lookup_macro and unset_macro_record */
@@ -55,7 +54,7 @@ lookup_command (char *cmdname)
 
   /* txiinternalvalue is invalid if the corresponding parameter
    * is not set */
-  if (cmd == CM_txiinternalvalue && !global_accept_internalvalue)
+  if (cmd == CM_txiinternalvalue && !conf.accept_internalvalue)
     return 0;
 
   return cmd;

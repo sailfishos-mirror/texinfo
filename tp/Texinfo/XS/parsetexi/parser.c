@@ -316,15 +316,8 @@ reset_parser_counters (void)
 
 char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
-int global_accept_internalvalue = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
-
-void
-set_accept_internalvalue (int value)
-{
-  global_accept_internalvalue = value;
-}
 
 /* Record the information from a command of global effect. */
 int

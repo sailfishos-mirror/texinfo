@@ -69,8 +69,6 @@ typedef struct {
 ELEMENT *setup_document_root_and_before_node_section (void);
 int parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 int parse_texi_document (void);
-void set_accept_internalvalue (int value);
-void set_restricted (int value);
 
 void push_conditional_stack (enum command_id cond, SOURCE_MARK *source_mark);
 CONDITIONAL_STACK_ITEM *pop_conditional_stack (void);
@@ -119,7 +117,6 @@ extern ELEMENT *current_part;
 
 extern char *global_clickstyle;
 extern char *global_documentlanguage;
-extern int global_accept_internalvalue;
 
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };
 extern enum kbd_enum global_kbdinputstyle;

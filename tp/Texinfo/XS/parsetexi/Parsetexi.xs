@@ -191,14 +191,14 @@ int
 conf_set_NO_USER_COMMANDS (int i)
 
 void
-parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
+conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
 void
-parser_set_input_file_name_encoding (value)
+conf_set_INPUT_FILE_NAME_ENCODING (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
-parser_set_locale_encoding (value)
+conf_set_LOCALE_ENCODING (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
@@ -209,6 +209,6 @@ int
 conf_set_DEBUG (int i)
 
 void
-parser_set_accept_internalvalue (int value)
+conf_set_accept_internalvalue (int value)
 
 

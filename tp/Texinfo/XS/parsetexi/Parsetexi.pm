@@ -123,18 +123,18 @@ sub parser (;$)
       } elsif ($key eq 'NO_USER_COMMANDS') {
         conf_set_NO_USER_COMMANDS($conf->{$key});
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
-        parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME($conf->{$key});
+        conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME($conf->{$key});
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING') {
         if (defined($conf->{$key})) {
-          parser_set_input_file_name_encoding($conf->{$key});
+          conf_set_INPUT_FILE_NAME_ENCODING($conf->{$key});
         }
       } elsif ($key eq 'LOCALE_ENCODING') {
         if (defined($conf->{$key})) {
-          parser_set_locale_encoding($conf->{$key});
+          conf_set_LOCALE_ENCODING($conf->{$key});
         }
       } elsif ($key eq 'accept_internalvalue') {
         if ($conf->{$key}) {
-          parser_set_accept_internalvalue(1);
+          conf_set_accept_internalvalue(1);
         }
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING'
                or $key eq 'DEBUG') {

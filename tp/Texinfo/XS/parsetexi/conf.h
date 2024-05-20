@@ -19,15 +19,20 @@
 #include "document_types.h"
 
 typedef struct CONF {
+    int accept_internalvalue;
     int cpp_line_directives;
+    int doc_encoding_for_input_file_name;
+    char *documentlanguage;
     int debug;
+    char *input_file_name_encoding;
     int ignore_space_after_braced_command_name;
     STRING_LIST include_directories;
+    char *locale_encoding;
     int max_macro_call_nesting;
     int no_index;
     int no_user_commands;
     int show_menu;
-    char *documentlanguage;
+
     int global_documentlanguage_fixed;
 
     EXPANDED_FORMAT expanded_formats[7];
@@ -49,6 +54,10 @@ void conf_add_include_directory (const char *filename);
 void conf_clear_expanded_formats (void);
 void conf_add_expanded_format (const char *format);
 void conf_set_documentlanguage (const char *value);
+void conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
+void conf_set_INPUT_FILE_NAME_ENCODING (const char *value);
+void conf_set_LOCALE_ENCODING (const char *value);
+void conf_set_accept_internalvalue (int value);
 
 void reset_conf (void);
 

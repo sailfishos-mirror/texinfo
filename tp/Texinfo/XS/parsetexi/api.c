@@ -105,12 +105,6 @@ reset_parser (int local_debug_output)
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
   reset_conf ();
-
-  set_doc_encoding_for_input_file_name (1);
-  set_input_file_name_encoding (0);
-  set_locale_encoding (0);
-
-  global_accept_internalvalue = 0;
 }
 
 /* Determine directory path based on file name.
@@ -215,24 +209,6 @@ parse_piece (const char *string, int line_nr)
 }
 
 void
-parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
-{
-  set_doc_encoding_for_input_file_name (i);
-}
-
-void
-parser_set_input_file_name_encoding (const char *value)
-{
-  set_input_file_name_encoding (value);
-}
-
-void
-parser_set_locale_encoding (const char *value)
-{
-  set_locale_encoding (value);
-}
-
-void
 parser_reset_values_conf (void)
 {
   wipe_values (&conf.values);
@@ -242,11 +218,5 @@ void
 parser_store_value (const char *name, const char *value)
 {
   store_value (&conf.values, name, value);
-}
-
-void
-parser_set_accept_internalvalue (int value)
-{
-  set_accept_internalvalue (value);
 }
 

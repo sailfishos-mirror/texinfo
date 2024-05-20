@@ -105,20 +105,53 @@ conf_set_documentlanguage (const char *value)
 }
 
 void
+conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
+{
+  conf.doc_encoding_for_input_file_name = i;
+}
+
+void
+conf_set_INPUT_FILE_NAME_ENCODING (const char *value)
+{
+  free (conf.input_file_name_encoding);
+  conf.input_file_name_encoding = value ? strdup (value) : 0;
+}
+
+void
+conf_set_LOCALE_ENCODING (const char *value)
+{
+  free (conf.locale_encoding);
+  conf.locale_encoding =  value ? strdup (value) : 0;
+}
+
+void
+conf_set_accept_internalvalue (int value)
+{
+  conf.accept_internalvalue = value;
+}
+
+void
 reset_conf (void)
 {
   wipe_values (&conf.values);
   clear_strings_list (&conf.include_directories);
   free (conf.documentlanguage);
+  free (conf.input_file_name_encoding);
+  free (conf.locale_encoding);
 
+  conf.accept_internalvalue = 0;
   conf.cpp_line_directives = 1;
   conf.debug = 1;
+  conf.doc_encoding_for_input_file_name = 1;
+  conf.documentlanguage = 0;
   conf.ignore_space_after_braced_command_name = 1;
+  conf.input_file_name_encoding = 0;
+  conf.locale_encoding = 0;
   conf.max_macro_call_nesting = 100000;
   conf.no_index = 0;
   conf.no_user_commands = 0;
   conf.show_menu = 1;
-  conf.documentlanguage = 0;
+
   conf.global_documentlanguage_fixed = 0;
 
   memcpy (conf.expanded_formats, default_expanded_formats,

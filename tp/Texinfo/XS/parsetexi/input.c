@@ -170,31 +170,6 @@ convert_to_utf8 (char *s)
   return ret;
 }
 
-
-static int doc_encoding_for_input_file_name = 1;
-static char *input_file_name_encoding = 0;
-static char *locale_encoding = 0;
-
-void
-set_input_file_name_encoding (const char *value)
-{
-  free (input_file_name_encoding);
-  input_file_name_encoding = value ? strdup (value) : 0;
-}
-
-void
-set_locale_encoding (const char *value)
-{
-  free (locale_encoding);
-  locale_encoding =  value ? strdup (value) : 0;
-}
-
-void
-set_doc_encoding_for_input_file_name (int value)
-{
-  doc_encoding_for_input_file_name = value;
-}
-
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return
    value is freed when freeing small_strings. */
@@ -203,11 +178,11 @@ encode_file_name (char *filename)
 {
   if (!reverse_iconv)
     {
-      if (input_file_name_encoding)
+      if (conf.input_file_name_encoding)
         {
-          reverse_iconv = iconv_open (input_file_name_encoding, "UTF-8");
+          reverse_iconv = iconv_open (conf.input_file_name_encoding, "UTF-8");
         }
-      else if (doc_encoding_for_input_file_name)
+      else if (conf.doc_encoding_for_input_file_name)
         {
           if (current_encoding_conversion
               && strcmp (parsed_document->global_info.input_encoding_name,
@@ -218,9 +193,9 @@ encode_file_name (char *filename)
               reverse_iconv = iconv_open (conversion_encoding, "UTF-8");
             }
         }
-      else if (locale_encoding)
+      else if (conf.locale_encoding)
         {
-          reverse_iconv = iconv_open (locale_encoding, "UTF-8");
+          reverse_iconv = iconv_open (conf.locale_encoding, "UTF-8");
         }
     }
   if (reverse_iconv && reverse_iconv != (iconv_t) -1)

@@ -1,5 +1,31 @@
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
+	Set remaining configuration vaiables in CONF
+
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME)
+	(conf_set_INPUT_FILE_NAME_ENCODING, conf_set_LOCALE_ENCODING)
+	(conf_set_accept_internalvalue), tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser), tp/Texinfo/XS/parsetexi/commands.c (lookup_command),
+	tp/Texinfo/XS/parsetexi/conf.c
+	(conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME)
+	(conf_set_INPUT_FILE_NAME_ENCODING, conf_set_LOCALE_ENCODING)
+	(conf_set_accept_internalvalue, reset_conf),
+	tp/Texinfo/XS/parsetexi/conf.h (CONF), tp/Texinfo/XS/parsetexi/input.c
+	(encode_file_name), tp/Texinfo/XS/parsetexi/parser.c: add
+	doc_encoding_for_input_file_name, input_file_name_encoding,
+	locale_encoding and accept_internalvalue in CONF.  Add the
+	corresponding functions to set them.  Remove
+	parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME,
+	parser_set_input_file_name_encoding, parser_set_locale_encoding,
+	parser_set_accept_internalvalue, set_input_file_name_encoding,
+	set_locale_encoding, set_doc_encoding_for_input_file_name and the
+	corresponding variables.
+
+2024-05-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%parser_state_configuration)
 	(%parser_inner_configuration, %parser_settable_configuration),
 	tp/Texinfo/ParserNonXS.pm (parser),
@@ -13,7 +39,7 @@
 
 	* tp/Texinfo/XS/parsetexi/api.c (initialize_parsing),
 	tp/Texinfo/XS/parsetexi/parser.c: inline
-	wipe_parser_global_variablesin initialize_parsing.
+	wipe_parser_global_variables in initialize_parsing.
 
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
