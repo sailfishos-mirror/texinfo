@@ -20,10 +20,10 @@
 #include "tree_types.h"
 
 char *parse_float_type (ELEMENT *current);
-void float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list,
+void float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
                                  LISTOFFLOATS_TYPE_LIST *result);
 void add_to_float_record_list (FLOAT_RECORD_LIST *float_records,
-                               char *type, ELEMENT *element);
+                               const char *type, ELEMENT *element);
 
 void free_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list);
 

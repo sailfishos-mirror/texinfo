@@ -1102,7 +1102,7 @@ store_parser_value (const char *name, const char *value)
 }
 
 void
-clear_value (char *name)
+clear_value (const char *name)
 {
   int i;
   VALUE_LIST *values = &parser_values;
@@ -1134,7 +1134,7 @@ clear_value (char *name)
 }
 
 char *
-fetch_value (char *name)
+fetch_value (const char *name)
 {
   int i;
   VALUE_LIST *values = &parser_values;
@@ -1166,7 +1166,7 @@ lookup_infoenclose (enum command_id cmd)
 }
 
 void
-add_infoenclose (enum command_id cmd, char *begin, char *end)
+add_infoenclose (enum command_id cmd, const char *begin, const char *end)
 {
   int i;
   INFO_ENCLOSE *ie = 0;

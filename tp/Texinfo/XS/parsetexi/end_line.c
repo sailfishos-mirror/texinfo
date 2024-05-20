@@ -150,7 +150,9 @@ parse_line_command_args (ELEMENT *line_command)
 
         if (!isascii_alnum (*line))
           goto alias_invalid;
+
         existing = read_command_name (&line);
+
         if (!existing)
           goto alias_invalid;
 
@@ -712,7 +714,7 @@ end_line_def_line (ELEMENT *current)
     {
       if (def_info_name)
         {
-          char *t;
+          const char *t;
           ELEMENT *arg = def_info_name->contents.list[0];
           /* Set index_entry unless an empty ET_bracketed_arg. */
           if (arg->type == ET_bracketed_arg
@@ -887,7 +889,7 @@ end_line_starting_block (ELEMENT *current)
       KEY_PAIR *k;
       if (command == CM_enumerate)
         {
-          char *spec = "1";
+          const char *spec = "1";
 
           if (current->args.number > 0
               && current->args.list[0]->contents.number > 0)
@@ -1095,8 +1097,8 @@ end_line_starting_block (ELEMENT *current)
               ELEMENT *arg_elt = current->args.list[0]->contents.list[0];
               if (arg_elt->text.end > 0)
                 {
-                  char *name = arg_elt->text.text;
-                  char *p = name + strspn (name, whitespace_chars);
+                  const char *p = arg_elt->text.text;
+                  p += strspn (p, whitespace_chars);
                   if (!*p)
                     {
                       line_error ("@%s requires a name", command_name(command));
@@ -1104,7 +1106,6 @@ end_line_starting_block (ELEMENT *current)
                     }
                   else
                     {
-                      const char *p = name;
                       char *flag = read_flag_name (&p);
                       if (flag && !*p)
                         {
@@ -1148,7 +1149,7 @@ end_line_starting_block (ELEMENT *current)
 
           p = command_name(command) + 2; /* After "if". */
           /* note that if a 2 letter format existed, like @ifme, the length of
-             p should be checked before the call to memcpm */
+             p should be checked before the call to memcmp */
           if (!memcmp (p, "not", 3))
             p += 3; /* After "not". */
 
@@ -1360,9 +1361,8 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->cmd == CM_documentencoding)
             {
-              int i; char *p, *normalized_text;
-              int encoding_set;
-              char *input_encoding = 0;
+              int i;
+              char *normalized_text;
               int possible_encoding = 0;
 
               normalized_text = normalize_encoding_name (text,
@@ -1373,17 +1373,20 @@ end_line_misc_line (ELEMENT *current)
                               text);
               else
                 {
+                  int encoding_set;
+                  char *input_encoding = 0;
 
             /* Warn if the encoding is not one of the encodings supported as an
                argument to @documentencoding, documented in Texinfo manual */
                   {
-                    char *texinfo_encoding = 0;
-                    static char *canonical_encodings[] = {
+                    static const char *canonical_encodings[] = {
                       "us-ascii", "utf-8", "iso-8859-1",
                       "iso-8859-15","iso-8859-2","koi8-r", "koi8-u",
                       0
                     };
+                    const char *texinfo_encoding = 0;
                     char *text_lc;
+                    char *p;
 
                     text_lc = strdup (text);
                     for (p = text_lc; *p; p++)
@@ -1418,7 +1421,7 @@ end_line_misc_line (ELEMENT *current)
                   /* the Perl Parser calls Encode::find_encoding, so knows
                      about more encodings than what we know about here.
                    */
-                    static struct encoding_map map[] = {
+                    static const struct encoding_map map[] = {
                           "utf-8", "utf-8",
                           "utf8", "utf-8",
                           "ascii",  "us-ascii",
@@ -1475,7 +1478,7 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->cmd == CM_documentlanguage)
             {
-              char *p, *q;
+              const char *p;
 
               /* Texinfo::Common::warn_unknown_language checks with
                  tp/Texinfo/Documentlanguages.pm, which is an automatically
@@ -1496,26 +1499,27 @@ end_line_misc_line (ELEMENT *current)
                   if (p - text > 4)
                     {
                       /* looks too long */
-                      char saved = *p;
-                      *p = 0;
+                      char *lang = strndup (text, p - text);
                       command_warn (current, "%s is not a valid language code",
-                                    text);
-                      *p = saved;
+                                    lang);
+                      free (lang);
                     }
                   if (*p == '_')
                     {
-                      q = p + 1;
-                      p = q;
+                      const char *region_code;
+                      p++;
+                      region_code = p;
                       /* Language code should be of the form LL_CC,
                          language code followed by country code. */
                       while (isascii_alpha (*p))
                         p++;
-                      if (*p || p - q > 4)
+                      if (*p || p - region_code > 4)
                         {
                           /* non-alphabetic char in country code or code
                              is too long. */
                           command_warn (current,
-                                        "%s is not a valid region code", q);
+                                        "%s is not a valid region code",
+                                        region_code);
                         }
                     }
                 }
@@ -1529,24 +1533,27 @@ end_line_misc_line (ELEMENT *current)
         }
       if (superfluous_arg)
         {
-          char *texi_line, *p, *p1;
-          p = convert_to_texinfo (args_child_by_index (current, 0));
+          const char *p;
+          char *p1;
+          char *texi_line
+            = convert_to_texinfo (args_child_by_index (current, 0));
 
-          texi_line = p;
+          p = texi_line;
 
-          texi_line += strspn (texi_line, whitespace_chars);
+          /* trim leading whitespace. */
+          p += strspn (p, whitespace_chars);
 
-          /* Trim leading and trailing whitespace. */
-          p1 = strchr (texi_line, '\0');
-          if (p1 > texi_line)
+          /* Trim trailing whitespace. */
+          p1 = strchr (p, '\0');
+          if (p1 > p)
             {
-              while (p1 > texi_line && strchr (whitespace_chars, p1[-1]))
+              while (p1 > p && strchr (whitespace_chars, p1[-1]))
                 p1--;
               *p1 = '\0';
             }
           command_error (current, "bad argument to @%s: %s",
-                         command_name(current->cmd), texi_line);
-          free (p);
+                         command_name(current->cmd), p);
+          free (texi_line);
         }
     }
   else if (current->cmd == CM_node)

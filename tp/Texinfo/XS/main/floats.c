@@ -51,7 +51,8 @@ add_to_float_record_list (FLOAT_RECORD_LIST *float_records, char *type,
 }
 
 static LISTOFFLOATS_TYPE *
-find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *float_type)
+find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
+                 const char *float_type)
 {
   size_t i;
   for (i = 0; i < listoffloats_list->number; i++)
@@ -64,7 +65,8 @@ find_float_type (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *float_type)
 }
 
 static LISTOFFLOATS_TYPE *
-add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *type)
+add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
+                          const char *type)
 {
   LISTOFFLOATS_TYPE * result = find_float_type (listoffloats_list, type);
 
@@ -88,15 +90,15 @@ add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list, char *type)
 }
 
 void
-float_list_to_listoffloats_list (FLOAT_RECORD_LIST *floats_list,
+float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
                                  LISTOFFLOATS_TYPE_LIST *result)
 {
   size_t i;
 
   for (i = 0; i < floats_list->number; i++)
     {
-      FLOAT_RECORD *float_record = &floats_list->list[i];
-      char *float_type = float_record->type;
+      const FLOAT_RECORD *float_record = &floats_list->list[i];
+      const char *float_type = float_record->type;
 
       LISTOFFLOATS_TYPE *listoffloats_type
         = add_to_listoffloats_list (result, float_type);

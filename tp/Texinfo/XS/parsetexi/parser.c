@@ -489,7 +489,9 @@ int
 parse_texi_document (void)
 {
   int document_descriptor;
-  char *linep, *line = 0;
+  char *line = 0;
+  const char *linep;
+
   ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
   ELEMENT *preamble_before_beginning = 0;
   ELEMENT *document_root = before_node_section->parent;
@@ -1561,7 +1563,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
           e = new_element (ET_empty_line);
           add_to_element_contents (current, e);
-
         }
       else
         {
@@ -1741,7 +1742,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     {
       static char *allocated_line;
 
-      line += (line_after_command - line);
+      line = line_after_command;
       macro_call_element = handle_macro (current, &line, cmd);
       if (macro_call_element)
         {
