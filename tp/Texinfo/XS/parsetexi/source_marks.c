@@ -26,11 +26,6 @@
 #include "manipulate_tree.h"
 #include "source_marks.h"
 
-#define sm_type(name) \
-static int name##_counter = 0;
- SM_TYPES_LIST
-#undef sm_type
-
 static const char *source_marks_names[SM_type_expanded_conditional_command + 1] =
 {
   0,
@@ -38,6 +33,8 @@ static const char *source_marks_names[SM_type_expanded_conditional_command + 1] 
     SM_TYPES_LIST
   #undef sm_type
 };
+
+static int source_marks_counters[SM_type_expanded_conditional_command + 1];
 
 SOURCE_MARK *
 new_source_mark (enum source_mark_type type)
@@ -97,23 +94,8 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 {
   if (source_mark->counter == -1)
     {
-      switch (source_mark->type)
-        {
-#define sm_type(name) \
-          case SM_type_##name: \
-            {                     \
-              name##_counter++;   \
-              source_mark->counter = name##_counter; \
-            } \
-          break;
-
-        SM_TYPES_LIST
-
-#undef sm_type
-        default:
-          /* do nothing; just silence -Wswitch about SM_type_none */
-          break;
-        }
+      source_marks_counters[source_mark->type]++;
+      source_mark->counter = source_marks_counters[source_mark->type];
     }
 
   place_source_mark (e, source_mark);
@@ -138,8 +120,6 @@ transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
 void
 source_marks_reset_counters (void)
 {
-#define sm_type(name) name##_counter = 0;
- SM_TYPES_LIST
-#undef sm_type
+  memset (source_marks_counters, 0, sizeof (source_marks_counters));
 }
 

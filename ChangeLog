@@ -1,5 +1,11 @@
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/source_marks.c (source_marks_counters)
+	(register_source_mark, transfer_source_marks): add
+	source_marks_counters array to hold the source marks counters.
+
+2024-05-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (parser_conf_reset_values)
 	(parser_conf_add_value): rename parser_reset_values_conf as
 	parser_conf_reset_values and parser_store_value as
