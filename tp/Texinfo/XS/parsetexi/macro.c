@@ -43,22 +43,34 @@ static MACRO *macro_list;
 static size_t macro_number;
 static size_t macro_space;
 
+static size_t free_slots_nr;
+
 
 /* Macro definition. */
 
 MACRO *
-lookup_macro_and_slot (enum command_id cmd, size_t *free_slot)
+lookup_macro (enum command_id cmd)
 {
   int i;
-  if (free_slot)
-    *free_slot = 0;
 
   for (i = 0; i < macro_number; i++)
     {
       if (macro_list[i].cmd == cmd)
         return &macro_list[i];
-      if (free_slot && !*free_slot && macro_list[i].cmd == 0)
-        *free_slot = i;
+    }
+  return 0;
+}
+
+/* return 0 if not found, index +1 if found  */
+static size_t
+lookup_free_slot ()
+{
+  size_t i;
+
+  for (i = 0; i < macro_number; i++)
+    {
+      if (macro_list[i].cmd == 0)
+        return i+1;
     }
   return 0;
 }
@@ -68,7 +80,6 @@ new_macro (const char *name, const ELEMENT *macro)
 {
   enum command_id new;
   MACRO *m = 0;
-  size_t free_slot = 0;
 
   if (parser_conf.no_user_commands)
     return;
@@ -76,12 +87,22 @@ new_macro (const char *name, const ELEMENT *macro)
   /* Check for an existing definition first for us to overwrite. */
   new = lookup_command (name);
   if (new)
-    m = lookup_macro_and_slot (new, &free_slot);
+    m = lookup_macro (new);
+
   if (!m)
     {
       size_t macro_index;
-      if (free_slot)
-        macro_index = free_slot;
+      if (free_slots_nr)
+        {
+          size_t free_slot = lookup_free_slot ();
+          if (free_slot)
+            {
+              macro_index = free_slot - 1;
+              free_slots_nr--;
+            }
+          else
+            bug ("free slot not found");
+        }
       else
         {
           if (macro_number == macro_space)
@@ -743,19 +764,6 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
     }
 }
 
-MACRO *
-lookup_macro (enum command_id cmd)
-{
-  int i;
-
-  for (i = 0; i < macro_number; i++)
-    {
-      if (macro_list[i].cmd == cmd)
-        return &macro_list[i];
-    }
-  return 0;
-}
-
 void
 unset_macro_record (MACRO *m)
 {
@@ -768,6 +776,12 @@ unset_macro_record (MACRO *m)
   free (m->macrobody);
   m->macrobody = 0;
   m->element = 0;
+
+  /* NOTE if m->cmd was already 0, this is not an new free slot.  We assume
+     that m->cmd was not already 0 and do not do an explicit check as
+     all the callers should already make sure that m->cmd is not 0 (by
+     finding the cmd with lookup_command and m with lookup_macro) */
+  free_slots_nr++;
 }
 
 void
@@ -794,6 +808,7 @@ wipe_macros (void)
       free (macro_list[i].macrobody);
     }
   macro_number = 0;
+  free_slots_nr = 0;
 }
 
 /* Handle macro expansion.  CMD is the macro command.
