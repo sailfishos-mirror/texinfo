@@ -1,5 +1,16 @@
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%parser_state_configuration)
+	(%parser_inner_configuration, %parser_settable_configuration),
+	tp/Texinfo/ParserNonXS.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): move
+	%parser_state_configuration, %parser_inner_configuration and
+	%parser_settable_configuration to Texinfo::Common.  Update
+	Parsetexi.pm to set the same keys as ParserNonXS parser.  Inline
+	_setup_conf in ParserNonXS.pm parser.
+
+2024-05-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (initialize_parsing),
 	tp/Texinfo/XS/parsetexi/parser.c: inline
 	wipe_parser_global_variablesin initialize_parsing.

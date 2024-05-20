@@ -50,9 +50,6 @@ use Texinfo::Translations;
 # to return a resulting document
 use Texinfo::Document;
 
-my %parser_default_configuration =
-  (%Texinfo::Common::default_parser_customization_values);
-
 sub get_conf($$)
 {
   my $self = shift;
@@ -61,21 +58,23 @@ sub get_conf($$)
 }
 
 # Initialize the parser
-sub parser (;$$)
+sub parser (;$)
 {
   my $conf = shift;
 
-  my $parser = dclone(\%parser_default_configuration);
+  my $parser = dclone(\%Texinfo::Common::parser_settable_configuration);
 
   if (defined($conf)) {
     foreach my $key (keys (%$conf)) {
-      # Copy conf to parser object.
-      # we keep registrar instead of copying on purpose, to reuse the object
-      if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
-        $parser->{$key} = dclone($conf->{$key});
-      } else {
-        $parser->{$key} = $conf->{$key};
-      }
+      if (exists($Texinfo::Common::parser_settable_configuration{$key})) {
+        # Copy conf to parser object.
+        # we keep registrar instead of copying on purpose, to reuse the object
+        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
+          $parser->{$key} = dclone($conf->{$key});
+        } else {
+          $parser->{$key} = $conf->{$key};
+        }
+      } # no warning here as in pure Perl as it is warned below
     }
   }
   # restrict variables found by get_conf, and set the values to the

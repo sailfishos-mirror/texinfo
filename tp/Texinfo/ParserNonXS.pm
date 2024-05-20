@@ -140,7 +140,8 @@ our $VERSION = '7.1dev';
 
 
 # these are the default values for the parsing state of a document.
-# Some could become configurable if moved to %parser_state_configuration,
+# Some could become configurable if moved to Texinfo::Common
+# %parser_state_configuration,
 # but they are not configurable/implemented in the XS parser, so they are
 # best left internal.  Could be relevant to reuse for diverse sources
 # of input associated to the same document.
@@ -230,46 +231,12 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 # command_index           associate a command name with an index name.
 # index_entry_commands    index entry commands, including added index commands.
 
-# customizable parser state, can be passed to the parser function.
-my %parser_state_configuration = (
-  'registrar' => undef,        # Texinfo::Report object used for error
-                               # reporting.
-
-  # parsed document parsing information still relevant after parsing
-  'values' => {'txicommandconditionals' => 1},
-                              # the key is the name, the value the @set name
-                              # argument.
-                              # The txicommandconditionals is a special value
-                              # that is set to mark that @ifcommandnotdefined
-                              # is implemented
-);
-
-
 # parser keys related to customization
-# Set when initializing a parser, but never from command-line/init files
-my %parser_inner_configuration = (
-  'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
-                               # to the tree or considered invalid.
-                               # currently set if called by gdt.
-);
-
 # expanded_formats_hash   each key comes from EXPANDED_FORMATS, value is 1
 # set                     points to the value set when initializing, for
 #                         configuration items that are not to be overriden
 #                         by @-commands.  For example documentlanguage.
 # conf                    For get_conf
-
-# configurable parser state
-# customization options are in Texinfo::Common because all the
-# customization options informations is gathered here, and also
-# because it is used in other codes, in particular the XS parser.
-my %parser_settable_configuration = (
-  %parser_inner_configuration,
-  %parser_state_configuration,
-  %Texinfo::Common::default_parser_customization_values,
-);
-
-
 
 # A source information is an hash reference with the keys:
 # line_nr        the line number.
@@ -590,14 +557,45 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
 # initialization entry point.  Set up a parser.
 # The last argument, optional, is a hash provided by the user to change
 # the default values for what is present in %parser_settable_configuration.
-sub parser(;$$)
+sub parser(;$)
 {
   my $conf = shift;
 
-  my $parser = dclone(\%parser_settable_configuration);
+  # In Texinfo::Common because all the
+  # customization options information is gathered here, and also
+  # because it is used in other codes, in particular the XS parser.
+  my $parser = dclone(\%Texinfo::Common::parser_settable_configuration);
   bless $parser;
 
-  _setup_conf($parser, $conf);
+  # for get_conf, set for all the configuration keys that are also in
+  # %Texinfo::Common::default_parser_customization_values to the
+  # values set at parser initialization
+  $parser->{'set'} = {};
+  if (defined($conf)) {
+    foreach my $key (keys(%$conf)) {
+      if (exists($Texinfo::Common::parser_settable_configuration{$key})) {
+        # we keep registrar instead of copying on purpose, to reuse the object
+        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
+          $parser->{$key} = dclone($conf->{$key});
+        } else {
+          $parser->{$key} = $conf->{$key};
+        }
+        if ($initialization_overrides{$key}) {
+          $parser->{'set'}->{$key} = $parser->{$key};
+        }
+      } else {
+        warn "ignoring parser configuration value \"$key\"\n";
+      }
+    }
+  }
+
+  $parser->{'conf'} = {};
+  # restrict variables found by get_conf, and set the values to the
+  # parser initialization values only.  What is found in the document
+  # has no effect.
+  foreach my $key (keys(%Texinfo::Common::default_parser_customization_values)) {
+    $parser->{'conf'}->{$key} = $parser->{$key};
+  }
 
   # This is not very useful in perl, but mimics the XS parser
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
@@ -1000,40 +998,6 @@ sub errors($)
     return undef;
   }
   return $registrar->errors();
-}
-
-sub _setup_conf($$)
-{
-  my ($parser, $conf) = @_;
-
-  # for get_conf, set for all the configuration keys that are also in
-  # %Texinfo::Common::default_parser_customization_values to the
-  # values set at parser initialization
-  $parser->{'conf'} = {};
-  $parser->{'set'} = {};
-  if (defined($conf)) {
-    foreach my $key (keys(%$conf)) {
-      if (exists($parser_settable_configuration{$key})) {
-        # we keep registrar instead of copying on purpose, to reuse the object
-        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
-          $parser->{$key} = dclone($conf->{$key});
-        } else {
-          $parser->{$key} = $conf->{$key};
-        }
-        if ($initialization_overrides{$key}) {
-          $parser->{'set'}->{$key} = $parser->{$key};
-        }
-      } else {
-        warn "ignoring parser configuration value \"$key\"\n";
-      }
-    }
-  }
-  # restrict variables found by get_conf, and set the values to the
-  # parser initialization values only.  What is found in the document
-  # has no effect.
-  foreach my $key (keys(%Texinfo::Common::default_parser_customization_values)) {
-    $parser->{'conf'}->{$key} = $parser->{$key};
-  }
 }
 
 # Following are the internal parsing subroutines.  The most important are

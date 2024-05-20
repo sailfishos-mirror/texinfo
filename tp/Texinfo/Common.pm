@@ -161,6 +161,36 @@ my %parser_options = (
 # also used in util/txicustomvars
 our %default_parser_customization_values = (%common_parser_options, %parser_options);
 
+# customizable parser state, can be passed to the parser function.
+my %parser_state_configuration = (
+  'registrar' => undef,        # Texinfo::Report object used for error
+                               # reporting.
+
+  # parsed document parsing information still relevant after parsing
+  'values' => {'txicommandconditionals' => 1},
+                              # the key is the name, the value the @set name
+                              # argument.
+                              # The txicommandconditionals is a special value
+                              # that is set to mark that @ifcommandnotdefined
+                              # is implemented
+);
+
+# parser keys related to customization
+# Set when initializing a parser, but never from command-line/init files
+my %parser_inner_configuration = (
+  'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
+                               # to the tree or considered invalid.
+                               # currently set if called by gdt.
+);
+
+# configurable parser state
+our %parser_settable_configuration = (
+  %parser_inner_configuration,
+  %parser_state_configuration,
+  %default_parser_customization_values,
+);
+
+
 # check that settable commands are contained in global commands
 # from command_data.txt
 if (0) {
@@ -2160,7 +2190,7 @@ and C<plaintext>.
 =back
 
 TODO: undocumented
-%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map %text_brace_no_arg_commands
+%null_device_file %default_parser_customization_values %parser_settable_configuration %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map %text_brace_no_arg_commands
 
 =head1 @-COMMAND INFORMATION
 
