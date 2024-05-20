@@ -1,5 +1,11 @@
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (initialize_parsing),
+	tp/Texinfo/XS/parsetexi/parser.c: inline
+	wipe_parser_global_variablesin initialize_parsing.
+
+2024-05-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs (conf_set_documentlanguage),
 	tp/Texinfo/XS/parsetexi/api.c (initialize_parsing, reset_parser),

@@ -409,15 +409,6 @@ register_global_command (ELEMENT *current)
   return 0;
 }
 
-
-void
-wipe_parser_global_variables (void)
-{
-  free (global_clickstyle);
-  global_clickstyle = strdup ("arrow");
-  global_kbdinputstyle = kbd_distinct;
-}
-
 /* setup a Texinfo tree with document_root as root and before_node_section
    as first content.  Used for all the tree except for those obtained by
    parse_texi_line/parse_string. */

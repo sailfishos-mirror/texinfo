@@ -52,8 +52,6 @@ initialize_parsing (void)
 {
   parsed_document = new_document ();
 
-  wipe_parser_global_variables ();
-
   wipe_user_commands ();
   wipe_macros ();
 
@@ -64,6 +62,12 @@ initialize_parsing (void)
     global_documentlanguage = strdup (conf.documentlanguage);
   else
     global_documentlanguage = 0;
+
+  free (global_clickstyle);
+  global_clickstyle = strdup ("arrow");
+  global_kbdinputstyle = kbd_distinct;
+
+  current_node = current_section = current_part = 0;
 
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
@@ -79,8 +83,6 @@ initialize_parsing (void)
   source_marks_reset_counters ();
 
   reset_obstacks ();
-
-  current_node = current_section = current_part = 0;
 
   if (!conf.no_index)
     init_index_commands ();
