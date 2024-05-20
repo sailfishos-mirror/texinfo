@@ -45,6 +45,8 @@ extern const char *command_location_names[];
 extern const char *html_button_direction_names[];
 extern char *html_command_text_type_name[];
 
+extern const EXPANDED_FORMAT default_expanded_formats[];
+
 typedef struct ENCODING_CONVERSION {
     char *encoding_name;
     iconv_t iconv;

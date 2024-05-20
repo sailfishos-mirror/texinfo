@@ -152,10 +152,10 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories)
           }
 
 void
-parser_clear_expanded_formats ()
+conf_clear_expanded_formats ()
 
 void
-parser_add_expanded_format (format)
+conf_add_expanded_format (format)
      char *format = (char *)SvPVutf8_nolen ($arg);
 
 void

@@ -96,7 +96,6 @@ reset_parser (int local_debug_output)
     fprintf (stderr,
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
-  clear_parser_expanded_formats ();
   reset_conf ();
 
   global_documentlanguage_fixed = 0;
@@ -244,18 +243,6 @@ void
 parser_store_value (const char *name, const char *value)
 {
   store_value (&conf.values, name, value);
-}
-
-void
-parser_clear_expanded_formats (void)
-{
-  clear_parser_expanded_formats ();
-}
-
-void
-parser_add_expanded_format (const char *format)
-{
-  add_parser_expanded_format (format);
 }
 
 void

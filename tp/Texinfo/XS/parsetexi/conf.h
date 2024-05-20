@@ -28,6 +28,7 @@ typedef struct CONF {
     int no_user_commands;
     int show_menu;
 
+    EXPANDED_FORMAT expanded_formats[7];
     VALUE_LIST values;
 } CONF;
 
@@ -43,6 +44,8 @@ int conf_set_NO_INDEX (int i);
 int conf_set_NO_USER_COMMANDS (int i);
 void conf_clear_INCLUDE_DIRECTORIES (void);
 void conf_add_include_directory (const char *filename);
+void conf_clear_expanded_formats (void);
+void conf_add_expanded_format (const char *format);
 
 void reset_conf (void);
 

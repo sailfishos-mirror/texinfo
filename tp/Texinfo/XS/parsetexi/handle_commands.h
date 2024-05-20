@@ -18,10 +18,6 @@ ELEMENT *handle_brace_command (ELEMENT *current, char **line_inout,
                              enum command_id cmd_id, ELEMENT **command_element);
 int check_no_text (const ELEMENT *current);
 
-void clear_parser_expanded_formats (void);
-void add_parser_expanded_format (const char *format);
 int parser_format_expanded_p (const char *format);
-
-extern EXPANDED_FORMAT parser_expanded_formats[7];
 
 #endif

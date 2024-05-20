@@ -85,6 +85,18 @@ conf_add_include_directory (const char *filename)
 }
 
 void
+conf_clear_expanded_formats (void)
+{
+  clear_expanded_formats (conf.expanded_formats);
+}
+
+void
+conf_add_expanded_format (const char *format)
+{
+  add_expanded_format (conf.expanded_formats, format);
+}
+
+void
 reset_conf (void)
 {
   wipe_values (&conf.values);
@@ -97,6 +109,14 @@ reset_conf (void)
   conf.no_index = 0;
   conf.no_user_commands = 0;
   conf.show_menu = 1;
+
+  memcpy (conf.expanded_formats, default_expanded_formats,
+          sizeof (conf.expanded_formats));
+  /* It would have been cleaner to separate setting default values,
+     but it is not needed, as default_expanded_formats is already zeros,
+     so the call can be kept in comments
+  conf_clear_expanded_formats ();
+   */
 
   add_include_directory (".", &conf.include_directories);
 

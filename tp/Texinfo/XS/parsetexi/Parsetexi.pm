@@ -102,10 +102,10 @@ sub parser (;$$)
       } elsif ($key eq 'values') {
         parser_store_values($conf->{'values'});
       } elsif ($key eq 'EXPANDED_FORMATS') {
-        parser_clear_expanded_formats();
+        conf_clear_expanded_formats();
 
         for my $f (@{$conf->{$key}}) {
-          parser_add_expanded_format($f);
+          conf_add_expanded_format($f);
         }
       } elsif ($key eq 'documentlanguage') {
         if (defined ($conf->{$key})) {

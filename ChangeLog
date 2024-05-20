@@ -1,3 +1,23 @@
+2024-05-20  Patrice Dumas  <pertusus@free.fr>
+
+	Replace parser_expanded_formats by const.expanded_formats
+
+	* tp/Texinfo/XS/main/utils.h: rename expanded_formats as
+	default_expanded_formats, make it const and extern.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (conf_clear_expanded_formats)
+	(conf_add_expanded_format), tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser), tp/Texinfo/XS/parsetexi/conf.c (reset_conf)
+	(conf_clear_expanded_formats, conf_add_expanded_format): add
+	expanded_formats in CONF, add conf_clear_expanded_formats to clear,
+	conf_add_expanded_format to add expanded formats and replace
+	parser_expanded_formats by const.expanded_formats. Remove
+	parser_clear_expanded_formats and parser_add_expanded_format.
+
+	This changes the default expanded formats to be none, which matches
+	Perl (and POD of Parser module).
+
 2024-05-19  Patrice Dumas  <pertusus@free.fr>
 
 	Replace parser_include_dirs_list by conf.include_directories

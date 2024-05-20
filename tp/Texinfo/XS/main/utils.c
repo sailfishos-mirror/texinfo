@@ -105,7 +105,9 @@ const char *command_location_names[]
   = {"before", "last", "preamble", "preamble_or_first", 0};
 
 /* duplicated when creating a new expanded_formats */
-EXPANDED_FORMAT expanded_formats[] = {
+/* NOTE if you add a format, increase the size of CONF.expanded_formats
+ */
+const EXPANDED_FORMAT default_expanded_formats[] = {
     "html", 0,
     "docbook", 0,
     "plaintext", 0,
@@ -544,7 +546,8 @@ void
 clear_expanded_formats (EXPANDED_FORMAT *formats)
 {
   int i;
-  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+  for (i = 0; i < sizeof (default_expanded_formats)
+                            / sizeof (*default_expanded_formats);
        i++)
     {
       formats[i].expandedp = 0;
@@ -555,7 +558,8 @@ void
 add_expanded_format (EXPANDED_FORMAT *formats, const char *format)
 {
   int i;
-  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+  for (i = 0; i < sizeof (default_expanded_formats)
+                      / sizeof (*default_expanded_formats);
        i++)
     {
       if (!strcmp (format, formats[i].format))
@@ -572,8 +576,8 @@ EXPANDED_FORMAT *
 new_expanded_formats (void)
 {
   EXPANDED_FORMAT *formats
-     = (EXPANDED_FORMAT *) malloc (sizeof (expanded_formats));
-  memcpy (formats, expanded_formats, sizeof (expanded_formats));
+     = (EXPANDED_FORMAT *) malloc (sizeof (default_expanded_formats));
+  memcpy (formats, default_expanded_formats, sizeof (default_expanded_formats));
 
   return formats;
 }
@@ -582,7 +586,8 @@ int
 format_expanded_p (const EXPANDED_FORMAT *formats, const char *format)
 {
   int i;
-  for (i = 0; i < sizeof (expanded_formats)/sizeof (*expanded_formats);
+  for (i = 0; i < sizeof (default_expanded_formats)
+                           / sizeof (*default_expanded_formats);
        i++)
     {
       if (!strcmp (format, formats[i].format))
@@ -594,7 +599,8 @@ format_expanded_p (const EXPANDED_FORMAT *formats, const char *format)
 int
 expanded_formats_number (void)
 {
-  return sizeof (expanded_formats)/sizeof (*expanded_formats);
+  return sizeof (default_expanded_formats)
+                          / sizeof (*default_expanded_formats);
 }
 
 void

@@ -981,32 +981,10 @@ funexit:
   return current;
 }
 
-EXPANDED_FORMAT parser_expanded_formats[] = {
-    "html", 0,
-    "docbook", 0,
-    "plaintext", 1,
-    "tex", 0,
-    "xml", 0,
-    "info", 1,
-    "latex", 0,
-};
-
-void
-clear_parser_expanded_formats (void)
-{
-  clear_expanded_formats (parser_expanded_formats);
-}
-
-void
-add_parser_expanded_format (const char *format)
-{
-  add_expanded_format (parser_expanded_formats, format);
-}
-
 int
 parser_format_expanded_p (const char *format)
 {
-  return format_expanded_p (parser_expanded_formats, format);
+  return format_expanded_p (conf.expanded_formats, format);
 }
 
 /* A command name has been read that starts a multiline block, which should
