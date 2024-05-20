@@ -23,7 +23,7 @@ extern COMMAND *user_defined_command_data;
 /* Command ID's with this bit set represent a user-defined command. */
 #define USER_COMMAND_BIT 0x8000
 
-enum command_id lookup_command (char *cmdname);
+enum command_id lookup_command (const char *cmdname);
 
 #define command_data(id) \
   (!((id) & USER_COMMAND_BIT) \
@@ -34,8 +34,8 @@ enum command_id lookup_command (char *cmdname);
 #define command_name(cmd) (command_data(cmd).cmdname)
 
 int close_preformatted_command (enum command_id cmd_id);
-int item_line_command (enum command_id cmd_id);
-enum command_id add_texinfo_command (char *name);
+
+enum command_id add_texinfo_command (const char *name);
 void remove_texinfo_command (enum command_id cmd);
 void wipe_user_commands (void);
 

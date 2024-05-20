@@ -18022,11 +18022,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         {
           if (element->text.end > 0)
             {
-              int allocated;
-              char *text = debug_protect_eol (element->text.text, &allocated);
+              char *text = debug_protect_eol (element->text.text);
               text_printf (&debug_str, " text: %s", text);
-              if (allocated)
-                free (text);
+              free (text);
             }
           else
             text_append_n (&debug_str, " text(EMPTY)", 12);

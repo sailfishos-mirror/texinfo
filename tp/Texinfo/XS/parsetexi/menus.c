@@ -112,10 +112,10 @@ enter_menu_entry_node (ELEMENT *current)
 /* Called from 'process_remaining_on_line' in parser.c.  Return 1 if we find
    menu syntax to process, otherwise return 0. */
 int
-handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout)
+handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
 {
   ELEMENT *current = *current_inout;
-  char *line = *line_inout;
+  const char *line = *line_inout;
   int retval = 1;
 
   /* A "*" at the start of a line beginning a menu entry. */

@@ -186,11 +186,11 @@ INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,
 INDEX *ultimate_index (INDEX *index);
 size_t index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
                                    const char *name);
-char *read_flag_name (char **ptr);
+char *read_flag_name (const char **ptr);
 int section_level (const ELEMENT *section);
 enum command_id section_level_adjusted_command_name (const ELEMENT *element);
 char *collapse_spaces (const char *text);
-char *parse_line_directive (char *line, int *retval, int *out_line_no);
+char *parse_line_directive (const char *line, int *retval, int *out_line_no);
 int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
 
 STRING_LIST *new_string_list (void);

@@ -116,12 +116,14 @@ new_macro (char *name, ELEMENT *macro)
    name and the arguments it takes, and return this information in a new
    ELEMENT. */
 ELEMENT *
-parse_macro_command_line (enum command_id cmd, char **line_inout,
+parse_macro_command_line (enum command_id cmd, const char **line_inout,
                           ELEMENT *parent)
 {
-  char *line = *line_inout;
+  const char *line = *line_inout;
+  const char *pline = line;
   ELEMENT *macro, *macro_name;
-  char *name, *args_ptr;
+  char *name;
+  const char *args_ptr;
   int index;
 
   macro = new_element (ET_NONE);
@@ -130,8 +132,8 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
 
   add_info_string_dup (macro, "arg_line", line);
 
-  line += strspn (line, whitespace_chars);
-  name = read_command_name (&line);
+  pline += strspn (pline, whitespace_chars);
+  name = read_command_name (&pline);
 
   if (!name)
     {
@@ -140,8 +142,8 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
       return macro;
     }
 
-  if (*line && *line != '{' && *line != '@'
-      && !strchr (whitespace_chars, *line))
+  if (*pline && *pline != '{' && *pline != '@'
+      && !strchr (whitespace_chars, *pline))
     {
       line_error ("bad name for @%s", command_name (cmd));
       add_extra_integer (macro, "invalid_syntax", 1);
@@ -156,7 +158,7 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
   free (name);
   add_to_element_args (macro, macro_name);
 
-  args_ptr = line;
+  args_ptr = pline;
   args_ptr += strspn (args_ptr, whitespace_chars);
 
   if (*args_ptr != '{')
@@ -172,7 +174,7 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
       /* args_ptr is after a '{' or ','.  INDEX holds the number of
          the macro argument */
 
-      char *q, *q2;
+      const char *q, *q2;
       ELEMENT *arg;
 
       args_ptr += strspn (args_ptr, whitespace_chars);
@@ -214,15 +216,15 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
 
           /* Check the argument name. */
             {
-              char *p;
+              const char *p;
               for (p = args_ptr; p < q2; p++)
                 {
                   if (!isascii_alnum (*p) && *p != '_' && *p != '-')
                     {
-                      char saved = *q2; *q2 = 0;
+                      char *formal_arg = strndup (args_ptr, q2 - args_ptr);
                       line_error ("bad or empty @%s formal argument: %s",
-                                  command_name(cmd), args_ptr);
-                      *q2 = saved;
+                                  command_name(cmd), formal_arg);
+                      free (formal_arg);
                       add_extra_integer (macro, "invalid_syntax", 1);
                       break;
                     }
@@ -239,11 +241,11 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
     }
 
  check_trailing:
-  line = args_ptr;
-  line += strspn (line, whitespace_chars);
-  if (*line && *line != '@')
+  pline = args_ptr;
+  pline += strspn (pline, whitespace_chars);
+  if (*pline && *pline != '@')
     {
-      char *argument_str = strdup (line);
+      char *argument_str = strdup (pline);
       /* remove new line for the message */
       char *end_line = strchr (argument_str, '\n');
 
@@ -254,9 +256,8 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
       free (argument_str);
       add_extra_integer (macro, "invalid_syntax", 1);
     }
-  //line += strlen (line); /* Discard rest of line. */
 
-  *line_inout = line;
+  *line_inout = pline;
   return macro;
 }
 
@@ -267,7 +268,7 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
    Return -1 if not found. */
 
 int
-lookup_macro_parameter (char *name, ELEMENT *macro)
+lookup_macro_parameter (const char *name, ELEMENT *macro)
 {
   int i, pos;
   ELEMENT **args;
@@ -308,11 +309,11 @@ remove_empty_arg (ELEMENT *argument)
    identifier of the macro command.  Return array of the arguments.  Return
    value to be freed by caller.  */
 void
-expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
-                        ELEMENT *current)
+expand_macro_arguments (ELEMENT *macro, const char **line_inout,
+                        enum command_id cmd, ELEMENT *current)
 {
-  char *line = *line_inout;
-  char *pline = line;
+  const char *line = *line_inout;
+  const char *pline = line;
   TEXT *arg;
   int braces_level = 1;
   int args_total;
@@ -343,7 +344,7 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
     {
       /* At the beginning of this loop pline is at the start
          of an argument. */
-      char *sep;
+      const char *sep;
 
       sep = pline + strcspn (pline, "\\,{}");
       if (!*sep)
@@ -402,7 +403,7 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd,
             {
               if (current->args.number < args_total)
                 {
-                  char *p = pline;
+                  const char *p = pline;
 
                   remove_empty_content (argument);
 
@@ -462,11 +463,11 @@ set_toplevel_braces_nr (COUNTER *counter, ELEMENT* element)
 }
 
 void
-expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
+expand_linemacro_arguments (ELEMENT *macro, const char **line_inout,
                             enum command_id cmd, ELEMENT *current)
 {
-  char *line = *line_inout;
-  char *pline = line;
+  const char *line = *line_inout;
+  const char *pline = line;
   TEXT *arg;
   int braces_level = 0;
   int args_total;
@@ -497,7 +498,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
 
   while (1)
     {
-      char *sep;
+      const char *sep;
 
       sep = pline + strcspn (pline, linecommand_expansion_delimiters);
       if (!*sep)
@@ -673,7 +674,7 @@ expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
   int pos; /* Index into arguments. */
   ELEMENT *macro;
   char *macrobody;
-  char *ptext;
+  const char *ptext;
 
   macro = macro_record->element;
 
@@ -799,9 +800,9 @@ wipe_macros (void)
    The returned element is an out of tree element holding the call
    arguments also associated to the macro expansion source mark */
 ELEMENT *
-handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
+handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
 {
-  char *line, *p;
+  const char *line, *p;
   MACRO *macro_record;
   ELEMENT *macro;
   TEXT expanded;

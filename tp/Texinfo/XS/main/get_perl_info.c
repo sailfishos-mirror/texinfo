@@ -77,13 +77,10 @@ debug_print_element_hv (HV *element_hv)
   FETCH(text)
   if (text_sv)
     {
-      int allocated = 0;
       char *text = SvPVutf8_nolen (*text_sv);
-      char *protected_text = debug_protect_eol (text,
-                                              &allocated);
+      char *protected_text = debug_protect_eol (text);
       text_printf (&msg, "[T: %s]", protected_text);
-      if (allocated)
-        free (protected_text);
+      free (protected_text);
     }
   fprintf (stderr, "ELT_sv: %s\n", msg.text);
   free (msg.text);

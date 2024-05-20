@@ -331,7 +331,7 @@ replace_substrings (const char *string,
 
   while (*p)
     {
-      char *q = strchr (p, '{');
+      const char *q = strchr (p, '{');
       if (q)
         {
           int found = 0;

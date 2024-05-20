@@ -38,21 +38,19 @@ debug_element_command_name (const ELEMENT *e)
 }
 
 char *
-debug_protect_eol (char *input_string, int *allocated)
+debug_protect_eol (const char *input_string)
 {
   char *end_of_line;
-  *allocated = 0;
 
   if (!input_string)
-    return "[NULL]";
+    return strdup ("[NULL]");
 
   end_of_line = strchr (input_string, '\n');
 
   if (end_of_line)
     {
-      char *p = input_string;
+      const char *p = input_string;
       TEXT text;
-      *allocated = 1;
       text_init (&text);
       while (end_of_line)
         {
@@ -72,7 +70,7 @@ debug_protect_eol (char *input_string, int *allocated)
         }
       return text.text;
     }
-  return input_string;
+  return strdup (input_string);
 }
 
 char *
@@ -89,11 +87,9 @@ print_element_debug (const ELEMENT *e, int print_parent)
     text_printf (&text, "(%s)", element_type_names[e->type]);
   if (e->text.end > 0)
     {
-      int allocated = 0;
-      char *element_text = debug_protect_eol (e->text.text, &allocated);
+      char *element_text = debug_protect_eol (e->text.text);
       text_printf (&text, "[T: %s]", element_text);
-      if (allocated)
-        free (element_text);
+      free (element_text);
     }
   if (e->args.number)
     text_printf (&text, "[A%d]", e->args.number);

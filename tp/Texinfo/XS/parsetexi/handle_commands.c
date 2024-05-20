@@ -114,10 +114,11 @@ in_paragraph (ELEMENT *current)
 }
 
 /* Return end of argument before comment and whitespace. */
-char *
-skip_to_comment (char *q, int *has_comment)
+const char *
+skip_to_comment (const char *text, int *has_comment)
 {
-  char *q1;
+  const char *q = text;
+  const char *q1;
 
   while (1)
     {
@@ -150,11 +151,11 @@ skip_to_comment (char *q, int *has_comment)
 
 /* Return end of argument before comment and whitespace if the
    line is followed either by whitespaces or a comment. */
-char *
-skip_to_comment_if_comment_or_spaces (char *after_argument,
-                                 int *has_comment)
+const char *
+skip_to_comment_if_comment_or_spaces (const char *after_argument,
+                                      int *has_comment)
 {
-  char *r = skip_to_comment (after_argument, has_comment);
+  const char *r = skip_to_comment (after_argument, has_comment);
 
   if (!strchr (whitespace_chars, *after_argument)
       && *after_argument != '@')
@@ -171,7 +172,7 @@ skip_to_comment_if_comment_or_spaces (char *after_argument,
 
 /* Process argument to raw line command. */
 ELEMENT *
-parse_rawline_command (char *line, enum command_id cmd,
+parse_rawline_command (const char *line, enum command_id cmd,
                        int *has_comment, int *special_arg)
 {
 #define ADD_ARG(string, len) do { \
@@ -181,7 +182,9 @@ parse_rawline_command (char *line, enum command_id cmd,
 } while (0)
 
   ELEMENT *args = new_element (ET_NONE);
-  char *p = 0, *q = 0, *r = 0;
+  const char *p = 0;
+  const char *q = 0;
+  const char *r = 0;
   char *value = 0;
 
   *special_arg = 1;
@@ -331,12 +334,12 @@ parse_rawline_command (char *line, enum command_id cmd,
 
 /* symbol skipspace other */
 ELEMENT *
-handle_other_command (ELEMENT *current, char **line_inout,
+handle_other_command (ELEMENT *current, const char **line_inout,
                      enum command_id cmd, int *status,
                      ELEMENT **command_element)
 {
   ELEMENT *command_e = 0;
-  char *line = *line_inout;
+  const char *line = *line_inout;
   int arg_spec;
 
   *status = STILL_MORE_TO_PROCESS;
@@ -520,12 +523,12 @@ handle_other_command (ELEMENT *current, char **line_inout,
 /* data_cmd (used for the information on the command) and cmd (for the
    command name) is different for the only multicategory command, @item */
 ELEMENT *
-handle_line_command (ELEMENT *current, char **line_inout,
+handle_line_command (ELEMENT *current, const char **line_inout,
                      enum command_id cmd, enum command_id data_cmd,
                      int *status, ELEMENT **command_element)
 {
   ELEMENT *command_e = 0;
-  char *line = *line_inout;
+  const char *line = *line_inout;
   int arg_spec;
 
   *status = STILL_MORE_TO_PROCESS;
@@ -991,11 +994,11 @@ parser_format_expanded_p (const char *format)
    end in @end <command name>.  The block will be processed until
    "end_line_misc_line" in end_line.c processes the @end command. */
 ELEMENT *
-handle_block_command (ELEMENT *current, char **line_inout,
+handle_block_command (ELEMENT *current, const char **line_inout,
                       enum command_id cmd, int *get_new_line,
                       ELEMENT **command_element)
 {
-  char *line = *line_inout;
+  const char *line = *line_inout;
   unsigned long flags = command_data(cmd).flags;
   ELEMENT *block = 0;
 
@@ -1174,10 +1177,9 @@ funexit:
 }
 
 ELEMENT *
-handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd,
-                      ELEMENT **command_element)
+handle_brace_command (ELEMENT *current, const char **line_inout,
+                      enum command_id cmd, ELEMENT **command_element)
 {
-  char *line = *line_inout;
   ELEMENT *command_e;
 
   debug ("OPEN BRACE @%s", command_name(cmd));
@@ -1228,7 +1230,6 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd,
                            command_name(cmd));
     }
 
-  *line_inout = line;
   *command_element = command_e;
   return current;
 }

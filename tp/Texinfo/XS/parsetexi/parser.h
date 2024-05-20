@@ -56,9 +56,9 @@ ELEMENT *end_line_misc_line (ELEMENT *current);
 ELEMENT *end_line_starting_block (ELEMENT *current);
 
 /* In separator.c */
-ELEMENT * handle_open_brace (ELEMENT *current, char **line_inout);
-ELEMENT * handle_close_brace (ELEMENT *current, char **line_inout);
-ELEMENT * handle_comma (ELEMENT *current, char **line_inout);
+ELEMENT *handle_open_brace (ELEMENT *current, const char **line_inout);
+ELEMENT *handle_close_brace (ELEMENT *current, const char **line_inout);
+ELEMENT *handle_comma (ELEMENT *current, const char **line_inout);
 
 /* In parser.c */
 typedef struct {
@@ -87,19 +87,19 @@ ELEMENT *begin_preformatted (ELEMENT *current);
 ELEMENT *end_preformatted (ELEMENT *current,
                            enum command_id closed_block_command,
                            enum command_id interrupting_command);
-char *read_command_name (char **ptr);
-char *read_comment (char *line, int *has_comment);
+char *read_command_name (const char **ptr);
+const char *read_comment (const char *line, int *has_comment);
 char *text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg);
-ELEMENT *merge_text (ELEMENT *current, char *text,
+ELEMENT *merge_text (ELEMENT *current, const char *text,
                      ELEMENT *transfer_marks_element);
-void start_empty_line_after_command (ELEMENT *current, char **line_inout,
+void start_empty_line_after_command (ELEMENT *current, const char **line_inout,
                                      ELEMENT *command);
 ELEMENT *begin_paragraph (ELEMENT *current);
-int is_end_current_command (ELEMENT *current, char **line,
+int is_end_current_command (ELEMENT *current, const char **line,
                             enum command_id *end_cmd);
 int check_space_element (ELEMENT *e);
 void gather_spaces_after_cmd_before_arg (ELEMENT *current);
-char *parse_command_name (char **ptr, int *single_char);
+char *parse_command_name (const char **ptr, int *single_char);
 
 /* Return values */
 #define GET_A_NEW_LINE 0
@@ -131,6 +131,7 @@ ELEMENT *item_multitable_parent (ELEMENT *current);
 void gather_previous_item (ELEMENT *current, enum command_id next_command);
 
 /* In menus.c */
-int handle_menu_entry_separators (ELEMENT **current_inout, char **line_inout);
+int handle_menu_entry_separators (ELEMENT **current_inout,
+                                  const char **line_inout);
 ELEMENT *end_line_menu_entry (ELEMENT *current);
 #endif

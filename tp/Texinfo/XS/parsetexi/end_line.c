@@ -55,11 +55,11 @@
 #include "node_name_normalization.h"
 
 static int
-is_decimal_number (char *string)
+is_decimal_number (const char *string)
 {
-  char *p = string;
-  char *first_digits = 0;
-  char *second_digits = 0;
+  const char *p = string;
+  const char *first_digits = 0;
+  const char *second_digits = 0;
 
   if (string[0] == '\0')
     return 0;
@@ -86,7 +86,7 @@ is_decimal_number (char *string)
 }
 
 static int
-is_whole_number (char *string)
+is_whole_number (const char *string)
 {
   if (string[strspn (string, digit_chars)] == '\0')
     return 1;
@@ -109,7 +109,7 @@ parse_line_command_args (ELEMENT *line_command)
   ELEMENT *arg = line_command->args.list[0];
   ELEMENT *line_args;
   enum command_id cmd;
-  char *line;
+  const char *line;
 
   cmd = line_command->cmd;
   if (arg->contents.number == 0)
@@ -282,7 +282,7 @@ parse_line_command_args (ELEMENT *line_command)
       {
         /*  @multitable @columnfractions .33 .33 .33 */
         ELEMENT *new;
-        char *p, *q;
+        const char *p, *q;
 
         if (!*line)
           {
@@ -338,7 +338,7 @@ parse_line_command_args (ELEMENT *line_command)
           break;
 
         char *name = 0;
-        char *p = line;
+        const char *p = line;
 
         name = read_command_name (&p);
         if (*p)
@@ -349,14 +349,14 @@ parse_line_command_args (ELEMENT *line_command)
            BASE.NAME in the same directory.  This is to prevent such
            files being overwritten by the files read by texindex. */
         {
-          static char *forbidden_index_names[] = {
+          static const char *forbidden_index_names[] = {
             "cp", "fn", "ky", "pg", "tp", "vr",
             "cps", "fns", "kys", "pgs", "tps", "vrs",
             "info", "ps", "pdf", "htm", "html",
             "log", "aux", "dvi", "texi", "txi",
             "texinfo", "tex", "bib", 0
           };
-          char **ptr;
+          const char **ptr;
           for (ptr = forbidden_index_names; *ptr; ptr++)
             if (!strcmp (name, *ptr))
               goto defindex_reserved;
@@ -384,7 +384,7 @@ parse_line_command_args (ELEMENT *line_command)
         char *index_name_from = 0, *index_name_to = 0;
         INDEX *from_index;
         INDEX *to_index;
-        char *p = line;
+        const char *p = line;
 
         if (!isascii_alnum (*p))
           goto synindex_invalid;
@@ -454,7 +454,7 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_printindex:
       {
         char *arg;
-        char *p = line;
+        const char *p = line;
         arg = read_command_name (&p);
         if (!arg || *p)
           line_error ("bad argument to @printindex: %s", line);
@@ -1104,7 +1104,7 @@ end_line_starting_block (ELEMENT *current)
                     }
                   else
                     {
-                      char *p = name;
+                      const char *p = name;
                       char *flag = read_flag_name (&p);
                       if (flag && !*p)
                         {
@@ -1265,7 +1265,7 @@ end_line_misc_line (ELEMENT *current)
           add_extra_string (current, "text_arg", text);
           if (current->cmd == CM_end)
             {
-              char *line = text;
+              const char *line = text;
 
               /* Set end_command - used below. */
               end_command = read_command_name (&line);

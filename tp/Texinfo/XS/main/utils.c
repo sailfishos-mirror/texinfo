@@ -698,9 +698,9 @@ index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
 /* text parsing functions used in diverse situations */
 /* Read a name used for @set, @value and translations arguments. */
 char *
-read_flag_name (char **ptr)
+read_flag_name (const char **ptr)
 {
-  char *p = *ptr, *q;
+  const char *p = *ptr, *q;
   char *ret = 0;
 
   q = p;
@@ -761,10 +761,11 @@ collapse_spaces (const char *text)
    have a \0.
 */
 char *
-parse_line_directive (char *line, int *retval, int *out_line_no)
+parse_line_directive (const char *line, int *retval, int *out_line_no)
 {
-  char *p = line;
-  char *q;
+  const char *p = line;
+  const char *q;
+  char *digit_end;
   char *filename = 0;
   int line_no = 0;
 
@@ -787,20 +788,17 @@ parse_line_directive (char *line, int *retval, int *out_line_no)
   /* p should now be at the line number */
   if (!strchr (digit_chars, *p))
     return 0;
-  line_no = strtoul (p, &p, 10);
+  line_no = strtoul (p, &digit_end, 10);
+  p += (digit_end - p);
 
   p += strspn (p, " \t");
   if (*p == '"')
     {
-      char saved;
       p++;
       q = strchr (p, '"');
       if (!q)
         return 0;
-      saved = *q;
-      *q = 0;
-      filename = strdup (p);
-      *q = saved;
+      filename = strndup (p, q - p);
       p = q + 1;
       p += strspn (p, " \t");
 

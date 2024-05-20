@@ -44,9 +44,9 @@
 #include "parser.h"
 
 ELEMENT *
-handle_open_brace (ELEMENT *current, char **line_inout)
+handle_open_brace (ELEMENT *current, const char **line_inout)
 {
-  char *line = *line_inout;
+  const char *line = *line_inout;
 
   if (command_flags(current) & CF_brace)
     {
@@ -269,9 +269,9 @@ check_empty_expansion (ELEMENT *e)
 }
 
 ELEMENT *
-handle_close_brace (ELEMENT *current, char **line_inout)
+handle_close_brace (ELEMENT *current, const char **line_inout)
 {
-  char *line = *line_inout;
+  const char *line = *line_inout;
 
   debug ("CLOSE BRACE");
 
@@ -606,9 +606,9 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 
 /* Handle a comma separating arguments to a Texinfo command. */
 ELEMENT *
-handle_comma (ELEMENT *current, char **line_inout)
+handle_comma (ELEMENT *current, const char **line_inout)
 {
-  char *line = *line_inout;
+  const char *line = *line_inout;
   enum element_type type;
   ELEMENT *new_arg, *e;
 
@@ -621,7 +621,7 @@ handle_comma (ELEMENT *current, char **line_inout)
   if (command_data(current->cmd).data == BRACE_inline)
     {
       int expandp = 0;
-      char *format = lookup_extra_string (current, "format");
+      const char *format = lookup_extra_string (current, "format");
       if (!format)
         {
           ELEMENT *arg = 0;

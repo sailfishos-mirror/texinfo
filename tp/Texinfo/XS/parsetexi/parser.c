@@ -71,7 +71,7 @@ DOCUMENT *parsed_document = 0;
 
 /* Check if the contents of S2 appear at S1). */
 int
-looking_at (char *s1, char *s2)
+looking_at (const char *s1, const char *s2)
 {
   return !strncmp (s1, s2, strlen (s2));
 }
@@ -81,9 +81,9 @@ looking_at (char *s1, char *s2)
    commands, but is also used elsewhere.  Return value to be freed by caller.
    *PTR is advanced past the read name.  Return 0 if name is invalid. */
 char *
-read_command_name (char **ptr)
+read_command_name (const char **ptr)
 {
-  char *p = *ptr, *q;
+  const char *p = *ptr, *q;
   char *ret = 0;
 
   q = p;
@@ -104,9 +104,9 @@ read_command_name (char **ptr)
    if the command is a single character command.
    Return 0 if name is invalid or the empty string */
 char *
-parse_command_name (char **ptr, int *single_char)
+parse_command_name (const char **ptr, int *single_char)
 {
-  char *p = *ptr;
+  const char *p = *ptr;
   char *ret = 0;
   *single_char = 0;
 
@@ -133,10 +133,10 @@ parse_command_name (char **ptr, int *single_char)
 
 /* the pointer returned is past @c/@comment, whether there is indeed
    a comment or not.  If there is a comment, *has_comment is set to 1 */
-char *
-read_comment (char *line, int *has_comment)
+const char *
+read_comment (const char *line, int *has_comment)
 {
-  char *p = line;
+  const char *p = line;
   int len = strlen (line);
 
   *has_comment = 0;
@@ -647,7 +647,7 @@ end_preformatted (ELEMENT *current,
    from that element.
    */
 ELEMENT *
-merge_text (ELEMENT *current, char *text, ELEMENT *transfer_marks_element)
+merge_text (ELEMENT *current, const char *text, ELEMENT *transfer_marks_element)
 {
   int no_merge_with_following_text = 0;
   int leading_spaces = strspn (text, whitespace_chars);
@@ -976,10 +976,10 @@ isolate_last_space (ELEMENT *current)
    or commands starting a block, that will end up in COMMAND extra spaces
    value. */
 void
-start_empty_line_after_command (ELEMENT *current, char **line_inout,
+start_empty_line_after_command (ELEMENT *current, const char **line_inout,
                                 ELEMENT *command)
 {
-  char *line = *line_inout;
+  const char *line = *line_inout;
   ELEMENT *e;
   int len;
 
@@ -1077,10 +1077,10 @@ new_value_element (enum command_id cmd, char *flag, ELEMENT *spaces_element)
 
 /* Check if line is "@end ..." for current command.  If so, advance LINE. */
 int
-is_end_current_command (ELEMENT *current, char **line,
+is_end_current_command (ELEMENT *current, const char **line,
                         enum command_id *end_cmd)
 {
-  char *linep;
+  const char *linep;
   char *cmdname;
 
   linep = *line;
@@ -1335,12 +1335,12 @@ check_valid_nesting_context (enum command_id cmd)
           GET_A_NEW_LINE when we need to read a new line
           FINISHED_TOTALLY when @bye was found */
 int
-process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
+process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 {
   ELEMENT *current = *current_inout;
   ELEMENT *macro_call_element = 0;
-  char *line = *line_inout;
-  char *line_after_command;
+  const char *line = *line_inout;
+  const char *line_after_command;
   int retval = STILL_MORE_TO_PROCESS;
   enum command_id end_cmd;
   enum command_id from_alias = CM_NONE;
@@ -1357,7 +1357,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   if (command_flags(current) & CF_block
       && (command_data(current->cmd).data == BLOCK_raw))
     {
-      char *p = line;
+      const char *p = line;
       enum command_id cmd = 0;
       int closed_nested_raw = 0;
       /* Check if we are using a macro within a macro. */
@@ -1507,7 +1507,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else if (command_flags(current) & CF_block
       && (command_data(current->cmd).data == BLOCK_conditional))
     {
-      char *p = line;
+      const char *p = line;
 
       /* check for nested @ifset (so that @end ifset doesn't end the
          the outermost @ifset). */
@@ -1576,9 +1576,9 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* Check if parent element is 'verb' */
   else if (current->parent && current->parent->cmd == CM_verb)
     {
-      char *q;
-
-      char *delimiter = lookup_info_string (current->parent, "delimiter");
+      const char *q;
+      const char *delimiter
+        = lookup_info_string (current->parent, "delimiter");
 
       if (strcmp (delimiter, ""))
         {
@@ -1609,10 +1609,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               add_to_element_contents (current, e);
             }
           debug ("END VERB");
-          if (strcmp (delimiter, ""))
-            line = q + strlen (delimiter);
-          else
-            line = q;
+          line = q + strlen (delimiter);
           /* The '}' will close the @verb command in handle_separator below. */
         }
       else
@@ -1634,7 +1631,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       ELEMENT *e_elided_rawpreformatted;
       ELEMENT *e_empty_line;
       enum command_id dummy;
-      char *line_dummy;
+      const char *line_dummy;
       int n;
 
       e_elided_rawpreformatted = new_element (ET_elided_rawpreformatted);
@@ -1744,7 +1741,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     {
       static char *allocated_line;
 
-      line = line_after_command;
+      line += (line_after_command - line);
       macro_call_element = handle_macro (current, &line, cmd);
       if (macro_call_element)
         {
@@ -1772,7 +1769,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
      and early value expansion may be needed to provide with an argument. */
   else if (cmd == CM_value)
     {
-      char *remaining_line = line_after_command;
+      const char *remaining_line = line_after_command;
       ELEMENT *spaces_element = 0;
       if (parser_conf.ignore_space_after_braced_command_name)
         {
@@ -1839,7 +1836,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
                       /* Move 'line' to end of string so next input to
                          be processed is taken from input stack. */
-                      line = remaining_line + strlen (remaining_line);
+                      line += (remaining_line - line) + strlen (remaining_line);
                     }
                   if (value)
                     {
@@ -1962,15 +1959,15 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                     /* do not consider the end of line to be possibly between
                        the @-command and the argument if at the end of a
                        line or block @-command. */
-                       char saved; /* TODO: Have a length argument to merge_text? */
+                       char *space_text;
                        if (current->contents.number > 0)
                          gather_spaces_after_cmd_before_arg (current);
                        current = current->parent;
-                       saved = line[whitespaces_len];
-                       line[whitespaces_len] = '\0';
-                       current = merge_text (current, line, 0);
+                       /* TODO: Have a length argument to merge_text? */
+                       space_text = strndup (line, whitespaces_len);
+                       current = merge_text (current, space_text, 0);
+                       free (space_text);
                        line += whitespaces_len;
-                       *line = saved;
                        isolate_last_space (current);
                        current = end_line (current);
                        retval = GET_A_NEW_LINE;
@@ -2094,7 +2091,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       /* @value not expanded (expansion is done above), and @txiinternalvalue */
       if ((cmd == CM_value) || (cmd == CM_txiinternalvalue))
         {
-          char *arg_start;
+          const char *arg_start;
           char *flag;
           ELEMENT *spaces_element = 0;
           if (parser_conf.ignore_space_after_braced_command_name)
@@ -2393,13 +2390,13 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       /* Output until next command, separator or newline. */
       {
-        char saved; /* TODO: Have a length argument to merge_text? */
+        char *sep_text;
         len = strcspn (line, "{}@,:\t.\n\f");
-        saved = line[len];
-        line[len] = '\0';
-        current = merge_text (current, line, 0);
+        /* TODO: Have a length argument to merge_text? */
+        sep_text = strndup (line, len);
+        current = merge_text (current, sep_text, 0);
+        free (sep_text);
         line += len;
-        *line = saved;
       }
     }
   else /*  End of line */
@@ -2432,7 +2429,7 @@ funexit:
 
 /* Check for a #line directive. */
 static int
-check_line_directive (char *line)
+check_line_directive (const char *line)
 {
   int line_no = 0;
   int status = 0;
@@ -2464,7 +2461,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 {
   ELEMENT *current = current_elt;
   static char *allocated_line;
-  char *line;
+  const char *line;
   int status;
   DOCUMENT *document = parsed_document;
 
