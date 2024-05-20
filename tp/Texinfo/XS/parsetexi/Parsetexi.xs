@@ -152,11 +152,25 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories)
           }
 
 void
-conf_clear_expanded_formats ()
+parser_store_EXPANDED_FORMATS (SV *expanded_formats)
+      CODE:
+        conf_clear_expanded_formats ();
+        if (SvOK (expanded_formats))
+          {
+            SSize_t i;
+            AV *expanded_formats_av = (AV *)SvRV (expanded_formats);
+            SSize_t expanded_formats_nr = av_top_index (expanded_formats_av) +1;
 
-void
-conf_add_expanded_format (format)
-     char *format = (char *)SvPVutf8_nolen ($arg);
+            for (i = 0; i < expanded_formats_nr; i++)
+              {
+                SV **format_sv = av_fetch (expanded_formats_av, i, 0);
+                if (format_sv && SvOK (*format_sv))
+                  {
+                    char *format = SvPVutf8_nolen (*format_sv);
+                    conf_add_expanded_format (format);
+                  }
+              }
+          }
 
 void
 conf_set_show_menu (int i)
