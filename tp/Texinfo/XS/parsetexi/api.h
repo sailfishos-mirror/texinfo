@@ -17,6 +17,5 @@ void parser_set_accept_internalvalue (int value);
 void parser_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
 void parser_set_input_file_name_encoding (const char *value);
 void parser_set_locale_encoding (const char *value);
-void parser_set_documentlanguage_override (const char *value);
 
 #endif

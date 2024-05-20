@@ -69,7 +69,6 @@ typedef struct {
 ELEMENT *setup_document_root_and_before_node_section (void);
 int parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 int parse_texi_document (void);
-void set_documentlanguage_override (const char *value);
 void set_accept_internalvalue (int value);
 void set_restricted (int value);
 
@@ -100,7 +99,6 @@ void start_empty_line_after_command (ELEMENT *current, char **line_inout,
 ELEMENT *begin_paragraph (ELEMENT *current);
 int is_end_current_command (ELEMENT *current, char **line,
                             enum command_id *end_cmd);
-void set_documentlanguage (char *);
 int check_space_element (ELEMENT *e);
 void gather_spaces_after_cmd_before_arg (ELEMENT *current);
 char *parse_command_name (char **ptr, int *single_char);
@@ -121,7 +119,6 @@ extern ELEMENT *current_part;
 
 extern char *global_clickstyle;
 extern char *global_documentlanguage;
-extern int global_documentlanguage_fixed;
 extern int global_accept_internalvalue;
 
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };

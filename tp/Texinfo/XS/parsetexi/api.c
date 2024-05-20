@@ -59,6 +59,12 @@ initialize_parsing (void)
 
   init_values ();
 
+  free (global_documentlanguage);
+  if (conf.global_documentlanguage_fixed && conf.documentlanguage)
+    global_documentlanguage = strdup (conf.documentlanguage);
+  else
+    global_documentlanguage = 0;
+
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
   reset_command_stack (&nesting_context.basic_inline_stack_on_line);
@@ -97,9 +103,6 @@ reset_parser (int local_debug_output)
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
   reset_conf ();
-
-  global_documentlanguage_fixed = 0;
-  set_documentlanguage (0);
 
   set_doc_encoding_for_input_file_name (1);
   set_input_file_name_encoding (0);
@@ -207,12 +210,6 @@ parse_piece (const char *string, int line_nr)
   input_push_text (strdup (string), line_nr, 0, 0);
   document_descriptor = parse_texi (document_root, before_node_section);
   return document_descriptor;
-}
-
-void
-parser_set_documentlanguage_override (const char *value)
-{
-  set_documentlanguage_override (value);
 }
 
 void

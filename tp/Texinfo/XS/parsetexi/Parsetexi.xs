@@ -202,7 +202,7 @@ parser_set_locale_encoding (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
-parser_set_documentlanguage_override (value)
+conf_set_documentlanguage (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 int

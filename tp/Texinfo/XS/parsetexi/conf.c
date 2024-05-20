@@ -97,10 +97,19 @@ conf_add_expanded_format (const char *format)
 }
 
 void
+conf_set_documentlanguage (const char *value)
+{
+  free (conf.documentlanguage);
+  conf.documentlanguage = value ? strdup (value) : 0;
+  conf.global_documentlanguage_fixed = 1;
+}
+
+void
 reset_conf (void)
 {
   wipe_values (&conf.values);
   clear_strings_list (&conf.include_directories);
+  free (conf.documentlanguage);
 
   conf.cpp_line_directives = 1;
   conf.debug = 1;
@@ -109,6 +118,8 @@ reset_conf (void)
   conf.no_index = 0;
   conf.no_user_commands = 0;
   conf.show_menu = 1;
+  conf.documentlanguage = 0;
+  conf.global_documentlanguage_fixed = 0;
 
   memcpy (conf.expanded_formats, default_expanded_formats,
           sizeof (conf.expanded_formats));

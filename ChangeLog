@@ -1,6 +1,24 @@
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (conf_set_documentlanguage),
+	tp/Texinfo/XS/parsetexi/api.c (initialize_parsing, reset_parser),
+	tp/Texinfo/XS/parsetexi/conf.c (conf_set_documentlanguage)
+	(reset_conf), tp/Texinfo/XS/parsetexi/conf.h (CONF),
+	tp/Texinfo/XS/parsetexi/parser.c (wipe_parser_global_variables): add
+	documentlanguage and global_documentlanguage_fixed in CONF, add
+	conf_set_documentlanguage to set them.  Initialize
+	global_documentlanguage in initialize_parsing.  Remove
+	parser_set_documentlanguage_override and
+	set_documentlanguage_override.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/parser.c: inline set_documentlanguage in
+	end_line_misc_line.
+
+2024-05-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parser_store_EXPANDED_FORMATS):
 	iterate over EXPANDED_FORMATS in Parsetexi.xs.
 

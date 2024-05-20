@@ -105,7 +105,7 @@ sub parser (;$$)
         parser_store_EXPANDED_FORMATS($conf->{'EXPANDED_FORMATS'});
       } elsif ($key eq 'documentlanguage') {
         if (defined ($conf->{$key})) {
-          parser_set_documentlanguage_override($conf->{$key});
+          conf_set_documentlanguage($conf->{$key});
         }
       } elsif ($key eq 'FORMAT_MENU') {
         if ($conf->{$key} and $conf->{$key} eq 'menu') {

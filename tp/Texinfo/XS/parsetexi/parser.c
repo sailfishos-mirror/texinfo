@@ -316,30 +316,9 @@ reset_parser_counters (void)
 
 char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
-int global_documentlanguage_fixed = 0;
 int global_accept_internalvalue = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
-
-/* Set the document language unless it was set on the texi2any command line. */
-void
-set_documentlanguage (char *value)
-{
-  if (!global_documentlanguage_fixed)
-    {
-      free (global_documentlanguage);
-      global_documentlanguage = value ? strdup (value) : 0;
-    }
-}
-
-void
-set_documentlanguage_override (const char *value)
-{
-  free (global_documentlanguage);
-  global_documentlanguage = value ? strdup (value) : 0;
-  global_documentlanguage_fixed = 1;
-}
-
 
 void
 set_accept_internalvalue (int value)
@@ -436,11 +415,6 @@ wipe_parser_global_variables (void)
 {
   free (global_clickstyle);
   global_clickstyle = strdup ("arrow");
-  if (!global_documentlanguage_fixed)
-    {
-      free (global_documentlanguage);
-      global_documentlanguage = 0;
-    }
   global_kbdinputstyle = kbd_distinct;
 }
 

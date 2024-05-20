@@ -27,6 +27,8 @@ typedef struct CONF {
     int no_index;
     int no_user_commands;
     int show_menu;
+    char *documentlanguage;
+    int global_documentlanguage_fixed;
 
     EXPANDED_FORMAT expanded_formats[7];
     VALUE_LIST values;
@@ -46,6 +48,7 @@ void conf_clear_INCLUDE_DIRECTORIES (void);
 void conf_add_include_directory (const char *filename);
 void conf_clear_expanded_formats (void);
 void conf_add_expanded_format (const char *format);
+void conf_set_documentlanguage (const char *value);
 
 void reset_conf (void);
 

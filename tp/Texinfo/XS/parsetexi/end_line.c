@@ -30,6 +30,7 @@
 /* for isascii_alnum whitespace_chars read_flag_name
    indices_info_index_by_name ultimate_index fatal */
 #include "utils.h"
+#include "conf.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
 /* for parse_float_type add_to_float_record_list */
@@ -1518,7 +1519,12 @@ end_line_misc_line (ELEMENT *current)
                         }
                     }
                 }
-              set_documentlanguage (text);
+           /* Set the document language unless it was set on the command line. */
+              if (!conf.global_documentlanguage_fixed)
+                {
+                  free (global_documentlanguage);
+                  global_documentlanguage = strdup (text);
+                }
             }
         }
       if (superfluous_arg)
