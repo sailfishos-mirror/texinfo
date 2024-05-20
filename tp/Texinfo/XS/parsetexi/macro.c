@@ -61,20 +61,6 @@ lookup_macro (enum command_id cmd)
   return 0;
 }
 
-/* return 0 if not found, index +1 if found  */
-static size_t
-lookup_free_slot ()
-{
-  size_t i;
-
-  for (i = 0; i < macro_number; i++)
-    {
-      if (macro_list[i].cmd == 0)
-        return i+1;
-    }
-  return 0;
-}
-
 void
 new_macro (const char *name, const ELEMENT *macro)
 {
@@ -94,14 +80,12 @@ new_macro (const char *name, const ELEMENT *macro)
       size_t macro_index;
       if (free_slots_nr)
         {
-          size_t free_slot = lookup_free_slot ();
-          if (free_slot)
-            {
-              macro_index = free_slot - 1;
-              free_slots_nr--;
-            }
-          else
+          for (macro_index = 0; macro_index < macro_number; macro_index++)
+            if (macro_list[macro_index].cmd == 0)
+              break;
+          if (macro_index == macro_number)
             bug ("free slot not found");
+          free_slots_nr--;
         }
       else
         {
