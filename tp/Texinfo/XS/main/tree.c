@@ -488,7 +488,7 @@ pop_element_from_contents (ELEMENT *parent)
 }
 
 ELEMENT *
-last_args_child (ELEMENT *current)
+last_args_child (const ELEMENT *current)
 {
   if (current->args.number == 0)
     return 0;
@@ -506,7 +506,7 @@ last_contents_child (const ELEMENT *current)
 }
 
 ELEMENT *
-contents_child_by_index (ELEMENT *e, int index)
+contents_child_by_index (const ELEMENT *e, int index)
 {
   if (index < 0)
     index = e->contents.number + index;
@@ -518,7 +518,7 @@ contents_child_by_index (ELEMENT *e, int index)
 }
 
 ELEMENT *
-args_child_by_index (ELEMENT *e, int index)
+args_child_by_index (const ELEMENT *e, int index)
 {
   if (index < 0)
     index = e->args.number + index;

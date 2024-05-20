@@ -64,7 +64,7 @@ lookup_macro_and_slot (enum command_id cmd, size_t *free_slot)
 }
 
 void
-new_macro (char *name, ELEMENT *macro)
+new_macro (const char *name, const ELEMENT *macro)
 {
   enum command_id new;
   MACRO *m = 0;
@@ -267,20 +267,21 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
 /* Return index into given arguments to look for the value of NAME.
    Return -1 if not found. */
 
-int
-lookup_macro_parameter (const char *name, ELEMENT *macro)
+static int
+lookup_macro_parameter (const char *name, const ELEMENT *macro)
 {
   int i, pos;
-  ELEMENT **args;
+  /* the args_list pointer is const not the ELEMENT */
+  ELEMENT *const *args_list;
 
   /* Find 'arg' in MACRO parameters. */
-  args = macro->args.list;
+  args_list = macro->args.list;
   pos = 0;
   for (i = 0; i < macro->args.number; i++)
     {
-      if (args[i]->type == ET_macro_arg)
+      if (args_list[i]->type == ET_macro_arg)
         {
-          if (!strcmp (args[i]->text.text, name))
+          if (!strcmp (args_list[i]->text.text, name))
             return pos;
           pos++;
         }
@@ -308,8 +309,8 @@ remove_empty_arg (ELEMENT *argument)
 /* LINE points the opening brace in a macro invocation.  CMD is the command
    identifier of the macro command.  Return array of the arguments.  Return
    value to be freed by caller.  */
-void
-expand_macro_arguments (ELEMENT *macro, const char **line_inout,
+static void
+expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                         enum command_id cmd, ELEMENT *current)
 {
   const char *line = *line_inout;
@@ -453,8 +454,8 @@ funexit:
   *line_inout = line;
 }
 
-void
-set_toplevel_braces_nr (COUNTER *counter, ELEMENT* element)
+static void
+set_toplevel_braces_nr (COUNTER *counter, ELEMENT *element)
 {
   int toplevel_braces_nr = counter_value (counter, element);
   if (toplevel_braces_nr)
@@ -462,8 +463,8 @@ set_toplevel_braces_nr (COUNTER *counter, ELEMENT* element)
   counter_pop (counter);
 }
 
-void
-expand_linemacro_arguments (ELEMENT *macro, const char **line_inout,
+static void
+expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                             enum command_id cmd, ELEMENT *current)
 {
   const char *line = *line_inout;
@@ -668,23 +669,21 @@ expand_linemacro_arguments (ELEMENT *macro, const char **line_inout,
 }
 /* ARGUMENTS element holds the arguments used in the macro invocation.
    EXPANDED gets the result of the expansion. */
-void
-expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
+static void
+expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
+                   TEXT *expanded)
 {
   int pos; /* Index into arguments. */
-  ELEMENT *macro;
-  char *macrobody;
+  const ELEMENT *macro;
+  const char *macrobody;
   const char *ptext;
-
-  macro = macro_record->element;
 
   macrobody = macro_record->macrobody;
 
-  /* Initialize TEXT object. */
-  expanded->end = 0;
-
   if (!macrobody)
     return;
+
+  macro = macro_record->element;
 
   ptext = macrobody;
   while (1)
@@ -692,7 +691,7 @@ expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
       /* At the start of this loop ptext is at the beginning or
          just after the last backslash sequence. */
 
-      char *bs; /* Pointer to next backslash. */
+      const char *bs; /* Pointer to next backslash. */
 
       bs = strchrnul (ptext, '\\');
       text_append_n (expanded, ptext, bs - ptext);
@@ -707,6 +706,7 @@ expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
         }
       else
         {
+          char *name;
           bs = strchr (ptext, '\\');
           if (!bs)
             {
@@ -715,29 +715,29 @@ expand_macro_body (MACRO *macro_record, ELEMENT *arguments, TEXT *expanded)
               return;
             }
 
-          *bs = '\0';
-          pos = lookup_macro_parameter (ptext, macro);
+          name = strndup (ptext, bs - ptext);
+          pos = lookup_macro_parameter (name, macro);
           if (pos == -1)
             {
               line_error ("\\ in @%s expansion followed `%s' instead of "
                           "parameter name or \\",
-                          macro->args.list[0]->text.text,
-                          ptext);
+                          macro->args.list[0]->text.text, name);
               text_append (expanded, "\\");
-              text_append (expanded, ptext);
+              text_append (expanded, name);
             }
           else
             {
               if (arguments && pos < arguments->args.number)
                 {
-                  ELEMENT *argument = args_child_by_index (arguments, pos);
+                  const ELEMENT *argument
+                    = args_child_by_index (arguments, pos);
                   if (argument->contents.number > 0)
                     text_append (expanded,
                       last_contents_child (
                         args_child_by_index (arguments, pos))->text.text);
                 }
             }
-          *bs = '\\';
+          free (name);
           ptext = bs + 1;
         }
     }
@@ -771,7 +771,7 @@ unset_macro_record (MACRO *m)
 }
 
 void
-delete_macro (char *name)
+delete_macro (const char *name)
 {
   enum command_id cmd;
   MACRO *m;
@@ -804,7 +804,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
 {
   const char *line, *p;
   MACRO *macro_record;
-  ELEMENT *macro;
+  const ELEMENT *macro;
   TEXT expanded;
   char *expanded_macro_text;
   int args_number;
@@ -813,7 +813,6 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   int error = 0;
 
   line = *line_inout;
-  text_init (&expanded);
 
   macro_record = lookup_macro (cmd);
   if (!macro_record)
@@ -961,9 +960,10 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
       goto funexit;
     }
 
+  text_init (&expanded);
   expand_macro_body (macro_record, macro_call_element, &expanded);
 
-  if (expanded.text && expanded.end > 0)
+  if (expanded.end > 0)
     {
       if (expanded.text[expanded.end - 1] == '\n')
         expanded.text[--expanded.end] = '\0';

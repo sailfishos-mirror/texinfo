@@ -27,20 +27,18 @@ typedef struct {
 
 typedef struct {
     char *macro_name;
-    ELEMENT *element;
+    const ELEMENT *element;
     enum command_id cmd;
     char *macrobody;
 } MACRO;
 
-void new_macro (char *name, ELEMENT *macro);
+void new_macro (const char *name, const ELEMENT *macro);
 ELEMENT *parse_macro_command_line (enum command_id, const char **line_inout,
                                    ELEMENT *parent);
 ELEMENT *handle_macro (ELEMENT *current, const char **line_inout,
                        enum command_id cmd_id);
-void delete_macro (char *name);
+void delete_macro (const char *name);
 void unset_macro_record (MACRO *m);
-void expand_macro_body (MACRO *macro_record, ELEMENT *arguments,
-                        TEXT *expanded);
 MACRO *lookup_macro (enum command_id cmd);
 void wipe_macros (void);
 
