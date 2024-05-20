@@ -41,7 +41,7 @@
 /* for wipe_macros store_value init_values wipe_values */
 #include "macro.h"
 #include "document.h"
-/* for reset_conf conf_add_include_directory */
+/* for reset_conf */
 #include "conf.h"
 /* for init_index_commands */
 #include "indices.h"
@@ -58,8 +58,8 @@ initialize_parsing (void)
   init_values ();
 
   free (global_documentlanguage);
-  if (conf.global_documentlanguage_fixed && conf.documentlanguage)
-    global_documentlanguage = strdup (conf.documentlanguage);
+  if (parser_conf.global_documentlanguage_fixed && parser_conf.documentlanguage)
+    global_documentlanguage = strdup (parser_conf.documentlanguage);
   else
     global_documentlanguage = 0;
 
@@ -84,7 +84,7 @@ initialize_parsing (void)
 
   reset_obstacks ();
 
-  if (!conf.no_index)
+  if (!parser_conf.no_index)
     init_index_commands ();
 
   set_input_encoding ("utf-8");
@@ -211,12 +211,12 @@ parse_piece (const char *string, int line_nr)
 void
 parser_reset_values_conf (void)
 {
-  wipe_values (&conf.values);
+  wipe_values (&parser_conf.values);
 }
 
 void
 parser_store_value (const char *name, const char *value)
 {
-  store_value (&conf.values, name, value);
+  store_value (&parser_conf.values, name, value);
 }
 

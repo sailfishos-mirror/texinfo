@@ -132,7 +132,7 @@ parse_line_command_args (ELEMENT *line_command)
     {
     case CM_alias:
       {
-        if (conf.no_user_commands)
+        if (parser_conf.no_user_commands)
           break;
         /* @alias NEW = EXISTING */
         char *new = 0, *existing = 0;
@@ -211,7 +211,7 @@ parse_line_command_args (ELEMENT *line_command)
       }
     case CM_definfoenclose:
       {
-        if (conf.no_user_commands)
+        if (parser_conf.no_user_commands)
           break;
 
         /* @definfoenclose phoo,//,\\ */
@@ -334,7 +334,7 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_defindex:
     case CM_defcodeindex:
       {
-        if (conf.no_user_commands || conf.no_index)
+        if (parser_conf.no_user_commands || parser_conf.no_index)
           break;
 
         char *name = 0;
@@ -402,7 +402,7 @@ parse_line_command_args (ELEMENT *line_command)
         if (*p)
           goto synindex_invalid; /* More at end of line. */
 
-        if (conf.no_index)
+        if (parser_conf.no_index)
           {
             free (index_name_from);
             free (index_name_to);
@@ -458,7 +458,7 @@ parse_line_command_args (ELEMENT *line_command)
         arg = read_command_name (&p);
         if (!arg || *p)
           line_error ("bad argument to @printindex: %s", line);
-        else if (conf.no_index)
+        else if (parser_conf.no_index)
           {}
         else
           {
@@ -1520,7 +1520,7 @@ end_line_misc_line (ELEMENT *current)
                     }
                 }
            /* Set the document language unless it was set on the command line. */
-              if (!conf.global_documentlanguage_fixed)
+              if (!parser_conf.global_documentlanguage_fixed)
                 {
                   free (global_documentlanguage);
                   global_documentlanguage = strdup (text);

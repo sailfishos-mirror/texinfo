@@ -54,7 +54,7 @@ lookup_command (char *cmdname)
 
   /* txiinternalvalue is invalid if the corresponding parameter
    * is not set */
-  if (cmd == CM_txiinternalvalue && !conf.accept_internalvalue)
+  if (cmd == CM_txiinternalvalue && !parser_conf.accept_internalvalue)
     return 0;
 
   return cmd;

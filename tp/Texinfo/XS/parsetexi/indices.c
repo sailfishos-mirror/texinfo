@@ -244,7 +244,7 @@ enter_index_entry (enum command_id index_type_cmd,
   const IGNORED_CHARS *ignored_chars_info
     = &parsed_document->global_info.ignored_chars;
 
-  if (conf.no_index)
+  if (parser_conf.no_index)
     return;
 
   idx = index_of_command (index_type_cmd);

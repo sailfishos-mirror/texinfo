@@ -70,7 +70,7 @@ new_macro (char *name, ELEMENT *macro)
   MACRO *m = 0;
   size_t free_slot = 0;
 
-  if (conf.no_user_commands)
+  if (parser_conf.no_user_commands)
     return;
 
   /* Check for an existing definition first for us to overwrite. */
@@ -568,7 +568,7 @@ expand_linemacro_arguments (ELEMENT *macro, char **line_inout,
               if (cmd && (command_data(cmd).flags & CF_brace)
                   && strchr (whitespace_chars, *pline)
                   && ((command_flags(current) & CF_accent)
-                   || conf.ignore_space_after_braced_command_name))
+                   || parser_conf.ignore_space_after_braced_command_name))
                 {
                   int whitespaces_len = strspn (pline, whitespace_chars);
                   text_append_n (arg, pline, whitespaces_len);
@@ -847,13 +847,13 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
         }
     }
 
-  if (conf.max_macro_call_nesting
-      && macro_expansion_nr > conf.max_macro_call_nesting)
+  if (parser_conf.max_macro_call_nesting
+      && macro_expansion_nr > parser_conf.max_macro_call_nesting)
     {
       line_warn (
          "macro call nested too deeply "
          "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
-                conf.max_macro_call_nesting);
+                parser_conf.max_macro_call_nesting);
       error = 1;
     }
 
@@ -1029,15 +1029,15 @@ init_values (void)
 
   wipe_values (&parser_values);
 
-  if (parser_values.space < conf.values.number)
+  if (parser_values.space < parser_conf.values.number)
     {
-      parser_values.space = conf.values.number;
+      parser_values.space = parser_conf.values.number;
       parser_values.list = realloc (parser_values.list,
                                     parser_values.space * sizeof (VALUE));
     }
-  for (i = 0; i < conf.values.number; i++)
-    store_value (&parser_values, conf.values.list[i].name,
-                 conf.values.list[i].value);
+  for (i = 0; i < parser_conf.values.number; i++)
+    store_value (&parser_values, parser_conf.values.list[i].name,
+                 parser_conf.values.list[i].value);
 }
 
 void

@@ -25,14 +25,14 @@
 #include "conf.h"
 #include "debug_parser.h"
 
-/* debug functions used in parser, depending on conf.debug */
+/* debug functions used in parser, depending on parser_conf.debug */
 
 void
 debug (char *s, ...)
 {
   va_list v;
 
-  if (!conf.debug)
+  if (!parser_conf.debug)
     return;
   va_start (v, s);
   vfprintf (stderr, s, v);
@@ -44,7 +44,7 @@ debug_nonl (char *s, ...)
 {
   va_list v;
 
-  if (!conf.debug)
+  if (!parser_conf.debug)
     return;
   va_start (v, s);
   vfprintf (stderr, s, v);
@@ -53,7 +53,7 @@ debug_nonl (char *s, ...)
 void
 debug_print_element (const ELEMENT *e, int print_parent)
 {
-  if (conf.debug)
+  if (parser_conf.debug)
     {
       char *result;
       result = print_element_debug (e, print_parent);
@@ -65,7 +65,7 @@ debug_print_element (const ELEMENT *e, int print_parent)
 void
 debug_print_protected_string (char *input_string)
 {
-  if (conf.debug)
+  if (parser_conf.debug)
     {
       int allocated = 0;
       char *result = debug_protect_eol (input_string, &allocated);
@@ -133,7 +133,7 @@ print_element_debug_parser (ELEMENT *e, int print_parent)
 void
 debug_parser_print_element (ELEMENT *e, int print_parent)
 {
-  if (conf.debug)
+  if (parser_conf.debug)
     {
       char *result;
       result = print_element_debug_parser (e, print_parent);

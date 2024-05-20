@@ -39,7 +39,7 @@ typedef struct CONF {
     VALUE_LIST values;
 } CONF;
 
-extern CONF conf;
+extern CONF parser_conf;
 
 /* part of public API */
 void conf_set_show_menu (int i);

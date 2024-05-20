@@ -984,7 +984,7 @@ funexit:
 int
 parser_format_expanded_p (const char *format)
 {
-  return format_expanded_p (conf.expanded_formats, format);
+  return format_expanded_p (parser_conf.expanded_formats, format);
 }
 
 /* A command name has been read that starts a multiline block, which should
@@ -1092,7 +1092,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
 
           if (current_node)
             {
-              if (cmd == CM_direntry && conf.show_menu)
+              if (cmd == CM_direntry && parser_conf.show_menu)
                 {
                   line_warn ("@direntry after first node");
                 }

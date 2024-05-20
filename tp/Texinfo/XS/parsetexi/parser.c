@@ -37,7 +37,7 @@
 #include "input.h"
 #include "source_marks.h"
 #include "extra.h"
-/* for conf */
+/* for parser_conf */
 #include "conf.h"
 #include "command_stack.h"
 /* for nesting_context */
@@ -1774,7 +1774,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
     {
       char *remaining_line = line_after_command;
       ELEMENT *spaces_element = 0;
-      if (conf.ignore_space_after_braced_command_name)
+      if (parser_conf.ignore_space_after_braced_command_name)
         {
           int whitespaces_len = strspn (remaining_line, whitespace_chars);
           if (whitespaces_len > 0)
@@ -1804,13 +1804,14 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                       ELEMENT *sm_value_element;
 
                       remaining_line++; /* past '}' */
-                      if (conf.max_macro_call_nesting
-                          && value_expansion_nr >= conf.max_macro_call_nesting)
+                      if (parser_conf.max_macro_call_nesting
+                          && value_expansion_nr
+                                  >= parser_conf.max_macro_call_nesting)
                         {
                           line_warn (
                             "value call nested too deeply "
                    "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
-                             conf.max_macro_call_nesting);
+                             parser_conf.max_macro_call_nesting);
                           free (flag);
                           if (spaces_element)
                             destroy_element (spaces_element);
@@ -1943,7 +1944,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       if (strchr (whitespace_chars, *line)
                && ((command_flags(current) & CF_accent)
-                   || conf.ignore_space_after_braced_command_name))
+                   || parser_conf.ignore_space_after_braced_command_name))
         {
            int whitespaces_len;
            int additional_newline = 0;
@@ -2096,7 +2097,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           char *arg_start;
           char *flag;
           ELEMENT *spaces_element = 0;
-          if (conf.ignore_space_after_braced_command_name)
+          if (parser_conf.ignore_space_after_braced_command_name)
             {
               int whitespaces_len = strspn (line, whitespace_chars);
               if (whitespaces_len > 0)
@@ -2437,7 +2438,7 @@ check_line_directive (char *line)
   int status = 0;
   char *parsed_filename;
 
-  if (!conf.cpp_line_directives)
+  if (!parser_conf.cpp_line_directives)
     return 0;
 
   /* Check input is coming directly from a file. */
@@ -2625,7 +2626,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   parsed_document = 0;
   forget_indices ();
 
-  complete_indices (document, conf.debug);
+  complete_indices (document, parser_conf.debug);
 
   return document->descriptor;
 }
