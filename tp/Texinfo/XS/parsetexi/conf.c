@@ -22,7 +22,7 @@
 #include "conf.h"
 
 /* Configuration values. */
-CONF parser_conf;
+PARSER_CONF parser_conf;
 
 void
 conf_set_show_menu (int i)

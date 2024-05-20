@@ -37,9 +37,9 @@ typedef struct CONF {
 
     EXPANDED_FORMAT expanded_formats[7];
     VALUE_LIST values;
-} CONF;
+} PARSER_CONF;
 
-extern CONF parser_conf;
+extern PARSER_CONF parser_conf;
 
 /* part of public API */
 void conf_set_show_menu (int i);
