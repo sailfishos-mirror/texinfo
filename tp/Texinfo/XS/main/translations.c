@@ -469,15 +469,15 @@ replace_convert_substrings (char *translated_string,
   if (debug_level > 0)
     parser_debug_level = debug_level - 1;
 
-  previous_debug_level = conf_set_DEBUG (parser_debug_level);
+  previous_debug_level = parser_conf_set_DEBUG (parser_debug_level);
 
   /*
    accept @txiinternalvalue as a valid Texinfo command, used to mark
    location in tree of substituted brace enclosed strings.
    */
-  conf_set_accept_internalvalue (1);
-  previous_no_index = conf_set_NO_INDEX (1);
-  previous_no_user_commands = conf_set_NO_USER_COMMANDS (1);
+  parser_conf_set_accept_internalvalue (1);
+  previous_no_index = parser_conf_set_NO_INDEX (1);
+  previous_no_user_commands = parser_conf_set_NO_USER_COMMANDS (1);
 
   document_descriptor = parse_string (texinfo_line, 1);
 
@@ -497,10 +497,10 @@ replace_convert_substrings (char *translated_string,
     }
   clear_document_parser_errors (document_descriptor);
 
-  conf_set_accept_internalvalue (0);
-  conf_set_NO_INDEX (previous_no_index);
-  conf_set_NO_USER_COMMANDS (previous_no_user_commands);
-  conf_set_DEBUG (previous_debug_level);
+  parser_conf_set_accept_internalvalue (0);
+  parser_conf_set_NO_INDEX (previous_no_index);
+  parser_conf_set_NO_USER_COMMANDS (previous_no_user_commands);
+  parser_conf_set_DEBUG (previous_debug_level);
 
   if (replaced_substrings)
     {

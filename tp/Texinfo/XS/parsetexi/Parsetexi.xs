@@ -130,7 +130,7 @@ parser_store_values (SV *values)
 void
 parser_store_INCLUDE_DIRECTORIES (SV *directories)
       CODE:
-        conf_clear_INCLUDE_DIRECTORIES ();
+        parser_conf_clear_INCLUDE_DIRECTORIES ();
         if (SvOK (directories))
           {
             SSize_t i;
@@ -146,7 +146,7 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories)
          are already byte strings (or ascii).  The encoding was detected
          as COMMAND_LINE_ENCODING, but it is not used in the XS parser. */
                     char *directory = SvPVbyte_nolen (*directory_sv);
-                    conf_add_include_directory (directory);
+                    parser_conf_add_include_directory (directory);
                   }
               }
           }
@@ -154,7 +154,7 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories)
 void
 parser_store_EXPANDED_FORMATS (SV *expanded_formats)
       CODE:
-        conf_clear_expanded_formats ();
+        parser_conf_clear_expanded_formats ();
         if (SvOK (expanded_formats))
           {
             SSize_t i;
@@ -167,48 +167,47 @@ parser_store_EXPANDED_FORMATS (SV *expanded_formats)
                 if (format_sv && SvOK (*format_sv))
                   {
                     char *format = SvPVutf8_nolen (*format_sv);
-                    conf_add_expanded_format (format);
+                    parser_conf_add_expanded_format (format);
                   }
               }
           }
 
 void
-conf_set_show_menu (int i)
+parser_conf_set_show_menu (int i)
 
 void
-conf_set_CPP_LINE_DIRECTIVES (int i)
+parser_conf_set_CPP_LINE_DIRECTIVES (int i)
 
 void
-conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i)
+parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i)
 
 void
-conf_set_MAX_MACRO_CALL_NESTING (int i)
+parser_conf_set_MAX_MACRO_CALL_NESTING (int i)
 
 int
-conf_set_NO_INDEX (int i)
+parser_conf_set_NO_INDEX (int i)
 
 int
-conf_set_NO_USER_COMMANDS (int i)
+parser_conf_set_NO_USER_COMMANDS (int i)
 
 void
-conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
+parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
 void
-conf_set_INPUT_FILE_NAME_ENCODING (value)
+parser_conf_set_INPUT_FILE_NAME_ENCODING (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
-conf_set_LOCALE_ENCODING (value)
+parser_conf_set_LOCALE_ENCODING (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 void
-conf_set_documentlanguage (value)
+parser_conf_set_documentlanguage (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 int
-conf_set_DEBUG (int i)
+parser_conf_set_DEBUG (int i)
 
 void
-conf_set_accept_internalvalue (int value)
-
+parser_conf_set_accept_internalvalue (int value)
 

@@ -92,7 +92,7 @@ sub parser (;$)
   $debug = $parser->{'DEBUG'} if ($parser->{'DEBUG'});
   reset_parser($debug);
   # (re)set debug in any case, assuming that undef DEBUG is no debug
-  conf_set_DEBUG($debug);
+  parser_conf_set_DEBUG($debug);
 
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
@@ -104,37 +104,37 @@ sub parser (;$)
         parser_store_EXPANDED_FORMATS($conf->{'EXPANDED_FORMATS'});
       } elsif ($key eq 'documentlanguage') {
         if (defined ($conf->{$key})) {
-          conf_set_documentlanguage($conf->{$key});
+          parser_conf_set_documentlanguage($conf->{$key});
         }
       } elsif ($key eq 'FORMAT_MENU') {
         if ($conf->{$key} and $conf->{$key} eq 'menu') {
-          conf_set_show_menu(1);
+          parser_conf_set_show_menu(1);
         } else {
-          conf_set_show_menu(0);
+          parser_conf_set_show_menu(0);
         }
       } elsif ($key eq 'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME') {
-        conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME($conf->{$key});
+        parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME($conf->{$key});
       } elsif ($key eq 'CPP_LINE_DIRECTIVES') {
-        conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
+        parser_conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
       } elsif ($key eq 'MAX_MACRO_CALL_NESTING') {
-        conf_set_MAX_MACRO_CALL_NESTING($conf->{$key});
+        parser_conf_set_MAX_MACRO_CALL_NESTING($conf->{$key});
       } elsif ($key eq 'NO_INDEX') {
-        conf_set_NO_INDEX($conf->{$key});
+        parser_conf_set_NO_INDEX($conf->{$key});
       } elsif ($key eq 'NO_USER_COMMANDS') {
-        conf_set_NO_USER_COMMANDS($conf->{$key});
+        parser_conf_set_NO_USER_COMMANDS($conf->{$key});
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
-        conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME($conf->{$key});
+        parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME($conf->{$key});
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING') {
         if (defined($conf->{$key})) {
-          conf_set_INPUT_FILE_NAME_ENCODING($conf->{$key});
+          parser_conf_set_INPUT_FILE_NAME_ENCODING($conf->{$key});
         }
       } elsif ($key eq 'LOCALE_ENCODING') {
         if (defined($conf->{$key})) {
-          conf_set_LOCALE_ENCODING($conf->{$key});
+          parser_conf_set_LOCALE_ENCODING($conf->{$key});
         }
       } elsif ($key eq 'accept_internalvalue') {
         if ($conf->{$key}) {
-          conf_set_accept_internalvalue(1);
+          parser_conf_set_accept_internalvalue(1);
         }
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING'
                or $key eq 'DEBUG') {

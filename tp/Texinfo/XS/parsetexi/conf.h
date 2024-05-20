@@ -42,23 +42,23 @@ typedef struct CONF {
 extern PARSER_CONF parser_conf;
 
 /* part of public API */
-void conf_set_show_menu (int i);
-void conf_set_CPP_LINE_DIRECTIVES (int i);
-int conf_set_DEBUG (int i);
-void conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i);
-void conf_set_MAX_MACRO_CALL_NESTING (int i);
-int conf_set_NO_INDEX (int i);
-int conf_set_NO_USER_COMMANDS (int i);
-void conf_clear_INCLUDE_DIRECTORIES (void);
-void conf_add_include_directory (const char *filename);
-void conf_clear_expanded_formats (void);
-void conf_add_expanded_format (const char *format);
-void conf_set_documentlanguage (const char *value);
-void conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
-void conf_set_INPUT_FILE_NAME_ENCODING (const char *value);
-void conf_set_LOCALE_ENCODING (const char *value);
-void conf_set_accept_internalvalue (int value);
+void parser_conf_set_show_menu (int i);
+void parser_conf_set_CPP_LINE_DIRECTIVES (int i);
+int parser_conf_set_DEBUG (int i);
+void parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i);
+void parser_conf_set_MAX_MACRO_CALL_NESTING (int i);
+int parser_conf_set_NO_INDEX (int i);
+int parser_conf_set_NO_USER_COMMANDS (int i);
+void parser_conf_clear_INCLUDE_DIRECTORIES (void);
+void parser_conf_add_include_directory (const char *filename);
+void parser_conf_clear_expanded_formats (void);
+void parser_conf_add_expanded_format (const char *format);
+void parser_conf_set_documentlanguage (const char *value);
+void parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
+void parser_conf_set_INPUT_FILE_NAME_ENCODING (const char *value);
+void parser_conf_set_LOCALE_ENCODING (const char *value);
+void parser_conf_set_accept_internalvalue (int value);
 
-void reset_conf (void);
+void reset_parser_conf (void);
 
 #endif

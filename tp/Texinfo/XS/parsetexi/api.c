@@ -104,7 +104,7 @@ reset_parser (int local_debug_output)
     fprintf (stderr,
           "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n");
 
-  reset_conf ();
+  reset_parser_conf ();
 }
 
 /* Determine directory path based on file name.
@@ -151,7 +151,7 @@ parse_file (const char *filename, const char *input_file_name,
     {
       char saved = *p;
       *p = '\0';
-      conf_add_include_directory (filename);
+      parser_conf_add_include_directory (filename);
       *p = saved;
     }
 
