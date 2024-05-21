@@ -1,5 +1,47 @@
 2024-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	Reset parsing state to the configuration values before parsing
+
+	* tp/Texinfo/Common.pm (%common_parser_customization)
+	(%parser_customization, %parser_inner_options): rename
+	%common_parser_options as %common_parser_customization and add
+	LOCALE_ENCODING.  Rename %parser_options as %parser_customization and
+	%parser_inner_configuration as %parser_inner_options.
+
+	* tp/Texinfo/Common.pm (%parser_configuration)
+	(%parser_document_state_configuration)
+	(%parser_document_parsing_options): split %parser_state_configuration
+	in two with %parser_configuration with registrar and
+	%parser_document_state_configuration with values.  Add
+	%parser_document_parsing_options for all the customizations and
+	similar that should be set for a document parsing.
+
+	* tp/Texinfo/ParserNonXS.pm (%parser_document_state_initialization)
+	(%parsing_state_initialization): move 'sections_level_modifier' and
+	'input_file_encoding' from %parsing_state_initialization to
+	%parser_document_state_initialization.
+
+	* tp/Texinfo/ParserNonXS.pm (parser, _initialize_parsing): base
+	configuration on %Texinfo::Common::parser_document_parsing_options.
+	Add a $parser_conf hash reference and fill it instead of modifying the
+	parser itself for variables in Texinfo::Common
+	parser_document_parsing_options and add only the others (only
+	registrar, in practice) to the parser.  Store $parser_conf in
+	$parser->{'conf'}.  Use $parser->{'conf'} to reset the parser in
+	_initialize_parsing.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser, parse_texi_file)
+	(_get_parser_info): update based on change in ParserNonXS.pm.  Inline
+	_get_parser_error_registrar.
+
+	* tp/Texinfo/XS/parsetexi/api.c (initialize_parsing): move code around
+	to correspond better to type of variables in Perl.
+
+	* tp/Texinfo/XS/parsetexi/conf.c (reset_parser_conf): set debug to 0
+	in the default case.
+
+2024-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parsing_state_initialization)
 	(get_parser_info, _end_line_misc_line, _handle_close_brace): store
 	'input_encoding_name' directly in $document->{'global_info'}.

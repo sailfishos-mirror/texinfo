@@ -52,6 +52,9 @@ initialize_parsing (void)
 {
   parsed_document = new_document ();
 
+  if (!parser_conf.no_index)
+    init_index_commands ();
+
   wipe_user_commands ();
   wipe_macros ();
 
@@ -68,6 +71,7 @@ initialize_parsing (void)
   global_kbdinputstyle = kbd_distinct;
 
   current_node = current_section = current_part = 0;
+  source_marks_reset_counters ();
 
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
@@ -80,12 +84,9 @@ initialize_parsing (void)
      list to avoid memory leaks rather than reuse the iconv
      opened handlers */
   parser_reset_encoding_list ();
-  source_marks_reset_counters ();
 
   reset_obstacks ();
 
-  if (!parser_conf.no_index)
-    init_index_commands ();
 
   set_input_encoding ("utf-8");
 }

@@ -62,6 +62,13 @@ sub errors($)
   return ($self->{'errors_warnings'}, $self->{'error_nrs'});
 }
 
+sub clear($)
+{
+  my $self = shift;
+  $self->{'errors_warnings'} = [];
+  $self->{'errors_nrs'} = 0;
+}
+
 # add an already formatted/setup message
 sub add_formatted_message($$)
 {

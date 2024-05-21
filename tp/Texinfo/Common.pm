@@ -128,7 +128,7 @@ foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
 # variables not specific of Parser, used in other contexts.  Spread over
 # the different categories set below.  The default values are in general
 # the same as elsewhere, but occasionally may be specific of the Parser.
-my %common_parser_options = (
+my %common_parser_customization = (
   'INCLUDE_DIRECTORIES' => [ '.' ],
   'documentlanguage' => undef,  # not 'en' as it is better to specify that there is no
                                 # need for translation since the strings are in english
@@ -143,10 +143,11 @@ my %common_parser_options = (
   'COMMAND_LINE_ENCODING' => undef, # encoding of command line strings
                                     # used to decode file names for error message
   'INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding
+  'LOCALE_ENCODING' => undef, # used for file name encoding
 );
 
 # Customization variables obeyed only by the parser, and the default values.
-my %parser_options = (
+my %parser_customization = (
   'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME' => 1,
   'CPP_LINE_DIRECTIVES' => 1, # handle cpp like synchronization lines
   'MAX_MACRO_CALL_NESTING' => 100000, # max number of nested macro calls
@@ -159,13 +160,18 @@ my %parser_options = (
 # this serves both to set defaults and list customization variable
 # valid for the parser.
 # also used in util/txicustomvars
-our %default_parser_customization_values = (%common_parser_options, %parser_options);
+our %default_parser_customization_values = (%common_parser_customization,
+                                            %parser_customization);
 
-# customizable parser state, can be passed to the parser function.
-my %parser_state_configuration = (
+# can be passed to the parser function, but not document parsing nor
+# customization, and can only be passed through code.
+my %parser_configuration = (
   'registrar' => undef,        # Texinfo::Report object used for error
                                # reporting.
+);
 
+# can be modified through command-line, but not customization options
+our %parser_document_state_configuration = (
   # parsed document parsing information still relevant after parsing
   'values' => {'txicommandconditionals' => 1},
                               # the key is the name, the value the @set name
@@ -177,17 +183,21 @@ my %parser_state_configuration = (
 
 # parser keys related to customization
 # Set when initializing a parser, but never from command-line/init files
-my %parser_inner_configuration = (
+my %parser_inner_options = (
   'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
                                # to the tree or considered invalid.
                                # currently set if called by gdt.
 );
 
-# configurable parser state
+our %parser_document_parsing_options = (
+                       %default_parser_customization_values,
+                       %parser_document_state_configuration,
+                       %parser_inner_options);
+
+# configurable parser keys
 our %parser_settable_configuration = (
-  %parser_inner_configuration,
-  %parser_state_configuration,
-  %default_parser_customization_values,
+  %parser_document_parsing_options,
+  %parser_configuration,
 );
 
 
@@ -234,7 +244,7 @@ foreach my $var (keys(%document_settable_at_commands),
          keys(%Texinfo::Options::program_cmdline_options),
          keys(%Texinfo::Options::converter_cmdline_options),
          keys(%Texinfo::Options::program_customization_options),
-         keys(%parser_options),
+         keys(%parser_customization),
          keys(%Texinfo::Options::converter_customization_options),
          keys(%Texinfo::Options::converter_other_options),
          keys(%Texinfo::Options::array_cmdline_options)) {

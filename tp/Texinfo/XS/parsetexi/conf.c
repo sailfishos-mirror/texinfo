@@ -140,7 +140,7 @@ reset_parser_conf (void)
 
   parser_conf.accept_internalvalue = 0;
   parser_conf.cpp_line_directives = 1;
-  parser_conf.debug = 1;
+  parser_conf.debug = 0;
   parser_conf.doc_encoding_for_input_file_name = 1;
   parser_conf.documentlanguage = 0;
   parser_conf.ignore_space_after_braced_command_name = 1;

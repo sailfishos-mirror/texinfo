@@ -141,7 +141,7 @@ our $VERSION = '7.1dev';
 
 # these are the default values for the parsing state of a document.
 # Some could become configurable if moved to Texinfo::Common
-# %parser_state_configuration,
+# %parser_document_state_configuration,
 # but they are not configurable/implemented in the XS parser, so they are
 # best left internal.  Could be relevant to reuse for diverse sources
 # of input associated to the same document.
@@ -155,12 +155,16 @@ my %parser_document_state_initialization = (
                               # reference with 2 values, beginning and ending.
 
   # parsing information still relevant at the end of the parsing
-  'clickstyle' => 'arrow',       #
-  'kbdinputstyle' => 'distinct', #
-  'source_mark_counters' => {},  #
-  'current_node'    => undef,    # last seen node.
-  'current_section' => undef,    # last seen section.
-  'current_part'    => undef,    # last seen part.
+  'clickstyle' => 'arrow',        #
+  'kbdinputstyle' => 'distinct',  #
+  'source_mark_counters' => {},   #
+  'current_node'    => undef,     # last seen node.
+  'current_section' => undef,     # last seen section.
+  'current_part'    => undef,     # last seen part.
+  'sections_level_modifier' => 0, # modified by raise/lowersections
+
+  'input_file_encoding' => 'utf-8', # perl encoding name used for the input
+                                    # file
 );
 
 my %parsing_state_initialization = (
@@ -173,7 +177,6 @@ my %parsing_state_initialization = (
   'raw_block_stack' => [],    # a stack of raw block commands that are nested.
   'macro_expansion_nr' => 0,  # number of macros being expanded
   'value_expansion_nr' => 0,  # number of values being expanded
-  'sections_level_modifier' => 0, # modified by raise/lowersections
   'nesting_context'    => {
                          # key is the context name, value is the
                          # depth of the context.
@@ -206,8 +209,6 @@ my %parsing_state_initialization = (
                          # be added each time a context is pushed on
                          # 'context_stack'.  Could be undef if there
                          # is no @-command associated with the context.
-  'input_file_encoding' => 'utf-8', # perl encoding name used for the input
-                                    # file
 );
 
 my %parser_state_initialization = (%parser_document_state_initialization,
@@ -562,53 +563,58 @@ sub parser(;$)
   # In Texinfo::Common because all the
   # customization options information is gathered here, and also
   # because it is used in other codes, in particular the XS parser.
-  my $parser = dclone(\%Texinfo::Common::parser_settable_configuration);
+  # Note that it also contains inner options like accept_internalvalue
+  # and customizable document parser state values in addition to
+  # regular customization options.
+  my $parser_conf = dclone(\%Texinfo::Common::parser_document_parsing_options);
+  my $parser = {};
   bless $parser;
 
-  # for get_conf, set for all the configuration keys that are also in
-  # %Texinfo::Common::default_parser_customization_values to the
-  # values set at parser initialization
+  # Reset conf from argument, restricting to parser_document_parsing_options,
+  # and set directly parser keys if in parser_settable_configuration and not in
+  # parser_document_parsing_options.
   $parser->{'set'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
-      if (exists($Texinfo::Common::parser_settable_configuration{$key})) {
+      if (exists($Texinfo::Common::parser_document_parsing_options{$key})) {
         # we keep registrar instead of copying on purpose, to reuse the object
-        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
-          $parser->{$key} = dclone($conf->{$key});
+        if (ref($conf->{$key})) {
+          $parser_conf->{$key} = dclone($conf->{$key});
         } else {
-          $parser->{$key} = $conf->{$key};
+          $parser_conf->{$key} = $conf->{$key};
         }
         if ($initialization_overrides{$key}) {
-          $parser->{'set'}->{$key} = $parser->{$key};
+          $parser->{'set'}->{$key} = $parser_conf->{$key};
         }
+      } elsif (exists($Texinfo::Common::parser_settable_configuration{$key})) {
+        # we keep instead of copying on purpose, to reuse the objects
+        # Should only be registrar
+        $parser->{$key} = $conf->{$key};
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
       }
     }
   }
 
-  $parser->{'conf'} = {};
-  # restrict variables found by get_conf, and set the values to the
-  # parser initialization values only.  What is found in the document
-  # has no effect.
-  foreach my $key (keys(%Texinfo::Common::default_parser_customization_values)) {
-    $parser->{'conf'}->{$key} = $parser->{$key};
-  }
-
   # This is not very useful in perl, but mimics the XS parser
   print STDERR "!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!\n"
-    if ($parser->{'DEBUG'});
+    if ($parser_conf->{'DEBUG'});
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
   $parser->{'expanded_formats_hash'} = {};
-  foreach my $expanded_format(@{$parser->{'EXPANDED_FORMATS'}}) {
+  foreach my $expanded_format(@{$parser_conf->{'EXPANDED_FORMATS'}}) {
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
 
   if (not defined($parser->{'registrar'})) {
     $parser->{'registrar'} = Texinfo::Report::new();
   }
+
+  # variables found by get_conf, set to the parser initialization values
+  # only.  What is found in the document has no effect.  Also used to
+  # initialize parsing state.
+  $parser->{'conf'} = $parser_conf;
 
   return $parser;
 }
@@ -628,6 +634,19 @@ sub _initialize_parsing()
   my $document = Texinfo::Document::new_document($index_names);
 
   my $parser_state = dclone(\%parser_state_initialization);
+
+  # initialize with conf.  Note that most options do not ever change,
+  # but some do, in practice documentlanguage (if not in 'set') and
+  # values, such that it is important to reset and replace values obtained
+  # at the end of the previous parsing.
+  foreach my $key (keys(%{$parser->{'conf'}})) {
+    if (ref($parser->{'conf'}->{$key})) {
+      $parser_state->{$key} = dclone($parser->{'conf'}->{$key});
+    } else {
+      # includes undef values
+      $parser_state->{$key} = $parser->{'conf'}->{$key};
+    }
+  }
 
   $parser_state->{'document'} = $document;
 
@@ -767,6 +786,9 @@ sub parse_texi_piece($$;$)
   $line_nr = 1 if (not defined($line_nr));
 
   my $parser_state = $self->_initialize_parsing();
+  # We rely on parser state overriding the previous state infomation
+  # in self, as documented in perldata:
+  #   If a key appears more than once in the initializer list of a hash, the last occurrence wins
   %$self = (%$self, %$parser_state);
 
   _input_push_text($self, $text, $line_nr);
@@ -2453,6 +2475,10 @@ sub _next_text($;$)
           # which are byte strings and end up unmodified in output error
           # messages.
           my $file_name_encoding;
+          # FIXME 'file_name_encoding' should always be defined, as
+          # it comes from 'input_file_encoding' which is always
+          # defined, possibly to the default value, so the following
+          # condition should always be true.
           if (defined($input->{'file_name_encoding'})) {
             $file_name_encoding = $input->{'file_name_encoding'};
           } else {
@@ -3688,7 +3714,7 @@ sub _end_line_misc_line($$$)
           $self->_command_warn($current, $message);
         }
         if (!$self->{'set'}->{'documentlanguage'}) {
-           $self->{'documentlanguage'} = $text;
+          $self->{'documentlanguage'} = $text;
         }
       }
     }
