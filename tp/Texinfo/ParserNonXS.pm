@@ -208,8 +208,6 @@ my %parsing_state_initialization = (
                          # is no @-command associated with the context.
   'input_file_encoding' => 'utf-8', # perl encoding name used for the input
                                     # file
-  'input_encoding_name' => 'utf-8', # current input encoding name, based on
-                                    # mime type encoding names
 );
 
 my %parser_state_initialization = (%parser_document_state_initialization,
@@ -879,10 +877,6 @@ sub get_parser_info($)
                                          $self->{'registrar'}, $self);
   if (defined($perl_encoding)) {
     $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
-  }
-  if (defined($self->{'input_encoding_name'})) {
-    $document->{'global_info'}->{'input_encoding_name'}
-                               = $self->{'input_encoding_name'};
   }
 
   my $global_commands = $document->{'commands_info'};
@@ -3622,8 +3616,8 @@ sub _end_line_misc_line($$$)
         }
       } elsif ($command eq 'verbatiminclude') {
         $current->{'extra'}->{'input_encoding_name'}
-                        = $self->{'input_encoding_name'}
-          if (defined($self->{'input_encoding_name'}));
+               = $document->{'global_info'}->{'input_encoding_name'}
+          if (defined($document->{'global_info'}->{'input_encoding_name'}));
         # gather included file for 'included_files'.  No errors, they
         # should be output by converters
         my ($file_path, $file_name_encoding) = _encode_file_name($self, $text);
@@ -3676,8 +3670,8 @@ sub _end_line_misc_line($$$)
                  __("unhandled encoding name `%s'"), $text);
           } else {
             if ($input_encoding) {
+              $document->{'global_info'}->{'input_encoding_name'} = $input_encoding;
               $current->{'extra'}->{'input_encoding_name'} = $input_encoding;
-              $self->{'input_encoding_name'} = $input_encoding;
             }
 
             $self->{'input_file_encoding'} = $perl_encoding;
@@ -6343,10 +6337,11 @@ sub _handle_close_brace($$$)
         $self->_line_error(
            __("\@image missing filename argument"), $source_info);
       }
-      if (defined($self->{'input_encoding_name'})) {
+      my $document = $self->{'document'};
+      if (defined($document->{'global_info'}->{'input_encoding_name'})) {
         $image->{'extra'} = {} if (!$image->{'extra'});
         $image->{'extra'}->{'input_encoding_name'}
-           = $self->{'input_encoding_name'};
+           = $document->{'global_info'}->{'input_encoding_name'};
       }
     } elsif($current->{'parent'}->{'cmdname'} eq 'dotless') {
       my $dotless = $current->{'parent'};

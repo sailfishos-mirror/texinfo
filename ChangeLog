@@ -1,3 +1,9 @@
+2024-05-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (%parsing_state_initialization)
+	(get_parser_info, _end_line_misc_line, _handle_close_brace): store
+	'input_encoding_name' directly in $document->{'global_info'}.
+
 2024-05-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/macro.c (new_macro): inline lookup_free_slot
