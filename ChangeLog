@@ -1,5 +1,12 @@
 2024-05-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm (errors), tp/Texinfo/ParserNonXS.pm (errors),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (errors),
+	tp/t/test_parse_texi_line.t: clear Texinfo::Report errors when
+	returning them with a call to errors().
+
+2024-05-21  Patrice Dumas  <pertusus@free.fr>
+
 	Reset parsing state to the configuration values before parsing
 
 	* tp/Texinfo/Common.pm (%common_parser_customization)

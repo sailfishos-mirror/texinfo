@@ -1013,7 +1013,11 @@ sub errors($)
   if (!$registrar) {
     return undef;
   }
-  return $registrar->errors();
+  my ($error_warnings_list, $error_count) = $registrar->errors();
+
+  $registrar->clear();
+
+  return $error_warnings_list, $error_count;
 }
 
 # Following are the internal parsing subroutines.  The most important are
@@ -8069,8 +8073,10 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
 =head1 SYNOPSIS
 
   use Texinfo::Parser;
+
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_file("somefile.texi");
+
   my ($errors, $errors_count) = $parser->errors();
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};

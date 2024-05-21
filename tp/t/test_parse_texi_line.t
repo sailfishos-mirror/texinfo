@@ -5,7 +5,8 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 45; }
+# 2 * (number of tests + number of tests with errors + 2 * number of errors)
+BEGIN { plan tests => 2 * (4 + 3 + 2 * (1 + 1 + 4)); }
 
 use Texinfo::Convert::Texinfo;
 use Texinfo::Parser;
@@ -105,9 +106,7 @@ foreach my $test_string_explanation (@tests) {
 # test with the same parser reused
 my $parser = Texinfo::Parser::parser();
 
-my @concatenated_error_messages = ();
 foreach my $test_string_explanation (@tests) {
   my ($texi_string, $explanation, $error_messages) = @$test_string_explanation;
-  push @concatenated_error_messages, @$error_messages if (defined($error_messages));
-  test_line($parser, $texi_string, $explanation, \@concatenated_error_messages);
+  test_line($parser, $texi_string, "reuse parser $explanation", $error_messages);
 }

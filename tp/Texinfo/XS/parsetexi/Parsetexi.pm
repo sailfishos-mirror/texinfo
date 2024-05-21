@@ -301,9 +301,12 @@ sub errors($)
   if (!$registrar) {
     return undef;
   }
-  return $registrar->errors();
-}
+  my ($error_warnings_list, $error_count) = $registrar->errors();
 
+  $registrar->clear();
+
+  return ($error_warnings_list, $error_count);
+}
 
 1;
 __END__

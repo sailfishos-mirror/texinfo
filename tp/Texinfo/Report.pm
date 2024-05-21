@@ -267,6 +267,8 @@ Texinfo::Report - Error storing for Texinfo modules
     warn $error_message->{'error_line'};
   }
 
+  $registrar->clear();
+
 =head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
@@ -334,6 +336,11 @@ The text of the error.
 May be C<warning>, or C<error>.
 
 =back
+
+=item $registrar->clear ()
+X<C<clear>>
+
+Clear the previously registered messages.
 
 =item $registrar->add_formatted_message ($msg)
 X<C<add_formatted_message>>

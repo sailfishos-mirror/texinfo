@@ -510,7 +510,11 @@ sub errors($)
   my $registrar = $document->{'registrar'};
   return if !defined($registrar);
 
-  return $registrar->errors();
+  my ($error_warnings_list, $error_count) = $registrar->errors();
+
+  $registrar->clear();
+
+  return ($error_warnings_list, $error_count);
 }
 
 1;
@@ -522,6 +526,7 @@ Texinfo::Document - Texinfo document tree and information
 =head1 SYNOPSIS
 
   use Texinfo::Parser;
+
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_file("somefile.texi");
 
@@ -529,14 +534,17 @@ Texinfo::Document - Texinfo document tree and information
   my $float_types_arrays = $document->floats_information();
   my $internal_references_array
     = $parser->internal_references_information();
+
   # $identifier_target is an hash reference on normalized
   # node/float/anchor names.
   my $identifier_target = $document->labels_information();
+
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
   # Also contains dircategory and direntry list.
   my $global_commands_information
                  = $document->global_commands_information();
+
   # a hash reference on document information (encodings,
   # input file name, for example).
   my $global_information = $document->global_information();
