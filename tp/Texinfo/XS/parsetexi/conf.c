@@ -130,13 +130,12 @@ parser_conf_set_accept_internalvalue (int value)
 void
 reset_parser_conf (void)
 {
-  /* FIXME except for the very first call to reset_parser_conf, there
-     should always be a descriptor set, so only the first case may happen */
   if (global_parser_conf.descriptor)
    /* it is important to set to 0 for list structures such that the list
       pointer is set to 0 and not reused. */
     memset (&global_parser_conf, 0, sizeof (PARSER_CONF));
   else
+    /* unset the previous structures if not registered */
     clear_parser_conf (&global_parser_conf);
 
   global_parser_conf.descriptor = 0;

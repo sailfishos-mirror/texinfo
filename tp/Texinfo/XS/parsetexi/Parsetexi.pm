@@ -113,6 +113,11 @@ sub parser (;$)
   # (re)set debug in any case, assuming that undef DEBUG is no debug
   parser_conf_set_DEBUG($debug);
 
+  # Storing conf is only needed if the parser is reused.  There could be
+  # a customization variable.  Instead, we set store_conf to 0 if
+  # accept_internalvalue is set, if called from gdt as we know for sure that
+  # the parser is not gonna be reused.
+  my $store_conf = 1;
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if ($key eq 'INCLUDE_DIRECTORIES') {
@@ -153,7 +158,9 @@ sub parser (;$)
         }
       } elsif ($key eq 'accept_internalvalue') {
         if ($conf->{$key}) {
+          # called from gdt, no need to store the parser configuration
           parser_conf_set_accept_internalvalue(1);
+          $store_conf = 0;
         }
       } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING'
                or $key eq 'DEBUG') {
@@ -163,16 +170,17 @@ sub parser (;$)
       }
     }
   }
+  if ($store_conf) {
+    register_parser_conf($parser);
 
-  register_parser_conf($parser);
+    # variables found by get_conf, set to the parser initialization values
+    # only.  What is found in the document has no effect.
+    $parser->{'conf'} = $parser_conf;
+  }
 
   if (not $parser->{'registrar'}) {
     $parser->{'registrar'} = Texinfo::Report::new();
   }
-
-  # variables found by get_conf, set to the parser initialization values
-  # only.  What is found in the document has no effect.
-  $parser->{'conf'} = $parser_conf;
 
   return $parser;
 }

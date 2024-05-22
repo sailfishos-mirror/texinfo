@@ -1,5 +1,15 @@
 2024-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings): call
+	reset_parser_conf now that the configurations can be separate.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): do not store the
+	configuration for later reuse of the parser if accept_internalvalue is
+	set, which is interpreted as being called from gdt, in which case the
+	parser will not be reused.
+
+2024-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (wipe_values),
 	tp/Texinfo/XS/parsetexi/macro.c: move wipe_values to utils.c such that
 	it may be used by files in main.
