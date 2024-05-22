@@ -33,6 +33,7 @@
 #include "conf.h"
 #include "parser_conf.h"
 #include "build_perl_info.h"
+#include "get_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -73,25 +74,46 @@ register_parser_conf (SV *parser)
 
 # file path, can be in any encoding
 int
-parse_file (filename, input_file_name, input_directory)
+parse_file (SV *parser, filename, input_file_name, input_directory)
         char *filename = (char *)SvPVbyte_nolen ($arg);
         char *input_file_name = (char *)SvPVbyte_nolen ($arg);
         char *input_directory = (char *)SvPVbyte_nolen ($arg);
+      CODE:
+        apply_sv_parser_conf (parser);
+        RETVAL = parse_file (filename, input_file_name, input_directory);
+      OUTPUT:
+        RETVAL
 
 int
-parse_piece (string, line_nr)
+parse_piece (SV *parser, string, line_nr)
         char *string = (char *)SvPVutf8_nolen ($arg);
         int line_nr
+      CODE:
+        apply_sv_parser_conf (parser);
+        RETVAL = parse_piece (string, line_nr);
+      OUTPUT:
+        RETVAL
 
 int
-parse_string (string, line_nr)
+parse_string (SV *parser, string, line_nr)
         char *string = (char *)SvPVutf8_nolen ($arg);
         int line_nr
+      CODE:
+        apply_sv_parser_conf (parser);
+        RETVAL = parse_string (string, line_nr);
+      OUTPUT:
+        RETVAL
 
 int
-parse_text (string, line_nr)
+parse_text (SV *parser, string, line_nr)
         char *string = (char *)SvPVutf8_nolen ($arg);
         int line_nr
+      CODE:
+        apply_sv_parser_conf (parser);
+        RETVAL = parse_text (string, line_nr);
+      OUTPUT:
+        RETVAL
+
 
 # note that giving optional arguments, like: int no_store=0
 # would have been nice, but in that case an undef value cannot be passed

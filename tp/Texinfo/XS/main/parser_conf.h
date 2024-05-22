@@ -47,6 +47,8 @@ extern PARSER_CONF global_parser_conf;
 PARSER_CONF *register_conf ();
 PARSER_CONF *retrieve_parser_conf (int parser_conf_descriptor);
 
-void clear_global_parser_conf (void);
+void clear_parser_conf (PARSER_CONF *parser_conf);
+
+void apply_conf (PARSER_CONF *parser_conf);
 
 #endif

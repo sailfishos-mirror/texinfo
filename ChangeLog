@@ -1,5 +1,20 @@
 2024-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/get_perl_info.c (apply_sv_parser_conf),
+	tp/Texinfo/XS/main/parser_conf.c (apply_conf),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
+	(parse_texi_piece, parse_texi_text, parse_texi_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_file, parse_piece)
+	(parse_string, parse_text), tp/Texinfo/XS/parsetexi/conf.c
+	(reset_parser_conf): pass parser to parser_* functions in Parsetexi.xs
+	to retrieve the parser_conf_descriptor kept in the parser with
+	apply_sv_parser_conf.  Replace the current global_parser_conf with the 
+	parser_conf associated with the parser by calling apply_conf.
+	Do not clear global_parser_conf structures in reset_parser_conf if the
+	global_parser_conf is registered.  Inline clear_global_parser_conf.
+
+2024-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/input.c (parser_include_directories)
 	(parser_locate_include_file), tp/Texinfo/XS/parsetexi/api.c
 	(initialize_parsing, parse_file): add parser_include_directories,

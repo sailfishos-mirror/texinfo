@@ -13,6 +13,9 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+/* This file is in main and not in parsetexi because get_perl_info.c depends
+   on it */
+
 #include <config.h>
 #include <stdlib.h>
 #include <string.h>
@@ -90,9 +93,9 @@ clear_parser_conf (PARSER_CONF *parser_conf)
 }
 
 void
-clear_global_parser_conf (void)
+apply_conf (PARSER_CONF *parser_conf)
 {
   if (!global_parser_conf.descriptor)
     clear_parser_conf (&global_parser_conf);
+  global_parser_conf = *parser_conf;
 }
-

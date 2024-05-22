@@ -222,7 +222,7 @@ sub parse_texi_file ($$)
   # TODO instead of using fileparse here, reimplement fileparse
   # in XS, or use a file name parsing code from somewhere else?
   my ($basename, $directories, $suffix) = fileparse($input_file_path);
-  my $document_descriptor = parse_file($input_file_path,
+  my $document_descriptor = parse_file($self, $input_file_path,
                                        $basename, $directories);
   if (!$document_descriptor) {
     my $parser_registrar = $self->{'registrar'};
@@ -251,7 +251,7 @@ sub parse_texi_piece($$;$$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $document_descriptor = parse_piece($text, $line_nr);
+  my $document_descriptor = parse_piece($self, $text, $line_nr);
 
   my $document = _get_parser_info($self, $document_descriptor, $no_store);
 
@@ -267,7 +267,7 @@ sub parse_texi_text($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $document_descriptor = parse_text($text, $line_nr);
+  my $document_descriptor = parse_text($self, $text, $line_nr);
 
   my $document = _get_parser_info($self, $document_descriptor);
 
@@ -282,7 +282,7 @@ sub parse_texi_line($$;$$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $document_descriptor = parse_string($text, $line_nr);
+  my $document_descriptor = parse_string($self, $text, $line_nr);
 
   my $document = _get_parser_info($self, $document_descriptor, $no_store);
 

@@ -26,6 +26,8 @@ DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 OUTPUT_UNIT_LIST *get_sv_output_units (SV *output_units_in, char *warn_string);
 int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 
+void apply_sv_parser_conf (SV *parser_sv);
+
 void add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
                               enum sv_string_type type);
 

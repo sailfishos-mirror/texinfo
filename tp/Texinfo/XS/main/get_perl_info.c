@@ -37,6 +37,7 @@
 #include "builtin_commands.h"
 #include "errors.h"
 #include "targets.h"
+#include "parser_conf.h"
 #include "document.h"
 #include "output_unit.h"
 #include "convert_to_text.h"
@@ -224,6 +225,50 @@ get_sv_output_units (SV *output_units_in, char *warn_string)
                                              output_units_descriptor);
     }
   return output_units;
+}
+
+void
+apply_sv_parser_conf (SV *parser_sv)
+{
+  HV *hv_in;
+  const char *key = "parser_conf_descriptor";
+  SV **parser_conf_descriptor_sv;
+
+  dTHX;
+
+  hv_in = (HV *)SvRV (parser_sv);
+
+  parser_conf_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
+  if (parser_conf_descriptor_sv && SvOK (*parser_conf_descriptor_sv))
+    {
+      int parser_conf_descriptor = SvIV (*parser_conf_descriptor_sv);
+
+      if (parser_conf_descriptor == global_parser_conf.descriptor)
+        {
+          /*
+          fprintf (stderr, "Reuse conf %d\n", parser_conf_descriptor);
+           */
+          return;
+        }
+        /*
+      else
+        fprintf (stderr, "APPLY %d\n", parser_conf_descriptor);
+         */
+
+      PARSER_CONF *parser_conf
+         = retrieve_parser_conf (parser_conf_descriptor);
+
+      if (!parser_conf)
+        {
+          fprintf (stderr, "ERROR: get_sv_parser_conf: descriptor %d not found\n",
+                           parser_conf_descriptor);
+          return;
+        }
+      else
+        {
+          apply_conf (parser_conf);
+        }
+    }
 }
 
 void
