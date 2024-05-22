@@ -27,6 +27,7 @@ int set_input_encoding (const char *encoding);
 
 char *save_string (const char *string);
 
+extern STRING_LIST parser_include_directories;
 extern int input_number;
 extern int macro_expansion_nr;
 extern int value_expansion_nr;

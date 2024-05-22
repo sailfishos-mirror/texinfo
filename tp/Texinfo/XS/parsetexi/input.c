@@ -89,6 +89,8 @@ set_input_encoding (const char *encoding)
   return encoding_set;
 }
 
+/* list of include directories for parsing (@*include files) */
+STRING_LIST parser_include_directories;
 
 static INPUT *input_stack = 0;
 int input_number = 0;
@@ -545,7 +547,7 @@ char *
 parser_locate_include_file (const char *filename)
 {
   return locate_include_file (filename,
-                              &global_parser_conf.include_directories);
+                              &parser_include_directories);
 }
 
 /* Try to open a file called FILENAME */

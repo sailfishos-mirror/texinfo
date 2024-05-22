@@ -32,12 +32,11 @@
 #include "input.h"
 #include "source_marks.h"
 #include "errors.h"
+#include "utils.h"
 /* for wipe_user_commands */
 #include "commands.h"
 #include "command_stack.h"
 #include "context_stack.h"
-/* for clear_parser_expanded_formats and add_parser_expanded_format */
-#include "handle_commands.h"
 /* for wipe_macros store_value init_values wipe_values */
 #include "macro.h"
 #include "document.h"
@@ -61,6 +60,10 @@ initialize_parsing (void)
   wipe_macros ();
 
   init_values ();
+
+  clear_strings_list (&parser_include_directories);
+  copy_strings (&parser_include_directories,
+                &global_parser_conf.include_directories);
 
   free (global_documentlanguage);
   if (global_parser_conf.global_documentlanguage_fixed
@@ -155,7 +158,7 @@ parse_file (const char *filename, const char *input_file_name,
     {
       char saved = *p;
       *p = '\0';
-      parser_conf_add_include_directory (filename);
+      add_include_directory (filename, &parser_include_directories);
       *p = saved;
     }
 
