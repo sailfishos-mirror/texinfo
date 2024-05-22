@@ -1,5 +1,14 @@
 2024-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/input.c (parser_include_directories)
+	(parser_locate_include_file), tp/Texinfo/XS/parsetexi/api.c
+	(initialize_parsing, parse_file): add parser_include_directories,
+	initialized from a copy of global_parser_conf.include_directories
+	to add the input file directory for the parsing only and not to the
+	configuration.
+
+2024-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/parser_conf.c (parser_conf_list)
 	(parser_conf_number, parser_conf_space, retrieve_parser_conf)
 	(register_conf, clear_parser_conf), tp/Texinfo/XS/main/parser_conf.h
