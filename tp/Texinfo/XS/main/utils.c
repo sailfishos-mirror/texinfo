@@ -1055,6 +1055,21 @@ set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 }
 
 
+/* code related to values used in files not in parsetexi */
+void
+wipe_values (VALUE_LIST *values)
+{
+  size_t i;
+  for (i = 0; i < values->number; i++)
+    {
+      free (values->list[i].name);
+      free (values->list[i].value);
+    }
+  values->number = 0;
+}
+
+
+
 /* code related to document global info used both in parser and other codes */
 void
 delete_global_info (GLOBAL_INFO *global_info_ref)

@@ -21,7 +21,6 @@
 #include <string.h>
 
 #include "utils.h"
-#include "macro.h"
 #include "parser_conf.h"
 
 /* Configuration values. */

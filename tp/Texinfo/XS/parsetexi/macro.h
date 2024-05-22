@@ -45,7 +45,6 @@ void wipe_macros (void);
 void store_value (VALUE_LIST *values, const char *name, const char *value);
 char *fetch_value (const char *name);
 void clear_value (const char *name);
-void wipe_values (VALUE_LIST *values);
 void init_values (void);
 void store_parser_value (const char *name, const char *value);
 

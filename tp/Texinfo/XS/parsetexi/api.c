@@ -32,12 +32,13 @@
 #include "input.h"
 #include "source_marks.h"
 #include "errors.h"
+/* for wipe_values ... */
 #include "utils.h"
 /* for wipe_user_commands */
 #include "commands.h"
 #include "command_stack.h"
 #include "context_stack.h"
-/* for wipe_macros store_value init_values wipe_values */
+/* for wipe_macros store_value init_values */
 #include "macro.h"
 #include "document.h"
 /* for reset_conf */

@@ -175,6 +175,8 @@ char *to_upper_or_lower_multibyte (const char *text, int lower_or_upper);
 int width_multibyte (const char *text);
 int word_bytes_len_multibyte (const char *text);
 
+void wipe_values (VALUE_LIST *values);
+
 void delete_global_info (GLOBAL_INFO *global_info_ref);
 void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 

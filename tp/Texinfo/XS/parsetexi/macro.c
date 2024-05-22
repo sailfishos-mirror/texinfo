@@ -20,7 +20,7 @@
 #include <stdio.h>
 
 #include "parser.h"
-/* for isascii_alnum and whitespace_chars */
+/* for isascii_alnum whitespace_chars wipe_values */
 #include "utils.h"
 #include "tree.h"
 #include "tree_types.h"
@@ -1010,18 +1010,6 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
 /* @set and @value */
 
 static VALUE_LIST parser_values;
-
-void
-wipe_values (VALUE_LIST *values)
-{
-  size_t i;
-  for (i = 0; i < values->number; i++)
-    {
-      free (values->list[i].name);
-      free (values->list[i].value);
-    }
-  values->number = 0;
-}
 
 /* initialize parsing run values to the configuration values */
 void

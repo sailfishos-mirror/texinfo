@@ -1,5 +1,11 @@
 2024-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (wipe_values),
+	tp/Texinfo/XS/parsetexi/macro.c: move wipe_values to utils.c such that
+	it may be used by files in main.
+
+2024-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/get_perl_info.c (apply_sv_parser_conf),
 	tp/Texinfo/XS/main/parser_conf.c (apply_conf),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file)
