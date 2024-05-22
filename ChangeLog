@@ -1,3 +1,15 @@
+2024-05-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
+	tp/Texinfo/XS/parsetexi/*.c, tp/Texinfo/XS/parsetexi/conf.c,
+	tp/Texinfo/XS/main/parser_conf.c (global_parser_conf)
+	(clear_parser_conf, clear_global_parser_conf),
+	tp/Texinfo/XS/main/parser_conf.h (PARSER_CONF): add main/parser_conf.c
+	and main/parser_conf.h with code from parsetexi/conf.c and
+	parsetexi/conf.h, with the PARSER_CONF structure and
+	clear_parser_conf.  Rename global parser_conf variable as
+	global_parser_conf.
+
 2024-05-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Document.pm (errors), tp/Texinfo/ParserNonXS.pm (errors),

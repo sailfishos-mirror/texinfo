@@ -43,6 +43,8 @@
 #include "document.h"
 /* for reset_conf */
 #include "conf.h"
+/* for global_parser_conf */
+#include "parser_conf.h"
 /* for init_index_commands */
 #include "indices.h"
 #include "api.h"
@@ -52,7 +54,7 @@ initialize_parsing (void)
 {
   parsed_document = new_document ();
 
-  if (!parser_conf.no_index)
+  if (!global_parser_conf.no_index)
     init_index_commands ();
 
   wipe_user_commands ();
@@ -61,8 +63,9 @@ initialize_parsing (void)
   init_values ();
 
   free (global_documentlanguage);
-  if (parser_conf.global_documentlanguage_fixed && parser_conf.documentlanguage)
-    global_documentlanguage = strdup (parser_conf.documentlanguage);
+  if (global_parser_conf.global_documentlanguage_fixed
+      && global_parser_conf.documentlanguage)
+    global_documentlanguage = strdup (global_parser_conf.documentlanguage);
   else
     global_documentlanguage = 0;
 
@@ -212,12 +215,12 @@ parse_piece (const char *string, int line_nr)
 void
 parser_conf_reset_values (void)
 {
-  wipe_values (&parser_conf.values);
+  wipe_values (&global_parser_conf.values);
 }
 
 void
 parser_conf_add_value (const char *name, const char *value)
 {
-  store_value (&parser_conf.values, name, value);
+  store_value (&global_parser_conf.values, name, value);
 }
 

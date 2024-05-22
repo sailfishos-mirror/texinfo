@@ -22,17 +22,18 @@
 #include "text.h"
 #include "element_types.h"
 #include "debug.h"
-#include "conf.h"
+/* for global_parser_conf */
+#include "parser_conf.h"
 #include "debug_parser.h"
 
-/* debug functions used in parser, depending on parser_conf.debug */
+/* debug functions used in parser, depending on global_parser_conf.debug */
 
 void
 debug (const char *s, ...)
 {
   va_list v;
 
-  if (!parser_conf.debug)
+  if (!global_parser_conf.debug)
     return;
   va_start (v, s);
   vfprintf (stderr, s, v);
@@ -44,7 +45,7 @@ debug_nonl (const char *s, ...)
 {
   va_list v;
 
-  if (!parser_conf.debug)
+  if (!global_parser_conf.debug)
     return;
   va_start (v, s);
   vfprintf (stderr, s, v);
@@ -53,7 +54,7 @@ debug_nonl (const char *s, ...)
 void
 debug_print_element (const ELEMENT *e, int print_parent)
 {
-  if (parser_conf.debug)
+  if (global_parser_conf.debug)
     {
       char *result;
       result = print_element_debug (e, print_parent);
@@ -65,7 +66,7 @@ debug_print_element (const ELEMENT *e, int print_parent)
 void
 debug_print_protected_string (const char *input_string)
 {
-  if (parser_conf.debug)
+  if (global_parser_conf.debug)
     {
       char *result = debug_protect_eol (input_string);
       fputs (result, stderr);
@@ -129,7 +130,7 @@ print_element_debug_parser (const ELEMENT *e, int print_parent)
 void
 debug_parser_print_element (const ELEMENT *e, int print_parent)
 {
-  if (parser_conf.debug)
+  if (global_parser_conf.debug)
     {
       char *result;
       result = print_element_debug_parser (e, print_parent);

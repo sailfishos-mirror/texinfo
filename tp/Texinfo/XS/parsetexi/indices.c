@@ -38,6 +38,8 @@
 /*
 #include "convert_to_texinfo.h"
 */
+/* for global_parser_conf */
+#include "parser_conf.h"
 #include "parser.h"
 #include "indices.h"
 
@@ -244,7 +246,7 @@ enter_index_entry (enum command_id index_type_cmd,
   const IGNORED_CHARS *ignored_chars_info
     = &parsed_document->global_info.ignored_chars;
 
-  if (parser_conf.no_index)
+  if (global_parser_conf.no_index)
     return;
 
   idx = index_of_command (index_type_cmd);

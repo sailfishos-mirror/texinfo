@@ -30,6 +30,8 @@
 #include "document_types.h"
 #include "parser.h"
 #include "errors.h"
+/* for global_parser_conf */
+#include "parser_conf.h"
 #include "errors_parser.h"
 
 
@@ -42,8 +44,8 @@ line_error_internal (enum error_type type, int continuation,
                      const char *format, va_list v)
 {
   vmessage_list_line_error (&parsed_document->parser_error_messages,
-                      type, continuation, parser_conf.debug, cmd_source_info,
-                      0, format, v);
+                      type, continuation, global_parser_conf.debug,
+                      cmd_source_info, 0, format, v);
 }
 
 void

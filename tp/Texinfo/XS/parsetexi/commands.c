@@ -24,6 +24,8 @@
 /* for lookup_macro and unset_macro_record */
 #include "macro.h"
 #include "utils.h"
+/* for global_parser_conf */
+#include "parser_conf.h"
 #include "commands.h"
 
 COMMAND *user_defined_command_data = 0;
@@ -54,7 +56,7 @@ lookup_command (const char *cmdname)
 
   /* txiinternalvalue is invalid if the corresponding parameter
    * is not set */
-  if (cmd == CM_txiinternalvalue && !parser_conf.accept_internalvalue)
+  if (cmd == CM_txiinternalvalue && !global_parser_conf.accept_internalvalue)
     return 0;
 
   return cmd;

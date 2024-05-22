@@ -141,6 +141,8 @@ libtexinfo_la_SOURCES= \
 		      main/command_stack.c \
 		      main/command_stack.h \
 		      main/cmd_structuring.c \
+		      main/parser_conf.c \
+		      main/parser_conf.h \
 		      main/targets.c \
 		      main/targets.h \
 		      main/options_init_free.c \

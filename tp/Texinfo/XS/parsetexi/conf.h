@@ -16,34 +16,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include "document_types.h"
-
-/* TODO there is no reason to have the structure and extern included in
-   codes only interested by the parser API, which only need the functions */
-
-typedef struct PARSER_CONF {
-    int accept_internalvalue;
-    int cpp_line_directives;
-    int doc_encoding_for_input_file_name;
-    char *documentlanguage;
-    int debug;
-    char *input_file_name_encoding;
-    int ignore_space_after_braced_command_name;
-    STRING_LIST include_directories;
-    char *locale_encoding;
-    int max_macro_call_nesting;
-    int no_index;
-    int no_user_commands;
-    int show_menu;
-
-    int global_documentlanguage_fixed;
-
-    EXPANDED_FORMAT expanded_formats[7];
-    VALUE_LIST values;
-} PARSER_CONF;
-
-extern PARSER_CONF parser_conf;
-
 /* part of parser public API */
 void parser_conf_set_show_menu (int i);
 void parser_conf_set_CPP_LINE_DIRECTIVES (int i);

@@ -31,6 +31,8 @@
 #include "text.h"
 #include "commands.h"
 #include "source_marks.h"
+/* for global_parser_conf */
+#include "parser_conf.h"
 
 enum input_type { IN_file, IN_text };
 
@@ -178,12 +180,12 @@ encode_file_name (char *filename)
 {
   if (!reverse_iconv)
     {
-      if (parser_conf.input_file_name_encoding)
+      if (global_parser_conf.input_file_name_encoding)
         {
           reverse_iconv
-            = iconv_open (parser_conf.input_file_name_encoding, "UTF-8");
+            = iconv_open (global_parser_conf.input_file_name_encoding, "UTF-8");
         }
-      else if (parser_conf.doc_encoding_for_input_file_name)
+      else if (global_parser_conf.doc_encoding_for_input_file_name)
         {
           if (current_encoding_conversion
               && strcmp (parsed_document->global_info.input_encoding_name,
@@ -194,9 +196,9 @@ encode_file_name (char *filename)
               reverse_iconv = iconv_open (conversion_encoding, "UTF-8");
             }
         }
-      else if (parser_conf.locale_encoding)
+      else if (global_parser_conf.locale_encoding)
         {
-          reverse_iconv = iconv_open (parser_conf.locale_encoding, "UTF-8");
+          reverse_iconv = iconv_open (global_parser_conf.locale_encoding, "UTF-8");
         }
     }
   if (reverse_iconv && reverse_iconv != (iconv_t) -1)
@@ -542,7 +544,8 @@ top_file_index (void)
 char *
 parser_locate_include_file (const char *filename)
 {
-  return locate_include_file (filename, &parser_conf.include_directories);
+  return locate_include_file (filename,
+                              &global_parser_conf.include_directories);
 }
 
 /* Try to open a file called FILENAME */

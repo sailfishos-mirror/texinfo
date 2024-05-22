@@ -29,8 +29,8 @@
 #include "manipulate_tree.h"
 #include "input.h"
 #include "text.h"
-/* for parser_conf */
-#include "conf.h"
+/* for global_parser_conf */
+#include "parser_conf.h"
 #include "convert_to_texinfo.h"
 #include "labels.h"
 #include "source_marks.h"
@@ -66,7 +66,7 @@ register_extra_menu_entry_information (ELEMENT *current)
           if (!parsed_entry_node->manual_content
               && !parsed_entry_node->node_content)
             {
-              if (parser_conf.show_menu)
+              if (global_parser_conf.show_menu)
                 line_error ("empty node name in menu entry");
             }
           else
