@@ -31,6 +31,7 @@
 
 #include "api.h"
 #include "conf.h"
+#include "parser_conf.h"
 #include "build_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -57,6 +58,18 @@ init (texinfo_uninstalled, builddir)
 
 void
 reset_parser (int debug_output)
+
+void
+register_parser_conf (SV *parser)
+    PREINIT:
+      HV *hv_in;
+      const char *key = "parser_conf_descriptor";
+      const PARSER_CONF *parser_conf;
+    CODE:
+      hv_in = (HV *)SvRV (parser);
+      parser_conf = register_conf ();
+      hv_store (hv_in, key, strlen (key),
+                newSViv (parser_conf->descriptor), 0);
 
 # file path, can be in any encoding
 int

@@ -1,5 +1,18 @@
 2024-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/parser_conf.c (parser_conf_list)
+	(parser_conf_number, parser_conf_space, retrieve_parser_conf)
+	(register_conf, clear_parser_conf), tp/Texinfo/XS/main/parser_conf.h
+	(PARSER_CONF), tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (register_parser_conf),
+	tp/Texinfo/XS/parsetexi/conf.c (reset_parser_conf): add
+	parser_conf_list, a list of PARSER_CONF and register parser
+	configuration setup at the end of Parsetexi.pm parser through the
+	reset_parser_conf XS interface.  Clear memory of the global parser
+	conf only if it is not registered.
+
+2024-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES),
 	tp/Texinfo/XS/parsetexi/*.c, tp/Texinfo/XS/parsetexi/conf.c,
 	tp/Texinfo/XS/main/parser_conf.c (global_parser_conf)

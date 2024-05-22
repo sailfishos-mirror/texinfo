@@ -164,6 +164,8 @@ sub parser (;$)
     }
   }
 
+  register_parser_conf($parser);
+
   if (not $parser->{'registrar'}) {
     $parser->{'registrar'} = Texinfo::Report::new();
   }

@@ -132,6 +132,8 @@ reset_parser_conf (void)
 {
   clear_global_parser_conf ();
 
+  global_parser_conf.descriptor = 0;
+
   global_parser_conf.accept_internalvalue = 0;
   global_parser_conf.cpp_line_directives = 1;
   global_parser_conf.debug = 0;

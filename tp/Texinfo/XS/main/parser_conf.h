@@ -37,9 +37,15 @@ typedef struct PARSER_CONF {
 
     EXPANDED_FORMAT expanded_formats[7];
     VALUE_LIST values;
+
+    /* descriptor is the index in the array of registered conf */
+    int descriptor;
 } PARSER_CONF;
 
 extern PARSER_CONF global_parser_conf;
+
+PARSER_CONF *register_conf ();
+PARSER_CONF *retrieve_parser_conf (int parser_conf_descriptor);
 
 void clear_global_parser_conf (void);
 

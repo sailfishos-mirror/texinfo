@@ -24,6 +24,61 @@
 /* Configuration values. */
 PARSER_CONF global_parser_conf;
 
+/* registered parser configurations */
+static PARSER_CONF **parser_conf_list;
+static size_t parser_conf_number;
+static size_t parser_conf_space;
+
+PARSER_CONF *
+retrieve_parser_conf (int parser_conf_descriptor)
+{
+  if (parser_conf_descriptor <= parser_conf_number
+      && parser_conf_list[parser_conf_descriptor -1] != 0)
+    return parser_conf_list[parser_conf_descriptor -1];
+  return 0;
+}
+
+PARSER_CONF *
+register_conf ()
+{
+  size_t parser_conf_index;
+  size_t i;
+  int slot_found = 0;
+
+  PARSER_CONF *parser_conf = (PARSER_CONF *) malloc (sizeof (PARSER_CONF));
+  for (i = 0; i < parser_conf_number; i++)
+    {
+      if (parser_conf_list[i] == 0)
+        {
+          slot_found = 1;
+          parser_conf_index = i;
+        }
+    }
+  if (!slot_found)
+    {
+      if (parser_conf_number == parser_conf_space)
+        {
+          parser_conf_list = realloc (parser_conf_list,
+                         (parser_conf_space += 5) * sizeof (PARSER_CONF *));
+          if (!parser_conf_list)
+            fatal ("realloc failed");
+        }
+      parser_conf_index = parser_conf_number;
+      parser_conf_number++;
+    }
+  parser_conf_list[parser_conf_index] = parser_conf;
+
+  global_parser_conf.descriptor = parser_conf_index + 1;
+
+  memcpy (parser_conf, &global_parser_conf, sizeof (PARSER_CONF));
+
+  /*
+  fprintf (stderr, "Register parser_conf: %d\n", parser_conf->descriptor);
+   */
+
+  return parser_conf;
+}
+
 void
 clear_parser_conf (PARSER_CONF *parser_conf)
 {
@@ -37,6 +92,7 @@ clear_parser_conf (PARSER_CONF *parser_conf)
 void
 clear_global_parser_conf (void)
 {
-  clear_parser_conf (&global_parser_conf);
+  if (!global_parser_conf.descriptor)
+    clear_parser_conf (&global_parser_conf);
 }
 
