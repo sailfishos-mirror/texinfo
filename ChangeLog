@@ -1,5 +1,11 @@
 2024-05-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/parser_conf.c (free_parser_conf, apply_conf):
+	If the previous conf is not registered, free the list in addition to
+	clearing them as they are overwritten.  Found with valgrind.
+
+2024-05-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/translations.c (replace_convert_substrings): call
 	reset_parser_conf now that the configurations can be separate.
 

@@ -91,10 +91,19 @@ clear_parser_conf (PARSER_CONF *parser_conf)
   free (parser_conf->locale_encoding);
 }
 
+static void
+free_parser_conf (PARSER_CONF *parser_conf)
+{
+  clear_parser_conf (parser_conf);
+  free_strings_list (&parser_conf->include_directories);
+  free (parser_conf->values.list);
+}
+
 void
 apply_conf (PARSER_CONF *parser_conf)
 {
   if (!global_parser_conf.descriptor)
-    clear_parser_conf (&global_parser_conf);
+   /* the lists are overwritten, so they need to be freed, not only cleared */
+    free_parser_conf (&global_parser_conf);
   global_parser_conf = *parser_conf;
 }
