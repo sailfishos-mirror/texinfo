@@ -3016,7 +3016,8 @@ sub _convert($$)
           my ($file_name, $file_name_encoding)
              = $self->encoded_input_file_name("$basefile.$extension");
           my $located_file =
-            $self->Texinfo::Common::locate_include_file($file_name);
+            Texinfo::Common::locate_include_file($file_name,
+                                  $self->get_conf('INCLUDE_DIRECTORIES'));
           if (defined($located_file)) {
             $image_file_found = 1;
             last;

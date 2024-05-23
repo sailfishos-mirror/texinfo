@@ -273,8 +273,8 @@ sub expand_verbatiminclude($$)
     = encoded_input_file_name($converter,
                               $file_name_text, $input_encoding);
 
-  my $file = Texinfo::Common::locate_include_file($converter,
-                                                  $file_name);
+  my $file = Texinfo::Common::locate_include_file($file_name,
+                          $converter->get_conf('INCLUDE_DIRECTORIES'));
 
   my $verbatiminclude;
 

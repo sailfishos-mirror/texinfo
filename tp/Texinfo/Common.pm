@@ -658,11 +658,11 @@ sub _add_preamble_before_content($)
 }
 
 # Called in both Parsetexi.pm and perl parser
-sub get_perl_encoding($$$)
+sub get_perl_encoding($$;$)
 {
   my $commands_info = shift;
   my $registrar = shift;
-  my $configuration_information = shift;
+  my $debug = shift;
 
   my $result;
   if (defined($commands_info->{'documentencoding'})) {
@@ -672,9 +672,9 @@ sub get_perl_encoding($$$)
         my $encoding = $element->{'extra'}->{'input_encoding_name'}
           if ($element->{'extra'});
         if (defined($encoding)) {
-          $registrar->line_warn($configuration_information,
+          $registrar->line_warn(
                      sprintf(__("unrecognized encoding name `%s'"), $encoding),
-                                          $element->{'source_info'});
+                                    $element->{'source_info'}, 0, $debug);
         }
       } else {
         $result = $perl_encoding;
@@ -1220,10 +1220,10 @@ sub encode_file_name($$)
   return ($file_name, $encoding);
 }
 
-sub locate_include_file($$)
+sub locate_include_file($;$)
 {
-  my $customization_information = shift;
   my $input_file_path = shift;
+  my $include_directories = shift;
 
   my $ignore_include_directories = 0;
 
@@ -1231,8 +1231,6 @@ sub locate_include_file($$)
      = File::Spec->splitpath($input_file_path);
   my @directories = File::Spec->splitdir($directories);
 
-  #print STDERR "$customization_information $input_file_path ".
-  # @{$customization_information->get_conf('INCLUDE_DIRECTORIES')}\n";
   # If the path is absolute or begins with . or .., do not search in
   # include directories.  This is consistent with Kpathsea for Texinfo TeX.
   if (File::Spec->file_name_is_absolute($input_file_path)) {
@@ -1253,16 +1251,11 @@ sub locate_include_file($$)
       return $input_file_path;
     }
   } else {
-    my @include_directories;
-    if ($customization_information
-        and $customization_information->get_conf('INCLUDE_DIRECTORIES')) {
-      @include_directories
-         = @{$customization_information->get_conf('INCLUDE_DIRECTORIES')};
-    } else {
-      # no object with directory list and not an absolute path, never succeed
+    if (!$include_directories) {
+      # no directory list and not an absolute path, never succeed
       return undef;
     }
-    foreach my $include_dir (@include_directories) {
+    foreach my $include_dir (@$include_directories) {
       my ($include_volume, $include_dir_path, $include_filename)
          = File::Spec->splitpath($include_dir, 1);
 
@@ -1906,8 +1899,11 @@ sub converter_or_registrar_line_warn($$$$)
   my $error_location_info = shift;
 
   if (defined($registrar)) {
-    $registrar->line_warn($customization_information, $text,
-                          $error_location_info);
+    my $debug;
+    if ($customization_information) {
+      $debug = $customization_information->get_conf('DEBUG');
+    }
+    $registrar->line_warn($text, $error_location_info, 0, $debug);
   } else {
     $customization_information->converter_line_warn($text,
                                                     $error_location_info);

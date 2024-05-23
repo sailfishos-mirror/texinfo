@@ -46,17 +46,7 @@ use File::Basename; # for fileparse
 
 use Texinfo::Common;
 use Texinfo::Report;
-use Texinfo::Translations;
-# to return a resulting document
 use Texinfo::Document;
-
-sub get_conf($$)
-{
-  my $self = shift;
-  my $var = shift;
-  return $self->{'conf'}->{$var};
-}
-
 
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
@@ -173,7 +163,7 @@ sub parser (;$)
   if ($store_conf) {
     register_parser_conf($parser);
 
-    # variables found by get_conf, set to the parser initialization values
+    # variables set to the parser initialization values
     # only.  What is found in the document has no effect.
     $parser->{'conf'} = $parser_conf;
   }
@@ -204,7 +194,7 @@ sub _get_parser_info($$;$) {
   # additional info relevant in perl only.
   my $perl_encoding
     = Texinfo::Common::get_perl_encoding($document->{'commands_info'},
-                        $self->{'registrar'}, $self);
+                        $self->{'registrar'}, $self->{'conf'}->{'DEBUG'});
   $perl_encoding = 'utf-8' if (!defined($perl_encoding));
   Texinfo::Document::set_document_global_info($document,
                      'input_perl_encoding', $perl_encoding);
@@ -235,7 +225,7 @@ sub parse_texi_file ($$)
   if (!$document_descriptor) {
     my $parser_registrar = $self->{'registrar'};
     my $input_file_name = $input_file_path;
-    my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+    my $encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_path);
     }

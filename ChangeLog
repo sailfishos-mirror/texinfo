@@ -1,3 +1,30 @@
+2024-05-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Document.pm (_add_element_to_identifiers_target): remove
+	unused customization_information argument.
+
+	* tp/Texinfo/Report.pm (line_warn, line_error), tp/Texinfo/Common.pm
+	(get_perl_encoding, converter_or_registrar_line_warn),
+	tp/Texinfo/Document.pm (_existing_label_error)
+	(set_labels_identifiers_target, register_label_element),
+	tp/Texinfo/ParserNonXS.pm (_line_warn) (_line_error): do not pass
+	customization_information, pass directly $debug.  Update callers.
+
+	* tp/Texinfo/Common.pm (locate_include_file): do not pass
+	customization_information, pass directly $include_directories.  Update
+	callers.
+
+	* tp/Texinfo/Report.pm (document_warn, document_error),
+	tp/t/test_parser_registrar.t: do not pass customization_information,
+	pass directly $program_name. Update callers.
+
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_file, _encode_file_name)
+	(_next_text, _end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_parser_info)
+	(parse_texi_file), tp/t/do_master_menu.t,
+	tp/t/test_protect_hashchar_at_line_beginning.t: access directly conf
+	in $self->{'conf'}. remove get_conf from parsers.
+
 2024-05-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/parser_conf.c (free_parser_conf, apply_conf):

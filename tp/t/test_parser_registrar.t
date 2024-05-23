@@ -20,7 +20,7 @@ ok(1, "modules loading");
 my $registrar = Texinfo::Report::new();
 
 my $initial_error = "Initial error";
-$registrar->document_error(undef, $initial_error);
+$registrar->document_error($initial_error);
 
 my $parser = Texinfo::Parser::parser({'registrar' => $registrar});
 

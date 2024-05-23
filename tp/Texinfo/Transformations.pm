@@ -402,9 +402,12 @@ sub _new_node($$;$)
   }
   $node->{'extra'}->{'normalized'} = $normalized;
 
+  my $debug;
+  if ($customization_information) {
+    $debug = $customization_information->get_conf('DEBUG');
+  }
   Texinfo::Document::register_label_element($document, $node,
-                                            $document->registrar(),
-                                            $customization_information);
+                                            $document->registrar(), $debug);
 
   return $node;
 }
@@ -867,10 +870,11 @@ sub _protect_hashchar_at_line_beginning($$$)
               if ($parent_for_warn->{'cmdname'}
                   and $parent_for_warn->{'source_info'}) {
                 if ($registrar) {
-                  $registrar->line_warn($customization_information, sprintf(__(
+                  $registrar->line_warn(sprintf(__(
                       "could not protect hash character in \@%s"),
                            $parent_for_warn->{'cmdname'}),
-                                        $parent_for_warn->{'source_info'});
+                                        $parent_for_warn->{'source_info'}, 0,
+                                $customization_information->get_conf('DEBUG'));
                 }
                 last;
               }

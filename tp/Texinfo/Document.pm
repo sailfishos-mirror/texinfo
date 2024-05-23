@@ -390,33 +390,31 @@ sub _existing_label_error($$;$$)
   my $self = shift;
   my $element = shift;
   my $registrar = shift;
-  my $customization_information = shift;
+  my $debug = shift;
 
   if ($element->{'extra'}
       and defined($element->{'extra'}->{'normalized'})) {
     my $normalized = $element->{'extra'}->{'normalized'};
-    if (defined($customization_information) and defined($registrar)) {
+    if (defined($registrar)) {
       my $existing_target = $self->{'identifiers_target'}->{$normalized};
       my $label_element = Texinfo::Common::get_label_element($element);
-      $registrar->line_error($customization_information,
-                             sprintf(__("\@%s `%s' previously defined"),
+      $registrar->line_error(sprintf(__("\@%s `%s' previously defined"),
                                      $element->{'cmdname'},
                     Texinfo::Convert::Texinfo::convert_to_texinfo(
                          {'contents' => $label_element->{'contents'}})),
-                              $element->{'source_info'});
-      $registrar->line_error($customization_information,
+                              $element->{'source_info'}, 0, $debug);
+      $registrar->line_error(
                     sprintf(__("here is the previous definition as \@%s"),
                             $existing_target->{'cmdname'}),
-                             $existing_target->{'source_info'}, 1);
+                             $existing_target->{'source_info'}, 1, $debug);
     }
   }
 }
 
-sub _add_element_to_identifiers_target($$;$)
+sub _add_element_to_identifiers_target($$)
 {
   my $self = shift;
   my $element = shift;
-  my $customization_information = shift;
 
   if ($element->{'extra'}
       and defined($element->{'extra'}->{'normalized'})) {
@@ -434,19 +432,18 @@ sub _add_element_to_identifiers_target($$;$)
 # This should be considered an internal function of the parser.
 # It is here to reuse code.
 # Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
-sub set_labels_identifiers_target($$$)
+sub set_labels_identifiers_target($$;$)
 {
   my $self = shift;
   my $registrar = shift;
-  my $customization_information = shift;
+  my $debug = shift;
 
   my @elements_with_error;
 
   $self->{'identifiers_target'} = {};
   if (defined $self->{'labels_list'}) {
     foreach my $element (@{$self->{'labels_list'}}) {
-      my $retval = _add_element_to_identifiers_target($self, $element,
-                                         $customization_information);
+      my $retval = _add_element_to_identifiers_target($self, $element);
       if (!$retval and $element->{'extra'}
           and defined($element->{'extra'}->{'normalized'})) {
         push @elements_with_error, $element;
@@ -459,8 +456,7 @@ sub set_labels_identifiers_target($$$)
      = sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
         @elements_with_error;
     foreach my $element (@sorted) {
-      _existing_label_error($self, $element, $self->{'registrar'},
-                            $customization_information);
+      _existing_label_error($self, $element, $self->{'registrar'}, $debug);
     }
   }
 }
@@ -471,13 +467,11 @@ sub register_label_element($$;$$)
   my $self = shift;
   my $element = shift;
   my $registrar = shift;
-  my $customization_information = shift;
+  my $debug = shift;
 
-  my $retval = _add_element_to_identifiers_target($self, $element,
-                                         $customization_information);
+  my $retval = _add_element_to_identifiers_target($self, $element);
   if (!$retval) {
-    _existing_label_error($self, $element, $registrar,
-                          $customization_information);
+    _existing_label_error($self, $element, $registrar, $debug);
   }
   # TODO do not push at the end but have the caller give an information
   # on the element it should be after or before in the list?

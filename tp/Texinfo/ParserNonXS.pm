@@ -235,7 +235,7 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 # set                     points to the value set when initializing, for
 #                         configuration items that are not to be overriden
 #                         by @-commands.  For example documentlanguage.
-# conf                    For get_conf
+# conf                    Customization
 
 # A source information is an hash reference with the keys:
 # line_nr        the line number.
@@ -611,7 +611,7 @@ sub parser(;$)
     $parser->{'registrar'} = Texinfo::Report::new();
   }
 
-  # variables found by get_conf, set to the parser initialization values
+  # variables set to the parser initialization values
   # only.  What is found in the document has no effect.  Also used to
   # initialize parsing state.
   $parser->{'conf'} = $parser_conf;
@@ -694,12 +694,6 @@ sub _initialize_parsing()
   }
 
   return $parser_state;
-}
-
-sub get_conf($$)
-{
-  my ($self, $var) = @_;
-  return $self->{'conf'}->{$var};
 }
 
 sub _new_text_input($$)
@@ -896,7 +890,8 @@ sub get_parser_info($)
 
   my $perl_encoding
     = Texinfo::Common::get_perl_encoding($document->{'commands_info'},
-                                         $self->{'registrar'}, $self);
+                                         $self->{'registrar'},
+                                         $self->{'DEBUG'});
   if (defined($perl_encoding)) {
     $document->{'global_info'}->{'input_perl_encoding'} = $perl_encoding
   }
@@ -940,13 +935,14 @@ sub parse_texi_file($$)
     = _input_push_file($self, $input_file_path);
   if (!$status) {
     my $input_file_name = $input_file_path;
-    my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+    my $encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_path);
     }
-    $self->{'registrar'}->document_error($self,
+    $self->{'registrar'}->document_error(
                  sprintf(__("could not open %s: %s"),
-                                  $input_file_name, $error_message));
+                                  $input_file_name, $error_message),
+                                         $self->{'conf'}->{'PROGRAM'});
     return undef;
   }
 
@@ -1085,15 +1081,25 @@ sub _top_context_command($)
 sub _line_warn
 {
   my $self = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+  my $continuation = shift;
+  my $debug = shift;
   my $registrar = $self->{'registrar'};
-  $registrar->line_warn($self, @_);
+  $registrar->line_warn($text, $error_location_info, $continuation,
+                        $self->{'DEBUG'});
 }
 
 sub _line_error
 {
   my $self = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+  my $continuation = shift;
+
   my $registrar = $self->{'registrar'};
-  $registrar->line_error($self, @_);
+  $registrar->line_error($text, $error_location_info, $continuation,
+                         $self->{'DEBUG'});
 }
 
 # Format a bug message
@@ -2343,13 +2349,13 @@ sub _encode_file_name($$)
   my ($self, $file_name) = @_;
 
   my $encoding;
-  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $input_file_name_encoding = $self->{'conf'}->{'INPUT_FILE_NAME_ENCODING'};
   if ($input_file_name_encoding) {
     $encoding = $input_file_name_encoding;
-  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+  } elsif ($self->{'conf'}->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'}) {
     $encoding = $self->{'input_file_encoding'};
   } else {
-    $encoding = $self->get_conf('LOCALE_ENCODING');
+    $encoding = $self->{'conf'}->{'LOCALE_ENCODING'};
   }
 
   return Texinfo::Common::encode_file_name($file_name, $encoding);
@@ -2486,16 +2492,17 @@ sub _next_text($;$)
           if (defined($input->{'file_name_encoding'})) {
             $file_name_encoding = $input->{'file_name_encoding'};
           } else {
-            $file_name_encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+            $file_name_encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
           }
           my $decoded_file_name = $input->{'input_file_path'};
           if (defined($file_name_encoding)) {
             $decoded_file_name = decode($file_name_encoding,
                                         $input->{'input_file_path'});
           }
-          $self->{'registrar'}->document_warn($self,
+          $self->{'registrar'}->document_warn(
                                sprintf(__("error on closing %s: %s"),
-                                       $decoded_file_name, $!));
+                                       $decoded_file_name, $!),
+                                    $self->{'conf'}->{'PROGRAM'});
         }
       }
       delete $input->{'fh'};
@@ -3620,7 +3627,8 @@ sub _end_line_misc_line($$$)
         # not character strings in the internal perl encoding.
         my ($file_path, $file_name_encoding) = _encode_file_name($self, $text);
         my $included_file_path
-             = Texinfo::Common::locate_include_file($self, $file_path);
+             = Texinfo::Common::locate_include_file($file_path,
+                                  $self->{'conf'}->{'INCLUDE_DIRECTORIES'});
         if (defined($included_file_path)) {
           my ($status, $file_name, $directories, $error_message)
              = _input_push_file($self, $included_file_path, $file_name_encoding);
@@ -3652,7 +3660,8 @@ sub _end_line_misc_line($$$)
         # should be output by converters
         my ($file_path, $file_name_encoding) = _encode_file_name($self, $text);
         my $included_file_path
-             = Texinfo::Common::locate_include_file($self, $file_path);
+             = Texinfo::Common::locate_include_file($file_path,
+                                     $self->{'conf'}->{'INCLUDE_DIRECTORIES'});
         if (defined($included_file_path) and -r $included_file_path) {
           push @{$document->{'global_info'}->{'included_files'}},
                                                   $included_file_path;
@@ -7604,7 +7613,7 @@ sub _parse_texi($$$)
 
   # Setup identifier target elements based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($document,
-                                              $self->{'registrar'}, $self);
+                                $self->{'registrar'}, $self->{'DEBUG'});
   Texinfo::Translations::complete_indices($document->{'indices'},
                                           $self->{'DEBUG'});
 

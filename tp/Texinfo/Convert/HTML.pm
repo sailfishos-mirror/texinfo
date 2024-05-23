@@ -525,7 +525,8 @@ sub html_image_file_location_name($$$$$)
     my ($file_name, $file_name_encoding)
       = $self->encoded_input_file_name($image_basefile.$tried_extension);
     my $located_image_path
-          = $self->Texinfo::Common::locate_include_file($file_name);
+          = Texinfo::Common::locate_include_file($file_name,
+                                  $self->get_conf('INCLUDE_DIRECTORIES'));
     if (defined($located_image_path) and $located_image_path ne '') {
       $image_path = $located_image_path;
       $image_path_encoding = $file_name_encoding;
@@ -9420,7 +9421,8 @@ sub _prepare_css($)
       $css_file_fh = \*STDIN;
       $css_file_path = '-';
     } else {
-      $css_file_path = $self->Texinfo::Common::locate_include_file($css_file);
+      $css_file_path = Texinfo::Common::locate_include_file($css_file,
+                                  $self->get_conf('INCLUDE_DIRECTORIES'));
       unless (defined($css_file_path)) {
         my $css_input_file_name;
         my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');

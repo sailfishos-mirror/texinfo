@@ -40,7 +40,7 @@ sub run_test($$$;$)
 
   my $corrected_tree =
     Texinfo::Transformations::protect_hashchar_at_line_beginning($tree,
-                                            $document->registrar(), $parser);
+                                       $document->registrar(), $document);
 
   #Texinfo::Document::rebuild_document($document);
   $corrected_tree = $document->tree();

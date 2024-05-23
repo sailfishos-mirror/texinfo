@@ -1794,7 +1794,7 @@ sub process_printindex($$;$)
       $entry_cmdname
         = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
-      $self->plaintext_line_warn ($self,
+      $self->plaintext_line_warn($self,
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
                 $entry_cmdname,
                 Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),

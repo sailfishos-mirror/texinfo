@@ -1,20 +1,20 @@
 # Report.pm: prepare error messages.
 #
 # Copyright 2010-2024 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 package Texinfo::Report;
@@ -128,13 +128,13 @@ sub format_line_message($$$$;$)
 
 
 # format a line warning
-sub line_warn($$$$;$$)
+sub line_warn($$$;$$$)
 {
   my $self = shift;
-  my $configuration_information = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
+  my $debug = shift;
   my $silent = shift;
 
   if (!defined($error_location_info)) {
@@ -142,22 +142,20 @@ sub line_warn($$$$;$$)
     return;
   }
 
-  my $warn = (defined($configuration_information)
-              and $configuration_information->get_conf('DEBUG')
-              and not $silent);
+  my $warn = ($debug and not $silent);
 
   my $warning = format_line_message('warning', $text, $error_location_info,
                                     $continuation, $warn);
   $self->add_formatted_message($warning);
 }
 
-sub line_error($$$$;$$)
+sub line_error($$$;$$$)
 {
   my $self = shift;
-  my $configuration_information = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
+  my $debug = shift;
   my $silent = shift;
 
   if (!defined($error_location_info)) {
@@ -165,9 +163,7 @@ sub line_error($$$$;$$)
     return;
   }
 
-  my $warn = (defined($configuration_information)
-              and $configuration_information->get_conf('DEBUG')
-              and not $silent);
+  my $warn = ($debug and not $silent);
 
   my $error = format_line_message('error', $text, $error_location_info,
                                   $continuation, $warn);
@@ -206,17 +202,9 @@ sub format_document_message($$;$$)
 sub document_warn($$$;$)
 {
   my $self = shift;
-  my $configuration_information = shift;
   my $text = shift;
+  my $program_name = shift;
   my $continuation = shift;
-
-  my $program_name;
-
-  if (defined($configuration_information)
-      and defined($configuration_information->get_conf('PROGRAM'))
-      and $configuration_information->get_conf('PROGRAM') ne '') {
-    $program_name = $configuration_information->get_conf('PROGRAM');
-  }
 
   my $warning = format_document_message('warning', $text, $program_name,
                                         $continuation);
@@ -226,17 +214,9 @@ sub document_warn($$$;$)
 sub document_error($$$;$)
 {
   my $self = shift;
-  my $configuration_information = shift;
   my $text = shift;
+  my $program_name = shift;
   my $continuation = shift;
-
-  my $program_name;
-
-  if (defined($configuration_information)
-      and defined($configuration_information->get_conf('PROGRAM'))
-      and $configuration_information->get_conf('PROGRAM') ne '') {
-    $program_name = $configuration_information->get_conf('PROGRAM');
-  }
 
   my $error = format_document_message('error', $text, $program_name,
                                       $continuation);
@@ -349,24 +329,24 @@ Register the I<$msg> hash reference corresponding to an error, warning or error 
 continuation.  The I<$msg> hash reference should correspond to the structure returned
 by C<errors>.
 
-=item $registrar->line_warn($text, $configuration_information, $error_location_info, $continuation, $silent)
+=item $registrar->line_warn($text, $error_location_info, $continuation, $debug, $silent)
 
-=item $registrar->line_error($text, $configuration_information, $error_location_info, $continuation, $silent)
+=item $registrar->line_error($text, $error_location_info, $continuation, $debug, $silent)
 X<C<line_warn>>
 X<C<line_error>>
 
 Register a warning or an error.  The I<$text> is the text of the
-error or warning.  The I<$configuration_information> object gives
-some information that can modify the messages or their delivery.
-The mandatory I<$error_location_info> holds the information on the error or
-warning location.  The I<$error_location_info> reference on hash may be
-obtained from Texinfo elements I<source_info> keys.   It may also
-be setup to point to a file name, using the C<file_name> key and
-to a line number, using the C<line_nr> key.  The C<file_name> key value
-should be a binary string.
+error or warning.  The mandatory I<$error_location_info> holds the information
+on the error or warning location.  The I<$error_location_info> reference on
+hash may be obtained from Texinfo elements I<source_info> keys.   It may also
+be setup to point to a file name, using the C<file_name> key and to a line
+number, using the C<line_nr> key.  The C<file_name> key value should be a
+binary string.
 
 The I<$continuation> optional arguments, if true, conveys that
 the line is a continuation line of a message.
+
+The I<$debug> optional integer arguments sets the debug level.
 
 The I<$silent> optional arguments, if true, suppresses the output of
 a message that is output immediatly if debugging is set.
@@ -374,17 +354,16 @@ a message that is output immediatly if debugging is set.
 The I<source_info> key of Texinfo tree elements is described
 in more details in L<Texinfo::Parser/source_info>.
 
-=item $registrar->document_warn($configuration_information, $text, $continuation)
+=item $registrar->document_warn($text, $program_name, $continuation)
 
-=item $registrar->document_error($configuration_information, $text, $continuation)
+=item $registrar->document_error($text, $program_name, $continuation)
 X<C<document_warn>>
 X<C<document_error>>
 
 Register a document-wide error or warning.  I<$text> is the error or
-warning message.  The I<$configuration_information> object gives
-some information that can modify the messages or their delivery.
-The I<$continuation> optional arguments, if true, conveys that
-the line is a continuation line of a message.
+warning message.  The I<$program_name> is prepended to the
+message, if defined.  The I<$continuation> optional arguments, if true, conveys
+that the line is a continuation line of a message.
 
 =back
 
