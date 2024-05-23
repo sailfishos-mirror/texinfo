@@ -62,6 +62,9 @@ initialize_parsing (void)
 
   init_values ();
 
+  /* currently thee is no change done to include directories,
+     so global_parser_conf.include_directories could be used instead
+     of parser_include_directories */
   clear_strings_list (&parser_include_directories);
   copy_strings (&parser_include_directories,
                 &global_parser_conf.include_directories);
@@ -124,7 +127,9 @@ parse_file (const char *filename, const char *input_file_name,
             const char *input_directory)
 {
   int document_descriptor;
+  /*
   char *p, *q;
+   */
   GLOBAL_INFO *global_info;
 
   int status;
@@ -147,6 +152,9 @@ parse_file (const char *filename, const char *input_file_name,
 
   /* Strip off a leading directory path, by looking for the last
      '/' in filename. */
+  /* The following is not needed, it is already done in the
+     main program */
+  /*
   p = 0;
   q = strchr (filename, '/');
   while (q)
@@ -162,7 +170,7 @@ parse_file (const char *filename, const char *input_file_name,
       add_include_directory (filename, &parser_include_directories);
       *p = saved;
     }
-
+  */
   document_descriptor = parse_texi_document ();
 
   return document_descriptor;

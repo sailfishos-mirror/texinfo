@@ -1,5 +1,11 @@
 2024-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (parse_file): comment out the code
+	adding the input file directory to the include directories list as it
+	is already done in the main program.
+
+2024-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: access customization options in 'conf'
 	if they are not supposed to change during parsing.
 
