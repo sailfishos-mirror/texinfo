@@ -635,17 +635,13 @@ sub _initialize_parsing()
 
   my $parser_state = dclone(\%parser_state_initialization);
 
-  # initialize with conf.  Note that most options do not ever change,
-  # but some do, in practice documentlanguage (if not in 'set') and
-  # values, such that it is important to reset and replace values obtained
-  # at the end of the previous parsing.
-  foreach my $key (keys(%{$parser->{'conf'}})) {
-    if (ref($parser->{'conf'}->{$key})) {
-      $parser_state->{$key} = dclone($parser->{'conf'}->{$key});
-    } else {
-      # includes undef values
-      $parser_state->{$key} = $parser->{'conf'}->{$key};
-    }
+  # initialize from conf.
+  if ($parser->{'conf'}->{'values'}) {
+    $parser_state->{'values'} = dclone($parser->{'conf'}->{'values'});
+  }
+  if (defined($parser->{'conf'}->{'documentlanguage'})) {
+    $parser_state->{'documentlanguage'}
+      = $parser->{'conf'}->{'documentlanguage'};
   }
 
   $parser_state->{'document'} = $document;
@@ -6778,7 +6774,7 @@ sub _process_remaining_on_line($$$$)
             }
             if ($all_commands{$name}
                 or ($name eq 'txiinternalvalue'
-                    and $self->{'accept_internalvalue'})) {
+                    and $self->{'conf'}->{'accept_internalvalue'})) {
               $self->_line_warn(sprintf(__(
                                 "redefining Texinfo language command: \@%s"),
                                         $name), $current->{'source_info'});
@@ -7098,7 +7094,7 @@ sub _process_remaining_on_line($$$$)
       and !$self->{'index_entry_commands'}->{$command}
       # @txiinternalvalue is invalid unless accept_internalvalue is set
       and !($command eq 'txiinternalvalue'
-            and $self->{'accept_internalvalue'})
+            and $self->{'conf'}->{'accept_internalvalue'})
       and !$macro_call_element) {
     $self->_line_error(sprintf(__("unknown command `%s'"),
                                   $command), $source_info);

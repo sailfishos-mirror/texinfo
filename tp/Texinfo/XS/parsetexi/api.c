@@ -60,9 +60,10 @@ initialize_parsing (void)
   wipe_user_commands ();
   wipe_macros ();
 
+  /* initialize from conf */
   init_values ();
 
-  /* currently thee is no change done to include directories,
+  /* currently there is no change done to include directories,
      so global_parser_conf.include_directories could be used instead
      of parser_include_directories */
   clear_strings_list (&parser_include_directories);
@@ -76,6 +77,7 @@ initialize_parsing (void)
   else
     global_documentlanguage = 0;
 
+  /* initialize document state */
   free (global_clickstyle);
   global_clickstyle = strdup ("arrow");
   global_kbdinputstyle = kbd_distinct;
@@ -83,6 +85,13 @@ initialize_parsing (void)
   current_node = current_section = current_part = 0;
   source_marks_reset_counters ();
 
+  /* it is not totally obvious that is it better to reset the
+     list to avoid memory leaks rather than reuse the iconv
+     opened handlers */
+  parser_reset_encoding_list ();
+  set_input_encoding ("utf-8");
+
+  /* initialize parsing state */
   reset_context_stack ();
   reset_command_stack (&nesting_context.basic_inline_stack);
   reset_command_stack (&nesting_context.basic_inline_stack_on_line);
@@ -90,15 +99,8 @@ initialize_parsing (void)
   reset_command_stack (&nesting_context.regions_stack);
   memset (&nesting_context, 0, sizeof (nesting_context));
   reset_parser_counters ();
-  /* it is not totally obvious that is it better to reset the
-     list to avoid memory leaks rather than reuse the iconv
-     opened handlers */
-  parser_reset_encoding_list ();
 
   reset_obstacks ();
-
-
-  set_input_encoding ("utf-8");
 }
 
 void

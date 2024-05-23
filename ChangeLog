@@ -1,5 +1,12 @@
 2024-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm: access 'accept_internalvalue' in 'conf'.
+
+	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing): only initialize
+	states from conf if they are modified during parsing.
+
+2024-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (parse_file): comment out the code
 	adding the input file directory to the include directories list as it
 	is already done in the main program.
