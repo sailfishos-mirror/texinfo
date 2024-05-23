@@ -235,7 +235,8 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 # set                     points to the value set when initializing, for
 #                         configuration items that are not to be overriden
 #                         by @-commands.  For example documentlanguage.
-# conf                    Customization
+# conf                    Customization and document state configuration
+#                         based on defaults and parser argument.
 
 # A source information is an hash reference with the keys:
 # line_nr        the line number.
@@ -611,9 +612,9 @@ sub parser(;$)
     $parser->{'registrar'} = Texinfo::Report::new();
   }
 
-  # variables set to the parser initialization values
-  # only.  What is found in the document has no effect.  Also used to
-  # initialize parsing state.
+  # variables set to the parser initialization values only.  What is
+  # found in the document has no effect.  Also used to initialize some
+  # parsing state.
   $parser->{'conf'} = $parser_conf;
 
   return $parser;

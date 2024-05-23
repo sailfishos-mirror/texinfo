@@ -495,7 +495,7 @@ replace_convert_substrings (char *translated_string,
       for (i = 0; i < error_messages->number; i++)
         fprintf (stderr, "%s", error_messages->list[i].error_line);
     }
-  clear_document_parser_errors (document_descriptor);
+  wipe_document_parser_errors (document_descriptor);
 
   if (replaced_substrings)
     {

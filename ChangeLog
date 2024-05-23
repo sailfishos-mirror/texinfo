@@ -1,5 +1,12 @@
 2024-05-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document.c (wipe_document_errors)
+	(wipe_document_parser_errors): rename clear_document_parser_errors as
+	wipe_document_parser_errors and clear_document_errors as
+	wipe_document_errors.  Update caller.
+
+2024-05-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: access 'accept_internalvalue' in 'conf'.
 
 	* tp/Texinfo/ParserNonXS.pm (_initialize_parsing): only initialize

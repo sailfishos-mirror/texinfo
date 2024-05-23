@@ -516,8 +516,9 @@ unregister_document_merge_with_document (int document_descriptor,
   return tree;
 }
 
+/* does not seems to be used */
 void
-clear_document_errors (int document_descriptor)
+wipe_document_errors (int document_descriptor)
 {
   DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
@@ -525,7 +526,7 @@ clear_document_errors (int document_descriptor)
 }
 
 void
-clear_document_parser_errors (int document_descriptor)
+wipe_document_parser_errors (int document_descriptor)
 {
   DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
