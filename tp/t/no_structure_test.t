@@ -9,7 +9,8 @@ BEGIN { plan tests => 8; }
 
 use File::Spec;
 
-use Texinfo::Tests qw(compare_dirs_files unlink_dir_files);
+use Texinfo::Tests qw(compare_dirs_files unlink_dir_files
+  prepare_format_directories);
 
 use Texinfo::Parser;      
 use Texinfo::Convert::Texinfo;
@@ -20,34 +21,16 @@ use Texinfo::Convert::LaTeX;
 use Texinfo::Convert::DocBook;
 use Texinfo::Convert::TexinfoXML;
 
-# The test in this file tests outputing with converters without
-# calling the Texinfo Structuring code.  In general we ae not that
+# The test in this file tests outputting with converters without
+# calling the Texinfo Structuring code.  In general we are not that
 # interested by the results themselves, more by the errors.
+
+# NOTE the references need to be updated manually, by copying
+# out_* directories files or cut and pasting.
 
 
 
-sub _prepare_test_directory($$$$)
-{
-  my $test_name = shift;
-  my $format_type = shift;
-  my $srcdir = shift;
-  my $base = shift;
-
-  my $test_out_dir = $base.'out_'.$format_type;
-  my $reference_dir = "$srcdir$base".'res_'.$format_type;
-
-  mkdir ($base)
-    if (! -d $base);
-  if (! -d $test_out_dir) {
-    mkdir ($test_out_dir);
-  } else {
-    # remove any files from previous runs
-    unlink glob ("$test_out_dir/*");
-  }
-  return ($test_out_dir, $reference_dir);
-}
-
-sub _run_file_test($$$$$$)
+sub _do_format_test_file($$$$$$)
 {
   my $test_name = shift;
   my $format = shift;
@@ -87,13 +70,19 @@ my $srcdir = $ENV{'srcdir'};
 if (defined($srcdir)) {
   $srcdir =~ s/\/*$/\//;
 } else {
-  $srcdir = '';
+  $srcdir = '.';
 }
 
 my $debug = 0;
 #my $debug = 1;
   
 ok(1, "modules loading");
+
+my $test_group = 'no_structure_test';
+
+#Texinfo::Tests::create_group_directory($test_group);
+
+
 
 my $texi = '@contents
 
@@ -140,22 +129,11 @@ foreach my $error_message (@$test_parser_errors) {
    ;# if ($debug);
 }
 
-foreach my $dir ('t', 't/results', 't/results/no_structure_test') {
-  my $error;
-  # to avoid a race conditon, first create the dir then test that it
-  # exists
-  mkdir $dir or $error = $!;
-  if (! -d $dir) {
-    die "mkdir $dir: $error\n";
-  }
-}
-
 my $test_name = 'one';
-my $base = "t/results/no_structure_test/$test_name/";
 
 my $format = 'html';
 my ($html_test_out_dir, $html_reference_dir)
-   = _prepare_test_directory($test_name, $format, $srcdir, $base);
+   = prepare_format_directories($srcdir, $test_group, $test_name, $format);
 
 
 my $html_converter = Texinfo::Convert::HTML->converter(
@@ -164,9 +142,9 @@ my $html_converter = Texinfo::Convert::HTML->converter(
                          'SUBDIR' => $html_test_out_dir,
                          'SPLIT' => ''});
 
-# Note that there are no contents, as there is not sections_list
-_run_file_test($test_name, $format, $html_converter, $document,
-               $html_test_out_dir, $html_reference_dir);
+# Note that there are no contents, as there is no sections_list
+_do_format_test_file($test_name, $format, $html_converter, $document,
+                      $html_test_out_dir, $html_reference_dir);
 
 my $plaintext_converter = Texinfo::Convert::Plaintext->converter();
 my $plaintext_text = $plaintext_converter->convert($document);
@@ -194,13 +172,13 @@ subsec
 
 $format = 'info';
 my ($info_test_out_dir, $info_reference_dir)
-   = _prepare_test_directory($test_name, $format, $srcdir, $base);
+   = prepare_format_directories($srcdir, $test_group, $test_name, $format);
 
 my $info_converter
   = Texinfo::Convert::Info->converter({'SUBDIR' => $info_test_out_dir});
 
-_run_file_test($test_name, $format, $info_converter, $document,
-               $info_test_out_dir, $info_reference_dir);
+_do_format_test_file($test_name, $format, $info_converter, $document,
+                      $info_test_out_dir, $info_reference_dir);
 
 
 my $latex_converter = Texinfo::Convert::LaTeX->converter();

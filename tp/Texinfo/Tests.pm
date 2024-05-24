@@ -17,11 +17,22 @@
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
-use strict;
+package Texinfo::Tests;
 
 use 5.006;
 
+use strict;
+
 use File::Compare qw(compare); # standard since 5.004
+
+require Exporter;
+our @ISA = qw(Exporter);
+
+our @EXPORT_OK = qw(
+compare_dirs_files
+unlink_dir_files
+prepare_format_directories
+);
 
 # not that subdirectories are not compared, so subdirectories generated
 # by INFO_JS_DIR, if different, will not trigger an error in test, but
@@ -112,5 +123,52 @@ sub unlink_dir_files($;$)
     warn "readdir $dir: $!";
   }   
 }     
+
+my $default_result_base = 't/results/';
+
+sub create_group_directory($;$)
+{
+  my $test_group = shift;
+  my $result_base = shift;
+
+  $result_base = $default_result_base if (!defined($result_base));
+
+  foreach my $dir ('t', $result_base,
+                 File::Spec->catdir($result_base, $test_group)) {
+    my $error;
+    # to avoid a race conditon, first create the dir then test that it
+    # exists
+    mkdir $dir or $error = $!;
+    if (! -d $dir) {
+      die "mkdir $dir: $error\n";
+    }
+  }
+}
+
+sub prepare_format_directories($$$$;$)
+{
+  my $srcdir = shift;
+  my $test_group = shift;
+  my $test_name = shift;
+  my $format_type = shift;
+  my $result_base = shift;
+
+  $result_base = $default_result_base if (!defined($result_base));
+
+  my $base = File::Spec->catdir($result_base, $test_group, $test_name);
+
+  my $test_out_dir = File::Spec->catdir($base, 'out_'.$format_type);
+  my $reference_dir = File::Spec->catdir($srcdir, $base, 'res_'.$format_type);
+
+  mkdir ($base)
+    if (! -d $base);
+  if (! -d $test_out_dir) {
+    mkdir ($test_out_dir);
+  } else {
+    # remove any files from previous runs
+    unlink glob ("$test_out_dir/*");
+  }
+  return ($test_out_dir, $reference_dir);
+}
 
 1;

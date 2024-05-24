@@ -1,5 +1,14 @@
 2024-05-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Tests.pm (@EXPORT_OK, create_group_directory)
+	(prepare_format_directories), tp/t/no_structure_test.t
+	(_do_format_test_file): add a Package declaration in Texinfo/Tests.pm.
+	Add create_group_directory, move _prepare_test_directory to
+	Texinfo::Tests, renaming as prepare_format_directories.  Rename
+	_run_file_test as _do_format_test_file.
+
+2024-05-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am, tp/t/test_utils.pl, tp/Texinfo/Tests.pm
 	(compare_dirs_files, unlink_dir_files): add tp/Texinfo/Tests.pm for
 	common code to be used in tests.
