@@ -23,13 +23,25 @@
 #include "utils.h"
 #include "parser_conf.h"
 
-/* Configuration values. */
+/* Configuration values.  This global variables is used in the parser
+   code.  The registered parser configurations is copied over it if
+   a parser reused configuration is needed. */
 PARSER_CONF global_parser_conf;
 
 /* registered parser configurations */
 static PARSER_CONF **parser_conf_list;
 static size_t parser_conf_number;
 static size_t parser_conf_space;
+
+/* NOTE the registered parser configurations are never unallocated.
+   The conf memory use is not important.  Also, there is no parser
+   configuration allocated thought gdt (with accept_internalvalue
+   set being used as an indication that the parser is setup from gdt,
+   as seen in Perl code).  Therefore, there is only one conf allocated
+   per converted file in the main program, which means a very low need
+   of memory for the confs.  In the *.t tests there is one registered
+   conf per test, but it is not an issue as it is for tests. */
+
 
 PARSER_CONF *
 retrieve_parser_conf (int parser_conf_descriptor)
