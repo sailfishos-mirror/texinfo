@@ -237,6 +237,7 @@ test_files = \
  t/input_files/encoding_index_latin1.texi \
  t/input_files/encoding_index_utf8.texi \
  t/input_files/end_of_lines_protected_non_ascii.texi \
+ t/input_files/first_file_same_parser.texi \
  t/input_files/float_copying.texi \
  t/input_files/formatting_customizations_input.texi \
  t/input_files/glossary.texi \
@@ -251,6 +252,7 @@ test_files = \
  t/input_files/index_table.texi \
  t/input_files/japanese_utf8.texi \
  t/input_files/japanese_shift_jis.texi \
+ t/input_files/last_file_same_parser.texi \
  t/input_files/manual_simple_utf8_with_error.texi \
  t/input_files/manual_simple_latin1_with_error.texi \
  t/input_files/minimal_empty_empty.texi \
@@ -259,6 +261,7 @@ test_files = \
  t/input_files/minimal_only_input_line.texi \
  t/input_files/multiple_include_encodings.texi \
  t/input_files/navigation.texi \
+ t/input_files/next_file_same_parser.texi \
  t/input_files/nodequote.texi \
  t/input_files/nodes_before_top.texi \
  t/input_files/nodes_before_top_and_sections.texi \

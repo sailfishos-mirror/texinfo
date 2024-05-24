@@ -53,6 +53,7 @@ test_tap_files_generated_list = \
   t/protect_character_in_texinfo.t \
   t/raw_text_converter.t \
   t/reference_to_text_in_tree.t \
+  t/same_parser_multiple_files.t \
   t/test_brace_count.t \
   t/test_fill_gaps_in_sectioning.t \
   t/test_is_content_empty.t \
@@ -1872,6 +1873,12 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/regions/ref_in_copying.pl \
   t/results/regions/ref_in_copying_insert_in_chapter.pl \
   t/results/regions/today_in_copying.pl \
+  t/results/same_parser_multiple_files/three_files_first_file_same_parser/res_html \
+  t/results/same_parser_multiple_files/three_files_first_file_same_parser/res_info \
+  t/results/same_parser_multiple_files/three_files_last_file_same_parser/res_html \
+  t/results/same_parser_multiple_files/three_files_last_file_same_parser/res_info \
+  t/results/same_parser_multiple_files/three_files_next_file_same_parser/res_html \
+  t/results/same_parser_multiple_files/three_files_next_file_same_parser/res_info \
   t/results/sectioning/a_comma_after_node.pl \
   t/results/sectioning/anchor_zero.pl \
   t/results/sectioning/at_commands_in_node.pl \
