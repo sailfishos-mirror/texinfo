@@ -33,7 +33,7 @@ use if $] >= 5.014, re => '/a';
 use strict;
 
 # Can be used to check that there is no incorrect autovivfication
-# no autovivification qw(fetch delete exists store strict);
+#no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
 
@@ -1180,17 +1180,20 @@ sub section_level_adjusted_command_name($)
 {
   my $element = shift;
 
-  my $heading_level = $element->{'extra'}->{'section_level'};
-  my $command;
-  if ($heading_level ne $Texinfo::Common::command_structuring_level{
+  # the following condition should only be false if sectioning_structure was
+  # not called
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'section_level'})) {
+    my $heading_level = $element->{'extra'}->{'section_level'};
+    if ($heading_level ne $Texinfo::Common::command_structuring_level{
                                                        $element->{'cmdname'}}) {
-    $command
-      = $Texinfo::Common::level_to_structuring_command{$element->{'cmdname'}}
+      my $command
+        = $Texinfo::Common::level_to_structuring_command{$element->{'cmdname'}}
                                                             ->[$heading_level];
-  } else {
-    $command = $element->{'cmdname'};
+      return $command;
+    }
   }
-  return $command;
+  return $element->{'cmdname'};
 }
 
 

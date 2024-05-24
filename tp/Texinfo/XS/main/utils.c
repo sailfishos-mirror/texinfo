@@ -1380,16 +1380,16 @@ section_level_adjusted_command_name (const ELEMENT *element)
 
   heading_level = lookup_extra_integer (element, "section_level", &status);
 
-  if (status < 0)
+  /* the following condition should only be false if sectioning_structure was
+     not called */
+  if (status == 0)
     {
-      bug ("section_level_adjusted_command_name: "
-           "unexpected missing section level");
+      if (command_structuring_level[element->cmd] != heading_level)
+        {
+          return level_to_structuring_command[element->cmd][heading_level];
+        }
     }
 
-  if (command_structuring_level[element->cmd] != heading_level)
-    {
-      return level_to_structuring_command[element->cmd][heading_level];
-    }
   return element->cmd;
 }
 

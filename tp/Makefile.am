@@ -83,6 +83,7 @@ dist_modules_DATA = \
  Texinfo/Report.pm \
  Texinfo/StructTransfXS.pm \
  Texinfo/Structuring.pm \
+ Texinfo/Tests.pm \
  Texinfo/Transformations.pm \
  Texinfo/Translations.pm \
  Texinfo/XSLoader.pm

@@ -573,13 +573,17 @@ sub _docbook_section_element($$)
   my $self = shift;
   my $element = shift;
 
-  my $heading_level = $element->{'extra'}->{'section_level'};
-  if (exists $docbook_sections{$heading_level}) {
-    return $docbook_sections{$heading_level};
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'section_level'})) {
+    my $heading_level = $element->{'extra'}->{'section_level'};
+    if (exists $docbook_sections{$heading_level}) {
+      return $docbook_sections{$heading_level};
+    }
   }
   my $level_adjusted_cmdname
      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   if ($level_adjusted_cmdname eq 'unnumbered'
+      and $element->{'extra'}
       and $element->{'extra'}->{'associated_node'}
       and $element->{'extra'}->{'associated_node'}->{'extra'}
       and $element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}
@@ -588,7 +592,15 @@ sub _docbook_section_element($$)
     return lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'});
   }
 
-  return $docbook_sections{$level_adjusted_cmdname};
+  if (defined($docbook_sections{$level_adjusted_cmdname})) {
+    return $docbook_sections{$level_adjusted_cmdname};
+  } else {
+    # special case of no structuring information available for a regular
+    # sectioning command, like @section, @appendix, if Structuring
+    # sectioning_structure was not called.
+    my $heading_level = Texinfo::Common::section_level($element);
+    return $docbook_sections{$heading_level};
+  }
 }
 
 sub _index_entry($$)
@@ -918,9 +930,10 @@ sub _convert($$;$)
             # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
             # having a label (empty) is important.
             my $label = '';
-            if (defined($opened_element->{'extra'}->{'section_number'})
-              and ($self->get_conf('NUMBER_SECTIONS')
-                   or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+            if ($opened_element->{'extra'}
+                and defined($opened_element->{'extra'}->{'section_number'})
+                and ($self->get_conf('NUMBER_SECTIONS')
+                     or !defined($self->get_conf('NUMBER_SECTIONS')))) {
               # Looking at docbook2html output, Appendix is appended in the
               # section title, so only the letter is used.
               $label = $opened_element->{'extra'}->{'section_number'};
@@ -1815,13 +1828,15 @@ sub _convert($$;$)
     }
     my $level_adjusted_cmdname
         = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($element->{'extra'}->{'section_childs'}
+    if (!($element->{'extra'}
+          and $element->{'extra'}->{'section_childs'}
           and scalar(@{$element->{'extra'}->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
-      while ($current->{'extra'}->{'section_directions'}
+      while ($current->{'extra'}
+             and $current->{'extra'}->{'section_directions'}
              and $current->{'extra'}->{'section_directions'}->{'up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it

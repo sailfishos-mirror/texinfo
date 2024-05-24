@@ -46,6 +46,7 @@ test_tap_files_generated_list = \
   t/languages.t \
   t/latex_tests.t \
   t/layout.t \
+  t/no_structure_test.t \
   t/nodenormalization.t \
   t/paragraph.t \
   t/plaintext_tests.t \
@@ -1679,6 +1680,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/multitable/prototype_no_brace.pl \
   t/results/multitable/ref_in_multitable.pl \
   t/results/multitable/w_in_multitable.pl \
+  t/results/no_structure_test/one/res_html \
+  t/results/no_structure_test/one/res_info \
   t/results/paragraph/close_paragraph_command.pl \
   t/results/paragraph/commands_in_flushright.pl \
   t/results/paragraph/comment_between_text.pl \

@@ -1569,7 +1569,8 @@ sub _convert($$;$)
     # 'h{e f}'.
     # @deffn {a b}{c d} h{e f} g h
     } elsif ($element->{'type'} eq 'bracketed_arg'
-             and not ($element->{'parent'}->{'parent'}->{'cmdname'}
+             and not ($element->{'parent'}->{'parent'}
+                      and $element->{'parent'}->{'parent'}->{'cmdname'}
                       and $element->{'parent'}->{'parent'}->{'cmdname'}
                                                            eq 'multitable')
              and (!$element->{'parent'}->{'type'}
@@ -1639,12 +1640,14 @@ sub _convert($$;$)
            and !$self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
     my $level_adjusted_cmdname
        = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($element->{'extra'}->{'section_childs'}
+    if (!($element->{'extra'}
+          and $element->{'extra'}->{'section_childs'}
           and scalar(@{$element->{'extra'}->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= $self->txi_markup_close_element($level_adjusted_cmdname)."\n";
       my $current = $element;
-      while ($current->{'extra'}->{'section_directions'}
+      while ($current->{'extra'}
+             and $current->{'extra'}->{'section_directions'}
              and $current->{'extra'}->{'section_directions'}->{'up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it

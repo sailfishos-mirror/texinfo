@@ -6087,10 +6087,17 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   text_append (&result, "");
 
   if (self->document->sections_list
-      && self->document->sections_list->number >= 0)
+      && self->document->sections_list->number > 0)
     {
       const ELEMENT *first = self->document->sections_list->list[0];
       section_root = lookup_extra_element (first, "sectioning_root");
+      /* this should not happen with $sections_list as set from Structuring
+         sectioning_structure, but could happen with another source.
+         We consider that if sectioning_root is set as usual, all the
+         fields are set consistently with what sectioning_structure would
+         have set. */
+      if (!section_root)
+        return result.text;
     }
   else
     return result.text;
@@ -10243,6 +10250,12 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       int level
         = lookup_extra_integer (opening_section, "section_level", &status);
       STRING_LIST *closed_strings;
+
+       /* if Structuring sectioning_structure was not called on the
+          document (cannot happen in main program or test_utils.pl tests) */
+      /* if (status < 0) */
+      if (status != 0)
+        level = section_level (opening_section);
 
       closed_strings = html_close_registered_sections_level (self, level);
 

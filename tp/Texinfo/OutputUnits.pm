@@ -31,7 +31,7 @@ use if $] >= 5.014, re => '/a';
 use strict;
 
 # Can be used to check that there is no incorrect autovivfication
-# no autovivification qw(fetch delete exists store strict);
+#no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
 
@@ -492,13 +492,17 @@ sub units_directions($$;$)
       # fastforward is the next element on same level than the upper parent
       # element.
       my $up = $section;
-      while ($up->{'extra'}->{'section_level'} > 1
+      while ($up->{'extra'}
+             and defined($up->{'extra'}->{'section_level'})
+             and $up->{'extra'}->{'section_level'} > 1
              and $up->{'extra'}->{'section_directions'}
              and $up->{'extra'}->{'section_directions'}->{'up'}) {
         $up = $up->{'extra'}->{'section_directions'}->{'up'};
       }
 
-      if ($up->{'extra'}->{'section_level'} < 1
+      if ($up->{'extra'}
+          and defined($up->{'extra'}->{'section_level'})
+          and $up->{'extra'}->{'section_level'} < 1
           and $up->{'cmdname'} and $up->{'cmdname'} eq 'top'
           and $up->{'extra'}->{'section_childs'}
           and @{$up->{'extra'}->{'section_childs'}}) {
@@ -520,7 +524,9 @@ sub units_directions($$;$)
       if ($up and $up ne $section
           and $up->{'associated_unit'}) {
         $directions->{'FastBack'} = $up->{'associated_unit'};
-      } elsif ($section->{'extra'}->{'section_level'} <= 1
+      } elsif ($section->{'extra'}
+               and defined($section->{'extra'}->{'section_level'})
+               and $section->{'extra'}->{'section_level'} <= 1
                and $directions->{'FastForward'}) {
         # the element is a top level element, we adjust the next
         # toplevel element fastback
