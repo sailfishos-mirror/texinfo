@@ -80,7 +80,7 @@ ok(1, "modules loading");
 
 my $test_group = 'no_structure_test';
 
-#Texinfo::Tests::create_group_directory($test_group);
+Texinfo::Tests::create_group_directory($test_group);
 
 
 
