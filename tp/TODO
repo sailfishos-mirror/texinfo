@@ -57,11 +57,6 @@ Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 Delayed bugs/features
 =====================
 
-Add the possibility to add text to a parsed document by restarting
-parsing, when called as parse_texi_piece or parse_texi_line, by
-storing the parser document state not already in document in document.
-
-
 Gavin idea to use see/See for cross references in --plaintext output.
 More generally, the plaintext ref_commands formatting code
 could be completly different from the Info code, which is the current
@@ -249,6 +244,16 @@ anchor in flushright, on an empty line, with a current byte offset.
 
 Future features
 ===============
+
+
+Add the possibility to add text to a parsed document by restarting
+parsing, when called as parse_texi_piece or parse_texi_line, by
+storing the parser document state not already in document in document.
+There would be a customization variable to set the parser to be
+restartable, and then parse_texi_piece and parse_texi_line could pass
+a document to retrieve the parsing state.  This should probably
+wait for a clear use case. Currently, the parser is never reused
+for different documents in the main codes, only in specific tests.
 
 
 For converters in C, agreed with Gavin that it is better not to
