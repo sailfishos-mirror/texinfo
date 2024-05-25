@@ -63,6 +63,9 @@ FORMATTING_REFERENCE *new_special_unit_formatting_references
                                       (int special_units_varieties_nr);
 char **new_special_unit_info_type (int special_units_varieties_nr);
 
+int html_id_is_registered (CONVERTER *self, const char *string);
+void html_register_id (CONVERTER *self, const char *string);
+
 int html_open_command_update_context (CONVERTER *self,
                                       enum command_id data_cmd);
 void html_convert_command_update_context (CONVERTER *self,

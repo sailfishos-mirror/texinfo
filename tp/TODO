@@ -109,12 +109,16 @@ valgrind --tool=callgrind perl -w texi2any.pl ../doc/texinfo.texi --html
 valgrind --tool=callgrind --separate-callers=3 --separate-recs=10 perl -w texi2any.pl ../doc/texinfo.texi --html
 kcachegrind callgrind.out.XXXXXX
 
-C code could be checked to see if using an hash map implementation,
-by compiling C code as C++ and using the standard C++ library hash map
-could be interesting (Patrice 2023-10-14).
-Could be interesting for find_string:
- unique_target -> find_string
- (and, though much less used output_files_open_out -> find_string)
+
+A Perl hash map is used for fast access, see USE_PERL_HASHMAP in
+convert_html.c and interface in call_html_perl_function.c.
+C code could be checked to see if using more hash maps could be interesting:
+Do something similar for output_files_open_out -> find_string?
+
+If a hash without Perl dependency is needed, C++ std::unordered_map could
+be used instead of a Perl hash map, by setting up an interface with
+functions similar with the call_html_perl_function.c defined as extern "C".
+
 
 For the Texinfo manual with full XS, Perl uses 22% of the time (for html),
 now only for code hopefully called once.  Calling Perl getSortKey uses about

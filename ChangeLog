@@ -1,3 +1,24 @@
+2024-05-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/converter_types.h (CONVERTER): rename seen_ids as
+	registered_ids.  Update users.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_id)
+	(html_id_is_registered), tp/Texinfo/XS/convert/convert_html.c
+	(html_id_is_registered, html_register_id): add html_id_is_registered
+	and html_register_id functions for registered_ids access.
+
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(init_registered_ids_hv, is_hv_registered_id, hv_register_id)
+	(clear_registered_ids_hv, free_registered_ids_hv),
+	tp/Texinfo/XS/convert/convert_html.c (USE_PERL_HASHMAP)
+	(html_id_is_registered, html_register_id, html_converter_initialize)
+	(html_reset_converter, html_free_converter),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): add an alternative
+	interface to register and retrieve registered ids, using a Perl hash.
+	If USE_PERL_HASHMAP is defined, the default, the Perl hash map is
+	used.
+
 2024-05-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/parser_conf.c: add a NOTE in comment explaining

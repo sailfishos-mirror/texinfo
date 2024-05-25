@@ -775,7 +775,11 @@ typedef struct CONVERTER {
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
-    STRING_LIST seen_ids;
+    union {
+      STRING_LIST registered_ids;
+      /* actually HV * but we do not want to drag in Perl headers */
+      void *registered_ids_hv;
+    };
     /* potentially one target list per command (only for some actually) */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];

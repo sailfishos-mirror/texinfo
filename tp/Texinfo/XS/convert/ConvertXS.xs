@@ -577,7 +577,7 @@ html_register_id (SV *converter_in, id)
          self = get_sv_converter (converter_in, "html_register_id");
          if (self)
           /* note that we do not care about having the same id twice */
-           add_string (id, &self->seen_ids);
+           html_register_id (self, id);
 
 
 int html_id_is_registered (SV *converter_in, id)
@@ -588,7 +588,7 @@ int html_id_is_registered (SV *converter_in, id)
       CODE:
          self = get_sv_converter (converter_in, "html_id_is_registered");
          if (self)
-           found = find_string (&self->seen_ids, id);
+           found = html_id_is_registered (self, id);
          RETVAL = found;
     OUTPUT:
          RETVAL

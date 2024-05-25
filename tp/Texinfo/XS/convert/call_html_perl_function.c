@@ -2313,3 +2313,45 @@ call_button_direction_function (CONVERTER *self,
 }
 
 
+
+/* Interface with Perl hash map for registered ids */
+
+void
+init_registered_ids_hv (CONVERTER *self)
+{
+  dTHX;
+
+  self->registered_ids_hv = newHV ();
+}
+
+int
+is_hv_registered_id (CONVERTER *self, const char *string)
+{
+  dTHX;
+
+  return hv_exists (self->registered_ids_hv, string, strlen (string));
+}
+
+void
+hv_register_id (CONVERTER *self, const char *string)
+{
+  dTHX;
+
+  hv_store (self->registered_ids_hv, string, strlen (string), newSViv (1), 0);
+}
+
+void
+clear_registered_ids_hv (CONVERTER *self)
+{
+  dTHX;
+
+  hv_clear (self->registered_ids_hv);
+}
+
+void
+free_registered_ids_hv (CONVERTER *self)
+{
+  dTHX;
+
+  hv_undef (self->registered_ids_hv);
+}

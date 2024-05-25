@@ -143,4 +143,12 @@ FORMATTED_BUTTON_INFO *call_button_direction_function (CONVERTER *self,
                              void *formatting_reference_sv,
                              int direction, const ELEMENT *element);
 
+
+/* Interface with Perl hash map for registered ids */
+void init_registered_ids_hv (CONVERTER *self);
+int is_hv_registered_id (CONVERTER *self, const char *string);
+void hv_register_id (CONVERTER *self, const char *string);
+void clear_registered_ids_hv (CONVERTER *self);
+void free_registered_ids_hv (CONVERTER *self);
+
 #endif

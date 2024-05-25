@@ -58,6 +58,11 @@
 #include "api_to_perl.h"
 #include "convert_html.h"
 
+/* comment out to use a string list in pure C instead, with linear search.
+   Using a Perl hash map is much faster.
+ */
+#define USE_PERL_HASHMAP 1
+
 typedef struct ROOT_AND_UNIT {
     const OUTPUT_UNIT *output_unit;
     const ELEMENT *root;
@@ -278,6 +283,26 @@ static COMMAND_ARGS_SPECIFICATION command_args_flags[BUILTIN_CMD_NUMBER];
 
 static void convert_to_html_internal (CONVERTER *self, const ELEMENT *e,
                                       TEXT *result, const char *explanation);
+
+int
+html_id_is_registered (CONVERTER *self, const char *string)
+{
+#ifdef USE_PERL_HASHMAP
+  return is_hv_registered_id (self, string);
+#else
+  return find_string (&self->registered_ids, string);
+#endif
+}
+
+void
+html_register_id (CONVERTER *self, const char *string)
+{
+#ifdef USE_PERL_HASHMAP
+  hv_register_id (self, string);
+#else
+  add_string (string, &self->registered_ids);
+#endif
+}
 
 /*
  if OUTPUT_UNITS is defined, the first output unit is used if a proper
@@ -1795,7 +1820,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
       HTML_TARGET *element_target
         = add_element_target (self, special_unit->unit_command, target);
       element_target->special_unit_filename = filename;
-      add_string (target, &self->seen_ids);
+      html_register_id (self, target);
 
       if (target_filename)
         {
@@ -1857,7 +1882,7 @@ prepare_associated_special_units_targets (CONVERTER *self)
           element_target
            = add_element_target (self, special_unit->unit_command, target);
           if (target)
-            add_string (target, &self->seen_ids);
+            html_register_id (self, target);
           if (filename)
             element_target->special_unit_filename = filename;
 
@@ -1938,7 +1963,7 @@ unique_target (CONVERTER *self, const char *target_base)
   char *target = strdup (target_base);
   while (1)
     {
-      if (find_string (&self->seen_ids, target))
+      if (html_id_is_registered (self, target))
         {
           free (target);
           xasprintf (&target, "%s-%d", target_base, nr);
@@ -2036,14 +2061,14 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
   HTML_TARGET *element_target
     = add_element_target (self, command, target);
   element_target->section_filename = filename;
-  add_string (target, &self->seen_ids);
+  html_register_id (self, target);
 
   free (target);
 
   if (target_contents)
     {
       element_target->contents_target = target_contents;
-      add_string (target_contents, &self->seen_ids);
+      html_register_id (self, target_contents);
     }
   else
     element_target->contents_target = strdup ("");
@@ -2051,7 +2076,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
   if (target_shortcontents)
     {
       element_target->shortcontents_target = target_shortcontents;
-      add_string (target_shortcontents, &self->seen_ids);
+      html_register_id (self, target_shortcontents);
     }
   else
     element_target->shortcontents_target = strdup ("");
@@ -2151,7 +2176,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
           HTML_TARGET *element_target
             = add_element_target (self, target_element, target);
           element_target->node_filename = node_filename;
-          add_string (target, &self->seen_ids);
+          html_register_id (self, target);
 
           free (target);
         }
@@ -4779,7 +4804,7 @@ prepare_index_entries_targets (CONVERTER *self)
                 target_element = main_entry_element;
 
               add_element_target (self, target_element, target);
-              add_string (target, &self->seen_ids);
+              html_register_id (self, target);
 
               free (target);
             }
@@ -4849,8 +4874,8 @@ prepare_footnotes_targets (CONVERTER *self)
 
           while (1)
             {
-              if (find_string (&self->seen_ids, footid.text)
-                    || find_string (&self->seen_ids, docid.text))
+              if (html_id_is_registered (self, footid.text)
+                    || html_id_is_registered (self, docid.text))
                 {
                   nr++;
                   if (nr == 0)
@@ -4864,8 +4889,9 @@ prepare_footnotes_targets (CONVERTER *self)
               else
                 break;
             }
-          add_string (footid.text, &self->seen_ids);
-          add_string (docid.text, &self->seen_ids);
+          html_register_id (self, footid.text);
+          html_register_id (self, docid.text);
+
           element_target = add_element_target (self, footnote, footid.text);
           add_special_target (self, ST_footnote_location, footnote,
                               docid.text);
@@ -16412,6 +16438,10 @@ html_converter_initialize (CONVERTER *self)
   int external_type_open_function = 0;
   int external_formatting_function = 0;
 
+#ifdef USE_PERL_HASHMAP
+  init_registered_ids_hv (self);
+#endif
+
   /* initialization needing some information from perl */
 
   nr_special_units = self->special_unit_varieties.number;
@@ -17094,7 +17124,11 @@ html_reset_converter (CONVERTER *self)
   reset_translated_special_unit_info_tree (self);
   /* targets */
   reset_html_targets (self, self->html_targets);
-  clear_strings_list (&self->seen_ids);
+#ifdef USE_PERL_HASHMAP
+  clear_registered_ids_hv (self);
+#else
+  clear_strings_list (&self->registered_ids);
+#endif
   for (i = 0; i < ST_footnote_location+1; i++)
     {
       reset_html_targets_list (self, &self->html_special_targets[i]);
@@ -17278,7 +17312,11 @@ html_free_converter (CONVERTER *self)
 
   free (self->html_target_cmds.stack);
 
-  free_strings_list (&self->seen_ids);
+#ifdef USE_PERL_HASHMAP
+  free_registered_ids_hv (self);
+#else
+  free_strings_list (&self->registered_ids);
+#endif
 
   html_free_files_source_info (&self->files_source_info);
 
