@@ -112,18 +112,32 @@ kcachegrind callgrind.out.XXXXXX
 
 A Perl hash map is used for fast access, see USE_PERL_HASHMAP in
 convert_html.c and interface in call_html_perl_function.c.
-C code could be checked to see if using more hash maps could be interesting:
-Do something similar for output_files_open_out -> find_string?
-
 If a hash without Perl dependency is needed, C++ std::unordered_map could
 be used instead of a Perl hash map, by setting up an interface with
 functions similar with the call_html_perl_function.c defined as extern "C".
 
 
-For the Texinfo manual with full XS, Perl uses 22% of the time (for html),
-now only for code hopefully called once.  Calling Perl getSortKey uses about
-28% (more on sorting and C below).
-
+For the Texinfo manual with full XS, Perl uses 26% of the time (for html),
+now only for code hopefully called once.  The switch to global locales
+for setlocale calling that is needed for Perl takes also 4%.  Calling Perl
+getSortKey uses about 28% (more on sorting and C below).
+Decomposition of the time used for the Texinfo manual with full XS
+(in percent):
+ parser: 11
+ index sorting: 30
+ main conversion: 24
+ node redirections: 2.7
+ prepare conversion units: 2.3
+ remove document: 1.6
+ associate internal references: 0.54
+ prepare unit directions: 0.45
+ setup indices sort strings: 0.38
+ reset converter: 0.23
+ structuring transformation1: 0.19
+ structuring transformation2: 0.19
+ remaining Texinfo XS code: 0.35
+ Perl: 26
+sum: 99.92
 
 hyphenation: should only appear in toplevel.
 
