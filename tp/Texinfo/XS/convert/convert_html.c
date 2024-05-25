@@ -290,7 +290,7 @@ html_id_is_registered (CONVERTER *self, const char *string)
 #ifdef USE_PERL_HASHMAP
   return is_hv_registered_id (self, string);
 #else
-  return find_string (&self->registered_ids, string);
+  return find_string (self->registered_ids, string);
 #endif
 }
 
@@ -300,7 +300,7 @@ html_register_id (CONVERTER *self, const char *string)
 #ifdef USE_PERL_HASHMAP
   hv_register_id (self, string);
 #else
-  add_string (string, &self->registered_ids);
+  add_string (string, self->registered_ids);
 #endif
 }
 
@@ -16440,6 +16440,8 @@ html_converter_initialize (CONVERTER *self)
 
 #ifdef USE_PERL_HASHMAP
   init_registered_ids_hv (self);
+#else
+  self->registered_ids = new_string_list ();
 #endif
 
   /* initialization needing some information from perl */
@@ -17127,7 +17129,7 @@ html_reset_converter (CONVERTER *self)
 #ifdef USE_PERL_HASHMAP
   clear_registered_ids_hv (self);
 #else
-  clear_strings_list (&self->registered_ids);
+  clear_strings_list (self->registered_ids);
 #endif
   for (i = 0; i < ST_footnote_location+1; i++)
     {
@@ -17315,7 +17317,8 @@ html_free_converter (CONVERTER *self)
 #ifdef USE_PERL_HASHMAP
   free_registered_ids_hv (self);
 #else
-  free_strings_list (&self->registered_ids);
+  destroy_strings_list (self->registered_ids);
+  self->registered_ids = 0;
 #endif
 
   html_free_files_source_info (&self->files_source_info);

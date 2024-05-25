@@ -1,5 +1,13 @@
 2024-05-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_id_is_registered)
+	(html_register_id, html_converter_initialize, html_reset_converter)
+	(html_free_converter), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): make registered_ids a pointer in CONVERTER, to have only
+	pointers in the registered ids union.
+
+2024-05-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/converter_types.h (CONVERTER): rename seen_ids as
 	registered_ids.  Update users.
 

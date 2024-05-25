@@ -776,7 +776,7 @@ typedef struct CONVERTER {
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
     union {
-      STRING_LIST registered_ids;
+      STRING_LIST *registered_ids;
       /* actually HV * but we do not want to drag in Perl headers */
       void *registered_ids_hv;
     };
