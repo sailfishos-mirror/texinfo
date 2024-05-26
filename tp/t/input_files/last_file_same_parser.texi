@@ -1,0 +1,8 @@
+
+@title Title
+@node Top
+@node ichp
+
+@macrtwo{}
+
+J @value{myval}.
