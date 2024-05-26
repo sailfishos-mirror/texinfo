@@ -1,3 +1,13 @@
+2024-05-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/test_parse_texi_line.t: change in variable names, test the
+	number of errors in any case.
+
+	* tp/t/test_protect_hashchar_at_line_beginning.t: use
+	Texinfo::XSLoader::XS_*_enabled, change in variable names, test the
+	number of errors in any case, use a list for reference errors, use the
+	same code for errors handling as in test_parse_texi_line.t.
+
 2024-05-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_id_is_registered)

@@ -5,78 +5,82 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 9; }
+# 1 + 2 * number of tests + 2 * number of errors
+BEGIN { plan tests => 1 + 2 * 6 + 2 * 1; }
 
+#use Data::Dumper;
+
+use Texinfo::XSLoader;
+use Texinfo::Convert::Texinfo;
+use Texinfo::Document;
 use Texinfo::Parser;
 use Texinfo::Transformations;
-use Texinfo::Document;
-use Texinfo::Convert::Texinfo;
 
-use Data::Dumper;
+my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
+my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
 # For consistent error message, use the C locale
 $ENV{LC_ALL} = 'C';
 # also needed for consistent error message
 $ENV{LANGUAGE} = 'C';
 
+# modules loaded
 ok(1);
-
-my $with_XS = ((not defined($ENV{TEXINFO_XS})
-                or $ENV{TEXINFO_XS} ne 'omit')
-               and (!defined $ENV{TEXINFO_XS_PARSER}
-                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
-
 
 sub run_test($$$;$)
 {
   my $in = shift;
   my $out = shift;
-  my $name = shift;
-  my $error_message = shift;
+  my $test_name = shift;
+  my $errors_references = shift;
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in, 1);
-  my $tree = $document->tree();
+  my $tree = $document->tree($XS_structuring);
 
-  my $corrected_tree =
-    Texinfo::Transformations::protect_hashchar_at_line_beginning($tree,
-                                       $document->registrar(), $document);
+  Texinfo::Transformations::protect_hashchar_at_line_beginning($tree,
+                                    $document->registrar(), $document);
+  # rebuild tree if structuring with XS but conversion in pure Perl.
+  my $corrected_tree = $document->tree($XS_convert);
 
-  #Texinfo::Document::rebuild_document($document);
-  $corrected_tree = $document->tree();
-
-  if (defined($error_message)) {
-    my ($errors, $errors_count) = $parser->errors();
-    my ($document_errors, $document_errors_count)
-      = $document->errors();
-    $errors_count += $document_errors_count if ($document_errors_count);
-    push @$errors, @$document_errors;
-
-    my ($error_line_nr_reference, $error_line_reference) = @$error_message;
-    if (!$error_line_reference) {
-      if ($errors and scalar(@$errors)) {
-        print STDERR " --error-> $errors->[0]->{'error_line'}";
-      } else {
-        print STDERR "No message\n";
-      }
-    } else {
-      if ($errors and scalar(@$errors)) {
-        is($error_line_nr_reference, $errors->[0]->{'line_nr'},
-          "error line: $name");
-        is($error_line_reference, $errors->[0]->{'error_line'},
-          "error message: $name");
-      } else {
-        ok(0, "error message: $name");
-      }
-    }
+  my $reference_error_nrs = 0;
+  if (defined($errors_references)) {
+    $reference_error_nrs = scalar(@$errors_references);
   }
 
-  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($corrected_tree);
+  my ($error_warnings_list, $parser_errors_count) = $parser->errors();
+  my ($document_errors, $document_errors_count)
+      = $document->errors();
+  push @$error_warnings_list, @$document_errors;
+
+  is(scalar(@$error_warnings_list), $reference_error_nrs,
+    "error nr $test_name");
+
+  my $error_idx = 0;
+  foreach my $error_message (@$error_warnings_list) {
+    if (defined($errors_references)
+        and $error_idx < scalar(@$errors_references)) {
+      my ($error_line_nr_reference, $error_line_reference)
+        = @{$errors_references->[$error_idx]};
+      is($error_message->{'line_nr'}, $error_line_nr_reference,
+         "$test_name error line $error_idx");
+      is($error_message->{'error_line'}, $error_line_reference."\n",
+         "$test_name error message $error_idx");
+    } else {
+      my $line = $error_message->{'error_line'};
+      chomp($line);
+      warn "not caught: [$error_message->{'line_nr'}, '$line'],\n";
+    }
+    $error_idx++;
+  }
+
+  my $texi_result
+    = Texinfo::Convert::Texinfo::convert_to_texinfo($corrected_tree);
 
   if (!defined($out)) {
-    print STDERR " --> $name:\n$texi_result";
+    print STDERR " --> $test_name:\n$texi_result";
   } else {
-    is ($texi_result, $out, $name);
+    is($texi_result, $out, $test_name);
   }
 }
 
@@ -154,8 +158,10 @@ run_test('
 @macro mymacro {}
 # line 20 "ff"
 @end macro
-', 'in raw command', [2, 'warning: could not protect hash character in @macro
-']);
+', 'in raw command',
+   [[2, 'warning: could not protect hash character in @macro'],
+   ],
+);
 
 run_test('
 @example
