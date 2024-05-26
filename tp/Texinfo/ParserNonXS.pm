@@ -578,7 +578,6 @@ sub parser(;$)
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (exists($Texinfo::Common::parser_document_parsing_options{$key})) {
-        # we keep registrar instead of copying on purpose, to reuse the object
         if (ref($conf->{$key})) {
           $parser_conf->{$key} = dclone($conf->{$key});
         } else {

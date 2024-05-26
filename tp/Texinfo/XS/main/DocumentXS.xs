@@ -114,7 +114,12 @@ document_errors (SV *document_in)
         SV *error_nrs_sv = 0;
         ERROR_MESSAGE_LIST *error_messages = 0;
      PPCODE:
-        document = get_sv_document_document (document_in, 0);
+        /* if XS is used, a document should be found.  It could
+           also have been possible to abort if a document is not
+           found.
+         */
+        document = get_sv_document_document (document_in,
+                                             "document_errors");
         if (document)
           error_messages = &document->error_messages;
 
@@ -123,6 +128,11 @@ document_errors (SV *document_in)
                                   &error_nrs_sv);
         clear_error_message_list (error_messages);
 
+        /* NOTE this is incorrect, as the callers do not expect
+           undef errors_warnings_sv.  This should not happen, however,
+           as registrar objects are always associated to documents 
+           and the corresponding array reference should always be found
+         */
         if (!errors_warnings_sv)
           errors_warnings_sv = newSV (0);
         else

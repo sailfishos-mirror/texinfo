@@ -1,5 +1,13 @@
 2024-05-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/DocumentXS.xs (document_errors): warn if a
+	document C data is not found.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (add_formatted_error_messages):
+	remove error messages for situations that should not happen.
+
+2024-05-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_parse_texi_line.t: change in variable names, test the
 	number of errors in any case.
 

@@ -1230,7 +1230,7 @@ build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
    NOTE probably not useful for converters as errors need to be passed
    explicitely both from Perl and XS and are added at that point.
 
-   Also return $report->{'errors_warnings'} in ERRORS_WARNINGS_OUT and
+   Returns $report->{'errors_warnings'} in ERRORS_WARNINGS_OUT and
    $report->{'error_nrs'} in ERRORS_NRS_OUT, even if ERROR_MESSAGES is
    0, to avoid the need to fetch them from report_hv if calling code
    is interested in those SV.
@@ -1246,15 +1246,8 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
 
   dTHX;
 
-
   *errors_warnings_out = 0;
   *error_nrs_out = 0;
-
-  if (!report_hv)
-    {
-      fprintf (stderr, "add_formatted_error_messages: BUG: no perl report\n");
-      return;
-    }
 
   errors_warnings_sv = hv_fetch (report_hv, "errors_warnings",
                                  strlen ("errors_warnings"), 0);
@@ -1274,11 +1267,10 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
 
       if (!error_messages)
         {
-          /* TODO if this message appears in output, it should probably
-             be removed, as this situation is allowed from DocumentXS.xs
-             document_errors */
-          fprintf (stderr,
-               "add_formatted_error_messages: NOTE: no error_messages\n");
+          /* See the comment before pass_errors_to_registrar, this probably
+             cannot happen.  We do not warn here, there should already
+             be other warnings as it means that no XS document was found.
+           */
           return;
         }
       else
@@ -1319,8 +1311,13 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
     }
 }
 
-/* ERROR_MESSAGES can be 0, in that case the function is used to get
-   the perl references but they are not modified */
+/* ERROR_MESSAGES could be 0, in that case the function is used to get
+   the perl references but they are not modified.
+   Error messages set to 0, however, cannot happen in practice, as it cannot
+   happen when called through pass_document_parser_errors_to_registrar for
+   parser errors, and for document errors it would mean no XS document found,
+   which cannot happen right now and would probably trigger many warnings.
+ */
 SV *
 pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
                           SV *object_sv,
@@ -1336,6 +1333,10 @@ pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
 
   registrar_sv = hv_fetch (object_hv, registrar_key,
                            strlen (registrar_key), 0);
+  /* A registrar is systematically added to document by parsers, so the
+     condition should always be true.  errors_warnings_out
+     should always be set and it is a good thing because
+     errors_warnings_out is not supposed to be undef */
   if (registrar_sv && SvOK (*registrar_sv))
     {
       HV *report_hv = (HV *) SvRV (*registrar_sv);
@@ -1360,8 +1361,11 @@ pass_document_parser_errors_to_registrar (int document_descriptor,
 
   document = retrieve_document (document_descriptor);
 
+  /* This cannot happen, the function is called on a document that
+     was just registered
   if (!document)
     return;
+   */
 
   pass_errors_to_registrar (&document->parser_error_messages, parser_sv,
                             &errors_warnings_sv, &error_nrs_sv);
