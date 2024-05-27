@@ -696,12 +696,12 @@ index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
 
 
 /* text parsing functions used in diverse situations */
-/* Read a name used for @set, @value and translations arguments. */
-char *
-read_flag_name (const char **ptr)
+/* Determine if there is a name used for @set, @value and translations
+   arguments and its length. */
+size_t
+read_flag_len (const char *text)
 {
-  const char *p = *ptr, *q;
-  char *ret = 0;
+  const char *p = text, *q;
 
   q = p;
   if (!isascii_alnum (*q) && *q != '-' && *q != '_')
@@ -710,11 +710,8 @@ read_flag_name (const char **ptr)
   while (!strchr (whitespace_chars, *q)
          && !strchr ("{\\}~`^+\"<>|@", *q))
     q++;
-  ret = strndup (p, q - p);
-  p = q;
 
-  *ptr = p;
-  return ret;
+  return q - p;
 }
 
 /* s/\s+/ /g with re => '/a' in perl */

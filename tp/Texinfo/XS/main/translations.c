@@ -335,7 +335,7 @@ replace_substrings (const char *string,
       if (q)
         {
           int found = 0;
-          char *flag;
+          size_t flag_len;
 
           if (q - p)
             text_append_n (&substituted, p, q - p);
@@ -343,14 +343,16 @@ replace_substrings (const char *string,
           p = q;
           /* past { */
           q++;
-          flag = read_flag_name (&q);
-          if (flag)
+          flag_len = read_flag_len (q);
+          if (flag_len)
             {
-              if (*q == '}')
+              if (*(q + flag_len) == '}')
                 {
                   int i;
+                  char *flag = strndup (q, flag_len);
+
                   /* past } */
-                  q++;
+                  q += flag_len +1;
                   for (i = 0; i < replaced_substrings->number; i++)
                     {
                       if (!strcmp (replaced_substrings->list[i].name,
@@ -362,8 +364,8 @@ replace_substrings (const char *string,
                           break;
                         }
                     }
+                  free (flag);
                 }
-              free (flag);
             }
           if (!found)
             text_append_n (&substituted, p, q - p);

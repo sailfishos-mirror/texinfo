@@ -188,7 +188,7 @@ INDEX *indices_info_index_by_name (const INDEX_LIST *indices_information,
 INDEX *ultimate_index (INDEX *index);
 size_t index_number_index_by_name (const SORTED_INDEX_NAMES *sorted_indices,
                                    const char *name);
-char *read_flag_name (const char **ptr);
+size_t read_flag_len (const char *text);
 int section_level (const ELEMENT *section);
 enum command_id section_level_adjusted_command_name (const ELEMENT *element);
 char *collapse_spaces (const char *text);

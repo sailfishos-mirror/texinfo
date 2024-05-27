@@ -1,5 +1,28 @@
 2024-05-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/translations.c (replace_substrings),
+	tp/Texinfo/XS/main/utils.c (read_flag_len),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (parse_rawline_command),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): replace
+	read_flag_name by read_flag_len that only returns the length of the
+	flag.  This allows to check first if there is a matching brace or if
+	there is nothing remaining on the line before allocating the memory
+	for the flag.  Update callers.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (new_value_element)
+	(process_remaining_on_line): add length of flag as an argument to
+	new_value_element.  Update callers.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line)
+	(isolate_last_space_internal): use text_append_n instead of
+	text_append.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space_internal):
+	reuse text_len instead of calling strlen.
+
+2024-05-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/macro.c (handle_macro): use strchrnul
 	instead of strchr to have more common code.
 

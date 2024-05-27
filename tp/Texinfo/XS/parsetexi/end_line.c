@@ -27,7 +27,7 @@
 #include "tree.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
-/* for isascii_alnum whitespace_chars read_flag_name
+/* for isascii_alnum whitespace_chars read_flag_len
    indices_info_index_by_name ultimate_index fatal */
 #include "utils.h"
 /* for parse_node_manual */
@@ -1108,9 +1108,10 @@ end_line_starting_block (ELEMENT *current)
                     }
                   else
                     {
-                      char *flag = read_flag_name (&p);
-                      if (flag && !*p)
+                      size_t flag_len = read_flag_len (p);
+                      if (flag_len && !*(p + flag_len))
                         {
+                          char *flag = strndup (p, flag_len);
                           bad_line = 0;
                           if (command == CM_ifclear || command == CM_ifset)
                             {
@@ -1131,8 +1132,8 @@ end_line_starting_block (ELEMENT *current)
                             }
                           debug ("CONDITIONAL @%s %s: %d",
                                  command_name(command), flag, iftrue);
+                          free (flag);
                         }
-                      free (flag);
                     }
                 }
             }

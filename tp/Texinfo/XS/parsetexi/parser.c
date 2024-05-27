@@ -23,7 +23,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
-/* for isascii_alnum, whitespace_chars, read_flag_name, item_line_parent
+/* for isascii_alnum, whitespace_chars, read_flag_len, item_line_parent
    delete_global_info, parse_line_directive, count_multibyte */
 #include "utils.h"
 /* for relocate_source_marks */
@@ -647,7 +647,9 @@ end_preformatted (ELEMENT *current,
   return current;
 }
 
-/* Add TEXT to the contents of CURRENT, maybe starting a new paragraph.
+/* Add LEN_TEXT of TEXT to the contents of CURRENT, maybe starting a new
+   paragraph.
+   TEXT may not have a NUL character at TEXT + LEN_TEXT.
    If TRANSFER_MARKS_ELEMENT is given, also transfer mark sources
    from that element.
    */
@@ -750,7 +752,10 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
 }
 
 /* If last contents child of CURRENT is an empty line element, remove
-   or merge text, and return true. */
+   or merge text, and return true.
+   If LEN_TEXT is set, add LEN_TEXT of ADDITIONAL_SPACES to the
+   last contents child of CURRENT.
+ */
 int
 abort_empty_line (ELEMENT **current_inout, const char *additional_spaces,
                   size_t len_text)
@@ -820,7 +825,7 @@ abort_empty_line (ELEMENT **current_inout, const char *additional_spaces,
 
           owning_element = lookup_extra_element (last_child,
                                                  "spaces_associated_command");
-          text_append (&spaces_element->text, e->text.text);
+          text_append_n (&spaces_element->text, e->text.text, e->text.end);
           transfer_source_marks (e, spaces_element);
           add_info_element_oot (owning_element, "spaces_before_argument",
                                 spaces_element);
@@ -850,7 +855,7 @@ isolate_last_space_internal (ELEMENT *current)
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
     {
-      text_append (&spaces_element->text, last_elt->text.text);
+      text_append_n (&spaces_element->text, text, text_len);
       transfer_source_marks (last_elt, spaces_element);
       add_info_element_oot (current, "spaces_after_argument",
                             spaces_element);
@@ -864,7 +869,7 @@ isolate_last_space_internal (ELEMENT *current)
       text_reset (&t);
 
       trailing_spaces = 0;
-      for (i = strlen (text) - 1;
+      for (i = text_len - 1;
            i > 0 && strchr (whitespace_chars, text[i]);
            i--)
         trailing_spaces++;
@@ -1080,8 +1085,9 @@ gather_spaces_after_cmd_before_arg (ELEMENT *current)
                         spaces_element);
 }
 
-ELEMENT *
-new_value_element (enum command_id cmd, char *flag, ELEMENT *spaces_element)
+static ELEMENT *
+new_value_element (enum command_id cmd, const char *flag,
+                   int flag_len, ELEMENT *spaces_element)
 {
   ELEMENT *value_elt = new_element (ET_NONE);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
@@ -1089,7 +1095,7 @@ new_value_element (enum command_id cmd, char *flag, ELEMENT *spaces_element)
 
   value_elt->cmd = cmd;
 
-  text_append (&value_text->text, flag);
+  text_append_n (&value_text->text, flag, flag_len);
   add_to_element_args (value_elt, brace_command_arg);
   add_to_element_contents (brace_command_arg, value_text);
   if (spaces_element)
@@ -1806,23 +1812,24 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
       if (*remaining_line == '{')
         {
-          char *flag;
+          size_t flag_len;
 
           remaining_line++;
-          flag = read_flag_name (&remaining_line);
-          if (flag)
+          flag_len = read_flag_len (remaining_line);
+          if (flag_len)
             {
-              if (*remaining_line == '}')
+              if (*(remaining_line + flag_len) == '}')
                 {
-                  char *value;
-                  value = fetch_value (flag);
+                  char *flag = strndup (remaining_line, flag_len);
+                  char *value = fetch_value (flag);
+
+                  remaining_line += flag_len +1; /* past '}' */
 
                   if (value)
                     {
                       SOURCE_MARK *value_source_mark;
                       ELEMENT *sm_value_element;
 
-                      remaining_line++; /* past '}' */
                       if (global_parser_conf.max_macro_call_nesting
                           && value_expansion_nr
                                   >= global_parser_conf.max_macro_call_nesting)
@@ -1838,6 +1845,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                           goto funexit;
                         }
 
+                      sm_value_element
+                        = new_value_element (cmd, flag, flag_len,
+                                             spaces_element);
+
                       input_push_text (strdup (remaining_line),
                                        current_source_info.line_nr, 0, 0);
                       input_push_text (strdup (value),
@@ -1847,8 +1858,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                           = new_source_mark (SM_type_value_expansion);
                       value_source_mark->status = SM_status_start;
                       value_source_mark->line = strdup (value);
-                      sm_value_element = new_value_element (cmd, flag,
-                                                            spaces_element);
                       value_source_mark->element = sm_value_element;
 
                       register_source_mark (current, value_source_mark);
@@ -1858,15 +1867,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
                       /* Move 'line' to end of string so next input to
                          be processed is taken from input stack. */
-                      line += (remaining_line - line) + strlen (remaining_line);
+                      line = remaining_line + strlen (remaining_line);
                     }
+                  free (flag);
                   if (value)
                     {
-                      free (flag);
                       goto funexit;
                     }
                 }
-              free (flag);
             }
         }
       if (spaces_element)
@@ -2109,8 +2117,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* @value not expanded (expansion is done above), and @txiinternalvalue */
       if ((cmd == CM_value) || (cmd == CM_txiinternalvalue))
         {
-          const char *arg_start;
-          char *flag;
+          size_t flag_len;
           ELEMENT *spaces_element = 0;
           if (global_parser_conf.ignore_space_after_braced_command_name)
             {
@@ -2127,24 +2134,23 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             goto value_invalid;
 
           line++;
-          arg_start = line;
-          flag = read_flag_name (&line);
-          if (!flag)
+          flag_len = read_flag_len (line);
+          if (!flag_len)
             goto value_invalid;
 
-          if (*line != '}')
+          if (*(line + flag_len) != '}')
             {
-              line = arg_start - 1;
-              free (flag);
+              line--;
               goto value_invalid;
             }
 
           if (1) /* @value syntax is valid */
             {
-              char *value;
           value_valid:
               if (cmd == CM_value)
                 {
+                  char *value;
+                  char *flag = strndup (line, flag_len);
                   value = fetch_value (flag);
                   if (!value)
                     {
@@ -2157,10 +2163,12 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
                       line_warn ("undefined flag: %s", flag);
 
-                      value_elt = new_value_element (cmd, flag, spaces_element);
+                      value_elt
+                         = new_value_element (cmd, flag, flag_len,
+                                              spaces_element);
                       add_to_element_contents (current, value_elt);
 
-                      line++; /* past '}' */
+                      line += flag_len +1; /* past '}' */
                     }
                   else
                     {
@@ -2179,14 +2187,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
                   abort_empty_line (&current, NULL, 0);
 
-                  txiinternalvalue_elt = new_value_element (cmd, flag,
-                                                            spaces_element);
+                  txiinternalvalue_elt
+                    = new_value_element (cmd, line, flag_len,
+                                         spaces_element);
 
                   add_to_element_contents (current, txiinternalvalue_elt);
 
-                  line++; /* past '}' */
+                  line += flag_len +1; /* past '}' */
 
-                  free (flag);
                   goto funexit;
                 }
             }
