@@ -918,7 +918,7 @@ isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
       int i, trailing_spaces;
 
       trailing_spaces = 0;
-      for (i = strlen (text) - 1;
+      for (i = text_len - 1;
            i > 0 && strchr (whitespace_chars, text[i]);
            i--)
         trailing_spaces++;
@@ -1865,9 +1865,9 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
                       value_expansion_nr++;
 
-                      /* Move 'line' to end of string so next input to
+                      /* Set 'line' to end of string so next input to
                          be processed is taken from input stack. */
-                      line = remaining_line + strlen (remaining_line);
+                      line = "";
                     }
                   free (flag);
                   if (value)
