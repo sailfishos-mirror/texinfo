@@ -19,6 +19,7 @@
 #include "tree_types.h"
 #include "tree.h"
 #include "commands.h"
+#include "debug_parser.h"
 #include "errors_parser.h"
 /* check_no_text */
 #include "handle_commands.h"
@@ -149,9 +150,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       remove_slice_from_contents (current, term_begin, begin);
       if (before_item)
         {
-          /* TODO debug message?
-          fprintf (stderr, "REPARENT before_item content\n");
-           */
+          debug ("REPARENT before_item content");
           /* Reparent any trailing index entries in the before_item to the
              beginning of table term. */
           while (before_item->contents.number > 0

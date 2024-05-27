@@ -1788,8 +1788,10 @@ sub _gather_previous_item($$;$$)
                     'parent' => $table_entry, };
     push @{$table_entry->{'contents'}}, $table_term;
 
-    # put everything starting from the end until reaching the previous
-    # table entry or beginning of the table in table_term.
+    # We previously collected elements into a table_definition.  Now
+    # do the same for a table_term, starting from the beginning of the
+    # table_definition going back to the previous table entry or beginning
+    # of the table.
     my $contents_count = scalar(@{$current->{'contents'}});
     my $term_begin;
     for (my $i = $begin - 1; $i >= 0; $i--) {
@@ -1820,6 +1822,8 @@ sub _gather_previous_item($$;$$)
     }
     if (defined($before_item) and $before_item->{'contents'}
         and scalar(@{$before_item->{'contents'}})) {
+      print STDERR "REPARENT before_item content\n"
+         if ($self->{'conf'}->{'DEBUG'});
       # reparent any trailing index entries in the before_item to the
       # beginning of table term
       while ($before_item->{'contents'}
