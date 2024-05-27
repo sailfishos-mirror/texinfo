@@ -530,10 +530,13 @@ parse_texi_document (void)
 
   document_descriptor = parse_texi (document_root, before_node_section);
 
-  /* TODO the document information often use more memory than needed,
-     when space > number.  We could realloc here the diverse structures
-     to number. No need to do it in parse_texi, it should only be
-     truely interesting for a whole document.
+  /* TODO the document structure lists use more memory than needed
+     when space > number.  We could realloc here the diverse lists
+     to hold only what is strictly needed.  There is probably a trade off
+     with speed, and this unused memory is probably small compared to the
+     memory used by the Texinfo tree.
+     No need to do it in parse_texi, it should be relevant for whole
+     documents only.
    */
 
   rearrange_tree_beginning (before_node_section, document_descriptor);

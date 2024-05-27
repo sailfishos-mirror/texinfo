@@ -216,20 +216,17 @@ sub parse_texi_file ($$)
   # the file is already a byte string, taken as is from the command
   # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
   # it is not useful for the XS parser.
-  # TODO instead of using fileparse here, reimplement fileparse
-  # in XS, or use a file name parsing code from somewhere else?
-  my ($basename, $directories, $suffix) = fileparse($input_file_path);
-  my $document_descriptor = parse_file($self, $input_file_path,
-                                       $basename, $directories);
+  my ($input_file_name, $directories, $suffix) = fileparse($input_file_path);
+  my $document_descriptor = parse_file($self, $input_file_path);
   if (!$document_descriptor) {
     my $parser_registrar = $self->{'registrar'};
-    my $input_file_name = $input_file_path;
+    my $decoded_input_file_path = $input_file_path;
     my $encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
     if (defined($encoding)) {
-      $input_file_name = decode($encoding, $input_file_path);
+      $decoded_input_file_path = decode($encoding, $input_file_path);
     }
     $parser_registrar->document_error($self,
-       sprintf(__("could not open %s: %s"), $input_file_name, $!));
+       sprintf(__("could not open %s: %s"), $decoded_input_file_path, $!));
     return undef;
   }
 

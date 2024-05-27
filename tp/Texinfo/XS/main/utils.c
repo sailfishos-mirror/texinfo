@@ -755,10 +755,6 @@ collapse_spaces (const char *text)
    The filename of the line directive is returned.
    The line number value is in OUT_LINE_NO.
    RETVAL value is 1 for valid line directive, 0 otherwise.
-
-   TODO would be good to have line const, but it is not possible
-   because of strtoul and because of the transient modification to
-   have a \0.
 */
 char *
 parse_line_directive (const char *line, int *retval, int *out_line_no)

@@ -1,3 +1,23 @@
+2024-05-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file): rename
+	$input_file_name as $decoded_input_file_path.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_file),
+	tp/Texinfo/XS/parsetexi/api.c (parse_file),
+	tp/Texinfo/XS/parsetexi/input.c (input_push_file): rename filename as
+	input_file_path.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (parse_file),
+	tp/Texinfo/XS/parsetexi/api.c (parse_file, parse_file_path): pass
+	only the input file path to parse_file.  Determine the directory in
+	parse_file using the new function parse_file_path.
+
+	* tp/Texinfo/XS/parsetexi/input.c: add some const.
+
+	Changes in comments.
+
 2024-05-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/DocumentXS.xs (document_errors): warn if a

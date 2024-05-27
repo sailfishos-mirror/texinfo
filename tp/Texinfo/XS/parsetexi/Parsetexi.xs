@@ -74,13 +74,11 @@ register_parser_conf (SV *parser)
 
 # file path, can be in any encoding
 int
-parse_file (SV *parser, filename, input_file_name, input_directory)
-        char *filename = (char *)SvPVbyte_nolen ($arg);
-        char *input_file_name = (char *)SvPVbyte_nolen ($arg);
-        char *input_directory = (char *)SvPVbyte_nolen ($arg);
+parse_file (SV *parser, input_file_path)
+        char *input_file_path = (char *)SvPVbyte_nolen ($arg);
       CODE:
         apply_sv_parser_conf (parser);
-        RETVAL = parse_file (filename, input_file_name, input_directory);
+        RETVAL = parse_file (input_file_path);
       OUTPUT:
         RETVAL
 

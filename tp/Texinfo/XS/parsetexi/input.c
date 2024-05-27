@@ -41,10 +41,10 @@ typedef struct {
 
     FILE *file;
     SOURCE_INFO source_info;
-    char *input_file_path; /* for IN_file type, the full input file path */
+    const char *input_file_path; /* for IN_file type, the full input file path */
 
     char *text;  /* Input text to be parsed as Texinfo. */
-    char *ptext; /* How far we are through 'text'.  Used to split 'text'
+    const char *ptext; /* How far we are through 'text'.  Used to split 'text'
                     into lines. */
     char *value_flag; /* value flag if the input text is a @value
                          expansion */
@@ -290,7 +290,8 @@ next_text (ELEMENT *current)
 
       switch (input->type)
         {
-          char *p, *new;
+          const char *p;
+          char *new;
         case IN_text:
           /*
           debug_nonl ("IN_TEXT '"); debug_print_protected_string (input->ptext);
@@ -552,18 +553,18 @@ parser_locate_include_file (const char *filename)
 
 /* Try to open a file called FILENAME */
 int
-input_push_file (const char *filename)
+input_push_file (const char *input_file_path)
 {
   FILE *stream = 0;
-  char *p, *q;
+  const char *p, *q;
   char *base_filename;
-  char *stored_file_path;
+  const char *stored_file_path;
 
-  if (!strcmp (filename, "-"))
+  if (!strcmp (input_file_path, "-"))
     stream = stdin;
   else
     {
-      stream = fopen (filename, "r");
+      stream = fopen (input_file_path, "r");
       if (!stream)
         return errno;
     }
@@ -577,20 +578,21 @@ input_push_file (const char *filename)
 
   /* Strip off a leading directory path. */
   p = 0;
-  q = strchr (filename, '/');
+  q = strchr (input_file_path, '/');
   while (q)
     {
       p = q;
       q = strchr (q + 1, '/');
     }
+
   if (p)
     {
       base_filename = save_string (p+1);
-      stored_file_path = save_string (filename);
+      stored_file_path = save_string (input_file_path);
     }
   else
     {
-      base_filename = save_string (filename);
+      base_filename = save_string (input_file_path);
       stored_file_path = base_filename;
     }
 

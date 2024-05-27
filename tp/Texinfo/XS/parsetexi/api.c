@@ -120,45 +120,18 @@ reset_parser (int local_debug_output)
   reset_parser_conf ();
 }
 
-/* Determine directory path based on file name.
-   Return a DOCUMENT_DESCRIPTOR that can be used to retrieve the
-   tree and document obtained by parsing FILENAME.
-   Used for parse_texi_file. */
-int
-parse_file (const char *filename, const char *input_file_name,
-            const char *input_directory)
+/* RESULT should be an array of size two.  Upon return, it holds
+   the file name in the first position and directory, if any, in
+   the second position.  The file name and directory should be
+   freed.
+ */
+static void
+parse_file_path (const char *input_file_path, char **result)
 {
-  int document_descriptor;
-  /*
-  char *p, *q;
-   */
-  GLOBAL_INFO *global_info;
-
-  int status;
-
-  initialize_parsing ();
-
-  status = input_push_file (filename);
-  if (status)
-    {
-      remove_document_descriptor (parsed_document->descriptor);
-      return 0;
-    }
-
-  global_info = &parsed_document->global_info;
-
-  free (global_info->input_file_name);
-  free (global_info->input_directory);
-  global_info->input_file_name = strdup (input_file_name);
-  global_info->input_directory = strdup (input_directory);
-
   /* Strip off a leading directory path, by looking for the last
-     '/' in filename. */
-  /* The following is not needed, it is already done in the
-     main program */
-  /*
-  p = 0;
-  q = strchr (filename, '/');
+     '/' in input_file_path. */
+  const char *p = 0;
+  const char *q = strchr (input_file_path, '/');
   while (q)
     {
       p = q;
@@ -167,12 +140,48 @@ parse_file (const char *filename, const char *input_file_name,
 
   if (p)
     {
-      char saved = *p;
-      *p = '\0';
-      add_include_directory (filename, &parser_include_directories);
-      *p = saved;
+      result[0] = strdup (p + 1);
+      result[1] = strndup (input_file_path, (p - input_file_path) + 1);
     }
-  */
+  else
+    {
+      result[0] = strdup (input_file_path);
+      /* FIXME or strdup ("") */
+      result[1] = 0;
+    }
+}
+
+/* Determine directory path based on file name.
+   Return a DOCUMENT_DESCRIPTOR that can be used to retrieve the
+   tree and document obtained by parsing FILENAME.
+   Used for parse_texi_file. */
+int
+parse_file (const char *input_file_path)
+{
+  int document_descriptor;
+  GLOBAL_INFO *global_info;
+  char *input_file_name_and_directory[2];
+
+  int status;
+
+  initialize_parsing ();
+
+  status = input_push_file (input_file_path);
+  if (status)
+    {
+      remove_document_descriptor (parsed_document->descriptor);
+      return 0;
+    }
+
+  parse_file_path (input_file_path, input_file_name_and_directory);
+
+  global_info = &parsed_document->global_info;
+
+  free (global_info->input_file_name);
+  free (global_info->input_directory);
+  global_info->input_file_name = input_file_name_and_directory[0];
+  global_info->input_directory = input_file_name_and_directory[1];
+
   document_descriptor = parse_texi_document ();
 
   return document_descriptor;
