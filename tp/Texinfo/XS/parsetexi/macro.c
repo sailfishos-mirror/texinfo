@@ -934,16 +934,12 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                     }
                   if (! leading_spaces_added)
                     {
-                      char *p = strchr (line, '\n');
+                      const char *p = strchrnul (line, '\n');
+                      arg_elt = merge_text (arg_elt, line, (p - line), 0);
                       if (!p)
-                        {
-                          size_t line_len = strlen (line);
-                          arg_elt = merge_text (arg_elt, line, line_len, 0);
-                          line += line_len;
-                        }
+                        line = p;
                       else
                         {
-                          arg_elt = merge_text (arg_elt, line, (p - line), 0);
                           line = "\n";
                           break;
                         }
