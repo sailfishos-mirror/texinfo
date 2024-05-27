@@ -1,5 +1,20 @@
 2024-05-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (handle_macro),
+	tp/Texinfo/XS/parsetexi/menus.c (handle_menu_entry_separators)
+	(end_line_menu_entry), tp/Texinfo/XS/parsetexi/parser.c (merge_text)
+	(process_remaining_on_line), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace, handle_close_brace): add a text length argument to
+	merge_text.  Update merge_text and callers.
+
+	* tp/Texinfo/XS/parsetexi/close.c (close_current): use text_append_n
+	instead of text_append.
+
+	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item): output
+	REPARENT debug message only if there are contents in before_item.
+
+2024-05-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item),
 	tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item): add a
 	debug message.

@@ -220,7 +220,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
   else if (current->type == ET_rawpreformatted)
     {
       debug ("LONE OPEN BRACE in rawpreformatted");
-      current = merge_text (current, "{", 0);
+      current = merge_text (current, "{", 1, 0);
     }
   /* matching braces accepted in a rawpreformatted, inline raw or
      math.  Note that for rawpreformatted, it can only happen
@@ -287,7 +287,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
 
   if (current->type == ET_balanced_braces)
     {
-      current = merge_text (current, "}", 0);
+      current = merge_text (current, "}", 1, 0);
       current = current->parent;
     }
   else if (current->type == ET_bracketed_arg)
@@ -592,7 +592,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
   else if (current->type == ET_rawpreformatted)
     {
       /* lone right braces are accepted in a rawpreformatted */
-      current = merge_text (current, "}", 0);
+      current = merge_text (current, "}", 1, 0);
     }
   else
     {

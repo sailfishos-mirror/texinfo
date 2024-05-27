@@ -150,7 +150,8 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       remove_slice_from_contents (current, term_begin, begin);
       if (before_item)
         {
-          debug ("REPARENT before_item content");
+          if (before_item->contents.number > 0)
+            debug ("REPARENT before_item content");
           /* Reparent any trailing index entries in the before_item to the
              beginning of table term. */
           while (before_item->contents.number > 0

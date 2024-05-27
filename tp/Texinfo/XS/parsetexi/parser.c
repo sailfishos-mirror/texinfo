@@ -652,14 +652,20 @@ end_preformatted (ELEMENT *current,
    from that element.
    */
 ELEMENT *
-merge_text (ELEMENT *current, const char *text, ELEMENT *transfer_marks_element)
+merge_text (ELEMENT *current, const char *text, size_t len_text,
+            ELEMENT *transfer_marks_element)
 {
   int no_merge_with_following_text = 0;
-  int leading_spaces = strspn (text, whitespace_chars);
+  int leading_spaces = 0;
   ELEMENT *last_child = last_contents_child (current);
 
+  /* determine the number of leading characters in whitespace_chars */
+  for (; leading_spaces < len_text
+         && strchr (whitespace_chars, text[leading_spaces]);
+       leading_spaces++);
+
   /* Is there a non-whitespace character in the line? */
-  if (text[leading_spaces])
+  if (leading_spaces < len_text)
     {
       char *additional = 0;
 
@@ -682,7 +688,10 @@ merge_text (ELEMENT *current, const char *text, ELEMENT *transfer_marks_element)
         }
 
       if (abort_empty_line (&current, additional))
-        text += leading_spaces;
+        {
+          text += leading_spaces;
+          len_text -= leading_spaces;
+        }
 
       free (additional);
 
@@ -718,22 +727,32 @@ merge_text (ELEMENT *current, const char *text, ELEMENT *transfer_marks_element)
           transfer_marks_element->source_mark_list.number = 0;
         }
 
-      debug_nonl ("MERGED TEXT: %s||| in ", text);
-      debug_parser_print_element (last_child, 0);
-      debug_nonl (" last of ");
-      debug_parser_print_element (current, 0); debug ("");
+      if (global_parser_conf.debug)
+        {
+          char *dbg_text = strndup (text, len_text);
+          debug_nonl ("MERGED TEXT: %s||| in ", dbg_text);
+          free (dbg_text);
+          debug_parser_print_element (last_child, 0);
+          debug_nonl (" last of ");
+          debug_parser_print_element (current, 0); debug ("");
+        }
 
       /* Append text */
-      text_append (&last_child->text, text);
+      text_append_n (&last_child->text, text, len_text);
     }
   else
     {
       ELEMENT *e = new_element (ET_NONE);
       if (transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e);
-      text_append (&e->text, text);
+      text_append_n (&e->text, text, len_text);
       add_to_element_contents (current, e);
-      debug ("NEW TEXT (merge): %s|||", text);
+      if (global_parser_conf.debug)
+        {
+          char *dbg_text = strndup (text, len_text);
+          debug ("NEW TEXT (merge): %s|||", dbg_text);
+          free (dbg_text);
+        }
     }
 
   return current;
@@ -1963,14 +1982,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                     /* do not consider the end of line to be possibly between
                        the @-command and the argument if at the end of a
                        line or block @-command. */
-                       char *space_text;
                        if (current->contents.number > 0)
                          gather_spaces_after_cmd_before_arg (current);
                        current = current->parent;
-                       /* TODO: Have a length argument to merge_text? */
-                       space_text = strndup (line, whitespaces_len);
-                       current = merge_text (current, space_text, 0);
-                       free (space_text);
+                       current = merge_text (current, line, whitespaces_len, 0);
                        line += whitespaces_len;
                        isolate_last_space (current);
                        current = end_line (current);
@@ -2356,16 +2371,13 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       else if (current->type == ET_line_arg && current->parent->cmd == CM_node)
         line_warn ("superfluous arguments for node");
       else
-        current = merge_text (current, ",", 0);
+        current = merge_text (current, ",", 1, 0);
     }
   else if (strchr (":\t.", *line))
     {
       /* merge menu separator (other than comma) */
-      char separator = *line++;
-      char t[2];
-      t[0] = separator;
-      t[1] = '\0';
-      current = merge_text (current, t, 0);
+      current = merge_text (current, line, 1, 0);
+      line++;
     }
   else if (*line == '\f')
     {
@@ -2385,7 +2397,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           add_to_element_contents (current, e);
         }
       else
-       current = merge_text (current, "\f", 0);
+       current = merge_text (current, "\f", 1, 0);
     }
   /* Misc text except end of line. */
   else if (*line != '\n')
@@ -2394,12 +2406,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       /* Output until next command, separator or newline. */
       {
-        char *sep_text;
         len = strcspn (line, "{}@,:\t.\n\f");
-        /* TODO: Have a length argument to merge_text? */
-        sep_text = strndup (line, len);
-        current = merge_text (current, sep_text, 0);
-        free (sep_text);
+        current = merge_text (current, line, len, 0);
         line += len;
       }
     }
@@ -2411,7 +2419,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       if (*line == '\n')
         {
-          current = merge_text (current, "\n", 0);
+          current = merge_text (current, "\n", 1, 0);
           line++;
         }
       else

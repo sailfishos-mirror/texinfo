@@ -456,7 +456,7 @@ close_current (ELEMENT *current,
              be at the end of the document after an empty line we
              do not want to modify */
           /* current = merge_text (current, "}", 0); */
-          text_append (&close_brace->text, "}");
+          text_append_n (&close_brace->text, "}", 1);
           add_to_element_contents (current, close_brace);
           current = current->parent;
           break;

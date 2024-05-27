@@ -90,7 +90,7 @@ ELEMENT *end_preformatted (ELEMENT *current,
 char *read_command_name (const char **ptr);
 const char *read_comment (const char *line, int *has_comment);
 char *text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg);
-ELEMENT *merge_text (ELEMENT *current, const char *text,
+ELEMENT *merge_text (ELEMENT *current, const char *text, size_t text_len,
                      ELEMENT *transfer_marks_element);
 void start_empty_line_after_command (ELEMENT *current, const char **line_inout,
                                      ELEMENT *command);

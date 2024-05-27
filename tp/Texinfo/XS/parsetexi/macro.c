@@ -937,13 +937,13 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                       char *p = strchr (line, '\n');
                       if (!p)
                         {
-                          arg_elt = merge_text (arg_elt, line, 0);
-                          line += strlen (line);
+                          size_t line_len = strlen (line);
+                          arg_elt = merge_text (arg_elt, line, line_len, 0);
+                          line += line_len;
                         }
                       else
                         {
-                          *p = '\0';
-                          arg_elt = merge_text (arg_elt, line, 0);
+                          arg_elt = merge_text (arg_elt, line, (p - line), 0);
                           line = "\n";
                           break;
                         }
