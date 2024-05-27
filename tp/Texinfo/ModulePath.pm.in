@@ -18,7 +18,7 @@ $VERSION = '7.1dev';
 use File::Basename;
 use File::Spec;
 
-# Used as a flag to say whether to look for data files in uninstalled 
+# Used as a flag to say whether to look for data files in uninstalled
 # locations.
 our $texinfo_uninstalled = 0;
 
@@ -59,7 +59,7 @@ sub init {
     if ($ENV{'top_srcdir'}) {
       $top_srcdir = $ENV{'top_srcdir'};
     } elsif (defined $named_args{'updirs'}) {
-      my ($real_command_name, $command_directory, $command_suffix) 
+      my ($real_command_name, $command_directory, $command_suffix)
               = fileparse($0, '.pl');
       my $updir = File::Spec->updir();
 
@@ -70,7 +70,7 @@ sub init {
         $top_srcdir = File::Spec->catdir($top_srcdir, $updir);
       }
     }
-     
+
     if (defined($top_srcdir)) {
       # For Texinfo::Parser and the rest.
       unshift @INC, File::Spec->catdir($top_srcdir, 'tp');
@@ -119,7 +119,7 @@ sub init {
 
 }
 
-sub import { 
+sub import {
   my $class = shift;
   goto &init;
 }

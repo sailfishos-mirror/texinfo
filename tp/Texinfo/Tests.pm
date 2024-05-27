@@ -1,20 +1,20 @@
 # common code for code test in t/*
 #
 # Copyright 2010-2024 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 package Texinfo::Tests;
@@ -104,25 +104,25 @@ sub compare_dirs_files($$;$)
 #}
 
 sub unlink_dir_files($;$)
-{  
+{
   my $dir = shift;
   my $ignore_files = shift;
   my %ignored_files_hash;
   foreach my $ignored_file (@$ignore_files) {
     $ignored_files_hash{$ignored_file} = 1;
-  }         
+  }
   if (opendir(DIR, $dir)) {
     my @files = readdir (DIR);
     foreach my $file (@files) {
       next if (! -f "$dir/$file"
                or $ignored_files_hash{$file});
       unlink "$dir/$file" or warn "Could not unlink $dir/$file: $!\n";
-    }     
+    }
     closedir (DIR);
   } else {
     warn "readdir $dir: $!";
-  }   
-}     
+  }
+}
 
 my $default_result_base = 't/results/';
 

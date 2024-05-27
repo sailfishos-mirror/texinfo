@@ -680,7 +680,7 @@ sub _convert($$)
         = Texinfo::Convert::Utils::definition_category_tree(
                                             $options->{'converter'}, $element);
       if (defined($parsed_definition_category)) {
-        my $converted_element = {'contents' => 
+        my $converted_element = {'contents' =>
                         [$parsed_definition_category, {'text' => ': '}]};
         my $contents = $converted_element->{'contents'};
         if ($type_element) {

@@ -38,7 +38,7 @@ use strict;
 
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
-  
+
 # debugging
 use Carp qw(cluck confess);
 
@@ -916,7 +916,7 @@ The Texinfo tree and Texinfo tree elements used in argument of some functions
 are documented in L<Texinfo::Parser/TEXINFO TREE>.  When customization
 information is needed, an object that defines C<get_conf> is
 expected, normally a L<Texinfo::Document/Getting customization
-options values registered in document> object. 
+options values registered in document> object.
 
 =over
 

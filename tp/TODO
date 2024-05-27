@@ -749,7 +749,7 @@ pkgutil -y -i CSWhelp2man CSWpm-data-compare CSWpm-test-deep
 
 The system perl may not be suitable to build XS modules, and the
 system gawk may be too old, openCSW may be needed.  For example: 
-./configure PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk
+./configure PERL=/opt/csw/bin/perl GAWK=/opt/csw/bin/gawk CFLAGS='-g'
 
 
 Misc notes

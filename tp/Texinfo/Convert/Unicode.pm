@@ -1,20 +1,20 @@
 # Unicode.pm: handle conversion to unicode.
 #
 # Copyright 2010-2024 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 package Texinfo::Convert::Unicode;
@@ -1599,7 +1599,7 @@ sub unicode_point_decoded_in_encoding($$) {
 sub brace_no_arg_command($$) {
   my $command = shift;
   my $encoding = shift;
-  
+
   if ($unicode_character_brace_no_arg_commands{$command}
       and unicode_point_decoded_in_encoding($encoding, $unicode_map{$command})) {
     return $unicode_character_brace_no_arg_commands{$command};
@@ -1739,7 +1739,7 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
 
   my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
-  
+
   my $formatted_accents = encoded_accents ($converter,
                  convert_to_text($contents_element), $stack, $encoding,
                         \&Texinfo::Text::ascii_accent_fallback);

@@ -1,20 +1,20 @@
 # DocBook.pm: output tree as DocBook.
 #
 # Copyright 2011-2024 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 package Texinfo::Convert::DocBook;
@@ -107,7 +107,7 @@ my %upper_case_style_commands = (
   'sc' => 1,
 );
 
-my @inline_elements = ('emphasis', 'abbrev', 'acronym', 'link', 
+my @inline_elements = ('emphasis', 'abbrev', 'acronym', 'link',
   'inlinemediaobject', 'firstterm', 'footnote', 'replaceable',
   'subscript', 'superscript', 'wordasword');
 my %inline_elements;
@@ -1062,7 +1062,7 @@ sub _convert($$;$)
         if ($element->{'cmdname'} eq 'w') {
           push @{$self->{'document_context'}->[-1]->{'no_break'}}, 1;
         }
-        push @{$self->{'document_context'}->[-1]->{'monospace'}}, 
+        push @{$self->{'document_context'}->[-1]->{'monospace'}},
           $in_monospace_not_normal
             if (defined($in_monospace_not_normal));
 
@@ -1344,7 +1344,7 @@ sub _convert($$;$)
           }
           if (!defined($image_text) and !$image_file_found) {
             $self->converter_line_warn(sprintf(
-                     __("\@image file `%s' not found, using `%s'"), 
+                     __("\@image file `%s' not found, using `%s'"),
                        $basefile, "$basefile.jpg"), $element->{'source_info'});
           }
 
@@ -1419,7 +1419,7 @@ sub _convert($$;$)
             $url_text = '';
           }
           my $replacement;
-          if (scalar(@{$element->{'args'}}) >= 2 
+          if (scalar(@{$element->{'args'}}) >= 2
               and defined($element->{'args'}->[1])
               and $element->{'args'}->[1]->{'contents'}
               and @{$element->{'args'}->[1]->{'contents'}}) {
@@ -1553,10 +1553,10 @@ sub _convert($$;$)
       my $appended = '';
       my @format_elements;
       if (exists($docbook_preformatted_formats{$element->{'cmdname'}})) {
-        push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}}, 
+        push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}},
            $docbook_preformatted_formats{$element->{'cmdname'}};
       } elsif ($element->{'cmdname'} eq 'enumerate') {
-        push @format_elements, 'orderedlist'; 
+        push @format_elements, 'orderedlist';
         my $numeration;
         if ($element->{'extra'}
                and $element->{'extra'}->{'enumerate_specification'}) {
@@ -1694,7 +1694,7 @@ sub _convert($$;$)
   if ($element->{'type'}) {
     #warn " have type $element->{'type'}\n";
     if (exists($docbook_preformatted_formats{$element->{'type'}})) {
-      push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}}, 
+      push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}},
          $docbook_preformatted_formats{$element->{'type'}};
     }
     if (defined($type_elements{$element->{'type'}})) {
@@ -1796,7 +1796,7 @@ sub _convert($$;$)
   foreach my $format_element (@close_format_elements) {
     $result .= "</$format_element>";
   }
-  
+
   if ($element->{'cmdname'}
       and exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
     # a pending_prepend still there may happen if a quotation is empty.
@@ -1867,7 +1867,7 @@ sub _convert($$;$)
   return $result;
 }
 
-# figure: mandatory title->use it with shortcaption?. Has a caption. 
+# figure: mandatory title->use it with shortcaption?. Has a caption.
 
 1;
 

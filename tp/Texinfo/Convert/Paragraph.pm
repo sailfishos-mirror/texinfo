@@ -4,12 +4,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -29,15 +29,15 @@ use Texinfo::XSLoader;
 # this module with Texinfo::XSLoader::init.
 sub import {
   my @EXPORT = qw(
-    add_text 
-    add_next 
-    set_space_protection 
-    remove_end_sentence 
-    allow_end_sentence 
-    add_end_sentence 
-    end_line 
-    add_pending_word 
-    get_pending 
+    add_text
+    add_next
+    set_space_protection
+    remove_end_sentence
+    allow_end_sentence
+    add_end_sentence
+    end_line
+    add_pending_word
+    get_pending
   );
 
   my ($callpkg, $filename, $line) = caller(0);

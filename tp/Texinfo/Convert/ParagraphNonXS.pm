@@ -1,20 +1,20 @@
 # ParagraphNonXS.pm: handle paragraph text.
 #
 # Copyright 2010-2024 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 # this module has nothing Texinfo specific.  In contrast with existing
@@ -40,7 +40,7 @@ sub new($;$)
 {
   my $class = shift;
   my $conf = shift;
-  my $self = {'max' => 72, 'indent_length' => 0, 'counter' => 0, 
+  my $self = {'max' => 72, 'indent_length' => 0, 'counter' => 0,
               'word_counter' => 0, 'space' => '', 'frenchspacing' => 0,
               'lines_counter' => 0, 'end_line_count' => 0,
               'unfilled' => 0, 'last_letter' => '' };
@@ -97,7 +97,7 @@ sub _end_line($)
   $paragraph->{'space'} = '';
   if (defined($paragraph->{'indent_length_next'})) {
     $paragraph->{'indent_length'} = $paragraph->{'indent_length_next'};
-    delete $paragraph->{'indent_length_next'};        
+    delete $paragraph->{'indent_length_next'};
   }
   $paragraph->{'lines_counter'}++;
   $paragraph->{'end_line_count'}++;
@@ -175,7 +175,7 @@ sub end($)
   # probably not really useful, but cleaner
   $paragraph->{'last_letter'} = '';
   if (!$paragraph->{'no_final_newline'} and $paragraph->{'counter'} != 0) {
-    $result .= "\n"; 
+    $result .= "\n";
     $paragraph->{'lines_counter'}++;
     $paragraph->{'end_line_count'}++;
   }
@@ -348,8 +348,8 @@ sub add_text($$)
 
             # The $paragraph->{'counter'} != 0 is here to avoid having an
             # additional line output when the text is longer than the max.
-            if ($paragraph->{'counter'} != 0 and 
-                $paragraph->{'counter'} + $paragraph->{'word_counter'} + 
+            if ($paragraph->{'counter'} != 0 and
+                $paragraph->{'counter'} + $paragraph->{'word_counter'} +
                    length($paragraph->{'space'}) > $paragraph->{'max'}) {
               $result .= _cut_line($paragraph);
             }
@@ -370,7 +370,7 @@ sub add_text($$)
           }
         }
       }
-      if ($paragraph->{'counter'} + length($paragraph->{'space'}) 
+      if ($paragraph->{'counter'} + length($paragraph->{'space'})
                       > $paragraph->{'max'}) {
         $result .= _cut_line($paragraph);
       }
