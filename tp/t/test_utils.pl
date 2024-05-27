@@ -103,6 +103,10 @@ if (defined($srcdir)) {
   $locales_srcdir = '.';
 }
 
+# NOTE if the LocaleData directory is not found, the test could still succeed
+# if the translations for the strings textdomain are found elsewhere in the
+# system.  If the translations found elsewhere are too old, some tests could
+# still fail.
 my $localesdir;
 foreach my $dir ("LocaleData", "$locales_srcdir/LocaleData") {
   if (-d $dir) {
@@ -111,7 +115,7 @@ foreach my $dir ("LocaleData", "$locales_srcdir/LocaleData") {
 }
 
 if (! defined($localesdir)) {
-  warn "No locales directory found, some tests will fail\n";
+  warn "No locales directory found, some tests could fail\n";
 }
 
 Texinfo::Translations::configure($localesdir);

@@ -6024,7 +6024,7 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
     heading_level = 1;
   else
     {
-      /* TODO if option defaults become more used,
+      /* TODO if defaults of converter options become more used in C code,
          setup a structure with options defaults instead of hardcoding */
       int max_header_level = 4;
       if (self->conf->MAX_HEADER_LEVEL.integer >= 1)

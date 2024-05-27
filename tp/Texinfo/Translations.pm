@@ -94,9 +94,13 @@ sub configure($;$)
   if (defined($in_strings_textdomain)) {
     $strings_textdomain = $in_strings_textdomain;
   }
-  Locale::Messages::bindtextdomain($strings_textdomain, $localesdir);
-  # set the directory for the XS code too
-  _XS_configure($localesdir, $strings_textdomain);
+  if (defined($localesdir)) {
+    Locale::Messages::bindtextdomain($strings_textdomain, $localesdir);
+    # set the directory for the XS code too
+    _XS_configure($localesdir, $strings_textdomain);
+  } else {
+    warn 'WARNING: string textdomain directory undefined'."\n";
+  }
 }
 
 # libintl converts between encodings but doesn't decode them into the

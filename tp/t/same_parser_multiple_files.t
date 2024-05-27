@@ -68,11 +68,31 @@ my $debug = 0;
 #my $debug = 1;
 
 my $srcdir = $ENV{'srcdir'};
+my $locales_srcdir;
 if (defined($srcdir)) {
   $srcdir =~ s/\/*$/\//;
+  $locales_srcdir = $srcdir;
 } else {
   $srcdir = '.';
+  $locales_srcdir = '.';
 }
+
+# NOTE if the LocaleData directory is not found, the test could still succeed
+# if the translations for the strings textdomain are found elsewhere in the
+# system.  If the translations found elsewhere are too old, some tests could
+# still fail.
+my $localesdir;
+foreach my $dir ("LocaleData", "$locales_srcdir/LocaleData") {
+  if (-d $dir) {
+    $localesdir = $dir;
+  }
+}
+
+if (! defined($localesdir)) {
+  warn "No locales directory found, some tests could fail\n";
+}
+
+Texinfo::Translations::configure($localesdir);
 
 my $test_group = 'same_parser_multiple_files';
 
