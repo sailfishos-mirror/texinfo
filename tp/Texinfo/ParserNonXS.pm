@@ -2965,13 +2965,16 @@ sub _abort_empty_line {
 
     my $spaces_element = $current->{'contents'}->[-1];
 
-    print STDERR "ABORT EMPTY in "
-      .Texinfo::Common::debug_print_element($current)."(p:".
-       (!$no_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
-      .$spaces_element->{'type'}
-      ."; add |$additional_spaces|"
-      ." to |$spaces_element->{'text'}|\n"
-        if ($self->{'conf'}->{'DEBUG'});
+    if ($self->{'conf'}->{'DEBUG'}) {
+      print STDERR "ABORT EMPTY in "
+        .Texinfo::Common::debug_print_element($current)."(p:".
+          (!$no_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
+         .$spaces_element->{'type'}."; ";
+      if ($additional_spaces ne '') {
+        print STDERR "add |$additional_spaces| to ";
+      }
+      print STDERR "|$spaces_element->{'text'}|\n";
+    }
 
     $spaces_element->{'text'} .= $additional_spaces;
 

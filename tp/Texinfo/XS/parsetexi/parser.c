@@ -678,16 +678,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
           no_merge_with_following_text = 1;
         }
 
-      if (leading_spaces)
-        {
-          additional = malloc (leading_spaces + 1);
-          if (!additional)
-            fatal ("malloc failed");
-          memcpy (additional, text, leading_spaces);
-          additional[leading_spaces] = '\0';
-        }
-
-      if (abort_empty_line (&current, additional))
+      if (abort_empty_line (&current, text, leading_spaces))
         {
           text += leading_spaces;
           len_text -= leading_spaces;
@@ -761,15 +752,13 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
 /* If last contents child of CURRENT is an empty line element, remove
    or merge text, and return true. */
 int
-abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
+abort_empty_line (ELEMENT **current_inout, const char *additional_spaces,
+                  size_t len_text)
 {
   ELEMENT *current = *current_inout;
   int retval;
 
   ELEMENT *last_child = last_contents_child (current);
-
-  if (!additional_spaces)
-    additional_spaces = "";
 
   if (last_child
       && (last_child->type == ET_empty_line
@@ -779,15 +768,25 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
           || last_child->type == ET_spaces_after_close_brace))
     {
       retval = 1;
-      debug_nonl ("ABORT EMPTY in ");
-      debug_parser_print_element (current, 0);
-      debug_nonl ("(p:%d): %s; add |%s| to |%s|",
-                  in_paragraph_context (current_context ()),
-                  element_type_names[last_child->type], additional_spaces,
-                  last_child->text.end > 0 ? last_child->text.text : "");
-      debug ("");
+      if (global_parser_conf.debug)
+        {
+          debug_nonl ("ABORT EMPTY in ");
+          debug_parser_print_element (current, 0);
+          debug_nonl ("(p:%d): %s; ", in_paragraph_context (current_context ()),
+                      element_type_names[last_child->type]);
+          if (len_text)
+            {
+              char *additional_text_dbg = strndup (additional_spaces, len_text);
+              debug_nonl ("add |%s| to ", additional_text_dbg);
+              free (additional_text_dbg);
+            }
+          debug_nonl ("|%s|",
+                      last_child->text.end > 0 ? last_child->text.text : "");
+          debug ("");
+        }
 
-      text_append (&last_child->text, additional_spaces);
+      if (len_text)
+        text_append_n (&last_child->text, additional_spaces, len_text);
 
       /* Remove element altogether if it's empty. */
       if (last_child->text.end == 0)
@@ -2154,7 +2153,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                        for the converters to handle */
                       ELEMENT *value_elt;
 
-                      abort_empty_line (&current, NULL);
+                      abort_empty_line (&current, NULL, 0);
 
                       line_warn ("undefined flag: %s", flag);
 
@@ -2178,7 +2177,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                 { /* CM_txiinternalvalue */
                   ELEMENT *txiinternalvalue_elt;
 
-                  abort_empty_line (&current, NULL);
+                  abort_empty_line (&current, NULL, 0);
 
                   txiinternalvalue_elt = new_value_element (cmd, flag,
                                                             spaces_element);
@@ -2227,7 +2226,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* warn on not appearing at line beginning.  Need to do before closing
          paragraph as it also closes the empty line */
       if (!def_line_continuation
-          && !abort_empty_line (&current, NULL)
+          && !abort_empty_line (&current, NULL, 0)
           && ((cmd == CM_node || cmd == CM_bye)
               || (command_data(cmd).flags & CF_block)
               || ((command_data(cmd).flags & CF_line)
@@ -2516,7 +2515,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
                  == ET_internal_spaces_before_argument)
             {
               /* Remove this element and update 'info' values. */
-              abort_empty_line (&current, 0);
+              abort_empty_line (&current, NULL, 0);
             }
 
           e = new_element (ET_empty_line);
@@ -2545,7 +2544,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           if (!line)
             {
               debug ("END LINE in line loop STILL_MORE_TO_PROCESS");
-              abort_empty_line (&current, NULL);
+              abort_empty_line (&current, NULL, 0);
               current = end_line (current);
               break;
             }
