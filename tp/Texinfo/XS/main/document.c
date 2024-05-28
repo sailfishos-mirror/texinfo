@@ -92,7 +92,7 @@ new_document (void)
      | F_DOCM_global_commands;
 
   /*
-  fprintf (stderr, "DOCUMENT %zu %p\n", document_index +1, document);
+  fprintf (stderr, "NEW DOCUMENT %zu %p\n", document_index +1, document);
    */
   return document;
 }
@@ -387,69 +387,66 @@ sorted_indices_by_letter (DOCUMENT *document,
 void
 destroy_document_information_except_tree (DOCUMENT *document)
 {
-  if (document->tree)
+  delete_global_info (&document->global_info);
+  delete_global_commands (&document->global_commands);
+  free (document->internal_references.list);
+  free (document->floats.list);
+  free_listoffloats_list (&document->listoffloats);
+  free (document->labels_list.list);
+  free (document->identifiers_target.list);
+  free_indices_info (&document->indices_info);
+  wipe_error_message_list (&document->error_messages);
+  wipe_error_message_list (&document->parser_error_messages);
+  if (document->nodes_list)
+    destroy_list (document->nodes_list);
+  if (document->sections_list)
+    destroy_list (document->sections_list);
+  if (document->options)
     {
-      delete_global_info (&document->global_info);
-      delete_global_commands (&document->global_commands);
-      free (document->internal_references.list);
-      free (document->floats.list);
-      free_listoffloats_list (&document->listoffloats);
-      free (document->labels_list.list);
-      free (document->identifiers_target.list);
-      free_indices_info (&document->indices_info);
-      wipe_error_message_list (&document->error_messages);
-      wipe_error_message_list (&document->parser_error_messages);
-      if (document->nodes_list)
-        destroy_list (document->nodes_list);
-      if (document->sections_list)
-        destroy_list (document->sections_list);
-      if (document->options)
+      free_options (document->options);
+      free (document->options);
+    }
+  if (document->convert_index_text_options)
+    destroy_text_options (document->convert_index_text_options);
+  if (document->merged_indices)
+    destroy_merged_indices (document->merged_indices);
+  if (document->indices_sort_strings)
+    destroy_index_entries_sort_strings (document->indices_sort_strings);
+  if (document->sorted_indices_by_index)
+    {
+      if (document->sorted_indices_by_index->number > 0)
         {
-          free_options (document->options);
-          free (document->options);
-        }
-      if (document->convert_index_text_options)
-        destroy_text_options (document->convert_index_text_options);
-      if (document->merged_indices)
-        destroy_merged_indices (document->merged_indices);
-      if (document->indices_sort_strings)
-        destroy_index_entries_sort_strings (document->indices_sort_strings);
-      if (document->sorted_indices_by_index)
-        {
-          if (document->sorted_indices_by_index->number > 0)
+          size_t i;
+          for (i = 0; i < document->sorted_indices_by_index->number; i++)
             {
-              size_t i;
-              for (i = 0; i < document->sorted_indices_by_index->number; i++)
-                {
-                  COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices
-            = &document->sorted_indices_by_index->collation_sorted_indices[i];
-                  free (collation_sorted_indices->language);
-                  if (collation_sorted_indices->sorted_indices)
-                    destroy_indices_sorted_by_index (
-                                    collation_sorted_indices->sorted_indices);
-                }
+              COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices
+        = &document->sorted_indices_by_index->collation_sorted_indices[i];
+              free (collation_sorted_indices->language);
+              if (collation_sorted_indices->sorted_indices)
+                destroy_indices_sorted_by_index (
+                                collation_sorted_indices->sorted_indices);
             }
-          free (document->sorted_indices_by_index->collation_sorted_indices);
-          free (document->sorted_indices_by_index);
         }
-      if (document->sorted_indices_by_letter)
+      free (document->sorted_indices_by_index->collation_sorted_indices);
+      free (document->sorted_indices_by_index);
+    }
+  if (document->sorted_indices_by_letter)
+    {
+      if (document->sorted_indices_by_letter->number > 0)
         {
-          if (document->sorted_indices_by_letter->number > 0)
+          size_t i;
+          for (i = 0; i < document->sorted_indices_by_letter->number; i++)
             {
-              size_t i;
-              for (i = 0; i < document->sorted_indices_by_letter->number; i++)
-                {
-                  COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices
-            = &document->sorted_indices_by_letter->collation_sorted_indices[i];
-                  free (collation_sorted_indices->language);
-                  if (collation_sorted_indices->sorted_indices)
-                    destroy_indices_sorted_by_letter (
-                                    collation_sorted_indices->sorted_indices);
-                }
+              COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices
+        = &document->sorted_indices_by_letter->collation_sorted_indices[i];
+              free (collation_sorted_indices->language);
+              if (collation_sorted_indices->sorted_indices)
+                destroy_indices_sorted_by_letter (
+                                collation_sorted_indices->sorted_indices);
             }
-          free (document->sorted_indices_by_letter->collation_sorted_indices);
-          free (document->sorted_indices_by_letter);
         }
+      free (document->sorted_indices_by_letter->collation_sorted_indices);
+      free (document->sorted_indices_by_letter);
     }
 }
 
@@ -469,13 +466,16 @@ remove_document_descriptor (int document_descriptor)
   if (document->tree)
     {
       destroy_element_and_children (document->tree);
-      destroy_strings_list (document->small_strings);
     }
-  free (document);
-  document_list[document_descriptor -1] = 0;
+  if (document->small_strings)
+    destroy_strings_list (document->small_strings);
+
   /*
   fprintf (stderr, "REMOVE %d %p\n", document_descriptor, document);
    */
+
+  free (document);
+  document_list[document_descriptor -1] = 0;
 }
 
 /* destroy everything except for the tree and merge small string to
@@ -496,7 +496,8 @@ unregister_document_merge_with_document (int document_descriptor,
   removed_document->tree = 0;
 
   /*
-  fprintf (stderr, "UNREGISTER %p\n", removed_document);
+  fprintf (stderr, "UNREGISTER %p (%d)\n", removed_document,
+                                           document_descriptor);
    */
 
   if (removed_document->small_strings->number)
@@ -511,8 +512,8 @@ unregister_document_merge_with_document (int document_descriptor,
   free (removed_document->small_strings->list);
   free (removed_document->small_strings);
 
-  removed_document->small_strings = 0;
-
+  free (removed_document);
+  document_list[document_descriptor -1] = 0;
   return tree;
 }
 
