@@ -217,14 +217,6 @@ sub parse_texi_file ($$)
   # it is not useful for the XS parser.
   my $document_descriptor = parse_file($self, $input_file_path);
   if (!$document_descriptor) {
-    my $parser_registrar = $self->{'registrar'};
-    my $decoded_input_file_path = $input_file_path;
-    my $encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
-    if (defined($encoding)) {
-      $decoded_input_file_path = decode($encoding, $input_file_path);
-    }
-    $parser_registrar->document_error($self,
-       sprintf(__("could not open %s: %s"), $decoded_input_file_path, $!));
     return undef;
   }
 

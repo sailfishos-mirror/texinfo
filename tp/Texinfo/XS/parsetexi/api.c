@@ -49,7 +49,7 @@
 #include "indices.h"
 #include "api.h"
 
-static void
+static int
 initialize_parsing (void)
 {
   parsed_document = new_document ();
@@ -101,6 +101,8 @@ initialize_parsing (void)
   reset_parser_counters ();
 
   reset_obstacks ();
+
+  return parsed_document->descriptor;
 }
 
 void
@@ -153,24 +155,30 @@ parse_file_path (const char *input_file_path, char **result)
 
 /* Determine directory path based on file name.
    Return a DOCUMENT_DESCRIPTOR that can be used to retrieve the
-   tree and document obtained by parsing FILENAME.
+   tree and document obtained by parsing INPUT_FILE_PATH.
+   STATUS is set to non zero if parsing could not proceed.
+   It is always the responsibility of the caller to get the error
+   messages and destroy the document.
+
    Used for parse_texi_file. */
 int
-parse_file (const char *input_file_path)
+parse_file (const char *input_file_path, int *status)
 {
-  int document_descriptor;
+  int document_descriptor = initialize_parsing ();
   GLOBAL_INFO *global_info;
   char *input_file_name_and_directory[2];
+  int input_error;
 
-  int status;
-
-  initialize_parsing ();
-
-  status = input_push_file (input_file_path);
-  if (status)
+  input_error = input_push_file (input_file_path);
+  if (input_error)
     {
-      remove_document_descriptor (parsed_document->descriptor);
-      return 0;
+      char *decoded_file_path = convert_to_utf8 (strdup (input_file_path));
+      message_list_document_error (&parsed_document->parser_error_messages, 0,
+                                   0, "could not open %s: %s",
+                                   decoded_file_path, strerror (input_error));
+      free (decoded_file_path);
+      *status = 1;
+      return document_descriptor;
     }
 
   parse_file_path (input_file_path, input_file_name_and_directory);
@@ -182,8 +190,9 @@ parse_file (const char *input_file_path)
   global_info->input_file_name = input_file_name_and_directory[0];
   global_info->input_directory = input_file_name_and_directory[1];
 
-  document_descriptor = parse_texi_document ();
+  parse_texi_document ();
 
+  *status = 0;
   return document_descriptor;
 }
 
@@ -191,12 +200,10 @@ parse_file (const char *input_file_path)
 int
 parse_text (const char *string, int line_nr)
 {
-  int document_descriptor;
-
-  initialize_parsing ();
+  int document_descriptor = initialize_parsing ();
 
   input_push_text (strdup (string), line_nr, 0, 0);
-  document_descriptor = parse_texi_document ();
+  parse_texi_document ();
   return document_descriptor;
 }
 
@@ -207,14 +214,12 @@ int
 parse_string (const char *string, int line_nr)
 {
   ELEMENT *root_elt;
-  int document_descriptor;
-
-  initialize_parsing ();
+  int document_descriptor = initialize_parsing ();
 
   root_elt = new_element (ET_root_line);
 
   input_push_text (strdup (string), line_nr, 0, 0);
-  document_descriptor = parse_texi (root_elt, root_elt);
+  parse_texi (root_elt, root_elt);
   return document_descriptor;
 }
 
@@ -222,16 +227,14 @@ parse_string (const char *string, int line_nr)
 int
 parse_piece (const char *string, int line_nr)
 {
-  int document_descriptor;
+  int document_descriptor = initialize_parsing ();
   ELEMENT *before_node_section, *document_root;
-
-  initialize_parsing ();
 
   before_node_section = setup_document_root_and_before_node_section ();
   document_root = before_node_section->parent;
 
   input_push_text (strdup (string), line_nr, 0, 0);
-  document_descriptor = parse_texi (document_root, before_node_section);
+  parse_texi (document_root, before_node_section);
   return document_descriptor;
 }
 

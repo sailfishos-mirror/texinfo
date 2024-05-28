@@ -931,15 +931,14 @@ sub parse_texi_file($$)
   my ($status, $file_name, $directories, $error_message)
     = _input_push_file($self, $input_file_path);
   if (!$status) {
-    my $input_file_name = $input_file_path;
+    my $decoded_input_file_path = $input_file_path;
     my $encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
     if (defined($encoding)) {
-      $input_file_name = decode($encoding, $input_file_path);
+      $decoded_input_file_path = decode($encoding, $input_file_path);
     }
     $self->{'registrar'}->document_error(
                  sprintf(__("could not open %s: %s"),
-                                  $input_file_name, $error_message),
-                                         $self->{'conf'}->{'PROGRAM'});
+                                  $decoded_input_file_path, $error_message));
     return undef;
   }
 

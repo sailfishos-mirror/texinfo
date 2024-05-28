@@ -34,6 +34,7 @@
 #include "parser_conf.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
+#include "document.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -76,9 +77,22 @@ register_parser_conf (SV *parser)
 int
 parse_file (SV *parser, input_file_path)
         char *input_file_path = (char *)SvPVbyte_nolen ($arg);
+    PREINIT:
+        int status;
+        int document_descriptor = 0;
       CODE:
         apply_sv_parser_conf (parser);
-        RETVAL = parse_file (input_file_path);
+        document_descriptor = parse_file (input_file_path, &status);
+        if (status)
+          /* if the input file could not be opened */
+          {
+            pass_document_parser_errors_to_registrar (document_descriptor,
+                                                      parser);
+            remove_document_descriptor (document_descriptor);
+            RETVAL = 0;
+          }
+        else
+          RETVAL = document_descriptor;
       OUTPUT:
         RETVAL
 
