@@ -5,7 +5,7 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
-/* for TARGET_FILENAME TARGET_CONTENTS_FILENAME FILE_NAME_PATH
+/* for TARGET_CONTENTS_FILENAME FILE_NAME_PATH
    TARGET_DIRECTORY_FILENAME */
 #include "utils.h"
 #include "translations.h"

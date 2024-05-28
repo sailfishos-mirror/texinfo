@@ -14,9 +14,9 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
-#include <stdio.h>
-#include <stdarg.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -32,25 +32,30 @@
 #include <libintl.h>
 #endif
 
-#include "global_commands_types.h"
-#include "tree_types.h"
 #include "command_ids.h"
 #include "element_types.h"
-/* for GLOBAL_INFO ERROR_MESSAGE CONVERTER sv_string_type */
+#include "tree_types.h"
+#include "global_commands_types.h"
+/* for GLOBAL_INFO ERROR_MESSAGE */
+#include "document_types.h"
+/* CONVERTER sv_string_type */
 #include "converter_types.h"
+/* for new_element */
 #include "tree.h"
-/* for output_conversions fatal output_unit_type_names */
-#include "utils.h"
-/* for debugging */
-#include "debug.h"
-#include "convert_to_texinfo.h"
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
-#include "document.h"
-#include "output_unit.h"
+/* for xasprintf get_encoding_conversion output_conversions fatal
+   direction_names expanded_formats_number output_unit_type_names
+   informative_command_value get_global_document_command */
+#include "utils.h"
+/* for debugging */
+#include "debug.h"
 /* for clear_error_message_list */
 #include "errors.h"
+#include "convert_to_texinfo.h"
+#include "document.h"
+#include "output_unit.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
@@ -1780,7 +1785,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
           const char *direction_name = relative_unit_direction_name[i];
           OUTPUT_UNIT *direction_unit = output_unit->directions[i];
           SV *unit_sv;
-          /* should ony happen for reference to external nodes that have
+          /* should only happen for references to external nodes that have
              not yet been processed */
           if (!direction_unit->hv)
             {

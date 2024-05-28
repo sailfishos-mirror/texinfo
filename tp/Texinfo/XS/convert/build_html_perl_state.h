@@ -7,8 +7,6 @@
 
 #include "tree_types.h"
 #include "converter_types.h"
-/* for HTML_ARGS_FORMATTED */
-#include "utils.h"
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
 

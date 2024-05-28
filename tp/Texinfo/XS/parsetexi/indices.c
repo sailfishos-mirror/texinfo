@@ -18,28 +18,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "tree_types.h"
+#include "text.h"
 #include "command_ids.h"
+#include "tree_types.h"
 /* document used in complete_indices */
 #include "document_types.h"
 #include "tree.h"
-#include "errors_parser.h"
-#include "command_stack.h"
-#include "context_stack.h"
-#include "builtin_commands.h"
 #include "extra.h"
+#include "builtin_commands.h"
 /* for ultimate_index xasprintf */
 #include "utils.h"
+#include "command_stack.h"
 /* for copy_tree */
 #include "manipulate_tree.h"
-#include "commands.h"
-#include "translations.h"
-#include "document.h"
+/* for global_parser_conf */
+#include "parser_conf.h"
 /*
 #include "convert_to_texinfo.h"
 */
-/* for global_parser_conf */
-#include "parser_conf.h"
+#include "document.h"
+#include "translations.h"
+#include "commands.h"
+#include "errors_parser.h"
+#include "context_stack.h"
+/* parsed_document current_node current_section check_space_element */
 #include "parser.h"
 #include "indices.h"
 

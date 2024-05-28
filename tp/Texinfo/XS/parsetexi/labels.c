@@ -18,18 +18,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "parser.h"
 #include "tree_types.h"
 #include "tree.h"
-#include "errors_parser.h"
+#include "extra.h"
 /* for whitespace_chars and count_multibyte */
 #include "utils.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
+#include "errors_parser.h"
 #include "source_marks.h"
-#include "extra.h"
+/* for parsed_document */
+#include "parser.h"
 #include "labels.h"
 
 /* Register a target element associated to a label that may be the target of

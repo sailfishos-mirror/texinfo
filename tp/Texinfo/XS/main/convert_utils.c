@@ -23,16 +23,18 @@
 #include <errno.h>
 #include <time.h>
 
-#include "options_types.h"
+#include "text.h"
+#include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
-#include "command_ids.h"
+#include "options_types.h"
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
 #include "command_stack.h"
 #include "errors.h"
 #include "debug.h"
+/* ACCENTS_STACK ENCODING_CONVERSION encode_string locate_include_file ... */
 #include "utils.h"
 #include "manipulate_tree.h"
 #include "translations.h"

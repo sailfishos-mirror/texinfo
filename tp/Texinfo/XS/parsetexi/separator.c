@@ -18,29 +18,32 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "tree_types.h"
 #include "element_types.h"
 #include "command_ids.h"
-#include "tree.h"
+#include "tree_types.h"
 #include "text.h"
-#include "counter.h"
-/* for command_name and others */
-#include "builtin_commands.h"
-#include "debug_parser.h"
-#include "errors_parser.h"
-#include "command_stack.h"
-#include "context_stack.h"
-/* for parse_node_manual */
-#include "manipulate_tree.h"
-/* check_register_target_element_label and remember_internal_xref */
-#include "labels.h"
-/* for close_preformatted_command */
-#include "commands.h"
+#include "tree.h"
 #include "extra.h"
-#include "input.h"
+#include "builtin_commands.h"
 /* for fatal */
 #include "utils.h"
+#include "command_stack.h"
+/* for parse_node_manual */
+#include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
+#include "counter.h"
+/* for close_preformatted_command command_name ... */
+#include "commands.h"
+#include "debug_parser.h"
+#include "errors_parser.h"
+#include "context_stack.h"
+#include "input.h"
+/* check_register_target_element_label and remember_internal_xref */
+#include "labels.h"
+/* for fetch_value */
+#include "macro.h"
+/* for parser_format_expanded_p */
+#include "handle_commands.h"
 #include "parser.h"
 
 ELEMENT *

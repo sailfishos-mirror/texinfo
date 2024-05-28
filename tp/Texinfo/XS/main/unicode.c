@@ -28,6 +28,8 @@
 #include "tree_types.h"
 #include "text.h"
 #include "errors.h"
+/* for element_builtin_cmd */
+#include "builtin_commands.h"
 /* for xasprintf */
 #include "utils.h"
 #include "unicode.h"

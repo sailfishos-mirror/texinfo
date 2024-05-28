@@ -21,39 +21,41 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "parser.h"
+#include "command_ids.h"
+#include "element_types.h"
 #include "tree_types.h"
 #include "text.h"
 #include "tree.h"
-#include "debug_parser.h"
-#include "errors_parser.h"
+#include "extra.h"
+#include "builtin_commands.h"
 /* for isascii_alnum whitespace_chars read_flag_len
    indices_info_index_by_name ultimate_index fatal */
 #include "utils.h"
-/* for parse_node_manual */
-#include "manipulate_tree.h"
 /* for parse_float_type add_to_float_record_list */
 #include "floats.h"
-#include "input.h"
-#include "counter.h"
-/* check_register_target_element_label */
-#include "labels.h"
-/* add_infoenclose */
-#include "macro.h"
-#include "indices.h"
-#include "command_stack.h"
-#include "context_stack.h"
-#include "builtin_commands.h"
-#include "commands.h"
-#include "def.h"
-#include "source_marks.h"
-#include "handle_commands.h"
-#include "extra.h"
+/* for parse_node_manual */
+#include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
 /* for convert_to_identifier */
 #include "node_name_normalization.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
+#include "commands.h"
+#include "debug_parser.h"
+#include "errors_parser.h"
+#include "command_stack.h"
+#include "counter.h"
+#include "input.h"
+#include "source_marks.h"
+#include "context_stack.h"
+/* check_register_target_element_label */
+#include "labels.h"
+/* add_infoenclose */
+#include "macro.h"
+#include "indices.h"
+#include "handle_commands.h"
+#include "def.h"
+#include "parser.h"
 
 static int
 is_decimal_number (const char *string)

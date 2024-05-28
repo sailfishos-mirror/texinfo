@@ -20,11 +20,11 @@
 #include <stddef.h>
 
 #include "tree_types.h"
+#include "global_commands_types.h"
 /*
 #include "options_types.h"
 #include "convert_to_text.h"
  */
-#include "global_commands_types.h"
 
 /* to avoid interdependency with options_types.h, including for
    other include files */

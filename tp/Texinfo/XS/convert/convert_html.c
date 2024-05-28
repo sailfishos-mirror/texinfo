@@ -25,9 +25,12 @@
 #include <unistr.h>
 #include <unictype.h>
 
-#include "global_commands_types.h"
-#include "tree_types.h"
+#include "text.h"
 #include "element_types.h"
+#include "tree_types.h"
+#include "option_types.h"
+#include "options_types.h"
+#include "document_types.h"
 #include "converter_types.h"
 #include "option_types.h"
 #include "tree.h"
@@ -39,18 +42,19 @@
 #include "targets.h"
 #include "debug.h"
 #include "output_unit.h"
-#include "converter.h"
 #include "node_name_normalization.h"
 #include "manipulate_indices.h"
 #include "convert_to_texinfo.h"
 #include "translations.h"
-#include "convert_utils.h"
+/* for OTXI_UNICODE_TEXT_CASES utf8_from_string string_from_utf8 */
+#include "unicode.h"
 #include "convert_to_text.h"
+#include "convert_utils.h"
+#include "call_perl_function.h"
 #include "call_html_perl_function.h"
 /* for unregister_document_merge_with_document */
 #include "document.h"
-/* for OTXI_UNICODE_TEXT_CASES utf8_from_string string_from_utf8 */
-#include "unicode.h"
+#include "converter.h"
 #include "manipulate_tree.h"
 /* for new_complete_menu_master_menu */
 #include "structuring.h"

@@ -20,16 +20,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "global_commands_types.h"
+#include "text.h"
 #include "element_types.h"
-#include "options_types.h"
 #include "tree_types.h"
+#include "global_commands_types.h"
+#include "options_types.h"
 #include "document_types.h"
 #include "tree.h"
 #include "extra.h"
+#include "builtin_commands.h"
 #include "errors.h"
 #include "debug.h"
-#include "builtin_commands.h"
 /* for get_label_element section_level enumerate_item_representation
    xasprintf */
 #include "utils.h"

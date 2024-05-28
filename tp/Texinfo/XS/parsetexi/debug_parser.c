@@ -18,13 +18,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "commands.h"
-#include "tree_types.h"
 #include "text.h"
+#include "command_ids.h"
 #include "element_types.h"
+#include "tree_types.h"
 #include "debug.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
+/* command_name */
+#include "commands.h"
 #include "debug_parser.h"
 
 /* debug functions used in parser, depending on global_parser_conf.debug */

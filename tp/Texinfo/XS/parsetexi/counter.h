@@ -2,8 +2,6 @@
 #ifndef COUNTER_H
 #define COUNTER_H
 
-#include "tree_types.h"
-
 /* Copyright 2015-2024 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify

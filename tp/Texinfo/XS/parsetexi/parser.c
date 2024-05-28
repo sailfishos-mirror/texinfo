@@ -19,40 +19,44 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#include "global_commands_types.h"
+#include "text.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "global_commands_types.h"
 #include "tree.h"
+#include "extra.h"
+#include "builtin_commands.h"
 /* for isascii_alnum, whitespace_chars, read_flag_len, item_line_parent
    delete_global_info, parse_line_directive, count_multibyte */
 #include "utils.h"
+#include "command_stack.h"
+/* for float_list_to_listoffloats_list */
+#include "floats.h"
 /* for relocate_source_marks */
 #include "manipulate_tree.h"
-#include "debug_parser.h"
-#include "errors_parser.h"
-#include "text.h"
-#include "counter.h"
-#include "builtin_commands.h"
-#include "macro.h"
-#include "input.h"
-#include "source_marks.h"
-#include "extra.h"
+/* for retrieve_document */
+#include "document.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
-#include "command_stack.h"
+#include "counter.h"
 /* for nesting_context */
 #include "context_stack.h"
 #include "commands.h"
-/* for labels_list labels_number forget_labels forget_internal_xrefs */
-#include "labels.h"
-/* for retrieve_document */
-#include "document.h"
+#include "debug_parser.h"
+#include "errors_parser.h"
 /* for set_labels_identifiers_target */
 #include "targets.h"
+#include "source_marks.h"
+#include "input.h"
+/* for labels_list labels_number forget_labels forget_internal_xrefs */
+#include "labels.h"
+/* MACRO lookup_macro new_macro handle_macro fetch_value */
+#include "macro.h"
 /* for forget_indices complete_indices */
 #include "indices.h"
-/* for float_list_to_listoffloats_list */
-#include "floats.h"
+/* parser_format_expanded_p handle_other_command handle_line_command
+   handle_block_command handle_brace_command */
+#include "handle_commands.h"
 #include "parser.h"
 
 

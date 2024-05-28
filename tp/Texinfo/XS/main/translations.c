@@ -28,18 +28,19 @@
 #include <libintl.h>
 #endif
 
-#include "options_types.h"
-#include "tree_types.h"
-#include "command_ids.h"
 #include "text.h"
-#include "utils.h"
+#include "command_ids.h"
+#include "tree_types.h"
+#include "options_types.h"
 #include "tree.h"
+#include "utils.h"
+#include "api_to_perl.h"
 #include "debug.h"
+#include "document.h"
 #include "conf.h"
 #include "api.h"
-#include "document.h"
+/* for debugging */
 #include "convert_to_texinfo.h"
-#include "api_to_perl.h"
 #include "translations.h"
 
 /*

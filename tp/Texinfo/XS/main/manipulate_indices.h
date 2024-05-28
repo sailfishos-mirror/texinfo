@@ -4,7 +4,12 @@
 
 #include "tree_types.h"
 #include "document_types.h"
+/* for TEXT_OPTIONS
 #include "convert_to_text.h"
+ */
+
+/* avoid a dependency on convert_to_text.h */
+struct TEXT_OPTIONS;
 
 typedef struct SORTABLE_INDEX_SUBENTRY {
     char *sort_string;
@@ -50,7 +55,7 @@ ELEMENT *index_content_element (const ELEMENT *element,
 
 char *index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
                                  const ELEMENT *index_entry_element,
-                                 TEXT_OPTIONS *options, int in_code,
+                                 struct TEXT_OPTIONS *options, int in_code,
                                  int prefer_reference_element);
 void destroy_index_entries_sort_strings (
                           INDICES_SORT_STRINGS *indices_sort_strings);

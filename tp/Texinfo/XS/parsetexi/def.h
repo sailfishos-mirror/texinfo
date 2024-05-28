@@ -2,6 +2,7 @@
 #ifndef DEF_H
 #define DEF_H
 
+#include "command_ids.h"
 #include "tree_types.h"
 
 void gather_def_item (ELEMENT *current, enum command_id next_command);

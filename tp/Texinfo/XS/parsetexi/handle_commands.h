@@ -2,8 +2,8 @@
 #ifndef HANDLE_COMMANDS_H
 #define HANDLE_COMMANDS_H
 
+#include "command_ids.h"
 #include "tree_types.h"
-#include "document_types.h"
 
 ELEMENT *handle_other_command (ELEMENT *current, const char **line_inout,
                                enum command_id cmd_id, int *status,

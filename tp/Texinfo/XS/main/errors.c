@@ -26,10 +26,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "tree_types.h"
-#include "document_types.h"
 /* also for xvasprintf */
 #include "text.h"
+#include "tree_types.h"
+#include "document_types.h"
 /* for fatal */
 #include "utils.h"
 #include "errors.h"

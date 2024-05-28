@@ -31,6 +31,8 @@
 
 #include "tree_types.h"
 #include "converter_types.h"
+/* for builtin_command_name */
+#include "builtin_commands.h"
 /* for fatal HMSF_* */
 #include "utils.h"
 #include "extra.h"

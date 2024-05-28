@@ -19,24 +19,26 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#include "parser.h"
-/* for isascii_alnum whitespace_chars wipe_values */
-#include "utils.h"
-#include "tree.h"
+#include "text.h"
 #include "tree_types.h"
 /* for VALUE */
 #include "document_types.h"
-#include "debug_parser.h"
-#include "errors_parser.h"
-#include "text.h"
-#include "counter.h"
-#include "input.h"
-#include "commands.h"
-#include "convert_to_texinfo.h"
-#include "source_marks.h"
+#include "tree.h"
 #include "extra.h"
+/* for isascii_alnum whitespace_chars wipe_values */
+#include "utils.h"
+#include "convert_to_texinfo.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
+#include "counter.h"
+#include "commands.h"
+#include "debug_parser.h"
+#include "errors_parser.h"
+#include "input.h"
+#include "source_marks.h"
+/* parsed_document read_command_name remove_empty_content
+   whitespace_chars_except_newline merge_text ... */
+#include "parser.h"
 #include "macro.h"
 
 COUNTER count_toplevel_braces;

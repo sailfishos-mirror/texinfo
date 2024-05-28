@@ -4,11 +4,24 @@
 
 #include <stdio.h>
 
+#include "command_ids.h"
 #include "options_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+/* for NAMED_STRING_ELEMENT_LIST */
+/*
 #include "translations.h"
+ */
+/* for ACCENTS_STACK */
+/*
+#include "utils.h"
+ */
+
+/* avoid a dependence on utils.h */
+struct ACCENTS_STACK;
+/* avoid a dependence on translations.h */
+struct NAMED_STRING_ELEMENT_LIST;
 
 extern char *convert_utils_month_name[12];
 
@@ -22,7 +35,7 @@ typedef struct PARSED_DEF {
 
 ELEMENT *expand_today (OPTIONS *options);
 
-ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
+struct ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
 char *add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                           int numbered);
@@ -36,7 +49,7 @@ void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (OPTIONS *options, const ELEMENT *current);
 
 ELEMENT *cdt_tree (const char * string, CONVERTER *self,
-                   NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                   struct NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    const char *translation_context);
 
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);

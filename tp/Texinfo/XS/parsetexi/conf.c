@@ -18,8 +18,8 @@
 #include <stdlib.h>
 
 #include "utils.h"
-#include "macro.h"
 #include "parser_conf.h"
+#include "macro.h"
 #include "conf.h"
 
 void

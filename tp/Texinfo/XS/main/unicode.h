@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <unitypes.h>
 
+#include "command_ids.h"
 #include "tree_types.h"
 
 typedef struct ENCODING_CODEPOINTS {

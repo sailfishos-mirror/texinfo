@@ -17,24 +17,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "parser.h"
-#include "tree_types.h"
-#include "tree.h"
 #include "element_types.h"
-#include "debug_parser.h"
-#include "errors_parser.h"
+#include "tree_types.h"
+#include "text.h"
+#include "tree.h"
+#include "extra.h"
 /* for whitespace_chars */
 #include "utils.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
-#include "input.h"
-#include "text.h"
+#include "convert_to_texinfo.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
-#include "convert_to_texinfo.h"
-#include "labels.h"
+#include "input.h"
+#include "debug_parser.h"
+#include "errors_parser.h"
 #include "source_marks.h"
-#include "extra.h"
+#include "labels.h"
+/* isolate_last_space whitespace_chars_except_newline ... */
+#include "parser.h"
 
 /* Save 'menu_entry_node' extra keys. */
 ELEMENT *

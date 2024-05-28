@@ -24,18 +24,24 @@
 #include <unistr.h>
 #include <unictype.h>
 
+#include "text.h"
 #include "command_ids.h"
+#include "element_types.h"
 #include "tree_types.h"
 #include "option_types.h"
 #include "options_types.h"
 #include "tree.h"
 #include "extra.h"
+/* for COMMAND_OPTION_DEFAULT ACCENTS_STACK
+   fatal xasprintf get_command_option ... */
 #include "utils.h"
 #include "errors.h"
 #include "builtin_commands.h"
 #include "convert_to_text.h"
 #include "node_name_normalization.h"
+/* cdt_tree ... */
 #include "convert_utils.h"
+/* for NAMED_STRING_ELEMENT_LIST new_named_string_element_list ... */
 #include "translations.h"
 #include "manipulate_tree.h"
 #include "unicode.h"

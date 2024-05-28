@@ -17,7 +17,6 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
-#include <stdint.h>
 
 #include "command_ids.h"
 #include "element_types.h"

@@ -18,14 +18,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "conf.h"
 #include "command_ids.h"
 #include "builtin_commands.h"
-/* for lookup_macro and unset_macro_record */
-#include "macro.h"
 #include "utils.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
+/* for lookup_macro and unset_macro_record */
+#include "macro.h"
 #include "commands.h"
 
 COMMAND *user_defined_command_data = 0;

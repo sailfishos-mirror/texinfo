@@ -23,20 +23,26 @@
 #include <time.h>
 #include <stdio.h>
 
-#include "tree_types.h"
+#include "text.h"
 #include "command_ids.h"
+#include "element_types.h"
+#include "tree_types.h"
 #include "options_types.h"
 #include "converter_types.h"
 #include "tree.h"
-#include "text.h"
-#include "utils.h"
-#include "convert_utils.h"
-#include "builtin_commands.h"
 #include "extra.h"
+#include "builtin_commands.h"
+#include "utils.h"
 #include "unicode.h"
+/* for PARSED_DEF cdt_tree find_innermost_accent_contents add_heading_number
+   translated_command_tree ... */
+#include "convert_utils.h"
 #include "document.h"
+/*
 #include "convert_to_texinfo.h"
 #include "debug.h"
+*/
+/* for gdt_tree */
 #include "translations.h"
 #include "convert_to_text.h"
 

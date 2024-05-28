@@ -16,12 +16,12 @@
 #include <config.h>
 #include <stdlib.h>
 
-#include "tree_types.h"
 #include "command_ids.h"
+#include "tree_types.h"
 #include "utils.h"
+#include "command_stack.h"
 #include "commands.h"
 #include "debug_parser.h"
-#include "command_stack.h"
 #include "context_stack.h"
 
 static enum context *context_stack;

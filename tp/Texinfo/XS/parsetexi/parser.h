@@ -21,14 +21,10 @@
 
 #include <stddef.h>
 
+#include "command_ids.h"
 #include "tree_types.h"
-#include "tree.h"
-#include "context_stack.h"
-#include "commands.h"
-#include "handle_commands.h"
+#include "document_types.h"
 #include "counter.h"
-#include "macro.h"
-#include "conf.h"
 
 
 /* In close.c */

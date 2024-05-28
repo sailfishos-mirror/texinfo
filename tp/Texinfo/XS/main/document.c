@@ -20,18 +20,17 @@
 #include <string.h>
 #include <stddef.h>
 
-#include "global_commands_types.h"
-#include "options_types.h"
 #include "tree_types.h"
+#include "options_types.h"
 #include "document_types.h"
 #include "tree.h"
-#include "floats.h"
 #include "errors.h"
 #include "debug.h"
 /* for delete_global_info and wipe_index */
 #include "utils.h"
-#include "convert_to_text.h"
+#include "floats.h"
 #include "manipulate_indices.h"
+#include "convert_to_text.h"
 #include "document.h"
 
 static DOCUMENT **document_list;

@@ -2,6 +2,7 @@
 #ifndef INDICES_H
 #define INDICES_H
 
+#include "command_ids.h"
 #include "tree_types.h"
 #include "document_types.h"
 

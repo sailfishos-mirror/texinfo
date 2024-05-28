@@ -18,8 +18,9 @@
 
 #include <stddef.h>
 
+#include "command_ids.h"
 #include "tree_types.h"
-#include "command_stack.h"
+#include "converter_types.h"
 
 enum context {
    ct_NONE,

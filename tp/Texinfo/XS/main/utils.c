@@ -29,19 +29,19 @@
 #include "uniwidth.h"
 #include <unictype.h>
 
-#include "global_commands_types.h"
+/* also for xvasprintf */
+#include "text.h"
+#include "command_ids.h"
+#include "element_types.h"
 #include "tree_types.h"
+#include "global_commands_types.h"
 #include "option_types.h"
 #include "options_types.h"
 #include "converter_types.h"
-#include "command_ids.h"
-#include "text.h"
-/* also for xvasprintf */
 #include "tree.h"
 #include "extra.h"
-#include "errors.h"
-#include "debug.h"
 #include "builtin_commands.h"
+#include "debug.h"
 #include "api_to_perl.h"
 #include "unicode.h"
 #include "utils.h"

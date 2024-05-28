@@ -20,28 +20,32 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#include "parser.h"
-#include "tree_types.h"
 #include "command_ids.h"
 #include "element_types.h"
+#include "tree_types.h"
 #include "text.h"
+#include "tree.h"
+#include "extra.h"
+#include "builtin_commands.h"
 /* for isascii_alnum whitespace_chars read_flag_len item_line_parent */
 #include "utils.h"
-#include "counter.h"
 #include "command_stack.h"
-#include "context_stack.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
-/* lookup_infoenclose */
-#include "macro.h"
-#include "builtin_commands.h"
+#include "counter.h"
 #include "commands.h"
-#include "def.h"
+#include "context_stack.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
-#include "tree.h"
 #include "input.h"
-#include "extra.h"
+/* lookup_infoenclose */
+#include "macro.h"
+/* parsed_document read_comment read_command_name global_clickstyle
+   STILL_MORE_TO_PROCESS end_line register_global_command count_items
+   close_commands ... */
+#include "parser.h"
+#include "def.h"
+#include "handle_commands.h"
 
 /* Return a containing @itemize or @enumerate if inside it. */
 static ELEMENT *

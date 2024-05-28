@@ -21,16 +21,17 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "text.h"
+#include "command_ids.h"
+#include "element_types.h"
 #include "tree_types.h"
 #include "document_types.h"
-/* for fatal */
-#include "utils.h"
 #include "tree.h"
-#include "extra.h"
-/* for xasprintf */
-#include "errors.h"
-#include "debug.h"
 #include "builtin_commands.h"
+#include "extra.h"
+/* for xasprintf fatal */
+#include "utils.h"
+#include "debug.h"
 #include "targets.h"
 #include "manipulate_tree.h"
 #include "convert_to_texinfo.h"

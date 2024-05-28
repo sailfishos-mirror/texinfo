@@ -3,16 +3,14 @@
 #define BUILD_PERL_INFO_H
 
 #include <stddef.h>
-#include <stdarg.h>
 
 #include "EXTERN.h"
 #include "perl.h"
 
-#include "global_commands_types.h"
 #include "tree_types.h"
+#include "options_types.h"
 #include "document_types.h"
 #include "converter_types.h"
-#include "options_types.h"
 
 void perl_only_free (void *ptr);
 void *perl_only_malloc (size_t size);

@@ -19,11 +19,11 @@
 
 #include "tree_types.h"
 #include "tree.h"
-#include "debug_parser.h"
 /* for count_multibyte and other */
 #include "utils.h"
 /* for add_source_mark */
 #include "manipulate_tree.h"
+#include "debug_parser.h"
 #include "source_marks.h"
 
 static const char *source_marks_names[SM_type_expanded_conditional_command + 1] =

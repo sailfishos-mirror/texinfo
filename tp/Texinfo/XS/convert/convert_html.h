@@ -4,6 +4,7 @@
 
 #include "command_ids.h"
 #include "element_types.h"
+#include "tree_types.h"
 #include "converter_types.h"
 
 enum count_elements_in_filename_type {

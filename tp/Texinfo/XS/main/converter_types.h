@@ -18,9 +18,11 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
+/* for FILE */
 #include <stdio.h>
 
 #include "element_types.h"
+#include "command_ids.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "options_types.h"
@@ -848,6 +850,20 @@ typedef struct TRANSLATED_SUI_ASSOCIATION {
     enum special_unit_info_tree tree_type;
     enum special_unit_info_type string_type;
 } TRANSLATED_SUI_ASSOCIATION;
+
+/* used in several converter codes, but not in this file */
+typedef struct TARGET_FILENAME {
+    char *target;
+    char *filename;
+} TARGET_FILENAME;
+
+/* enum needed in converters codes, but not in this file */
+enum command_location {
+   CL_before,
+   CL_last,
+   CL_preamble,
+   CL_preamble_or_first,
+};
 
 #endif
 

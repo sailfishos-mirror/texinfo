@@ -21,16 +21,17 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "tree_types.h"
 #include "text.h"
+#include "command_ids.h"
+#include "element_types.h"
+#include "tree_types.h"
 /* for lookup_info* */
 #include "extra.h"
 /* new_element and destroy_element for convert_contents_to_texinfo */
 #include "tree.h"
+#include "builtin_commands.h"
 /* get_label_element and collapse_spaces */
 #include "utils.h"
-#include "builtin_commands.h"
-#include "element_types.h"
 #include "debug.h"
 #include "convert_to_texinfo.h"
 

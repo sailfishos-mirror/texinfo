@@ -18,16 +18,17 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
+#include <stdarg.h>
+/* for iconv_t */
 #include <iconv.h>
 
-#include "global_commands_types.h"
 #include "command_ids.h"
 #include "tree_types.h"
+#include "global_commands_types.h"
 #include "option_types.h"
 #include "options_types.h"
 #include "document_types.h"
 #include "converter_types.h"
-#include "builtin_commands.h"
 
 extern const char *whitespace_chars;
 extern const char *digit_chars;
@@ -90,14 +91,6 @@ extern COMMAND_OPTION_DEFAULT command_option_default_table[];
 
 extern const enum command_id small_block_associated_command[][2];
 
-/* enum needed for set_global_document_command */
-enum command_location {
-   CL_before,
-   CL_last,
-   CL_preamble,
-   CL_preamble_or_first,
-};
-
 /* HTML modified state flags */
 #define HMSF_current_root            0x0001
 /*
@@ -123,11 +116,6 @@ enum command_location {
 #define HMSF_            0x00010000
 #define HMSF_  0x00020000
  */
-
-typedef struct TARGET_FILENAME {
-    char *target;
-    char *filename;
-} TARGET_FILENAME;
 
 extern const char *html_argument_formatting_type_names[];
 

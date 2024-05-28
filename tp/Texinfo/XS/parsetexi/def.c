@@ -20,8 +20,6 @@
 #include <iconv.h>
 #include "unistr.h"
 
-/* for isolate_last_space and global_documentlanguage */
-#include "parser.h"
 #include "command_ids.h"
 #include "tree_types.h"
 #include "text.h"
@@ -32,9 +30,11 @@
 #include "utils.h"
 /* for relocate_source_marks */
 #include "manipulate_tree.h"
-#include "source_marks.h"
-#include "commands.h"
 #include "unicode.h"
+#include "commands.h"
+#include "source_marks.h"
+/* for isolate_last_space and global_documentlanguage */
+#include "parser.h"
 
 void
 gather_def_item (ELEMENT *current, enum command_id next_command)

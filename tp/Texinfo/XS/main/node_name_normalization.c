@@ -21,21 +21,17 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "unistr.h"
-/*
-#include "xvasprintf.h"
-*/
 
-/* for whitespace_chars, isascii_alnum and bug */
-#include "utils.h"
-#include "tree_types.h"
-#include "tree.h"
-#include "element_types.h"
-/* for xasprintf */
-#include "errors.h"
 /* also for xvasprintf */
 #include "text.h"
+#include "command_ids.h"
+#include "element_types.h"
+#include "tree_types.h"
+#include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+/* for xasprintf whitespace_chars, isascii_alnum and bug */
+#include "utils.h"
 #include "debug.h"
 #include "call_perl_function.h"
 #include "unicode.h"

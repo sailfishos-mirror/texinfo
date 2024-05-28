@@ -23,28 +23,26 @@
 
 #include "global_commands_types.h"
 #include "tree_types.h"
-#include "parser.h"
-/* for set_debug_output */
-#include "debug_parser.h"
 /* reset_obstacks */
 #include "tree.h"
-/* for set_input_file_name_encoding ... */
-#include "input.h"
-#include "source_marks.h"
-#include "errors.h"
 /* for wipe_values ... */
 #include "utils.h"
-/* for wipe_user_commands */
-#include "commands.h"
 #include "command_stack.h"
-#include "context_stack.h"
-/* for wipe_macros store_value init_values */
-#include "macro.h"
+#include "errors.h"
 #include "document.h"
-/* for reset_conf */
-#include "conf.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
+/* for wipe_user_commands */
+#include "commands.h"
+#include "context_stack.h"
+/* for set_input_file_name_encoding ... */
+#include "source_marks.h"
+#include "input.h"
+/* for wipe_macros store_value init_values */
+#include "macro.h"
+/* for reset_conf */
+#include "conf.h"
+#include "parser.h"
 /* for init_index_commands */
 #include "indices.h"
 #include "api.h"

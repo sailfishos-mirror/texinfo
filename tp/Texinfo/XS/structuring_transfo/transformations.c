@@ -25,14 +25,14 @@
 #include <stdbool.h>
 #include "unistr.h"
 
+#include "text.h"
+#include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
-#include "command_ids.h"
 #include "document_types.h"
-#include "text.h"
 #include "tree.h"
-#include "builtin_commands.h"
 #include "extra.h"
+#include "builtin_commands.h"
 #include "errors.h"
 #include "debug.h"
 #include "utils.h"
@@ -40,12 +40,12 @@
    protect_colon_in_tree new_asis_command_with_text
    protect_comma_in_tree protect_node_after_label_in_tree */
 #include "manipulate_tree.h"
-#include "structuring.h"
 #include "convert_to_texinfo.h"
 #include "targets.h"
-#include "node_name_normalization.h"
-#include "transformations.h"
 #include "unicode.h"
+#include "node_name_normalization.h"
+#include "structuring.h"
+#include "transformations.h"
 
 
 /* in Common.pm */

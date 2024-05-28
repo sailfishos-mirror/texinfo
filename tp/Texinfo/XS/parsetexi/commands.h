@@ -16,6 +16,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include "command_ids.h"
 #include "builtin_commands.h"
 
 extern COMMAND *user_defined_command_data;

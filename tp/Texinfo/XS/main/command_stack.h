@@ -18,8 +18,9 @@
 
 #include <stddef.h>
 
-#include "tree_types.h"
+#include "command_ids.h"
 #include "element_types.h"
+#include "tree_types.h"
 #include "converter_types.h"
 
 void reset_command_stack (COMMAND_STACK *stack);

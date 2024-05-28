@@ -23,12 +23,13 @@
 #include "document_types.h"
 #include "tree.h"
 #include "errors.h"
+/* FIXME for line_error_ext */
 #include "errors_parser.h"
 #include "debug.h"
 #include "builtin_commands.h"
 /* for get_label_element and fatal */
-#include "utils.h"
 #include "extra.h"
+#include "utils.h"
 #include "convert_to_texinfo.h"
 #include "document.h"
 #include "targets.h"

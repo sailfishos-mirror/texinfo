@@ -836,6 +836,7 @@ for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --lea
 
 For tests in tp/tests, a way to have valgrind call prependend is to add,
 in tp/defs:
+prepended_command='valgrind --leak-check=full -q'
 prepended_command='valgrind --leak-check=full -q --suppressions=../texi2any.supp'
 
 rm -rf t/check_debug_differences/

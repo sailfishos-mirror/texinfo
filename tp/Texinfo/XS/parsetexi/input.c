@@ -21,18 +21,18 @@
 #include <iconv.h>
 #include <errno.h>
 
-/* for global_info */
-#include "parser.h"
+#include "text.h"
 /* for xasprintf and other */
 #include "utils.h"
-#include "errors_parser.h"
-#include "debug_parser.h"
-#include "input.h"
-#include "text.h"
-#include "commands.h"
-#include "source_marks.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
+#include "errors_parser.h"
+#include "debug_parser.h"
+#include "commands.h"
+#include "source_marks.h"
+/* for parsed_document */
+#include "parser.h"
+#include "input.h"
 
 enum input_type { IN_file, IN_text };
 

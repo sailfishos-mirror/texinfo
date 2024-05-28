@@ -19,11 +19,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "builtin_commands.h"
-#include "tree_types.h"
 #include "text.h"
+#include "command_ids.h"
 #include "element_types.h"
+#include "tree_types.h"
 #include "extra.h"
+#include "builtin_commands.h"
 #include "debug.h"
 
 const char *

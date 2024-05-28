@@ -16,13 +16,16 @@
 #include <config.h>
 #include <stdio.h>
 
+#include "command_ids.h"
+#include "element_types.h"
 #include "tree_types.h"
 #include "tree.h"
+#include "errors_parser.h"
 #include "commands.h"
 #include "debug_parser.h"
-#include "errors_parser.h"
 /* check_no_text */
 #include "handle_commands.h"
+#include "parser.h"
 
 /* Return the parent if in a multitable. */
 ELEMENT *

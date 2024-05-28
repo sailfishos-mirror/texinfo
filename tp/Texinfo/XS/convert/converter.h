@@ -4,11 +4,9 @@
 
 #include <stddef.h>
 
-#include "tree_types.h"
 #include "command_ids.h"
+#include "tree_types.h"
 #include "converter_types.h"
-/* for TARGET_FILENAME */
-#include "utils.h"
 
 /* piece of code that can be inlined in text parsing codes */
 #define OTXI_PROTECT_XML_CASES(var) \

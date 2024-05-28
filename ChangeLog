@@ -1528,6 +1528,18 @@
 
 2024-05-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/converter_types.h (TARGET_FILENAME)
+	(enum command_location), tp/Texinfo/XS/main/utils.h: move
+	TARGET_FILENAME and enum command_location to converter_types.h.
+
+	* tp/Texinfo/XS/main/convert_utils.h,
+	tp/Texinfo/XS/main/manipulate_indices.h: avoid dependencies on other
+	header files defining also functions by using struct instead of types.
+
+	Update includes.  Order includes by starting from the most generic.
+
+2024-05-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c
 	(destroy_document_information_except_tree)
 	(remove_document_descriptor): destroy the document structure fields

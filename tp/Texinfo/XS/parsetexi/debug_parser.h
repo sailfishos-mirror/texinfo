@@ -2,6 +2,7 @@
 #ifndef DEBUG_PARSER_H
 #define DEBUG_PARSER_H
 
+#include "command_ids.h"
 #include "tree_types.h"
 
 void debug (const char *s, ...);

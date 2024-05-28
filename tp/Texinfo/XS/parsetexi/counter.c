@@ -16,8 +16,10 @@
 #include <config.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "tree_types.h"
+/* for fatal */
 #include "utils.h"
 #include "debug.h"
 #include "counter.h"
