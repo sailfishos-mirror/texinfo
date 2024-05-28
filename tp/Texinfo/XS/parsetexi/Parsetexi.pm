@@ -42,7 +42,6 @@ use warnings;
 
 use Storable qw(dclone); # standard in 5.007003
 use Encode qw(decode);
-use File::Basename; # for fileparse
 
 use Texinfo::Common;
 use Texinfo::Report;
@@ -216,7 +215,6 @@ sub parse_texi_file ($$)
   # the file is already a byte string, taken as is from the command
   # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
   # it is not useful for the XS parser.
-  my ($input_file_name, $directories, $suffix) = fileparse($input_file_path);
   my $document_descriptor = parse_file($self, $input_file_path);
   if (!$document_descriptor) {
     my $parser_registrar = $self->{'registrar'};
