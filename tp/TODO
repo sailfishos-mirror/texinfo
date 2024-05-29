@@ -92,6 +92,27 @@ ELEMENT *elements[3]
    never have contents/args/info/extra, have cmd != 0.
 
 
+valgrinf massif useful-heap approximate distribution in 2024
+valgrind --tool=massif perl -w texi2any.pl ../doc/texinfo.texi
+16M Perl
+36M C tree
+50M Perl tree (visible in detailed use, but difficult to do the
+               imputation right, some may correspond with other uses
+               of Perl memory)
+5M (approximate, not visible in the detailed use, based on difference
+    in use over time) conversion
+
+With full XS
+valgrind --tool=massif perl -w texi2any.pl --html ../doc/texinfo.texi
+21M Perl
+33M C tree
+7M conversion, mainly text in convert_output_output_unit_internal and
+               secondarily, in printindex
+Detailed memory use is mainly alloc_element (21.5M), secondarily
+reallocate_list (3.5M) and get_associated_info_key (2.5M) and text
+is small (2.1M).
+
+
 check for comma after @xref{...}, in parser to simplify checking for
 it in Info output module.
 The code checking if punctuation followed the closing brace
@@ -117,15 +138,15 @@ be used instead of a Perl hash map, by setting up an interface with
 functions similar with the call_html_perl_function.c defined as extern "C".
 
 
-For the Texinfo manual with full XS, Perl uses 26% of the time (for html),
-now only for code hopefully called once.  The switch to global locales
-for setlocale calling that is needed for Perl takes also 4%.  Calling Perl
-getSortKey uses about 28% (more on sorting and C below).
+For the Texinfo manual with full XS, in 2024, Perl uses 26% of the time
+(for html), now only for code hopefully called once.  The switch to
+global locales for setlocale calling that is needed for Perl takes also 4%.
+Calling Perl getSortKey uses about 28% (more on sorting and C below).
 Decomposition of the time used for the Texinfo manual with full XS
 (in percent):
  parser: 11
  index sorting: 30
- main conversion: 24
+ main conversion to HTML: 24
  node redirections: 2.7
  prepare conversion units: 2.3
  remove document: 1.6
@@ -134,7 +155,7 @@ Decomposition of the time used for the Texinfo manual with full XS
  setup indices sort strings: 0.38
  reset converter: 0.23
  structuring transformation1: 0.19
- structuring transformation2: 0.19
+ structuring transformation2: 0.18
  remaining Texinfo XS code: 0.35
  Perl: 26
 sum: 99.92
