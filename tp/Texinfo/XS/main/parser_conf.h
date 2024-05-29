@@ -28,6 +28,7 @@ typedef struct PARSER_CONF {
     int ignore_space_after_braced_command_name;
     STRING_LIST include_directories;
     char *locale_encoding;
+    char *command_line_encoding;
     int max_macro_call_nesting;
     int no_index;
     int no_user_commands;

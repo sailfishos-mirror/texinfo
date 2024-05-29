@@ -144,14 +144,17 @@ sub parser (;$)
         if (defined($conf->{$key})) {
           parser_conf_set_LOCALE_ENCODING($conf->{$key});
         }
+      } elsif ($key eq 'COMMAND_LINE_ENCODING') {
+        if (defined($conf->{$key})) {
+          parser_conf_set_COMMAND_LINE_ENCODING($conf->{$key});
+        }
       } elsif ($key eq 'accept_internalvalue') {
         if ($conf->{$key}) {
           # called from gdt, no need to store the parser configuration
           parser_conf_set_accept_internalvalue(1);
           $store_conf = 0;
         }
-      } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING'
-               or $key eq 'DEBUG') {
+      } elsif ($key eq 'registrar' or $key eq 'DEBUG') {
         # no action needed, already taken into account or only for Perl code
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
@@ -213,8 +216,7 @@ sub parse_texi_file ($$)
   return undef if (!defined($self));
 
   # the file is already a byte string, taken as is from the command
-  # line.  The encoding was detected as COMMAND_LINE_ENCODING, but
-  # it is not useful for the XS parser.
+  # line.  The encoding was detected as COMMAND_LINE_ENCODING.
   my $document_descriptor = parse_file($self, $input_file_path);
   if (!$document_descriptor) {
     return undef;

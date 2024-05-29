@@ -122,6 +122,13 @@ parser_conf_set_LOCALE_ENCODING (const char *value)
 }
 
 void
+parser_conf_set_COMMAND_LINE_ENCODING (const char *value)
+{
+  free (global_parser_conf.command_line_encoding);
+  global_parser_conf.command_line_encoding =  value ? strdup (value) : 0;
+}
+
+void
 parser_conf_set_accept_internalvalue (int value)
 {
   global_parser_conf.accept_internalvalue = value;
@@ -148,6 +155,7 @@ reset_parser_conf (void)
   global_parser_conf.ignore_space_after_braced_command_name = 1;
   global_parser_conf.input_file_name_encoding = 0;
   global_parser_conf.locale_encoding = 0;
+  global_parser_conf.command_line_encoding = 0;
   global_parser_conf.max_macro_call_nesting = 100000;
   global_parser_conf.no_index = 0;
   global_parser_conf.no_user_commands = 0;

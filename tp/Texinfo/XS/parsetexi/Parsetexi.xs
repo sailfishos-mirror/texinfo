@@ -190,7 +190,7 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories)
                   {
      /*  the directories from the command line or the input file name
          are already byte strings (or ascii).  The encoding was detected
-         as COMMAND_LINE_ENCODING, but it is not used in the XS parser. */
+         as COMMAND_LINE_ENCODING. */
                     char *directory = SvPVbyte_nolen (*directory_sv);
                     parser_conf_add_include_directory (directory);
                   }
@@ -245,6 +245,10 @@ parser_conf_set_INPUT_FILE_NAME_ENCODING (value)
 
 void
 parser_conf_set_LOCALE_ENCODING (value)
+     char *value = (char *)SvPVutf8_nolen ($arg);
+
+void
+parser_conf_set_COMMAND_LINE_ENCODING (value)
      char *value = (char *)SvPVutf8_nolen ($arg);
 
 void

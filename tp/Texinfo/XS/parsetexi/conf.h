@@ -32,6 +32,7 @@ void parser_conf_set_documentlanguage (const char *value);
 void parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
 void parser_conf_set_INPUT_FILE_NAME_ENCODING (const char *value);
 void parser_conf_set_LOCALE_ENCODING (const char *value);
+void parser_conf_set_COMMAND_LINE_ENCODING (const char *value);
 void parser_conf_set_accept_internalvalue (int value);
 
 void reset_parser_conf (void);

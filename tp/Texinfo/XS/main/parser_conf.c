@@ -101,6 +101,7 @@ clear_parser_conf (PARSER_CONF *parser_conf)
   free (parser_conf->documentlanguage);
   free (parser_conf->input_file_name_encoding);
   free (parser_conf->locale_encoding);
+  free (parser_conf->command_line_encoding);
 }
 
 static void

@@ -172,7 +172,17 @@ parse_file (const char *input_file_path, int *status)
   input_error = input_push_file (input_file_path);
   if (input_error)
     {
-      char *decoded_file_path = convert_to_utf8 (strdup (input_file_path));
+      char *decoded_file_path;
+      if (global_parser_conf.command_line_encoding)
+        {
+          int status;
+          decoded_file_path
+            = decode_string (input_file_path,
+                             global_parser_conf.command_line_encoding,
+                             &status, 0);
+        }
+      else
+        decoded_file_path = strdup (input_file_path);
       message_list_document_error (&parsed_document->parser_error_messages, 0,
                                    0, "could not open %s: %s",
                                    decoded_file_path, strerror (input_error));
