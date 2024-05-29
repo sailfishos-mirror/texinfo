@@ -689,8 +689,6 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   /* Is there a non-whitespace character in the line? */
   if (leading_spaces < len_text)
     {
-      char *additional = 0;
-
       if (last_child
           && (last_child->type == ET_ignorable_spaces_after_command
               || last_child->type == ET_internal_spaces_after_command
@@ -705,8 +703,6 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
           text += leading_spaces;
           len_text -= leading_spaces;
         }
-
-      free (additional);
 
       current = begin_paragraph (current);
     }
