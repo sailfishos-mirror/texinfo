@@ -493,6 +493,9 @@ encode_with_iconv (iconv_t our_iconv, char *s,
   return strdup (t.text);
 }
 
+/* NOTE INPUT_STRING should not be modified by iconv, but it cannot be marked
+   as const if the iconv call does not have a const in prototype */
+/* Return value to be freed by the caller */
 char *
 decode_string (char *input_string, const char *encoding, int *status,
                const SOURCE_INFO *source_info)

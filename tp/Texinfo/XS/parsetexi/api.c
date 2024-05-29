@@ -176,8 +176,10 @@ parse_file (const char *input_file_path, int *status)
       if (global_parser_conf.command_line_encoding)
         {
           int status;
+          /* cast as decode_string argument should not be modified but cannot be
+             marked as const */
           decoded_file_path
-            = decode_string (input_file_path,
+            = decode_string ((char *)input_file_path,
                              global_parser_conf.command_line_encoding,
                              &status, 0);
         }

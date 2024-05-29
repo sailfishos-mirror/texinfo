@@ -1,5 +1,12 @@
 2024-05-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/api.c (parse_file): cast the decode_string
+	argument to char* to remove the const, as, even if decode_string do
+	not modify its argument, it cannot be marked const if iconv input
+	buffer is not const in iconv prototype.
+
+2024-05-29  Patrice Dumas  <pertusus@free.fr>
+
 	Use the command line encoding for input file name in message
 
 	* tp/Texinfo/XS/main/parser_conf.c (clear_parser_conf),
