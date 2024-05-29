@@ -1610,6 +1610,7 @@ clear_option (OPTION *option)
         option->integer = -1;
 
       default:
+	break;
     }
 }
 
@@ -1641,6 +1642,7 @@ free_option (OPTION *option)
 
       case GOT_integer:
       default:
+	break;
     }
 }
 
@@ -1676,6 +1678,7 @@ initialize_option (OPTION *option, enum global_option_type type)
         break;
 
       default:
+	break;
     }
 }
 
