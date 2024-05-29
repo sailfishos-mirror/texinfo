@@ -170,7 +170,8 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             e = new_element (ET_internal_spaces_before_argument);
             text_append_n (&e->text, line, n);
             add_to_element_contents (current, e);
-            add_extra_element (e, "spaces_associated_command", current->parent);
+            internal_space_holder = current->parent;
+
             line += n;
           }
           current->type = ET_brace_command_context;
@@ -188,7 +189,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               /* See comment in parser.c:merge_text */
               text_append (&e->text, "");
               add_to_element_contents (current, e);
-              add_extra_element (e, "spaces_associated_command", current);
+              internal_space_holder = current;
 
               if (command == CM_inlineraw)
                 push_context (ct_inlineraw, command);
@@ -218,7 +219,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       text_append (&e->text, ""); /* See comment in parser.c:merge_text */
       add_to_element_contents (current, e);
       debug ("BRACKETED in def/multitable");
-      add_extra_element (e, "spaces_associated_command", current);
+      internal_space_holder = current;
     }
   else if (current->type == ET_rawpreformatted)
     {
@@ -804,7 +805,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   e = new_element (ET_internal_spaces_before_argument);
   text_append (&e->text, ""); /* See comment in parser.c:merge_text */
   add_to_element_contents (current, e);
-  add_extra_element (e, "spaces_associated_command", current);
+  internal_space_holder = current;
 
 funexit:
   *line_inout = line;

@@ -651,6 +651,22 @@ end_preformatted (ELEMENT *current,
   return current;
 }
 
+/* the element associated with the last internal spaces element added.
+   We know that there can only be one at a time as a non space
+   character should always lead to abort_empty_line or another
+   function being called and the internal space element being
+   removed or put in the internal_space_holder info.
+
+   NOTE internal_space_holder is already set to 0 in abort_empty_line
+   if the internal space element is put in the internal_space_holder.
+   It would be cleaner to set internal_space_holder to 0 in all the
+   cases where the internal space element is removed too, such that
+   when internal_space_holder is set the previous value is 0 and not
+   the previous internal_space_holder, which is now irrelevant as
+   its associated space has disappeared.
+ */
+ELEMENT *internal_space_holder;
+
 /* Add LEN_TEXT of TEXT to the contents of CURRENT, maybe starting a new
    paragraph.
    TEXT may not have a NUL character at TEXT + LEN_TEXT.
@@ -825,15 +841,11 @@ abort_empty_line (ELEMENT **current_inout, const char *additional_spaces,
              the 'info' hash as 'spaces_before_argument'. */
           ELEMENT *owning_element;
           ELEMENT *e = pop_element_from_contents (current);
-          ELEMENT *spaces_element = new_element (ET_NONE);
-
-          owning_element = lookup_extra_element (last_child,
-                                                 "spaces_associated_command");
-          text_append_n (&spaces_element->text, e->text.text, e->text.end);
-          transfer_source_marks (e, spaces_element);
-          add_info_element_oot (owning_element, "spaces_before_argument",
-                                spaces_element);
-          destroy_element (e);
+          owning_element = internal_space_holder;
+          e->type = ET_NONE;
+          e->parent = 0;
+          add_info_element_oot (owning_element, "spaces_before_argument", e);
+          internal_space_holder = 0;
         }
     }
   else
@@ -1000,13 +1012,12 @@ isolate_last_space (ELEMENT *current)
   return;
 }
 
-
 /* Add an "ET_ignorable_spaces_after_command" element containing the
    whitespace at the beginning of the rest of the line after skipspaces
    commands, if COMMAND is 0.  Otherwise add an
-   "ET_internal_spaces_after_command",  container, after line commands
-   or commands starting a block, that will end up in COMMAND extra spaces
-   value. */
+   "ET_internal_spaces_after_command" text element, after line commands
+   or commands starting a block, that will end up in COMMAND info
+   spaces_before_argument. */
 void
 start_empty_line_after_command (ELEMENT *current, const char **line_inout,
                                 ELEMENT *command)
@@ -1023,7 +1034,7 @@ start_empty_line_after_command (ELEMENT *current, const char **line_inout,
 
   if (command)
     {
-      add_extra_element (e, "spaces_associated_command", command);
+      internal_space_holder = command;
       e->type = ET_internal_spaces_after_command;
     }
 

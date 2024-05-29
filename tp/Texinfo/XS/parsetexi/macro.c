@@ -907,9 +907,8 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                             = new_element (ET_internal_spaces_before_argument);
                           text_append_n (&internal_space->text, line,
                                          leading_spaces_nr);
-                          add_extra_element (internal_space,
-                                             "spaces_associated_command",
-                                             macro_call_element);
+                          internal_space_holder = macro_call_element;
+
                           add_to_element_contents (arg_elt, internal_space);
 
                           line += leading_spaces_nr;

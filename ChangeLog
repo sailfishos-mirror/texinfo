@@ -1521,6 +1521,18 @@
 
 2024-05-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (internal_space_holder)
+	(abort_empty_line, start_empty_line_after_command),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace, handle_comma):
+	instead of putting the command associated to internal spaces in the
+	extra information of the space, put it in a global element,
+	internal_space_holder.
+	Also reuse the internal space as the info spaces_before_argument
+	of the command associated with the internal space.
+
+2024-05-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/close.c (is_container_empty),
 	tp/Texinfo/XS/parsetexi/macro.c: remove unused remove_empty_arg
 	functions.  Make is_container_empty static.

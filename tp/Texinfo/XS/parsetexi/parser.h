@@ -27,6 +27,8 @@
 #include "counter.h"
 
 
+extern ELEMENT *internal_space_holder;
+
 /* In close.c */
 void remove_empty_content (ELEMENT *current);
 ELEMENT *close_container (ELEMENT *current);

@@ -53,13 +53,16 @@ line_arg
 rawline_arg
 
 menu_entry
+# text
 menu_entry_leading_text
 menu_entry_name
+# text
 menu_entry_separator
 menu_entry_node
 menu_entry_description
 menu_comment
 # Used internally
+# text
 internal_menu_star
 internal_spaces_after_command
 internal_spaces_before_argument
