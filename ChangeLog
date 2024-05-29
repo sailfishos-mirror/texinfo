@@ -1521,6 +1521,12 @@
 
 2024-05-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/close.c (is_container_empty),
+	tp/Texinfo/XS/parsetexi/macro.c: remove unused remove_empty_arg
+	functions.  Make is_container_empty static.
+
+2024-05-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (parse_file): cast the decode_string
 	argument to char* to remove the const, as, even if decode_string do
 	not modify its argument, it cannot be marked const if iconv input

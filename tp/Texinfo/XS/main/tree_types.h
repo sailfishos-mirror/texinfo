@@ -214,17 +214,19 @@ typedef struct ELEMENT {
     void *hv;
 
     enum element_type type;
+    struct ELEMENT *parent;
+    SOURCE_MARK_LIST source_mark_list;
+
     enum command_id cmd;
+
     TEXT text;
+
     ELEMENT_LIST args;
     ELEMENT_LIST contents;
-    struct ELEMENT *parent;
     SOURCE_INFO source_info;
 
     ASSOCIATED_INFO extra_info;
     ASSOCIATED_INFO info_info;
-
-    SOURCE_MARK_LIST source_mark_list;
 
     OUTPUT_UNIT *associated_unit;
 } ELEMENT;

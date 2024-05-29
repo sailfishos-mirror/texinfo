@@ -298,23 +298,6 @@ lookup_macro_parameter (const char *name, const ELEMENT *macro)
   return -1;
 }
 
-/* not done by _close_container as argument is in args and not in
-   contents. */
-/* Currently unused */
-ELEMENT *
-remove_empty_arg (ELEMENT *argument)
-{
-  ELEMENT *current = close_container (argument);
-  if (is_container_empty (argument)
-      && argument->source_mark_list.number == 0)
-    {
-      ELEMENT *last_child = last_args_child (current);
-      if (last_child == argument)
-        destroy_element (pop_element_from_args (current));
-    }
-  return current;
-}
-
 /* LINE points the opening brace in a macro invocation.  CMD is the command
    identifier of the macro command.  Return array of the arguments.  Return
    value to be freed by caller.  */

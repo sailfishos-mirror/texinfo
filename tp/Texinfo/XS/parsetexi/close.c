@@ -122,7 +122,7 @@ close_all_style_commands (ELEMENT *current,
   return current;
 }
 
-int
+static int
 is_container_empty (ELEMENT *current)
 {
   if (current->contents.number == 0
