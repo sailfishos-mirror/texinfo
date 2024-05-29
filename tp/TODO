@@ -388,6 +388,9 @@ to be present reliably.
 Tests with correct or acceptable results
 ****************************************
 
+File not found error message with accented characters in its name:
+./texi2any.pl not_éxisting.texi
+
 t/formats_encodings.t manual_simple_utf8_with_error
 utf8 manual with errors involving non ascii strings
 ./texi2any.pl ./t/input_files/manual_simple_utf8_with_error.texi
