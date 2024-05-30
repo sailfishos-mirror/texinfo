@@ -1,5 +1,29 @@
 2024-05-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_split_delimiters),
+	tp/Texinfo/XS/parsetexi/def.c (split_delimiters): more readable check
+	of already split elements.
+
+	* tp/Texinfo/XS/parsetexi/close.c (close_current),
+	tp/Texinfo/XS/parsetexi/def.c (split_delimiters, split_def_args)
+	(parse_def), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command), tp/Texinfo/XS/parsetexi/indices.c
+	(set_non_ignored_space_in_index_before_command, complete_indices),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): use
+	ET_normal_text for normal text instead of ET_NONE.  Mark special texts
+	with a comment.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	for raw line arguments parsing, reuse the elements in args instead of
+	allocating new ones.
+
+	* tp/Texinfo/XS/parsetexi/def.c (split_delimiters, split_def_args),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
+	(end_line_starting_block), :
+	use type to determine if an element is a text element when possible.
+
+2024-05-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_merge_text),
 	tp/Texinfo/XS/parsetexi/parser.c (merge_text): rename last_child as
 	last_element.  Set last_element in _merge_text to check type.

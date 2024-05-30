@@ -174,6 +174,7 @@ close_container (ELEMENT *current)
             Keep before_item in order not to add empty table definition in
             gather_previous_item. */
           if (current->type != ET_before_item)
+            /* FIXME add a specific container type for that case? */
             current->type = ET_NONE;
         }
       else
@@ -452,7 +453,7 @@ close_current (ELEMENT *current,
       switch (current->type)
         {
         case ET_balanced_braces:
-          close_brace = new_element (ET_NONE);
+          close_brace = new_element (ET_normal_text);
           command_error (current, "misplaced {");
           /* We prefer adding an element to merging because we may
              be at the end of the document after an empty line we
@@ -487,6 +488,7 @@ close_current (ELEMENT *current,
   else
     {
       /* should never get here */
+      fprintf (stderr, "BUG? closing container without type\n");
       if (current->parent)
         current = current->parent;
     }

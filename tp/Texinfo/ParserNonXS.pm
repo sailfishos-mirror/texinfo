@@ -3153,8 +3153,7 @@ sub _split_delimiters
 {
   my ($self, $root, $current, $source_info) = @_;
 
-  if ($root->{'type'} and ($root->{'type'} eq 'bracketed_arg'
-                           or defined $root->{'text'})) {
+  if ($root->{'type'} eq 'spaces' or $root->{'type'} eq 'bracketed_arg') {
     return $root;
   } elsif (!defined $root->{'text'}) {
     my $new = {'type' => 'def_line_arg', 'parent' => $current,

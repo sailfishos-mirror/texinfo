@@ -179,6 +179,7 @@ ELEMENT *
 parse_rawline_command (const char *line, enum command_id cmd,
                        int *has_comment, int *special_arg)
 {
+/* special text */
 #define ADD_ARG(string, len) do { \
   ELEMENT *E = new_element (ET_NONE); \
   text_append_n (&E->text, string, len); \
@@ -647,7 +648,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           char *arg = 0;
           ELEMENT *line_args;
           ELEMENT *e;
+          /* special text */
           ELEMENT *spaces_before = new_element (ET_NONE);
+          /* special text */
           ELEMENT *spaces_after = new_element (ET_NONE);
 
           if (cmd == CM_set)
@@ -659,7 +662,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
              command and add it to the tree. */
 
           destroy_element_and_children (args);
+          /* element without type put in extra "misc_args" */
           args = new_element (ET_NONE);
+          /* special text */
           e = new_element (ET_NONE);
           text_append (&e->text, arg);
           add_to_element_contents (args, e);
@@ -679,7 +684,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           add_info_element_oot (line_args, "spaces_after_argument",
                                 spaces_after);
 
-          e = new_element (ET_NONE);
+          e = new_element (ET_normal_text);
           text_append (&e->text, arg);
           add_to_element_contents (line_args, e);
 
@@ -690,23 +695,25 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           int i;
           if (!ignored)
             {
-              add_to_element_contents (current, command_e);
+              size_t args_nr = args->contents.number;
 
-              for (i = 0; i < args->contents.number; i++)
+              add_to_element_contents (current, command_e);
+              for (i = 0; i < args_nr; i++)
                 {
-                  ELEMENT *rawline_arg = new_element (ET_rawline_arg);
-                  text_append_n (&rawline_arg->text,
-                                 args->contents.list[i]->text.text,
-                                 args->contents.list[i]->text.end);
-                  add_to_element_args (command_e, rawline_arg);
+                  args->contents.list[i]->type = ET_rawline_arg;
+                  args->contents.list[i]->parent = command_e;
                 }
+              insert_list_slice_into_args (command_e, 0, &args->contents, 0,
+                                           args_nr);
+              remove_slice_from_contents (args, 0, args_nr);
+              destroy_element (args);
             }
           else
             {
               destroy_element_and_children (command_e);
               command_e = 0;
+              destroy_element_and_children (args);
             }
-          destroy_element_and_children (args);
         }
 
       if (cmd == CM_raisesections)

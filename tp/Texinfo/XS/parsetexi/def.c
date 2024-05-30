@@ -31,6 +31,7 @@
 /* for relocate_source_marks */
 #include "manipulate_tree.h"
 #include "unicode.h"
+#include "debug_parser.h"
 #include "commands.h"
 #include "source_marks.h"
 /* for isolate_last_space and global_documentlanguage */
@@ -207,10 +208,9 @@ split_delimiters (ELEMENT *current, int starting_idx)
       uint8_t *u8_p;
       size_t u8_len;
 
-      if (e->type != ET_NONE && (e->type == ET_bracketed_arg
-                                 || e->text.end > 0))
+      if (e->type == ET_spaces || e->type == ET_bracketed_arg)
         continue;
-      else if (e->text.end == 0)
+      else if (e->type != ET_normal_text)
         {
           new = new_element (ET_def_line_arg);
           new->parent = e->parent;
@@ -252,7 +252,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
               continue;
             }
 
-          ELEMENT *new_text = new_element (ET_NONE);
+          ELEMENT *new_text = new_element (ET_normal_text);
           len = strcspn (p, chars);
           text_append_n (&new_text->text, p, len);
 
@@ -303,9 +303,6 @@ split_def_args (ELEMENT *current, int starting_idx)
           continue;
         }
 
-      if (e->text.end == 0)
-        continue;
-
       if (e->type == ET_spaces)
         {
           int status;
@@ -313,6 +310,9 @@ split_def_args (ELEMENT *current, int starting_idx)
           if (inserted > 0)
             continue;
         }
+
+      if (e->type != ET_normal_text)
+        continue;
 
       p = e->text.text;
 
@@ -334,7 +334,7 @@ split_def_args (ELEMENT *current, int starting_idx)
           else
             {
               len = strcspn (p, whitespace_chars);
-              new = new_element (ET_NONE);
+              new = new_element (ET_normal_text);
             }
 
           text_append_n (&new->text, p, len);
@@ -392,7 +392,7 @@ parse_def (enum command_id command, ELEMENT *current)
       inserted_category = 1;
       e = new_element (ET_def_line_arg);
       insert_into_contents (current, e, contents_idx);
-      e1 = new_element (ET_NONE);
+      e1 = new_element (ET_normal_text);
       text_append_n (&e1->text, category, strlen (category));
       add_to_element_contents (e, e1);
       if (global_documentlanguage && *global_documentlanguage)

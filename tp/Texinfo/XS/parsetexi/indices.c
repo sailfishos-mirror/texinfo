@@ -288,6 +288,7 @@ enter_index_entry (enum command_id index_type_cmd,
      extra_misc_args to pass that information as an array */
   {
     ELEMENT *index_entry = new_element (ET_NONE);
+    /* special text */
     ELEMENT *e = new_element (ET_NONE);
     text_append (&e->text, idx->name);
     add_to_element_contents (index_entry, e);
@@ -337,7 +338,7 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
                        || e->type == ET_spaces_after_close_brace)
                 && (! check_space_element (e)))
         {
-          pending_spaces_element->type = ET_NONE;
+          pending_spaces_element->type = ET_normal_text;
           pending_spaces_element = 0;
         }
     }
@@ -427,8 +428,9 @@ complete_indices (DOCUMENT *document, int debug_level)
                       char *lang = lookup_extra_string (main_entry_element,
                                                        "documentlanguage");
                       ELEMENT *index_entry;
+                  /* container without type in extra "def_index_ref_element" */
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);
-                      ELEMENT *text_element = new_element (ET_NONE);
+                      ELEMENT *text_element = new_element (ET_normal_text);
                       enum command_id def_command
                         = lookup_command (def_cmdname);
                       NAMED_STRING_ELEMENT_LIST *substrings

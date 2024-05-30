@@ -103,6 +103,7 @@ is_whole_number (const char *string)
 ELEMENT *
 parse_line_command_args (ELEMENT *line_command)
 {
+/* special text */
 #define ADD_ARG(string) do { \
     ELEMENT *E = new_element (ET_NONE); \
     text_append (&E->text, string); \
@@ -121,13 +122,14 @@ parse_line_command_args (ELEMENT *line_command)
      return 0;
    }
 
-  if (arg->contents.number > 1 || arg->contents.list[0]->text.end == 0)
+  if (arg->contents.number > 1 || arg->contents.list[0]->type != ET_normal_text)
     {
       line_error ("superfluous argument to @%s", command_name (cmd));
     }
   if (arg->contents.list[0]->text.end == 0)
     return 0;
 
+  /* element without type put in extra "misc_args" */
   line_args = new_element (ET_NONE);
   line = arg->contents.list[0]->text.text;
 
@@ -315,6 +317,7 @@ parse_line_command_args (ELEMENT *line_command)
               }
             else
               {
+                /* special text */
                 new = new_element (ET_NONE);
                 text_append_n (&new->text, p, q - p);
                 add_to_element_contents (line_args, new);
@@ -836,7 +839,7 @@ end_line_starting_block (ELEMENT *current)
             {
               max_columns++;
             }
-          else if (e->text.end > 0)
+          else if (e->type == ET_normal_text && e->text.end > 0)
             {
               /*
               TODO: this should be a warning or an error - all prototypes
@@ -905,11 +908,12 @@ end_line_starting_block (ELEMENT *current)
               g = current->args.list[0]->contents.list[0];
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
-              if ((g->text.end == 1
-                    && isascii_alpha (g->text.text[0]))
-                  || (g->text.end > 0
-                      && !*(g->text.text
-                            + strspn (g->text.text, digit_chars))))
+              if (g->type == ET_normal_text
+                  && ((g->text.end == 1
+                       && isascii_alpha (g->text.text[0]))
+                      || (g->text.end > 0
+                          && !*(g->text.text
+                            + strspn (g->text.text, digit_chars)))))
                 {
                   spec = g->text.text;
                 }
@@ -983,7 +987,8 @@ end_line_starting_block (ELEMENT *current)
                   ELEMENT *f = contents_child_by_index (e, i);
                   if (f->cmd != CM_c
                       && f->cmd != CM_comment
-                      && !(f->text.end > 0
+                      && !(f->type == ET_normal_text
+                           && f->text.end > 0
                            && !*(f->text.text
                                  + strspn (f->text.text, whitespace_chars))))
                     {
@@ -1098,7 +1103,7 @@ end_line_starting_block (ELEMENT *current)
               && current->args.list[0]->contents.number == 1)
             {
               ELEMENT *arg_elt = current->args.list[0]->contents.list[0];
-              if (arg_elt->text.end > 0)
+              if (arg_elt->type == ET_normal_text && arg_elt->text.end > 0)
                 {
                   const char *p = arg_elt->text.text;
                   p += strspn (p, whitespace_chars);
