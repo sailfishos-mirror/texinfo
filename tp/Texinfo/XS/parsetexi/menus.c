@@ -131,7 +131,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       ELEMENT *star;
 
       debug ("MENU STAR");
-      abort_empty_line (&current, NULL, 0);
+      abort_empty_line (&current);
       line++; /* Past the '*'. */
 
       star = new_element (ET_internal_menu_star);

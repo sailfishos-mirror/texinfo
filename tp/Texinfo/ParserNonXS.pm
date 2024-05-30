@@ -2264,17 +2264,34 @@ sub _merge_text {
     if ($text =~ /^(\s+)/) {
       $leading_spaces = $1;
     }
-    if ($current->{'contents'} and scalar(@{$current->{'contents'}})
-      and $current->{'contents'}->[-1]->{'type'}
-      and ($current->{'contents'}->[-1]->{'type'} eq 'ignorable_spaces_after_command'
-         or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_after_command'
-         or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_before_argument'
-         or $current->{'contents'}->[-1]->{'type'} eq 'spaces_after_close_brace')) {
-      $no_merge_with_following_text = 1;
+    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
+      my $last_element = $current->{'contents'}->[-1];
+      if ($last_element->{'type'}) {
+        my $last_element_type = $last_element->{'type'};
+        if ($last_element_type eq 'empty_line'
+            or $last_element_type eq 'ignorable_spaces_after_command'
+            or $last_element_type eq 'internal_spaces_after_command'
+            or $last_element_type eq 'internal_spaces_before_argument'
+            or $last_element_type eq 'spaces_after_close_brace') {
+
+          if ($leading_spaces) {
+            print STDERR "MERGE_TEXT ADD leading empty |$leading_spaces|"
+                      ." to $last_element_type\n"
+                           if ($self->{'conf'}->{'DEBUG'});
+
+            $last_element->{'text'} .= $leading_spaces;
+            $text =~ s/^(\s+)//;
+          }
+
+          if ($last_element_type ne 'empty_line') {
+            $no_merge_with_following_text = 1;
+          }
+
+        }
+      }
     }
-    if (_abort_empty_line($self, $current, $leading_spaces)) {
-      $text =~ s/^(\s+)//;
-    }
+
+    _abort_empty_line($self, $current);
 
     $paragraph = _begin_paragraph($self, $current);
     if ($paragraph) {
@@ -2288,33 +2305,35 @@ sub _merge_text {
     $current->{'contents'} = [];
   }
 
+  # if a paragraph was started we know that there is no leading
+  # text to merge with
   if (!$paragraph
       and !$no_merge_with_following_text
       and scalar(@{$current->{'contents'}})
       and exists($current->{'contents'}->[-1]->{'text'})
       and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
-    my $last_child = $current->{'contents'}->[-1];
+    my $last_element = $current->{'contents'}->[-1];
     # Transfer source marks
     if ($transfer_marks_element
         and $transfer_marks_element->{'source_marks'}) {
-      $last_child->{'source_marks'} = []
-        if (!defined($last_child->{'source_marks'}));
+      $last_element->{'source_marks'} = []
+        if (!defined($last_element->{'source_marks'}));
       my $additional_length = length($current->{'contents'}->[-1]->{'text'});
       while (scalar(@{$transfer_marks_element->{'source_marks'}})) {
         my $source_mark = shift @{$transfer_marks_element->{'source_marks'}};
         if ($additional_length) {
           $source_mark->{'position'} += $additional_length;
         }
-        push @{$last_child->{'source_marks'}}, $source_mark;
+        push @{$last_element->{'source_marks'}}, $source_mark;
       }
       delete $transfer_marks_element->{'source_marks'};
     }
     # Append text
     print STDERR "MERGED TEXT: $text||| in "
-      .Texinfo::Common::debug_print_element($last_child)
+      .Texinfo::Common::debug_print_element($last_element)
       ." last of ".Texinfo::Common::debug_print_element($current)."\n"
          if ($self->{'conf'}->{'DEBUG'});
-    $last_child->{'text'} .= $text;
+    $last_element->{'text'} .= $text;
   } else {
     my $new_element = { 'text' => $text, 'parent' => $current };
     _transfer_source_marks($transfer_marks_element, $new_element)
@@ -2970,9 +2989,8 @@ sub _pop_element_from_contents($$)
 # consisting only of spaces.  This container is removed here, typically
 # this is called when non-space happens on a line.
 sub _abort_empty_line {
-  my ($self, $current, $additional_spaces) = @_;
+  my ($self, $current) = @_;
 
-  $additional_spaces = '' if (!defined($additional_spaces));
   if ($current->{'contents'} and @{$current->{'contents'}}
        and $current->{'contents'}->[-1]->{'type'}
        and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line'
@@ -2988,13 +3006,8 @@ sub _abort_empty_line {
         .Texinfo::Common::debug_print_element($current)."(p:".
           (!$no_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
          .$spaces_element->{'type'}."; ";
-      if ($additional_spaces ne '') {
-        print STDERR "add |$additional_spaces| to ";
-      }
       print STDERR "|$spaces_element->{'text'}|\n";
     }
-
-    $spaces_element->{'text'} .= $additional_spaces;
 
     # remove empty 'empty*before'.  Happens in many situations.
     if ($spaces_element->{'text'} eq '') {

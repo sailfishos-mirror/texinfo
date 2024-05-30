@@ -469,7 +469,7 @@ close_current (ELEMENT *current,
                  == ET_internal_spaces_before_argument)
             {
               /* remove spaces element from tree and update extra values */
-              abort_empty_line (&current, NULL, 0);
+              abort_empty_line (&current);
             }
           current = current->parent;
           break;

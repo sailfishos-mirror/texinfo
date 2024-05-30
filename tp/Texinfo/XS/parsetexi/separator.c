@@ -206,7 +206,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
                                || current->parent->type == ET_linemacro_call))
     {
       ELEMENT *b, *e;
-      abort_empty_line (&current, NULL, 0);
+      abort_empty_line (&current);
       b = new_element (ET_bracketed_arg);
       add_to_element_contents (current, b);
       current = b;
@@ -236,7 +236,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
     {
       ELEMENT *b = new_element (ET_balanced_braces);
       ELEMENT *open_brace = new_element (ET_normal_text);
-      abort_empty_line (&current, NULL, 0);
+      abort_empty_line (&current);
       b->source_info = current_source_info;
       add_to_element_contents (current, b);
       current = b;
@@ -284,7 +284,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
   if (current->parent && current->parent->type == ET_brace_command_context
       && current->type == ET_paragraph)
     {
-      abort_empty_line (&current, NULL, 0);
+      abort_empty_line (&current);
       debug ("IN BRACE_COMMAND_CONTEXT end paragraph");
       current = end_paragraph (current, 0, 0);
     }
@@ -296,14 +296,14 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
     }
   else if (current->type == ET_bracketed_arg)
     {
-      abort_empty_line (&current, NULL, 0);
+      abort_empty_line (&current);
       current = current->parent;
     }
   else if (command_flags(current->parent) & CF_brace)
     {
       enum command_id closed_command;
 
-      abort_empty_line (&current, NULL, 0);
+      abort_empty_line (&current);
 
       /* determine if trailing spaces are ignored */
       if (command_data(current->parent->cmd).data == BRACE_arguments)
@@ -616,7 +616,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   enum element_type type;
   ELEMENT *new_arg, *e;
 
-  abort_empty_line (&current, NULL, 0);
+  abort_empty_line (&current);
   isolate_last_space (current);
 
   type = current->type;
