@@ -161,6 +161,21 @@ my %parser_document_state_initialization = (
   'current_node'    => undef,     # last seen node.
   'current_section' => undef,     # last seen section.
   'current_part'    => undef,     # last seen part.
+  'internal_space_holder' => undef,
+   # the element associated with the last internal spaces element added.
+   # We know that there can only be one at a time as a non space
+   # character should always lead to abort_empty_line or another
+   # function being called and the internal space element being
+   # removed or put in the internal_space_holder info.
+
+   # NOTE internal_space_holder is already unset in abort_empty_line
+   # if the internal space element is put in the internal_space_holder.
+   # It would be cleaner to unset internal_space_holder in all the
+   # cases where the internal space element is removed too, such that
+   # when internal_space_holder is set the previous value is undef and not
+   # the previous internal_space_holder, which is now irrelevant as
+   # its associated space has disappeared.
+
   'sections_level_modifier' => 0, # modified by raise/lowersections
 
   'input_file_encoding' => 'utf-8', # perl encoding name used for the input
@@ -2262,15 +2277,19 @@ sub _merge_text {
     }
 
     $paragraph = _begin_paragraph($self, $current);
-    $current = $paragraph if ($paragraph);
+    if ($paragraph) {
+      $current = $paragraph;
+    }
   }
 
   if (!defined($current->{'contents'})) {
-    # this can happen at least for preformatted.
+    # this can happen at least for preformatted, with a new
+    # paragraph and if the first text element was removed in _abort_empty_line.
     $current->{'contents'} = [];
   }
 
-  if (!$no_merge_with_following_text
+  if (!$paragraph
+      and !$no_merge_with_following_text
       and scalar(@{$current->{'contents'}})
       and exists($current->{'contents'}->[-1]->{'text'})
       and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
@@ -3008,15 +3027,14 @@ sub _abort_empty_line {
              or $spaces_element->{'type'} eq 'internal_spaces_before_argument') {
       # Remove element from main tree. It will still be referenced in
       # the 'info' hash as 'spaces_before_argument'.
-      _pop_element_from_contents($self, $current);
-      my $owning_element
-        = $spaces_element->{'extra'}->{'spaces_associated_command'};
-      #$owning_element->{'info'} = {} if (! $owning_element->{'info'});
-      my $new_space_element = {'text' => $spaces_element->{'text'},};
-      _transfer_source_marks($spaces_element, $new_space_element);
+      my $spaces_before_argument = _pop_element_from_contents($self, $current);
+      delete $spaces_before_argument->{'type'};
+      delete $spaces_before_argument->{'parent'};
+      my $owning_element = $self->{'internal_space_holder'};
       $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
       $owning_element->{'info'}->{'spaces_before_argument'}
-        = $new_space_element;
+        = $spaces_before_argument;
+      $self->{'internal_space_holder'} = undef;
     }
 
     return 1;
@@ -3074,13 +3092,9 @@ sub _isolate_last_space
   }
 
   if (!$current->{'contents'}
-            or !scalar(@{$current->{'contents'}})
-            or !defined($current->{'contents'}->[-1]->{'text'})
-            or ($current->{'contents'}->[-1]->{'type'}
-                  and (!$current->{'type'}
-                        or ($current->{'type'} ne 'line_arg'
-                            and $current->{'type'} ne 'block_line_arg')))
-            or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/) {
+      or !scalar(@{$current->{'contents'}})
+      or !defined($current->{'contents'}->[-1]->{'text'})
+      or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/) {
     print STDERR "NOT ISOLATING $debug_str\n"
        if ($self->{'conf'}->{'DEBUG'});
     return;
@@ -3098,11 +3112,11 @@ sub _isolate_last_space
     #$current->{'info'} = {} if (!$current->{'info'});
     if ($last_element->{'text'} !~ /\S/) {
       my $spaces_after_argument = _pop_element_from_contents($self, $current);
-      my $new_space_element = {'text' => $spaces_after_argument->{'text'},};
-      _transfer_source_marks($spaces_after_argument, $new_space_element);
+      delete $spaces_after_argument->{'parent'};
+      delete $spaces_after_argument->{'type'};
       $current->{'info'} = {} if (!exists($current->{'info'}));
       $current->{'info'}->{'spaces_after_argument'}
-                 = $new_space_element;
+                 = $spaces_after_argument;
     } else {
       $last_element->{'text'} =~ s/(\s+)$//;
       my $new_space_element = {'text' => $1,};
@@ -4661,8 +4675,8 @@ sub _end_line($$$)
 
 # $command may be undef if we are after a wrong other command such as
 # a buggy @tab.
-sub _start_empty_line_after_command($$$) {
-  my ($line, $current, $command) = @_;
+sub _start_empty_line_after_command($$$$) {
+  my ($self, $line, $current, $command) = @_;
 
   # based on whitespace_chars_except_newline in XS parser
   $line =~ s/^([ \t\cK\f]*)//;
@@ -4672,9 +4686,8 @@ sub _start_empty_line_after_command($$$) {
                              };
   push @{$current->{'contents'}}, $spaces_after_command;
   if (defined($command)) {
-    $spaces_after_command->{'extra'}
-      = {'spaces_associated_command' => $command};
     $spaces_after_command->{'type'} = 'internal_spaces_after_command';
+    $self->{'internal_space_holder'} = $command;
   }
   return $line;
 }
@@ -5138,9 +5151,8 @@ sub _handle_macro($$$$$)
           if (not $arg_elt->{'contents'} and $line =~ s/^([ \t\cK\f]+)//) {
             my $internal_space = {'type' => 'internal_spaces_before_argument',
                                   'text' => $1,
-                                  'parent' => $arg_elt,
-                                  'extra' => {'spaces_associated_command'
-                                                => $macro_call_element}};
+                                  'parent' => $arg_elt};
+            $self->{'internal_space_holder'} = $macro_call_element;
             push @{$arg_elt->{'contents'}}, $internal_space;
           } else {
             if ($line !~ /\n/) {
@@ -5534,7 +5546,7 @@ sub _handle_other_command($$$$$)
                           $source_info);
       }
     }
-    $line = _start_empty_line_after_command($line, $current, undef);
+    $line = _start_empty_line_after_command($self, $line, $current, undef);
   }
   return ($current, $line, $retval, $command_e);
 }
@@ -5874,7 +5886,7 @@ sub _handle_line_command($$$$$$)
     $current = $current->{'args'}->[-1];
     $self->_push_context('ct_line', $command)
       unless ($def_commands{$data_cmdname});
-    $line = _start_empty_line_after_command($line, $current, $command_e);
+    $line = _start_empty_line_after_command($self, $line, $current, $command_e);
   }
   _register_global_command($self, $command_e, $source_info)
     if $command_e;
@@ -6042,7 +6054,7 @@ sub _handle_block_command($$$$$)
     }
     $block->{'source_info'} = {%$source_info};
     _register_global_command($self, $block, $source_info);
-    $line = _start_empty_line_after_command($line, $current, $block);
+    $line = _start_empty_line_after_command($self, $line, $current, $block);
   }
   return ($current, $line, $retval, $block);
 }
@@ -6185,8 +6197,8 @@ sub _handle_open_brace($$$$)
         'type' => 'internal_spaces_before_argument',
         'text' => $1,
         'parent' => $current,
-        'extra' => {'spaces_associated_command' => $current->{'parent'}}
       };
+      $self->{'internal_space_holder'} = $current->{'parent'};
     } else {
       $current->{'type'} = 'brace_command_arg';
       # Commands that disregard leading whitespace.
@@ -6199,8 +6211,8 @@ sub _handle_open_brace($$$$)
                     'type' => 'internal_spaces_before_argument',
                     'text' => '',
                     'parent' => $current,
-                    'extra' => {'spaces_associated_command' => $current}
                   };
+        $self->{'internal_space_holder'} = $current;
       }
       $self->_push_context('ct_inlineraw', $command)
         if ($command eq 'inlineraw');
@@ -6229,8 +6241,9 @@ sub _handle_open_brace($$$$)
         {'type' => 'internal_spaces_before_argument',
          'text' => '',
          'parent' => $current,
-         'extra' => {'spaces_associated_command' => $current}
        };
+    $self->{'internal_space_holder'} = $current;
+
     print STDERR "BRACKETED in def/multitable\n"
                              if ($self->{'conf'}->{'DEBUG'});
   # lone braces accepted right in a rawpreformatted
@@ -6706,8 +6719,8 @@ sub _handle_comma($$$$)
   # which should end up in info spaces_before_argument.
   my $space_before = {'type' => 'internal_spaces_before_argument',
                       'text' => '', 'parent' => $current,
-                      'extra' => {'spaces_associated_command' => $current}
                      };
+  $self->{'internal_space_holder'} = $current;
   push @{$current->{'contents'}}, $space_before;
 
   return ($current, $line, $source_info);

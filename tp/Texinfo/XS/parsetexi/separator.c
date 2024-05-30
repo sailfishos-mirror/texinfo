@@ -235,7 +235,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
            || current_context () == ct_inlineraw)
     {
       ELEMENT *b = new_element (ET_balanced_braces);
-      ELEMENT *open_brace = new_element (ET_NONE);
+      ELEMENT *open_brace = new_element (ET_normal_text);
       abort_empty_line (&current, NULL, 0);
       b->source_info = current_source_info;
       add_to_element_contents (current, b);

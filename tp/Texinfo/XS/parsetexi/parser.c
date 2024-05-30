@@ -549,7 +549,7 @@ parse_texi_document (void)
 }
 
 
-int
+static int
 begin_paragraph_p (ELEMENT *current)
 {
   return (current->type == ET_NONE /* "True for @-commands" */
@@ -561,8 +561,8 @@ begin_paragraph_p (ELEMENT *current)
 }
 
 /* If in a context where paragraphs are to be started, start a new
-   paragraph. */
-ELEMENT *
+   paragraph and return it.  Else return 0 */
+static ELEMENT *
 begin_paragraph (ELEMENT *current)
 {
   if (begin_paragraph_p (current))
@@ -591,7 +591,6 @@ begin_paragraph (ELEMENT *current)
                 }
               i--;
             }
-
         }
 
       e = new_element (ET_paragraph);
@@ -599,11 +598,11 @@ begin_paragraph (ELEMENT *current)
         add_extra_integer (e, indent == CM_indent ? "indent" : "noindent",
                               1);
       add_to_element_contents (current, e);
-      current = e;
+      return e;
 
       debug ("PARAGRAPH");
     }
-  return current;
+  return 0;
 }
 
 /* Begin a preformatted element if in a preformatted context. */
@@ -657,9 +656,9 @@ end_preformatted (ELEMENT *current,
    function being called and the internal space element being
    removed or put in the internal_space_holder info.
 
-   NOTE internal_space_holder is already set to 0 in abort_empty_line
+   NOTE internal_space_holder is already unset in abort_empty_line
    if the internal space element is put in the internal_space_holder.
-   It would be cleaner to set internal_space_holder to 0 in all the
+   It would be cleaner to unset internal_space_holder in all the
    cases where the internal space element is removed too, such that
    when internal_space_holder is set the previous value is 0 and not
    the previous internal_space_holder, which is now irrelevant as
@@ -689,6 +688,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   /* Is there a non-whitespace character in the line? */
   if (leading_spaces < len_text)
     {
+      ELEMENT *paragraph;
       if (last_child
           && (last_child->type == ET_ignorable_spaces_after_command
               || last_child->type == ET_internal_spaces_after_command
@@ -704,20 +704,38 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
           len_text -= leading_spaces;
         }
 
-      current = begin_paragraph (current);
+      paragraph = begin_paragraph (current);
+      if (paragraph)
+        {
+          current = paragraph;
+          /* shortcut the case with text as last content child as
+             it cannot happen if a new paragraph is started */
+          goto new_text;
+        }
     }
 
+  /* need to retrieve the last child in case the one obtained above was
+     removed in abort_empty_line */
   last_child = last_contents_child (current);
-  if (last_child
+  if (!no_merge_with_following_text
+      && last_child
       /* There is a difference between the text being defined and empty,
          and not defined at all.  The latter is true for 'brace_command_arg'
          elements.  We need either to make sure that we initialize all elements
          with text_append (&e->text, "") where we want merging with following
          text, or treat as a special case here. */
       && (last_child->text.space > 0
-            && !strchr (last_child->text.text, '\n'))
-      && !no_merge_with_following_text)
+            && !strchr (last_child->text.text, '\n')))
     {
+      /*
+      if (last_child->type != ET_normal_text && last_child->type != ET_empty_line
+          && last_child->type != ET_ignorable_spaces_after_command
+          && last_child->type != ET_internal_spaces_after_command
+          && last_child->type != ET_internal_spaces_before_argument
+          && last_child->type != ET_spaces_after_close_brace)
+        fprintf (stderr, "EEE %s '%s'\n", element_type_names[last_child->type],
+                         last_child->text.text);
+       */
       /* Transfer source marks */
       if (transfer_marks_element
           && transfer_marks_element->source_mark_list.number > 0)
@@ -751,7 +769,8 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
     }
   else
     {
-      ELEMENT *e = new_element (ET_NONE);
+     new_text:
+      ELEMENT *e = new_element (ET_normal_text);
       if (transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e);
       text_append_n (&e->text, text, len_text);
@@ -828,7 +847,7 @@ abort_empty_line (ELEMENT **current_inout, const char *additional_spaces,
       else if (last_child->type == ET_empty_line)
         {
           last_child->type = begin_paragraph_p (current)
-                             ? ET_spaces_before_paragraph : ET_NONE;
+                             ? ET_spaces_before_paragraph : ET_normal_text;
         }
       else if (last_child->type == ET_internal_spaces_after_command
                || last_child->type == ET_internal_spaces_before_argument)
@@ -852,33 +871,27 @@ abort_empty_line (ELEMENT **current_inout, const char *additional_spaces,
 }
 
 static void
-isolate_last_space_internal (ELEMENT *current)
+isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
 {
-  ELEMENT *last_elt;
   char *text;
   int text_len;
-  ELEMENT *spaces_element = new_element (ET_NONE);
 
-  last_elt = last_contents_child (current);
-  text = element_text (last_elt);
-
+  text = last_elt->text.text;
   text_len = last_elt->text.end;
 
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
     {
-      text_append_n (&spaces_element->text, text, text_len);
-      transfer_source_marks (last_elt, spaces_element);
-      add_info_element_oot (current, "spaces_after_argument",
-                            spaces_element);
-      destroy_element (pop_element_from_contents (current));
+      /* e is last_elt */
+      ELEMENT *e = pop_element_from_contents (current);
+      e->parent = 0;
+      e->type = ET_NONE;
+      add_info_element_oot (current, "spaces_after_argument", e);
     }
   else
     {
       int i, trailing_spaces;
-      static TEXT t;
-
-      text_reset (&t);
+      ELEMENT *spaces_element = new_element (ET_NONE);
 
       trailing_spaces = 0;
       for (i = text_len - 1;
@@ -886,20 +899,18 @@ isolate_last_space_internal (ELEMENT *current)
            i--)
         trailing_spaces++;
 
-      text_append_n (&t,
-                     text + text_len - trailing_spaces,
+      text_append_n (&spaces_element->text, text + text_len - trailing_spaces,
                      trailing_spaces);
 
       text[text_len - trailing_spaces] = '\0';
       last_elt->text.end -= trailing_spaces;
 
-      text_append (&spaces_element->text, t.text);
-
       if (last_elt->source_mark_list.number > 0)
         {
           size_t begin_position = count_multibyte (text);
           relocate_source_marks (&(last_elt->source_mark_list), spaces_element,
-                                 begin_position, count_multibyte (t.text));
+                                 begin_position,
+                                 count_multibyte (spaces_element->text.text));
         }
 
       add_info_element_oot (current, "spaces_after_argument",
@@ -952,7 +963,6 @@ isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
 void
 isolate_last_space (ELEMENT *current)
 {
-  char *text;
   ELEMENT *last_elt = 0;
   int text_len;
 
@@ -973,16 +983,13 @@ isolate_last_space (ELEMENT *current)
     goto no_isolate_space;
 
   last_elt = last_contents_child (current);
-  text = element_text (last_elt);
-  if (!text || !*text
-      || (last_elt->type && (!current->type
-                             || (current->type != ET_line_arg
-                                 && current->type != ET_block_line_arg))))
-    goto no_isolate_space;
 
   text_len = last_elt->text.end;
+  if (text_len <= 0)
+    goto no_isolate_space;
+
   /* Does the text end in whitespace? */
-  if (!strchr (whitespace_chars, text[text_len - 1]))
+  if (!strchr (whitespace_chars, last_elt->text.text[text_len - 1]))
     goto no_isolate_space;
 
   debug_nonl ("ISOLATE SPACE p ");
@@ -993,7 +1000,7 @@ isolate_last_space (ELEMENT *current)
   if (current->type == ET_menu_entry_node)
     isolate_trailing_space (current, ET_space_at_end_menu_node);
   else
-    isolate_last_space_internal (current);
+    isolate_last_space_internal (current, last_elt);
 
   return;
 

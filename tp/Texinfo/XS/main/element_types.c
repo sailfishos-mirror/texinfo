@@ -16,6 +16,7 @@ char *element_type_names[] = {
 "space_at_end_menu_node",
 "after_menu_description_line",
 "spaces_after_cmd_before_arg",
+"normal_text",
 "document_root",
 "root_line",
 "before_node_section",

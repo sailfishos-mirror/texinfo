@@ -197,7 +197,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       debug_nonl ("ABORT MENU STAR before: ");
       debug_print_protected_string (line); debug ("");
 
-      last_contents_child (current)->type = ET_NONE;
+      last_contents_child (current)->type = ET_normal_text;
     }
   /* After a separator in a menu, end of menu entry node or menu entry name
    (. must be followed by a space to stop the node). */

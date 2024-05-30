@@ -1,3 +1,40 @@
+2024-05-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (%parser_document_state_initialization)
+	(_abort_empty_line, _start_empty_line_after_command, _handle_macro)
+	(_handle_open_brace, _handle_comma): instead of putting the command
+	associated to internal spaces in the extra information of the space,
+	put it in the state as internal_space_holder.  Add the parser as
+	_start_empty_line_after_command argument, update callers.
+	Also reuse the internal space as the info spaces_before_argument
+	of the command associated with the internal space in _abort_empty_line.
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_last_space),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space): always isolate the
+	last space independentely of its type and type of the current
+	container.
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_last_space),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space_internal): reuse
+	the internal space as the info spaces_after_argument.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph, merge_text):
+	return 0 if the paragraph was not started.  Shortcut the code merging
+	text if a paragraph was started in merge_text.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/menus.c (handle_menu_entry_separators),
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text, abort_empty_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace),
+	tp/Texinfo/XS/parsetexi/source_marks.c (place_source_mark): add a text
+	type, normal_text, used internally in XS parser for regular text,
+	instead of using ET_NONE.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space_internal): do
+	not use an intermediate TEXT, directly set the new element text.  Add
+	last_elt as argument to isolate_last_space_internal.
+
 2024-09-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c: add missing
@@ -852,6 +889,7 @@
 	is likely stopping IFS from being reset correctly, leading
 	to subsequent errors.
 
+
 2024-08-21  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi: modify, reassociate and comment out
@@ -947,6 +985,7 @@
 
 	* autogen.sh: Run autoreconf under tp/Texinfo/XS/ with
 	AUTOPOINT=true.  From Bruno.
+
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
@@ -1094,6 +1133,23 @@
 	* tp/Texinfo/XS/configure.ac: Specify the same GNU gettext
 	version as the top-level configure.ac. Add comments about use
 	of autopoint.
+
+2024-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: Remove out-of-date information about running
+	"make" before "make dist".
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/tp_api/Makefile.am (tp/Texinfo/ModulePath.pm):
+	Add rule to allow running "make dist" without running "make"
+	first.  Report from Bruno Haible.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
+	* info/Makefile.am (../gnulib/lib/libgnu.a):
+	Add rule to allow running "make dist" without running "make"
+	first.  Report from Bruno Haible.
 
 2024-07-27  Patrice Dumas  <pertusus@free.fr>
 

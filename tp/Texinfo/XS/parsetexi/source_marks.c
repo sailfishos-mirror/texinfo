@@ -68,8 +68,8 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
     }
   else
     {
-      /* add an empty element only used for source marks */
-      mark_element = new_element (ET_NONE);
+      /* add an empty element used for source marks */
+      mark_element = new_element (ET_normal_text);
       /* set empty text to have merge_text work as expected */
       text_append (&mark_element->text, "");
       add_to_element_contents (e, mark_element);

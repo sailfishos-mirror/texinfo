@@ -92,7 +92,6 @@ ELEMENT *merge_text (ELEMENT *current, const char *text, size_t text_len,
                      ELEMENT *transfer_marks_element);
 void start_empty_line_after_command (ELEMENT *current, const char **line_inout,
                                      ELEMENT *command);
-ELEMENT *begin_paragraph (ELEMENT *current);
 int is_end_current_command (ELEMENT *current, const char **line,
                             enum command_id *end_cmd);
 int check_space_element (ELEMENT *e);
