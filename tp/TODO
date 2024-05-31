@@ -101,8 +101,6 @@ parsetexi
     is_container_empty: (all text types) current->text.end == 0
   debug_parser.c
     print_element_debug_parser e->text.end > 0
-  handle_commands.c
-    check_no_text g->type == ET_normal_text or more general?
   parser.c
     merge_text last_element->text.space > 0
     check_space_element e->text.space > 0

@@ -23,18 +23,18 @@ space_command_arg
 definfoenclose_command
 
 # For text elements
-empty_line
-raw
-ignorable_spaces_after_command
-spaces_at_end
-spaces_after_close_brace
-spaces_before_paragraph
-text_after_end
-text_before_beginning
-space_at_end_menu_node
-after_menu_description_line
-spaces_after_cmd_before_arg
-normal_text
+empty_line                                text
+raw                                       text
+ignorable_spaces_after_command            text
+spaces_at_end                             text
+spaces_after_close_brace                  text
+spaces_before_paragraph                   text
+text_after_end                            text
+text_before_beginning                     text
+space_at_end_menu_node                    text
+after_menu_description_line               text
+spaces_after_cmd_before_arg               text
+normal_text                               text
 
 # Other special types
 document_root
@@ -54,21 +54,18 @@ line_arg
 rawline_arg
 
 menu_entry
-# text
-menu_entry_leading_text
+menu_entry_leading_text                   text
 menu_entry_name
-# text
-menu_entry_separator
+menu_entry_separator                      text
 menu_entry_node
 menu_entry_description
 menu_comment
 # Used internally
-# text
-internal_menu_star
-internal_spaces_after_command
-internal_spaces_before_argument
-internal_spaces_before_brace_in_index
-internal_spaces_after_cmd_before_arg
+internal_menu_star                         text
+internal_spaces_after_command              text
+internal_spaces_before_argument            text
+internal_spaces_before_brace_in_index      text
+internal_spaces_after_cmd_before_arg       text
 
 macro_name
 macro_arg

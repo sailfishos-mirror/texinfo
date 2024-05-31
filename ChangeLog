@@ -13,6 +13,19 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	Add data structure for information on types in C
+
+	* tp/Texinfo/XS/main/types_data.h (TYPES), tp/Texinfo/XS/Makefile.am
+	(BUILT_SOURCES, libtexinfo_la_SOURCES, EXTRA_DIST),
+	tp/Texinfo/XS/main/element_types.awk,
+	tp/Texinfo/XS/main/element_types.txt: add code in element_types.awk to
+	setup a TYPE structure for information on types, similar to the
+	COMMAND data, but with flags only.  Add flags information in
+	element_types.txt, to mark text elements.  Generate the structure
+	array with information on all the types in main/types_data.c.
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/command_data.awk (END): initialize flags_str and
 	other_flags_str for each command.
 
