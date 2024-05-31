@@ -3153,7 +3153,8 @@ sub _split_delimiters
 {
   my ($self, $root, $current, $source_info) = @_;
 
-  if ($root->{'type'} eq 'spaces' or $root->{'type'} eq 'bracketed_arg') {
+  if ($root->{'type'}
+      and ($root->{'type'} eq 'spaces' or $root->{'type'} eq 'bracketed_arg')) {
     return $root;
   } elsif (!defined $root->{'text'}) {
     my $new = {'type' => 'def_line_arg', 'parent' => $current,
@@ -4455,15 +4456,15 @@ sub _end_line_menu_entry ($$$)
   my $empty_menu_entry_node = 0;
   my $end_comment;
   if ($current->{'type'} eq 'menu_entry_node') {
-    if (@{$current->{'contents'}}
+    if ($current->{'contents'}
         and $current->{'contents'}->[-1]->{'cmdname'}
         and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
-          or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
+             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
       $end_comment = _pop_element_from_contents($self, $current);
     }
-    if (not $current->{'contents'} or not scalar(@{$current->{'contents'}})
+    if (not $current->{'contents'}
          # empty if only the end of line or spaces, including non ascii spaces
-         or (@{$current->{'contents'}} == 1
+         or (scalar(@{$current->{'contents'}}) == 1
              and defined($current->{'contents'}->[-1]->{'text'})
              and $current->{'contents'}->[-1]->{'text'} !~ /\S/)) {
       $empty_menu_entry_node = 1;
@@ -4477,7 +4478,7 @@ sub _end_line_menu_entry ($$$)
     print STDERR "FINALLY NOT MENU ENTRY\n" if ($self->{'conf'}->{'DEBUG'});
     my $menu = $current->{'parent'}->{'parent'};
     my $menu_entry = _pop_element_from_contents($self, $menu);
-    if ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
+    if ($menu->{'contents'}
         and $menu->{'contents'}->[-1]->{'type'}
         and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
       my $entry = $menu->{'contents'}->[-1];
