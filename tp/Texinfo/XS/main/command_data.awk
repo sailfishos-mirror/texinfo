@@ -159,10 +159,10 @@ END {
                 print "CM_" c "," > CI
         }
 
+        flags_str = ""
+        other_flags_str = ""
         if (commands[c] != "") {
             split(commands[c], flags_array, ",")
-            flags_str = ""
-            other_flags_str = ""
             for (flag_idx in flags_array) {
               if (flag_idx == 1) {
                 # first flag is always kept, corresponds to the category

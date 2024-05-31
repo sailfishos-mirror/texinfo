@@ -13,6 +13,11 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/command_data.awk (END): initialize flags_str and
+	other_flags_str for each command.
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (check_space_element): fix
 	conditional to detect better space elements.
 
