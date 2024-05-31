@@ -1175,6 +1175,7 @@ informative_command_value (const ELEMENT *element)
           char *text_seen = 0;
           for (i = 0; i < element->args.number; i++)
             {
+              /* only text elements in lineraw args */
               ELEMENT *arg = element->args.list[i];
               if (arg->text.end)
                 {
@@ -1207,6 +1208,7 @@ informative_command_value (const ELEMENT *element)
       && builtin_command_data[cmd].data == LINE_line
       && element->args.number >= 1
       && element->args.list[0]->contents.number >= 1
+      && element->args.list[0]->contents.list[0]->type == ET_normal_text
       && element->args.list[0]->contents.list[0]->text.end > 0)
     return element->args.list[0]->contents.list[0]->text.text;
 

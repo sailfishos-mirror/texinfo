@@ -13,6 +13,49 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (check_space_element): fix
+	conditional to detect better space elements.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_internal_command_tree)
+	(html_external_command_tree, html_default_format_program_string)
+	(convert_value_command, convert_printindex_command),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/convert_utils.c (expand_today),
+	tp/Texinfo/XS/main/manipulate_tree.c (parse_node_manual),
+	tp/Texinfo/XS/parsetexi/parser.c (new_value_element),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_block_command)
+	(new_node_menu_entry, new_detailmenu),
+	tp/Texinfo/XS/structuring_transfo/transformations.c (new_node)
+	(insert_nodes_for_sectioning_commands)
+	(protect_hashchar_at_line_beginning_internal): Set ET_normal_text as
+	type for normal text instead of ET_NONE.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_menu_entry_type),
+	tp/Texinfo/XS/main/manipulate_indices.c (idx_leading_text_or_command),
+	tp/Texinfo/XS/main/manipulate_tree.c (parse_node_manual),
+	tp/Texinfo/XS/main/utils.c (informative_command_value),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (check_no_text),
+	tp/Texinfo/XS/parsetexi/menus.c (end_line_menu_entry),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_comma),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis, new_node): use
+	type ET_normal_text to determine that an element is text instead of
+	element text.space or text.end.
+
+	* tp/Texinfo/XS/parsetexi/menus.c (end_line_menu_entry): use types
+	ET_menu_entry_leading_text and ET_menu_entry_separator to determine
+	that an element is text in menu entry.
+
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_tree_internal): rearrange
+	code and exit sooner if the element is a text element as there are
+	no additional information nor contents nor args.
+
+	* tp/Texinfo/XS/main/convert_utils.c
+	(find_root_command_next_heading_command): add a but message if normal
+	text appears directly in top level (should be in a paragraph).
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_split_delimiters): remove undefined
 	warnings.
 

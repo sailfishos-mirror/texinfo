@@ -634,7 +634,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
               && current->args.list[0]->contents.number > 0
               && (arg = current->args.list[0]->contents.list[0]))
             {
-              if (arg->text.end > 0)
+              if (arg->type ==  ET_normal_text && arg->text.end > 0)
                 inline_type = arg->text.text;
             }
 

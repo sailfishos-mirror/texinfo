@@ -1314,7 +1314,8 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                 }
             }
         }
-      else if (content->text.end > 0
+      else if (content->type == ET_normal_text
+               && content->text.end > 0
                && content->text.text[strspn (content->text.text,
                                              whitespace_chars)] != '\0')
         {

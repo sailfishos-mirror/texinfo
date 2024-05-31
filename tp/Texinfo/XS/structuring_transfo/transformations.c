@@ -88,7 +88,7 @@ protect_first_parenthesis (ELEMENT *element)
     {
       ELEMENT *content = element->contents.list[i];
       const char *p;
-      if (content->text.end == 0)
+      if (content->type != ET_normal_text || content->text.end == 0)
         continue;
       p = content->text.text;
       if (*p == '(')
@@ -580,7 +580,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
   if (node_tree->contents.number <= 0)
     {
-      ELEMENT *empty_text = new_element (ET_NONE);
+      ELEMENT *empty_text = new_element (ET_normal_text);
       text_append (&empty_text->text, "");
       add_to_element_contents (node_tree, empty_text);
       empty_node = 1;
@@ -588,12 +588,15 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
   last_content = last_contents_child (node_tree);
   if (last_content->cmd == CM_c || last_content->cmd == CM_comment)
-    comment_at_end = pop_element_from_contents (node_tree);
+    {
+      comment_at_end = pop_element_from_contents (node_tree);
+      last_content = last_contents_child (node_tree);
+    }
 
   text_init (&spaces_after_argument);
   text_append (&spaces_after_argument, "");
-  last_content = last_contents_child (node_tree);
-  if (last_content->text.end > 0)
+  if (last_content && last_content->type == ET_normal_text
+      && last_content->text.end > 0)
     {
       int end = last_content->text.end;
       char *p = last_content->text.text + end-1;
@@ -642,7 +645,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
       if (appended_number)
         {
-          appended_text = new_element (ET_NONE);
+          appended_text = new_element (ET_normal_text);
           text_printf (&appended_text->text, " %d", appended_number);
           add_to_element_contents (node_line_arg, appended_text);
         }
@@ -781,8 +784,8 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
 
               if (content->cmd == CM_top)
                 {
-                  ELEMENT *top_node_text = new_element (ET_NONE);
-                  new_node_tree = new_element (ET_NONE);
+                  ELEMENT *top_node_text = new_element (ET_normal_text);
+                  new_node_tree = new_element (ET_normal_text);
                   text_append (&top_node_text->text, "Top");
                   add_to_element_contents (new_node_tree, top_node_text);
                 }
@@ -1277,7 +1280,8 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                              ELEMENT *current,
                                              void *argument)
 {
-  if (current->text.end > 0)
+  if ((current->type == ET_normal_text || current->type == ET_raw)
+       && current->text.end > 0)
     {
       char *filename;
       int line_no = 0;
@@ -1344,7 +1348,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           char *current_text = strdup (current->text.text);
                           char *p = current_text;
                           size_t leading_spaces_nr;
-                          ELEMENT *leading_spaces = new_element (ET_NONE);
+                          ELEMENT *leading_spaces = new_element (ET_normal_text);
                           ELEMENT *hashchar = new_element (ET_NONE);
                           ELEMENT *arg = new_element (ET_brace_command_arg);
                           /* count UTF-8 encoded Unicode characters for

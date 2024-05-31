@@ -3877,7 +3877,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                 {
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings
                     = new_named_string_element_list ();
-                  ELEMENT *e_number = new_element (ET_NONE);
+                  ELEMENT *e_number = new_element (ET_normal_text);
                   ELEMENT *section_title_copy
                      = copy_tree (command->args.list[0]);
 
@@ -3946,8 +3946,8 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   tree = new_tree_added_elements (tree_added_status_elements_added);
 
   root_code = new_element_added (tree, ET__code);
-  open_p = new_element_added (tree, ET_NONE);
-  close_p = new_element_added (tree, ET_NONE);
+  open_p = new_element_added (tree, ET_normal_text);
+  close_p = new_element_added (tree, ET_normal_text);
 
   text_append_n (&open_p->text, "(", 1);
   text_append_n (&close_p->text, ")", 1);
@@ -6832,8 +6832,8 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
   if (self->conf->PROGRAM.o.string && strlen (self->conf->PROGRAM.o.string)
       && self->conf->PACKAGE_URL.o.string)
     {
-      ELEMENT *program_homepage = new_element (ET_NONE);
-      ELEMENT *program = new_element (ET_NONE);
+      ELEMENT *program_homepage = new_element (ET_normal_text);
+      ELEMENT *program = new_element (ET_normal_text);
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
 
@@ -8952,7 +8952,7 @@ convert_value_command (CONVERTER *self, const enum command_id cmd,
                     const char *content, TEXT *result)
 {
   ELEMENT *tree;
-  ELEMENT *value_text = new_element (ET_NONE);
+  ELEMENT *value_text = new_element (ET_normal_text);
   NAMED_STRING_ELEMENT_LIST *substrings = new_named_string_element_list ();
 
   text_append (&value_text->text,
@@ -12961,7 +12961,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
       else
         {
           char *normalized_letter;
-          ELEMENT *letter_text = new_element (ET_NONE);
+          ELEMENT *letter_text = new_element (ET_normal_text);
           text_append (&letter_text->text, letter);
           normalized_letter = normalize_transliterate_texinfo (letter_text,
                                              (self->conf->TEST.o.integer > 0));
@@ -14729,7 +14729,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                || (menu_description->contents.number == 1
                    && (menu_description->contents.list[0]->contents.number <= 0
                        || (menu_description->contents.list[0]->contents.number == 1
-                           && menu_description->contents.list[0]->contents.list[0]->text.space > 0
+                           && menu_description->contents.list[0]->contents.list[0]->type == ET_normal_text
    && menu_description->contents.list[0]->contents.list[0]->text.text[
        strspn (menu_description->contents.list[0]->contents.list[0]->text.text,
              whitespace_chars)] == '\0'))))))

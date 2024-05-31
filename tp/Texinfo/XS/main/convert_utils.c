@@ -70,7 +70,7 @@ expand_today (OPTIONS *options)
 
   if (options->TEST.o.integer > 0)
     {
-      result = new_element (ET_NONE);
+      result = new_element (ET_normal_text);
       text_append (&result->text, "a sunny day");
       return result;
     }
@@ -96,8 +96,8 @@ expand_today (OPTIONS *options)
   month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0,
                          options->documentlanguage.o.string, 0,
                          options->DEBUG.o.integer, 0);
-  day_element = new_element (ET_NONE);
-  year_element = new_element (ET_NONE);
+  day_element = new_element (ET_normal_text);
+  year_element = new_element (ET_normal_text);
   text_printf (&day_element->text, "%d", time_tm->tm_mday);
   text_printf (&year_element->text, "%d", year);
 
@@ -920,9 +920,14 @@ find_root_command_next_heading_command (const ELEMENT *root,
         }
       if (content->type == ET_paragraph)
         return 0;
-      if (content->text.end > 0)
+      /* do not happen and should not happen, as normal text should never
+         be in top level root command contents, only empty_line,
+         spaces_after_close_brace... that only contain whitespace_chars */
+      if (content->type == ET_normal_text && content->text.end > 0)
         {
-          const char *text = element_text (content);
+          const char *text = content->text.text;
+          fprintf (stderr, "BUG: in top level unexpected normal_text: '%s'\n",
+                           text);
           /* only whitespace characters */
           if (! text[strspn (text, whitespace_chars)] == '\0')
             return 0;

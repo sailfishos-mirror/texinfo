@@ -90,9 +90,58 @@ ELEMENT *elements[3]
 
 4) separate the structure of text elements and other elements, as text elements
    never have contents/args/info/extra, have cmd != 0.
-  close.c is_container_empty: many different text type elements are in, including
-      some with ET_NONE, presumably
-  debug_parser.c print_element_debug_parser
+    EXCEPTION: needed transient _copy and _counter in copy_tree_internal in extra
+  
+   if (content->type != ET_normal_text)
+            fprintf (stderr, "TTT %s\n", print_element_debug (content, 1));
+
+
+parsetexi
+  close.c
+    is_container_empty: (all text types) current->text.end == 0
+  debug_parser.c
+    print_element_debug_parser e->text.end > 0
+  handle_commands.c
+    check_no_text g->type == ET_normal_text or more general?
+  parser.c
+    merge_text last_element->text.space > 0
+    check_space_element e->text.space > 0
+    text_contents_to_plain_text e1->text.end > 0
+    isolate_last_space text_len = last_elt->text.end; text_len <= 0
+    process_remaining_on_line && last_contents_child (current)->text.end > 0
+  source_marks.c 
+    place_source_mark last_child->text.end > 0
+
+main
+  build_perl_info.c
+    element_to_perl_hash e->text.space > 0
+    extra_misc_args contents.list[j]->text.end > 0
+  convert_to_texinfo.c
+    convert_to_texinfo_internal e->text.end > 0
+  convert_to_text.c
+    convert_to_text_internal element->text.end > 0.  all text types
+  manipulate_tree.c
+    copy_tree_internal ->text.space > 0
+    associate_info_references extra_misc_args
+    relocate_source_marks new_e->text.space > 0
+    protect_text current->text.end > 0
+  convert_utils.c
+    find_root_command_next_heading_command content->text.end > 0
+  debug.c
+    print_element_debug e->text.end > 0
+  node_name_normalization.c
+    convert_to_normalized_internal e->text.end > 0
+  utils.c
+    is_content_empty content->text.end > 0
+  
+convert
+  convert_html.c
+    convert_to_html_internal in debug text.space > 0, text.end > 0
+    process text element->text.space > 0
+    
+structuring_transfo
+  transformations.c
+    protect_hashchar_at_line_beginning_internal previous->text.end > 0
 
 
 valgrinf massif useful-heap approximate distribution in 2024

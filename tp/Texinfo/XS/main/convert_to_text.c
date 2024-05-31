@@ -40,8 +40,8 @@
 #include "document.h"
 /*
 #include "convert_to_texinfo.h"
-#include "debug.h"
 */
+#include "debug.h"
 /* for gdt_tree */
 #include "translations.h"
 #include "convert_to_text.h"
@@ -536,6 +536,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         {
           char *cased = 0;
           char *text;
+          /* text type should always be set */
 
           if (text_options->set_case)
             {
@@ -935,8 +936,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       if (parsed_definition_category)
         {
           ELEMENT *converted_element = new_element (ET_NONE);
-          ELEMENT *text_colon = new_element (ET_NONE);
-          ELEMENT *text_eol = new_element (ET_NONE);
+          ELEMENT *text_colon = new_element (ET_normal_text);
+          ELEMENT *text_eol = new_element (ET_normal_text);
           ELEMENT *type_text_space;
           ELEMENT *args_text_space;
           add_to_contents_as_array (converted_element,
@@ -945,7 +946,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           add_to_contents_as_array (converted_element, text_colon);
           if (parsed_def->type)
             {
-              type_text_space = new_element (ET_NONE);
+              type_text_space = new_element (ET_normal_text);
               add_to_contents_as_array (converted_element, parsed_def->type);
               text_append (&type_text_space->text, " ");
               add_to_contents_as_array (converted_element, type_text_space);
@@ -954,7 +955,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
             add_to_contents_as_array (converted_element, parsed_def->name);
           if (parsed_def->args)
             {
-              args_text_space = new_element (ET_NONE);
+              args_text_space = new_element (ET_normal_text);
               text_append (&args_text_space->text, " ");
               add_to_contents_as_array (converted_element, args_text_space);
               add_to_contents_as_array (converted_element, parsed_def->args);

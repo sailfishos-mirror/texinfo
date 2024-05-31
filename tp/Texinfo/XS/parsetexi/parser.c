@@ -173,9 +173,9 @@ check_space_element (ELEMENT *e)
         || e->cmd == CM_c
         || e->cmd == CM_comment
         || e->cmd == CM_COLON
-        || (!e->cmd && !e->type && e->text.end == 0)
-        || (e->text.end > 0
-            && !*(e->text.text + strspn (e->text.text, whitespace_chars)))
+        || (e->text.space > 0
+            && (e->text.end == 0
+                || !*(e->text.text + strspn (e->text.text, whitespace_chars))))
      ))
     {
       return 0;
@@ -873,6 +873,7 @@ abort_empty_line (ELEMENT **current_inout)
   return retval;
 }
 
+/* The caller verifies that the element is a text element */
 static void
 isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
 {
@@ -923,6 +924,7 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
     }
 }
 
+/* The callers verify that the last_elt is a text element */
 static void
 isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
 {
@@ -1115,8 +1117,8 @@ new_value_element (enum command_id cmd, const char *flag,
 {
   ELEMENT *value_elt = new_element (ET_NONE);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
-  /* special text */
-  ELEMENT *value_text = new_element (ET_NONE);
+  /* occasionnally considered as text in conversion, so make it normal text */
+  ELEMENT *value_text = new_element (ET_normal_text);
 
   value_elt->cmd = cmd;
 

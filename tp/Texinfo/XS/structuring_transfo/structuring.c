@@ -53,7 +53,7 @@ new_block_command (ELEMENT *element, enum command_id cmd)
   ELEMENT *end_args = new_element (ET_line_arg);
   ELEMENT *end_spaces_before = new_element (ET_NONE);
   ELEMENT *end_spaces_after = new_element (ET_NONE);
-  ELEMENT *command_name_text = new_element (ET_NONE);
+  ELEMENT *command_name_text = new_element (ET_normal_text);
   const char *command_name = builtin_command_name (cmd);
 
   element->cmd = cmd;
@@ -1740,7 +1740,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   description = new_element (ET_menu_entry_description);
   preformatted = new_element (ET_preformatted);
   add_to_element_contents (description, preformatted);
-  description_text = new_element (ET_NONE);
+  description_text = new_element (ET_normal_text);
   text_append (&description_text->text, "\n");
   add_to_element_contents (preformatted, description_text);
 
@@ -2135,7 +2135,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
   if (new_detailmenu_e->contents.number > 0)
     {
       int i;
-      ELEMENT *new_line = new_element (ET_NONE);
+      ELEMENT *new_line = new_element (ET_normal_text);
     /* There is a menu comment with a preformatted added in front of each
        detailed menu section with the node section name */
       ELEMENT *first_preformatted
@@ -2163,7 +2163,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
         }
       else
         {
-          ELEMENT *master_menu_title_string = new_element (ET_NONE);
+          ELEMENT *master_menu_title_string = new_element (ET_normal_text);
           text_append (&master_menu_title_string->text,
                        " --- The Detailed Node Listing ---");
           master_menu_title_string->parent = first_preformatted;

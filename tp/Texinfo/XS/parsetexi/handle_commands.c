@@ -63,7 +63,7 @@ item_container_parent (const ELEMENT *current)
 }
 
 /* Check that there are no text holding environments (currently
-   checking only paragraphs and preformatted) in contents. */
+   checking only paragraphs and non empty preformatted) in contents. */
 int
 check_no_text (const ELEMENT *current)
 {
@@ -85,7 +85,8 @@ check_no_text (const ELEMENT *current)
           for (j = 0; j < f->contents.number; j++)
             {
               ELEMENT *g = f->contents.list[j];
-              if ((g->text.end > 0
+              if ((g->type == ET_normal_text
+                   && g->text.end > 0
                    && g->text.text[strspn (g->text.text, whitespace_chars)])
                   || (g->cmd && g->cmd != CM_c
                       && g->cmd != CM_comment

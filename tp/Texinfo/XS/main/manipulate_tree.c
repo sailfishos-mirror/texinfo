@@ -164,18 +164,23 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   new = new_element (ET_NONE);
   if (current->type)
     new->type = current->type;
-  if (current->cmd)
-    new->cmd = current->cmd;
-  if (current->text.space > 0)
-    text_append (&new->text, current->text.text);
 
   increase_ref_counter (current);
   add_extra_element (current, "_copy", new);
 
   /*
   fprintf (stderr, "CTNEW %p %s %p\n", current,
-                                       print_element_debug (current, 0), new);
+                                       print_element_debug (current, 1), new);
   */
+
+  if (current->text.space > 0)
+    {
+      text_append (&new->text, current->text.text);
+      return new;
+    }
+
+  if (current->cmd)
+    new->cmd = current->cmd;
 
   for (i = 0; i < current->args.number; i++)
     add_to_element_args (new,
@@ -428,7 +433,7 @@ remove_from_source_mark_list (SOURCE_MARK_LIST *list, size_t where)
 /* In Texinfo::Common */
 /* relocate SOURCE_MARKS source marks with position between
    BEGIN_POSITION and BEGIN_POSITION + LEN to be relative to BEGIN_POSITION,
-   and move to element E.
+   and move to element NEW_E.
    Returns BEGIN_POSITION + LEN if there were source marks.
 */
 size_t
@@ -540,7 +545,9 @@ parse_node_manual (ELEMENT *node, int modify_node)
   result->out_of_tree_elements = 0;
 
   /* If the content starts with a '(', try to get a manual name. */
-  if (node->contents.number > 0 && node->contents.list[0]->text.end > 0
+  if (node->contents.number > 0
+      && node->contents.list[0]->type == ET_normal_text
+      && node->contents.list[0]->text.end > 0
       && node->contents.list[0]->text.text[0] == '(')
     {
       ELEMENT *manual, *first;
@@ -560,10 +567,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
         {
           if (modify_node)
             {
-              opening_brace = new_element (0);
+              opening_brace = new_element (ET_normal_text);
               text_append_n (&opening_brace->text, "(", 1);
             }
-          new_first = new_element (0);
+          new_first = new_element (ET_normal_text);
           text_append_n (&new_first->text, first->text.text +1, first->text.end -1);
         }
       else
@@ -582,7 +589,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
           else
             e = node->contents.list[idx];
 
-          if (e->text.end == 0)
+          if (e->type != ET_normal_text)
             {
               /* Put this element in the manual contents. */
               add_to_contents_as_array (manual, e);
@@ -667,7 +674,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (p > e->text.text)
                 {
                   /* text before ), part of the manual name */
-                  ELEMENT *last_manual_element = new_element (ET_NONE);
+                  ELEMENT *last_manual_element = new_element (ET_normal_text);
                   text_append_n (&last_manual_element->text, e->text.text,
                                  p - e->text.text);
                   add_to_contents_as_array (manual, last_manual_element);
@@ -686,7 +693,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
               if (modify_node)
                 {
-                  ELEMENT *closing_brace = new_element (0);
+                  ELEMENT *closing_brace = new_element (ET_normal_text);
                   text_append_n (&closing_brace->text, ")", 1);
                   insert_into_contents (node, closing_brace, idx++);
                   current_position
@@ -703,7 +710,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
               q = p + strspn (p, whitespace_chars);
               if (q > p && modify_node)
                 {
-                  ELEMENT *spaces_element = new_element (0);
+                  ELEMENT *spaces_element = new_element (ET_normal_text);
                   text_append_n (&spaces_element->text, p, q - p);
                   insert_into_contents (node, spaces_element, idx++);
                   current_position
@@ -717,11 +724,11 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (*p)
                 {
                   /* text after ), part of the node name. */
-                  ELEMENT *leading_node_content = new_element (ET_NONE);
+                  ELEMENT *leading_node_content = new_element (ET_normal_text);
                   text_append_n (&leading_node_content->text, p,
                                  e->text.text + e->text.end - p);
                   /* start node_content */
-                  node_content = new_element (0);
+                  node_content = new_element (ET_NONE);
                   add_to_contents_as_array (node_content, leading_node_content);
                   if (modify_node)
                     {
@@ -764,7 +771,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
   if (idx < node->contents.number)
     {
       if (!node_content)
-        node_content = new_element (0);
+        node_content = new_element (ET_NONE);
       insert_slice_into_contents (node_content, node_content->contents.number,
                                   node, idx, node->contents.number);
     }
@@ -867,6 +874,8 @@ new_asis_command_with_text (const char *text, ELEMENT *parent,
 static ELEMENT_LIST *
 protect_text (ELEMENT *current, const char *to_protect)
 {
+  /* we accept any non raw text as text to be protected, including whitespaces
+     only text elements */
   if (current->text.end > 0 && !(current->type == ET_raw
                                  || current->type == ET_rawline_arg)
       && strpbrk (current->text.text, to_protect))

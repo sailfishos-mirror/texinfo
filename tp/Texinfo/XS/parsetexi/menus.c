@@ -306,15 +306,17 @@ end_line_menu_entry (ELEMENT *current)
     {
       ELEMENT *last = last_contents_child (current);
 
-      if (current->contents.number > 0
+      if (last
           && (last->cmd == CM_c || last->cmd == CM_comment))
         {
           end_comment = pop_element_from_contents (current);
+          last = last_contents_child (current);
         }
 
       /* If contents empty or is all whitespace. */
       if (current->contents.number == 0
           || (current->contents.number == 1
+              && last->type == ET_normal_text
               && last->text.end > 0
               && !last->text.text[strspn (last->text.text,
                                           whitespace_chars)]))
@@ -396,7 +398,8 @@ end_line_menu_entry (ELEMENT *current)
       for (i = 0; i < menu_entry->contents.number; i++)
         {
           ELEMENT *arg = contents_child_by_index (menu_entry, i);
-          if (arg->text.end > 0)
+          if (arg->type == ET_menu_entry_leading_text
+              || arg->type == ET_menu_entry_separator)
             current = merge_text (current, arg->text.text, arg->text.end, arg);
           else
             {
@@ -404,7 +407,7 @@ end_line_menu_entry (ELEMENT *current)
               for (j = 0; j < arg->contents.number; j++)
                 {
                   e = contents_child_by_index (arg, j);
-                  if (e->text.end > 0)
+                  if (e->type == ET_normal_text)
                     {
                       current = merge_text (current, e->text.text,
                                             e->text.end, e);
