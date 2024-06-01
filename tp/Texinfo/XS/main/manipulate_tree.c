@@ -176,7 +176,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 
   if (type_data[current->type].flags & TF_text)
     {
-      text_append_n (&new->text, current->text.text, current->text.end);
+      text_append_n (new->text, current->text->text, current->text->end);
       copy_associated_info (&current->extra_info, &new->extra_info);
       return new;
     }
@@ -334,8 +334,8 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
               if (e->type == ET_other_text)
                 {
                   new_e = new_text_element (ET_other_text);
-                  if (e->text.end > 0)
-                    text_append_n (&new_e->text, e->text.text, e->text.end);
+                  if (e->text->end > 0)
+                    text_append_n (new_e->text, e->text->text, e->text->end);
                 }
               else
                 {
@@ -555,8 +555,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
   /* If the content starts with a '(', try to get a manual name. */
   if (node->contents.number > 0
       && node->contents.list[0]->type == ET_normal_text
-      && node->contents.list[0]->text.end > 0
-      && node->contents.list[0]->text.text[0] == '(')
+      && node->contents.list[0]->text->end > 0
+      && node->contents.list[0]->text->text[0] == '(')
     {
       ELEMENT *manual, *first;
       ELEMENT *new_first = 0;
@@ -571,15 +571,16 @@ parse_node_manual (ELEMENT *node, int modify_node)
       /* If the first contents element is "(" followed by more text, split
          the leading "(" into its own element. */
       first = node->contents.list[0];
-      if (first->text.end > 1)
+      if (first->text->end > 1)
         {
           if (modify_node)
             {
               opening_brace = new_text_element (ET_normal_text);
-              text_append_n (&opening_brace->text, "(", 1);
+              text_append_n (opening_brace->text, "(", 1);
             }
           new_first = new_text_element (ET_normal_text);
-          text_append_n (&new_first->text, first->text.text +1, first->text.end -1);
+          text_append_n (new_first->text, first->text->text +1,
+                         first->text->end -1);
         }
       else
         {
@@ -603,8 +604,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
               add_to_contents_as_array (manual, e);
               continue;
             }
-          p = e->text.text;
-          while (p < e->text.text + e->text.end
+          p = e->text->text;
+          while (p < e->text->text + e->text->end
                  && bracket_count > 0)
             {
               opening_bracket = strchr (p, '(');
@@ -661,10 +662,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
                           size_t current_position
                             = relocate_source_marks (&(first->source_mark_list),
                                                      opening_brace, 0,
-                                   count_multibyte (opening_brace->text.text));
+                                   count_multibyte (opening_brace->text->text));
                           relocate_source_marks (&(first->source_mark_list),
                                                  new_first, current_position,
-                                       count_multibyte (new_first->text.text));
+                                       count_multibyte (new_first->text->text));
                         }
                       destroy_element (first);
                     }
@@ -679,13 +680,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
                     result->out_of_tree_elements[0] = new_first;
                 }
               p--; /* point at ) */
-              if (p > e->text.text)
+              if (p > e->text->text)
                 {
                   /* text before ), part of the manual name */
                   ELEMENT *last_manual_element
                                       = new_text_element (ET_normal_text);
-                  text_append_n (&last_manual_element->text, e->text.text,
-                                 p - e->text.text);
+                  text_append_n (last_manual_element->text, e->text->text,
+                                 p - e->text->text);
                   add_to_contents_as_array (manual, last_manual_element);
                   if (modify_node)
                     {
@@ -694,7 +695,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                         = relocate_source_marks (&(e->source_mark_list),
                                                  last_manual_element,
                                                  current_position,
-                            count_multibyte (last_manual_element->text.text));
+                            count_multibyte (last_manual_element->text->text));
                     }
                   else
                     result->out_of_tree_elements[1] = last_manual_element;
@@ -703,13 +704,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (modify_node)
                 {
                   ELEMENT *closing_brace = new_text_element (ET_normal_text);
-                  text_append_n (&closing_brace->text, ")", 1);
+                  text_append_n (closing_brace->text, ")", 1);
                   insert_into_contents (node, closing_brace, idx++);
                   current_position
                     = relocate_source_marks (&(e->source_mark_list),
                                              closing_brace,
                                              current_position,
-                        count_multibyte (closing_brace->text.text));
+                        count_multibyte (closing_brace->text->text));
                 }
 
               /* Skip ')' and any following whitespace.
@@ -720,13 +721,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (q > p && modify_node)
                 {
                   ELEMENT *spaces_element = new_text_element (ET_normal_text);
-                  text_append_n (&spaces_element->text, p, q - p);
+                  text_append_n (spaces_element->text, p, q - p);
                   insert_into_contents (node, spaces_element, idx++);
                   current_position
                     = relocate_source_marks (&(e->source_mark_list),
                                              spaces_element,
                                              current_position,
-                        count_multibyte (spaces_element->text.text));
+                        count_multibyte (spaces_element->text->text));
                 }
 
               p = q;
@@ -735,8 +736,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   /* text after ), part of the node name. */
                   ELEMENT *leading_node_content
                       = new_text_element (ET_normal_text);
-                  text_append_n (&leading_node_content->text, p,
-                                 e->text.text + e->text.end - p);
+                  text_append_n (leading_node_content->text, p,
+                                 e->text->text + e->text->end - p);
                   /* start node_content */
                   node_content = new_element (ET_NONE);
                   add_to_contents_as_array (node_content, leading_node_content);
@@ -747,7 +748,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                         = relocate_source_marks (&(e->source_mark_list),
                                                  leading_node_content,
                                                  current_position,
-                            count_multibyte (leading_node_content->text.text));
+                            count_multibyte (leading_node_content->text->text));
                     }
                   else
                     result->out_of_tree_elements[2] = leading_node_content;
@@ -876,7 +877,7 @@ new_asis_command_with_text (const char *text, ELEMENT *parent,
   new_command->cmd = CM_asis;
   new_command->parent = parent;
   add_to_element_args (new_command, brace_command_arg);
-  text_append (&text_elt->text, text);
+  text_append (text_elt->text, text);
   add_to_element_contents (brace_command_arg, text_elt);
   return new_command;
 }
@@ -887,12 +888,12 @@ protect_text (ELEMENT *current, const char *to_protect)
   /* we accept any non raw text as text to be protected, including whitespaces
      only text elements */
   if (type_data[current->type].flags & TF_text
-      && current->text.end > 0 && !(current->type == ET_raw
+      && current->text->end > 0 && !(current->type == ET_raw
                                     || current->type == ET_rawline_arg)
-      && strpbrk (current->text.text, to_protect))
+      && strpbrk (current->text->text, to_protect))
     {
       ELEMENT_LIST *container = new_list ();
-      char *p = current->text.text;
+      char *p = current->text->text;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       uint8_t *u8_text = 0;
       size_t current_position;
@@ -914,7 +915,7 @@ protect_text (ELEMENT *current, const char *to_protect)
           text_elt->parent = current->parent;
           if (leading_nr)
             {
-              text_append_n (&text_elt->text, p, leading_nr);
+              text_append_n (text_elt->text, p, leading_nr);
               p += leading_nr;
             }
           /*

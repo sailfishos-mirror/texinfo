@@ -1178,16 +1178,16 @@ informative_command_value (const ELEMENT *element)
             {
               /* only text elements in lineraw args */
               ELEMENT *arg = element->args.list[i];
-              if (arg->text.end)
+              if (arg->text->end)
                 {
                   if (!text_seen)
-                    text_seen = arg->text.text;
+                    text_seen = arg->text->text;
                   else
                     {
                       text_init (&text);
                       text_append (&text, text_seen);
                       text_append (&text, " ");
-                      text_append (&text, arg->text.text);
+                      text_append (&text, arg->text->text);
                     }
                 }
             }
@@ -1204,14 +1204,14 @@ informative_command_value (const ELEMENT *element)
     return text_arg;
   misc_args = lookup_extra_misc_args (element, "misc_args");
   if (misc_args && misc_args->number > 0)
-    return misc_args->list[0]->text.text;
+    return misc_args->list[0]->text->text;
   if (builtin_command_data[cmd].flags & CF_line
       && builtin_command_data[cmd].data == LINE_line
       && element->args.number >= 1
       && element->args.list[0]->contents.number >= 1
       && element->args.list[0]->contents.list[0]->type == ET_normal_text
-      && element->args.list[0]->contents.list[0]->text.end > 0)
-    return element->args.list[0]->contents.list[0]->text.text;
+      && element->args.list[0]->contents.list[0]->text->end > 0)
+    return element->args.list[0]->contents.list[0]->text->text;
 
   return 0;
 }
@@ -1449,11 +1449,11 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
         return 0;
       if (type_data[content->type].flags & TF_text)
         {
-          if (content->text.end == 0)
+          if (content->text->end == 0)
             return 1;
           else
             {
-              const char *text = content->text.text;
+              const char *text = content->text->text;
               /* only whitespace characters */
               if (! text[strspn (text, whitespace_chars)] == '\0')
                 return 0;

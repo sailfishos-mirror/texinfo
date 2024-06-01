@@ -399,9 +399,9 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                   const ELEMENT *e = l->list[j];
                   if (e->type == ET_other_text)
                     {
-                      if (e->text.end > 0)
+                      if (e->text->end > 0)
                         {
-                          SV *sv = newSVpv_utf8 (e->text.text, e->text.end);
+                          SV *sv = newSVpv_utf8 (e->text->text, e->text->end);
                           av_store (av, j, sv);
                         }
                       else
@@ -626,7 +626,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (type_data[e->type].flags & TF_text)
     {
-      sv = newSVpv_utf8 (e->text.text, e->text.end);
+      sv = newSVpv_utf8 (e->text->text, e->text->end);
       hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
       return;
     }

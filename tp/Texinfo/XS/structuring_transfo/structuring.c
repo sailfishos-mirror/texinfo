@@ -58,20 +58,20 @@ new_block_command (ELEMENT *element, enum command_id cmd)
 
   element->cmd = cmd;
 
-  text_append (&arg_spaces_after->text, "\n");
+  text_append (arg_spaces_after->text, "\n");
   add_info_element_oot (args, "spaces_after_argument", arg_spaces_after);
   add_to_element_args (element, args);
 
   end->cmd = CM_end;
   add_extra_string_dup (end, "text_arg", command_name);
-  text_append (&end_spaces_before->text, " ");
+  text_append (end_spaces_before->text, " ");
   add_info_element_oot (end, "spaces_before_argument", end_spaces_before);
 
-  text_append (&end_spaces_after->text, "\n");
+  text_append (end_spaces_after->text, "\n");
   add_info_element_oot (end_args, "spaces_after_argument", end_spaces_after);
   add_to_element_args (end, end_args);
 
-  text_append (&command_name_text->text, command_name);
+  text_append (command_name_text->text, command_name);
   add_to_element_contents (end_args, command_name_text);
 
   add_to_element_contents (element, end);
@@ -1741,11 +1741,11 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   preformatted = new_element (ET_preformatted);
   add_to_element_contents (description, preformatted);
   description_text = new_text_element (ET_normal_text);
-  text_append (&description_text->text, "\n");
+  text_append (description_text->text, "\n");
   add_to_element_contents (preformatted, description_text);
 
   menu_entry_leading_text = new_text_element (ET_menu_entry_leading_text);
-  text_append (&menu_entry_leading_text->text, "* ");
+  text_append (menu_entry_leading_text->text, "* ");
 
   add_to_element_contents (entry, menu_entry_leading_text);
 
@@ -1753,8 +1753,8 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     {
       ELEMENT *menu_entry_separator = new_text_element (ET_menu_entry_separator);
       ELEMENT *menu_entry_after_node = new_text_element (ET_menu_entry_separator);
-      text_append (&menu_entry_separator->text, ": ");
-      text_append (&menu_entry_after_node->text, ".");
+      text_append (menu_entry_separator->text, ": ");
+      text_append (menu_entry_after_node->text, ".");
       add_to_element_contents (entry, menu_entry_name);
       add_to_element_contents (entry, menu_entry_separator);
       add_to_element_contents (entry, menu_entry_node);
@@ -1764,7 +1764,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     {
       ELEMENT *menu_entry_separator = new_text_element (ET_menu_entry_separator);
       add_to_element_contents (entry, menu_entry_node);
-      text_append (&menu_entry_separator->text, "::");
+      text_append (menu_entry_separator->text, "::");
       add_to_element_contents (entry, menu_entry_separator);
     }
 
@@ -1813,7 +1813,7 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, int position,
   if (!no_leading_empty_line)
     {
       ELEMENT *empty_line_before = new_text_element (ET_empty_line);
-      text_append (&empty_line_before->text, "\n");
+      text_append (empty_line_before->text, "\n");
       add_to_element_contents (preformatted, empty_line_before);
       index_in_preformatted = 1;
     }
@@ -1825,8 +1825,8 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, int position,
                               inserted_element,
                               0, inserted_element->contents.number);
 
-  text_append (&empty_line_first_after->text, "\n");
-  text_append (&empty_line_second_after->text, "\n");
+  text_append (empty_line_first_after->text, "\n");
+  text_append (empty_line_second_after->text, "\n");
   add_to_element_contents (preformatted, empty_line_first_after);
   add_to_element_contents (preformatted, empty_line_second_after);
 
@@ -2141,7 +2141,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
       ELEMENT *first_preformatted
         = new_detailmenu_e->contents.list[0]->contents.list[0];
 
-      text_append (&new_line->text, "\n");
+      text_append (new_line->text, "\n");
       new_line->parent = first_preformatted;
       insert_into_contents (first_preformatted, new_line, 0);
 
@@ -2164,7 +2164,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
       else
         {
           ELEMENT *master_menu_title_string = new_text_element (ET_normal_text);
-          text_append (&master_menu_title_string->text,
+          text_append (master_menu_title_string->text,
                        " --- The Detailed Node Listing ---");
           master_menu_title_string->parent = first_preformatted;
           insert_into_contents (first_preformatted,
@@ -2216,7 +2216,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
 
               add_to_element_contents (menu_node, menu_comment);
               add_to_element_contents (menu_comment, preformatted);
-              text_append_n (&empty_line->text, "\n", 1);
+              text_append_n (empty_line->text, "\n", 1);
               add_to_element_contents (preformatted, empty_line);
 
               add_to_element_contents (menu_node, detailmenu);

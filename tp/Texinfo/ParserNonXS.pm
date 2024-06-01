@@ -6465,9 +6465,12 @@ sub _handle_close_brace($$$)
                    $current_command->{'cmdname'}), $source_info);
       }
     } elsif ($current->{'parent'}->{'cmdname'} eq 'errormsg') {
-      my $error_message_text = $current->{'contents'}->[0]->{'text'};
-      $self->_line_error($error_message_text, $source_info)
-        if $error_message_text;
+      my $error_message_text = '';
+      if ($current->{'contents'}
+          and defined($current->{'contents'}->[0]->{'text'})) {
+        $error_message_text = $current->{'contents'}->[0]->{'text'};
+      }
+      $self->_line_error($error_message_text, $source_info);
     } elsif ($current->{'parent'}->{'cmdname'} eq 'U') {
       my $arg;
       if ($current->{'contents'} and $current->{'contents'}->[0]) {

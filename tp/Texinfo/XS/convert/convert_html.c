@@ -3885,7 +3885,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                   add_element_to_named_string_element_list (
                               replaced_substrings, "section_title",
                               section_title_copy);
-                  text_append (&e_number->text, section_number);
+                  text_append (e_number->text, section_number);
                   add_element_to_named_string_element_list (
                               replaced_substrings, "number", e_number);
 
@@ -3950,8 +3950,8 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   open_p = new_text_element_added (tree, ET_normal_text);
   close_p = new_text_element_added (tree, ET_normal_text);
 
-  text_append_n (&open_p->text, "(", 1);
-  text_append_n (&close_p->text, ")", 1);
+  text_append_n (open_p->text, "(", 1);
+  text_append_n (close_p->text, ")", 1);
 
   add_to_element_contents (root_code, open_p);
   add_to_contents_as_array (root_code, manual_content);
@@ -6838,8 +6838,8 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
 
-      text_append (&program_homepage->text, self->conf->PACKAGE_URL.o.string);
-      text_append (&program->text, self->conf->PROGRAM.o.string);
+      text_append (program_homepage->text, self->conf->PACKAGE_URL.o.string);
+      text_append (program->text, self->conf->PROGRAM.o.string);
 
       add_element_to_named_string_element_list (substrings,
                                     "program_homepage", program_homepage);
@@ -8589,7 +8589,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   ELEMENT *direction_element = new_text_element (ET__converted);
   NAMED_STRING_ELEMENT_LIST *substrings = new_named_string_element_list ();
 
-  text_printf (&direction_element->text, "<a href=\"%s\">%s</a>", href, name);
+  text_printf (direction_element->text, "<a href=\"%s\">%s</a>", href, name);
   free (name);
 
   add_element_to_named_string_element_list (substrings,
@@ -8956,7 +8956,7 @@ convert_value_command (CONVERTER *self, const enum command_id cmd,
   ELEMENT *value_text = new_text_element (ET_normal_text);
   NAMED_STRING_ELEMENT_LIST *substrings = new_named_string_element_list ();
 
-  text_append (&value_text->text,
+  text_append (value_text->text,
                args_formatted->args[0].formatted[AFT_type_monospacestring]);
   add_element_to_named_string_element_list (substrings,
                                             "value", value_text);
@@ -9179,9 +9179,9 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
       ELEMENT *explanation_result_element = new_text_element (ET__converted);
       ELEMENT *tree;
 
-      text_append (&explained_string_element->text, text_result->text);
+      text_append (explained_string_element->text, text_result->text);
       free (text_result->text);
-      text_append (&explanation_result_element->text, explanation_result);
+      text_append (explanation_result_element->text, explanation_result);
 
       add_element_to_named_string_element_list (substrings,
                           "explained_string", explained_string_element);
@@ -11032,7 +11032,7 @@ convert_sp_command (CONVERTER *self, const enum command_id cmd,
     {
       int i;
       const ELEMENT *element_with_number = misc_args->list[0];
-      unsigned int sp_nr = strtoul (element_with_number->text.text, NULL, 10);
+      unsigned int sp_nr = strtoul (element_with_number->text->text, NULL, 10);
 
       if (html_in_preformatted_context (self) || html_in_string (self))
         {
@@ -12273,7 +12273,7 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
       if (cf_misc_args->number >= cell_nr)
         {
           const char *fraction_str
-            = cf_misc_args->list[cell_nr -1]->text.text;
+            = cf_misc_args->list[cell_nr -1]->text->text;
           double fraction = strtod (fraction_str, NULL);
           if (self->conf->_INLINE_STYLE_WIDTH.o.integer > 0)
             text_printf (result, " style=\"width: %0.f%%\"", 100 * fraction);
@@ -12451,15 +12451,15 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
           add_string (builtin_command_name (cmd), classes);
 
           attribute_class = html_attribute_class (self, "a", classes);
-          text_append (&reference_element->text, attribute_class);
-          text_printf (&reference_element->text, " href=\"%s\">%s</a>",
-                                                 href, name);
+          text_append (reference_element->text, attribute_class);
+          text_printf (reference_element->text, " href=\"%s\">%s</a>",
+                                                href, name);
           free (attribute_class);
           destroy_strings_list (classes);
         }
       else
         {
-          text_append (&reference_element->text, name);
+          text_append (reference_element->text, name);
         }
       free (href);
 
@@ -12619,9 +12619,9 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       if (book && reference)
         {
           book_element = new_text_element (ET__converted);
-          text_append (&book_element->text, book);
+          text_append (book_element->text, book);
           reference_element = new_text_element (ET__converted);
-          text_append (&reference_element->text, reference);
+          text_append (reference_element->text, reference);
 
           add_element_to_named_string_element_list (substrings,
                                           "book", book_element);
@@ -12646,7 +12646,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       else if (book_reference)
         {
           book_element = new_text_element (ET__converted);
-          text_append (&book_element->text, book_reference);
+          text_append (book_element->text, book_reference);
 
           add_element_to_named_string_element_list (substrings,
                                           "book_reference", book_element);
@@ -12669,9 +12669,9 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       else if (book && name)
         {
           book_element = new_text_element (ET__converted);
-          text_append (&book_element->text, book);
+          text_append (book_element->text, book);
           reference_element = new_text_element (ET__converted);
-          text_append (&reference_element->text, name);
+          text_append (reference_element->text, name);
 
           add_element_to_named_string_element_list (substrings,
                                           "book", book_element);
@@ -12696,7 +12696,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       else if (book)
         {
           book_element = new_text_element (ET__converted);
-          text_append (&book_element->text, book);
+          text_append (book_element->text, book);
 
           add_element_to_named_string_element_list (substrings,
                                           "book", book_element);
@@ -12719,7 +12719,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       else if (reference)
         {
           reference_element = new_text_element (ET__converted);
-          text_append (&reference_element->text, reference);
+          text_append (reference_element->text, reference);
 
           add_element_to_named_string_element_list (substrings,
                                          "reference", reference_element);
@@ -12742,7 +12742,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       else if (name)
         {
           reference_element = new_text_element (ET__converted);
-          text_append (&reference_element->text, name);
+          text_append (reference_element->text, name);
 
           add_element_to_named_string_element_list (substrings,
                                          "section", reference_element);
@@ -12899,7 +12899,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
   misc_args = lookup_extra_misc_args (element, "misc_args");
   if (misc_args && misc_args->number > 0)
-    index_name = misc_args->list[0]->text.text;
+    index_name = misc_args->list[0]->text->text;
   else
     return;
 
@@ -12963,7 +12963,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         {
           char *normalized_letter;
           ELEMENT *letter_text = new_text_element (ET_normal_text);
-          text_append (&letter_text->text, letter);
+          text_append (letter_text->text, letter);
           normalized_letter = normalize_transliterate_texinfo (letter_text,
                                              (self->conf->TEST.o.integer > 0));
           destroy_element (letter_text);
@@ -14529,7 +14529,7 @@ convert_untranslated_def_line_arg_type
                        const ELEMENT *element, const char *content,
                        TEXT *result)
 {
-  const char *category_text = element->contents.list[0]->text.text;
+  const char *category_text = element->contents.list[0]->text->text;
   const char *translation_context
     = lookup_extra_string (element, "translation_context");
   ELEMENT *translated = html_cdt_tree (category_text,
@@ -14731,8 +14731,8 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                    && (menu_description->contents.list[0]->contents.number <= 0
                        || (menu_description->contents.list[0]->contents.number == 1
                            && menu_description->contents.list[0]->contents.list[0]->type == ET_normal_text
-   && menu_description->contents.list[0]->contents.list[0]->text.text[
-       strspn (menu_description->contents.list[0]->contents.list[0]->text.text,
+   && menu_description->contents.list[0]->contents.list[0]->text->text[
+       strspn (menu_description->contents.list[0]->contents.list[0]->text->text,
              whitespace_chars)] == '\0'))))))
                 {
         /* update the number of time the node description was formatted */
@@ -14750,7 +14750,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
   if (html_inside_preformatted (self) || in_string)
     {
-      const char *leading_text = menu_entry_leading_text->text.text;
+      const char *leading_text = menu_entry_leading_text->text->text;
       const char *menu_symbol;
       if (!in_string)
         {
@@ -18413,9 +18413,9 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                      type_data[element->type].name);
       if (type_data[element->type].flags & TF_text)
         {
-          if (element->text.end > 0)
+          if (element->text->end > 0)
             {
-              char *text = debug_protect_eol (element->text.text);
+              char *text = debug_protect_eol (element->text->text);
               text_printf (&debug_str, " text: %s", text);
               free (text);
             }
@@ -18451,11 +18451,11 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
       /* already converted to html, keep it as is, assume it cannot be NULL */
       if (element->type == ET__converted)
-        text_append (&text_result, element->text.text);
+        text_append_n (&text_result, element->text->text, element->text->end);
       else
         {
           (*(self->current_types_conversion_function[ET_text].type_conversion))
-                    (self, ET_text, element, element->text.text, &text_result);
+                    (self, ET_text, element, element->text->text, &text_result);
         }
 
       if (self->conf->DEBUG.o.integer > 0)

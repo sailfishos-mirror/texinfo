@@ -71,9 +71,9 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
     return;
   else if (type_data[e->type].flags & TF_text)
     {
-      if (e->text.end > 0)
+      if (e->text->end > 0)
         {
-          char *text_norm_spaces = collapse_spaces (e->text.text);
+          char *text_norm_spaces = collapse_spaces (e->text->text);
           ADD(text_norm_spaces);
           free (text_norm_spaces);
         }

@@ -528,12 +528,12 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
   if (type_data[element->type].flags & TF_text)
     {
-      if (element->text.end <= 0)
+      if (element->text->end <= 0)
         return;
 
       if (element->type == ET_raw
           || text_options->raw_state)
-        ADD(element->text.text);
+        ADD(element->text->text);
       else
         {
           const char *p;
@@ -544,13 +544,13 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (text_options->set_case)
             {
               cased
-                = to_upper_or_lower_multibyte (element->text.text,
+                = to_upper_or_lower_multibyte (element->text->text,
                                                text_options->set_case);
               text = cased;
             }
           else
             {
-              text = element->text.text;
+              text = element->text->text;
             }
 
           if (text_options->code_state)
@@ -877,7 +877,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           /* misc_args can be 0 with invalid args */
           if (misc_args && misc_args->number > 0)
             {
-              const char *sp_arg = misc_args->list[0]->text.text;
+              const char *sp_arg = misc_args->list[0]->text->text;
               int sp_nr = strtoul (sp_arg, NULL, 10);
               int i;
               if (sp_nr > 0)
@@ -946,13 +946,13 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           ELEMENT *args_text_space;
           add_to_contents_as_array (converted_element,
                                     parsed_definition_category);
-          text_append (&text_colon->text, ": ");
+          text_append (text_colon->text, ": ");
           add_to_contents_as_array (converted_element, text_colon);
           if (parsed_def->type)
             {
               type_text_space = new_text_element (ET_normal_text);
               add_to_contents_as_array (converted_element, parsed_def->type);
-              text_append (&type_text_space->text, " ");
+              text_append (type_text_space->text, " ");
               add_to_contents_as_array (converted_element, type_text_space);
             }
           if (parsed_def->name)
@@ -960,11 +960,11 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (parsed_def->args)
             {
               args_text_space = new_text_element (ET_normal_text);
-              text_append (&args_text_space->text, " ");
+              text_append (args_text_space->text, " ");
               add_to_contents_as_array (converted_element, args_text_space);
               add_to_contents_as_array (converted_element, parsed_def->args);
             }
-          text_append (&text_eol->text, "\n");
+          text_append (text_eol->text, "\n");
           add_to_contents_as_array (converted_element, text_eol);
 
           text_options->code_state++;
@@ -990,7 +990,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
    else if (element->type == ET_untranslated_def_line_arg)
     {
       ELEMENT *tree = 0;
-      const char *category_text = element->contents.list[0]->text.text;
+      const char *category_text = element->contents.list[0]->text->text;
       const char *translation_context
         = lookup_extra_string (element, "translation_context");
 

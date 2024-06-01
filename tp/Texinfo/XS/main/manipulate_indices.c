@@ -1315,11 +1315,11 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
             }
         }
       else if (content->type == ET_normal_text
-               && content->text.end > 0
-               && content->text.text[strspn (content->text.text,
-                                             whitespace_chars)] != '\0')
+               && content->text->end > 0
+               && content->text->text[strspn (content->text->text,
+                                           whitespace_chars)] != '\0')
         {
-          char *p = content->text.text;
+          char *p = content->text->text;
           p += strspn (p, whitespace_chars);
           if (ignore_chars)
             {

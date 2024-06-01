@@ -129,7 +129,7 @@ is_container_empty (ELEMENT *current)
   /* all kind of text elements, including other_text (in some args) */
   if (type_data[current->type].flags & TF_text)
     {
-      if (current->text.end == 0)
+      if (current->text->end == 0)
         return 1;
     }
   else if (current->contents.number == 0
@@ -466,7 +466,7 @@ close_current (ELEMENT *current,
              be at the end of the document after an empty line we
              do not want to modify */
           /* current = merge_text (current, "}", 0); */
-          text_append_n (&close_brace->text, "}", 1);
+          text_append_n (close_brace->text, "}", 1);
           add_to_element_contents (current, close_brace);
           current = current->parent;
           break;

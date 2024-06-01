@@ -168,7 +168,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             int n;
             n = strspn (line, whitespace_chars_except_newline);
             e = new_text_element (ET_internal_spaces_before_argument);
-            text_append_n (&e->text, line, n);
+            text_append_n (e->text, line, n);
             add_to_element_contents (current, e);
             internal_space_holder = current->parent;
 
@@ -186,8 +186,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             {
               ELEMENT *e;
               e = new_text_element (ET_internal_spaces_before_argument);
-              /* See comment in parser.c:merge_text */
-              text_append (&e->text, "");
               add_to_element_contents (current, e);
               internal_space_holder = current;
 
@@ -216,7 +214,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       current->source_info = current_source_info;
 
       e = new_text_element (ET_internal_spaces_before_argument);
-      text_append (&e->text, ""); /* See comment in parser.c:merge_text */
       add_to_element_contents (current, e);
       debug ("BRACKETED in def/multitable");
       internal_space_holder = current;
@@ -240,7 +237,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       b->source_info = current_source_info;
       add_to_element_contents (current, b);
       current = b;
-      text_append (&open_brace->text, "{");
+      text_append (open_brace->text, "{");
       add_to_element_contents (current, open_brace);
       debug ("BALANCED BRACES in math/rawpreformatted/inlineraw");
     }
@@ -449,7 +446,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           if (current->contents.number > 0)
             {
-              char *text = current->contents.list[0]->text.text;
+              char *text = current->contents.list[0]->text->text;
               if (!text || (strcmp (text, "i") && strcmp (text, "j")))
                 {
                   line_error ("@dotless expects `i' or `j' as argument, "
@@ -475,9 +472,11 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         }
       else if (closed_command == CM_errormsg)
         {
-          char *arg = current->contents.list[0]->text.text;
-          if (arg)
-            line_error (arg);
+          const char *arg = "";
+          if (current->contents.list[0]->type == ET_normal_text
+              && current->contents.list[0]->text->end > 0)
+            arg = current->contents.list[0]->text->text;
+          line_error (arg);
         }
       else if (closed_command == CM_U)
         {
@@ -487,7 +486,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
             }
           else
             {
-              char *arg = current->contents.list[0]->text.text;
+              char *arg = current->contents.list[0]->text->text;
               int n = strspn (arg, "0123456789ABCDEFabcdef");
               if (arg[n])
                 {
@@ -584,7 +583,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           ELEMENT *e;
           e = new_text_element (ET_spaces_after_close_brace);
-          text_append (&e->text, "");
+          text_append (e->text, "");
           add_to_element_contents (current->parent->parent, e);
         }
 
@@ -634,8 +633,8 @@ handle_comma (ELEMENT *current, const char **line_inout)
               && current->args.list[0]->contents.number > 0
               && (arg = current->args.list[0]->contents.list[0]))
             {
-              if (arg->type ==  ET_normal_text && arg->text.end > 0)
-                inline_type = arg->text.text;
+              if (arg->type ==  ET_normal_text && arg->text->end > 0)
+                inline_type = arg->text->text;
             }
 
           if (!inline_type)
@@ -688,7 +687,6 @@ handle_comma (ELEMENT *current, const char **line_inout)
               e = new_element (ET_elided_brace_command_arg);
               add_to_element_args (current, e);
               arg = new_text_element (ET_raw);
-              text_append (&arg->text, "");
               add_to_element_contents (e, arg);
 
               /* Scan forward to get the next argument. */
@@ -697,7 +695,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
                   static char *alloc_line;
                   size_t non_separator_len = strcspn (line, "{},");
                   if (non_separator_len > 0)
-                    text_append_n (&arg->text, line, non_separator_len);
+                    text_append_n (arg->text, line, non_separator_len);
                   line += non_separator_len;
                   switch (*line)
                     {
@@ -707,16 +705,16 @@ handle_comma (ELEMENT *current, const char **line_inout)
                           line++;
                           goto inlinefmtifelse_done;
                         }
-                      text_append_n (&arg->text, line, 1);
+                      text_append_n (arg->text, line, 1);
                       break;
                     case '{':
                       brace_count++;
-                      text_append_n (&arg->text, line, 1);
+                      text_append_n (arg->text, line, 1);
                       break;
                     case '}':
                       brace_count--;
                       if (brace_count > 0)
-                        text_append_n (&arg->text, line, 1);
+                        text_append_n (arg->text, line, 1);
                       break;
                     default:
                       /* at the end of line */
@@ -760,25 +758,24 @@ handle_comma (ELEMENT *current, const char **line_inout)
           e = new_element (ET_elided_brace_command_arg);
           add_to_element_args (current, e);
           arg = new_text_element (ET_raw);
-          text_append (&arg->text, "");
           add_to_element_contents (e, arg);
 
           while (brace_count > 0)
             {
               size_t non_separator_len = strcspn (line, "{}");
               if (non_separator_len > 0)
-                text_append_n (&arg->text, line, non_separator_len);
+                text_append_n (arg->text, line, non_separator_len);
               line += non_separator_len;
               switch (*line)
                 {
                 case '{':
                   brace_count++;
-                  text_append_n (&arg->text, line, 1);
+                  text_append_n (arg->text, line, 1);
                   break;
                 case '}':
                   brace_count--;
                   if (brace_count > 0)
-                    text_append_n (&arg->text, line, 1);
+                    text_append_n (arg->text, line, 1);
                   break;
                 default:
                   /* at the end of line */
@@ -803,7 +800,6 @@ handle_comma (ELEMENT *current, const char **line_inout)
   add_to_element_args (current, new_arg);
   current = new_arg;
   e = new_text_element (ET_internal_spaces_before_argument);
-  text_append (&e->text, ""); /* See comment in parser.c:merge_text */
   add_to_element_contents (current, e);
   internal_space_holder = current;
 

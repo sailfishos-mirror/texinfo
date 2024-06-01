@@ -219,7 +219,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
           continue;
         }
 
-      p = e->text.text;
+      p = e->text->text;
 
       if (e->source_mark_list.number)
         {
@@ -234,7 +234,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
           if (strchr (chars, *p))
             {
               new = new_text_element (ET_delimiter);
-              text_append_n (&new->text, p, 1);
+              text_append_n (new->text, p, 1);
 
               if (u8_text)
                 {
@@ -254,7 +254,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
 
           ELEMENT *new_text = new_text_element (ET_normal_text);
           len = strcspn (p, chars);
-          text_append_n (&new_text->text, p, len);
+          text_append_n (new_text->text, p, len);
 
           if (u8_text)
             {
@@ -314,7 +314,7 @@ split_def_args (ELEMENT *current, int starting_idx)
       if (e->type != ET_normal_text)
         continue;
 
-      p = e->text.text;
+      p = e->text->text;
 
       if (e->source_mark_list.number)
         {
@@ -337,7 +337,7 @@ split_def_args (ELEMENT *current, int starting_idx)
               new = new_text_element (ET_normal_text);
             }
 
-          text_append_n (&new->text, p, len);
+          text_append_n (new->text, p, len);
 
           if (u8_text)
             {
@@ -393,7 +393,7 @@ parse_def (enum command_id command, ELEMENT *current)
       e = new_element (ET_def_line_arg);
       insert_into_contents (current, e, contents_idx);
       e1 = new_text_element (ET_normal_text);
-      text_append_n (&e1->text, category, strlen (category));
+      text_append_n (e1->text, category, strlen (category));
       add_to_element_contents (e, e1);
       if (global_documentlanguage && *global_documentlanguage)
         {
@@ -407,7 +407,7 @@ parse_def (enum command_id command, ELEMENT *current)
         }
 
       e = new_text_element (ET_spaces);
-      text_append_n (&e->text, " ", 1);
+      text_append_n (e->text, " ", 1);
       add_info_integer (e, "inserted", 1);
       insert_into_contents (current, e, contents_idx + 1);
     }

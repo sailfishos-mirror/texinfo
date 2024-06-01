@@ -9,6 +9,47 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_close_brace),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): if the
+	argument of @errormsg is not text, still give an empty string as error
+	message.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): check
+	if the argument is text before accessing the text length.
+
+	* 
+
+	* tp/Texinfo/XS/main/tree.c (new_text_element, destroy_element),
+	tp/Texinfo/XS/main/tree_types.h (ELEMENT): setup the text field in
+	ELEMENT to be a pointer, such as to be able later on to have it in an
+	union along with another structure pointer for other elements.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): check that
+	the element type is text before accessing the text.
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/converter.c,
+	tp/Texinfo/XS/main/build_perl_info.c,
+	tp/Texinfo/XS/main/convert_to_texinfo.c,
+	tp/Texinfo/XS/main/convert_to_text.c,
+	tp/Texinfo/XS/main/manipulate_indices.c,
+	tp/Texinfo/XS/main/manipulate_tree.c,
+	tp/Texinfo/XS/main/node_name_normalization.c,
+	tp/Texinfo/XS/main/translations.c, tp/Texinfo/XS/main/utils.c,
+	p/Texinfo/XS/parsetexi/close.c,
+	tp/Texinfo/XS/parsetexi/debug_parser.c, tp/Texinfo/XS/parsetexi/def.c,
+	tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/parsetexi/handle_commands.c,
+	tp/Texinfo/XS/parsetexi/indices.c, tp/Texinfo/XS/parsetexi/macro.c,
+	tp/Texinfo/XS/parsetexi/menus.c, tp/Texinfo/XS/parsetexi/parser.c,
+	tp/Texinfo/XS/parsetexi/separator.c,
+	tp/Texinfo/XS/parsetexi/source_marks.c,
+	tp/Texinfo/XS/structuring_transfo/structuring.c,
+	tp/Texinfo/XS/structuring_transfo/transformations.c: update for change
+	in ELEMENT text.
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (new_text_element_added),
 	tp/Texinfo/XS/main/tree.c (new_text_element): add a new function to
 	setup a text element, to prepare for a different initialization and

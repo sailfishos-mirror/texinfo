@@ -175,8 +175,9 @@ check_space_element (ELEMENT *e)
         || e->cmd == CM_comment
         || e->cmd == CM_COLON
         || (type_data[e->type].flags & TF_text
-            && (e->text.end == 0
-                || !*(e->text.text + strspn (e->text.text, whitespace_chars))))
+            && (e->text->end == 0
+                || !*(e->text->text
+                        + strspn (e->text->text, whitespace_chars))))
      ))
     {
       return 0;
@@ -203,8 +204,8 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
   for (i = 0; i < e->contents.number; i++)
     {
       const ELEMENT *e1 = contents_child_by_index (e, i);
-      if (type_data[e1->type].flags & TF_text && e1->text.end > 0)
-        ADD(e1->text.text);
+      if (type_data[e1->type].flags & TF_text && e1->text->end > 0)
+        ADD(e1->text->text);
       else if (e1->cmd == CM_AT_SIGN
                || e1->cmd == CM_atchar)
         ADD("@");
@@ -526,7 +527,7 @@ parse_texi_document (void)
         preamble_before_beginning = new_element (ET_preamble_before_beginning);
 
       l = new_text_element (ET_text_before_beginning);
-      text_append (&l->text, line);
+      text_append (l->text, line);
       add_to_element_contents (preamble_before_beginning, l);
     }
 
@@ -707,7 +708,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                          type_data[last_element->type].name);
                   free (additional_text_dbg);
                 }
-              text_append_n (&last_element->text, text, leading_spaces);
+              text_append_n (last_element->text, text, leading_spaces);
               text += leading_spaces;
               len_text -= leading_spaces;
             }
@@ -735,13 +736,13 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       && last_element
       /* can actually be normal_text, and some space elements */
       && type_data[last_element->type].flags & TF_text
-      && !strchr (last_element->text.text, '\n'))
+      && !strchr (last_element->text->text, '\n'))
     {
       /* Transfer source marks */
       if (transfer_marks_element
           && transfer_marks_element->source_mark_list.number > 0)
         {
-          size_t additional_length = count_multibyte (last_element->text.text);
+          size_t additional_length = count_multibyte (last_element->text->text);
           SOURCE_MARK_LIST *s_mark_list
              = &(transfer_marks_element->source_mark_list);
           int i;
@@ -766,7 +767,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
         }
 
       /* Append text */
-      text_append_n (&last_element->text, text, len_text);
+      text_append_n (last_element->text, text, len_text);
     }
   else
     {
@@ -774,7 +775,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       ELEMENT *e = new_text_element (ET_normal_text);
       if (transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e);
-      text_append_n (&e->text, text, len_text);
+      text_append_n (e->text, text, len_text);
       add_to_element_contents (current, e);
       if (global_parser_conf.debug)
         {
@@ -813,13 +814,13 @@ abort_empty_line (ELEMENT **current_inout)
           debug_nonl ("(p:%d): %s; ", in_paragraph_context (current_context ()),
                       type_data[last_child->type].name);
           debug_nonl ("|%s|",
-                      last_child->text.end > 0 ? last_child->text.text : "");
+                      last_child->text->end > 0 ? last_child->text->text : "");
           debug ("");
         }
 
 
       /* Remove element altogether if it's empty. */
-      if (last_child->text.end == 0)
+      if (last_child->text->end == 0)
         {
           ELEMENT *e = pop_element_from_contents (current);
           if (e->source_mark_list.number)
@@ -867,8 +868,8 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
   char *text;
   int text_len;
 
-  text = last_elt->text.text;
-  text_len = last_elt->text.end;
+  text = last_elt->text->text;
+  text_len = last_elt->text->end;
 
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
@@ -890,18 +891,18 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
            i--)
         trailing_spaces++;
 
-      text_append_n (&spaces_element->text, text + text_len - trailing_spaces,
+      text_append_n (spaces_element->text, text + text_len - trailing_spaces,
                      trailing_spaces);
 
       text[text_len - trailing_spaces] = '\0';
-      last_elt->text.end -= trailing_spaces;
+      last_elt->text->end -= trailing_spaces;
 
       if (last_elt->source_mark_list.number > 0)
         {
           size_t begin_position = count_multibyte (text);
           relocate_source_marks (&(last_elt->source_mark_list), spaces_element,
                                  begin_position,
-                                 count_multibyte (spaces_element->text.text));
+                                 count_multibyte (spaces_element->text->text));
         }
 
       add_info_element_oot (current, "spaces_after_argument",
@@ -914,7 +915,7 @@ static void
 isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
                         enum element_type spaces_type)
 {
-  char *text = last_elt->text.text;
+  char *text = last_elt->text->text;
 
 
   /* If text all whitespace */
@@ -926,7 +927,7 @@ isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
     {
       ELEMENT *new_spaces;
       int i, trailing_spaces;
-      int text_len = last_elt->text.end;
+      int text_len = last_elt->text->end;
 
       trailing_spaces = 0;
       for (i = text_len - 1;
@@ -937,11 +938,11 @@ isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
       if (trailing_spaces)
         {
           new_spaces = new_text_element (spaces_type);
-          text_append_n (&new_spaces->text,
+          text_append_n (new_spaces->text,
                          text + text_len - trailing_spaces,
                          trailing_spaces);
           text[text_len - trailing_spaces] = '\0';
-          last_elt->text.end -= trailing_spaces;
+          last_elt->text->end -= trailing_spaces;
 
           add_to_element_contents (current, new_spaces);
         }
@@ -975,12 +976,12 @@ isolate_last_space (ELEMENT *current)
   if (!(type_data[last_elt->type].flags & TF_text))
     goto no_isolate_space;
 
-  text_len = last_elt->text.end;
+  text_len = last_elt->text->end;
   if (text_len <= 0)
     goto no_isolate_space;
 
   /* Does the text end in whitespace? */
-  if (!strchr (whitespace_chars, last_elt->text.text[text_len - 1]))
+  if (!strchr (whitespace_chars, last_elt->text->text[text_len - 1]))
     goto no_isolate_space;
 
   debug_nonl ("ISOLATE SPACE p ");
@@ -1023,7 +1024,7 @@ start_empty_line_after_command (ELEMENT *current, const char **line_inout,
   len = strspn (line, whitespace_chars_except_newline);
   e = new_text_element (ET_ignorable_spaces_after_command);
   add_to_element_contents (current, e);
-  text_append_n (&e->text, line, len);
+  text_append_n (e->text, line, len);
   line += len;
 
   if (command)
@@ -1105,7 +1106,7 @@ new_value_element (enum command_id cmd, const char *flag,
 
   value_elt->cmd = cmd;
 
-  text_append_n (&value_text->text, flag, flag_len);
+  text_append_n (value_text->text, flag, flag_len);
   add_to_element_args (value_elt, brace_command_arg);
   add_to_element_contents (brace_command_arg, value_text);
   if (spaces_element)
@@ -1465,7 +1466,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                       ELEMENT *e;
                       int n = strspn (line, whitespace_chars);
                       e = new_text_element (ET_raw);
-                      text_append_n (&e->text, line, n);
+                      text_append_n (e->text, line, n);
                       add_to_element_contents (current, e);
                       line += n;
                       line_warn ("@end %s should only appear at the "
@@ -1479,7 +1480,9 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                       enum command_id existing;
                       if (current->args.number > 0)
                         {
-                          name = element_text (args_child_by_index (current, 0));
+                          const ELEMENT *macro_name_e
+                              = args_child_by_index (current, 0);
+                          name = macro_name_e->text->text;
 
                           existing = lookup_command (name);
                           if (existing)
@@ -1535,7 +1538,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           ELEMENT *e;
           e = new_text_element (ET_raw);
-          text_append (&e->text, line);
+          text_append (e->text, line);
           add_to_element_contents (current, e);
 
           retval = GET_A_NEW_LINE;
@@ -1589,7 +1592,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               ELEMENT *e;
               int n = strspn (line, whitespace_chars);
               e = new_text_element (ET_raw);
-              text_append_n (&e->text, line, n);
+              text_append_n (e->text, line, n);
               add_to_element_contents (current, e);
               line += n;
               line_warn ("@end %s should only appear at the "
@@ -1604,7 +1607,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       else
         {
           ELEMENT *e = new_text_element (ET_raw);
-          text_append (&(e->text), line);
+          text_append (e->text, line);
           add_to_element_contents (current, e);
           retval = GET_A_NEW_LINE;
           goto funexit;
@@ -1643,7 +1646,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           if (q != line)
             {
               ELEMENT *e = new_text_element (ET_raw);
-              text_append_n (&e->text, line, q - line);
+              text_append_n (e->text, line, q - line);
               add_to_element_contents (current, e);
             }
           debug ("END VERB");
@@ -1654,7 +1657,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           /* Save the rest of line. */
           ELEMENT *e = new_text_element (ET_raw);
-          text_append (&e->text, line);
+          text_append (e->text, line);
           add_to_element_contents (current, e);
 
           debug_nonl ("LINE VERB: %s", line);
@@ -1695,7 +1698,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               else
                 {
                   ELEMENT *raw_text = new_text_element (ET_raw);
-                  text_append (&(raw_text->text), line);
+                  text_append (raw_text->text, line);
                   add_to_element_contents (e_elided_rawpreformatted, raw_text);
                 }
             }
@@ -1709,7 +1712,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       add_to_element_contents (current, e_empty_line);
 
       n = strspn (line, whitespace_chars_except_newline);
-      text_append_n (&e_empty_line->text, line, n);
+      text_append_n (e_empty_line->text, line, n);
       line += n;
    /* It is important to let the processing continue from here, such that
       the @end is catched and handled below, as the condition has not changed */
@@ -1816,7 +1819,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             {
               /* special text in "spaces_after_cmd_before_arg" */
               spaces_element = new_text_element (ET_other_text);
-              text_append_n (&(spaces_element->text),
+              text_append_n (spaces_element->text,
                              remaining_line, whitespaces_len);
               remaining_line += whitespaces_len;
             }
@@ -2029,13 +2032,13 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
              {
                ELEMENT *e_spaces_after_cmd_before_arg
                  = new_text_element (ET_internal_spaces_after_cmd_before_arg);
-               text_append_n (&(e_spaces_after_cmd_before_arg->text),
+               text_append_n (e_spaces_after_cmd_before_arg->text,
                               line, whitespaces_len);
                add_to_element_contents (current, e_spaces_after_cmd_before_arg);
 
                debug_nonl ("BRACE CMD before brace init spaces '");
                debug_print_protected_string
-                                  (e_spaces_after_cmd_before_arg->text.text);
+                                  (e_spaces_after_cmd_before_arg->text->text);
                debug ("'");
 
                line += whitespaces_len;
@@ -2045,7 +2048,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
        /* contents, at this point can only be for spaces_after_cmd_before_arg */
             /* only ignore spaces and one newline, two newlines lead to
                an empty line before the brace or argument which is incorrect. */
-               char *previous_value = current->contents.list[0]->text.text;
+               char *previous_value = current->contents.list[0]->text->text;
                if (additional_newline && strchr ("\n", *previous_value))
                  {
                    debug ("BRACE CMD before brace second newline stops spaces");
@@ -2056,11 +2059,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                  }
                else
                  {
-                   text_append_n (&(current->contents.list[0]->text),
+                   text_append_n (current->contents.list[0]->text,
                                   line, whitespaces_len);
                    debug ("BRACE CMD before brace add spaces '%s'",
-                          current->contents.list[0]->text.text
-                            + strlen (current->contents.list[0]->text.text)
+                          current->contents.list[0]->text->text
+                            + strlen (current->contents.list[0]->text->text)
                                                          - whitespaces_len);
                    line += whitespaces_len;
                  }
@@ -2085,16 +2088,16 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             char_len++;
 
           e2 = new_text_element (ET_normal_text);
-          text_append_n (&e2->text, line, char_len);
+          text_append_n (e2->text, line, char_len);
           debug ("ACCENT @%s following_arg: %s", command_name(current->cmd),
-                 e2->text.text);
+                 e2->text->text);
           add_to_element_contents (e, e2);
 
           if (current->cmd == CM_dotless
               && *line != 'i' && *line != 'j')
             {
               line_error ("@dotless expects `i' or `j' as argument, "
-                          "not `%s'", e2->text.text);
+                          "not `%s'", e2->text->text);
             }
           line += char_len;
           current = current->parent;
@@ -2137,7 +2140,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                 {
                   /* special text in "spaces_after_cmd_before_arg" */
                   spaces_element = new_text_element (ET_other_text);
-                  text_append_n (&(spaces_element->text),
+                  text_append_n (spaces_element->text,
                                  line, whitespaces_len);
                   line += whitespaces_len;
                 }
@@ -2305,7 +2308,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           ELEMENT *last_elt = last_contents_child (current);
 
           if (last_elt && type_data[last_elt->type].flags & TF_text
-              && last_elt->text.end > 0)
+              && last_elt->text->end > 0)
             {
               if (cmd == CM_subentry)
                 {
@@ -2415,7 +2418,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           /* A form feed stops and restarts a paragraph. */
           current = end_paragraph (current, 0, 0);
           e = new_text_element (ET_empty_line);
-          text_append_n (&e->text, "\f", 1);
+          text_append_n (e->text, "\f", 1);
           add_to_element_contents (current, e);
           e = new_text_element (ET_empty_line);
           add_to_element_contents (current, e);
@@ -2547,7 +2550,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           add_to_element_contents (current, e);
 
           n = strspn (line, whitespace_chars_except_newline);
-          text_append_n (&e->text, line, n);
+          text_append_n (e->text, line, n);
           line += n;
         }
 
@@ -2623,7 +2626,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           break; /* Out of input. */
 
         e = new_text_element (ET_text_after_end);
-        text_append (&e->text, line);
+        text_append (e->text, line);
         add_to_element_contents (element_after_bye, e);
       }
     if (element_after_bye->contents.number == 0)

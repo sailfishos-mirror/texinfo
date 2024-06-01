@@ -105,7 +105,7 @@ parse_line_command_args (ELEMENT *line_command)
 {
 #define ADD_ARG(string) do { \
     ELEMENT *E = new_text_element (ET_other_text); \
-    text_append (&E->text, string); \
+    text_append (E->text, string); \
     add_to_element_list (line_args, E); \
 } while (0)
 
@@ -125,12 +125,13 @@ parse_line_command_args (ELEMENT *line_command)
     {
       line_error ("superfluous argument to @%s", command_name (cmd));
     }
-  if (arg->contents.list[0]->text.end == 0)
+  if (arg->contents.list[0]->type != ET_normal_text
+      || arg->contents.list[0]->text->end == 0)
     return 0;
 
   /* put in extra "misc_args" */
   line_args = new_list ();
-  line = arg->contents.list[0]->text.text;
+  line = arg->contents.list[0]->text->text;
 
   switch (cmd)
     {
@@ -317,7 +318,7 @@ parse_line_command_args (ELEMENT *line_command)
             else
               {
                 new = new_text_element (ET_other_text);
-                text_append_n (&new->text, p, q - p);
+                text_append_n (new->text, p, q - p);
                 add_to_element_list (line_args, new);
               }
             free (arg);
@@ -725,7 +726,8 @@ end_line_def_line (ELEMENT *current)
           if (arg->type == ET_bracketed_arg
               && (arg->contents.number == 0
                   || (arg->contents.number == 1
-                      && (t = arg->contents.list[0]->text.text)
+                      && arg->contents.list[0]->type == ET_normal_text
+                      && (t = arg->contents.list[0]->text->text)
                       && t[strspn (t, whitespace_chars)] == '\0')))
             {
             }
@@ -838,7 +840,7 @@ end_line_starting_block (ELEMENT *current)
             {
               max_columns++;
             }
-          else if (e->type == ET_normal_text && e->text.end > 0)
+          else if (e->type == ET_normal_text && e->text->end > 0)
             {
               /*
               TODO: this should be a warning or an error - all prototypes
@@ -908,13 +910,13 @@ end_line_starting_block (ELEMENT *current)
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
               if (g->type == ET_normal_text
-                  && ((g->text.end == 1
-                       && isascii_alpha (g->text.text[0]))
-                      || (g->text.end > 0
-                          && !*(g->text.text
-                            + strspn (g->text.text, digit_chars)))))
+                  && ((g->text->end == 1
+                       && isascii_alpha (g->text->text[0]))
+                      || (g->text->end > 0
+                          && !*(g->text->text
+                            + strspn (g->text->text, digit_chars)))))
                 {
-                  spec = g->text.text;
+                  spec = g->text->text;
                 }
               else
                 command_error (current, "bad argument to @%s",
@@ -987,9 +989,9 @@ end_line_starting_block (ELEMENT *current)
                   if (f->cmd != CM_c
                       && f->cmd != CM_comment
                       && !(f->type == ET_normal_text
-                           && f->text.end > 0
-                           && !*(f->text.text
-                                 + strspn (f->text.text, whitespace_chars))))
+                           && f->text->end > 0
+                           && !*(f->text->text
+                                 + strspn (f->text->text, whitespace_chars))))
                     {
                       k_command_as_arg->k.element->type = ET_NONE;
                       k_command_as_arg->key = "";
@@ -1102,9 +1104,9 @@ end_line_starting_block (ELEMENT *current)
               && current->args.list[0]->contents.number == 1)
             {
               ELEMENT *arg_elt = current->args.list[0]->contents.list[0];
-              if (arg_elt->type == ET_normal_text && arg_elt->text.end > 0)
+              if (arg_elt->type == ET_normal_text && arg_elt->text->end > 0)
                 {
-                  const char *p = arg_elt->text.text;
+                  const char *p = arg_elt->text->text;
                   p += strspn (p, whitespace_chars);
                   if (!*p)
                     {
@@ -1876,7 +1878,7 @@ end_line (ELEMENT *current)
 
           current = e;
           e = new_text_element (ET_after_menu_description_line);
-          text_append (&e->text, empty_line->text.text);
+          text_append (e->text, empty_line->text->text);
           transfer_source_marks (empty_line, e);
           destroy_element (empty_line);
           add_to_element_contents (current, e);

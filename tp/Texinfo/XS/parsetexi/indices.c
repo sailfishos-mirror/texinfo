@@ -291,7 +291,7 @@ enter_index_entry (enum command_id index_type_cmd,
     ELEMENT_LIST *index_entry = new_list ();
     /* index name put as text in extra "misc_args" */
     ELEMENT *e = new_text_element (ET_other_text);
-    text_append (&e->text, idx->name);
+    text_append (e->text, idx->name);
     add_to_element_list (index_entry, e);
     e = new_element (ET_NONE);
     add_extra_integer (e, "integer", idx->entries_number);
@@ -454,7 +454,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                                                   document, lang, substrings,
                                                   debug_level, 0);
 
-                          text_append (&text_element->text, " on ");
+                          text_append (text_element->text, " on ");
                         }
                       else if (def_command == CM_defcv
                                || def_command == CM_defivar
@@ -465,7 +465,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                                                   document, lang, substrings,
                                                   debug_level, 0);
 
-                          text_append (&text_element->text, " of ");
+                          text_append (text_element->text, " of ");
                         }
                       destroy_named_string_element_list (substrings);
 

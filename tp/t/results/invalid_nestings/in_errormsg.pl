@@ -279,6 +279,13 @@ $result_errors{'in_errormsg'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => '
+',
+    'line_nr' => 3,
+    'text' => '',
+    'type' => 'error'
+  },
+  {
     'error_line' => '@errormsg missing closing brace
 ',
     'line_nr' => 5,

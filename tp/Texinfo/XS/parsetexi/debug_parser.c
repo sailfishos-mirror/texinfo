@@ -107,13 +107,13 @@ print_element_debug_parser (const ELEMENT *e, int print_parent)
     text_printf (&text, "(%s)", type_data[e->type].name);
   if (type_data[e->type].flags & TF_text)
     {
-      if (e->text.end == 0)
+      if (e->text->end == 0)
         {
           text_append_n (&text, "[T]", 3);
         }
       else
         {
-          char *element_text = debug_protect_eol (e->text.text);
+          char *element_text = debug_protect_eol (e->text->text);
           text_printf (&text, "[T: %s]", element_text);
           free (element_text);
         }

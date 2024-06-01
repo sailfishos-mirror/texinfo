@@ -56,7 +56,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       ADD("@");  ADD(cmdname);
       elt = lookup_info_element (e, "spaces_after_cmd_before_arg");
       if (elt)
-        ADD((char *)elt->text.text);
+        ADD((char *)elt->text->text);
     }
 
   spc_before_arg = lookup_info_element (e, "spaces_before_argument");
@@ -65,7 +65,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
   if (arg_line)
     {
       if (spc_before_arg)
-        ADD((char *)spc_before_arg->text.text);
+        ADD((char *)spc_before_arg->text->text);
 
       ADD(arg_line);
     }
@@ -86,7 +86,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
         }
 
       if (spc_before_arg)
-        ADD((char *)spc_before_arg->text.text);
+        ADD((char *)spc_before_arg->text->text);
 
       if ((builtin_command_data[cmd].flags & CF_block
            && ! (builtin_command_data[cmd].flags & CF_def
@@ -126,7 +126,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
   else
     {
       if (spc_before_arg)
-        ADD((char *)spc_before_arg->text.text);
+        ADD((char *)spc_before_arg->text->text);
     }
 }
 
@@ -141,8 +141,8 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
     {}
   else if (type_data[e->type].flags & TF_text)
     {
-      if (e->text.end > 0)
-        ADD(e->text.text);
+      if (e->text->end > 0)
+        ADD(e->text->text);
     }
   else
     {
@@ -159,7 +159,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
           elt = lookup_info_element (e, "spaces_before_argument");
           if (elt)
             {
-              ADD((char *)elt->text.text);
+              ADD((char *)elt->text->text);
             }
         }
       if (e->contents.number > 0)
@@ -172,7 +172,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
       elt = lookup_info_element (e, "spaces_after_argument");
       if (elt)
         {
-          ADD((char *)elt->text.text);
+          ADD((char *)elt->text->text);
         }
 
       elt = lookup_info_element (e, "comment_at_end");

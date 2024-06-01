@@ -395,7 +395,7 @@ substitute_element_array (ELEMENT_LIST *list,
       ELEMENT *e = list->list[idx];
       if (e->cmd == CM_txiinternalvalue)
         {
-          char *name = e->args.list[0]->contents.list[0]->text.text;
+          char *name = e->args.list[0]->contents.list[0]->text->text;
           int i;
           for (i = 0; i < replaced_substrings->number; i++)
             {

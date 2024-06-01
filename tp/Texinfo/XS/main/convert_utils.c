@@ -71,7 +71,7 @@ expand_today (OPTIONS *options)
   if (options->TEST.o.integer > 0)
     {
       result = new_text_element (ET_normal_text);
-      text_append (&result->text, "a sunny day");
+      text_append (result->text, "a sunny day");
       return result;
     }
 
@@ -98,8 +98,8 @@ expand_today (OPTIONS *options)
                          options->DEBUG.o.integer, 0);
   day_element = new_text_element (ET_normal_text);
   year_element = new_text_element (ET_normal_text);
-  text_printf (&day_element->text, "%d", time_tm->tm_mday);
-  text_printf (&year_element->text, "%d", year);
+  text_printf (day_element->text, "%d", time_tm->tm_mday);
+  text_printf (year_element->text, "%d", year);
 
   substrings = new_named_string_element_list ();
   add_element_to_named_string_element_list (substrings, "month", month_tree);
@@ -411,7 +411,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                        (line, conversion, &current->source_info);
               free (line);
               raw = new_text_element (ET_raw);
-              text_append (&raw->text, text);
+              text_append (raw->text, text);
               add_to_element_contents (verbatiminclude, raw);
               free (text);
             }
@@ -923,9 +923,9 @@ find_root_command_next_heading_command (const ELEMENT *root,
       /* do not happen and should not happen, as normal text should never
          be in top level root command contents, only empty_line,
          spaces_after_close_brace... that only contain whitespace_chars */
-      if (content->type == ET_normal_text && content->text.end > 0)
+      if (content->type == ET_normal_text && content->text->end > 0)
         {
-          const char *text = content->text.text;
+          const char *text = content->text->text;
           fprintf (stderr, "BUG: in top level unexpected normal_text: '%s'\n",
                            text);
           /* only whitespace characters */

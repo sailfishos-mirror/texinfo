@@ -86,13 +86,13 @@ print_element_debug (const ELEMENT *e, int print_parent)
     text_printf (&text, "(%s)", type_data[e->type].name);
   if (type_data[e->type].flags & TF_text)
     {
-      if (e->text.end == 0)
+      if (e->text->end == 0)
         {
           text_append_n (&text, "[T]", 3);
         }
       else
         {
-          char *element_text = debug_protect_eol (e->text.text);
+          char *element_text = debug_protect_eol (e->text->text);
           text_printf (&text, "[T: %s]", element_text);
           free (element_text);
         }
@@ -162,7 +162,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
               {
                 const ELEMENT *e = l->list[j];
                 if (e->type == ET_other_text)
-                  text_printf (&text, "%s|", e->text.text);
+                  text_printf (&text, "%s|", e->text->text);
                 else
                   {
                     KEY_PAIR *k_integer = lookup_extra (e, "integer");

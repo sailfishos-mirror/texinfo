@@ -87,8 +87,8 @@ check_no_text (const ELEMENT *current)
             {
               ELEMENT *g = f->contents.list[j];
               if ((g->type == ET_normal_text
-                   && g->text.end > 0
-                   && g->text.text[strspn (g->text.text, whitespace_chars)])
+                   && g->text->end > 0
+                   && g->text->text[strspn (g->text->text, whitespace_chars)])
                   || (g->cmd && g->cmd != CM_c
                       && g->cmd != CM_comment
                       && g->type != ET_index_entry_command))
@@ -183,7 +183,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
 {
 #define ADD_ARG(string, len) do { \
   ELEMENT *E = new_text_element (ET_other_text); \
-  text_append_n (&E->text, string, len); \
+  text_append_n (E->text, string, len); \
   add_to_element_contents (args, E); \
 } while (0)
 
@@ -230,8 +230,8 @@ parse_rawline_command (const char *line, enum command_id cmd,
       else
         ADD_ARG("", 0);
 
-      store_parser_value (args->contents.list[0]->text.text,
-                          args->contents.list[1]->text.text);
+      store_parser_value (args->contents.list[0]->text->text,
+                          args->contents.list[1]->text->text);
 
       break;
     set_no_name:
@@ -634,12 +634,12 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       if (cmd == CM_set || cmd == CM_clear)
         {
           if (args->contents.number > 0
-              && args->contents.list[0]->text.end > 0)
+              && args->contents.list[0]->text->end > 0)
             {
-              if (!strcmp (args->contents.list[0]->text.text,
+              if (!strcmp (args->contents.list[0]->text->text,
                            "txicodequoteundirected"))
                 equivalent_cmd = CM_codequoteundirected;
-              else if (!strcmp (args->contents.list[0]->text.text,
+              else if (!strcmp (args->contents.list[0]->text->text,
                                 "txicodequotebacktick"))
                 equivalent_cmd = CM_codequotebacktick;
             }
@@ -664,7 +664,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           destroy_element_and_children (args);
           e = new_text_element (ET_other_text);
-          text_append (&e->text, arg);
+          text_append (e->text, arg);
           add_to_element_list (args_list, e);
 
           destroy_element_and_children (command_e);
@@ -675,15 +675,15 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           line_args = new_element (ET_line_arg);
           add_to_element_args (command_e, line_args);
           add_extra_misc_args (command_e, "misc_args", args_list);
-          text_append (&spaces_before->text, " ");
+          text_append (spaces_before->text, " ");
           add_info_element_oot (command_e, "spaces_before_argument", spaces_before);
 
-          text_append (&spaces_after->text, "\n");
+          text_append (spaces_after->text, "\n");
           add_info_element_oot (line_args, "spaces_after_argument",
                                 spaces_after);
 
           e = new_text_element (ET_normal_text);
-          text_append (&e->text, arg);
+          text_append (e->text, arg);
           add_to_element_contents (line_args, e);
 
           add_to_element_contents (current, command_e);

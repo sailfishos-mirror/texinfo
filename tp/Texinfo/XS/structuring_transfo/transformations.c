@@ -58,7 +58,7 @@ lookup_index_entry (ELEMENT_LIST *index_entry_info, INDEX_LIST *indices_info)
   int entry_number
     = lookup_extra_integer (index_entry_info->list[1], "integer",
                             &status);
-  char *entry_index_name = index_entry_info->list[0]->text.text;
+  char *entry_index_name = index_entry_info->list[0]->text->text;
   INDEX *index_info;
 
   index_info = indices_info_index_by_name (indices_info,
@@ -89,9 +89,9 @@ protect_first_parenthesis (ELEMENT *element)
     {
       ELEMENT *content = element->contents.list[i];
       const char *p;
-      if (content->type != ET_normal_text || content->text.end == 0)
+      if (content->type != ET_normal_text || content->text->end == 0)
         continue;
-      p = content->text.text;
+      p = content->text->text;
       if (*p == '(')
         {
           ELEMENT *new_command
@@ -125,8 +125,8 @@ protect_first_parenthesis (ELEMENT *element)
           else
             {
               /* remove leading open brace */
-              text_reset (&content->text);
-              text_append (&content->text, p+1);
+              text_reset (content->text);
+              text_append (content->text, p+1);
 
               if (u8_text)
                 {
@@ -187,7 +187,7 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
 
           element->cmd = cmd;
           add_to_element_contents (parent, element);
-          text_append (&rawline_arg->text, "\n");
+          text_append (rawline_arg->text, "\n");
           add_to_element_args (element, rawline_arg);
           remaining_level--;
         }
@@ -253,10 +253,10 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
         = level_to_structuring_command[CM_unnumbered][current_section_level];
               new_section->parent = root;
 
-              text_append (&spaces_before_argument->text, " ");
+              text_append (spaces_before_argument->text, " ");
               add_info_element_oot (new_section, "spaces_before_argument",
                                     spaces_before_argument);
-              text_append (&spaces_after_argument->text, "\n");
+              text_append (spaces_after_argument->text, "\n");
 
               add_info_element_oot (line_arg, "spaces_after_argument",
                                     spaces_after_argument);
@@ -278,7 +278,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
                 }
               add_to_element_contents (line_arg, line_content);
 
-              text_append (&empty_line->text, "\n");
+              text_append (empty_line->text, "\n");
               add_to_element_contents (new_section, empty_line);
 
               add_to_element_list (new_sections, new_section);
@@ -410,7 +410,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                   */
                   entry_idx_info->index_entry->entry_associated_element = item;
               /* also add a reference from element to index entry in index */
-                  text_append (&e->text, entry_idx_info->index->name);
+                  text_append (e->text, entry_idx_info->index->name);
                   add_to_element_list (index_entry_command, e);
                   e = new_element (ET_NONE);
                   add_extra_integer (e, "integer",
@@ -502,7 +502,7 @@ move_index_entries_after_items (ELEMENT *current)
                   && item_container->contents.list[0]->type
                           == ET_ignorable_spaces_after_command)
                 {
-                  TEXT *t = &item_container->contents.list[0]->text;
+                  TEXT *t = item_container->contents.list[0]->text;
                   /*
                    insert after leading spaces, and add an end of line if there
                    is none
@@ -583,7 +583,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   if (node_tree->contents.number <= 0)
     {
       ELEMENT *empty_text = new_text_element (ET_normal_text);
-      text_append (&empty_text->text, "");
+      text_append (empty_text->text, "");
       add_to_element_contents (node_tree, empty_text);
       empty_node = 1;
     }
@@ -598,11 +598,11 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   text_init (&spaces_after_argument);
   text_append (&spaces_after_argument, "");
   if (last_content && last_content->type == ET_normal_text
-      && last_content->text.end > 0)
+      && last_content->text->end > 0)
     {
-      int end = last_content->text.end;
-      char *p = last_content->text.text + end-1;
-      for (; p >= last_content->text.text; p--)
+      int end = last_content->text->end;
+      char *p = last_content->text->text + end-1;
+      for (; p >= last_content->text->text; p--)
         {
           if (!strchr (whitespace_chars, *p))
             break;
@@ -611,7 +611,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
           end--;
         }
       text_append (&spaces_after_argument, p+1);
-      last_content->text.end = end;
+      last_content->text->end = end;
     }
   if (!new_line_at_end && !comment_at_end)
     text_append (&spaces_after_argument, "\n");
@@ -631,8 +631,8 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       node = new_element (ET_NONE);
       node->cmd = CM_node;
       add_to_element_args (node, node_line_arg);
-      text_append (&spaces_before->text, " ");
-      text_append (&spaces_after->text, spaces_after_argument.text);
+      text_append (spaces_before->text, " ");
+      text_append (spaces_after->text, spaces_after_argument.text);
       add_info_element_oot (node, "spaces_before_argument", spaces_before);
       add_info_element_oot (node_line_arg, "spaces_after_argument",
                             spaces_after);
@@ -648,7 +648,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       if (appended_number)
         {
           appended_text = new_text_element (ET_normal_text);
-          text_printf (&appended_text->text, " %d", appended_number);
+          text_printf (appended_text->text, " %d", appended_number);
           add_to_element_contents (node_line_arg, appended_text);
         }
       normalized = convert_contents_to_identifier (node_line_arg);
@@ -788,7 +788,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                 {
                   ELEMENT *top_node_text = new_text_element (ET_normal_text);
                   new_node_tree = new_text_element (ET_normal_text);
-                  text_append (&top_node_text->text, "Top");
+                  text_append (top_node_text->text, "Top");
                   add_to_element_contents (new_node_tree, top_node_text);
                 }
               else
@@ -898,8 +898,6 @@ reference_to_arg_internal (const char *type,
       if (document)
         document->modified_information |= F_DOCM_tree;
       destroy_element_and_children (e);
-      if (new->contents.number == 0)
-        text_append (&new->text, "");
       return container;
     }
   else
@@ -920,7 +918,7 @@ prepend_new_menu_in_node_section (ELEMENT *node, ELEMENT *section,
   ELEMENT_LIST *menus = add_extra_contents (node, "menus", 0);
 
   add_to_element_contents (section, current_menu);
-  text_append (&empty_line->text, "\n");
+  text_append (empty_line->text, "\n");
   add_to_element_contents (section, empty_line);
 
   add_to_element_list (menus, current_menu);
@@ -1243,7 +1241,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
       if (preformatted)
         {
           ELEMENT *empty_line = new_text_element (ET_empty_line);
-          text_append (&empty_line->text, "\n");
+          text_append (empty_line->text, "\n");
           add_to_element_contents (preformatted, empty_line);
         }
       else if (last_element->type == ET_menu_entry)
@@ -1259,7 +1257,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
           index++;
           preformatted = new_element (ET_preformatted);
           add_to_element_contents (menu_comment, preformatted);
-          text_append (&after_line->text, "\n");
+          text_append (after_line->text, "\n");
           add_to_element_contents (preformatted, after_line);
         }
     }
@@ -1284,12 +1282,12 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                              void *argument)
 {
   if ((current->type == ET_normal_text || current->type == ET_raw)
-       && current->text.end > 0)
+       && current->text->end > 0)
     {
       char *filename;
       int line_no = 0;
       int status = 0;
-      filename = parse_line_directive (current->text.text, &status, &line_no);
+      filename = parse_line_directive (current->text->text, &status, &line_no);
 
       if (status)
         {
@@ -1314,10 +1312,10 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                     {
                       ELEMENT *previous = parent->contents.list[i-1];
                       if (type_data[previous->type].flags & TF_text
-                          && previous->text.end > 0)
+                          && previous->text->end > 0)
                          {
-                           int end = previous->text.end;
-                           if (previous->text.text[end -1] == '\n')
+                           int end = previous->text->end;
+                           if (previous->text->text[end -1] == '\n')
                              do_protect = 1;
                          }
                     }
@@ -1349,7 +1347,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                       else
                         {
                           ELEMENT_LIST *container = new_list ();
-                          char *current_text = strdup (current->text.text);
+                          char *current_text = strdup (current->text->text);
                           char *p = current_text;
                           size_t leading_spaces_nr;
                           ELEMENT *leading_spaces
@@ -1385,7 +1383,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                             {
                               p += leading_spaces_nr;
                               *p = '\0'; /* as a side note, it replaces the # */
-                              text_append (&leading_spaces->text, current_text);
+                              text_append (leading_spaces->text, current_text);
                             }
 
                           if (u8_text)
@@ -1424,8 +1422,8 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                                      current_position, u8_len);
                             }
 
-                          text_reset (&current->text);
-                          text_append (&current->text, p);
+                          text_reset (current->text);
+                          text_append (current->text, p);
                           free (current_text);
 
                           if (u8_text)

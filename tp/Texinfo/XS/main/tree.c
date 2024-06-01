@@ -124,6 +124,10 @@ new_text_element (enum element_type type)
   e = alloc_element ();
   e->type = type;
 
+  e->text = (TEXT *) malloc (sizeof (TEXT));
+  text_init (e->text);
+  text_append (e->text, "");
+
   return e;
 }
 
@@ -209,17 +213,21 @@ destroy_source_mark_list (SOURCE_MARK_LIST *source_mark_list)
 void
 destroy_element (ELEMENT *e)
 {
-  free (e->text.text);
-
-  /* Note the pointers in these lists are not themselves freed. */
-  free (e->contents.list);
-  free (e->args.list);
-
   unregister_perl_tree_element (e);
 
   destroy_source_mark_list (&(e->source_mark_list));
 
   destroy_associated_info (&e->extra_info);
+
+  if (e->text)
+    {
+      free (e->text->text);
+      free (e->text);
+    }
+  /* Note the pointers in these lists are not themselves freed. */
+  free (e->contents.list);
+  free (e->args.list);
+
   destroy_associated_info (&e->info_info);
 
   free (e);
