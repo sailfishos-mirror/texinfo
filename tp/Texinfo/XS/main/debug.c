@@ -156,11 +156,11 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_misc_args:
           {
             int j;
-            const ELEMENT *f = k->k.element;
+            const ELEMENT_LIST *l = k->k.list;
             text_append (&text, "array: ");
-            for (j = 0; j < f->contents.number; j++)
+            for (j = 0; j < l->number; j++)
               {
-                const ELEMENT *e = f->contents.list[j];
+                const ELEMENT *e = l->list[j];
                 if (e->type == ET_other_text)
                   text_printf (&text, "%s|", e->text.text);
                 else

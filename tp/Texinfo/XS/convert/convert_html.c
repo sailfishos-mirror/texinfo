@@ -11027,11 +11027,11 @@ convert_sp_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  const ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
-  if (misc_args && misc_args->contents.number > 0)
+  const ELEMENT_LIST *misc_args = lookup_extra_misc_args (element, "misc_args");
+  if (misc_args && misc_args->number > 0)
     {
       int i;
-      const ELEMENT *element_with_number = misc_args->contents.list[0];
+      const ELEMENT *element_with_number = misc_args->list[0];
       unsigned int sp_nr = strtoul (element_with_number->text.text, NULL, 10);
 
       if (html_in_preformatted_context (self) || html_in_string (self))
@@ -12268,12 +12268,12 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
 
   if (columnfractions)
     {
-      const ELEMENT *cf_misc_args = lookup_extra_element (columnfractions,
-                                                          "misc_args");
-      if (cf_misc_args->contents.number >= cell_nr)
+      const ELEMENT_LIST *cf_misc_args
+         = lookup_extra_misc_args (columnfractions, "misc_args");
+      if (cf_misc_args->number >= cell_nr)
         {
           const char *fraction_str
-            = cf_misc_args->contents.list[cell_nr -1]->text.text;
+            = cf_misc_args->list[cell_nr -1]->text.text;
           double fraction = strtod (fraction_str, NULL);
           if (self->conf->_INLINE_STYLE_WIDTH.o.integer > 0)
             text_printf (result, " style=\"width: %0.f%%\"", 100 * fraction);
@@ -12860,7 +12860,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  const ELEMENT *misc_args;
+  const ELEMENT_LIST *misc_args;
   const char *index_name;
   const INDEX_SORTED_BY_LETTER *idx;
   const INDEX_SORTED_BY_LETTER *index_sorted = 0;
@@ -12897,9 +12897,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   if (html_in_string (self))
     return;
 
-  misc_args = lookup_extra_element (element, "misc_args");
-  if (misc_args && misc_args->contents.number > 0)
-    index_name = misc_args->contents.list[0]->text.text;
+  misc_args = lookup_extra_misc_args (element, "misc_args");
+  if (misc_args && misc_args->number > 0)
+    index_name = misc_args->list[0]->text.text;
   else
     return;
 
@@ -13050,10 +13050,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           ELEMENT *entry_ref_tree;
           INDEX_ENTRY *index_entry_ref = letter_entry->entries[j];
           ELEMENT *main_entry_element = index_entry_ref->entry_element;
-          ELEMENT *index_entry_info = lookup_extra_element (main_entry_element,
-                                                            "index_entry");
+          const ELEMENT_LIST *index_entry_info
+             = lookup_extra_misc_args (main_entry_element, "index_entry");
           int entry_number
-             = lookup_extra_integer (index_entry_info->contents.list[1],
+             = lookup_extra_integer (index_entry_info->list[1],
                                      "integer", &status);
           entry_nr++;
 

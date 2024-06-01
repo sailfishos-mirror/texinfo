@@ -63,7 +63,6 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
       KEY_PAIR *k_ref = &info->info[i];
       const char *key = k_ref->key;
       ELEMENT *f = k_ref->k.element;
-      ELEMENT *new_extra_element;
       ELEMENT_LIST *new_extra_contents;
       KEY_PAIR *k_copy = 0;
       int j;
@@ -122,7 +121,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_container:
           {
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          new_extra_element = new_element (ET_NONE);
+          ELEMENT *new_extra_element = new_element (ET_NONE);
           k->k.element = new_extra_element;
           for (j = 0; j < f->contents.number; j++)
             {
@@ -227,10 +226,8 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
 
   for (i = 0; i < info->info_number; i++)
     {
-      KEY_PAIR *k_ref = &info->info[i];
+      const KEY_PAIR *k_ref = &info->info[i];
       const char *key = k_ref->key;
-      ELEMENT *f = k_ref->k.element;
-      ELEMENT *new_extra_element;
       int j;
 
       if (k_ref->type == extra_deleted)
@@ -243,14 +240,15 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           if (!strcmp (key, "_copy"))
             break;
           {
+            ELEMENT *f = k_ref->k.element;
             KEY_PAIR *k;
-            KEY_PAIR *k_copy;
+            const KEY_PAIR *k_copy;
             k = lookup_associated_info (new_info, key);
             if (!k)
               {
                 ELEMENT *e = get_copy_ref (f);
                 k = get_associated_info_key (new_info, key,
-                                             info->info[i].type);
+                                             k_ref->type);
                 k->k.element = e;
               }
             k_copy = lookup_extra_by_index (f, "_copy", -1);
@@ -287,8 +285,9 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           }
         case extra_container:
           {
+            const ELEMENT *f = k_ref->element;
             KEY_PAIR *k = lookup_associated_info (new_info, key);
-            new_extra_element = k->k.element;
+            ELEMENT *new_extra_element = k->k.element;
             for (j = 0; j < f->contents.number; j++)
               {
                 KEY_PAIR *k_copy;
@@ -324,12 +323,12 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
         case extra_misc_args:
           {
           int j;
-          new_extra_element = new_element (ET_NONE);
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          k->k.element = new_extra_element;
-          for (j = 0; j < f->contents.number; j++)
+          ELEMENT_LIST *new_extra_misc_args = new_list();
+          k->k.list = new_extra_mk.isc_args;
+          for (j = 0; j < k_ref->list->number; j++)
             {
-              const ELEMENT *e = f->contents.list[j];
+              const ELEMENT *e = k_ref->k.list->list[j];
               ELEMENT *new_e;
               if (e->type == ET_other_text)
                 {
@@ -346,7 +345,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                       add_extra_integer (new_e, "integer", k_integer->k.integer);
                     }
                 }
-              add_to_contents_as_array (new_extra_element, new_e);
+              add_to_element_list (new_extra_misc_args, new_e);
             }
           break;
           }

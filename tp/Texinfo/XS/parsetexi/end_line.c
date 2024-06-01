@@ -100,17 +100,17 @@ is_whole_number (const char *string)
    is an array of the arguments.  For some commands, there is further
    processing of the arguments (for example, for an @alias, remember the
    alias.) */
-ELEMENT *
+ELEMENT_LIST *
 parse_line_command_args (ELEMENT *line_command)
 {
 #define ADD_ARG(string) do { \
     ELEMENT *E = new_element (ET_other_text); \
     text_append (&E->text, string); \
-    add_to_element_contents (line_args, E); \
+    add_to_element_list (line_args, E); \
 } while (0)
 
   ELEMENT *arg = line_command->args.list[0];
-  ELEMENT *line_args;
+  ELEMENT_LIST *line_args;
   enum command_id cmd;
   const char *line;
 
@@ -128,8 +128,8 @@ parse_line_command_args (ELEMENT *line_command)
   if (arg->contents.list[0]->text.end == 0)
     return 0;
 
-  /* element without type put in extra "misc_args" */
-  line_args = new_element (ET_NONE);
+  /* put in extra "misc_args" */
+  line_args = new_list ();
   line = arg->contents.list[0]->text.text;
 
   switch (cmd)
@@ -318,7 +318,7 @@ parse_line_command_args (ELEMENT *line_command)
               {
                 new = new_element (ET_other_text);
                 text_append_n (&new->text, p, q - p);
-                add_to_element_contents (line_args, new);
+                add_to_element_list (line_args, new);
               }
             free (arg);
             p = q;
@@ -662,9 +662,9 @@ parse_line_command_args (ELEMENT *line_command)
     default:
       ;
     }
-  if (line_args->contents.number == 0)
+  if (line_args->number == 0)
     {
-      destroy_element (line_args);
+      destroy_list (line_args);
       return 0;
     }
   else
@@ -810,12 +810,13 @@ end_line_starting_block (ELEMENT *current)
       && (k = lookup_extra (current->parent, "columnfractions")))
     {
       ELEMENT *misc_cmd = k->k.element;
-      ELEMENT *misc_args = lookup_extra_element (misc_cmd, "misc_args");
+      const ELEMENT_LIST *misc_args
+          = lookup_extra_misc_args (misc_cmd, "misc_args");
 
       if (misc_args)
         {
           add_extra_integer (current->parent, "max_columns",
-                             misc_args->contents.number);
+                             misc_args->number);
         }
       else
         {
@@ -1249,7 +1250,7 @@ end_line_misc_line (ELEMENT *current)
 
   if (arg_spec == LINE_specific)
     {
-      ELEMENT *args = parse_line_command_args (current);
+      ELEMENT_LIST *args = parse_line_command_args (current);
       if (args)
         add_extra_misc_args (current, "misc_args", args);
     }

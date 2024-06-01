@@ -148,11 +148,11 @@ add_extra_directions (ELEMENT *e, const char *key)
 }
 
 void
-add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value)
+add_extra_misc_args (ELEMENT *e, char *key, ELEMENT_LIST *value)
 {
   if (!value) return;
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_misc_args);
-  k->k.element = value;
+  k->k.list = value;
 }
 
 void
@@ -346,6 +346,23 @@ lookup_extra_directions (const ELEMENT *e, const char *key)
       free (msg);
     }
   return k->k.list;
+}
+
+const ELEMENT_LIST *
+lookup_extra_misc_args (const ELEMENT *e, const char *key)
+{
+  KEY_PAIR *k = lookup_extra (e, key);
+  if (!k)
+    return 0;
+  else if (k->type != extra_misc_args)
+    {
+      char *msg;
+      xasprintf (&msg, "Bad type for lookup_extra_misc_args: %s: %d",
+                 key, k->type);
+      fatal (msg);
+      free (msg);
+    }
+  return k->list;
 }
 
 ELEMENT *

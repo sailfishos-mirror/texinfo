@@ -156,7 +156,14 @@ destroy_associated_info (ASSOCIATED_INFO *a)
             destroy_element (k_pair->k.element);
           break;
         case extra_misc_args:
-          destroy_element_and_children (k_pair->k.element);
+          {
+          int j;
+          ELEMENT_LIST *l = a->info[i].k.list;
+          for (j = 0; j < l->number; j++)
+            destroy_element (l->list[j]);
+
+          destroy_list (a->info[i].list);
+          }
           break;
 
         default:

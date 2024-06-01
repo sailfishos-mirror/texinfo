@@ -650,6 +650,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           ELEMENT *e;
           ELEMENT *spaces_before = new_element (ET_other_text);
           ELEMENT *spaces_after = new_element (ET_other_text);
+          /* put in extra "misc_args" */
+          ELEMENT_LIST *args_list = new_list ();
 
           if (cmd == CM_set)
             arg = "on";
@@ -660,11 +662,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
              command and add it to the tree. */
 
           destroy_element_and_children (args);
-          /* element without type put in extra "misc_args" */
-          args = new_element (ET_NONE);
           e = new_element (ET_other_text);
           text_append (&e->text, arg);
-          add_to_element_contents (args, e);
+          add_to_element_list (args_list, e);
 
           destroy_element_and_children (command_e);
           command_e = new_element (ET_NONE);
@@ -673,7 +673,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           line_args = new_element (ET_line_arg);
           add_to_element_args (command_e, line_args);
-          add_extra_misc_args (command_e, "misc_args", args);
+          add_extra_misc_args (command_e, "misc_args", args_list);
           text_append (&spaces_before->text, " ");
           add_info_element_oot (command_e, "spaces_before_argument", spaces_before);
 

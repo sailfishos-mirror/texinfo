@@ -388,15 +388,15 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
             case extra_misc_args:
               {
               size_t j;
-              const ELEMENT *f = k->k.element;
+              const ELEMENT_LIST *l = k->k.list;
               AV *av = newAV ();
-              av_unshift (av, f->contents.number);
+              av_unshift (av, l->number);
 
               STORE(newRV_inc ((SV *)av));
               /* An array of strings or integers. */
-              for (j = 0; j < f->contents.number; j++)
+              for (j = 0; j < l->number; j++)
                 {
-                  const ELEMENT *e = f->contents.list[j];
+                  const ELEMENT *e = l->list[j];
                   if (e->type == ET_other_text)
                     {
                       if (e->text.end > 0)

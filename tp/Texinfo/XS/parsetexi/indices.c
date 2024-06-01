@@ -287,15 +287,15 @@ enter_index_entry (enum command_id index_type_cmd,
   /* index_entry is an array with two elements.  Use
      extra_misc_args to pass that information as an array */
   {
-    /* element without type put in extra "misc_args" */
-    ELEMENT *index_entry = new_element (ET_NONE);
+    /* put in extra "misc_args" */
+    ELEMENT_LIST *index_entry = new_list ();
     /* index name put as text in extra "misc_args" */
     ELEMENT *e = new_element (ET_other_text);
     text_append (&e->text, idx->name);
-    add_to_element_contents (index_entry, e);
+    add_to_element_list (index_entry, e);
     e = new_element (ET_NONE);
     add_extra_integer (e, "integer", idx->entries_number);
-    add_to_element_contents (index_entry, e);
+    add_to_element_list (index_entry, e);
     add_extra_misc_args (element, "index_entry", index_entry);
   }
 

@@ -872,11 +872,12 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else if (element->cmd == CM_sp)
         {
-          const ELEMENT *misc_args = lookup_extra_element (element, "misc_args");
+          const ELEMENT_LIST *misc_args
+             = lookup_extra_misc_args (element, "misc_args");
           /* misc_args can be 0 with invalid args */
-          if (misc_args && misc_args->contents.number > 0)
+          if (misc_args && misc_args->number > 0)
             {
-              char *sp_arg = misc_args->contents.list[0]->text.text;
+              const char *sp_arg = misc_args->list[0]->text.text;
               int sp_nr = strtoul (sp_arg, NULL, 10);
               int i;
               if (sp_nr > 0)
