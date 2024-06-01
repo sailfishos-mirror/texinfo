@@ -95,7 +95,8 @@ ELEMENT *elements[3]
   
 
 valgrinf massif useful-heap approximate distribution in 2024
-valgrind --tool=massif perl -w texi2any.pl ../doc/texinfo.texi
+valgrind --tool=massif --massif-out-file=massif_info.out perl -w texi2any.pl ../doc/texinfo.texi
+ms_print massif_info.out > ms_print_info.out
 16M Perl
 36M C tree
 50M Perl tree (visible in detailed use, but difficult to do the
@@ -105,14 +106,17 @@ valgrind --tool=massif perl -w texi2any.pl ../doc/texinfo.texi
     in use over time) conversion
 
 With full XS
-valgrind --tool=massif perl -w texi2any.pl --html ../doc/texinfo.texi
-21M Perl
-33M C tree
-7M conversion, mainly text in convert_output_output_unit_internal and
+valgrind --tool=massif --massif-out-file=massif_html.out perl -w texi2any.pl --html ../doc/texinfo.texi
+ms_print massif_html.out > ms_print_html.out
+25.1M Perl
+25M C tree
+5.6M conversion, mainly text in convert_output_output_unit_internal and
                secondarily, in printindex
-Detailed memory use is mainly alloc_element (21.5M), secondarily
-reallocate_list (3.5M) and get_associated_info_key (2.5M) and text
-is small (2.1M).
+Text not imputed 1.7M
+Remaining not imputed 2.4M
+Detailed memory use for tree is mainly alloc_element (16.2M), secondarily
+reallocate_list (3.7M) and get_associated_info_key (3.1M) and text
+is small (2M).
 
 
 check for comma after @xref{...}, in parser to simplify checking for
