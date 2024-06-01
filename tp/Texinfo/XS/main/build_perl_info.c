@@ -618,7 +618,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (e->type && e->type != ET_normal_text && e->type != ET_other_text)
     {
-      sv = newSVpv (element_type_names[e->type], 0);
+      sv = newSVpv (type_data[e->type].name, 0);
       hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
     }
 

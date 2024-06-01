@@ -90,5 +90,4 @@ ET_special_unit_element,
 
 #define TXI_TREE_TYPES_NUMBER (ET_special_unit_element +1)
 
-extern char *element_type_names[];
 #endif

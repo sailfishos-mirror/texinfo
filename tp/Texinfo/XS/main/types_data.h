@@ -21,9 +21,9 @@
 typedef struct types_struct {
   char *name;
   unsigned long flags;
-} TYPE;
+} TYPE_DATA;
 
-extern TYPE type_data[];
+extern TYPE_DATA type_data[];
 
 #define TF_text               0x0001
 

@@ -348,7 +348,6 @@ tp/Texinfo/XS/main/global_unique_commands_case.c
 tp/Texinfo/XS/main/options_get_perl.c
 tp/Texinfo/XS/main/options_init_free.c
 tp/Texinfo/XS/main/options_types.h
-tp/Texinfo/XS/main/types_data.c
 
 tp/Texinfo/XS/main/*.lo
 

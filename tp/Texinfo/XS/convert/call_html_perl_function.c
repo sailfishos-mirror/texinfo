@@ -33,6 +33,7 @@
 #include "text.h"
 #include "option_types.h"
 #include "converter_types.h"
+#include "types_data.h"
 /* for add_associated_info_integer */
 #include "extra.h"
 /* for element_command_name (or could be builtin_command_data) */
@@ -1905,7 +1906,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   EXTEND(SP, 4);
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
-  PUSHs(sv_2mortal (newSVpv (element_type_names[type], 0)));
+  PUSHs(sv_2mortal (newSVpv (type_data[type].name, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
      undef in that case, but could also need to explicitely use newSV(0) */
@@ -1964,7 +1965,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
   EXTEND(SP, 3);
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
-  PUSHs(sv_2mortal (newSVpv (element_type_names[type], 0)));
+  PUSHs(sv_2mortal (newSVpv (type_data[type].name, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUTBACK;
 

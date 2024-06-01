@@ -704,7 +704,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                   char *additional_text_dbg = strndup (text, leading_spaces);
                   debug ("MERGE_TEXT ADD leading empty |%s| to %s",
                          additional_text_dbg,
-                         element_type_names[last_element->type]);
+                         type_data[last_element->type].name);
                   free (additional_text_dbg);
                 }
               text_append_n (&last_element->text, text, leading_spaces);
@@ -811,7 +811,7 @@ abort_empty_line (ELEMENT **current_inout)
           debug_nonl ("ABORT EMPTY in ");
           debug_parser_print_element (current, 0);
           debug_nonl ("(p:%d): %s; ", in_paragraph_context (current_context ()),
-                      element_type_names[last_child->type]);
+                      type_data[last_child->type].name);
           debug_nonl ("|%s|",
                       last_child->text.end > 0 ? last_child->text.text : "");
           debug ("");

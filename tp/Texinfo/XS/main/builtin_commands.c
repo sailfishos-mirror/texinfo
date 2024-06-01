@@ -22,6 +22,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 #include "extra.h"
 #include "debug.h"
 #include "builtin_commands.h"
@@ -146,7 +147,7 @@ set_element_type_name_info (void)
   int i;
   for (i = 1; i < TXI_TREE_TYPES_NUMBER; i++)
     {
-      type_name_index[i-1].name = element_type_names[i];
+      type_name_index[i-1].name = type_data[i].name;
       type_name_index[i-1].type = i;
     }
 

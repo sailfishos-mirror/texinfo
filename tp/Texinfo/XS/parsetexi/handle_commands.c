@@ -23,6 +23,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 #include "text.h"
 #include "tree.h"
 #include "extra.h"
@@ -1046,7 +1047,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
               else
                 {
                   bug_message ("menu description parent not a menu_entry: %s",
-                               element_type_names[current->type]);
+                               type_data[current->type].name);
                   abort ();
                 }
             }

@@ -124,7 +124,6 @@ libtexinfo_la_SOURCES= \
 		      main/command_ids.h \
 		      main/builtin_commands.c \
 		      main/builtin_commands.h \
-		      main/types_data.c \
 		      main/types_data.h \
 		      main/debug.c \
 		      main/debug.h \
@@ -235,7 +234,6 @@ BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
               main/command_ids.h \
               main/element_types.c \
               main/element_types.h \
-              main/types_data.c \
               main/global_commands_types.h \
               main/global_multi_commands_case.c \
               main/global_unique_commands_case.c \
@@ -247,7 +245,7 @@ BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
 EXTRA_DIST+=main/element_types.txt main/element_types.awk \
 	   main/command_data.awk
 
-$(srcdir)/main/element_types.c $(srcdir)/main/element_types.h $(srcdir)/main/types_data.c: main/element_types.txt main/element_types.awk
+$(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
 	     $(srcdir)/main/element_types.txt
 

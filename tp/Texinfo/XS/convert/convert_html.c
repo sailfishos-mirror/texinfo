@@ -4011,7 +4011,7 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
             }
           else
             {
-              context_name = element_type_names[command->type];
+              context_name = type_data[command->type].name;
               if (command->type == ET_special_unit_element)
                 {
                   char *special_unit_variety
@@ -4104,7 +4104,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       else if (command->type)
         xasprintf (&context_str, "command_text %s %s",
                    html_command_text_type_name[type],
-                   element_type_names[command->type]);
+                   type_data[command->type].name);
       else
         xasprintf (&context_str, "command_text %s ",
                    html_command_text_type_name[type]);
@@ -7233,7 +7233,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
                        element_command_name (command));
           else if (command->type)
             xasprintf (&context_str, "file_header_title-element-%s",
-                       element_type_names[command->type]);
+                       type_data[command->type].name);
           else
             context_str = strdup ("file_header_title-element-");
 
@@ -18393,7 +18393,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     text_printf (&command_type, "@%s ", command_name);
 
   if (element->type)
-    text_append (&command_type, element_type_names[element->type]);
+    text_append (&command_type, type_data[element->type].name);
 
   if (self->conf->DEBUG.o.integer > 0)
     {
@@ -18410,7 +18410,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         text_printf (&debug_str, " cmd: %s,", command_name);
       if (element->type)
         text_printf (&debug_str, " type: %s",
-                     element_type_names[element->type]);
+                     type_data[element->type].name);
       if (type_data[element->type].flags & TF_text)
         {
           if (element->text.end > 0)
@@ -18849,7 +18849,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
       if (self->conf->DEBUG.o.integer > 0)
         {
-          fprintf (stderr, "XS|DO type (%s) => `%s'\n", element_type_names[type],
+          fprintf (stderr, "XS|DO type (%s) => `%s'\n", type_data[type].name,
                            type_result.text);
         }
       ADD(type_result.text);

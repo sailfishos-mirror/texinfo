@@ -33,6 +33,7 @@
 
 #include "command_ids.h"
 #include "converter_types.h"
+#include "types_data.h"
 /* also for non_perl_* */
 #include "utils.h"
 #include "builtin_commands.h"
@@ -368,7 +369,7 @@ html_converter_initialize_sv (SV *converter_sv,
       if (i == 0)
         ref_name = "";
       else
-        ref_name = element_type_names[i];
+        ref_name = type_data[i].name;
       FORMATTING_REFERENCE *open_formatting_reference
        = &converter->types_open[i];
       FORMATTING_REFERENCE *conversion_formatting_reference
@@ -396,7 +397,7 @@ html_converter_initialize_sv (SV *converter_sv,
       if (i == 0)
         ref_name = "";
       else
-        ref_name = element_type_names[i];
+        ref_name = type_data[i].name;
       FORMATTING_REFERENCE *conversion_formatting_reference
        = &converter->css_string_types_conversion[i];
 
@@ -595,7 +596,7 @@ html_converter_initialize_sv (SV *converter_sv,
              justified if finding the type index happens more often */
               for (j = 1; j < TXI_TREE_TYPES_NUMBER; j++)
                 {
-                  if (!strcmp (element_type_names[j], type_name))
+                  if (!strcmp (type_data[j].name, type_name))
                     {
                       type = j;
                       break;

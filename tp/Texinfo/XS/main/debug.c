@@ -83,7 +83,7 @@ print_element_debug (const ELEMENT *e, int print_parent)
   text_init (&text);
   text_append (&text, "");
   if (e->type)
-    text_printf (&text, "(%s)", element_type_names[e->type]);
+    text_printf (&text, "(%s)", type_data[e->type].name);
   if (type_data[e->type].flags & TF_text)
     {
       if (e->text.end == 0)
@@ -112,7 +112,7 @@ print_element_debug (const ELEMENT *e, int print_parent)
       if (e->parent->cmd)
         text_printf (&text, "@%s", element_command_name (e->parent));
       if (e->parent->type)
-        text_printf (&text, "(%s)", element_type_names[e->parent->type]);
+        text_printf (&text, "(%s)", type_data[e->parent->type].name);
     }
   return text.text;
 }
