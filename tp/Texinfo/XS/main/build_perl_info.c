@@ -34,6 +34,7 @@
 
 #include "command_ids.h"
 #include "element_types.h"
+#include "types_data.h"
 #include "tree_types.h"
 #include "global_commands_types.h"
 /* for GLOBAL_INFO ERROR_MESSAGE */
@@ -609,10 +610,21 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       hv_store (e->hv, "parent", strlen ("parent"), sv, HSH_parent);
     }
 
+  store_source_mark_list (e);
+
   if (e->type && e->type != ET_normal_text && e->type != ET_other_text)
     {
       sv = newSVpv (element_type_names[e->type], 0);
       hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
+    }
+
+  store_additional_info (e, &e->info_info, "info", avoid_recursion);
+
+  if (type_data[e->type].flags & TF_text)
+    {
+      sv = newSVpv_utf8 (e->text.text, e->text.end);
+      hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
+      return;
     }
 
   if (e->cmd)
@@ -668,14 +680,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         }
     }
 
-  if (e->text.space > 0)
-    {
-      sv = newSVpv_utf8 (e->text.text, e->text.end);
-      hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
-    }
-
   store_additional_info (e, &e->extra_info, "extra", avoid_recursion);
-  store_additional_info (e, &e->info_info, "info", avoid_recursion);
 
   if (e->associated_unit)
     {
@@ -690,8 +695,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                     newRV_inc ((SV *) e->associated_unit->hv), 0);
         }
     }
-
-  store_source_mark_list (e);
 
   if (e->source_info.line_nr)
     {

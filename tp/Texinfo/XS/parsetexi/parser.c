@@ -23,6 +23,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "global_commands_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -173,7 +174,7 @@ check_space_element (ELEMENT *e)
         || e->cmd == CM_c
         || e->cmd == CM_comment
         || e->cmd == CM_COLON
-        || (e->text.space > 0
+        || (type_data[e->type].flags & TF_text
             && (e->text.end == 0
                 || !*(e->text.text + strspn (e->text.text, whitespace_chars))))
      ))
@@ -201,8 +202,8 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
   text_init (&result);
   for (i = 0; i < e->contents.number; i++)
     {
-      ELEMENT *e1 = contents_child_by_index (e, i);
-      if (e1->text.end > 0)
+      const ELEMENT *e1 = contents_child_by_index (e, i);
+      if (type_data[e1->type].flags & TF_text && e1->text.end > 0)
         ADD(e1->text.text);
       else if (e1->cmd == CM_AT_SIGN
                || e1->cmd == CM_atchar)
@@ -732,23 +733,10 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   last_element = last_contents_child (current);
   if (!no_merge_with_following_text
       && last_element
-      /* There is a difference between the text being defined and empty,
-         and not defined at all.  The latter is true for 'brace_command_arg'
-         elements.  We need either to make sure that we initialize all elements
-         with text_append (&e->text, "") where we want merging with following
-         text, or treat as a special case here. */
-      && (last_element->text.space > 0
-            && !strchr (last_element->text.text, '\n')))
+      /* can actually be normal_text, and some space elements */
+      && type_data[last_element->type].flags & TF_text
+      && !strchr (last_element->text.text, '\n'))
     {
-      /*
-      if (last_element->type != ET_normal_text && last_element->type != ET_empty_line
-          && last_element->type != ET_ignorable_spaces_after_command
-          && last_element->type != ET_internal_spaces_after_command
-          && last_element->type != ET_internal_spaces_before_argument
-          && last_element->type != ET_spaces_after_close_brace)
-        fprintf (stderr, "EEE %s '%s'\n", element_type_names[last_element->type],
-                         last_element->text.text);
-       */
       /* Transfer source marks */
       if (transfer_marks_element
           && transfer_marks_element->source_mark_list.number > 0)
@@ -872,7 +860,7 @@ abort_empty_line (ELEMENT **current_inout)
   return retval;
 }
 
-/* The caller verifies that the element is a text element */
+/* The caller verifies that last_elt is a text element */
 static void
 isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
 {
@@ -921,18 +909,13 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
     }
 }
 
-/* The callers verify that the last_elt is a text element */
+/* The caller verifies that last_elt is a text element */
 static void
-isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
+isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
+                        enum element_type spaces_type)
 {
-  ELEMENT *last_elt;
-  char *text;
-  int text_len;
+  char *text = last_elt->text.text;
 
-  last_elt = last_contents_child (current);
-  text = element_text (last_elt);
-
-  text_len = last_elt->text.end;
 
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
@@ -943,6 +926,7 @@ isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
     {
       ELEMENT *new_spaces;
       int i, trailing_spaces;
+      int text_len = last_elt->text.end;
 
       trailing_spaces = 0;
       for (i = text_len - 1;
@@ -988,6 +972,9 @@ isolate_last_space (ELEMENT *current)
 
   last_elt = last_contents_child (current);
 
+  if (!(type_data[last_elt->type].flags & TF_text))
+    goto no_isolate_space;
+
   text_len = last_elt->text.end;
   if (text_len <= 0)
     goto no_isolate_space;
@@ -1002,7 +989,7 @@ isolate_last_space (ELEMENT *current)
   debug_parser_print_element (last_elt, 0); debug ("");
 
   if (current->type == ET_menu_entry_node)
-    isolate_trailing_space (current, ET_space_at_end_menu_node);
+    isolate_trailing_space (current, last_elt, ET_space_at_end_menu_node);
   else
     isolate_last_space_internal (current, last_elt);
 
@@ -2309,25 +2296,30 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
            || cmd == CM_seealso
            || cmd == CM_subentry)
           && current->contents.number > 0
-          && last_contents_child (current)->text.end > 0
        /* it is important to check if in an index command, as otherwise
           the internal space type is not processed and remains as is in
           the final tree. */
           && (command_flags(current->parent) & CF_index_entry_command
                || current->parent->cmd == CM_subentry))
         {
-          if (cmd == CM_subentry)
+          ELEMENT *last_elt = last_contents_child (current);
+
+          if (last_elt && type_data[last_elt->type].flags & TF_text
+              && last_elt->text.end > 0)
             {
-              isolate_trailing_space (current, ET_spaces_at_end);
-            }
-          else
-           /* an internal and temporary space type that is converted to
-              a normal space without type if followed by text or a
-              "spaces_at_end" if followed by spaces only when the
-              index or subentry command is done. */
-            {
-              isolate_trailing_space (current,
-                                      ET_internal_spaces_before_brace_in_index);
+              if (cmd == CM_subentry)
+                {
+                  isolate_trailing_space (current, last_elt, ET_spaces_at_end);
+                }
+              else
+               /* an internal and temporary space type that is converted to
+                  a normal space without type if followed by text or a
+                  "spaces_at_end" if followed by spaces only when the
+                  index or subentry command is done. */
+                {
+                  isolate_trailing_space (current, last_elt,
+                               ET_internal_spaces_before_brace_in_index);
+                }
             }
         }
 

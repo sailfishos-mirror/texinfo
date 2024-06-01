@@ -18,6 +18,7 @@
 #include <stdlib.h>
 
 #include "tree_types.h"
+#include "types_data.h"
 #include "tree.h"
 /* for count_multibyte and other */
 #include "utils.h"
@@ -63,7 +64,8 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
     {
       ELEMENT *last_child = last_contents_child (e);
       mark_element = last_child;
-      if (last_child->text.end > 0)
+      if (type_data[last_child->type].flags & TF_text
+          && last_child->text.end > 0)
         source_mark->position = count_multibyte (last_child->text.text);
     }
   else

@@ -91,28 +91,11 @@ ELEMENT *elements[3]
 4) separate the structure of text elements and other elements, as text elements
    never have contents/args/info/extra, have cmd != 0.
     EXCEPTION: needed transient _copy and _counter in copy_tree_internal in extra
+    EXCEPTION: info inserted for spaces in @def* for definition aliases
   
-   if (content->type != ET_normal_text)
-            fprintf (stderr, "TTT %s\n", print_element_debug (content, 1));
-
-
-parsetexi
-  close.c
-    is_container_empty: (all text types) current->text.end == 0
-  debug_parser.c
-    print_element_debug_parser e->text.end > 0
-  parser.c
-    merge_text last_element->text.space > 0
-    check_space_element e->text.space > 0
-    text_contents_to_plain_text e1->text.end > 0
-    isolate_last_space text_len = last_elt->text.end; text_len <= 0
-    process_remaining_on_line && last_contents_child (current)->text.end > 0
-  source_marks.c 
-    place_source_mark last_child->text.end > 0
-
+type_data[->type].flags & TF_text
 main
   build_perl_info.c
-    element_to_perl_hash e->text.space > 0
     extra_misc_args contents.list[j]->text.end > 0
   convert_to_texinfo.c
     convert_to_texinfo_internal e->text.end > 0

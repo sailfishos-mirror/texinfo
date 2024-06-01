@@ -54,7 +54,7 @@ brace_command_arg
 brace_command_context
 block_line_arg
 line_arg
-rawline_arg
+rawline_arg                               text
 
 menu_entry
 menu_entry_leading_text                   text
@@ -70,8 +70,8 @@ internal_spaces_before_argument            text
 internal_spaces_before_brace_in_index      text
 internal_spaces_after_cmd_before_arg       text
 
-macro_name
-macro_arg
+macro_name                                 text
+macro_arg                                  text
 before_item
 table_entry
 table_term
@@ -86,7 +86,7 @@ multitable_body
 row
 balanced_braces
 bracketed_arg
-bracketed_linemacro_arg
+bracketed_linemacro_arg                   text
 
 # container of definition line argument content
 def_line_arg
@@ -104,10 +104,10 @@ def_typearg
 def_arg
 
 # text for def commands, definition line direct arguments
-delimiter
-spaces
+delimiter                                 text
+spaces                                    text
 # type of text element inserted in untranslated_def_line_arg
-untranslated
+untranslated                              text
 
 # for unexpanded parts of conditionals
 elided_rawpreformatted
@@ -124,7 +124,7 @@ text
 
 # for HTML converter
 _code
-_converted
+_converted                                text
 _string
 
 # not in parser, for virtual element associated to special output units

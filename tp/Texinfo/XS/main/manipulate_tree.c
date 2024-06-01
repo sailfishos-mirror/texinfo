@@ -176,6 +176,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   if (current->text.space > 0)
     {
       text_append (&new->text, current->text.text);
+      copy_associated_info (&current->extra_info, &new->extra_info);
       return new;
     }
 
