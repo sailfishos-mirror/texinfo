@@ -124,6 +124,7 @@ libtexinfo_la_SOURCES= \
 		      main/command_ids.h \
 		      main/builtin_commands.c \
 		      main/builtin_commands.h \
+		      main/types_data.c \
 		      main/types_data.h \
 		      main/debug.c \
 		      main/debug.h \
@@ -211,7 +212,6 @@ libtexinfo_la_SOURCES= \
 
 EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
-EXTRA_DIST += main/types_data.c
 EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_symbol.c

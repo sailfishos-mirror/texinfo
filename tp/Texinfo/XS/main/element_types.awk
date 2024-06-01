@@ -40,7 +40,9 @@ BEGIN {
     print "ET_" $1 ","                                                > ETH
     array = array "\"" $1 "\",\n"
     t = $1
-    types[t] = $2
+    type_flags[t] = $2
+    line++
+    types[line] = t
 
     last_type = "ET_" $1
 }
@@ -60,10 +62,11 @@ END {
     print array                                                       > ETC     
     print "};"                                                        > ETC     
 
-    for (t in types) {
+    for (line_idx in types) {
+        t = types[line_idx]
         flags_str = ""
-        if (types[t] != "") {
-            split(types[t], flags_array, ",")
+        if (type_flags[t] != "") {
+            split(type_flags[t], flags_array, ",")
             for (flag_idx in flags_array) {
               if (flag_idx == 1) {
                 flags_str = flags_array[flag_idx]

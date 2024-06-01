@@ -288,7 +288,7 @@ enter_index_entry (enum command_id index_type_cmd,
      extra_misc_args to pass that information as an array */
   {
     ELEMENT *index_entry = new_element (ET_NONE);
-    /* special text */
+    /* element without type put in extra "misc_args" */
     ELEMENT *e = new_element (ET_NONE);
     text_append (&e->text, idx->name);
     add_to_element_contents (index_entry, e);

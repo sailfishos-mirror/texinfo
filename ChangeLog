@@ -13,6 +13,44 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/element_types.awk: order correctly the types.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES): add
+	main/types_data.c as a normal built source file.
+
+	* tp/Texinfo/XS/convert/converter.c (float_type_number, float_name_caption)
+	(comma_index_subentries_tree, free_comma_index_subentries_tree),
+	tp/Texinfo/XS/main/convert_utils.c (definition_category_tree): set
+	ET_normal_text as type for normal text instead of ET_NONE.
+
+	* tp/Texinfo/Common.pm (debug_print_element),
+	tp/Texinfo/XS/parsetexi/debug_parser.c (print_element_debug_parser):
+	text element never have contents nor arg, nor command.
+
+	* tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash): add
+	other_text type to detect text not in regular converted tree elements.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (parse_rawline_command)
+	(handle_line_command), tp/Texinfo/XS/parsetexi/macro.c
+	(expand_macro_arguments, expand_linemacro_arguments, handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line)
+	(isolate_last_space_internal, gather_spaces_after_cmd_before_arg)
+	(process_remaining_on_line),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_block_command),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning): set type as ET_other_text instead of ET_NONE.
+
+	* tp/Texinfo/XS/main/types_data.h (TYPE): rename type_name field as
+	name.
+
+	* tp/Texinfo/XS/parsetexi/close.c (is_container_empty),
+	tp/Texinfo/XS/parsetexi/debug_parser.c (print_element_debug_parser):
+	use type flags to determine if an element is a text element.
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	Add data structure for information on types in C
 
 	* tp/Texinfo/XS/main/types_data.h (TYPES), tp/Texinfo/XS/Makefile.am
@@ -45,7 +83,7 @@
 	(new_node_menu_entry, new_detailmenu),
 	tp/Texinfo/XS/structuring_transfo/transformations.c (new_node)
 	(insert_nodes_for_sectioning_commands)
-	(protect_hashchar_at_line_beginning_internal): Set ET_normal_text as
+	(protect_hashchar_at_line_beginning_internal): set ET_normal_text as
 	type for normal text instead of ET_NONE.
 
 	* tp/Texinfo/XS/convert/convert_html.c (convert_menu_entry_type),

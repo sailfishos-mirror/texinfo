@@ -180,9 +180,8 @@ ELEMENT *
 parse_rawline_command (const char *line, enum command_id cmd,
                        int *has_comment, int *special_arg)
 {
-/* special text */
 #define ADD_ARG(string, len) do { \
-  ELEMENT *E = new_element (ET_NONE); \
+  ELEMENT *E = new_element (ET_other_text); \
   text_append_n (&E->text, string, len); \
   add_to_element_contents (args, E); \
 } while (0)
@@ -649,10 +648,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           char *arg = 0;
           ELEMENT *line_args;
           ELEMENT *e;
-          /* special text */
-          ELEMENT *spaces_before = new_element (ET_NONE);
-          /* special text */
-          ELEMENT *spaces_after = new_element (ET_NONE);
+          ELEMENT *spaces_before = new_element (ET_other_text);
+          ELEMENT *spaces_after = new_element (ET_other_text);
 
           if (cmd == CM_set)
             arg = "on";
@@ -665,8 +662,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           destroy_element_and_children (args);
           /* element without type put in extra "misc_args" */
           args = new_element (ET_NONE);
-          /* special text */
-          e = new_element (ET_NONE);
+          e = new_element (ET_other_text);
           text_append (&e->text, arg);
           add_to_element_contents (args, e);
 

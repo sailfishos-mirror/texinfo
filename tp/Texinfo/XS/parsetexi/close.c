@@ -21,6 +21,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 #include "text.h"
 #include "tree.h"
 #include "extra.h"
@@ -125,11 +126,17 @@ close_all_style_commands (ELEMENT *current,
 static int
 is_container_empty (ELEMENT *current)
 {
-  if (current->contents.number == 0
-      && current->args.number == 0
-      && current->text.end == 0
-      && current->info_info.info_number == 0)
+  /* all kind of text elements, including other_text (in some args) */
+  if (type_data[current->type].flags & TF_text)
+    {
+      if (current->text.end == 0)
+        return 1;
+    }
+  else if (current->contents.number == 0
+          && current->args.number == 0
+          && current->info_info.info_number == 0)
     return 1;
+
   return 0;
 }
 

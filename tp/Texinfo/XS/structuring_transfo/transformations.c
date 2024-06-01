@@ -241,9 +241,9 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
             {
               ELEMENT *line_content;
               ELEMENT *new_section = new_element (ET_NONE);
-              ELEMENT *spaces_before_argument = new_element (ET_NONE);
+              ELEMENT *spaces_before_argument = new_element (ET_other_text);
               ELEMENT *line_arg = new_element (ET_line_arg);
-              ELEMENT *spaces_after_argument = new_element (ET_NONE);
+              ELEMENT *spaces_after_argument = new_element (ET_other_text);
               ELEMENT *empty_line = new_element (ET_empty_line);
 
               current_section_level++;
@@ -623,8 +623,8 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       ELEMENT *target = 0;
       ELEMENT *appended_text = 0;
       ELEMENT *node_line_arg = new_element (ET_line_arg);
-      ELEMENT *spaces_before = new_element (ET_NONE);
-      ELEMENT *spaces_after = new_element (ET_NONE);
+      ELEMENT *spaces_before = new_element (ET_other_text);
+      ELEMENT *spaces_after = new_element (ET_other_text);
 
       node = new_element (ET_NONE);
       node->cmd = CM_node;

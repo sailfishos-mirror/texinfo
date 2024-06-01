@@ -103,9 +103,8 @@ is_whole_number (const char *string)
 ELEMENT *
 parse_line_command_args (ELEMENT *line_command)
 {
-/* special text */
 #define ADD_ARG(string) do { \
-    ELEMENT *E = new_element (ET_NONE); \
+    ELEMENT *E = new_element (ET_other_text); \
     text_append (&E->text, string); \
     add_to_element_contents (line_args, E); \
 } while (0)
@@ -317,8 +316,7 @@ parse_line_command_args (ELEMENT *line_command)
               }
             else
               {
-                /* special text */
-                new = new_element (ET_NONE);
+                new = new_element (ET_other_text);
                 text_append_n (&new->text, p, q - p);
                 add_to_element_contents (line_args, new);
               }

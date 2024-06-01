@@ -1981,20 +1981,25 @@ sub debug_print_element($;$)
   my $type = '';
   my $cmd = '';
   my $text = '';
-  $type = "($current->{'type'})" if (defined($current->{'type'}));
-  if (defined($current->{'cmdname'})) {
-    $cmd = '@' . debug_command_name($current->{'cmdname'});
-  }
-  if (defined($current->{'text'}) and $current->{'text'} ne '') {
-    my $text_str = $current->{'text'};
-    $text_str =~ s/\n/\\n/g;
-    $text = "[T: $text_str]";
-  }
   my $args = '';
   my $contents = '';
-  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
-  $contents = "[C".scalar(@{$current->{'contents'}}).']'
-    if $current->{'contents'};
+  $type = "($current->{'type'})" if (defined($current->{'type'}));
+  if (defined($current->{'text'})) {
+    if ($current->{'text'} eq '') {
+      $text = "[T]";
+    } else {
+      my $text_str = $current->{'text'};
+      $text_str =~ s/\n/\\n/g;
+      $text = "[T: $text_str]";
+    }
+  } else {
+    if (defined($current->{'cmdname'})) {
+      $cmd = '@' . debug_command_name($current->{'cmdname'});
+    }
+    $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
+    $contents = "[C".scalar(@{$current->{'contents'}}).']'
+       if $current->{'contents'};
+  }
   my $parent_string = '';
   if ($print_parent) {
     $parent_string = _parent_string($current);

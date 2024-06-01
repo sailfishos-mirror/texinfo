@@ -19,7 +19,7 @@
 #include "element_types.h"
 
 typedef struct types_struct {
-  char *type_name;
+  char *name;
   unsigned long flags;
 } TYPE;
 

@@ -48,11 +48,11 @@ void
 new_block_command (ELEMENT *element, enum command_id cmd)
 {
   ELEMENT *args = new_element (ET_block_line_arg);
-  ELEMENT *arg_spaces_after = new_element (ET_NONE);
+  ELEMENT *arg_spaces_after = new_element (ET_other_text);
   ELEMENT *end = new_element (ET_NONE);
   ELEMENT *end_args = new_element (ET_line_arg);
-  ELEMENT *end_spaces_before = new_element (ET_NONE);
-  ELEMENT *end_spaces_after = new_element (ET_NONE);
+  ELEMENT *end_spaces_before = new_element (ET_other_text);
+  ELEMENT *end_spaces_after = new_element (ET_other_text);
   ELEMENT *command_name_text = new_element (ET_normal_text);
   const char *command_name = builtin_command_name (cmd);
 

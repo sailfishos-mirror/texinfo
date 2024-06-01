@@ -35,6 +35,9 @@ space_at_end_menu_node                    text
 after_menu_description_line               text
 spaces_after_cmd_before_arg               text
 normal_text                               text
+# text not in the regular converted tree elements.
+# In special spaces elements in info, as informative command arguments...
+other_text                                text
 
 # Other special types
 document_root

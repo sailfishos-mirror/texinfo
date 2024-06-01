@@ -587,7 +587,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
                              documentlanguage, substrings, 0, 0);
           /*
           result = new_element (ET_NONE);
-          ELEMENT *text_element = new_element (ET_NONE);
+          ELEMENT *text_element = new_element (ET_normal_text);
           add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " on ");
           add_to_element_contents (result, text_element);
@@ -626,7 +626,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
                              documentlanguage, substrings, 0, 0);
           /*
           result = new_element (ET_NONE);
-          ELEMENT *text_element = new_element (ET_NONE);
+          ELEMENT *text_element = new_element (ET_normal_text);
           add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " of ");
           add_to_element_contents (result, text_element);

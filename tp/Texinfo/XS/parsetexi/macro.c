@@ -312,8 +312,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   int args_total;
   int whitespaces_len;
   ELEMENT *argument = new_element (ET_brace_command_arg);
-  /* special text */
-  ELEMENT *argument_content = new_element (ET_NONE);
+  ELEMENT *argument_content = new_element (ET_other_text);
 
   add_to_element_args (current, argument);
   text_append_n (&argument_content->text, "", 0);
@@ -327,8 +326,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   whitespaces_len = strspn (pline, whitespace_chars);
   if (whitespaces_len > 0)
     {
-      /* special text */
-      ELEMENT *spaces_element = new_element (ET_NONE);
+      ELEMENT *spaces_element = new_element (ET_other_text);
       text_append_n (&spaces_element->text, pline, whitespaces_len);
       add_info_element_oot (current, "spaces_before_argument",
                             spaces_element);
@@ -404,8 +402,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
 
                   /* new argument */
                   argument = new_element (ET_brace_command_arg);
-                  /* special text */
-                  argument_content = new_element (ET_NONE);
+                  argument_content = new_element (ET_other_text);
                   add_to_element_args (current, argument);
                   text_append_n (&argument_content->text, "", 0);
                   add_to_element_contents (argument, argument_content);
@@ -413,8 +410,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                   pline += strspn (pline, whitespace_chars);
                   if (pline - p)
                     {
-                      /* special text */
-                      ELEMENT *spaces_element = new_element (ET_NONE);
+                      ELEMENT *spaces_element = new_element (ET_other_text);
                       text_append_n (&spaces_element->text, p, pline - p);
                       add_info_element_oot (argument, "spaces_before_argument",
                                             spaces_element);
@@ -471,8 +467,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   int spaces_nr;
   int i;
   ELEMENT *argument = new_element (ET_NONE);
-  /* special text */
-  ELEMENT *argument_content = new_element (ET_NONE);
+  ELEMENT *argument_content = new_element (ET_other_text);
   counter_reset (&count_toplevel_braces, 0);
   counter_push (&count_toplevel_braces, argument_content, 0);
 
@@ -484,8 +479,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   spaces_nr = strspn (pline, whitespace_chars_except_newline);
   if (spaces_nr)
     {
-      /* special text */
-      ELEMENT *spaces_element = new_element (ET_NONE);
+      ELEMENT *spaces_element = new_element (ET_other_text);
       text_append_n (&spaces_element->text, line, spaces_nr);
       add_info_element_oot (argument, "spaces_before_argument",
                             spaces_element);
@@ -605,15 +599,13 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
             }
           else
             {
-              /* special text */
-              ELEMENT *spaces_element = new_element (ET_NONE);
+              ELEMENT *spaces_element = new_element (ET_other_text);
 
               set_toplevel_braces_nr (&count_toplevel_braces,
                                       argument_content);
 
               argument = new_element (ET_NONE);
-              argument_content = new_element (ET_NONE);
-              /* special text */
+              argument_content = new_element (ET_other_text);
               counter_push (&count_toplevel_braces, argument_content, 0);
 
               add_to_element_args (current, argument);
@@ -865,8 +857,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
         {
           if (p - line > 0)
             {
-              /* special text */
-              ELEMENT *spaces_element = new_element (ET_NONE);
+              ELEMENT *spaces_element = new_element (ET_other_text);
               text_append_n (&spaces_element->text, line, p - line);
               add_info_element_oot (macro_call_element, "spaces_after_cmd_before_arg",
                                     spaces_element);

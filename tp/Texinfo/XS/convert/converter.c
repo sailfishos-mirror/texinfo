@@ -339,7 +339,7 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
 
   if (float_number)
     {
-      ELEMENT *e_number = new_element (ET_NONE);
+      ELEMENT *e_number = new_element (ET_normal_text);
       text_append (&e_number->text, float_number);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_number", e_number);
@@ -386,7 +386,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
 
   if (float_number)
     {
-      ELEMENT *e_number = new_element (ET_NONE);
+      ELEMENT *e_number = new_element (ET_normal_text);
       text_append (&e_number->text, float_number);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_number", e_number);
@@ -623,7 +623,7 @@ comma_index_subentries_tree (const ELEMENT *current_entry,
         = lookup_extra_element (current_entry, "subentry");
       if (subentry)
         {
-          ELEMENT *separator = new_element (ET_NONE);
+          ELEMENT *separator = new_element (ET_normal_text);
           text_append (&separator->text, subentry_separator);
           current_entry = subentry;
           add_to_element_list (result, separator);
@@ -649,7 +649,7 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
   for (i = 0; i < element_list->number; i++)
     {
       ELEMENT *content = element_list->list[i];
-      if (content->type == ET_NONE)
+      if (content->type == ET_normal_text)
         destroy_element (content);
     }
   destroy_list (element_list);

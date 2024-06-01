@@ -859,8 +859,7 @@ abort_empty_line (ELEMENT **current_inout)
           ELEMENT *owning_element;
           ELEMENT *e = pop_element_from_contents (current);
           owning_element = internal_space_holder;
-          /* special text */
-          e->type = ET_NONE;
+          e->type = ET_other_text;
           e->parent = 0;
           add_info_element_oot (owning_element, "spaces_before_argument", e);
           internal_space_holder = 0;
@@ -889,15 +888,13 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
       /* e is last_elt */
       ELEMENT *e = pop_element_from_contents (current);
       e->parent = 0;
-      /* special text */
-      e->type = ET_NONE;
+      e->type = ET_other_text;
       add_info_element_oot (current, "spaces_after_argument", e);
     }
   else
     {
       int i, trailing_spaces;
-      /* special text */
-      ELEMENT *spaces_element = new_element (ET_NONE);
+      ELEMENT *spaces_element = new_element (ET_other_text);
 
       trailing_spaces = 0;
       for (i = text_len - 1;
@@ -1105,8 +1102,7 @@ void
 gather_spaces_after_cmd_before_arg (ELEMENT *current)
 {
   ELEMENT *spaces_element = pop_element_from_contents (current);
-  /* special text */
-  spaces_element->type = ET_NONE;
+  spaces_element->type = ET_other_text;
   add_info_element_oot (current, "spaces_after_cmd_before_arg",
                         spaces_element);
 }
@@ -1832,7 +1828,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           if (whitespaces_len > 0)
             {
               /* special text in "spaces_after_cmd_before_arg" */
-              spaces_element = new_element (ET_NONE);
+              spaces_element = new_element (ET_other_text);
               text_append_n (&(spaces_element->text),
                              remaining_line, whitespaces_len);
               remaining_line += whitespaces_len;
@@ -2152,7 +2148,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               int whitespaces_len = strspn (line, whitespace_chars);
               if (whitespaces_len > 0)
                 {
-                  spaces_element = new_element (ET_NONE);
+                  /* special text in "spaces_after_cmd_before_arg" */
+                  spaces_element = new_element (ET_other_text);
                   text_append_n (&(spaces_element->text),
                                  line, whitespaces_len);
                   line += whitespaces_len;
