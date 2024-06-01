@@ -167,7 +167,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             ELEMENT *e;
             int n;
             n = strspn (line, whitespace_chars_except_newline);
-            e = new_element (ET_internal_spaces_before_argument);
+            e = new_text_element (ET_internal_spaces_before_argument);
             text_append_n (&e->text, line, n);
             add_to_element_contents (current, e);
             internal_space_holder = current->parent;
@@ -185,7 +185,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               || command_data(command).data == BRACE_inline)
             {
               ELEMENT *e;
-              e = new_element (ET_internal_spaces_before_argument);
+              e = new_text_element (ET_internal_spaces_before_argument);
               /* See comment in parser.c:merge_text */
               text_append (&e->text, "");
               add_to_element_contents (current, e);
@@ -215,7 +215,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
          end of the line and also for misplaced { errors.  */
       current->source_info = current_source_info;
 
-      e = new_element (ET_internal_spaces_before_argument);
+      e = new_text_element (ET_internal_spaces_before_argument);
       text_append (&e->text, ""); /* See comment in parser.c:merge_text */
       add_to_element_contents (current, e);
       debug ("BRACKETED in def/multitable");
@@ -235,7 +235,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
            || current_context () == ct_inlineraw)
     {
       ELEMENT *b = new_element (ET_balanced_braces);
-      ELEMENT *open_brace = new_element (ET_normal_text);
+      ELEMENT *open_brace = new_text_element (ET_normal_text);
       abort_empty_line (&current);
       b->source_info = current_source_info;
       add_to_element_contents (current, b);
@@ -583,7 +583,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
           || current->parent->cmd == CM_seealso)
         {
           ELEMENT *e;
-          e = new_element (ET_spaces_after_close_brace);
+          e = new_text_element (ET_spaces_after_close_brace);
           text_append (&e->text, "");
           add_to_element_contents (current->parent->parent, e);
         }
@@ -687,7 +687,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
 
               e = new_element (ET_elided_brace_command_arg);
               add_to_element_args (current, e);
-              arg = new_element (ET_raw);
+              arg = new_text_element (ET_raw);
               text_append (&arg->text, "");
               add_to_element_contents (e, arg);
 
@@ -759,7 +759,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
 
           e = new_element (ET_elided_brace_command_arg);
           add_to_element_args (current, e);
-          arg = new_element (ET_raw);
+          arg = new_text_element (ET_raw);
           text_append (&arg->text, "");
           add_to_element_contents (e, arg);
 
@@ -802,7 +802,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   new_arg = new_element (type);
   add_to_element_args (current, new_arg);
   current = new_arg;
-  e = new_element (ET_internal_spaces_before_argument);
+  e = new_text_element (ET_internal_spaces_before_argument);
   text_append (&e->text, ""); /* See comment in parser.c:merge_text */
   add_to_element_contents (current, e);
   internal_space_holder = current;

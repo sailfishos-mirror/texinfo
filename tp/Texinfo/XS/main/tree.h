@@ -8,6 +8,7 @@ void reset_obstacks (void);
 
 ASSOCIATED_INFO *new_associated_info (void);
 ELEMENT *new_element (enum element_type type);
+ELEMENT *new_text_element (enum element_type type);
 ELEMENT_LIST *new_list (void);
 void add_to_element_list (ELEMENT_LIST *list, ELEMENT *e);
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);

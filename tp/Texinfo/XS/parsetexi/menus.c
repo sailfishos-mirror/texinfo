@@ -134,7 +134,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       abort_empty_line (&current);
       line++; /* Past the '*'. */
 
-      star = new_element (ET_internal_menu_star);
+      star = new_text_element (ET_internal_menu_star);
       text_append (&star->text, "*");
       add_to_element_contents (current, star);
 
@@ -176,7 +176,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
         }
 
       menu_entry = new_element (ET_menu_entry);
-      leading_text = new_element (ET_menu_entry_leading_text);
+      leading_text = new_text_element (ET_menu_entry_leading_text);
       /* transfer source marks from removed menu star to leading text */
       transfer_source_marks (menu_star_element, leading_text);
       destroy_element (menu_star_element);
@@ -211,7 +211,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       line++;
 
       current = current->parent;
-      e = new_element (ET_menu_entry_separator);
+      e = new_text_element (ET_menu_entry_separator);
       text_append_n (&e->text, &menu_separator, 1);
       add_to_element_contents (current, e);
 

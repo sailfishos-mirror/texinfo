@@ -9,6 +9,13 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (new_text_element_added),
+	tp/Texinfo/XS/main/tree.c (new_text_element): add a new function to
+	setup a text element, to prepare for a different initialization and
+	different struct union field use.  Update calls.
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/element_types.awk,
 	tp/Texinfo/XS/main/types_data.h (TYPE_DATA): rename TYPE type as
 	TYPE_DATA.

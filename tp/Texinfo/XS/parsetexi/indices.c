@@ -290,7 +290,7 @@ enter_index_entry (enum command_id index_type_cmd,
     /* put in extra "misc_args" */
     ELEMENT_LIST *index_entry = new_list ();
     /* index name put as text in extra "misc_args" */
-    ELEMENT *e = new_element (ET_other_text);
+    ELEMENT *e = new_text_element (ET_other_text);
     text_append (&e->text, idx->name);
     add_to_element_list (index_entry, e);
     e = new_element (ET_NONE);
@@ -431,7 +431,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                       ELEMENT *index_entry;
                   /* container without type in extra "def_index_ref_element" */
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);
-                      ELEMENT *text_element = new_element (ET_normal_text);
+                      ELEMENT *text_element = new_text_element (ET_normal_text);
                       enum command_id def_command
                         = lookup_command (def_cmdname);
                       NAMED_STRING_ELEMENT_LIST *substrings

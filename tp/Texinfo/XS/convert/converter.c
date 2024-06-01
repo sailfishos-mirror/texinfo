@@ -339,7 +339,7 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
 
   if (float_number)
     {
-      ELEMENT *e_number = new_element (ET_normal_text);
+      ELEMENT *e_number = new_text_element (ET_normal_text);
       text_append (&e_number->text, float_number);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_number", e_number);
@@ -386,7 +386,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
 
   if (float_number)
     {
-      ELEMENT *e_number = new_element (ET_normal_text);
+      ELEMENT *e_number = new_text_element (ET_normal_text);
       text_append (&e_number->text, float_number);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_number", e_number);
@@ -508,6 +508,14 @@ new_element_added (TREE_ADDED_ELEMENTS *added_elements, enum element_type type)
   return new;
 }
 
+ELEMENT *
+new_text_element_added (TREE_ADDED_ELEMENTS *added_elements, enum element_type type)
+{
+  ELEMENT *new = new_text_element (type);
+  add_to_element_list (&added_elements->added, new);
+  return new;
+}
+
 TREE_ADDED_ELEMENTS *
 table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 {
@@ -623,7 +631,7 @@ comma_index_subentries_tree (const ELEMENT *current_entry,
         = lookup_extra_element (current_entry, "subentry");
       if (subentry)
         {
-          ELEMENT *separator = new_element (ET_normal_text);
+          ELEMENT *separator = new_text_element (ET_normal_text);
           text_append (&separator->text, subentry_separator);
           current_entry = subentry;
           add_to_element_list (result, separator);

@@ -460,7 +460,7 @@ close_current (ELEMENT *current,
       switch (current->type)
         {
         case ET_balanced_braces:
-          close_brace = new_element (ET_normal_text);
+          close_brace = new_text_element (ET_normal_text);
           command_error (current, "misplaced {");
           /* We prefer adding an element to merging because we may
              be at the end of the document after an empty line we

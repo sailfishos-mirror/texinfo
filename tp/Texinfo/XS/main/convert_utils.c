@@ -70,7 +70,7 @@ expand_today (OPTIONS *options)
 
   if (options->TEST.o.integer > 0)
     {
-      result = new_element (ET_normal_text);
+      result = new_text_element (ET_normal_text);
       text_append (&result->text, "a sunny day");
       return result;
     }
@@ -96,8 +96,8 @@ expand_today (OPTIONS *options)
   month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0,
                          options->documentlanguage.o.string, 0,
                          options->DEBUG.o.integer, 0);
-  day_element = new_element (ET_normal_text);
-  year_element = new_element (ET_normal_text);
+  day_element = new_text_element (ET_normal_text);
+  year_element = new_text_element (ET_normal_text);
   text_printf (&day_element->text, "%d", time_tm->tm_mday);
   text_printf (&year_element->text, "%d", year);
 
@@ -410,7 +410,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
               text = convert_to_utf8_verbatiminclude
                        (line, conversion, &current->source_info);
               free (line);
-              raw = new_element (ET_raw);
+              raw = new_text_element (ET_raw);
               text_append (&raw->text, text);
               add_to_element_contents (verbatiminclude, raw);
               free (text);
@@ -587,7 +587,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
                              documentlanguage, substrings, 0, 0);
           /*
           result = new_element (ET_NONE);
-          ELEMENT *text_element = new_element (ET_normal_text);
+          ELEMENT *text_element = new_text_element (ET_normal_text);
           add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " on ");
           add_to_element_contents (result, text_element);
@@ -626,7 +626,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
                              documentlanguage, substrings, 0, 0);
           /*
           result = new_element (ET_NONE);
-          ELEMENT *text_element = new_element (ET_normal_text);
+          ELEMENT *text_element = new_text_element (ET_normal_text);
           add_to_element_contents (result, category_copy);
           text_append (&text_element->text, " of ");
           add_to_element_contents (result, text_element);

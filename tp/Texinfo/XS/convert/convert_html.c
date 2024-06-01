@@ -3878,7 +3878,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                 {
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings
                     = new_named_string_element_list ();
-                  ELEMENT *e_number = new_element (ET_normal_text);
+                  ELEMENT *e_number = new_text_element (ET_normal_text);
                   ELEMENT *section_title_copy
                      = copy_tree (command->args.list[0]);
 
@@ -3947,8 +3947,8 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   tree = new_tree_added_elements (tree_added_status_elements_added);
 
   root_code = new_element_added (tree, ET__code);
-  open_p = new_element_added (tree, ET_normal_text);
-  close_p = new_element_added (tree, ET_normal_text);
+  open_p = new_text_element_added (tree, ET_normal_text);
+  close_p = new_text_element_added (tree, ET_normal_text);
 
   text_append_n (&open_p->text, "(", 1);
   text_append_n (&close_p->text, ")", 1);
@@ -6833,8 +6833,8 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
   if (self->conf->PROGRAM.o.string && strlen (self->conf->PROGRAM.o.string)
       && self->conf->PACKAGE_URL.o.string)
     {
-      ELEMENT *program_homepage = new_element (ET_normal_text);
-      ELEMENT *program = new_element (ET_normal_text);
+      ELEMENT *program_homepage = new_text_element (ET_normal_text);
+      ELEMENT *program = new_text_element (ET_normal_text);
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
 
@@ -8586,7 +8586,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   const char *package_url;
   char *href = html_command_href (self, element, filename, 0, 0);
   char *name = html_command_text (self, element, 0);
-  ELEMENT *direction_element = new_element (ET__converted);
+  ELEMENT *direction_element = new_text_element (ET__converted);
   NAMED_STRING_ELEMENT_LIST *substrings = new_named_string_element_list ();
 
   text_printf (&direction_element->text, "<a href=\"%s\">%s</a>", href, name);
@@ -8953,7 +8953,7 @@ convert_value_command (CONVERTER *self, const enum command_id cmd,
                     const char *content, TEXT *result)
 {
   ELEMENT *tree;
-  ELEMENT *value_text = new_element (ET_normal_text);
+  ELEMENT *value_text = new_text_element (ET_normal_text);
   NAMED_STRING_ELEMENT_LIST *substrings = new_named_string_element_list ();
 
   text_append (&value_text->text,
@@ -9175,8 +9175,8 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
       char *context_str;
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-      ELEMENT *explained_string_element = new_element (ET__converted);
-      ELEMENT *explanation_result_element = new_element (ET__converted);
+      ELEMENT *explained_string_element = new_text_element (ET__converted);
+      ELEMENT *explanation_result_element = new_text_element (ET__converted);
       ELEMENT *tree;
 
       text_append (&explained_string_element->text, text_result->text);
@@ -12366,7 +12366,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
              = html_command_root_element_command (self, target_node);
       const ELEMENT *associated_section = lookup_extra_element (target_node,
                                                        "associated_section");
-      reference_element = new_element (ET__converted);
+      reference_element = new_text_element (ET__converted);
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
 
@@ -12618,9 +12618,9 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
 
       if (book && reference)
         {
-          book_element = new_element (ET__converted);
+          book_element = new_text_element (ET__converted);
           text_append (&book_element->text, book);
-          reference_element = new_element (ET__converted);
+          reference_element = new_text_element (ET__converted);
           text_append (&reference_element->text, reference);
 
           add_element_to_named_string_element_list (substrings,
@@ -12645,7 +12645,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
         }
       else if (book_reference)
         {
-          book_element = new_element (ET__converted);
+          book_element = new_text_element (ET__converted);
           text_append (&book_element->text, book_reference);
 
           add_element_to_named_string_element_list (substrings,
@@ -12668,9 +12668,9 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
         }
       else if (book && name)
         {
-          book_element = new_element (ET__converted);
+          book_element = new_text_element (ET__converted);
           text_append (&book_element->text, book);
-          reference_element = new_element (ET__converted);
+          reference_element = new_text_element (ET__converted);
           text_append (&reference_element->text, name);
 
           add_element_to_named_string_element_list (substrings,
@@ -12695,7 +12695,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
         }
       else if (book)
         {
-          book_element = new_element (ET__converted);
+          book_element = new_text_element (ET__converted);
           text_append (&book_element->text, book);
 
           add_element_to_named_string_element_list (substrings,
@@ -12718,7 +12718,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
         }
       else if (reference)
         {
-          reference_element = new_element (ET__converted);
+          reference_element = new_text_element (ET__converted);
           text_append (&reference_element->text, reference);
 
           add_element_to_named_string_element_list (substrings,
@@ -12741,7 +12741,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
         }
       else if (name)
         {
-          reference_element = new_element (ET__converted);
+          reference_element = new_text_element (ET__converted);
           text_append (&reference_element->text, name);
 
           add_element_to_named_string_element_list (substrings,
@@ -12962,7 +12962,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
       else
         {
           char *normalized_letter;
-          ELEMENT *letter_text = new_element (ET_normal_text);
+          ELEMENT *letter_text = new_text_element (ET_normal_text);
           text_append (&letter_text->text, letter);
           normalized_letter = normalize_transliterate_texinfo (letter_text,
                                              (self->conf->TEST.o.integer > 0));

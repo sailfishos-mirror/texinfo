@@ -182,7 +182,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
                        int *has_comment, int *special_arg)
 {
 #define ADD_ARG(string, len) do { \
-  ELEMENT *E = new_element (ET_other_text); \
+  ELEMENT *E = new_text_element (ET_other_text); \
   text_append_n (&E->text, string, len); \
   add_to_element_contents (args, E); \
 } while (0)
@@ -649,8 +649,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           char *arg = 0;
           ELEMENT *line_args;
           ELEMENT *e;
-          ELEMENT *spaces_before = new_element (ET_other_text);
-          ELEMENT *spaces_after = new_element (ET_other_text);
+          ELEMENT *spaces_before = new_text_element (ET_other_text);
+          ELEMENT *spaces_after = new_text_element (ET_other_text);
           /* put in extra "misc_args" */
           ELEMENT_LIST *args_list = new_list ();
 
@@ -663,7 +663,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
              command and add it to the tree. */
 
           destroy_element_and_children (args);
-          e = new_element (ET_other_text);
+          e = new_text_element (ET_other_text);
           text_append (&e->text, arg);
           add_to_element_list (args_list, e);
 
@@ -682,7 +682,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           add_info_element_oot (line_args, "spaces_after_argument",
                                 spaces_after);
 
-          e = new_element (ET_normal_text);
+          e = new_text_element (ET_normal_text);
           text_append (&e->text, arg);
           add_to_element_contents (line_args, e);
 

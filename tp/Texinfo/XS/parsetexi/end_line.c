@@ -104,7 +104,7 @@ ELEMENT_LIST *
 parse_line_command_args (ELEMENT *line_command)
 {
 #define ADD_ARG(string) do { \
-    ELEMENT *E = new_element (ET_other_text); \
+    ELEMENT *E = new_text_element (ET_other_text); \
     text_append (&E->text, string); \
     add_to_element_list (line_args, E); \
 } while (0)
@@ -316,7 +316,7 @@ parse_line_command_args (ELEMENT *line_command)
               }
             else
               {
-                new = new_element (ET_other_text);
+                new = new_text_element (ET_other_text);
                 text_append_n (&new->text, p, q - p);
                 add_to_element_list (line_args, new);
               }
@@ -1875,7 +1875,7 @@ end_line (ELEMENT *current)
           add_to_element_contents (current, e);
 
           current = e;
-          e = new_element (ET_after_menu_description_line);
+          e = new_text_element (ET_after_menu_description_line);
           text_append (&e->text, empty_line->text.text);
           transfer_source_marks (empty_line, e);
           destroy_element (empty_line);

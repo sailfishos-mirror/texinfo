@@ -161,9 +161,10 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
       return new;
     }
 
-  new = new_element (ET_NONE);
-  if (current->type)
-    new->type = current->type;
+  if (type_data[current->type].flags & TF_text)
+    new = new_text_element (current->type);
+  else
+    new = new_element (current->type);
 
   increase_ref_counter (current);
   add_extra_element (current, "_copy", new);
@@ -332,7 +333,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
               ELEMENT *new_e;
               if (e->type == ET_other_text)
                 {
-                  new_e = new_element (ET_other_text);
+                  new_e = new_text_element (ET_other_text);
                   if (e->text.end > 0)
                     text_append_n (&new_e->text, e->text.text, e->text.end);
                 }
@@ -574,10 +575,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
         {
           if (modify_node)
             {
-              opening_brace = new_element (ET_normal_text);
+              opening_brace = new_text_element (ET_normal_text);
               text_append_n (&opening_brace->text, "(", 1);
             }
-          new_first = new_element (ET_normal_text);
+          new_first = new_text_element (ET_normal_text);
           text_append_n (&new_first->text, first->text.text +1, first->text.end -1);
         }
       else
@@ -681,7 +682,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (p > e->text.text)
                 {
                   /* text before ), part of the manual name */
-                  ELEMENT *last_manual_element = new_element (ET_normal_text);
+                  ELEMENT *last_manual_element
+                                      = new_text_element (ET_normal_text);
                   text_append_n (&last_manual_element->text, e->text.text,
                                  p - e->text.text);
                   add_to_contents_as_array (manual, last_manual_element);
@@ -700,7 +702,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
               if (modify_node)
                 {
-                  ELEMENT *closing_brace = new_element (ET_normal_text);
+                  ELEMENT *closing_brace = new_text_element (ET_normal_text);
                   text_append_n (&closing_brace->text, ")", 1);
                   insert_into_contents (node, closing_brace, idx++);
                   current_position
@@ -717,7 +719,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
               q = p + strspn (p, whitespace_chars);
               if (q > p && modify_node)
                 {
-                  ELEMENT *spaces_element = new_element (ET_normal_text);
+                  ELEMENT *spaces_element = new_text_element (ET_normal_text);
                   text_append_n (&spaces_element->text, p, q - p);
                   insert_into_contents (node, spaces_element, idx++);
                   current_position
@@ -731,7 +733,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (*p)
                 {
                   /* text after ), part of the node name. */
-                  ELEMENT *leading_node_content = new_element (ET_normal_text);
+                  ELEMENT *leading_node_content
+                      = new_text_element (ET_normal_text);
                   text_append_n (&leading_node_content->text, p,
                                  e->text.text + e->text.end - p);
                   /* start node_content */
@@ -869,7 +872,7 @@ new_asis_command_with_text (const char *text, ELEMENT *parent,
 {
   ELEMENT *new_command = new_element (ET_NONE);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
-  ELEMENT *text_elt = new_element (type);
+  ELEMENT *text_elt = new_text_element (type);
   new_command->cmd = CM_asis;
   new_command->parent = parent;
   add_to_element_args (new_command, brace_command_arg);
@@ -907,7 +910,7 @@ protect_text (ELEMENT *current, const char *to_protect)
       while (*p)
         {
           size_t leading_nr = strcspn (p, to_protect);
-          ELEMENT *text_elt = new_element (current->type);
+          ELEMENT *text_elt = new_text_element (current->type);
           text_elt->parent = current->parent;
           if (leading_nr)
             {

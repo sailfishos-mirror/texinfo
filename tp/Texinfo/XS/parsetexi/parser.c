@@ -525,7 +525,7 @@ parse_texi_document (void)
       if (!preamble_before_beginning)
         preamble_before_beginning = new_element (ET_preamble_before_beginning);
 
-      l = new_element (ET_text_before_beginning);
+      l = new_text_element (ET_text_before_beginning);
       text_append (&l->text, line);
       add_to_element_contents (preamble_before_beginning, l);
     }
@@ -771,7 +771,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   else
     {
      new_text:
-      ELEMENT *e = new_element (ET_normal_text);
+      ELEMENT *e = new_text_element (ET_normal_text);
       if (transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e);
       text_append_n (&e->text, text, len_text);
@@ -882,7 +882,7 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
   else
     {
       int i, trailing_spaces;
-      ELEMENT *spaces_element = new_element (ET_other_text);
+      ELEMENT *spaces_element = new_text_element (ET_other_text);
 
       trailing_spaces = 0;
       for (i = text_len - 1;
@@ -936,7 +936,7 @@ isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
 
       if (trailing_spaces)
         {
-          new_spaces = new_element (spaces_type);
+          new_spaces = new_text_element (spaces_type);
           text_append_n (&new_spaces->text,
                          text + text_len - trailing_spaces,
                          trailing_spaces);
@@ -1021,7 +1021,7 @@ start_empty_line_after_command (ELEMENT *current, const char **line_inout,
   int len;
 
   len = strspn (line, whitespace_chars_except_newline);
-  e = new_element (ET_ignorable_spaces_after_command);
+  e = new_text_element (ET_ignorable_spaces_after_command);
   add_to_element_contents (current, e);
   text_append_n (&e->text, line, len);
   line += len;
@@ -1101,7 +1101,7 @@ new_value_element (enum command_id cmd, const char *flag,
   ELEMENT *value_elt = new_element (ET_NONE);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
   /* occasionnally considered as text in conversion, so make it normal text */
-  ELEMENT *value_text = new_element (ET_normal_text);
+  ELEMENT *value_text = new_text_element (ET_normal_text);
 
   value_elt->cmd = cmd;
 
@@ -1464,7 +1464,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                     {
                       ELEMENT *e;
                       int n = strspn (line, whitespace_chars);
-                      e = new_element (ET_raw);
+                      e = new_text_element (ET_raw);
                       text_append_n (&e->text, line, n);
                       add_to_element_contents (current, e);
                       line += n;
@@ -1518,7 +1518,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               an empty line will not appear in the output, but it is needed to
               avoid a duplicate warning on @end not appearing at the beginning
               of the line */
-                  e = new_element (ET_empty_line);
+                  e = new_text_element (ET_empty_line);
                   add_to_element_contents (current, e);
 
                   closed_nested_raw = 1;
@@ -1534,7 +1534,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       if (! closed_nested_raw)
         {
           ELEMENT *e;
-          e = new_element (ET_raw);
+          e = new_text_element (ET_raw);
           text_append (&e->text, line);
           add_to_element_contents (current, e);
 
@@ -1588,7 +1588,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             {
               ELEMENT *e;
               int n = strspn (line, whitespace_chars);
-              e = new_element (ET_raw);
+              e = new_text_element (ET_raw);
               text_append_n (&e->text, line, n);
               add_to_element_contents (current, e);
               line += n;
@@ -1598,12 +1598,12 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
           debug ("CLOSED conditional %s", command_name(end_cmd));
 
-          e = new_element (ET_empty_line);
+          e = new_text_element (ET_empty_line);
           add_to_element_contents (current, e);
         }
       else
         {
-          ELEMENT *e = new_element (ET_raw);
+          ELEMENT *e = new_text_element (ET_raw);
           text_append (&(e->text), line);
           add_to_element_contents (current, e);
           retval = GET_A_NEW_LINE;
@@ -1642,7 +1642,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           /* Save up to the delimiter character. */
           if (q != line)
             {
-              ELEMENT *e = new_element (ET_raw);
+              ELEMENT *e = new_text_element (ET_raw);
               text_append_n (&e->text, line, q - line);
               add_to_element_contents (current, e);
             }
@@ -1653,7 +1653,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       else
         {
           /* Save the rest of line. */
-          ELEMENT *e = new_element (ET_raw);
+          ELEMENT *e = new_text_element (ET_raw);
           text_append (&e->text, line);
           add_to_element_contents (current, e);
 
@@ -1694,7 +1694,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                 }
               else
                 {
-                  ELEMENT *raw_text = new_element (ET_raw);
+                  ELEMENT *raw_text = new_text_element (ET_raw);
                   text_append (&(raw_text->text), line);
                   add_to_element_contents (e_elided_rawpreformatted, raw_text);
                 }
@@ -1705,7 +1705,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* start a new line for the @end line, this is normally done
          at the beginning of a line, but not here, as we directly
          got the lines. */
-      e_empty_line = new_element (ET_empty_line);
+      e_empty_line = new_text_element (ET_empty_line);
       add_to_element_contents (current, e_empty_line);
 
       n = strspn (line, whitespace_chars_except_newline);
@@ -1815,7 +1815,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           if (whitespaces_len > 0)
             {
               /* special text in "spaces_after_cmd_before_arg" */
-              spaces_element = new_element (ET_other_text);
+              spaces_element = new_text_element (ET_other_text);
               text_append_n (&(spaces_element->text),
                              remaining_line, whitespaces_len);
               remaining_line += whitespaces_len;
@@ -2028,7 +2028,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
            if (current->contents.number == 0)
              {
                ELEMENT *e_spaces_after_cmd_before_arg
-                 = new_element (ET_internal_spaces_after_cmd_before_arg);
+                 = new_text_element (ET_internal_spaces_after_cmd_before_arg);
                text_append_n (&(e_spaces_after_cmd_before_arg->text),
                               line, whitespaces_len);
                add_to_element_contents (current, e_spaces_after_cmd_before_arg);
@@ -2084,7 +2084,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           while ((line[char_len] & 0xC0) == 0x80)
             char_len++;
 
-          e2 = new_element (ET_normal_text);
+          e2 = new_text_element (ET_normal_text);
           text_append_n (&e2->text, line, char_len);
           debug ("ACCENT @%s following_arg: %s", command_name(current->cmd),
                  e2->text.text);
@@ -2136,7 +2136,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               if (whitespaces_len > 0)
                 {
                   /* special text in "spaces_after_cmd_before_arg" */
-                  spaces_element = new_element (ET_other_text);
+                  spaces_element = new_text_element (ET_other_text);
                   text_append_n (&(spaces_element->text),
                                  line, whitespaces_len);
                   line += whitespaces_len;
@@ -2414,10 +2414,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
           /* A form feed stops and restarts a paragraph. */
           current = end_paragraph (current, 0, 0);
-          e = new_element (ET_empty_line);
+          e = new_text_element (ET_empty_line);
           text_append_n (&e->text, "\f", 1);
           add_to_element_contents (current, e);
-          e = new_element (ET_empty_line);
+          e = new_text_element (ET_empty_line);
           add_to_element_contents (current, e);
         }
       else
@@ -2543,7 +2543,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
               abort_empty_line (&current);
             }
 
-          e = new_element (ET_empty_line);
+          e = new_text_element (ET_empty_line);
           add_to_element_contents (current, e);
 
           n = strspn (line, whitespace_chars_except_newline);
@@ -2622,7 +2622,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
         if (!allocated_line)
           break; /* Out of input. */
 
-        e = new_element (ET_text_after_end);
+        e = new_text_element (ET_text_after_end);
         text_append (&e->text, line);
         add_to_element_contents (element_after_bye, e);
       }

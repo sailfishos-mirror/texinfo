@@ -42,6 +42,7 @@ static int *obs_element_first = 0;
  */
 
 #include "tree_types.h"
+#include "types_data.h"
 /* for fatal */
 #include "utils.h"
 /* for debug
@@ -111,6 +112,16 @@ new_element (enum element_type type)
     }
     */
 
+  e->type = type;
+
+  return e;
+}
+
+ELEMENT *
+new_text_element (enum element_type type)
+{
+  ELEMENT *e;
+  e = alloc_element ();
   e->type = type;
 
   return e;

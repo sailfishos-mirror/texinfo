@@ -183,7 +183,7 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
       while (remaining_level > 0)
         {
           ELEMENT *element = new_element (ET_NONE);
-          ELEMENT *rawline_arg = new_element (ET_rawline_arg);
+          ELEMENT *rawline_arg = new_text_element (ET_rawline_arg);
 
           element->cmd = cmd;
           add_to_element_contents (parent, element);
@@ -242,10 +242,11 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
             {
               ELEMENT *line_content;
               ELEMENT *new_section = new_element (ET_NONE);
-              ELEMENT *spaces_before_argument = new_element (ET_other_text);
+              ELEMENT *spaces_before_argument
+                 = new_text_element (ET_other_text);
               ELEMENT *line_arg = new_element (ET_line_arg);
-              ELEMENT *spaces_after_argument = new_element (ET_other_text);
-              ELEMENT *empty_line = new_element (ET_empty_line);
+              ELEMENT *spaces_after_argument = new_text_element (ET_other_text);
+              ELEMENT *empty_line = new_text_element (ET_empty_line);
 
               current_section_level++;
               new_section->cmd
@@ -402,7 +403,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
               if (item && entry_idx_info)
                 {
                   ELEMENT_LIST *index_entry_command = new_list ();
-                  ELEMENT *e = new_element (ET_other_text);
+                  ELEMENT *e = new_text_element (ET_other_text);
                  /*
                   This is better than overwriting 'entry_element', which
                   holds important information.
@@ -581,7 +582,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
   if (node_tree->contents.number <= 0)
     {
-      ELEMENT *empty_text = new_element (ET_normal_text);
+      ELEMENT *empty_text = new_text_element (ET_normal_text);
       text_append (&empty_text->text, "");
       add_to_element_contents (node_tree, empty_text);
       empty_node = 1;
@@ -624,8 +625,8 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       ELEMENT *target = 0;
       ELEMENT *appended_text = 0;
       ELEMENT *node_line_arg = new_element (ET_line_arg);
-      ELEMENT *spaces_before = new_element (ET_other_text);
-      ELEMENT *spaces_after = new_element (ET_other_text);
+      ELEMENT *spaces_before = new_text_element (ET_other_text);
+      ELEMENT *spaces_after = new_text_element (ET_other_text);
 
       node = new_element (ET_NONE);
       node->cmd = CM_node;
@@ -646,7 +647,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
       if (appended_number)
         {
-          appended_text = new_element (ET_normal_text);
+          appended_text = new_text_element (ET_normal_text);
           text_printf (&appended_text->text, " %d", appended_number);
           add_to_element_contents (node_line_arg, appended_text);
         }
@@ -785,8 +786,8 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
 
               if (content->cmd == CM_top)
                 {
-                  ELEMENT *top_node_text = new_element (ET_normal_text);
-                  new_node_tree = new_element (ET_normal_text);
+                  ELEMENT *top_node_text = new_text_element (ET_normal_text);
+                  new_node_tree = new_text_element (ET_normal_text);
                   text_append (&top_node_text->text, "Top");
                   add_to_element_contents (new_node_tree, top_node_text);
                 }
@@ -915,7 +916,7 @@ void
 prepend_new_menu_in_node_section (ELEMENT *node, ELEMENT *section,
                                   ELEMENT *current_menu)
 {
-  ELEMENT *empty_line = new_element (ET_empty_line);
+  ELEMENT *empty_line = new_text_element (ET_empty_line);
   ELEMENT_LIST *menus = add_extra_contents (node, "menus", 0);
 
   add_to_element_contents (section, current_menu);
@@ -1241,7 +1242,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
       if (preformatted)
         {
-          ELEMENT *empty_line = new_element (ET_empty_line);
+          ELEMENT *empty_line = new_text_element (ET_empty_line);
           text_append (&empty_line->text, "\n");
           add_to_element_contents (preformatted, empty_line);
         }
@@ -1251,7 +1252,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
         there is a last menu entry, add a menu comment containing an empty line
         after it
          */
-          ELEMENT *after_line = new_element (ET_after_menu_description_line);
+          ELEMENT *after_line
+              = new_text_element (ET_after_menu_description_line);
           ELEMENT *menu_comment = new_element (ET_menu_comment);
           insert_into_contents (last_menu, menu_comment, index);
           index++;
@@ -1350,7 +1352,8 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           char *current_text = strdup (current->text.text);
                           char *p = current_text;
                           size_t leading_spaces_nr;
-                          ELEMENT *leading_spaces = new_element (ET_normal_text);
+                          ELEMENT *leading_spaces
+                               = new_text_element (ET_normal_text);
                           ELEMENT *hashchar = new_element (ET_NONE);
                           ELEMENT *arg = new_element (ET_brace_command_arg);
                           /* count UTF-8 encoded Unicode characters for
