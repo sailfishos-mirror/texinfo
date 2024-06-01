@@ -69,13 +69,13 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 
       ADD(arg_line);
     }
-  else if (e->args.number > 0)
+  else if (e->c->args.number > 0)
     {
       int braces, arg_nr, i;
       int with_commas = 0;
 
-      braces = (e->args.list[0]->type == ET_brace_command_arg
-                || e->args.list[0]->type == ET_brace_command_context);
+      braces = (e->c->args.list[0]->type == ET_brace_command_arg
+                || e->c->args.list[0]->type == ET_brace_command_context);
       if (braces)
         ADD("{");
 
@@ -97,9 +97,9 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
         with_commas = 1;
 
       arg_nr = 0;
-      for (i = 0; i < e->args.number; i++)
+      for (i = 0; i < e->c->args.number; i++)
         {
-          ELEMENT *arg = e->args.list[i];
+          ELEMENT *arg = e->c->args.list[i];
           int status;
           int inserted = lookup_info_integer (arg, "inserted", &status);
           if (inserted)
@@ -162,11 +162,11 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               ADD((char *)elt->text->text);
             }
         }
-      if (e->contents.number > 0)
+      if (e->c->contents.number > 0)
         {
           int i;
-          for (i = 0; i < e->contents.number; i++)
-            convert_to_texinfo_internal (e->contents.list[i], result);
+          for (i = 0; i < e->c->contents.number; i++)
+            convert_to_texinfo_internal (e->c->contents.list[i], result);
         }
 
       elt = lookup_info_element (e, "spaces_after_argument");
@@ -209,9 +209,9 @@ convert_contents_to_texinfo (const ELEMENT *e)
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
-  tmp->contents = e->contents;
+  tmp->c->contents = e->c->contents;
   result = convert_to_texinfo (tmp);
-  tmp->contents.list = 0;
+  tmp->c->contents.list = 0;
   destroy_element (tmp);
 
   return result;
@@ -291,7 +291,7 @@ check_node_same_texinfo_code (const ELEMENT *reference_node,
           ELEMENT *tmp_elt = new_element (ET_NONE);
           insert_slice_into_contents (tmp_elt, 0,
                                       node_content, 0,
-                                      node_content->contents.number -1);
+                                      node_content->c->contents.number -1);
           tmp_texi = convert_to_texinfo (tmp_elt);
           destroy_element (tmp_elt);
         }
@@ -325,9 +325,9 @@ root_heading_command_to_texinfo (const ELEMENT *element)
     {
       if ((data_cmd == CM_node
            || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
-          && element->args.number > 0
-          && element->args.list[0]->contents.number > 0)
-        tree = element->args.list[0];
+          && element->c->args.number > 0
+          && element->c->args.list[0]->c->contents.number > 0)
+        tree = element->c->args.list[0];
     }
   else
     return strdup ("Not a command");

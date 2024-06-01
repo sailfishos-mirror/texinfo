@@ -132,8 +132,8 @@ is_container_empty (ELEMENT *current)
       if (current->text->end == 0)
         return 1;
     }
-  else if (current->contents.number == 0
-          && current->args.number == 0
+  else if (current->c->contents.number == 0
+          && current->c->args.number == 0
           && current->info_info.info_number == 0)
     return 1;
 
@@ -144,7 +144,7 @@ is_container_empty (ELEMENT *current)
 void
 remove_empty_content (ELEMENT *current)
 {
-  if (current->contents.number == 1)
+  if (current->c->contents.number == 1)
     {
       ELEMENT *child_element = last_contents_child (current);
       if ((!child_element->cmd) && is_container_empty (child_element))
@@ -214,10 +214,10 @@ close_command_cleanup (ELEMENT *current)
   if (current->cmd == CM_multitable)
     {
       int in_head_or_rows = -1, i;
-      ELEMENT_LIST old_contents = current->contents;
+      ELEMENT_LIST old_contents = current->c->contents;
 
       /* Clear current contents. */
-      memset (&current->contents, 0, sizeof (ELEMENT_LIST));
+      memset (&current->c->contents, 0, sizeof (ELEMENT_LIST));
 
       /* Rearrange the contents of the multitable to collect rows into
          ET_multitable_head and ET_multitable_body elements. */
@@ -278,28 +278,29 @@ close_command_cleanup (ELEMENT *current)
       || current->cmd == CM_ftable
       || current->cmd == CM_vtable)
     {
-      if (current->contents.number > 0)
+      if (current->c->contents.number > 0)
         gather_previous_item (current, 0);
     }
 
   /* Block commands that contain @item's - e.g. @multitable, @table,
      @itemize. */
   if (command_data(current->cmd).flags & CF_blockitem
-      && current->contents.number > 0)
+      && current->c->contents.number > 0)
     {
       int have_leading_spaces = 0;
       ELEMENT *before_item = 0;
-      if (current->contents.number >= 2
-          && current->contents.list[0]->type == ET_ignorable_spaces_after_command
-          && current->contents.list[1]->type == ET_before_item)
+      if (current->c->contents.number >= 2
+          && current->c->contents.list[0]->type
+                              == ET_ignorable_spaces_after_command
+          && current->c->contents.list[1]->type == ET_before_item)
         {
           have_leading_spaces = 1;
-          before_item = current->contents.list[1];
+          before_item = current->c->contents.list[1];
         }
-      else if (current->contents.number >= 1
-          && current->contents.list[0]->type == ET_before_item)
+      else if (current->c->contents.number >= 1
+          && current->c->contents.list[0]->type == ET_before_item)
         {
-          before_item = current->contents.list[0];
+          before_item = current->c->contents.list[0];
         }
 
       if (before_item)
@@ -326,9 +327,9 @@ close_command_cleanup (ELEMENT *current)
             {
               int empty_before_item = 1, i;
               /* Check if contents consist soley of @comment's. */
-              for (i = 0; i < before_item->contents.number; i++)
+              for (i = 0; i < before_item->c->contents.number; i++)
                 {
-                  enum command_id c = before_item->contents.list[i]->cmd;
+                  enum command_id c = before_item->c->contents.list[i]->cmd;
                   if (c != CM_c && c != CM_comment)
                     {
                       empty_before_item = 0;
@@ -341,9 +342,9 @@ close_command_cleanup (ELEMENT *current)
                   /* Check for an element that could represent an @item in the
                      block.  The type of this element will depend on the block
                      command we are in. */
-                  for (i = 0; i < current->contents.number; i++)
+                  for (i = 0; i < current->c->contents.number; i++)
                     {
-                      ELEMENT *e = current->contents.list[i];
+                      ELEMENT *e = current->c->contents.list[i];
                       if (e == before_item)
                         continue;
                       if ((e->cmd != CM_NONE
@@ -472,8 +473,8 @@ close_current (ELEMENT *current,
           break;
         case ET_bracketed_arg:
           command_error (current, "misplaced {");
-          if (current->contents.number > 0
-              && current->contents.list[0]->type
+          if (current->c->contents.number > 0
+              && current->c->contents.list[0]->type
                  == ET_internal_spaces_before_argument)
             {
               /* remove spaces element from tree and update extra values */

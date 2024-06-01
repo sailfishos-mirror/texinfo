@@ -114,6 +114,9 @@ new_element (enum element_type type)
 
   e->type = type;
 
+  e->c = (CONTAINER *) malloc (sizeof (CONTAINER));
+  memset (e->c, 0, sizeof (CONTAINER));
+
   return e;
 }
 
@@ -215,20 +218,24 @@ destroy_element (ELEMENT *e)
 {
   unregister_perl_tree_element (e);
 
-  destroy_source_mark_list (&(e->source_mark_list));
+  destroy_source_mark_list (&e->source_mark_list);
 
+  destroy_associated_info (&e->info_info);
   destroy_associated_info (&e->extra_info);
 
-  if (e->text)
+  if (type_data[e->type].flags & TF_text)
     {
       free (e->text->text);
       free (e->text);
     }
+  else
+    {
   /* Note the pointers in these lists are not themselves freed. */
-  free (e->contents.list);
-  free (e->args.list);
+      free (e->c->contents.list);
+      free (e->c->args.list);
 
-  destroy_associated_info (&e->info_info);
+      free (e->c);
+    }
 
   free (e);
 
@@ -247,10 +254,13 @@ destroy_element_and_children (ELEMENT *e)
 {
   int i;
 
-  for (i = 0; i < e->contents.number; i++)
-    destroy_element_and_children (e->contents.list[i]);
-  for (i = 0; i < e->args.number; i++)
-    destroy_element_and_children (e->args.list[i]);
+  if (! type_data[e->type].flags & TF_text)
+    {
+      for (i = 0; i < e->c->contents.number; i++)
+        destroy_element_and_children (e->c->contents.list[i]);
+      for (i = 0; i < e->c->args.number; i++)
+        destroy_element_and_children (e->c->args.list[i]);
+    }
 
   destroy_element (e);
 }
@@ -294,7 +304,7 @@ add_to_element_list (ELEMENT_LIST *list, ELEMENT *e)
 void
 add_to_element_contents (ELEMENT *parent, ELEMENT *e)
 {
-  ELEMENT_LIST *list = &parent->contents;
+  ELEMENT_LIST *list = &parent->c->contents;
   add_to_element_list (list, e);
   e->parent = parent;
 }
@@ -304,14 +314,14 @@ add_to_element_contents (ELEMENT *parent, ELEMENT *e)
 void
 add_to_contents_as_array (ELEMENT *parent, ELEMENT *e)
 {
-  ELEMENT_LIST *list = &parent->contents;
+  ELEMENT_LIST *list = &parent->c->contents;
   add_to_element_list (list, e);
 }
 
 void
 add_to_element_args (ELEMENT *parent, ELEMENT *e)
 {
-  ELEMENT_LIST *list = &parent->args;
+  ELEMENT_LIST *list = &parent->c->args;
   add_to_element_list (list, e);
   e->parent = parent;
 }
@@ -338,7 +348,7 @@ insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, int where)
 void
 insert_into_contents (ELEMENT *parent, ELEMENT *e, int where)
 {
-  ELEMENT_LIST *list = &parent->contents;
+  ELEMENT_LIST *list = &parent->c->contents;
   insert_into_element_list (list, e, where);
   e->parent = parent;
 }
@@ -347,7 +357,7 @@ insert_into_contents (ELEMENT *parent, ELEMENT *e, int where)
 void
 insert_into_args (ELEMENT *parent, ELEMENT *e, int where)
 {
-  ELEMENT_LIST *list = &parent->args;
+  ELEMENT_LIST *list = &parent->c->args;
   insert_into_element_list (list, e, where);
   e->parent = parent;
 }
@@ -377,7 +387,7 @@ void
 insert_slice_into_contents (ELEMENT *to, int where, const ELEMENT *from,
                             int start, int end)
 {
-  insert_list_slice_into_list (&to->contents, where, &from->contents,
+  insert_list_slice_into_list (&to->c->contents, where, &from->c->contents,
                                start, end);
 }
 
@@ -387,7 +397,7 @@ void
 insert_list_slice_into_args (ELEMENT *to, int where, ELEMENT_LIST *from,
                              int start, int end)
 {
-  insert_list_slice_into_list (&to->args, where, from, start, end);
+  insert_list_slice_into_list (&to->c->args, where, from, start, end);
 }
 
 /* Insert elements to the contents of TO at position WHERE from FROM
@@ -396,7 +406,7 @@ void
 insert_list_slice_into_contents (ELEMENT *to, int where, ELEMENT_LIST *from,
                                  int start, int end)
 {
-  insert_list_slice_into_list (&to->contents, where, from, start, end);
+  insert_list_slice_into_list (&to->c->contents, where, from, start, end);
 }
 
 /* ensure that there are n slots, and void them */
@@ -438,14 +448,14 @@ remove_from_element_list (ELEMENT_LIST *list, int where)
 ELEMENT *
 remove_from_contents (ELEMENT *parent, int where)
 {
-  ELEMENT_LIST *list = &parent->contents;
+  ELEMENT_LIST *list = &parent->c->contents;
   return remove_from_element_list (list, where);
 }
 
 ELEMENT *
 remove_from_args (ELEMENT *parent, int where)
 {
-  ELEMENT_LIST *list = &parent->args;
+  ELEMENT_LIST *list = &parent->c->args;
   return remove_from_element_list (list, where);
 }
 
@@ -487,18 +497,18 @@ add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e)
 void
 remove_slice_from_contents (ELEMENT *parent, int start, int end)
 {
-  memmove (&parent->contents.list[start],
-           &parent->contents.list[end],
-           (parent->contents.number - end) * sizeof (ELEMENT *));
+  memmove (&parent->c->contents.list[start],
+           &parent->c->contents.list[end],
+           (parent->c->contents.number - end) * sizeof (ELEMENT *));
 
-  parent->contents.number -= (end - start);
+  parent->c->contents.number -= (end - start);
 }
 
 
 ELEMENT *
 pop_element_from_args (ELEMENT *parent)
 {
-  ELEMENT_LIST *list = &parent->args;
+  ELEMENT_LIST *list = &parent->c->args;
 
   return list->list[--list->number];
 }
@@ -506,7 +516,7 @@ pop_element_from_args (ELEMENT *parent)
 ELEMENT *
 pop_element_from_contents (ELEMENT *parent)
 {
-  ELEMENT_LIST *list = &parent->contents;
+  ELEMENT_LIST *list = &parent->c->contents;
   ELEMENT *popped_element = list->list[list->number -1];
 
   list->number--;
@@ -517,43 +527,43 @@ pop_element_from_contents (ELEMENT *parent)
 ELEMENT *
 last_args_child (const ELEMENT *current)
 {
-  if (current->args.number == 0)
+  if (current->c->args.number == 0)
     return 0;
 
-  return current->args.list[current->args.number - 1];
+  return current->c->args.list[current->c->args.number - 1];
 }
 
 ELEMENT *
 last_contents_child (const ELEMENT *current)
 {
-  if (current->contents.number == 0)
+  if (current->c->contents.number == 0)
     return 0;
 
-  return current->contents.list[current->contents.number - 1];
+  return current->c->contents.list[current->c->contents.number - 1];
 }
 
 ELEMENT *
 contents_child_by_index (const ELEMENT *e, int index)
 {
   if (index < 0)
-    index = e->contents.number + index;
+    index = e->c->contents.number + index;
 
-  if (index < 0 || index >= e->contents.number)
+  if (index < 0 || index >= e->c->contents.number)
     return 0;
 
-  return e->contents.list[index];
+  return e->c->contents.list[index];
 }
 
 ELEMENT *
 args_child_by_index (const ELEMENT *e, int index)
 {
   if (index < 0)
-    index = e->args.number + index;
+    index = e->c->args.number + index;
 
-  if (index < 0 || index >= e->args.number)
+  if (index < 0 || index >= e->c->args.number)
     return 0;
 
-  return e->args.list[index];
+  return e->c->args.list[index];
 }
 
 int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
@@ -580,7 +590,7 @@ int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
 int
 replace_element_in_contents (ELEMENT *parent, ELEMENT *removed, ELEMENT *added)
 {
-  return replace_element_in_list (&parent->contents, removed, added);
+  return replace_element_in_list (&parent->c->contents, removed, added);
 }
 
 /* should only be used if the nse->manual_content

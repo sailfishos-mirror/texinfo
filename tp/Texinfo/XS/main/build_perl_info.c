@@ -217,7 +217,7 @@ build_perl_container (ELEMENT *e, int avoid_recursion)
   else
     hv_clear (e->hv);
 
-  sv = build_perl_array (&e->contents, avoid_recursion);
+  sv = build_perl_array (&e->c->contents, avoid_recursion);
 
   hv_store (e->hv, "contents", strlen ("contents"), sv, 0);
 }
@@ -631,6 +631,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       return;
     }
 
+  /* non-text elements */
+
   if (e->cmd)
     {
       sv = newSVpv (element_command_name (e), 0);
@@ -640,19 +642,19 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
          elsewhere by passing an appropriate second argument. */
     }
 
-  if (e->contents.number > 0)
+  if (e->c->contents.number > 0)
     {
       AV *av;
       int i;
 
       av = newAV ();
       sv = newRV_noinc ((SV *) av);
-      av_unshift (av, e->contents.number);
+      av_unshift (av, e->c->contents.number);
 
       hv_store (e->hv, "contents", strlen ("contents"), sv, HSH_contents);
-      for (i = 0; i < e->contents.number; i++)
+      for (i = 0; i < e->c->contents.number; i++)
         {
-          ELEMENT *child = e->contents.list[i];
+          ELEMENT *child = e->c->contents.list[i];
           if (!child->hv || !avoid_recursion)
             element_to_perl_hash (child, avoid_recursion);
       /* we do not transfer the hv ref to the perl av because we consider
@@ -664,19 +666,19 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         }
     }
 
-  if (e->args.number > 0)
+  if (e->c->args.number > 0)
     {
       AV *av;
       int i;
 
       av = newAV ();
       sv = newRV_noinc ((SV *) av);
-      av_unshift (av, e->args.number);
+      av_unshift (av, e->c->args.number);
 
       hv_store (e->hv, "args", strlen ("args"), sv, HSH_args);
-      for (i = 0; i < e->args.number; i++)
+      for (i = 0; i < e->c->args.number; i++)
         {
-          ELEMENT *child = e->args.list[i];
+          ELEMENT *child = e->c->args.list[i];
           if (!child->hv || !avoid_recursion)
             element_to_perl_hash (child, avoid_recursion);
           sv = newRV_inc ((SV *) child->hv);
@@ -686,24 +688,24 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   store_additional_info (e, &e->extra_info, "extra", avoid_recursion);
 
-  if (e->associated_unit)
+  if (e->c->associated_unit)
     {
       /* output_unit_to_perl_hash uses the unit_contents elements hv,
          so we may want to setup the tree hv before building the output
          units.  In that case, the output unit hv is not ready, so here
          we do not error out if the hv is not set.
           */
-      if (e->associated_unit->hv)
+      if (e->c->associated_unit->hv)
         {
           hv_store (e->hv, "associated_unit", strlen ("associated_unit"),
-                    newRV_inc ((SV *) e->associated_unit->hv), 0);
+                    newRV_inc ((SV *) e->c->associated_unit->hv), 0);
         }
     }
 
-  if (e->source_info.line_nr)
+  if (e->c->source_info.line_nr)
     {
 #define STORE(key, sv, hsh) hv_store (hv, key, strlen (key), sv, hsh)
-      const SOURCE_INFO *source_info = &e->source_info;
+      const SOURCE_INFO *source_info = &e->c->source_info;
       HV *hv = newHV ();
       hv_store (e->hv, "source_info", strlen ("source_info"),
                 newRV_noinc ((SV *)hv), HSH_source_info);

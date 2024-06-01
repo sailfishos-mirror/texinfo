@@ -26,8 +26,8 @@ char *
 parse_float_type (ELEMENT *current)
 {
   char *normalized;
-  if (current->args.number > 0)
-    normalized = convert_to_normalized (current->args.list[0]);
+  if (current->c->args.number > 0)
+    normalized = convert_to_normalized (current->c->args.list[0]);
   else
     normalized = strdup ("");
   add_extra_string (current, "float_type", normalized);

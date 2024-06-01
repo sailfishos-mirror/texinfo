@@ -60,7 +60,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
   const char *add_element_string = "no-add";
 
   source_mark->position = 0;
-  if (e->contents.number > 0)
+  if (e->c->contents.number > 0)
     {
       ELEMENT *last_child = last_contents_child (e);
       mark_element = last_child;

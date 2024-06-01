@@ -109,29 +109,30 @@ parse_line_command_args (ELEMENT *line_command)
     add_to_element_list (line_args, E); \
 } while (0)
 
-  ELEMENT *arg = line_command->args.list[0];
+  ELEMENT *arg = line_command->c->args.list[0];
   ELEMENT_LIST *line_args;
   enum command_id cmd;
   const char *line;
 
   cmd = line_command->cmd;
-  if (arg->contents.number == 0)
+  if (arg->c->contents.number == 0)
    {
      command_error (line_command, "@%s missing argument", command_name(cmd));
      return 0;
    }
 
-  if (arg->contents.number > 1 || arg->contents.list[0]->type != ET_normal_text)
+  if (arg->c->contents.number > 1
+      || arg->c->contents.list[0]->type != ET_normal_text)
     {
       line_error ("superfluous argument to @%s", command_name (cmd));
     }
-  if (arg->contents.list[0]->type != ET_normal_text
-      || arg->contents.list[0]->text->end == 0)
+  if (arg->c->contents.list[0]->type != ET_normal_text
+      || arg->c->contents.list[0]->text->end == 0)
     return 0;
 
   /* put in extra "misc_args" */
   line_args = new_list ();
-  line = arg->contents.list[0]->text->text;
+  line = arg->c->contents.list[0]->text->text;
 
   switch (cmd)
     {
@@ -721,13 +722,13 @@ end_line_def_line (ELEMENT *current)
       if (def_info_name)
         {
           const char *t;
-          ELEMENT *arg = def_info_name->contents.list[0];
+          ELEMENT *arg = def_info_name->c->contents.list[0];
           /* Set index_entry unless an empty ET_bracketed_arg. */
           if (arg->type == ET_bracketed_arg
-              && (arg->contents.number == 0
-                  || (arg->contents.number == 1
-                      && arg->contents.list[0]->type == ET_normal_text
-                      && (t = arg->contents.list[0]->text->text)
+              && (arg->c->contents.number == 0
+                  || (arg->c->contents.number == 1
+                      && arg->c->contents.list[0]->type == ET_normal_text
+                      && (t = arg->c->contents.list[0]->text->text)
                       && t[strspn (t, whitespace_chars)] == '\0')))
             {
             }
@@ -832,7 +833,7 @@ end_line_starting_block (ELEMENT *current)
       int i;
       int max_columns = 0;
 
-      for (i = 0; i < current->contents.number; i++)
+      for (i = 0; i < current->c->contents.number; i++)
         {
           ELEMENT *e = contents_child_by_index (current, i);
 
@@ -878,8 +879,8 @@ end_line_starting_block (ELEMENT *current)
     {
       char *float_type;
       ELEMENT *float_label_element = 0;
-      current->source_info = current_source_info;
-      if (current->args.number >= 2)
+      current->c->source_info = current_source_info;
+      if (current->c->args.number >= 2)
         {
           float_label_element = args_child_by_index (current, 1);
         }
@@ -899,14 +900,14 @@ end_line_starting_block (ELEMENT *current)
         {
           const char *spec = "1";
 
-          if (current->args.number > 0
-              && current->args.list[0]->contents.number > 0)
+          if (current->c->args.number > 0
+              && current->c->args.list[0]->c->contents.number > 0)
             {
               ELEMENT *g;
-              if (current->args.list[0]->contents.number > 1)
+              if (current->c->args.list[0]->c->contents.number > 1)
                 command_error (current, "superfluous argument to @%s",
                                command_name(current->cmd));
-              g = current->args.list[0]->contents.list[0];
+              g = current->c->args.list[0]->c->contents.list[0];
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
               if (g->type == ET_normal_text
@@ -930,13 +931,14 @@ end_line_starting_block (ELEMENT *current)
           k_command_as_arg = lookup_extra (current, "command_as_argument");
           if (!k_command_as_arg)
             {
-              if (current->args.number > 0
-                  && current->args.list[0]->contents.number > 0)
+              if (current->c->args.number > 0
+                  && current->c->args.list[0]->c->contents.number > 0)
                 {
                   char *texi_arg;
 
                   /* expand the contents to avoid surrounding spaces */
-                  texi_arg = convert_contents_to_texinfo (current->args.list[0]);
+                  texi_arg
+                    = convert_contents_to_texinfo (current->c->args.list[0]);
                   command_error (current, "bad argument to @%s: %s",
                                  command_name(command), texi_arg);
                   free (texi_arg);
@@ -974,7 +976,7 @@ end_line_starting_block (ELEMENT *current)
               int i;
               ELEMENT *e = args_child_by_index (current, 0);
 
-              for (i = 0; i < e->contents.number; i++)
+              for (i = 0; i < e->c->contents.number; i++)
                 {
                   if (contents_child_by_index (e, i)
                              == k_command_as_arg->k.element)
@@ -983,7 +985,7 @@ end_line_starting_block (ELEMENT *current)
                       break;
                     }
                 }
-              for (; i < e->contents.number; i++)
+              for (; i < e->c->contents.number; i++)
                 {
                   ELEMENT *f = contents_child_by_index (e, i);
                   if (f->cmd != CM_c
@@ -1005,8 +1007,8 @@ end_line_starting_block (ELEMENT *current)
           /* if the command as argument does not have braces but it is
              a brace command and not a mark (noarg) command, warn */
           if (k_command_as_arg
-              && (k_command_as_arg->k.element->args.number <= 0
-                  || k_command_as_arg->k.element->args.list[0]->type
+              && (k_command_as_arg->k.element->c->args.number <= 0
+                  || k_command_as_arg->k.element->c->args.list[0]->type
                        != ET_brace_command_arg))
             {
               enum command_id as_argument_cmd = k_command_as_arg->k.element->cmd;
@@ -1038,8 +1040,8 @@ end_line_starting_block (ELEMENT *current)
       /* if no command_as_argument given, default to @bullet for
          @itemize, and @asis for @table. */
       if (command == CM_itemize
-          && (current->args.number == 0
-              || current->args.list[0]->contents.number == 0))
+          && (current->c->args.number == 0
+              || current->c->args.list[0]->c->contents.number == 0))
         {
           ELEMENT *e;
           ELEMENT *block_line_arg;
@@ -1080,13 +1082,13 @@ end_line_starting_block (ELEMENT *current)
     } /* CF_blockitem */
   else if (command_data (command).args_number == 0
            && (! (command_data (command).flags & CF_variadic))
-           && current->args.number > 0
-           && current->args.list[0]->contents.number > 0)
+           && current->c->args.number > 0
+           && current->c->args.list[0]->c->contents.number > 0)
     {
       char *texi_arg;
 
       /* expand the contents to avoid surrounding spaces */
-      texi_arg = convert_contents_to_texinfo (current->args.list[0]);
+      texi_arg = convert_contents_to_texinfo (current->c->args.list[0]);
       command_warn (current, "unexpected argument on @%s line: %s",
                      command_name(command), texi_arg);
       free (texi_arg);
@@ -1100,10 +1102,10 @@ end_line_starting_block (ELEMENT *current)
           || command == CM_ifcommanddefined
           || command == CM_ifcommandnotdefined)
         {
-          if (current->args.number == 1
-              && current->args.list[0]->contents.number == 1)
+          if (current->c->args.number == 1
+              && current->c->args.list[0]->c->contents.number == 1)
             {
-              ELEMENT *arg_elt = current->args.list[0]->contents.list[0];
+              ELEMENT *arg_elt = current->c->args.list[0]->c->contents.list[0];
               if (arg_elt->type == ET_normal_text && arg_elt->text->end > 0)
                 {
                   const char *p = arg_elt->text->text;
@@ -1261,8 +1263,8 @@ end_line_misc_line (ELEMENT *current)
       char *text = 0;
       int superfluous_arg = 0;
 
-      if (current->args.number > 0)
-        text = text_contents_to_plain_text (current->args.list[0],
+      if (current->c->args.number > 0)
+        text = text_contents_to_plain_text (current->c->args.list[0],
                                             &superfluous_arg);
 
       if (!text || !strcmp (text, ""))
@@ -1571,9 +1573,9 @@ end_line_misc_line (ELEMENT *current)
       int i;
       ELEMENT *label_element;
 
-      for (i = 1; i < current->args.number && i < 4; i++)
+      for (i = 1; i < current->c->args.number && i < 4; i++)
         {
-          ELEMENT * arg = current->args.list[i];
+          ELEMENT * arg = current->c->args.list[i];
           NODE_SPEC_EXTRA *direction_label_info = parse_node_manual (arg, 1);
           if (direction_label_info->node_content)
             {
@@ -1583,9 +1585,9 @@ end_line_misc_line (ELEMENT *current)
               add_extra_container (arg, "node_content",
                                    direction_label_info->node_content);
 
-              tmp->contents = direction_label_info->node_content->contents;
+              tmp->c->contents = direction_label_info->node_content->c->contents;
               normalized = convert_to_identifier (tmp);
-              tmp->contents.list = 0;
+              tmp->c->contents.list = 0;
               destroy_element (tmp);
 
               add_extra_string (arg, "normalized", normalized);
@@ -1597,10 +1599,10 @@ end_line_misc_line (ELEMENT *current)
         }
 
       /* Now take care of the node itself */
-      label_element = current->args.list[0];
-      if (label_element->contents.number == 0)
+      label_element = current->c->args.list[0];
+      if (label_element->c->contents.number == 0)
         {
-          line_error_ext (MSG_error, 0, &current->source_info,
+          line_error_ext (MSG_error, 0, &current->c->source_info,
                           "empty argument in @%s", command_name (cmd));
         }
       check_register_target_element_label (label_element, current);
@@ -1632,7 +1634,7 @@ end_line_misc_line (ELEMENT *current)
         }
       /* All the other "line" commands. Check they have an argument. Empty
          @top is allowed. */
-      if (current->args.list[0]->contents.number == 0
+      if (current->c->args.list[0]->c->contents.number == 0
           && current->cmd != CM_top)
         {
           command_warn (current, "@%s missing argument",
@@ -1660,7 +1662,7 @@ end_line_misc_line (ELEMENT *current)
                 || current->cmd == CM_subentry))
             {
               set_non_ignored_space_in_index_before_command (
-                                                     current->args.list[0]);
+                                                     current->c->args.list[0]);
             }
         }
     }
@@ -1806,7 +1808,7 @@ end_line_misc_line (ELEMENT *current)
                                  current);
               if (current->cmd == CM_top)
                 {
-                  line_error_ext (MSG_warning, 0, &current_part->source_info,
+                  line_error_ext (MSG_warning, 0, &current_part->c->source_info,
                          "@part should not be associated with @top");
                 }
               current_part = 0;
@@ -1858,7 +1860,7 @@ end_line (ELEMENT *current)
           /* happens for an empty line following a menu_description */
           ELEMENT *empty_line, *e;
           empty_line = pop_element_from_contents (current);
-          if (current->contents.number == 0)
+          if (current->c->contents.number == 0)
             {
               /* it should not be possible to have source marks associated
                  to that container */

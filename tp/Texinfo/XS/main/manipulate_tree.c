@@ -123,9 +123,9 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           ELEMENT *new_extra_element = new_element (ET_NONE);
           k->k.element = new_extra_element;
-          for (j = 0; j < f->contents.number; j++)
+          for (j = 0; j < f->c->contents.number; j++)
             {
-              ELEMENT *e = f->contents.list[j];
+              ELEMENT *e = f->c->contents.list[j];
               k_copy = lookup_extra_by_index (e, "_copy", -1);
               if (k_copy)
                 add_to_contents_as_array (new_extra_element,
@@ -184,12 +184,12 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   if (current->cmd)
     new->cmd = current->cmd;
 
-  for (i = 0; i < current->args.number; i++)
+  for (i = 0; i < current->c->args.number; i++)
     add_to_element_args (new,
-                copy_tree_internal (current->args.list[i], new));
-  for (i = 0; i < current->contents.number; i++)
+                copy_tree_internal (current->c->args.list[i], new));
+  for (i = 0; i < current->c->contents.number; i++)
     add_to_element_contents (new,
-                copy_tree_internal (current->contents.list[i], new));
+                copy_tree_internal (current->c->contents.list[i], new));
   copy_associated_info (&current->info_info, &new->info_info);
   copy_associated_info (&current->extra_info, &new->extra_info);
   return new;
@@ -289,15 +289,15 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             const ELEMENT *f = k_ref->k.element;
             KEY_PAIR *k = lookup_associated_info (new_info, key);
             ELEMENT *new_extra_element = k->k.element;
-            for (j = 0; j < f->contents.number; j++)
+            for (j = 0; j < f->c->contents.number; j++)
               {
                 KEY_PAIR *k_copy;
-                ELEMENT *e = f->contents.list[j];
-                ELEMENT *new_e = new_extra_element->contents.list[j];
+                ELEMENT *e = f->c->contents.list[j];
+                ELEMENT *new_e = new_extra_element->c->contents.list[j];
                 if (!new_e)
                   {
                     ELEMENT *new_ref = get_copy_ref (e);
-                    new_extra_element->contents.list[j] = new_ref;
+                    new_extra_element->c->contents.list[j] = new_ref;
                   }
 
                 k_copy = lookup_extra_by_index (e, "_copy", -1);
@@ -369,13 +369,18 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
     return;
   get_copy_ref (current);
 
-  for (i = 0; i < current->args.number; i++)
-    copy_extra_info (current->args.list[i], new->args.list[i]);
-  for (i = 0; i < current->contents.number; i++)
-    copy_extra_info (current->contents.list[i], new->contents.list[i]);
+  if (! (type_data[current->type].flags & TF_text))
+    {
+      for (i = 0; i < current->c->args.number; i++)
+        copy_extra_info (current->c->args.list[i], new->c->args.list[i]);
+      for (i = 0; i < current->c->contents.number; i++)
+        copy_extra_info (current->c->contents.list[i], new->c->contents.list[i]);
+
+      /* text element have _copy and _counter only in extra, not to be copied */
+      associate_info_references (&current->extra_info, &new->extra_info);
+    }
 
   associate_info_references (&current->info_info, &new->info_info);
-  associate_info_references (&current->extra_info, &new->extra_info);
 }
 
 ELEMENT *
@@ -391,11 +396,11 @@ copy_contents (ELEMENT *element, enum element_type type)
 {
   ELEMENT *tmp = new_element (type);
   ELEMENT *result;
-  tmp->contents = element->contents;
+  tmp->c->contents = element->c->contents;
 
   result = copy_tree (tmp);
 
-  tmp->contents.list = 0;
+  tmp->c->contents.list = 0;
   destroy_element (tmp);
 
   return result;
@@ -513,7 +518,7 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 
 
 /* In Texinfo::Common */
-/* NODE->contents is the Texinfo for the specification of a node.  This
+/* NODE->c->contents is the Texinfo for the specification of a node.  This
    function sets two fields on the returned object:
 
      manual_content - Texinfo tree for a manual name extracted from the
@@ -540,7 +545,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 {
   NODE_SPEC_EXTRA *result;
   ELEMENT *node_content = 0;
-  int idx = 0; /* index into node->contents */
+  int idx = 0; /* index into node->c->contents */
 
   result = malloc (sizeof (NODE_SPEC_EXTRA));
   result->manual_content = result->node_content = 0;
@@ -553,10 +558,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
   result->out_of_tree_elements = 0;
 
   /* If the content starts with a '(', try to get a manual name. */
-  if (node->contents.number > 0
-      && node->contents.list[0]->type == ET_normal_text
-      && node->contents.list[0]->text->end > 0
-      && node->contents.list[0]->text->text[0] == '(')
+  if (node->c->contents.number > 0
+      && node->c->contents.list[0]->type == ET_normal_text
+      && node->c->contents.list[0]->text->end > 0
+      && node->c->contents.list[0]->text->text[0] == '(')
     {
       ELEMENT *manual, *first;
       ELEMENT *new_first = 0;
@@ -570,7 +575,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
       /* If the first contents element is "(" followed by more text, split
          the leading "(" into its own element. */
-      first = node->contents.list[0];
+      first = node->c->contents.list[0];
       if (first->text->end > 1)
         {
           if (modify_node)
@@ -588,7 +593,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
           idx++;
         }
 
-      for (; idx < node->contents.number; idx++)
+      for (; idx < node->c->contents.number; idx++)
         {
           ELEMENT *e;
           char *p, *q;
@@ -596,7 +601,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
           if (idx == 0)
             e = new_first;
           else
-            e = node->contents.list[idx];
+            e = node->c->contents.list[idx];
 
           if (e->type != ET_normal_text)
             {
@@ -779,12 +784,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
     }
 
   /* If anything left, it is part of the node name. */
-  if (idx < node->contents.number)
+  if (idx < node->c->contents.number)
     {
       if (!node_content)
         node_content = new_element (ET_NONE);
-      insert_slice_into_contents (node_content, node_content->contents.number,
-                                  node, idx, node->contents.number);
+      insert_slice_into_contents (node_content,
+                                  node_content->c->contents.number,
+                                  node, idx, node->c->contents.number);
     }
 
   if (node_content)
@@ -800,13 +806,14 @@ modify_tree (ELEMENT *tree,
              ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
              void *argument)
 {
-  if (tree->args.number > 0)
+  if (tree->c->args.number > 0)
     {
       int i;
-      for (i = 0; i < tree->args.number; i++)
+      for (i = 0; i < tree->c->args.number; i++)
         {
           ELEMENT_LIST *new_args;
-          new_args = (*operation) ("arg", tree->args.list[i], argument);
+          ELEMENT *content = tree->c->args.list[i];
+          new_args = (*operation) ("arg", content, argument);
           if (new_args)
             {
               /* *operation should take care of destroying removed element */
@@ -817,18 +824,18 @@ modify_tree (ELEMENT *tree,
               i += new_args->number -1;
               destroy_list (new_args);
             }
-          else
-            modify_tree (tree->args.list[i], operation, argument);
+          else if (! (type_data[content->type].flags & TF_text))
+            modify_tree (content, operation, argument);
         }
     }
-  if (tree->contents.number > 0)
+  if (tree->c->contents.number > 0)
     {
       int i;
-      for (i = 0; i < tree->contents.number; i++)
+      for (i = 0; i < tree->c->contents.number; i++)
         {
+          ELEMENT *content = tree->c->contents.list[i];
           ELEMENT_LIST *new_contents;
-          new_contents = (*operation) ("content", tree->contents.list[i],
-                                       argument);
+          new_contents = (*operation) ("content", content, argument);
           if (new_contents)
             {
               /* *operation should take care of destroying removed element */
@@ -839,8 +846,8 @@ modify_tree (ELEMENT *tree,
               i += new_contents->number -1;
               destroy_list (new_contents);
             }
-          else
-            modify_tree (tree->contents.list[i], operation, argument);
+          else if (! (type_data[content->type].flags & TF_text))
+            modify_tree (content, operation, argument);
         }
     }
   if (tree->source_mark_list.number > 0)
@@ -982,7 +989,7 @@ protect_text (ELEMENT *current, const char *to_protect)
 
                       current_position
                        = relocate_source_marks (&current->source_mark_list,
-                                new_command->args.list[0]->contents.list[0],
+                           new_command->c->args.list[0]->c->contents.list[0],
                                               current_position, u8_len);
                     }
                   p += to_protect_nr;
@@ -1040,9 +1047,9 @@ const char *
 normalized_menu_entry_internal_node (const ELEMENT *entry)
 {
   int i;
-  for (i = 0; i < entry->contents.number; i++)
+  for (i = 0; i < entry->c->contents.number; i++)
     {
-      const ELEMENT *content = entry->contents.list[i];
+      const ELEMENT *content = entry->c->contents.list[i];
       if (content->type == ET_menu_entry_node)
         {
           if (!lookup_extra_element (content, "manual_content"))
@@ -1080,9 +1087,9 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
         {
           const ELEMENT *menu = menus->list[i];
           int j;
-          for (j = 0; j < menu->contents.number; j++)
+          for (j = 0; j < menu->c->contents.number; j++)
             {
-              ELEMENT *menu_content = menu->contents.list[j];
+              ELEMENT *menu_content = menu->c->contents.list[j];
               if (menu_content->type == ET_menu_entry)
                 {
                   int k;
@@ -1093,9 +1100,9 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
                   if (menu_node)
                     return menu_node;
 
-                  for (k = 0; menu_content->contents.number; k++)
+                  for (k = 0; menu_content->c->contents.number; k++)
                     {
-                      ELEMENT *content = menu_content->contents.list[k];
+                      ELEMENT *content = menu_content->c->contents.list[k];
                       if (content->type == ET_menu_entry_node)
                         {
                           ELEMENT *manual_content

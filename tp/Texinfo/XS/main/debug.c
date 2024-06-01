@@ -101,10 +101,10 @@ print_element_debug (const ELEMENT *e, int print_parent)
     {
       if (e->cmd)
         text_printf (&text, "@%s", debug_element_command_name (e));
-      if (e->args.number)
-        text_printf (&text, "[A%d]", e->args.number);
-      if (e->contents.number)
-        text_printf (&text, "[C%d]", e->contents.number);
+      if (e->c->args.number)
+        text_printf (&text, "[A%d]", e->c->args.number);
+      if (e->c->contents.number)
+        text_printf (&text, "[C%d]", e->c->contents.number);
     }
   if (print_parent && e->parent)
     {
@@ -191,9 +191,9 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
             int j;
             const ELEMENT *f = k->k.element;
             text_append (&text, "contents: ");
-            for (j = 0; j < f->contents.number; j++)
+            for (j = 0; j < f->c->contents.number; j++)
               {
-                const ELEMENT *e = f->contents.list[j];
+                const ELEMENT *e = f->c->contents.list[j];
                 char *element_str = print_element_debug (e, 0);
                 text_printf (&text, "%p;%s|", e, element_str);
                 free (element_str);

@@ -276,8 +276,8 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   TEXT filename;
   char *normalized_file_name;
   char *normalized_name
-    = normalize_transliterate_texinfo_contents (command->args.list[0],
-                                          (self->conf->TEST.o.integer > 0));
+    = normalize_transliterate_texinfo_contents (command->c->args.list[0],
+                                           (self->conf->TEST.o.integer > 0));
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
 
@@ -335,7 +335,7 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
   char *float_number = lookup_extra_string (float_e, "float_number");
 
   if (float_type && strlen (float_type))
-    type_element = float_e->args.list[0];
+    type_element = float_e->c->args.list[0];
 
   if (float_number)
     {
@@ -382,7 +382,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
     caption_element = lookup_extra_element (float_e, "shortcaption");
 
   if (float_type && strlen (float_type))
-    type_element = float_e->args.list[0];
+    type_element = float_e->c->args.list[0];
 
   if (float_number)
     {
@@ -524,7 +524,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
   ELEMENT *command_as_argument = lookup_extra_element (table_command,
                                                "command_as_argument");
 
-  if (element->args.number > 0 && command_as_argument)
+  if (element->c->args.number > 0 && command_as_argument)
     {
       TREE_ADDED_ELEMENTS *tree
         = new_tree_added_elements (tree_added_status_elements_added);
@@ -537,7 +537,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
       tree->tree = command;
 
       command->cmd = cmd;
-      command->source_info = element->source_info;
+      command->c->source_info = element->c->source_info;
       command_as_argument_kbd_code = lookup_extra_integer (table_command,
                                  "command_as_argument_kbd_code", &status);
       if (command_as_argument_kbd_code > 0)
@@ -558,7 +558,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
             add_info_string_dup (command, "command_name", command_name);
         }
       add_to_element_args (command, arg);
-      add_to_contents_as_array (arg, element->args.list[0]);
+      add_to_contents_as_array (arg, element->c->args.list[0]);
       return tree;
     }
 
@@ -636,7 +636,7 @@ comma_index_subentries_tree (const ELEMENT *current_entry,
           text_append (separator->text, subentry_separator);
           current_entry = subentry;
           add_to_element_list (result, separator);
-          add_to_element_list (result, current_entry->args.list[0]);
+          add_to_element_list (result, current_entry->c->args.list[0]);
         }
       else
         break;

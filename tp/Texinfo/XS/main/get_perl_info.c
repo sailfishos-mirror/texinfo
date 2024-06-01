@@ -1105,9 +1105,9 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
 
   /* if there are no output units go through the root element children */
   root = document->tree;
-  for (i = 0; i < root->contents.number; i++)
+  for (i = 0; i < root->c->contents.number; i++)
     {
-      ELEMENT *content = root->contents.list[i];
+      ELEMENT *content = root->c->contents.list[i];
       if (content->hv == element_hv)
         return content;
     }

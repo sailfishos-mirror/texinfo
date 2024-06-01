@@ -60,7 +60,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   if (command_data(current->cmd).flags & CF_line)
     return;
 
-  contents_count = current->contents.number;
+  contents_count = current->c->contents.number;
   if (contents_count == 0)
     return;
 
@@ -77,11 +77,11 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       insert_into_contents (def_item, item_content, 0);
     }
 
-  if (def_item->contents.number > 0)
+  if (def_item->c->contents.number > 0)
     {
       if (current->cmd == CM_defblock
         /* all content between @defblock and first @def*line */
-          && def_item->contents.number == contents_count)
+          && def_item->c->contents.number == contents_count)
         {
           def_item->type = ET_before_defline;
         }
@@ -103,9 +103,9 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
   int j;
   while (1)
     {
-      if (*i == current->contents.number)
+      if (*i == current->c->contents.number)
         break;
-      e = current->contents.list[*i];
+      e = current->c->contents.list[*i];
       if (e->type == ET_spaces
           || e->type == ET_delimiter)
         {
@@ -129,7 +129,7 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
 
   if (num == 1)
     {
-      e = current->contents.list[*i - 1];
+      e = current->c->contents.list[*i - 1];
 
       /* there is only one bracketed element */
       if (e->type == ET_bracketed_arg
@@ -196,9 +196,9 @@ split_delimiters (ELEMENT *current, int starting_idx)
 {
   int i;
   static char *chars = "[](),";
-  for (i = starting_idx; i < current->contents.number; i++)
+  for (i = starting_idx; i < current->c->contents.number; i++)
     {
-      ELEMENT *e = current->contents.list[i];
+      ELEMENT *e = current->c->contents.list[i];
       char *p;
       ELEMENT *new;
       int len;
@@ -215,7 +215,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
           new = new_element (ET_def_line_arg);
           new->parent = e->parent;
           add_to_element_contents (new, e);
-          current->contents.list[i] = new;
+          current->c->contents.list[i] = new;
           continue;
         }
 
@@ -285,9 +285,9 @@ static void
 split_def_args (ELEMENT *current, int starting_idx)
 {
   int i;
-  for (i = starting_idx; i < current->contents.number; i++)
+  for (i = starting_idx; i < current->c->contents.number; i++)
     {
-      ELEMENT *e = current->contents.list[i];
+      ELEMENT *e = current->c->contents.list[i];
       char *p;
       ELEMENT *new;
       int len;
@@ -445,7 +445,7 @@ parse_def (enum command_id command, ELEMENT *current)
           ELEMENT *new_def_type = new_element (arg_type);
 
           new_def_type->parent = e->parent;
-          current->contents.list[contents_idx - 1] = new_def_type;
+          current->c->contents.list[contents_idx - 1] = new_def_type;
           add_to_element_contents (new_def_type, e);
           result[i] = new_def_type;
         }
@@ -457,7 +457,7 @@ parse_def (enum command_id command, ELEMENT *current)
 
   if (inserted_category)
     {
-      add_info_integer (current->contents.list[0], "inserted", 1);
+      add_info_integer (current->c->contents.list[0], "inserted", 1);
     }
 
   /* Process args */
@@ -474,7 +474,7 @@ parse_def (enum command_id command, ELEMENT *current)
     set_type_not_arg = 1;
 
   type = set_type_not_arg;
-  for (i = contents_idx; i < current->contents.number; i++)
+  for (i = contents_idx; i < current->c->contents.number; i++)
     {
       enum element_type def_arg_type = ET_def_arg;
       e = contents_child_by_index (current, i);
@@ -487,8 +487,9 @@ parse_def (enum command_id command, ELEMENT *current)
           type = set_type_not_arg;
           continue;
         }
-      if (e->type == ET_def_line_arg && e->contents.number == 1
-          && e->contents.list[0]->cmd && e->contents.list[0]->cmd != CM_code)
+      if (e->type == ET_def_line_arg && e->c->contents.number == 1
+          && e->c->contents.list[0]->cmd
+          && e->c->contents.list[0]->cmd != CM_code)
         {
           type = set_type_not_arg;
         }
@@ -502,7 +503,7 @@ parse_def (enum command_id command, ELEMENT *current)
       ELEMENT *new_def_type = new_element (def_arg_type);
       new_def_type->parent = e->parent;
       add_to_element_contents (new_def_type, e);
-      current->contents.list[i] = new_def_type;
+      current->c->contents.list[i] = new_def_type;
     }
   return result;
 }

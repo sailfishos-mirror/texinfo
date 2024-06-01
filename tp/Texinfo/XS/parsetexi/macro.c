@@ -137,7 +137,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
 
   macro = new_element (ET_NONE);
   macro->cmd = cmd;
-  macro->source_info = current_source_info;
+  macro->c->source_info = current_source_info;
 
   add_info_string_dup (macro, "arg_line", line);
 
@@ -284,9 +284,9 @@ lookup_macro_parameter (const char *name, const ELEMENT *macro)
   ELEMENT *const *args_list;
 
   /* Find 'arg' in MACRO parameters. */
-  args_list = macro->args.list;
+  args_list = macro->c->args.list;
   pos = 0;
-  for (i = 0; i < macro->args.number; i++)
+  for (i = 0; i < macro->c->args.number; i++)
     {
       if (args_list[i]->type == ET_macro_arg)
         {
@@ -319,7 +319,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   add_to_element_contents (argument, argument_content);
   arg = argument_content->text;
 
-  args_total = macro->args.number - 1;
+  args_total = macro->c->args.number - 1;
 
   /* *pline is '{', advance past the open brace, start at braces_level = 1 */
   pline++;
@@ -394,17 +394,16 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
             text_append_n (arg, sep, 1);
           else
             {
-              if (current->args.number < args_total)
+              if (current->c->args.number < args_total)
                 {
                   const char *p = pline;
 
                   remove_empty_content (argument);
 
                   /* new argument */
-                  argument = new_text_element (ET_brace_command_arg);
+                  argument = new_element (ET_brace_command_arg);
                   argument_content = new_text_element (ET_other_text);
                   add_to_element_args (current, argument);
-                  text_append_n (argument_content->text, "", 0);
                   add_to_element_contents (argument, argument_content);
                   arg = argument_content->text;
                   pline += strspn (pline, whitespace_chars);
@@ -433,8 +432,8 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   line = pline;
 
   if (args_total == 0
-      && (current->args.number > 1
-          || current->args.list[0]->contents.number > 0))
+      && (current->c->args.number > 1
+          || current->c->args.list[0]->c->contents.number > 0))
     {
       line_error
         ("macro `%s' declared without argument called with an argument",
@@ -487,7 +486,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
       pline += spaces_nr;
     }
 
-  args_total = macro->args.number - 1;
+  args_total = macro->c->args.number - 1;
 
   while (1)
     {
@@ -593,7 +592,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
           whitespaces_len = strspn (pline, whitespace_chars_except_newline);
 
           if (braces_level > 0
-              || current->args.number >= args_total)
+              || current->c->args.number >= args_total)
             {
               text_append_n (arg, pline, whitespaces_len);
             }
@@ -626,9 +625,9 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
 
  funexit:
   set_toplevel_braces_nr (&count_toplevel_braces, argument_content);
-  for (i = 0; i < current->args.number; i++)
+  for (i = 0; i < current->c->args.number; i++)
     {
-      ELEMENT *argument_content = current->args.list[i]->contents.list[0];
+      ELEMENT *argument_content = current->c->args.list[i]->c->contents.list[0];
       KEY_PAIR *k_toplevel_braces_nr
                    = lookup_extra (argument_content, "toplevel_braces_nr");
       if (k_toplevel_braces_nr)
@@ -713,17 +712,17 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
             {
               line_error ("\\ in @%s expansion followed `%s' instead of "
                           "parameter name or \\",
-                          macro->args.list[0]->text->text, name);
+                          macro->c->args.list[0]->text->text, name);
               text_append (expanded, "\\");
               text_append (expanded, name);
             }
           else
             {
-              if (arguments && pos < arguments->args.number)
+              if (arguments && pos < arguments->c->args.number)
                 {
                   const ELEMENT *argument
                     = args_child_by_index (arguments, pos);
-                  if (argument->contents.number > 0)
+                  if (argument->c->contents.number > 0)
                     text_append (expanded,
                       last_contents_child (
                         args_child_by_index (arguments, pos))->text->text);
@@ -850,7 +849,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   else
     {
       /* Get number of args. - 1 for the macro name. */
-      args_number = macro->args.number - 1;
+      args_number = macro->c->args.number - 1;
 
       p = line + strspn (line, whitespace_chars);
       if (*p == '{')
@@ -897,7 +896,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
               else
                 {
                   int leading_spaces_added = 0;
-                  if (arg_elt->contents.number == 0)
+                  if (arg_elt->c->contents.number == 0)
                     {
                       int leading_spaces_nr = strspn (line,
                                                whitespace_chars_except_newline);

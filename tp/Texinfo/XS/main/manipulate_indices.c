@@ -199,7 +199,7 @@ index_content_element (const ELEMENT *element, int prefer_reference_element)
    }
   else
    {
-     return element->args.list[0];
+     return element->c->args.list[0];
    }
 }
 
@@ -1244,12 +1244,12 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
 {
   size_t i;
 
-  if (tree->contents.number <= 0)
+  if (tree->c->contents.number <= 0)
     return new_index_entry_text_or_command (0, 0);
 
-  for (i = 0; i < tree->contents.number; i++)
+  for (i = 0; i < tree->c->contents.number; i++)
     {
-      ELEMENT *content = tree->contents.list[i];
+      ELEMENT *content = tree->c->contents.list[i];
 
       if (content->cmd)
         {
@@ -1284,10 +1284,10 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                     }
                   else if (brace_command_type != BRACE_inline)
                     {
-                      if (content->args.number > 0)
+                      if (content->c->args.number > 0)
                         {
                           return idx_leading_text_or_command (
-                                                   content->args.list[0],
+                                                   content->c->args.list[0],
                                                               ignore_chars);
                         }
                     }
@@ -1298,7 +1298,7 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                        = lookup_extra_integer (content, "expand_index", &status);
                       if (expand_index > 0)
                         return idx_leading_text_or_command (
-                                         content->args.list[expand_index],
+                                         content->c->args.list[expand_index],
                                                             ignore_chars);
 
                     }
@@ -1306,10 +1306,10 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
               else if ((builtin_command_data[data_cmd].other_flags
                         & CF_formatted_line)
                        && data_cmd != CM_page
-                       && content->args.number > 0)
+                       && content->c->args.number > 0)
                 {
                    return idx_leading_text_or_command (
-                                                   content->args.list[0],
+                                                   content->c->args.list[0],
                                                               ignore_chars);
                 }
             }
@@ -1337,7 +1337,7 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
           else
             return new_index_entry_text_or_command (p, 0);
         }
-      else if (content->contents.number > 0)
+      else if (content->c->contents.number > 0)
         return idx_leading_text_or_command (content, ignore_chars);
     }
   return new_index_entry_text_or_command (0, 0);
@@ -1367,7 +1367,7 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
                                                       "index_ignore_chars");
       ELEMENT *parsed_element;
 
-      if (entry_tree_element->contents.number <= 0)
+      if (entry_tree_element->c->contents.number <= 0)
         {
           parsed_element = new_element (ET_NONE);
           add_to_contents_as_array (parsed_element, index_entry_element);

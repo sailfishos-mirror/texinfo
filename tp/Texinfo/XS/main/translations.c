@@ -32,6 +32,7 @@
 #include "command_ids.h"
 #include "tree_types.h"
 #include "options_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "utils.h"
 #include "api_to_perl.h"
@@ -395,7 +396,7 @@ substitute_element_array (ELEMENT_LIST *list,
       ELEMENT *e = list->list[idx];
       if (e->cmd == CM_txiinternalvalue)
         {
-          char *name = e->args.list[0]->contents.list[0]->text->text;
+          char *name = e->c->args.list[0]->c->contents.list[0]->text->text;
           int i;
           for (i = 0; i < replaced_substrings->number; i++)
             {
@@ -407,7 +408,7 @@ substitute_element_array (ELEMENT_LIST *list,
                 }
             }
         }
-      else
+      else if (! (type_data[e->type].flags & TF_text))
         substitute (e, replaced_substrings);
     }
 }
@@ -415,10 +416,10 @@ substitute_element_array (ELEMENT_LIST *list,
 ELEMENT *
 substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
-  if (tree->contents.number > 0)
-    substitute_element_array (&tree->contents, replaced_substrings);
-  if (tree->args.number > 0)
-    substitute_element_array (&tree->args, replaced_substrings);
+  if (tree->c->contents.number > 0)
+    substitute_element_array (&tree->c->contents, replaced_substrings);
+  if (tree->c->args.number > 0)
+    substitute_element_array (&tree->c->args, replaced_substrings);
 
   return tree;
 }

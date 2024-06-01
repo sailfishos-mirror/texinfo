@@ -652,10 +652,10 @@ ELEMENT *
 get_label_element (const ELEMENT *e)
 {
   if ((e->cmd == CM_node || e->cmd == CM_anchor)
-      && e->args.number > 0)
-    return e->args.list[0];
-  else if (e->cmd == CM_float && e->args.number >= 2)
-    return e->args.list[1];
+      && e->c->args.number > 0)
+    return e->c->args.list[0];
+  else if (e->cmd == CM_float && e->c->args.number >= 2)
+    return e->c->args.list[1];
   return 0;
 }
 
@@ -1169,15 +1169,15 @@ informative_command_value (const ELEMENT *element)
          We handle this case with TEXT text, but do not free memory
          as should be, as this case should never happen.
        */
-      else if (element->args.number > 0)
+      else if (element->c->args.number > 0)
         {
           TEXT text;
           int i;
           char *text_seen = 0;
-          for (i = 0; i < element->args.number; i++)
+          for (i = 0; i < element->c->args.number; i++)
             {
               /* only text elements in lineraw args */
-              ELEMENT *arg = element->args.list[i];
+              ELEMENT *arg = element->c->args.list[i];
               if (arg->text->end)
                 {
                   if (!text_seen)
@@ -1207,11 +1207,11 @@ informative_command_value (const ELEMENT *element)
     return misc_args->list[0]->text->text;
   if (builtin_command_data[cmd].flags & CF_line
       && builtin_command_data[cmd].data == LINE_line
-      && element->args.number >= 1
-      && element->args.list[0]->contents.number >= 1
-      && element->args.list[0]->contents.list[0]->type == ET_normal_text
-      && element->args.list[0]->contents.list[0]->text->end > 0)
-    return element->args.list[0]->contents.list[0]->text->text;
+      && element->c->args.number >= 1
+      && element->c->args.list[0]->c->contents.number >= 1
+      && element->c->args.list[0]->c->contents.list[0]->type == ET_normal_text
+      && element->c->args.list[0]->c->contents.list[0]->text->end > 0)
+    return element->c->args.list[0]->c->contents.list[0]->text->text;
 
   return 0;
 }
@@ -1403,12 +1403,12 @@ int
 is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
 {
   int i;
-  if (!tree || !tree->contents.number)
+  if (!tree || !tree->c->contents.number)
     return 1;
 
-  for (i = 0; i < tree->contents.number; i++)
+  for (i = 0; i < tree->c->contents.number; i++)
     {
-      const ELEMENT *content = tree->contents.list[i];
+      const ELEMENT *content = tree->c->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
 
       if (data_cmd)
@@ -1459,7 +1459,7 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
                 return 0;
             }
         }
-      if (! is_content_empty (content, do_not_ignore_index_entries))
+      else if (! is_content_empty (content, do_not_ignore_index_entries))
         return 0;
     }
   return 1;

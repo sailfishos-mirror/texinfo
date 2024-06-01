@@ -151,7 +151,8 @@ void
 add_extra_misc_args (ELEMENT *e, char *key, ELEMENT_LIST *value)
 {
   if (!value) return;
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_misc_args);
+  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+                                         extra_misc_args);
   k->k.list = value;
 }
 

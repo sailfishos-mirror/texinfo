@@ -208,6 +208,14 @@ typedef struct OUTPUT_UNIT_LIST {
     size_t space;
 } OUTPUT_UNIT_LIST;
 
+typedef struct CONTAINER {
+    ELEMENT_LIST args;
+    ELEMENT_LIST contents;
+    SOURCE_INFO source_info;
+
+    OUTPUT_UNIT *associated_unit;
+} CONTAINER;
+
 typedef struct ELEMENT {
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
@@ -218,17 +226,13 @@ typedef struct ELEMENT {
     SOURCE_MARK_LIST source_mark_list;
 
     ASSOCIATED_INFO info_info;
+    ASSOCIATED_INFO extra_info;
+
     enum command_id cmd;
 
     TEXT *text;
+    CONTAINER *c;
 
-    ELEMENT_LIST args;
-    ELEMENT_LIST contents;
-    SOURCE_INFO source_info;
-
-    ASSOCIATED_INFO extra_info;
-
-    OUTPUT_UNIT *associated_unit;
 } ELEMENT;
 
 typedef struct IGNORED_CHARS {

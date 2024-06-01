@@ -138,13 +138,15 @@ set_labels_identifiers_target (const LABEL_LIST *labels,
                   const ELEMENT *label_element
                      = get_label_element (targets[n].element);
                   char *texi_str = convert_contents_to_texinfo (label_element);
-                  line_error_ext (MSG_error, 0, &targets[n].element->source_info,
+                  line_error_ext (MSG_error, 0,
+                                  &targets[n].element->c->source_info,
                                   "@%s `%s' previously defined",
                                   element_command_name (targets[n].element),
                                   texi_str);
                   free (texi_str);
-                  line_error_ext (MSG_error, 1, &targets[i].element->source_info,
-                                 "here is the previous definition as @%s",
+                  line_error_ext (MSG_error, 1,
+                                  &targets[i].element->c->source_info,
+                                  "here is the previous definition as @%s",
                                   element_command_name (targets[i].element));
 
                 }
@@ -256,7 +258,7 @@ existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized,
                      builtin_command_name (element->cmd),
                      label_element_texi);
       message_list_line_error_ext (error_messages, document->options,
-                      MSG_error, 1, &existing_target->source_info,
+                      MSG_error, 1, &existing_target->c->source_info,
                       "here is the previous definition as @%s",
                       builtin_command_name (existing_target->cmd));
       free (label_element_texi);
