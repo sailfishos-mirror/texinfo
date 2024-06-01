@@ -230,8 +230,10 @@ typedef struct ELEMENT {
 
     enum command_id cmd;
 
-    TEXT *text;
-    CONTAINER *c;
+    union {
+      TEXT *text;
+      CONTAINER *c;
+    };
 
 } ELEMENT;
 
