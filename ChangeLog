@@ -13,6 +13,24 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/debug.c (print_element_debug): text element never
+	have contents nor arg, nor command.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (convert_to_texinfo_internal),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/debug.c (print_element_debug),
+	tp/Texinfo/XS/main/manipulate_tree.c (copy_tree_internal)
+	(relocate_source_marks, protect_text),
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal), tp/Texinfo/XS/main/utils.c
+	(is_content_empty),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_hashchar_at_line_beginning_internal): use type flags to
+	determine if an element is a text element.
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/element_types.txt: add more text flags for text
 	elements.
 

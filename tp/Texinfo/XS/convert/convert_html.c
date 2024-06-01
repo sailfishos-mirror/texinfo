@@ -33,6 +33,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "option_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "command_stack.h"
@@ -18410,7 +18411,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       if (element->type)
         text_printf (&debug_str, " type: %s",
                      element_type_names[element->type]);
-      if (element->text.space > 0)
+      if (type_data[element->type].flags & TF_text)
         {
           if (element->text.end > 0)
             {
@@ -18442,7 +18443,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
   /* Process text */
 
-  if (element->text.space > 0)
+  if (type_data[element->type].flags & TF_text)
     {
       TEXT text_result;
       text_init (&text_result);

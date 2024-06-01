@@ -30,6 +30,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -1310,7 +1311,8 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                   else
                     {
                       ELEMENT *previous = parent->contents.list[i-1];
-                      if (previous->text.end > 0)
+                      if (type_data[previous->type].flags & TF_text
+                          && previous->text.end > 0)
                          {
                            int end = previous->text.end;
                            if (previous->text.text[end -1] == '\n')

@@ -29,6 +29,7 @@
 #include "tree_types.h"
 #include "options_types.h"
 #include "converter_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -525,15 +526,17 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           return;
       }
 
-  /* or element->text.space? */
-  if (element->text.end > 0)
+  if (type_data[element->type].flags & TF_text)
     {
-      char *p;
+      if (element->text.end <= 0)
+        return;
+
       if (element->type == ET_raw
           || text_options->raw_state)
         ADD(element->text.text);
       else
         {
+          const char *p;
           char *cased = 0;
           char *text;
           /* text type should always be set */

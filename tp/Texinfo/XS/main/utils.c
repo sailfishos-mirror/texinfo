@@ -38,6 +38,7 @@
 #include "option_types.h"
 #include "options_types.h"
 #include "converter_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -1446,12 +1447,17 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
         }
       if (content->type == ET_paragraph)
         return 0;
-      if (content->text.end > 0)
+      if (type_data[content->type].flags & TF_text)
         {
-          char *text = element_text (content);
-          /* only whitespace characters */
-          if (! text[strspn (text, whitespace_chars)] == '\0')
-            return 0;
+          if (content->text.end == 0)
+            return 1;
+          else
+            {
+              const char *text = content->text.text;
+              /* only whitespace characters */
+              if (! text[strspn (text, whitespace_chars)] == '\0')
+                return 0;
+            }
         }
       if (! is_content_empty (content, do_not_ignore_index_entries))
         return 0;

@@ -27,6 +27,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -68,12 +69,17 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                   && (e->args.list[0]->type == ET_line_arg
                       || e->args.list[0]->type == ET_rawline_arg)))))
     return;
-  else if (e->text.end > 0)
+  else if (type_data[e->type].flags & TF_text)
     {
-      char *text_norm_spaces = collapse_spaces (e->text.text);
-      ADD(text_norm_spaces);
-      free (text_norm_spaces);
+      if (e->text.end > 0)
+        {
+          char *text_norm_spaces = collapse_spaces (e->text.text);
+          ADD(text_norm_spaces);
+          free (text_norm_spaces);
+        }
+      return;
     }
+
   if (e->cmd)
     {
       if (command_normalization_text[e->cmd])

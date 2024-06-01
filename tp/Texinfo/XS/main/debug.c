@@ -23,6 +23,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 #include "extra.h"
 #include "builtin_commands.h"
 #include "debug.h"
@@ -78,24 +79,33 @@ char *
 print_element_debug (const ELEMENT *e, int print_parent)
 {
   TEXT text;
-  char *result;
 
   text_init (&text);
   text_append (&text, "");
-  if (e->cmd)
-    text_printf (&text, "@%s", debug_element_command_name (e));
   if (e->type)
     text_printf (&text, "(%s)", element_type_names[e->type]);
-  if (e->text.end > 0)
+  if (type_data[e->type].flags & TF_text)
     {
-      char *element_text = debug_protect_eol (e->text.text);
-      text_printf (&text, "[T: %s]", element_text);
-      free (element_text);
+      if (e->text.end == 0)
+        {
+          text_append_n (&text, "[T]", 3);
+        }
+      else
+        {
+          char *element_text = debug_protect_eol (e->text.text);
+          text_printf (&text, "[T: %s]", element_text);
+          free (element_text);
+        }
     }
-  if (e->args.number)
-    text_printf (&text, "[A%d]", e->args.number);
-  if (e->contents.number)
-    text_printf (&text, "[C%d]", e->contents.number);
+  else
+    {
+      if (e->cmd)
+        text_printf (&text, "@%s", debug_element_command_name (e));
+      if (e->args.number)
+        text_printf (&text, "[A%d]", e->args.number);
+      if (e->contents.number)
+        text_printf (&text, "[C%d]", e->contents.number);
+    }
   if (print_parent && e->parent)
     {
       text_append (&text, " <- ");
@@ -104,9 +114,7 @@ print_element_debug (const ELEMENT *e, int print_parent)
       if (e->parent->type)
         text_printf (&text, "(%s)", element_type_names[e->parent->type]);
     }
-  result = strdup (text.text);
-  free (text.text);
-  return result;
+  return text.text;
 }
 
 char *

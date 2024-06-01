@@ -25,6 +25,7 @@
 
 #include "tree_types.h"
 #include "command_ids.h"
+#include "types_data.h"
 #include "text.h"
 #include "tree.h"
 #include "extra.h"
@@ -173,9 +174,9 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
                                        print_element_debug (current, 1), new);
   */
 
-  if (current->text.space > 0)
+  if (type_data[current->type].flags & TF_text)
     {
-      text_append (&new->text, current->text.text);
+      text_append_n (&new->text, current->text.text, current->text.end);
       copy_associated_info (&current->extra_info, &new->extra_info);
       return new;
     }
@@ -464,7 +465,7 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
               && source_mark->position <= end_position))
         {
           indices_to_remove[i] = 1;
-          if (new_e->text.space > 0)
+          if (type_data[new_e->type].flags & TF_text)
             {
               source_mark->position
                 = source_mark->position - begin_position;
@@ -877,8 +878,9 @@ protect_text (ELEMENT *current, const char *to_protect)
 {
   /* we accept any non raw text as text to be protected, including whitespaces
      only text elements */
-  if (current->text.end > 0 && !(current->type == ET_raw
-                                 || current->type == ET_rawline_arg)
+  if (type_data[current->type].flags & TF_text
+      && current->text.end > 0 && !(current->type == ET_raw
+                                    || current->type == ET_rawline_arg)
       && strpbrk (current->text.text, to_protect))
     {
       ELEMENT_LIST *container = new_list ();

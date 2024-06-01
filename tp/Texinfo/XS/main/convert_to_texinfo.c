@@ -25,6 +25,7 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 /* for lookup_info* */
 #include "extra.h"
 /* new_element and destroy_element for convert_contents_to_texinfo */
@@ -138,8 +139,11 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 
   if (inserted)
     {}
-  else if (e->text.end > 0)
-    ADD(e->text.text);
+  else if (type_data[e->type].flags & TF_text)
+    {
+      if (e->text.end > 0)
+        ADD(e->text.text);
+    }
   else
     {
       if (e->cmd
