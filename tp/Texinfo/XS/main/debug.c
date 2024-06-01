@@ -160,11 +160,15 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
             text_append (&text, "array: ");
             for (j = 0; j < f->contents.number; j++)
               {
-                KEY_PAIR *k_integer = lookup_extra (f->contents.list[j], "integer");
-                if (k_integer)
-                  text_printf (&text, "%d|", k_integer->k.integer);
+                const ELEMENT *e = f->contents.list[j];
+                if (e->type == ET_other_text)
+                  text_printf (&text, "%s|", e->text.text);
                 else
-                  text_printf (&text, "%s|", f->contents.list[j]->text.text);
+                  {
+                    KEY_PAIR *k_integer = lookup_extra (e, "integer");
+                    if (k_integer)
+                      text_printf (&text, "%d|", k_integer->k.integer);
+                  }
               }
             break;
            }

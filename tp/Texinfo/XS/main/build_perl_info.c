@@ -396,23 +396,27 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               /* An array of strings or integers. */
               for (j = 0; j < f->contents.number; j++)
                 {
-                  const KEY_PAIR *k_integer;
-                  k_integer = lookup_extra (f->contents.list[j], "integer");
-                  if (k_integer)
+                  const ELEMENT *e = f->contents.list[j];
+                  if (e->type == ET_other_text)
                     {
-                      IV value = (IV) (intptr_t) k_integer->k.integer;
-                      av_store (av, j, newSViv (value));
-                    }
-                  else if (f->contents.list[j]->text.end > 0)
-                    {
-                      SV *sv = newSVpv_utf8 (f->contents.list[j]->text.text,
-                                             f->contents.list[j]->text.end);
-                      av_store (av, j, sv);
+                      if (e->text.end > 0)
+                        {
+                          SV *sv = newSVpv_utf8 (e->text.text, e->text.end);
+                          av_store (av, j, sv);
+                        }
+                      else
+                        /* Empty strings permitted. */
+                        av_store (av, j, newSVpv ("", 0));
                     }
                   else
                     {
-                      /* Empty strings permitted. */
-                      av_store (av, j, newSVpv ("", 0));
+                      const KEY_PAIR *k_integer;
+                      k_integer = lookup_extra (e, "integer");
+                      if (k_integer)
+                        {
+                          IV value = (IV) k_integer->k.integer;
+                          av_store (av, j, newSViv (value));
+                        }
                     }
                 }
               break;

@@ -13,6 +13,20 @@
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(relate_index_entries_to_table_items_in): set type as ET_other_text
+	instead of ET_NONE.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_additional_info),
+	tp/Texinfo/XS/main/debug.c (print_associate_info_debug),
+	tp/Texinfo/XS/main/manipulate_tree.c (associate_info_references):
+	always use text element with type ET_other_text in extra_misc_args.
+	Use the type to determine if the element represents text or an
+	integer.
+
+2024-05-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/debug.c (print_element_debug): text element never
 	have contents nor arg, nor command.
 

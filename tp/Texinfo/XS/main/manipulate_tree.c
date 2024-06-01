@@ -329,18 +329,24 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           k->k.element = new_extra_element;
           for (j = 0; j < f->contents.number; j++)
             {
-              ELEMENT *e = new_element (ET_NONE);
-              KEY_PAIR *k_integer = lookup_extra (f->contents.list[j], "integer");
-              if (k_integer)
+              const ELEMENT *e = f->contents.list[j];
+              ELEMENT *new_e;
+              if (e->type == ET_other_text)
                 {
-                  add_extra_integer (e, "integer", k_integer->k.integer);
+                  new_e = new_element (ET_other_text);
+                  if (e->text.end > 0)
+                    text_append_n (&new_e->text, e->text.text, e->text.end);
                 }
               else
                 {
-                  if (f->contents.list[j]->text.space > 0)
-                    text_append (&e->text, f->contents.list[j]->text.text);
+                  new_e = new_element (ET_NONE);
+                  KEY_PAIR *k_integer = lookup_extra (e, "integer");
+                  if (k_integer)
+                    {
+                      add_extra_integer (new_e, "integer", k_integer->k.integer);
+                    }
                 }
-              add_to_contents_as_array (new_extra_element, e);
+              add_to_contents_as_array (new_extra_element, new_e);
             }
           break;
           }

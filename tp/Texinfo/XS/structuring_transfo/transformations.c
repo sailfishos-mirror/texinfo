@@ -402,7 +402,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
               if (item && entry_idx_info)
                 {
                   ELEMENT *index_entry_command = new_element (ET_NONE);
-                  ELEMENT *e = new_element (ET_NONE);
+                  ELEMENT *e = new_element (ET_other_text);
                  /*
                   This is better than overwriting 'entry_element', which
                   holds important information.

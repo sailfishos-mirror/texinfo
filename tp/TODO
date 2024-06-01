@@ -93,13 +93,6 @@ ELEMENT *elements[3]
     EXCEPTION: needed transient _copy and _counter in copy_tree_internal in extra
     EXCEPTION: info inserted for spaces in @def* for definition aliases
   
-type_data[->type].flags & TF_text
-main
-  build_perl_info.c
-    extra_misc_args contents.list[j]->text.end > 0
-  manipulate_tree.c
-    associate_info_references extra_misc_args
-
 
 valgrinf massif useful-heap approximate distribution in 2024
 valgrind --tool=massif perl -w texi2any.pl ../doc/texinfo.texi
