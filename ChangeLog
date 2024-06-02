@@ -1,5 +1,10 @@
 2024-06-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: add entry for fix on 2024-02-09 "Fix unnumbered sections
+	in PDF outline."
+
+2024-06-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: add entry for fix on 2024-02-11 "Avoid crash from
 	undefined style."
 
