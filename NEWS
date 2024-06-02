@@ -16,6 +16,7 @@ See the manual for detailed information.
  . you can call @unmacro with an undefined macro name, matching the
    behavior of texi2any
 * texi2any
+ . possible crash fixed for @include used inside @table
  . info output: output Info-documentlanguage in Local Variables section
    of output file if @documentlanguage is given
  . Indices sorting is independent of the input or output encodings.

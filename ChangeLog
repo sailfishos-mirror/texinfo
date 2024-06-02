@@ -1,3 +1,8 @@
+2024-06-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: add entry for fix on 2024-05-01 "Remove parent of @include
+	or @setfilename source mark elements"
+
 2024-06-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (The Top Node, Updating Commands):
