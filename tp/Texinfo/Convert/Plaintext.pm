@@ -64,7 +64,7 @@ sub import {
   goto &Exporter::import;
 }
 
-our $VERSION = '7.1dev';
+our $VERSION = '7.1.90';
 
 
 # commands that are of use for formatting.

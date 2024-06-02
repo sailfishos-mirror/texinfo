@@ -57,7 +57,7 @@ expand_verbatiminclude
 add_heading_number
 );
 
-our $VERSION = '7.1dev';
+our $VERSION = '7.1.90';
 
 
 our @month_name =

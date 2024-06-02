@@ -1,3 +1,16 @@
+2024-06-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Prepare for pretest release
+
+	* configure.ac: bump version to 7.1.90.
+	(AM_INIT_AUTOMAKE): add dist-xz option.
+
+	* util/texi2dvi, util/texi2pdf, js/info.js: version, copyright date.
+
+	* tp/texi2any.pl, info/info.c, install-info/install-info.c,
+	texindex/ti.twjr, Pod-Simple-Texinfo/pod2texi: 2024 in version
+	messages.
+
 2024-05-29  Alfred M. Szmidt  <ams@gnu.org>  (tiny change)
 
 	* tp/Texinfo/XS/main/utils.c (clear_option, free_option)

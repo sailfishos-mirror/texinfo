@@ -33,7 +33,7 @@ BEGIN {
 
 our $TEXINFO_XS;
 
-our $VERSION = '7.1dev';
+our $VERSION = '7.1.90';
 
 sub XS_parser_enabled {
   return ((not defined($ENV{TEXINFO_XS})

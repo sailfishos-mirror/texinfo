@@ -60,7 +60,7 @@ use Texinfo::Convert::Text;
 # loading is not important.
 #use Texinfo::Document;
 
-our $VERSION = '7.1dev';
+our $VERSION = '7.1.90';
 
 # The methods that are usefully called directly (outside of tests) are:
 # index_entry_element_sort_string
