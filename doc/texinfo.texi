@@ -1958,8 +1958,8 @@ As such, it should contain a very brief description of the manual
 (including the version number).  The contents of the `Top' node do
 not appear in printed output nor in DocBook output.
 
-It is conventional to write a @code{@@top} sectioning command
-line containing the title of the document immediately after the
+It is conventional to write a line with a @code{@@top} command
+containing the title of the document immediately after the
 @code{@@node Top} line (@pxref{@code{@@top} Command}).
 
 We repeat the short description from the beginning of
@@ -21772,13 +21772,11 @@ You can also use the commands to update all the nodes and menus in a
 region or in a whole Texinfo file.
 
 The updating commands work only with conventional Texinfo files, which
-are structured hierarchically like books.  In such files, a structuring
-command line must follow closely after each @code{@@node} line, except
-for the `Top' @code{@@node} line.  (A @dfn{structuring command line} is
-a line beginning with @code{@@chapter}, @code{@@section}, or other
-similar command.)
+are structured hierarchically like books.  In such files, a line with a
+structuring command must follow closely after each @code{@@node} line,
+except for the `Top' @code{@@node} line.
 
-You can write the structuring command line on the line that follows
+You can write the structuring command on the line that follows
 immediately after an @code{@@node} line or else on the line that
 follows after a single @code{@@comment} line or a single
 @code{@@ifinfo} line.  You cannot interpose more than one line between

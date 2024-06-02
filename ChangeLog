@@ -1,5 +1,10 @@
 2024-06-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (The Top Node, Updating Commands):
+	Avoid saying "sectioning command line" as this is confusing.
+
+2024-06-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Prepare for pretest release
 
 	* configure.ac: bump version to 7.1.90.
