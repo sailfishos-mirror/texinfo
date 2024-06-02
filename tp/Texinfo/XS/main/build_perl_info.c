@@ -646,7 +646,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   /* non-text elements */
 
-  store_additional_info (e, &e->info_info, "info", &nr_info, avoid_recursion);
+  store_additional_info (e, &e->c->info_info, "info", &nr_info,
+                         avoid_recursion);
 
   if (e->cmd)
     {

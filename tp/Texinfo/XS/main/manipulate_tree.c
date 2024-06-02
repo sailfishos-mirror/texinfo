@@ -192,7 +192,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   for (i = 0; i < current->c->contents.number; i++)
     add_to_element_contents (new,
                 copy_tree_internal (current->c->contents.list[i], new));
-  copy_associated_info (&current->info_info, &new->info_info);
+  copy_associated_info (&current->c->info_info, &new->c->info_info);
   copy_associated_info (&current->extra_info, &new->extra_info);
   return new;
 }
@@ -378,11 +378,12 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
       for (i = 0; i < current->c->contents.number; i++)
         copy_extra_info (current->c->contents.list[i], new->c->contents.list[i]);
 
+      associate_info_references (&current->c->info_info, &new->c->info_info);
+
       /* text element have _copy and _counter only in extra, not to be copied */
       associate_info_references (&current->extra_info, &new->extra_info);
     }
 
-  associate_info_references (&current->info_info, &new->info_info);
 }
 
 ELEMENT *

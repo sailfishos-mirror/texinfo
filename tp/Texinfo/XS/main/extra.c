@@ -95,7 +95,7 @@ add_extra_container (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->info_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->c->info_info, key,
                                          extra_element_oot);
   k->k.element = value;
 }
@@ -166,7 +166,7 @@ add_extra_string (ELEMENT *e, const char *key, char *value)
 void
 add_info_string (ELEMENT *e, char *key, char *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_key (&e->c->info_info, key, extra_string);
   k->k.string = value;
 }
 
@@ -180,7 +180,7 @@ add_extra_string_dup (ELEMENT *e, const char *key, const char *value)
 void
 add_info_string_dup (ELEMENT *e, const char *key, const char *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_key (&e->c->info_info, key, extra_string);
   k->k.string = strdup (value);
 }
 
@@ -209,7 +209,7 @@ add_extra_integer (ELEMENT *e, char *key, long value)
 void
 add_info_integer (ELEMENT *e, char *key, long value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_integer);
+  KEY_PAIR *k = get_associated_info_key (&e->c->info_info, key, extra_integer);
   k->k.integer = value;
 }
 
@@ -311,7 +311,7 @@ int
 lookup_info_integer (const ELEMENT *e, const char *key, int *ret)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->info_info, key);
+  k = lookup_associated_info (&e->c->info_info, key);
   return lookup_key_pair_integer (k, key, ret);
 }
 
@@ -370,7 +370,7 @@ ELEMENT *
 lookup_info_element (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->info_info, key);
+  k = lookup_associated_info (&e->c->info_info, key);
   if (!k)
     return 0;
   return k->k.element;
@@ -380,14 +380,14 @@ lookup_info_element (const ELEMENT *e, const char *key)
 KEY_PAIR *
 lookup_info (const ELEMENT *e, const char *key)
 {
-  return lookup_associated_info (&e->info_info, key);
+  return lookup_associated_info (&e->c->info_info, key);
 }
 
 char *
 lookup_info_string (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->info_info, key);
+  k = lookup_associated_info (&e->c->info_info, key);
   if (!k || !k->k.string)
     return 0;
   return k->k.string;

@@ -18386,12 +18386,16 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
   /* for debugging, for explanations */
   TEXT command_type;
   char *debug_str;
-  const char *command_name = element_command_name (element);
+  const char *command_name = 0;
   enum command_id cmd = element_builtin_cmd (element);
 
   text_init (&command_type);
-  if (command_name)
-    text_printf (&command_type, "@%s ", command_name);
+  if (! type_data[element->type].flags & TF_text)
+    {
+      command_name = element_command_name (element);
+      if (command_name)
+        text_printf (&command_type, "@%s ", command_name);
+    }
 
   if (element->type)
     text_append (&command_type, type_data[element->type].name);

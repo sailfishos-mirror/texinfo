@@ -78,12 +78,8 @@ char *alias_of
 char *command_info_string (for arg_line or command_name or @verb delimiter)
 ELEMENT *elements[3]
  spaces_after_cmd_before_arg (brace commands) or comment_at_end (line/block commands)
- spaces_before_argument
- spaces_after_argument
- int inserted (could also be flags if more information is added).
-
- spaces_before_argument and spaces_after_argument are with brace_command_arg
- for non command_context brace commands, otherwise with the @-command.
+for type brace_command_container, line and block commands, BRACE_context commands
+ spaces_before_argument, spaces_after_argument
 
 3) make building "source marks" optional.
   With 8 byte pointers and integers, the 24 byte section of ELEMENT relating
@@ -94,7 +90,6 @@ ELEMENT *elements[3]
 4) separate the structure of text elements and other elements, as text elements
    never have contents/args/info/extra, have cmd != 0.
     EXCEPTION: needed transient _copy and _counter in copy_tree_internal in extra
-    EXCEPTION: info inserted for spaces in @def* for definition aliases
   
 
 valgrinf massif useful-heap approximate distribution in 2024

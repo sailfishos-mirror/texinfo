@@ -213,6 +213,7 @@ typedef struct CONTAINER {
     ELEMENT_LIST contents;
     SOURCE_INFO source_info;
 
+    ASSOCIATED_INFO info_info;
     OUTPUT_UNIT *associated_unit;
 } CONTAINER;
 
@@ -226,7 +227,6 @@ typedef struct ELEMENT {
     struct ELEMENT *parent;
     SOURCE_MARK_LIST source_mark_list;
 
-    ASSOCIATED_INFO info_info;
     ASSOCIATED_INFO extra_info;
 
     enum command_id cmd;
