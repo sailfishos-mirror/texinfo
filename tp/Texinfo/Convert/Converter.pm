@@ -1273,7 +1273,7 @@ sub present_bug_message($$;$)
   my $additional_information = '';
   if ($line_message.$current_element_message ne '') {
     $additional_information = "Additional information:\n".
-       $line_message.$current_element_message;
+       $line_message.$current_element_message."\n";
   }
   warn "You found a bug: $message\n\n".$additional_information;
 }
