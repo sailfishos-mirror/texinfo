@@ -82,6 +82,9 @@ ELEMENT *elements[3]
  spaces_after_argument
  int inserted (could also be flags if more information is added).
 
+ spaces_before_argument and spaces_after_argument are with brace_command_arg
+ for non command_context brace commands, otherwise with the @-command.
+
 3) make building "source marks" optional.
   With 8 byte pointers and integers, the 24 byte section of ELEMENT relating
   to source marks could be replaced with an 8 byte pointer to an external
@@ -117,6 +120,76 @@ Remaining not imputed 2.4M
 Detailed memory use for tree is mainly alloc_element (16.2M), secondarily
 reallocate_list (3.7M) and get_associated_info_key (3.1M) and text
 is small (2M).
+
+
+Texinfo syntax
+
+ltspaces_in_arg: leading and trailing spaces directly in the argument text
+
+Elements are described by:
+ where-syntax-contains
+
+where:
+ text
+ content: outside paragraphs
+  root: at the top level only not inside another container
+  preamble: at the top level in the preamble
+  block: in a block
+ line
+  index_line
+  heading_spec
+  two_col_table: on @table/@vtable line
+ lineraw
+
+element:
+text
+text-cmd_nobrace (NOBRACE_symbol except in_heading_spec) % nobrace
+text-cmd_brace  BRACE_noarg % brace ltspaces_in_arg (error if not empty)
+text-cmd_follow-plain_text BRACE_accent % brace follow_space ltspaces_in_arg
+text-cmd_brace-special_U_text U % brace ltspaces_not_in_arg (restrictions on text)
+text-cmd_brace-plain_text key % brace ltspaces_in_arg
+index_line-cmd_brace-plain_text sortas % brace ltspaces_not_in_arg
+heading_spec-cmd_nobrace | % nobrace
+preamble-cmd_brace-plain_text hyphenation % brace ltspaces_not_in_arg
+content+line-cmd_line-plain_text end
+content+line-cmd_line-lineraw set clear
+content-cmd_line-lineraw unmacro clickstyle vskip
+comments-cmd_line-lineraw c comment
+line-cmd_line-plain_text columnfractions % line (on @multitable line, only floats)
+line-cmd_line-text subentry % line
+root-cmd_line bye raisesections lowersections contents shortcontents % line noarg
+content-cmd_line insertcopying
+content+line+text-cmd_nobrace refill % nobrace
+content-cmd_nobrace noindent indent % nobrace leads to a warning if in paragraph
+block-cmd_nobrace-content headitem item in multitable % nobrace
+content-container-text paragraph preformatted
+two_col_table-cmd_nobrace+cmd_brace except BRACE_noarg BRACE_accent
+
+Groups:
+$plain_text = text text_symbol text_plain_text_container comments
+$text = $plain_text text-cmd_brace-special_U_text text-cmd_brace-plain_text
+$content = paragraph preformatted
+
+Contains
+text:
+text-cmd_no_brace:
+text-cmd_brace:
+text-cmd_follow-plain_text: $plain_text
+text-cmd_brace-special_U_text: text + special constraints
+text-cmd_brace-plain_text: $plain_text
+index_line-cmd_brace-plain_text: $plain_text
+preamble-cmd_brace-plain_text: $plain_text
+content+line-cmd_line-plain_text: $plain_text
+content+line-cmd_line-lineraw: $plain_text
+content-cmd_line-lineraw: $plain_text
+comments-cmd_line-lineraw: $plain_text
+line-cmd_line-plain_text: $plain_text
+line-cmd_line-text: $text
+root-cmd_line:
+content-cmd_line:
+content+line+text-cmd_nobrace:
+block-cmd_nobrace-content: $content
+content-container-text: $text
 
 
 check for comma after @xref{...}, in parser to simplify checking for

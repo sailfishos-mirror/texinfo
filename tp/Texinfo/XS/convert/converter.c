@@ -520,8 +520,8 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
 TREE_ADDED_ELEMENTS *
 table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 {
-  ELEMENT *table_command = element->parent->parent->parent;
-  ELEMENT *command_as_argument = lookup_extra_element (table_command,
+  const ELEMENT *table_command = element->parent->parent->parent;
+  const ELEMENT *command_as_argument = lookup_extra_element (table_command,
                                                "command_as_argument");
 
   if (element->c->args.number > 0 && command_as_argument)
@@ -531,8 +531,10 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
       int status;
       int command_as_argument_kbd_code;
       ELEMENT *command = new_element_added (tree, ET_NONE);
-      ELEMENT *arg = new_element_added (tree, ET_brace_command_arg);
+      ELEMENT *arg;
       enum command_id cmd = element_builtin_cmd (command_as_argument);
+      enum command_id data_cmd
+            = element_builtin_data_cmd (command_as_argument);
 
       tree->tree = command;
 
@@ -545,9 +547,10 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 
       if (command_as_argument->type == ET_definfoenclose_command)
         {
-          char *begin = lookup_extra_string (command_as_argument, "begin");
-          char *end = lookup_extra_string (command_as_argument, "end");
-          char *command_name = lookup_info_string (command_as_argument,
+          const char *begin = lookup_extra_string (command_as_argument,
+                                                   "begin");
+          const char *end = lookup_extra_string (command_as_argument, "end");
+          const char *command_name = lookup_info_string (command_as_argument,
                                                    "command_name");
           command->type = command_as_argument->type;
           if (begin)
@@ -557,11 +560,32 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
           if (command_name)
             add_info_string_dup (command, "command_name", command_name);
         }
+      if (builtin_command_data[data_cmd].data == BRACE_context)
+        {
+    /* This corresponds to a bogus @*table line with command line @footnote
+       or @math.  We do not really care about the formatting of the result
+       but we want to avoid debug messages, so we setup expected trees
+       for those @-commands. */
+          arg = new_element_added (tree, ET_brace_command_context);
+          if (cmd == CM_math)
+            {
+              add_to_contents_as_array (arg, element->c->args.list[0]);
+            }
+          else
+            {
+              ELEMENT *paragraph = new_element_added (tree, ET_paragraph);
+              add_to_contents_as_array (paragraph, element->c->args.list[0]);
+              add_to_element_contents (arg, paragraph);
+            }
+        }
+      else
+        {
+          arg = new_element_added (tree, ET_brace_command_arg);
+          add_to_contents_as_array (arg, element->c->args.list[0]);
+        }
       add_to_element_args (command, arg);
-      add_to_contents_as_array (arg, element->c->args.list[0]);
       return tree;
     }
-
   return 0;
 }
 

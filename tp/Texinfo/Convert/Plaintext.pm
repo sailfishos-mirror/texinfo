@@ -2138,6 +2138,12 @@ sub _convert($$)
 
   # process text
   if (defined($element->{'text'})) {
+    # '_top_formatter' is only set in the formatter setup when calling
+    # push_top_formatter.  It should be setup in containers that
+    # contains paragraphs, lines and blocks, but no inline content.
+    # Formatters created by new_formatter() when encountering paragraphs,
+    # lines and blocks do not set that key, the formatting of text should
+    # be done in those formatters.
     if (!$formatter->{'_top_formatter'}) {
       if ($type and $type eq 'raw') {
         _stream_output($self,

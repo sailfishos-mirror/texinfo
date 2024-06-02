@@ -1475,7 +1475,8 @@ sub table_item_content_tree($$)
       and $table_command->{'extra'}->{'command_as_argument'}) {
     my $command_as_argument
       = $table_command->{'extra'}->{'command_as_argument'};
-    my $command = {'cmdname' => $command_as_argument->{'cmdname'},
+    my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
+    my $command = {'cmdname' => $command_as_argument_cmdname,
                    'source_info' => $element->{'source_info'},};
     if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'} = {'code' => 1};
@@ -1486,9 +1487,28 @@ sub table_item_content_tree($$)
       $command->{'extra'}->{'begin'} = $command_as_argument->{'extra'}->{'begin'};
       $command->{'extra'}->{'end'} = $command_as_argument->{'extra'}->{'end'};
     }
-    my $arg = {'type' => 'brace_command_arg',
-               'contents' => [$element->{'args'}->[0]],
-               'parent' => $command,};
+    my $arg;
+    if ($Texinfo::Commands::brace_commands{$command_as_argument_cmdname}
+                                                   eq 'context') {
+      # This corresponds to a bogus @*table line with command line @footnote
+      # or @math.  We do not really care about the formatting of the result
+      # but we want to avoid debug messages, so we setup expected trees
+      # for those @-commands.
+      $arg = {'type' => 'brace_command_context',
+              'parent' => $command,};
+      if ($Texinfo::Commands::math_commands{$command_as_argument_cmdname}) {
+        $arg->{'contents'} = [$element->{'args'}->[0]];
+      } else {
+        my $paragraph = {'type' => 'paragraph',
+                         'contents' => [$element->{'args'}->[0]],
+                         'parent' => $arg};
+        $arg->{'contents'} = [$paragraph];
+      }
+    } else {
+      $arg = {'type' => 'brace_command_arg',
+              'contents' => [$element->{'args'}->[0]],
+              'parent' => $command,};
+    }
     $command->{'args'} = [$arg];
     return $command;
   }

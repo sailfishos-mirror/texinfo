@@ -866,6 +866,54 @@ text2
 discussion
 @end table
 '],
+['various_vtable_command_as_argument',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@vtable @inlineraw
+@item html
+@item docbook
+@item titi
+@end vtable
+
+@vtable @image
+@item first
+@itemx second
+@end vtable
+
+@vtable @footnote
+@item aa
+@itemx bb
+@end vtable
+
+@vtable @caption
+@item caa
+@itemx cbb
+@end vtable
+
+@vtable @math
+@item a + b
+@item a@sup{c}
+@end vtable
+
+@vtable @anchor
+@item anchor 1
+@itemx anchor 2
+@end vtable
+
+@vtable @verb
+@item :uu:
+@itemx ?nn?
+@end vtable
+
+@node Indices
+@appendix Print the index
+
+@printindex vr
+',],
 ['at_commands_in_raw',
 '@node Top
 @top top

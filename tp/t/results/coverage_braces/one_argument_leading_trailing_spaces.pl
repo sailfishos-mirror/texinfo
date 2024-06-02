@@ -283,6 +283,45 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
             {
               'text' => '
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => ' i '
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'aa',
+              'source_info' => {
+                'line_nr' => 5
+              }
+            },
+            {
+              'text' => ' '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => ' ei '
+                    }
+                  ],
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'enddots',
+              'source_info' => {
+                'line_nr' => 5
+              }
+            },
+            {
+              'text' => '
+'
             }
           ],
           'type' => 'paragraph'
@@ -298,12 +337,14 @@ $result_texis{'one_argument_leading_trailing_spaces'} = '@code{ in code } @slant
 @hyphenation{ a-b c-d }
 @indicateurl{ http://example.com } @U{ 1234 } @w{ w } @verb{: verb :}.
 @^{ e } @ringaccent{ a } @dotless{ i } @tieaccent{ bb }
+@aa{ i } @enddots{ ei }
 ';
 
 
 $result_texts{'one_argument_leading_trailing_spaces'} = ' in code   in slanted   var   sub 
  http://example.com  1234  w   verb .
  e ^  a *  i   bb [
+aa ...
 ';
 
 $result_errors{'one_argument_leading_trailing_spaces'} = [
@@ -313,6 +354,20 @@ $result_errors{'one_argument_leading_trailing_spaces'} = [
     'line_nr' => 4,
     'text' => '@dotless expects `i\' or `j\' as argument, not ` i \'',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: command @aa does not accept arguments
+',
+    'line_nr' => 5,
+    'text' => 'command @aa does not accept arguments',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: command @enddots does not accept arguments
+',
+    'line_nr' => 5,
+    'text' => 'command @enddots does not accept arguments',
+    'type' => 'warning'
   }
 ];
 
@@ -322,19 +377,21 @@ $result_floats{'one_argument_leading_trailing_spaces'} = {};
 
 
 $result_converted{'plaintext'}->{'one_argument_leading_trailing_spaces'} = '‘ in code ’ in slanted VAR _{ sub } ‘ http://example.com ’ ሴ  w   verb .
-e ̂ a ̊ i bb ͡
+e ̂ a ̊ i bb ͡ å ...
 ';
 
 
 $result_converted{'html_text'}->{'one_argument_leading_trailing_spaces'} = '<p><code class="code"> in code </code> <i class="slanted"> in slanted </i> <var class="var"> var </var> <sub class="sub"> sub </sub>
 &lsquo;<code class="indicateurl"> http://example.com </code>&rsquo; &#x1234; &nbsp;w&nbsp;<!-- /@w --> <code class="verb">&nbsp;verb&nbsp;</code>.
  e &#770;  a &#778;  i   bb &#865;
+&aring; <small class="enddots">...</small>
 </p>';
 
 
 $result_converted{'latex_text'}->{'one_argument_leading_trailing_spaces'} = '\\texttt{\\ in code } \\textsl{ in slanted } \\Texinfocommandstyletextvar{ var } \\textsubscript{ sub }
 \\hyphenation{a-b c-d}`\\texttt{\\ http://example.com }\' ሴ \\hbox{ w } \\verb: verb :.
 \\^{ e } \\r{ a }  i  \\t{ bb }
+\\aa{} \\dots{}
 ';
 
 1;

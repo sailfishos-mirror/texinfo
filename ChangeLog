@@ -1,5 +1,21 @@
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tp/Texinfo/XS/convert/converter.c (table_item_content_tree): if the
+	command_as_argument is a context brace command, such as @math or
+	@footnote, corresponding to an arguably bogus @*table line, as @*table
+	argument should only be indicatric commands, setup expected trees for
+	these @-commands, to avoid debug messages/converter crashes.
+
+	* tp/t/03coverage_braces.t (one_argument_leading_trailing_spaces): add
+	noarg brace commands to the test.
+
+	* tp/Makefile.tres, tp/t/converters_tests.t
+	(various_vtable_command_as_argument): text with various non indicatric
+	brace @-commands as @vtable argument.
+
+2024-06-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/03coverage_braces.t (one_argument_leading_trailing_spaces): add
 	accent commands to the test.
 
