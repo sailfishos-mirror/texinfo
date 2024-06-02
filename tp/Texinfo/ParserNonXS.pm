@@ -439,7 +439,7 @@ my %in_full_text_commands;
 foreach my $command (keys(%brace_commands), keys(%symbol_nobrace_commands)) {
   $in_full_text_commands{$command} = 1;
 }
-# selected line commands
+# selected line and nobrace commands
 foreach my $in_full_text_command ('c', 'comment', 'refill', 'subentry',
                          'columnfractions', 'set', 'clear', 'end') {
   $in_full_text_commands{$in_full_text_command} = 1;

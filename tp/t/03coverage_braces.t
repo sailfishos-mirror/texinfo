@@ -82,6 +82,7 @@ my @test_cases = (
 '@code{ in code } @slanted{ in slanted } @var{ var } @sub{ sub }
 @hyphenation{ a-b c-d }
 @indicateurl{ http://example.com } @U{ 1234 } @w{ w } @verb{: verb :}.
+@^{ e } @ringaccent{ a } @dotless{ i } @tieaccent{ bb }
 '],
 ['verb_in_xref',
 '@anchor{point}

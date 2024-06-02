@@ -1,9 +1,7 @@
-2024-09-28  Patrice Dumas  <pertusus@free.fr>
+2024-06-01  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/convert_html.c (html_command_description)
-	(html_default_format_single_footnote),
-	tp/Texinfo/XS/structuring_transfo/structuring.c (new_node_menu_entry):
-	add missing ELEMENT c union.
+	* tp/t/03coverage_braces.t (one_argument_leading_trailing_spaces): add
+	accent commands to the test.
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
@@ -11,6 +9,13 @@
 
 	* tp/Texinfo/XS/main/tree_types.h (ELEMENT): make a union for TEXT and
 	CONTAINER.
+
+2024-09-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_description)
+	(html_default_format_single_footnote),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_node_menu_entry):
+	add missing ELEMENT c union.
 
 2024-05-31  Patrice Dumas  <pertusus@free.fr>
 
