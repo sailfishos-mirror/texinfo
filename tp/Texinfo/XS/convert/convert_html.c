@@ -18430,10 +18430,10 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
   if ((element->type
        && self->current_types_conversion_function[element->type].status
-                                                         == FRS_status_ignored)
-      || (cmd
-          && self->current_commands_conversion_function[cmd].status
-                                                         == FRS_status_ignored))
+                                                     == FRS_status_ignored)
+       && (!cmd
+           || self->current_commands_conversion_function[cmd].status
+                                                     == FRS_status_ignored))
     {
       if (self->conf->DEBUG.o.integer > 0)
         {

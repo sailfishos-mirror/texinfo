@@ -4,6 +4,18 @@
 
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%all_commands), tp/Texinfo/command_data.txt:
+	as the internal commands also are in another category, they need to
+	have a data field that can be compared to the category.  The internal
+	commands therefore need to be removed explicitely from the %all_commands
+	hash.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):
+	consider that an element with both a type and a command to be ignored
+	if it is ignored both as a type element and as a command element.
+
+2024-06-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/transformations.c: add const.
 
 2024-06-01  Patrice Dumas  <pertusus@free.fr>

@@ -26,10 +26,13 @@
 ##############################################################
 # Internal commands
 # invalid if not accept_internalvalue set in configuration
-txiinternalvalue        internal,brace                  INTERNAL_brace
-# used in converters for easy access to flags
-definfoenclose_command  internal,brace                  INTERNAL_brace
-index_entry_command     internal,line,index_entry_command,contain_basic_inline,no_paragraph      INTERNAL_line
+txiinternalvalue        internal,brace                  BRACE_special
+# used in converters for easy access to flags.  Since CF_brace is
+# set, the data type should be acceptable for a brace command
+definfoenclose_command  internal,brace                  BRACE_style_other
+# Since CF_line is set, the data type should be acceptable for a line
+# command.
+index_entry_command     internal,line,index_entry_command,contain_basic_inline,no_paragraph      LINE_line
 
 
 ##############################################################
