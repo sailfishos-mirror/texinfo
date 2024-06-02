@@ -678,8 +678,8 @@ parse_line_command_args (ELEMENT *line_command)
 ELEMENT *
 end_line_def_line (ELEMENT *current)
 {
+  ELEMENT *def_line_container = current;
   enum command_id def_command;
-  ELEMENT **def_info = 0;
   char *def_cmdname;
   ELEMENT *index_entry = 0; /* Index entry text. */
   ELEMENT *def_info_name = 0;
@@ -698,24 +698,24 @@ end_line_def_line (ELEMENT *current)
                command_name(def_command));
   debug_parser_print_element (current, 1); debug ("");
 
-  def_info = parse_def (def_command, current);
+  parse_def (def_command, current);
 
   /* def_line */
   current = current->parent;
 
-  /* Record the index entry if def_info is not empty. */
-
-  while (def_info[i] != 0)
+  /* Record the index entry if def_line_container is not empty. */
+  for (i = 0; i < def_line_container->c->contents.number; i++)
     {
-      if (def_info[i]->type == ET_def_name)
-        def_info_name = def_info[i];
-      else if (def_info[i]->type == ET_def_class)
-        def_info_class = def_info[i];
-      else if (def_info[i]->type == ET_def_category)
-        def_info_category = def_info[i];
-      i++;
+      ELEMENT *def_e = def_line_container->c->contents.list[i];
+      if (def_e->type == ET_def_name)
+        def_info_name = def_e;
+      else if (def_e->type == ET_def_class)
+        def_info_class = def_e;
+      else if (def_e->type == ET_def_category)
+        def_info_category = def_e;
+      else if (def_e->type == ET_def_arg || def_e->type == ET_def_typearg)
+        break;
     }
-  free (def_info);
 
   if (def_info_category)
     {

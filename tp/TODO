@@ -139,6 +139,7 @@ where:
   index_line
   heading_spec
   two_col_table: on @table/@vtable line
+  multitable
  lineraw
 
 element:
@@ -151,19 +152,25 @@ text-cmd_brace-plain_text key % brace ltspaces_in_arg
 index_line-cmd_brace-plain_text sortas % brace ltspaces_not_in_arg
 heading_spec-cmd_nobrace | % nobrace
 preamble-cmd_brace-plain_text hyphenation % brace ltspaces_not_in_arg
-content+line-cmd_line-plain_text end
-content+line-cmd_line-lineraw set clear
-content-cmd_line-lineraw unmacro clickstyle vskip
-comments-cmd_line-lineraw c comment
-line-cmd_line-plain_text columnfractions % line (on @multitable line, only floats)
+content+line-cmd_line-plain_text end % line
+content+line-cmd_line-lineraw set clear % lineraw
+content-cmd_line-lineraw unmacro clickstyle vskip % lineraw
+comments-cmd_line-lineraw c comment % lineraw 
+multitable-cmd_line-plain_text columnfractions % line (on @multitable line, only floats)
 line-cmd_line-text subentry % line
 root-cmd_line bye raisesections lowersections contents shortcontents % line noarg
-content-cmd_line insertcopying
+content-cmd_line insertcopying % line noarg
 content+line+text-cmd_nobrace refill % nobrace
 content-cmd_nobrace noindent indent % nobrace leads to a warning if in paragraph
 block-cmd_nobrace-content headitem item in multitable % nobrace
 content-container-text paragraph preformatted
-two_col_table-cmd_nobrace+cmd_brace except BRACE_noarg BRACE_accent
+two_col_table-cmd_nobrace+cmd_brace command_as_argument, containing
+                                    brace commands except BRACE_noarg BRACE_accent
+                                    and not_in_basic_inline_commands
+content+text-cmd_line-line(index_line) findex... index_entry_command % line
+def_line-line_container-text+bracketed_arg def_line_arg (argument has no space at top level)
+multitable-bracketed-text bracketed_arg for multitable prototypes % bracketed ltspaces_not_in_arg
+def_line_container-bracketed-text % bracketed ltspaces_not_in_arg
 
 Groups:
 $plain_text = text text_symbol text_plain_text_container comments

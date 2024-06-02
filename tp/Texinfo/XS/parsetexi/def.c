@@ -303,14 +303,6 @@ split_def_args (ELEMENT *current, int starting_idx)
           continue;
         }
 
-      if (e->type == ET_spaces)
-        {
-          int status;
-          int inserted = lookup_info_integer (e, "inserted", &status);
-          if (inserted > 0)
-            continue;
-        }
-
       if (e->type != ET_normal_text)
         continue;
 
@@ -357,7 +349,7 @@ split_def_args (ELEMENT *current, int starting_idx)
     }
 }
 
-ELEMENT **
+void
 parse_def (enum command_id command, ELEMENT *current)
 {
   int contents_idx = 0;
@@ -365,7 +357,6 @@ parse_def (enum command_id command, ELEMENT *current)
   int i, i_def;
   int arg_types_nr;
   ELEMENT *e, *e1;
-  ELEMENT **result;
   enum command_id *arguments_types_list;
   int inserted_category = 0;
 
@@ -433,7 +424,6 @@ parse_def (enum command_id command, ELEMENT *current)
         break;
       arg_types_nr++;
     }
-  result = malloc ((arg_types_nr+1) * sizeof (ELEMENT *));
 
   for (i = 0; i < arg_types_nr; i++)
     {
@@ -447,13 +437,10 @@ parse_def (enum command_id command, ELEMENT *current)
           new_def_type->parent = e->parent;
           current->c->contents.list[contents_idx - 1] = new_def_type;
           add_to_element_contents (new_def_type, e);
-          result[i] = new_def_type;
         }
       else
         break;
     }
-
-  result[i] = 0;
 
   if (inserted_category)
     {
@@ -505,5 +492,4 @@ parse_def (enum command_id command, ELEMENT *current)
       add_to_element_contents (new_def_type, e);
       current->c->contents.list[i] = new_def_type;
     }
-  return result;
 }

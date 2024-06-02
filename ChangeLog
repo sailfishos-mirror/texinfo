@@ -4,6 +4,20 @@
 
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/def.c (parse_def),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): use directly
+	the definition line arguments to determine the class/category/name for
+	the index entry.  Remove the returned information from parse_def.
+
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): remove an
+	impossible condition, as the linemacro call bracketed type is a
+	different type now.
+
+	* tp/Texinfo/XS/parsetexi/def.c (split_def_args): remove a redundant
+	condition.
+
+2024-06-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/element_types.txt: remove unused
 	space_command_arg.  Reorder.
 

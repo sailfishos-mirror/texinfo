@@ -6,5 +6,5 @@
 #include "tree_types.h"
 
 void gather_def_item (ELEMENT *current, enum command_id next_command);
-ELEMENT **parse_def (enum command_id command, ELEMENT *current);
+void parse_def (enum command_id command, ELEMENT *current);
 #endif
