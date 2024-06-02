@@ -4,6 +4,10 @@
 
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c: add const.
+
+2024-06-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (present_bug_message): add an end of
 	line at the end of the additional_information, to avoid addition of
 	the location of the error in present_bug_message.

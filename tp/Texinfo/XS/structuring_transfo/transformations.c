@@ -51,14 +51,15 @@
 
 /* in Common.pm */
 INDEX_ENTRY_AND_INDEX *
-lookup_index_entry (ELEMENT_LIST *index_entry_info, INDEX_LIST *indices_info)
+lookup_index_entry (const ELEMENT_LIST *index_entry_info,
+                    INDEX_LIST *indices_info)
 {
   INDEX_ENTRY_AND_INDEX *result = 0;
   int status;
   int entry_number
     = lookup_extra_integer (index_entry_info->list[1], "integer",
                             &status);
-  char *entry_index_name = index_entry_info->list[0]->text->text;
+  const char *entry_index_name = index_entry_info->list[0]->text->text;
   INDEX *index_info;
 
   index_info = indices_info_index_by_name (indices_info,
@@ -384,7 +385,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                   if (!entry_idx_info)
                     {
                       INDEX_ENTRY_AND_INDEX *idx_info;
-                      ELEMENT_LIST *index_entry_info
+                      const ELEMENT_LIST *index_entry_info
                         = lookup_extra_misc_args (content, "index_entry");
                       idx_info = lookup_index_entry (index_entry_info,
                                                      indices_info);
