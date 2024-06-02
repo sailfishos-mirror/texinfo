@@ -399,7 +399,7 @@ parse_def (enum command_id command, ELEMENT *current)
 
       e = new_text_element (ET_spaces);
       text_append_n (e->text, " ", 1);
-      add_info_integer (e, "inserted", 1);
+      e->inserted = 1;
       insert_into_contents (current, e, contents_idx + 1);
     }
 
@@ -444,7 +444,7 @@ parse_def (enum command_id command, ELEMENT *current)
 
   if (inserted_category)
     {
-      add_info_integer (current->c->contents.list[0], "inserted", 1);
+      current->c->contents.list[0]->inserted = 1;
     }
 
   /* Process args */

@@ -222,6 +222,7 @@ typedef struct ELEMENT {
     void *hv;
 
     enum element_type type;
+    unsigned long inserted;
     struct ELEMENT *parent;
     SOURCE_MARK_LIST source_mark_list;
 

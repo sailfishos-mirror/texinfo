@@ -288,8 +288,6 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
 {
   dTHX;
 
-  *nr_info = 0; /* number of info type stored */
-
   if (a->info_number > 0)
     {
       int i;
@@ -432,21 +430,25 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
 
 static void
 store_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
-                       const char *key, int avoid_recursion)
+                       const char *key, int *nr_info, int avoid_recursion)
 {
-  int nr_info;
   HV *additional_info_hv;
 
   dTHX;
 
-  /* Use sv_2mortal so that reference count is decremented if
-         the hash is not saved. */
-  additional_info_hv = (HV *) sv_2mortal ((SV *)newHV ());
+  if (*nr_info == 0)
+    /* Use sv_2mortal so that reference count is decremented if
+           the hash is not saved. */
+    additional_info_hv = (HV *) sv_2mortal ((SV *)newHV ());
+  else
+    {
+      SV **additional_info_sv = hv_fetch (e->hv, key, strlen (key), 0);
+      additional_info_hv = (HV *)SvRV (*additional_info_sv);
+    }
 
+  build_additional_info (additional_info_hv, a, avoid_recursion, nr_info);
 
-  build_additional_info (additional_info_hv, a, avoid_recursion, &nr_info);
-
-  if (nr_info > 0)
+  if (*nr_info > 0)
     hv_store (e->hv, key, strlen (key),
               newRV_inc ((SV *)additional_info_hv), 0);
 }
@@ -561,6 +563,8 @@ void
 element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 {
   SV *sv;
+  int nr_info = 0;
+  int nr_extra = 0;
 
   dTHX;
 
@@ -622,7 +626,16 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
     }
 
-  store_additional_info (e, &e->info_info, "info", avoid_recursion);
+  if (e->inserted)
+    {
+      HV *info_hv = (HV *) sv_2mortal ((SV *)newHV ());
+      const char *key = "info";
+      hv_store (info_hv, "inserted", strlen ("inserted"),
+                newSViv (1), 0);
+      hv_store (e->hv, key, strlen (key),
+              newRV_inc ((SV *)info_hv), 0);
+      nr_info++;
+    }
 
   if (type_data[e->type].flags & TF_text)
     {
@@ -632,6 +645,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
     }
 
   /* non-text elements */
+
+  store_additional_info (e, &e->info_info, "info", &nr_info, avoid_recursion);
 
   if (e->cmd)
     {
@@ -686,7 +701,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         }
     }
 
-  store_additional_info (e, &e->extra_info, "extra", avoid_recursion);
+  store_additional_info (e, &e->extra_info, "extra", &nr_extra,
+                         avoid_recursion);
 
   if (e->c->associated_unit)
     {
