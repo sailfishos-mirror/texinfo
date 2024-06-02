@@ -146,7 +146,7 @@ $result_trees{'seeentry'} = {
                           'text' => 'bbb'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'seeentry',
@@ -196,7 +196,7 @@ $result_trees{'seeentry'} = {
                           'text' => 'ccc'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'seealso',
@@ -265,7 +265,7 @@ $result_trees{'seeentry'} = {
                           'text' => 'f---bbb'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'seeentry',
@@ -315,7 +315,7 @@ $result_trees{'seeentry'} = {
                           'text' => 'f---ccc'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'seealso',

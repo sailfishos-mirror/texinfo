@@ -92,10 +92,10 @@ $result_trees{'item_in_ref'} = {
                                   'text' => 'Top'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             },
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             },
                             {
                               'contents' => [
@@ -109,7 +109,7 @@ $result_trees{'item_in_ref'} = {
                                   'text' => ' '
                                 }
                               },
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'ref',

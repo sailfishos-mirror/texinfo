@@ -108,7 +108,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -131,7 +131,7 @@ $result_trees{'macro_for_dot_in_menu_not_separator'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {

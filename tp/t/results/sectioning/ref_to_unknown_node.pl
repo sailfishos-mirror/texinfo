@@ -27,7 +27,7 @@ $result_trees{'ref_to_unknown_node'} = {
                     },
                     'normalized' => 'unknown-node'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

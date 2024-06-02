@@ -194,7 +194,7 @@ $result_trees{'unknown_language'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -270,7 +270,7 @@ $result_trees{'unknown_language'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

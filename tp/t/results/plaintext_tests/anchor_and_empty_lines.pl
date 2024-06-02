@@ -31,7 +31,7 @@ $result_trees{'anchor_and_empty_lines'} = {
                   'text' => 'in anchor'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

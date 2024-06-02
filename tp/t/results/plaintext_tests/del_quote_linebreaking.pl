@@ -43,13 +43,13 @@ $result_trees{'del_quote_linebreaking'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -62,7 +62,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -70,7 +70,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -110,13 +110,13 @@ $result_trees{'del_quote_linebreaking'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -129,7 +129,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -137,7 +137,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -177,13 +177,13 @@ $result_trees{'del_quote_linebreaking'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -196,7 +196,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -204,7 +204,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -258,13 +258,13 @@ $result_trees{'del_quote_linebreaking'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -277,7 +277,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -285,7 +285,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -325,13 +325,13 @@ $result_trees{'del_quote_linebreaking'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -344,7 +344,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -352,7 +352,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -392,13 +392,13 @@ $result_trees{'del_quote_linebreaking'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -411,7 +411,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -419,7 +419,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

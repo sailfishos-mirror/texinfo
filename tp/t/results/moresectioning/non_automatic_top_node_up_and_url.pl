@@ -48,7 +48,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       'text' => 'GNU'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -60,7 +60,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                               'text' => 'GNU'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -77,7 +77,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',
@@ -115,7 +115,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       'text' => 'GNU'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -127,7 +127,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                               'text' => 'GNU'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -144,7 +144,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',
@@ -384,7 +384,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       'text' => 'GNU'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -396,7 +396,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                               'text' => 'GNU'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -413,7 +413,7 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',

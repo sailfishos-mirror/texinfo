@@ -96,7 +96,7 @@ $result_trees{'paragraph_command'} = {
                       'text' => '0075'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'U',
@@ -126,7 +126,7 @@ $result_trees{'paragraph_command'} = {
                       'text' => 'm1'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',

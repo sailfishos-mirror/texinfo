@@ -57,7 +57,7 @@ $result_trees{'anchor_in_copying'} = {
                           'extra' => {
                             'element_region' => 'copying'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -246,7 +246,7 @@ $result_trees{'anchor_in_copying'} = {
                     },
                     'normalized' => 'Copying-information'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

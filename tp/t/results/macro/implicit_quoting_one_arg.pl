@@ -83,7 +83,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
                         'text' => 'Many arguments, separated by commas, are processed here'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

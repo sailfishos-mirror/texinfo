@@ -229,7 +229,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     },
                     'normalized' => 'in-nodescription'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -256,7 +256,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     },
                     'normalized' => 'f1'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -329,7 +329,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                       'text' => 'in nodescription'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'anchor',
@@ -369,7 +369,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                         },
                         'normalized' => 'node2'
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'ref',
@@ -511,7 +511,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                           'text' => 'float_image'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -779,7 +779,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     },
                     'normalized' => 'in-nodescription'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -806,7 +806,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                     },
                     'normalized' => 'f1'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

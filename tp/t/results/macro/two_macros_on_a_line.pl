@@ -180,7 +180,7 @@ $result_trees{'two_macros_on_a_line'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -209,7 +209,7 @@ $result_trees{'two_macros_on_a_line'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -290,7 +290,7 @@ $result_trees{'two_macros_on_a_line'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -347,7 +347,7 @@ $result_trees{'two_macros_on_a_line'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -418,7 +418,7 @@ arg
 in macro'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -476,7 +476,7 @@ in macro'
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

@@ -1155,6 +1155,7 @@ sub _print_command_args_texi($)
   if ($current->{'args'} and @{$current->{'args'}}) {
     $with_brace
         = ($current->{'args'}->[0]->{'type'} eq 'brace_command_arg'
+           or $current->{'args'}->[0]->{'type'} eq 'brace_command_container'
            or $current->{'args'}->[0]->{'type'} eq 'brace_command_context');
     $args .= '{' if ($with_brace);
     foreach my $arg (@{$current->{'args'}}) {
@@ -2642,7 +2643,7 @@ sub _expand_macro_arguments($$$$$)
 
   my $braces_level = 1;
 
-  my $argument = {'type' => 'brace_command_arg',
+  my $argument = {'type' => 'brace_command_container',
                   'contents' => [],
                   'parent' => $current};
   push @{$current->{'args'}}, $argument;
@@ -2687,7 +2688,7 @@ sub _expand_macro_arguments($$$$$)
           if (scalar(@{$current->{'args'}}) < $args_total) {
             _remove_empty_content($self, $argument);
 
-            $argument = {'type' => 'brace_command_arg',
+            $argument = {'type' => 'brace_command_container',
                          'contents' => [],
                          'parent' => $current};
             push @{$current->{'args'}}, $argument;
@@ -3079,11 +3080,13 @@ sub _isolate_last_space
   return if (!$current->{'contents'});
 
   # $current->{'type'} is always set, to line_arg, block_line_arg,
-  # brace_command_arg, bracketed_arg or menu_entry_node
+  # brace_command_arg, brace_command_container, bracketed_arg or menu_entry_node
 
   # Store a final comment command in the 'info' hash, except for brace
   # commands
-  if (not ($current->{'type'} and $current->{'type'} eq 'brace_command_arg')
+  if (not ($current->{'type'}
+           and ($current->{'type'} eq 'brace_command_arg'
+                or $current->{'type'} eq 'brace_command_container'))
       and scalar(@{$current->{'contents'}}) >= 1
       and $current->{'contents'}->[-1]->{'cmdname'}
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
@@ -4261,8 +4264,10 @@ sub _end_line_starting_block($$$)
           and (!$command_as_argument->{'args'}
                or !scalar(@{$command_as_argument->{'args'}})
                or !$command_as_argument->{'args'}->[0]->{'type'}
-               or $command_as_argument->{'args'}->[0]->{'type'}
-                     ne 'brace_command_arg')) {
+               or ($command_as_argument->{'args'}->[0]->{'type'}
+                                              ne 'brace_command_arg'
+                   and $command_as_argument->{'args'}->[0]->{'type'}
+                                     ne 'brace_command_container'))) {
         my $cmdname = $command_as_argument->{'cmdname'};
         if (defined($brace_commands{$cmdname})
             and $brace_commands{$cmdname} ne 'noarg') {
@@ -6213,11 +6218,11 @@ sub _handle_open_brace($$$$)
       };
       $self->{'internal_space_holder'} = $current->{'parent'};
     } else {
-      $current->{'type'} = 'brace_command_arg';
       # Commands that disregard leading whitespace.
       if ($brace_commands{$command}
           and ($brace_commands{$command} eq 'arguments'
                or $brace_commands{$command} eq 'inline')) {
+        $current->{'type'} = 'brace_command_container';
         # internal_spaces_before_argument is a transient internal type,
         # which should end up in info spaces_before_argument.
         push @{$current->{'contents'}}, {
@@ -6226,6 +6231,8 @@ sub _handle_open_brace($$$$)
                     'parent' => $current,
                   };
         $self->{'internal_space_holder'} = $current;
+      } else {
+        $current->{'type'} = 'brace_command_arg';
       }
       $self->_push_context('ct_inlineraw', $command)
         if ($command eq 'inlineraw');
@@ -6582,6 +6589,7 @@ sub _handle_comma($$$$)
   # line of block command (float or example) or line (node).
   my $type = $current->{'type'};
   #die ("type: $type\n") if ($type ne 'brace_command_arg'
+  #                          and $type ne 'brace_command_container'
   #                          and $type ne 'block_line_arg'
   #                          and $type ne 'line_arg');
   $current = $current->{'parent'};

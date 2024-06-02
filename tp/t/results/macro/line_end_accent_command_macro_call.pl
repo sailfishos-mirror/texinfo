@@ -69,7 +69,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -212,7 +212,7 @@ $result_trees{'line_end_accent_command_macro_call'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

@@ -82,7 +82,7 @@ $result_trees{'ignored_macro_definition'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -121,7 +121,7 @@ in inlinefmt tex
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

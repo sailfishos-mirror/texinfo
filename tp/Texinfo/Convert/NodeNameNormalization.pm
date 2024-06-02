@@ -313,7 +313,8 @@ sub _convert($)
     # more than one arg the first one is used.
     } elsif ($element->{'args'} and $element->{'args'}->[0]
            and (($element->{'args'}->[0]->{'type'}
-                and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg')
+                 and ($element->{'args'}->[0]->{'type'} eq 'brace_command_arg'
+             or $element->{'args'}->[0]->{'type'} eq 'brace_command_container'))
                 or $cmdname eq 'math')) {
       return _convert($element->{'args'}->[0]);
     }

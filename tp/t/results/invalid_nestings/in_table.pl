@@ -212,7 +212,7 @@ $result_trees{'in_table'} = {
                                       'text' => 'in anchor'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -351,10 +351,10 @@ $result_trees{'in_table'} = {
                                       'text' => 'Top'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 },
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 },
                                 {
                                   'contents' => [
@@ -368,7 +368,7 @@ $result_trees{'in_table'} = {
                                       'text' => ' '
                                     }
                                   },
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'ref',

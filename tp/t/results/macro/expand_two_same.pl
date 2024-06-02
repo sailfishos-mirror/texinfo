@@ -87,7 +87,7 @@ arg}
 '
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -200,7 +200,7 @@ arg}
                             'text' => 'arg with comma , here '
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

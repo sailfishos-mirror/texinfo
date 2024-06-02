@@ -21,7 +21,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -72,7 +72,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -123,7 +123,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -174,7 +174,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -241,7 +241,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -277,7 +277,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -299,7 +299,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -336,7 +336,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -406,7 +406,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -414,7 +414,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -422,7 +422,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -430,7 +430,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -438,7 +438,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -489,7 +489,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -497,7 +497,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -505,7 +505,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -513,7 +513,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -521,7 +521,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -572,7 +572,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -580,7 +580,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -588,7 +588,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -596,7 +596,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -604,7 +604,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -655,7 +655,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -663,7 +663,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -671,7 +671,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -679,7 +679,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -687,7 +687,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -754,7 +754,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -762,7 +762,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -770,7 +770,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -778,7 +778,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -786,7 +786,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -822,7 +822,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -830,7 +830,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -838,7 +838,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -846,7 +846,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -854,7 +854,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -876,7 +876,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -884,7 +884,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -892,7 +892,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -900,7 +900,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -908,7 +908,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -945,7 +945,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -953,7 +953,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -961,7 +961,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'info' => {
@@ -969,7 +969,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -977,7 +977,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'txt'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',

@@ -256,7 +256,7 @@ $result_trees{'headings_after_lone_nodes'} = {
                   'text' => 'toto'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

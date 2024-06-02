@@ -144,7 +144,7 @@ $result_trees{'file_name_conflict_with_Top'} = {
                   'text' => 'index'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

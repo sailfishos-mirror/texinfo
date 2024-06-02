@@ -35,7 +35,7 @@ $result_trees{'empty_commands'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'uref',
@@ -49,7 +49,7 @@ $result_trees{'empty_commands'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'abbr',
@@ -63,7 +63,7 @@ $result_trees{'empty_commands'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',

@@ -721,7 +721,7 @@ $result_trees{'value_in_node'} = {
                     },
                     'normalized' => 'Node-1'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

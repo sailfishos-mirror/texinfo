@@ -121,7 +121,7 @@ $result_trees{'top_in_ref'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -129,7 +129,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -188,10 +188,10 @@ $result_trees{'top_in_ref'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -199,7 +199,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -257,13 +257,13 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -271,7 +271,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -329,16 +329,16 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -346,7 +346,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -405,7 +405,7 @@ $result_trees{'top_in_ref'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -413,7 +413,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -421,10 +421,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -482,7 +482,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -490,10 +490,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -501,7 +501,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -559,7 +559,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -567,13 +567,13 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -581,7 +581,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -639,7 +639,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -647,7 +647,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -655,7 +655,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -663,7 +663,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -721,7 +721,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -729,7 +729,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -737,10 +737,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -748,7 +748,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -806,7 +806,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -814,7 +814,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -822,7 +822,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -835,7 +835,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -848,7 +848,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -906,10 +906,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -917,7 +917,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -925,7 +925,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -983,10 +983,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -994,10 +994,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1005,7 +1005,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1063,10 +1063,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1074,7 +1074,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1087,7 +1087,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1100,7 +1100,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1158,13 +1158,13 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1172,7 +1172,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1180,7 +1180,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1262,7 +1262,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1270,7 +1270,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1342,10 +1342,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1353,7 +1353,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1425,13 +1425,13 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1439,7 +1439,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1511,16 +1511,16 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1528,7 +1528,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1600,7 +1600,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1608,7 +1608,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1616,10 +1616,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1691,7 +1691,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1699,10 +1699,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1710,7 +1710,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1782,7 +1782,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1790,13 +1790,13 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1804,7 +1804,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1876,7 +1876,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1884,7 +1884,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1892,7 +1892,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1900,7 +1900,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1972,7 +1972,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1980,7 +1980,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1988,10 +1988,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1999,7 +1999,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -2071,7 +2071,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2079,7 +2079,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2087,7 +2087,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2100,7 +2100,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2113,7 +2113,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -2185,10 +2185,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2196,7 +2196,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2204,7 +2204,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -2276,10 +2276,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2287,10 +2287,10 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2298,7 +2298,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -2370,10 +2370,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2381,7 +2381,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2394,7 +2394,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2407,7 +2407,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -2479,13 +2479,13 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2493,7 +2493,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2501,7 +2501,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -2569,7 +2569,7 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2582,7 +2582,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2595,7 +2595,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inforef',
@@ -2654,7 +2654,7 @@ $result_trees{'top_in_ref'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inforef',
@@ -2713,7 +2713,7 @@ $result_trees{'top_in_ref'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2726,7 +2726,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inforef',
@@ -2784,10 +2784,10 @@ $result_trees{'top_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -2795,7 +2795,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inforef',

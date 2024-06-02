@@ -17,7 +17,7 @@ $result_trees{'sole_image'} = {
                   'text' => 'aa'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',

@@ -54,7 +54,7 @@ $result_trees{'on_subheading_line'} = {
                           'text' => 'in anchor'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',

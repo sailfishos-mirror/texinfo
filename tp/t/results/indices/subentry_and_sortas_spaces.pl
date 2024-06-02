@@ -146,7 +146,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                           'text' => 'A---S'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -178,7 +178,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                               'text' => 'C---S1'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -262,7 +262,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                               'text' => 'B---S1'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -355,7 +355,7 @@ $result_trees{'subentry_and_sortas_spaces'} = {
                                   'text' => 'D'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'sortas',

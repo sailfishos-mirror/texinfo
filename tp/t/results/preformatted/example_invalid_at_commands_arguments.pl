@@ -28,7 +28,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                           ]
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -36,7 +36,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                           'text' => 'b'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -44,7 +44,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                           'text' => 'c'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -52,7 +52,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                           'text' => 'd'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'ref',
@@ -76,7 +76,7 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                           'text' => 'an anchor'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',

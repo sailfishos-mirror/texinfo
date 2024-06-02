@@ -578,6 +578,11 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
               add_to_element_contents (arg, paragraph);
             }
         }
+      else if (builtin_command_data[data_cmd].data == BRACE_arguments)
+        {
+          arg = new_element_added (tree, ET_brace_command_container);
+          add_to_contents_as_array (arg, element->c->args.list[0]);
+        }
       else
         {
           arg = new_element_added (tree, ET_brace_command_arg);

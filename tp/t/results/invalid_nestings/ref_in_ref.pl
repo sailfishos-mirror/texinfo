@@ -51,7 +51,7 @@ $result_trees{'ref_in_ref'} = {
                             },
                             'normalized' => 'first'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -68,7 +68,7 @@ $result_trees{'ref_in_ref'} = {
                     },
                     'normalized' => 'first'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

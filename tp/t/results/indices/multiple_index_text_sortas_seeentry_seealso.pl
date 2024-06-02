@@ -145,7 +145,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                           'text' => 'A---S'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -171,7 +171,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                           'text' => 'other second'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'seeentry',
@@ -198,7 +198,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                           'text' => 'toto'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'seealso',
@@ -256,7 +256,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                           'text' => 'BB'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -319,7 +319,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                           'text' => 'something else'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'seeentry',

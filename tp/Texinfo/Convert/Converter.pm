@@ -1504,6 +1504,11 @@ sub table_item_content_tree($$)
                          'parent' => $arg};
         $arg->{'contents'} = [$paragraph];
       }
+    } elsif ($Texinfo::Commands::brace_commands{$command_as_argument_cmdname}
+                                                   eq 'arguments') {
+      $arg = {'type' => 'brace_command_container',
+              'contents' => [$element->{'args'}->[0]],
+              'parent' => $command,};
     } else {
       $arg = {'type' => 'brace_command_arg',
               'contents' => [$element->{'args'}->[0]],

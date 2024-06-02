@@ -82,7 +82,7 @@ $result_trees{'macro_name_with_hyphen'} = {
                         'text' => 'blah'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -95,7 +95,7 @@ $result_trees{'macro_name_with_hyphen'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

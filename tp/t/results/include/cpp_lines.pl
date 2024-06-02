@@ -80,7 +80,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'before top'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -314,7 +314,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'after lacro def'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -337,7 +337,7 @@ $result_trees{'cpp_lines'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -386,7 +386,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'after macro call'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -482,7 +482,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'after macrotwo def'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -505,7 +505,7 @@ $result_trees{'cpp_lines'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -558,7 +558,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'after macrotwo call'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -638,7 +638,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'in'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -677,7 +677,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'after inc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -749,7 +749,7 @@ $result_trees{'cpp_lines'} = {
                       'text' => 'after verb'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -888,7 +888,7 @@ $result_trees{'cpp_lines'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -906,7 +906,7 @@ $result_trees{'cpp_lines'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -943,7 +943,7 @@ $result_trees{'cpp_lines'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -961,7 +961,7 @@ $result_trees{'cpp_lines'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -998,7 +998,7 @@ $result_trees{'cpp_lines'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -1016,7 +1016,7 @@ $result_trees{'cpp_lines'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -1055,7 +1055,7 @@ $result_trees{'cpp_lines'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',

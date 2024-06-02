@@ -209,7 +209,7 @@ $result_trees{'acronym_in_node_and_section'} = {
                       'text' => 'GHJ'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -222,7 +222,7 @@ $result_trees{'acronym_in_node_and_section'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',
@@ -270,7 +270,7 @@ $result_trees{'acronym_in_node_and_section'} = {
                       'text' => 'GHJ'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',
@@ -317,7 +317,7 @@ $result_trees{'acronym_in_node_and_section'} = {
                       'text' => 'GHJ'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',
@@ -355,7 +355,7 @@ $result_trees{'acronym_in_node_and_section'} = {
                       'text' => 'GHJ'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',

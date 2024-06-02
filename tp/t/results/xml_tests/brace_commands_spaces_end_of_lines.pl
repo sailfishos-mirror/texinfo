@@ -23,7 +23,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
 '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',
@@ -57,7 +57,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
 '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',
@@ -85,7 +85,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'a'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             },
             {
               'contents' => [
@@ -99,7 +99,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
 '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',
@@ -127,7 +127,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'a'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             },
             {
               'contents' => [
@@ -141,7 +141,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
 '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',
@@ -169,7 +169,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'a'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             },
             {
               'contents' => [
@@ -183,7 +183,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
 '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',
@@ -211,7 +211,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'a'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             },
             {
               'contents' => [
@@ -225,7 +225,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
 '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',

@@ -211,7 +211,7 @@ $result_trees{'call_macro_in_linemacro_body'} = {
 now second arg: gg '
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -233,7 +233,7 @@ now second arg: gg '
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

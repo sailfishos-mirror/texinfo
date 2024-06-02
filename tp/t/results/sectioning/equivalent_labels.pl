@@ -55,7 +55,7 @@ $result_trees{'equivalent_labels'} = {
                   }
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

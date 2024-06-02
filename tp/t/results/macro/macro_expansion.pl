@@ -109,7 +109,7 @@ $result_trees{'macro_expansion'} = {
                             'text' => 'first arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       },
                       {
                         'contents' => [
@@ -122,7 +122,7 @@ $result_trees{'macro_expansion'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -227,7 +227,7 @@ $result_trees{'macro_expansion'} = {
                             'text' => 'aaa @samp{a macro , } bbb'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -441,7 +441,7 @@ $result_trees{'macro_expansion'} = {
                             'text' => 'first arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       },
                       {
                         'contents' => [
@@ -454,7 +454,7 @@ $result_trees{'macro_expansion'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -556,7 +556,7 @@ $result_trees{'macro_expansion'} = {
                             'text' => 'first , arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       },
                       {
                         'contents' => [
@@ -569,7 +569,7 @@ $result_trees{'macro_expansion'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -673,7 +673,7 @@ $result_trees{'macro_expansion'} = {
 now'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       },
                       {
                         'contents' => [
@@ -688,7 +688,7 @@ now'
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

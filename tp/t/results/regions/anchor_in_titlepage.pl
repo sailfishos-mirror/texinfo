@@ -41,7 +41,7 @@ $result_trees{'anchor_in_titlepage'} = {
                       'extra' => {
                         'element_region' => 'titlepage'
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -242,7 +242,7 @@ $result_trees{'anchor_in_titlepage'} = {
                     },
                     'normalized' => 'in-titlepage'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

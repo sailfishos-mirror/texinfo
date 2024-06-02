@@ -246,7 +246,7 @@ $result_trees{'form_feeds'} = {
                     },
                     'normalized' => 'chap-node'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

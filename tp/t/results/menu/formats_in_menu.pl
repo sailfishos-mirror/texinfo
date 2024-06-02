@@ -506,7 +506,7 @@ $result_trees{'formats_in_menu'} = {
                                   'text' => '* acronym::'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'acronym',

@@ -22,7 +22,7 @@ $result_trees{'in_errormsg'} = {
                   'text' => 'in ref'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -56,7 +56,7 @@ $result_trees{'in_errormsg'} = {
                               'text' => 'in anchor'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -88,7 +88,7 @@ $result_trees{'in_errormsg'} = {
                             },
                             'normalized' => 'in-ref'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -97,7 +97,7 @@ $result_trees{'in_errormsg'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'errormsg',
@@ -126,7 +126,7 @@ $result_trees{'in_errormsg'} = {
 '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'errormsg',

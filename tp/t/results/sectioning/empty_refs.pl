@@ -26,7 +26,7 @@ $result_trees{'empty_refs'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -67,7 +67,7 @@ $result_trees{'empty_refs'} = {
                     },
                     'normalized' => '-'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

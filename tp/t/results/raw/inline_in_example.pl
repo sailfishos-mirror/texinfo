@@ -36,7 +36,7 @@ $result_trees{'inline_in_example'} = {
                           'text' => 'plaintext'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -72,7 +72,7 @@ $result_trees{'inline_in_example'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'inlineraw',
@@ -96,7 +96,7 @@ $result_trees{'inline_in_example'} = {
                           'text' => 'plaintext'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -109,7 +109,7 @@ $result_trees{'inline_in_example'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'inlinefmt',
@@ -142,7 +142,7 @@ $result_trees{'inline_in_example'} = {
                           'text' => 'html'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -162,7 +162,7 @@ $result_trees{'inline_in_example'} = {
                                   'text' => 'HTML'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'acronym',
@@ -180,7 +180,7 @@ $result_trees{'inline_in_example'} = {
 '
                         }
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'inlineraw',

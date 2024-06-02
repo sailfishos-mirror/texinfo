@@ -93,7 +93,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                       'extra' => {
                         'element_region' => 'copying'
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -140,7 +140,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                                   'extra' => {
                                     'element_region' => 'copying'
                                   },
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -382,7 +382,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                       'extra' => {
                         'element_region' => 'titlepage'
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -425,7 +425,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                                   'extra' => {
                                     'element_region' => 'titlepage'
                                   },
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -1419,7 +1419,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     },
                     'normalized' => 'Copying-information'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1448,7 +1448,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     },
                     'normalized' => 'Public-domain-reference'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1487,7 +1487,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     },
                     'normalized' => 'Titlepage-anchor'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -1516,7 +1516,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
                     },
                     'normalized' => 'Titlepage-footnote-anchor'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

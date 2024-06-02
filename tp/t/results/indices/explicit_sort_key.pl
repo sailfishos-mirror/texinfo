@@ -144,7 +144,7 @@ $result_trees{'explicit_sort_key'} = {
                           'text' => 'A'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -201,7 +201,7 @@ $result_trees{'explicit_sort_key'} = {
                           'text' => 'B'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -258,7 +258,7 @@ $result_trees{'explicit_sort_key'} = {
                           'text' => '0'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -322,7 +322,7 @@ $result_trees{'explicit_sort_key'} = {
                                   'text' => 'invalid nesting'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'sortas',
@@ -386,7 +386,7 @@ $result_trees{'explicit_sort_key'} = {
                       'text' => 'foo'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'sortas',
@@ -412,7 +412,7 @@ $result_trees{'explicit_sort_key'} = {
                               'text' => 'command'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -467,7 +467,7 @@ $result_trees{'explicit_sort_key'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'sortas',
@@ -494,7 +494,7 @@ $result_trees{'explicit_sort_key'} = {
                               'text' => 'inside'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -503,7 +503,7 @@ $result_trees{'explicit_sort_key'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'url',

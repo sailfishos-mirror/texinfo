@@ -440,7 +440,7 @@ $result_trees{'nodename_parentheses'} = {
                     },
                     'normalized' => 'Node-_0028with-parentheses_0029'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -494,7 +494,7 @@ $result_trees{'nodename_parentheses'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -604,7 +604,7 @@ $result_trees{'nodename_parentheses'} = {
                   'text' => '(manual)anchor'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

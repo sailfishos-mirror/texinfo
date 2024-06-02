@@ -96,7 +96,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => 'j'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -109,7 +109,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -122,7 +122,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -176,7 +176,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => 'm'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'info' => {
@@ -184,7 +184,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -197,7 +197,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -251,10 +251,10 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => 'o'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -262,7 +262,7 @@ $result_trees{'macro_call_empty_middle_arg'} = {
                         'text' => 'p'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

@@ -129,7 +129,7 @@ $result_trees{'nested_in_sc'} = {
                                       'text' => 'ABr'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 },
                                 {
                                   'contents' => [
@@ -142,7 +142,7 @@ $result_trees{'nested_in_sc'} = {
                                       'text' => ' '
                                     }
                                   },
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'abbr',

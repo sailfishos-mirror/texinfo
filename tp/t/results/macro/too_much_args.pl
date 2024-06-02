@@ -87,7 +87,7 @@ $result_trees{'too_much_args'} = {
                         'text' => 'one'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -100,7 +100,7 @@ $result_trees{'too_much_args'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

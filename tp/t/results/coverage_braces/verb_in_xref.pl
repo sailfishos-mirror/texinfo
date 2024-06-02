@@ -17,7 +17,7 @@ $result_trees{'verb_in_xref'} = {
                   'text' => 'point'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -57,7 +57,7 @@ $result_trees{'verb_in_xref'} = {
                     },
                     'normalized' => 'point'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -102,7 +102,7 @@ $result_trees{'verb_in_xref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

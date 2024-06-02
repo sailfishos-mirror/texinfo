@@ -74,7 +74,7 @@ $result_trees{'macro_end_call_in_ignored_raw'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

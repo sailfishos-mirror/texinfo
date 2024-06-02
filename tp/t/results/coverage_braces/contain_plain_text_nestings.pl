@@ -197,7 +197,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'text' => ' text'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'hyphenation',
@@ -282,7 +282,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => ' text'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -363,7 +363,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                             },
                             'normalized' => 'Top'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         },
                         {
                           'contents' => [
@@ -376,7 +376,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -420,7 +420,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                             },
                             'normalized' => 'Top'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         },
                         {
                           'contents' => [
@@ -433,7 +433,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -445,7 +445,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'text' => ' text'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'hyphenation',
@@ -479,7 +479,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                             },
                             'normalized' => 'Top'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         },
                         {
                           'contents' => [
@@ -492,7 +492,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -547,7 +547,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                                     },
                                     'normalized' => 'Top'
                                   },
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 },
                                 {
                                   'contents' => [
@@ -560,7 +560,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                                       'text' => ' '
                                     }
                                   },
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'ref',
@@ -572,7 +572,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => ' text'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'sortas',

@@ -30,7 +30,7 @@ $result_trees{'anchor_before_top'} = {
                   'text' => 'a before Top'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -194,7 +194,7 @@ $result_trees{'anchor_before_top'} = {
                     },
                     'normalized' => 'a-before-Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',

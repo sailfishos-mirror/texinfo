@@ -408,7 +408,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                     },
                     'normalized' => '-'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -463,7 +463,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                     },
                     'normalized' => '-'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -514,7 +514,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                     },
                     'normalized' => '-'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

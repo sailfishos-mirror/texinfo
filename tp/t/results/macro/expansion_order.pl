@@ -141,7 +141,7 @@ $result_trees{'expansion_order'} = {
                         'text' => 'ab'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -158,7 +158,7 @@ $result_trees{'expansion_order'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

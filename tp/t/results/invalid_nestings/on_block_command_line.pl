@@ -23,7 +23,7 @@ $result_trees{'on_block_command_line'} = {
                               'text' => 'in anchor'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -212,7 +212,7 @@ $result_trees{'on_block_command_line'} = {
                           'text' => 'in quotation anchor'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',

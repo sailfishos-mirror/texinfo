@@ -21,7 +21,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -72,7 +72,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -123,7 +123,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -174,7 +174,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -241,7 +241,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -277,7 +277,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -299,7 +299,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -336,7 +336,7 @@ $result_trees{'multiline_image_and_align'} = {
                           'text' => 'figure'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',

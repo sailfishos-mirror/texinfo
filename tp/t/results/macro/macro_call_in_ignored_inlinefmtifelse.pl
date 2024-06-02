@@ -80,7 +80,7 @@ $result_trees{'macro_call_in_ignored_inlinefmtifelse'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [

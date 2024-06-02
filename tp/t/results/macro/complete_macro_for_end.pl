@@ -88,7 +88,7 @@ $result_trees{'complete_macro_for_end'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

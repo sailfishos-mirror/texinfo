@@ -97,7 +97,7 @@ $result_trees{'empty_macro_no_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

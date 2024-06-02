@@ -80,7 +80,7 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -91,7 +91,7 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -112,7 +112,7 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse_else'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [

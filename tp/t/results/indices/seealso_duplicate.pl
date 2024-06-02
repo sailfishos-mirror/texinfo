@@ -210,7 +210,7 @@ $result_trees{'seealso_duplicate'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'seealso',
@@ -344,7 +344,7 @@ $result_trees{'seealso_duplicate'} = {
                       'text' => 'Another entry'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'seeentry',

@@ -32,6 +32,7 @@ TYPE_DATA type_data[] = {
 "rawpreformatted", 0,
 "brace_command_arg", 0,
 "brace_command_context", 0,
+"brace_command_container", 0,
 "block_line_arg", 0,
 "line_arg", 0,
 "following_arg", 0,

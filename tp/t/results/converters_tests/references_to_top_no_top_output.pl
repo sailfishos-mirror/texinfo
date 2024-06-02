@@ -92,7 +92,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                           'extra' => {
                             'element_region' => 'copying'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -235,7 +235,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   'text' => 'a in top'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -270,7 +270,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                       'text' => 'a in paragraph in top'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'anchor',
@@ -313,7 +313,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                                   'text' => 'a in footnote'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'anchor',
@@ -413,7 +413,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                           'text' => 'a in float'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -449,7 +449,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                                   'text' => 'a in caption'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'anchor',
@@ -673,7 +673,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                     },
                     'normalized' => 'a-in-copying'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',
@@ -701,7 +701,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                     },
                     'normalized' => 'a-in-top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',
@@ -729,7 +729,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                     },
                     'normalized' => 'a-in-footnote'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',
@@ -757,7 +757,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                     },
                     'normalized' => 'a-in-float'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',
@@ -785,7 +785,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                     },
                     'normalized' => 'a-in-caption'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',
@@ -813,7 +813,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                     },
                     'normalized' => 'a-in-paragraph-in-top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',

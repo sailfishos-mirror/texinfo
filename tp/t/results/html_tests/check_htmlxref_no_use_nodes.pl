@@ -168,7 +168,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -181,7 +181,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -194,7 +194,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -207,7 +207,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -234,7 +234,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -247,7 +247,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -260,7 +260,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -273,7 +273,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -708,7 +708,7 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

@@ -41,7 +41,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                           'extra' => {
                             'element_region' => 'copying'
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -167,7 +167,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                       'extra' => {
                         'element_region' => 'titlepage'
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -383,7 +383,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                     },
                     'normalized' => 'a-in-copying'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',
@@ -411,7 +411,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                     },
                     'normalized' => 'a-in-titlepage'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',

@@ -114,7 +114,7 @@ $result_trees{'no_macrobody'} = {
                         'text' => 'arg brace'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

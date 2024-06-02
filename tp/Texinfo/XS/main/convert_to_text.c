@@ -773,6 +773,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else if (element->c->args.number > 0
                 && (element->c->args.list[0]->type == ET_brace_command_arg
+                    || element->c->args.list[0]->type == ET_brace_command_container
                     || (builtin_command_data[data_cmd].flags & CF_brace
                         && builtin_command_data[data_cmd].flags & CF_math)))
         {

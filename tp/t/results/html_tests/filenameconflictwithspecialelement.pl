@@ -194,7 +194,7 @@ $result_trees{'filenameconflictwithspecialelement'} = {
                   'text' => 'filenameconflictwithspecialelement fot'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

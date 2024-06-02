@@ -52,6 +52,8 @@ rawpreformatted
 # @-commands arguments containers
 brace_command_arg
 brace_command_context
+# with separate leading spaces in info, and trailing (if not in inline)
+brace_command_container
 block_line_arg
 line_arg
 following_arg

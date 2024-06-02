@@ -264,7 +264,7 @@ $result_trees{'protected_node_parentheses'} = {
                   'text' => 'manual2) name2'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -321,7 +321,7 @@ $result_trees{'protected_node_parentheses'} = {
                     },
                     'normalized' => '_0028manual2_0029-name2'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

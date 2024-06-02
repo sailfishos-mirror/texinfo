@@ -93,7 +93,7 @@ $result_trees{'anchor_in_footnote_split_node'} = {
                                   'text' => 'Anchor in footnote'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'anchor',
@@ -318,7 +318,7 @@ $result_trees{'anchor_in_footnote_split_node'} = {
                     },
                     'normalized' => 'Anchor-in-footnote'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

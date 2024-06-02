@@ -134,7 +134,7 @@ $result_trees{'double_top'} = {
                   'text' => 'TOP'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

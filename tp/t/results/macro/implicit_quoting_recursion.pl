@@ -82,7 +82,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => '@cat{@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}, oto}'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -90,7 +90,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => 'tam'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -112,7 +112,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => '@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -125,7 +125,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -147,7 +147,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => '@cat{@cat{@cat{na, to}, po}, co}'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -160,7 +160,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -182,7 +182,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => '@cat{@cat{na, to}, po}'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -195,7 +195,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -217,7 +217,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => '@cat{na, to}'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -230,7 +230,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -252,7 +252,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => 'na'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -265,7 +265,7 @@ $result_trees{'implicit_quoting_recursion'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

@@ -17,7 +17,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                   'text' => 'An anchor'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -61,7 +61,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                     },
                     'normalized' => 'An-anchor'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -103,7 +103,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                     },
                     'normalized' => 'Anchor-in-footnote'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -151,7 +151,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                               'text' => 'Anchor in footnote'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -195,7 +195,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                                 },
                                 'normalized' => 'An-anchor'
                               },
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'ref',
@@ -338,7 +338,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                     },
                     'normalized' => 'float-anchor'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -547,7 +547,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                     },
                     'normalized' => 'An-anchor'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -589,7 +589,7 @@ $result_trees{'placed_things_before_element_no_use_node'} = {
                     },
                     'normalized' => 'Anchor-in-footnote'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

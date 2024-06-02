@@ -976,7 +976,7 @@ $result_trees{'multiple_include_encodings'} = {
                     },
                     'normalized' => '_0104-_0105-_02db-_0118-_0119'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

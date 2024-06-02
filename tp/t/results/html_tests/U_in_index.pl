@@ -144,7 +144,7 @@ $result_trees{'U_in_index'} = {
                           'text' => '0131'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'U',
@@ -201,7 +201,7 @@ $result_trees{'U_in_index'} = {
                           'text' => '0074'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'U',
@@ -258,7 +258,7 @@ $result_trees{'U_in_index'} = {
                           'text' => '00B5'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'U',

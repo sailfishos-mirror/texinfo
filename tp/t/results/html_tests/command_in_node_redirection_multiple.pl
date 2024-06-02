@@ -94,7 +94,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                   'text' => 'yyyy'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -137,7 +137,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                   }
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -180,7 +180,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                   }
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -242,7 +242,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                   }
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

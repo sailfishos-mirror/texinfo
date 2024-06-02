@@ -69,7 +69,7 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -99,7 +99,7 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -129,7 +129,7 @@ $result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',

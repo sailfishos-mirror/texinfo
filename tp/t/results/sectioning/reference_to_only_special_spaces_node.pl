@@ -172,7 +172,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -185,7 +185,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -335,7 +335,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                     },
                     'normalized' => '_2002_2003_2002'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -362,7 +362,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

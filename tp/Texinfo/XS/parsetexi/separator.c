@@ -62,6 +62,9 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       if (current->c->contents.number > 0)
         gather_spaces_after_cmd_before_arg (current);
 
+      if (command_data(command).flags & CF_contain_basic_inline)
+        push_command (&nesting_context.basic_inline_stack, command);
+
       counter_push (&count_remaining_args, current,
                     command_data(current->cmd).args_number);
       counter_dec (&count_remaining_args);
@@ -69,8 +72,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       arg = new_element (ET_NONE);
       add_to_element_args (current, arg);
       current = arg;
-      if (command_data(command).flags & CF_contain_basic_inline)
-        push_command (&nesting_context.basic_inline_stack, command);
 
       if (command == CM_verb)
         {
@@ -78,12 +79,11 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           /* the delimiter may be in macro expansion */
           if (!*line)
             line = new_line (current);
-          /* Save the deliminating character in 'type'. */
+          /* Save the deliminating character in 'delimiter'. */
           if (!*line || *line == '\n')
             {
               line_error ("@verb without associated character");
               add_info_string_dup (current->parent, "delimiter", "");
-              current->parent->type = 0;
             }
           else
             {
@@ -178,12 +178,11 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
         }
       else /* not context brace */
         {
-          current->type = ET_brace_command_arg;
-
           /* Commands that disregard leading whitespace. */
           if (command_data(command).data == BRACE_arguments
               || command_data(command).data == BRACE_inline)
             {
+              current->type = ET_brace_command_container;
               ELEMENT *e;
               e = new_text_element (ET_internal_spaces_before_argument);
               add_to_element_contents (current, e);
@@ -191,6 +190,10 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
 
               if (command == CM_inlineraw)
                 push_context (ct_inlineraw, command);
+            }
+          else
+            {
+              current->type = ET_brace_command_arg;
             }
         }
       debug_nonl ("OPENED @%s, remaining: %d ",

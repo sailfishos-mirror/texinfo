@@ -396,7 +396,7 @@ $result_trees{'documentlanguage_unknown'} = {
                     },
                     'normalized' => 'chapter'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

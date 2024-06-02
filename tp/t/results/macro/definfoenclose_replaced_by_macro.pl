@@ -117,7 +117,7 @@ $result_trees{'definfoenclose_replaced_by_macro'} = {
                         'text' => 'aa'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

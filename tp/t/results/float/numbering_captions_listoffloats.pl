@@ -4208,7 +4208,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                     },
                     'normalized' => 'text-in-section'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -4239,7 +4239,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                     },
                     'normalized' => 'text-in-chapter'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',
@@ -4267,7 +4267,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                     },
                     'normalized' => 'text-with-a-lot-of-features'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -4309,7 +4309,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                     },
                     'normalized' => 'text-with-a-lot-of-features'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4322,7 +4322,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4335,7 +4335,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -4376,7 +4376,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4389,7 +4389,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4402,7 +4402,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4415,7 +4415,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -4456,7 +4456,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4469,7 +4469,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4482,10 +4482,10 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -4498,7 +4498,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -4539,7 +4539,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                     },
                     'normalized' => 'label-but-no-type'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

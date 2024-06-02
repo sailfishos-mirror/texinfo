@@ -52,7 +52,7 @@ $result_trees{'ref_to_top_in_anchor'} = {
                         },
                         'normalized' => 'Top'
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'ref',
@@ -61,7 +61,7 @@ $result_trees{'ref_to_top_in_anchor'} = {
                   }
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

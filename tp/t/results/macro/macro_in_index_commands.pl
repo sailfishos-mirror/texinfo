@@ -190,7 +190,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'element' => {
                         'args' => [
                           {
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_command_container'
                           }
                         ],
                         'info' => {
@@ -236,7 +236,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -261,7 +261,7 @@ $result_trees{'macro_in_index_commands'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -423,7 +423,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'element' => {
                         'args' => [
                           {
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_command_container'
                           }
                         ],
                         'info' => {
@@ -610,7 +610,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -753,7 +753,7 @@ $result_trees{'macro_in_index_commands'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -931,7 +931,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -999,7 +999,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -1031,7 +1031,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'element' => {
                         'args' => [
                           {
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_command_container'
                           }
                         ],
                         'info' => {
@@ -1134,7 +1134,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {
@@ -1207,7 +1207,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

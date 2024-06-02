@@ -28,7 +28,7 @@ $result_trees{'brace_opened_no_command'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'anchor',

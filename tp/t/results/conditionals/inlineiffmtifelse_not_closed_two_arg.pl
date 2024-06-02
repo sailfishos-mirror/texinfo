@@ -19,7 +19,7 @@ $result_trees{'inlineiffmtifelse_not_closed_two_arg'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [

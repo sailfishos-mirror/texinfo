@@ -98,7 +98,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

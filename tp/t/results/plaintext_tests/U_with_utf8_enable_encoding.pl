@@ -50,7 +50,7 @@ $result_trees{'U_with_utf8_enable_encoding'} = {
                       'text' => '00FF'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'U',

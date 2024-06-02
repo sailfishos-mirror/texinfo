@@ -68,7 +68,7 @@ $result_trees{'anchor_and_spaces'} = {
                   'text' => 'anchor 0'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -103,7 +103,7 @@ $result_trees{'anchor_and_spaces'} = {
                       'text' => 'anchor1'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'anchor',
@@ -140,7 +140,7 @@ $result_trees{'anchor_and_spaces'} = {
                       'text' => 'anchor2'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'anchor',

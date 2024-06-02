@@ -72,7 +72,7 @@ $result_trees{'ref_tests'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -113,7 +113,7 @@ $result_trees{'ref_tests'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -158,7 +158,7 @@ $result_trees{'ref_tests'} = {
                               ]
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -223,7 +223,7 @@ $result_trees{'ref_tests'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -236,7 +236,7 @@ $result_trees{'ref_tests'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -277,7 +277,7 @@ $result_trees{'ref_tests'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -290,7 +290,7 @@ $result_trees{'ref_tests'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -335,7 +335,7 @@ $result_trees{'ref_tests'} = {
                               ]
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         },
                         {
                           'contents' => [
@@ -348,7 +348,7 @@ $result_trees{'ref_tests'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -398,7 +398,7 @@ $result_trees{'ref_tests'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -411,7 +411,7 @@ $result_trees{'ref_tests'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

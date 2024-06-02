@@ -19,7 +19,7 @@ $result_trees{'recursive_acronym_definition'} = {
                       'text' => 'GNU'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -31,7 +31,7 @@ $result_trees{'recursive_acronym_definition'} = {
                               'text' => 'GNU'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         },
                         {
                           'contents' => [
@@ -43,7 +43,7 @@ $result_trees{'recursive_acronym_definition'} = {
                                       'text' => 'GNU'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 },
                                 {
                                   'contents' => [
@@ -56,7 +56,7 @@ $result_trees{'recursive_acronym_definition'} = {
                                       'text' => ' '
                                     }
                                   },
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'acronym',
@@ -73,7 +73,7 @@ $result_trees{'recursive_acronym_definition'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -90,7 +90,7 @@ $result_trees{'recursive_acronym_definition'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'acronym',

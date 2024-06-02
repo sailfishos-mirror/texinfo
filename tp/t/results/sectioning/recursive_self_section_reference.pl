@@ -66,7 +66,7 @@ $result_trees{'recursive_self_section_reference'} = {
                     },
                     'normalized' => 'sharp'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

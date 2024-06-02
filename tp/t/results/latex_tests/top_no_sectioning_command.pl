@@ -126,7 +126,7 @@ $result_trees{'top_no_sectioning_command'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'pxref',

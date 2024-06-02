@@ -23,7 +23,7 @@ $result_trees{'anchor_not_closed'} = {
                   'type' => 'empty_line'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',

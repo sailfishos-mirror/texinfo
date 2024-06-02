@@ -50,7 +50,7 @@ $result_trees{'long_uref_after_item'} = {
                               'text' => 'http://foo.org/some/long/url/which/goes/past/eighty/columns/and/has/no/alternative/text.html'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'uref',

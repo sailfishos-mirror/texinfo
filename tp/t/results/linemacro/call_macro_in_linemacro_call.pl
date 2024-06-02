@@ -230,7 +230,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                             'text' => '@emph '
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       },
                       {
                         'contents' => [
@@ -244,7 +244,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
 '
                           }
                         },
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

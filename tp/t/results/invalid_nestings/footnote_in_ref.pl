@@ -44,7 +44,7 @@ $result_trees{'footnote_in_ref'} = {
                       'text' => 'first'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -96,7 +96,7 @@ $result_trees{'footnote_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

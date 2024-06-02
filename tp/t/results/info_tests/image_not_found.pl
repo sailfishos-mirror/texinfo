@@ -37,7 +37,7 @@ $result_trees{'image_not_found'} = {
                   'text' => 'n_f_image'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',

@@ -160,7 +160,7 @@ $result_trees{'no_empty_line_after_section'} = {
                       'text' => 'url'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'uref',

@@ -485,7 +485,7 @@ $result_trees{'invalid_node_name_warning'} = {
                     },
                     'normalized' => 'nodename_002e-a'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -511,7 +511,7 @@ $result_trees{'invalid_node_name_warning'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -554,7 +554,7 @@ $result_trees{'invalid_node_name_warning'} = {
                     },
                     'normalized' => 'node_002ccomma'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -567,7 +567,7 @@ $result_trees{'invalid_node_name_warning'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -608,7 +608,7 @@ $result_trees{'invalid_node_name_warning'} = {
                     },
                     'normalized' => 'bidule_003a'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

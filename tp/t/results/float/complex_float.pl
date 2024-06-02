@@ -722,7 +722,7 @@ $result_trees{'complex_float'} = {
                         },
                         'normalized' => 'Top'
                       },
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     },
                     {
                       'contents' => [
@@ -730,7 +730,7 @@ $result_trees{'complex_float'} = {
                           'text' => 'xref Text with features'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'xref',
@@ -869,7 +869,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'an_url'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'url',
@@ -1077,7 +1077,7 @@ $result_trees{'complex_float'} = {
                               'text' => 'Anchor in caption'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -1618,7 +1618,7 @@ $result_trees{'complex_float'} = {
                                 },
                                 'normalized' => 'Top'
                               },
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             },
                             {
                               'contents' => [
@@ -1626,7 +1626,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'xref Text with features caption'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'xref',
@@ -1765,7 +1765,7 @@ $result_trees{'complex_float'} = {
                                           'text' => 'an_url'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_command_container'
                                     }
                                   ],
                                   'cmdname' => 'url',
@@ -1986,7 +1986,7 @@ $result_trees{'complex_float'} = {
                                           'text' => 'an_url'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_command_container'
                                     }
                                   ],
                                   'cmdname' => 'url',
@@ -2875,7 +2875,7 @@ $result_trees{'complex_float'} = {
                               'text' => 'Anchor in caption 2'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -2919,7 +2919,7 @@ $result_trees{'complex_float'} = {
                                 },
                                 'normalized' => 'Top'
                               },
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             },
                             {
                               'contents' => [
@@ -2927,7 +2927,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'xref Text with features caption'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'xref',
@@ -3066,7 +3066,7 @@ $result_trees{'complex_float'} = {
                                           'text' => 'an_url'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_command_container'
                                     }
                                   ],
                                   'cmdname' => 'url',
@@ -3264,7 +3264,7 @@ $result_trees{'complex_float'} = {
                     },
                     'normalized' => 'text-with-a-lot-of-features'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

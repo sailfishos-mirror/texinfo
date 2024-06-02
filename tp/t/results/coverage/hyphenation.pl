@@ -27,7 +27,7 @@ $result_trees{'hyphenation'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'hyphenation',

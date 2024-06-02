@@ -242,7 +242,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                           'text' => '--'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',

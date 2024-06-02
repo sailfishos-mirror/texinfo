@@ -38,7 +38,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                       'text' => 'aa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'anchor',
@@ -79,7 +79,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                       'text' => ''
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -92,7 +92,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                       'text' => '  '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',

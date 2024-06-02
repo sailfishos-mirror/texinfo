@@ -28,7 +28,7 @@ $result_trees{'on_def_line'} = {
                                       'text' => 'in anchor'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -191,7 +191,7 @@ $result_trees{'on_def_line'} = {
                                       'text' => 'in anchorx'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'anchor',

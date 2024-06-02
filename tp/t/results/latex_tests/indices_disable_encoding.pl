@@ -601,7 +601,7 @@ $result_trees{'indices_disable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'seealso',
@@ -627,7 +627,7 @@ $result_trees{'indices_disable_encoding'} = {
                               'text' => 'b'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -807,7 +807,7 @@ $result_trees{'indices_disable_encoding'} = {
                           'text' => '\\cmd'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'sortas',

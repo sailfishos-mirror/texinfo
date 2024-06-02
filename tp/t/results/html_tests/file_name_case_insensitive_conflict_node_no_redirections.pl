@@ -144,7 +144,7 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
                   'text' => 'fOO'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -388,7 +388,7 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
                     },
                     'normalized' => 'foo'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -426,7 +426,7 @@ $result_trees{'file_name_case_insensitive_conflict_node_no_redirections'} = {
                     },
                     'normalized' => 'Foo'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

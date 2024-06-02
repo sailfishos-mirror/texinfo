@@ -53,7 +53,7 @@ $result_trees{'image_text_encoded'} = {
                   'text' => 'image_encoded'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',

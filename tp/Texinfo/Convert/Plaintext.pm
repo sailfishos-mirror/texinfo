@@ -2872,7 +2872,7 @@ sub _convert($$)
            [{'text' => ' ('},
             {'cmdname' => 'pxref',
              'args' => [
-               {'type' => 'brace_command_arg',
+               {'type' => 'brace_command_container',
                 'contents' => [
                    $self->{'current_node'}->{'args'}->[0],
                    {'text' => "-Footnote-$self->{'footnote_index'}"}

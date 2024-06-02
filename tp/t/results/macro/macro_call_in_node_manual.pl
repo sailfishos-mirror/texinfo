@@ -386,7 +386,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -461,7 +461,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -538,7 +538,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -624,7 +624,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -651,7 +651,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -727,7 +727,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -814,7 +814,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -860,7 +860,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -941,7 +941,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -1031,7 +1031,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {

@@ -417,6 +417,8 @@ r                       brace                           BRACE_style_no_code
 
 # context brace commands - commands that enclose full texts
 # not in the main document context.  They can contain multiple paragraphs.
+# They hold leading and trailing spaces.  They contain a brace_command_context
+# type element.
 footnote                brace,global                    BRACE_context
 caption                 brace,close_paragraph,no_paragraph,non_formatted_brace           BRACE_context
 shortcaption            brace,close_paragraph,contain_basic_inline,no_paragraph,non_formatted_brace    BRACE_context

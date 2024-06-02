@@ -144,7 +144,7 @@ $result_trees{'form_feeds'} = {
                         'text' => 'arg1'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   },
                   {
                     'contents' => [
@@ -157,7 +157,7 @@ $result_trees{'form_feeds'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

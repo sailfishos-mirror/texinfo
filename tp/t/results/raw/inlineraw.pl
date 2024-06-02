@@ -22,7 +22,7 @@ $result_trees{'inlineraw'} = {
                       'text' => 'plaintext'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -49,7 +49,7 @@ $result_trees{'inlineraw'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlineraw',
@@ -73,7 +73,7 @@ $result_trees{'inlineraw'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -88,7 +88,7 @@ $result_trees{'inlineraw'} = {
                               'text' => 'HTML'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -105,7 +105,7 @@ $result_trees{'inlineraw'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlineraw',

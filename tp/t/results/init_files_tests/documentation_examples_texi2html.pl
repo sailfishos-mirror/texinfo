@@ -39,7 +39,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                               'text' => 'example.com'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         },
                         {
                           'contents' => [
@@ -52,7 +52,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'email',
@@ -350,7 +350,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                     },
                     'normalized' => 'my-node'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -424,7 +424,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                       'text' => 'b.c'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -437,7 +437,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',
@@ -672,7 +672,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                               'text' => 'example'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'email',
@@ -792,7 +792,7 @@ $result_trees{'documentation_examples_texi2html'} = {
                           'text' => 'display'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'email',

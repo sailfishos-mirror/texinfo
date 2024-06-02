@@ -78,7 +78,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -94,7 +94,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                       'text' => 'flag'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -109,7 +109,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                       'text' => ''
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlineifclear',
@@ -149,7 +149,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -165,7 +165,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                       'text' => 'flag'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'info' => {
@@ -180,7 +180,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_set'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlineifclear',

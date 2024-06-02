@@ -175,7 +175,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                                       'text' => 'mark inside'
                                                     }
                                                   ],
-                                                  'type' => 'brace_command_arg'
+                                                  'type' => 'brace_command_container'
                                                 }
                                               ],
                                               'cmdname' => 'anchor',
@@ -378,7 +378,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                       'text' => 'mark'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -554,7 +554,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                     },
                     'normalized' => 'mark'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',
@@ -582,7 +582,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                     },
                     'normalized' => 'mark-inside'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'xref',

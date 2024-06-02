@@ -85,7 +85,7 @@ $result_trees{'protect_colon_source_mark'} = {
                             'text' => 'nop'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_command_container'
                       }
                     ],
                     'info' => {

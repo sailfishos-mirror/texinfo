@@ -106,7 +106,7 @@ counter_value (COUNTER *c, ELEMENT *elt)
     return -1;
 }
 
-/* If NOT_EMPTY_LESSAGE is set, check that the counter values list
+/* If NOT_EMPTY_MESSAGE is set, check that the counter values list
    is empty, if not, show a debugging message */
 void
 counter_reset (COUNTER *c, const char* not_empty_message)

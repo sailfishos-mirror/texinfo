@@ -19,7 +19,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
                       'text' => 'plaintext'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -40,7 +40,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlineraw',

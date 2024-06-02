@@ -212,7 +212,7 @@ $result_trees{'macro_in_macro_arg'} = {
                         'text' => '@macroone{}text for macro2'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {
@@ -229,7 +229,7 @@ $result_trees{'macro_in_macro_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

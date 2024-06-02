@@ -44,7 +44,7 @@ $result_trees{'ref_in_style_command'} = {
                               ]
                             }
                           },
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'ref',

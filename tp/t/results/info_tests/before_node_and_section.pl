@@ -34,7 +34,7 @@ $result_trees{'before_node_and_section'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -121,7 +121,7 @@ $result_trees{'before_node_and_section'} = {
                       'text' => 'anchor1'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'anchor',
@@ -370,7 +370,7 @@ $result_trees{'before_node_and_section'} = {
                     },
                     'normalized' => 'anchor1'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',

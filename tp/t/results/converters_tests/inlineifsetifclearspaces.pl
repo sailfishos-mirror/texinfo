@@ -27,7 +27,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -40,7 +40,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlineifclear',
@@ -88,7 +88,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -166,7 +166,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -221,7 +221,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -234,7 +234,7 @@ $result_trees{'inlineifsetifclearspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'inlineifset',

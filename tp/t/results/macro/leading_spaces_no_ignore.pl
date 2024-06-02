@@ -79,7 +79,7 @@ $result_trees{'leading_spaces_no_ignore'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

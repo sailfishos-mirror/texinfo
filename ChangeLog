@@ -4,6 +4,32 @@
 
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
 
+	Type brace_command_container for brace_command_arg without spaces
+
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/Convert/Texinfo.pm (_expand_cmd_args_to_texi),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/Text.pm b/tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_print_command_args_texi)
+	(_expand_macro_arguments, _isolate_last_space, _handle_open_brace),
+	tp/Texinfo/XS/convert/converter.c (table_item_content_tree),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block), tp/Texinfo/XS/parsetexi/macro.c
+	(expand_macro_arguments), tp/Texinfo/XS/parsetexi/parser.c
+	(isolate_last_space), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace): use a different container for brace commands args
+	if the brace command is of the arguments type and the spaces are in
+	the info dataof the brace commands args, called
+	brace_command_container.
+
+2024-06-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/def.c (parse_def),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): use directly
 	the definition line arguments to determine the class/category/name for

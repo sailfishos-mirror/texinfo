@@ -22,7 +22,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -30,7 +30,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'email',

@@ -104,7 +104,7 @@ $result_trees{'comma_value_in_macro_arg'} = {
                         'text' => 'arg1 @value{comma} arg2 '
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

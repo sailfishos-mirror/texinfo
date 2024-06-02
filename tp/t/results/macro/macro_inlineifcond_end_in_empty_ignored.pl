@@ -78,7 +78,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -94,7 +94,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                       'text' => 'flag'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [
@@ -149,7 +149,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_command_container'
                               }
                             ],
                             'info' => {
@@ -165,7 +165,7 @@ $result_trees{'macro_inlineifcond_end_in_empty_ignored'} = {
                       'text' => 'flag'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 },
                 {
                   'contents' => [

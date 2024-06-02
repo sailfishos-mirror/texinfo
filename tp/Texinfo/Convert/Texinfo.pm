@@ -262,6 +262,7 @@ sub _expand_cmd_args_to_texi($) {
     $braces = 1 if (scalar(@{$cmd->{'args'}})
                     and ($cmd->{'args'}->[0]->{'type'}
                           and ($cmd->{'args'}->[0]->{'type'} eq 'brace_command_arg'
+                               or $cmd->{'args'}->[0]->{'type'} eq 'brace_command_container'
                                or $cmd->{'args'}->[0]->{'type'} eq 'brace_command_context')));
     $result .= '{' if ($braces);
     if ($cmdname eq 'verb') {

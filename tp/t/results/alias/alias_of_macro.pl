@@ -116,7 +116,7 @@ $result_trees{'alias_of_macro'} = {
                         'text' => 'tt'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_command_container'
                   }
                 ],
                 'info' => {

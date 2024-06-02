@@ -17,7 +17,7 @@ $result_trees{'image_inline_or_not'} = {
                   'text' => 'A'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',
@@ -50,7 +50,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'hh'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'image',
@@ -139,7 +139,7 @@ $result_trees{'image_inline_or_not'} = {
                   'text' => 'B'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'image',
@@ -172,7 +172,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'jj'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'image',
@@ -224,7 +224,7 @@ $result_trees{'image_inline_or_not'} = {
                           'text' => 'in_example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -256,7 +256,7 @@ $result_trees{'image_inline_or_not'} = {
                           'text' => 'in example after text'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -326,7 +326,7 @@ $result_trees{'image_inline_or_not'} = {
                           'text' => 'in_quotation_arg'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_command_container'
                     }
                   ],
                   'cmdname' => 'image',
@@ -357,7 +357,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'in_quotation_content'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'image',
@@ -456,7 +456,7 @@ $result_trees{'image_inline_or_not'} = {
                                       'text' => 'in_table_item'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_command_container'
                                 }
                               ],
                               'cmdname' => 'image',
@@ -505,7 +505,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'in_table_def'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -538,7 +538,7 @@ $result_trees{'image_inline_or_not'} = {
                                   'text' => 'in_table_def_para'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'image',
@@ -569,7 +569,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'in_table_def_after'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -668,7 +668,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'node_image'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -706,7 +706,7 @@ $result_trees{'image_inline_or_not'} = {
                                   'text' => 'image_in_description'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'image',
@@ -749,7 +749,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'in_menu_entry_name'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -786,7 +786,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'extnode'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -854,7 +854,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'in_menu_comment'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -938,7 +938,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'node_image'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'image',
@@ -985,7 +985,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'in_chapter_arg'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'image',
@@ -1035,7 +1035,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'in_footnote'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -1101,7 +1101,7 @@ $result_trees{'image_inline_or_not'} = {
                                   'text' => 'in text in_footnote'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'image',
@@ -1192,7 +1192,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'in_float'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'image',
@@ -1224,7 +1224,7 @@ $result_trees{'image_inline_or_not'} = {
                               'text' => 'in_caption'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'image',
@@ -1248,7 +1248,7 @@ $result_trees{'image_inline_or_not'} = {
                                   'text' => 'in_caption_para'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'image',

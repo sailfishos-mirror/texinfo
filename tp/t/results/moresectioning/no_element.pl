@@ -85,7 +85,7 @@ $result_trees{'no_element'} = {
                   'text' => 'An anchor'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_command_container'
             }
           ],
           'cmdname' => 'anchor',
@@ -129,7 +129,7 @@ $result_trees{'no_element'} = {
                     },
                     'normalized' => 'An-anchor'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -171,7 +171,7 @@ $result_trees{'no_element'} = {
                     },
                     'normalized' => 'Anchor-in-footnote'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
@@ -219,7 +219,7 @@ $result_trees{'no_element'} = {
                               'text' => 'Anchor in footnote'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_command_container'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -263,7 +263,7 @@ $result_trees{'no_element'} = {
                                 },
                                 'normalized' => 'An-anchor'
                               },
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_command_container'
                             }
                           ],
                           'cmdname' => 'ref',
@@ -406,7 +406,7 @@ $result_trees{'no_element'} = {
                     },
                     'normalized' => 'float-anchor'
                   },
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_command_container'
                 }
               ],
               'cmdname' => 'ref',
