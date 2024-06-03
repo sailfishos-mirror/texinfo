@@ -15,8 +15,7 @@ $result_trees{'accent_on_table_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -182,8 +181,7 @@ $result_trees{'accent_on_table_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -196,8 +194,7 @@ $result_trees{'accent_on_table_line'} = {
                   'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 6
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -355,8 +352,7 @@ $result_trees{'accent_on_table_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -475,8 +471,7 @@ $result_trees{'accent_on_table_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -589,8 +584,7 @@ $result_trees{'accent_on_table_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -703,8 +697,7 @@ $result_trees{'accent_on_table_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -717,8 +710,7 @@ $result_trees{'accent_on_table_line'} = {
                   'cmdname' => 'ringaccent',
                   'source_info' => {
                     'line_nr' => 23
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -823,8 +815,7 @@ $result_trees{'accent_on_table_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [

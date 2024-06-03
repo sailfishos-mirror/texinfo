@@ -139,8 +139,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'cmdname' => 'inlineraw',
                   'source_info' => {
                     'line_nr' => 7
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -342,8 +341,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'cmdname' => 'image',
                   'source_info' => {
                     'line_nr' => 13
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -491,8 +489,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'cmdname' => 'footnote',
                   'source_info' => {
                     'line_nr' => 18
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -640,8 +637,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'cmdname' => 'caption',
                   'source_info' => {
                     'line_nr' => 23
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -789,8 +785,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'cmdname' => 'math',
                   'source_info' => {
                     'line_nr' => 28
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -964,8 +959,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'cmdname' => 'anchor',
                   'source_info' => {
                     'line_nr' => 33
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1113,8 +1107,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                   'cmdname' => 'verb',
                   'source_info' => {
                     'line_nr' => 38
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

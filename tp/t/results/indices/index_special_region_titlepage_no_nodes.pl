@@ -996,8 +996,7 @@ $result_trees{'index_special_region_titlepage_no_nodes'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'info' => {

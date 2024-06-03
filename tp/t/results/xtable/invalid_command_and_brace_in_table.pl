@@ -17,8 +17,7 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

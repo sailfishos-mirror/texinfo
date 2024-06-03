@@ -631,12 +631,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       sv = newSVpv (type_data[e->type].name, 0);
       hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
     }
-  else if (e->flags & EF_command_as_argument)
-    {
-      /* TODO put in info in Perl too */
-      sv = newSVpv ("command_as_argument", 0);
-      hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
-    }
 
   if (e->flags & EF_inserted)
     {

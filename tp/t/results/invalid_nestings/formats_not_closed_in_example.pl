@@ -41,8 +41,7 @@ $result_trees{'formats_not_closed_in_example'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 3
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

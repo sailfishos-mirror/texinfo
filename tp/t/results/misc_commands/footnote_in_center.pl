@@ -60,8 +60,7 @@ $result_trees{'footnote_in_center'} = {
                                       'cmdname' => 'asis',
                                       'source_info' => {
                                         'line_nr' => 5
-                                      },
-                                      'type' => 'command_as_argument'
+                                      }
                                     }
                                   ],
                                   'info' => {

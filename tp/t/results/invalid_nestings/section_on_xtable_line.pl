@@ -15,8 +15,7 @@ $result_trees{'section_on_xtable_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'type' => 'block_line_arg'
@@ -68,8 +67,7 @@ $result_trees{'section_on_xtable_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -77,8 +75,7 @@ $result_trees{'section_on_xtable_line'} = {
                   'cmdname' => 'TeX',
                   'source_info' => {
                     'line_nr' => 3
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -147,8 +144,7 @@ $result_trees{'section_on_xtable_line'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 5
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -215,8 +211,7 @@ $result_trees{'section_on_xtable_line'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [

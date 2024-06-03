@@ -3469,8 +3469,7 @@ $result_trees{'bib_example'} = {
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
                     'line_nr' => 49
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

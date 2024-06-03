@@ -4238,6 +4238,7 @@ sub _end_line_starting_block($$$)
       my $command_as_argument = $current->{'extra'}->{'command_as_argument'};
       # This code checks that the command_as_argument of the @itemize
       # is alone on the line, otherwise it is not a command_as_argument.
+      # TODO rewrite without shifting
       my @args = @{$current->{'args'}->[0]->{'contents'}};
       while (@args) {
         my $arg = shift @args;
@@ -4249,7 +4250,6 @@ sub _end_line_starting_block($$$)
                and ($arg->{'cmdname'} eq 'c'
                     or $arg->{'cmdname'} eq 'comment'))
               or (defined($arg->{'text'}) and $arg->{'text'} !~ /\S/))) {
-          delete $current->{'extra'}->{'command_as_argument'}->{'type'};
           delete $current->{'extra'}->{'command_as_argument'};
           if (scalar(keys(%{$current->{'extra'}})) == 0) {
             delete $current->{'extra'};
@@ -4308,7 +4308,6 @@ sub _end_line_starting_block($$$)
           unshift @{$current->{'args'}}, $block_line_arg;
         }
         my $inserted = { 'cmdname' => 'bullet',
-                         'type' => 'command_as_argument',
                          'info' => {'inserted' => 1},
                          'parent' => $block_line_arg };
         unshift @{$block_line_arg->{'contents'}}, $inserted;
@@ -4319,8 +4318,7 @@ sub _end_line_starting_block($$$)
       $current->{'extra'} = {} if (!$current->{'extra'});
       if (!$current->{'extra'}->{'command_as_argument'}) {
         my $inserted =  { 'cmdname' => 'asis',
-                          'type' => 'command_as_argument',
-                         'info' => {'inserted' => 1},
+                          'info' => {'inserted' => 1},
                           'parent' => $current };
         unshift @{$current->{'args'}}, $inserted;
         $current->{'extra'}->{'command_as_argument'} = $inserted;
@@ -4847,7 +4845,6 @@ sub _register_command_as_argument($$)
   print STDERR "FOR PARENT \@$cmd_as_arg->{'parent'}->{'parent'}->{'cmdname'} ".
          "command_as_argument $cmd_as_arg->{'cmdname'}\n"
               if ($self->{'conf'}->{'DEBUG'});
-  $cmd_as_arg->{'type'} = 'command_as_argument' if (!$cmd_as_arg->{'type'});
   $cmd_as_arg->{'parent'}->{'parent'}->{'extra'} = {}
     if (!defined($cmd_as_arg->{'parent'}->{'parent'}->{'extra'}));
   $cmd_as_arg->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
@@ -8437,7 +8434,6 @@ C<@table>, C<@vtable> or C<@ftable>.  For example in
 the element corresponding with bullet has the following keys:
 
   'cmdname' => 'bullet'
-  'type' => 'command_as_argument'
 
 The parent @-command has an entry in C<extra> for the I<command_as_argument>
 element:

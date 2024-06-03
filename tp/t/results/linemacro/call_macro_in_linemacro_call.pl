@@ -269,8 +269,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                       'source_info' => {
                         'line_nr' => 14,
                         'macro' => 'mymacro'
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

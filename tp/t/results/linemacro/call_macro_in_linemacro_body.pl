@@ -264,8 +264,7 @@ now second arg: gg '
                   'source_info' => {
                     'line_nr' => 14,
                     'macro' => 'mymacro'
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

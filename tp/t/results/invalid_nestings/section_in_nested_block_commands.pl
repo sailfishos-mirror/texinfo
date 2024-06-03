@@ -17,8 +17,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

@@ -17,8 +17,7 @@ $result_trees{'table_in_itemize'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -72,8 +71,7 @@ $result_trees{'table_in_itemize'} = {
                           'cmdname' => 'asis',
                           'source_info' => {
                             'line_nr' => 4
-                          },
-                          'type' => 'command_as_argument'
+                          }
                         }
                       ],
                       'info' => {

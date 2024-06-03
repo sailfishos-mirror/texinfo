@@ -133,8 +133,7 @@ $result_trees{'macro_in_brace_command'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 9
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

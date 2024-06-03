@@ -98,8 +98,7 @@ $result_trees{'formats_in_menu'} = {
                               'cmdname' => 'asis',
                               'source_info' => {
                                 'line_nr' => 5
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {

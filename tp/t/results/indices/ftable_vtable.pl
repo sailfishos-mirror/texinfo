@@ -88,8 +88,7 @@ $result_trees{'ftable_vtable'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 5
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -295,8 +294,7 @@ $result_trees{'ftable_vtable'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 12
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

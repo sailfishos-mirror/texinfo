@@ -72,8 +72,7 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                               'cmdname' => 'asis',
                               'source_info' => {
                                 'line_nr' => 2
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {

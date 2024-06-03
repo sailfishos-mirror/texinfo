@@ -1141,8 +1141,7 @@ $result_trees{'commands_and_spaces'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 54
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

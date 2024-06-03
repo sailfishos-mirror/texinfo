@@ -87,8 +87,7 @@ $result_trees{'blockitem_no_item'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

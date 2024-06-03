@@ -298,8 +298,7 @@ $result_trees{'symbol_after_block'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 21
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -420,8 +419,7 @@ $result_trees{'symbol_after_block'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 26
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -559,8 +557,7 @@ $result_trees{'symbol_after_block'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 33
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -654,8 +651,7 @@ $result_trees{'symbol_after_block'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 37
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

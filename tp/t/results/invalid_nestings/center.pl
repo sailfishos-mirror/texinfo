@@ -455,8 +455,7 @@ $result_trees{'center'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 21
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -565,8 +564,7 @@ $result_trees{'center'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 25
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1130,8 +1128,7 @@ $result_trees{'center'} = {
                           'cmdname' => 'asis',
                           'source_info' => {
                             'line_nr' => 45
-                          },
-                          'type' => 'command_as_argument'
+                          }
                         }
                       ],
                       'info' => {

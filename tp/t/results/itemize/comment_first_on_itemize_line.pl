@@ -17,8 +17,7 @@ $result_trees{'comment_first_on_itemize_line'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

@@ -478,8 +478,7 @@ $result_trees{'complex_float'} = {
                       'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 33
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -609,8 +608,7 @@ $result_trees{'complex_float'} = {
                       'cmdname' => 'minus',
                       'source_info' => {
                         'line_nr' => 39
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -1116,8 +1114,7 @@ $result_trees{'complex_float'} = {
                               'cmdname' => 'emph',
                               'source_info' => {
                                 'line_nr' => 60
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {
@@ -1505,8 +1502,7 @@ $result_trees{'complex_float'} = {
                               'cmdname' => 'minus',
                               'source_info' => {
                                 'line_nr' => 74
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {
@@ -2387,8 +2383,7 @@ $result_trees{'complex_float'} = {
                               'cmdname' => 'emph',
                               'source_info' => {
                                 'line_nr' => 105
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {
@@ -2776,8 +2771,7 @@ $result_trees{'complex_float'} = {
                               'cmdname' => 'minus',
                               'source_info' => {
                                 'line_nr' => 119
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {

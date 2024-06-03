@@ -2639,12 +2639,13 @@ sub _convert($$)
   my $type = $element->{'type'};
   my $cmdname = $element->{'cmdname'};
 
-  if ((defined($type) and ($self->{'ignored_types'}->{$type}
-      # ignore 'command_as_argument' inserted in order to use the default
+  if ((defined($type) and $self->{'ignored_types'}->{$type})
+      # ignore command as argument inserted in order to use the default
       # setting for @itemize if there is no argument
-                           or ($type eq 'command_as_argument'
-                               and $element->{'info'}
-                               and $element->{'info'}->{'inserted'})))
+      or ($element->{'info'} and $element->{'info'}->{'inserted'}
+          and $element->{'parent'} and $element->{'parent'}->{'parent'}
+          and $element->{'parent'}->{'parent'}->{'cmdname'}
+          and $element->{'parent'}->{'parent'}->{'cmdname'} eq 'itemize')
        or (defined($cmdname)
             and ($self->{'ignored_commands'}->{$cmdname}
                  or ($Texinfo::Commands::brace_commands{$cmdname}

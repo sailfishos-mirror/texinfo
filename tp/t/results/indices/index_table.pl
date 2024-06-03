@@ -455,8 +455,7 @@ $result_trees{'index_table'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -465,8 +464,7 @@ $result_trees{'index_table'} = {
                   'source_info' => {
                     'file_name' => 'index_table.texi',
                     'line_nr' => 21
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -639,8 +637,7 @@ $result_trees{'index_table'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'contents' => [
@@ -649,8 +646,7 @@ $result_trees{'index_table'} = {
                   'source_info' => {
                     'file_name' => 'index_table.texi',
                     'line_nr' => 28
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

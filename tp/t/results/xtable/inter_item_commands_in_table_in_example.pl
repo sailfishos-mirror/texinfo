@@ -34,8 +34,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                       'cmdname' => 'var',
                       'source_info' => {
                         'line_nr' => 2
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

@@ -629,8 +629,8 @@ sub _convert($$;$)
         return $self->txi_markup_element('click',
                         [['command', $element->{'extra'}->{'clickstyle'}]]);
       }
-      if ($self->{'itemize_line'} and $element->{'type'}
-          and $element->{'type'} eq 'command_as_argument'
+      if ($self->{'itemize_command_as_argument'}
+          and $element eq $self->{'itemize_command_as_argument'}
           and !$element->{'args'}) {
         my $arguments = [['command', $element->{'cmdname'}]];
         push @$arguments, ['automatic', 'on']
@@ -1255,9 +1255,11 @@ sub _convert($$;$)
       }
       my $prepended_elements = '';
       my $attribute = [];
-      $self->{'itemize_line'} = 1 if ($element->{'cmdname'} eq 'itemize');
       if ($element->{'extra'} and $element->{'extra'}->{'command_as_argument'}) {
         my $command_as_arg = $element->{'extra'}->{'command_as_argument'};
+        if ($element->{'cmdname'} eq 'itemize') {
+          $self->{'itemize_command_as_argument'} = $command_as_arg;
+        }
         push @$attribute,
          (['commandarg', $command_as_arg->{'cmdname'}],
              $self->_infoenclose_attribute($command_as_arg));
@@ -1481,7 +1483,8 @@ sub _convert($$;$)
         }
         unshift @close_format_elements, $element->{'cmdname'};
       }
-      delete $self->{'itemize_line'} if ($self->{'itemize_line'});
+      delete $self->{'itemize_command_as_argument'}
+        if ($self->{'itemize_command_as_argument'});
     }
   }
   if ($element->{'type'}) {

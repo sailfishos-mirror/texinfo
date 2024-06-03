@@ -439,8 +439,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -888,8 +887,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'cmdname' => 'minus',
                   'source_info' => {
                     'line_nr' => 57
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1010,8 +1008,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'cmdname' => 'minus',
                   'source_info' => {
                     'line_nr' => 65
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1053,8 +1050,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                           'cmdname' => 'bullet',
                           'source_info' => {
                             'line_nr' => 68
-                          },
-                          'type' => 'command_as_argument'
+                          }
                         }
                       ],
                       'info' => {
@@ -1217,8 +1213,7 @@ $result_trees{'itemize_and_empty_lines'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 75
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

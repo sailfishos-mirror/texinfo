@@ -17,8 +17,7 @@ $result_trees{'asis_as_itemize_argument'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

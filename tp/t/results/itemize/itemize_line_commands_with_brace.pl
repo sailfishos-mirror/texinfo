@@ -22,8 +22,7 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -122,8 +121,7 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                   'cmdname' => 'minus',
                   'source_info' => {
                     'line_nr' => 5
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

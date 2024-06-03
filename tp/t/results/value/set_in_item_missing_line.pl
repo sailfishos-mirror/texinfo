@@ -17,8 +17,7 @@ $result_trees{'set_in_item_missing_line'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -173,8 +172,7 @@ $result_trees{'set_in_item_missing_line'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 6
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

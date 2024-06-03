@@ -22,8 +22,7 @@ $result_trees{'section_on_itemize_line'} = {
                   'cmdname' => 'minus',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -156,8 +155,7 @@ $result_trees{'section_on_itemize_line'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'type' => 'block_line_arg'

@@ -144,8 +144,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 7
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -283,8 +282,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 13
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -461,8 +459,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'var',
                   'source_info' => {
                     'line_nr' => 20
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -808,8 +805,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 36
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1012,8 +1008,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 43
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1180,8 +1175,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 50
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1338,8 +1332,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 56
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1506,8 +1499,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 63
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1664,8 +1656,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 69
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1823,8 +1814,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 76
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1977,8 +1967,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 82
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -2131,8 +2120,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 88
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

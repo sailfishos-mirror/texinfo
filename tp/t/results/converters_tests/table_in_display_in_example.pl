@@ -45,8 +45,7 @@ $result_trees{'table_in_display_in_example'} = {
                           'cmdname' => 'asis',
                           'source_info' => {
                             'line_nr' => 3
-                          },
-                          'type' => 'command_as_argument'
+                          }
                         }
                       ],
                       'info' => {

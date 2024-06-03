@@ -210,8 +210,7 @@ $result_trees{'empty_accent_argument'} = {
                   'cmdname' => '~',
                   'source_info' => {
                     'line_nr' => 9
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

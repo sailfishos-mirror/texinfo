@@ -991,8 +991,7 @@ $result_trees{'index_special_region_no_insertcopying'} = {
               'cmdname' => 'asis',
               'info' => {
                 'inserted' => 1
-              },
-              'type' => 'command_as_argument'
+              }
             },
             {
               'info' => {

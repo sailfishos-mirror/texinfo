@@ -17,8 +17,7 @@ $result_trees{'comments_end_lines'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -182,8 +181,7 @@ $result_trees{'comments_end_lines'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 8
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

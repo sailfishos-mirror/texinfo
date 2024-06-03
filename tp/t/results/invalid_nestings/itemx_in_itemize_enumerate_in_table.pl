@@ -17,8 +17,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -90,8 +89,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                               'cmdname' => 'bullet',
                               'info' => {
                                 'inserted' => 1
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {

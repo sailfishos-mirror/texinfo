@@ -127,8 +127,7 @@ $result_trees{'empty_string_index_entry'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 6
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

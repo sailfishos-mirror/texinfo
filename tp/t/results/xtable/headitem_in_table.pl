@@ -17,8 +17,7 @@ $result_trees{'headitem_in_table'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

@@ -22,8 +22,7 @@ $result_trees{'table'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 2
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -176,8 +175,7 @@ $result_trees{'table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 9
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -453,8 +451,7 @@ $result_trees{'table'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 20
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

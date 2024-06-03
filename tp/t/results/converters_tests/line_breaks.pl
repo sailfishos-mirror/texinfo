@@ -195,8 +195,7 @@ $result_trees{'line_breaks'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 10
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

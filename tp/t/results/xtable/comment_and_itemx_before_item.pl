@@ -17,8 +17,7 @@ $result_trees{'comment_and_itemx_before_item'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

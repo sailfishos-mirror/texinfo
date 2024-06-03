@@ -311,8 +311,7 @@ $result_trees{'printindex_index_entry_in_copying'} = {
                           'cmdname' => 'asis',
                           'source_info' => {
                             'line_nr' => 10
-                          },
-                          'type' => 'command_as_argument'
+                          }
                         }
                       ],
                       'info' => {

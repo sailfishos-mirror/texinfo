@@ -17,8 +17,7 @@ $result_trees{'email_table_command_as_argument'} = {
                   'cmdname' => 'email',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

@@ -17,8 +17,7 @@ $result_trees{'empty_item_itemx'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

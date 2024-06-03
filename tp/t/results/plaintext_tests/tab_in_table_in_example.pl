@@ -31,8 +31,7 @@ $result_trees{'tab_in_table_in_example'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 2
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

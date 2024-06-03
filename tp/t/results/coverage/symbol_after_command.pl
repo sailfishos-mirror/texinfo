@@ -17,8 +17,7 @@ $result_trees{'symbol_after_command'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

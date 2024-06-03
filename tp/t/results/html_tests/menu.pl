@@ -131,8 +131,7 @@ $result_trees{'menu'} = {
                               'cmdname' => 'bullet',
                               'info' => {
                                 'inserted' => 1
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {
@@ -313,8 +312,7 @@ $result_trees{'menu'} = {
                           'cmdname' => 'bullet',
                           'info' => {
                             'inserted' => 1
-                          },
-                          'type' => 'command_as_argument'
+                          }
                         }
                       ],
                       'info' => {
@@ -480,8 +478,7 @@ $result_trees{'menu'} = {
                           'cmdname' => 'bullet',
                           'info' => {
                             'inserted' => 1
-                          },
-                          'type' => 'command_as_argument'
+                          }
                         }
                       ],
                       'info' => {
@@ -820,8 +817,7 @@ $result_trees{'menu'} = {
                                   'cmdname' => 'bullet',
                                   'info' => {
                                     'inserted' => 1
-                                  },
-                                  'type' => 'command_as_argument'
+                                  }
                                 }
                               ],
                               'info' => {
@@ -1002,8 +998,7 @@ $result_trees{'menu'} = {
                               'cmdname' => 'bullet',
                               'info' => {
                                 'inserted' => 1
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {
@@ -1169,8 +1164,7 @@ $result_trees{'menu'} = {
                               'cmdname' => 'bullet',
                               'info' => {
                                 'inserted' => 1
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {

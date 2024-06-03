@@ -17,8 +17,7 @@ $result_trees{'set_on_item_line'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -261,8 +260,7 @@ $result_trees{'set_on_item_line'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 10
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

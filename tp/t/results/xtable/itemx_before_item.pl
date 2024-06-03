@@ -17,8 +17,7 @@ $result_trees{'itemx_before_item'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

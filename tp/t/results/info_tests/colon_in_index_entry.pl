@@ -121,8 +121,7 @@ $result_trees{'colon_in_index_entry'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 7
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

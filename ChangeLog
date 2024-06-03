@@ -1,5 +1,32 @@
 2024-06-03  Patrice Dumas  <pertusus@free.fr>
 
+	Remove command_as_argument element type
+
+	* tp/Texinfo/Convert/Text.pm (_convert): fix parentheses of brace
+	command argument type test.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): determine if a command as
+	argument is the default for itemize by checking the parents and not
+	the type.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): determine that the
+	command_as_argument element by comparing with the itemize parent extra
+	value instead of using the type.
+
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tp/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo)
+	(_expand_cmd_args_to_texi): check that type is set before accessing
+	and do not access type if not needed.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block)
+	(_register_command_as_argument), tp/Texinfo/XS/main/build_perl_info.c
+	(element_to_perl_hash), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block), tp/Texinfo/XS/parsetexi/parser.c
+	(register_command_as_argument): do not set a special type for the
+	command_as_argument, and do not set a flag in C.
+
+2024-06-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
 	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/parsetexi/parser.c
 	(begin_paragraph_p): add more types for commands.

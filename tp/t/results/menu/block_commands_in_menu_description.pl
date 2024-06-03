@@ -129,8 +129,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'cmdname' => 'bullet',
                               'info' => {
                                 'inserted' => 1
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {
@@ -234,8 +233,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'cmdname' => 'asis',
                               'source_info' => {
                                 'line_nr' => 11
-                              },
-                              'type' => 'command_as_argument'
+                              }
                             }
                           ],
                           'info' => {

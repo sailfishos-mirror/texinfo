@@ -31,8 +31,7 @@ $result_trees{'itemize_in_example'} = {
                       'cmdname' => 'bullet',
                       'source_info' => {
                         'line_nr' => 2
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -140,8 +139,7 @@ $result_trees{'itemize_in_example'} = {
                       'cmdname' => 'asis',
                       'source_info' => {
                         'line_nr' => 8
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

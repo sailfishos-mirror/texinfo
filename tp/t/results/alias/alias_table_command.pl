@@ -58,8 +58,7 @@ $result_trees{'alias_table_command'} = {
                   },
                   'source_info' => {
                     'line_nr' => 3
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

@@ -540,8 +540,7 @@ $result_trees{'test_index'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 17
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

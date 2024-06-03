@@ -590,8 +590,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'today',
                   'source_info' => {
                     'line_nr' => 26
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -868,8 +867,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'tie',
                   'source_info' => {
                     'line_nr' => 34
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1090,8 +1088,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'atchar',
                   'source_info' => {
                     'line_nr' => 42
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1491,8 +1488,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'registeredsymbol',
                   'source_info' => {
                     'line_nr' => 58
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1718,8 +1714,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'enddots',
                   'source_info' => {
                     'line_nr' => 66
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -3226,8 +3221,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 94
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -3343,8 +3337,7 @@ $result_trees{'itemize_arguments'} = {
                   },
                   'source_info' => {
                     'line_nr' => 98
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -3604,8 +3597,7 @@ $result_trees{'itemize_arguments'} = {
                   },
                   'source_info' => {
                     'line_nr' => 108
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -3840,8 +3832,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'error',
                   'source_info' => {
                     'line_nr' => 116
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -4097,8 +4088,7 @@ $result_trees{'itemize_arguments'} = {
                   'cmdname' => 'error',
                   'source_info' => {
                     'line_nr' => 125
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

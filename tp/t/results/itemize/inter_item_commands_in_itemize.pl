@@ -144,8 +144,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                   'cmdname' => 'minus',
                   'source_info' => {
                     'line_nr' => 7
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -290,8 +289,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 13
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -492,8 +490,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

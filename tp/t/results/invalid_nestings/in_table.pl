@@ -80,8 +80,7 @@ $result_trees{'in_table'} = {
                   'cmdname' => 'xref',
                   'source_info' => {
                     'line_nr' => 5
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -151,8 +150,7 @@ $result_trees{'in_table'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 8
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -585,8 +583,7 @@ $result_trees{'in_table'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 17
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

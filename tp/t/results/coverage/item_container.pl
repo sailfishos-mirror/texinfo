@@ -110,8 +110,7 @@ $result_trees{'item_container'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 6
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -210,8 +209,7 @@ $result_trees{'item_container'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

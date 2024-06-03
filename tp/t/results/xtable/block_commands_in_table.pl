@@ -139,8 +139,7 @@ $result_trees{'block_commands_in_table'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 7
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -673,8 +672,7 @@ $result_trees{'block_commands_in_table'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 34
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -887,8 +885,7 @@ $result_trees{'block_commands_in_table'} = {
                   'cmdname' => 'r',
                   'source_info' => {
                     'line_nr' => 42
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1079,8 +1076,7 @@ $result_trees{'block_commands_in_table'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 52
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

@@ -17,8 +17,7 @@ $result_trees{'text_between_item_itemx'} = {
                   'cmdname' => 'strong',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

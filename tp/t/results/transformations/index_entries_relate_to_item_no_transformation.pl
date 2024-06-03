@@ -164,8 +164,7 @@ $result_trees{'index_entries_relate_to_item_no_transformation'} = {
                   'source_info' => {
                     'file_name' => 'index_entries_relate_to_item.texi',
                     'line_nr' => 9
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

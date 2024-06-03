@@ -73,8 +73,7 @@ $result_trees{'item_index_transformation'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 4
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -414,8 +413,7 @@ $result_trees{'item_index_transformation'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 16
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -719,8 +717,7 @@ $result_trees{'item_index_transformation'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 27
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -997,8 +994,7 @@ $result_trees{'item_index_transformation'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 37
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

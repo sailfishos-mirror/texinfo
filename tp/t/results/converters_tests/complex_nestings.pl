@@ -767,8 +767,7 @@ $result_trees{'complex_nestings'} = {
                                               'cmdname' => 'asis',
                                               'source_info' => {
                                                 'line_nr' => 18
-                                              },
-                                              'type' => 'command_as_argument'
+                                              }
                                             }
                                           ],
                                           'info' => {

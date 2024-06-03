@@ -139,8 +139,7 @@ $result_trees{'anchor_on_vtable_item'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 7
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

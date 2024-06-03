@@ -17,8 +17,7 @@ $result_trees{'xref_quote_long_item'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

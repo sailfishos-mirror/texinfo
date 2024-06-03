@@ -17,8 +17,7 @@ $result_trees{'include_in_removed_before_item'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

@@ -585,8 +585,8 @@ sub _convert($$)
       return $result;
     } elsif ($element->{'args'} and $element->{'args'}->[0]
            and (($element->{'args'}->[0]->{'type'}
-                and ($element->{'args'}->[0]->{'type'} eq 'brace_command_arg')
-                     or $element->{'args'}->[0]->{'type'} eq 'brace_command_container')
+                and ($element->{'args'}->[0]->{'type'} eq 'brace_command_arg'
+                     or $element->{'args'}->[0]->{'type'} eq 'brace_command_container'))
                 or ($Texinfo::Commands::math_commands{$element->{'cmdname'}}
                     and defined($Texinfo::Commands::brace_commands{
                                                   $element->{'cmdname'}})))) {

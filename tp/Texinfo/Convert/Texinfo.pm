@@ -196,8 +196,7 @@ sub _convert_to_texinfo($)
      if (ref($element) ne 'HASH');
   my $result = '';
 
-  return '' if ($element->{'type'}
-                and $element->{'info'}
+  return '' if ($element->{'info'}
                 and $element->{'info'}->{'inserted'});
   if (defined($element->{'text'})) {
     $result .= $element->{'text'};
@@ -282,8 +281,7 @@ sub _expand_cmd_args_to_texi($) {
     }
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'args'}}) {
-      next if ($arg->{'type'} and $arg->{'info'}
-               and $arg->{'info'}->{'inserted'});
+      next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
       if ($with_commas) {
         $result .= ',' if ($arg_nr);
         $arg_nr++;

@@ -22,8 +22,7 @@ $result_trees{'index_command_before_end_table'} = {
                   'cmdname' => 'code',
                   'source_info' => {
                     'line_nr' => 2
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

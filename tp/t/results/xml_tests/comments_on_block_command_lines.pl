@@ -17,8 +17,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -215,8 +214,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 9
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -324,8 +322,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                   'cmdname' => 'bullet',
                   'source_info' => {
                     'line_nr' => 13
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -620,8 +617,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 25
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

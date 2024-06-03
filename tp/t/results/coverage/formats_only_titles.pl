@@ -17,8 +17,7 @@ $result_trees{'formats_only_titles'} = {
                   'cmdname' => 'bullet',
                   'info' => {
                     'inserted' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -168,8 +167,7 @@ $result_trees{'formats_only_titles'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 9
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -253,8 +251,7 @@ $result_trees{'formats_only_titles'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 13
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

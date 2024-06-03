@@ -22,8 +22,7 @@ $result_trees{'w_argument'} = {
                   'cmdname' => 'w',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

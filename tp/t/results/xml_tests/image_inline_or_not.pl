@@ -425,8 +425,7 @@ $result_trees{'image_inline_or_not'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 24
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

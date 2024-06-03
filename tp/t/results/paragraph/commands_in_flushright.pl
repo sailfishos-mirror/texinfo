@@ -282,8 +282,7 @@ $result_trees{'commands_in_flushright'} = {
                       'cmdname' => 'emph',
                       'source_info' => {
                         'line_nr' => 17
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

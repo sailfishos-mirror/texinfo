@@ -547,8 +547,8 @@ move_index_entries_after_items_in_tree (ELEMENT *tree)
 
 /* ERROR_MESSAGES is not actually useful, as the code checks that
    the new node target label does not exist already.
-   FIXME set node_tree to be ELEMENT_LIST?  May need to have copy_contents
-   return an ELEMENT_LIST
+   node_tree is actually used as an element list, but we use an
+   element to be able to do the transformations in new_node.
  */
 ELEMENT *
 new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,

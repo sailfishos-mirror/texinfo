@@ -17,8 +17,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

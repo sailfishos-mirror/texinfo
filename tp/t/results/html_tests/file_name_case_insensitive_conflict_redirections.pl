@@ -113,8 +113,7 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'line_nr' => 6
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

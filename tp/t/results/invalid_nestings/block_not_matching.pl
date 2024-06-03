@@ -160,8 +160,7 @@ $result_trees{'block_not_matching'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 9
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -252,8 +251,7 @@ $result_trees{'block_not_matching'} = {
                   'cmdname' => 'emph',
                   'source_info' => {
                     'line_nr' => 14
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {

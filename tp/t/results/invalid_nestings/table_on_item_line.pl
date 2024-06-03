@@ -17,8 +17,7 @@ $result_trees{'table_on_item_line'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 1
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -51,8 +50,7 @@ $result_trees{'table_on_item_line'} = {
                                       'cmdname' => 'asis',
                                       'source_info' => {
                                         'line_nr' => 2
-                                      },
-                                      'type' => 'command_as_argument'
+                                      }
                                     }
                                   ],
                                   'info' => {

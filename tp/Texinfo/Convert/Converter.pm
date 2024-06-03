@@ -1481,7 +1481,8 @@ sub table_item_content_tree($$)
     if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'} = {'code' => 1};
     }
-    if ($command_as_argument->{'type'} eq 'definfoenclose_command') {
+    if ($command_as_argument->{'type'}
+        and $command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
       $command->{'extra'} = {} if (!$command->{'extra'});
       $command->{'extra'}->{'begin'} = $command_as_argument->{'extra'}->{'begin'};

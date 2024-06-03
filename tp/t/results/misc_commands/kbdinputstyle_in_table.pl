@@ -232,8 +232,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'source_info' => {
                     'line_nr' => 25,
                     'macro' => 'codekbdmacro'
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -353,8 +352,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'source_info' => {
                     'line_nr' => 25,
                     'macro' => 'codekbdmacro'
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -492,8 +490,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'source_info' => {
                         'line_nr' => 25,
                         'macro' => 'codekbdmacro'
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -608,8 +605,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'source_info' => {
                         'line_nr' => 25,
                         'macro' => 'codekbdmacro'
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -842,8 +838,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'source_info' => {
                     'line_nr' => 31,
                     'macro' => 'codekbdmacro'
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -963,8 +958,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'source_info' => {
                     'line_nr' => 31,
                     'macro' => 'codekbdmacro'
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1099,8 +1093,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'codekbdmacro'
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -1211,8 +1204,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'source_info' => {
                         'line_nr' => 31,
                         'macro' => 'codekbdmacro'
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -1441,8 +1433,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'source_info' => {
                     'line_nr' => 37,
                     'macro' => 'codekbdmacro'
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1558,8 +1549,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'source_info' => {
                     'line_nr' => 37,
                     'macro' => 'codekbdmacro'
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
@@ -1693,8 +1683,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'source_info' => {
                         'line_nr' => 37,
                         'macro' => 'codekbdmacro'
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {
@@ -1805,8 +1794,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'source_info' => {
                         'line_nr' => 37,
                         'macro' => 'codekbdmacro'
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

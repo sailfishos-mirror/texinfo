@@ -1082,7 +1082,6 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
   debug ("FOR PARENT @%s command_as_argument %s",
          command_name(cmd_as_arg->parent->parent->cmd),
          command_name(cmd_as_arg->cmd));
-  cmd_as_arg->flags |= EF_command_as_argument;
   add_extra_element (cmd_as_arg->parent->parent,
                      "command_as_argument", cmd_as_arg);
   if (cmd_as_arg->cmd == CM_kbd

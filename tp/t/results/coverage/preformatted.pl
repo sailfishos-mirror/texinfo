@@ -108,8 +108,7 @@ $result_trees{'preformatted'} = {
                       'cmdname' => 'code',
                       'source_info' => {
                         'line_nr' => 9
-                      },
-                      'type' => 'command_as_argument'
+                      }
                     }
                   ],
                   'info' => {

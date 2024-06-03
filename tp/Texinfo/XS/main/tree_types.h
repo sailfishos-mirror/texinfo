@@ -343,6 +343,5 @@ typedef struct TREE_ADDED_ELEMENTS {
 
 /* tree element flags */
 #define EF_inserted                      0x0001
-#define EF_command_as_argument           0x0002
 
 #endif

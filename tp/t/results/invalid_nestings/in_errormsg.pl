@@ -142,8 +142,7 @@ $result_trees{'in_errormsg'} = {
                   'cmdname' => 'asis',
                   'source_info' => {
                     'line_nr' => 6
-                  },
-                  'type' => 'command_as_argument'
+                  }
                 }
               ],
               'info' => {
