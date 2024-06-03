@@ -4,6 +4,12 @@
 
 2024-06-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph_p): select types
+	that could contain paragraphs only.  Improve documentation of the
+	code by listing the types that are avoided.
+
+2024-06-03  Patrice Dumas  <pertusus@free.fr>
+
 	Rename brace_command_container type as brace_arg
 
 2024-09-28  Patrice Dumas  <pertusus@free.fr>

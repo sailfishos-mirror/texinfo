@@ -1362,8 +1362,12 @@ sub _begin_paragraph($$;$)
 {
   my ($self, $current, $source_info) = @_;
 
-  # !$current->{'type'} is true for @-commands and for text without
-  # type nor command.
+  # !$current->{'type'} is true for @-commands and other containers
+  # and some text.
+  # we want to avoid
+  # paragraphs, line_arg, brace_container, brace_arg, root_line,
+  # balanced_braces, block_line_arg, preformatted (which is already
+  # avoided by the context check)
   if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
       and !$no_paragraph_contexts{$self->_top_context()}) {
 

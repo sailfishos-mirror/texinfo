@@ -554,13 +554,14 @@ parse_texi_document (void)
 static int
 begin_paragraph_p (ELEMENT *current)
 {
-  return (/* FIXME these checks for @-commands types look wrong */
-          current->type == ET_NONE /* "True for @-commands" */
-           || current->type == ET_lineraw_command
-           || current->type == ET_line_command
-           || current->type == ET_block_command
-           || current->type == ET_container_command
-
+  /* we want to avoid
+     paragraphs, line_arg, brace_container, brace_arg, root_line,
+     balanced_braces, block_line_arg, preformatted (which is already
+     avoided by the context check) */
+  return (current->type == ET_line_command /* for nodes, sectioning content */
+           || current->type == ET_block_command /* block command content */
+           || current->type == ET_container_command /* @item, @tab block
+                                                       command content */
            || current->type == ET_before_item
            || current->type == ET_before_node_section
            || current->type == ET_document_root
