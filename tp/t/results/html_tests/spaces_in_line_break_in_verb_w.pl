@@ -23,7 +23,7 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
                       'text' => 'ccc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -59,7 +59,7 @@ $result_trees{'spaces_in_line_break_in_verb_w'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',

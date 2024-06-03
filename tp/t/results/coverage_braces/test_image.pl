@@ -159,7 +159,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -229,7 +229,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -314,7 +314,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -376,7 +376,7 @@ $result_trees{'test_image'} = {
                                                   'text' => 'i'
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => 'dotless',
@@ -386,7 +386,7 @@ $result_trees{'test_image'} = {
                                           }
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => '^',
@@ -408,7 +408,7 @@ $result_trees{'test_image'} = {
                                   'cmdname' => '.'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'b',
@@ -438,7 +438,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -502,7 +502,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -702,7 +702,7 @@ $result_trees{'test_image'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'verb',
@@ -772,7 +772,7 @@ $result_trees{'test_image'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'verb',
@@ -854,7 +854,7 @@ $result_trees{'test_image'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -916,7 +916,7 @@ $result_trees{'test_image'} = {
                                               'text' => 'i'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'dotless',
@@ -926,7 +926,7 @@ $result_trees{'test_image'} = {
                                       }
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => '^',
@@ -948,7 +948,7 @@ $result_trees{'test_image'} = {
                               'cmdname' => '.'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'b',
@@ -978,7 +978,7 @@ $result_trees{'test_image'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -1042,7 +1042,7 @@ $result_trees{'test_image'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -1195,7 +1195,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -1265,7 +1265,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -1345,7 +1345,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -1407,7 +1407,7 @@ $result_trees{'test_image'} = {
                                                   'text' => 'i'
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => 'dotless',
@@ -1417,7 +1417,7 @@ $result_trees{'test_image'} = {
                                           }
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => '^',
@@ -1439,7 +1439,7 @@ $result_trees{'test_image'} = {
                                   'cmdname' => '.'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'b',
@@ -1469,7 +1469,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -1533,7 +1533,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -1707,7 +1707,7 @@ $result_trees{'test_image'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -1777,7 +1777,7 @@ $result_trees{'test_image'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -1859,7 +1859,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -1921,7 +1921,7 @@ $result_trees{'test_image'} = {
                                                   'text' => 'i'
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => 'dotless',
@@ -1931,7 +1931,7 @@ $result_trees{'test_image'} = {
                                           }
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => '^',
@@ -1953,7 +1953,7 @@ $result_trees{'test_image'} = {
                                   'cmdname' => '.'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'b',
@@ -1983,7 +1983,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -2047,7 +2047,7 @@ $result_trees{'test_image'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -2160,7 +2160,7 @@ $result_trees{'test_image'} = {
                                       'type' => 'raw'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'verb',
@@ -2230,7 +2230,7 @@ $result_trees{'test_image'} = {
                                       'type' => 'raw'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'verb',
@@ -2312,7 +2312,7 @@ $result_trees{'test_image'} = {
                                           'type' => 'raw'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'verb',
@@ -2374,7 +2374,7 @@ $result_trees{'test_image'} = {
                                                           'text' => 'i'
                                                         }
                                                       ],
-                                                      'type' => 'brace_command_arg'
+                                                      'type' => 'brace_container'
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
@@ -2384,7 +2384,7 @@ $result_trees{'test_image'} = {
                                                   }
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => '^',
@@ -2406,7 +2406,7 @@ $result_trees{'test_image'} = {
                                           'cmdname' => '.'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'b',
@@ -2436,7 +2436,7 @@ $result_trees{'test_image'} = {
                                           'type' => 'raw'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'verb',
@@ -2500,7 +2500,7 @@ $result_trees{'test_image'} = {
                                           'type' => 'raw'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'verb',

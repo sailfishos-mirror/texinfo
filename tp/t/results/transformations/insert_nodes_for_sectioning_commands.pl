@@ -118,7 +118,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma'
@@ -134,7 +134,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
                       'text' => 'a chap'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code'
@@ -175,7 +175,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
                       'text' => 'a chap'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -689,7 +689,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis'
@@ -725,7 +725,7 @@ $result_trees{'insert_nodes_for_sectioning_commands'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',

@@ -52,7 +52,7 @@ $result_trees{'heading_command_in_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

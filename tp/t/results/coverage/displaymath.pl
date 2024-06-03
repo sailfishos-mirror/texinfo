@@ -141,7 +141,7 @@ $result_trees{'displaymath'} = {
                       'text' => 'math code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -160,7 +160,7 @@ $result_trees{'displaymath'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sub',
@@ -179,7 +179,7 @@ $result_trees{'displaymath'} = {
                       'text' => '2'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sup',
@@ -281,7 +281,7 @@ $result_trees{'displaymath'} = {
                           'type' => 'balanced_braces'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

@@ -40,7 +40,7 @@ $result_trees{'verb_not_closed_with_char'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',

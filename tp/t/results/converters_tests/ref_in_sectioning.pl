@@ -814,7 +814,7 @@ $result_trees{'ref_in_sectioning'} = {
                               'text' => 'node'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -846,7 +846,7 @@ $result_trees{'ref_in_sectioning'} = {
                               'text' => 'title'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -917,7 +917,7 @@ $result_trees{'ref_in_sectioning'} = {
                               'text' => 'node'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

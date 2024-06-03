@@ -45,7 +45,7 @@ $result_trees{'empty_def_arguments'} = {
                                       'text' => 'i'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -140,7 +140,7 @@ $result_trees{'empty_def_arguments'} = {
                                               'text' => 'i'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'samp',
@@ -152,7 +152,7 @@ $result_trees{'empty_def_arguments'} = {
                                       'text' => ' ule'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'b',

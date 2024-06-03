@@ -160,7 +160,7 @@ sub definition_category_tree($$)
   if (! $self) {
     $arg_class_code = {'cmdname' => 'code'};
     my $brace_arg
-      = {'type' => 'brace_command_arg', 'contents' => [$arg_class],
+      = {'type' => 'brace_container', 'contents' => [$arg_class],
          'parent' => $arg_class_code};
     $arg_class_code->{'args'} = [$brace_arg];
   }

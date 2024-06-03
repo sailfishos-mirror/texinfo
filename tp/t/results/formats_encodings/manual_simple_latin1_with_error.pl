@@ -240,7 +240,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
                   'text' => "non_conn\x{f9}e"
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'value'

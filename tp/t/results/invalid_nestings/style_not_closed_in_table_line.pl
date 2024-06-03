@@ -84,7 +84,7 @@ $result_trees{'style_not_closed_in_table_line'} = {
                                   'text' => 'in code '
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',

@@ -45,7 +45,7 @@ $result_trees{'not_only_characters'} = {
                             'text' => '-e_\'::;'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

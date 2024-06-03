@@ -92,7 +92,7 @@ $result_trees{'math'} = {
                               'text' => 'math code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -111,7 +111,7 @@ $result_trees{'math'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'sub',
@@ -130,7 +130,7 @@ $result_trees{'math'} = {
                               'text' => '2'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'sup',
@@ -196,7 +196,7 @@ $result_trees{'math'} = {
                                   'type' => 'balanced_braces'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -321,7 +321,7 @@ $result_trees{'math'} = {
                       'text' => 'rd'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sup',
@@ -340,7 +340,7 @@ $result_trees{'math'} = {
                       'text' => 'r'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sub',

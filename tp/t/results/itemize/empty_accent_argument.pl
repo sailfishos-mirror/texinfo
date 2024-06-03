@@ -204,7 +204,7 @@ $result_trees{'empty_accent_argument'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '~',

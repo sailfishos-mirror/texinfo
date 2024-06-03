@@ -225,7 +225,7 @@ $result_trees{'brace_in_index'} = {
                           'cmdname' => '{'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',

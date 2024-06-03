@@ -77,7 +77,7 @@ $result_trees{'empty_string_index_entry'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'w',
@@ -152,7 +152,7 @@ $result_trees{'empty_string_index_entry'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'w',
@@ -278,7 +278,7 @@ $result_trees{'empty_string_index_entry'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'w',
@@ -384,7 +384,7 @@ $result_trees{'empty_string_index_entry'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'w',

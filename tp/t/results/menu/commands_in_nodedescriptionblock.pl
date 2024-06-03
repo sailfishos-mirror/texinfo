@@ -417,7 +417,7 @@ $result_trees{'commands_in_nodedescriptionblock'} = {
                           'text' => 'in w'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'w',

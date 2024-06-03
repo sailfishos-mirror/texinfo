@@ -544,10 +544,10 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
   /*
   if (!options)
     {
-      ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+      ELEMENT *brace_container = new_element (ET_brace_container);
       arg_class_code = new_command_element (ET_brace_command, CM_code);
-      add_to_element_contents (brace_command_arg, class_copy);
-      add_to_element_args (arg_class_code, brace_command_arg);
+      add_to_element_contents (brace_container, class_copy);
+      add_to_element_args (arg_class_code, brace_container);
     }
    */
 

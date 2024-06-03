@@ -42,7 +42,7 @@ $result_trees{'footnote'} = {
                                   'text' => 'in footnote r'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'r',

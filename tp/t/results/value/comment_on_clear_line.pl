@@ -140,7 +140,7 @@ $result_trees{'comment_on_clear_line'} = {
                       'text' => 'x'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'value'
@@ -156,7 +156,7 @@ $result_trees{'comment_on_clear_line'} = {
                       'text' => 'y'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'value'
@@ -173,7 +173,7 @@ $result_trees{'comment_on_clear_line'} = {
                             'text' => 'z'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -199,7 +199,7 @@ $result_trees{'comment_on_clear_line'} = {
                             'text' => 't'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

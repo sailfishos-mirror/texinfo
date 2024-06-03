@@ -19,7 +19,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -38,7 +38,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                       'text' => 'dlksfjf ) '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -57,7 +57,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                       'text' => '(fdfdsfsd'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -76,7 +76,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                       'text' => 'sqdq,qdsdsq'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -119,7 +119,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                       'text' => 'vvar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -175,7 +175,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                               'text' => 'r'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'u',
@@ -208,7 +208,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'aa',
@@ -217,7 +217,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -267,7 +267,7 @@ $result_trees{'characters_and_commands_in_var'} = {
                                   'text' => 'rrrr , azeeaz'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'var',

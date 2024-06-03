@@ -320,7 +320,7 @@ $result_trees{'def_syn_indices'} = {
                           'text' => 'index entry'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -362,7 +362,7 @@ $result_trees{'def_syn_indices'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -371,7 +371,7 @@ $result_trees{'def_syn_indices'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',

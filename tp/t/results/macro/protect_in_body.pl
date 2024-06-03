@@ -135,7 +135,7 @@ $result_trees{'protect_in_body'} = {
                               'text' => 'f\\irst arg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -145,7 +145,7 @@ $result_trees{'protect_in_body'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -165,7 +165,7 @@ $result_trees{'protect_in_body'} = {
                       'text' => 'second arg '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',

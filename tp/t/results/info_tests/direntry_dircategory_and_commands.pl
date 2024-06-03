@@ -24,7 +24,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                           'text' => 'th  ere'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -127,7 +127,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                                   'text' => 'there'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'var',

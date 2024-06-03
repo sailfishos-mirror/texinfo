@@ -2792,7 +2792,7 @@ $result_trees{'bib_example'} = {
                                     'text' => 'mybibrefnode'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -3198,7 +3198,7 @@ $result_trees{'bib_example'} = {
                                     'text' => 'mybibrefnode'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -3412,7 +3412,7 @@ $result_trees{'bib_example'} = {
                         'text' => 'mybibrefnode'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -3462,7 +3462,7 @@ $result_trees{'bib_example'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'w',

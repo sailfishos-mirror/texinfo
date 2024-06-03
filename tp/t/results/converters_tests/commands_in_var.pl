@@ -162,7 +162,7 @@ $result_trees{'commands_in_var'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'aa',
@@ -176,7 +176,7 @@ $result_trees{'commands_in_var'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'TeX',
@@ -352,7 +352,7 @@ $result_trees{'commands_in_var'} = {
                                       'type' => 'raw'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'verb',
@@ -655,7 +655,7 @@ $result_trees{'commands_in_var'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',

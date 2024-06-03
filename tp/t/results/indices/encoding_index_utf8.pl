@@ -205,7 +205,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'text' => 'i'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',
@@ -225,7 +225,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'text' => 'i'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',
@@ -242,7 +242,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'text' => 'i'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',
@@ -259,7 +259,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'text' => 'i'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',
@@ -1463,7 +1463,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'l',
@@ -1509,7 +1509,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'L',
@@ -1560,7 +1560,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'text' => 'i'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'dotless',
@@ -1580,7 +1580,7 @@ $result_trees{'encoding_index_utf8'} = {
                           'text' => 'i'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'dotless',
@@ -1638,7 +1638,7 @@ $result_trees{'encoding_index_utf8'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -1648,7 +1648,7 @@ $result_trees{'encoding_index_utf8'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',
@@ -1672,7 +1672,7 @@ $result_trees{'encoding_index_utf8'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -1682,7 +1682,7 @@ $result_trees{'encoding_index_utf8'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',
@@ -1731,7 +1731,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'ss',
@@ -1777,7 +1777,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'euro',
@@ -1823,7 +1823,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'AE',
@@ -1869,7 +1869,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'exclamdown',
@@ -1915,7 +1915,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'TH',
@@ -1961,7 +1961,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'DH',
@@ -2007,7 +2007,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'textdegree',
@@ -2127,7 +2127,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'quotedblleft',
@@ -2173,7 +2173,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'geq',
@@ -2219,7 +2219,7 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'comma',

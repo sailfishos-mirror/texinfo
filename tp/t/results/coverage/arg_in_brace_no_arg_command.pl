@@ -19,7 +19,7 @@ $result_trees{'arg_in_brace_no_arg_command'} = {
                       'text' => 'in tex'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'TeX',

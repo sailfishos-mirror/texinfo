@@ -42,7 +42,7 @@ $result_trees{'command_in_end_expanded_raw_two_char_before_command'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',

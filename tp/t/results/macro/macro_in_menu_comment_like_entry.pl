@@ -174,7 +174,7 @@ $result_trees{'macro_in_menu_comment_like_entry'} = {
                               'text' => 'b'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'b',

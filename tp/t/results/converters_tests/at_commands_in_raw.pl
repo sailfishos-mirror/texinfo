@@ -308,7 +308,7 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'in kbd before tex'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -642,7 +642,7 @@ $result_trees{'at_commands_in_raw'} = {
                   'text' => 'flag'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'value'
@@ -671,7 +671,7 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'in kbd after tex'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',

@@ -5780,7 +5780,7 @@ sub _convert_float_command($$$$$)
     # if not empty?
     $prepended_text = $self->convert_tree_new_formatting_context(
                                {'cmdname' => 'strong',
-                                'args' => [{'type' => 'brace_command_arg',
+                                'args' => [{'type' => 'brace_container',
                                             'contents' => [$prepended]}]},
                                'float number type');
     if ($caption_element) {

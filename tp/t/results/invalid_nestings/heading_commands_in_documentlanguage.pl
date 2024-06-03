@@ -24,7 +24,7 @@ $result_trees{'heading_commands_in_documentlanguage'} = {
                           'cmdname' => 'thischapter'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

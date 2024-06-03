@@ -250,7 +250,7 @@ $result_trees{'macro_expansion'} = {
                       'text' => 'a macro , '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',

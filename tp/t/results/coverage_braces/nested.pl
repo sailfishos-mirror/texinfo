@@ -29,7 +29,7 @@ $result_trees{'nested'} = {
                               'text' => 'RET'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'key',
@@ -38,7 +38,7 @@ $result_trees{'nested'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',

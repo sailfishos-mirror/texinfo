@@ -1511,7 +1511,7 @@ sub table_item_content_tree($$)
               'contents' => [$element->{'args'}->[0]],
               'parent' => $command,};
     } else {
-      $arg = {'type' => 'brace_command_arg',
+      $arg = {'type' => 'brace_container',
               'contents' => [$element->{'args'}->[0]],
               'parent' => $command,};
     }

@@ -16,7 +16,7 @@ $result_trees{'empty_center_with_arg'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'w',

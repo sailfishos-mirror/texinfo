@@ -38,7 +38,7 @@ $result_trees{'simple'} = {
                         'text' => 'a-_5b'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -66,7 +66,7 @@ $result_trees{'simple'} = {
                       'text' => 'b'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'b',

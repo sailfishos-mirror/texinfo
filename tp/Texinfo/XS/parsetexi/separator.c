@@ -71,7 +71,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
 
       if (command == CM_verb)
         {
-          arg = new_element (ET_brace_command_arg);
+          arg = new_element (ET_brace_container);
           add_to_element_args (current, arg);
           current = arg;
 
@@ -194,7 +194,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             }
           else
             {
-              arg = new_element (ET_brace_command_arg);
+              arg = new_element (ET_brace_container);
             }
           add_to_element_args (current, arg);
           current = arg;

@@ -21,7 +21,7 @@ $result_trees{'commands_in_email'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'enddots',
@@ -40,7 +40,7 @@ $result_trees{'commands_in_email'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

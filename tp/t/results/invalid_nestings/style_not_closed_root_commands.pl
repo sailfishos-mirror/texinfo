@@ -181,7 +181,7 @@ $result_trees{'style_not_closed_root_commands'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -274,7 +274,7 @@ $result_trees{'style_not_closed_root_commands'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

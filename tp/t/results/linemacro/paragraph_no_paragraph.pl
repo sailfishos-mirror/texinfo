@@ -171,7 +171,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                       'text' => 'more'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -275,7 +275,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                       'text' => ' call'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',

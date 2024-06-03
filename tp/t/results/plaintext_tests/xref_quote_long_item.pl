@@ -60,7 +60,7 @@ $result_trees{'xref_quote_long_item'} = {
                                       'text' => 'verbatiminclude'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -105,7 +105,7 @@ $result_trees{'xref_quote_long_item'} = {
                                 {
                                   'args' => [
                                     {
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'comma',
@@ -119,7 +119,7 @@ $result_trees{'xref_quote_long_item'} = {
                                 {
                                   'args' => [
                                     {
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'comma',

@@ -31,7 +31,7 @@ $result_trees{'exdent_and_formats'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'TeX',

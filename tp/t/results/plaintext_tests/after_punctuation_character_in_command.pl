@@ -26,7 +26,7 @@ $result_trees{'after_punctuation_character_in_command'} = {
                       'text' => 'follows'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',

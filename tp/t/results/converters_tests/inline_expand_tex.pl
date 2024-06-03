@@ -167,7 +167,7 @@ $result_trees{'inline_expand_tex'} = {
                               'text' => 'tex \\hbox code '
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -411,7 +411,7 @@ $result_trees{'inline_expand_tex'} = {
                                   'type' => 'balanced_braces'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',

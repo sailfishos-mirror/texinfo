@@ -116,7 +116,7 @@ $result_trees{'protect_comma_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma'
@@ -124,7 +124,7 @@ $result_trees{'protect_comma_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -139,7 +139,7 @@ $result_trees{'protect_comma_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -154,7 +154,7 @@ $result_trees{'protect_comma_source_mark'} = {
                             'text' => 'punct'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -168,7 +168,7 @@ $result_trees{'protect_comma_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma'
@@ -176,7 +176,7 @@ $result_trees{'protect_comma_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -191,7 +191,7 @@ $result_trees{'protect_comma_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma'

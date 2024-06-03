@@ -50,7 +50,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'command',
@@ -82,7 +82,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -100,7 +100,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'aa',
@@ -109,7 +109,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -129,7 +129,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'command',
@@ -161,7 +161,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -179,7 +179,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -188,7 +188,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -208,7 +208,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       'text' => 'double AAA'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'command',
@@ -243,7 +243,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -264,7 +264,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -273,7 +273,7 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',

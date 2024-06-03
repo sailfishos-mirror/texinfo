@@ -29,7 +29,7 @@ $result_trees{'invalid_documentencoding'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -80,7 +80,7 @@ $result_trees{'invalid_documentencoding'} = {
                           'text' => 'a'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -279,7 +279,7 @@ $result_trees{'invalid_documentencoding'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'TeX',

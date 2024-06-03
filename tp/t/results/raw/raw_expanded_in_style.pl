@@ -78,7 +78,7 @@ $result_trees{'raw_expanded_in_style'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

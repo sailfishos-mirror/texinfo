@@ -322,7 +322,7 @@ $result_trees{'ftable_vtable'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'error',

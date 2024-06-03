@@ -120,7 +120,7 @@ $result_trees{'error_in_footnote'} = {
                                   'text' => 'note caption'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'strong',
@@ -162,7 +162,7 @@ $result_trees{'error_in_footnote'} = {
                                               'text' => 'Note footnote'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'strong',

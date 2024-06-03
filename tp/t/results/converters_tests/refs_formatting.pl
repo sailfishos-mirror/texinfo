@@ -87,7 +87,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -154,7 +154,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -224,7 +224,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -296,7 +296,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -371,7 +371,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -449,7 +449,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -526,7 +526,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -606,7 +606,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -688,7 +688,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -773,7 +773,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -873,7 +873,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -950,7 +950,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1030,7 +1030,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1125,7 +1125,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1215,7 +1215,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1295,7 +1295,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1378,7 +1378,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1464,7 +1464,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1553,7 +1553,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1644,7 +1644,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1735,7 +1735,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1829,7 +1829,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1925,7 +1925,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2024,7 +2024,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2138,7 +2138,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2229,7 +2229,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2323,7 +2323,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2432,7 +2432,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2536,7 +2536,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2620,7 +2620,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2679,7 +2679,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2751,7 +2751,7 @@ $result_trees{'refs_formatting'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

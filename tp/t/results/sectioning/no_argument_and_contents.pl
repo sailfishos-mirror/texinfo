@@ -78,7 +78,7 @@ $result_trees{'no_argument_and_contents'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',

@@ -249,7 +249,7 @@ $result_trees{'star_at_command_formatting'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -273,7 +273,7 @@ $result_trees{'star_at_command_formatting'} = {
                       'text' => ' '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -301,7 +301,7 @@ $result_trees{'star_at_command_formatting'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -337,7 +337,7 @@ $result_trees{'star_at_command_formatting'} = {
                       'text' => ' '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -510,7 +510,7 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -534,7 +534,7 @@ $result_trees{'star_at_command_formatting'} = {
                           'text' => ' '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -562,7 +562,7 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -598,7 +598,7 @@ $result_trees{'star_at_command_formatting'} = {
                           'text' => ' '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -811,7 +811,7 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -835,7 +835,7 @@ $result_trees{'star_at_command_formatting'} = {
                           'text' => ' '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -863,7 +863,7 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -899,7 +899,7 @@ $result_trees{'star_at_command_formatting'} = {
                           'text' => ' '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',

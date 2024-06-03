@@ -19,7 +19,7 @@ $result_trees{'no_brace_space_end_line'} = {
                       'text' => 'c'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

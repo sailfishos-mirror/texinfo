@@ -19,7 +19,7 @@ $result_trees{'unmatched_brace'} = {
                       'text' => 'Closing'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -44,7 +44,7 @@ $result_trees{'unmatched_brace'} = {
                       'text' => ' without opening macro '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',

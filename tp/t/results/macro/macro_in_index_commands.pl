@@ -834,7 +834,7 @@ $result_trees{'macro_in_index_commands'} = {
                           'text' => 'index entry'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -878,7 +878,7 @@ $result_trees{'macro_in_index_commands'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -888,7 +888,7 @@ $result_trees{'macro_in_index_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',

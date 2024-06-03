@@ -24,7 +24,7 @@ $result_trees{'table_in_code'} = {
 '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

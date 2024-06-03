@@ -272,9 +272,9 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
                 {
                   ELEMENT *asis_command
                     = new_command_element (ET_brace_command, CM_asis);
-                  ELEMENT *brace_command_arg
-                    = new_element (ET_brace_command_arg);
-                  add_to_element_args (asis_command, brace_command_arg);
+                  ELEMENT *brace_container
+                    = new_element (ET_brace_container);
+                  add_to_element_args (asis_command, brace_container);
                   line_content = asis_command;
                 }
               add_to_element_contents (line_arg, line_content);
@@ -1355,7 +1355,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           ELEMENT *leading_spaces
                                = new_text_element (ET_normal_text);
                           ELEMENT *hashchar = new_element (ET_NONE);
-                          ELEMENT *arg = new_element (ET_brace_command_arg);
+                          ELEMENT *arg = new_element (ET_brace_container);
                           /* count UTF-8 encoded Unicode characters for
                              source marks locations */
                           uint8_t *u8_text = 0;

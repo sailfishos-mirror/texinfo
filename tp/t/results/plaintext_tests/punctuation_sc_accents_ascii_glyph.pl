@@ -198,7 +198,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => 'def'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dfn',
@@ -218,7 +218,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => 'in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -238,7 +238,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => 'in samp'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -253,7 +253,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -268,7 +268,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'exclamdown',
@@ -283,7 +283,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dots',
@@ -309,7 +309,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'geq',
@@ -324,7 +324,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'enddots',
@@ -339,7 +339,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AA',
@@ -379,7 +379,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => 'A'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotaccent',
@@ -394,7 +394,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'l',
@@ -409,7 +409,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'copyright',
@@ -424,7 +424,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'error',
@@ -440,7 +440,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblleft',
@@ -455,7 +455,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblright',
@@ -470,7 +470,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'expansion',
@@ -486,7 +486,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'minus',
@@ -501,7 +501,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'registeredsymbol',
@@ -537,7 +537,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => '--a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'u',
@@ -558,7 +558,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => '--a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -574,7 +574,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'aa',
@@ -589,7 +589,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AA',
@@ -653,7 +653,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -663,7 +663,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '~',
@@ -683,7 +683,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -703,7 +703,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       'text' => 'r'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'udotaccent',
@@ -727,7 +727,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               'text' => 'r'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '\'',
@@ -737,7 +737,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'v',
@@ -765,7 +765,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                                       'text' => 'n'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => '~',
@@ -775,7 +775,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => ',',
@@ -785,7 +785,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '=',
@@ -801,7 +801,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'equiv',
@@ -821,7 +821,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'aa',
@@ -836,7 +836,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -900,7 +900,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                                       'text' => 'i'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'dotless',
@@ -910,7 +910,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '~',
@@ -930,7 +930,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -950,7 +950,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               'text' => 'r'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'udotaccent',
@@ -974,7 +974,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                                       'text' => 'r'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => '\'',
@@ -984,7 +984,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'v',
@@ -1012,7 +1012,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                                               'text' => 'n'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => '~',
@@ -1022,7 +1022,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                                       }
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => ',',
@@ -1032,7 +1032,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '=',
@@ -1042,7 +1042,7 @@ $result_trees{'punctuation_sc_accents_ascii_glyph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',

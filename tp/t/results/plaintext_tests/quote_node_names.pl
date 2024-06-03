@@ -401,7 +401,7 @@ $result_trees{'quote_node_names'} = {
                               'text' => 'secret,node'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -1025,7 +1025,7 @@ $result_trees{'quote_node_names'} = {
                               'text' => ':'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -1106,7 +1106,7 @@ $result_trees{'quote_node_names'} = {
                               'text' => '.'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -1222,7 +1222,7 @@ $result_trees{'quote_node_names'} = {
                               'text' => ':'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -1251,7 +1251,7 @@ $result_trees{'quote_node_names'} = {
                               'text' => 'secret,node'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -1585,7 +1585,7 @@ $result_trees{'quote_node_names'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -1643,7 +1643,7 @@ $result_trees{'quote_node_names'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -1783,7 +1783,7 @@ $result_trees{'quote_node_names'} = {
                       'text' => 'secret,node'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -1829,7 +1829,7 @@ $result_trees{'quote_node_names'} = {
                       'text' => 'secret,node'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',

@@ -278,7 +278,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                       'text' => 'dbb'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phooindex',
@@ -349,7 +349,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                       'text' => 'acc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -489,7 +489,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                       'text' => 'dee'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phooindex',
@@ -843,7 +843,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                       'text' => 'aii'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -910,7 +910,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                       'text' => 'djj'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phoo',
@@ -1054,7 +1054,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                       'text' => 'all'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',

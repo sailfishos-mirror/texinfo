@@ -40,7 +40,7 @@ $result_trees{'value_zero'} = {
                             'text' => 'zero'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

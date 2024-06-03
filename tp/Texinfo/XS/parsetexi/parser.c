@@ -966,7 +966,7 @@ isolate_last_space (ELEMENT *current)
 
   /* Store a final comment command in the 'info' hash, except for brace
      commands */
-  if (current->type != ET_brace_command_arg
+  if (current->type != ET_brace_container
       && current->type != ET_brace_command_container
       && (last_contents_child (current)->cmd == CM_c
           || last_contents_child (current)->cmd == CM_comment))
@@ -1105,13 +1105,13 @@ new_value_element (enum command_id cmd, const char *flag,
                    int flag_len, ELEMENT *spaces_element)
 {
   ELEMENT *value_elt = new_command_element (ET_brace_command, cmd);
-  ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
+  ELEMENT *brace_container = new_element (ET_brace_container);
   /* occasionnally considered as text in conversion, so make it normal text */
   ELEMENT *value_text = new_text_element (ET_normal_text);
 
   text_append_n (value_text->text, flag, flag_len);
-  add_to_element_args (value_elt, brace_command_arg);
-  add_to_element_contents (brace_command_arg, value_text);
+  add_to_element_args (value_elt, brace_container);
+  add_to_element_contents (brace_container, value_text);
   if (spaces_element)
     add_info_element_oot (value_elt, "spaces_after_cmd_before_arg",
                                      spaces_element);

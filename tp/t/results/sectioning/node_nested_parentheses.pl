@@ -178,7 +178,7 @@ $result_trees{'node_nested_parentheses'} = {
                               'text' => 'open('
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -254,7 +254,7 @@ $result_trees{'node_nested_parentheses'} = {
                               'text' => ')))'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

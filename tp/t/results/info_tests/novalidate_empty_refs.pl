@@ -100,7 +100,7 @@ $result_trees{'novalidate_empty_refs'} = {
                               'text' => ' '
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -212,7 +212,7 @@ $result_trees{'novalidate_empty_refs'} = {
                       'text' => ' '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',

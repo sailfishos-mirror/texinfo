@@ -257,7 +257,7 @@ now second arg: gg '
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -290,7 +290,7 @@ now second arg: gg '
                               'text' => 'something'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'var',

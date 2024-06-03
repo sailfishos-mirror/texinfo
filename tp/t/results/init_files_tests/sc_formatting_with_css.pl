@@ -26,7 +26,7 @@ $result_trees{'sc_formatting_with_css'} = {
                               'text' => 'my string'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'sc',
@@ -70,7 +70,7 @@ $result_trees{'sc_formatting_with_css'} = {
                       'text' => 'in sc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -114,7 +114,7 @@ $result_trees{'sc_formatting_with_css'} = {
                           'text' => 'small case in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sc',

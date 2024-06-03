@@ -171,7 +171,7 @@ $result_trees{'ifset_in_command'} = {
 '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'file',

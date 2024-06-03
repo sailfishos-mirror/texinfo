@@ -11537,7 +11537,7 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
 
   if (prepended)
     {
-      ELEMENT *args = new_element (ET_brace_command_arg);
+      ELEMENT *args = new_element (ET_brace_container);
       ELEMENT *strong_element
         = new_command_element (ET_brace_command, CM_strong);
 

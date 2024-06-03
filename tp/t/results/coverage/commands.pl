@@ -20,7 +20,7 @@ $result_trees{'commands'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'TeX',
@@ -66,7 +66,7 @@ $result_trees{'commands'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -75,7 +75,7 @@ $result_trees{'commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -94,7 +94,7 @@ $result_trees{'commands'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '~',
@@ -150,7 +150,7 @@ $result_trees{'commands'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'click',
@@ -165,7 +165,7 @@ $result_trees{'commands'} = {
                       'text' => ' Open'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'clicksequence',
@@ -220,7 +220,7 @@ $result_trees{'commands'} = {
                       'text' => 'code --- -- \'\' ``'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -243,7 +243,7 @@ $result_trees{'commands'} = {
                       'text' => 'small caps'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -273,7 +273,7 @@ $result_trees{'commands'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'LaTeX',
@@ -329,7 +329,7 @@ $result_trees{'commands'} = {
                           'text' => 'in b'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'b',

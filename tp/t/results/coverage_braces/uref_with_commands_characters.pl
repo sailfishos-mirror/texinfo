@@ -26,7 +26,7 @@ $result_trees{'uref_with_commands_characters'} = {
                               'text' => 'toto'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -70,7 +70,7 @@ $result_trees{'uref_with_commands_characters'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'LaTeX',
@@ -79,7 +79,7 @@ $result_trees{'uref_with_commands_characters'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',

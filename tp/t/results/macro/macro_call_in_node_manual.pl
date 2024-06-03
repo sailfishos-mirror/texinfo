@@ -847,7 +847,7 @@ $result_trees{'macro_call_in_node_manual'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

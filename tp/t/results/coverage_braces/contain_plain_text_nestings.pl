@@ -149,7 +149,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => 'code in w'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -161,7 +161,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'text' => ' text'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -185,7 +185,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => 'code in hyphenation'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -223,7 +223,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => 'code in key'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -235,7 +235,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'text' => ' text'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'key',
@@ -270,7 +270,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                                       'text' => 'code in sortas'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -388,7 +388,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'text' => ' text'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -504,7 +504,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       'text' => ' text'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'key',

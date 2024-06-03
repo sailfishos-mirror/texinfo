@@ -363,7 +363,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                         'text' => 'hash'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'

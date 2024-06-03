@@ -14,7 +14,7 @@ $result_trees{'empty_w'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -33,7 +33,7 @@ $result_trees{'empty_w'} = {
                       'text' => 'a b'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',

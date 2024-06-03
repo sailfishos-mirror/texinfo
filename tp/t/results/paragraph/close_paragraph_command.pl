@@ -25,7 +25,7 @@ $result_trees{'close_paragraph_command'} = {
                   'text' => 'in titlefont'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'titlefont',

@@ -45,7 +45,7 @@ $result_trees{'empty_set'} = {
                             'text' => 'myspace'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

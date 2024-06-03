@@ -41,7 +41,7 @@ $result_trees{'command_in_end'} = {
                                   'text' => 'quotation'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -112,7 +112,7 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'uotation'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -186,7 +186,7 @@ $result_trees{'command_in_end'} = {
                                           'text' => 'otation'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'code',
@@ -260,7 +260,7 @@ $result_trees{'command_in_end'} = {
                                               'text' => 'atio'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'asis',
@@ -335,7 +335,7 @@ $result_trees{'command_in_end'} = {
                                     {
                                       'args' => [
                                         {
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'asis',
@@ -412,7 +412,7 @@ $result_trees{'command_in_end'} = {
                                     {
                                       'args' => [
                                         {
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'asis',
@@ -489,7 +489,7 @@ $result_trees{'command_in_end'} = {
                                     {
                                       'args' => [
                                         {
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'asis',

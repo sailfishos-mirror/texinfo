@@ -45,7 +45,7 @@ $result_trees{'inter_item_commands_in_def'} = {
                                       'text' => 'i'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -304,7 +304,7 @@ $result_trees{'inter_item_commands_in_def'} = {
                                               'text' => 'i'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'samp',
@@ -316,7 +316,7 @@ $result_trees{'inter_item_commands_in_def'} = {
                                       'text' => ' ule'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'b',

@@ -390,7 +390,7 @@ $result_trees{'redirection_same_labels'} = [
                                       'text' => 'i'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'dotless',
@@ -399,7 +399,7 @@ $result_trees{'redirection_same_labels'} = [
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '~',
@@ -595,7 +595,7 @@ $result_trees{'redirection_same_labels'} = [
                                 'text' => 'i'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'dotless',
@@ -604,7 +604,7 @@ $result_trees{'redirection_same_labels'} = [
                         }
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => '~',

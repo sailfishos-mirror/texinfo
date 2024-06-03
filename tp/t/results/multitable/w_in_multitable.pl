@@ -75,7 +75,7 @@ $result_trees{'w_in_multitable'} = {
                                       'text' => 'bbbbbbbbbb'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'w',

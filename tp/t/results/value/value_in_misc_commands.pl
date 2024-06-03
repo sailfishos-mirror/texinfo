@@ -81,7 +81,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'text'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -168,7 +168,7 @@ $result_trees{'value_in_misc_commands'} = {
                                 'text' => 'text'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -349,7 +349,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'pagesizes_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -412,7 +412,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'afourpaper_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -457,7 +457,7 @@ $result_trees{'value_in_misc_commands'} = {
                                 'text' => 'text'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -513,7 +513,7 @@ $result_trees{'value_in_misc_commands'} = {
                                 'text' => 'text'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -568,7 +568,7 @@ $result_trees{'value_in_misc_commands'} = {
                                 'text' => 'text'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -703,7 +703,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'need_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -790,7 +790,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'raisesections_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -843,7 +843,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'lowersections_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -968,7 +968,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'bar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phoo',
@@ -1097,7 +1097,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'definfoenclose_name'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -1130,7 +1130,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'bar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phi',
@@ -1204,7 +1204,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'strong_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1229,7 +1229,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'very strong'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -1283,7 +1283,7 @@ $result_trees{'value_in_misc_commands'} = {
                                 'text' => 'strong_name'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -1333,7 +1333,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'strong_name'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -1363,7 +1363,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'strong_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1388,7 +1388,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => ' is it really strong? '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -1436,7 +1436,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'something before kbdinputstyle'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -1517,7 +1517,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'kbdinputstyle_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -1550,7 +1550,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -1597,7 +1597,7 @@ $result_trees{'value_in_misc_commands'} = {
                           'text' => 'example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -1789,7 +1789,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'asis_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -1851,7 +1851,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'zero'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -1913,7 +1913,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'none_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -1975,7 +1975,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'four'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2037,7 +2037,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'none_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2099,7 +2099,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'six'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2200,7 +2200,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'end_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2262,7 +2262,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'separate_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2345,7 +2345,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'latin1'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2454,7 +2454,7 @@ $result_trees{'value_in_misc_commands'} = {
                                 'text' => 'en'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -2494,7 +2494,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'documentlanguage_command'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2635,7 +2635,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'on_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2697,7 +2697,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'off_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2791,7 +2791,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'ten'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2912,7 +2912,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'false_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -2979,7 +2979,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'true_arg'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -3075,7 +3075,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'page_macro'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -3120,7 +3120,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'noindent_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -3166,7 +3166,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'noindent_macro'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -3214,7 +3214,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'noindent_macro'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -3305,7 +3305,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'page_macro'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -3370,7 +3370,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'contents_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -3447,7 +3447,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'exdent_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -3558,7 +3558,7 @@ $result_trees{'value_in_misc_commands'} = {
                             'text' => 'two'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -3632,7 +3632,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'contents_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -3699,7 +3699,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'shortcontents_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -3763,7 +3763,7 @@ $result_trees{'value_in_misc_commands'} = {
                         'text' => 'bye_macro'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'

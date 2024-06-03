@@ -148,7 +148,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
             }
         }
       else if (e->c->args.number > 0
-               && (e->c->args.list[0]->type == ET_brace_command_arg
+               && (e->c->args.list[0]->type == ET_brace_container
                    || e->c->args.list[0]->type == ET_brace_command_container
                    || e->cmd == CM_math))
         {

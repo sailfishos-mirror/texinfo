@@ -82,7 +82,7 @@ $result_trees{'direntry_dircategory'} = {
                               'text' => 'th  ere'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'var',
@@ -187,7 +187,7 @@ $result_trees{'direntry_dircategory'} = {
                                       'text' => 'there'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',

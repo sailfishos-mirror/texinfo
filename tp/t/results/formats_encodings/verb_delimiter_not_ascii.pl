@@ -142,7 +142,7 @@ $result_trees{'verb_delimiter_not_ascii'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',

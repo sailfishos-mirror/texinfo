@@ -196,7 +196,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
                                       'text' => 'b c'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',

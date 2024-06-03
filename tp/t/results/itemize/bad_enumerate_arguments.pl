@@ -155,7 +155,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                           'text' => 'a'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

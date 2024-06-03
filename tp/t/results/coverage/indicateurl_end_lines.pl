@@ -23,7 +23,7 @@ $result_trees{'indicateurl_end_lines'} = {
                       'text' => 'continue on other line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'indicateurl',
@@ -59,7 +59,7 @@ $result_trees{'indicateurl_end_lines'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'indicateurl',

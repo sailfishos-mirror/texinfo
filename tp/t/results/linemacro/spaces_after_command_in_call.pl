@@ -188,7 +188,7 @@ $result_trees{'spaces_after_command_in_call'} = {
                                       'text' => 'd'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',

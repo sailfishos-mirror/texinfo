@@ -29,7 +29,7 @@ $result_trees{'accent_no_closed_comment'} = {
                       'cmdname' => 'c'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '~',

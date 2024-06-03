@@ -232,7 +232,7 @@ $result_trees{'unknown_accents'} = {
                       'text' => 'H'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => ',',
@@ -251,7 +251,7 @@ $result_trees{'unknown_accents'} = {
                       'text' => 'h'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => ',',

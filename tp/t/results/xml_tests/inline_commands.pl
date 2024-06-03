@@ -110,7 +110,7 @@ $result_trees{'inline_commands'} = {
                               'text' => 'inlinefmt'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'env',
@@ -208,7 +208,7 @@ $result_trees{'inline_commands'} = {
                               'text' => 'inlinefmtifelse'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

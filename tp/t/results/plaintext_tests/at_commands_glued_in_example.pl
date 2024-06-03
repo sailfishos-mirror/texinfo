@@ -41,7 +41,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'TeX',
@@ -64,7 +64,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                           'text' => 'in code'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -246,7 +246,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -255,7 +255,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',

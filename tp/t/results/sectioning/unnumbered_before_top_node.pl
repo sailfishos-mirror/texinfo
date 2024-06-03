@@ -88,7 +88,7 @@ $result_trees{'unnumbered_before_top_node'} = [
                     'text' => 'Title titlefont'
                   }
                 ],
-                'type' => 'brace_command_arg'
+                'type' => 'brace_container'
               }
             ],
             'cmdname' => 'titlefont',

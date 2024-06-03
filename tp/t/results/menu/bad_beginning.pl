@@ -50,7 +50,7 @@ $result_trees{'bad_beginning'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

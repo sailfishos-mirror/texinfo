@@ -46,7 +46,7 @@ $result_trees{'anchor_in_command'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'TeX',
@@ -65,7 +65,7 @@ $result_trees{'anchor_in_command'} = {
                               'text' => 'in emph'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',
@@ -118,7 +118,7 @@ $result_trees{'anchor_in_command'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',
@@ -127,7 +127,7 @@ $result_trees{'anchor_in_command'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',

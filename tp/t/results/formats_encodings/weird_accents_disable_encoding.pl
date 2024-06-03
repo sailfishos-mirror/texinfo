@@ -192,7 +192,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                                       'text' => 'i'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'dotless',
@@ -201,7 +201,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '~',
@@ -210,7 +210,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '=',
@@ -248,7 +248,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                                       'text' => 'n'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => '~',
@@ -257,7 +257,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => ',',
@@ -266,7 +266,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '=',
@@ -300,7 +300,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                               'text' => 'a'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'ubaraccent',
@@ -309,7 +309,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '=',
@@ -356,7 +356,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'udotaccent',
@@ -365,7 +365,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -403,7 +403,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                                       'text' => 'r'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => '`',
@@ -412,7 +412,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '\'',
@@ -421,7 +421,7 @@ $result_trees{'weird_accents_disable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '=',

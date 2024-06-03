@@ -877,7 +877,7 @@ $result_trees{'commands_and_spaces'} = {
                           'text' => 'cmd'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -1346,7 +1346,7 @@ $result_trees{'commands_and_spaces'} = {
                       'text' => ' http://ggg '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'indicateurl',

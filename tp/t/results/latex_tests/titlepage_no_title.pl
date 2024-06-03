@@ -33,7 +33,7 @@ $result_trees{'titlepage_no_title'} = {
                           'text' => 'Some manual tested'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'titlefont',

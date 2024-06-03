@@ -27,7 +27,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'TeX',
@@ -50,7 +50,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -232,7 +232,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -241,7 +241,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',

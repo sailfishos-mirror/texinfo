@@ -47,7 +47,7 @@ $result_trees{'not_i_j_in_dotless'} = {
                               'text' => 'q'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -56,7 +56,7 @@ $result_trees{'not_i_j_in_dotless'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',

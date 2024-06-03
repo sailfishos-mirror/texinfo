@@ -40,7 +40,7 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                               'text' => 'text'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',

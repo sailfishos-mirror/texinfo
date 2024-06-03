@@ -61,7 +61,7 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                       'text' => 'in r'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'r',
@@ -98,7 +98,7 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                           'text' => 'll'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sansserif',
@@ -117,7 +117,7 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                           'text' => 'jj'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'r',

@@ -206,7 +206,7 @@ $result_trees{'value_expansion_in_include'} = {
                                       'text' => 'testvar'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'value'
@@ -239,7 +239,7 @@ $result_trees{'value_expansion_in_include'} = {
                       'text' => 'included'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -319,7 +319,7 @@ $result_trees{'value_expansion_in_include'} = {
                             'text' => 'testvar'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -395,7 +395,7 @@ $result_trees{'value_expansion_in_include'} = {
                                       'text' => 'test-var'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'value'
@@ -428,7 +428,7 @@ $result_trees{'value_expansion_in_include'} = {
                       'text' => 'included'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -508,7 +508,7 @@ $result_trees{'value_expansion_in_include'} = {
                             'text' => 'test-var'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -558,7 +558,7 @@ $result_trees{'value_expansion_in_include'} = {
                                           'text' => 'test_var'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'value'
@@ -615,7 +615,7 @@ $result_trees{'value_expansion_in_include'} = {
                       'text' => 'included'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -668,7 +668,7 @@ $result_trees{'value_expansion_in_include'} = {
                                 'text' => 'test_var'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'

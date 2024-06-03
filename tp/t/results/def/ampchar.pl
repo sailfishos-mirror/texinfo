@@ -89,7 +89,7 @@ $result_trees{'ampchar'} = {
                                       'cmdname' => '&'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -250,7 +250,7 @@ $result_trees{'ampchar'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ampchar',

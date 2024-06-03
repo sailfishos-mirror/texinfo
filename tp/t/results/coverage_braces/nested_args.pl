@@ -29,7 +29,7 @@ $result_trees{'nested_args'} = {
                               'text' => 'in samp'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -62,7 +62,7 @@ $result_trees{'nested_args'} = {
                               'text' => 'in b'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'b',
@@ -91,7 +91,7 @@ $result_trees{'nested_args'} = {
                               'text' => 'e'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '~',
@@ -120,7 +120,7 @@ $result_trees{'nested_args'} = {
                               'text' => 'manual'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'cite',

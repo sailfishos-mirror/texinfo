@@ -17,7 +17,7 @@ $result_trees{'test_tie'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'tie',

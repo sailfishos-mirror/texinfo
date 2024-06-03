@@ -53,7 +53,7 @@ $result_trees{'set_flag_command_equivalent'} = {
                         'text' => 'txicodequoteundirected'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'

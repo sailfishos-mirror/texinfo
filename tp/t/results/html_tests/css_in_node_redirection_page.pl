@@ -80,7 +80,7 @@ $result_trees{'css_in_node_redirection_page'} = {
                       'text' => 'SANS'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sansserif',

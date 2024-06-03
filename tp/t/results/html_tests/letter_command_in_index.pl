@@ -139,7 +139,7 @@ $result_trees{'letter_command_in_index'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'TH',
@@ -188,7 +188,7 @@ $result_trees{'letter_command_in_index'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'l',

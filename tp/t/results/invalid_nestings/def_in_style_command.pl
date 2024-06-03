@@ -20,7 +20,7 @@ $result_trees{'def_in_style_command'} = {
 '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

@@ -202,7 +202,7 @@ $result_trees{'indices_disable_encoding'} = {
                           'text' => 'o'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',
@@ -505,7 +505,7 @@ $result_trees{'indices_disable_encoding'} = {
                           'text' => 'o'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',
@@ -592,7 +592,7 @@ $result_trees{'indices_disable_encoding'} = {
                               'text' => 'o'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '"',
@@ -700,7 +700,7 @@ $result_trees{'indices_disable_encoding'} = {
                               'text' => 'o'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '"',
@@ -884,7 +884,7 @@ $result_trees{'indices_disable_encoding'} = {
                           'text' => 'file'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'file',
@@ -950,7 +950,7 @@ $result_trees{'indices_disable_encoding'} = {
                           'text' => 'person'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'r',
@@ -969,7 +969,7 @@ $result_trees{'indices_disable_encoding'} = {
                           'text' => 'aa'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'file',

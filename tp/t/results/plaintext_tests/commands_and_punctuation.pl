@@ -29,7 +29,7 @@ $result_trees{'commands_and_punctuation'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dots',
@@ -43,7 +43,7 @@ $result_trees{'commands_and_punctuation'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'enddots',

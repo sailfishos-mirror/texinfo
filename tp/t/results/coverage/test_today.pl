@@ -14,7 +14,7 @@ $result_trees{'test_today'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'today',

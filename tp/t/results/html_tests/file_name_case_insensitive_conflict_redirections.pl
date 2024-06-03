@@ -211,7 +211,7 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                                   'text' => 'foo'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'samp',
@@ -311,7 +311,7 @@ $result_trees{'file_name_case_insensitive_conflict_redirections'} = {
                                   'text' => 'Foo'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'samp',

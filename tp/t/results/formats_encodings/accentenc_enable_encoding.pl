@@ -116,7 +116,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '`',
@@ -168,7 +168,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '\'',
@@ -220,7 +220,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -272,7 +272,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'u'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '"',
@@ -324,7 +324,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '`',
@@ -376,7 +376,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '\'',
@@ -428,7 +428,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -480,7 +480,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'u'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '"',
@@ -532,7 +532,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'c'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => ',',
@@ -584,7 +584,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'n'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '~',
@@ -636,7 +636,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '=',
@@ -688,7 +688,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => '\''
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -707,7 +707,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'H',
@@ -764,7 +764,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotaccent',
@@ -821,7 +821,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -878,7 +878,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'ee'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'tieaccent',
@@ -911,7 +911,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'u',
@@ -968,7 +968,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ubaraccent',
@@ -1025,7 +1025,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'udotaccent',
@@ -1082,7 +1082,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'v',
@@ -1139,7 +1139,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ogonek',
@@ -1196,7 +1196,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ogonek',
@@ -1248,7 +1248,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'questiondown',
@@ -1262,7 +1262,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'exclamdown',
@@ -1290,7 +1290,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'aa',
@@ -1304,7 +1304,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AA',
@@ -1332,7 +1332,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ae',
@@ -1346,7 +1346,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AE',
@@ -1360,7 +1360,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'oe',
@@ -1374,7 +1374,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'OE',
@@ -1407,7 +1407,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -1426,7 +1426,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       'text' => 'j'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -1454,7 +1454,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'l',
@@ -1468,7 +1468,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'L',
@@ -1496,7 +1496,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'o',
@@ -1510,7 +1510,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'O',
@@ -1538,7 +1538,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ss',
@@ -1566,7 +1566,7 @@ $result_trees{'accentenc_enable_encoding'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'pounds',
@@ -1613,7 +1613,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1622,7 +1622,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '`',
@@ -1659,7 +1659,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1668,7 +1668,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '\'',
@@ -1705,7 +1705,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1714,7 +1714,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -1751,7 +1751,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1760,7 +1760,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '"',
@@ -1807,7 +1807,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'j'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1816,7 +1816,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '`',
@@ -1853,7 +1853,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'j'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1862,7 +1862,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '\'',
@@ -1899,7 +1899,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'j'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1908,7 +1908,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -1945,7 +1945,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                               'text' => 'j'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -1954,7 +1954,7 @@ $result_trees{'accentenc_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '"',

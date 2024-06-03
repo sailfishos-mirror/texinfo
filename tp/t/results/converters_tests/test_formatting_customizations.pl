@@ -144,7 +144,7 @@ $result_trees{'test_formatting_customizations'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AA',
@@ -159,7 +159,7 @@ $result_trees{'test_formatting_customizations'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'equiv',
@@ -180,7 +180,7 @@ $result_trees{'test_formatting_customizations'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'copyright',

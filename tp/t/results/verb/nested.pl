@@ -27,7 +27,7 @@ $result_trees{'nested'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -42,7 +42,7 @@ $result_trees{'nested'} = {
                       'text' => ' in b end'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'b',

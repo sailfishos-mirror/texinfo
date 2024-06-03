@@ -54,7 +54,7 @@ $result_trees{'punctuation_in_command'} = {
                       'text' => '1. 2'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dmn',
@@ -73,7 +73,7 @@ $result_trees{'punctuation_in_command'} = {
                       'text' => 'i. u'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'indicateurl',
@@ -92,7 +92,7 @@ $result_trees{'punctuation_in_command'} = {
                       'text' => 'k. d'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -130,7 +130,7 @@ $result_trees{'punctuation_in_command'} = {
                       'text' => 'c. e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'cite',
@@ -149,7 +149,7 @@ $result_trees{'punctuation_in_command'} = {
                       'text' => 'e. h'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -176,7 +176,7 @@ $result_trees{'punctuation_in_command'} = {
                               'text' => 'a. c'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -185,7 +185,7 @@ $result_trees{'punctuation_in_command'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

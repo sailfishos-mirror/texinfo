@@ -637,7 +637,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'titlefont! After punc'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'titlefont',

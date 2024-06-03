@@ -133,7 +133,7 @@ $result_trees{'verb_in_menu_description'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',

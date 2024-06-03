@@ -25,7 +25,7 @@ $result_trees{'space_in_setfilename'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'verb',

@@ -113,7 +113,7 @@ $result_trees{'empty_nodes_with_commands'} = {
                       'text' => ' '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',

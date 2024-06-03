@@ -862,7 +862,7 @@ $result_trees{'various_vtable_command_as_argument'} = {
                                       'text' => 'c'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'sup',

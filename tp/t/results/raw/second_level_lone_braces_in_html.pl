@@ -48,7 +48,7 @@ $result_trees{'second_level_lone_braces_in_html'} = {
                           'type' => 'balanced_braces'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -146,7 +146,7 @@ $result_trees{'second_level_lone_braces_in_html'} = {
 '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

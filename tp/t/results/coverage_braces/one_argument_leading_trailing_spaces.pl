@@ -19,7 +19,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' in code '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -38,7 +38,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' in slanted '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'slanted',
@@ -57,7 +57,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' var '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -76,7 +76,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' sub '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sub',
@@ -126,7 +126,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' http://example.com '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'indicateurl',
@@ -172,7 +172,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' w '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -192,7 +192,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',
@@ -215,7 +215,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' e '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -234,7 +234,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' a '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -253,7 +253,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' i '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -272,7 +272,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' bb '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'tieaccent',
@@ -292,7 +292,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' i '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'aa',
@@ -311,7 +311,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' ei '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'enddots',

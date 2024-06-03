@@ -47,7 +47,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
                       'text' => 'note a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -84,7 +84,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',

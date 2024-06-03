@@ -88,7 +88,7 @@ $result_trees{'def_defx_mismatch'} = {
                                       'text' => 'arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -113,7 +113,7 @@ $result_trees{'def_defx_mismatch'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'dots',

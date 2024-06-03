@@ -108,7 +108,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'hashchar'
@@ -217,7 +217,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'hashchar',
@@ -310,7 +310,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'hashchar'
@@ -386,7 +386,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                         'text' => 'hash'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -406,7 +406,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'hashchar',

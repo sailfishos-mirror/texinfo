@@ -19,7 +19,7 @@ $result_trees{'code_not_closed'} = {
                       'text' => 'in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

@@ -223,7 +223,7 @@ $result_trees{'conversion_with_undef_customization'} = {
                                   'text' => 's'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'samp',

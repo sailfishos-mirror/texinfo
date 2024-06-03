@@ -113,7 +113,7 @@ $result_trees{'macro_in_value'} = {
                             'text' => 'flagab'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

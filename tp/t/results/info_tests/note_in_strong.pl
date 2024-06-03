@@ -47,7 +47,7 @@ $result_trees{'note_in_strong'} = {
                       'text' => 'Note'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -80,7 +80,7 @@ $result_trees{'note_in_strong'} = {
                       'text' => 'Note a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -123,7 +123,7 @@ $result_trees{'note_in_strong'} = {
                       'text' => 'note'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -156,7 +156,7 @@ $result_trees{'note_in_strong'} = {
                       'text' => 'note b'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -189,7 +189,7 @@ $result_trees{'note_in_strong'} = {
                       'text' => ' note'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -222,7 +222,7 @@ $result_trees{'note_in_strong'} = {
                       'text' => 'note-bbb'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',

@@ -44,7 +44,7 @@ $result_trees{'invalid_clickstyle'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'click',
@@ -97,7 +97,7 @@ $result_trees{'invalid_clickstyle'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'click',
@@ -144,7 +144,7 @@ $result_trees{'invalid_clickstyle'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'click',

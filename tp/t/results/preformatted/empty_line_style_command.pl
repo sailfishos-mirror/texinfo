@@ -45,7 +45,7 @@ $result_trees{'empty_line_style_command'} = {
                           'text' => 'after empty'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',

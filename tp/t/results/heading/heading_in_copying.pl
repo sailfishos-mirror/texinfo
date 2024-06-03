@@ -49,7 +49,7 @@ $result_trees{'heading_in_copying'} = {
                               'text' => 'heading'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',
@@ -140,7 +140,7 @@ $result_trees{'heading_in_copying'} = {
                               'text' => 'subheading'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',

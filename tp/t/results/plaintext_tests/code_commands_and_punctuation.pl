@@ -19,7 +19,7 @@ $result_trees{'code_commands_and_punctuation'} = {
                       'text' => 'AA'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -38,7 +38,7 @@ $result_trees{'code_commands_and_punctuation'} = {
                       'text' => 'aa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',

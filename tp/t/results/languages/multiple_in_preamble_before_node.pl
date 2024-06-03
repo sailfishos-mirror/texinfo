@@ -240,7 +240,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'error',
@@ -729,7 +729,7 @@ $result_trees{'multiple_in_preamble_before_node'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'error',

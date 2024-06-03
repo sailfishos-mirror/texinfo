@@ -241,7 +241,7 @@ $result_trees{'raw_block_commands'} = {
                           'type' => 'balanced_braces'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -334,7 +334,7 @@ $result_trees{'raw_block_commands'} = {
                           'type' => 'balanced_braces'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

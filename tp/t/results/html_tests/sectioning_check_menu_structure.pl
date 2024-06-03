@@ -184,7 +184,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
                                           'text' => 'i'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'dotless',
@@ -194,7 +194,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => '^',
@@ -218,7 +218,7 @@ $result_trees{'sectioning_check_menu_structure'} = {
                                   'text' => 'me'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'cite',

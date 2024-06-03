@@ -38,7 +38,7 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'TeX',
@@ -52,7 +52,7 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'exclamdown',
@@ -71,7 +71,7 @@ $result_trees{'example_at_commands_arguments'} = {
                           'text' => '---'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -85,7 +85,7 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'enddots',
@@ -102,7 +102,7 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'comma',

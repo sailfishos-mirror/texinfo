@@ -131,7 +131,7 @@ $result_trees{'transparent_sort_chars'} = {
                           'text' => '--version'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -150,7 +150,7 @@ $result_trees{'transparent_sort_chars'} = {
                           'text' => 'install-info'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'command',

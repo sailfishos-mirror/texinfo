@@ -212,7 +212,7 @@ $result_trees{'kbdinputstyle'} = {
                               'text' => 'in nested code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -222,7 +222,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -243,7 +243,7 @@ $result_trees{'kbdinputstyle'} = {
                       'text' => 'kbd out of example'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -274,7 +274,7 @@ $result_trees{'kbdinputstyle'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -287,7 +287,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -322,7 +322,7 @@ $result_trees{'kbdinputstyle'} = {
                                       'text' => 'in r in code'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'kbd',
@@ -335,7 +335,7 @@ $result_trees{'kbdinputstyle'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'r',
@@ -345,7 +345,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -406,7 +406,7 @@ $result_trees{'kbdinputstyle'} = {
                                   'text' => 'in nested code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -416,7 +416,7 @@ $result_trees{'kbdinputstyle'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -437,7 +437,7 @@ $result_trees{'kbdinputstyle'} = {
                           'text' => 'kbd in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -468,7 +468,7 @@ $result_trees{'kbdinputstyle'} = {
                                   'text' => 'in code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'kbd',
@@ -484,7 +484,7 @@ $result_trees{'kbdinputstyle'} = {
                           'text' => ' in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -519,7 +519,7 @@ $result_trees{'kbdinputstyle'} = {
                                           'text' => 'in r in code in example'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'kbd',
@@ -532,7 +532,7 @@ $result_trees{'kbdinputstyle'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'r',
@@ -542,7 +542,7 @@ $result_trees{'kbdinputstyle'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -698,7 +698,7 @@ $result_trees{'kbdinputstyle'} = {
                               'text' => 'in nested code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -708,7 +708,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -729,7 +729,7 @@ $result_trees{'kbdinputstyle'} = {
                       'text' => 'kbd out of example'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -760,7 +760,7 @@ $result_trees{'kbdinputstyle'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -773,7 +773,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -808,7 +808,7 @@ $result_trees{'kbdinputstyle'} = {
                                       'text' => 'in r in code'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'kbd',
@@ -821,7 +821,7 @@ $result_trees{'kbdinputstyle'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'r',
@@ -831,7 +831,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -892,7 +892,7 @@ $result_trees{'kbdinputstyle'} = {
                                   'text' => 'in nested code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -902,7 +902,7 @@ $result_trees{'kbdinputstyle'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -923,7 +923,7 @@ $result_trees{'kbdinputstyle'} = {
                           'text' => 'kbd in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -951,7 +951,7 @@ $result_trees{'kbdinputstyle'} = {
                                   'text' => 'in code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'kbd',
@@ -964,7 +964,7 @@ $result_trees{'kbdinputstyle'} = {
                           'text' => ' in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -999,7 +999,7 @@ $result_trees{'kbdinputstyle'} = {
                                           'text' => 'in r in code in example'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'kbd',
@@ -1009,7 +1009,7 @@ $result_trees{'kbdinputstyle'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'r',
@@ -1019,7 +1019,7 @@ $result_trees{'kbdinputstyle'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -1175,7 +1175,7 @@ $result_trees{'kbdinputstyle'} = {
                               'text' => 'in nested code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -1185,7 +1185,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1206,7 +1206,7 @@ $result_trees{'kbdinputstyle'} = {
                       'text' => 'kbd out of example'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -1234,7 +1234,7 @@ $result_trees{'kbdinputstyle'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -1244,7 +1244,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1279,7 +1279,7 @@ $result_trees{'kbdinputstyle'} = {
                                       'text' => 'in r in code'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'kbd',
@@ -1289,7 +1289,7 @@ $result_trees{'kbdinputstyle'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'r',
@@ -1299,7 +1299,7 @@ $result_trees{'kbdinputstyle'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1360,7 +1360,7 @@ $result_trees{'kbdinputstyle'} = {
                                   'text' => 'in nested code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -1370,7 +1370,7 @@ $result_trees{'kbdinputstyle'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -1391,7 +1391,7 @@ $result_trees{'kbdinputstyle'} = {
                           'text' => 'kbd in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -1419,7 +1419,7 @@ $result_trees{'kbdinputstyle'} = {
                                   'text' => 'in code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'kbd',
@@ -1432,7 +1432,7 @@ $result_trees{'kbdinputstyle'} = {
                           'text' => ' in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -1467,7 +1467,7 @@ $result_trees{'kbdinputstyle'} = {
                                           'text' => 'in r in code in example'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'kbd',
@@ -1477,7 +1477,7 @@ $result_trees{'kbdinputstyle'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'r',
@@ -1487,7 +1487,7 @@ $result_trees{'kbdinputstyle'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

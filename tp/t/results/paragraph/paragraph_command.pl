@@ -36,7 +36,7 @@ $result_trees{'paragraph_command'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'b',
@@ -66,7 +66,7 @@ $result_trees{'paragraph_command'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -193,7 +193,7 @@ $result_trees{'paragraph_command'} = {
                       'text' => 'definfoenclose'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'foo',

@@ -55,7 +55,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'copyright',
@@ -73,7 +73,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'type' => 'balanced_braces'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sup',
@@ -92,7 +92,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -159,7 +159,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'minus',
@@ -173,7 +173,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'geq',
@@ -187,7 +187,7 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',

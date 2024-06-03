@@ -20,7 +20,7 @@ $result_trees{'verbatim_in_brace_command'} = {
 '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',

@@ -93,7 +93,7 @@ $result_trees{'accent_on_table_line'} = {
                                       'text' => 'code'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -188,7 +188,7 @@ $result_trees{'accent_on_table_line'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '~',
@@ -264,7 +264,7 @@ $result_trees{'accent_on_table_line'} = {
                                       'text' => 'code acc brace'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -704,7 +704,7 @@ $result_trees{'accent_on_table_line'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'ringaccent',
@@ -827,7 +827,7 @@ $result_trees{'accent_on_table_line'} = {
                           'text' => 'a'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'ringaccent',

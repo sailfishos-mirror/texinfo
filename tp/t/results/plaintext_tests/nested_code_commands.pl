@@ -26,7 +26,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'fg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -35,7 +35,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -62,7 +62,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'gg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -71,7 +71,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -98,7 +98,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'fg'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -107,7 +107,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'command',
@@ -134,7 +134,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'in command'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'command',
@@ -143,7 +143,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -170,7 +170,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -179,7 +179,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -206,7 +206,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'in samp'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -215,7 +215,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -242,7 +242,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -251,7 +251,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -278,7 +278,7 @@ $result_trees{'nested_code_commands'} = {
                               'text' => 'in var'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'var',
@@ -287,7 +287,7 @@ $result_trees{'nested_code_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -331,7 +331,7 @@ $result_trees{'nested_code_commands'} = {
                           'text' => 'in code'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -358,7 +358,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'fg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'kbd',
@@ -367,7 +367,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -387,7 +387,7 @@ $result_trees{'nested_code_commands'} = {
                           'text' => 'hh'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -414,7 +414,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'fg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'kbd',
@@ -423,7 +423,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'command',
@@ -450,7 +450,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in command'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'command',
@@ -459,7 +459,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -486,7 +486,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -495,7 +495,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -522,7 +522,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in samp'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'samp',
@@ -531,7 +531,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -558,7 +558,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -567,7 +567,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -594,7 +594,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in var'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'var',
@@ -603,7 +603,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -682,7 +682,7 @@ $result_trees{'nested_code_commands'} = {
                           'text' => 'in disp'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -709,7 +709,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'fg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'kbd',
@@ -718,7 +718,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -745,7 +745,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'fg'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'kbd',
@@ -754,7 +754,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'command',
@@ -781,7 +781,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in command'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'command',
@@ -790,7 +790,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -817,7 +817,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -826,7 +826,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -853,7 +853,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in samp'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'samp',
@@ -862,7 +862,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -889,7 +889,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in code'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -898,7 +898,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -925,7 +925,7 @@ $result_trees{'nested_code_commands'} = {
                                   'text' => 'in var'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'var',
@@ -934,7 +934,7 @@ $result_trees{'nested_code_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

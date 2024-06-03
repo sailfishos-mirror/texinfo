@@ -55,7 +55,7 @@ $result_trees{'inline_in_example'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'lbracechar',

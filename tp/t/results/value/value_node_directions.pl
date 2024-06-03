@@ -79,7 +79,7 @@ $result_trees{'value_node_directions'} = {
                             'text' => 'a--foo'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -182,7 +182,7 @@ $result_trees{'value_node_directions'} = {
                             'text' => 'a--foo'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -225,7 +225,7 @@ $result_trees{'value_node_directions'} = {
                         'text' => 'a--foo'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -379,7 +379,7 @@ $result_trees{'value_node_directions'} = {
                         'text' => 'a--foo'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -487,7 +487,7 @@ $result_trees{'value_node_directions'} = {
                             'text' => 'a--foo'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

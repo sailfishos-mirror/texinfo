@@ -22,7 +22,7 @@ $result_trees{'punctuation_in_sc'} = {
                       'text' => 'two.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -41,7 +41,7 @@ $result_trees{'punctuation_in_sc'} = {
                       'text' => 'FOUR.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',

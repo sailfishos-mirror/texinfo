@@ -32,7 +32,7 @@ $result_trees{'titles'} = {
                           'text' => 'html'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sc',
@@ -51,7 +51,7 @@ $result_trees{'titles'} = {
                           'text' => 'test'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -139,7 +139,7 @@ $result_trees{'titles'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -158,7 +158,7 @@ $result_trees{'titles'} = {
                       'text' => 'test'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

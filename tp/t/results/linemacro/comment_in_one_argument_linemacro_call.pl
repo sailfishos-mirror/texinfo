@@ -130,7 +130,7 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
                       'cmdname' => 'comment'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

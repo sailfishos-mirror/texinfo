@@ -342,7 +342,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -595,7 +595,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -948,7 +948,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -1197,7 +1197,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -1542,7 +1542,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -1787,7 +1787,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',

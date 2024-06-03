@@ -37,7 +37,7 @@ $result_trees{'unclosed_verb_on_section_line'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',

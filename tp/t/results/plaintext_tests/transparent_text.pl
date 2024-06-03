@@ -47,7 +47,7 @@ $result_trees{'transparent_text'} = {
                       'text' => 'C'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',

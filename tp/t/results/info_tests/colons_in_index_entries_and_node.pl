@@ -72,7 +72,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                               'text' => '::'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -86,7 +86,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'comma',
@@ -251,7 +251,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                       'text' => '::'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -265,7 +265,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',

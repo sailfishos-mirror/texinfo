@@ -36,7 +36,7 @@ $result_trees{'documentdescription'} = {
                           'text' => 'documentdescri---ption'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -50,7 +50,7 @@ $result_trees{'documentdescription'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'bullet',
@@ -64,7 +64,7 @@ $result_trees{'documentdescription'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'enddots',
@@ -84,7 +84,7 @@ $result_trees{'documentdescription'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'verb',
@@ -101,7 +101,7 @@ $result_trees{'documentdescription'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'aa',
@@ -124,7 +124,7 @@ $result_trees{'documentdescription'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -133,7 +133,7 @@ $result_trees{'documentdescription'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',
@@ -156,7 +156,7 @@ $result_trees{'documentdescription'} = {
                                   'text' => 'some'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',

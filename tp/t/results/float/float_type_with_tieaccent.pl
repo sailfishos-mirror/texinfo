@@ -27,7 +27,7 @@ $result_trees{'float_type_with_tieaccent'} = {
                           'text' => '1a'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'tieaccent',
@@ -46,7 +46,7 @@ $result_trees{'float_type_with_tieaccent'} = {
                           'text' => "\x{7b2c}H"
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'tieaccent',
@@ -81,7 +81,7 @@ $result_trees{'float_type_with_tieaccent'} = {
                           'text' => "\x{4e00} and text"
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'tieaccent',
@@ -186,7 +186,7 @@ $result_trees{'float_type_with_tieaccent'} = {
                           'text' => '1a'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'tieaccent',
@@ -205,7 +205,7 @@ $result_trees{'float_type_with_tieaccent'} = {
                           'text' => "\x{7b2c}H"
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'tieaccent',
@@ -240,7 +240,7 @@ $result_trees{'float_type_with_tieaccent'} = {
                           'text' => "\x{4e00} and text"
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'tieaccent',

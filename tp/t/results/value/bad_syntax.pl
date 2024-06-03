@@ -109,7 +109,7 @@ $result_trees{'bad_syntax'} = {
                   'text' => 'unknown'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'value'

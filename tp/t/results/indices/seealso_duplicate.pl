@@ -82,7 +82,7 @@ $result_trees{'seealso_duplicate'} = {
                           'text' => 'awk'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'command',
@@ -162,7 +162,7 @@ $result_trees{'seealso_duplicate'} = {
                           'text' => 'awk'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'command',
@@ -201,7 +201,7 @@ $result_trees{'seealso_duplicate'} = {
                               'text' => 'awk'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'command',
@@ -312,7 +312,7 @@ $result_trees{'seealso_duplicate'} = {
                           'text' => 'awk'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'command',

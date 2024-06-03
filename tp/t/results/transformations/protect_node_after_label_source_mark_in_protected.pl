@@ -135,7 +135,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                                     'text' => 'punct'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -155,7 +155,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                       'text' => '.,,,..'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis'
@@ -171,7 +171,7 @@ $result_trees{'protect_node_after_label_source_mark_in_protected'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis'

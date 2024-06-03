@@ -29,7 +29,7 @@ $result_trees{'verb_at_end_of_line_not_closed'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',

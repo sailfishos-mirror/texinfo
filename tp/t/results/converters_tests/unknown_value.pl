@@ -17,7 +17,7 @@ $result_trees{'unknown_value'} = {
                   'text' => 'unknown'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'value'

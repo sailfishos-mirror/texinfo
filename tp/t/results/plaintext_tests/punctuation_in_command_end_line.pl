@@ -53,7 +53,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => '1.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dmn',
@@ -76,7 +76,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'indicateurl',
@@ -99,7 +99,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -145,7 +145,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'cite',
@@ -168,7 +168,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -195,7 +195,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                               'text' => '.'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -204,7 +204,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -231,7 +231,7 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       'text' => 'and in emph.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',

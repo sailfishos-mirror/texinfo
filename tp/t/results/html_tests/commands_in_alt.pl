@@ -38,7 +38,7 @@ $result_trees{'commands_in_alt'} = {
                           'text' => 'in b'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'b',
@@ -112,7 +112,7 @@ $result_trees{'commands_in_alt'} = {
                                   'text' => 'in b'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'b',

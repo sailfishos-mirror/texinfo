@@ -233,7 +233,7 @@ $result_trees{'complex_nestings'} = {
                                           'text' => 'arg'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'var',
@@ -258,7 +258,7 @@ $result_trees{'complex_nestings'} = {
                                 {
                                   'args' => [
                                     {
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'dots',

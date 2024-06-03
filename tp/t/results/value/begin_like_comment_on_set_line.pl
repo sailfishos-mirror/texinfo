@@ -51,7 +51,7 @@ $result_trees{'begin_like_comment_on_set_line'} = {
                       'text' => 'x'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'value'
@@ -68,7 +68,7 @@ $result_trees{'begin_like_comment_on_set_line'} = {
                             'text' => 'y'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

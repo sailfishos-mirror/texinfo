@@ -66,7 +66,7 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                       'text' => 'something'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'headword',

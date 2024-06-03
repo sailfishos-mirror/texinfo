@@ -200,7 +200,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -228,7 +228,7 @@ $result_trees{'verb_in_linemacro_call'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',

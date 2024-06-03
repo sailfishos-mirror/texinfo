@@ -16,7 +16,7 @@ $result_trees{'section_on_itemize_line'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'minus',
@@ -80,7 +80,7 @@ $result_trees{'section_on_itemize_line'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'minus',

@@ -77,7 +77,7 @@ $result_trees{'abbr_acronym'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'comma',
@@ -91,7 +91,7 @@ $result_trees{'abbr_acronym'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'enddots',
@@ -148,7 +148,7 @@ $result_trees{'abbr_acronym'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'comma',
@@ -186,7 +186,7 @@ $result_trees{'abbr_acronym'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'comma',
@@ -205,7 +205,7 @@ $result_trees{'abbr_acronym'} = {
                               'text' => 'Autonome'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'b',
@@ -260,7 +260,7 @@ $result_trees{'abbr_acronym'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'comma',

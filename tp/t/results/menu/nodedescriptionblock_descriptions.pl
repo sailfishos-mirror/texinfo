@@ -422,7 +422,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                           'text' => 'is a description'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'emph',
@@ -438,7 +438,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                           'text' => 'slightly long'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'w',
@@ -458,7 +458,7 @@ $result_trees{'nodedescriptionblock_descriptions'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'verb',

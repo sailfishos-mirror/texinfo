@@ -26,7 +26,7 @@ $result_trees{'titlefont_in_center'} = {
                           'text' => 'A manual'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'titlefont',

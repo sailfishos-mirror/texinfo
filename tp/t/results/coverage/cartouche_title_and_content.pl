@@ -24,7 +24,7 @@ $result_trees{'cartouche_title_and_content'} = {
                           'text' => 'documentation'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'emph',

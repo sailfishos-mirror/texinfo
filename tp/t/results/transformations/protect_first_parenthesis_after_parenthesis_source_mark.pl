@@ -108,7 +108,7 @@ $result_trees{'protect_first_parenthesis_after_parenthesis_source_mark'} = {
                           'text' => '('
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis'

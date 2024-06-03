@@ -36,7 +36,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => '``simple-double--three---four----\'\''
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -55,7 +55,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'aa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -73,7 +73,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -87,7 +87,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -101,7 +101,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -200,7 +200,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'U'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '"',
@@ -314,7 +314,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'e'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '\'',
@@ -333,7 +333,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -352,7 +352,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'j'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -384,7 +384,7 @@ $result_trees{'commands_in_math'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '`',
@@ -399,7 +399,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'l',
@@ -431,7 +431,7 @@ $result_trees{'commands_in_math'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => ',',
@@ -463,7 +463,7 @@ $result_trees{'commands_in_math'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => ',',
@@ -501,7 +501,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'H',
@@ -520,7 +520,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotaccent',
@@ -539,7 +539,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -558,7 +558,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'tieaccent',
@@ -578,7 +578,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'u',
@@ -597,7 +597,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ubaraccent',
@@ -616,7 +616,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'udotaccent',
@@ -635,7 +635,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'v',
@@ -654,7 +654,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ogonek',
@@ -673,7 +673,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'h'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sup',
@@ -689,7 +689,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => 'l'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sub',
@@ -784,7 +784,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'today',
@@ -853,7 +853,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'click',
@@ -891,7 +891,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'TeX',
@@ -905,7 +905,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'LaTeX',
@@ -919,7 +919,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'bullet',
@@ -933,7 +933,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'copyright',
@@ -947,7 +947,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dots',
@@ -961,7 +961,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'enddots',
@@ -975,7 +975,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'equiv',
@@ -990,7 +990,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'error',
@@ -1004,7 +1004,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'expansion',
@@ -1018,7 +1018,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'minus',
@@ -1032,7 +1032,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'point',
@@ -1046,7 +1046,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'print',
@@ -1060,7 +1060,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'result',
@@ -1075,7 +1075,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'aa',
@@ -1089,7 +1089,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AA',
@@ -1103,7 +1103,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ae',
@@ -1117,7 +1117,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'oe',
@@ -1131,7 +1131,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AE',
@@ -1145,7 +1145,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'OE',
@@ -1159,7 +1159,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'o',
@@ -1173,7 +1173,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'O',
@@ -1187,7 +1187,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ss',
@@ -1201,7 +1201,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'l',
@@ -1215,7 +1215,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'L',
@@ -1229,7 +1229,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'DH',
@@ -1244,7 +1244,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'TH',
@@ -1258,7 +1258,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dh',
@@ -1272,7 +1272,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'th',
@@ -1286,7 +1286,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'exclamdown',
@@ -1300,7 +1300,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'questiondown',
@@ -1314,7 +1314,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'pounds',
@@ -1329,7 +1329,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'registeredsymbol',
@@ -1343,7 +1343,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ordf',
@@ -1357,7 +1357,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ordm',
@@ -1371,7 +1371,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -1440,7 +1440,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblleft',
@@ -1454,7 +1454,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblright',
@@ -1469,7 +1469,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quoteleft',
@@ -1483,7 +1483,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quoteright',
@@ -1497,7 +1497,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblbase',
@@ -1511,7 +1511,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotesinglbase',
@@ -1525,7 +1525,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'guillemetleft',
@@ -1540,7 +1540,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'guillemetright',
@@ -1554,7 +1554,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'guillemotleft',
@@ -1568,7 +1568,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'guillemotright',
@@ -1582,7 +1582,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'guilsinglleft',
@@ -1597,7 +1597,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'guilsinglright',
@@ -1611,7 +1611,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'textdegree',
@@ -1625,7 +1625,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'euro',
@@ -1639,7 +1639,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'arrow',
@@ -1653,7 +1653,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'leq',
@@ -1667,7 +1667,7 @@ $result_trees{'commands_in_math'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'geq',

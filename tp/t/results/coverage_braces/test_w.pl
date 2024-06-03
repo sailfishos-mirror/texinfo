@@ -23,7 +23,7 @@ $result_trees{'test_w'} = {
                       'text' => 'ccc dddd'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -56,7 +56,7 @@ $result_trees{'test_w'} = {
                       'text' => 'b a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -86,7 +86,7 @@ $result_trees{'test_w'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -120,7 +120,7 @@ $result_trees{'test_w'} = {
                       'text' => '  ggg.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -148,7 +148,7 @@ $result_trees{'test_w'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -181,7 +181,7 @@ $result_trees{'test_w'} = {
                       'text' => 'd'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -214,7 +214,7 @@ $result_trees{'test_w'} = {
                       'text' => '  f  f'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -247,7 +247,7 @@ $result_trees{'test_w'} = {
                       'text' => '  f  f '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -285,7 +285,7 @@ $result_trees{'test_w'} = {
                       'text' => '  f  f '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -323,7 +323,7 @@ $result_trees{'test_w'} = {
                       'text' => '  f  f '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -351,7 +351,7 @@ $result_trees{'test_w'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -379,7 +379,7 @@ $result_trees{'test_w'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -407,7 +407,7 @@ $result_trees{'test_w'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -440,7 +440,7 @@ $result_trees{'test_w'} = {
                       'text' => ' '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -479,7 +479,7 @@ $result_trees{'test_w'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'w',
@@ -493,7 +493,7 @@ $result_trees{'test_w'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'dots',
@@ -507,7 +507,7 @@ $result_trees{'test_w'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'w',
@@ -519,7 +519,7 @@ $result_trees{'test_w'} = {
                               'text' => '\''
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 't',
@@ -528,7 +528,7 @@ $result_trees{'test_w'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',

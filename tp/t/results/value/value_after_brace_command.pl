@@ -58,7 +58,7 @@ $result_trees{'value_after_brace_command'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -75,7 +75,7 @@ $result_trees{'value_after_brace_command'} = {
                                 'text' => 'bracedletter'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -119,7 +119,7 @@ $result_trees{'value_after_brace_command'} = {
                                 'text' => 'unknowncmd'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -156,7 +156,7 @@ $result_trees{'value_after_brace_command'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -173,7 +173,7 @@ $result_trees{'value_after_brace_command'} = {
                                 'text' => 'bracedletter'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -217,7 +217,7 @@ $result_trees{'value_after_brace_command'} = {
                                 'text' => 'unknowncmd'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -254,7 +254,7 @@ $result_trees{'value_after_brace_command'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -271,7 +271,7 @@ $result_trees{'value_after_brace_command'} = {
                                 'text' => 'bracedletter'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -315,7 +315,7 @@ $result_trees{'value_after_brace_command'} = {
                                 'text' => 'unknowncmd'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'

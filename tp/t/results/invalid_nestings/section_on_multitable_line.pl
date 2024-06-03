@@ -67,7 +67,7 @@ $result_trees{'section_on_multitable_line'} = {
                           'text' => 'this'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

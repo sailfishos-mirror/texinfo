@@ -125,7 +125,7 @@ $result_trees{'brace_command_not_closed'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

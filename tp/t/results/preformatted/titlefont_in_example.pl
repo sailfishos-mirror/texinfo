@@ -31,7 +31,7 @@ $result_trees{'titlefont_in_example'} = {
                       'text' => 'Title'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'titlefont',

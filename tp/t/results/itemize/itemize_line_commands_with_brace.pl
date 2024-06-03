@@ -16,7 +16,7 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'bullet',
@@ -115,7 +115,7 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'minus',

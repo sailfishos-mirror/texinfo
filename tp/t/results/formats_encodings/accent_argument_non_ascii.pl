@@ -141,7 +141,7 @@ $result_trees{'accent_argument_non_ascii'} = {
                       'text' => "\x{ea}"
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '\'',

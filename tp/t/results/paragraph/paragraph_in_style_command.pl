@@ -28,7 +28,7 @@ $result_trees{'paragraph_in_style_command'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -72,7 +72,7 @@ $result_trees{'paragraph_in_style_command'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',

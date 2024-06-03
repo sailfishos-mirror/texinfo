@@ -316,7 +316,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'bullet',
@@ -1044,7 +1044,7 @@ $result_trees{'comments_on_block_command_lines'} = {
                           'text' => 'first'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

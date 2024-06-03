@@ -234,7 +234,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
                                       'text' => 'arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',

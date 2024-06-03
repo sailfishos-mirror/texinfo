@@ -40,7 +40,7 @@ $result_trees{'inlinerawspaces'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'lbracechar',

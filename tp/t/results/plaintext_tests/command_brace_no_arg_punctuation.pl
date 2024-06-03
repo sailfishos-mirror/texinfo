@@ -14,7 +14,7 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'TeX',
@@ -28,7 +28,7 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'LaTeX',
@@ -42,7 +42,7 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'copyright',
@@ -56,7 +56,7 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'registeredsymbol',

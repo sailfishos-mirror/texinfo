@@ -179,7 +179,7 @@ $result_trees{'fractions_rounding'} = {
                                       'text' => 'chapter'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -221,7 +221,7 @@ $result_trees{'fractions_rounding'} = {
                                       'text' => 'unnumbered'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -263,7 +263,7 @@ $result_trees{'fractions_rounding'} = {
                                       'text' => 'appendix'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -305,7 +305,7 @@ $result_trees{'fractions_rounding'} = {
                                       'text' => 'chapheading'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',

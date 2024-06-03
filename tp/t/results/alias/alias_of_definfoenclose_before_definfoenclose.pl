@@ -96,7 +96,7 @@ $result_trees{'alias_of_definfoenclose_before_definfoenclose'} = {
                       'text' => 'aa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phoo',

@@ -115,7 +115,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -311,7 +311,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',
@@ -361,7 +361,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                       'text' => '  '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -443,7 +443,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                               'type' => 'raw'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'verb',
@@ -497,7 +497,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                               'text' => '  '
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'w',

@@ -80,7 +80,7 @@ $result_trees{'text_css_info_in_init'} = {
                       'text' => 'SSSSSSSSSSs ssss'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sansserif',
@@ -114,7 +114,7 @@ $result_trees{'text_css_info_in_init'} = {
                               'text' => 'in r in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'r',
@@ -123,7 +123,7 @@ $result_trees{'text_css_info_in_init'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -151,7 +151,7 @@ $result_trees{'text_css_info_in_init'} = {
                   'text' => 'in a new heading'
                 }
               ],
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'titlefont',

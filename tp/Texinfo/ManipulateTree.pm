@@ -460,7 +460,7 @@ sub _new_asis_command_with_text($$;$)
   my $parent = shift;
   my $text_type = shift;
   my $new_command = {'cmdname' => 'asis', 'parent' => $parent };
-  push @{$new_command->{'args'}}, {'type' => 'brace_command_arg',
+  push @{$new_command->{'args'}}, {'type' => 'brace_container',
                                    'parent' => $new_command};
   push @{$new_command->{'args'}->[0]->{'contents'}}, {
     'text' => $text,
@@ -507,9 +507,9 @@ sub _protect_text($$)
         if ($to_protect eq quotemeta(',')) {
           for (my $i = 0; $i < length($2); $i++) {
             my $e = {'cmdname' => 'comma', 'parent' => $current->{'parent'}};
-            my $brace_command_arg = {'type' => 'brace_command_arg',
-                                     'parent' => $e};
-            $e->{'args'} = [$brace_command_arg];
+            my $brace_container = {'type' => 'brace_container',
+                                   'parent' => $e};
+            $e->{'args'} = [$brace_container];
             $current_position = Texinfo::Common::relocate_source_marks(
                                           $remaining_source_marks, $e,
                                           $current_position, 1);

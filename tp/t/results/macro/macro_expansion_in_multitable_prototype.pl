@@ -224,7 +224,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                               'text' => 's'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',
@@ -306,7 +306,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                               'text' => 'l'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

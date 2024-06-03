@@ -19,7 +19,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                       'text' => ' aa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'option',

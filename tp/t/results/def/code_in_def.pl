@@ -86,7 +86,7 @@ $result_trees{'code_in_def'} = {
                                       'cmdname' => '&'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -160,7 +160,7 @@ $result_trees{'code_in_def'} = {
                               'text' => 'foo'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

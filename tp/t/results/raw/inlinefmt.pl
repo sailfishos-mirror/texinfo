@@ -32,7 +32,7 @@ $result_trees{'inlinefmt'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'lbracechar',

@@ -1305,7 +1305,7 @@ $result_trees{'macro_in_misc_commands'} = {
                       'text' => 'bar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phoo',
@@ -1462,7 +1462,7 @@ $result_trees{'macro_in_misc_commands'} = {
                       'text' => 'bar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phi',
@@ -1630,7 +1630,7 @@ $result_trees{'macro_in_misc_commands'} = {
                       'text' => 'very strong'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -1781,7 +1781,7 @@ $result_trees{'macro_in_misc_commands'} = {
                       'text' => ' is it really strong? '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -1830,7 +1830,7 @@ $result_trees{'macro_in_misc_commands'} = {
                       'text' => 'something before kbdinputstyle'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -1977,7 +1977,7 @@ $result_trees{'macro_in_misc_commands'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -2024,7 +2024,7 @@ $result_trees{'macro_in_misc_commands'} = {
                           'text' => 'example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',

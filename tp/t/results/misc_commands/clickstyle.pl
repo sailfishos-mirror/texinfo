@@ -39,7 +39,7 @@ $result_trees{'clickstyle'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'click',
@@ -92,7 +92,7 @@ $result_trees{'clickstyle'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'click',

@@ -30,7 +30,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                       'text' => 'chap'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -96,7 +96,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                               'text' => 'chap'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -237,7 +237,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                           'text' => 'chap'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -429,7 +429,7 @@ $result_trees{'equivalent_nodes_defined_linked'} = {
                               'text' => 'chap'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',

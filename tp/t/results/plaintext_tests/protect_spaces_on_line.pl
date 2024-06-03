@@ -27,7 +27,7 @@ $result_trees{'protect_spaces_on_line'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -46,7 +46,7 @@ $result_trees{'protect_spaces_on_line'} = {
                       'text' => 'in   w. after dot'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',
@@ -95,7 +95,7 @@ $result_trees{'protect_spaces_on_line'} = {
                               'text' => 'a'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -114,7 +114,7 @@ $result_trees{'protect_spaces_on_line'} = {
                               'text' => 'in   w. after dot'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'w',

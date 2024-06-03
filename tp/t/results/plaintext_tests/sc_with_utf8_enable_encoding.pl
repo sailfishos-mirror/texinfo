@@ -50,7 +50,7 @@ $result_trees{'sc_with_utf8_enable_encoding'} = {
                       'text' => 'in sc'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',

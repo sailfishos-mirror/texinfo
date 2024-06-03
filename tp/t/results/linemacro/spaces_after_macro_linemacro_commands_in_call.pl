@@ -343,7 +343,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                                       'text' => 'arg1'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'samp',

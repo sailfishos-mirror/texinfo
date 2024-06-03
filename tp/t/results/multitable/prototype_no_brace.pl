@@ -24,7 +24,7 @@ $result_trees{'prototype_no_brace'} = {
                           'text' => 'FF'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',

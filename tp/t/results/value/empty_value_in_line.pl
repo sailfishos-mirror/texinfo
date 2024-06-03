@@ -52,7 +52,7 @@ $result_trees{'empty_value_in_line'} = {
                         'text' => 'myspace'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'

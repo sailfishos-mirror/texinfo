@@ -1,5 +1,9 @@
 2024-06-03  Patrice Dumas  <pertusus@free.fr>
 
+	Rename brace_command_arg type as brace_container
+
+2024-06-03  Patrice Dumas  <pertusus@free.fr>
+
 	Remove command_as_argument element type
 
 	* tp/Texinfo/Convert/Text.pm (_convert): fix parentheses of brace

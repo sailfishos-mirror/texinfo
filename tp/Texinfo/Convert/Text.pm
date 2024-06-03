@@ -78,7 +78,7 @@ sub import {
 
 
 # this is in fact not needed for 'footnote', 'shortcaption', 'caption'
-# when they have no brace_command_arg, see below.
+# as they have no brace_container, see below.
 my %ignored_brace_commands;
 foreach my $ignored_brace_command (#'xref','ref','pxref','inforef',
    'anchor', 'sortas', 'seealso', 'seeentry',
@@ -585,7 +585,7 @@ sub _convert($$)
       return $result;
     } elsif ($element->{'args'} and $element->{'args'}->[0]
            and (($element->{'args'}->[0]->{'type'}
-                and ($element->{'args'}->[0]->{'type'} eq 'brace_command_arg'
+                and ($element->{'args'}->[0]->{'type'} eq 'brace_container'
                      or $element->{'args'}->[0]->{'type'} eq 'brace_command_container'))
                 or ($Texinfo::Commands::math_commands{$element->{'cmdname'}}
                     and defined($Texinfo::Commands::brace_commands{

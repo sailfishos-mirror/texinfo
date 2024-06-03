@@ -183,7 +183,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'c--ode'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -202,7 +202,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'd--fn'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dfn',
@@ -221,7 +221,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'v--ar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -240,7 +240,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 's--trong'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -259,7 +259,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'k--bd'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -278,7 +278,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 's--amp'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -312,7 +312,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'd--fn in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dfn',
@@ -321,7 +321,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -345,7 +345,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'c--ode in var'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -354,7 +354,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -378,7 +378,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'v--ar in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'var',
@@ -387,7 +387,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -411,7 +411,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'k--bd in strong'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -420,7 +420,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -444,7 +444,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 's--trong in samp'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -453,7 +453,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -477,7 +477,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 's--amp in strong'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -486,7 +486,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -516,7 +516,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'c--ite'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'cite',
@@ -550,7 +550,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'c--ite in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'cite',
@@ -559,7 +559,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -583,7 +583,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'c--ode in cite'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -592,7 +592,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'cite',
@@ -622,7 +622,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'c--ode'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -641,7 +641,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 's--lanted'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'slanted',
@@ -660,7 +660,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'b--'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'b',
@@ -679,7 +679,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 't--'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 't',
@@ -713,7 +713,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 's--lanted in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'slanted',
@@ -722,7 +722,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -746,7 +746,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'c--ode in slanted'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -755,7 +755,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'slanted',
@@ -779,7 +779,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 's--lanted in b'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'slanted',
@@ -788,7 +788,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'b',
@@ -812,7 +812,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'b-- in slanted'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'b',
@@ -821,7 +821,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'slanted',
@@ -845,7 +845,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 's--lanted in t'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'slanted',
@@ -854,7 +854,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 't',
@@ -878,7 +878,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 't-- in slanted'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 't',
@@ -887,7 +887,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'slanted',
@@ -911,7 +911,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 'v--ar in t'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'var',
@@ -920,7 +920,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 't',
@@ -944,7 +944,7 @@ $result_trees{'combined_fonts'} = {
                               'text' => 't-- in var'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 't',
@@ -953,7 +953,7 @@ $result_trees{'combined_fonts'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -997,7 +997,7 @@ $result_trees{'combined_fonts'} = {
                           'text' => 'v--ar in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -1017,7 +1017,7 @@ $result_trees{'combined_fonts'} = {
                           'text' => 'c--ite in example'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'cite',

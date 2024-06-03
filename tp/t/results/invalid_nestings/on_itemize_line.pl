@@ -31,7 +31,7 @@ $result_trees{'on_itemize_line'} = {
                           'text' => 'in titlefont'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'titlefont',

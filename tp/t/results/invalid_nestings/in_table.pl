@@ -190,7 +190,7 @@ $result_trees{'in_table'} = {
                                       'text' => 'in titlefont'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'titlefont',
@@ -677,7 +677,7 @@ $result_trees{'in_table'} = {
                                   'text' => 'opt'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'option',
@@ -782,7 +782,7 @@ $result_trees{'in_table'} = {
                                   'text' => 'nopt'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'option',

@@ -71,7 +71,7 @@ $result_trees{'invalid_node_name_warning'} = {
                               'text' => 'truc:'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -96,7 +96,7 @@ $result_trees{'invalid_node_name_warning'} = {
                               'text' => 'nodename. a'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -153,7 +153,7 @@ $result_trees{'invalid_node_name_warning'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'comma',
@@ -217,7 +217,7 @@ $result_trees{'invalid_node_name_warning'} = {
                               'text' => 'bidule:'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -326,7 +326,7 @@ $result_trees{'invalid_node_name_warning'} = {
                       'text' => 'nodename. a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -375,7 +375,7 @@ $result_trees{'invalid_node_name_warning'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -429,7 +429,7 @@ $result_trees{'invalid_node_name_warning'} = {
                       'text' => 'bidule:'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -468,7 +468,7 @@ $result_trees{'invalid_node_name_warning'} = {
                               'text' => 'nodename. a'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -497,7 +497,7 @@ $result_trees{'invalid_node_name_warning'} = {
                               'text' => 'truc:'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -532,7 +532,7 @@ $result_trees{'invalid_node_name_warning'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'comma',
@@ -591,7 +591,7 @@ $result_trees{'invalid_node_name_warning'} = {
                               'text' => 'bidule:'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',

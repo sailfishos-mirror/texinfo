@@ -71,7 +71,7 @@ $result_trees{'sc_in_menu'} = {
                               'text' => 'value'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'sc',
@@ -96,7 +96,7 @@ $result_trees{'sc_in_menu'} = {
                               'text' => 'node'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'sc',
@@ -131,7 +131,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'descrip tion'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -172,7 +172,7 @@ $result_trees{'sc_in_menu'} = {
                               'text' => 'menu comment'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'sc',
@@ -219,7 +219,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'menu-example value'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -238,7 +238,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'menu-example node'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -257,7 +257,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'menu-example descrip tion'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -282,7 +282,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'menu-example comment'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -401,7 +401,7 @@ $result_trees{'sc_in_menu'} = {
                       'text' => 'node'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -470,7 +470,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'example value'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -504,7 +504,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'example node'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -544,7 +544,7 @@ $result_trees{'sc_in_menu'} = {
                                       'text' => 'example descrip tion'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'sc',
@@ -585,7 +585,7 @@ $result_trees{'sc_in_menu'} = {
                                   'text' => 'example comment'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',

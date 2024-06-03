@@ -237,7 +237,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => 'def'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dfn',
@@ -257,7 +257,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => 'in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -277,7 +277,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => 'in samp'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -292,7 +292,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -307,7 +307,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'exclamdown',
@@ -322,7 +322,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dots',
@@ -348,7 +348,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'geq',
@@ -363,7 +363,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'enddots',
@@ -378,7 +378,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AA',
@@ -418,7 +418,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => 'A'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotaccent',
@@ -433,7 +433,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'l',
@@ -448,7 +448,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'copyright',
@@ -463,7 +463,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'error',
@@ -479,7 +479,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblleft',
@@ -494,7 +494,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblright',
@@ -509,7 +509,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'expansion',
@@ -525,7 +525,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'minus',
@@ -540,7 +540,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'registeredsymbol',
@@ -576,7 +576,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => '--a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'u',
@@ -597,7 +597,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => '--a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',
@@ -613,7 +613,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'aa',
@@ -628,7 +628,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'AA',
@@ -692,7 +692,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -702,7 +702,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '~',
@@ -722,7 +722,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -742,7 +742,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => 'r'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'udotaccent',
@@ -766,7 +766,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               'text' => 'r'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '\'',
@@ -776,7 +776,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'v',
@@ -804,7 +804,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                                       'text' => 'n'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => '~',
@@ -814,7 +814,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => ',',
@@ -824,7 +824,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '=',
@@ -840,7 +840,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'equiv',
@@ -860,7 +860,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'aa',
@@ -875,7 +875,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -939,7 +939,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                                       'text' => 'i'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'dotless',
@@ -949,7 +949,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '~',
@@ -969,7 +969,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               'text' => 'i'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dotless',
@@ -989,7 +989,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               'text' => 'r'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'udotaccent',
@@ -1013,7 +1013,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                                       'text' => 'r'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => '\'',
@@ -1023,7 +1023,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'v',
@@ -1051,7 +1051,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                                               'text' => 'n'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => '~',
@@ -1061,7 +1061,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                                       }
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => ',',
@@ -1071,7 +1071,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => '=',
@@ -1081,7 +1081,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',

@@ -148,7 +148,7 @@ $result_trees{'form_feeds'} = {
                       'text' => 'end in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -178,7 +178,7 @@ $result_trees{'form_feeds'} = {
                       'text' => 'begin in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -208,7 +208,7 @@ $result_trees{'form_feeds'} = {
                       'text' => 'middle in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -398,7 +398,7 @@ $result_trees{'form_feeds'} = {
                       'text' => '  in indicateurl'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'indicateurl',

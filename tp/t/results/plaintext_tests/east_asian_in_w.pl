@@ -68,7 +68,7 @@ $result_trees{'east_asian_in_w'} = {
                       'text' => "\x{5305}\x{542b}\x{6587}\x{5b57}"
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'w',

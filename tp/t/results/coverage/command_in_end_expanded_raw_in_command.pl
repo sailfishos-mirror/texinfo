@@ -41,7 +41,7 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                                   'text' => 'tex'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',

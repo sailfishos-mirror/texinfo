@@ -61,7 +61,7 @@ $result_trees{'command_in_node_redirection_other_command'} = {
                       'text' => 'in r'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'r',
@@ -98,7 +98,7 @@ $result_trees{'command_in_node_redirection_other_command'} = {
                           'text' => 'gg'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sansserif',

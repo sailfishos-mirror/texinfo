@@ -102,7 +102,7 @@ $result_trees{'protected_node_parentheses'} = {
                               'text' => '('
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -212,7 +212,7 @@ $result_trees{'protected_node_parentheses'} = {
                       'text' => '('
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -252,7 +252,7 @@ $result_trees{'protected_node_parentheses'} = {
                           'text' => '('
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -300,7 +300,7 @@ $result_trees{'protected_node_parentheses'} = {
                               'text' => '('
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',

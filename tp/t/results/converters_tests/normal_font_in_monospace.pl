@@ -43,7 +43,7 @@ $result_trees{'normal_font_in_monospace'} = {
                                   'text' => 'in co---de'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',
@@ -52,7 +52,7 @@ $result_trees{'normal_font_in_monospace'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'r',
@@ -131,7 +131,7 @@ $result_trees{'normal_font_in_monospace'} = {
                                       'text' => 'in file---'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'file',
@@ -140,7 +140,7 @@ $result_trees{'normal_font_in_monospace'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'r',
@@ -149,7 +149,7 @@ $result_trees{'normal_font_in_monospace'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'command',

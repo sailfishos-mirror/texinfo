@@ -48,7 +48,7 @@ $result_trees{'def_groupings_args'} = {
                                       'text' => 'aa'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -156,7 +156,7 @@ $result_trees{'def_groupings_args'} = {
                                       'text' => 'g1'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'samp',
@@ -253,7 +253,7 @@ $result_trees{'def_groupings_args'} = {
                                       'text' => 'var'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -289,7 +289,7 @@ $result_trees{'def_groupings_args'} = {
                                       'text' => 's'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'samp',
@@ -335,7 +335,7 @@ $result_trees{'def_groupings_args'} = {
                                       'text' => 'arg'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',

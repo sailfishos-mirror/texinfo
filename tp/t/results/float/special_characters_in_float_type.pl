@@ -157,7 +157,7 @@ $result_trees{'special_characters_in_float_type'} = {
                           'text' => 'in var'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -187,7 +187,7 @@ $result_trees{'special_characters_in_float_type'} = {
                           'text' => 'in var'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -242,7 +242,7 @@ $result_trees{'special_characters_in_float_type'} = {
                                   'text' => 'in var'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'var',
@@ -343,7 +343,7 @@ $result_trees{'special_characters_in_float_type'} = {
                           'text' => 'in var'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',

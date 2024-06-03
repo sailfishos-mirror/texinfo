@@ -25,7 +25,7 @@ $result_trees{'style_not_closed_before_first_node'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

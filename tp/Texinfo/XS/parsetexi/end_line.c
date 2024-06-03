@@ -1008,9 +1008,9 @@ end_line_starting_block (ELEMENT *current)
           if (k_command_as_arg
               && (k_command_as_arg->k.element->c->args.number <= 0
                      /* FIXME this condition looks strange, verify what could be
-                        there if not brace_command_arg/brace_command_container */
+                        there if not brace_container/brace_command_container */
                   || (k_command_as_arg->k.element->c->args.list[0]->type
-                       != ET_brace_command_arg)
+                       != ET_brace_container)
                       && k_command_as_arg->k.element->c->args.list[0]->type
                        != ET_brace_command_container))
             {

@@ -117,7 +117,7 @@ $result_trees{'deftypeline'} = {
                                       'text' => 'bar'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -168,7 +168,7 @@ $result_trees{'deftypeline'} = {
                                       'text' => 'baz'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -219,7 +219,7 @@ $result_trees{'deftypeline'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'dots',

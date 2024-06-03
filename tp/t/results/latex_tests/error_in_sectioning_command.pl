@@ -123,7 +123,7 @@ $result_trees{'error_in_sectioning_command'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -137,7 +137,7 @@ $result_trees{'error_in_sectioning_command'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'error',
@@ -193,7 +193,7 @@ $result_trees{'error_in_sectioning_command'} = {
                       'cmdname' => '}'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -207,7 +207,7 @@ $result_trees{'error_in_sectioning_command'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'error',
@@ -243,7 +243,7 @@ $result_trees{'error_in_sectioning_command'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'error',

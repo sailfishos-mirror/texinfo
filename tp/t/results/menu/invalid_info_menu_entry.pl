@@ -73,7 +73,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                               'text' => 'a:'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -137,7 +137,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                               'text' => 'name:'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -243,7 +243,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                               'text' => 'node. '
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -328,7 +328,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                               'text' => 'node,n'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -413,7 +413,7 @@ $result_trees{'invalid_info_menu_entry'} = {
                               'text' => 'node	n'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',

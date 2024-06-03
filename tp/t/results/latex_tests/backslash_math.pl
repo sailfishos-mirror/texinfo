@@ -30,7 +30,7 @@ $result_trees{'backslash_math'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'backslashchar',

@@ -61,7 +61,7 @@ $result_trees{'inlinefmt_with_empty_line'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'lbracechar',

@@ -50,7 +50,7 @@ $result_trees{'empty_refs'} = {
                               'text' => ' '
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',

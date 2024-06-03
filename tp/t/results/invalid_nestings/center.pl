@@ -31,7 +31,7 @@ $result_trees{'center'} = {
                           'text' => 'in titlefont'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'titlefont',
@@ -286,7 +286,7 @@ $result_trees{'center'} = {
 '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -335,7 +335,7 @@ $result_trees{'center'} = {
                           'text' => 'in code in center '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -404,7 +404,7 @@ $result_trees{'center'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -763,7 +763,7 @@ $result_trees{'center'} = {
                           'text' => 'something '
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -827,7 +827,7 @@ $result_trees{'center'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',

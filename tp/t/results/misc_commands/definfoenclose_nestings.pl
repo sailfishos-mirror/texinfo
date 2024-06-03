@@ -62,7 +62,7 @@ $result_trees{'definfoenclose_nestings'} = {
                               'text' => 'in phoo in code'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'phoo',
@@ -79,7 +79,7 @@ $result_trees{'definfoenclose_nestings'} = {
                       'type' => 'definfoenclose_command'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -113,7 +113,7 @@ $result_trees{'definfoenclose_nestings'} = {
                               'text' => 'in code in phoo'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -122,7 +122,7 @@ $result_trees{'definfoenclose_nestings'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phoo',
@@ -161,7 +161,7 @@ $result_trees{'definfoenclose_nestings'} = {
 '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phoo',

@@ -436,7 +436,7 @@ $result_trees{'def'} = {
                                       'text' => 'i'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -879,7 +879,7 @@ $result_trees{'def'} = {
                                       'text' => 'id ule'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'b',
@@ -980,7 +980,7 @@ $result_trees{'def'} = {
                                               'text' => 'i'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'samp',
@@ -992,7 +992,7 @@ $result_trees{'def'} = {
                                       'text' => ' ule'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'b',

@@ -31,7 +31,7 @@ $result_trees{'empty_deftypeop_name'} = {
                                       'text' => 'com'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -64,7 +64,7 @@ $result_trees{'empty_deftypeop_name'} = {
                                       'text' => 'int'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -100,7 +100,7 @@ $result_trees{'empty_deftypeop_name'} = {
                                       'text' => 'exp'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',

@@ -1104,7 +1104,7 @@ $result_trees{'sorted_subentries'} = {
                           'text' => 'hhh'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -1184,7 +1184,7 @@ $result_trees{'sorted_subentries'} = {
                           'text' => 'hhh'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -1220,7 +1220,7 @@ $result_trees{'sorted_subentries'} = {
                               'text' => 'jjj'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'sc',

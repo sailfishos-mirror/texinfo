@@ -52,7 +52,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'copyright',
@@ -70,7 +70,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                       'type' => 'balanced_braces'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sup',
@@ -89,7 +89,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                       'text' => 'i'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'dotless',
@@ -156,7 +156,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'minus',
@@ -170,7 +170,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'geq',
@@ -184,7 +184,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',

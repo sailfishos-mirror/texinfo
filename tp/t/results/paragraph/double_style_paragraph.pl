@@ -33,7 +33,7 @@ $result_trees{'double_style_paragraph'} = {
                               'type' => 'empty_line'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -42,7 +42,7 @@ $result_trees{'double_style_paragraph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',

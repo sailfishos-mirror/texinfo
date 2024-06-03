@@ -199,7 +199,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'text' => 'a: b! gg; h'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -432,7 +432,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'v: g. h'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -462,7 +462,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'code? is: k'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -755,7 +755,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'vv: g? b'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -785,7 +785,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'vcode? is: a'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -1072,7 +1072,7 @@ $result_trees{'frenchspacing_and_code'} = {
                       'text' => 'a: b! gg; hn'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1305,7 +1305,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'v: g. h'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -1335,7 +1335,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'code? is: k'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -1628,7 +1628,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'vv: g? b'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -1658,7 +1658,7 @@ $result_trees{'frenchspacing_and_code'} = {
                                       'text' => 'vcode? is: a'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',

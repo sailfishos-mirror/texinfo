@@ -653,7 +653,7 @@ sub _convert($$;$)
             push @$attributes, ['spacesaftercmd',
                $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'}];
           }
-          if ($element->{'args'}->[0]->{'type'} ne 'brace_command_arg'
+          if ($element->{'args'}->[0]->{'type'} ne 'brace_container'
               and $element->{'args'}->[0]->{'type'}
                                           ne 'brace_command_container') {
             push @$attributes, ['bracketed', 'off'];

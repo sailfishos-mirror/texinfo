@@ -34,7 +34,7 @@ $result_trees{'on_subheading_line'} = {
                           'text' => 'in titlefont'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'titlefont',

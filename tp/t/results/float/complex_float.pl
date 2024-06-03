@@ -261,7 +261,7 @@ $result_trees{'complex_float'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'enddots',
@@ -783,7 +783,7 @@ $result_trees{'complex_float'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'TeX',
@@ -833,7 +833,7 @@ $result_trees{'complex_float'} = {
                                                   'text' => 'i'
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => 'dotless',
@@ -842,7 +842,7 @@ $result_trees{'complex_float'} = {
                                           }
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => '^',
@@ -851,7 +851,7 @@ $result_trees{'complex_float'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'b',
@@ -876,7 +876,7 @@ $result_trees{'complex_float'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'emph',
@@ -895,7 +895,7 @@ $result_trees{'complex_float'} = {
                           'text' => 'and'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sc',
@@ -915,7 +915,7 @@ $result_trees{'complex_float'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'verb',
@@ -953,7 +953,7 @@ $result_trees{'complex_float'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'AE',
@@ -985,7 +985,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'enddots',
@@ -1677,7 +1677,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'TeX',
@@ -1727,7 +1727,7 @@ $result_trees{'complex_float'} = {
                                                           'text' => 'i'
                                                         }
                                                       ],
-                                                      'type' => 'brace_command_arg'
+                                                      'type' => 'brace_container'
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
@@ -1736,7 +1736,7 @@ $result_trees{'complex_float'} = {
                                                   }
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => '^',
@@ -1745,7 +1745,7 @@ $result_trees{'complex_float'} = {
                                           }
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'b',
@@ -1770,7 +1770,7 @@ $result_trees{'complex_float'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'emph',
@@ -1789,7 +1789,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'and'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -1809,7 +1809,7 @@ $result_trees{'complex_float'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -1847,7 +1847,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'AE',
@@ -1898,7 +1898,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'TeX',
@@ -1948,7 +1948,7 @@ $result_trees{'complex_float'} = {
                                                           'text' => 'i'
                                                         }
                                                       ],
-                                                      'type' => 'brace_command_arg'
+                                                      'type' => 'brace_container'
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
@@ -1957,7 +1957,7 @@ $result_trees{'complex_float'} = {
                                                   }
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => '^',
@@ -1966,7 +1966,7 @@ $result_trees{'complex_float'} = {
                                           }
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'b',
@@ -1991,7 +1991,7 @@ $result_trees{'complex_float'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'emph',
@@ -2010,7 +2010,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'and'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -2030,7 +2030,7 @@ $result_trees{'complex_float'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -2068,7 +2068,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'AE',
@@ -2284,7 +2284,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'enddots',
@@ -2976,7 +2976,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'TeX',
@@ -3026,7 +3026,7 @@ $result_trees{'complex_float'} = {
                                                           'text' => 'i'
                                                         }
                                                       ],
-                                                      'type' => 'brace_command_arg'
+                                                      'type' => 'brace_container'
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
@@ -3035,7 +3035,7 @@ $result_trees{'complex_float'} = {
                                                   }
                                                 }
                                               ],
-                                              'type' => 'brace_command_arg'
+                                              'type' => 'brace_container'
                                             }
                                           ],
                                           'cmdname' => '^',
@@ -3044,7 +3044,7 @@ $result_trees{'complex_float'} = {
                                           }
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'b',
@@ -3069,7 +3069,7 @@ $result_trees{'complex_float'} = {
                                   }
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'emph',
@@ -3088,7 +3088,7 @@ $result_trees{'complex_float'} = {
                                   'text' => 'and'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'sc',
@@ -3108,7 +3108,7 @@ $result_trees{'complex_float'} = {
                                   'type' => 'raw'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'verb',
@@ -3146,7 +3146,7 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'AE',

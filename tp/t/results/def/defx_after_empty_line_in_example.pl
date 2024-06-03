@@ -59,7 +59,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                                           'text' => 'i'
                                         }
                                       ],
-                                      'type' => 'brace_command_arg'
+                                      'type' => 'brace_container'
                                     }
                                   ],
                                   'cmdname' => 'var',

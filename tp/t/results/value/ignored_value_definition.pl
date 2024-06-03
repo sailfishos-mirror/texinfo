@@ -82,7 +82,7 @@ $result_trees{'ignored_value_definition'} = {
                         'text' => 'aa'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'

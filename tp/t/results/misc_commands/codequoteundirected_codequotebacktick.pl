@@ -291,7 +291,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -323,7 +323,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -333,7 +333,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -365,7 +365,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -375,7 +375,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -407,7 +407,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -417,7 +417,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -449,7 +449,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -459,7 +459,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -491,7 +491,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -501,7 +501,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -669,7 +669,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -701,7 +701,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -711,7 +711,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -743,7 +743,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -753,7 +753,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -785,7 +785,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -795,7 +795,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -827,7 +827,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -837,7 +837,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -869,7 +869,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -879,7 +879,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -1075,7 +1075,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -1107,7 +1107,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -1117,7 +1117,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
@@ -1149,7 +1149,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -1159,7 +1159,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',
@@ -1191,7 +1191,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -1201,7 +1201,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -1233,7 +1233,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -1243,7 +1243,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -1275,7 +1275,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'quotedblleft',
@@ -1285,7 +1285,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'samp',
@@ -1607,7 +1607,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblleft',
@@ -1639,7 +1639,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -1649,7 +1649,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -1681,7 +1681,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -1691,7 +1691,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -1723,7 +1723,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -1733,7 +1733,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -1765,7 +1765,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -1775,7 +1775,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -1807,7 +1807,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -1817,7 +1817,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -1985,7 +1985,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblleft',
@@ -2017,7 +2017,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2027,7 +2027,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2059,7 +2059,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2069,7 +2069,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -2101,7 +2101,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2111,7 +2111,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -2143,7 +2143,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2153,7 +2153,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -2185,7 +2185,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2195,7 +2195,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -2391,7 +2391,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'quotedblleft',
@@ -2423,7 +2423,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2433,7 +2433,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -2465,7 +2465,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2475,7 +2475,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -2507,7 +2507,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2517,7 +2517,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -2549,7 +2549,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2559,7 +2559,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -2591,7 +2591,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
@@ -2601,7 +2601,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',
@@ -2696,7 +2696,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'quotedblleft',
@@ -2728,7 +2728,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -2738,7 +2738,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -2770,7 +2770,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -2780,7 +2780,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -2812,7 +2812,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -2822,7 +2822,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'strong',
@@ -2854,7 +2854,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -2864,7 +2864,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -2896,7 +2896,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -2906,7 +2906,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -3074,7 +3074,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'quotedblleft',
@@ -3106,7 +3106,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3116,7 +3116,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -3148,7 +3148,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3158,7 +3158,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -3190,7 +3190,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3200,7 +3200,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'strong',
@@ -3232,7 +3232,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3242,7 +3242,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -3274,7 +3274,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3284,7 +3284,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -3480,7 +3480,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'quotedblleft',
@@ -3512,7 +3512,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3522,7 +3522,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -3554,7 +3554,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3564,7 +3564,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'asis',
@@ -3596,7 +3596,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3606,7 +3606,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'strong',
@@ -3638,7 +3638,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3648,7 +3648,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'kbd',
@@ -3680,7 +3680,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'quotedblleft',
@@ -3690,7 +3690,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',

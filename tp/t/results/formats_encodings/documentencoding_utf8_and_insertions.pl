@@ -58,7 +58,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                       'text' => 'in code'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -124,7 +124,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                           'text' => 'in code'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

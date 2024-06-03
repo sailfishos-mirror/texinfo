@@ -387,7 +387,7 @@ $result_trees{'call_macro_in_linemacro_call'} = {
                           'text' => 'T'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',

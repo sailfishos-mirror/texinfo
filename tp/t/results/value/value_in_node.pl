@@ -199,7 +199,7 @@ $result_trees{'value_in_node'} = {
                                     'text' => 'node1'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -394,7 +394,7 @@ $result_trees{'value_in_node'} = {
                         'text' => 'node1'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -492,7 +492,7 @@ $result_trees{'value_in_node'} = {
                                     'text' => 'sec1'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -688,7 +688,7 @@ $result_trees{'value_in_node'} = {
                                     'text' => 'node1'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'

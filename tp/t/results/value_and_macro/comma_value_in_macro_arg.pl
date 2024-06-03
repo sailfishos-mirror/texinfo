@@ -148,7 +148,7 @@ $result_trees{'comma_value_in_macro_arg'} = {
                                     'text' => 'comma'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -168,7 +168,7 @@ $result_trees{'comma_value_in_macro_arg'} = {
                       'text' => 'arg1 , arg2 '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -183,7 +183,7 @@ $result_trees{'comma_value_in_macro_arg'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',

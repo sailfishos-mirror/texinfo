@@ -61,7 +61,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                       'text' => 'in r'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'r',
@@ -128,7 +128,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                           'text' => 'gg'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sansserif',
@@ -171,7 +171,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                           'text' => 'ancher'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'r',
@@ -214,7 +214,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                           'text' => 'll'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sansserif',
@@ -233,7 +233,7 @@ $result_trees{'command_in_node_redirection_multiple'} = {
                           'text' => 'jj'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'r',

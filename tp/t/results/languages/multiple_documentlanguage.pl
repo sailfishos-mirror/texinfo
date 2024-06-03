@@ -240,7 +240,7 @@ $result_trees{'multiple_documentlanguage'} = {
                             {
                               'args' => [
                                 {
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'error',
@@ -646,7 +646,7 @@ $result_trees{'multiple_documentlanguage'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'error',
@@ -978,7 +978,7 @@ $result_trees{'multiple_documentlanguage'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'error',

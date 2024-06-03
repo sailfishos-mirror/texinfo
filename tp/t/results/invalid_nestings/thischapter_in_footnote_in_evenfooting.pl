@@ -54,7 +54,7 @@ $result_trees{'thischapter_in_footnote_in_evenfooting'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'strong',

@@ -164,7 +164,7 @@ $result_trees{'empty_headitem'} = {
                                       'text' => '3'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -203,7 +203,7 @@ $result_trees{'empty_headitem'} = {
                                       'text' => '30'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',

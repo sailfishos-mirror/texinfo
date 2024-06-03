@@ -37,7 +37,7 @@ TYPE_DATA type_data[] = {
 "paragraph", 0, 0,
 "preformatted", 0, 0,
 "rawpreformatted", 0, 0,
-"brace_command_arg", 0, 0,
+"brace_container", 0, 0,
 "brace_command_context", 0, 0,
 "brace_command_container", 0, 2,
 "block_line_arg", 0, 0,

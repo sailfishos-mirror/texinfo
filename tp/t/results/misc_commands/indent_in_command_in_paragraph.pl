@@ -25,7 +25,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -54,7 +54,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'b',
@@ -63,7 +63,7 @@ $result_trees{'indent_in_command_in_paragraph'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',

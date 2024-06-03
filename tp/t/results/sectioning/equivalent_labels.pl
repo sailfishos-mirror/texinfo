@@ -46,7 +46,7 @@ $result_trees{'equivalent_labels'} = {
                           'text' => 'anch'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'samp',
@@ -246,7 +246,7 @@ $result_trees{'equivalent_labels'} = {
                               'text' => 'floa'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',

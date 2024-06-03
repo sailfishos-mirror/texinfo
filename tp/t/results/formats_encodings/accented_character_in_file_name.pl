@@ -288,7 +288,7 @@ $result_trees{'accented_character_in_file_name'} = {
                       'text' => "v\x{f9}r"
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'value'
@@ -398,7 +398,7 @@ $result_trees{'accented_character_in_file_name'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -408,7 +408,7 @@ $result_trees{'accented_character_in_file_name'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',

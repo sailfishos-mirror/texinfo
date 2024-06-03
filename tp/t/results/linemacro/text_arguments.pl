@@ -139,7 +139,7 @@ $result_trees{'text_arguments'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'bullet',
@@ -154,7 +154,7 @@ $result_trees{'text_arguments'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'minus',

@@ -19,7 +19,7 @@ $result_trees{'accent_and_dash'} = {
                       'text' => 'a--'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => '^',

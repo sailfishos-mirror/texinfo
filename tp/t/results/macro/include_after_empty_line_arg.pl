@@ -100,7 +100,7 @@ $result_trees{'include_after_empty_line_arg'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

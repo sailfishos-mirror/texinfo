@@ -417,7 +417,7 @@ $result_trees{'node_line_arguments'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'comma',
@@ -479,7 +479,7 @@ $result_trees{'node_line_arguments'} = {
                       'text' => 'comma in strong,'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',

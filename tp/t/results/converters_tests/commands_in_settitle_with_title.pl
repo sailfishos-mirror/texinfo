@@ -42,7 +42,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'aa',
@@ -56,7 +56,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'TeX',
@@ -65,7 +65,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'sc',
@@ -107,7 +107,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -116,7 +116,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '"',
@@ -148,7 +148,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '`',
@@ -162,7 +162,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'l',
@@ -194,7 +194,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => ',',
@@ -208,7 +208,7 @@ $result_trees{'commands_in_settitle_with_title'} = {
                 {
                   'args' => [
                     {
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'exclamdown',

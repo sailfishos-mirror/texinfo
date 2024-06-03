@@ -38,7 +38,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -57,7 +57,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -76,7 +76,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -95,7 +95,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -114,7 +114,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -133,7 +133,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -152,7 +152,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -171,7 +171,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -190,7 +190,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -209,7 +209,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -228,7 +228,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -247,7 +247,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -266,7 +266,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -285,7 +285,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -304,7 +304,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -323,7 +323,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -342,7 +342,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -361,7 +361,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -380,7 +380,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -399,7 +399,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -418,7 +418,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -437,7 +437,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -456,7 +456,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -475,7 +475,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -494,7 +494,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -513,7 +513,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -532,7 +532,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -551,7 +551,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -570,7 +570,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -589,7 +589,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -608,7 +608,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -627,7 +627,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -646,7 +646,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -665,7 +665,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -684,7 +684,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -703,7 +703,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -722,7 +722,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -741,7 +741,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -760,7 +760,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -779,7 +779,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -798,7 +798,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -817,7 +817,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -836,7 +836,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -855,7 +855,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -874,7 +874,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -893,7 +893,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -912,7 +912,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -931,7 +931,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -950,7 +950,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -969,7 +969,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -988,7 +988,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1007,7 +1007,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1026,7 +1026,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1045,7 +1045,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1064,7 +1064,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1083,7 +1083,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1102,7 +1102,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1121,7 +1121,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1140,7 +1140,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1159,7 +1159,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1178,7 +1178,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1197,7 +1197,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1216,7 +1216,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1235,7 +1235,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1254,7 +1254,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1273,7 +1273,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1292,7 +1292,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1311,7 +1311,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1330,7 +1330,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1349,7 +1349,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1368,7 +1368,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1387,7 +1387,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1406,7 +1406,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1425,7 +1425,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1444,7 +1444,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1463,7 +1463,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1482,7 +1482,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1501,7 +1501,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1520,7 +1520,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1539,7 +1539,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1558,7 +1558,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1577,7 +1577,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1596,7 +1596,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1615,7 +1615,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1634,7 +1634,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1653,7 +1653,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1672,7 +1672,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1691,7 +1691,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1710,7 +1710,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1729,7 +1729,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1748,7 +1748,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1767,7 +1767,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1786,7 +1786,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1805,7 +1805,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1824,7 +1824,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1843,7 +1843,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1862,7 +1862,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1881,7 +1881,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1900,7 +1900,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -1919,7 +1919,7 @@ $result_trees{'recursive_expansion_in_set'} = {
                         'text' => 'V'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'

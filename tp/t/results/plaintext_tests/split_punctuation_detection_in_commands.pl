@@ -22,7 +22,7 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                       'text' => 'B'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -38,7 +38,7 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                       'text' => ')'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -54,7 +54,7 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                       'text' => '.'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'asis',
@@ -73,7 +73,7 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                       'text' => 'R'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -89,7 +89,7 @@ $result_trees{'split_punctuation_detection_in_commands'} = {
                       'text' => '"!'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',

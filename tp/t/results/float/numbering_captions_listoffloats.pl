@@ -117,7 +117,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'enddots',
@@ -159,7 +159,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'TeX',
@@ -1647,7 +1647,7 @@ $result_trees{'numbering_captions_listoffloats'} = {
                         {
                           'args' => [
                             {
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'enddots',

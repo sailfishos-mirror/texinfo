@@ -49,7 +49,7 @@ $result_trees{'heading_in_quotation'} = {
                               'text' => 'heading'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',

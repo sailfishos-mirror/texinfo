@@ -17,7 +17,7 @@ $result_trees{'empty_titlefont'} = {
         {
           'args' => [
             {
-              'type' => 'brace_command_arg'
+              'type' => 'brace_container'
             }
           ],
           'cmdname' => 'titlefont',

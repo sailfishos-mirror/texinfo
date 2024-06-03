@@ -110,7 +110,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
                       'text' => 'FIXAME: Many arguments, separated by commas, are processed here'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',

@@ -19,7 +19,7 @@ $result_trees{'heading_separator_in_accent_command'} = {
                       'cmdname' => '|'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => ',',
@@ -60,7 +60,7 @@ $result_trees{'heading_separator_in_accent_command'} = {
                           'cmdname' => '|'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',

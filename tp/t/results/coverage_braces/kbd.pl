@@ -22,7 +22,7 @@ $result_trees{'kbd'} = {
                       'text' => 'in kbd'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -62,7 +62,7 @@ $result_trees{'kbd'} = {
                               'text' => 'in nested kbd'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -71,7 +71,7 @@ $result_trees{'kbd'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -111,7 +111,7 @@ $result_trees{'kbd'} = {
                               'text' => 'in nested kbd'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'kbd',
@@ -120,7 +120,7 @@ $result_trees{'kbd'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'kbd',
@@ -188,7 +188,7 @@ $result_trees{'kbd'} = {
                           'text' => 'in example in kbd'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',
@@ -291,7 +291,7 @@ $result_trees{'kbd'} = {
                           'text' => 'in format in kbd'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'code',

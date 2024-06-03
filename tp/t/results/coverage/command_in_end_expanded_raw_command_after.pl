@@ -47,7 +47,7 @@ $result_trees{'command_in_end_expanded_raw_command_after'} = {
                               'text' => 'asis'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'asis',

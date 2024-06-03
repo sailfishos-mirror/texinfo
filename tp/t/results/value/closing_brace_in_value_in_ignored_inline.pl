@@ -57,7 +57,7 @@ $result_trees{'closing_brace_in_value_in_ignored_inline'} = {
                                     'text' => 'closebrace'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'

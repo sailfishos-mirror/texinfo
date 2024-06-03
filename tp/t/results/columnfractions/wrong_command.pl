@@ -25,7 +25,7 @@ $result_trees{'wrong_command'} = {
                                   'text' => '3.4'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'b',

@@ -586,7 +586,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
         }
       else
         {
-          arg = new_element_added (tree, ET_brace_command_arg);
+          arg = new_element_added (tree, ET_brace_container);
           add_to_contents_as_array (arg, element->c->args.list[0]);
         }
       add_to_element_args (command, arg);

@@ -1154,7 +1154,7 @@ sub _print_command_args_texi($)
   my $with_brace;
   if ($current->{'args'} and @{$current->{'args'}}) {
     $with_brace
-        = ($current->{'args'}->[0]->{'type'} eq 'brace_command_arg'
+        = ($current->{'args'}->[0]->{'type'} eq 'brace_container'
            or $current->{'args'}->[0]->{'type'} eq 'brace_command_container'
            or $current->{'args'}->[0]->{'type'} eq 'brace_command_context');
     $args .= '{' if ($with_brace);
@@ -3080,12 +3080,12 @@ sub _isolate_last_space
   return if (!$current->{'contents'});
 
   # $current->{'type'} is always set, to line_arg, block_line_arg,
-  # brace_command_arg, brace_command_container, bracketed_arg or menu_entry_node
+  # brace_container, brace_command_container, bracketed_arg or menu_entry_node
 
   # Store a final comment command in the 'info' hash, except for brace
   # commands
   if (not ($current->{'type'}
-           and ($current->{'type'} eq 'brace_command_arg'
+           and ($current->{'type'} eq 'brace_container'
                 or $current->{'type'} eq 'brace_command_container'))
       and scalar(@{$current->{'contents'}}) >= 1
       and $current->{'contents'}->[-1]->{'cmdname'}
@@ -4265,7 +4265,7 @@ sub _end_line_starting_block($$$)
                or !scalar(@{$command_as_argument->{'args'}})
                or !$command_as_argument->{'args'}->[0]->{'type'}
                or ($command_as_argument->{'args'}->[0]->{'type'}
-                                              ne 'brace_command_arg'
+                                              ne 'brace_container'
                    and $command_as_argument->{'args'}->[0]->{'type'}
                                      ne 'brace_command_container'))) {
         my $cmdname = $command_as_argument->{'cmdname'};
@@ -5056,11 +5056,11 @@ sub _new_value_element($$;$$)
   my $value_elt = { 'cmdname' => $command,
                       'args' => [] };
   $value_elt->{'parent'} = $current if (defined($current));
-  my $brace_command_arg = {'type' => 'brace_command_arg',
-                           'contents' => [], 'parent' => $value_elt};
-  push @{$value_elt->{'args'}}, $brace_command_arg;
-  push @{$brace_command_arg->{'contents'}}, {'text' => $flag,
-                                            'parent' => $brace_command_arg};
+  my $brace_container = {'type' => 'brace_container',
+                         'contents' => [], 'parent' => $value_elt};
+  push @{$value_elt->{'args'}}, $brace_container;
+  push @{$brace_container->{'contents'}}, {'text' => $flag,
+                                           'parent' => $brace_container};
   if ($spaces_element) {
     $value_elt->{'info'} = {} if (!$value_elt->{'info'});
     $value_elt->{'info'}->{'spaces_after_cmd_before_arg'} = $spaces_element;
@@ -6144,7 +6144,7 @@ sub _handle_open_brace($$$$)
       if ($self->{'basic_inline_commands'}
           and $self->{'basic_inline_commands'}->{$command});
     if ($command eq 'verb') {
-      $current->{'type'} = 'brace_command_arg';
+      $current->{'type'} = 'brace_container';
       $current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
       if ($line eq '') {
         # the delimiter may be in macro expansion
@@ -6229,7 +6229,7 @@ sub _handle_open_brace($$$$)
                   };
         $self->{'internal_space_holder'} = $current;
       } else {
-        $current->{'type'} = 'brace_command_arg';
+        $current->{'type'} = 'brace_container';
       }
       $self->_push_context('ct_inlineraw', $command)
         if ($command eq 'inlineraw');
@@ -6585,7 +6585,7 @@ sub _handle_comma($$$$)
   # type corresponds to three possible containers: in brace commands,
   # line of block command (float or example) or line (node).
   my $type = $current->{'type'};
-  #die ("type: $type\n") if ($type ne 'brace_command_arg'
+  #die ("type: $type\n") if ($type ne 'brace_container'
   #                          and $type ne 'brace_command_container'
   #                          and $type ne 'block_line_arg'
   #                          and $type ne 'line_arg');
@@ -6903,7 +6903,7 @@ sub _process_remaining_on_line($$$$)
       return ($current, $line, $source_info, $GET_A_NEW_LINE);
       # goto funexit;  # used in XS code
     }
-  # in @verb. type should be 'brace_command_arg'
+  # in @verb. type should be 'brace_container'
   } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
          and $current->{'parent'}->{'cmdname'} eq 'verb') {
     my $char = quotemeta($current->{'parent'}->{'info'}->{'delimiter'});
@@ -8350,8 +8350,8 @@ The text fragment of text elements.
 
 The type of element considered, in general a container.  Frequent
 types encountered are I<paragraph> for a paragraph container,
-I<brace_command_arg> for the container holding the brace @-commands
-contents, I<line_arg> and I<block_line_arg> contain the arguments
+I<brace_container> for the container holding a brace @-commands
+content, I<line_arg> and I<block_line_arg> contain the arguments
 appearing on the line of @-commands.  Text fragments may have a type to
 give an information of the kind of text fragment, for example
 I<spaces_before_paragraph> is associated to spaces appearing
@@ -8625,9 +8625,11 @@ in C<@defblock>.
 A container for content before the first C<@item> of block @-commands
 with items (C<@table>, C<@multitable>, C<@enumerate>...).
 
-=item brace_command_arg
+=item brace_container
 
 =item brace_command_context
+
+=item brace_command_container
 
 =item line_arg
 
@@ -8636,10 +8638,14 @@ with items (C<@table>, C<@multitable>, C<@enumerate>...).
 =item following_arg
 
 Those containers occur within the C<args> array of @-commands taking an
-argument.  I<brace_command_arg> is used for the arguments to commands
-taking arguments surrounded by braces (and in some cases separated by
-commas).  I<brace_command_context> is used for @-commands with braces
-that start a new context (C<@footnote>, C<@caption>, C<@math>).
+argument.  I<brace_container> is used for the argument to commands
+taking arguments surrounded by braces when the whole text in the braces
+is in the argument.  I<brace_command_container> is used for the the
+arguments to commands taking arguments surrounded by braces when the leading
+and, in most cases, trailing spaces are not part of the argument, and for
+arguments in braces separated by commas.  I<brace_command_context> is used for
+@-commands with braces that start a new context (C<@footnote>, C<@caption>,
+C<@math>).
 
 I<line_arg> is used for commands that take the texinfo code on the rest of the
 line as their argument, such as C<@settitle>, C<@node>, C<@section>.
@@ -8659,7 +8665,7 @@ For example
 leads to
 
  {'cmdname' => 'code',
-  'args' => [{'type' => 'brace_command_arg',
+  'args' => [{'type' => 'brace_container',
               'contents' => [{'text' => 'in code'}]}]}
 
 =item bracketed_arg
@@ -9170,7 +9176,7 @@ no sectioning command between the C<@part> and the node.
 
 =item C<@inforef>
 
-The node argument I<brace_command_arg> holds information on
+The node argument I<brace_command_container> holds information on
 the label, like the one appearing in the C<@node> I<line_arg> explicit
 directions arguments C<extra> hash labels information.
 

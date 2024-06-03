@@ -89,7 +89,7 @@ $result_trees{'command_in_heading_footing'} = {
                       'cmdname' => 'thissection'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

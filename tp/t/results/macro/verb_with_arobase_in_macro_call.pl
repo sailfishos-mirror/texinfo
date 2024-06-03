@@ -131,7 +131,7 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',
@@ -159,7 +159,7 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                       'type' => 'raw'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'verb',

@@ -205,7 +205,7 @@ $result_trees{'texinfo_command_alias'} = {
                       'text' => 'bb'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'mystrong',

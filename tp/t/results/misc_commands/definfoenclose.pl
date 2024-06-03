@@ -71,7 +71,7 @@ $result_trees{'definfoenclose'} = {
                       'text' => 'bar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phoo',
@@ -156,7 +156,7 @@ $result_trees{'definfoenclose'} = {
                       'text' => 'bar'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'phi',
@@ -194,7 +194,7 @@ $result_trees{'definfoenclose'} = {
                       'text' => 'very strong'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',
@@ -263,7 +263,7 @@ $result_trees{'definfoenclose'} = {
                       'text' => ' is it really strong? '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'strong',

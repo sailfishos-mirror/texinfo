@@ -50,7 +50,7 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                       'text' => 'node'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'emph',
@@ -116,7 +116,7 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                               'text' => 'node'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'strong',
@@ -225,7 +225,7 @@ $result_trees{'equivalent_nodes_novalidate'} = {
                       'text' => 'node'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'samp',

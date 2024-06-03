@@ -83,7 +83,7 @@ $result_trees{'set_form_feed'} = {
                                     'text' => 'gg'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -108,7 +108,7 @@ $result_trees{'set_form_feed'} = {
                                     'text' => 'hh'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -134,7 +134,7 @@ $result_trees{'set_form_feed'} = {
                                     'text' => 'll'
                                   }
                                 ],
-                                'type' => 'brace_command_arg'
+                                'type' => 'brace_container'
                               }
                             ],
                             'cmdname' => 'value'
@@ -154,7 +154,7 @@ $result_trees{'set_form_feed'} = {
                       'text' => 'a\\a\\f\\\\. . '
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

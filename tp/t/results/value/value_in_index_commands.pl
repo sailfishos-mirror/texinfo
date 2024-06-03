@@ -87,7 +87,7 @@ $result_trees{'value_in_index_commands'} = {
                                 'text' => 'fn'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -136,7 +136,7 @@ $result_trees{'value_in_index_commands'} = {
                             'text' => 'cp'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -164,7 +164,7 @@ $result_trees{'value_in_index_commands'} = {
                         'text' => 'syncodeindex_command'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -292,7 +292,7 @@ $result_trees{'value_in_index_commands'} = {
                                 'text' => 'truc'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -410,7 +410,7 @@ $result_trees{'value_in_index_commands'} = {
                             'text' => 'codeidx'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -520,7 +520,7 @@ $result_trees{'value_in_index_commands'} = {
                         'text' => 'trucindex_command'
                       }
                     ],
-                    'type' => 'brace_command_arg'
+                    'type' => 'brace_container'
                   }
                 ],
                 'cmdname' => 'value'
@@ -598,7 +598,7 @@ $result_trees{'value_in_index_commands'} = {
                           'text' => 'index entry'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'var',
@@ -640,7 +640,7 @@ $result_trees{'value_in_index_commands'} = {
                                   'text' => 'i'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'dotless',
@@ -649,7 +649,7 @@ $result_trees{'value_in_index_commands'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => '^',
@@ -696,7 +696,7 @@ $result_trees{'value_in_index_commands'} = {
                             'text' => 'defcodeindex_entry'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -767,7 +767,7 @@ $result_trees{'value_in_index_commands'} = {
                             'text' => 'truc'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -802,7 +802,7 @@ $result_trees{'value_in_index_commands'} = {
                                 'text' => 'codeidx'
                               }
                             ],
-                            'type' => 'brace_command_arg'
+                            'type' => 'brace_container'
                           }
                         ],
                         'cmdname' => 'value'
@@ -908,7 +908,7 @@ $result_trees{'value_in_index_commands'} = {
                             'text' => 'truc'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'
@@ -984,7 +984,7 @@ $result_trees{'value_in_index_commands'} = {
                             'text' => 'cp'
                           }
                         ],
-                        'type' => 'brace_command_arg'
+                        'type' => 'brace_container'
                       }
                     ],
                     'cmdname' => 'value'

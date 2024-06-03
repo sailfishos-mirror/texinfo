@@ -331,7 +331,7 @@ $result_trees{'explicit_sort_key'} = {
                           }
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'b',
@@ -421,7 +421,7 @@ $result_trees{'explicit_sort_key'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',
@@ -458,7 +458,7 @@ $result_trees{'explicit_sort_key'} = {
                               'text' => 'inside'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'b',

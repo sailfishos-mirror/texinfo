@@ -95,7 +95,7 @@ $result_trees{'comment_on_cartouche_line'} = {
                           'text' => 'Title of box'
                         }
                       ],
-                      'type' => 'brace_command_arg'
+                      'type' => 'brace_container'
                     }
                   ],
                   'cmdname' => 'emph',

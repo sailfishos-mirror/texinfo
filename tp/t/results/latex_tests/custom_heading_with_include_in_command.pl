@@ -61,7 +61,7 @@ $result_trees{'custom_heading_with_include_in_command'} = {
                               'cmdname' => 'thisfile'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'emph',

@@ -47,7 +47,7 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
                       'text' => 'b a'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'code',

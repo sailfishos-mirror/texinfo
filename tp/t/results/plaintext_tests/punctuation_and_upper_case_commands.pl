@@ -24,7 +24,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -56,7 +56,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -74,7 +74,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'aa',
@@ -83,7 +83,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -103,7 +103,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -135,7 +135,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -153,7 +153,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -162,7 +162,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -182,7 +182,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       'text' => 'double AAA'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -217,7 +217,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -238,7 +238,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -247,7 +247,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',
@@ -277,7 +277,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -309,7 +309,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -327,7 +327,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'aa',
@@ -336,7 +336,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -356,7 +356,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -388,7 +388,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -406,7 +406,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -415,7 +415,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -435,7 +435,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       'text' => 'double AAA'
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -470,7 +470,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',
@@ -491,7 +491,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'AA',
@@ -500,7 +500,7 @@ $result_trees{'punctuation_and_upper_case_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'sc',

@@ -44,7 +44,7 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
                                   'text' => 'in c'
                                 }
                               ],
-                              'type' => 'brace_command_arg'
+                              'type' => 'brace_container'
                             }
                           ],
                           'cmdname' => 'code',

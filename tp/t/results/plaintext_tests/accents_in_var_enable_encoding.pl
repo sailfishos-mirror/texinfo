@@ -81,7 +81,7 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                               'text' => 'r'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'u',
@@ -109,7 +109,7 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_arg'
+                  'type' => 'brace_container'
                 }
               ],
               'cmdname' => 'var',

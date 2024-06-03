@@ -78,7 +78,7 @@ $result_trees{'uref_accented_letter_ascii'} = {
                               'text' => 'a'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'ogonek',

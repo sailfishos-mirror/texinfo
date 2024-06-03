@@ -330,7 +330,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'text' => 'None'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -377,7 +377,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'text' => '-1'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -424,7 +424,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'text' => 'None'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'code',
@@ -579,7 +579,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => 'a'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'var',
@@ -610,7 +610,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => ' : array_like'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'code',
@@ -752,7 +752,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => 'n'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'var',
@@ -783,7 +783,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => ' : int, optional'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'code',
@@ -852,7 +852,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'text' => 'n'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -948,7 +948,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => 'axis'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'var',
@@ -979,7 +979,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => ' : int, optional'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'code',
@@ -1125,7 +1125,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => 'out'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'var',
@@ -1156,7 +1156,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                               'text' => ' : complex ndarray'
                                             }
                                           ],
-                                          'type' => 'brace_command_arg'
+                                          'type' => 'brace_container'
                                         }
                                       ],
                                       'cmdname' => 'code',
@@ -1342,7 +1342,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'text' => 'axis'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',
@@ -1361,7 +1361,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'text' => 'a'
                                     }
                                   ],
-                                  'type' => 'brace_command_arg'
+                                  'type' => 'brace_container'
                                 }
                               ],
                               'cmdname' => 'var',

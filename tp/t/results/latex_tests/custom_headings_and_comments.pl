@@ -122,7 +122,7 @@ $result_trees{'custom_headings_and_comments'} = {
                               'cmdname' => 'thischaptername'
                             }
                           ],
-                          'type' => 'brace_command_arg'
+                          'type' => 'brace_container'
                         }
                       ],
                       'cmdname' => 'code',
