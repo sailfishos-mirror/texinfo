@@ -167,6 +167,13 @@ $result_errors{'empty_nodes_with_commands'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @ should not occur at end of argument to line command
+',
+    'line_nr' => 4,
+    'text' => '@ should not occur at end of argument to line command',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'empty node name after expansion `@
 \'
 ',

@@ -414,6 +414,13 @@ $result_errors{'nodedescription'} = [
     'line_nr' => 11,
     'text' => 'multiple node @nodedescription',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @ should not occur at end of argument to line command
+',
+    'line_nr' => 11,
+    'text' => '@ should not occur at end of argument to line command',
+    'type' => 'warning'
   }
 ];
 

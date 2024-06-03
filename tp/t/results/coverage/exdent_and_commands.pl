@@ -334,7 +334,22 @@ in exdented a @*
 after exdented
 ';
 
-$result_errors{'exdent_and_commands'} = [];
+$result_errors{'exdent_and_commands'} = [
+  {
+    'error_line' => 'warning: @ should not occur at end of argument to line command
+',
+    'line_nr' => 3,
+    'text' => '@ should not occur at end of argument to line command',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @ should not occur at end of argument to line command
+',
+    'line_nr' => 11,
+    'text' => '@ should not occur at end of argument to line command',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'exdent_and_commands'} = {};

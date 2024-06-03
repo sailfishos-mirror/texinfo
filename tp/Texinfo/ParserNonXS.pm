@@ -5428,6 +5428,12 @@ sub _handle_other_command($$$$$)
                               $command), $source_info);
       }
       if ($command eq "\n") {
+        if ($self->_top_context() eq 'ct_line') {
+          $self->_line_warn(
+            "\@ should not occur at end of argument to line command",
+            $source_info);
+        }
+
         $current = _end_line($self, $current, $source_info);
         $retval = $GET_A_NEW_LINE;
       }

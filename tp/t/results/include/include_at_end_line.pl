@@ -67,6 +67,13 @@ After.';
 
 $result_errors{'include_at_end_line'} = [
   {
+    'error_line' => 'warning: @ should not occur at end of argument to line command
+',
+    'line_nr' => 1,
+    'text' => '@ should not occur at end of argument to line command',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @include: inc_file.texi@
 ',
     'line_nr' => 1,

@@ -287,6 +287,13 @@ $result_menus{'novalidate_empty_refs'} = [
 
 $result_errors{'novalidate_empty_refs'} = [
   {
+    'error_line' => 'warning: @ should not occur at end of argument to line command
+',
+    'line_nr' => 9,
+    'text' => '@ should not occur at end of argument to line command',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'empty node name after expansion `@
 \'
 ',

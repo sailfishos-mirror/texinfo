@@ -372,6 +372,9 @@ handle_other_command (ELEMENT *current, const char **line_inout,
             }
           if (cmd == CM_NEWLINE)
             {
+              if (current_context () == ct_line)
+                line_warn ("@ should not occur at end of argument "
+                           "to line command");
               current = end_line (current);
               *status = GET_A_NEW_LINE;
             }

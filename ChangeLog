@@ -1,5 +1,11 @@
 2024-06-03  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_other_command)
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command):
+	Issue warning for @ at end of line command.
+
+2024-06-03  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: add entry for SPARC memory alignment bugfix
 
 2024-06-03  Gavin Smith <gavinsmith0123@gmail.com>
