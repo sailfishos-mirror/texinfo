@@ -76,7 +76,7 @@ $result_trees{'macro_zero'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

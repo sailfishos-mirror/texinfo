@@ -203,7 +203,7 @@ $result_trees{'ref_to_float'} = {
                     },
                     'normalized' => 'Label1'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -241,7 +241,7 @@ $result_trees{'ref_to_float'} = {
                     },
                     'normalized' => 'Label2'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

@@ -126,7 +126,7 @@ $result_trees{'inlineraw_in_menu_description'} = {
                                   'text' => 'html'
                                 }
                               ],
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             },
                             {
                               'contents' => [
@@ -148,7 +148,7 @@ $result_trees{'inlineraw_in_menu_description'} = {
                                   'text' => ' '
                                 }
                               },
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             }
                           ],
                           'cmdname' => 'inlineraw',

@@ -528,7 +528,7 @@ $result_trees{'glossary'} = {
                             'text' => 'id1'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       },
                       {
                         'contents' => [
@@ -541,7 +541,7 @@ $result_trees{'glossary'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       },
                       {
                         'contents' => [
@@ -554,7 +554,7 @@ $result_trees{'glossary'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -610,7 +610,7 @@ $result_trees{'glossary'} = {
                     },
                     'normalized' => 'id1'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -618,7 +618,7 @@ $result_trees{'glossary'} = {
                       'text' => 'name1'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -844,7 +844,7 @@ $result_trees{'glossary'} = {
                             'text' => '@glossarytext{}'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -967,7 +967,7 @@ $result_trees{'glossary'} = {
                             'text' => 'id2'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       },
                       {
                         'contents' => [
@@ -980,7 +980,7 @@ $result_trees{'glossary'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       },
                       {
                         'contents' => [
@@ -993,7 +993,7 @@ $result_trees{'glossary'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -1050,7 +1050,7 @@ $result_trees{'glossary'} = {
                     },
                     'normalized' => 'id2'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -1058,7 +1058,7 @@ $result_trees{'glossary'} = {
                       'text' => 'name2'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -1284,7 +1284,7 @@ $result_trees{'glossary'} = {
                             'text' => '@glossarytext{}'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -1477,7 +1477,7 @@ $result_trees{'glossary'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -1521,7 +1521,7 @@ $result_trees{'glossary'} = {
                       'text' => 'id2'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',

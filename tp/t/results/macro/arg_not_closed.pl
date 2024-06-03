@@ -86,7 +86,7 @@ $result_trees{'arg_not_closed'} = {
 '
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

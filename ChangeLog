@@ -4,6 +4,10 @@
 
 2024-06-03  Patrice Dumas  <pertusus@free.fr>
 
+	Rename brace_command_container type as brace_arg
+
+2024-06-03  Patrice Dumas  <pertusus@free.fr>
+
 	Rename brace_command_arg type as brace_container
 
 2024-06-03  Patrice Dumas  <pertusus@free.fr>

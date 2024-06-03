@@ -116,7 +116,7 @@ $result_trees{'alias_macro_target_removed'} = {
                         'text' => 'aa'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

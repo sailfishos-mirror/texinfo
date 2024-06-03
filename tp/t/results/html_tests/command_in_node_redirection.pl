@@ -94,7 +94,7 @@ $result_trees{'command_in_node_redirection'} = {
                   'text' => 'yyyy'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

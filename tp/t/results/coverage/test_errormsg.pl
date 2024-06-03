@@ -58,7 +58,7 @@ $result_trees{'test_errormsg'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'errormsg',
@@ -86,7 +86,7 @@ $result_trees{'test_errormsg'} = {
                       'text' => '  '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'errormsg',

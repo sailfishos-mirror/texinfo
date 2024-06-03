@@ -63,7 +63,7 @@ rawpreformatted
 brace_container
 brace_command_context
 # with separate leading spaces in info, and trailing (if not in inline)
-brace_command_container
+brace_arg
 block_line_arg
 line_arg
 following_arg

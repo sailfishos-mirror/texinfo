@@ -248,7 +248,7 @@ $result_trees{'equivalent_nodes'} = {
                     },
                     'normalized' => 'node'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

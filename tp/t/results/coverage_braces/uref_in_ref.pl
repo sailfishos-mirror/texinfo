@@ -40,7 +40,7 @@ $result_trees{'uref_in_ref'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -55,7 +55,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'href://http/myhost.com/index.html'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -63,7 +63,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'uref1'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'uref',
@@ -77,7 +77,7 @@ $result_trees{'uref_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -92,7 +92,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'href://http/myhost.com/index2.html'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -100,7 +100,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'uref2'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'uref',
@@ -114,7 +114,7 @@ $result_trees{'uref_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -129,7 +129,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'href://http/myhost.com/index3.html'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -137,7 +137,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'uref3'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'uref',
@@ -151,7 +151,7 @@ $result_trees{'uref_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -166,7 +166,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'href://http/myhost.com/index4.html'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -174,7 +174,7 @@ $result_trees{'uref_in_ref'} = {
                               'text' => 'uref4'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'uref',
@@ -188,7 +188,7 @@ $result_trees{'uref_in_ref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

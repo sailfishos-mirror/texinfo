@@ -59,7 +59,7 @@ END {
         t = types[line_idx]
         flags_str = ""
         elt_info_number = 0;
-        if (t == "brace_command_container" || t == "bracketed_arg") {
+        if (t == "brace_arg" || t == "bracketed_arg") {
           elt_info_number = 2;
         } else if (t == "macro_call" || t == "rmacro_call") {
           elt_info_number = 1;

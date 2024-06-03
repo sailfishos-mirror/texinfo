@@ -56,7 +56,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                                       'extra' => {
                                         'element_region' => 'copying'
                                       },
-                                      'type' => 'brace_command_container'
+                                      'type' => 'brace_arg'
                                     }
                                   ],
                                   'cmdname' => 'anchor',
@@ -268,7 +268,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                     },
                     'normalized' => 'Copying-footnote'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

@@ -17,13 +17,13 @@ $result_trees{'space_command_in_image'} = {
                   'text' => 'f--ile'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -31,7 +31,7 @@ $result_trees{'space_command_in_image'} = {
                   'cmdname' => ' '
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -53,13 +53,13 @@ $result_trees{'space_command_in_image'} = {
                   'text' => 'f--ile'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -67,7 +67,7 @@ $result_trees{'space_command_in_image'} = {
                   'cmdname' => ':'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',

@@ -69,7 +69,7 @@ $result_trees{'macro_for_ignored_line_command'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

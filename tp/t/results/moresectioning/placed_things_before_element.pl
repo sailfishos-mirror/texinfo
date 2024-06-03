@@ -17,7 +17,7 @@ $result_trees{'placed_things_before_element'} = {
                   'text' => 'An anchor'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',
@@ -61,7 +61,7 @@ $result_trees{'placed_things_before_element'} = {
                     },
                     'normalized' => 'An-anchor'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -103,7 +103,7 @@ $result_trees{'placed_things_before_element'} = {
                     },
                     'normalized' => 'Anchor-in-footnote'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -151,7 +151,7 @@ $result_trees{'placed_things_before_element'} = {
                               'text' => 'Anchor in footnote'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -195,7 +195,7 @@ $result_trees{'placed_things_before_element'} = {
                                 },
                                 'normalized' => 'An-anchor'
                               },
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             }
                           ],
                           'cmdname' => 'ref',
@@ -338,7 +338,7 @@ $result_trees{'placed_things_before_element'} = {
                     },
                     'normalized' => 'float-anchor'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -547,7 +547,7 @@ $result_trees{'placed_things_before_element'} = {
                     },
                     'normalized' => 'An-anchor'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -589,7 +589,7 @@ $result_trees{'placed_things_before_element'} = {
                     },
                     'normalized' => 'Anchor-in-footnote'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

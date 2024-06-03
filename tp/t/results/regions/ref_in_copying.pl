@@ -43,7 +43,7 @@ $result_trees{'ref_in_copying'} = {
                             },
                             'normalized' => 'GFDL'
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'ref',

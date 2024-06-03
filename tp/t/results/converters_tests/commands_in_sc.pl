@@ -195,7 +195,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'myimage'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'image',
@@ -225,7 +225,7 @@ $result_trees{'commands_in_sc'} = {
                             },
                             'normalized' => 'chap'
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -265,7 +265,7 @@ $result_trees{'commands_in_sc'} = {
                               ]
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'xref',
@@ -292,10 +292,10 @@ $result_trees{'commands_in_sc'} = {
                               ]
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -303,7 +303,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'name'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -311,7 +311,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'argf'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'ref',
@@ -330,7 +330,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'latex'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -364,7 +364,7 @@ $result_trees{'commands_in_sc'} = {
                               }
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'inlinefmtifelse',
@@ -387,7 +387,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'inanchor'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -411,7 +411,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'hyphena-te'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'hyphenation',
@@ -433,7 +433,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => '00ff'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'U',
@@ -496,7 +496,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'la'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -515,7 +515,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'a'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -523,7 +523,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'b'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -542,7 +542,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -550,7 +550,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'lb'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -565,10 +565,10 @@ $result_trees{'commands_in_sc'} = {
                     {
                       'args' => [
                         {
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -576,7 +576,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'c'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -601,7 +601,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'c'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -614,7 +614,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'email',
@@ -633,7 +633,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => 'ab'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -646,7 +646,7 @@ $result_trees{'commands_in_sc'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'abbr',

@@ -243,7 +243,7 @@ $result_trees{'at_commands_in_raw'} = {
                           'text' => 'anchor in html'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -709,7 +709,7 @@ $result_trees{'at_commands_in_raw'} = {
                     },
                     'normalized' => 'anchor-in-html'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -747,7 +747,7 @@ $result_trees{'at_commands_in_raw'} = {
                     },
                     'normalized' => 'anchor-in-tex'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -935,7 +935,7 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'FF'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -992,7 +992,7 @@ $result_trees{'at_commands_in_raw'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

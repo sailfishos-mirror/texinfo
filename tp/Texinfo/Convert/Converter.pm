@@ -1507,7 +1507,7 @@ sub table_item_content_tree($$)
       }
     } elsif ($Texinfo::Commands::brace_commands{$command_as_argument_cmdname}
                                                    eq 'arguments') {
-      $arg = {'type' => 'brace_command_container',
+      $arg = {'type' => 'brace_arg',
               'contents' => [$element->{'args'}->[0]],
               'parent' => $command,};
     } else {

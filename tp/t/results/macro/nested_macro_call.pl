@@ -139,7 +139,7 @@ $result_trees{'nested_macro_call'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -156,7 +156,7 @@ $result_trees{'nested_macro_call'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

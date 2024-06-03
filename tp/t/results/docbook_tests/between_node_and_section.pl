@@ -180,7 +180,7 @@ $result_trees{'between_node_and_section'} = {
                   'text' => 'Old name'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

@@ -293,7 +293,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                     },
                     'normalized' => 'chap'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -368,7 +368,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                     },
                     'normalized' => 'chap'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

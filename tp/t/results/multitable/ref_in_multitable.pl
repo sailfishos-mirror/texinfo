@@ -50,7 +50,7 @@ $result_trees{'ref_in_multitable'} = {
                     },
                     'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -169,7 +169,7 @@ $result_trees{'ref_in_multitable'} = {
                                     },
                                     'normalized' => 'RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRRR'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'ref',
@@ -252,7 +252,7 @@ $result_trees{'ref_in_multitable'} = {
                                     },
                                     'normalized' => 'SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSSSS'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'ref',
@@ -322,7 +322,7 @@ $result_trees{'ref_in_multitable'} = {
                                                 },
                                                 'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
                                               },
-                                              'type' => 'brace_command_container'
+                                              'type' => 'brace_arg'
                                             }
                                           ],
                                           'cmdname' => 'ref',
@@ -463,7 +463,7 @@ $result_trees{'ref_in_multitable'} = {
                     },
                     'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

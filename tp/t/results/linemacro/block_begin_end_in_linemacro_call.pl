@@ -743,7 +743,7 @@ args \\e\\|\\f\\|
                                 'text' => 'arg1'
                               }
                             ],
-                            'type' => 'brace_command_container'
+                            'type' => 'brace_arg'
                           },
                           {
                             'contents' => [
@@ -756,7 +756,7 @@ args \\e\\|\\f\\|
                                 'text' => ' '
                               }
                             },
-                            'type' => 'brace_command_container'
+                            'type' => 'brace_arg'
                           }
                         ],
                         'info' => {

@@ -88,7 +88,7 @@ $result_trees{'macro_after_paragraph'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

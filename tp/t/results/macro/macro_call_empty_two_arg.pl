@@ -82,7 +82,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -127,7 +127,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -175,7 +175,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'info' => {
@@ -183,7 +183,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -228,10 +228,10 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -279,7 +279,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'info' => {
@@ -287,7 +287,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -340,7 +340,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => 'g'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'info' => {
@@ -348,7 +348,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -398,10 +398,10 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => 'h'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -446,7 +446,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'contents' => [
@@ -459,7 +459,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -504,7 +504,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'contents' => [
@@ -517,7 +517,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -565,7 +565,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'contents' => [
@@ -573,7 +573,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => 'k'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -618,7 +618,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'contents' => [
@@ -626,7 +626,7 @@ $result_trees{'macro_call_empty_two_arg'} = {
                         'text' => 'l'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

@@ -104,7 +104,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'hyphenation',
@@ -153,7 +153,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'U',

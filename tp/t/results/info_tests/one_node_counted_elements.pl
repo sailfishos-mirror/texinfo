@@ -170,7 +170,7 @@ $result_trees{'one_node_counted_elements'} = {
                       'text' => 'ref'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',
@@ -325,7 +325,7 @@ $result_trees{'one_node_counted_elements'} = {
                     },
                     'normalized' => 'ref'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

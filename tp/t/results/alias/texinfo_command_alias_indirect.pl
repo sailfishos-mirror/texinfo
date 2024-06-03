@@ -154,7 +154,7 @@ $result_trees{'texinfo_command_alias_indirect'} = {
                         'text' => 'aa'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

@@ -78,7 +78,7 @@ $result_trees{'macro_expands_to_empty'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -104,7 +104,7 @@ $result_trees{'macro_expands_to_empty'} = {
                         'text' => 'aa'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

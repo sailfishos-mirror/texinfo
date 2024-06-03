@@ -165,7 +165,7 @@ $result_trees{'macro_name_with_digit'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

@@ -83,7 +83,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -195,7 +195,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -327,7 +327,7 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                             'text' => '900'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

@@ -183,7 +183,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           if (command_data(command).data == BRACE_arguments
               || command_data(command).data == BRACE_inline)
             {
-              arg = new_element (ET_brace_command_container);
+              arg = new_element (ET_brace_arg);
               ELEMENT *e;
               e = new_text_element (ET_internal_spaces_before_argument);
               add_to_element_contents (arg, e);

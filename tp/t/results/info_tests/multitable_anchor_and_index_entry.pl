@@ -286,7 +286,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                       'text' => 'anchor in multitable'
                                     }
                                   ],
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -647,7 +647,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                       'text' => 'mark'
                                     }
                                   ],
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -801,7 +801,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                     },
                     'normalized' => 'mark'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -829,7 +829,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                     },
                     'normalized' => 'anchor-in-multitable'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

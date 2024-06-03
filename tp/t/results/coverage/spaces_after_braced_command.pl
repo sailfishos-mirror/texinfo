@@ -121,7 +121,7 @@ $result_trees{'spaces_after_braced_command'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -138,7 +138,7 @@ $result_trees{'spaces_after_braced_command'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',

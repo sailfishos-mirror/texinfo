@@ -821,7 +821,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                     },
                     'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -850,7 +850,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                     },
                     'normalized' => '_00e9'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -879,7 +879,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                     },
                     'normalized' => '_00e0-_00e8-_00f9'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -908,7 +908,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                     },
                     'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -937,7 +937,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                     },
                     'normalized' => '_00e7'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

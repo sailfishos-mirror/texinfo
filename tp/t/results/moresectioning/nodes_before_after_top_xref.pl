@@ -355,7 +355,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     },
                     'normalized' => 'node-before'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -383,7 +383,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     },
                     'normalized' => 'after'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -453,7 +453,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     },
                     'normalized' => 'node-before'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -481,7 +481,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
                     },
                     'normalized' => 'after'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

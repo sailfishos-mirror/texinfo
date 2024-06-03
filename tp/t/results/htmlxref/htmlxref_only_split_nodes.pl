@@ -272,13 +272,13 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -291,7 +291,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -420,13 +420,13 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -434,7 +434,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -568,13 +568,13 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -587,7 +587,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -730,7 +730,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -890,13 +890,13 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -909,7 +909,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -1073,7 +1073,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                     },
                     'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -1196,7 +1196,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                     },
                     'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -1327,7 +1327,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -1455,7 +1455,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => '  '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -1777,7 +1777,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

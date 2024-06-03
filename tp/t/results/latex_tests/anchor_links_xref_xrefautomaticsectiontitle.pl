@@ -53,7 +53,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                       'text' => 'anch: in node before'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',
@@ -161,7 +161,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                       'text' => 'anch: in node top'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',
@@ -235,7 +235,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                       'text' => 'anch: in node after'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',
@@ -343,7 +343,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                       'text' => 'anch: in chap'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',
@@ -418,7 +418,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-node-before'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -446,7 +446,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-node-top'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -474,7 +474,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-node-after'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -502,7 +502,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-chap'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -572,7 +572,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-node-before'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -600,7 +600,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-node-top'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -628,7 +628,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-node-after'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -656,7 +656,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                     },
                     'normalized' => 'anch_003a-in-chap'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

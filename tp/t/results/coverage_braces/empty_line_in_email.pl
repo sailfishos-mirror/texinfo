@@ -27,7 +27,7 @@ $result_trees{'empty_line_in_email'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',

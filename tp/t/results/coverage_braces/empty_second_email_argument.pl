@@ -30,7 +30,7 @@ $result_trees{'empty_second_email_argument'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'info' => {
@@ -38,7 +38,7 @@ $result_trees{'empty_second_email_argument'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',

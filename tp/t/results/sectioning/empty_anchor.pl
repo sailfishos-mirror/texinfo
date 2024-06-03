@@ -12,7 +12,7 @@ $result_trees{'empty_anchor'} = {
         {
           'args' => [
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',
@@ -34,7 +34,7 @@ $result_trees{'empty_anchor'} = {
                       'text' => '   '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',

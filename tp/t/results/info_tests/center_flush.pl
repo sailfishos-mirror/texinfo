@@ -124,7 +124,7 @@ $result_trees{'center_flush'} = {
                           'text' => 'anchor in flushleft'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -271,7 +271,7 @@ $result_trees{'center_flush'} = {
                           'text' => 'anchor in flushright'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'anchor',
@@ -303,7 +303,7 @@ $result_trees{'center_flush'} = {
                           'text' => 'second anchor in flushright'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'anchor',

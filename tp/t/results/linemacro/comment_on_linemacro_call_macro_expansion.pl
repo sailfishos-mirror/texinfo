@@ -154,7 +154,7 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                         'text' => '@lm {a} @c in comment'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

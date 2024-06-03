@@ -19,7 +19,7 @@ $result_trees{'inlineifset_false_not_closed'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [

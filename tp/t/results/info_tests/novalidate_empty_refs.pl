@@ -76,7 +76,7 @@ $result_trees{'novalidate_empty_refs'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -117,7 +117,7 @@ $result_trees{'novalidate_empty_refs'} = {
                     },
                     'normalized' => '-'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

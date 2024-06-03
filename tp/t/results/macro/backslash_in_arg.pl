@@ -208,7 +208,7 @@ $result_trees{'backslash_in_arg'} = {
                         'text' => '\\r'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -347,7 +347,7 @@ $result_trees{'backslash_in_arg'} = {
                         'text' => '\\r'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

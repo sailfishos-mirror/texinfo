@@ -19,7 +19,7 @@ $result_trees{'inline_missing_first_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -45,7 +45,7 @@ $result_trees{'inline_missing_first_arg'} = {
             {
               'args' => [
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [

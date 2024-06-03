@@ -876,7 +876,7 @@ $result_trees{'commands_in_math'} = {
                       'text' => '0075'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'U',

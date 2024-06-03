@@ -880,7 +880,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                     },
                     "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
                   },
-                  "type" => "brace_command_container"
+                  "type" => "brace_arg"
                 }
               ],
               "cmdname" => "ref",

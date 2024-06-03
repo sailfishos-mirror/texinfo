@@ -42,7 +42,7 @@ $result_trees{'anchor_zero'} = {
                   'text' => '0'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',
@@ -86,7 +86,7 @@ $result_trees{'anchor_zero'} = {
                     },
                     'normalized' => '0'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

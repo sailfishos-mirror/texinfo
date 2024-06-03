@@ -145,7 +145,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                   'text' => 'aa'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

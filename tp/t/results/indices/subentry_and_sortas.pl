@@ -146,7 +146,7 @@ $result_trees{'subentry_and_sortas'} = {
                           'text' => 'A---S'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -183,7 +183,7 @@ $result_trees{'subentry_and_sortas'} = {
                               'text' => 'B---S1'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -260,7 +260,7 @@ $result_trees{'subentry_and_sortas'} = {
                           'text' => 'X---S'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'sortas',
@@ -297,7 +297,7 @@ $result_trees{'subentry_and_sortas'} = {
                               'text' => 'X---S1'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'sortas',

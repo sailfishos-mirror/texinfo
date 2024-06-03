@@ -142,7 +142,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -181,7 +181,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -239,7 +239,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -283,7 +283,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                                     'text' => '@code{l}'
                                   }
                                 ],
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -348,7 +348,7 @@ $result_trees{'macro_expansion_in_multitable_prototype'} = {
                                     'text' => 'T'
                                   }
                                 ],
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {

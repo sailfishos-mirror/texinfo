@@ -51,7 +51,7 @@ $result_trees{'uref_accented_letter'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'uref',

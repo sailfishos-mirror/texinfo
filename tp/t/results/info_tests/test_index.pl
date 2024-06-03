@@ -83,7 +83,7 @@ $result_trees{'test_index'} = {
                     },
                     'normalized' => 'a-counting-anchor'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -2815,7 +2815,7 @@ $result_trees{'test_index'} = {
                   'text' => 'a counting anchor'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

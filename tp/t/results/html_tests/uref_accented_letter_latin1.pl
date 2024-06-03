@@ -87,7 +87,7 @@ $result_trees{'uref_accented_letter_latin1'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'uref',

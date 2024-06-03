@@ -156,7 +156,7 @@ $result_trees{'ref_in_center'} = {
                         },
                         'normalized' => 'Top'
                       },
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'ref',
@@ -201,7 +201,7 @@ $result_trees{'ref_in_center'} = {
                           'text' => 'Top'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     },
                     {
                       'info' => {
@@ -209,7 +209,7 @@ $result_trees{'ref_in_center'} = {
                           'text' => ' '
                         }
                       },
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     },
                     {
                       'contents' => [
@@ -218,7 +218,7 @@ $result_trees{'ref_in_center'} = {
 '
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'ref',

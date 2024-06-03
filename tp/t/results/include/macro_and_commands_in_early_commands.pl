@@ -109,7 +109,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -232,7 +232,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -601,7 +601,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

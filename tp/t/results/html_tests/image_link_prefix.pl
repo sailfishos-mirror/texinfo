@@ -17,7 +17,7 @@ $result_trees{'image_link_prefix'} = {
                   'text' => 'image'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',

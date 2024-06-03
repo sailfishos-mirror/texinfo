@@ -120,7 +120,7 @@ $result_trees{'accents'} = {
                               'text' => 'truc'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'anchor',

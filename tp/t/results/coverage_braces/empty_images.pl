@@ -12,7 +12,7 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -40,7 +40,7 @@ $result_trees{'empty_images'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -48,7 +48,7 @@ $result_trees{'empty_images'} = {
                   'text' => 'aa'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -56,7 +56,7 @@ $result_trees{'empty_images'} = {
                   'text' => 'bb'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -69,7 +69,7 @@ $result_trees{'empty_images'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -77,7 +77,7 @@ $result_trees{'empty_images'} = {
                   'text' => 'dd'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -100,13 +100,13 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -114,7 +114,7 @@ $result_trees{'empty_images'} = {
                   'cmdname' => ' '
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -132,13 +132,13 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -146,7 +146,7 @@ $result_trees{'empty_images'} = {
                   'cmdname' => ':'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',

@@ -2266,7 +2266,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'AAA'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -2279,7 +2279,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -2298,7 +2298,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'AAA'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -2317,7 +2317,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'BBB'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -2380,7 +2380,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'CCC'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -2393,7 +2393,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'abbr',
@@ -2412,7 +2412,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'CCC'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'abbr',
@@ -2431,7 +2431,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'DDD'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'abbr',
@@ -2500,7 +2500,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'somewher'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -2513,7 +2513,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'email',
@@ -2538,7 +2538,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'there'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'email',
@@ -2599,7 +2599,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'f--ile1'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'image',
@@ -2621,7 +2621,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'f--ile'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -2629,7 +2629,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'aze'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -2637,7 +2637,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'az'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -2645,7 +2645,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'alt'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -2653,7 +2653,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'e--xt'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'image',
@@ -3528,7 +3528,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'http://somewhere_aaa'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -3547,7 +3547,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'url'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -3560,7 +3560,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -3579,10 +3579,10 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => '/man.cgi/1/ls'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -3590,7 +3590,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'ls'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'uref',
@@ -7224,7 +7224,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7237,7 +7237,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -7256,7 +7256,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -7275,7 +7275,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'BBB'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -7319,7 +7319,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7332,7 +7332,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -7351,7 +7351,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'AAA'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -7370,7 +7370,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'BBB'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -7420,7 +7420,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'CCC'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7433,7 +7433,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',
@@ -7452,7 +7452,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'CCC'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',
@@ -7471,7 +7471,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'DDD'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',
@@ -7544,7 +7544,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'CCC'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7557,7 +7557,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',
@@ -7576,7 +7576,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'CCC'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',
@@ -7595,7 +7595,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'DDD'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',
@@ -7691,7 +7691,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'somewher'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7704,7 +7704,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',
@@ -7729,7 +7729,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'there'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',
@@ -7779,7 +7779,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'somewher'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7792,7 +7792,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',
@@ -7817,7 +7817,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'there'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',
@@ -7867,7 +7867,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'f--ile1'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'image',
@@ -7889,7 +7889,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'f--ile'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7897,7 +7897,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'aze'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7905,7 +7905,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'az'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7913,7 +7913,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'alt'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -7921,7 +7921,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'e--xt'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'image',
@@ -7997,7 +7997,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'f--ile1'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'image',
@@ -8019,7 +8019,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'f--ile'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -8027,7 +8027,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'aze'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -8035,7 +8035,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'az'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -8043,7 +8043,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'alt'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -8051,7 +8051,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'e--xt'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'image',
@@ -9601,7 +9601,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'http://somewhere_aaa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'url',
@@ -9620,7 +9620,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'url'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -9633,7 +9633,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'url',
@@ -9652,10 +9652,10 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => '/man.cgi/1/ls'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -9663,7 +9663,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'ls'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'uref',
@@ -9707,7 +9707,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'http://somewhere_aaa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'url',
@@ -9726,7 +9726,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'url'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -9739,7 +9739,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'url',
@@ -9758,10 +9758,10 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => '/man.cgi/1/ls'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -9769,7 +9769,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                       'text' => 'ls'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'uref',
@@ -9828,7 +9828,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '-_007b-_007d'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -9930,7 +9930,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '-_0021-_002e-_002e-_003f-_0040'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -10040,7 +10040,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_0040-_007b-_007d-_005c-_0023'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -10182,7 +10182,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -10308,7 +10308,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -10386,7 +10386,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_2265-_2264-_2192'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -10528,7 +10528,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -10638,7 +10638,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_21d2-_00b0-a-b-_00e5'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -10892,7 +10892,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11166,7 +11166,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11343,7 +11343,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11462,7 +11462,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_0131-_1e14-_1e08'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11588,7 +11588,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11714,7 +11714,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11752,7 +11752,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11786,7 +11786,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'AAA'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -11799,7 +11799,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -11818,7 +11818,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'AAA'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -11837,7 +11837,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'BBB'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -11858,7 +11858,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'AAA-AAA-BBB'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -11917,7 +11917,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'CCC'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -11930,7 +11930,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'abbr',
@@ -11949,7 +11949,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'CCC'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'abbr',
@@ -11968,7 +11968,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'DDD'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'abbr',
@@ -11989,7 +11989,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'CCC-CCC-DDD'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12067,7 +12067,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'somewher'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -12080,7 +12080,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'email',
@@ -12105,7 +12105,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'there'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'email',
@@ -12124,7 +12124,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'someone_0040somewher-no_005fexplain_0040there'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12183,7 +12183,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'f--ile1'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'image',
@@ -12205,7 +12205,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'f--ile'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -12213,7 +12213,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'aze'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -12221,7 +12221,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'az'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -12229,7 +12229,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'alt'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -12237,7 +12237,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'e--xt'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'image',
@@ -12259,7 +12259,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'f_002d_002dile1-f_002d_002dile'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12314,7 +12314,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '-_0040-_007b_007d-_002e-'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12609,7 +12609,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12802,7 +12802,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12857,7 +12857,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => '8_002e27in'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12929,7 +12929,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'sansserif-slanted'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -12980,7 +12980,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'indicateurl'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -13052,7 +13052,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'gH-3rd'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -13086,7 +13086,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'http://somewhere_aaa'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -13105,7 +13105,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'url'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -13118,7 +13118,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => ' '
                             }
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'url',
@@ -13137,10 +13137,10 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => '/man.cgi/1/ls'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         },
                         {
                           'contents' => [
@@ -13148,7 +13148,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                               'text' => 'ls'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'uref',
@@ -13169,7 +13169,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     },
                     'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

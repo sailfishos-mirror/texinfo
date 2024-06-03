@@ -89,7 +89,7 @@ $result_trees{'ifclear_in_macro'} = {
 '
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

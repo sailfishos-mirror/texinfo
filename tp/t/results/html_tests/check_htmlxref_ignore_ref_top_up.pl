@@ -160,7 +160,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -173,7 +173,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -186,7 +186,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -199,7 +199,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -226,7 +226,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -239,7 +239,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -252,7 +252,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -265,7 +265,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -700,7 +700,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

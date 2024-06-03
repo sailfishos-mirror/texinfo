@@ -164,7 +164,7 @@ $result_trees{'def_in_copying'} = {
                       'element' => {
                         'args' => [
                           {
-                            'type' => 'brace_command_container'
+                            'type' => 'brace_arg'
                           }
                         ],
                         'info' => {
@@ -459,7 +459,7 @@ $result_trees{'def_in_copying'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

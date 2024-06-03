@@ -26,7 +26,7 @@ $result_trees{'end_of_line_in_uref'} = {
                       'text' => 'Spelling'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -39,7 +39,7 @@ $result_trees{'end_of_line_in_uref'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'uref',

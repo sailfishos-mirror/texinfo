@@ -325,7 +325,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                   'text' => ' p'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',
@@ -559,7 +559,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     },
                     'normalized' => 'chap-f-nl-Something_003f-After-punct'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -605,7 +605,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     },
                     'normalized' => 'ankh-p'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -651,7 +651,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     },
                     'normalized' => 'ankh-p'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -670,7 +670,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

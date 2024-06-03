@@ -244,7 +244,7 @@ $result_trees{'test_allowcodebreaks'} = {
                             'text' => '0'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -521,7 +521,7 @@ $result_trees{'test_allowcodebreaks'} = {
                               'text' => 'A node0'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -565,7 +565,7 @@ $result_trees{'test_allowcodebreaks'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -717,7 +717,7 @@ $result_trees{'test_allowcodebreaks'} = {
                             'text' => '1'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -994,7 +994,7 @@ $result_trees{'test_allowcodebreaks'} = {
                               'text' => 'A node1'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -1038,7 +1038,7 @@ $result_trees{'test_allowcodebreaks'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -1166,7 +1166,7 @@ $result_trees{'test_allowcodebreaks'} = {
                                     'text' => 'w'
                                   }
                                 ],
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -1438,7 +1438,7 @@ $result_trees{'test_allowcodebreaks'} = {
                                       'text' => 'A nodew'
                                     }
                                   ],
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -1631,7 +1631,7 @@ $result_trees{'test_allowcodebreaks'} = {
                             'text' => '2'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -1908,7 +1908,7 @@ $result_trees{'test_allowcodebreaks'} = {
                               'text' => 'A node2'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -1952,7 +1952,7 @@ $result_trees{'test_allowcodebreaks'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

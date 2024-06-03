@@ -87,7 +87,7 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                         'text' => '@{ , @} '
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -152,7 +152,7 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                         'text' => '@'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

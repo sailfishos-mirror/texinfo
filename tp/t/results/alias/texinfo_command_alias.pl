@@ -116,7 +116,7 @@ $result_trees{'texinfo_command_alias'} = {
                         'text' => 'aa'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

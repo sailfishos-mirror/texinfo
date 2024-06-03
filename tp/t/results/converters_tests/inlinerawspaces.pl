@@ -30,7 +30,7 @@ $result_trees{'inlinerawspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -57,7 +57,7 @@ $result_trees{'inlinerawspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlineraw',
@@ -89,7 +89,7 @@ $result_trees{'inlinerawspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -104,7 +104,7 @@ $result_trees{'inlinerawspaces'} = {
                               'text' => 'HTML'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -121,7 +121,7 @@ $result_trees{'inlinerawspaces'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlineraw',

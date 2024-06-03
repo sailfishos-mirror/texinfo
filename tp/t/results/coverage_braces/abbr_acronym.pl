@@ -19,7 +19,7 @@ $result_trees{'abbr_acronym'} = {
                       'text' => '--a'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -27,7 +27,7 @@ $result_trees{'abbr_acronym'} = {
                       'text' => 'an accronym'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -47,7 +47,7 @@ $result_trees{'abbr_acronym'} = {
                       'text' => '--a'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -67,7 +67,7 @@ $result_trees{'abbr_acronym'} = {
                       'text' => '--a'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -100,7 +100,7 @@ $result_trees{'abbr_acronym'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -160,7 +160,7 @@ $result_trees{'abbr_acronym'} = {
                       'text' => 'A.'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -222,7 +222,7 @@ $result_trees{'abbr_acronym'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',
@@ -272,7 +272,7 @@ $result_trees{'abbr_acronym'} = {
                       'text' => 'A.'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'abbr',

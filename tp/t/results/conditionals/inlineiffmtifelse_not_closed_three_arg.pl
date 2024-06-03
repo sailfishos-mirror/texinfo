@@ -19,7 +19,7 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -42,7 +42,7 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',

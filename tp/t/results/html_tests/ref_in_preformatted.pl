@@ -174,7 +174,7 @@ $result_trees{'ref_in_preformatted'} = {
                         },
                         'normalized' => 'chap-nnn-the-node-name'
                       },
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'ref',

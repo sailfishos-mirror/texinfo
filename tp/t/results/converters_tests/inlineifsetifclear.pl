@@ -19,7 +19,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -32,7 +32,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlineifclear',
@@ -66,7 +66,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -130,7 +130,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -172,7 +172,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -185,7 +185,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlineifset',

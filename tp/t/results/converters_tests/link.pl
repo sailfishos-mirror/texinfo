@@ -180,7 +180,7 @@ $result_trees{'link'} = {
                     },
                     'normalized' => 'One'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'link',
@@ -218,7 +218,7 @@ $result_trees{'link'} = {
                     },
                     'normalized' => 'One'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -231,7 +231,7 @@ $result_trees{'link'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'link',
@@ -315,7 +315,7 @@ $result_trees{'link'} = {
                     },
                     'normalized' => 'One'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'link',
@@ -353,7 +353,7 @@ $result_trees{'link'} = {
                     },
                     'normalized' => 'One'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -366,7 +366,7 @@ $result_trees{'link'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'link',
@@ -417,10 +417,10 @@ $result_trees{'link'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -428,7 +428,7 @@ $result_trees{'link'} = {
                       'text' => 'bash'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'link',
@@ -465,7 +465,7 @@ $result_trees{'link'} = {
                       ]
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -473,7 +473,7 @@ $result_trees{'link'} = {
                       'text' => 'Bash'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -481,7 +481,7 @@ $result_trees{'link'} = {
                       'text' => 'bash'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'link',

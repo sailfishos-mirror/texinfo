@@ -22,7 +22,7 @@ $result_trees{'image_in_paragraph'} = {
                       'text' => 'aa'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -30,7 +30,7 @@ $result_trees{'image_in_paragraph'} = {
                       'text' => 'bb'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -38,7 +38,7 @@ $result_trees{'image_in_paragraph'} = {
                       'text' => 'cc'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -46,7 +46,7 @@ $result_trees{'image_in_paragraph'} = {
                       'text' => 'dd'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -54,7 +54,7 @@ $result_trees{'image_in_paragraph'} = {
                       'text' => '.ee'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'image',

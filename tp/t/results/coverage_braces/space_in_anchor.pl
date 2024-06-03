@@ -25,7 +25,7 @@ $result_trees{'space_in_anchor'} = {
                   'text' => '   '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

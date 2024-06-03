@@ -652,7 +652,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                     },
                     'normalized' => 'chapter-ja'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -1004,7 +1004,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                     },
                     'normalized' => 'chapter-ja'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -1770,7 +1770,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                     },
                     'normalized' => 'chapter-ja'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

@@ -17,16 +17,16 @@ $result_trees{'image_extension'} = {
                   'text' => 'f---ile'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -34,7 +34,7 @@ $result_trees{'image_extension'} = {
                   'text' => '.gr--a'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',

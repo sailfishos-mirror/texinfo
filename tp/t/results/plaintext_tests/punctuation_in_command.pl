@@ -27,7 +27,7 @@ $result_trees{'punctuation_in_command'} = {
                       'text' => 'a. b'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -35,7 +35,7 @@ $result_trees{'punctuation_in_command'} = {
                       'text' => 'a. b'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',

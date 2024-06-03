@@ -89,7 +89,7 @@ $result_trees{'protect_in_body'} = {
                             'text' => '@samp{f\\irst arg}'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       },
                       {
                         'contents' => [
@@ -102,7 +102,7 @@ $result_trees{'protect_in_body'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

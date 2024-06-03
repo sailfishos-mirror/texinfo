@@ -144,7 +144,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                     },
                     'normalized' => '_0104-_0105-_02db-_0118-_0119'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

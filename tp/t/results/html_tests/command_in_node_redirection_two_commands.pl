@@ -126,7 +126,7 @@ $result_trees{'command_in_node_redirection_two_commands'} = {
                   }
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

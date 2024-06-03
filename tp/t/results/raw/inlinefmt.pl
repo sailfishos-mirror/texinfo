@@ -22,7 +22,7 @@ $result_trees{'inlinefmt'} = {
                       'text' => 'plaintext'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -49,7 +49,7 @@ $result_trees{'inlinefmt'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -73,7 +73,7 @@ $result_trees{'inlinefmt'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -88,7 +88,7 @@ $result_trees{'inlinefmt'} = {
                               'text' => 'HTML'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
@@ -105,7 +105,7 @@ $result_trees{'inlinefmt'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',

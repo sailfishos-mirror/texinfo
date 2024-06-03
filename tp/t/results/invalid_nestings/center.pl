@@ -51,7 +51,7 @@ $result_trees{'center'} = {
                           'text' => 'in anchor'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'anchor',

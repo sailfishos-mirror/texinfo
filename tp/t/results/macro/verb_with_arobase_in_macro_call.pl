@@ -87,7 +87,7 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                         'text' => '@verb{, commas ,}'
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   },
                   {
                     'contents' => [
@@ -100,7 +100,7 @@ $result_trees{'verb_with_arobase_in_macro_call'} = {
                         'text' => ' '
                       }
                     },
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

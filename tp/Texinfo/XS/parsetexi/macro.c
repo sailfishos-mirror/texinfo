@@ -312,7 +312,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   int braces_level = 1;
   int args_total;
   int whitespaces_len;
-  ELEMENT *argument = new_element (ET_brace_command_container);
+  ELEMENT *argument = new_element (ET_brace_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
 
   add_to_element_args (current, argument);
@@ -402,7 +402,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                   remove_empty_content (argument);
 
                   /* new argument */
-                  argument = new_element (ET_brace_command_container);
+                  argument = new_element (ET_brace_arg);
                   argument_content = new_text_element (ET_other_text);
                   add_to_element_args (current, argument);
                   add_to_element_contents (argument, argument_content);

@@ -19,7 +19,7 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                       'text' => 'info'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -54,7 +54,7 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',

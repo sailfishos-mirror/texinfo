@@ -68,7 +68,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'ref',
@@ -106,7 +106,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'ref',
@@ -144,7 +144,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'pxref',
@@ -185,7 +185,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'pxref',
@@ -223,7 +223,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'pxref',
@@ -286,7 +286,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'ref',
@@ -324,7 +324,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'ref',
@@ -362,7 +362,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'pxref',
@@ -403,7 +403,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'pxref',
@@ -441,7 +441,7 @@ $result_trees{'ref_in_def'} = {
                                     },
                                     'normalized' => 'myanchor'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'pxref',
@@ -553,7 +553,7 @@ $result_trees{'ref_in_def'} = {
                   'text' => 'myanchor'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

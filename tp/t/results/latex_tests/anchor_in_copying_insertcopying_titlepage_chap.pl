@@ -41,7 +41,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                           'extra' => {
                             'element_region' => 'copying'
                           },
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'anchor',
@@ -355,7 +355,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                     },
                     'normalized' => 'a-in-copying'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'pxref',
@@ -412,7 +412,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                     },
                     'normalized' => 'a-in-copying'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'pxref',

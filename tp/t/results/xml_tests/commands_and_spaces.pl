@@ -340,7 +340,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -348,7 +348,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => 'b'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -361,7 +361,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -374,7 +374,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -387,7 +387,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -423,7 +423,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -437,7 +437,7 @@ $result_trees{'commands_and_spaces'} = {
 '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -450,7 +450,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -463,7 +463,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -476,7 +476,7 @@ $result_trees{'commands_and_spaces'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',

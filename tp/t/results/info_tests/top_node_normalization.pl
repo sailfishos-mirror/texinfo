@@ -52,7 +52,7 @@ $result_trees{'top_node_normalization'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -79,7 +79,7 @@ $result_trees{'top_node_normalization'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

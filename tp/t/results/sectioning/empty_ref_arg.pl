@@ -52,7 +52,7 @@ $result_trees{'empty_ref_arg'} = {
                     },
                     'normalized' => 'first'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -65,7 +65,7 @@ $result_trees{'empty_ref_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -93,7 +93,7 @@ $result_trees{'empty_ref_arg'} = {
                     },
                     'normalized' => 'first'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'info' => {
@@ -101,7 +101,7 @@ $result_trees{'empty_ref_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -114,7 +114,7 @@ $result_trees{'empty_ref_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -142,7 +142,7 @@ $result_trees{'empty_ref_arg'} = {
                     },
                     'normalized' => 'first'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -155,7 +155,7 @@ $result_trees{'empty_ref_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -168,7 +168,7 @@ $result_trees{'empty_ref_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -196,7 +196,7 @@ $result_trees{'empty_ref_arg'} = {
                     },
                     'normalized' => 'first'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -236,7 +236,7 @@ $result_trees{'empty_ref_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -266,7 +266,7 @@ $result_trees{'empty_ref_arg'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

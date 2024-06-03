@@ -74,7 +74,7 @@ $result_trees{'macro_expansion_end_in_ignored_ifset_content'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

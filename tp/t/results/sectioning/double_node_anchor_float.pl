@@ -80,7 +80,7 @@ $result_trees{'double_node_anchor_float'} = {
                   'text' => 'node1'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',
@@ -109,7 +109,7 @@ $result_trees{'double_node_anchor_float'} = {
                   'text' => 'anchor1'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

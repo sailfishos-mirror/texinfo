@@ -243,7 +243,7 @@ macroseven defined
 '
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -308,7 +308,7 @@ macroseven defined
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -375,7 +375,7 @@ macroseven defined
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -737,7 +737,7 @@ macroseven defined
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -821,7 +821,7 @@ macroseven defined
                             'text' => 'aaa'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

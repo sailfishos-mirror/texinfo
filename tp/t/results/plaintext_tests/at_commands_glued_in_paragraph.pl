@@ -73,7 +73,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'ABC'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -86,7 +86,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -109,7 +109,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'ABC'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'acronym',
@@ -132,7 +132,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'somebody'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -145,7 +145,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',
@@ -176,7 +176,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                     },
                     'normalized' => 'Top'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -331,7 +331,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'anchor'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',

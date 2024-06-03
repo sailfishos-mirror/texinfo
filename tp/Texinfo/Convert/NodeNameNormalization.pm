@@ -314,7 +314,7 @@ sub _convert($)
     } elsif ($element->{'args'} and $element->{'args'}->[0]
            and (($element->{'args'}->[0]->{'type'}
                  and ($element->{'args'}->[0]->{'type'} eq 'brace_container'
-             or $element->{'args'}->[0]->{'type'} eq 'brace_command_container'))
+             or $element->{'args'}->[0]->{'type'} eq 'brace_arg'))
                 or $cmdname eq 'math')) {
       return _convert($element->{'args'}->[0]);
     }

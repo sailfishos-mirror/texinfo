@@ -349,13 +349,13 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => "an_\x{ef}mage"
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -363,7 +363,7 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => "\x{f6}ld"
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -421,13 +421,13 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => 'mage'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -452,7 +452,7 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => 'ld'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -481,7 +481,7 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => "txt_\x{e7}image"
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -510,13 +510,13 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => "d\x{ee}rectory/im\x{e0}ge"
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -524,7 +524,7 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => "\x{e2}lt"
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -532,7 +532,7 @@ $result_trees{'accented_character_in_file_name'} = {
                   'text' => ".\x{ea}xt"
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',

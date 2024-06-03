@@ -144,7 +144,7 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
                   'text' => 'fOO'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',
@@ -388,7 +388,7 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
                     },
                     'normalized' => 'foo'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
@@ -426,7 +426,7 @@ $result_trees{'file_name_case_insensitive_conflict_node'} = {
                     },
                     'normalized' => 'Foo'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

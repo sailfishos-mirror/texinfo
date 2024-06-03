@@ -152,7 +152,7 @@ $result_trees{'node_referenced_in_ref'} = {
                     },
                     'normalized' => 'second-level-node'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

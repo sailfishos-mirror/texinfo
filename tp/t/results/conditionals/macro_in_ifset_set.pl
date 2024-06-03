@@ -239,7 +239,7 @@ $result_trees{'macro_in_ifset_set'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

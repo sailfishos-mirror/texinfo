@@ -100,7 +100,7 @@ $result_trees{'css_in_node_redirection_page'} = {
                       'text' => 'spot'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',

@@ -188,7 +188,7 @@ $result_trees{'commands'} = {
                       'text' => 'a'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -201,7 +201,7 @@ $result_trees{'commands'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'email',

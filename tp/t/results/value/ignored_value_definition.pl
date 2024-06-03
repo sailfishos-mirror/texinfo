@@ -41,7 +41,7 @@ $result_trees{'ignored_value_definition'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [

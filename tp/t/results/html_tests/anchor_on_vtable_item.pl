@@ -179,7 +179,7 @@ $result_trees{'anchor_on_vtable_item'} = {
                                       'text' => 'label1'
                                     }
                                   ],
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -262,7 +262,7 @@ $result_trees{'anchor_on_vtable_item'} = {
                                       'text' => 'label2'
                                     }
                                   ],
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -559,7 +559,7 @@ $result_trees{'anchor_on_vtable_item'} = {
                     },
                     'normalized' => 'label1'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',

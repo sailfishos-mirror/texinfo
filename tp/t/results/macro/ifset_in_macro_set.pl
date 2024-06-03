@@ -89,7 +89,7 @@ $result_trees{'ifset_in_macro_set'} = {
 '
                       }
                     ],
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

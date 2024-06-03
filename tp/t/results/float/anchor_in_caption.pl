@@ -161,7 +161,7 @@ $result_trees{'anchor_in_caption'} = {
                                   'text' => 'in anchor'
                                 }
                               ],
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             }
                           ],
                           'cmdname' => 'anchor',

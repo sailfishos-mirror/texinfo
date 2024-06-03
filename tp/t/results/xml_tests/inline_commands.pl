@@ -19,7 +19,7 @@ $result_trees{'inline_commands'} = {
                       'text' => 'xml'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -32,7 +32,7 @@ $result_trees{'inline_commands'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlineraw',
@@ -56,7 +56,7 @@ $result_trees{'inline_commands'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -98,7 +98,7 @@ $result_trees{'inline_commands'} = {
                       'text' => 'xml'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -127,7 +127,7 @@ $result_trees{'inline_commands'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlinefmt',
@@ -151,7 +151,7 @@ $result_trees{'inline_commands'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -193,7 +193,7 @@ $result_trees{'inline_commands'} = {
                       'text' => 'xml'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -222,7 +222,7 @@ $result_trees{'inline_commands'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -255,7 +255,7 @@ $result_trees{'inline_commands'} = {
                       'text' => 'html'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -277,7 +277,7 @@ $result_trees{'inline_commands'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',

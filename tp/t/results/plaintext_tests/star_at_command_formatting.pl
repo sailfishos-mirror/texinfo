@@ -124,7 +124,7 @@ $result_trees{'star_at_command_formatting'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -393,7 +393,7 @@ $result_trees{'star_at_command_formatting'} = {
                       'element' => {
                         'args' => [
                           {
-                            'type' => 'brace_command_container'
+                            'type' => 'brace_arg'
                           }
                         ],
                         'info' => {
@@ -689,7 +689,7 @@ $result_trees{'star_at_command_formatting'} = {
                       'element' => {
                         'args' => [
                           {
-                            'type' => 'brace_command_container'
+                            'type' => 'brace_arg'
                           }
                         ],
                         'info' => {

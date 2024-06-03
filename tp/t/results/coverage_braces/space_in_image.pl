@@ -25,7 +25,7 @@ $result_trees{'space_in_image'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -33,7 +33,7 @@ $result_trees{'space_in_image'} = {
                   'text' => 'bb'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -46,7 +46,7 @@ $result_trees{'space_in_image'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -59,7 +59,7 @@ $result_trees{'space_in_image'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             },
             {
               'contents' => [
@@ -72,7 +72,7 @@ $result_trees{'space_in_image'} = {
                   'text' => ' '
                 }
               },
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'image',
@@ -104,7 +104,7 @@ $result_trees{'space_in_image'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'image',

@@ -83,7 +83,7 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
                       'text' => 'ref'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'anchor',
@@ -128,7 +128,7 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
                     },
                     'normalized' => 'ref'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

@@ -142,10 +142,10 @@ $result_trees{'xref_quote_long_item'} = {
                                   ]
                                 }
                               },
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             },
                             {
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             },
                             {
                               'contents' => [
@@ -159,7 +159,7 @@ $result_trees{'xref_quote_long_item'} = {
 '
                                 }
                               },
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             },
                             {
                               'contents' => [
@@ -172,7 +172,7 @@ $result_trees{'xref_quote_long_item'} = {
                                   'text' => ' '
                                 }
                               },
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             }
                           ],
                           'cmdname' => 'xref',

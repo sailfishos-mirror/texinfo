@@ -169,7 +169,7 @@ $result_trees{'float_copying'} = {
                                                   'extra' => {
                                                     'element_region' => 'copying'
                                                   },
-                                                  'type' => 'brace_command_container'
+                                                  'type' => 'brace_arg'
                                                 }
                                               ],
                                               'cmdname' => 'anchor',
@@ -295,7 +295,7 @@ $result_trees{'float_copying'} = {
                                                     },
                                                     'normalized' => 'Copying-and-floats'
                                                   },
-                                                  'type' => 'brace_command_container'
+                                                  'type' => 'brace_arg'
                                                 }
                                               ],
                                               'cmdname' => 'ref',
@@ -356,7 +356,7 @@ $result_trees{'float_copying'} = {
                                   'extra' => {
                                     'element_region' => 'copying'
                                   },
-                                  'type' => 'brace_command_container'
+                                  'type' => 'brace_arg'
                                 }
                               ],
                               'cmdname' => 'anchor',
@@ -681,7 +681,7 @@ $result_trees{'float_copying'} = {
                     },
                     'normalized' => 'public-domain-anchor'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -723,7 +723,7 @@ $result_trees{'float_copying'} = {
                     },
                     'normalized' => 'public-domain'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -975,7 +975,7 @@ $result_trees{'float_copying'} = {
                     },
                     'normalized' => 'public-domain-anchor'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -1017,7 +1017,7 @@ $result_trees{'float_copying'} = {
                     },
                     'normalized' => 'public-domain'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',

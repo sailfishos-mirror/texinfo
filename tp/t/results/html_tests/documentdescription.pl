@@ -168,7 +168,7 @@ $result_trees{'documentdescription'} = {
                           'text' => 'body'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'email',

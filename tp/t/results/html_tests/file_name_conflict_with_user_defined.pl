@@ -144,7 +144,7 @@ $result_trees{'file_name_conflict_with_user_defined'} = {
                   'text' => 'myanchor'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

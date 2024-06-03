@@ -2461,7 +2461,7 @@ $result_trees{'bib_example'} = {
                             'text' => 'References'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -2573,7 +2573,7 @@ $result_trees{'bib_example'} = {
                             'text' => 'References'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -2771,7 +2771,7 @@ $result_trees{'bib_example'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -2995,7 +2995,7 @@ $result_trees{'bib_example'} = {
                             'text' => 'LaTeX2e'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -3137,7 +3137,7 @@ $result_trees{'bib_example'} = {
                             'text' => '@mybibnode{}'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       },
                       {
                         'contents' => [
@@ -3150,7 +3150,7 @@ $result_trees{'bib_example'} = {
                             'text' => ' '
                           }
                         },
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -3177,7 +3177,7 @@ $result_trees{'bib_example'} = {
                           'element' => {
                             'args' => [
                               {
-                                'type' => 'brace_command_container'
+                                'type' => 'brace_arg'
                               }
                             ],
                             'info' => {
@@ -3237,7 +3237,7 @@ $result_trees{'bib_example'} = {
                     },
                     'normalized' => 'References'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -3250,7 +3250,7 @@ $result_trees{'bib_example'} = {
                       'text' => ' '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'ref',
@@ -3390,7 +3390,7 @@ $result_trees{'bib_example'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -3497,7 +3497,7 @@ $result_trees{'bib_example'} = {
                                 'text' => 'LaTeX2e'
                               }
                             ],
-                            'type' => 'brace_command_container'
+                            'type' => 'brace_arg'
                           }
                         ],
                         'info' => {
@@ -3687,7 +3687,7 @@ $result_trees{'bib_example'} = {
                           'text' => 'LaTeX2e'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'anchor',

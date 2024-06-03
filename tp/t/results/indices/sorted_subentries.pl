@@ -1252,7 +1252,7 @@ $result_trees{'sorted_subentries'} = {
                                   'text' => 'jjj'
                                 }
                               ],
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             },
                             {
                               'contents' => [
@@ -1260,7 +1260,7 @@ $result_trees{'sorted_subentries'} = {
                                   'text' => 'mymail'
                                 }
                               ],
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             }
                           ],
                           'cmdname' => 'email',
@@ -1430,7 +1430,7 @@ $result_trees{'sorted_subentries'} = {
                                   'text' => 'A'
                                 }
                               ],
-                              'type' => 'brace_command_container'
+                              'type' => 'brace_arg'
                             }
                           ],
                           'cmdname' => 'sortas',

@@ -967,7 +967,7 @@ isolate_last_space (ELEMENT *current)
   /* Store a final comment command in the 'info' hash, except for brace
      commands */
   if (current->type != ET_brace_container
-      && current->type != ET_brace_command_container
+      && current->type != ET_brace_arg
       && (last_contents_child (current)->cmd == CM_c
           || last_contents_child (current)->cmd == CM_comment))
     {

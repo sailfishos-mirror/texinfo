@@ -87,7 +87,7 @@ $result_trees{'menu_pointing_to_anchor'} = {
                   'text' => 'An anchor'
                 }
               ],
-              'type' => 'brace_command_container'
+              'type' => 'brace_arg'
             }
           ],
           'cmdname' => 'anchor',

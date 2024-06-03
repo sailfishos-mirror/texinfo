@@ -22,7 +22,7 @@ $result_trees{'inlineifset_empty_second_arg'} = {
                       'text' => 'flag'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -67,7 +67,7 @@ $result_trees{'inlineifset_empty_second_arg'} = {
                       'text' => 'flag'
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [

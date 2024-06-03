@@ -83,7 +83,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                   'element' => {
                     'args' => [
                       {
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
@@ -187,7 +187,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
@@ -304,7 +304,7 @@ $result_trees{'cpp_directives_line_value_macro'} = {
                             'text' => '900'
                           }
                         ],
-                        'type' => 'brace_command_container'
+                        'type' => 'brace_arg'
                       }
                     ],
                     'info' => {

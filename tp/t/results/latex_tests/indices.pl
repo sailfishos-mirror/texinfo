@@ -601,7 +601,7 @@ $result_trees{'indices'} = {
                       }
                     }
                   ],
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'seealso',
@@ -627,7 +627,7 @@ $result_trees{'indices'} = {
                               'text' => 'b'
                             }
                           ],
-                          'type' => 'brace_command_container'
+                          'type' => 'brace_arg'
                         }
                       ],
                       'cmdname' => 'sortas',
@@ -807,7 +807,7 @@ $result_trees{'indices'} = {
                           'text' => '\\cmd'
                         }
                       ],
-                      'type' => 'brace_command_container'
+                      'type' => 'brace_arg'
                     }
                   ],
                   'cmdname' => 'sortas',

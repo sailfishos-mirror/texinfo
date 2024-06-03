@@ -101,7 +101,7 @@ $result_trees{'macro_expansion_end_in_conditional_end'} = {
               'element' => {
                 'args' => [
                   {
-                    'type' => 'brace_command_container'
+                    'type' => 'brace_arg'
                   }
                 ],
                 'info' => {

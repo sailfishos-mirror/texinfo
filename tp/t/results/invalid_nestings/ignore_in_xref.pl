@@ -52,7 +52,7 @@ $result_trees{'ignore_in_xref'} = {
                     },
                     'normalized' => 'first'
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 },
                 {
                   'contents' => [
@@ -117,7 +117,7 @@ $result_trees{'ignore_in_xref'} = {
 '
                     }
                   },
-                  'type' => 'brace_command_container'
+                  'type' => 'brace_arg'
                 }
               ],
               'cmdname' => 'xref',
