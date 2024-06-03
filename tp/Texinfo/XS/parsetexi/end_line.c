@@ -1065,9 +1065,8 @@ end_line_starting_block (ELEMENT *current)
               insert_into_args (current, block_line_arg, 0);
             }
 
-          e = new_element (ET_NONE);
+          e = new_command_element (ET_brace_noarg_command, CM_bullet);
           e->flags |= EF_inserted | EF_command_as_argument;
-          e->cmd = CM_bullet;
           insert_into_contents (block_line_arg, e, 0);
           add_extra_element (current, "command_as_argument", e);
         }
@@ -1076,9 +1075,8 @@ end_line_starting_block (ELEMENT *current)
         {
           ELEMENT *e;
 
-          e = new_element (ET_brace_command);
+          e = new_command_element (ET_brace_command, CM_asis);
           e->flags |= EF_inserted | EF_command_as_argument;
-          e->cmd = CM_asis;
           insert_into_args (current, e, 0);
           add_extra_element (current, "command_as_argument", e);
         }

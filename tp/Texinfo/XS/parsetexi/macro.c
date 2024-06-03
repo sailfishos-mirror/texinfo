@@ -136,9 +136,8 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   int index;
 
   /* FIXME not sure about that.  Could be the best, as there is arg_line
-     and no space */
-  macro = new_element (ET_lineraw_command);
-  macro->cmd = cmd;
+     and no space.  Otherwith block_command */
+  macro = new_command_element (ET_lineraw_command, cmd);
   macro->c->source_info = current_source_info;
 
   add_info_string_dup (macro, "arg_line", line);

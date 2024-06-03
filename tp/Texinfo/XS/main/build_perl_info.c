@@ -623,7 +623,10 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   if (e->type && e->type != ET_normal_text && e->type != ET_other_text
       && e->type != ET_lineraw_command && e->type != ET_line_command
       && e->type != ET_block_command && e->type != ET_brace_command
-      && e->type != ET_context_brace_command)
+      && e->type != ET_context_brace_command
+      && e->type != ET_nobrace_command
+      && e->type != ET_brace_noarg_command
+      && e->type != ET_container_command)
     {
       sv = newSVpv (type_data[e->type].name, 0);
       hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);

@@ -8,6 +8,7 @@ void reset_obstacks (void);
 
 ASSOCIATED_INFO *new_associated_info (void);
 ELEMENT *new_element (enum element_type type);
+ELEMENT *new_command_element (enum element_type type, enum command_id cmd);
 ELEMENT *new_text_element (enum element_type type);
 ELEMENT_LIST *new_list (void);
 void add_to_element_list (ELEMENT_LIST *list, ELEMENT *e);

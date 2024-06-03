@@ -391,8 +391,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
         {
           conversion
            = get_encoding_conversion (input_encoding, &input_conversions);
-          verbatiminclude = new_element (ET_NONE);
-          verbatiminclude->cmd = CM_verbatim;
+          verbatiminclude = new_command_element (ET_block_command, CM_verbatim);
           verbatiminclude->parent = current->parent;
           while (1)
             {
@@ -546,8 +545,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
   if (!options)
     {
       ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
-      arg_class_code = new_element (ET_NONE);
-      arg_class_code->cmd = CM_code;
+      arg_class_code = new_command_element (ET_brace_command, CM_code);
       add_to_element_contents (brace_command_arg, class_copy);
       add_to_element_args (arg_class_code, brace_command_arg);
     }

@@ -881,10 +881,9 @@ ELEMENT *
 new_asis_command_with_text (const char *text, ELEMENT *parent,
                             enum element_type type)
 {
-  ELEMENT *new_command = new_element (ET_NONE);
+  ELEMENT *new_command = new_command_element (ET_brace_command, CM_asis);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
   ELEMENT *text_elt = new_text_element (type);
-  new_command->cmd = CM_asis;
   new_command->parent = parent;
   add_to_element_args (new_command, brace_command_arg);
   text_append (text_elt->text, text);
@@ -957,10 +956,11 @@ protect_text (ELEMENT *current, const char *to_protect)
                   size_t i;
                   for (i = 0; i < to_protect_nr; i++)
                     {
-                      ELEMENT *comma = new_element (ET_NONE);
+                      ELEMENT *comma
+                       = new_command_element (ET_brace_noarg_command,
+                                              CM_comma);
                       ELEMENT *brace_command_arg
                            = new_element (ET_brace_command_arg);
-                      comma->cmd = CM_comma;
                       comma->parent = current->parent;
                       add_to_element_args (comma, brace_command_arg);
                       add_to_element_list (container, comma);

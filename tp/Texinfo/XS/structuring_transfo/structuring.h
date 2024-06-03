@@ -20,7 +20,7 @@ void number_floats (DOCUMENT *document);
 ELEMENT *new_node_menu_entry (const ELEMENT *node, int use_sections);
 ELEMENT *new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                                  const OPTIONS *options, int use_sections);
-void new_block_command (ELEMENT *element, enum command_id cmd);
+void new_block_command (ELEMENT *element);
 ELEMENT *new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                  const OPTIONS *options,
                  const LABEL_LIST *identifiers_target,

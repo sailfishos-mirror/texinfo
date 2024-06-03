@@ -554,11 +554,12 @@ parse_texi_document (void)
 static int
 begin_paragraph_p (ELEMENT *current)
 {
-  return (/* FIXME these 4 checks for @-commands types look wrong */
+  return (/* FIXME these checks for @-commands types look wrong */
           current->type == ET_NONE /* "True for @-commands" */
            || current->type == ET_lineraw_command
            || current->type == ET_line_command
            || current->type == ET_block_command
+           || current->type == ET_container_command
 
            || current->type == ET_before_item
            || current->type == ET_before_node_section
@@ -1104,12 +1105,10 @@ static ELEMENT *
 new_value_element (enum command_id cmd, const char *flag,
                    int flag_len, ELEMENT *spaces_element)
 {
-  ELEMENT *value_elt = new_element (ET_brace_command);
+  ELEMENT *value_elt = new_command_element (ET_brace_command, cmd);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
   /* occasionnally considered as text in conversion, so make it normal text */
   ELEMENT *value_text = new_text_element (ET_normal_text);
-
-  value_elt->cmd = cmd;
 
   text_append_n (value_text->text, flag, flag_len);
   add_to_element_args (value_elt, brace_command_arg);
@@ -1575,8 +1574,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                   free (command);
                   if (cmd == current->cmd)
                     {
-                      e = new_element (ET_block_command);
-                      e->cmd = current->cmd;
+                      e = new_command_element (ET_block_command, cmd);
                       add_to_element_contents (current, e);
                       current = e;
                       retval = GET_A_NEW_LINE;

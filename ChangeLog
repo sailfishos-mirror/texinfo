@@ -1,5 +1,42 @@
 2024-06-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/parsetexi/parser.c
+	(begin_paragraph_p): add more types for commands.
+
+	* tp/Texinfo/XS/main/tree.c (new_command_element): new function to add
+	a command element, for clearer code.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c (new_block_command)
+	(new_complete_node_menu, new_detailmenu),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(complete_node_menu): pass only an element to new_block_command, the
+	caller should have called new_command_element already to set the
+	command.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_float_command)
+	(convert_printindex_command, html_convert_output),
+	tp/Texinfo/XS/convert/converter.c (table_item_content_tree),
+	tp/Texinfo/XS/main/convert_utils.c (expand_verbatiminclude)
+	(definition_category_tree), tp/Texinfo/XS/main/manipulate_tree.c
+	(new_asis_command_with_text, protect_text),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command)
+	(handle_line_command, handle_block_command, handle_brace_command),
+	tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line),
+	tp/Texinfo/XS/parsetexi/parser.c (new_value_element)
+	(process_remaining_on_line),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_block_command),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning, new_node) : set command elements types, use
+	new_command_element.
+	
+	* tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command):
+	call directly new_element with the correct type instead of modifying
+	afterwards.
+
+2024-06-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c: remove completly spare_element, to avoid
 	the complexity. Also elements are now more reused.
 

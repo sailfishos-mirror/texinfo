@@ -45,24 +45,21 @@
 #include "structuring.h"
 
 void
-new_block_command (ELEMENT *element, enum command_id cmd)
+new_block_command (ELEMENT *element)
 {
   ELEMENT *args = new_element (ET_block_line_arg);
   ELEMENT *arg_spaces_after = new_text_element (ET_other_text);
-  ELEMENT *end = new_element (ET_NONE);
+  ELEMENT *end = new_command_element (ET_line_command, CM_end);
   ELEMENT *end_args = new_element (ET_line_arg);
   ELEMENT *end_spaces_before = new_text_element (ET_other_text);
   ELEMENT *end_spaces_after = new_text_element (ET_other_text);
   ELEMENT *command_name_text = new_text_element (ET_normal_text);
-  const char *command_name = builtin_command_name (cmd);
-
-  element->cmd = cmd;
+  const char *command_name = builtin_command_name (element->cmd);
 
   text_append (arg_spaces_after->text, "\n");
   add_info_element_oot (args, "spaces_after_argument", arg_spaces_after);
   add_to_element_args (element, args);
 
-  end->cmd = CM_end;
   add_extra_string_dup (end, "text_arg", command_name);
   text_append (end_spaces_before->text, " ");
   add_info_element_oot (end, "spaces_before_argument", end_spaces_before);
@@ -1848,11 +1845,11 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
       return 0;
     }
 
-  /* only holds contents here, will be turned into a proper block
-     command in new_block_command */
+  /* only holds contents here, will add spaces and end in
+     new_block_command */
 
   section = lookup_extra_element (node, "associated_section");
-  new_menu = new_element (ET_NONE);
+  new_menu = new_command_element (ET_block_command, CM_menu);
   new_menu->parent = section;
 
   for (i = 0; i < node_childs->number; i++)
@@ -1939,7 +1936,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 
   destroy_list (node_childs);
 
-  new_block_command (new_menu, CM_menu);
+  new_block_command (new_menu);
 
   return (new_menu);
 }
@@ -2093,9 +2090,11 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                 const LABEL_LIST *identifiers_target,
                 const ELEMENT_LIST *menus, int use_sections)
 {
-  /*  only holds contents here, will be turned into a proper block
-      in new_block_command */
-  ELEMENT *new_detailmenu_e = new_element (ET_NONE);
+  /* only holds contents here, will add spaces and end in
+     new_block_command */
+
+  ELEMENT *new_detailmenu_e = new_command_element (ET_block_command,
+                                                   CM_detailmenu);
 
   if (menus && menus->number > 0)
     {
@@ -2171,8 +2170,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                                 master_menu_title_string, 0);
         }
 
-
-      new_block_command (new_detailmenu_e, CM_detailmenu);
+      new_block_command (new_detailmenu_e);
       return new_detailmenu_e;
     }
   else

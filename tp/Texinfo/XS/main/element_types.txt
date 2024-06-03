@@ -20,6 +20,10 @@ index_entry_command
 definfoenclose_command
 
 # only in C
+nobrace_command
+brace_noarg_command
+# @item, @tab
+container_command
 lineraw_command
 line_command
 block_command

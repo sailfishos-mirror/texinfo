@@ -93,6 +93,15 @@ new_element (enum element_type type)
 }
 
 ELEMENT *
+new_command_element (enum element_type type, enum command_id cmd)
+{
+  ELEMENT *e = new_element (type);
+  e->cmd = cmd;
+
+  return e;
+}
+
+ELEMENT *
 new_text_element (enum element_type type)
 {
   ELEMENT *e;

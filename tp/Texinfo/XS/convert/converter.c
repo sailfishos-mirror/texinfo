@@ -530,7 +530,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
         = new_tree_added_elements (tree_added_status_elements_added);
       int status;
       int command_as_argument_kbd_code;
-      ELEMENT *command = new_element_added (tree, ET_NONE);
+      ELEMENT *command = new_element_added (tree, command_as_argument->type);
       ELEMENT *arg;
       enum command_id cmd = element_builtin_cmd (command_as_argument);
       enum command_id data_cmd

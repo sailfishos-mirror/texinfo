@@ -11537,10 +11537,10 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
 
   if (prepended)
     {
-      ELEMENT *strong_element = new_element (ET_NONE);
       ELEMENT *args = new_element (ET_brace_command_arg);
+      ELEMENT *strong_element
+        = new_command_element (ET_brace_command, CM_strong);
 
-      strong_element->cmd = CM_strong;
       add_to_element_args (strong_element, args);
       add_to_element_contents (args, prepended);
 
@@ -13070,8 +13070,6 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 }
             }
 
-          entry_ref_tree = new_element (ET_NONE);
-
           memset (new_normalized_entry_levels, 0,
                   sizeof (char *) * (SUBENTRIES_MAX_LEVEL +1));
 
@@ -13095,9 +13093,12 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
           in_code = entry_index->in_code;
 
-          add_to_contents_as_array (entry_ref_tree, entry_content_element);
           if (in_code)
-            entry_ref_tree->type = ET__code;
+            entry_ref_tree = new_element (ET__code);
+          else
+            entry_ref_tree = new_element (ET_NONE);
+
+          add_to_contents_as_array (entry_ref_tree, entry_content_element);
 
           /* index entry with @seeentry or @seealso */
           seeentry = lookup_extra_element (main_entry_element, "seeentry");
@@ -13659,9 +13660,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               char *explanation;
               if (html_commands_data[letter_cmd].upper_case_cmd)
                 {
-                   formatted_command = new_element (ET_NONE);
-                   formatted_command->cmd
-                      = html_commands_data[letter_cmd].upper_case_cmd;
+                   formatted_command
+                     = new_command_element (ET_brace_noarg_command,
+                             html_commands_data[letter_cmd].upper_case_cmd);
                 }
 
               xasprintf (&explanation, "index letter %s command", letter);
@@ -19241,10 +19242,9 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
   /* set self->date_in_header to format it only once */
   if (self->conf->DATE_IN_HEADER.o.integer > 0)
     {
-      ELEMENT *today_element = new_element (ET_NONE);
+      ELEMENT *today_element = new_command_element (ET_brace_noarg_command,
+                                                    CM_today);
       char *today;
-
-      today_element->cmd = CM_today;
 
       add_tree_to_build (self, today_element);
       today = convert_tree_new_formatting_context (self, today_element,

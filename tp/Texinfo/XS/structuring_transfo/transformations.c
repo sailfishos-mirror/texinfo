@@ -270,10 +270,10 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
                 }
               else
                 {
-                  ELEMENT *asis_command = new_element (ET_NONE);
+                  ELEMENT *asis_command
+                    = new_command_element (ET_brace_command, CM_asis);
                   ELEMENT *brace_command_arg
                     = new_element (ET_brace_command_arg);
-                  asis_command->cmd = CM_asis;
                   add_to_element_args (asis_command, brace_command_arg);
                   line_content = asis_command;
                 }
@@ -547,6 +547,8 @@ move_index_entries_after_items_in_tree (ELEMENT *tree)
 
 /* ERROR_MESSAGES is not actually useful, as the code checks that
    the new node target label does not exist already.
+   FIXME set node_tree to be ELEMENT_LIST?  May need to have copy_contents
+   return an ELEMENT_LIST
  */
 ELEMENT *
 new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
@@ -584,7 +586,6 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   if (node_tree->c->contents.number <= 0)
     {
       ELEMENT *empty_text = new_text_element (ET_normal_text);
-      text_append (empty_text->text, "");
       add_to_element_contents (node_tree, empty_text);
       empty_node = 1;
     }
@@ -629,8 +630,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       ELEMENT *spaces_before = new_text_element (ET_other_text);
       ELEMENT *spaces_after = new_text_element (ET_other_text);
 
-      node = new_element (ET_NONE);
-      node->cmd = CM_node;
+      node = new_command_element (ET_line_command, CM_node);
       add_to_element_args (node, node_line_arg);
       text_append (spaces_before->text, " ");
       text_append (spaces_after->text, spaces_after_argument.text);
@@ -781,6 +781,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
           if (!associated_node)
             {
               ELEMENT *added_node;
+              /* NOTE new_node_tree content is copied in new_node */
               ELEMENT *new_node_tree;
 
               document->modified_information |= F_DOCM_tree;
@@ -1038,12 +1039,12 @@ complete_node_menu (ELEMENT *node, int use_sections)
             {
               ELEMENT *section = lookup_extra_element (node,
                                                        "associated_section");
-              current_menu = new_element (ET_NONE);
+              current_menu = new_command_element (ET_block_command, CM_menu);
               insert_list_slice_into_contents (current_menu, 0,
                                                pending, 0,
                                                pending->number);
               current_menu->parent = section;
-              new_block_command (current_menu, CM_menu);
+              new_block_command (current_menu);
               prepend_new_menu_in_node_section (node, section,
                                                 current_menu);
             }
