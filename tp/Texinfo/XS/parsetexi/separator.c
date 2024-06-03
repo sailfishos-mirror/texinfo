@@ -69,13 +69,12 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
                     command_data(current->cmd).args_number);
       counter_dec (&count_remaining_args);
 
-      arg = new_element (ET_NONE);
-      add_to_element_args (current, arg);
-      current = arg;
-
       if (command == CM_verb)
         {
-          current->type = ET_brace_command_arg;
+          arg = new_element (ET_brace_command_arg);
+          add_to_element_args (current, arg);
+          current = arg;
+
           /* the delimiter may be in macro expansion */
           if (!*line)
             line = new_line (current);
@@ -100,6 +99,9 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
         }
       else if (command_data(command).data == BRACE_context)
         {
+          arg = new_element (ET_brace_command_context);
+          add_to_element_args (current, arg);
+          current = arg;
           if (command == CM_caption || command == CM_shortcaption)
             {
 #define float floatxx
@@ -174,7 +176,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
 
             line += n;
           }
-          current->type = ET_brace_command_context;
         }
       else /* not context brace */
         {
@@ -182,19 +183,21 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           if (command_data(command).data == BRACE_arguments
               || command_data(command).data == BRACE_inline)
             {
-              current->type = ET_brace_command_container;
+              arg = new_element (ET_brace_command_container);
               ELEMENT *e;
               e = new_text_element (ET_internal_spaces_before_argument);
-              add_to_element_contents (current, e);
-              internal_space_holder = current;
+              add_to_element_contents (arg, e);
+              internal_space_holder = arg;
 
               if (command == CM_inlineraw)
                 push_context (ct_inlineraw, command);
             }
           else
             {
-              current->type = ET_brace_command_arg;
+              arg = new_element (ET_brace_command_arg);
             }
+          add_to_element_args (current, arg);
+          current = arg;
         }
       debug_nonl ("OPENED @%s, remaining: %d ",
                   command_name (current->parent->cmd),

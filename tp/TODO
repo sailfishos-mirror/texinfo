@@ -10,6 +10,8 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+make command_as_argument part of info instead of a type in Perl
+
 
 Bugs
 ====
@@ -90,7 +92,7 @@ for type brace_command_container, line and block commands, BRACE_context command
 4) separate the structure of text elements and other elements, as text elements
    never have contents/args/info/extra, have cmd != 0.
     EXCEPTION: needed transient _copy and _counter in copy_tree_internal in extra
-  
+
 
 valgrinf massif useful-heap approximate distribution in 2024
 valgrind --tool=massif --massif-out-file=massif_info.out perl -w texi2any.pl ../doc/texinfo.texi

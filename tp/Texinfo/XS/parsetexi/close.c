@@ -351,6 +351,7 @@ close_command_cleanup (ELEMENT *current)
                       if ((e->cmd != CM_NONE
                            && (e->cmd != CM_c && e->cmd != CM_comment
                                && e->cmd != CM_end))
+                          /* FIXME check if ET_NONE is ok */
                           || (e->type != ET_NONE
                               && e->type != ET_ignorable_spaces_after_command))
                         {

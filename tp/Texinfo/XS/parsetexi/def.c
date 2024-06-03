@@ -399,7 +399,7 @@ parse_def (enum command_id command, ELEMENT *current)
 
       e = new_text_element (ET_spaces);
       text_append_n (e->text, " ", 1);
-      e->inserted = 1;
+      e->flags |= EF_inserted;
       insert_into_contents (current, e, contents_idx + 1);
     }
 
@@ -444,7 +444,7 @@ parse_def (enum command_id command, ELEMENT *current)
 
   if (inserted_category)
     {
-      current->c->contents.list[0]->inserted = 1;
+      current->c->contents.list[0]->flags |= EF_inserted;
     }
 
   /* Process args */

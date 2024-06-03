@@ -1,6 +1,27 @@
-2024-09-28  Patrice Dumas  <pertusus@free.fr>
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
-	Update test result
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/manipulate_tree.c
+	(copy_tree_internal), tp/Texinfo/XS/main/tree_types.h (ELEMENT),
+	tp/Texinfo/XS/parsetexi/def.c (parse_def): replace inserted field by
+	flags and add a corresponding flag. 
+
+	* tp/Texinfo/XS/convert/converter.c (table_item_content_tree),
+	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/parser.c (register_command_as_argument): put
+	command_as_argument as a flag.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command)
+	(handle_brace_command), tp/Texinfo/XS/parsetexi/macro.c
+	(parse_macro_command_line, handle_macro),
+	tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph_p)
+	(new_value_element, process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): add types for
+	@-commands in C.
 
 2024-06-01  Patrice Dumas  <pertusus@free.fr>
 

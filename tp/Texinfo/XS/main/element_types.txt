@@ -16,9 +16,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Types for @-commands
-command_as_argument
 index_entry_command
 definfoenclose_command
+
+# only in C
+lineraw_command
+line_command
+block_command
+brace_command
+context_brace_command
 
 # For text elements
 empty_line                                text

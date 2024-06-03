@@ -620,13 +620,22 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   store_source_mark_list (e);
 
-  if (e->type && e->type != ET_normal_text && e->type != ET_other_text)
+  if (e->type && e->type != ET_normal_text && e->type != ET_other_text
+      && e->type != ET_lineraw_command && e->type != ET_line_command
+      && e->type != ET_block_command && e->type != ET_brace_command
+      && e->type != ET_context_brace_command)
     {
       sv = newSVpv (type_data[e->type].name, 0);
       hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
     }
+  else if (e->flags & EF_command_as_argument)
+    {
+      /* TODO put in info in Perl too */
+      sv = newSVpv ("command_as_argument", 0);
+      hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
+    }
 
-  if (e->inserted)
+  if (e->flags & EF_inserted)
     {
       HV *info_hv = (HV *) sv_2mortal ((SV *)newHV ());
       const char *key = "info";

@@ -223,7 +223,7 @@ typedef struct ELEMENT {
     void *hv;
 
     enum element_type type;
-    unsigned long inserted;
+    unsigned long flags;
     struct ELEMENT *parent;
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
@@ -340,5 +340,9 @@ typedef struct TREE_ADDED_ELEMENTS {
                            document Texinfo tree */
     enum tree_added_elements_status status;
 } TREE_ADDED_ELEMENTS;
+
+/* tree element flags */
+#define EF_inserted                      0x0001
+#define EF_command_as_argument           0x0002
 
 #endif

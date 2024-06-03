@@ -962,6 +962,9 @@ end_line_starting_block (ELEMENT *current)
                                  command_name(command));
                   k_command_as_arg->key = "";
                   k_command_as_arg->type = extra_deleted;
+                   /* TODO check if not best
+                  e->flags &= ~EF_command_as_argument;
+                    */
                 }
             }
         }
@@ -996,6 +999,8 @@ end_line_starting_block (ELEMENT *current)
                                  + strspn (f->text->text, whitespace_chars))))
                     {
                       k_command_as_arg->k.element->type = ET_NONE;
+                      k_command_as_arg->k.element->flags
+                               &= ~EF_command_as_argument;
                       k_command_as_arg->key = "";
                       k_command_as_arg->type = extra_deleted;
                       k_command_as_arg = 0;
@@ -1060,8 +1065,8 @@ end_line_starting_block (ELEMENT *current)
               insert_into_args (current, block_line_arg, 0);
             }
 
-          e = new_element (ET_command_as_argument);
-          e->inserted = 1;
+          e = new_element (ET_NONE);
+          e->flags |= EF_inserted | EF_command_as_argument;
           e->cmd = CM_bullet;
           insert_into_contents (block_line_arg, e, 0);
           add_extra_element (current, "command_as_argument", e);
@@ -1071,8 +1076,8 @@ end_line_starting_block (ELEMENT *current)
         {
           ELEMENT *e;
 
-          e = new_element (ET_command_as_argument);
-          e->inserted = 1;
+          e = new_element (ET_brace_command);
+          e->flags |= EF_inserted | EF_command_as_argument;
           e->cmd = CM_asis;
           insert_into_args (current, e, 0);
           add_extra_element (current, "command_as_argument", e);

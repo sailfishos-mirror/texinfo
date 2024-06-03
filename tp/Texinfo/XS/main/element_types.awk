@@ -61,6 +61,8 @@ END {
         elt_info_number = 0;
         if (t == "brace_command_container" || t == "bracketed_arg") {
           elt_info_number = 2;
+        } else if (t == "macro_call" || t == "rmacro_call") {
+          elt_info_number = 1;
         }
         if (type_flags[t] != "") {
             split(type_flags[t], flags_array, ",")

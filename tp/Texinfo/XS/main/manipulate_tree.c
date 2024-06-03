@@ -166,7 +166,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   else
     new = new_element (current->type);
 
-  new->inserted = current->inserted;
+  new->flags = current->flags;
 
   increase_ref_counter (current);
   add_extra_element (current, "_copy", new);

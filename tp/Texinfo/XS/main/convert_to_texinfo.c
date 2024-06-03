@@ -101,7 +101,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
       for (i = 0; i < e->c->args.number; i++)
         {
           ELEMENT *arg = e->c->args.list[i];
-          if (arg->inserted)
+          if (arg->flags & EF_inserted)
             continue;
 
           if (with_commas)
@@ -134,7 +134,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 {
   ELEMENT *elt;
 
-  if (e->inserted)
+  if (e->flags & EF_inserted)
     {}
   else if (type_data[e->type].flags & TF_text)
     {

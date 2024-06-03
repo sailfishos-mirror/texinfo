@@ -3,9 +3,13 @@
 #define ELEMENT_TYPES_H
 enum element_type {
 ET_NONE,
-ET_command_as_argument,
 ET_index_entry_command,
 ET_definfoenclose_command,
+ET_lineraw_command,
+ET_line_command,
+ET_block_command,
+ET_brace_command,
+ET_context_brace_command,
 ET_empty_line,
 ET_raw,
 ET_ignorable_spaces_after_command,

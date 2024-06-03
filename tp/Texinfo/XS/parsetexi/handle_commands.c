@@ -621,14 +621,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             }
         }
 
-      command_e = new_element (ET_NONE);
-      command_e->cmd = cmd;
-
       args = parse_rawline_command (line, cmd,
                                     &has_comment, &special_arg);
-      if (special_arg)
-        add_info_string_dup (command_e, "arg_line", line);
-
       /* Handle @set txicodequoteundirected as an
          alternative to @codequoteundirected. */
       if (cmd == CM_set || cmd == CM_clear)
@@ -653,6 +647,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           ELEMENT *spaces_after = new_text_element (ET_other_text);
           /* put in extra "misc_args" */
           ELEMENT_LIST *args_list = new_list ();
+          command_e = new_element (ET_line_command);
 
           if (cmd == CM_set)
             arg = "on";
@@ -667,8 +662,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           text_append (e->text, arg);
           add_to_element_list (args_list, e);
 
-          destroy_element_and_children (command_e);
-          command_e = new_element (ET_NONE);
           command_e->cmd = equivalent_cmd;
           command_e->c->source_info = current_source_info;
 
@@ -691,6 +684,12 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       else
         {
           int i;
+          command_e = new_element (ET_lineraw_command);
+          command_e->cmd = cmd;
+
+          if (special_arg)
+            add_info_string_dup (command_e, "arg_line", line);
+
           if (!ignored)
             {
               size_t args_nr = args->c->contents.number;
@@ -1058,7 +1057,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           ELEMENT *def_line;
           char *val;
           push_context (ct_def, cmd);
-          block = new_element (ET_NONE);
+          block = new_element (ET_block_command);
           block->cmd = cmd;
           block->c->source_info = current_source_info;
           add_to_element_contents (current, block);
@@ -1199,7 +1198,10 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
 
   debug ("OPEN BRACE @%s", command_name(cmd));
 
-  command_e = new_element (ET_NONE);
+  if (command_data(cmd).data == BRACE_context)
+    command_e = new_element (ET_context_brace_command);
+  else
+    command_e = new_element (ET_brace_command);
   command_e->cmd = cmd;
 
   /* The line number information is only ever used for brace commands

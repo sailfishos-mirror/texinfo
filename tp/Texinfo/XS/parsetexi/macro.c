@@ -135,7 +135,9 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   const char *args_ptr;
   int index;
 
-  macro = new_element (ET_NONE);
+  /* FIXME not sure about that.  Could be the best, as there is arg_line
+     and no space */
+  macro = new_element (ET_lineraw_command);
   macro->cmd = cmd;
   macro->c->source_info = current_source_info;
 
@@ -465,13 +467,13 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   int args_total;
   int spaces_nr;
   int i;
+  /* FIXME add a type with spaces_before_argument */
   ELEMENT *argument = new_element (ET_NONE);
   ELEMENT *argument_content = new_text_element (ET_other_text);
   counter_reset (&count_toplevel_braces, 0);
   counter_push (&count_toplevel_braces, argument_content, 0);
 
   add_to_element_args (current, argument);
-  text_append_n (argument_content->text, "", 0);
   add_to_element_contents (argument, argument_content);
   arg = argument_content->text;
 
@@ -608,7 +610,6 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               counter_push (&count_toplevel_braces, argument_content, 0);
 
               add_to_element_args (current, argument);
-              text_append_n (argument_content->text, "", 0);
               add_to_element_contents (argument, argument_content);
               arg = argument_content->text;
 
@@ -794,7 +795,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   char *expanded_macro_text;
   int args_number;
   SOURCE_MARK *macro_source_mark;
-  ELEMENT *macro_call_element = new_element (ET_NONE);
+  ELEMENT *macro_call_element;
   int error = 0;
 
   line = *line_inout;
@@ -803,15 +804,6 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   if (!macro_record)
     fatal ("no macro record");
   macro = macro_record->element;
-
-  if (macro->cmd == CM_macro)
-    macro_call_element->type = ET_macro_call;
-  else if (macro->cmd == CM_rmacro)
-    macro_call_element->type = ET_rmacro_call;
-  else if (macro->cmd == CM_linemacro)
-    macro_call_element->type = ET_linemacro_call;
-
-  add_info_string_dup (macro_call_element, "command_name", command_name(cmd));
 
   /* It is important to check for expansion before the expansion and
      not after, as during the expansion, the text may go past the
@@ -844,12 +836,17 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
 
   if (macro->cmd == CM_linemacro)
     {
+      macro_call_element = new_element (ET_linemacro_call);
       expand_linemacro_arguments (macro, &line, cmd, macro_call_element);
     }
   else
     {
       /* Get number of args. - 1 for the macro name. */
       args_number = macro->c->args.number - 1;
+      if (macro->cmd == CM_macro)
+        macro_call_element = new_element (ET_macro_call);
+      else if (macro->cmd == CM_rmacro)
+        macro_call_element = new_element (ET_rmacro_call);
 
       p = line + strspn (line, whitespace_chars);
       if (*p == '{')
@@ -939,6 +936,8 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
       macro_call_element = 0;
       goto funexit;
     }
+
+  add_info_string_dup (macro_call_element, "command_name", command_name(cmd));
 
   text_init (&expanded);
   expand_macro_body (macro_record, macro_call_element, &expanded);

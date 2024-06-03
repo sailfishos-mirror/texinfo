@@ -554,7 +554,12 @@ parse_texi_document (void)
 static int
 begin_paragraph_p (ELEMENT *current)
 {
-  return (current->type == ET_NONE /* "True for @-commands" */
+  return (/* FIXME these 4 checks for @-commands types look wrong */
+          current->type == ET_NONE /* "True for @-commands" */
+           || current->type == ET_lineraw_command
+           || current->type == ET_line_command
+           || current->type == ET_block_command
+
            || current->type == ET_before_item
            || current->type == ET_before_node_section
            || current->type == ET_document_root
@@ -1076,8 +1081,7 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
   debug ("FOR PARENT @%s command_as_argument %s",
          command_name(cmd_as_arg->parent->parent->cmd),
          command_name(cmd_as_arg->cmd));
-  if (!cmd_as_arg->type)
-    cmd_as_arg->type = ET_command_as_argument;
+  cmd_as_arg->flags |= EF_command_as_argument;
   add_extra_element (cmd_as_arg->parent->parent,
                      "command_as_argument", cmd_as_arg);
   if (cmd_as_arg->cmd == CM_kbd
@@ -1100,7 +1104,7 @@ static ELEMENT *
 new_value_element (enum command_id cmd, const char *flag,
                    int flag_len, ELEMENT *spaces_element)
 {
-  ELEMENT *value_elt = new_element (ET_NONE);
+  ELEMENT *value_elt = new_element (ET_brace_command);
   ELEMENT *brace_command_arg = new_element (ET_brace_command_arg);
   /* occasionnally considered as text in conversion, so make it normal text */
   ELEMENT *value_text = new_text_element (ET_normal_text);
@@ -1571,7 +1575,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                   free (command);
                   if (cmd == current->cmd)
                     {
-                      e = new_element (ET_NONE);
+                      e = new_element (ET_block_command);
                       e->cmd = current->cmd;
                       add_to_element_contents (current, e);
                       current = e;
