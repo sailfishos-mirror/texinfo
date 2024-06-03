@@ -51,23 +51,9 @@ static int *obs_element_first = 0;
 #include "api_to_perl.h"
 #include "tree.h"
 
-/* Used with destroy_element to reuse storage, e.g. from
-   abort_empty_line.  Reduces memory use slightly (about 5% from testing)
-   for large manuals. */
-/*
-static ELEMENT *spare_element;
-*/
-
 void
 reset_obstacks (void)
 {
-  /* freed in reset_obstacks */
-  /*
-  if (spare_element)
-    free (spare_element);
-
-  spare_element = 0;
-  */
   /* obstacks not used
 
   if (obs_element_first)
@@ -95,23 +81,9 @@ new_element (enum element_type type)
 {
   ELEMENT *e;
 
-  /*
-  if (spare_element)
-    {
-      e = spare_element;
-      spare_element = 0;
-      memset (e, 0, sizeof (ELEMENT));
-    }
-  else
-    {
-   */
-      e = alloc_element ();
-      /* alloc_element zeroes *e.  We assume null pointers have bit
-         representation of all zeroes. */
-   /*
-    }
-    */
-
+  /* alloc_element zeroes *e.  We assume null pointers have bit
+     representation of all zeroes. */
+  e = alloc_element ();
   e->type = type;
 
   e->c = (CONTAINER *) malloc (sizeof (CONTAINER));
@@ -238,14 +210,6 @@ destroy_element (ELEMENT *e)
     }
 
   free (e);
-
-  /* freed in reset_obstacks */
-  /*
-  if (spare_element)
-    free (spare_element);
-
-  spare_element = e;
-   */
 }
 
 /* Recursively destroy this element and all data in its descendants. */
