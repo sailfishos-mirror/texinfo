@@ -45,7 +45,9 @@ $result_trees{'fractions_rounding'} = {
                     }
                   },
                   'source_info' => {
-                    'line_nr' => 1
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
                   }
                 }
               ],
@@ -78,7 +80,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'line_nr' => 2
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
                       }
                     },
                     {
@@ -101,7 +105,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'line_nr' => 2
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
                       }
                     },
                     {
@@ -124,7 +130,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 3
                       },
                       'source_info' => {
-                        'line_nr' => 2
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
                       }
                     },
                     {
@@ -148,7 +156,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 4
                       },
                       'source_info' => {
-                        'line_nr' => 2
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
                       }
                     }
                   ],
@@ -184,7 +194,9 @@ $result_trees{'fractions_rounding'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'line_nr' => 3
+                                'file_name' => '',
+                                'line_nr' => 3,
+                                'macro' => ''
                               }
                             },
                             {
@@ -198,7 +210,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 1
                       },
                       'source_info' => {
-                        'line_nr' => 3
+                        'file_name' => '',
+                        'line_nr' => 3,
+                        'macro' => ''
                       }
                     },
                     {
@@ -226,7 +240,9 @@ $result_trees{'fractions_rounding'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'line_nr' => 3
+                                'file_name' => '',
+                                'line_nr' => 3,
+                                'macro' => ''
                               }
                             },
                             {
@@ -240,7 +256,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 2
                       },
                       'source_info' => {
-                        'line_nr' => 3
+                        'file_name' => '',
+                        'line_nr' => 3,
+                        'macro' => ''
                       }
                     },
                     {
@@ -268,7 +286,9 @@ $result_trees{'fractions_rounding'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'line_nr' => 3
+                                'file_name' => '',
+                                'line_nr' => 3,
+                                'macro' => ''
                               }
                             },
                             {
@@ -282,7 +302,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 3
                       },
                       'source_info' => {
-                        'line_nr' => 3
+                        'file_name' => '',
+                        'line_nr' => 3,
+                        'macro' => ''
                       }
                     },
                     {
@@ -310,7 +332,9 @@ $result_trees{'fractions_rounding'} = {
                               ],
                               'cmdname' => 'code',
                               'source_info' => {
-                                'line_nr' => 3
+                                'file_name' => '',
+                                'line_nr' => 3,
+                                'macro' => ''
                               }
                             },
                             {
@@ -325,7 +349,9 @@ $result_trees{'fractions_rounding'} = {
                         'cell_number' => 4
                       },
                       'source_info' => {
-                        'line_nr' => 3
+                        'file_name' => '',
+                        'line_nr' => 3,
+                        'macro' => ''
                       }
                     }
                   ],
@@ -364,7 +390,9 @@ $result_trees{'fractions_rounding'} = {
                 }
               },
               'source_info' => {
-                'line_nr' => 4
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
               }
             }
           ],
@@ -378,7 +406,9 @@ $result_trees{'fractions_rounding'} = {
             }
           },
           'source_info' => {
-            'line_nr' => 1
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
           }
         }
       ],
@@ -441,6 +471,7 @@ $result_converted_errors{'html'}->{'fractions_rounding'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'fractions_rounding.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }
