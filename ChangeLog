@@ -1,6 +1,9 @@
-2024-09-28  Patrice Dumas  <pertusus@free.fr>
+2024-06-04  Patrice Dumas  <pertusus@free.fr>
 
-	Update test results
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree): determine
+	the command name usable as Texinfo::Commands key by using the
+	generic definfoenclose one if the type is definfoenclose.  Similar to
+	using element_builtin_cmd in C.
 
 2024-06-03  Patrice Dumas  <pertusus@free.fr>
 

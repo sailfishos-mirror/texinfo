@@ -1481,23 +1481,27 @@ sub table_item_content_tree($$)
     if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'} = {'code' => 1};
     }
+    # command name for the Texinfo::Commands hashes tests
+    my $builtin_cmdname;
     if ($command_as_argument->{'type'}
         and $command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
       $command->{'extra'} = {} if (!$command->{'extra'});
       $command->{'extra'}->{'begin'} = $command_as_argument->{'extra'}->{'begin'};
       $command->{'extra'}->{'end'} = $command_as_argument->{'extra'}->{'end'};
+      $builtin_cmdname = 'definfoenclose_command';
+    } else {
+      $builtin_cmdname = $command_as_argument_cmdname;
     }
     my $arg;
-    if ($Texinfo::Commands::brace_commands{$command_as_argument_cmdname}
-                                                   eq 'context') {
+    if ($Texinfo::Commands::brace_commands{$builtin_cmdname} eq 'context') {
       # This corresponds to a bogus @*table line with command line @footnote
       # or @math.  We do not really care about the formatting of the result
       # but we want to avoid debug messages, so we setup expected trees
       # for those @-commands.
       $arg = {'type' => 'brace_command_context',
               'parent' => $command,};
-      if ($Texinfo::Commands::math_commands{$command_as_argument_cmdname}) {
+      if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
         $arg->{'contents'} = [$element->{'args'}->[0]];
       } else {
         my $paragraph = {'type' => 'paragraph',
@@ -1505,7 +1509,7 @@ sub table_item_content_tree($$)
                          'parent' => $arg};
         $arg->{'contents'} = [$paragraph];
       }
-    } elsif ($Texinfo::Commands::brace_commands{$command_as_argument_cmdname}
+    } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
                                                    eq 'arguments') {
       $arg = {'type' => 'brace_arg',
               'contents' => [$element->{'args'}->[0]],
