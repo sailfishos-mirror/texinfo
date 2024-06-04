@@ -1317,7 +1317,8 @@ sub process_footnotes($;$)
       $self->{'current_node'} = $footnotes_node;
     }
     while (@{$self->{'pending_footnotes'}}) {
-      my $footnote = shift (@{$self->{'pending_footnotes'}});
+      my $footnote_info = shift (@{$self->{'pending_footnotes'}});
+      my $footnote_number = $footnote_info->{'number'};
 
       # If nested within another footnote and footnotestyle is separate,
       # the element here will be the parent element and not the footnote
@@ -1325,7 +1326,7 @@ sub process_footnotes($;$)
       # footnote node taken into account.  Not really problematic as
       # nested footnotes are not right.
       if ($label_element) {
-        my $footnote_anchor_postfix = "-Footnote-$footnote->{'number'}";
+        my $footnote_anchor_postfix = "-Footnote-$footnote_number";
         my $footnote_anchor_arg
          = {'contents' => [$label_element,
                            {'text' => $footnote_anchor_postfix}]};
@@ -1341,7 +1342,7 @@ sub process_footnotes($;$)
       $self->push_top_formatter('footnote');
       my $formatted_footnote_number;
       if ($self->get_conf('NUMBER_FOOTNOTES')) {
-        $formatted_footnote_number = $footnote->{'number'};
+        $formatted_footnote_number = $footnote_number;
       } else {
         $formatted_footnote_number = $NO_NUMBER_FOOTNOTE_SYMBOL;
       }
@@ -1351,7 +1352,10 @@ sub process_footnotes($;$)
          Texinfo::Convert::Unicode::string_width($footnote_text);
       _stream_output($self, $footnote_text);
 
-      $self->_convert($footnote->{'root'}->{'args'}->[0]);
+      my $footnote_element = $footnote_info->{'footnote_element'};
+      if ($footnote_element->{'args'}) {
+        $self->_convert($footnote_element->{'args'}->[0]);
+      }
       _add_newline_if_needed($self);
 
       my $old_context = $self->pop_top_formatter();
@@ -1947,9 +1951,8 @@ sub format_image($$)
 {
   my ($self, $element) = @_;
 
-  if (defined($element->{'args'}->[0])
-      and $element->{'args'}->[0]->{'contents'}
-      and @{$element->{'args'}->[0]->{'contents'}}) {
+  if ($element->{'args'}
+      and $element->{'args'}->[0]->{'contents'}) {
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
@@ -2078,11 +2081,13 @@ sub _convert($$)
                      and $brace_commands{$command} eq 'inline'
                      and $command ne 'inlinefmtifelse'
                      and (($inline_format_commands{$command}
-                          and (!$element->{'extra'}->{'format'}
+                          and (!$element->{'extra'}
+                               or !$element->{'extra'}->{'format'}
                                or !$self->{'expanded_formats'}
                                            ->{$element->{'extra'}->{'format'}}))
                          or (!$inline_format_commands{$command}
-                             and !defined($element->{'extra'}->{'expand_index'}))))))) {
+                             and (!$element->{'extra'}
+                  or  !defined($element->{'extra'}->{'expand_index'})))))))) {
     return;
   }
 
@@ -2855,7 +2860,7 @@ sub _convert($$)
         } else {
           $formatted_footnote_number = $NO_NUMBER_FOOTNOTE_SYMBOL;
         }
-        push @{$self->{'pending_footnotes'}}, {'root' => $element,
+        push @{$self->{'pending_footnotes'}}, {'footnote_element' => $element,
                                       'number' => $self->{'footnote_index'}}
             unless ($self->{'multiple_pass'});
         if (!$self->{'in_copying_header'}) {

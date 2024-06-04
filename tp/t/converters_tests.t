@@ -914,6 +914,53 @@ discussion
 
 @printindex vr
 ',],
+['various_itemize_command_as_argument',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@itemize @inlineraw
+@item Inlineraw
+@end itemize
+
+@itemize @image
+@item Image
+@item Second
+@end itemize
+
+@itemize @footnote
+@item aa
+@item F2
+aa
+
+T
+
+@end itemize
+
+@itemize @caption
+@item Caption
+@end itemize
+
+@itemize @math
+@item a + b
+@item a@sup{c}
+
+2
+
+@end itemize
+
+@itemize @anchor
+@item anchor 1
+@item anchor 2
+@end itemize
+
+@itemize @verb
+@item :uu:
+@end itemize
+
+'],
 ['at_commands_in_raw',
 '@node Top
 @top top

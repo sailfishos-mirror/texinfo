@@ -1,5 +1,21 @@
 2024-06-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (process_footnotes): rename
+	variables and fields.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert), tp/Texinfo/Convert/Info.pm
+	(format_image), tp/Texinfo/Convert/Plaintext.pm (process_footnotes)
+	(format_image, _convert), tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/XS/convert/convert_html.c (convert_image_command): check
+	that extra, info, args and args_formatted exist before accessing
+	them.
+
+	* tp/Makefile.tres, tp/t/converters_tests.t
+	(various_itemize_command_as_argument): add test of various brace
+	commands, without braces, as @itemize argument.
+
+2024-06-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_starting_block): check
 	that the command_as_argument on @itemize line is alone without
 	modifying an array, by looping over the contents as in C.

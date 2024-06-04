@@ -9541,7 +9541,8 @@ convert_image_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  if (args_formatted->number > 0
+  if (args_formatted
+      && args_formatted->number > 0
       && args_formatted->args[0].formatted[AFT_type_filenametext]
       && strlen (args_formatted->args[0].formatted[AFT_type_filenametext]))
     {

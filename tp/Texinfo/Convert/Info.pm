@@ -600,9 +600,8 @@ sub format_image($$)
 
   my $lines_count = 0;
 
-  if (defined($element->{'args'}->[0])
-      and $element->{'args'}->[0]->{'contents'}
-      and @{$element->{'args'}->[0]->{'contents'}}) {
+  if ($element->{'args'}
+      and $element->{'args'}->[0]->{'contents'}) {
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(

@@ -458,13 +458,15 @@ sub _convert($$)
                      and $element->{'cmdname'} ne 'inlinefmtifelse'
                      and (($Texinfo::Commands::inline_format_commands{
                                                          $element->{'cmdname'}}
-                           and (!$element->{'extra'}->{'format'}
+                           and (!$element->{'extra'}
+                                or !$element->{'extra'}->{'format'}
                                 or !$options->{'expanded_formats'}
                                 or !$options->{'expanded_formats'}
                                            ->{$element->{'extra'}->{'format'}}))
                          or (!$Texinfo::Commands::inline_format_commands{
                                                           $element->{'cmdname'}}
-                             and !defined($element->{'extra'}->{'expand_index'}))))
+                             and (!$element->{'extra'}
+                                  or !defined($element->{'extra'}->{'expand_index'})))))
              # here ignore most of the line commands
                  or ($element->{'args'} and $element->{'args'}->[0]
                      and $element->{'args'}->[0]->{'type'}
@@ -569,7 +571,8 @@ sub _convert($$)
       }
       my $arg_index = 1;
       if ($element->{'cmdname'} eq 'inlinefmtifelse'
-          and (!$element->{'extra'}->{'format'}
+          and (!$element->{'extra'}
+               or !$element->{'extra'}->{'format'}
                or !$options->{'expanded_formats'}
                or !$options->{'expanded_formats'}
                                    ->{$element->{'extra'}->{'format'}})) {

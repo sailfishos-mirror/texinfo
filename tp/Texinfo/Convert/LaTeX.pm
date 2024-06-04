@@ -2652,11 +2652,13 @@ sub _convert($$)
                      and $Texinfo::Commands::brace_commands{$cmdname} eq 'inline'
                      and $cmdname ne 'inlinefmtifelse'
                      and (($inline_format_commands{$cmdname}
-                          and (!$element->{'extra'}->{'format'}
+                          and (!$element->{'extra'}
+                               or !$element->{'extra'}->{'format'}
                                or !$self->{'expanded_formats'}
                                       ->{$element->{'extra'}->{'format'}}))
                          or (!$inline_format_commands{$cmdname}
-                             and !defined($element->{'extra'}->{'expand_index'}))))))) {
+                             and (!$element->{'extra'}
+                     or !defined($element->{'extra'}->{'expand_index'})))))))) {
     return $result;
   }
 
@@ -2961,7 +2963,14 @@ sub _convert($$)
       # whether we are in another LaTeX macro would probably be a pain.
       # It should be ok, though, as it is described as an error in the manual:
       #   It is not reliable to use @verb inside other Texinfo constructs
-      my $delim = $element->{'info'}->{'delimiter'};
+      my $delim;
+      if ($element->{'info'}
+          and defined($element->{'info'}->{'delimiter'})) {
+        $delim = $element->{'info'}->{'delimiter'};
+      } else {
+        # delimiter also tried below
+        $delim = '|';
+      }
       my $contents = '';
       my @lines;
 
@@ -2993,9 +3002,8 @@ sub _convert($$)
       $result .= join "\\\\\n", @lines_out;
       return $result;
     } elsif ($cmdname eq 'image') {
-      if (defined($element->{'args'}->[0])
-          and $element->{'args'}->[0]->{'contents'}
-          and @{$element->{'args'}->[0]->{'contents'}}) {
+      if ($element->{'args'}
+          and $element->{'args'}->[0]->{'contents'}) {
         # distinguish text basefile used to find the file and
         # converted basefile with special characters escaped
         Texinfo::Convert::Text::set_options_code(
@@ -3170,14 +3178,18 @@ sub _convert($$)
     } elsif ($cmdname eq 'footnote') {
       _push_new_context($self, 'footnote');
       $result .= '\footnote{';
-      $result .= $self->_convert($element->{'args'}->[0]);
+      if ($element->{'args'}) {
+        $result .= $self->_convert($element->{'args'}->[0]);
+      }
       $result .= '}';
       _pop_context($self);
       return $result;
     } elsif ($cmdname eq 'anchor') {
-      my $anchor_label
-         = _tree_anchor_label($element->{'args'}->[0]->{'contents'});
-      $result .= "\\label{$anchor_label}%\n";
+      if ($element->{'args'}) {
+        my $anchor_label
+           = _tree_anchor_label($element->{'args'}->[0]->{'contents'});
+        $result .= "\\label{$anchor_label}%\n";
+      }
       return $result;
     } elsif ($ref_commands{$cmdname}) {
       if (scalar(@{$element->{'args'}})) {
