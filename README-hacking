@@ -312,8 +312,11 @@ Update gnulib:
 
 Use util/srclist-txi for checking files to be copied from gnulib
 
-Update ppport.h in tp/Texinfo/XS:
+Update ppport.h in tp/Texinfo/XS.  Update Devel::PPPort via cpan to newest
+available version, then run:
   perl -MDevel::PPPort -e'Devel::PPPort::WriteFile'
+Check that this results in a newer version.
+
 Check what changes ppport.h reports:
   perl ppport.h --compat-version=5.8.1 *.xs misc.c xspara.c miscxs.h xspara.h */*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* convert/call_html_perl_function.* convert/build_html_perl_state.* convert/get_html_perl_info.*
 

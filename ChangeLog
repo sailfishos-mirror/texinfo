@@ -1,5 +1,9 @@
 2024-06-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: advice on upgrading ppport.h
+
+2024-06-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS: run gnulib-tool --add-import
 
 2024-06-04  Gavin Smith <gavinsmith0123@gmail.com>
