@@ -94,6 +94,8 @@ tp/Texinfo/XS/gnulib/lib/wctype.h
 tp/Texinfo/XS/gnulib/lib/iconv.h
 tp/Texinfo/XS/gnulib/lib/uniconv.h
 
+tp/Texinfo/XS/gnulib/lib/uniconv/*.lo
+
 
 gnulib/lib/**/.dirstamp
 
