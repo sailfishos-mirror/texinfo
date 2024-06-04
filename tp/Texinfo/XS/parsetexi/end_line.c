@@ -975,11 +975,11 @@ end_line_starting_block (ELEMENT *current)
             {
               int i;
               ELEMENT *e = args_child_by_index (current, 0);
+              ELEMENT *command_as_arg_e = k_command_as_arg->k.element;
 
               for (i = 0; i < e->c->contents.number; i++)
                 {
-                  if (contents_child_by_index (e, i)
-                             == k_command_as_arg->k.element)
+                  if (contents_child_by_index (e, i) == command_as_arg_e)
                     {
                       i++;
                       break;
@@ -1001,25 +1001,19 @@ end_line_starting_block (ELEMENT *current)
                       break;
                     }
                 }
-            }
 
           /* if the command as argument does not have braces but it is
-             a brace command and not a mark (noarg) command, warn */
-          if (k_command_as_arg
-              && (k_command_as_arg->k.element->c->args.number <= 0
-                     /* FIXME this condition looks strange, verify what could be
-                        there if not brace_container/brace_arg */
-                  || (k_command_as_arg->k.element->c->args.list[0]->type
-                       != ET_brace_container)
-                      && k_command_as_arg->k.element->c->args.list[0]->type
-                       != ET_brace_arg))
-            {
-              enum command_id as_argument_cmd = k_command_as_arg->k.element->cmd;
-              if ((command_data(as_argument_cmd).flags & CF_brace)
-                  && command_data(as_argument_cmd).data != BRACE_noarg)
+             not a mark (noarg) command, warn */
+              if (k_command_as_arg
+                  && command_as_arg_e->c->args.number <= 0
+              /* only brace commands are registered as command_as_argument
+                 so we can assume that the following is true:
+                 && command_data(command_as_arg_e->cmd).flags & CF_brace
+               */
+                  && command_data(command_as_arg_e->cmd).data != BRACE_noarg)
                 {
-                  command_warn (current, "@%s expected braces",
-                                command_name(as_argument_cmd));
+                   command_warn (current, "@%s expected braces",
+                                 command_name(command_as_arg_e->cmd));
                 }
             }
         }

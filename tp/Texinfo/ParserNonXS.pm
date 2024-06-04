@@ -4242,14 +4242,17 @@ sub _end_line_starting_block($$$)
       my $command_as_argument = $current->{'extra'}->{'command_as_argument'};
       # This code checks that the command_as_argument of the @itemize
       # is alone on the line, otherwise it is not a command_as_argument.
-      # TODO rewrite without shifting
-      my @args = @{$current->{'args'}->[0]->{'contents'}};
-      while (@args) {
-        my $arg = shift @args;
-        last if ($arg eq $current->{'extra'}->{'command_as_argument'});
+      my $i;
+      my $line_arg = $current->{'args'}->[0];
+      my $contents_nr = scalar(@{$line_arg->{'contents'}});
+      for ($i = 0; $i < $contents_nr; $i++) {
+        if ($line_arg->{'contents'}->[$i] eq $command_as_argument) {
+          $i++;
+          last;
+        }
       }
-      while (@args) {
-        my $arg = shift @args;
+      for (; $i < $contents_nr; $i++) {
+        my $arg = $line_arg->{'contents'}->[$i];
         if (!(($arg->{'cmdname'}
                and ($arg->{'cmdname'} eq 'c'
                     or $arg->{'cmdname'} eq 'comment'))
@@ -4263,21 +4266,13 @@ sub _end_line_starting_block($$$)
         }
       }
       # if the command as argument does not have braces but it is
-      # a brace command and not a mark (noarg) command, warn
+      # not a mark (noarg) command, warn
       if (defined($command_as_argument)
-          and (!$command_as_argument->{'args'}
-               or !scalar(@{$command_as_argument->{'args'}})
-               or !$command_as_argument->{'args'}->[0]->{'type'}
-               or ($command_as_argument->{'args'}->[0]->{'type'}
-                                              ne 'brace_container'
-                   and $command_as_argument->{'args'}->[0]->{'type'}
-                                     ne 'brace_arg'))) {
+          and !$command_as_argument->{'args'}
+          and $brace_commands{$command_as_argument->{'cmdname'}} ne 'noarg') {
         my $cmdname = $command_as_argument->{'cmdname'};
-        if (defined($brace_commands{$cmdname})
-            and $brace_commands{$cmdname} ne 'noarg') {
-          $self->_command_warn($current, __("\@%s expected braces"),
-                               $cmdname);
-        }
+        $self->_command_warn($current, __("\@%s expected braces"),
+                             $cmdname);
       }
     }
     # Check if command_as_argument isn't an accent command
@@ -6464,10 +6459,8 @@ sub _handle_close_brace($$$)
                               ' inlineraw');
         }
       }
-      if (!@{$current_command->{'args'}}
-          or !defined($current_command->{'args'}->[0])
-          or !$current_command->{'args'}->[0]->{'contents'}
-          or scalar(@{$current_command->{'args'}->[0]->{'contents'}}) == 0) {
+      if (!$current_command->{'args'}
+          or !$current_command->{'args'}->[0]->{'contents'}) {
         $self->_line_warn(
            sprintf(__("\@%s missing first argument"),
                    $current_command->{'cmdname'}), $source_info);
