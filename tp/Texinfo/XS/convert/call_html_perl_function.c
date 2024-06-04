@@ -27,8 +27,6 @@
 #endif
 #include "XSUB.h"
 
-#include "ppport.h"
-
 #undef context
 
 #include "text.h"
