@@ -1,5 +1,5 @@
 /* Substitute for and wrapper around <unistd.h>.
-   Copyright (C) 2003-2023 Free Software Foundation, Inc.
+   Copyright (C) 2003-2024 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -159,8 +159,9 @@
 #endif
 
 /* MSVC defines off_t in <sys/types.h>.
-   May also define off_t to a 64-bit type on native Windows.  */
-/* Get off_t, ssize_t, mode_t.  */
+   May also define off_t to a 64-bit type on native Windows.
+   Also defines off64_t on macOS, NetBSD, OpenBSD, MSVC, Cygwin, Haiku.  */
+/* Get off_t, off64_t, ssize_t, mode_t.  */
 #include <sys/types.h>
 
 /* The definitions of _GL_FUNCDECL_RPL etc. are copied here.  */
@@ -971,23 +972,28 @@ _GL_WARN_ON_USE (faccessat, "faccessat is not portable - "
    Return 0 if successful, otherwise -1 and errno set.
    See the POSIX:2008 specification
    <https://pubs.opengroup.org/onlinepubs/9699919799/functions/fchdir.html>.  */
-# if ! @HAVE_FCHDIR@
+# if @REPLACE_FCHDIR@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#   undef fchdir
+#   define fchdir rpl_fchdir
+#  endif
+_GL_FUNCDECL_RPL (fchdir, int, (int /*fd*/));
+_GL_CXXALIAS_RPL (fchdir, int, (int /*fd*/));
+# else
+#  if !@HAVE_FCHDIR@ || !@HAVE_DECL_FCHDIR@
 _GL_FUNCDECL_SYS (fchdir, int, (int /*fd*/));
-
+#  endif
+_GL_CXXALIAS_SYS (fchdir, int, (int /*fd*/));
+# endif
+_GL_CXXALIASWARN (fchdir);
+# if @REPLACE_FCHDIR@ || !@HAVE_FCHDIR@
 /* Gnulib internal hooks needed to maintain the fchdir metadata.  */
 _GL_EXTERN_C int _gl_register_fd (int fd, const char *filename)
      _GL_ARG_NONNULL ((2));
 _GL_EXTERN_C void _gl_unregister_fd (int fd);
 _GL_EXTERN_C int _gl_register_dup (int oldfd, int newfd);
 _GL_EXTERN_C const char *_gl_directory_name (int fd);
-
-# else
-#  if !@HAVE_DECL_FCHDIR@
-_GL_FUNCDECL_SYS (fchdir, int, (int /*fd*/));
-#  endif
 # endif
-_GL_CXXALIAS_SYS (fchdir, int, (int /*fd*/));
-_GL_CXXALIASWARN (fchdir);
 #elif defined GNULIB_POSIXCHECK
 # undef fchdir
 # if HAVE_RAW_DECL_FCHDIR
@@ -1113,10 +1119,10 @@ _GL_WARN_ON_USE (ftruncate, "ftruncate is unportable - "
    or SIZE was too small.
    See the POSIX:2008 specification
    <https://pubs.opengroup.org/onlinepubs/9699919799/functions/getcwd.html>.
-   Additionally, the gnulib module 'getcwd' guarantees the following GNU
-   extension: If BUF is NULL, an array is allocated with 'malloc'; the array
-   is SIZE bytes long, unless SIZE == 0, in which case it is as big as
-   necessary.  */
+   Additionally, the gnulib module 'getcwd' or 'getcwd-lgpl' guarantees the
+   following GNU extension: If BUF is NULL, an array is allocated with
+   'malloc'; the array is SIZE bytes long, unless SIZE == 0, in which case
+   it is as big as necessary.  */
 # if @REPLACE_GETCWD@
 #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #   define getcwd rpl_getcwd
@@ -1525,12 +1531,21 @@ _GL_CXXALIASWARN (getpid);
 
 
 #if @GNULIB_GETUSERSHELL@
+# if @REPLACE_GETUSERSHELL@
 /* Return the next valid login shell on the system, or NULL when the end of
    the list has been reached.  */
-# if !@HAVE_DECL_GETUSERSHELL@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#    undef getusershell
+#    define getusershell rpl_getusershell
+#  endif
+_GL_FUNCDECL_RPL (getusershell, char *, (void));
+_GL_CXXALIAS_RPL (getusershell, char *, (void));
+# else
+#  if !@HAVE_DECL_GETUSERSHELL@
 _GL_FUNCDECL_SYS (getusershell, char *, (void));
-# endif
+#  endif
 _GL_CXXALIAS_SYS (getusershell, char *, (void));
+# endif
 _GL_CXXALIASWARN (getusershell);
 #elif defined GNULIB_POSIXCHECK
 # undef getusershell
@@ -1542,10 +1557,19 @@ _GL_WARN_ON_USE (getusershell, "getusershell is unportable - "
 
 #if @GNULIB_GETUSERSHELL@
 /* Rewind to pointer that is advanced at each getusershell() call.  */
-# if !@HAVE_DECL_GETUSERSHELL@
+# if @REPLACE_GETUSERSHELL@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#    undef setusershell
+#    define setusershell rpl_setusershell
+#  endif
+_GL_FUNCDECL_RPL (setusershell, void, (void));
+_GL_CXXALIAS_RPL (setusershell, void, (void));
+# else
+#  if !@HAVE_DECL_GETUSERSHELL@
 _GL_FUNCDECL_SYS (setusershell, void, (void));
-# endif
+#  endif
 _GL_CXXALIAS_SYS (setusershell, void, (void));
+# endif
 _GL_CXXALIASWARN (setusershell);
 #elif defined GNULIB_POSIXCHECK
 # undef setusershell
@@ -1558,10 +1582,19 @@ _GL_WARN_ON_USE (setusershell, "setusershell is unportable - "
 #if @GNULIB_GETUSERSHELL@
 /* Free the pointer that is advanced at each getusershell() call and
    associated resources.  */
-# if !@HAVE_DECL_GETUSERSHELL@
+# if @REPLACE_GETUSERSHELL@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#    undef endusershell
+#    define endusershell rpl_endusershell
+#  endif
+_GL_FUNCDECL_RPL (endusershell, void, (void));
+_GL_CXXALIAS_RPL (endusershell, void, (void));
+# else
+#  if !@HAVE_DECL_GETUSERSHELL@
 _GL_FUNCDECL_SYS (endusershell, void, (void));
-# endif
+#  endif
 _GL_CXXALIAS_SYS (endusershell, void, (void));
+# endif
 _GL_CXXALIASWARN (endusershell);
 #elif defined GNULIB_POSIXCHECK
 # undef endusershell
@@ -1928,11 +1961,7 @@ _GL_CXXALIASWARN (read);
 #   undef read
 #   define read _read
 #  endif
-#  ifdef __MINGW32__
-_GL_CXXALIAS_MDA (read, int, (int fd, void *buf, unsigned int count));
-#  else
-_GL_CXXALIAS_MDA (read, ssize_t, (int fd, void *buf, unsigned int count));
-#  endif
+_GL_CXXALIAS_MDA_CAST (read, ssize_t, (int fd, void *buf, unsigned int count));
 # else
 _GL_CXXALIAS_SYS (read, ssize_t, (int fd, void *buf, size_t count));
 # endif
@@ -2396,11 +2425,7 @@ _GL_CXXALIASWARN (write);
 #   undef write
 #   define write _write
 #  endif
-#  ifdef __MINGW32__
-_GL_CXXALIAS_MDA (write, int, (int fd, const void *buf, unsigned int count));
-#  else
-_GL_CXXALIAS_MDA (write, ssize_t, (int fd, const void *buf, unsigned int count));
-#  endif
+_GL_CXXALIAS_MDA_CAST (write, ssize_t, (int fd, const void *buf, unsigned int count));
 # else
 _GL_CXXALIAS_SYS (write, ssize_t, (int fd, const void *buf, size_t count));
 # endif

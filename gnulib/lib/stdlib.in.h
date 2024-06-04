@@ -1,6 +1,6 @@
 /* A GNU-like <stdlib.h>.
 
-   Copyright (C) 1995, 2001-2004, 2006-2023 Free Software Foundation, Inc.
+   Copyright (C) 1995, 2001-2004, 2006-2024 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -25,6 +25,10 @@
    and inside some glibc header files, respectively.  */
 
 #@INCLUDE_NEXT@ @NEXT_STDLIB_H@
+
+/* Make sure that the macros that indicate the special invocation convention
+   get undefined.  This is needed at least on CentOS 7.  */
+#undef __need_malloc_and_calloc
 
 #else
 /* Normal invocation convention.  */
@@ -212,6 +216,31 @@ _GL_CXXALIASWARN (_Exit);
 # if HAVE_RAW_DECL__EXIT
 _GL_WARN_ON_USE (_Exit, "_Exit is unportable - "
                  "use gnulib module _Exit for portability");
+# endif
+#endif
+
+
+#if @GNULIB_ABORT_DEBUG@
+# if @REPLACE_ABORT@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#   undef abort
+#   define abort rpl_abort
+#  endif
+_GL_FUNCDECL_RPL (abort, _Noreturn void, (void));
+_GL_CXXALIAS_RPL (abort, void, (void));
+# else
+_GL_CXXALIAS_SYS (abort, void, (void));
+# endif
+# if __GLIBC__ >= 2
+_GL_CXXALIASWARN (abort);
+# endif
+#endif
+#if @GNULIB_ABORT_DEBUG@ && @REPLACE_ABORT@
+_GL_EXTERN_C void _gl_pre_abort (void);
+#else
+# if !GNULIB_defined_gl_pre_abort
+#  define _gl_pre_abort() /* nothing */
+#  define GNULIB_defined_gl_pre_abort 1
 # endif
 #endif
 
@@ -1047,6 +1076,10 @@ _GL_CXXALIAS_RPL (putenv, int, (char *string));
 #   define putenv _putenv
 #  endif
 _GL_CXXALIAS_MDA (putenv, int, (char *string));
+# elif defined __KLIBC__
+/* Need to cast, because on OS/2 kLIBC, the first parameter is
+                                     const char *string.  */
+_GL_CXXALIAS_SYS_CAST (putenv, int, (char *string));
 # else
 _GL_CXXALIAS_SYS (putenv, int, (char *string));
 # endif
@@ -1063,6 +1096,10 @@ _GL_CXXALIASWARN (putenv);
 /* Need to cast, because on mingw, the parameter is either
    'const char *string' or 'char *string'.  */
 _GL_CXXALIAS_MDA_CAST (putenv, int, (char *string));
+# elif defined __KLIBC__
+/* Need to cast, because on OS/2 kLIBC, the first parameter is
+                                     const char *string.  */
+_GL_CXXALIAS_SYS_CAST (putenv, int, (char *string));
 # else
 _GL_CXXALIAS_SYS (putenv, int, (char *string));
 # endif
@@ -1104,7 +1141,9 @@ _GL_CXXALIAS_SYS (qsort_r, void, (void *base, size_t nmemb, size_t size,
                                   _gl_qsort_r_compar_fn compare,
                                   void *arg));
 # endif
+# if __GLIBC__ >= 2
 _GL_CXXALIASWARN (qsort_r);
+# endif
 #elif defined GNULIB_POSIXCHECK
 # undef qsort_r
 # if HAVE_RAW_DECL_QSORT_R
@@ -1114,11 +1153,26 @@ _GL_WARN_ON_USE (qsort_r, "qsort_r is not portable - "
 #endif
 
 
-#if @GNULIB_RANDOM_R@
-# if !@HAVE_RANDOM_R@
-#  ifndef RAND_MAX
-#   define RAND_MAX 2147483647
+#if @GNULIB_RAND@ || (@GNULIB_RANDOM_R@ && !@HAVE_RANDOM_R@)
+# ifndef RAND_MAX
+#  define RAND_MAX 2147483647
+# endif
+#endif
+
+
+#if @GNULIB_RAND@
+# if @REPLACE_RAND@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#   undef rand
+#   define rand rpl_rand
 #  endif
+_GL_FUNCDECL_RPL (rand, int, (void));
+_GL_CXXALIAS_RPL (rand, int, (void));
+# else
+_GL_CXXALIAS_SYS (rand, int, (void));
+# endif
+# if __GLIBC__ >= 2
+_GL_CXXALIASWARN (rand);
 # endif
 #endif
 
@@ -1563,6 +1617,38 @@ _GL_CXXALIASWARN (strtod);
 # if HAVE_RAW_DECL_STRTOD
 _GL_WARN_ON_USE (strtod, "strtod is unportable - "
                  "use gnulib module strtod for portability");
+# endif
+#endif
+
+#if @GNULIB_STRTOF@
+ /* Parse a float from STRING, updating ENDP if appropriate.  */
+# if @REPLACE_STRTOF@
+#  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+#   define strtof rpl_strtof
+#  endif
+#  define GNULIB_defined_strtof_function 1
+_GL_FUNCDECL_RPL (strtof, float,
+                  (const char *restrict str, char **restrict endp)
+                  _GL_ARG_NONNULL ((1)));
+_GL_CXXALIAS_RPL (strtof, float,
+                  (const char *restrict str, char **restrict endp));
+# else
+#  if !@HAVE_STRTOF@
+_GL_FUNCDECL_SYS (strtof, float,
+                  (const char *restrict str, char **restrict endp)
+                  _GL_ARG_NONNULL ((1)));
+#  endif
+_GL_CXXALIAS_SYS (strtof, float,
+                  (const char *restrict str, char **restrict endp));
+# endif
+# if __GLIBC__ >= 2
+_GL_CXXALIASWARN (strtof);
+# endif
+#elif defined GNULIB_POSIXCHECK
+# undef strtof
+# if HAVE_RAW_DECL_STRTOF
+_GL_WARN_ON_USE (strtof, "strtof is unportable - "
+                 "use gnulib module strtof for portability");
 # endif
 #endif
 

@@ -54,6 +54,8 @@ gnulib/lib/getopt.h
 gnulib/lib/inttypes.h
 gnulib/lib/langinfo.h
 gnulib/lib/locale.h
+gnulib/lib/pthread.h
+gnulib/lib/sched.h
 gnulib/lib/stdarg.h
 gnulib/lib/stdbool.h
 gnulib/lib/stdint.h

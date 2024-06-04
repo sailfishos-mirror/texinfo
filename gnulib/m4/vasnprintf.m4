@@ -1,5 +1,6 @@
-# vasnprintf.m4 serial 50
-dnl Copyright (C) 2002-2004, 2006-2023 Free Software Foundation, Inc.
+# vasnprintf.m4
+# serial 52
+dnl Copyright (C) 2002-2004, 2006-2024 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
@@ -94,6 +95,7 @@ AC_DEFUN_ONCE([gl_PREREQ_VASNPRINTF],
 # Prerequisites of lib/vasnwprintf.c.
 AC_DEFUN_ONCE([gl_PREREQ_VASNWPRINTF],
 [
+  AC_REQUIRE([AC_CANONICAL_HOST]) dnl for cross-compiles
   AC_CHECK_FUNCS_ONCE([swprintf wcsnlen mbrtowc])
   AC_CHECK_DECLS([_snwprintf], , , [[#include <stdio.h>]])
   AC_CHECK_DECLS([wcsnlen], , , [[#include <wchar.h>]])
@@ -367,6 +369,22 @@ AC_DEFUN([gl_PREREQ_VASNPRINTF_FLAG_ZERO],
   esac
 ])
 
+# Extra prerequisites of lib/vasnprintf.c for supporting the # flag with a
+# zero precision and a zero value in the 'x' and 'X' directives.
+AC_DEFUN([gl_PREREQ_VASNPRINTF_FLAG_ALT_PRECISION_ZERO],
+[
+  AC_REQUIRE([gl_PRINTF_FLAG_ALT_PRECISION_ZERO])
+  case "$gl_cv_func_printf_flag_alt_precision_zero" in
+    *yes)
+      ;;
+    *)
+      AC_DEFINE([NEED_PRINTF_FLAG_ALT_PRECISION_ZERO], [1],
+        [Define if the vasnprintf implementation needs special code for the
+         # flag with a zero precision and a zero value in the 'x' and 'X' directives.])
+      ;;
+  esac
+])
+
 # Extra prerequisites of lib/vasnprintf.c for supporting large precisions.
 AC_DEFUN([gl_PREREQ_VASNPRINTF_PRECISION],
 [
@@ -425,6 +443,7 @@ AC_DEFUN([gl_PREREQ_VASNPRINTF_WITH_POSIX_EXTRAS],
   gl_PREREQ_VASNPRINTF_FLAG_GROUPING
   gl_PREREQ_VASNPRINTF_FLAG_LEFTADJUST
   gl_PREREQ_VASNPRINTF_FLAG_ZERO
+  gl_PREREQ_VASNPRINTF_FLAG_ALT_PRECISION_ZERO
   gl_PREREQ_VASNPRINTF_PRECISION
   gl_PREREQ_VASNPRINTF_ENOMEM
 ])

@@ -1,6 +1,6 @@
 /* A substitute for ISO C99 <wchar.h>, for platforms that have issues.
 
-   Copyright (C) 2007-2023 Free Software Foundation, Inc.
+   Copyright (C) 2007-2024 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -1681,6 +1681,24 @@ _GL_CXXALIASWARN (wcsftime);
 _GL_WARN_ON_USE (wcsftime, "wcsftime is unportable - "
                  "use gnulib module wcsftime for portability");
 # endif
+#endif
+
+
+#if @GNULIB_WGETCWD@ && (defined _WIN32 && !defined __CYGWIN__)
+/* Gets the name of the current working directory.
+   (a) If BUF is non-NULL, it is assumed to have room for SIZE wide characters.
+       This function stores the working directory (NUL-terminated) in BUF and
+       returns BUF.
+   (b) If BUF is NULL, an array is allocated with 'malloc'.  The array is SIZE
+       wide characters long, unless SIZE == 0, in which case it is as big as
+       necessary.
+   If the directory couldn't be determined or SIZE was too small, this function
+   returns NULL and sets errno.  For a directory of length LEN, SIZE should be
+   >= LEN + 3 in case (a) or >= LEN + 1 in case (b).
+   Possible errno values include:
+     - ERANGE if SIZE is too small.
+     - ENOMEM if the memory could no be allocated.  */
+_GL_FUNCDECL_SYS (wgetcwd, wchar_t *, (wchar_t *buf, size_t size));
 #endif
 
 

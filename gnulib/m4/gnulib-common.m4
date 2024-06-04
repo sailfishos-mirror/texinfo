@@ -1,5 +1,6 @@
-# gnulib-common.m4 serial 88
-dnl Copyright (C) 2007-2023 Free Software Foundation, Inc.
+# gnulib-common.m4
+# serial 95
+dnl Copyright (C) 2007-2024 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
@@ -76,48 +77,60 @@ AC_DEFUN([gl_COMMON_BODY], [
 #endif])
   AH_VERBATIM([attribute],
 [/* Attributes.  */
-#if (defined __has_attribute \
-     && (!defined __clang_minor__ \
-         || (defined __apple_build_version__ \
-             ? 6000000 <= __apple_build_version__ \
-             : 5 <= __clang_major__)))
-# define _GL_HAS_ATTRIBUTE(attr) __has_attribute (__##attr##__)
-#else
-# define _GL_HAS_ATTRIBUTE(attr) _GL_ATTR_##attr
-# define _GL_ATTR_alloc_size _GL_GNUC_PREREQ (4, 3)
-# define _GL_ATTR_always_inline _GL_GNUC_PREREQ (3, 2)
-# define _GL_ATTR_artificial _GL_GNUC_PREREQ (4, 3)
-# define _GL_ATTR_cold _GL_GNUC_PREREQ (4, 3)
-# define _GL_ATTR_const _GL_GNUC_PREREQ (2, 95)
-# define _GL_ATTR_deprecated _GL_GNUC_PREREQ (3, 1)
-# define _GL_ATTR_diagnose_if 0
-# define _GL_ATTR_error _GL_GNUC_PREREQ (4, 3)
-# define _GL_ATTR_externally_visible _GL_GNUC_PREREQ (4, 1)
-# define _GL_ATTR_fallthrough _GL_GNUC_PREREQ (7, 0)
-# define _GL_ATTR_format _GL_GNUC_PREREQ (2, 7)
-# define _GL_ATTR_leaf _GL_GNUC_PREREQ (4, 6)
-# define _GL_ATTR_malloc _GL_GNUC_PREREQ (3, 0)
-# ifdef _ICC
-#  define _GL_ATTR_may_alias 0
+/* Define _GL_HAS_ATTRIBUTE only once, because on FreeBSD, with gcc < 5, if
+   <config.h> gets included once again after <sys/cdefs.h>, __has_attribute(x)
+   expands to 0 always, and redefining _GL_HAS_ATTRIBUTE would turn off all
+   attributes.  */
+#ifndef _GL_HAS_ATTRIBUTE
+# if (defined __has_attribute \
+      && (!defined __clang_minor__ \
+          || (defined __apple_build_version__ \
+              ? 7000000 <= __apple_build_version__ \
+              : 5 <= __clang_major__)))
+#  define _GL_HAS_ATTRIBUTE(attr) __has_attribute (__##attr##__)
 # else
-#  define _GL_ATTR_may_alias _GL_GNUC_PREREQ (3, 3)
+#  define _GL_HAS_ATTRIBUTE(attr) _GL_ATTR_##attr
+#  define _GL_ATTR_alloc_size _GL_GNUC_PREREQ (4, 3)
+#  define _GL_ATTR_always_inline _GL_GNUC_PREREQ (3, 2)
+#  define _GL_ATTR_artificial _GL_GNUC_PREREQ (4, 3)
+#  define _GL_ATTR_cold _GL_GNUC_PREREQ (4, 3)
+#  define _GL_ATTR_const _GL_GNUC_PREREQ (2, 95)
+#  define _GL_ATTR_deprecated _GL_GNUC_PREREQ (3, 1)
+#  define _GL_ATTR_diagnose_if 0
+#  define _GL_ATTR_error _GL_GNUC_PREREQ (4, 3)
+#  define _GL_ATTR_externally_visible _GL_GNUC_PREREQ (4, 1)
+#  define _GL_ATTR_fallthrough _GL_GNUC_PREREQ (7, 0)
+#  define _GL_ATTR_format _GL_GNUC_PREREQ (2, 7)
+#  define _GL_ATTR_leaf _GL_GNUC_PREREQ (4, 6)
+#  define _GL_ATTR_malloc _GL_GNUC_PREREQ (3, 0)
+#  ifdef _ICC
+#   define _GL_ATTR_may_alias 0
+#  else
+#   define _GL_ATTR_may_alias _GL_GNUC_PREREQ (3, 3)
+#  endif
+#  define _GL_ATTR_noinline _GL_GNUC_PREREQ (3, 1)
+#  define _GL_ATTR_nonnull _GL_GNUC_PREREQ (3, 3)
+#  define _GL_ATTR_nonstring _GL_GNUC_PREREQ (8, 0)
+#  define _GL_ATTR_nothrow _GL_GNUC_PREREQ (3, 3)
+#  define _GL_ATTR_packed _GL_GNUC_PREREQ (2, 7)
+#  define _GL_ATTR_pure _GL_GNUC_PREREQ (2, 96)
+#  define _GL_ATTR_reproducible 0 /* not yet supported, as of GCC 14 */
+#  define _GL_ATTR_returns_nonnull _GL_GNUC_PREREQ (4, 9)
+#  define _GL_ATTR_sentinel _GL_GNUC_PREREQ (4, 0)
+#  define _GL_ATTR_unsequenced 0 /* not yet supported, as of GCC 14 */
+#  define _GL_ATTR_unused _GL_GNUC_PREREQ (2, 7)
+#  define _GL_ATTR_warn_unused_result _GL_GNUC_PREREQ (3, 4)
 # endif
-# define _GL_ATTR_noinline _GL_GNUC_PREREQ (3, 1)
-# define _GL_ATTR_nonnull _GL_GNUC_PREREQ (3, 3)
-# define _GL_ATTR_nonstring _GL_GNUC_PREREQ (8, 0)
-# define _GL_ATTR_nothrow _GL_GNUC_PREREQ (3, 3)
-# define _GL_ATTR_packed _GL_GNUC_PREREQ (2, 7)
-# define _GL_ATTR_pure _GL_GNUC_PREREQ (2, 96)
-# define _GL_ATTR_returns_nonnull _GL_GNUC_PREREQ (4, 9)
-# define _GL_ATTR_sentinel _GL_GNUC_PREREQ (4, 0)
-# define _GL_ATTR_unused _GL_GNUC_PREREQ (2, 7)
-# define _GL_ATTR_warn_unused_result _GL_GNUC_PREREQ (3, 4)
 #endif
 
-/* Disable GCC -Wpedantic if using __has_c_attribute and this is not C23+.  */
-#if (defined __has_c_attribute && _GL_GNUC_PREREQ (4, 6) \
-     && (defined __STDC_VERSION__ ? __STDC_VERSION__ : 0) <= 201710)
-# pragma GCC diagnostic ignored "-Wpedantic"
+/* Use __has_c_attribute if available.  However, do not use with
+   pre-C23 GCC, which can issue false positives if -Wpedantic.  */
+#if (defined __has_c_attribute \
+     && ! (_GL_GNUC_PREREQ (4, 6) \
+           && (defined __STDC_VERSION__ ? __STDC_VERSION__ : 0) <= 201710))
+# define _GL_HAVE___HAS_C_ATTRIBUTE 1
+#else
+# define _GL_HAVE___HAS_C_ATTRIBUTE 0
 #endif
 
 /* Define if, in a function declaration, the attributes in bracket syntax
@@ -141,7 +154,7 @@ AC_DEFUN([gl_COMMON_BODY], [
    _GL_ATTRIBUTE_ALLOC_SIZE ((M, N)) declares that the Mth argument multiplied
    by the Nth argument of the function is the size of the returned memory block.
  */
-/* Applies to: function, pointer to function, function types.  */
+/* Applies to: functions, pointer to functions, function types.  */
 #ifndef _GL_ATTRIBUTE_ALLOC_SIZE
 # if _GL_HAS_ATTRIBUTE (alloc_size)
 #  define _GL_ATTRIBUTE_ALLOC_SIZE(args) __attribute__ ((__alloc_size__ args))
@@ -152,7 +165,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 
 /* _GL_ATTRIBUTE_ALWAYS_INLINE tells that the compiler should always inline the
    function and report an error if it cannot do so.  */
-/* Applies to: function.  */
+/* Applies to: functions.  */
 #ifndef _GL_ATTRIBUTE_ALWAYS_INLINE
 # if _GL_HAS_ATTRIBUTE (always_inline)
 #  define _GL_ATTRIBUTE_ALWAYS_INLINE __attribute__ ((__always_inline__))
@@ -164,7 +177,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 /* _GL_ATTRIBUTE_ARTIFICIAL declares that the function is not important to show
     in stack traces when debugging.  The compiler should omit the function from
     stack traces.  */
-/* Applies to: function.  */
+/* Applies to: functions.  */
 #ifndef _GL_ATTRIBUTE_ARTIFICIAL
 # if _GL_HAS_ATTRIBUTE (artificial)
 #  define _GL_ATTRIBUTE_ARTIFICIAL __attribute__ ((__artificial__))
@@ -190,18 +203,23 @@ AC_DEFUN([gl_COMMON_BODY], [
 # endif
 #endif
 
-/* _GL_ATTRIBUTE_CONST declares that it is OK for a compiler to omit duplicate
-   calls to the function with the same arguments.
-   This attribute is safe for a function that neither depends on nor affects
-   observable state, and always returns exactly once - e.g., does not loop
-   forever, and does not call longjmp.
-   (This attribute is stricter than _GL_ATTRIBUTE_PURE.)  */
+/* _GL_ATTRIBUTE_CONST declares:
+   It is OK for a compiler to move calls to the function and to omit
+   calls to the function if another call has the same arguments or the
+   result is not used.
+   This attribute is safe for a function that neither depends on
+   nor affects state, and always returns exactly once -
+   e.g., does not raise an exception, call longjmp, or loop forever.
+   (This attribute is stricter than _GL_ATTRIBUTE_PURE because the
+   function cannot observe state.  It is stricter than
+   _GL_ATTRIBUTE_UNSEQUENCED because the function must return exactly
+   once and cannot depend on state addressed by its arguments.)  */
 /* Applies to: functions.  */
 #ifndef _GL_ATTRIBUTE_CONST
 # if _GL_HAS_ATTRIBUTE (const)
 #  define _GL_ATTRIBUTE_CONST __attribute__ ((__const__))
 # else
-#  define _GL_ATTRIBUTE_CONST
+#  define _GL_ATTRIBUTE_CONST _GL_ATTRIBUTE_UNSEQUENCED
 # endif
 #endif
 
@@ -242,7 +260,7 @@ AC_DEFUN([gl_COMMON_BODY], [
    in C++ also: namespace, class, template specialization.  */
 #ifndef _GL_ATTRIBUTE_DEPRECATED
 # ifndef _GL_BRACKET_BEFORE_ATTRIBUTE
-#  ifdef __has_c_attribute
+#  if _GL_HAVE___HAS_C_ATTRIBUTE
 #   if __has_c_attribute (__deprecated__)
 #    define _GL_ATTRIBUTE_DEPRECATED [[__deprecated__]]
 #   endif
@@ -291,7 +309,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 /* Applies to: Empty statement (;), inside a 'switch' statement.  */
 /* Always expands to something.  */
 #ifndef _GL_ATTRIBUTE_FALLTHROUGH
-# ifdef __has_c_attribute
+# if _GL_HAVE___HAS_C_ATTRIBUTE
 #  if __has_c_attribute (__fallthrough__)
 #   define _GL_ATTRIBUTE_FALLTHROUGH [[__fallthrough__]]
 #  endif
@@ -380,7 +398,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 #   if !defined __apple_build_version__ && __clang_major__ >= 10
 #    define _GL_ATTRIBUTE_MAYBE_UNUSED [[__maybe_unused__]]
 #   endif
-#  elif defined __has_c_attribute
+#  elif _GL_HAVE___HAS_C_ATTRIBUTE
 #   if __has_c_attribute (__maybe_unused__)
 #    define _GL_ATTRIBUTE_MAYBE_UNUSED [[__maybe_unused__]]
 #   endif
@@ -411,7 +429,7 @@ AC_DEFUN([gl_COMMON_BODY], [
 #   if __clang_major__ >= 1000
 #    define _GL_ATTRIBUTE_NODISCARD [[__nodiscard__]]
 #   endif
-#  elif defined __has_c_attribute
+#  elif _GL_HAVE___HAS_C_ATTRIBUTE
 #   if __has_c_attribute (__nodiscard__)
 #    define _GL_ATTRIBUTE_NODISCARD [[__nodiscard__]]
 #   endif
@@ -495,25 +513,58 @@ AC_DEFUN([gl_COMMON_BODY], [
 /* Applies to: struct members, struct, union,
    in C++ also: class.  */
 #ifndef _GL_ATTRIBUTE_PACKED
-# if _GL_HAS_ATTRIBUTE (packed)
+/* Oracle Studio 12.6 miscompiles code with __attribute__ ((__packed__)) despite
+   __has_attribute OK.  */
+# if _GL_HAS_ATTRIBUTE (packed) && !defined __SUNPRO_C
 #  define _GL_ATTRIBUTE_PACKED __attribute__ ((__packed__))
 # else
 #  define _GL_ATTRIBUTE_PACKED
 # endif
 #endif
 
-/* _GL_ATTRIBUTE_PURE declares that It is OK for a compiler to omit duplicate
-   calls to the function with the same arguments if observable state is not
-   changed between calls.
-   This attribute is safe for a function that does not affect
-   observable state, and always returns exactly once.
-   (This attribute is looser than _GL_ATTRIBUTE_CONST.)  */
+/* _GL_ATTRIBUTE_PURE declares:
+   It is OK for a compiler to move calls to the function and to omit
+   calls to the function if another call has the same arguments or the
+   result is not used, and if observable state is the same.
+   This attribute is safe for a function that does not affect observable state
+   and always returns exactly once.
+   (This attribute is looser than _GL_ATTRIBUTE_CONST because the function
+   can depend on observable state.  It is stricter than
+   _GL_ATTRIBUTE_REPRODUCIBLE because the function must return exactly
+   once and cannot affect state addressed by its arguments.)  */
 /* Applies to: functions.  */
 #ifndef _GL_ATTRIBUTE_PURE
 # if _GL_HAS_ATTRIBUTE (pure)
 #  define _GL_ATTRIBUTE_PURE __attribute__ ((__pure__))
 # else
-#  define _GL_ATTRIBUTE_PURE
+#  define _GL_ATTRIBUTE_PURE _GL_ATTRIBUTE_REPRODUCIBLE
+# endif
+#endif
+
+/* _GL_ATTRIBUTE_REPRODUCIBLE declares:
+   It is OK for a compiler to move calls to the function and to omit duplicate
+   calls to the function with the same arguments, so long as the state
+   addressed by its arguments is the same and is updated in time for
+   the rest of the program.
+   This attribute is safe for a function that is effectless and idempotent; see
+   ISO C 23 § 6.7.12.7 for a definition of these terms.
+   (This attribute is looser than _GL_ATTRIBUTE_UNSEQUENCED because
+   the function need not be stateless and idempotent.  It is looser
+   than _GL_ATTRIBUTE_PURE because the function need not return
+   exactly once and can affect state addressed by its arguments.)
+   See also <https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2956.htm> and
+   <https://stackoverflow.com/questions/76847905/>.  */
+/* Applies to: functions, pointer to functions, function types.  */
+#ifndef _GL_ATTRIBUTE_REPRODUCIBLE
+/* This may be revisited when gcc and clang support [[reproducible]] or possibly
+   __attribute__ ((__reproducible__)).  */
+# ifndef _GL_BRACKET_BEFORE_ATTRIBUTE
+#  if _GL_HAS_ATTRIBUTE (reproducible)
+#   define _GL_ATTRIBUTE_REPRODUCIBLE [[reproducible]]
+#  endif
+# endif
+# ifndef _GL_ATTRIBUTE_REPRODUCIBLE
+#  define _GL_ATTRIBUTE_REPRODUCIBLE
 # endif
 #endif
 
@@ -538,6 +589,33 @@ AC_DEFUN([gl_COMMON_BODY], [
 #  define _GL_ATTRIBUTE_SENTINEL(pos) __attribute__ ((__sentinel__ pos))
 # else
 #  define _GL_ATTRIBUTE_SENTINEL(pos)
+# endif
+#endif
+
+/* _GL_ATTRIBUTE_UNSEQUENCED declares:
+   It is OK for a compiler to move calls to the function and to omit duplicate
+   calls to the function with the same arguments, so long as the state
+   addressed by its arguments is the same.
+   This attribute is safe for a function that is effectless, idempotent,
+   stateless, and independent; see ISO C 23 § 6.7.12.7 for a definition of
+   these terms.
+   (This attribute is stricter than _GL_ATTRIBUTE_REPRODUCIBLE because
+   the function must be stateless and independent.  It is looser than
+   _GL_ATTRIBUTE_CONST because the function need not return exactly
+   once and can depend on state addressed by its arguments.)
+   See also <https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2956.htm> and
+   <https://stackoverflow.com/questions/76847905/>.  */
+/* Applies to: functions, pointer to functions, function types.  */
+#ifndef _GL_ATTRIBUTE_UNSEQUENCED
+/* This may be revisited when gcc and clang support [[unsequenced]] or possibly
+   __attribute__ ((__unsequenced__)).  */
+# ifndef _GL_BRACKET_BEFORE_ATTRIBUTE
+#  if _GL_HAS_ATTRIBUTE (unsequenced)
+#   define _GL_ATTRIBUTE_UNSEQUENCED [[unsequenced]]
+#  endif
+# endif
+# ifndef _GL_ATTRIBUTE_UNSEQUENCED
+#  define _GL_ATTRIBUTE_UNSEQUENCED
 # endif
 #endif
 
@@ -1070,6 +1148,7 @@ AC_DEFUN([gl_CC_GNULIB_WARNINGS],
     dnl -Wno-pedantic                         >= 4.8          >= 3.9
     dnl -Wno-sign-compare                     >= 3            >= 3.9
     dnl -Wno-sign-conversion                  >= 4.3          >= 3.9
+    dnl -Wno-tautological-out-of-range-compare  -             >= 3.9
     dnl -Wno-type-limits                      >= 4.3          >= 3.9
     dnl -Wno-undef                            >= 3            >= 3.9
     dnl -Wno-unsuffixed-float-constants       >= 4.5
@@ -1094,6 +1173,9 @@ AC_DEFUN([gl_CC_GNULIB_WARNINGS],
       #endif
       #if __GNUC__ + (__GNUC_MINOR__ >= 8) > 4 || (__clang_major__ + (__clang_minor__ >= 9) > 3)
       -Wno-pedantic
+      #endif
+      #if 3 < __clang_major__ + (9 <= __clang_minor__)
+      -Wno-tautological-constant-out-of-range-compare
       #endif
       #if __GNUC__ + (__GNUC_MINOR__ >= 3) > 4 || (__clang_major__ + (__clang_minor__ >= 9) > 3)
       -Wno-sign-conversion
@@ -1158,12 +1240,12 @@ AC_DEFUN([gl_PREPARE_CHECK_FUNCS_MACOS],
          if test $gl_cv_compiler_clang = yes; then
            dnl Test whether the compiler supports the option
            dnl '-Werror=unguarded-availability-new'.
-           save_ac_compile="$ac_compile"
+           saved_ac_compile="$ac_compile"
            ac_compile="$ac_compile -Werror=unguarded-availability-new"
            AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]],[[]])],
              [gl_cv_compiler_check_future_option='-Werror=unguarded-availability-new'],
              [gl_cv_compiler_check_future_option=none])
-           ac_compile="$save_ac_compile"
+           ac_compile="$saved_ac_compile"
          else
            gl_cv_compiler_check_future_option=none
          fi
@@ -1211,14 +1293,14 @@ AC_DEFUN([gl_CHECK_FUNCS_CASE_FOR_MACOS],
          darwin*)
            if test "x$gl_cv_compiler_check_future_option" != "xnone"; then
              dnl Use a compile test, not a link test.
-             save_ac_compile="$ac_compile"
+             saved_ac_compile="$ac_compile"
              ac_compile="$ac_compile $gl_cv_compiler_check_future_option"
-             save_ac_compile_for_check_decl="$ac_compile_for_check_decl"
+             saved_ac_compile_for_check_decl="$ac_compile_for_check_decl"
              ac_compile_for_check_decl="$ac_compile_for_check_decl $gl_cv_compiler_check_future_option"
              unset [ac_cv_have_decl_][$1]
              AC_CHECK_DECL([$1], , , [$2])
-             ac_compile="$save_ac_compile"
-             ac_compile_for_check_decl="$save_ac_compile_for_check_decl"
+             ac_compile="$saved_ac_compile"
+             ac_compile_for_check_decl="$saved_ac_compile_for_check_decl"
              [ac_cv_func_][$1]="$[ac_cv_have_decl_][$1]"
              if test $[ac_cv_func_][$1] = yes; then
                [gl_cv_onwards_func_][$1]=yes
