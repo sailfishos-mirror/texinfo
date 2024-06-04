@@ -73,6 +73,10 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - clear out support for \ as the index file escape character (instead
     of @).
 
+* texindex:
+  - check if messages are translated via po/POTFILES.in.  check if twjr
+    format can be supported in po/Makevars and "make po-check" target.
+
 * Doc:
   - Verify/proofread Documentation of the HTML customization.
 

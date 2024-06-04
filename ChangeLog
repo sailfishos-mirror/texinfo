@@ -1,5 +1,19 @@
 2024-06-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Partial po/POTFILES.in update
+
+	* po/POTFILES.in: add/remove some files
+
+	* Makefile.am (po-check): Remove code checking for strings in
+	.twjr files as it led to false positives for C files containing
+	simply the string constant "__".  This code was not doing anything
+	anyway as it was not enabled for "*.twjr" files.
+
+	* TODO: mention that texindex strings don't seem to be
+	translated.
+
+2024-06-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs,
 	* tp/Texinfo/XS/convert/call_html_perl_function.c,
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs:

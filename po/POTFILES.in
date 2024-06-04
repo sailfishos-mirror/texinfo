@@ -1,4 +1,4 @@
-# Copyright 2005-2023 Free Software Foundation, Inc.
+# Copyright 2005-2024 Free Software Foundation, Inc.
 # 
 # Copying and distribution of this file, with or without modification,
 # are permitted in any medium without royalty provided the copyright
@@ -6,7 +6,6 @@
 #  
 # List of source files containing translatable strings.
 
-gnulib/lib/cdefs.h
 gnulib/lib/error.c
 gnulib/lib/getopt.c
 gnulib/lib/regcomp.c
@@ -42,11 +41,10 @@ tp/Texinfo/Convert/HTML.pm
 tp/Texinfo/Convert/IXIN.pm
 tp/Texinfo/Convert/Info.pm
 tp/Texinfo/Convert/LaTeX.pm
-tp/Texinfo/Convert/NodeNameNormalization.pm
 tp/Texinfo/Convert/Plaintext.pm
 tp/Texinfo/Convert/Text.pm
-tp/Texinfo/Convert/TexinfoMarkup.pm
 tp/Texinfo/Convert/Utils.pm
+tp/Texinfo/Indices.pm
 tp/Texinfo/ParserNonXS.pm
 tp/Texinfo/Report.pm
 tp/Texinfo/Structuring.pm
@@ -60,7 +58,7 @@ tp/texi2any.pl
 tp/Texinfo/XS/gnulib/lib/obstack.c
 tp/Texinfo/XS/main/errors.c
 tp/Texinfo/XS/main/errors.h
-tp/Texinfo/XS/parsetexi/Parsetexi.pm
+tp/Texinfo/XS/main/targets.c
 tp/Texinfo/XS/parsetexi/close.c
 tp/Texinfo/XS/parsetexi/end_line.c
 tp/Texinfo/XS/parsetexi/handle_commands.c
