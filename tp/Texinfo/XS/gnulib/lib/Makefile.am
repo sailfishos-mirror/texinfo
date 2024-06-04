@@ -72,6 +72,7 @@ SUBDIRS =
 noinst_HEADERS =
 noinst_LIBRARIES =
 noinst_LTLIBRARIES =
+pkgdata_DATA =
 EXTRA_DIST =
 BUILT_SOURCES =
 SUFFIXES =
@@ -278,6 +279,7 @@ SED_HEADER_STDOUT = sed -e 1h -e '1$(SED_HEADER_NOEDIT)' -e 1G
 SED_HEADER_TO_AT_t = $(SED_HEADER_STDOUT) -n -e 'w $@-t'
 
 # Use $(gl_V_at) instead of $(AM_V_GEN) or $(AM_V_at) on a line that
+# is its recipe's first line if and only if @NMD@ lines are absent.
 gl_V_at = $(AM_V_GEN)
 
 ## end   gnulib module gen-header
@@ -316,7 +318,7 @@ V_GPERF_0 = @echo "  GPERF   " $@;
 ## begin gnulib module havelib
 
 
-EXTRA_DIST += $(top_srcdir)/./config.rpath
+EXTRA_DIST += $(top_srcdir)/config.rpath
 
 ## end   gnulib module havelib
 
@@ -436,6 +438,7 @@ if GL_GENERATE_OBSTACK_H
 obstack.h: obstack.in.h $(top_builddir)/config.status
 	$(gl_V_at)$(SED_HEADER_STDOUT) \
 	      -e 's|@''REPLACE_OBSTACK''@|$(REPLACE_OBSTACK)|g' \
+	      -e 's|@''SMALL_PTRDIFF_T''@|$(SMALL_PTRDIFF_T)|g' \
 	      $(srcdir)/obstack.in.h > $@-t
 	$(AM_V_at)mv $@-t $@
 else
@@ -559,9 +562,11 @@ stddef.h: stddef.in.h $(top_builddir)/config.status
 	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_STDDEF_H''@|$(NEXT_STDDEF_H)|g' \
+	      -e 's|@''NULLPTR_T_NEEDS_STDDEF''@|$(NULLPTR_T_NEEDS_STDDEF)|g' \
+	      -e 's|@''STDDEF_NOT_IDEMPOTENT''@|$(STDDEF_NOT_IDEMPOTENT)|g' \
+	      -e 's|@''REPLACE_NULL''@|$(REPLACE_NULL)|g' \
 	      -e 's|@''HAVE_MAX_ALIGN_T''@|$(HAVE_MAX_ALIGN_T)|g' \
 	      -e 's|@''HAVE_WCHAR_T''@|$(HAVE_WCHAR_T)|g' \
-	      -e 's|@''REPLACE_NULL''@|$(REPLACE_NULL)|g' \
 	      $(srcdir)/stddef.in.h > $@-t
 	$(AM_V_at)mv $@-t $@
 else
@@ -786,6 +791,7 @@ stdlib.h: stdlib.in.h $(top_builddir)/config.status $(CXXDEFS_H) \
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_STDLIB_H''@|$(NEXT_STDLIB_H)|g' \
 	      -e 's/@''GNULIB__EXIT''@/$(GL_GNULIB__EXIT)/g' \
+	      -e 's/@''GNULIB_ABORT_DEBUG''@/$(GL_GNULIB_ABORT_DEBUG)/g' \
 	      -e 's/@''GNULIB_ALIGNED_ALLOC''@/$(GL_GNULIB_ALIGNED_ALLOC)/g' \
 	      -e 's/@''GNULIB_ATOLL''@/$(GL_GNULIB_ATOLL)/g' \
 	      -e 's/@''GNULIB_CALLOC_GNU''@/$(GL_GNULIB_CALLOC_GNU)/g' \
@@ -822,6 +828,7 @@ stdlib.h: stdlib.in.h $(top_builddir)/config.status $(CXXDEFS_H) \
 	      -e 's/@''GNULIB_SECURE_GETENV''@/$(GL_GNULIB_SECURE_GETENV)/g' \
 	      -e 's/@''GNULIB_SETENV''@/$(GL_GNULIB_SETENV)/g' \
 	      -e 's/@''GNULIB_STRTOD''@/$(GL_GNULIB_STRTOD)/g' \
+	      -e 's/@''GNULIB_STRTOF''@/$(GL_GNULIB_STRTOF)/g' \
 	      -e 's/@''GNULIB_STRTOL''@/$(GL_GNULIB_STRTOL)/g' \
 	      -e 's/@''GNULIB_STRTOLD''@/$(GL_GNULIB_STRTOLD)/g' \
 	      -e 's/@''GNULIB_STRTOLL''@/$(GL_GNULIB_STRTOLL)/g' \
@@ -874,6 +881,7 @@ stdlib.h: stdlib.in.h $(top_builddir)/config.status $(CXXDEFS_H) \
 	      -e 's|@''HAVE_SETSTATE''@|$(HAVE_SETSTATE)|g' \
 	      -e 's|@''HAVE_DECL_SETSTATE''@|$(HAVE_DECL_SETSTATE)|g' \
 	      -e 's|@''HAVE_STRTOD''@|$(HAVE_STRTOD)|g' \
+	      -e 's|@''HAVE_STRTOF''@|$(HAVE_STRTOF)|g' \
 	      -e 's|@''HAVE_STRTOL''@|$(HAVE_STRTOL)|g' \
 	      -e 's|@''HAVE_STRTOLD''@|$(HAVE_STRTOLD)|g' \
 	      -e 's|@''HAVE_STRTOLL''@|$(HAVE_STRTOLL)|g' \
@@ -886,6 +894,7 @@ stdlib.h: stdlib.in.h $(top_builddir)/config.status $(CXXDEFS_H) \
 	      < $@-t1 > $@-t2
 	$(AM_V_at)sed \
 	      -e 's|@''REPLACE__EXIT''@|$(REPLACE__EXIT)|g' \
+	      -e 's|@''REPLACE_ABORT''@|$(REPLACE_ABORT)|g' \
 	      -e 's|@''REPLACE_ALIGNED_ALLOC''@|$(REPLACE_ALIGNED_ALLOC)|g' \
 	      -e 's|@''REPLACE_CALLOC_FOR_CALLOC_GNU''@|$(REPLACE_CALLOC_FOR_CALLOC_GNU)|g' \
 	      -e 's|@''REPLACE_CALLOC_FOR_CALLOC_POSIX''@|$(REPLACE_CALLOC_FOR_CALLOC_POSIX)|g' \
@@ -919,6 +928,7 @@ stdlib.h: stdlib.in.h $(top_builddir)/config.status $(CXXDEFS_H) \
 	      -e 's|@''REPLACE_SETENV''@|$(REPLACE_SETENV)|g' \
 	      -e 's|@''REPLACE_SETSTATE''@|$(REPLACE_SETSTATE)|g' \
 	      -e 's|@''REPLACE_STRTOD''@|$(REPLACE_STRTOD)|g' \
+	      -e 's|@''REPLACE_STRTOF''@|$(REPLACE_STRTOF)|g' \
 	      -e 's|@''REPLACE_STRTOL''@|$(REPLACE_STRTOL)|g' \
 	      -e 's|@''REPLACE_STRTOLD''@|$(REPLACE_STRTOLD)|g' \
 	      -e 's|@''REPLACE_STRTOLL''@|$(REPLACE_STRTOLL)|g' \
@@ -1106,6 +1116,7 @@ sys/types.h: sys_types.in.h $(top_builddir)/config.status
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_SYS_TYPES_H''@|$(NEXT_SYS_TYPES_H)|g' \
 	      -e 's|@''WINDOWS_64_BIT_OFF_T''@|$(WINDOWS_64_BIT_OFF_T)|g' \
+	      -e 's|@''HAVE_OFF64_T''@|$(HAVE_OFF64_T)|g' \
 	      -e 's|@''WINDOWS_STAT_INODES''@|$(WINDOWS_STAT_INODES)|g' \
 	      $(srcdir)/sys_types.in.h > $@-t
 	$(AM_V_at)mv $@-t $@
@@ -1879,6 +1890,7 @@ unistd.h: unistd.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	      -e 's|@''REPLACE_GETPAGESIZE''@|$(REPLACE_GETPAGESIZE)|g' \
 	      -e 's|@''REPLACE_GETPASS''@|$(REPLACE_GETPASS)|g' \
 	      -e 's|@''REPLACE_GETPASS_FOR_GETPASS_GNU''@|$(REPLACE_GETPASS_FOR_GETPASS_GNU)|g' \
+	      -e 's|@''REPLACE_GETUSERSHELL''@|$(REPLACE_GETUSERSHELL)|g' \
 	      -e 's|@''REPLACE_ISATTY''@|$(REPLACE_ISATTY)|g' \
 	      -e 's|@''REPLACE_LCHOWN''@|$(REPLACE_LCHOWN)|g' \
 	      -e 's|@''REPLACE_LINK''@|$(REPLACE_LINK)|g' \

@@ -86,7 +86,7 @@
 #include <wchar.h>      /* mbstate_t, mbrtowc(), mbrlen(), wcrtomb(), mbszero() */
 #include <errno.h>      /* errno */
 #include <limits.h>     /* CHAR_BIT, INT_WIDTH, LONG_WIDTH */
-#include <float.h>      /* DBL_MAX_EXP, LDBL_MAX_EXP */
+#include <float.h>      /* DBL_MAX_EXP, LDBL_MAX_EXP, LDBL_MANT_DIG */
 #if HAVE_NL_LANGINFO
 # include <langinfo.h>
 #endif
@@ -406,7 +406,44 @@ is_infinite_or_zerol (long double x)
 
 #endif
 
+#if NEED_PRINTF_LONG_DOUBLE
+
+/* Like frexpl, except that it supports even "unsupported" numbers.  */
+# if (LDBL_MANT_DIG == 64 && (defined __ia64 || (defined __x86_64__ || defined __amd64__) || (defined __i386 || defined __i386__ || defined _I386 || defined _M_IX86 || defined _X86_))) && (defined __APPLE__ && defined __MACH__)
+/* Don't assume that frexpl can handle pseudo-denormals; it does not on
+   macOS 12/x86_64.  Therefore test for a pseudo-denormal explicitly.  */
+
+static
+long double safe_frexpl (long double x, int *exp)
+{
+  union
+    {
+      long double value;
+      struct { unsigned int mant_word[2]; unsigned short sign_exp_word; } r;
+    }
+  u;
+  u.value = x;
+  if (u.r.sign_exp_word == 0 && (u.r.mant_word[1] & 0x80000000u) != 0)
+    {
+      /* Pseudo-Denormal.  */
+      *exp = LDBL_MIN_EXP;
+      u.r.sign_exp_word = 1 - LDBL_MIN_EXP;
+      return u.value;
+    }
+  else
+    return frexpl (x, exp);
+}
+
+# else
+#  define safe_frexpl frexpl
+# endif
+
+#endif
+
 #if NEED_PRINTF_LONG_DOUBLE || NEED_PRINTF_DOUBLE
+
+/* An indicator for a failed memory allocation.  */
+# define NOMEM_PTR ((void *) (-1))
 
 /* Converting 'long double' to decimal without rare rounding bugs requires
    real bignums.  We use the naming conventions of GNU gmp, but vastly simpler
@@ -428,8 +465,8 @@ typedef struct
 } mpn_t;
 
 /* Compute the product of two bignums >= 0.
-   Return the allocated memory in case of success, NULL in case of memory
-   allocation failure.  */
+   Return the allocated memory (possibly NULL) in case of success, NOMEM_PTR
+   in case of memory allocation failure.  */
 static void *
 multiply (mpn_t src1, mpn_t src2, mpn_t *dest)
 {
@@ -457,7 +494,7 @@ multiply (mpn_t src1, mpn_t src2, mpn_t *dest)
     {
       /* src1 or src2 is zero.  */
       dest->nlimbs = 0;
-      dest->limbs = (mp_limb_t *) malloc (1);
+      dest->limbs = NULL;
     }
   else
     {
@@ -469,7 +506,7 @@ multiply (mpn_t src1, mpn_t src2, mpn_t *dest)
       dlen = len1 + len2;
       dp = (mp_limb_t *) malloc (dlen * sizeof (mp_limb_t));
       if (dp == NULL)
-        return NULL;
+        return NOMEM_PTR;
       for (k = len2; k > 0; )
         dp[--k] = 0;
       for (i = 0; i < len1; i++)
@@ -500,8 +537,8 @@ multiply (mpn_t src1, mpn_t src2, mpn_t *dest)
    the remainder.
    Finally, round-to-even is performed: If r > b/2 or if r = b/2 and q is odd,
    q is incremented.
-   Return the allocated memory in case of success, NULL in case of memory
-   allocation failure.  */
+   Return the allocated memory (possibly NULL) in case of success, NOMEM_PTR
+   in case of memory allocation failure.  */
 static void *
 divide (mpn_t a, mpn_t b, mpn_t *q)
 {
@@ -572,7 +609,7 @@ divide (mpn_t a, mpn_t b, mpn_t *q)
      final rounding of q.)  */
   roomptr = (mp_limb_t *) malloc ((a_len + 2) * sizeof (mp_limb_t));
   if (roomptr == NULL)
-    return NULL;
+    return NOMEM_PTR;
 
   /* Normalise a.  */
   while (a_len > 0 && a_ptr[a_len - 1] == 0)
@@ -708,7 +745,7 @@ divide (mpn_t a, mpn_t b, mpn_t *q)
           if (tmp_roomptr == NULL)
             {
               free (roomptr);
-              return NULL;
+              return NOMEM_PTR;
             }
           {
             const mp_limb_t *sourceptr = b_ptr;
@@ -1015,7 +1052,7 @@ decode_long_double (long double x, int *ep, mpn_t *mp)
   if (m.limbs == NULL)
     return NULL;
   /* Split into exponential part and mantissa.  */
-  y = frexpl (x, &exp);
+  y = safe_frexpl (x, &exp);
   if (!(y >= 0.0L && y < 1.0L))
     abort ();
   /* x = 2^exp * y = 2^(exp - LDBL_MANT_BIT) * (y * 2^LDBL_MANT_BIT), and the
@@ -1306,7 +1343,7 @@ scale10_round_decimal_decoded (int e, mpn_t m, void *memory, int n)
           mpn_t denominator;
           void *tmp_memory;
           tmp_memory = multiply (m, pow5, &numerator);
-          if (tmp_memory == NULL)
+          if (tmp_memory == NOMEM_PTR)
             {
               free (pow5_ptr);
               free (memory);
@@ -1379,7 +1416,7 @@ scale10_round_decimal_decoded (int e, mpn_t m, void *memory, int n)
 
   /* Here y = round (x * 10^n) = z * 10^extra_zeroes.  */
 
-  if (z_memory == NULL)
+  if (z_memory == NOMEM_PTR)
     return NULL;
   digits = convert_to_decimal (z, extra_zeroes);
   free (z_memory);
@@ -1442,7 +1479,7 @@ floorlog10l (long double x)
   double l;
 
   /* Split into exponential part and mantissa.  */
-  y = frexpl (x, &exp);
+  y = safe_frexpl (x, &exp);
   if (!(y >= 0.0L && y < 1.0L))
     abort ();
   if (y == 0.0L)
@@ -2335,6 +2372,7 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
 
             if (dp->conversion == 'n')
               {
+#if NEED_PRINTF_WITH_N_DIRECTIVE
                 switch (a.arg[dp->arg_index].type)
                   {
                   case TYPE_COUNT_SCHAR_POINTER:
@@ -2379,6 +2417,9 @@ VASNPRINTF (DCHAR_T *resultbuf, size_t *lengthp,
                   default:
                     abort ();
                   }
+#else
+                abort ();
+#endif
               }
 #if ENABLE_UNISTDIO
             /* The unistdio extensions.  */
