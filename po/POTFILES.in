@@ -58,9 +58,13 @@ tp/texi2any.pl
 tp/Texinfo/XS/gnulib/lib/obstack.c
 tp/Texinfo/XS/main/errors.c
 tp/Texinfo/XS/main/errors.h
+tp/Texinfo/XS/main/manipulate_indices.c
 tp/Texinfo/XS/main/targets.c
+tp/Texinfo/XS/parsetexi/api.c
 tp/Texinfo/XS/parsetexi/close.c
 tp/Texinfo/XS/parsetexi/end_line.c
+tp/Texinfo/XS/parsetexi/errors_parser.c
+tp/Texinfo/XS/parsetexi/errors_parser.h
 tp/Texinfo/XS/parsetexi/handle_commands.c
 tp/Texinfo/XS/parsetexi/indices.c
 tp/Texinfo/XS/parsetexi/input.c

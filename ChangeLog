@@ -1,5 +1,9 @@
 2024-06-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* po/POTFILES.in: update
+
+2024-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* Makefile.am (po-check): Check for message_list_document_warn,
 	message_list_document_error, message_list_command_warn and
 	message_list_command_error.
