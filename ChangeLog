@@ -1,3 +1,8 @@
+2024-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* Makefile.am (po-check): Remove check for lex/yacc sources as
+	this does not apply anywhere in this package.
+
 2024-06-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Partial po/POTFILES.in update

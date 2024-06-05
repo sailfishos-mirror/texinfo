@@ -109,12 +109,6 @@ po-check:
               tp/maintain/* ) continue;;				\
               tp/t/results* ) continue;;				\
 	    esac;							\
-	    # if have lex/yacc sources, skip corresponding c/h files.	\
-	    case $$file in						\
-	    *.[ch])							\
-	      base=`expr " $$file" : ' \(.*\)\..'`;			\
-	      { test -f $$base.l || test -f $$base.y; } && continue;;	\
-	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
 	  grep -E -l							\
