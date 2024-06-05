@@ -112,7 +112,7 @@ po-check:
 	    files="$$files $$file";					\
 	  done;								\
 	  grep -E -l							\
-	    '\b(N?__?p?|gettext|line_error|line_error_ext|line_warn|command_error|command_warn) *\([^)"]*("|$$)'	\
+	    '\b(N?__?p?|gettext|line_error|line_error_ext|line_warn|command_error|command_warn|message_list_document_warn|message_list_document_error|message_list_command_warn|message_list_command_error) *\([^)"]*("|$$)'	\
 	    $$files | sort -u > $@-2;					\
 	  diff -u $@-1 $@-2 || exit 1;					\
 	  rm -f $@-1 $@-2;						\

@@ -1,5 +1,11 @@
 2024-06-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* Makefile.am (po-check): Check for message_list_document_warn,
+	message_list_document_error, message_list_command_warn and
+	message_list_command_error.
+
+2024-06-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* Makefile.am (po-check): Remove check for lex/yacc sources as
 	this does not apply anywhere in this package.
 
