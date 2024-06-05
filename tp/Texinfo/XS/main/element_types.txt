@@ -28,6 +28,7 @@ lineraw_command
 line_command
 block_command
 brace_command
+brace_args_command
 context_brace_command
 
 # For text elements

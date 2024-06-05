@@ -1,3 +1,14 @@
+2024-06-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_brace_command):
+	add brace_args_command type for BRACE_arguments in C.
+
+	* tp/Texinfo/XS/main/builtin_commands.h (COMMAND),
+	tp/Texinfo/XS/main/command_data.awk,
+	tp/Texinfo/XS/main/element_types.awk: set elt_info_number in
+	element_types.awk only.
+
 2024-06-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Plaintext.pm (process_footnotes): rename

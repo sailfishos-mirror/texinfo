@@ -25,7 +25,6 @@ typedef struct command_struct {
     unsigned long other_flags; /* Up to 32 additional flags */
     int data; /* type of command. */
     int args_number; /* Number of arguments for brace or line commands. */
-    int elt_info_number; /* Number of needed elt_info elements */
 } COMMAND;
 
 extern COMMAND builtin_command_data[];

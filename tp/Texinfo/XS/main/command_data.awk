@@ -140,7 +140,7 @@ END {
     print "#include \"builtin_commands.h\"" > CD
     print "COMMAND builtin_command_data[] = {" > CD
 
-    print "0, 0, 0, 0, 0, 0," > CD
+    print "0, 0, 0, 0, 0," > CD
 
     # We want the output sorted so we can use bsearch
     PROCINFO["sorted_in"]="@ind_str_asc"
@@ -252,29 +252,15 @@ END {
                 where = match(command_data, /^NOBRACE_/)
               }
             }
-            if (where != 0 || command_data == "BRACE_noarg" || command_data == "LINE_lineraw" ) {
+            if (where != 0 || command_data == "BRACE_noarg" \
+                           || command_data == "LINE_lineraw" ) {
               args_nr_data = "0"
             } else {
               args_nr_data = "1"
             }
         }
 
-        elt_info_number = 0
-
-        if (commands[c] != "") {
-          if (match(command_data, /^NOBRACE_/) == 0) {
-            if (match(commands[c], /block/) || match(commands[c], /line/)) {
-              elt_info_number += 3
-            } else if (match(commands[c], /brace/)) {
-              elt_info_number += 1;
-            }
-          }
-        }
-        if (command_data == "BRACE_context") {
-          elt_info_number += 2
-        }
-
-        print "\"" c2 "\", " flags ", " other_flags ", " command_data ", " args_nr_data ", " elt_info_number "," > CD
+        print "\"" c2 "\", " flags ", " other_flags ", " command_data ", " args_nr_data "," > CD
     }
     print "};" > CD
     print "};" > CI

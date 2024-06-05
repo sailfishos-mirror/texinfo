@@ -1190,6 +1190,8 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
 
   if (command_data(cmd).data == BRACE_context)
     command_e = new_command_element (ET_context_brace_command, cmd);
+  else if (command_data(cmd).data == BRACE_arguments)
+    command_e = new_command_element (ET_brace_args_command, cmd);
   else
     command_e = new_command_element (ET_brace_command, cmd);
 
