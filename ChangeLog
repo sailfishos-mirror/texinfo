@@ -1,5 +1,10 @@
 2024-06-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c: include ppport.h for
+	G_LIST.
+
+2024-06-06  Patrice Dumas  <pertusus@free.fr>
+
 	Substitute Perl formatting function for button only for Perl with cv_name
 
 	* tp/Texinfo/XS/main/get_perl_info.c
