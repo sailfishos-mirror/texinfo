@@ -1625,9 +1625,9 @@ funcname (SV *document_in) \
 \
   if (!result_sv)\
     {\
-      SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);\
-      if (sv_ref && SvOK (*sv_ref))\
-        result_sv = *sv_ref;\
+      SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);\
+      if (sv_reference && SvOK (*sv_reference))\
+        result_sv = *sv_reference;\
     }\
 \
   if (result_sv)\
@@ -1679,9 +1679,9 @@ funcname (SV *document_in) \
 \
   if (!result_sv)\
     {\
-      SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);\
-      if (sv_ref && SvOK (*sv_ref))\
-        result_sv = *sv_ref;\
+      SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);\
+      if (sv_reference && SvOK (*sv_reference))\
+        result_sv = *sv_reference;\
     }\
 \
   if (result_sv)\
@@ -1739,9 +1739,9 @@ document_global_information (SV *document_in)
 
   if (!result_sv)
     {
-      SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);
-      if (sv_ref && SvOK (*sv_ref))
-        result_sv = *sv_ref;
+      SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);
+      if (sv_reference && SvOK (*sv_reference))
+        result_sv = *sv_reference;
     }
 
   if (result_sv)

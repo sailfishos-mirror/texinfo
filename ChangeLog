@@ -1,5 +1,14 @@
 2024-06-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/DocumentXS.xs (document_tree)
+	(indices_sort_strings), tp/Texinfo/XS/main/build_perl_info.c
+	(BUILD_PERL_DOCUMENT_ITEM, BUILD_PERL_DOCUMENT_LIST)
+	(document_global_information): rename sv_ref to avoid false positiver
+	reported by ppport.h as sv_ref is also exported as part of Perl API as 
+	a function.  Report by Gavin.
+
+2024-06-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert),
 	tp/Texinfo/XS/convert/convert_html.c
 	(set_special_units_targets_files): remove code that is never run

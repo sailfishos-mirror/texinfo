@@ -235,9 +235,9 @@ document_tree (SV *document_in, int handler_only=0)
 
         if (!result_sv)
           {
-            SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);
-            if (sv_ref && SvOK (*sv_ref))
-              result_sv = *sv_ref;
+            SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);
+            if (sv_reference && SvOK (*sv_reference))
+              result_sv = *sv_reference;
           }
 
         if (result_sv)
@@ -333,9 +333,9 @@ indices_sort_strings (SV *document_in, ...)
               }
             else
               { /* retrieve previously stored result */
-                SV **sv_ref = hv_fetch (document_hv, key, strlen (key), 0);
-                if (sv_ref && SvOK (*sv_ref))
-                  result_sv = *sv_ref;
+                SV **sv_stored = hv_fetch (document_hv, key, strlen (key), 0);
+                if (sv_stored && SvOK (*sv_stored))
+                  result_sv = *sv_stored;
                 /* error out if not found?  Or rebuild? */
               }
           }
