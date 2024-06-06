@@ -1150,6 +1150,8 @@ html_get_button_specification_list (const CONVERTER *converter,
                       button_spec->type = BIT_function;
                       button_spec->bi.button_function.sv_reference
                                           = *button_spec_info_type;
+  /* based on ppport.h output cv_name may not be portable below perl 5.21.5 */
+#if PERL_VERSION > 21 || (PERL_VERSION == 21 && PERL_SUBVERSION > 4)
                       button_fun_name
                        = SvPV_nolen (cv_name ((CV *) SvRV (*button_spec_info_type),
                                               0, 0));
@@ -1160,6 +1162,7 @@ html_get_button_specification_list (const CONVERTER *converter,
                             button_fun_type = j;
                             break;
                           }
+#endif
                       if (button_fun_type)
                         button_spec->bi.button_function.type = button_fun_type;
                       else

@@ -1,5 +1,16 @@
 2024-06-06  Patrice Dumas  <pertusus@free.fr>
 
+	Substitute Perl formatting function for button only for Perl with cv_name
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list): replace the Perl formatting
+	function for button by a C formatting function for default formatting
+	functions only if the PErl version has cv_name.  Based on ppport.h
+	output, use 5.21.5 as minimum Perl version.  Based on Gavin
+	investigations.
+
+2024-06-06  Patrice Dumas  <pertusus@free.fr>
+
 	Do not use unnamed union for INDEX_COLLATOR
 
 	* tp/Texinfo/XS/main/manipulate_indices.c (INDEX_COLLATOR): rename the
