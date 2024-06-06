@@ -1,5 +1,12 @@
 2024-06-06  Patrice Dumas  <pertusus@free.fr>
 
+	Do not use unnamed union for INDEX_COLLATOR
+
+	* tp/Texinfo/XS/main/manipulate_indices.c (INDEX_COLLATOR): rename the
+	union as coll.  Update codes using the corresponding union fields.
+
+2024-06-06  Patrice Dumas  <pertusus@free.fr>
+
 	Do not use unnamed union for CONVERTER
 
 	* tp/Texinfo/XS/main/converter_types.h (CONVERTER): rename the

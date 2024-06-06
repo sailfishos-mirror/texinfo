@@ -280,7 +280,7 @@ typedef struct INDEX_COLLATOR {
   #ifdef HAVE_NEWLOCALE
       locale_t locale;
   #endif
-    };
+    } coll;
 } INDEX_COLLATOR;
 
 static BYTES_STRING *
@@ -303,10 +303,10 @@ get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
           size_t check_len;
           char *char_sort_key;
           sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
-          sort_key->len = strxfrm_l (0, sort_string, 0, collator->locale);
+          sort_key->len = strxfrm_l (0, sort_string, 0, collator->coll.locale);
           char_sort_key = (char *) malloc (sizeof (char) * sort_key->len);
           check_len = strxfrm_l (char_sort_key, sort_string, sort_key->len,
-                                 collator->locale);
+                                 collator->coll.locale);
           sort_key->bytes = (unsigned char *)
                      malloc (sizeof (unsigned char) * sort_key->len);
           memcpy (sort_key->bytes, (unsigned char *) char_sort_key,
@@ -320,7 +320,7 @@ get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
       case ctn_unicode:
       case ctn_language_collation:
       default: /* !HAVE_STRXFRM_L && ctn_locale_collation */
-        sort_key = call_collator_getSortKey (collator->sv,
+        sort_key = call_collator_getSortKey (collator->coll.sv,
                                              sort_string);
         break;
     }
@@ -585,7 +585,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
   else if (collation_language)
     {
       result->type = ctn_language_collation;
-      result->sv = call_setup_collator (1, collation_language);
+      result->coll.sv = call_setup_collator (1, collation_language);
     }
   else
     {
@@ -593,9 +593,9 @@ setup_collator (int use_unicode_collation, const char *collation_language,
       #ifdef HAVE_NEWLOCALE
       if (collation_locale)
         {
-          result->locale
+          result->coll.locale
             = newlocale (LC_COLLATE_MASK, collation_locale, 0);
-          if (result->locale)
+          if (result->coll.locale)
             {
               result->type = ctn_locale_collation;
               return result;
@@ -610,7 +610,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
       #endif
 
       result->type = ctn_unicode;
-      result->sv = call_setup_collator (1, 0);
+      result->coll.sv = call_setup_collator (1, 0);
     }
   return result;
 }
@@ -888,7 +888,7 @@ destroy_collator (INDEX_COLLATOR *collator)
 {
   #ifdef HAVE_NEWLOCALE
   if (collator->type == ctn_locale_collation)
-    freelocale (collator->locale);
+    freelocale (collator->coll.locale);
   #endif
   free (collator);
 }
