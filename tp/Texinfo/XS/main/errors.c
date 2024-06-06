@@ -171,7 +171,7 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
   text_init (&error_line);
   text_append (&error_line, "");
 
-  if (conf && conf->PROGRAM.string && strlen (conf->PROGRAM.string))
+  if (conf && conf->PROGRAM.o.string && strlen (conf->PROGRAM.o.string))
     {
       if (type == MSG_document_warning)
         {
@@ -179,16 +179,16 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
           text_printf (&error_line,
                        pgettext ("whole document warning",
                                  "%s: warning: %s"),
-                       conf->PROGRAM.string, error_message->message);
+                       conf->PROGRAM.o.string, error_message->message);
 #else
           text_printf (&error_line, "%s: warning: %s",
-                       conf->PROGRAM.string, error_message->message);
+                       conf->PROGRAM.o.string, error_message->message);
 #endif
         }
       else
         {
           text_printf (&error_line, "%s: %s",
-                       conf->PROGRAM.string, error_message->message);
+                       conf->PROGRAM.o.string, error_message->message);
         }
     }
   else
@@ -251,7 +251,7 @@ message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
 
   va_start (v, format);
   vmessage_list_line_error (error_messages, type, continuation,
-                            (conf && conf->DEBUG.integer > 0),
+                            (conf && conf->DEBUG.o.integer > 0),
                             cmd_source_info, 0, format, v);
 }
 
@@ -265,7 +265,7 @@ message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_warning, continuation,
-                            (conf && conf->DEBUG.integer > 0),
+                            (conf && conf->DEBUG.o.integer > 0),
                              &e->source_info, 0, format, v);
 }
 
@@ -281,7 +281,7 @@ pmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_warning, continuation,
-                            (conf && conf->DEBUG.integer > 0),
+                            (conf && conf->DEBUG.o.integer > 0),
                              &e->source_info, translation_context, format, v);
 }
 
@@ -293,7 +293,7 @@ vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                             const ELEMENT *e, const char *format, va_list v)
 {
   vmessage_list_line_error (error_messages, MSG_warning, 0,
-                            (conf && conf->DEBUG.integer > 0),
+                            (conf && conf->DEBUG.o.integer > 0),
                             &e->source_info, 0, format, v);
 }
 
@@ -306,7 +306,7 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
 
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_error, 0,
-                           (conf && conf->DEBUG.integer > 0),
+                           (conf && conf->DEBUG.o.integer > 0),
                            &e->source_info, 0, format, v);
 }
 

@@ -92,14 +92,14 @@ copy_options_for_convert_text (OPTIONS *options)
   TEXT_OPTIONS *text_options = new_text_options ();
   int text_indicator_option;
 
-  if (options->ENABLE_ENCODING.integer > 0
-       && options->OUTPUT_ENCODING_NAME.string)
+  if (options->ENABLE_ENCODING.o.integer > 0
+       && options->OUTPUT_ENCODING_NAME.o.string)
     {
-      text_options->encoding = strdup (options->OUTPUT_ENCODING_NAME.string);
+      text_options->encoding = strdup (options->OUTPUT_ENCODING_NAME.o.string);
     }
 
   #define tico_option_name(name) \
-  text_indicator_option = options->name.integer; \
+  text_indicator_option = options->name.o.integer; \
   if (text_indicator_option > 0) { text_options->name = 1; } \
   else if (text_indicator_option >= 0) { text_options->name = 0; }
    TEXT_INDICATOR_CONVERTER_OPTIONS
@@ -108,7 +108,7 @@ copy_options_for_convert_text (OPTIONS *options)
   set_expanded_formats_from_options (text_options->expanded_formats, options);
 
   copy_strings (&text_options->include_directories,
-                options->INCLUDE_DIRECTORIES.strlist);
+                options->INCLUDE_DIRECTORIES.o.strlist);
 
   /* not a copy , but a reference to the options */
   text_options->other_converter_options = options;
@@ -129,9 +129,9 @@ static void
 set_additional_index_entry_keys_options (OPTIONS *options,
                                          TEXT_OPTIONS *text_options)
 {
-  if (options->ENABLE_ENCODING.integer <= 0
-      || !(options->OUTPUT_ENCODING_NAME.string
-           && !strcasecmp (options->OUTPUT_ENCODING_NAME.string, "utf-8")))
+  if (options->ENABLE_ENCODING.o.integer <= 0
+      || !(options->OUTPUT_ENCODING_NAME.o.string
+           && !strcasecmp (options->OUTPUT_ENCODING_NAME.o.string, "utf-8")))
     {
       text_options->sort_string = 1;
     }
@@ -164,20 +164,20 @@ void
 text_set_options_encoding_if_not_ascii (CONVERTER *self,
                                         TEXT_OPTIONS *text_options)
 {
-  if (self->conf->OUTPUT_ENCODING_NAME.string
-      && strcmp (self->conf->OUTPUT_ENCODING_NAME.string, "us-ascii"))
+  if (self->conf->OUTPUT_ENCODING_NAME.o.string
+      && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "us-ascii"))
     {
       if (text_options->_saved_enabled_encoding)
         {
           fprintf (stderr,
             "BUG: if_not_ascii _saved_enabled_encoding set: %s / %s\n",
                text_options->_saved_enabled_encoding,
-               self->conf->OUTPUT_ENCODING_NAME.string);
+               self->conf->OUTPUT_ENCODING_NAME.o.string);
           text_options->_saved_enabled_encoding = 0;
         }
 
       text_options->_saved_enabled_encoding = text_options->encoding;
-      text_options->encoding = self->conf->OUTPUT_ENCODING_NAME.string;
+      text_options->encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
     }
 }
 

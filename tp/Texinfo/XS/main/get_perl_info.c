@@ -348,7 +348,7 @@ void
 get_line_message (CONVERTER *self, enum error_type type, int continuation,
                   SV *error_location_info, const char *message)
 {
-  int do_warn = (self->conf->DEBUG.integer > 0);
+  int do_warn = (self->conf->DEBUG.o.integer > 0);
   SOURCE_INFO *source_info = get_source_info (error_location_info);
   if (source_info->file_name)
     {

@@ -309,26 +309,26 @@ foreach my $category (sort(keys(%option_categories))) {
       # TODO the generated file includes perl headers.  The NOTE in
       # build_perl_info.c about not using malloc/free should be relevant for
       # the generated file.
-      print GET "      non_perl_free (options->$option.string);
+      print GET "      non_perl_free (options->$option.o.string);
       if (SvOK (value))
-        options->$option.string = non_perl_strdup (SvPV${SV_function_type}_nolen (value));
+        options->$option.o.string = non_perl_strdup (SvPV${SV_function_type}_nolen (value));
       else
-        options->$option.string = 0;
+        options->$option.o.string = 0;
     }\n";
     } elsif ($type eq 'integer') {
       print GET "      if (SvOK (value))
         {
           if (looks_like_number (value))
-            options->$option.integer = SvIV (value);
+            options->$option.o.integer = SvIV (value);
           else
             {
               fprintf (stderr, \"BUG: %s: not an integer: %s\\n\",
                        \"$option\", SvPVutf8_nolen (value));
-              options->$option.integer = -1;
+              options->$option.o.integer = -1;
             }
         }
       else
-        options->$option.integer = -1;
+        options->$option.o.integer = -1;
     }\n";
     } elsif ($type =~ /_string_list$/) {
       my $dir_string_arg = 'svt_byte';
@@ -337,23 +337,23 @@ foreach my $category (sort(keys(%option_categories))) {
       } elsif ($type eq 'char_string_list') {
         $dir_string_arg = 'svt_char';
       }
-      print GET "      clear_strings_list (options->$option.strlist);
-      add_svav_to_string_list (value, options->$option.strlist, $dir_string_arg);
+      print GET "      clear_strings_list (options->$option.o.strlist);
+      add_svav_to_string_list (value, options->$option.o.strlist, $dir_string_arg);
     }\n";
     } elsif ($type eq 'buttons') {
-      print GET "      if (options->$option.buttons)
+      print GET "      if (options->$option.o.buttons)
         {
-          options->BIT_user_function_number -= options->$option.buttons->BIT_user_function_number;
-          html_free_button_specification_list (options->$option.buttons);
+          options->BIT_user_function_number -= options->$option.o.buttons->BIT_user_function_number;
+          html_free_button_specification_list (options->$option.o.buttons);
         }
 
-      options->$option.buttons = html_get_button_specification_list (converter, value);
-      if (options->$option.buttons)
-        options->BIT_user_function_number += options->$option.buttons->BIT_user_function_number;
+      options->$option.o.buttons = html_get_button_specification_list (converter, value);
+      if (options->$option.o.buttons)
+        options->BIT_user_function_number += options->$option.o.buttons->BIT_user_function_number;
     }\n";
     } elsif ($type eq 'icons') {
-      print GET "      html_free_direction_icons (options->$option.icons);
-      html_get_direction_icons_sv (converter, options->$option.icons, value);
+      print GET "      html_free_direction_icons (options->$option.o.icons);
+      html_get_direction_icons_sv (converter, options->$option.o.icons, value);
     }\n";
     } else {
       print GET "    {}\n";
@@ -385,15 +385,15 @@ foreach my $category (sort(keys(%option_categories))) {
         $SV_function_type = 'byte';
       }
       print GET "    {
-      if (!options->$option.string)
+      if (!options->$option.o.string)
         return newSV (0);
-      return newSVpv_${SV_function_type} (options->$option.string, 0);
+      return newSVpv_${SV_function_type} (options->$option.o.string, 0);
     }\n";
     } elsif ($type eq 'integer') {
       print GET "    {
-      if (options->$option.integer == -1)
+      if (options->$option.o.integer == -1)
         return newSV (0);
-      return newSViv (options->$option.integer);
+      return newSViv (options->$option.o.integer);
     }\n";
     } elsif ($type =~ /_string_list$/) {
       my $dir_string_arg = 'svt_byte';
@@ -403,16 +403,16 @@ foreach my $category (sort(keys(%option_categories))) {
         $dir_string_arg = 'svt_char';
       }
       print GET "    {
-      return newRV_noinc ((SV *) build_string_list(options->$option.strlist, $dir_string_arg));
+      return newRV_noinc ((SV *) build_string_list(options->$option.o.strlist, $dir_string_arg));
     }\n";
     } elsif ($type eq 'buttons') {
       print GET "    {
-      if (!options->$option.buttons) return newSV (0);
-      return newRV_inc ((SV *) options->$option.buttons->av);
+      if (!options->$option.o.buttons) return newSV (0);
+      return newRV_inc ((SV *) options->$option.o.buttons->av);
     }\n";
     } elsif ($type eq 'icons') {
       print GET "    {
-      return html_build_direction_icons (converter, options->$option.icons);
+      return html_build_direction_icons (converter, options->$option.o.icons);
     }\n";
     } else {
       print GET "    {return newSV (0);}\n";

@@ -814,9 +814,9 @@ set_menus_node_directions (DOCUMENT *document)
   if (!nodes_list || nodes_list->number <= 0)
     return;
 
-  if (options && (options->novalidate.integer > 0
-                  || !options->FORMAT_MENU.string
-                  || strcmp (options->FORMAT_MENU.string, "menu")))
+  if (options && (options->novalidate.o.integer > 0
+                  || !options->FORMAT_MENU.o.string
+                  || strcmp (options->FORMAT_MENU.o.string, "menu")))
     check_menu_entries = 0;
 
   /*
@@ -1046,7 +1046,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                   section = lookup_extra_element (node, "associated_section");
                   if (section
                       && ((!options)
-                          || options->CHECK_NORMAL_MENU_STRUCTURE.integer > 0))
+                          || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0))
                     {
                       const ELEMENT *node_direction_section = section;
                       const ELEMENT *part_section;
@@ -1116,7 +1116,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       if (!menu_direction_manual_content)
                         {
                           if (((!options)
-                           || options->CHECK_NORMAL_MENU_STRUCTURE.integer > 0)
+                           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
                               && section)
                             {
                               char *node_texi
@@ -1198,7 +1198,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
         }
   /* check consistency between node pointer and node entries menu order */
       if (((!options)
-           || options->CHECK_NORMAL_MENU_STRUCTURE.integer > 0)
+           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
           && strcmp (normalized, "Top"))
         {
           const ELEMENT_LIST *node_directions = lookup_extra_directions (node,
@@ -1243,7 +1243,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
         }
       /* check for node up / menu up mismatch */
       if ((!options)
-          || options->CHECK_MISSING_MENU_ENTRY.integer > 0)
+          || options->CHECK_MISSING_MENU_ENTRY.o.integer > 0)
         {
           const ELEMENT_LIST *node_directions = lookup_extra_directions (node,
                                                            "node_directions");
@@ -1451,7 +1451,7 @@ nodes_tree (DOCUMENT *document)
                             = add_extra_directions (node, "node_directions");
                           node_directions->list[direction] = node_target;
                           if ((!options)
-                               || options->novalidate.integer <= 0)
+                               || options->novalidate.o.integer <= 0)
                             {
                               ELEMENT *direction_node_content
                                 = lookup_extra_element (direction_element,
@@ -1481,7 +1481,7 @@ nodes_tree (DOCUMENT *document)
                       else
                         {
                           if ((!options)
-                               || options->novalidate.integer <= 0)
+                               || options->novalidate.o.integer <= 0)
                             {
                               char *direction_texi
                                  = link_element_to_texi (direction_element);
@@ -1562,7 +1562,7 @@ associate_internal_references (DOCUMENT *document)
           if (!node_target)
             {
               if ((!options)
-                  || options->novalidate.integer <= 0)
+                  || options->novalidate.o.integer <= 0)
                 {
                   char *label_texi = link_element_to_texi (label_element);
                   message_list_command_error (error_messages, options,
@@ -1576,7 +1576,7 @@ associate_internal_references (DOCUMENT *document)
               label_node_content = lookup_extra_element (label_element,
                                                          "node_content");
               if ((!options)
-                  || options->novalidate.integer <= 0)
+                  || options->novalidate.o.integer <= 0)
                 {
                   if (!check_node_same_texinfo_code (node_target,
                                                      label_node_content))
@@ -1900,8 +1900,8 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 
                       part_title
                         = gdt_tree ("Part: {part_title}", document,
-                                    options->documentlanguage.string,
-                                    substrings, options->DEBUG.integer, 0);
+                                    options->documentlanguage.o.string,
+                                    substrings, options->DEBUG.o.integer, 0);
 
                       insert_menu_comment_content (&new_menu->contents,
                                                    content_index, part_title,
@@ -1917,8 +1917,8 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                     {
                       ELEMENT *appendix_title
                         = gdt_tree ("Appendices", document,
-                                    options->documentlanguage.string,
-                                    0, options->DEBUG.integer, 0);
+                                    options->documentlanguage.o.string,
+                                    0, options->DEBUG.o.integer, 0);
 
                       insert_menu_comment_content (&new_menu->contents,
                                                    content_index,
@@ -2148,8 +2148,8 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
           ELEMENT *master_menu_title;
           master_menu_title
             = gdt_tree (" --- The Detailed Node Listing ---", 0,
-                        options->documentlanguage.string, 0,
-                        options->DEBUG.integer, 0);
+                        options->documentlanguage.o.string, 0,
+                        options->DEBUG.o.integer, 0);
 
           for (i = 0; i < master_menu_title->contents.number; i++)
             master_menu_title->contents.list[i]->parent = first_preformatted;

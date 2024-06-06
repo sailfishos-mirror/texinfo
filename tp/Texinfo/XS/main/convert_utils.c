@@ -66,7 +66,7 @@ expand_today (OPTIONS *options)
   ELEMENT *year_element;
   ELEMENT *result;
 
-  if (options->TEST.integer > 0)
+  if (options->TEST.o.integer > 0)
     {
       result = new_element (ET_NONE);
       text_append (&result->text, "a sunny day");
@@ -92,8 +92,8 @@ expand_today (OPTIONS *options)
   year = time_tm->tm_year + 1900;
 
   month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0,
-                         options->documentlanguage.string, 0,
-                         options->DEBUG.integer, 0);
+                         options->documentlanguage.o.string, 0,
+                         options->DEBUG.o.integer, 0);
   day_element = new_element (ET_NONE);
   year_element = new_element (ET_NONE);
   text_printf (&day_element->text, "%d", time_tm->tm_mday);
@@ -105,8 +105,8 @@ expand_today (OPTIONS *options)
   add_element_to_named_string_element_list (substrings, "year", year_element);
 
   result = gdt_tree ("{month} {day}, {year}", 0,
-                     options->documentlanguage.string, substrings,
-                     options->DEBUG.integer, 0);
+                     options->documentlanguage.o.string, substrings,
+                     options->DEBUG.o.integer, 0);
   destroy_named_string_element_list (substrings);
 
   return result;
@@ -216,14 +216,14 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                 {
                   numbered_heading
                    = gdt_string ("Appendix {number} {section_title}",
-                                 options->documentlanguage.string,
+                                 options->documentlanguage.o.string,
                                  substrings, 0);
                 }
             }
           if (!numbered_heading)
             numbered_heading
               = gdt_string ("{number} {section_title}",
-                            options->documentlanguage.string, substrings, 0);
+                            options->documentlanguage.o.string, substrings, 0);
 
           destroy_named_string_element_list (substrings);
 
@@ -280,9 +280,9 @@ encoded_input_file_name (const OPTIONS *options,
   const char *encoding = 0;
   int status;
 
-  if (options && options->INPUT_FILE_NAME_ENCODING.string)
-    encoding = options->INPUT_FILE_NAME_ENCODING.string;
-  else if (options && options->DOC_ENCODING_FOR_INPUT_FILE_NAME.integer != 0
+  if (options && options->INPUT_FILE_NAME_ENCODING.o.string)
+    encoding = options->INPUT_FILE_NAME_ENCODING.o.string;
+  else if (options && options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer != 0
            || (!options))
     {
       if (input_file_encoding)
@@ -291,7 +291,7 @@ encoded_input_file_name (const OPTIONS *options,
         encoding = global_information->input_encoding_name;
     }
   else if (options)
-    encoding = options->LOCALE_ENCODING.string;
+    encoding = options->LOCALE_ENCODING.o.string;
 
   result = encode_string (file_name, encoding, &status, source_info);
 
@@ -314,16 +314,16 @@ encoded_output_file_name (const OPTIONS *options,
   const char *encoding = 0;
   int status;
 
-  if (options && options->OUTPUT_FILE_NAME_ENCODING.string)
-    encoding = options->OUTPUT_FILE_NAME_ENCODING.string;
-  else if (options && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.integer != 0
+  if (options && options->OUTPUT_FILE_NAME_ENCODING.o.string)
+    encoding = options->OUTPUT_FILE_NAME_ENCODING.o.string;
+  else if (options && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.o.integer != 0
            || (!options))
     {
       if (global_information && global_information->input_encoding_name)
         encoding = global_information->input_encoding_name;
     }
   else if (options)
-    encoding = options->LOCALE_ENCODING.string;
+    encoding = options->LOCALE_ENCODING.o.string;
 
   result = encode_string (file_name, encoding, &status, source_info);
 
@@ -357,7 +357,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                                        &current->source_info);
 
   if (options)
-    include_directories = options->INCLUDE_DIRECTORIES.strlist;
+    include_directories = options->INCLUDE_DIRECTORIES.o.strlist;
 
   file = locate_include_file (file_name, include_directories);
 
@@ -574,8 +574,8 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
            */
 
           result = gdt_tree ("{category} on @code{{class}}", 0,
-                             options->documentlanguage.string, substrings,
-                             options->DEBUG.integer, 0);
+                             options->documentlanguage.o.string, substrings,
+                             options->DEBUG.o.integer, 0);
         }
       else
         {
@@ -613,8 +613,8 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
            */
 
           result = gdt_tree ("{category} of @code{{class}}", 0,
-                             options->documentlanguage.string, substrings,
-                             options->DEBUG.integer, 0);
+                             options->documentlanguage.o.string, substrings,
+                             options->DEBUG.o.integer, 0);
         }
       else
         {
@@ -641,8 +641,8 @@ cdt_tree (const char * string, CONVERTER *self,
           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           const char *translation_context)
 {
-  const char *lang = self->conf->documentlanguage.string;
-  int debug_level = self->conf->DEBUG.integer;
+  const char *lang = self->conf->documentlanguage.o.string;
+  int debug_level = self->conf->DEBUG.o.integer;
 
   return gdt_tree (string, self->document, lang, replaced_substrings,
                    debug_level, translation_context);

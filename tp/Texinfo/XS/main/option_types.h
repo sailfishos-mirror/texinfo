@@ -155,7 +155,7 @@ typedef struct OPTION {
       STRING_LIST *strlist;
       BUTTON_SPECIFICATION_LIST *buttons;
       DIRECTION_ICON_LIST *icons;
-    };
+    } o;
 } OPTION;
 
 #endif

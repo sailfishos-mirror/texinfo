@@ -1927,20 +1927,20 @@ html_prepare_conversion_units (SV *converter_in, ...)
          self = get_sv_converter (converter_in,
                                   "html_prepare_conversion_units");
 
-         if (self->conf->OUTPUT_CHARACTERS.integer > 0
-             && self->conf->OUTPUT_ENCODING_NAME.string
+         if (self->conf->OUTPUT_CHARACTERS.o.integer > 0
+             && self->conf->OUTPUT_ENCODING_NAME.o.string
              /* not sure if strcasecmp is needed or not */
-             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME.string, "utf-8"))
+             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
            self->use_unicode_text = 1;
 
          html_prepare_conversion_units (self);
          converter_hv = (HV *) SvRV (converter_in);
 
          /* internal links code is in Perl */
-         if (self->conf->INTERNAL_LINKS.string)
+         if (self->conf->INTERNAL_LINKS.o.string)
            self->external_references_number++;
          /* Conversion to LaTeX is in Perl */
-         if (self->conf->CONVERT_TO_LATEX_IN_MATH.integer > 0)
+         if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
            self->external_references_number++;
 
          if (self->external_references_number > 0)

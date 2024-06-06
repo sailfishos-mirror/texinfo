@@ -129,16 +129,16 @@ copy_option (OPTION *destination, OPTION *source)
   switch (source->type)
    {
      case GOT_integer:
-       destination->integer = source->integer;
+       destination->o.integer = source->o.integer;
        break;
 
      case GOT_char:
      case GOT_bytes:
-       free (destination->string);
-       if (!source->string)
-         destination->string = 0;
+       free (destination->o.string);
+       if (!source->o.string)
+         destination->o.string = 0;
        else
-         destination->string = strdup (source->string);
+         destination->o.string = strdup (source->o.string);
        break;
 
      default:
@@ -155,9 +155,9 @@ new_option_value (enum global_option_type type, int int_value, char *char_value)
   memset (result, 0, sizeof (OPTION));
   result->type = type;
   if (type == GOT_integer)
-    result->integer = int_value;
+    result->o.integer = int_value;
   else
-    result->string = char_value;
+    result->o.string = char_value;
   return result;
 }
 
@@ -223,7 +223,7 @@ set_global_document_commands (CONVERTER *converter,
         {
           const ELEMENT *element;
           enum command_id cmd = cmd_list[i];
-          if (converter->conf->DEBUG.integer > 0)
+          if (converter->conf->DEBUG.o.integer > 0)
             {
               fprintf (stderr, "XS|SET_global(%s) %s\n",
                        command_location_names[location],
@@ -253,12 +253,12 @@ set_global_document_commands (CONVERTER *converter,
 static void
 id_to_filename (CONVERTER *self, char **id_ref)
 {
-  if (self->conf->BASEFILENAME_LENGTH.integer < 0)
+  if (self->conf->BASEFILENAME_LENGTH.o.integer < 0)
     return;
   char *id = *id_ref;
-  if (strlen (id) > self->conf->BASEFILENAME_LENGTH.integer)
+  if (strlen (id) > self->conf->BASEFILENAME_LENGTH.o.integer)
     {
-      id[self->conf->BASEFILENAME_LENGTH.integer] = '\0';
+      id[self->conf->BASEFILENAME_LENGTH.o.integer] = '\0';
     }
 }
 
@@ -271,16 +271,16 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   char *normalized_file_name;
   char *normalized_name
     = normalize_transliterate_texinfo_contents (command->args.list[0],
-                                                (self->conf->TEST.integer > 0));
+                                          (self->conf->TEST.o.integer > 0));
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
 
   text_init (&filename);
   text_append (&filename, normalized_file_name);
-  if (self->conf->EXTENSION.string && strlen (self->conf->EXTENSION.string))
+  if (self->conf->EXTENSION.o.string && strlen (self->conf->EXTENSION.o.string))
     {
       text_append (&filename, ".");
-      text_append (&filename, self->conf->EXTENSION.string);
+      text_append (&filename, self->conf->EXTENSION.o.string);
     }
 
   free (normalized_file_name);
@@ -299,10 +299,10 @@ node_information_filename (CONVERTER *self, const char *normalized,
 
   if (normalized)
     {
-      if (self->conf->TRANSLITERATE_FILE_NAMES.integer > 0)
+      if (self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
         {
           filename = normalize_transliterate_texinfo_contents (label_element,
-                                                       (self->conf->TEST.integer > 0));
+                                            (self->conf->TEST.o.integer > 0));
         }
       else
         filename = strdup (normalized);
@@ -578,7 +578,7 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
   if (output_encoded_characters)
     {
       char *encoded = encoded_accents (self, arg_text, &accent_stack->stack,
-                                 self->conf->OUTPUT_ENCODING_NAME.string,
+                                 self->conf->OUTPUT_ENCODING_NAME.o.string,
                                  format_accent, set_case);
       if (encoded)
         {
@@ -657,18 +657,18 @@ get_converter_indices_sorted_by_index (CONVERTER *self, char **language)
     {
       char *collation_language = 0;
       COLLATION_INDICES_SORTED_BY_INDEX *collation_sorted_indices;
-      if (self->conf->COLLATION_LANGUAGE.string)
-        collation_language = self->conf->COLLATION_LANGUAGE.string;
-      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.integer > 0
-               && self->conf->documentlanguage.string)
-        collation_language = self->conf->documentlanguage.string;
+      if (self->conf->COLLATION_LANGUAGE.o.string)
+        collation_language = self->conf->COLLATION_LANGUAGE.o.string;
+      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
+               && self->conf->documentlanguage.o.string)
+        collation_language = self->conf->documentlanguage.o.string;
 
       collation_sorted_indices
         = sorted_indices_by_index (self->document,
                                    &self->error_messages, self->conf,
-                                   self->conf->USE_UNICODE_COLLATION.integer,
+                                   self->conf->USE_UNICODE_COLLATION.o.integer,
                                    collation_language,
-                               self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
+                           self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
       return collation_sorted_indices->sorted_indices;
@@ -684,18 +684,18 @@ get_converter_indices_sorted_by_letter (CONVERTER *self, char **language)
     {
       char *collation_language = 0;
       COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
-      if (self->conf->COLLATION_LANGUAGE.string)
-        collation_language = self->conf->COLLATION_LANGUAGE.string;
-      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.integer > 0
-               && self->conf->documentlanguage.string)
-        collation_language = self->conf->documentlanguage.string;
+      if (self->conf->COLLATION_LANGUAGE.o.string)
+        collation_language = self->conf->COLLATION_LANGUAGE.o.string;
+      else if (self->conf->DOCUMENTLANGUAGE_COLLATION.o.integer > 0
+               && self->conf->documentlanguage.o.string)
+        collation_language = self->conf->documentlanguage.o.string;
 
       collation_sorted_indices
         = sorted_indices_by_letter (self->document,
                                     &self->error_messages, self->conf,
-                                    self->conf->USE_UNICODE_COLLATION.integer,
+                                    self->conf->USE_UNICODE_COLLATION.o.integer,
                                     collation_language,
-                               self->conf->XS_STRXFRM_COLLATION_LOCALE.string);
+                            self->conf->XS_STRXFRM_COLLATION_LOCALE.o.string);
       if (collation_sorted_indices->type != ctn_locale_collation)
         *language = collation_sorted_indices->language;
       return collation_sorted_indices->sorted_indices;
@@ -709,19 +709,20 @@ top_node_filename (const CONVERTER *self, const char *document_name)
 {
   TEXT top_node_filename;
 
-  if (self->conf->TOP_FILE.string && strlen (self->conf->TOP_FILE.string))
+  if (self->conf->TOP_FILE.o.string && strlen (self->conf->TOP_FILE.o.string))
     {
-      return strdup (self->conf->TOP_FILE.string);
+      return strdup (self->conf->TOP_FILE.o.string);
     }
 
   if (document_name)
     {
       text_init (&top_node_filename);
       text_append (&top_node_filename, document_name);
-      if (self->conf->EXTENSION.string && strlen (self->conf->EXTENSION.string))
+      if (self->conf->EXTENSION.o.string
+          && strlen (self->conf->EXTENSION.o.string))
         {
           text_append (&top_node_filename, ".");
-          text_append (&top_node_filename, self->conf->EXTENSION.string);
+          text_append (&top_node_filename, self->conf->EXTENSION.o.string);
         }
       return top_node_filename.text;
     }
@@ -793,14 +794,14 @@ size_t
 register_normalize_case_filename (CONVERTER *self, const char *filename)
 {
   size_t output_unit_file_idx;
-  if (self->conf->CASE_INSENSITIVE_FILENAMES.integer > 0)
+  if (self->conf->CASE_INSENSITIVE_FILENAMES.o.integer > 0)
     {
       char *lc_filename = to_upper_or_lower_multibyte (filename, -1);
       int status;
       output_unit_file_idx = find_output_unit_file (self, lc_filename, &status);
       if (status)
         {
-          if (self->conf->DEBUG.integer > 0)
+          if (self->conf->DEBUG.o.integer > 0)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
@@ -827,7 +828,7 @@ register_normalize_case_filename (CONVERTER *self, const char *filename)
       output_unit_file_idx = find_output_unit_file (self, filename, &status);
       if (status)
         {
-          if (self->conf->DEBUG.integer > 0)
+          if (self->conf->DEBUG.o.integer > 0)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
@@ -885,14 +886,14 @@ set_file_path (CONVERTER *self, const char *filename, const char *filepath,
     {
       if (!strcmp (output_unit_file->filepath, filepath_str))
         {
-          if (self->conf->DEBUG.integer > 0)
+          if (self->conf->DEBUG.o.integer > 0)
             fprintf (stderr, "set_file_path: filepath set: %s\n",
                              filepath_str);
           free (filepath_str);
         }
       else
         {
-          if (self->conf->DEBUG.integer > 0)
+          if (self->conf->DEBUG.o.integer > 0)
             fprintf (stderr, "set_file_path: filepath reset: %s, %s\n",
                              output_unit_file->filepath, filepath_str);
           free (output_unit_file->filepath);

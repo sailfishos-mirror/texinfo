@@ -610,14 +610,14 @@ void
 set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
                                    const OPTIONS *options)
 {
-  if (options->EXPANDED_FORMATS.strlist
-      && (options->EXPANDED_FORMATS.strlist->number))
+  if (options->EXPANDED_FORMATS.o.strlist
+      && (options->EXPANDED_FORMATS.o.strlist->number))
     {
       size_t i;
-      for (i = 0; i < options->EXPANDED_FORMATS.strlist->number; i++)
+      for (i = 0; i < options->EXPANDED_FORMATS.o.strlist->number; i++)
         {
           add_expanded_format (formats,
-                               options->EXPANDED_FORMATS.strlist->list[i]);
+                               options->EXPANDED_FORMATS.o.strlist->list[i]);
         }
     }
 }
@@ -1034,8 +1034,8 @@ set_conf_string (OPTION *option, const char *value)
   if (option->configured > 0)
     return;
 
-  free (option->string);
-  option->string = strdup (value);
+  free (option->o.string);
+  option->o.string = strdup (value);
 }
 
 /* In perl, OUTPUT_PERL_ENCODING is set too.  Note that if the perl
@@ -1227,7 +1227,7 @@ set_informative_command_value (OPTIONS *options, const ELEMENT *element)
           if (option->type == GOT_integer)
             {
               if (option->configured <= 0)
-                option->integer = strtoul (value, NULL, 10);
+                option->o.integer = strtoul (value, NULL, 10);
             }
           else
             set_conf_string (option, value);
@@ -1587,27 +1587,27 @@ clear_option (OPTION *option)
     {
       case GOT_char:
       case GOT_bytes:
-        free (option->string);
-        option->string = 0;
+        free (option->o.string);
+        option->o.string = 0;
         break;
 
       case GOT_bytes_string_list:
       case GOT_file_string_list:
       case GOT_char_string_list:
-        clear_strings_list (option->strlist);
+        clear_strings_list (option->o.strlist);
         break;
 
       case GOT_buttons:
-        html_free_button_specification_list (option->buttons);
-        option->buttons = 0;
+        html_free_button_specification_list (option->o.buttons);
+        option->o.buttons = 0;
         break;
 
       case GOT_icons:
-        html_clear_direction_icons (option->icons);
+        html_clear_direction_icons (option->o.icons);
         break;
 
       case GOT_integer:
-        option->integer = -1;
+        option->o.integer = -1;
 
       default:
 	break;
@@ -1622,22 +1622,22 @@ free_option (OPTION *option)
     {
       case GOT_char:
       case GOT_bytes:
-        free (option->string);
+        free (option->o.string);
         break;
 
       case GOT_bytes_string_list:
       case GOT_file_string_list:
       case GOT_char_string_list:
-        destroy_strings_list (option->strlist);
+        destroy_strings_list (option->o.strlist);
         break;
 
       case GOT_buttons:
-        html_free_button_specification_list (option->buttons);
+        html_free_button_specification_list (option->o.buttons);
         break;
 
       case GOT_icons:
-        html_free_direction_icons (option->icons);
-        free (option->icons);
+        html_free_direction_icons (option->o.icons);
+        free (option->o.icons);
         break;
 
       case GOT_integer:
@@ -1653,28 +1653,28 @@ initialize_option (OPTION *option, enum global_option_type type)
   switch (type)
     {
       case GOT_integer:
-        option->integer = -1;
+        option->o.integer = -1;
         break;
 
       case GOT_bytes_string_list:
       case GOT_file_string_list:
       case GOT_char_string_list:
-        option->strlist = new_string_list ();
+        option->o.strlist = new_string_list ();
         break;
 
       case GOT_char:
       case GOT_bytes:
-        option->string = 0;
+        option->o.string = 0;
         break;
 
       case GOT_buttons:
-        option->buttons = 0;
+        option->o.buttons = 0;
         break;
 
       case GOT_icons:
-        option->icons = (DIRECTION_ICON_LIST *)
+        option->o.icons = (DIRECTION_ICON_LIST *)
                           malloc (sizeof (DIRECTION_ICON_LIST));
-        memset (option->icons, 0, sizeof (DIRECTION_ICON_LIST));
+        memset (option->o.icons, 0, sizeof (DIRECTION_ICON_LIST));
         break;
 
       default:
