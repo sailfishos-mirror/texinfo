@@ -1770,7 +1770,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
         continue;
 
       if (((self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))
-           || self->conf->MONOLITHIC.o.string <= 0)
+           || self->conf->MONOLITHIC.o.integer <= 0)
     /* in general document_name not defined means called through convert */
           && document_name)
         {
@@ -18457,12 +18457,6 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
               self->modified_state |= HMSF_current_root;
             }
           goto out;
-        }
-
-      if (builtin_command_data[data_cmd].flags & CF_root)
-        {
-          self->current_root_command = 0;
-          self->modified_state |= HMSF_current_root;
         }
     }
   else if (element->type)

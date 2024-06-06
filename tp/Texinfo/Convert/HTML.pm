@@ -13710,9 +13710,6 @@ sub _convert($$;$)
       }
       return '';
     }
-    if ($root_commands{$command_name}) {
-      delete $self->{'current_root_command'};
-    }
   } elsif ($element->{'type'}) {
 
     my $result = '';
