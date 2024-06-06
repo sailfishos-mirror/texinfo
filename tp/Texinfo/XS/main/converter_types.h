@@ -779,7 +779,7 @@ typedef struct CONVERTER {
       STRING_LIST *registered_ids;
       /* actually HV * but we do not want to drag in Perl headers */
       void *registered_ids_hv;
-    };
+    } rid;
     /* potentially one target list per command (only for some actually) */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
