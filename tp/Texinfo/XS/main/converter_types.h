@@ -227,7 +227,7 @@ typedef struct {
     union {
       enum command_id cmd;
       enum element_type type;
-    };
+    } ct;
 } COMMAND_OR_TYPE;
 
 typedef struct {

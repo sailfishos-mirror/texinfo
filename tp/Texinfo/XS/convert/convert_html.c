@@ -864,7 +864,7 @@ html_in_align (const CONVERTER *self)
   context = top_command_or_type (&top_document_ctx->composition_context);
   if (context->variety == CTV_type_command)
     {
-      enum command_id cmd = context->cmd;
+      enum command_id cmd = context->ct.cmd;
       if (html_commands_data[cmd].flags & HF_HTML_align)
         return cmd;
     }
@@ -11914,7 +11914,7 @@ convert_item_command (CONVERTER *self, const enum command_id cmd,
                    = &pre_classes->stack[i];
                   if (cmd_or_type->variety == CTV_type_command)
                     {
-                      enum command_id pre_class_cmd = cmd_or_type->cmd;
+                      enum command_id pre_class_cmd = cmd_or_type->ct.cmd;
                       if (builtin_command_data[pre_class_cmd].flags
                                                 & CF_preformatted_code)
                         {
@@ -14043,12 +14043,12 @@ preformatted_class (const CONVERTER *self)
       const COMMAND_OR_TYPE *cmd_or_type = &pre_classes->stack[i];
       if (!(cur_pre_class
             && (cur_pre_class->variety == CTV_type_command
-                && builtin_command_data[cur_pre_class->cmd].flags
+                && builtin_command_data[cur_pre_class->ct.cmd].flags
                                    & CF_preformatted_code)
             && (!((cmd_or_type->variety == CTV_type_command
-                   && builtin_command_data[cmd_or_type->cmd].flags
+                   && builtin_command_data[cmd_or_type->ct.cmd].flags
                                      & CF_preformatted_code)
-                  || cmd_or_type->cmd == CM_menu))))
+                  || cmd_or_type->ct.cmd == CM_menu))))
          cur_pre_class = cmd_or_type;
     }
   if (cur_pre_class)
@@ -14057,13 +14057,13 @@ preformatted_class (const CONVERTER *self)
       if (cur_pre_class->variety == CTV_type_command)
         {
           xasprintf (&pre_class, "%s-preformatted",
-                     builtin_command_name (cur_pre_class->cmd));
+                     builtin_command_name (cur_pre_class->ct.cmd));
         }
       else if (cur_pre_class->variety == CTV_type_type)
 
         {
           xasprintf (&pre_class, "%s-preformatted",
-                     self->pre_class_types[cur_pre_class->type]);
+                     self->pre_class_types[cur_pre_class->ct.type]);
         }
       if (pre_class)
         return pre_class;

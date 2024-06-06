@@ -1,5 +1,12 @@
 2024-06-06  Patrice Dumas  <pertusus@free.fr>
 
+	Do not use unnamed union for COMMAND_OR_TYPE
+
+	* tp/Texinfo/XS/main/converter_types.h (COMMAND_OR_TYPE): name the
+	union as ct.  Update codes using the corresponding union fields.
+
+2024-06-06  Patrice Dumas  <pertusus@free.fr>
+
 	Do not use unnamed union for OPTION
 
 	* tp/Texinfo/XS/main/option_types.h: name the main union as o.  Update

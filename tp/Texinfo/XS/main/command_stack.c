@@ -80,17 +80,17 @@ push_command_or_type (COMMAND_OR_TYPE_STACK *stack, enum command_id cmd,
 
   if (type)
     {
-      stack->stack[stack->top].type = type;
+      stack->stack[stack->top].ct.type = type;
       stack->stack[stack->top].variety = CTV_type_type;
     }
   else if (cmd)
     {
-      stack->stack[stack->top].cmd = cmd;
+      stack->stack[stack->top].ct.cmd = cmd;
       stack->stack[stack->top].variety = CTV_type_command;
     }
   else
     {
-      stack->stack[stack->top].cmd = 0;
+      stack->stack[stack->top].ct.cmd = 0;
       stack->stack[stack->top].variety = CTV_type_none;
     }
 

@@ -955,9 +955,9 @@ html_preformatted_classes_stack (SV *converter_in)
                = &preformatted_classes_stack->stack[i];
              const char *pre_class = 0;
              if (cmd_or_type->variety == CTV_type_command)
-               pre_class = builtin_command_data[cmd_or_type->cmd].cmdname;
+               pre_class = builtin_command_data[cmd_or_type->ct.cmd].cmdname;
              else if (cmd_or_type->variety == CTV_type_type)
-               pre_class = self->pre_class_types[cmd_or_type->type];
+               pre_class = self->pre_class_types[cmd_or_type->ct.type];
              SV *class_sv
                = newSVpv_utf8 (pre_class, 0);
              av_push (preformatted_classes_av, class_sv);
