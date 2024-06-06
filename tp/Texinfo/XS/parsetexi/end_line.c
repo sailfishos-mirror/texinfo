@@ -806,7 +806,7 @@ end_line_starting_block (ELEMENT *current)
   if (command == CM_multitable
       && (k = lookup_extra (current->parent, "columnfractions")))
     {
-      ELEMENT *misc_cmd = k->element;
+      ELEMENT *misc_cmd = k->k.element;
       ELEMENT *misc_args = lookup_extra_element (misc_cmd, "misc_args");
 
       if (misc_args)
@@ -942,7 +942,7 @@ end_line_starting_block (ELEMENT *current)
             }
           else
             {
-              ELEMENT *e = k_command_as_arg->element;
+              ELEMENT *e = k_command_as_arg->k.element;
               if (!(command_flags(e) & CF_brace)
                   || (command_data(e->cmd).data == BRACE_noarg))
                 {
@@ -970,7 +970,7 @@ end_line_starting_block (ELEMENT *current)
               for (i = 0; i < e->contents.number; i++)
                 {
                   if (contents_child_by_index (e, i)
-                             == k_command_as_arg->element)
+                             == k_command_as_arg->k.element)
                     {
                       i++;
                       break;
@@ -985,7 +985,7 @@ end_line_starting_block (ELEMENT *current)
                            && !*(f->text.text
                                  + strspn (f->text.text, whitespace_chars))))
                     {
-                      k_command_as_arg->element->type = ET_NONE;
+                      k_command_as_arg->k.element->type = ET_NONE;
                       k_command_as_arg->key = "";
                       k_command_as_arg->type = extra_deleted;
                       k_command_as_arg = 0;
@@ -997,11 +997,11 @@ end_line_starting_block (ELEMENT *current)
           /* if the command as argument does not have braces but it is
              a brace command and not a mark (noarg) command, warn */
           if (k_command_as_arg
-              && (k_command_as_arg->element->args.number <= 0
-                  || k_command_as_arg->element->args.list[0]->type
+              && (k_command_as_arg->k.element->args.number <= 0
+                  || k_command_as_arg->k.element->args.list[0]->type
                        != ET_brace_command_arg))
             {
-              enum command_id as_argument_cmd = k_command_as_arg->element->cmd;
+              enum command_id as_argument_cmd = k_command_as_arg->k.element->cmd;
               if ((command_data(as_argument_cmd).flags & CF_brace)
                   && command_data(as_argument_cmd).data != BRACE_noarg)
                 {
@@ -1013,9 +1013,9 @@ end_line_starting_block (ELEMENT *current)
 
       /* Check if command_as_argument isn't an accent command */
       k = lookup_extra (current, "command_as_argument");
-      if (k && k->element)
+      if (k && k->k.element)
         {
-          enum command_id as_argument_cmd = k->element->cmd;
+          enum command_id as_argument_cmd = k->k.element->cmd;
           if (as_argument_cmd
               && (command_data(as_argument_cmd).flags & CF_accent))
             {
@@ -1024,7 +1024,6 @@ end_line_starting_block (ELEMENT *current)
                             command_name(as_argument_cmd),
                             command_name(command));
               k->key = "";
-              k->element = 0;
               k->type = extra_deleted;
             }
         }

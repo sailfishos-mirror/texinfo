@@ -129,31 +129,31 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
           text_printf (&text, "deleted");
           break;
         case extra_integer:
-          text_printf (&text, "integer: %d", k->integer);
+          text_printf (&text, "integer: %d", k->k.integer);
           break;
         case extra_string:
-          text_printf (&text, "string: %s", k->string);
+          text_printf (&text, "string: %s", k->k.string);
           break;
         case extra_element:
         case extra_element_oot:
           {
-            char *element_str = print_element_debug (k->element, 0);
+            char *element_str = print_element_debug (k->k.element, 0);
             if (k->type == extra_element_oot)
               text_append (&text, "oot ");
-            text_printf (&text, "element %p: %s", k->element, element_str);
+            text_printf (&text, "element %p: %s", k->k.element, element_str);
             free (element_str);
             break;
           }
         case extra_misc_args:
           {
             int j;
-            const ELEMENT *f = k->element;
+            const ELEMENT *f = k->k.element;
             text_append (&text, "array: ");
             for (j = 0; j < f->contents.number; j++)
               {
                 KEY_PAIR *k_integer = lookup_extra (f->contents.list[j], "integer");
                 if (k_integer)
-                  text_printf (&text, "%d|", k_integer->integer);
+                  text_printf (&text, "%d|", k_integer->k.integer);
                 else
                   text_printf (&text, "%s|", f->contents.list[j]->text.text);
               }
@@ -162,7 +162,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_contents:
           {
             int j;
-            const ELEMENT_LIST *l = k->list;
+            const ELEMENT_LIST *l = k->k.list;
             text_append (&text, "contents: ");
             for (j = 0; j < l->number; j++)
               {
@@ -176,7 +176,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_container:
           {
             int j;
-            const ELEMENT *f = k->element;
+            const ELEMENT *f = k->k.element;
             text_append (&text, "contents: ");
             for (j = 0; j < f->contents.number; j++)
               {

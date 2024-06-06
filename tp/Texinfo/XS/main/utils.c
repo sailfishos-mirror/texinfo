@@ -1535,7 +1535,7 @@ html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
         {
           BUTTON_SPECIFICATION *button = &buttons->list[i];
           if (button->type == BST_direction_info)
-            free (button->button_info);
+            free (button->b.button_info);
           unregister_perl_button (button);
         }
     }

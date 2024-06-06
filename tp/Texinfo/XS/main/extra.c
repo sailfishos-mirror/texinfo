@@ -63,7 +63,7 @@ add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_element);
-  k->element = value;
+  k->k.element = value;
 }
 
 /* Add an extra key that is a reference to another element that is
@@ -75,7 +75,7 @@ add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_element_oot);
-  k->element = value;
+  k->k.element = value;
 }
 
 /* Add an extra key that is a reference to elements elsewhere in the tree,
@@ -89,7 +89,7 @@ add_extra_container (ELEMENT *e, char *key, ELEMENT *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_container);
-  k->element = value;
+  k->k.element = value;
 }
 
 void
@@ -97,7 +97,7 @@ add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->info_info, key,
                                          extra_element_oot);
-  k->element = value;
+  k->k.element = value;
 }
 
 /* Add an extra key that is a reference to an array of other
@@ -120,7 +120,7 @@ add_extra_contents (ELEMENT *e, const char *key, int no_lookup)
   n_list = new_list ();
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                          extra_contents);
-  k->list = n_list;
+  k->k.list = n_list;
   return n_list;
 }
 
@@ -142,7 +142,7 @@ add_extra_directions (ELEMENT *e, const char *key)
       list_set_empty_contents (n_list, directions_length);
       KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
                                              extra_directions);
-      k->list = n_list;
+      k->k.list = n_list;
       return n_list;
     }
 }
@@ -152,42 +152,42 @@ add_extra_misc_args (ELEMENT *e, char *key, ELEMENT *value)
 {
   if (!value) return;
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_misc_args);
-  k->element = value;
+  k->k.element = value;
 }
 
 void
 add_extra_string (ELEMENT *e, const char *key, char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_string);
-  k->string = value;
+  k->k.string = value;
 }
 
 void
 add_info_string (ELEMENT *e, char *key, char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_string);
-  k->string = value;
+  k->k.string = value;
 }
 
 void
 add_extra_string_dup (ELEMENT *e, const char *key, const char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_string);
-  k->string = strdup (value);
+  k->k.string = strdup (value);
 }
 
 void
 add_info_string_dup (ELEMENT *e, const char *key, const char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_string);
-  k->string = strdup (value);
+  k->k.string = strdup (value);
 }
 
 void
 add_associated_info_integer (ASSOCIATED_INFO *a, const char *key, int value)
 {
   KEY_PAIR *k = get_associated_info_key (a, key, extra_integer);
-  k->integer = value;
+  k->k.integer = value;
 }
 
 void
@@ -195,21 +195,21 @@ add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
                                 const char *value)
 {
   KEY_PAIR *k = get_associated_info_key (a, key, extra_string);
-  k->string = strdup (value);
+  k->k.string = strdup (value);
 }
 
 void
 add_extra_integer (ELEMENT *e, char *key, long value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_integer);
-  k->integer = value;
+  k->k.integer = value;
 }
 
 void
 add_info_integer (ELEMENT *e, char *key, long value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->info_info, key, extra_integer);
-  k->integer = value;
+  k->k.integer = value;
 }
 
 KEY_PAIR *
@@ -243,7 +243,7 @@ lookup_extra_element (const ELEMENT *e, const char *key)
       fatal (msg);
       free (msg);
     }
-  return k->element;
+  return k->k.element;
 }
 
 char *
@@ -263,9 +263,9 @@ lookup_extra_string (const ELEMENT *e, const char *key)
           fatal (msg);
           free (msg);
         }
-      if (!k->string)
+      if (!k->k.string)
         return (0);
-      return k->string;
+      return k->k.string;
     }
 }
 
@@ -293,7 +293,7 @@ lookup_key_pair_integer (const KEY_PAIR *k, const char *key, int *ret)
       free (msg);
     }
   *ret = 0;
-  return k->integer;
+  return k->k.integer;
 }
 
 /* *ret is negative if not found or not an integer */
@@ -328,7 +328,7 @@ lookup_extra_contents (const ELEMENT *e, const char *key)
       fatal (msg);
       free (msg);
     }
-  return k->list;
+  return k->k.list;
 }
 
 const ELEMENT_LIST *
@@ -345,7 +345,7 @@ lookup_extra_directions (const ELEMENT *e, const char *key)
       fatal (msg);
       free (msg);
     }
-  return k->list;
+  return k->k.list;
 }
 
 ELEMENT *
@@ -355,7 +355,7 @@ lookup_info_element (const ELEMENT *e, const char *key)
   k = lookup_associated_info (&e->info_info, key);
   if (!k)
     return 0;
-  return k->element;
+  return k->k.element;
 }
 
 
@@ -370,9 +370,9 @@ lookup_info_string (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->info_info, key);
-  if (!k || !k->string)
+  if (!k || !k->k.string)
     return 0;
-  return k->string;
+  return k->k.string;
 }
 
 /* only called in tree copy to optimize for speed */

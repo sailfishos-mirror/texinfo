@@ -105,7 +105,7 @@ typedef struct BUTTON_SPECIFICATION_INFO {
      /* both global and relative directions index */
       int direction_information_type; /* BIT_direction_information_type
             text string in perl, element direction information type */
-    };
+    } bi;
 } BUTTON_SPECIFICATION_INFO;
 
 typedef struct BUTTON_SPECIFICATION {
@@ -122,7 +122,7 @@ typedef struct BUTTON_SPECIFICATION {
       void *sv_string; /* BST_string scalar reference */
       BUTTON_SPECIFICATION_INFO *button_info; /* BST_direction_info
                                               array reference of length 2 */
-    };
+    } b;
 } BUTTON_SPECIFICATION;
 
 typedef struct BUTTON_SPECIFICATION_LIST {

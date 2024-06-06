@@ -321,7 +321,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                  happens for root commands (sections, nodes) and associated
                  commands, and could also happen for subentry as it is not
                  a children of the associated index command */
-              ELEMENT *f = k->element;
+              ELEMENT *f = k->k.element;
               if (!f->hv)
                 f->hv = newHV ();
               STORE(newRV_inc ((SV *)f->hv));
@@ -352,7 +352,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                   fprintf (stderr, message.text);
                 }
                    */
-              ELEMENT *f = k->element;
+              ELEMENT *f = k->k.element;
               if (!f->hv || !avoid_recursion)
                 element_to_perl_hash (f, avoid_recursion);
               STORE(newRV_inc ((SV *)f->hv));
@@ -360,26 +360,26 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               }
             case extra_container:
               {
-              ELEMENT *f = k->element;
+              ELEMENT *f = k->k.element;
               build_perl_container (f, avoid_recursion);
               STORE(newRV_inc ((SV *)f->hv));
               break;
               }
             case extra_contents:
               {
-              const ELEMENT_LIST *l = k->list;
+              const ELEMENT_LIST *l = k->k.list;
               if (l && l->number)
                 STORE(build_perl_array (l, avoid_recursion));
               break;
               }
             case extra_directions:
               {
-              STORE(build_perl_directions (k->list, avoid_recursion));
+              STORE(build_perl_directions (k->k.list, avoid_recursion));
               break;
               }
             case extra_string:
               { /* A simple string. */
-              const char *value = k->string;
+              const char *value = k->k.string;
               STORE(newSVpv_utf8 (value, 0));
               break;
               }
@@ -387,14 +387,14 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               { /* A simple integer.  The intptr_t cast here prevents
                    a warning on MinGW ("cast from pointer to integer of
                    different size"). */
-              IV value = (IV) (intptr_t) k->integer;
+              IV value = (IV) (intptr_t) k->k.integer;
               STORE(newSViv (value));
               break;
               }
             case extra_misc_args:
               {
               size_t j;
-              const ELEMENT *f = k->element;
+              const ELEMENT *f = k->k.element;
               AV *av = newAV ();
               av_unshift (av, f->contents.number);
 
@@ -406,7 +406,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                   k_integer = lookup_extra (f->contents.list[j], "integer");
                   if (k_integer)
                     {
-                      IV value = (IV) (intptr_t) k_integer->integer;
+                      IV value = (IV) (intptr_t) k_integer->k.integer;
                       av_store (av, j, newSViv (value));
                     }
                   else if (f->contents.list[j]->text.end > 0)

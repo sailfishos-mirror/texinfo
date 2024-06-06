@@ -138,24 +138,25 @@ destroy_associated_info (ASSOCIATED_INFO *a)
 
   for (i = 0; i < a->info_number; i++)
     {
-      switch (a->info[i].type)
+      KEY_PAIR *k_pair = &a->info[i];
+      switch (k_pair->type)
         {
         case extra_string:
-          free (a->info[i].string);
+          free (k_pair->k.string);
           break;
         case extra_element_oot:
-          destroy_element_and_children (a->info[i].element);
+          destroy_element_and_children (k_pair->k.element);
           break;
         case extra_contents:
         case extra_directions:
-          destroy_list (a->info[i].list);
+          destroy_list (k_pair->k.list);
           break;
         case extra_container:
-          if (a->info[i].element)
-            destroy_element (a->info[i].element);
+          if (k_pair->k.element)
+            destroy_element (k_pair->k.element);
           break;
         case extra_misc_args:
-          destroy_element_and_children (a->info[i].element);
+          destroy_element_and_children (k_pair->k.element);
           break;
 
         default:

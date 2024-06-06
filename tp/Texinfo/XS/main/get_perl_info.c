@@ -1119,7 +1119,7 @@ html_get_button_specification_list (const CONVERTER *converter,
           if (SvTYPE (SvRV(*button_sv)) == SVt_PVCV) /* CODE */
             {
               button->type = BST_function;
-              button->sv_reference = *button_sv;
+              button->b.sv_reference = *button_sv;
             }
           else if (SvTYPE (SvRV(*button_sv)) == SVt_PVAV)
             {
@@ -1134,7 +1134,7 @@ html_get_button_specification_list (const CONVERTER *converter,
               memset (button_spec, 0, sizeof (BUTTON_SPECIFICATION_INFO));
 
               button->type = BST_direction_info;
-              button->button_info = button_spec;
+              button->b.button_info = button_spec;
 
               button_spec->direction
                 = html_get_direction_index (converter,
@@ -1148,7 +1148,7 @@ html_get_button_specification_list (const CONVERTER *converter,
                       char *button_fun_name;
                       enum button_function_type button_fun_type = 0;
                       button_spec->type = BIT_function;
-                      button_spec->button_function.sv_reference
+                      button_spec->bi.button_function.sv_reference
                                           = *button_spec_info_type;
                       button_fun_name
                        = SvPV_nolen (cv_name ((CV *) SvRV (*button_spec_info_type),
@@ -1161,14 +1161,14 @@ html_get_button_specification_list (const CONVERTER *converter,
                             break;
                           }
                       if (button_fun_type)
-                        button_spec->button_function.type = button_fun_type;
+                        button_spec->bi.button_function.type = button_fun_type;
                       else
                         result->BIT_user_function_number++;
                     }
                   else
                     {
                       button_spec->type = BIT_string;
-                      button_spec->sv_string = *button_spec_info_type;
+                      button_spec->bi.sv_string = *button_spec_info_type;
                     }
                 }
               else
@@ -1191,13 +1191,13 @@ html_get_button_specification_list (const CONVERTER *converter,
                       button_spec->type
                         = BIT_href_direction_information_type;
                     }
-                  button_spec->direction_information_type = -1;
+                  button_spec->bi.direction_information_type = -1;
                   for (j = 0; j < HTT_section +1; j++)
                     {
                       if (!strcmp (html_command_text_type_name[j],
                                    text_type_p))
                         {
-                          button_spec->direction_information_type = j;
+                          button_spec->bi.direction_information_type = j;
                           break;
                         }
                     }
@@ -1206,13 +1206,13 @@ html_get_button_specification_list (const CONVERTER *converter,
           else
             {
               button->type = BST_string;
-              button->sv_string = *button_sv;
+              button->b.sv_string = *button_sv;
             }
         }
       else
         {
           button->type = BST_direction;
-          button->direction = html_get_direction_index (converter,
+          button->b.direction = html_get_direction_index (converter,
                                               SvPVutf8_nolen (*button_sv));
         }
     }

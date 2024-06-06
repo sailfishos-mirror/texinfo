@@ -143,7 +143,7 @@ typedef struct KEY_PAIR {
       ELEMENT_LIST *list;
       char *string;
       int integer;
-    };
+    } k;
 } KEY_PAIR;
 
 typedef struct SOURCE_INFO {

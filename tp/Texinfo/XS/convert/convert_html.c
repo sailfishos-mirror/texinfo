@@ -1385,7 +1385,7 @@ html_get_file_information (const CONVERTER *self, const char *key,
       *status = -2;
       return 0;
     }
-  return k->integer;
+  return k->k.integer;
 }
 
 void
@@ -7181,16 +7181,16 @@ get_links (CONVERTER* self, const char *filename,
           char *link_href;
           if (link->type != BST_direction)
             fatal ("LINKS_BUTTONS should only contain directions");
-          link_href = from_element_direction (self, link->direction,
+          link_href = from_element_direction (self, link->b.direction,
                                               HTT_href, output_unit,
                                               filename, node_command);
           if (link_href)
             {
               char *link_string
-                = from_element_direction (self, link->direction, HTT_string,
+                = from_element_direction (self, link->b.direction, HTT_string,
                                           output_unit, 0, 0);
               const char *button_rel
-                = direction_string (self, link->direction, TDS_type_rel,
+                = direction_string (self, link->b.direction, TDS_type_rel,
                                     TDS_context_string);
               text_printf (result, "<link href=\"%s\"", link_href);
               if (button_rel)
@@ -7484,14 +7484,14 @@ html_default_format_button (CONVERTER *self,
 {
   if (button->type == BST_function)
     {
-      return call_button_simple_function (self, button->sv_reference);
+      return call_button_simple_function (self, button->b.sv_reference);
     }
   else if (button->type == BST_direction_info
-           && button->button_info->type == BIT_function)
+           && button->b.button_info->type == BIT_function)
     {
       return button_direction_function (self,
-                      &button->button_info->button_function,
-                      button->button_info->direction, element);
+                      &button->b.button_info->bi.button_function,
+                      button->b.button_info->direction, element);
     }
   else
     {
@@ -7503,17 +7503,17 @@ html_default_format_button (CONVERTER *self,
       if (button->type == BST_string)
         {
           formatted_button->active
-            = get_perl_scalar_reference_value (button->sv_string);
+            = get_perl_scalar_reference_value (button->b.sv_string);
           formatted_button->need_delimiter = 1;
         }
       else if (button->type == BST_direction_info)
         {
-          int direction = button->button_info->direction;
-          if (button->button_info->type == BIT_string)
+          int direction = button->b.button_info->direction;
+          if (button->b.button_info->type == BIT_string)
             {
               /* use given text */
               char *text = get_perl_scalar_reference_value
-                                      (button->button_info->sv_string);
+                                      (button->b.button_info->bi.sv_string);
               if (text)
                 {
                   char *href = from_element_direction (self, direction,
@@ -7531,27 +7531,27 @@ html_default_format_button (CONVERTER *self,
                     }
                 }
             }
-          else if (button->button_info->type
+          else if (button->b.button_info->type
                    == BIT_selected_direction_information_type)
             {
          /* this case is mostly for tests, to test the direction type
             in direction_information_type with the direction direction */
-              if (button->button_info->direction_information_type >= 0)
+              if (button->b.button_info->bi.direction_information_type >= 0)
                 formatted_button->active
                   = from_element_direction (self, direction,
-                         button->button_info->direction_information_type,
+                         button->b.button_info->bi.direction_information_type,
                                                            0, 0, element);
             }
-          else if (button->button_info->type
+          else if (button->b.button_info->type
                    == BIT_href_direction_information_type)
             {
               char *href = from_element_direction (self, direction,
                                                    HTT_href, 0, 0, element);
-              if (button->button_info->direction_information_type >= 0)
+              if (button->b.button_info->bi.direction_information_type >= 0)
                 {
                   char *text_formatted = from_element_direction (self,
                                                                  direction,
-                            button->button_info->direction_information_type,
+                        button->b.button_info->bi.direction_information_type,
                                                                  0, 0, 0);
                   if (href && text_formatted)
                     {
@@ -7568,26 +7568,26 @@ html_default_format_button (CONVERTER *self,
           formatted_button->need_delimiter = 1;
         }
       /* for the next cases, button->type == BST_direction */
-      else if (button->direction == D_direction_Space)
+      else if (button->b.direction == D_direction_Space)
         {
           /* handle space button */
           if (self->conf->ICONS.integer > 0
               && self->conf->ACTIVE_ICONS.icons->number > 0
-              && self->conf->ACTIVE_ICONS.icons->list[button->direction]
+              && self->conf->ACTIVE_ICONS.icons->list[button->b.direction]
               && strlen
-                  (self->conf->ACTIVE_ICONS.icons->list[button->direction]))
+                  (self->conf->ACTIVE_ICONS.icons->list[button->b.direction]))
             {
               const char *button_name_string = direction_string (self,
-                                     button->direction, TDS_type_button,
+                                     button->b.direction, TDS_type_button,
                                                       TDS_context_string);
               formatted_button->active
                 = format_button_icon_img (self, button_name_string,
-                   self->conf->ACTIVE_ICONS.icons->list[button->direction], 0);
+                 self->conf->ACTIVE_ICONS.icons->list[button->b.direction], 0);
             }
           else
             {
               const char *button_text = direction_string (self,
-                                    button->direction, TDS_type_text, 0);
+                                    button->b.direction, TDS_type_text, 0);
               if (!button_text)
                 button_text = "";
               formatted_button->active = strdup (button_text);
@@ -7596,7 +7596,7 @@ html_default_format_button (CONVERTER *self,
         }
       else
         {
-          char *href = from_element_direction (self, button->direction,
+          char *href = from_element_direction (self, button->b.direction,
                                                HTT_href, 0, 0, element);
           if (href)
             {
@@ -7604,17 +7604,17 @@ html_default_format_button (CONVERTER *self,
               TEXT active_text;
               const char *active_icon = 0;
               const char *description
-               = direction_string (self, button->direction,
+               = direction_string (self, button->b.direction,
                                    TDS_type_description, TDS_context_string);
 
               if (self->conf->ICONS.integer > 0
                   && self->conf->ACTIVE_ICONS.icons->number > 0
-                  && self->conf->ACTIVE_ICONS.icons->list[button->direction]
+                  && self->conf->ACTIVE_ICONS.icons->list[button->b.direction]
                   && strlen (self->conf->ACTIVE_ICONS.icons
-                                                ->list[button->direction]))
+                                             ->list[button->b.direction]))
                 {
                   active_icon = self->conf->ACTIVE_ICONS.icons
-                                                  ->list[button->direction];
+                                               ->list[button->b.direction];
                 }
 
               text_init (&active_text);
@@ -7626,7 +7626,7 @@ html_default_format_button (CONVERTER *self,
               if (self->conf->USE_ACCESSKEY.integer > 0)
                 {
                   const char *accesskey
-                    = direction_string (self, button->direction,
+                    = direction_string (self, button->b.direction,
                                         TDS_type_accesskey, TDS_context_string);
                   if (accesskey && strlen (accesskey))
                     text_printf (&active_text, " accesskey=\"%s\"", accesskey);
@@ -7634,7 +7634,7 @@ html_default_format_button (CONVERTER *self,
               if (self->conf->USE_REL_REV.integer > 0)
                 {
                   const char *button_rel
-                    = direction_string (self, button->direction,
+                    = direction_string (self, button->b.direction,
                                         TDS_type_rel, TDS_context_string);
                   if (button_rel && strlen (button_rel))
                     text_printf (&active_text, " rel=\"%s\"", button_rel);
@@ -7643,10 +7643,10 @@ html_default_format_button (CONVERTER *self,
               if (active_icon)
                 {
                   const char *button_name_string = direction_string (self,
-                                       button->direction, TDS_type_button,
+                                       button->b.direction, TDS_type_button,
                                                       TDS_context_string);
                   char *icon_name = from_element_direction (self,
-                                                        button->direction,
+                                                        button->b.direction,
                                                                HTT_string,
                                                                  0, 0, 0);
                   char *icon_img
@@ -7660,7 +7660,7 @@ html_default_format_button (CONVERTER *self,
               else
                 {
                   const char *button_text_string = direction_string (self,
-                                     button->direction, TDS_type_text, 0);
+                                     button->b.direction, TDS_type_text, 0);
                   if (button_text_string)
                     text_append (&active_text, button_text_string);
                 }
@@ -7682,20 +7682,20 @@ html_default_format_button (CONVERTER *self,
 
               if (self->conf->ICONS.integer > 0
                   && self->conf->PASSIVE_ICONS.icons->number > 0
-                  && self->conf->PASSIVE_ICONS.icons->list[button->direction]
+                  && self->conf->PASSIVE_ICONS.icons->list[button->b.direction]
                   && strlen (self->conf->PASSIVE_ICONS.icons
-                                              ->list[button->direction]))
+                                              ->list[button->b.direction]))
                 {
                   passive_icon
-                    = self->conf->PASSIVE_ICONS.icons->list[button->direction];
+                    = self->conf->PASSIVE_ICONS.icons->list[button->b.direction];
                 }
               if (passive_icon)
                 {
                   const char *button_name_string
-                    = direction_string (self, button->direction,
+                    = direction_string (self, button->b.direction,
                                         TDS_type_button, TDS_context_string);
                   char *icon_name = from_element_direction (self,
-                                                        button->direction,
+                                                        button->b.direction,
                                                                HTT_string,
                                                                  0, 0, 0);
                   char *icon_img
@@ -7709,7 +7709,7 @@ html_default_format_button (CONVERTER *self,
               else
                 {
                   const char *button_text_string
-                    = direction_string (self, button->direction,
+                    = direction_string (self, button->b.direction,
                                         TDS_type_text, 0);
                   text_append_n (&passive_text, "[", 1);
                   if (button_text_string)
@@ -7774,9 +7774,9 @@ html_default_format_navigation_panel (CONVERTER *self,
       int need_delimiter = 0;
       int direction = -1;
       if (button->type == BST_direction_info)
-        direction = button->button_info->direction;
+        direction = button->b.button_info->direction;
       else if (button->type == BST_direction)
-        direction = button->direction;
+        direction = button->b.direction;
 
       if (direction >= 0 && direction == D_direction_Space
           && nr_of_buttons_shown == 0)
@@ -15715,9 +15715,9 @@ default_format_special_body_about (CONVERTER *self,
       const char *button_example;
 
       if (button->type == BST_direction_info)
-        direction = button->button_info->direction;
+        direction = button->b.button_info->direction;
       else if (button->type == BST_direction)
-        direction = button->direction;
+        direction = button->b.direction;
 
       if (direction < 0 || direction == D_direction_Space)
         continue;
