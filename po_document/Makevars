@@ -9,6 +9,8 @@ top_builddir = ..
 
 # NOTE only marking of strings in perl, not in C.
 # These options get passed to xgettext.
+# When a new function name is added with --keyword/-k, the list in
+# po_document-check should be updated, too.
 XGETTEXT_OPTIONS = -cTRANSLATORS --language=Perl \
   --keyword=gdt --keyword=gdt_string --keyword=pgdt:1c,2 \
   --keyword=cdt --keyword=cdt_string --keyword=pcdt:1c,2 \

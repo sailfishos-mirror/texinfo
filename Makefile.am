@@ -128,12 +128,13 @@ po_document-check:
 	      contrib/* ) continue;;					\
 	      djgpp/* | man/* ) continue;;	\
 	      texinfo-*/*) continue;;					\
-	      tp/maintain/* ) continue;;				\
+	      tp/maintain/*) continue;;					\
+	      tp/init/documentation_examples.pm) continue;;		\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
 	  grep -E -l							\
-	    '\b(p?gdt) *\([^)$$]*("|'"'"'|$$)'	\
+	    '\b(p?[cg]dt(_string)?) *\([^)$$]*("|'"'"'|$$)'	\
 	    $$files | sort -u > $@-2;					\
 	  diff -u $@-1 $@-2 || exit 1;					\
 	  rm -f $@-1 $@-2;						\

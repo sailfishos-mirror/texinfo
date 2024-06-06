@@ -1,5 +1,14 @@
 2024-06-06  Patrice Dumas  <pertusus@free.fr>
 
+	* Makefile.am (po_document-check): Check for cdt, pcdt, cdt_string
+	and gdt_string, by modifying the regex.  Some unused functions could
+	be found, such as pgdt_string, but it should not be an issue.
+
+	* po/Makevars, po_document/Makevars: add comments to remember to
+	update po*-check when new functions are added as keywords.
+
+2024-06-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/DocumentXS.xs (document_tree)
 	(indices_sort_strings), tp/Texinfo/XS/main/build_perl_info.c
 	(BUILD_PERL_DOCUMENT_ITEM, BUILD_PERL_DOCUMENT_LIST)
