@@ -89,6 +89,14 @@ new_element (enum element_type type)
   e->c = (CONTAINER *) malloc (sizeof (CONTAINER));
   memset (e->c, 0, sizeof (CONTAINER));
 
+  if (type_data[type].elt_info_number > 0)
+    {
+      e->elt_info = (ELEMENT **)
+        malloc (sizeof (ELEMENT *) * type_data[type].elt_info_number);
+      memset (e->elt_info, 0,
+         sizeof (ELEMENT *) * type_data[type].elt_info_number);
+    }
+
   return e;
 }
 
@@ -209,10 +217,16 @@ destroy_element (ELEMENT *e)
     }
   else
     {
+      int i;
       destroy_associated_info (&e->c->info_info);
   /* Note the pointers in these lists are not themselves freed. */
       free (e->c->contents.list);
       free (e->c->args.list);
+
+      for (i = 0; i < type_data[e->type].elt_info_number; i++)
+        if (e->elt_info[i])
+          destroy_element_and_children (e->elt_info[i]);
+      free (e->elt_info);
 
       free (e->c);
     }

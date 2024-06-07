@@ -972,8 +972,8 @@ isolate_last_space (ELEMENT *current)
       && (last_contents_child (current)->cmd == CM_c
           || last_contents_child (current)->cmd == CM_comment))
     {
-      add_info_element_oot (current, "comment_at_end",
-                            pop_element_from_contents (current));
+      current->elt_info[eit_comment_at_end]
+         = pop_element_from_contents (current);
     }
 
   if (current->c->contents.number == 0)

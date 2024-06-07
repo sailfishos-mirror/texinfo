@@ -172,9 +172,12 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
           ADD((char *)elt->text->text);
         }
 
-      elt = lookup_info_element (e, "comment_at_end");
-      if (elt)
-        convert_to_texinfo_internal (elt, result);
+      if (e->type == ET_block_line_arg || e->type == ET_line_arg)
+        {
+          elt = e->elt_info[eit_comment_at_end];
+          if (elt)
+            convert_to_texinfo_internal (elt, result);
+        }
 
       if (e->type == ET_bracketed_arg || e->type == ET_bracketed_linemacro_arg)
         ADD("}");

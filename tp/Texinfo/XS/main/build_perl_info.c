@@ -541,6 +541,37 @@ store_source_mark_list (const ELEMENT *e)
     }
 }
 
+/* FIXME it is inefficient to store and get every time an element
+   is stored, better use additional_info_hv or a pointer on it as an argument */
+void
+store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
+                    const char *key, int avoid_recursion, int *nr_info)
+{
+  HV *additional_info_hv;
+
+  dTHX;
+
+  if (*nr_info == 0)
+    {
+      additional_info_hv = (HV *) newHV ();
+      hv_store (e->hv, type_key, strlen (type_key),
+                newRV_inc ((SV *)additional_info_hv), 0);
+    }
+  else
+    {
+      SV **additional_info_sv = hv_fetch (e->hv, type_key,
+                                          strlen (type_key), 0);
+      additional_info_hv = (HV *)SvRV (*additional_info_sv);
+    }
+
+  (*nr_info)++;
+  if (!info_element->hv || !avoid_recursion)
+    element_to_perl_hash (info_element, avoid_recursion);
+
+  hv_store (additional_info_hv, key, strlen (key),
+            newRV_inc ((SV *)info_element->hv), 0);
+}
+
 static int hashes_ready = 0;
 static U32 HSH_parent = 0;
 static U32 HSH_type = 0;
@@ -640,7 +671,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       hv_store (info_hv, "inserted", strlen ("inserted"),
                 newSViv (1), 0);
       hv_store (e->hv, key, strlen (key),
-              newRV_inc ((SV *)info_hv), 0);
+                newRV_inc ((SV *)info_hv), 0);
       nr_info++;
     }
 
@@ -649,6 +680,16 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       sv = newSVpv_utf8 (e->text->text, e->text->end);
       hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
       return;
+    }
+
+  if (e->type == ET_block_line_arg || e->type == ET_line_arg)
+    {
+      ELEMENT *f = e->elt_info[eit_comment_at_end];
+      if (f)
+        {
+          store_info_element (e, f, "info", "comment_at_end",
+                              avoid_recursion, &nr_info);
+        }
     }
 
   /* non-text elements */

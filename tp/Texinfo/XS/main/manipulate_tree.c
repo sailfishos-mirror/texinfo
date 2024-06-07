@@ -53,6 +53,24 @@ increase_ref_counter (ELEMENT *element)
   (*counter_ptr) ++;
 }
 
+ELEMENT *
+copy_element (ELEMENT *f)
+{
+  KEY_PAIR *k_copy;
+  ELEMENT *e = 0;
+  k_copy = lookup_extra_by_index (f, "_copy", -1);
+  if (k_copy)
+    {
+      e = k_copy->k.element;
+    }
+  else
+    {
+      increase_ref_counter (f);
+    }
+  copy_tree_internal (f, 0);
+  return e;
+}
+
 void
 copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
 {
@@ -76,18 +94,15 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_element_oot:
           if (!strcmp (key, "_copy"))
             break;
-          k_copy = lookup_extra_by_index (f, "_copy", -1);
-          if (k_copy)
-            {
-              KEY_PAIR *k
-                = get_associated_info_key (new_info, key, k_ref->type);
-              k->k.element = k_copy->k.element;
-            }
-          else
-            {
-              increase_ref_counter (f);
-            }
-          copy_tree_internal (f, 0);
+          {
+            ELEMENT *copy = copy_element (f);
+            if (copy)
+              {
+                KEY_PAIR *k
+                  = get_associated_info_key (new_info, key, k_ref->type);
+                k->k.element = copy;
+              }
+          }
           break;
         case extra_contents:
         case extra_directions:
@@ -192,6 +207,17 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   for (i = 0; i < current->c->contents.number; i++)
     add_to_element_contents (new,
                 copy_tree_internal (current->c->contents.list[i], new));
+
+  if (type_data[current->type].elt_info_number > 0)
+    {
+      for (i = 0; i < type_data[current->type].elt_info_number; i++)
+        if (current->elt_info[i])
+          {
+            ELEMENT *copy = copy_element (current->elt_info[i]);
+            if (copy)
+              new->elt_info[i] = copy;
+          }
+    }
   copy_associated_info (&current->c->info_info, &new->c->info_info);
   copy_associated_info (&current->extra_info, &new->extra_info);
   return new;
@@ -378,6 +404,27 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
       for (i = 0; i < current->c->contents.number; i++)
         copy_extra_info (current->c->contents.list[i], new->c->contents.list[i]);
 
+      if (type_data[current->type].elt_info_number > 0)
+        {
+          int j;
+          for (j = 0; j < type_data[current->type].elt_info_number; j++)
+            {
+              if (current->elt_info[j])
+                {
+                  ELEMENT *f = current->elt_info[j];
+                  const KEY_PAIR *k_copy;
+
+                  if (!new->elt_info[j])
+                    {
+                      ELEMENT *e = get_copy_ref (f);
+                      new->elt_info[j] = e;
+                    }
+                  k_copy = lookup_extra_by_index (f, "_copy", -1);
+                  if (k_copy)
+                    copy_extra_info (f, k_copy->k.element);
+                }
+            }
+        }
       associate_info_references (&current->c->info_info, &new->c->info_info);
 
       /* text element have _copy and _counter only in extra, not to be copied */

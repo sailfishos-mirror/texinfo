@@ -217,6 +217,23 @@ typedef struct CONTAINER {
     OUTPUT_UNIT *associated_unit;
 } CONTAINER;
 
+/* indices in ELEMENT elt_info */
+enum elt_info_type {
+  eit_spaces_after_cmd_before_arg,
+  eit_comment_at_end = 0,
+  eit_types_spaces_before_argument = 0,
+  eit_spaces_before_argument,
+  eit_types_spaces_after_argument = 1,
+  eit_spaces_after_argument,
+};
+
+/* indices in ELEMENT string_info */
+enum string_info_type {
+   sit_alias_of,
+   sit_arg_line,
+   sit_delimiter = 1,
+};
+
 typedef struct ELEMENT {
     /* Used when building Perl tree only. This should be HV *hv,
        but we don't want to include the Perl headers everywhere; */
@@ -227,6 +244,8 @@ typedef struct ELEMENT {
     struct ELEMENT *parent;
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
+    /* depends on the element */
+    char **string_info;
     SOURCE_MARK_LIST source_mark_list;
 
     ASSOCIATED_INFO extra_info;

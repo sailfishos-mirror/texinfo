@@ -639,7 +639,8 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
                             spaces_after);
 
       if (comment_at_end)
-        add_info_element_oot (node_line_arg, "comment_at_end", comment_at_end);
+        node_line_arg->elt_info[eit_comment_at_end] = comment_at_end;
+
       insert_slice_into_contents (node_line_arg, 0, node_tree, 0,
                                   node_tree->c->contents.number);
 

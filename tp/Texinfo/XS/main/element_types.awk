@@ -59,11 +59,15 @@ END {
         t = types[line_idx]
         flags_str = ""
         elt_info_number = 0;
+        # line_command: spaces_before_argument
+        # block_line_arg: spaces_before_argument
         if (t == "macro_call" || t == "rmacro_call" \
-                   || t == "brace_noarg_command" || t == "brace_command") {
+                   || t == "brace_noarg_command" || t == "brace_command" \
+                   || t == "block_command" || t == "line_command" ) {
           elt_info_number = 1;
-        } else if (t == "line_command" || t == "block_command" \
-                   || t == "brace_arg" || t == "bracketed_arg") {
+        # block_line_arg and line_arg: comment_at_end, spaces_after_argument
+        } else if (t == "brace_arg" || t == "bracketed_arg" \
+                   || t == "block_line_arg" || t == "line_arg") {
           elt_info_number = 2;
         } else if (t == "context_brace_command") {
           elt_info_number = 3;

@@ -1,3 +1,24 @@
+2024-06-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/element_types.awk: block_line_arg and line_arg
+	hold spaces_after_cmd_before_arg and comment_at_end, not the commands.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (store_info_element)
+	(element_to_perl_hash), tp/Texinfo/XS/main/convert_to_texinfo.c
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/manipulate_tree.c
+	(copy_element, copy_associated_info, copy_tree_internal)
+	(copy_extra_info), tp/Texinfo/XS/main/tree.c (new_element)
+	(destroy_element), tp/Texinfo/XS/main/tree_types.h
+	(enum elt_info_type), tp/Texinfo/XS/parsetexi/parser.c
+	(isolate_last_space),
+	tp/Texinfo/XS/structuring_transfo/transformations.c (new_node):
+	initialize, free, copy elt_info list of elements meant to replace
+	the elements in info.  Put comment_at_end in that list instead of
+	in the info structure and pass it to Perl.
+
+	* tp/Texinfo/XS/main/tree_types.h (enum string_info_type, ELEMENT):
+	prepare string information in element to replace information in info.
+
 2024-06-05  Patrice Dumas  <pertusus@free.fr>
 
 	Do not use unnamed union for KEY_PAIR in rebased code

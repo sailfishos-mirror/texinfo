@@ -76,6 +76,7 @@ Gavin and Patrice
 char *alias_of
 char *command_info_string (for arg_line or command_name or @verb delimiter)
 ELEMENT *elements[3]
+in block_command line_command
  spaces_after_cmd_before_arg (brace commands) or comment_at_end (line/block commands)
 for type brace_arg, line and block commands, BRACE_context commands
  spaces_before_argument, spaces_after_argument
