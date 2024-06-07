@@ -59,18 +59,20 @@ END {
         t = types[line_idx]
         flags_str = ""
         elt_info_number = 0;
+        # spaces_after_cmd_before_arg
+        if (type_flags[t] != "" && match(type_flags[t], /braces/)) {
+          elt_info_number = 1;
+        }
         # line_command: spaces_before_argument
-        # block_line_arg: spaces_before_argument
-        if (t == "macro_call" || t == "rmacro_call" \
-                   || t == "brace_noarg_command" || t == "brace_command" \
-                   || t == "block_command" || t == "line_command" ) {
+        # block_command: spaces_before_argument
+        if (t == "block_command" || t == "line_command" ) {
           elt_info_number = 1;
         # block_line_arg and line_arg: comment_at_end, spaces_after_argument
         } else if (t == "brace_arg" || t == "bracketed_arg" \
                    || t == "block_line_arg" || t == "line_arg") {
           elt_info_number = 2;
         } else if (t == "context_brace_command") {
-          elt_info_number = 3;
+          elt_info_number += 2;
         }
         if (type_flags[t] != "") {
             split(type_flags[t], flags_array, ",")

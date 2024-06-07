@@ -854,9 +854,8 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
             {
               ELEMENT *spaces_element = new_text_element (ET_other_text);
               text_append_n (spaces_element->text, line, p - line);
-              add_info_element_oot (macro_call_element, "spaces_after_cmd_before_arg",
-                                    spaces_element);
-
+              macro_call_element->elt_info[eit_spaces_after_cmd_before_arg]
+               = spaces_element;
             }
           line = p;
           expand_macro_arguments (macro, &line, cmd, macro_call_element);

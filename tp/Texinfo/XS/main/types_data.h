@@ -27,5 +27,6 @@ typedef struct types_struct {
 extern TYPE_DATA type_data[];
 
 #define TF_text               0x0001
+#define TF_braces             0x0002
 
 #endif

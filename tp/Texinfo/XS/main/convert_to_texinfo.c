@@ -54,7 +54,11 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
     {
       const char *cmdname = element_command_name (e);
       ADD("@");  ADD(cmdname);
-      elt = lookup_info_element (e, "spaces_after_cmd_before_arg");
+    }
+
+  if (type_data[e->type].flags & TF_braces)
+    {
+      elt = e->elt_info[eit_spaces_after_cmd_before_arg];
       if (elt)
         ADD((char *)elt->text->text);
     }

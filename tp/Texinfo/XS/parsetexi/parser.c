@@ -1097,8 +1097,8 @@ gather_spaces_after_cmd_before_arg (ELEMENT *current)
 {
   ELEMENT *spaces_element = pop_element_from_contents (current);
   spaces_element->type = ET_other_text;
-  add_info_element_oot (current, "spaces_after_cmd_before_arg",
-                        spaces_element);
+  current->elt_info[eit_spaces_after_cmd_before_arg]
+    = spaces_element;
 }
 
 static ELEMENT *
@@ -1114,8 +1114,8 @@ new_value_element (enum command_id cmd, const char *flag,
   add_to_element_args (value_elt, brace_container);
   add_to_element_contents (brace_container, value_text);
   if (spaces_element)
-    add_info_element_oot (value_elt, "spaces_after_cmd_before_arg",
-                                     spaces_element);
+    value_elt->elt_info[eit_spaces_after_cmd_before_arg]
+      = spaces_element;
   return value_elt;
 }
 

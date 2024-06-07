@@ -686,25 +686,30 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
     {
       ELEMENT *f = e->elt_info[eit_comment_at_end];
       if (f)
-        {
-          store_info_element (e, f, "info", "comment_at_end",
-                              avoid_recursion, &nr_info);
-        }
+        store_info_element (e, f, "info", "comment_at_end",
+                            avoid_recursion, &nr_info);
     }
 
   /* non-text elements */
 
-  store_additional_info (e, &e->c->info_info, "info", &nr_info,
-                         avoid_recursion);
-
   if (e->cmd)
     {
-      sv = newSVpv (element_command_name (e), 0);
-      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
-
       /* Note we could optimize the call to newSVpv here and
          elsewhere by passing an appropriate second argument. */
+      sv = newSVpv (element_command_name (e), 0);
+      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, HSH_cmdname);
     }
+
+  if (type_data[e->type].flags & TF_braces)
+    {
+      ELEMENT *f = e->elt_info[eit_spaces_after_cmd_before_arg];
+      if (f)
+        store_info_element (e, f, "info", "spaces_after_cmd_before_arg",
+                            avoid_recursion, &nr_info);
+    }
+
+  store_additional_info (e, &e->c->info_info, "info", &nr_info,
+                         avoid_recursion);
 
   if (e->c->contents.number > 0)
     {

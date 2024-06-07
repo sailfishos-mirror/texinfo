@@ -219,7 +219,7 @@ typedef struct CONTAINER {
 
 /* indices in ELEMENT elt_info */
 enum elt_info_type {
-  eit_spaces_after_cmd_before_arg,
+  eit_spaces_after_cmd_before_arg, /* types with braces flag */
   eit_comment_at_end = 0,
   eit_types_spaces_before_argument = 0,
   eit_spaces_before_argument,
