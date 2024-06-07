@@ -87,7 +87,8 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                         'text' => ' @{ ',
                         'type' => 'bracketed_linemacro_arg'
                       }
-                    ]
+                    ],
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -100,7 +101,8 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
@@ -162,7 +164,8 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                         'text' => ' @} ',
                         'type' => 'bracketed_linemacro_arg'
                       }
-                    ]
+                    ],
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -175,7 +178,8 @@ $result_trees{'arobase_brace_in_linemacro_call'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {

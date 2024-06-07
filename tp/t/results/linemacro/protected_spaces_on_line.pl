@@ -92,11 +92,7 @@ $result_trees{'protected_spaces_on_line'} = {
                         'text' => 'foo'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -109,11 +105,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'test'
+                  'command_name' => 'test',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -351,11 +351,7 @@ $result_trees{'protected_spaces_on_line'} = {
                         'text' => 'foo@ b'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -367,11 +363,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'test'
+                  'command_name' => 'test',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -634,11 +634,7 @@ $result_trees{'protected_spaces_on_line'} = {
                         'text' => 'foo'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -650,11 +646,15 @@ $result_trees{'protected_spaces_on_line'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'test'
+                  'command_name' => 'test',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

@@ -95,7 +95,8 @@ $result_trees{'spaces_in_call'} = {
                       {
                         'text' => '{a b}{c d}{rest}'
                       }
-                    ]
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {

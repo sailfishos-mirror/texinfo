@@ -76,10 +76,12 @@ Gavin and Patrice
 char *alias_of
 char *command_info_string (for arg_line or command_name or @verb delimiter)
 ELEMENT *elements[3]
-in block_command line_command
- spaces_after_cmd_before_arg (brace commands) or comment_at_end (line/block commands)
+ spaces_after_cmd_before_arg (brace commands) or comment_at_end (line/block commands args)
 for type brace_arg, line and block commands, BRACE_context commands
- spaces_before_argument, spaces_after_argument
+   bracketed_arg line_arg (after comma or in linemacro_call) ET_linemacro_call
+ spaces_before_argument
+line/block commands args brace_arg
+ spaces_after_argument
 
 3) make building "source marks" optional.
   With 8 byte pointers and integers, the 24 byte section of ELEMENT relating

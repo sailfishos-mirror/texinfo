@@ -109,11 +109,7 @@ $result_trees{'last_argument_with_braces'} = {
                                 'type' => 'bracketed_linemacro_arg'
                               }
                             ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            }
+                            'type' => 'line_arg'
                           },
                           {
                             'contents' => [
@@ -125,11 +121,15 @@ $result_trees{'last_argument_with_braces'} = {
                               'spaces_before_argument' => {
                                 'text' => ' '
                               }
-                            }
+                            },
+                            'type' => 'line_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'defbuiltin'
+                          'command_name' => 'defbuiltin',
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -421,11 +421,7 @@ $result_trees{'last_argument_with_braces'} = {
                                 'type' => 'bracketed_linemacro_arg'
                               }
                             ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            }
+                            'type' => 'line_arg'
                           },
                           {
                             'contents' => [
@@ -437,11 +433,15 @@ $result_trees{'last_argument_with_braces'} = {
                               'spaces_before_argument' => {
                                 'text' => ' '
                               }
-                            }
+                            },
+                            'type' => 'line_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'defbuiltin'
+                          'command_name' => 'defbuiltin',
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -684,11 +684,7 @@ $result_trees{'last_argument_with_braces'} = {
                                 'type' => 'bracketed_linemacro_arg'
                               }
                             ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            }
+                            'type' => 'line_arg'
                           },
                           {
                             'contents' => [
@@ -700,11 +696,15 @@ $result_trees{'last_argument_with_braces'} = {
                               'spaces_before_argument' => {
                                 'text' => ' '
                               }
-                            }
+                            },
+                            'type' => 'line_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'defbuiltin'
+                          'command_name' => 'defbuiltin',
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
                         },
                         'type' => 'linemacro_call'
                       },

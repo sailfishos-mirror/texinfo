@@ -89,15 +89,17 @@ $result_trees{'ifset_in_macro_set'} = {
 '
                       }
                     ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '
+'
+                      }
+                    },
                     'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'note',
-                  'spaces_before_argument' => {
-                    'text' => '
-'
-                  }
+                  'command_name' => 'note'
                 },
                 'type' => 'macro_call'
               },

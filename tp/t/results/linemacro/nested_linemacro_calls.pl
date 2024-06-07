@@ -179,11 +179,7 @@ $result_trees{'nested_linemacro_calls'} = {
                                 'type' => 'bracketed_linemacro_arg'
                               }
                             ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            }
+                            'type' => 'line_arg'
                           },
                           {
                             'contents' => [
@@ -196,7 +192,8 @@ $result_trees{'nested_linemacro_calls'} = {
                               'spaces_before_argument' => {
                                 'text' => ' '
                               }
-                            }
+                            },
+                            'type' => 'line_arg'
                           },
                           {
                             'contents' => [
@@ -208,11 +205,15 @@ $result_trees{'nested_linemacro_calls'} = {
                               'spaces_before_argument' => {
                                 'text' => ' '
                               }
-                            }
+                            },
+                            'type' => 'line_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'outside'
+                          'command_name' => 'outside',
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
                         },
                         'type' => 'linemacro_call'
                       },
@@ -263,11 +264,7 @@ $result_trees{'nested_linemacro_calls'} = {
                                             'type' => 'bracketed_linemacro_arg'
                                           }
                                         ],
-                                        'info' => {
-                                          'spaces_before_argument' => {
-                                            'text' => ' '
-                                          }
-                                        }
+                                        'type' => 'line_arg'
                                       },
                                       {
                                         'contents' => [
@@ -279,11 +276,15 @@ $result_trees{'nested_linemacro_calls'} = {
                                           'spaces_before_argument' => {
                                             'text' => ' '
                                           }
-                                        }
+                                        },
+                                        'type' => 'line_arg'
                                       }
                                     ],
                                     'info' => {
-                                      'command_name' => 'inside'
+                                      'command_name' => 'inside',
+                                      'spaces_before_argument' => {
+                                        'text' => ' '
+                                      }
                                     },
                                     'type' => 'linemacro_call'
                                   },
@@ -461,11 +462,7 @@ $result_trees{'nested_linemacro_calls'} = {
                                     'type' => 'bracketed_linemacro_arg'
                                   }
                                 ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                }
+                                'type' => 'line_arg'
                               },
                               {
                                 'contents' => [
@@ -486,11 +483,15 @@ $result_trees{'nested_linemacro_calls'} = {
                                   'spaces_before_argument' => {
                                     'text' => ' '
                                   }
-                                }
+                                },
+                                'type' => 'line_arg'
                               }
                             ],
                             'info' => {
-                              'command_name' => 'inside'
+                              'command_name' => 'inside',
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
                             },
                             'type' => 'linemacro_call'
                           },

@@ -95,15 +95,17 @@ $result_trees{'cpp_directives_in_macro'} = {
 '
                           }
                         ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => '
+'
+                          }
+                        },
                         'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
-                      'command_name' => 'simplemacro',
-                      'spaces_before_argument' => {
-                        'text' => '
-'
-                      }
+                      'command_name' => 'simplemacro'
                     },
                     'type' => 'macro_call'
                   },

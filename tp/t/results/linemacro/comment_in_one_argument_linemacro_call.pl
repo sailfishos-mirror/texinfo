@@ -78,15 +78,14 @@ $result_trees{'comment_in_one_argument_linemacro_call'} = {
                         'text' => '@code{something @comment in} out'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

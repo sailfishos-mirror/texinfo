@@ -97,11 +97,7 @@ $result_trees{'spaces_in_args'} = {
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -114,7 +110,8 @@ $result_trees{'spaces_in_args'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -127,11 +124,15 @@ $result_trees{'spaces_in_args'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'mylinecommand'
+                  'command_name' => 'mylinecommand',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

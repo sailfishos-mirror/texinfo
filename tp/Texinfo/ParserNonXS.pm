@@ -2662,8 +2662,8 @@ sub _expand_macro_arguments($$$$$)
 
   $line =~ s/^{(\s*)//;
   if ($1 ne '') {
-    $current->{'info'} = {} if (!$current->{'info'});
-    $current->{'info'}->{'spaces_before_argument'} = {'text' => $1};
+    $argument->{'info'} = {} if (!$current->{'info'});
+    $argument->{'info'}->{'spaces_before_argument'} = {'text' => $1};
   }
 
   while (1) {
@@ -2755,7 +2755,8 @@ sub _expand_linemacro_arguments($$$$$)
   my ($self, $macro, $line, $source_info, $current) = @_;
 
   my $braces_level = 0;
-  my $argument = {'contents' => [],
+  my $argument = {'type' => 'line_arg',
+                  'contents' => [],
                   'parent' => $current};
   push @{$current->{'args'}}, $argument;
   my $argument_content = {'text' => '',
@@ -2763,8 +2764,8 @@ sub _expand_linemacro_arguments($$$$$)
   push @{$argument->{'contents'}}, $argument_content;
   # based on whitespace_chars_except_newline in XS parser
   if ($line =~ s/^([ \t\cK\f]+)//) {
-    $argument->{'info'}
-      = {'spaces_before_argument' => {'text' => $1}};
+    $current->{'info'} = {} if (!$current->{'info'});
+    $current->{'info'}->{'spaces_before_argument'} = {'text' => $1};
   }
   my $args_total = scalar(@{$macro->{'args'}}) -1;
   my $name = $macro->{'args'}->[0]->{'text'};
@@ -2813,7 +2814,8 @@ sub _expand_linemacro_arguments($$$$$)
             or scalar(@{$current->{'args'}}) >= $args_total) {
           $argument_content->{'text'} .= $separator;
         } else {
-          $argument = {'contents' => [],
+          $argument = {'type' => 'line_arg',
+                       'contents' => [],
                        'parent' => $current};
           push @{$current->{'args'}}, $argument;
           $argument_content = {'text' => '',

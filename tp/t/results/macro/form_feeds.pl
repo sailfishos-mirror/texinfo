@@ -144,6 +144,11 @@ $result_trees{'form_feeds'} = {
                         'text' => 'arg1'
                       }
                     ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '  '
+                      }
+                    },
                     'type' => 'brace_arg'
                   },
                   {
@@ -164,9 +169,6 @@ $result_trees{'form_feeds'} = {
                   'command_name' => 'mymacro',
                   'spaces_after_cmd_before_arg' => {
                     'text' => '  '
-                  },
-                  'spaces_before_argument' => {
-                    'text' => '  '
                   }
                 },
                 'type' => 'macro_call'

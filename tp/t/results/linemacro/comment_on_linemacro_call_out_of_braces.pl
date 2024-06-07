@@ -97,11 +97,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -113,11 +109,15 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -175,7 +175,8 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                       {
                         'text' => ''
                       }
-                    ]
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
@@ -240,11 +241,7 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -256,7 +253,8 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -268,11 +266,15 @@ $result_trees{'comment_on_linemacro_call_out_of_braces'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

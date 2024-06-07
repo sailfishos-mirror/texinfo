@@ -316,7 +316,6 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   ELEMENT *argument_content = new_text_element (ET_other_text);
 
   add_to_element_args (current, argument);
-  text_append_n (argument_content->text, "", 0);
   add_to_element_contents (argument, argument_content);
   arg = argument_content->text;
 
@@ -329,7 +328,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
     {
       ELEMENT *spaces_element = new_text_element (ET_other_text);
       text_append_n (spaces_element->text, pline, whitespaces_len);
-      add_info_element_oot (current, "spaces_before_argument",
+      add_info_element_oot (argument, "spaces_before_argument",
                             spaces_element);
       pline += whitespaces_len;
     }
@@ -466,8 +465,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   int args_total;
   int spaces_nr;
   int i;
-  /* FIXME add a type with spaces_before_argument */
-  ELEMENT *argument = new_element (ET_NONE);
+  ELEMENT *argument = new_element (ET_line_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
   counter_reset (&count_toplevel_braces, 0);
   counter_push (&count_toplevel_braces, argument_content, 0);
@@ -481,7 +479,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
     {
       ELEMENT *spaces_element = new_text_element (ET_other_text);
       text_append_n (spaces_element->text, line, spaces_nr);
-      add_info_element_oot (argument, "spaces_before_argument",
+      add_info_element_oot (current, "spaces_before_argument",
                             spaces_element);
 
       pline += spaces_nr;
@@ -604,7 +602,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               set_toplevel_braces_nr (&count_toplevel_braces,
                                       argument_content);
 
-              argument = new_element (ET_NONE);
+              argument = new_element (ET_line_arg);
               argument_content = new_text_element (ET_other_text);
               counter_push (&count_toplevel_braces, argument_content, 0);
 

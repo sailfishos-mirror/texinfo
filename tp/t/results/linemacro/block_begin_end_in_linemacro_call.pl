@@ -82,15 +82,14 @@ in quotation
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -233,15 +232,14 @@ in quotation
                             'type' => 'bracketed_linemacro_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        }
+                        'type' => 'line_arg'
                       }
                     ],
                     'info' => {
-                      'command_name' => 'lm'
+                      'command_name' => 'lm',
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'linemacro_call'
                   },
@@ -341,15 +339,14 @@ in quotation
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -477,15 +474,14 @@ ignored ',
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -596,15 +592,14 @@ args \\e\\|\\f\\|
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -895,15 +890,14 @@ args \\e\\|\\f\\|
                                 'text' => '{arg1} {arg2}'
                               }
                             ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            }
+                            'type' => 'line_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'lm'
+                          'command_name' => 'lm',
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
                         },
                         'type' => 'linemacro_call'
                       },

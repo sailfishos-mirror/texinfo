@@ -88,15 +88,14 @@ $result_trees{'verb_not_closed'} = {
 '
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'mycommand'
+                  'command_name' => 'mycommand',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

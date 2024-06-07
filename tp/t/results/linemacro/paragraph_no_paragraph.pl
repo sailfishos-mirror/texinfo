@@ -94,11 +94,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                         'text' => '@anchor{aa}'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -110,7 +106,8 @@ $result_trees{'paragraph_no_paragraph'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -122,11 +119,15 @@ $result_trees{'paragraph_no_paragraph'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'mycommand'
+                  'command_name' => 'mycommand',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -215,11 +216,7 @@ $result_trees{'paragraph_no_paragraph'} = {
                             'type' => 'bracketed_linemacro_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        }
+                        'type' => 'line_arg'
                       },
                       {
                         'contents' => [
@@ -231,7 +228,8 @@ $result_trees{'paragraph_no_paragraph'} = {
                           'spaces_before_argument' => {
                             'text' => ' '
                           }
-                        }
+                        },
+                        'type' => 'line_arg'
                       },
                       {
                         'contents' => [
@@ -244,11 +242,15 @@ $result_trees{'paragraph_no_paragraph'} = {
                           'spaces_before_argument' => {
                             'text' => ' '
                           }
-                        }
+                        },
+                        'type' => 'line_arg'
                       }
                     ],
                     'info' => {
-                      'command_name' => 'mycommand'
+                      'command_name' => 'mycommand',
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'linemacro_call'
                   },

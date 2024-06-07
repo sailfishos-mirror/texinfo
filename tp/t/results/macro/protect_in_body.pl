@@ -89,6 +89,11 @@ $result_trees{'protect_in_body'} = {
                             'text' => '@samp{f\\irst arg}'
                           }
                         ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
                         'type' => 'brace_arg'
                       },
                       {
@@ -108,9 +113,6 @@ $result_trees{'protect_in_body'} = {
                     'info' => {
                       'command_name' => 'macroone',
                       'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      },
-                      'spaces_before_argument' => {
                         'text' => ' '
                       }
                     },

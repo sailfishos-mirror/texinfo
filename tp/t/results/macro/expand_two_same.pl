@@ -87,15 +87,17 @@ arg}
 '
                           }
                         ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
                         'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
                       'command_name' => 'macrotwo',
                       'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      },
-                      'spaces_before_argument' => {
                         'text' => ' '
                       }
                     },
@@ -200,15 +202,17 @@ arg}
                             'text' => 'arg with comma , here '
                           }
                         ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
                         'type' => 'brace_arg'
                       }
                     ],
                     'info' => {
                       'command_name' => 'macrotwo',
                       'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      },
-                      'spaces_before_argument' => {
                         'text' => ' '
                       }
                     },

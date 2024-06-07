@@ -88,11 +88,7 @@ $result_trees{'recursive_linemacro_in_body'} = {
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -104,11 +100,15 @@ $result_trees{'recursive_linemacro_in_body'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'anorecurse'
+                  'command_name' => 'anorecurse',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

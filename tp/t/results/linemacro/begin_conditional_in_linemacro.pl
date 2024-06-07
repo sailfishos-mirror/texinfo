@@ -80,15 +80,14 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -204,15 +203,14 @@ $result_trees{'begin_conditional_in_linemacro'} = {
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'lm'
+                  'command_name' => 'lm',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

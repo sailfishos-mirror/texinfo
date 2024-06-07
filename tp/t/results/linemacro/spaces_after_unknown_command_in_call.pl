@@ -96,11 +96,7 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                         'text' => '@abc'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -113,7 +109,8 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   },
                   {
                     'contents' => [
@@ -125,11 +122,15 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
                       'spaces_before_argument' => {
                         'text' => ' '
                       }
-                    }
+                    },
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'mylinecommand'
+                  'command_name' => 'mylinecommand',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

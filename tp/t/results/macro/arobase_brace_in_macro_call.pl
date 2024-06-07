@@ -87,14 +87,16 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                         'text' => '@{ , @} '
                       }
                     ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
                     'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'simplemac',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
+                  'command_name' => 'simplemac'
                 },
                 'type' => 'macro_call'
               },
@@ -152,14 +154,16 @@ $result_trees{'arobase_brace_in_macro_call'} = {
                         'text' => '@'
                       }
                     ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
                     'type' => 'brace_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'simplemac',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
+                  'command_name' => 'simplemac'
                 },
                 'type' => 'macro_call'
               },

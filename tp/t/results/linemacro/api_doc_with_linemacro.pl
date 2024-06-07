@@ -513,11 +513,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                         'text' => 'a'
                                       }
                                     ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    }
+                                    'type' => 'line_arg'
                                   },
                                   {
                                     'contents' => [
@@ -529,11 +525,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'spaces_before_argument' => {
                                         'text' => ' '
                                       }
-                                    }
+                                    },
+                                    'type' => 'line_arg'
                                   }
                                 ],
                                 'info' => {
-                                  'command_name' => 'param'
+                                  'command_name' => 'param',
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -683,11 +683,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                         'text' => 'n'
                                       }
                                     ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    }
+                                    'type' => 'line_arg'
                                   },
                                   {
                                     'contents' => [
@@ -699,11 +695,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'spaces_before_argument' => {
                                         'text' => ' '
                                       }
-                                    }
+                                    },
+                                    'type' => 'line_arg'
                                   }
                                 ],
                                 'info' => {
-                                  'command_name' => 'param'
+                                  'command_name' => 'param',
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -879,11 +879,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                         'text' => 'axis'
                                       }
                                     ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    }
+                                    'type' => 'line_arg'
                                   },
                                   {
                                     'contents' => [
@@ -895,11 +891,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'spaces_before_argument' => {
                                         'text' => ' '
                                       }
-                                    }
+                                    },
+                                    'type' => 'line_arg'
                                   }
                                 ],
                                 'info' => {
-                                  'command_name' => 'param'
+                                  'command_name' => 'param',
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -1052,11 +1052,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                                         'text' => 'out'
                                       }
                                     ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    }
+                                    'type' => 'line_arg'
                                   },
                                   {
                                     'contents' => [
@@ -1068,11 +1064,15 @@ $result_trees{'api_doc_with_linemacro'} = {
                                       'spaces_before_argument' => {
                                         'text' => ' '
                                       }
-                                    }
+                                    },
+                                    'type' => 'line_arg'
                                   }
                                 ],
                                 'info' => {
-                                  'command_name' => 'returns'
+                                  'command_name' => 'returns',
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
                                 },
                                 'type' => 'linemacro_call'
                               },
@@ -1229,15 +1229,14 @@ $result_trees{'api_doc_with_linemacro'} = {
                                         'text' => 'IndexError'
                                       }
                                     ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    }
+                                    'type' => 'line_arg'
                                   }
                                 ],
                                 'info' => {
-                                  'command_name' => 'raises'
+                                  'command_name' => 'raises',
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
                                 },
                                 'type' => 'linemacro_call'
                               },

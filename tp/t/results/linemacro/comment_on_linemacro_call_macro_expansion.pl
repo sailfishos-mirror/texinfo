@@ -154,6 +154,12 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                         'text' => '@lm {a} @c in comment'
                       }
                     ],
+                    'info' => {
+                      'spaces_before_argument' => {
+                        'text' => '
+'
+                      }
+                    },
                     'type' => 'brace_arg'
                   }
                 ],
@@ -161,10 +167,6 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                   'command_name' => 'mymacro',
                   'spaces_after_cmd_before_arg' => {
                     'text' => ' '
-                  },
-                  'spaces_before_argument' => {
-                    'text' => '
-'
                   }
                 },
                 'type' => 'macro_call'
@@ -193,11 +195,7 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                             'type' => 'bracketed_linemacro_arg'
                           }
                         ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        }
+                        'type' => 'line_arg'
                       },
                       {
                         'contents' => [
@@ -209,11 +207,15 @@ $result_trees{'comment_on_linemacro_call_macro_expansion'} = {
                           'spaces_before_argument' => {
                             'text' => ' '
                           }
-                        }
+                        },
+                        'type' => 'line_arg'
                       }
                     ],
                     'info' => {
-                      'command_name' => 'lm'
+                      'command_name' => 'lm',
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
                     },
                     'type' => 'linemacro_call'
                   },

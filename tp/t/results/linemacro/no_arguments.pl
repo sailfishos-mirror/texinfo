@@ -73,7 +73,8 @@ $result_trees{'no_arguments'} = {
                       {
                         'text' => ''
                       }
-                    ]
+                    ],
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
@@ -119,15 +120,14 @@ $result_trees{'no_arguments'} = {
                         'text' => 'A B'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'noarg'
+                  'command_name' => 'noarg',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },
@@ -170,15 +170,14 @@ $result_trees{'no_arguments'} = {
                         'type' => 'bracketed_linemacro_arg'
                       }
                     ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    }
+                    'type' => 'line_arg'
                   }
                 ],
                 'info' => {
-                  'command_name' => 'noarg'
+                  'command_name' => 'noarg',
+                  'spaces_before_argument' => {
+                    'text' => ' '
+                  }
                 },
                 'type' => 'linemacro_call'
               },

@@ -107,11 +107,7 @@ $result_trees{'braces_after_text'} = {
                                 'text' => 'text{in paren}'
                               }
                             ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            }
+                            'type' => 'line_arg'
                           },
                           {
                             'contents' => [
@@ -123,7 +119,8 @@ $result_trees{'braces_after_text'} = {
                               'spaces_before_argument' => {
                                 'text' => ' '
                               }
-                            }
+                            },
+                            'type' => 'line_arg'
                           },
                           {
                             'contents' => [
@@ -136,11 +133,15 @@ $result_trees{'braces_after_text'} = {
                               'spaces_before_argument' => {
                                 'text' => ' '
                               }
-                            }
+                            },
+                            'type' => 'line_arg'
                           }
                         ],
                         'info' => {
-                          'command_name' => 'mymacro'
+                          'command_name' => 'mymacro',
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
                         },
                         'type' => 'linemacro_call'
                       },
