@@ -135,6 +135,8 @@ elided_brace_command_arg
 # for macro expansion source marks
 macro_call                                braces
 rmacro_call                               braces
+macro_call_line                           spaces_before
+rmacro_call_line                          spaces_before
 linemacro_call                            spaces_before
 
 bracketed_linemacro_arg                    text

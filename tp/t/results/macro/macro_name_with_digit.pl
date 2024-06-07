@@ -145,7 +145,7 @@ $result_trees{'macro_name_with_digit'} = {
                     'text' => ' '
                   }
                 },
-                'type' => 'macro_call'
+                'type' => 'macro_call_line'
               },
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',

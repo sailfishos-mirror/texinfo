@@ -593,7 +593,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                     'text' => ' '
                   }
                 },
-                'type' => 'macro_call'
+                'type' => 'macro_call_line'
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'
@@ -771,7 +771,7 @@ $result_trees{'macro_alias_definfoenclose_defindex'} = {
                     'text' => ' '
                   }
                 },
-                'type' => 'macro_call'
+                'type' => 'macro_call_line'
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'

@@ -273,7 +273,7 @@ $result_trees{'macro_in_macro_arg'} = {
                     'info' => {
                       'command_name' => 'macrotwo'
                     },
-                    'type' => 'macro_call'
+                    'type' => 'macro_call_line'
                   },
                   'position' => 3,
                   'sourcemark_type' => 'macro_expansion',

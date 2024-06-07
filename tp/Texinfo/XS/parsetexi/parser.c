@@ -857,7 +857,11 @@ abort_empty_line (ELEMENT **current_inout)
           owning_element = internal_space_holder;
           e->type = ET_other_text;
           e->parent = 0;
-          add_info_element_oot (owning_element, "spaces_before_argument", e);
+          if (owning_element->type != ET_context_brace_command)
+            owning_element->elt_info[eit_spaces_before_argument] = e;
+          else
+            owning_element->elt_info[eit_brace_content_spaces_before_argument]
+               = e;
           internal_space_holder = 0;
         }
     }

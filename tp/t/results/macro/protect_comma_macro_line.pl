@@ -102,7 +102,7 @@ $result_trees{'protect_comma_macro_line'} = {
                     'text' => '  '
                   }
                 },
-                'type' => 'macro_call'
+                'type' => 'macro_call_line'
               },
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',

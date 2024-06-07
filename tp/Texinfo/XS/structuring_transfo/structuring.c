@@ -62,7 +62,7 @@ new_block_command (ELEMENT *element)
 
   add_extra_string_dup (end, "text_arg", command_name);
   text_append (end_spaces_before->text, " ");
-  add_info_element_oot (end, "spaces_before_argument", end_spaces_before);
+  end->elt_info[eit_spaces_before_argument] = end_spaces_before;
 
   text_append (end_spaces_after->text, "\n");
   add_info_element_oot (end_args, "spaces_after_argument", end_spaces_after);

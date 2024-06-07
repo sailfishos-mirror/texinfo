@@ -79,7 +79,7 @@ $result_trees{'macro_one_arg_end_of_file'} = {
                 'info' => {
                   'command_name' => 'onearg'
                 },
-                'type' => 'macro_call'
+                'type' => 'macro_call_line'
               },
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',

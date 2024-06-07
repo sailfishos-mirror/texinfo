@@ -708,6 +708,19 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                             avoid_recursion, &nr_info);
     }
 
+  if (type_data[e->type].flags & TF_spaces_before)
+    {
+      ELEMENT *f;
+      if (e->type != ET_context_brace_command)
+        f = e->elt_info[eit_spaces_before_argument];
+      else
+        f = e->elt_info[eit_brace_content_spaces_before_argument];
+
+      if (f)
+        store_info_element (e, f, "info", "spaces_before_argument",
+                            avoid_recursion, &nr_info);
+    }
+
   store_additional_info (e, &e->c->info_info, "info", &nr_info,
                          avoid_recursion);
 

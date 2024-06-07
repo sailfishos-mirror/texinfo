@@ -5091,10 +5091,6 @@ sub _handle_macro($$$$$)
 
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
 
-  my $macro_call_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
-                            'info' => {'command_name' => $command},
-                            'args' => []};
-
   # It is important to check for expansion before the expansion and
   # not after, as during the expansion, the text may go past the
   # call.  In particular for user defined linemacro which generally
@@ -5128,6 +5124,11 @@ sub _handle_macro($$$$$)
     }
   }
 
+  my $macro_call_element = {'type' => $expanded_macro->{'cmdname'}.'_call',
+                            'info' => {'command_name' => $command},
+                            'args' => []};
+
+
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
     ($line, $source_info)
      = _expand_linemacro_arguments($self, $expanded_macro, $line, $source_info,
@@ -5152,6 +5153,7 @@ sub _handle_macro($$$$$)
                                 $command), $source_info)
          if ($args_number >= 2);
     } else {
+      $macro_call_element->{'type'} = $expanded_macro->{'cmdname'}.'_call_line';
       my $arg_elt = {'type' => 'line_arg',
                      'parent' => $macro_call_element};
       push @{$macro_call_element->{'args'}}, $arg_elt;
@@ -8733,14 +8735,19 @@ container.
 
 =item macro_call
 
+=item macro_call_line
+
 =item rmacro_call
+
+=item rmacro_call_line
 
 =item linemacro_call
 
 Container holding the arguments of a user defined macro, linemacro
 or rmacro.  It should not appear directly in the tree as the user defined
-call is expanded.  The name of the macro, rmacro or linemacro is the
-the info I<command_name> value.
+call is expanded.  The name of the macro, rmacro or linemacro is the the info
+I<command_name> value.  The I<macro_call_line> or I<rmacro_call_line> elements
+are used when there are no braces and the whole line is the argument.
 
 =item macro_name
 

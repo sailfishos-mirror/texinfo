@@ -88,6 +88,8 @@ TYPE_DATA type_data[] = {
 "elided_brace_command_arg", 0, 0,
 "macro_call", TF_braces, 1,
 "rmacro_call", TF_braces, 1,
+"macro_call_line", TF_spaces_before, 1,
+"rmacro_call_line", TF_spaces_before, 1,
 "linemacro_call", TF_spaces_before, 1,
 "bracketed_linemacro_arg", TF_text, 0,
 "text", 0, 0,

@@ -255,8 +255,8 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
 
 
               text_append (spaces_before_argument->text, " ");
-              add_info_element_oot (new_section, "spaces_before_argument",
-                                    spaces_before_argument);
+              new_section->elt_info[eit_spaces_before_argument]
+                             = spaces_before_argument;
               text_append (spaces_after_argument->text, "\n");
 
               add_info_element_oot (line_arg, "spaces_after_argument",
@@ -634,7 +634,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       add_to_element_args (node, node_line_arg);
       text_append (spaces_before->text, " ");
       text_append (spaces_after->text, spaces_after_argument.text);
-      add_info_element_oot (node, "spaces_before_argument", spaces_before);
+      node->elt_info[eit_spaces_before_argument] = spaces_before;
       add_info_element_oot (node_line_arg, "spaces_after_argument",
                             spaces_after);
 

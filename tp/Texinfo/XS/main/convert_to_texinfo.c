@@ -65,7 +65,12 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
     }
 
   if (type_data[e->type].flags & TF_spaces_before)
-    spc_before_arg = lookup_info_element (e, "spaces_before_argument");
+    {
+      if (e->type != ET_context_brace_command)
+        spc_before_arg = e->elt_info[eit_spaces_before_argument];
+      else
+        spc_before_arg = e->elt_info[eit_brace_content_spaces_before_argument];
+    }
 
   arg_line = lookup_info_string (e, "arg_line");
   if (arg_line)
@@ -161,7 +166,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
             ADD("{");
           if (type_data[e->type].flags & TF_spaces_before)
             {
-              elt = lookup_info_element (e, "spaces_before_argument");
+              elt = e->elt_info[eit_spaces_before_argument];
               if (elt)
                 ADD((char *)elt->text->text);
             }

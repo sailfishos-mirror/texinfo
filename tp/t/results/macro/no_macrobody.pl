@@ -87,7 +87,7 @@ $result_trees{'no_macrobody'} = {
                     'text' => ' '
                   }
                 },
-                'type' => 'macro_call'
+                'type' => 'macro_call_line'
               },
               'sourcemark_type' => 'macro_expansion',
               'status' => 'start'

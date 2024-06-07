@@ -328,7 +328,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
                                     'info' => {
                                       'command_name' => 'mymac'
                                     },
-                                    'type' => 'macro_call'
+                                    'type' => 'macro_call_line'
                                   },
                                   'sourcemark_type' => 'macro_expansion',
                                   'status' => 'start'

@@ -236,7 +236,7 @@ $result_trees{'form_feeds'} = {
                     'text' => '   '
                   }
                 },
-                'type' => 'macro_call'
+                'type' => 'macro_call_line'
               },
               'position' => 1,
               'sourcemark_type' => 'macro_expansion',

@@ -328,8 +328,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
     {
       ELEMENT *spaces_element = new_text_element (ET_other_text);
       text_append_n (spaces_element->text, pline, whitespaces_len);
-      add_info_element_oot (argument, "spaces_before_argument",
-                            spaces_element);
+      argument->elt_info[eit_spaces_before_argument] = spaces_element;
       pline += whitespaces_len;
     }
 
@@ -411,8 +410,8 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                     {
                       ELEMENT *spaces_element = new_text_element (ET_other_text);
                       text_append_n (spaces_element->text, p, pline - p);
-                      add_info_element_oot (argument, "spaces_before_argument",
-                                            spaces_element);
+                      argument->elt_info[eit_spaces_before_argument]
+                              = spaces_element;
                     }
                   debug ("MACRO NEW ARG");
                 }
@@ -479,8 +478,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
     {
       ELEMENT *spaces_element = new_text_element (ET_other_text);
       text_append_n (spaces_element->text, line, spaces_nr);
-      add_info_element_oot (current, "spaces_before_argument",
-                            spaces_element);
+      current->elt_info[eit_spaces_before_argument] = spaces_element;
 
       pline += spaces_nr;
     }
@@ -612,8 +610,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
 
               text_append_n (spaces_element->text, pline,
                              whitespaces_len);
-              add_info_element_oot (argument, "spaces_before_argument",
-                                    spaces_element);
+              argument->elt_info[eit_spaces_before_argument] = spaces_element;
               debug ("LINEMACRO NEW ARG");
             }
           pline += whitespaces_len;
@@ -840,14 +837,14 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
     {
       /* Get number of args. - 1 for the macro name. */
       args_number = macro->c->args.number - 1;
-      if (macro->cmd == CM_macro)
-        macro_call_element = new_element (ET_macro_call);
-      else if (macro->cmd == CM_rmacro)
-        macro_call_element = new_element (ET_rmacro_call);
 
       p = line + strspn (line, whitespace_chars);
       if (*p == '{')
         {
+          if (macro->cmd == CM_macro)
+            macro_call_element = new_element (ET_macro_call);
+          else if (macro->cmd == CM_rmacro)
+            macro_call_element = new_element (ET_rmacro_call);
           if (p - line > 0)
             {
               ELEMENT *spaces_element = new_text_element (ET_other_text);
@@ -867,10 +864,19 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                        "be invoked with {}", command_name(cmd));
           /* As agreed on the bug-texinfo mailing list, no warn when zero
              arg and not called with {}. */
+
+          if (macro->cmd == CM_macro)
+            macro_call_element = new_element (ET_macro_call);
+          else if (macro->cmd == CM_rmacro)
+            macro_call_element = new_element (ET_rmacro_call);
         }
       else
         {
           ELEMENT *arg_elt = new_element (ET_line_arg);
+          if (macro->cmd == CM_macro)
+            macro_call_element = new_element (ET_macro_call_line);
+          else if (macro->cmd == CM_rmacro)
+            macro_call_element = new_element (ET_rmacro_call_line);
           add_to_element_args (macro_call_element, arg_elt);
 
           while (1)
