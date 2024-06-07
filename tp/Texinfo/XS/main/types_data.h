@@ -28,5 +28,7 @@ extern TYPE_DATA type_data[];
 
 #define TF_text               0x0001
 #define TF_braces             0x0002
+#define TF_spaces_before      0x0004
+#define TF_spaces_after       0x0008
 
 #endif

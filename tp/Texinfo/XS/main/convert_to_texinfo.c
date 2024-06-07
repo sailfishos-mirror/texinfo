@@ -48,7 +48,8 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 {
   enum command_id cmd = element_builtin_cmd (e);
   char *arg_line;
-  ELEMENT *elt, *spc_before_arg;
+  ELEMENT *elt;
+  ELEMENT *spc_before_arg = 0;
 
   if (cmd)
     {
@@ -63,7 +64,8 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
         ADD((char *)elt->text->text);
     }
 
-  spc_before_arg = lookup_info_element (e, "spaces_before_argument");
+  if (type_data[e->type].flags & TF_spaces_before)
+    spc_before_arg = lookup_info_element (e, "spaces_before_argument");
 
   arg_line = lookup_info_string (e, "arg_line");
   if (arg_line)
@@ -157,10 +159,11 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
           if (e->type == ET_bracketed_arg
               || e->type == ET_bracketed_linemacro_arg)
             ADD("{");
-          elt = lookup_info_element (e, "spaces_before_argument");
-          if (elt)
+          if (type_data[e->type].flags & TF_spaces_before)
             {
-              ADD((char *)elt->text->text);
+              elt = lookup_info_element (e, "spaces_before_argument");
+              if (elt)
+                ADD((char *)elt->text->text);
             }
         }
       if (e->c->contents.number > 0)
@@ -170,10 +173,11 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
             convert_to_texinfo_internal (e->c->contents.list[i], result);
         }
 
-      elt = lookup_info_element (e, "spaces_after_argument");
-      if (elt)
+      if (type_data[e->type].flags & TF_spaces_after)
         {
-          ADD((char *)elt->text->text);
+          elt = lookup_info_element (e, "spaces_after_argument");
+          if (elt)
+            ADD((char *)elt->text->text);
         }
 
       if (e->type == ET_block_line_arg || e->type == ET_line_arg)

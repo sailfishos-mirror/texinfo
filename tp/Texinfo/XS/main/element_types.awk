@@ -63,16 +63,16 @@ END {
         if (type_flags[t] != "" && match(type_flags[t], /braces/)) {
           elt_info_number = 1;
         }
-        # line_command: spaces_before_argument
-        # block_command: spaces_before_argument
-        if (t == "block_command" || t == "line_command" ) {
-          elt_info_number = 1;
-        # block_line_arg and line_arg: comment_at_end, spaces_after_argument
-        } else if (t == "brace_arg" || t == "bracketed_arg" \
-                   || t == "block_line_arg" || t == "line_arg") {
-          elt_info_number = 2;
-        } else if (t == "context_brace_command") {
-          elt_info_number += 2;
+        if (type_flags[t] != "" && match(type_flags[t], /spaces_before/)) {
+          elt_info_number += 1;
+        }
+        # spaces_after_argument
+        if (type_flags[t] != "" && match(type_flags[t], /spaces_after/)) {
+          elt_info_number += 1;
+        }
+        # comment_at_end
+        if (t == "block_line_arg" || t == "line_arg") {
+          elt_info_number += 1;
         }
         if (type_flags[t] != "") {
             split(type_flags[t], flags_array, ",")

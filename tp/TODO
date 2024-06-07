@@ -76,11 +76,14 @@ Gavin and Patrice
 char *alias_of
 char *command_info_string (for arg_line or command_name or @verb delimiter)
 ELEMENT *elements[3]
- spaces_after_cmd_before_arg (brace commands) or comment_at_end (line/block commands args)
-for type brace_arg, line and block commands, BRACE_context commands
-   bracketed_arg line_arg (after comma or in linemacro_call) ET_linemacro_call
+brace commands
+ spaces_after_cmd_before_arg
+line/block commands args
+ comment_at_end
+for type brace_arg, line (not lineraw) and block commands, BRACE_context commands
+   bracketed_arg line_arg (after comma or in linemacro_call) block_line_arg (after comma) ET_linemacro_call
  spaces_before_argument
-line/block commands args brace_arg
+line/block commands args brace_arg bracketed_arg
  spaces_after_argument
 
 3) make building "source marks" optional.

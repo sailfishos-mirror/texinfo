@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Types for @-commands
-index_entry_command
+index_entry_command                    spaces_before
 definfoenclose_command                 braces
 
 # only in C
@@ -25,11 +25,11 @@ brace_noarg_command                    braces
 # @item, @tab
 container_command
 lineraw_command
-line_command
-block_command
+line_command                           spaces_before
+block_command                          spaces_before
 brace_command                          braces
 brace_args_command                     braces
-context_brace_command                  braces
+context_brace_command                  braces,spaces_before
 
 # For text elements
 empty_line                                text
@@ -64,9 +64,10 @@ rawpreformatted
 brace_container
 brace_command_context
 # with separate leading spaces in info, and trailing (if not in inline)
-brace_arg
-block_line_arg
-line_arg
+brace_arg                                  spaces_before,spaces_after
+# with comment_at_end
+block_line_arg                             spaces_before,spaces_after
+line_arg                                   spaces_before,spaces_after
 following_arg
 
 rawline_arg                                text
@@ -95,7 +96,7 @@ table_entry
 table_term
 table_definition
 inter_item
-def_line
+def_line                              spaces_before
 def_item
 inter_def_item
 before_defline
@@ -104,7 +105,7 @@ multitable_body
 row
 
 balanced_braces
-bracketed_arg
+bracketed_arg                         spaces_before,spaces_after
 
 # container of definition line argument content
 def_line_arg
@@ -134,7 +135,7 @@ elided_brace_command_arg
 # for macro expansion source marks
 macro_call                                braces
 rmacro_call                               braces
-linemacro_call
+linemacro_call                            spaces_before
 
 bracketed_linemacro_arg                    text
 

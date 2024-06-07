@@ -242,7 +242,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
           while (next_section_level - current_section_level > 1)
             {
               ELEMENT *line_content;
-              ELEMENT *new_section = new_element (ET_NONE);
+              ELEMENT *new_section;
               ELEMENT *spaces_before_argument
                  = new_text_element (ET_other_text);
               ELEMENT *line_arg = new_element (ET_line_arg);
@@ -250,9 +250,9 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
               ELEMENT *empty_line = new_text_element (ET_empty_line);
 
               current_section_level++;
-              new_section->cmd
-        = level_to_structuring_command[CM_unnumbered][current_section_level];
-              new_section->parent = root;
+              new_section = new_command_element (ET_line_command,
+          level_to_structuring_command[CM_unnumbered][current_section_level]);
+
 
               text_append (spaces_before_argument->text, " ");
               add_info_element_oot (new_section, "spaces_before_argument",
@@ -266,7 +266,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
               if (commands_heading_content)
                 {
                   line_content = copy_contents (commands_heading_content,
-                                                ET_NONE);
+                                                commands_heading_content->type);
                 }
               else
                 {

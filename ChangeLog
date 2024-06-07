@@ -1,5 +1,21 @@
 2024-06-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/element_types.awk,
+	tp/Texinfo/XS/main/element_types.txt, tp/Texinfo/XS/main/tree_types.h
+	(enum elt_info_type), tp/Texinfo/XS/main/types_data.h: add
+	spaces_before and spaces_after flags.  Rearrange indices of element in
+	elt_info.
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning): add the correct types to the created
+	command elements.
+
+	* tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal): expand spaces_before_argument only in
+	elements which can have the info.
+
+2024-06-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments),
 	tp/Texinfo/XS/parsetexi/macro.c (expand_macro_arguments): associate
 	spaces_before_argument with brace argument, not with command call.
