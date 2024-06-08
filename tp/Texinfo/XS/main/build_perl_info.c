@@ -775,9 +775,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                           "info", "delimiter", &nr_info);
     }
 
-  store_additional_info (e, &e->e.c->info_info, "info", &nr_info,
-                         avoid_recursion);
-
   if (e->e.c->contents.number > 0)
     {
       AV *av;

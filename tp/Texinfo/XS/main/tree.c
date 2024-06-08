@@ -234,7 +234,6 @@ destroy_element (ELEMENT *e)
     {
       int i;
       int string_info_nr = 0;
-      destroy_associated_info (&e->e.c->info_info);
   /* Note the pointers in these lists are not themselves freed. */
       free (e->e.c->contents.list);
       free (e->e.c->args.list);

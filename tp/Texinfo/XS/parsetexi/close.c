@@ -133,9 +133,7 @@ is_container_empty (ELEMENT *current)
         return 1;
     }
   else if (current->e.c->contents.number == 0
-           && current->e.c->args.number == 0
-           /* FIXME this is certainly wrong */
-           && current->e.c->info_info.info_number == 0)
+           && current->e.c->args.number == 0)
     return 1;
 
   return 0;

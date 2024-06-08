@@ -232,14 +232,12 @@ print_element_debug_details (const ELEMENT *e, int print_parent)
       free (associated_info_str);
     }
 
+  /* TODO could print elt_info and string_info arrays
   if (e->e.c->info_info.info_number > 0)
     {
-      char *associated_info_str;
       text_append (&text, " INFO\n");
-      associated_info_str = print_associate_info_debug (&e->e.c->info_info);
-      text_append (&text, associated_info_str);
-      free (associated_info_str);
     }
+   */
 
   free (string);
   result = strdup (text.text);

@@ -230,7 +230,6 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
           new->e.c->string_info[i] = strdup (current->e.c->string_info[i]);
     }
 
-  copy_associated_info (&current->e.c->info_info, &new->e.c->info_info);
   copy_associated_info (&current->extra_info, &new->extra_info);
   return new;
 }
@@ -440,8 +439,6 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
                 }
             }
         }
-      associate_info_references (&current->e.c->info_info, &new->e.c->info_info);
-
       /* text element have _copy and _counter only in extra, not to be copied */
       associate_info_references (&current->extra_info, &new->extra_info);
     }

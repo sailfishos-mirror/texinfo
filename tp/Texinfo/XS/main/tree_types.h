@@ -213,7 +213,6 @@ typedef struct CONTAINER {
     ELEMENT_LIST contents;
     SOURCE_INFO source_info;
 
-    ASSOCIATED_INFO info_info;
     OUTPUT_UNIT *associated_unit;
     /* depends on the element */
     char **string_info;
