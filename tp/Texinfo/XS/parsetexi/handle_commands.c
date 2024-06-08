@@ -178,18 +178,17 @@ skip_to_comment_if_comment_or_spaces (const char *after_argument,
 }
 
 /* Process argument to raw line command. */
-ELEMENT *
+static ELEMENT_LIST *
 parse_rawline_command (const char *line, enum command_id cmd,
                        int *has_comment, int *special_arg)
 {
 #define ADD_ARG(string, len) do { \
   ELEMENT *E = new_text_element (ET_rawline_arg); \
   text_append_n (E->e.text, string, len); \
-  add_to_element_contents (args, E); \
+  add_to_element_list (args, E); \
 } while (0)
 
-  /* FIXME use ELEMENT_LIST */
-  ELEMENT *args = new_element (ET_NONE);
+  ELEMENT_LIST *args = new_list ();
   const char *p = 0;
   const char *q = 0;
   const char *r = 0;
@@ -232,8 +231,8 @@ parse_rawline_command (const char *line, enum command_id cmd,
       else
         ADD_ARG("", 0);
 
-      store_parser_value (args->e.c->contents.list[0]->e.text->text,
-                          args->e.c->contents.list[1]->e.text->text);
+      store_parser_value (args->list[0]->e.text->text,
+                          args->list[1]->e.text->text);
 
       break;
     set_no_name:
@@ -570,15 +569,16 @@ handle_line_command (ELEMENT *current, const char **line_inout,
    */
   if (arg_spec == LINE_lineraw)
     {
-      ELEMENT *args = 0;
+      ELEMENT_LIST *args = 0;
       enum command_id equivalent_cmd = 0;
       int has_comment = 0;
       int special_arg = 0;
       int ignored = 0;
+      int i;
 
       if (cmd == CM_insertcopying)
         {
-          ELEMENT *p = current;
+          const ELEMENT *p = current;
           while (p)
             {
               if (p->cmd == CM_copying)
@@ -621,21 +621,21 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
       args = parse_rawline_command (line, cmd,
                                     &has_comment, &special_arg);
+
       /* Handle @set txicodequoteundirected as an
          alternative to @codequoteundirected. */
-      if (cmd == CM_set || cmd == CM_clear)
+      if ((cmd == CM_set || cmd == CM_clear)
+          && args->number > 0
+          && args->list[0]->e.text->end > 0)
         {
-          if (args->e.c->contents.number > 0
-              && args->e.c->contents.list[0]->e.text->end > 0)
-            {
-              if (!strcmp (args->e.c->contents.list[0]->e.text->text,
-                           "txicodequoteundirected"))
-                equivalent_cmd = CM_codequoteundirected;
-              else if (!strcmp (args->e.c->contents.list[0]->e.text->text,
-                                "txicodequotebacktick"))
-                equivalent_cmd = CM_codequotebacktick;
-            }
+          if (!strcmp (args->list[0]->e.text->text,
+                       "txicodequoteundirected"))
+            equivalent_cmd = CM_codequoteundirected;
+          else if (!strcmp (args->list[0]->e.text->text,
+                            "txicodequotebacktick"))
+            equivalent_cmd = CM_codequotebacktick;
         }
+
       if (equivalent_cmd)
         {
           char *arg = 0;
@@ -655,7 +655,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           /* Now manufacture the parse tree for the equivalent
              command and add it to the tree. */
 
-          destroy_element_and_children (args);
           e = new_text_element (ET_other_text);
           text_append (e->e.text, arg);
           add_to_element_list (args_list, e);
@@ -677,32 +676,27 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           add_to_element_contents (current, command_e);
         }
-      else
+      else if (!ignored)
         {
-          if (!ignored)
-            {
-              int i;
-              size_t args_nr = args->e.c->contents.number;
-              command_e = new_command_element (ET_lineraw_command, cmd);
+          int i;
+          size_t args_nr = args->number;
+          command_e = new_command_element (ET_lineraw_command, cmd);
 
-              if (special_arg)
-                add_info_string_dup (command_e, "arg_line", line);
+          if (special_arg)
+            add_info_string_dup (command_e, "arg_line", line);
 
-              add_to_element_contents (current, command_e);
-              for (i = 0; i < args_nr; i++)
-                {
-                  args->e.c->contents.list[i]->parent = command_e;
-                }
-              insert_list_slice_into_args (command_e, 0, &args->e.c->contents, 0,
-                                           args_nr);
-              remove_slice_from_contents (args, 0, args_nr);
-              destroy_element (args);
-            }
-          else
+          add_to_element_contents (current, command_e);
+          for (i = 0; i < args_nr; i++)
             {
-              destroy_element_and_children (args);
+              args->list[i]->parent = command_e;
             }
+          insert_list_slice_into_args (command_e, 0, args, 0, args_nr);
+          args->number = 0;
         }
+
+      for (i = 0; i < args->number; i++)
+        destroy_element (args->list[i]);
+      destroy_list (args);
 
       if (cmd == CM_raisesections)
         {

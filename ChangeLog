@@ -7,6 +7,12 @@
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/handle_commands.c (parse_rawline_command)
+	(handle_line_command): return an ELEMENT_LIST from
+	parse_rawline_command.
+
+2024-06-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (parse_rawline_command)
 	(handle_line_command): set rawline command text type to ET_rawline_arg
 	directly in parse_rawline_command.
 
