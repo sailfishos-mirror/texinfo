@@ -1,5 +1,13 @@
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_tree_internal),
+	tp/Texinfo/XS/structuring_transfo/transformations.c (correct_level)
+	(protect_hashchar_at_line_beginning_internal): use new_command_element
+	to create a new command element.  Set correctly types of new command
+	elements.
+
+2024-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (is_end_current_command): pass
 	directly an enum command_id as argument.  Update callers.
 

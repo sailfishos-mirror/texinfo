@@ -183,10 +183,9 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
       remaining_level = abs (level_to_remove);
       while (remaining_level > 0)
         {
-          ELEMENT *element = new_element (ET_NONE);
+          ELEMENT *element = new_command_element (ET_lineraw_command, cmd);
           ELEMENT *rawline_arg = new_text_element (ET_rawline_arg);
 
-          element->cmd = cmd;
           add_to_element_contents (parent, element);
           text_append (rawline_arg->text, "\n");
           add_to_element_args (element, rawline_arg);
@@ -1354,7 +1353,9 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           size_t leading_spaces_nr;
                           ELEMENT *leading_spaces
                                = new_text_element (ET_normal_text);
-                          ELEMENT *hashchar = new_element (ET_NONE);
+                          ELEMENT *hashchar
+                           = new_command_element (ET_brace_noarg_command,
+                                                  CM_hashchar);
                           ELEMENT *arg = new_element (ET_brace_container);
                           /* count UTF-8 encoded Unicode characters for
                              source marks locations */
@@ -1408,7 +1409,6 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           /* advance past # */
                           p++;
 
-                          hashchar->cmd = CM_hashchar;
                           hashchar->parent = parent;
                           add_to_element_args (hashchar, arg);
                           add_to_element_list (container, hashchar);

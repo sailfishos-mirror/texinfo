@@ -178,6 +178,8 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 
   if (type_data[current->type].flags & TF_text)
     new = new_text_element (current->type);
+  else if (current->cmd)
+    new = new_command_element (current->type, current->cmd);
   else
     new = new_element (current->type);
 
@@ -197,9 +199,6 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
       copy_associated_info (&current->extra_info, &new->extra_info);
       return new;
     }
-
-  if (current->cmd)
-    new->cmd = current->cmd;
 
   for (i = 0; i < current->c->args.number; i++)
     add_to_element_args (new,
