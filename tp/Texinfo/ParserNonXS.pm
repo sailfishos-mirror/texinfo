@@ -6090,31 +6090,32 @@ sub _handle_brace_command($$$$)
   my $command_e = { 'cmdname' => $command, 'parent' => $current,};
   $command_e->{'source_info'} = {%{$source_info}};
   push @{$current->{'contents'}}, $command_e;
+  # can only be sortas, which cannot be definfoenclose'd
   if ($in_index_commands{$command}
       and !_is_index_element($self, $current->{'parent'})) {
     $self->_line_warn(
       sprintf(__("\@%s should only appear in an index entry"),
               $command), $source_info);
-  }
-  $current = $command_e;
-  if ($command eq 'click') {
+  } elsif ($command eq 'click') { # click cannot be definfoenclose'd
     $command_e->{'extra'} = {} if (!$command_e->{'extra'});
     $command_e->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
-  } elsif ($command eq 'kbd'
-           and _kbd_formatted_as_code($self, $current)) {
-    $command_e->{'extra'} = {} if (!$command_e->{'extra'});
-    $command_e->{'extra'}->{'code'} = 1;
+  } else {
+    if ($self->{'definfoenclose'}->{$command}) {
+      $command_e->{'type'} = 'definfoenclose_command';
+      $command_e->{'info'} = {} if (!$command_e->{'info'});
+      $command_e->{'info'}->{'command_name'} = $command;
+      $command_e->{'extra'} = {} if (!$command_e->{'extra'});
+      $command_e->{'extra'}->{'begin'}
+        = $self->{'definfoenclose'}->{$command}->[0];
+      $command_e->{'extra'}->{'end'}
+        = $self->{'definfoenclose'}->{$command}->[1];
+    } elsif ($command eq 'kbd'
+           and _kbd_formatted_as_code($self, $command_e)) {
+      $command_e->{'extra'} = {} if (!$command_e->{'extra'});
+      $command_e->{'extra'}->{'code'} = 1;
+    }
   }
-  if ($self->{'definfoenclose'}->{$command}) {
-    $command_e->{'type'} = 'definfoenclose_command';
-    $command_e->{'info'} = {} if (!$command_e->{'info'});
-    $command_e->{'info'}->{'command_name'} = $command;
-    $command_e->{'extra'} = {} if (!$command_e->{'extra'});
-    $command_e->{'extra'}->{'begin'}
-      = $self->{'definfoenclose'}->{$command}->[0];
-    $command_e->{'extra'}->{'end'}
-      = $self->{'definfoenclose'}->{$command}->[1];
-  }
+  $current = $command_e;
   return ($current, $command_e);
 }
 

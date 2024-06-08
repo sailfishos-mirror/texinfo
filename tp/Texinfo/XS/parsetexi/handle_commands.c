@@ -1179,6 +1179,10 @@ funexit:
   return current;
 }
 
+/* in that case command_element always point to the returned current
+   element and therefore only one of the two could be used, but we
+   prefer consistently using the same prototype as other
+   handle_*_command functions */
 ELEMENT *
 handle_brace_command (ELEMENT *current, const char **line_inout,
                       enum command_id cmd, ELEMENT **command_element)
@@ -1187,7 +1191,9 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
 
   debug ("OPEN BRACE @%s", command_name(cmd));
 
-  if (command_data(cmd).data == BRACE_context)
+  if (command_data(cmd).flags & CF_INFOENCLOSE)
+    command_e = new_command_element (ET_definfoenclose_command, cmd);
+  else if (command_data(cmd).data == BRACE_context)
     command_e = new_command_element (ET_context_brace_command, cmd);
   else if (command_data(cmd).data == BRACE_arguments)
     command_e = new_command_element (ET_brace_args_command, cmd);
@@ -1201,6 +1207,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
 
   add_to_element_contents (current, command_e);
 
+  /* sortas cannot be definfoenclose'd */
   if (cmd == CM_sortas)
     {
       if (!(command_flags(current->parent) & CF_index_entry_command)
@@ -1210,33 +1217,33 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
                      command_name(cmd));
         }
     }
-
-  current = command_e;
-
-  if (cmd == CM_click)
+  /* click cannot be definfoenclose'd */
+  else if (cmd == CM_click)
     {
       add_extra_string_dup (command_e, "clickstyle", global_clickstyle);
     }
-  else if (cmd == CM_kbd)
+  else
     {
-      if (kbd_formatted_as_code (current))
+      if (command_data(cmd).flags & CF_INFOENCLOSE)
         {
-          add_extra_integer (command_e, "code", 1);
+          INFO_ENCLOSE *ie = lookup_infoenclose (cmd);
+          if (ie)
+            {
+              add_extra_string_dup (command_e, "begin", ie->begin);
+              add_extra_string_dup (command_e, "end", ie->end);
+            }
+          add_info_string_dup (command_e, "command_name",
+                               command_name(cmd));
+        }
+      else if (cmd == CM_kbd)
+        {
+          if (kbd_formatted_as_code (command_e))
+            {
+              add_extra_integer (command_e, "code", 1);
+            }
         }
     }
-  else if (command_data(cmd).flags & CF_INFOENCLOSE)
-    {
-      INFO_ENCLOSE *ie = lookup_infoenclose (cmd);
-      if (ie)
-        {
-          add_extra_string_dup (command_e, "begin", ie->begin);
-          add_extra_string_dup (command_e, "end", ie->end);
-        }
-      command_e->type = ET_definfoenclose_command;
-      add_info_string_dup (current, "command_name",
-                           command_name(cmd));
-    }
-
+  current = command_e;
   *command_element = command_e;
   return current;
 }
