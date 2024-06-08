@@ -180,7 +180,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
 
       if (type_data[e->type].flags & TF_spaces_after)
         {
-          elt = lookup_info_element (e, "spaces_after_argument");
+          elt = e->elt_info[eit_spaces_after_argument];
           if (elt)
             ADD((char *)elt->text->text);
         }

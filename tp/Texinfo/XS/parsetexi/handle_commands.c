@@ -668,8 +668,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           command_e->elt_info[eit_spaces_before_argument] = spaces_before;
 
           text_append (spaces_after->text, "\n");
-          add_info_element_oot (line_args, "spaces_after_argument",
-                                spaces_after);
+          line_args->elt_info[eit_spaces_after_argument] = spaces_after;
 
           e = new_text_element (ET_normal_text);
           text_append (e->text, arg);

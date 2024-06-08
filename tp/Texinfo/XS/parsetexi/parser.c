@@ -889,7 +889,7 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
       ELEMENT *e = pop_element_from_contents (current);
       e->parent = 0;
       e->type = ET_other_text;
-      add_info_element_oot (current, "spaces_after_argument", e);
+      current->elt_info[eit_spaces_after_argument] = e;
     }
   else
     {
@@ -915,9 +915,7 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
                                  begin_position,
                                  count_multibyte (spaces_element->text->text));
         }
-
-      add_info_element_oot (current, "spaces_after_argument",
-                            spaces_element);
+      current->elt_info[eit_spaces_after_argument] = spaces_element;
     }
 }
 

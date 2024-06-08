@@ -57,7 +57,7 @@ new_block_command (ELEMENT *element)
   const char *command_name = builtin_command_name (element->cmd);
 
   text_append (arg_spaces_after->text, "\n");
-  add_info_element_oot (args, "spaces_after_argument", arg_spaces_after);
+  args->elt_info[eit_spaces_after_argument] = arg_spaces_after;
   add_to_element_args (element, args);
 
   add_extra_string_dup (end, "text_arg", command_name);
@@ -65,7 +65,7 @@ new_block_command (ELEMENT *element)
   end->elt_info[eit_spaces_before_argument] = end_spaces_before;
 
   text_append (end_spaces_after->text, "\n");
-  add_info_element_oot (end_args, "spaces_after_argument", end_spaces_after);
+  end_args->elt_info[eit_spaces_after_argument] = end_spaces_after;
   add_to_element_args (end, end_args);
 
   text_append (command_name_text->text, command_name);
