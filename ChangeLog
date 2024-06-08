@@ -1,5 +1,13 @@
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (is_end_current_command): pass
+	directly an enum command_id as argument.  Update callers.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): remove
+	top_stack_raw_element.
+
+2024-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (new_command_element_added)
 	(table_item_content_tree): add new_command_element_added and use it in
 	table_item_content_tree.

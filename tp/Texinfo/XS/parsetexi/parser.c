@@ -1121,9 +1121,9 @@ new_value_element (enum command_id cmd, const char *flag,
   return value_elt;
 }
 
-/* Check if line is "@end ..." for current command.  If so, advance LINE. */
-int
-is_end_current_command (ELEMENT *current, const char **line,
+/* Check if line is "@end ..." for current cmd.  If so, advance LINE. */
+static int
+is_end_current_command (enum command_id cmd, const char **line,
                         enum command_id *end_cmd)
 {
   const char *linep;
@@ -1149,7 +1149,7 @@ is_end_current_command (ELEMENT *current, const char **line,
 
   *end_cmd = lookup_command (cmdname);
   free (cmdname);
-  if (*end_cmd != current->cmd)
+  if (*end_cmd != cmd)
     return 0;
 
   *line = linep;
@@ -1448,20 +1448,12 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* Else check if line is "@end ..." for current command. */
       else
         {
-          /* element used as is_end_current_command argument. */
-          ELEMENT *top_stack_raw_element;
           enum command_id top_stack_cmd = raw_block_stack_top ();
           if (top_stack_cmd == CM_NONE)
             {/* current is the first command */
-              top_stack_raw_element = current;
+              top_stack_cmd = current->cmd;
             }
-          else
-            {
-       /* create a temporary element based on the top stack cmd command id */
-              top_stack_raw_element = new_element (ET_NONE);
-              top_stack_raw_element->cmd = top_stack_cmd;
-            }
-          if (is_end_current_command (top_stack_raw_element, &p, &end_cmd))
+          if (is_end_current_command (top_stack_cmd, &p, &end_cmd))
             {
               if (raw_block_number == 0)
                 {
@@ -1535,9 +1527,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               else
                 pop_raw_block_stack ();
             }
-     /* a temporary element was created based on the top stack cmd, remove */
-          if (top_stack_cmd != CM_NONE)
-            destroy_element (top_stack_raw_element);
         }
       /* save the line verbatim */
       if (! closed_nested_raw)
@@ -1588,7 +1577,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       p = line;
       /* Else check if line is "@end ..." for current command. */
-      if (is_end_current_command (current, &p, &end_cmd))
+      if (is_end_current_command (current->cmd, &p, &end_cmd))
         {
           ELEMENT *e;
 
@@ -1693,7 +1682,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           else
             {
               line_dummy = line;
-              if (is_end_current_command (current, &line_dummy,
+              if (is_end_current_command (current->cmd, &line_dummy,
                                           &dummy))
                 {
                   debug ("CLOSED ignored raw preformated %s",
