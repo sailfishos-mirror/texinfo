@@ -6,6 +6,14 @@
 
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (setup_info_hv)
+	(store_info_element, store_info_string, element_to_perl_hash): add
+	setup_info_hv that only sets up the info hash in the Perl element.
+	Remove store_info_sv and call hv_store in the functions that called
+	store_info_sv before.
+
+2024-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (store_info_sv)
 	(store_info_element, store_info_string, element_to_perl_hash):
 	pass directly a pointer on an HV * instead of a number of info added.

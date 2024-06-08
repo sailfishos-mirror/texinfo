@@ -543,8 +543,7 @@ store_source_mark_list (const ELEMENT *e)
 }
 
 static void
-store_info_sv (ELEMENT *e, const char *type_key, const char *key,
-               SV *sv, HV **info_hv)
+setup_info_hv (ELEMENT *e, const char *type_key, HV **info_hv)
 {
   dTHX;
 
@@ -554,8 +553,6 @@ store_info_sv (ELEMENT *e, const char *type_key, const char *key,
       hv_store (e->hv, type_key, strlen (type_key),
                 newRV_inc ((SV *)*info_hv), 0);
     }
-
-  hv_store (*info_hv, key, strlen (key), sv, 0);
 }
 
 static void
@@ -567,8 +564,9 @@ store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
   if (!info_element->hv || !avoid_recursion)
     element_to_perl_hash (info_element, avoid_recursion);
 
-  store_info_sv (e, type_key, key,
-                 newRV_inc ((SV *)info_element->hv), info_hv);
+  setup_info_hv (e, type_key, info_hv);
+  hv_store (*info_hv, key, strlen (key),
+            newRV_inc ((SV *)info_element->hv), 0);
 }
 
 static void
@@ -577,8 +575,9 @@ store_info_string (ELEMENT *e, const char *string, const char *type_key,
 {
   dTHX;
 
-  store_info_sv (e, type_key, key,
-                 newSVpv_utf8 (string, strlen (string)), info_hv);
+  setup_info_hv (e, type_key, info_hv);
+  hv_store (*info_hv, key, strlen (key),
+            newSVpv_utf8 (string, strlen (string)), 0);
 }
 
 static int hashes_ready = 0;
@@ -675,7 +674,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (e->flags & EF_inserted)
     {
-      store_info_sv (e, "info", "inserted", newSViv (1), &info_hv);
+      setup_info_hv (e, "info", &info_hv);
+      hv_store (info_hv, "inserted", strlen ("inserted"), newSViv (1), 0);
     }
 
   if (type_data[e->type].flags & TF_text)
