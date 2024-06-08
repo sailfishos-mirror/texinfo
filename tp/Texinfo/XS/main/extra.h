@@ -30,10 +30,8 @@ void add_extra_misc_args (ELEMENT *e, char *key, ELEMENT_LIST *value);
 void add_extra_string (ELEMENT *e, const char *key, char *value);
 void add_extra_string_dup (ELEMENT *e, const char *key, const char *value);
 void add_extra_integer (ELEMENT *e, char *key, long value);
-void add_info_integer (ELEMENT *e, char *key, long value);
 void add_info_string (ELEMENT *e, char *key, char *value);
 void add_info_string_dup (ELEMENT *e, const char *key, const char *value);
-void add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value);
 void add_associated_info_integer (ASSOCIATED_INFO *a,
                                   const char *key, int value);
 void add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
@@ -41,12 +39,10 @@ void add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
 KEY_PAIR *lookup_extra (const ELEMENT *e, const char *key);
 KEY_PAIR *lookup_info (const ELEMENT *e, const char *key);
 ELEMENT *lookup_extra_element (const ELEMENT *e, const char *key);
-ELEMENT *lookup_info_element (const ELEMENT *e, const char *key);
 ELEMENT_LIST *lookup_extra_contents (const ELEMENT *e, const char *key);
 const ELEMENT_LIST *lookup_extra_misc_args (const ELEMENT *e, const char *key);
 const ELEMENT_LIST *lookup_extra_directions (const ELEMENT *e, const char *key);
 int lookup_extra_integer (const ELEMENT *e, const char *key, int *ret);
-int lookup_info_integer (const ELEMENT *e, const char *key, int *ret);
 char *lookup_extra_string (const ELEMENT *e, const char *key);
 char *lookup_info_string (const ELEMENT *e, const char *key);
 

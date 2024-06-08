@@ -92,14 +92,6 @@ add_extra_container (ELEMENT *e, char *key, ELEMENT *value)
   k->k.element = value;
 }
 
-void
-add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
-{
-  KEY_PAIR *k = get_associated_info_key (&e->c->info_info, key,
-                                         extra_element_oot);
-  k->k.element = value;
-}
-
 /* Add an extra key that is a reference to an array of other
    elements (for example, 'section_childs').
    Check if it already exists, unless NO_LOOKUP is set
@@ -206,13 +198,6 @@ add_extra_integer (ELEMENT *e, char *key, long value)
   k->k.integer = value;
 }
 
-void
-add_info_integer (ELEMENT *e, char *key, long value)
-{
-  KEY_PAIR *k = get_associated_info_key (&e->c->info_info, key, extra_integer);
-  k->k.integer = value;
-}
-
 KEY_PAIR *
 lookup_associated_info (const ASSOCIATED_INFO *a, const char *key)
 {
@@ -306,15 +291,6 @@ lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
   return lookup_key_pair_integer (k, key, ret);
 }
 
-/* *ret is negative if not found or not an integer */
-int
-lookup_info_integer (const ELEMENT *e, const char *key, int *ret)
-{
-  const KEY_PAIR *k;
-  k = lookup_associated_info (&e->c->info_info, key);
-  return lookup_key_pair_integer (k, key, ret);
-}
-
 ELEMENT_LIST *
 lookup_extra_contents (const ELEMENT *e, const char *key)
 {
@@ -365,17 +341,6 @@ lookup_extra_misc_args (const ELEMENT *e, const char *key)
     }
   return k->k.list;
 }
-
-ELEMENT *
-lookup_info_element (const ELEMENT *e, const char *key)
-{
-  const KEY_PAIR *k;
-  k = lookup_associated_info (&e->c->info_info, key);
-  if (!k)
-    return 0;
-  return k->k.element;
-}
-
 
 KEY_PAIR *
 lookup_info (const ELEMENT *e, const char *key)
