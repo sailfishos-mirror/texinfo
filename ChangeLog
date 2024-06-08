@@ -6,6 +6,11 @@
 
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/def.c (gather_def_item): check first if
+	there is content for a def item before creating the element.
+
+2024-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (%container_ignored_if_empty)
 	(_convert), tp/Texinfo/Convert/LaTeX.pm (%container_ignored_if_empty)
 	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm

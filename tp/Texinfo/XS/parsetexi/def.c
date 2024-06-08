@@ -40,15 +40,7 @@
 void
 gather_def_item (ELEMENT *current, enum command_id next_command)
 {
-  enum element_type type;
-  ELEMENT *def_item;
   int contents_count, i;
-
-  if (next_command
-      && next_command != CM_defline && next_command != CM_deftypeline)
-    type = ET_inter_def_item; /* Between @def*x and @def*. */
-  else
-    type = ET_def_item;
 
   if (!current->cmd)
     return;
@@ -64,31 +56,45 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   if (contents_count == 0)
     return;
 
-  /* Starting from the end, collect everything that is not a ET_def_line and
-     put it into the ET_def_item. */
-  def_item = new_element (type);
+  /* Starting from the end, determine the number of elements that are not
+     an ET_def_line */
   for (i = 0; i < contents_count; i++)
     {
-      ELEMENT *last_child, *item_content;
-      last_child = last_contents_child (current);
+      ELEMENT *last_child = contents_child_by_index (current, -(i+1));
       if (last_child->type == ET_def_line)
         break;
-      item_content = pop_element_from_contents (current);
-      insert_into_contents (def_item, item_content, 0);
     }
 
-  if (def_item->e.c->contents.number > 0)
+  if (i > 0)
     {
+      /* there are elements after def_line, put them in a def item */
+      enum element_type type;
+      int j;
+      ELEMENT *def_item;
+
       if (current->cmd == CM_defblock
-        /* all content between @defblock and first @def*line */
-          && def_item->e.c->contents.number == contents_count)
+       /* all content between @defblock and first @def*line */
+          && i == contents_count)
+        type = ET_before_defline;
+      else if (next_command
+          && next_command != CM_defline && next_command != CM_deftypeline)
+        type = ET_inter_def_item; /* Between @def*x and @def*. */
+      else
+        type = ET_def_item;
+
+      def_item = new_element (type);
+
+      insert_slice_into_contents (def_item, 0, current,
+                           contents_count -i, contents_count);
+      for (j = 0; j < i; j++)
         {
-          def_item->type = ET_before_defline;
+          ELEMENT *e = contents_child_by_index (current, -(j+1));
+          e->parent = def_item;
         }
+      remove_slice_from_contents (current,
+                           contents_count -i, contents_count);
       add_to_element_contents (current, def_item);
     }
-  else
-    destroy_element (def_item);
 }
 
 
