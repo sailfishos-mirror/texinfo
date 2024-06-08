@@ -509,6 +509,16 @@ new_element_added (TREE_ADDED_ELEMENTS *added_elements, enum element_type type)
 }
 
 ELEMENT *
+new_command_element_added (TREE_ADDED_ELEMENTS *added_elements,
+                           enum element_type type,
+                           enum command_id cmd)
+{
+  ELEMENT *new = new_command_element (type, cmd);
+  add_to_element_list (&added_elements->added, new);
+  return new;
+}
+
+ELEMENT *
 new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
                         enum element_type type)
 {
@@ -530,15 +540,16 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
         = new_tree_added_elements (tree_added_status_elements_added);
       int status;
       int command_as_argument_kbd_code;
-      ELEMENT *command = new_element_added (tree, command_as_argument->type);
+      ELEMENT *command;
       ELEMENT *arg;
       enum command_id cmd = element_builtin_cmd (command_as_argument);
       enum command_id data_cmd
             = element_builtin_data_cmd (command_as_argument);
 
+      command
+        = new_command_element_added (tree, command_as_argument->type, cmd);
       tree->tree = command;
 
-      command->cmd = cmd;
       command->c->source_info = element->c->source_info;
       command_as_argument_kbd_code = lookup_extra_integer (table_command,
                                  "command_as_argument_kbd_code", &status);

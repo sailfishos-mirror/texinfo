@@ -1,5 +1,11 @@
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (new_command_element_added)
+	(table_item_content_tree): add new_command_element_added and use it in
+	table_item_content_tree.
+
+2024-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_brace_command),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_brace_command): have
 	definfoenclose always takes precedence.  Rearrange code.
