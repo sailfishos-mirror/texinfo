@@ -240,7 +240,7 @@ destroy_element_and_children (ELEMENT *e)
 {
   int i;
 
-  if (! type_data[e->type].flags & TF_text)
+  if (! (type_data[e->type].flags & TF_text))
     {
       for (i = 0; i < e->c->contents.number; i++)
         destroy_element_and_children (e->c->contents.list[i]);

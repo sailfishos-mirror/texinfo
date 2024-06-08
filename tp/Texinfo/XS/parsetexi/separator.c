@@ -590,7 +590,6 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           ELEMENT *e;
           e = new_text_element (ET_spaces_after_close_brace);
-          text_append (e->text, "");
           add_to_element_contents (current->parent->parent, e);
         }
 
