@@ -1,3 +1,19 @@
+2024-06-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	prepare for 7.1.0.90 pretest
+
+	* configure.ac,
+	* info/info.c,
+	* install-info/install-info.c,
+	* js/info.js,
+	* util/texi2dvi,
+	* util/texi2pdf,
+	* texindex/ti.twjr,
+	* tp/texi2any.pl,
+	* util/texi2dvi,
+	* util/texi2pdf: bump version to 7.1.0.90.  2024.
+	* po_document/ka.po, po_document/LINGUAS: new Georgian translation.
+
 2024-01-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_tab_command): round using

@@ -1,25 +1,26 @@
-# Polish translation for texinfo_document
-# Copyright (C) 2013, 2017, 2021, 2022, 2023 Free Software Foundation, Inc.
+# Georgian translation for texinfo_document.
+# Copyright (C) 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
-# Jakub Bogusz <qboosh@pld-linux.org>, 2013-2023.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2024-06-08 10:09+0100\n"
-"PO-Revision-Date: 2023-09-26 18:23+0200\n"
-"Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
-"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
-"Language: pl\n"
+"PO-Revision-Date: 2023-10-29 17:44+0100\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: tp/ext/epub3.pm:672
 msgid "Table of contents"
-msgstr "Spis treści"
+msgstr "Სარჩევი"
 
 #. TRANSLATORS: abbreviation or acronym explanation
 #: tp/init/html32.pm:196 tp/Texinfo/Convert/HTML.pm:3106
@@ -30,73 +31,73 @@ msgstr "{explained_string} ({explanation})"
 #: tp/Texinfo/Common.pm:638
 msgctxt "category of functions for @defun"
 msgid "Function"
-msgstr "Funkcja"
+msgstr "ფუნქცია"
 
 #. TRANSLATORS: category of macros for @defmac
 #: tp/Texinfo/Common.pm:640
 msgid "Macro"
-msgstr "Makro"
+msgstr "მაკრო"
 
 #. TRANSLATORS: category of special forms for @defspec
 #: tp/Texinfo/Common.pm:642
 msgid "Special Form"
-msgstr "Postać specjalna"
+msgstr "სპეციალური ფორმა"
 
 #: tp/Texinfo/Common.pm:645
 msgctxt "category of variables for @defvar"
 msgid "Variable"
-msgstr "Zmienna"
+msgstr "ცვლადი"
 
 #. TRANSLATORS: category of user-modifiable options for @defopt
 #: tp/Texinfo/Common.pm:647
 msgid "User Option"
-msgstr "Opcja użytkownika"
+msgstr "მომხმარებლის პარამეტრი"
 
 #: tp/Texinfo/Common.pm:650
 msgctxt "category of functions for @deftypefun"
 msgid "Function"
-msgstr "Funkcja"
+msgstr "ფუნქცია"
 
 #: tp/Texinfo/Common.pm:653
 msgctxt "category of variables in typed languages for @deftypevar"
 msgid "Variable"
-msgstr "Zmienna"
+msgstr "ცვლადი"
 
 #: tp/Texinfo/Common.pm:656
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
 msgid "Instance Variable"
-msgstr "Zmienna instancji"
+msgstr "გაშვებული ასლის ცვლადი"
 
 #: tp/Texinfo/Common.pm:659
 msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
 msgid "Instance Variable"
-msgstr "Zmienna instancji"
+msgstr "გაშვებული ასლის ცვლადი"
 
 #: tp/Texinfo/Common.pm:662
 msgctxt "category of methods in object-oriented programming for @defmethod"
 msgid "Method"
-msgstr "Metoda"
+msgstr "მეთოდი"
 
 #: tp/Texinfo/Common.pm:665
 msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
 msgid "Method"
-msgstr "Metoda"
+msgstr "მეთოდი"
 
 #: tp/Texinfo/Structuring.pm:1947
 msgid " --- The Detailed Node Listing ---"
-msgstr " --- Szczegółowa lista węzłów ---"
+msgstr " --- დეტალური კვანძების ჩამონათვალი ---"
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
 #: tp/Texinfo/Translations.pm:387
 #, perl-brace-format
 msgid "{name} on {class}"
-msgstr "{name} dla klasy {class}"
+msgstr "{name} {class}-ზე"
 
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables or
@@ -104,12 +105,12 @@ msgstr "{name} dla klasy {class}"
 #: tp/Texinfo/Translations.pm:391
 #, perl-brace-format
 msgid "{name} of {class}"
-msgstr "{name} klasy {class}"
+msgstr "{class}-ის {name}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
 #: tp/Texinfo/Convert/Converter.pm:111
 msgid "error@arrow{}"
-msgstr "błąd@arrow{}"
+msgstr "error@arrow{}"
 
 #: tp/Texinfo/Convert/Converter.pm:1245 tp/Texinfo/Convert/Converter.pm:1298
 #, perl-brace-format
@@ -147,32 +148,32 @@ msgstr "{float_number}: "
 #: tp/Texinfo/Convert/DocBook.pm:1122
 #, perl-brace-format
 msgid "section ``{section_name}'' in @cite{{book}}"
-msgstr "sekcja ``{section_name}'' w @cite{{book}}"
+msgstr "სექცია ``{section_name}'' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1127
 #, perl-brace-format
 msgid "See section ``{section_name}'' in @cite{{book}}"
-msgstr "P. sekcja ``{section_name}'' w @cite{{book}}"
+msgstr "იხ სექცია ``{section_name}'' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1132
 #, perl-brace-format
 msgid "see section ``{section_name}'' in @cite{{book}}"
-msgstr "p. sekcja ``{section_name}'' w @cite{{book}}"
+msgstr "იხ. სექცია ``{section_name}'' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1139
 #, perl-brace-format
 msgid "``{node_name}'' in @cite{{book}}"
-msgstr "``{node_name}'' w @cite{{book}}"
+msgstr "``{node_name}'' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1144
 #, perl-brace-format
 msgid "See ``{node_name}'' in @cite{{book}}"
-msgstr "P. ``{node_name}'' w @cite{{book}}"
+msgstr "იხ. ``{node_name}'' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1149
 #, perl-brace-format
 msgid "see ``{node_name}'' in @cite{{book}}"
-msgstr "p. ``{node_name}'' w @cite{{book}}"
+msgstr "იხ. ``{node_name}'' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1156 tp/Texinfo/Convert/HTML.pm:5511
 #, perl-brace-format
@@ -182,42 +183,42 @@ msgstr "@cite{{book}}"
 #: tp/Texinfo/Convert/DocBook.pm:1160 tp/Texinfo/Convert/HTML.pm:5488
 #, perl-brace-format
 msgid "See @cite{{book}}"
-msgstr "P. @cite{{book}}"
+msgstr "იხ @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1164 tp/Texinfo/Convert/HTML.pm:5465
 #, perl-brace-format
 msgid "see @cite{{book}}"
-msgstr "p. @cite{{book}}"
+msgstr "იხ @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1172
 #, perl-brace-format
 msgid "section ``{section_name}'' in @file{{manual}}"
-msgstr "sekcja ``{section_name}'' w @file{{manual}}"
+msgstr "სექცია ``{section_name}'' @file{{manual}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1177
 #, perl-brace-format
 msgid "See section ``{section_name}'' in @file{{manual}}"
-msgstr "P. sekcja ``{section_name}'' w @file{{manual}}"
+msgstr "იხ. სექცია ``{section_name}'' @file{{manual}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1182
 #, perl-brace-format
 msgid "see section ``{section_name}'' in @file{{manual}}"
-msgstr "p. sekcja ``{section_name}'' w @file{{manual}}"
+msgstr "იხ. სექცია ``{section_name}'' @file{{manual}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1189
 #, perl-brace-format
 msgid "``{node_name}'' in @file{{manual}}"
-msgstr "``{node_name}'' w @file{{manual}}"
+msgstr "``{node_name}'' @file{{manual}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1194
 #, perl-brace-format
 msgid "See ``{node_name}'' in @file{{manual}}"
-msgstr "P. ``{node_name}'' w @file{{manual}}"
+msgstr "იხ. ``{node_name}'' @file{{manual}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1199
 #, perl-brace-format
 msgid "see ``{node_name}'' in @file{{manual}}"
-msgstr "p. ``{node_name}'' w @file{{manual}}"
+msgstr "იხ. ``{node_name}'' @file{{manual}}-ში"
 
 #: tp/Texinfo/Convert/DocBook.pm:1206
 #, perl-brace-format
@@ -227,12 +228,12 @@ msgstr "@file{{manual}}"
 #: tp/Texinfo/Convert/DocBook.pm:1210
 #, perl-brace-format
 msgid "See @file{{manual}}"
-msgstr "P. @file{{manual}}"
+msgstr "იხ @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1214
 #, perl-brace-format
 msgid "see @file{{manual}}"
-msgstr "p. @file{{manual}}"
+msgstr "იხ @file{{manual}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1234
 #, perl-brace-format
@@ -242,12 +243,12 @@ msgstr "{title_ref}"
 #: tp/Texinfo/Convert/DocBook.pm:1239
 #, perl-brace-format
 msgid "See {title_ref}"
-msgstr "P. {title_ref}"
+msgstr "იხ {title_ref}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1244
 #, perl-brace-format
 msgid "see {title_ref}"
-msgstr "p. {title_ref}"
+msgstr "იხ{title_ref}"
 
 #: tp/Texinfo/Convert/DocBook.pm:1403 tp/Texinfo/Convert/LaTeX.pm:3442
 #: tp/Texinfo/Convert/Plaintext.pm:2528
@@ -270,7 +271,7 @@ msgstr "{text} ({url})"
 #: tp/Texinfo/Convert/HTML.pm:2989
 #, perl-brace-format
 msgid "@{No value for `{value}'@}"
-msgstr "@{Brak wartości dla `{value}'@}"
+msgstr "@{მნიშვნელობის გარეშე ელემენტისთვის `{value}'@}"
 
 #. TRANSLATORS: quotation author
 #: tp/Texinfo/Convert/LaTeX.pm:4358 tp/Texinfo/Convert/Plaintext.pm:3825
@@ -283,7 +284,7 @@ msgstr "@center --- @emph{{author}}"
 #: tp/Texinfo/Convert/Utils.pm:339
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
-msgstr "Załącznik {number} {section_title}"
+msgstr "დანართი {number} {section_title}"
 
 #. TRANSLATORS: numbered section title
 #: tp/Texinfo/Convert/Plaintext.pm:1254 tp/Texinfo/Convert/HTML.pm:1111
@@ -294,7 +295,7 @@ msgstr "{number} {section_title}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1541
 msgid "(outside of any node)"
-msgstr "(poza węzłem)"
+msgstr "(ნებისმიერი კვანძის გარეთ)"
 
 #: tp/Texinfo/Convert/Plaintext.pm:2420
 #, perl-brace-format
@@ -349,417 +350,417 @@ msgstr "@tie{}-- {category}: {type} {name}{arguments}"
 #: tp/Texinfo/Convert/Plaintext.pm:3234
 #, perl-brace-format
 msgid "@tie{}-- {category}: {type} {name} {arguments}"
-msgstr "@tie{}- {category}: {type} {name} {arguments}"
+msgstr "@tie{}-- {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3245
 #, perl-brace-format
 msgid "@tie{}-- {category}:@*{type}@*{name}"
-msgstr "@tie{}- {category}:@*{type}@*{name}"
+msgstr "@tie{}-- {category}:@*{type}@*{name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3248
 #, perl-brace-format
 msgid "@tie{}-- {category}: {type} {name}"
-msgstr "@tie{}- {category}: {type} {name}"
+msgstr "@tie{}-- {category}: {type} {name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3263
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name}{arguments}"
-msgstr "@tie{}-- {category} klasy {class}: {name}{arguments}"
+msgstr "@tie{}-- {class}-ის {category}: {name}{arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3267
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name} {arguments}"
-msgstr "@tie{}- {category} klasy {class}: {name} {arguments}"
+msgstr "@tie{}-- {class}-ის {category} : {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3271
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name}"
-msgstr "@tie{}- {category} klasy {class}: {name}"
+msgstr "@tie{}-- {class}-ის {category}: {name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3287
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name}{arguments}"
-msgstr "@tie{}-- {category} dla klasy {class}: {name}{arguments}"
+msgstr "@tie{}-- {class}-ის {category}: {name}{arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3291
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name} {arguments}"
-msgstr "@tie{}- {category} dla klasy {class}: {name} {arguments}"
+msgstr "@tie{}-- {category} {class}-ზე: {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3295
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name}"
-msgstr "@tie{}- {category} dla klasy {class}: {name}"
+msgstr "@tie{}-- {category} {class}-ზე: {name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3311
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}"
-msgstr "@tie{}-- {category} dla klasy {class}:@*{type}@*{name}{arguments}"
+msgstr "@tie{}-- {category} {class}-ზე:@*{type}@*{name}{arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3315
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}"
-msgstr "@tie{}- {category} dla klasy {class}:@*{type}@*{name} {arguments}"
+msgstr "@tie{}-- {category} {class}-ზე:@*{type}@*{name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3321
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name}{arguments}"
-msgstr "@tie{}-- {category} dla klasy {class}: {type} {name}{arguments}"
+msgstr "@tie{}-- {category} {class}-ზე: {type} {name}{arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3325
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name} {arguments}"
-msgstr "@tie{}-- {category} dla klasy {class}: {type} {name} {arguments}"
+msgstr "@tie{}-- {category} {class}-ზე: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3337
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name}"
-msgstr "@tie{}-- {category} dla klasy {class}:@*{type}@*{name}"
+msgstr "@tie{}-- {category} {class}-ზე:@*{type}@*{name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3341
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name}"
-msgstr "@tie{}-- {category} dla klasy {class}: {type} {name}"
+msgstr "@tie{}-- {category} {class}-ზე: {type} {name}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3355
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name}{arguments}"
-msgstr "@tie{}-- {category} klasy {class}: {type} {name}{arguments}"
+msgstr "@tie{}-- {class}-ის {category}: {type} {name}{arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3359
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name} {arguments}"
-msgstr "@tie{}-- {category} klasy {class}: {type} {name} {arguments}"
+msgstr "@tie{}-- {class}-ის {category}: {type} {name} {arguments}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:3369
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name}"
-msgstr "@tie{}-- {category} klasy {class}: {type} {name}"
+msgstr "@tie{}-- {class}-ის {category}: {type} {name}"
 
 #: tp/Texinfo/Convert/HTML.pm:2010
 msgctxt "about section heading"
 msgid "About This Document"
-msgstr "O tym dokumencie"
+msgstr "ამ დოკუმენტის შესახებ"
 
 #: tp/Texinfo/Convert/HTML.pm:2012
 msgctxt "contents section heading"
 msgid "Table of Contents"
-msgstr "Spis treści"
+msgstr "სარჩევი"
 
 #: tp/Texinfo/Convert/HTML.pm:2015
 msgctxt "shortcontents section heading"
 msgid "Short Table of Contents"
-msgstr "Skrócony spis treści"
+msgstr "მოკლე სარჩევი"
 
 #: tp/Texinfo/Convert/HTML.pm:2017
 msgctxt "footnotes section heading"
 msgid "Footnotes"
-msgstr "Przypisy"
+msgstr "სქოლიოები"
 
 #: tp/Texinfo/Convert/HTML.pm:2121
 msgctxt "Top direction string"
 msgid "Top"
-msgstr "Wierzchni"
+msgstr "ზედა"
 
 #: tp/Texinfo/Convert/HTML.pm:2123
 msgctxt "Contents direction string"
 msgid "Contents"
-msgstr "Treść"
+msgstr "შემცველობა"
 
 #: tp/Texinfo/Convert/HTML.pm:2126
 msgctxt "Overview direction string"
 msgid "Overview"
-msgstr "Przegląd"
+msgstr "მიმოხილვა"
 
 #: tp/Texinfo/Convert/HTML.pm:2128
 msgctxt "Index direction string"
 msgid "Index"
-msgstr "Indeks"
+msgstr "ინდექსი"
 
 #: tp/Texinfo/Convert/HTML.pm:2131
 msgctxt "This (current section) direction string"
 msgid "current"
-msgstr "bieżący"
+msgstr "მიმდინარე"
 
 #: tp/Texinfo/Convert/HTML.pm:2135
 msgctxt "Prev direction string"
 msgid "Prev"
-msgstr "Poprzedni"
+msgstr "წინა"
 
 #: tp/Texinfo/Convert/HTML.pm:2137
 msgctxt "Up direction string"
 msgid " Up "
-msgstr " W górę "
+msgstr " მაღლა "
 
 #: tp/Texinfo/Convert/HTML.pm:2139
 msgctxt "Next direction string"
 msgid "Next"
-msgstr "Następny"
+msgstr "შემდეგი"
 
 #: tp/Texinfo/Convert/HTML.pm:2141
 msgctxt "NodeUp direction string"
 msgid "Up"
-msgstr "W górę"
+msgstr "ზემოთ"
 
 #: tp/Texinfo/Convert/HTML.pm:2143
 msgctxt "NodeNext direction string"
 msgid "Next"
-msgstr "Następny"
+msgstr "შემდეგი"
 
 #: tp/Texinfo/Convert/HTML.pm:2145
 msgctxt "NodePrev direction string"
 msgid "Previous"
-msgstr "Poprzedni"
+msgstr "წინა"
 
 #: tp/Texinfo/Convert/HTML.pm:2147
 msgctxt "NodeForward direction string"
 msgid "Forward node"
-msgstr "Węzeł w przód"
+msgstr "წინა კვანძი"
 
 #: tp/Texinfo/Convert/HTML.pm:2149
 msgctxt "NodeBack direction string"
 msgid "Back node"
-msgstr "Węzeł w tył"
+msgstr "უკანა კვანძი"
 
 #: tp/Texinfo/Convert/HTML.pm:2156
 msgctxt "NextFile direction string"
 msgid "Next file"
-msgstr "Następny plik"
+msgstr "შემდეგი ფაილი"
 
 #: tp/Texinfo/Convert/HTML.pm:2158
 msgctxt "PrevFile direction string"
 msgid "Previous file"
-msgstr "Poprzedni plik"
+msgstr "წინა ფაილი"
 
 #: tp/Texinfo/Convert/HTML.pm:2163
 msgctxt "Top direction description"
 msgid "Cover (top) of document"
-msgstr "Okładka (wierzch) dokumentu"
+msgstr "ყდის (ზედა) დოკუმენტი"
 
 #: tp/Texinfo/Convert/HTML.pm:2166
 msgctxt "Contents direction description"
 msgid "Table of contents"
-msgstr "Spis treści"
+msgstr "Სარჩევი"
 
 #: tp/Texinfo/Convert/HTML.pm:2169
 msgctxt "Overview direction description"
 msgid "Short table of contents"
-msgstr "Skrócony spis treści"
+msgstr "სარჩევის ჩვენება"
 
 #: tp/Texinfo/Convert/HTML.pm:2171
 msgctxt "Index direction description"
 msgid "Index"
-msgstr "Indeks"
+msgstr "ინდექსი"
 
 #: tp/Texinfo/Convert/HTML.pm:2174
 msgctxt "This (current section) direction description"
 msgid "Current section"
-msgstr "Sekcja bieżąca"
+msgstr "მიმდინარე სექცია"
 
 #: tp/Texinfo/Convert/HTML.pm:2177
 msgctxt "Back direction description"
 msgid "Previous section in reading order"
-msgstr "Sekcja poprzednia w kolejności czytania"
+msgstr "წინა სექცია კითხვის მიმდევრობის მიხედვით"
 
 #: tp/Texinfo/Convert/HTML.pm:2180
 msgctxt "FastBack direction description"
 msgid "Beginning of this chapter or previous chapter"
-msgstr "Początek tego rozdziału lub rozdział poprzedni"
+msgstr "ამ ან წინა თავის დასაწყისი"
 
 #: tp/Texinfo/Convert/HTML.pm:2183
 msgctxt "Prev direction description"
 msgid "Previous section on same level"
-msgstr "Sekcja poprzednia na tym samym poziomie"
+msgstr "წინა სექცია იგივე დონეზე"
 
 #: tp/Texinfo/Convert/HTML.pm:2185
 msgctxt "Up direction description"
 msgid "Up section"
-msgstr "Sekcja w górę"
+msgstr "სექციით მაღლა"
 
 #: tp/Texinfo/Convert/HTML.pm:2187
 msgctxt "Next direction description"
 msgid "Next section on same level"
-msgstr "Sekcja następna na tym samym poziomie"
+msgstr "შემდეგი სექცია იგივე დონეზე"
 
 #: tp/Texinfo/Convert/HTML.pm:2189
 msgctxt "NodeUp direction description"
 msgid "Up node"
-msgstr "Węzęł w górę"
+msgstr "კვანძით მაღლა"
 
 #: tp/Texinfo/Convert/HTML.pm:2191
 msgctxt "NodeNext direction description"
 msgid "Next node"
-msgstr "Następny węzeł"
+msgstr "შემდეგი კვანძი"
 
 #: tp/Texinfo/Convert/HTML.pm:2193
 msgctxt "NodePrev direction description"
 msgid "Previous node"
-msgstr "Poprzedni węzeł"
+msgstr "წინა კვანძი"
 
 #: tp/Texinfo/Convert/HTML.pm:2196
 msgctxt "NodeForward direction description"
 msgid "Next node in node reading order"
-msgstr "Węzeł następny w kolejności czytania"
+msgstr "შემდეგი კვანძი კითხვის მიმდევრობის მიხედვით"
 
 #: tp/Texinfo/Convert/HTML.pm:2199
 msgctxt "NodeBack direction description"
 msgid "Previous node in node reading order"
-msgstr "Węzeł poprzedni w kolejności czytania"
+msgstr "წინა კვანძი კითხვის მიმდევრობის მიხედვით"
 
 #: tp/Texinfo/Convert/HTML.pm:2202
 msgctxt "Forward direction description"
 msgid "Next section in reading order"
-msgstr "Sekcja następna w kolejności czytania"
+msgstr "შემდეგი სექცია კითხვის მიმდევრობის მიხედვით"
 
 #: tp/Texinfo/Convert/HTML.pm:2204
 msgctxt "FastForward direction description"
 msgid "Next chapter"
-msgstr "Następny rozdział"
+msgstr "შემდეგი თავი"
 
 #: tp/Texinfo/Convert/HTML.pm:2206
 msgctxt "About direction description"
 msgid "About (help)"
-msgstr "O dokumencie (pomoc)"
+msgstr "შესახებ (დახმარება)"
 
 #: tp/Texinfo/Convert/HTML.pm:2209
 msgctxt "First direction description"
 msgid "First section in reading order"
-msgstr "Sekcja pierwsza w kolejości czytania"
+msgstr "პირველი სექცია კითხვის მიმდევრობით"
 
 #: tp/Texinfo/Convert/HTML.pm:2212
 msgctxt "Last direction description"
 msgid "Last section in reading order"
-msgstr "Sekcja ostatnia w kolejości czytania"
+msgstr "ბოლო სექცია კითხვის მიმდევრობით"
 
 #: tp/Texinfo/Convert/HTML.pm:2215
 msgctxt "NextFile direction description"
 msgid "Forward section in next file"
-msgstr "Sekcja w przód w następnym pliku"
+msgstr "წინა სექცია წინა ფაილში"
 
 #: tp/Texinfo/Convert/HTML.pm:2218
 msgctxt "PrevFile direction description"
 msgid "Back section in previous file"
-msgstr "Sekcja wstecz w poprzednim pliku"
+msgstr "უკანა სექცია წინა ფაილში"
 
 #: tp/Texinfo/Convert/HTML.pm:2224
 msgctxt "Top direction button label"
 msgid "Top"
-msgstr "Wierzchni"
+msgstr "ზედა"
 
 #: tp/Texinfo/Convert/HTML.pm:2226
 msgctxt "Contents direction button label"
 msgid "Contents"
-msgstr "Treść"
+msgstr "შემცველობა"
 
 #: tp/Texinfo/Convert/HTML.pm:2228
 msgctxt "Overview direction button label"
 msgid "Overview"
-msgstr "Przegląd"
+msgstr "მიმოხილვა"
 
 #: tp/Texinfo/Convert/HTML.pm:2230
 msgctxt "Index direction button label"
 msgid "Index"
-msgstr "Indeks"
+msgstr "ინდექსი"
 
 #: tp/Texinfo/Convert/HTML.pm:2232
 msgctxt "This direction button label"
 msgid "This"
-msgstr "Ten"
+msgstr "ეს"
 
 #: tp/Texinfo/Convert/HTML.pm:2234
 msgctxt "Back direction button label"
 msgid "Back"
-msgstr "Wstecz"
+msgstr "უკან"
 
 #: tp/Texinfo/Convert/HTML.pm:2236
 msgctxt "FastBack direction button label"
 msgid "FastBack"
-msgstr "SzybkoWstecz"
+msgstr "სწრაფადუკან"
 
 #: tp/Texinfo/Convert/HTML.pm:2238
 msgctxt "Prev direction button label"
 msgid "Prev"
-msgstr "Poprzedni"
+msgstr "წინა"
 
 #: tp/Texinfo/Convert/HTML.pm:2240
 msgctxt "Up direction button label"
 msgid "Up"
-msgstr "W górę"
+msgstr "ზემოთ"
 
 #: tp/Texinfo/Convert/HTML.pm:2242
 msgctxt "Next direction button label"
 msgid "Next"
-msgstr "Następny"
+msgstr "შემდეგი"
 
 #: tp/Texinfo/Convert/HTML.pm:2244
 msgctxt "NodeUp direction button label"
 msgid "NodeUp"
-msgstr "WęzełWGórę"
+msgstr "კვანძითმაღლა"
 
 #: tp/Texinfo/Convert/HTML.pm:2246
 msgctxt "NodeNext direction button label"
 msgid "NodeNext"
-msgstr "WęzełNastępny"
+msgstr "შემდკვანძი"
 
 #: tp/Texinfo/Convert/HTML.pm:2248
 msgctxt "NodePrev direction button label"
 msgid "NodePrev"
-msgstr "WęzełPoprzedni"
+msgstr "წინაკვანძი"
 
 #: tp/Texinfo/Convert/HTML.pm:2250
 msgctxt "NodeForward direction button label"
 msgid "NodeForward"
-msgstr "WęzełWPrzód"
+msgstr "კვანძითწინ"
 
 #: tp/Texinfo/Convert/HTML.pm:2252
 msgctxt "NodeBack direction button label"
 msgid "NodeBack"
-msgstr "WęzełWstecz"
+msgstr "კვანძითუკან"
 
 #: tp/Texinfo/Convert/HTML.pm:2254
 msgctxt "Forward direction button label"
 msgid "Forward"
-msgstr "WPrzód"
+msgstr "გადაგზავნა"
 
 #: tp/Texinfo/Convert/HTML.pm:2256
 msgctxt "FastForward direction button label"
 msgid "FastForward"
-msgstr "SzybkoWPrzód"
+msgstr "სწრაფიგადახვევა"
 
 #: tp/Texinfo/Convert/HTML.pm:2258
 msgctxt "About direction button label"
 msgid "About"
-msgstr "O"
+msgstr "პროგრამის შესახებ"
 
 #: tp/Texinfo/Convert/HTML.pm:2260
 msgctxt "First direction button label"
 msgid "First"
-msgstr "Pierwszy"
+msgstr "პირველი"
 
 #: tp/Texinfo/Convert/HTML.pm:2262
 msgctxt "Last direction button label"
 msgid "Last"
-msgstr "Ostatni"
+msgstr "ბოლო"
 
 #: tp/Texinfo/Convert/HTML.pm:2264
 msgctxt "NextFile direction button label"
 msgid "NextFile"
-msgstr "PlikNastępny"
+msgstr "შემდფაილი"
 
 #: tp/Texinfo/Convert/HTML.pm:2266
 msgctxt "PrevFile direction button label"
 msgid "PrevFile"
-msgstr "PlikPoprzedni"
+msgstr "წინაფაილი"
 
 #: tp/Texinfo/Convert/HTML.pm:5378
 #, perl-brace-format
 msgid "see {reference_name}"
-msgstr "p. {reference_name}"
+msgstr "იხ {reference_name}"
 
 #: tp/Texinfo/Convert/HTML.pm:5381
 #, perl-brace-format
 msgid "See {reference_name}"
-msgstr "P. {reference_name}"
+msgstr "იხ {reference_name}"
 
 #: tp/Texinfo/Convert/HTML.pm:5384
 #, perl-brace-format
@@ -769,57 +770,57 @@ msgstr "{reference_name}"
 #: tp/Texinfo/Convert/HTML.pm:5453
 #, perl-brace-format
 msgid "see {reference} in @cite{{book}}"
-msgstr "p. {reference} w @cite{{book}}"
+msgstr "იხ. {reference} @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/HTML.pm:5457
 #, perl-brace-format
 msgid "see @cite{{book_reference}}"
-msgstr "p. @cite{{book_reference}}"
+msgstr "იხ @cite{{book_reference}}"
 
 #: tp/Texinfo/Convert/HTML.pm:5461
 #, perl-brace-format
 msgid "see `{section}' in @cite{{book}}"
-msgstr "p. `{section}' w @cite{{book}}"
+msgstr "იხ `{section}' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/HTML.pm:5468
 #, perl-brace-format
 msgid "see {reference}"
-msgstr "p. {reference}"
+msgstr "იხ {reference}"
 
 #: tp/Texinfo/Convert/HTML.pm:5471
 #, perl-brace-format
 msgid "see `{section}'"
-msgstr "p. `{section}'"
+msgstr "იხ `{section}'"
 
 #: tp/Texinfo/Convert/HTML.pm:5476
 #, perl-brace-format
 msgid "See {reference} in @cite{{book}}"
-msgstr "P. {reference} w @cite{{book}}"
+msgstr "იხ. {reference} @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/HTML.pm:5480
 #, perl-brace-format
 msgid "See @cite{{book_reference}}"
-msgstr "P. @cite{{book_reference}}"
+msgstr "იხ @cite{{book_reference}}"
 
 #: tp/Texinfo/Convert/HTML.pm:5484
 #, perl-brace-format
 msgid "See `{section}' in @cite{{book}}"
-msgstr "P. `{section}' w @cite{{book}}"
+msgstr "იხ. `{section}' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/HTML.pm:5491
 #, perl-brace-format
 msgid "See {reference}"
-msgstr "P. {reference}"
+msgstr "იხ {reference}"
 
 #: tp/Texinfo/Convert/HTML.pm:5494
 #, perl-brace-format
 msgid "See `{section}'"
-msgstr "P. `{section}'"
+msgstr "იხ `{section}'"
 
 #: tp/Texinfo/Convert/HTML.pm:5499
 #, perl-brace-format
 msgid "{reference} in @cite{{book}}"
-msgstr "{reference} w @cite{{book}}"
+msgstr "{reference} @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/HTML.pm:5503
 #, perl-brace-format
@@ -829,7 +830,7 @@ msgstr "@cite{{book_reference}}"
 #: tp/Texinfo/Convert/HTML.pm:5507
 #, perl-brace-format
 msgid "`{section}' in @cite{{book}}"
-msgstr "`{section}' w @cite{{book}}"
+msgstr "`{section}' @cite{{book}}-ში"
 
 #: tp/Texinfo/Convert/HTML.pm:5514
 #, perl-brace-format
@@ -861,37 +862,37 @@ msgstr "{main_index_entry}, @emph{See} {seenentry}"
 #: tp/Texinfo/Convert/HTML.pm:5694
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
-msgstr "@emph{Patrz także} {see_also_entry}"
+msgstr "@emph{ასევე იხილეთ} {see_also_entry}"
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
 #: tp/Texinfo/Convert/HTML.pm:5972 tp/Texinfo/Convert/HTML.pm:5999
 msgid "Jump to"
-msgstr "Skok do"
+msgstr "გადასვლა"
 
 #. TRANSLATORS: index entries column header in index formatting
 #: tp/Texinfo/Convert/HTML.pm:5984
 msgid "Index Entry"
-msgstr "Wpis indeksu"
+msgstr "ინდექსის ჩანაწერი"
 
 #. TRANSLATORS: section of index entry column header in index formatting
 #: tp/Texinfo/Convert/HTML.pm:5987
 msgid "Section"
-msgstr "Sekcja"
+msgstr "ჭრილი"
 
 #: tp/Texinfo/Convert/HTML.pm:6957
 #, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
-msgstr "{category} dla klasy @code{{class}}:@* "
+msgstr "{category} @code{{class}}-ზე:@* "
 
 #: tp/Texinfo/Convert/HTML.pm:6961
 #, perl-brace-format
 msgid "{category} on @code{{class}}: "
-msgstr "{category} dla klasy @code{{class}}: "
+msgstr "{category} @code{{class}}-ში: "
 
 #: tp/Texinfo/Convert/HTML.pm:6965
 #, perl-brace-format
 msgid "{category} of @code{{class}}: "
-msgstr "{category} klasy @code{{class}}: "
+msgstr "{category} @code{{class}}-ში: "
 
 #: tp/Texinfo/Convert/HTML.pm:6979
 #, perl-brace-format
@@ -909,16 +910,16 @@ msgid ""
 "This document was generated on @emph{@today{}} using "
 "@uref{{program_homepage}, @emph{{program}}}."
 msgstr ""
-"Ten dokument został wygenerowany @emph{@today{}} przy użyciu programu "
+"ამ დოკუმენტის გენერაციის დროა @emph{@today{}} გამოიყენებოდა პროგრამა "
 "@uref{{program_homepage}, @emph{{program}}}."
 
 #: tp/Texinfo/Convert/HTML.pm:9888
 msgid "This document was generated on @emph{@today{}}."
-msgstr "Ten dokument został wygenerowany @emph{@today{}}."
+msgstr "ამ დოკუმენტის გენერაციის დროა @emph{@today{}}."
 
 #: tp/Texinfo/Convert/HTML.pm:9928
 msgid "JavaScript license information"
-msgstr "Informacje o licencji JavaScriptu"
+msgstr "JavaScript-ის ლიცენზის ინფორმაცია"
 
 #. TRANSLATORS: sectioning element title for the page header
 #: tp/Texinfo/Convert/HTML.pm:9976
@@ -929,31 +930,31 @@ msgstr "{element_text} ({title})"
 #: tp/Texinfo/Convert/HTML.pm:10189
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
-msgstr "Poszukiwany węzeł jest pod {href}."
+msgstr "კვანძი, რომელსაც ეძებთ, იმყოფება მდებარეობაზე {href}."
 
 #: tp/Texinfo/Convert/HTML.pm:10302
 msgid "  The buttons in the navigation panels have the following meaning:"
-msgstr "  Przyciski w panelach nawigacyjnych mają następujące znaczenie:"
+msgstr "   ღილაკებს ნავიგაციის პანელზე შემდეგი მნიშვნელობები აქვთ:"
 
 #. TRANSLATORS: direction column header in the navigation help
 #: tp/Texinfo/Convert/HTML.pm:10310
 msgid "Button"
-msgstr "Przycisk"
+msgstr "ღილაკს"
 
 #. TRANSLATORS: button label column header in the navigation help
 #: tp/Texinfo/Convert/HTML.pm:10312
 msgid "Name"
-msgstr "Nazwa"
+msgstr "სახელი"
 
 #. TRANSLATORS: direction description column header in the navigation help
 #: tp/Texinfo/Convert/HTML.pm:10314
 msgid "Go to"
-msgstr "Przechodzi do"
+msgstr "გადასვლა"
 
 #. TRANSLATORS: section reached column header in the navigation help
 #: tp/Texinfo/Convert/HTML.pm:10316
 msgid "From 1.2.3 go to"
-msgstr "Z 1.2.3 przechodzi do"
+msgstr "1.2.3-დან გადასვლა"
 
 #: tp/Texinfo/Convert/HTML.pm:10361
 msgid ""
@@ -961,122 +962,119 @@ msgid ""
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
 "structure:"
 msgstr ""
-" gdzie @strong{ Przykład } zakłada, że bieżąca pozycja to "
-"@strong{ Podpodsekcja Jeden-Dwa-Trzy } w dokumencie o następującej "
-"strukturze:"
 
 #. TRANSLATORS: example name of section for section 1
 #: tp/Texinfo/Convert/HTML.pm:10373
 msgid "Section One"
-msgstr "Sekcja Jeden"
+msgstr "სექცია ერთი"
 
 #. TRANSLATORS: example name of section for section 1.1
 #: tp/Texinfo/Convert/HTML.pm:10376
 msgid "Subsection One-One"
-msgstr "Podsekcja Jeden-Jeden"
+msgstr "ქვესექცია ერთი-ერთი"
 
 #. TRANSLATORS: example name of section for section 1.2
 #: tp/Texinfo/Convert/HTML.pm:10384
 msgid "Subsection One-Two"
-msgstr "Podsekcja Jeden-Dwa"
+msgstr "ქვესექცია ერთი-ორი"
 
 #. TRANSLATORS: example name of section for section 1.2.1
 #: tp/Texinfo/Convert/HTML.pm:10387
 msgid "Subsubsection One-Two-One"
-msgstr "Podpodsekcja Jeden-Dwa-Jeden"
+msgstr "ქვექვეექცაი ერთი-ორი-ერთი"
 
 #. TRANSLATORS: example name of section for section 1.2.2
 #: tp/Texinfo/Convert/HTML.pm:10389
 msgid "Subsubsection One-Two-Two"
-msgstr "Podpodsekcja Jeden-Dwa-Dwa"
+msgstr "ქვექვესექცია ერთ-ორი-ორი"
 
 #. TRANSLATORS: example name of section for section 1.2.3
 #: tp/Texinfo/Convert/HTML.pm:10391
 msgid "Subsubsection One-Two-Three"
-msgstr "Podpodsekcja Jeden-Dwa-Trzy"
+msgstr "ქვექვესექცია ერთ-ორი-სამი"
 
 #: tp/Texinfo/Convert/HTML.pm:10394
 msgid "Current Position"
-msgstr "Bieżąca pozycja"
+msgstr "მიმდინარე მდებარეობა"
 
 #. TRANSLATORS: example name of section for section 1.2.3
 #: tp/Texinfo/Convert/HTML.pm:10396
 msgid "Subsubsection One-Two-Four"
-msgstr "Podpodsekcja Jeden-Dwa-Cztery"
+msgstr "ქვექვესექცია ერთ-ორი-ოთხი"
 
 #. TRANSLATORS: example name of section for section 1.3
 #: tp/Texinfo/Convert/HTML.pm:10400
 msgid "Subsection One-Three"
-msgstr "Podsekcja Jeden-Trzy"
+msgstr "ქვესექცა ერთ-ორი"
 
 #. TRANSLATORS: example name of section for section 1.4
 #: tp/Texinfo/Convert/HTML.pm:10408
 msgid "Subsection One-Four"
-msgstr "Podsekcja Jeden-Cztery"
+msgstr "ქვესექცია ერთი-ოთხი"
 
 #: tp/Texinfo/Convert/HTML.pm:11116
 msgid "Untitled Document"
-msgstr "Dokument bez tytułu"
+msgstr "უსახელო დოკუმენტი"
 
 #: tp/Texinfo/Convert/Utils.pm:76
 msgid "January"
-msgstr "styczeń"
+msgstr "იანვარი"
 
 #: tp/Texinfo/Convert/Utils.pm:77
 msgid "February"
-msgstr "luty"
+msgstr "თებერვალი"
 
 #: tp/Texinfo/Convert/Utils.pm:78
 msgid "March"
-msgstr "marzec"
+msgstr "მარტი"
 
 #: tp/Texinfo/Convert/Utils.pm:79
 msgid "April"
-msgstr "kwiecień"
+msgstr "აპრილი"
 
 #: tp/Texinfo/Convert/Utils.pm:80
 msgid "May"
-msgstr "maj"
+msgstr "მაისი"
 
 #: tp/Texinfo/Convert/Utils.pm:81
 msgid "June"
-msgstr "czerwiec"
+msgstr "ივნისი"
 
 #: tp/Texinfo/Convert/Utils.pm:82
 msgid "July"
-msgstr "lipiec"
+msgstr "ივლისი"
 
 #: tp/Texinfo/Convert/Utils.pm:83
 msgid "August"
-msgstr "sierpień"
+msgstr "აგვისტო"
 
 #: tp/Texinfo/Convert/Utils.pm:84
 msgid "September"
-msgstr "wrzesień"
+msgstr "სექტემბერი"
 
 #: tp/Texinfo/Convert/Utils.pm:85
 msgid "October"
-msgstr "październik"
+msgstr "ოქტომბერი"
 
 #: tp/Texinfo/Convert/Utils.pm:86
 msgid "November"
-msgstr "listopad"
+msgstr "ნოემბერი"
 
 #: tp/Texinfo/Convert/Utils.pm:87
 msgid "December"
-msgstr "grudzień"
+msgstr "დეკემბერი"
 
 #: tp/Texinfo/Convert/Utils.pm:106
 #, perl-brace-format
 msgid "{month} {day}, {year}"
-msgstr "{day} {month} {year}"
+msgstr "{month} {day}, {year}"
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
 #: tp/Texinfo/Convert/Utils.pm:180
 #, perl-brace-format
 msgid "{category} on @code{{class}}"
-msgstr "{category} dla klasy @code{{class}}"
+msgstr ""
 
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables
@@ -1084,4 +1082,4 @@ msgstr "{category} dla klasy @code{{class}}"
 #: tp/Texinfo/Convert/Utils.pm:193
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
-msgstr "{category} klasy @code{{class}}"
+msgstr ""

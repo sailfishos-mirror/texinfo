@@ -20,7 +20,7 @@ use 5.00405;
 use strict;
 use warnings;
 
-our $VERSION = '7.1';
+our $VERSION = '7.1.0.90';
 
 use Texinfo::XSLoader;
 
