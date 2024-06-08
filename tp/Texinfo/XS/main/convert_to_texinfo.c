@@ -26,7 +26,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "types_data.h"
-/* for lookup_info* */
+/* for lookup_extra* */
 #include "extra.h"
 /* new_element and destroy_element for convert_contents_to_texinfo */
 #include "tree.h"
