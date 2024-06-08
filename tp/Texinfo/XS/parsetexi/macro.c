@@ -41,8 +41,6 @@
 #include "parser.h"
 #include "macro.h"
 
-COUNTER count_toplevel_braces;
-
 static MACRO *macro_list;
 static size_t macro_number;
 static size_t macro_space;
@@ -444,15 +442,6 @@ funexit:
 }
 
 static void
-set_toplevel_braces_nr (COUNTER *counter, ELEMENT *element)
-{
-  int toplevel_braces_nr = counter_value (counter, element);
-  if (toplevel_braces_nr)
-    add_extra_integer (element, "toplevel_braces_nr", toplevel_braces_nr);
-  counter_pop (counter);
-}
-
-static void
 expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                             enum command_id cmd, ELEMENT *current)
 {
@@ -465,8 +454,6 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   int i;
   ELEMENT *argument = new_element (ET_line_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
-  counter_reset (&count_toplevel_braces, 0);
-  counter_push (&count_toplevel_braces, argument_content, 0);
 
   add_to_element_args (current, argument);
   add_to_element_contents (argument, argument_content);
@@ -580,7 +567,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
           text_append_n (arg, sep, 1);
           pline = sep + 1;
           if (braces_level == 0)
-            counter_inc (&count_toplevel_braces);
+            argument_content->counter++;
           break;
         /* spaces */
         default:
@@ -596,12 +583,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
             {
               ELEMENT *spaces_element = new_text_element (ET_other_text);
 
-              set_toplevel_braces_nr (&count_toplevel_braces,
-                                      argument_content);
-
               argument = new_element (ET_line_arg);
               argument_content = new_text_element (ET_other_text);
-              counter_push (&count_toplevel_braces, argument_content, 0);
 
               add_to_element_args (current, argument);
               add_to_element_contents (argument, argument_content);
@@ -618,35 +601,27 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
     }
 
  funexit:
-  set_toplevel_braces_nr (&count_toplevel_braces, argument_content);
   for (i = 0; i < current->e.c->args.number; i++)
     {
       ELEMENT *argument_content = current->e.c->args.list[i]->e.c->contents.list[0];
-      KEY_PAIR *k_toplevel_braces_nr
-                   = lookup_extra (argument_content, "toplevel_braces_nr");
-      if (k_toplevel_braces_nr)
+      if (argument_content->counter == 1)
         {
-          if (k_toplevel_braces_nr->k.integer == 1)
+          int text_len = strlen (argument_content->e.text->text);
+          if (argument_content->e.text->text[0] == '{'
+              && argument_content->e.text->text[text_len -1] == '}')
             {
-              int text_len = strlen (argument_content->e.text->text);
-              if (argument_content->e.text->text[0] == '{'
-                  && argument_content->e.text->text[text_len -1] == '}')
-                {
-                  char *braced_text = strdup (argument_content->e.text->text);
-                  debug_nonl ("TURN to bracketed %d ", i);
-                  debug_parser_print_element (argument_content, 0); debug ("");
+              char *braced_text = strdup (argument_content->e.text->text);
+              debug_nonl ("TURN to bracketed %d ", i);
+              debug_parser_print_element (argument_content, 0); debug ("");
 
-                  text_reset (argument_content->e.text);
-                  text_append_n (argument_content->e.text,
-                                 braced_text+1, text_len -2);
-                  free (braced_text);
-                  argument_content->type = ET_bracketed_linemacro_arg;
-                }
+              text_reset (argument_content->e.text);
+              text_append_n (argument_content->e.text,
+                             braced_text+1, text_len -2);
+              free (braced_text);
+              argument_content->type = ET_bracketed_linemacro_arg;
             }
-
-          k_toplevel_braces_nr->key = "";
-          k_toplevel_braces_nr->type = extra_deleted;
         }
+      argument_content->counter = 0;
     }
   debug ("END LINEMACRO ARGS EXPANSION");
 

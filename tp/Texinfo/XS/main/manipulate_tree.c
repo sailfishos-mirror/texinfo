@@ -42,15 +42,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent);
 void
 increase_ref_counter (ELEMENT *element)
 {
-  KEY_PAIR *k_counter;
-  int *counter_ptr;
-
-  k_counter = lookup_extra_by_index (element, "_counter", -1);
-  if (!k_counter)
-    add_extra_integer (element, "_counter", 0);
-  k_counter = lookup_extra_by_index (element, "_counter", -1);
-  counter_ptr = &k_counter->k.integer;
-  (*counter_ptr) ++;
+  element->counter++;
 }
 
 ELEMENT *
@@ -244,13 +236,11 @@ get_copy_ref (ELEMENT *element)
   k_copy = lookup_extra_by_index (element, "_copy", -1);
   result = k_copy->k.element;
 
-  k_counter = lookup_extra_by_index (element, "_counter", -2);
-  counter_ptr = &k_counter->k.integer;
-  (*counter_ptr) --;
+  element->counter--;
 
-  if (*counter_ptr == 0)
+  if (element->counter == 0)
     {
-      element->extra_info.info_number -= 2;
+      element->extra_info.info_number -= 1;
     }
 
   return result;
@@ -353,8 +343,6 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             break;
           }
         case extra_integer:
-          if (!strcmp (key, "_counter"))
-            break;
           { /* A simple integer. */
             KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
             k->k.integer = k_ref->k.integer;

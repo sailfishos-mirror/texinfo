@@ -249,6 +249,7 @@ typedef struct ELEMENT {
     struct ELEMENT **elt_info;
     SOURCE_MARK_LIST source_mark_list;
 
+    int counter; /* used temporarily for copy or other use and reset to 0 */
     ASSOCIATED_INFO extra_info;
 
     enum command_id cmd;
