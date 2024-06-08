@@ -6,6 +6,18 @@
 
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (parse_rawline_command)
+	(handle_line_command): set rawline command text type to ET_rawline_arg
+	directly in parse_rawline_command.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	create a raw line command only if not ignored.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	set ET_def_line type early, when calling new_element.
+
+2024-06-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/def.c (gather_def_item): check first if
 	there is content for a def item before creating the element.
 

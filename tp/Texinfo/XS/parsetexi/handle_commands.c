@@ -183,7 +183,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
                        int *has_comment, int *special_arg)
 {
 #define ADD_ARG(string, len) do { \
-  ELEMENT *E = new_text_element (ET_other_text); \
+  ELEMENT *E = new_text_element (ET_rawline_arg); \
   text_append_n (E->e.text, string, len); \
   add_to_element_contents (args, E); \
 } while (0)
@@ -679,20 +679,18 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         }
       else
         {
-          int i;
-          command_e = new_command_element (ET_lineraw_command, cmd);
-
-          if (special_arg)
-            add_info_string_dup (command_e, "arg_line", line);
-
           if (!ignored)
             {
+              int i;
               size_t args_nr = args->e.c->contents.number;
+              command_e = new_command_element (ET_lineraw_command, cmd);
+
+              if (special_arg)
+                add_info_string_dup (command_e, "arg_line", line);
 
               add_to_element_contents (current, command_e);
               for (i = 0; i < args_nr; i++)
                 {
-                  args->e.c->contents.list[i]->type = ET_rawline_arg;
                   args->e.c->contents.list[i]->parent = command_e;
                 }
               insert_list_slice_into_args (command_e, 0, &args->e.c->contents, 0,
@@ -702,8 +700,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             }
           else
             {
-              destroy_element_and_children (command_e);
-              command_e = 0;
               destroy_element_and_children (args);
             }
         }
@@ -768,10 +764,15 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       else
         {
           /* Add to contents */
+
           if (command_data(cmd).flags & CF_index_entry_command)
             command_e = new_command_element (ET_index_entry_command, cmd);
+          else if (command_data(data_cmd).flags & CF_def)
+            /* def*x */
+            command_e = new_command_element (ET_def_line, cmd);
           else
             command_e = new_command_element (ET_line_command, cmd);
+
           command_e->e.c->source_info = current_source_info;
 
           if (cmd == CM_nodedescription)
@@ -846,9 +847,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                                      sections_level_modifier);
                 }
             }
-
           /* @def*x */
-          if (command_data(data_cmd).flags & CF_def)
+          else if (command_data(data_cmd).flags & CF_def)
             {
               enum command_id base_command;
               int after_paragraph;
@@ -891,7 +891,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               else
                 after_paragraph = 0;
               push_context (ct_def, cmd);
-              command_e->type = ET_def_line;
 
               /* Check txidefnamenospace flag */
               val = fetch_value ("txidefnamenospace");
