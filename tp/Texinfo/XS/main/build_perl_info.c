@@ -542,35 +542,25 @@ store_source_mark_list (const ELEMENT *e)
     }
 }
 
-/* FIXME better use additional_info_hv or a pointer on it as an argument */
 static void
 store_info_sv (ELEMENT *e, const char *type_key, const char *key,
-               SV * sv, int *nr_info)
+               SV *sv, HV **info_hv)
 {
-  HV *additional_info_hv;
-
   dTHX;
 
-  if (*nr_info == 0)
+  if (*info_hv == 0)
     {
-      additional_info_hv = (HV *) newHV ();
+      *info_hv = (HV *) newHV ();
       hv_store (e->hv, type_key, strlen (type_key),
-                newRV_inc ((SV *)additional_info_hv), 0);
-    }
-  else
-    {
-      SV **additional_info_sv = hv_fetch (e->hv, type_key,
-                                          strlen (type_key), 0);
-      additional_info_hv = (HV *)SvRV (*additional_info_sv);
+                newRV_inc ((SV *)*info_hv), 0);
     }
 
-  (*nr_info)++;
-  hv_store (additional_info_hv, key, strlen (key), sv, 0);
+  hv_store (*info_hv, key, strlen (key), sv, 0);
 }
 
 static void
 store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
-                    const char *key, int avoid_recursion, int *nr_info)
+                    const char *key, int avoid_recursion, HV **info_hv)
 {
   dTHX;
 
@@ -578,17 +568,17 @@ store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
     element_to_perl_hash (info_element, avoid_recursion);
 
   store_info_sv (e, type_key, key,
-                 newRV_inc ((SV *)info_element->hv), nr_info);
+                 newRV_inc ((SV *)info_element->hv), info_hv);
 }
 
 static void
 store_info_string (ELEMENT *e, const char *string, const char *type_key,
-                   const char *key, int *nr_info)
+                   const char *key, HV **info_hv)
 {
   dTHX;
 
   store_info_sv (e, type_key, key,
-                 newSVpv_utf8 (string, strlen (string)), nr_info);
+                 newSVpv_utf8 (string, strlen (string)), info_hv);
 }
 
 static int hashes_ready = 0;
@@ -613,7 +603,7 @@ void
 element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 {
   SV *sv;
-  int nr_info = 0;
+  HV *info_hv = 0;
   int nr_extra = 0;
 
   dTHX;
@@ -685,13 +675,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (e->flags & EF_inserted)
     {
-      HV *info_hv = (HV *) sv_2mortal ((SV *)newHV ());
-      const char *key = "info";
-      hv_store (info_hv, "inserted", strlen ("inserted"),
-                newSViv (1), 0);
-      hv_store (e->hv, key, strlen (key),
-                newRV_inc ((SV *)info_hv), 0);
-      nr_info++;
+      store_info_sv (e, "info", "inserted", newSViv (1), &info_hv);
     }
 
   if (type_data[e->type].flags & TF_text)
@@ -708,7 +692,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       ELEMENT *f = e->elt_info[eit_comment_at_end];
       if (f)
         store_info_element (e, f, "info", "comment_at_end",
-                            avoid_recursion, &nr_info);
+                            avoid_recursion, &info_hv);
     }
 
   if (e->cmd)
@@ -724,7 +708,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       ELEMENT *f = e->elt_info[eit_spaces_after_cmd_before_arg];
       if (f)
         store_info_element (e, f, "info", "spaces_after_cmd_before_arg",
-                            avoid_recursion, &nr_info);
+                            avoid_recursion, &info_hv);
     }
 
   if (type_data[e->type].flags & TF_spaces_before)
@@ -737,7 +721,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
       if (f)
         store_info_element (e, f, "info", "spaces_before_argument",
-                            avoid_recursion, &nr_info);
+                            avoid_recursion, &info_hv);
     }
 
   if (type_data[e->type].flags & TF_spaces_after)
@@ -745,21 +729,21 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       ELEMENT *f = e->elt_info[eit_spaces_after_argument];
       if (f)
         store_info_element (e, f, "info", "spaces_after_argument",
-                            avoid_recursion, &nr_info);
+                            avoid_recursion, &info_hv);
     }
 
   if (e->cmd || type_data[e->type].flags & TF_macro_call)
     {
       if (e->e.c->string_info[sit_alias_of])
         store_info_string (e, e->e.c->string_info[sit_alias_of],
-                          "info", "alias_of", &nr_info);
+                          "info", "alias_of", &info_hv);
     }
 
   if (e->type == ET_lineraw_command)
     {
       if (e->e.c->string_info[sit_arg_line])
         store_info_string (e, e->e.c->string_info[sit_arg_line],
-                          "info", "arg_line", &nr_info);
+                          "info", "arg_line", &info_hv);
     }
   else if (e->type == ET_definfoenclose_command
            || e->type == ET_index_entry_command
@@ -767,12 +751,12 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
     {
       if (e->e.c->string_info[sit_command_name])
         store_info_string (e, e->e.c->string_info[sit_command_name],
-                          "info", "command_name", &nr_info);
+                          "info", "command_name", &info_hv);
     }
   else if (e->cmd == CM_verb && e->e.c->args.number > 0)
     {
        store_info_string (e, e->e.c->string_info[sit_delimiter],
-                          "info", "delimiter", &nr_info);
+                          "info", "delimiter", &info_hv);
     }
 
   if (e->e.c->contents.number > 0)
