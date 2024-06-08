@@ -149,12 +149,12 @@ split_by_node (DOCUMENT *document)
 
   add_to_output_unit_list (output_units, current);
 
-  if (root->c->contents.number > 0)
+  if (root->e.c->contents.number > 0)
     document->modified_information |= F_DOCM_tree;
 
-  for (i = 0; i < root->c->contents.number; i++)
+  for (i = 0; i < root->e.c->contents.number; i++)
     {
-      ELEMENT *content = root->c->contents.list[i];
+      ELEMENT *content = root->e.c->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
 
       if (data_cmd == CM_part)
@@ -183,12 +183,12 @@ split_by_node (DOCUMENT *document)
             {
               ELEMENT *part = pending_parts->list[j];
               add_to_element_list (&current->unit_contents, part);
-              part->c->associated_unit = current;
+              part->e.c->associated_unit = current;
             }
           pending_parts->number = 0;
         }
       add_to_element_list (&current->unit_contents, content);
-      content->c->associated_unit = current;
+      content->e.c->associated_unit = current;
     }
 
   if (pending_parts->number > 0)
@@ -198,7 +198,7 @@ split_by_node (DOCUMENT *document)
         {
           ELEMENT *part = pending_parts->list[j];
           add_to_element_list (&current->unit_contents, part);
-          part->c->associated_unit = current;
+          part->e.c->associated_unit = current;
         }
       pending_parts->number = 0;
     }
@@ -219,14 +219,14 @@ split_by_section (DOCUMENT *document)
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
   int i;
 
-  if (root->c->contents.number > 0)
+  if (root->e.c->contents.number > 0)
     document->modified_information |= F_DOCM_tree;
 
   add_to_output_unit_list (output_units, current);
 
-  for (i = 0; i < root->c->contents.number; i++)
+  for (i = 0; i < root->e.c->contents.number; i++)
     {
-      ELEMENT *content = root->c->contents.list[i];
+      ELEMENT *content = root->e.c->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
       unsigned long flags = builtin_command_data[data_cmd].flags;
 
@@ -267,7 +267,7 @@ split_by_section (DOCUMENT *document)
         }
 
       add_to_element_list (&current->unit_contents, content);
-      content->c->associated_unit = current;
+      content->e.c->associated_unit = current;
     }
   return output_units_descriptor;
 }
@@ -279,15 +279,15 @@ unsplit (DOCUMENT *document)
   int unsplit_needed = 0;
   int i;
 
-  if (root->type != ET_document_root || root->c->contents.number <= 0)
+  if (root->type != ET_document_root || root->e.c->contents.number <= 0)
     return 0;
 
-  for (i = 0; i < root->c->contents.number; i++)
+  for (i = 0; i < root->e.c->contents.number; i++)
     {
-      ELEMENT *content = root->c->contents.list[i];
-      if (content->c->associated_unit)
+      ELEMENT *content = root->e.c->contents.list[i];
+      if (content->e.c->associated_unit)
         {
-          content->c->associated_unit = 0;
+          content->e.c->associated_unit = 0;
           unsplit_needed = 1;
         }
     }
@@ -460,7 +460,7 @@ label_target_unit_element (ELEMENT *label)
       return external_node_unit;
     }
   else if (label->cmd == CM_node)
-    return label->c->associated_unit;
+    return label->e.c->associated_unit;
   else
  /* case of a @float or an @anchor, no target element defined at this stage */
     return 0;
@@ -567,7 +567,7 @@ units_directions (LABEL_LIST *identifiers_target,
             }
           else
             {
-              int automatic_directions = (node->c->args.number <= 1);
+              int automatic_directions = (node->e.c->args.number <= 1);
               const ELEMENT *associated_section = lookup_extra_element (node,
                                                    "associated_section");
               const ELEMENT_LIST *section_childs = 0;
@@ -578,7 +578,7 @@ units_directions (LABEL_LIST *identifiers_target,
                   && section_childs && section_childs->number > 0)
                 {
                   directions[RUD_type_NodeForward]
-                   = section_childs->list[0]->c->associated_unit;
+                   = section_childs->list[0]->e.c->associated_unit;
                 }
               else if (node_directions
                        && node_directions->list[D_next])
@@ -690,12 +690,12 @@ units_directions (LABEL_LIST *identifiers_target,
                @chapter chapter
              in that cas the direction is not set up */
                   if (section_directions->list[d]
-                      && section_directions->list[d]->c->associated_unit
-                      && (!section->c->associated_unit
-                          || section->c->associated_unit
-                     != section_directions->list[d]->c->associated_unit))
+                      && section_directions->list[d]->e.c->associated_unit
+                      && (!section->e.c->associated_unit
+                          || section->e.c->associated_unit
+                     != section_directions->list[d]->e.c->associated_unit))
                   directions[section_unit_directions[d]]
-                    = section_directions->list[d]->c->associated_unit;
+                    = section_directions->list[d]->e.c->associated_unit;
                 }
             }
 
@@ -723,7 +723,7 @@ units_directions (LABEL_LIST *identifiers_target,
               && up_section_childs->number > 0)
             {
               directions[RUD_type_FastForward]
-                = up_section_childs->list[0]->c->associated_unit;
+                = up_section_childs->list[0]->e.c->associated_unit;
             }
           else
             {
@@ -732,7 +732,7 @@ units_directions (LABEL_LIST *identifiers_target,
               if (toplevel_directions
                   && toplevel_directions->list[D_next])
                 directions[RUD_type_FastForward]
-                  = toplevel_directions->list[D_next]->c->associated_unit;
+                  = toplevel_directions->list[D_next]->e.c->associated_unit;
               else
                 {
                   const ELEMENT_LIST *up_section_directions
@@ -742,14 +742,14 @@ units_directions (LABEL_LIST *identifiers_target,
                       && up_section_directions->list[D_next])
                     directions[RUD_type_FastForward]
                       = up_section_directions->list[D_next]
-                                                     ->c->associated_unit;
+                                                     ->e.c->associated_unit;
                 }
             }
 
          /* if the element isn't at the highest level, fastback is the
             highest parent element */
-          if (up && up != section && up->c->associated_unit)
-            directions[RUD_type_FastBack] = up->c->associated_unit;
+          if (up && up != section && up->e.c->associated_unit)
+            directions[RUD_type_FastBack] = up->e.c->associated_unit;
           else
             {
               int status;

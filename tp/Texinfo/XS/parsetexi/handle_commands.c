@@ -70,11 +70,11 @@ check_no_text (const ELEMENT *current)
 {
   int after_paragraph = 0;
   int i, j;
-  for (i = 0; i < current->c->contents.number; i++)
+  for (i = 0; i < current->e.c->contents.number; i++)
     {
       enum element_type t;
       ELEMENT *f;
-      f = current->c->contents.list[i];
+      f = current->e.c->contents.list[i];
       t = f->type;
       if (t == ET_paragraph)
         {
@@ -83,12 +83,13 @@ check_no_text (const ELEMENT *current)
         }
       else if (t == ET_preformatted)
         {
-          for (j = 0; j < f->c->contents.number; j++)
+          for (j = 0; j < f->e.c->contents.number; j++)
             {
-              ELEMENT *g = f->c->contents.list[j];
+              ELEMENT *g = f->e.c->contents.list[j];
               if ((g->type == ET_normal_text
-                   && g->text->end > 0
-                   && g->text->text[strspn (g->text->text, whitespace_chars)])
+                   && g->e.text->end > 0
+                   && g->e.text->text[strspn 
+                                       (g->e.text->text, whitespace_chars)])
                   || (g->cmd && g->cmd != CM_c
                       && g->cmd != CM_comment
                       && g->type != ET_index_entry_command))
@@ -183,7 +184,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
 {
 #define ADD_ARG(string, len) do { \
   ELEMENT *E = new_text_element (ET_other_text); \
-  text_append_n (E->text, string, len); \
+  text_append_n (E->e.text, string, len); \
   add_to_element_contents (args, E); \
 } while (0)
 
@@ -231,8 +232,8 @@ parse_rawline_command (const char *line, enum command_id cmd,
       else
         ADD_ARG("", 0);
 
-      store_parser_value (args->c->contents.list[0]->text->text,
-                          args->c->contents.list[1]->text->text);
+      store_parser_value (args->e.c->contents.list[0]->e.text->text,
+                          args->e.c->contents.list[1]->e.text->text);
 
       break;
     set_no_name:
@@ -481,7 +482,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                   /* Note that the "row_number" extra value
                      isn't actually used anywhere at present. */
                   add_extra_integer (row, "row_number",
-                                     parent->c->contents.number - 1);
+                                     parent->e.c->contents.number - 1);
 
                   command_e = new_command_element (ET_container_command, cmd);
                   add_to_element_contents (row, command_e);
@@ -505,12 +506,12 @@ handle_other_command (ELEMENT *current, const char **line_inout,
               current = begin_preformatted (current);
             }
           if (command_e)
-            command_e->c->source_info = current_source_info;
+            command_e->e.c->source_info = current_source_info;
         }
       else
         {
           command_e = new_command_element (ET_nobrace_command, cmd);
-          command_e->c->source_info = current_source_info;
+          command_e->e.c->source_info = current_source_info;
           add_to_element_contents (current, command_e);
           if ((cmd == CM_indent || cmd == CM_noindent)
                && in_paragraph (current))
@@ -624,13 +625,13 @@ handle_line_command (ELEMENT *current, const char **line_inout,
          alternative to @codequoteundirected. */
       if (cmd == CM_set || cmd == CM_clear)
         {
-          if (args->c->contents.number > 0
-              && args->c->contents.list[0]->text->end > 0)
+          if (args->e.c->contents.number > 0
+              && args->e.c->contents.list[0]->e.text->end > 0)
             {
-              if (!strcmp (args->c->contents.list[0]->text->text,
+              if (!strcmp (args->e.c->contents.list[0]->e.text->text,
                            "txicodequoteundirected"))
                 equivalent_cmd = CM_codequoteundirected;
-              else if (!strcmp (args->c->contents.list[0]->text->text,
+              else if (!strcmp (args->e.c->contents.list[0]->e.text->text,
                                 "txicodequotebacktick"))
                 equivalent_cmd = CM_codequotebacktick;
             }
@@ -656,22 +657,22 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           destroy_element_and_children (args);
           e = new_text_element (ET_other_text);
-          text_append (e->text, arg);
+          text_append (e->e.text, arg);
           add_to_element_list (args_list, e);
 
-          command_e->c->source_info = current_source_info;
+          command_e->e.c->source_info = current_source_info;
 
           line_args = new_element (ET_line_arg);
           add_to_element_args (command_e, line_args);
           add_extra_misc_args (command_e, "misc_args", args_list);
-          text_append (spaces_before->text, " ");
+          text_append (spaces_before->e.text, " ");
           command_e->elt_info[eit_spaces_before_argument] = spaces_before;
 
-          text_append (spaces_after->text, "\n");
+          text_append (spaces_after->e.text, "\n");
           line_args->elt_info[eit_spaces_after_argument] = spaces_after;
 
           e = new_text_element (ET_normal_text);
-          text_append (e->text, arg);
+          text_append (e->e.text, arg);
           add_to_element_contents (line_args, e);
 
           add_to_element_contents (current, command_e);
@@ -686,15 +687,15 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           if (!ignored)
             {
-              size_t args_nr = args->c->contents.number;
+              size_t args_nr = args->e.c->contents.number;
 
               add_to_element_contents (current, command_e);
               for (i = 0; i < args_nr; i++)
                 {
-                  args->c->contents.list[i]->type = ET_rawline_arg;
-                  args->c->contents.list[i]->parent = command_e;
+                  args->e.c->contents.list[i]->type = ET_rawline_arg;
+                  args->e.c->contents.list[i]->parent = command_e;
                 }
-              insert_list_slice_into_args (command_e, 0, &args->c->contents, 0,
+              insert_list_slice_into_args (command_e, 0, &args->e.c->contents, 0,
                                            args_nr);
               remove_slice_from_contents (args, 0, args_nr);
               destroy_element (args);
@@ -761,14 +762,14 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               current = begin_preformatted (current);
             }
           command_e = new_command_element (ET_line_command, cmd);
-          command_e->c->source_info = current_source_info;
+          command_e->e.c->source_info = current_source_info;
           add_to_element_contents (current, command_e);
         }
       else
         {
           /* Add to contents */
           command_e = new_command_element (ET_line_command, cmd);
-          command_e->c->source_info = current_source_info;
+          command_e->e.c->source_info = current_source_info;
 
           if (cmd == CM_nodedescription)
             {
@@ -1050,12 +1051,12 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           char *val;
           push_context (ct_def, cmd);
           block = new_command_element (ET_block_command, cmd);
-          block->c->source_info = current_source_info;
+          block->e.c->source_info = current_source_info;
           add_to_element_contents (current, block);
           current = block;
 
           def_line = new_element (ET_def_line);
-          def_line->c->source_info = current_source_info;
+          def_line->e.c->source_info = current_source_info;
           add_to_element_contents (current, def_line);
           current = def_line;
           add_extra_string_dup (current, "def_command", command_name(cmd));
@@ -1168,7 +1169,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
       if (command_data(cmd).flags & CF_contain_basic_inline)
         push_command (&nesting_context.basic_inline_stack_block, cmd);
 
-      block->c->source_info = current_source_info;
+      block->e.c->source_info = current_source_info;
       register_global_command (block);
       start_empty_line_after_command (current, &line, block);
     }
@@ -1203,7 +1204,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
   /* The line number information is only ever used for brace commands
      if the command is given with braces, but it's easier just to always
      store the information. */
-  command_e->c->source_info = current_source_info;
+  command_e->e.c->source_info = current_source_info;
 
   add_to_element_contents (current, command_e);
 

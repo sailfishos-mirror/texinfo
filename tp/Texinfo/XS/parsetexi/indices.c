@@ -291,7 +291,7 @@ enter_index_entry (enum command_id index_type_cmd,
     ELEMENT_LIST *index_entry = new_list ();
     /* index name put as text in extra "misc_args" */
     ELEMENT *e = new_text_element (ET_other_text);
-    text_append (e->text, idx->name);
+    text_append (e->e.text, idx->name);
     add_to_element_list (index_entry, e);
     e = new_element (ET_NONE);
     add_extra_integer (e, "integer", idx->entries_number);
@@ -321,11 +321,11 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
   ELEMENT *e;
   ELEMENT *pending_spaces_element = 0;
   int i;
-  for (i = 0; i < content->c->contents.number; i++)
+  for (i = 0; i < content->e.c->contents.number; i++)
     {
       /* could also be, but it does not seems to be needed here:
          e = contents_child_by_index (content, i); */
-      e = content->c->contents.list[i];
+      e = content->e.c->contents.list[i];
       if (e->type == ET_internal_spaces_before_brace_in_index)
         {
           pending_spaces_element = e;
@@ -406,13 +406,13 @@ complete_indices (DOCUMENT *document, int debug_level)
                 {
                   ELEMENT *name = 0;
                   ELEMENT *class = 0;
-                  ELEMENT *def_l_e = main_entry_element->c->args.list[0];
-                  if (def_l_e->c->contents.number > 0)
+                  ELEMENT *def_l_e = main_entry_element->e.c->args.list[0];
+                  if (def_l_e->e.c->contents.number > 0)
                     {
                       int ic;
-                      for (ic = 0; ic < def_l_e->c->contents.number; ic++)
+                      for (ic = 0; ic < def_l_e->e.c->contents.number; ic++)
                         {
-                          ELEMENT *arg = def_l_e->c->contents.list[ic];
+                          ELEMENT *arg = def_l_e->e.c->contents.list[ic];
                           if (arg->type == ET_def_name)
                             name = arg;
                           else if (arg->type == ET_def_class)
@@ -454,7 +454,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                                                   document, lang, substrings,
                                                   debug_level, 0);
 
-                          text_append (text_element->text, " on ");
+                          text_append (text_element->e.text, " on ");
                         }
                       else if (def_command == CM_defcv
                                || def_command == CM_defivar
@@ -465,7 +465,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                                                   document, lang, substrings,
                                                   debug_level, 0);
 
-                          text_append (text_element->text, " of ");
+                          text_append (text_element->e.text, " of ");
                         }
                       destroy_named_string_element_list (substrings);
 

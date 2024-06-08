@@ -86,13 +86,13 @@ print_element_debug (const ELEMENT *e, int print_parent)
     text_printf (&text, "(%s)", type_data[e->type].name);
   if (type_data[e->type].flags & TF_text)
     {
-      if (e->text->end == 0)
+      if (e->e.text->end == 0)
         {
           text_append_n (&text, "[T]", 3);
         }
       else
         {
-          char *element_text = debug_protect_eol (e->text->text);
+          char *element_text = debug_protect_eol (e->e.text->text);
           text_printf (&text, "[T: %s]", element_text);
           free (element_text);
         }
@@ -101,10 +101,10 @@ print_element_debug (const ELEMENT *e, int print_parent)
     {
       if (e->cmd)
         text_printf (&text, "@%s", debug_element_command_name (e));
-      if (e->c->args.number)
-        text_printf (&text, "[A%d]", e->c->args.number);
-      if (e->c->contents.number)
-        text_printf (&text, "[C%d]", e->c->contents.number);
+      if (e->e.c->args.number)
+        text_printf (&text, "[A%d]", e->e.c->args.number);
+      if (e->e.c->contents.number)
+        text_printf (&text, "[C%d]", e->e.c->contents.number);
     }
   if (print_parent && e->parent)
     {
@@ -162,7 +162,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
               {
                 const ELEMENT *e = l->list[j];
                 if (e->type == ET_other_text)
-                  text_printf (&text, "%s|", e->text->text);
+                  text_printf (&text, "%s|", e->e.text->text);
                 else
                   {
                     KEY_PAIR *k_integer = lookup_extra (e, "integer");
@@ -191,9 +191,9 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
             int j;
             const ELEMENT *f = k->k.element;
             text_append (&text, "contents: ");
-            for (j = 0; j < f->c->contents.number; j++)
+            for (j = 0; j < f->e.c->contents.number; j++)
               {
-                const ELEMENT *e = f->c->contents.list[j];
+                const ELEMENT *e = f->e.c->contents.list[j];
                 char *element_str = print_element_debug (e, 0);
                 text_printf (&text, "%p;%s|", e, element_str);
                 free (element_str);
@@ -232,11 +232,11 @@ print_element_debug_details (const ELEMENT *e, int print_parent)
       free (associated_info_str);
     }
 
-  if (e->c->info_info.info_number > 0)
+  if (e->e.c->info_info.info_number > 0)
     {
       char *associated_info_str;
       text_append (&text, " INFO\n");
-      associated_info_str = print_associate_info_debug (&e->c->info_info);
+      associated_info_str = print_associate_info_debug (&e->e.c->info_info);
       text_append (&text, associated_info_str);
       free (associated_info_str);
     }

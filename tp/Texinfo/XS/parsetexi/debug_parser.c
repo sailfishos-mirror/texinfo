@@ -107,13 +107,13 @@ print_element_debug_parser (const ELEMENT *e, int print_parent)
     text_printf (&text, "(%s)", type_data[e->type].name);
   if (type_data[e->type].flags & TF_text)
     {
-      if (e->text->end == 0)
+      if (e->e.text->end == 0)
         {
           text_append_n (&text, "[T]", 3);
         }
       else
         {
-          char *element_text = debug_protect_eol (e->text->text);
+          char *element_text = debug_protect_eol (e->e.text->text);
           text_printf (&text, "[T: %s]", element_text);
           free (element_text);
         }
@@ -122,10 +122,10 @@ print_element_debug_parser (const ELEMENT *e, int print_parent)
     {
       if (e->cmd)
         text_printf (&text, "@%s", debug_parser_command_name (e->cmd));
-      if (e->c->args.number)
-        text_printf (&text, "[A%d]", e->c->args.number);
-      if (e->c->contents.number)
-        text_printf (&text, "[C%d]", e->c->contents.number);
+      if (e->e.c->args.number)
+        text_printf (&text, "[A%d]", e->e.c->args.number);
+      if (e->e.c->contents.number)
+        text_printf (&text, "[C%d]", e->e.c->contents.number);
     }
   if (print_parent && e->parent)
     {

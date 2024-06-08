@@ -56,19 +56,19 @@ new_block_command (ELEMENT *element)
   ELEMENT *command_name_text = new_text_element (ET_normal_text);
   const char *command_name = builtin_command_name (element->cmd);
 
-  text_append (arg_spaces_after->text, "\n");
+  text_append (arg_spaces_after->e.text, "\n");
   args->elt_info[eit_spaces_after_argument] = arg_spaces_after;
   add_to_element_args (element, args);
 
   add_extra_string_dup (end, "text_arg", command_name);
-  text_append (end_spaces_before->text, " ");
+  text_append (end_spaces_before->e.text, " ");
   end->elt_info[eit_spaces_before_argument] = end_spaces_before;
 
-  text_append (end_spaces_after->text, "\n");
+  text_append (end_spaces_after->e.text, "\n");
   end_args->elt_info[eit_spaces_after_argument] = end_spaces_after;
   add_to_element_args (end, end_args);
 
-  text_append (command_name_text->text, command_name);
+  text_append (command_name_text->e.text, command_name);
   add_to_element_contents (end_args, command_name_text);
 
   add_to_element_contents (element, end);
@@ -97,9 +97,9 @@ sectioning_structure (DOCUMENT *document)
   /* keep track of the unnumbered */
   int command_unnumbered[5] = {0, 0, 0, 0, 0};
 
-  for (i = 0; i < root->c->contents.number; i++)
+  for (i = 0; i < root->e.c->contents.number; i++)
     {
-      ELEMENT *content = root->c->contents.list[i];
+      ELEMENT *content = root->e.c->contents.list[i];
       int level;
 
       if (!content->cmd || content->cmd == CM_node
@@ -638,9 +638,9 @@ check_nodes_are_referenced (DOCUMENT *document)
             {
               ELEMENT *menu = menus->list[j];
               int k;
-              for (k = 0; k < menu->c->contents.number; k++)
+              for (k = 0; k < menu->e.c->contents.number; k++)
                 {
-                  ELEMENT *menu_content = menu->c->contents.list[k];
+                  ELEMENT *menu_content = menu->e.c->contents.list[k];
                   if (menu_content->type == ET_menu_entry)
                     {
                       ELEMENT *menu_node
@@ -662,7 +662,7 @@ check_nodes_are_referenced (DOCUMENT *document)
          the nodes appearing in the automatic menu are referenced.
          Note that the menu may not be actually setup, but
          it is better not to warn for nothing. */
-          int automatic_directions = (node->c->args.number <= 1);
+          int automatic_directions = (node->e.c->args.number <= 1);
           if (automatic_directions)
             {
               ELEMENT_LIST *node_childs
@@ -688,9 +688,9 @@ check_nodes_are_referenced (DOCUMENT *document)
       for (i = 0; i < refs->number; i++)
         {
           ELEMENT *ref = refs->list[i];
-          if (ref->c->args.number > 0)
+          if (ref->e.c->args.number > 0)
             {
-              ELEMENT *label_arg = ref->c->args.list[0];
+              ELEMENT *label_arg = ref->e.c->args.list[0];
               char *ref_normalized = lookup_extra_string (label_arg,
                                                           "normalized");
               if (ref_normalized)
@@ -853,16 +853,16 @@ set_menus_node_directions (DOCUMENT *document)
           ELEMENT *menu = menus->list[j];
           ELEMENT *previous_node = 0;
           int k;
-          for (k = 0; k < menu->c->contents.number; k++)
+          for (k = 0; k < menu->e.c->contents.number; k++)
             {
-              ELEMENT *menu_content = menu->c->contents.list[k];
+              ELEMENT *menu_content = menu->e.c->contents.list[k];
               if (menu_content->type == ET_menu_entry)
                 {
                   ELEMENT *menu_node = 0;
                   int l;
-                  for (l = 0; l < menu_content->c->contents.number; l++)
+                  for (l = 0; l < menu_content->e.c->contents.number; l++)
                     {
-                      ELEMENT *content = menu_content->c->contents.list[l];
+                      ELEMENT *content = menu_content->e.c->contents.list[l];
                       if (content->type == ET_menu_entry_node)
                         {
                           ELEMENT *manual_content
@@ -935,15 +935,15 @@ set_menus_node_directions (DOCUMENT *document)
         {
           const ELEMENT *detailmenu = global_commands->detailmenu.list[i];
           int k;
-          for (k = 0; k < detailmenu->c->contents.number; k++)
+          for (k = 0; k < detailmenu->e.c->contents.number; k++)
             {
-              ELEMENT *menu_content = detailmenu->c->contents.list[k];
+              ELEMENT *menu_content = detailmenu->e.c->contents.list[k];
               if (menu_content->type == ET_menu_entry)
                 {
                   int l;
-                  for (l = 0; l < menu_content->c->contents.number; l++)
+                  for (l = 0; l < menu_content->e.c->contents.number; l++)
                     {
-                      ELEMENT *content = menu_content->c->contents.list[l];
+                      ELEMENT *content = menu_content->e.c->contents.list[l];
                       if (content->type == ET_menu_entry_node)
                         {
                           ELEMENT *manual_content
@@ -1017,7 +1017,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
       char *normalized = lookup_extra_string (node, "normalized");
       const ELEMENT_LIST *menu_directions = lookup_extra_directions (node,
                                                       "menu_directions");
-      int automatic_directions = (node->c->args.number <= 1);
+      int automatic_directions = (node->e.c->args.number <= 1);
 
       if (automatic_directions)
         {
@@ -1179,7 +1179,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                           node_directions->list[D_next]
                               = first_non_top_node;
                           int first_non_top_node_automatic
-                            = (first_non_top_node->c->args.number <= 1);
+                            = (first_non_top_node->e.c->args.number <= 1);
                           if (first_non_top_node_automatic)
                             {
                               const ELEMENT_LIST *non_top_node_directions
@@ -1272,9 +1272,9 @@ complete_node_tree_with_menus (DOCUMENT *document)
                     {
                       ELEMENT *menu = menus->list[j];
                       int k;
-                      for (k = 0; k < menu->c->contents.number; k++)
+                      for (k = 0; k < menu->e.c->contents.number; k++)
                         {
-                          ELEMENT *menu_content = menu->c->contents.list[k];
+                          ELEMENT *menu_content = menu->e.c->contents.list[k];
                           if (menu_content->type == ET_menu_entry)
                             {
                               ELEMENT *menu_node
@@ -1320,9 +1320,9 @@ nodes_tree (DOCUMENT *document)
 
   int i;
 
-  for (i = 0; i < root->c->contents.number; i++)
+  for (i = 0; i < root->e.c->contents.number; i++)
     {
-      ELEMENT *node = root->c->contents.list[i];
+      ELEMENT *node = root->e.c->contents.list[i];
       char *normalized;
       int is_target;
       int status;
@@ -1342,7 +1342,7 @@ nodes_tree (DOCUMENT *document)
       if (is_target && !strcmp (normalized, "Top"))
         top_node = node;
 
-      automatic_directions = (node->c->args.number <= 1);
+      automatic_directions = (node->e.c->args.number <= 1);
 
       if (automatic_directions)
         if (!top_node || node != top_node)
@@ -1407,7 +1407,7 @@ nodes_tree (DOCUMENT *document)
                          = add_extra_directions (node, "node_directions");
                         top_directions->list[D_next]
                           = top_node_section_child;
-                        if (top_node_section_child->c->args.number <= 1)
+                        if (top_node_section_child->e.c->args.number <= 1)
                           {
                             const ELEMENT_LIST *top_section_child_directions
                              = add_extra_directions (top_node_section_child,
@@ -1421,9 +1421,9 @@ nodes_tree (DOCUMENT *document)
       else /* explicit directions */
         {
           int i;
-          for (i = 1; i < node->c->args.number; i++)
+          for (i = 1; i < node->e.c->args.number; i++)
             {
-              ELEMENT *direction_element = node->c->args.list[i];
+              ELEMENT *direction_element = node->e.c->args.list[i];
               int direction = i - 1;
               const ELEMENT *manual_content
                             = lookup_extra_element (direction_element,
@@ -1523,7 +1523,7 @@ associate_internal_references (DOCUMENT *document)
       if (ref->type == ET_menu_entry_node)
         label_element = ref;
       else
-        label_element = ref->c->args.list[0];
+        label_element = ref->e.c->args.list[0];
 
       label_node_content
           = lookup_extra_element (label_element, "node_content");
@@ -1690,7 +1690,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   int status;
   int is_target = lookup_extra_integer (node, "is_target", &status);
   if (is_target)
-    node_name_element = node->c->args.list[0];
+    node_name_element = node->e.c->args.list[0];
 
   if (!node_name_element)
     return 0;
@@ -1702,14 +1702,14 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
       ELEMENT *associated_section
         = lookup_extra_element (node, "associated_section");
       if (associated_section)
-        name_element = associated_section->c->args.list[0];
+        name_element = associated_section->e.c->args.list[0];
       else
         name_element = node_name_element; /* shouldn't happen */
 
       menu_entry_name = copy_contents (name_element, ET_menu_entry_name);
-      for (i = 0; i < menu_entry_name->c->contents.number; i++)
+      for (i = 0; i < menu_entry_name->e.c->contents.number; i++)
         {
-          ELEMENT *content = menu_entry_name->c->contents.list[i];
+          ELEMENT *content = menu_entry_name->e.c->contents.list[i];
           content->parent = menu_entry_name;
         }
       /*
@@ -1723,9 +1723,9 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   entry->c->source_info = node->c->source_info;
 
   menu_entry_node = copy_contents (node_name_element, ET_menu_entry_node);
-  for (i = 0; i < menu_entry_node->c->contents.number; i++)
+  for (i = 0; i < menu_entry_node->e.c->contents.number; i++)
     {
-      ELEMENT *content = menu_entry_node->c->contents.list[i];
+      ELEMENT *content = menu_entry_node->e.c->contents.list[i];
       content->parent = menu_entry_node;
     }
 
@@ -1738,11 +1738,11 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   preformatted = new_element (ET_preformatted);
   add_to_element_contents (description, preformatted);
   description_text = new_text_element (ET_normal_text);
-  text_append (description_text->text, "\n");
+  text_append (description_text->e.text, "\n");
   add_to_element_contents (preformatted, description_text);
 
   menu_entry_leading_text = new_text_element (ET_menu_entry_leading_text);
-  text_append (menu_entry_leading_text->text, "* ");
+  text_append (menu_entry_leading_text->e.text, "* ");
 
   add_to_element_contents (entry, menu_entry_leading_text);
 
@@ -1750,8 +1750,8 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     {
       ELEMENT *menu_entry_separator = new_text_element (ET_menu_entry_separator);
       ELEMENT *menu_entry_after_node = new_text_element (ET_menu_entry_separator);
-      text_append (menu_entry_separator->text, ": ");
-      text_append (menu_entry_after_node->text, ".");
+      text_append (menu_entry_separator->e.text, ": ");
+      text_append (menu_entry_after_node->e.text, ".");
       add_to_element_contents (entry, menu_entry_name);
       add_to_element_contents (entry, menu_entry_separator);
       add_to_element_contents (entry, menu_entry_node);
@@ -1761,7 +1761,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     {
       ELEMENT *menu_entry_separator = new_text_element (ET_menu_entry_separator);
       add_to_element_contents (entry, menu_entry_node);
-      text_append (menu_entry_separator->text, "::");
+      text_append (menu_entry_separator->e.text, "::");
       add_to_element_contents (entry, menu_entry_separator);
     }
 
@@ -1810,20 +1810,20 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, int position,
   if (!no_leading_empty_line)
     {
       ELEMENT *empty_line_before = new_text_element (ET_empty_line);
-      text_append (empty_line_before->text, "\n");
+      text_append (empty_line_before->e.text, "\n");
       add_to_element_contents (preformatted, empty_line_before);
       index_in_preformatted = 1;
     }
 
-  for (i = 0; i < inserted_element->c->contents.number; i++)
-    inserted_element->c->contents.list[i]->parent = preformatted;
+  for (i = 0; i < inserted_element->e.c->contents.number; i++)
+    inserted_element->e.c->contents.list[i]->parent = preformatted;
 
   insert_slice_into_contents (preformatted, index_in_preformatted,
                               inserted_element,
-                              0, inserted_element->c->contents.number);
+                              0, inserted_element->e.c->contents.number);
 
-  text_append (empty_line_first_after->text, "\n");
-  text_append (empty_line_second_after->text, "\n");
+  text_append (empty_line_first_after->e.text, "\n");
+  text_append (empty_line_second_after->e.text, "\n");
   add_to_element_contents (preformatted, empty_line_first_after);
   add_to_element_contents (preformatted, empty_line_second_after);
 
@@ -1887,10 +1887,10 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                   int part_added = 0;
                   ELEMENT *associated_part
                     = lookup_extra_element (child_section, "associated_part");
-                  if (associated_part && associated_part->c->args.number > 0)
+                  if (associated_part && associated_part->e.c->args.number > 0)
                     {
                       ELEMENT *part_title_copy
-                       = copy_contents (associated_part->c->args.list[0], ET_NONE);
+                       = copy_contents (associated_part->e.c->args.list[0], ET_NONE);
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                       ELEMENT *part_title;
@@ -1902,7 +1902,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                                     options->documentlanguage.o.string,
                                     substrings, options->DEBUG.o.integer, 0);
 
-                      insert_menu_comment_content (&new_menu->c->contents,
+                      insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index, part_title,
                                                    (content_index == 0));
                       destroy_element (part_title);
@@ -1919,7 +1919,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                                     options->documentlanguage.o.string,
                                     0, options->DEBUG.o.integer, 0);
 
-                      insert_menu_comment_content (&new_menu->c->contents,
+                      insert_menu_comment_content (&new_menu->e.c->contents,
                                                    content_index,
                                                    appendix_title,
                                          (content_index == 0 || part_added));
@@ -1977,9 +1977,9 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
     {
       ELEMENT *menu = menus->list[i];
       int j;
-      for (j = 0; j < menu->c->contents.number; j++)
+      for (j = 0; j < menu->e.c->contents.number; j++)
         {
-          ELEMENT *entry = menu->c->contents.list[j];
+          ELEMENT *entry = menu->e.c->contents.list[j];
           if (entry->type == ET_menu_entry)
             {
               ELEMENT *entry_copy = copy_tree (entry);
@@ -2008,9 +2008,9 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
        = lookup_extra_element (node, "associated_section");
       int new_up_nodes = 0;
       if (associated_section)
-        node_name_element = associated_section->c->args.list[0];
+        node_name_element = associated_section->e.c->args.list[0];
       else
-        node_name_element = node->c->args.list[0];
+        node_name_element = node->e.c->args.list[0];
 
       node_title_copy = copy_contents (node_name_element, ET_NONE);
 
@@ -2103,9 +2103,9 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
         {
           ELEMENT *menu = menus->list[i];
           int j;
-          for (j = 0; j < menu->c->contents.number; j++)
+          for (j = 0; j < menu->e.c->contents.number; j++)
             {
-              ELEMENT *entry = menu->c->contents.list[j];
+              ELEMENT *entry = menu->e.c->contents.list[j];
               if (entry->type == ET_menu_entry)
                 {
                   ELEMENT *menu_node
@@ -2122,7 +2122,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                           for (k = 0; k < down_menus->number; k++)
                             down_menus->list[k]->parent = new_detailmenu_e;
                           insert_list_slice_into_contents (new_detailmenu_e,
-                                           new_detailmenu_e->c->contents.number,
+                                           new_detailmenu_e->e.c->contents.number,
                                            down_menus, 0, down_menus->number);
                           destroy_list (down_menus);
                         }
@@ -2131,16 +2131,16 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
             }
         }
     }
-  if (new_detailmenu_e->c->contents.number > 0)
+  if (new_detailmenu_e->e.c->contents.number > 0)
     {
       int i;
       ELEMENT *new_line = new_text_element (ET_normal_text);
     /* There is a menu comment with a preformatted added in front of each
        detailed menu section with the node section name */
       ELEMENT *first_preformatted
-        = new_detailmenu_e->c->contents.list[0]->c->contents.list[0];
+        = new_detailmenu_e->e.c->contents.list[0]->e.c->contents.list[0];
 
-      text_append (new_line->text, "\n");
+      text_append (new_line->e.text, "\n");
       new_line->parent = first_preformatted;
       insert_into_contents (first_preformatted, new_line, 0);
 
@@ -2152,18 +2152,18 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                         options->documentlanguage.o.string, 0,
                         options->DEBUG.o.integer, 0);
 
-          for (i = 0; i < master_menu_title->c->contents.number; i++)
-            master_menu_title->c->contents.list[i]->parent = first_preformatted;
+          for (i = 0; i < master_menu_title->e.c->contents.number; i++)
+            master_menu_title->e.c->contents.list[i]->parent = first_preformatted;
 
           insert_slice_into_contents (first_preformatted, 0,
                                       master_menu_title, 0,
-                                      master_menu_title->c->contents.number);
+                                      master_menu_title->e.c->contents.number);
           destroy_element (master_menu_title);
         }
       else
         {
           ELEMENT *master_menu_title_string = new_text_element (ET_normal_text);
-          text_append (master_menu_title_string->text,
+          text_append (master_menu_title_string->e.text,
                        " --- The Detailed Node Listing ---");
           master_menu_title_string->parent = first_preformatted;
           insert_into_contents (first_preformatted,
@@ -2214,7 +2214,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
 
               add_to_element_contents (menu_node, menu_comment);
               add_to_element_contents (menu_comment, preformatted);
-              text_append_n (empty_line->text, "\n", 1);
+              text_append_n (empty_line->e.text, "\n", 1);
               add_to_element_contents (preformatted, empty_line);
 
               add_to_element_contents (menu_node, detailmenu);

@@ -78,7 +78,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
 
   /* Starting from the end, collect everything that is not a ET_item
      or ET_itemx and put it into the ET_table_definition/ET_inter_item. */
-  contents_count = current->c->contents.number;
+  contents_count = current->e.c->contents.number;
   for (i = contents_count - 1; i >= 0; i--)
     {
       e = contents_child_by_index (current, i);
@@ -114,7 +114,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   /* Move everything from 'begin' to 'end' to be children of
      table_after_terms. */
   insert_slice_into_contents (table_after_terms, 0, current, begin, end);
-  for (i = 0; i < table_after_terms->c->contents.number; i++)
+  for (i = 0; i < table_after_terms->e.c->contents.number; i++)
     contents_child_by_index (table_after_terms, i)->parent = table_after_terms;
   remove_slice_from_contents (current, begin, end);
 
@@ -148,16 +148,16 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
 
       insert_slice_into_contents (table_term, 0, current,
                                   term_begin, begin);
-      for (i = 0; i < table_term->c->contents.number; i++)
+      for (i = 0; i < table_term->e.c->contents.number; i++)
         contents_child_by_index (table_term, i)->parent = table_term;
       remove_slice_from_contents (current, term_begin, begin);
       if (before_item)
         {
-          if (before_item->c->contents.number > 0)
+          if (before_item->e.c->contents.number > 0)
             debug ("REPARENT before_item content");
           /* Reparent any trailing index entries in the before_item to the
              beginning of table term. */
-          while (before_item->c->contents.number > 0
+          while (before_item->e.c->contents.number > 0
                    && (last_contents_child (before_item)->type
                          == ET_index_entry_command
                        || last_contents_child (before_item)->cmd == CM_c
@@ -169,7 +169,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
             }
         }
 
-      if (table_after_terms->c->contents.number > 0)
+      if (table_after_terms->e.c->contents.number > 0)
         add_to_element_contents (table_entry, table_after_terms);
       else
         destroy_element (table_after_terms);
@@ -183,7 +183,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       if (check_no_text (table_after_terms))
         line_error ("@itemx must follow @item");
 
-      if (table_after_terms->c->contents.number > 0)
+      if (table_after_terms->e.c->contents.number > 0)
         insert_into_contents (current, table_after_terms, begin);
       else
         destroy_element (table_after_terms);

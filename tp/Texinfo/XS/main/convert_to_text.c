@@ -453,7 +453,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
   /*
   fprintf (stderr, "CTTI: %s '%.20s'\n", print_element_debug (element, 1),
-           result->text);
+           result->e.text);
    */
 
   /* in data_cmd, user-defined commands are mapped to internal commands
@@ -497,9 +497,9 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                       && !format_expanded_p (text_options->expanded_formats,
                                         builtin_command_name (element->cmd)))
                /* here ignore most of the line commands */
-                  || (element->c->args.number > 0
-                      && (element->c->args.list[0]->type == ET_line_arg
-                          || element->c->args.list[0]->type == ET_rawline_arg)
+                  || (element->e.c->args.number > 0
+                      && (element->e.c->args.list[0]->type == ET_line_arg
+                          || element->e.c->args.list[0]->type == ET_rawline_arg)
                       && !(builtin_command_data[data_cmd].other_flags
                                                          & CF_formatted_line)
                       && !(element->cmd == CM_sp
@@ -528,12 +528,12 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
   if (type_data[element->type].flags & TF_text)
     {
-      if (element->text->end <= 0)
+      if (element->e.text->end <= 0)
         return;
 
       if (element->type == ET_raw
           || text_options->raw_state)
-        ADD(element->text->text);
+        ADD(element->e.text->text);
       else
         {
           const char *p;
@@ -544,13 +544,13 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (text_options->set_case)
             {
               cased
-                = to_upper_or_lower_multibyte (element->text->text,
+                = to_upper_or_lower_multibyte (element->e.text->text,
                                                text_options->set_case);
               text = cased;
             }
           else
             {
-              text = element->text->text;
+              text = element->e.text->text;
             }
 
           if (text_options->code_state)
@@ -658,18 +658,18 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       else if (element->cmd == CM_image)
         {
           text_options->code_state++;
-          convert_to_text_internal (element->c->args.list[0],
+          convert_to_text_internal (element->e.c->args.list[0],
                                     text_options, result);
           text_options->code_state--;
           return;
         }
       else if (element->cmd == CM_email)
         {
-          if (element->c->args.number >= 2)
+          if (element->e.c->args.number >= 2)
             {
               TEXT replacement;
               text_init (&replacement);
-              convert_to_text_internal (element->c->args.list[1],
+              convert_to_text_internal (element->e.c->args.list[1],
                                         text_options, &replacement);
               if (replacement.end > 0)
                 {
@@ -679,7 +679,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                 }
             }
           text_options->code_state++;
-          convert_to_text_internal (element->c->args.list[0],
+          convert_to_text_internal (element->e.c->args.list[0],
                                     text_options, result);
           text_options->code_state--;
           return;
@@ -688,11 +688,11 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         {
           TEXT url_text;
 
-          if (element->c->args.number >= 3)
+          if (element->e.c->args.number >= 3)
             {
               TEXT replacement;
               text_init (&replacement);
-              convert_to_text_internal (element->c->args.list[2],
+              convert_to_text_internal (element->e.c->args.list[2],
                                         text_options, &replacement);
               if (replacement.end > 0)
                 {
@@ -705,14 +705,14 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           text_init (&url_text);
           text_append (&url_text, "");
           text_options->code_state++;
-          convert_to_text_internal (element->c->args.list[0],
+          convert_to_text_internal (element->e.c->args.list[0],
                                     text_options, &url_text);
           text_options->code_state--;
-          if (element->c->args.number >= 2)
+          if (element->e.c->args.number >= 2)
             {
               TEXT text;
               text_init (&text);
-              convert_to_text_internal (element->c->args.list[1],
+              convert_to_text_internal (element->e.c->args.list[1],
                                         text_options, &text);
               if (text.end > 0)
                 {
@@ -731,14 +731,14 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           return;
         }
       else if ((builtin_command_data[data_cmd].other_flags & CF_explained)
-               && element->c->args.number >= 2)
+               && element->e.c->args.number >= 2)
         {
           TEXT explanation;
           text_init (&explanation);
-          convert_to_text_internal (element->c->args.list[1],
+          convert_to_text_internal (element->e.c->args.list[1],
                                     text_options, &explanation);
 
-          convert_to_text_internal (element->c->args.list[0],
+          convert_to_text_internal (element->e.c->args.list[0],
                                     text_options, result);
           if (explanation.end > 0)
             {
@@ -763,17 +763,17 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                 arg_index = 2;
             }
 
-          if (element->c->args.number > arg_index)
-            convert_to_text_internal (element->c->args.list[arg_index],
+          if (element->e.c->args.number > arg_index)
+            convert_to_text_internal (element->e.c->args.list[arg_index],
                                       text_options, result);
 
           if (element->cmd == CM_inlineraw)
             text_options->raw_state--;
           return;
         }
-      else if (element->c->args.number > 0
-                && (element->c->args.list[0]->type == ET_brace_container
-                    || element->c->args.list[0]->type == ET_brace_arg
+      else if (element->e.c->args.number > 0
+                && (element->e.c->args.list[0]->type == ET_brace_container
+                    || element->e.c->args.list[0]->type == ET_brace_arg
                     || (builtin_command_data[data_cmd].flags & CF_brace
                         && builtin_command_data[data_cmd].flags & CF_math)))
         {
@@ -787,7 +787,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
           if (in_code)
             text_options->code_state++;
-          convert_to_text_internal (element->c->args.list[0],
+          convert_to_text_internal (element->e.c->args.list[0],
                                     text_options, result);
           if (in_code)
             text_options->code_state--;
@@ -802,14 +802,14 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                || element->cmd == CM_float
                || element->cmd == CM_cartouche)
         {
-          if (element->c->args.number >= 0)
+          if (element->e.c->args.number >= 0)
             {
               int i;
               TEXT args_line;
               text_init (&args_line);
-              for (i = 0; i < element->c->args.number; i++)
+              for (i = 0; i < element->e.c->args.number; i++)
                 {
-                  const ELEMENT *arg = element->c->args.list[i];
+                  const ELEMENT *arg = element->e.c->args.list[i];
                   TEXT converted_arg;
                   text_init (&converted_arg);
                   convert_to_text_internal (arg, text_options, &converted_arg);
@@ -843,7 +843,6 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
             }
         }
       else if (builtin_command_data[data_cmd].other_flags & CF_formatted_line)
-              /*  && element->c->args.number > 0) */
         {
           if (element->cmd != CM_node)
             {
@@ -851,7 +850,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               text_init (&text);
               text_append (&text, "");
               if (element->cmd != CM_page)
-                convert_to_text_internal (element->c->args.list[0],
+                convert_to_text_internal (element->e.c->args.list[0],
                                           text_options, &text);
               if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
                 {
@@ -878,7 +877,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           /* misc_args can be 0 with invalid args */
           if (misc_args && misc_args->number > 0)
             {
-              const char *sp_arg = misc_args->list[0]->text->text;
+              const char *sp_arg = misc_args->list[0]->e.text->text;
               int sp_nr = strtoul (sp_arg, NULL, 10);
               int i;
               if (sp_nr > 0)
@@ -947,13 +946,13 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           ELEMENT *args_text_space;
           add_to_contents_as_array (converted_element,
                                     parsed_definition_category);
-          text_append (text_colon->text, ": ");
+          text_append (text_colon->e.text, ": ");
           add_to_contents_as_array (converted_element, text_colon);
           if (parsed_def->type)
             {
               type_text_space = new_text_element (ET_normal_text);
               add_to_contents_as_array (converted_element, parsed_def->type);
-              text_append (type_text_space->text, " ");
+              text_append (type_text_space->e.text, " ");
               add_to_contents_as_array (converted_element, type_text_space);
             }
           if (parsed_def->name)
@@ -961,11 +960,11 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (parsed_def->args)
             {
               args_text_space = new_text_element (ET_normal_text);
-              text_append (args_text_space->text, " ");
+              text_append (args_text_space->e.text, " ");
               add_to_contents_as_array (converted_element, args_text_space);
               add_to_contents_as_array (converted_element, parsed_def->args);
             }
-          text_append (text_eol->text, "\n");
+          text_append (text_eol->e.text, "\n");
           add_to_contents_as_array (converted_element, text_eol);
 
           text_options->code_state++;
@@ -991,7 +990,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
    else if (element->type == ET_untranslated_def_line_arg)
     {
       ELEMENT *tree = 0;
-      const char *category_text = element->c->contents.list[0]->text->text;
+      const char *category_text = element->e.c->contents.list[0]->e.text->text;
       const char *translation_context
         = lookup_extra_string (element, "translation_context");
 
@@ -1031,7 +1030,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       return;
     }
 
-  if (element->c->contents.number)
+  if (element->e.c->contents.number)
     {
       int i;
       int in_code = 0;
@@ -1053,9 +1052,9 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       if (in_code)
         text_options->code_state++;
 
-      for (i = 0; i < element->c->contents.number; i++)
+      for (i = 0; i < element->e.c->contents.number; i++)
         {
-          const ELEMENT *content = element->c->contents.list[i];
+          const ELEMENT *content = element->e.c->contents.list[i];
           convert_to_text_internal (content,
                                     text_options, result);
         }

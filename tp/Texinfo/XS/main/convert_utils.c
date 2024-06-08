@@ -71,7 +71,7 @@ expand_today (OPTIONS *options)
   if (options->TEST.o.integer > 0)
     {
       result = new_text_element (ET_normal_text);
-      text_append (result->text, "a sunny day");
+      text_append (result->e.text, "a sunny day");
       return result;
     }
 
@@ -98,8 +98,8 @@ expand_today (OPTIONS *options)
                          options->DEBUG.o.integer, 0);
   day_element = new_text_element (ET_normal_text);
   year_element = new_text_element (ET_normal_text);
-  text_printf (day_element->text, "%d", time_tm->tm_mday);
-  text_printf (year_element->text, "%d", year);
+  text_printf (day_element->e.text, "%d", time_tm->tm_mday);
+  text_printf (year_element->e.text, "%d", year);
 
   substrings = new_named_string_element_list ();
   add_element_to_named_string_element_list (substrings, "month", month_tree);
@@ -135,14 +135,14 @@ find_innermost_accent_contents (const ELEMENT *element)
         return accent_stack;
       push_stack_element (&accent_stack->stack, current);
       /* A bogus accent, that may happen */
-      if (current->c->args.number <= 0)
+      if (current->e.c->args.number <= 0)
         return accent_stack;
-      arg = current->c->args.list[0];
-      if (arg->c->contents.number <= 0)
+      arg = current->e.c->args.list[0];
+      if (arg->e.c->contents.number <= 0)
         return accent_stack;
-      for (i = 0; i < arg->c->contents.number; i++)
+      for (i = 0; i < arg->e.c->contents.number; i++)
         {
-          ELEMENT *content = arg->c->contents.list[i];
+          ELEMENT *content = arg->e.c->contents.list[i];
           enum command_id content_data_cmd
              = element_builtin_data_cmd (content);
           unsigned long content_flags
@@ -356,7 +356,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
   file_name = encoded_input_file_name (options, global_information,
                                        file_name_text, input_encoding,
                                        &file_name_encoding,
-                                       &current->c->source_info);
+                                       &current->e.c->source_info);
 
   if (options)
     include_directories = options->INCLUDE_DIRECTORIES.o.strlist;
@@ -377,7 +377,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
               char *decoded_file;
               if (file_name_encoding)
                 decoded_file = decode_string (file, file_name_encoding,
-                                              &status, &current->c->source_info);
+                                         &status, &current->e.c->source_info);
               else
                 decoded_file = file;
               message_list_command_error (error_messages, options, current,
@@ -407,10 +407,10 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                 }
 
               text = convert_to_utf8_verbatiminclude
-                       (line, conversion, &current->c->source_info);
+                       (line, conversion, &current->e.c->source_info);
               free (line);
               raw = new_text_element (ET_raw);
-              text_append (raw->text, text);
+              text_append (raw->e.text, text);
               add_to_element_contents (verbatiminclude, raw);
               free (text);
             }
@@ -423,7 +423,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
                   if (file_name_encoding)
                     decoded_file = decode_string (file, file_name_encoding,
                                                   &status,
-                                                  &current->c->source_info);
+                                                  &current->e.c->source_info);
                   else
                     decoded_file = file;
                   message_list_command_error (error_messages, options, current,
@@ -453,15 +453,15 @@ definition_arguments_content (const ELEMENT *element)
 {
   PARSED_DEF *result = malloc (sizeof (PARSED_DEF));
   memset (result, 0, sizeof (PARSED_DEF));
-  if (element->c->args.number >= 0)
+  if (element->e.c->args.number >= 0)
     {
       int i;
-      const ELEMENT *def_line = element->c->args.list[0];
-      if (def_line->c->contents.number > 0)
+      const ELEMENT *def_line = element->e.c->args.list[0];
+      if (def_line->e.c->contents.number > 0)
         {
-          for (i = 0; i < def_line->c->contents.number; i++)
+          for (i = 0; i < def_line->e.c->contents.number; i++)
             {
-              ELEMENT *arg = def_line->c->contents.list[i];
+              ELEMENT *arg = def_line->e.c->contents.list[i];
               if (arg->type == ET_def_class)
                 result->class = arg;
               else if (arg->type == ET_def_category)
@@ -477,11 +477,11 @@ definition_arguments_content (const ELEMENT *element)
                   break;
                 }
             }
-          if (i < def_line->c->contents.number - 1)
+          if (i < def_line->e.c->contents.number - 1)
             {
               ELEMENT *args = new_element (ET_NONE);
               insert_slice_into_contents (args, 0, def_line,
-                                          i + 1, def_line->c->contents.number);
+                                          i + 1, def_line->e.c->contents.number);
               result->args = args;
             }
         }
@@ -509,13 +509,13 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
   ELEMENT *class_copy;
   char *def_command;
 
-  if (current->c->args.number >= 0)
+  if (current->e.c->args.number >= 0)
     {
       int i;
-      const ELEMENT *def_line = current->c->args.list[0];
-      for (i = 0; i < def_line->c->contents.number; i++)
+      const ELEMENT *def_line = current->e.c->args.list[0];
+      for (i = 0; i < def_line->e.c->contents.number; i++)
         {
-          ELEMENT *arg = def_line->c->contents.list[i];
+          ELEMENT *arg = def_line->e.c->contents.list[i];
           if (arg->type == ET_def_class)
             arg_class = arg;
           else if (arg->type == ET_def_category)
@@ -587,7 +587,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_text_element (ET_normal_text);
           add_to_element_contents (result, category_copy);
-          text_append (&text_element->text, " on ");
+          text_append (text_element->e.text, " on ");
           add_to_element_contents (result, text_element);
           add_to_element_contents (result, arg_class_code);
            */
@@ -626,7 +626,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
           result = new_element (ET_NONE);
           ELEMENT *text_element = new_text_element (ET_normal_text);
           add_to_element_contents (result, category_copy);
-          text_append (&text_element->text, " of ");
+          text_append (text_element->e.text, " of ");
           add_to_element_contents (result, text_element);
           add_to_element_contents (result, arg_class_code);
            */
@@ -854,12 +854,12 @@ find_root_command_next_heading_command (const ELEMENT *root,
 {
   size_t i;
 
-  if (root->c->contents.number <= 0)
+  if (root->e.c->contents.number <= 0)
     return 0;
 
-  for (i = 0; i < root->c->contents.number; i++)
+  for (i = 0; i < root->e.c->contents.number; i++)
     {
-      const ELEMENT *content = root->c->contents.list[i];
+      const ELEMENT *content = root->e.c->contents.list[i];
       enum command_id data_cmd = element_builtin_data_cmd (content);
 
       if (data_cmd)
@@ -921,9 +921,9 @@ find_root_command_next_heading_command (const ELEMENT *root,
       /* do not happen and should not happen, as normal text should never
          be in top level root command contents, only empty_line,
          spaces_after_close_brace... that only contain whitespace_chars */
-      if (content->type == ET_normal_text && content->text->end > 0)
+      if (content->type == ET_normal_text && content->e.text->end > 0)
         {
-          const char *text = content->text->text;
+          const char *text = content->e.text->text;
           fprintf (stderr, "BUG: in top level unexpected normal_text: '%s'\n",
                            text);
           /* only whitespace characters */

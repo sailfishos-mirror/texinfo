@@ -175,9 +175,9 @@ check_space_element (ELEMENT *e)
         || e->cmd == CM_comment
         || e->cmd == CM_COLON
         || (type_data[e->type].flags & TF_text
-            && (e->text->end == 0
-                || !*(e->text->text
-                        + strspn (e->text->text, whitespace_chars))))
+            && (e->e.text->end == 0
+                || !*(e->e.text->text
+                        + strspn (e->e.text->text, whitespace_chars))))
      ))
     {
       return 0;
@@ -201,11 +201,11 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
   if (!e)
     return "";
   text_init (&result);
-  for (i = 0; i < e->c->contents.number; i++)
+  for (i = 0; i < e->e.c->contents.number; i++)
     {
       const ELEMENT *e1 = contents_child_by_index (e, i);
-      if (type_data[e1->type].flags & TF_text && e1->text->end > 0)
-        ADD(e1->text->text);
+      if (type_data[e1->type].flags & TF_text && e1->e.text->end > 0)
+        ADD(e1->e.text->text);
       else if (e1->cmd == CM_AT_SIGN
                || e1->cmd == CM_atchar)
         ADD("@");
@@ -336,8 +336,8 @@ register_global_command (ELEMENT *current)
 
   if (command_data(cmd).flags & CF_global)
     {
-      if (!current->c->source_info.line_nr)
-        current->c->source_info = current_source_info;
+      if (!current->e.c->source_info.line_nr)
+        current->e.c->source_info = current_source_info;
       switch (cmd)
         {
 #define GLOBAL_CASE(cmx) \
@@ -372,8 +372,8 @@ register_global_command (ELEMENT *current)
     {
       ELEMENT **where = 0;
 
-      if (!current->c->source_info.line_nr)
-        current->c->source_info = current_source_info;
+      if (!current->e.c->source_info.line_nr)
+        current->e.c->source_info = current_source_info;
       switch (cmd)
         {
         case CM_setfilename:
@@ -438,13 +438,13 @@ rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
     {
       ELEMENT *before_setfilename
          = new_element (ET_preamble_before_setfilename);
-      while (before_node_section->c->contents.number > 0
-             && before_node_section->c->contents.list[0]->cmd != CM_setfilename)
+      while (before_node_section->e.c->contents.number > 0
+             && before_node_section->e.c->contents.list[0]->cmd != CM_setfilename)
         {
           ELEMENT *e = remove_from_contents (before_node_section, 0);
           add_to_element_contents (before_setfilename, e);
         }
-      if (before_setfilename->c->contents.number > 0)
+      if (before_setfilename->e.c->contents.number > 0)
         insert_into_contents (before_node_section, before_setfilename, 0);
       else
         destroy_element (before_setfilename);
@@ -454,11 +454,11 @@ rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
 
   /* add a preamble for informational commands */
   informational_preamble = new_element (ET_preamble_before_content);
-  if (before_node_section->c->contents.number > 0)
+  if (before_node_section->e.c->contents.number > 0)
     {
-      while (before_node_section->c->contents.number > 0)
+      while (before_node_section->e.c->contents.number > 0)
         {
-          ELEMENT *next_content = before_node_section->c->contents.list[0];
+          ELEMENT *next_content = before_node_section->e.c->contents.list[0];
           if (next_content->type == ET_preamble_before_beginning
               || next_content->type == ET_preamble_before_setfilename)
             add_to_element_list (first_types,
@@ -527,7 +527,7 @@ parse_texi_document (void)
         preamble_before_beginning = new_element (ET_preamble_before_beginning);
 
       l = new_text_element (ET_text_before_beginning);
-      text_append (l->text, line);
+      text_append (l->e.text, line);
       add_to_element_contents (preamble_before_beginning, l);
     }
 
@@ -581,9 +581,9 @@ begin_paragraph (ELEMENT *current)
 
       /* Check if an @indent precedes the paragraph (to record it
          in the 'extra' key). */
-      if (current->c->contents.number > 0)
+      if (current->e.c->contents.number > 0)
         {
-          int i = current->c->contents.number - 1;
+          int i = current->e.c->contents.number - 1;
           while (i >= 0)
             {
               ELEMENT *child = contents_child_by_index (current, i);
@@ -715,7 +715,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                          type_data[last_element->type].name);
                   free (additional_text_dbg);
                 }
-              text_append_n (last_element->text, text, leading_spaces);
+              text_append_n (last_element->e.text, text, leading_spaces);
               text += leading_spaces;
               len_text -= leading_spaces;
             }
@@ -743,13 +743,13 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       && last_element
       /* can actually be normal_text, and some space elements */
       && type_data[last_element->type].flags & TF_text
-      && !strchr (last_element->text->text, '\n'))
+      && !strchr (last_element->e.text->text, '\n'))
     {
       /* Transfer source marks */
       if (transfer_marks_element
           && transfer_marks_element->source_mark_list.number > 0)
         {
-          size_t additional_length = count_multibyte (last_element->text->text);
+          size_t additional_length = count_multibyte (last_element->e.text->text);
           SOURCE_MARK_LIST *s_mark_list
              = &(transfer_marks_element->source_mark_list);
           int i;
@@ -774,7 +774,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
         }
 
       /* Append text */
-      text_append_n (last_element->text, text, len_text);
+      text_append_n (last_element->e.text, text, len_text);
     }
   else
     {
@@ -782,7 +782,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       ELEMENT *e = new_text_element (ET_normal_text);
       if (transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e);
-      text_append_n (e->text, text, len_text);
+      text_append_n (e->e.text, text, len_text);
       add_to_element_contents (current, e);
       if (global_parser_conf.debug)
         {
@@ -821,13 +821,13 @@ abort_empty_line (ELEMENT **current_inout)
           debug_nonl ("(p:%d): %s; ", in_paragraph_context (current_context ()),
                       type_data[last_child->type].name);
           debug_nonl ("|%s|",
-                      last_child->text->end > 0 ? last_child->text->text : "");
+                      last_child->e.text->end > 0 ? last_child->e.text->text : "");
           debug ("");
         }
 
 
       /* Remove element altogether if it's empty. */
-      if (last_child->text->end == 0)
+      if (last_child->e.text->end == 0)
         {
           ELEMENT *e = pop_element_from_contents (current);
           if (e->source_mark_list.number)
@@ -879,8 +879,8 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
   char *text;
   int text_len;
 
-  text = last_elt->text->text;
-  text_len = last_elt->text->end;
+  text = last_elt->e.text->text;
+  text_len = last_elt->e.text->end;
 
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
@@ -902,18 +902,18 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
            i--)
         trailing_spaces++;
 
-      text_append_n (spaces_element->text, text + text_len - trailing_spaces,
+      text_append_n (spaces_element->e.text, text + text_len - trailing_spaces,
                      trailing_spaces);
 
       text[text_len - trailing_spaces] = '\0';
-      last_elt->text->end -= trailing_spaces;
+      last_elt->e.text->end -= trailing_spaces;
 
       if (last_elt->source_mark_list.number > 0)
         {
           size_t begin_position = count_multibyte (text);
           relocate_source_marks (&(last_elt->source_mark_list), spaces_element,
                                  begin_position,
-                                 count_multibyte (spaces_element->text->text));
+                                 count_multibyte (spaces_element->e.text->text));
         }
       current->elt_info[eit_spaces_after_argument] = spaces_element;
     }
@@ -924,7 +924,7 @@ static void
 isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
                         enum element_type spaces_type)
 {
-  char *text = last_elt->text->text;
+  char *text = last_elt->e.text->text;
 
 
   /* If text all whitespace */
@@ -936,7 +936,7 @@ isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
     {
       ELEMENT *new_spaces;
       int i, trailing_spaces;
-      int text_len = last_elt->text->end;
+      int text_len = last_elt->e.text->end;
 
       trailing_spaces = 0;
       for (i = text_len - 1;
@@ -947,11 +947,11 @@ isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
       if (trailing_spaces)
         {
           new_spaces = new_text_element (spaces_type);
-          text_append_n (new_spaces->text,
+          text_append_n (new_spaces->e.text,
                          text + text_len - trailing_spaces,
                          trailing_spaces);
           text[text_len - trailing_spaces] = '\0';
-          last_elt->text->end -= trailing_spaces;
+          last_elt->e.text->end -= trailing_spaces;
 
           add_to_element_contents (current, new_spaces);
         }
@@ -964,7 +964,7 @@ isolate_last_space (ELEMENT *current)
   ELEMENT *last_elt = 0;
   int text_len;
 
-  if (current->c->contents.number == 0)
+  if (current->e.c->contents.number == 0)
     return;
 
   /* Store a final comment command in the 'info' hash, except for brace
@@ -978,7 +978,7 @@ isolate_last_space (ELEMENT *current)
          = pop_element_from_contents (current);
     }
 
-  if (current->c->contents.number == 0)
+  if (current->e.c->contents.number == 0)
     goto no_isolate_space;
 
   last_elt = last_contents_child (current);
@@ -986,12 +986,12 @@ isolate_last_space (ELEMENT *current)
   if (!(type_data[last_elt->type].flags & TF_text))
     goto no_isolate_space;
 
-  text_len = last_elt->text->end;
+  text_len = last_elt->e.text->end;
   if (text_len <= 0)
     goto no_isolate_space;
 
   /* Does the text end in whitespace? */
-  if (!strchr (whitespace_chars, last_elt->text->text[text_len - 1]))
+  if (!strchr (whitespace_chars, last_elt->e.text->text[text_len - 1]))
     goto no_isolate_space;
 
   debug_nonl ("ISOLATE SPACE p ");
@@ -1034,7 +1034,7 @@ start_empty_line_after_command (ELEMENT *current, const char **line_inout,
   len = strspn (line, whitespace_chars_except_newline);
   e = new_text_element (ET_ignorable_spaces_after_command);
   add_to_element_contents (current, e);
-  text_append_n (e->text, line, len);
+  text_append_n (e->e.text, line, len);
   line += len;
 
   if (command)
@@ -1075,7 +1075,7 @@ parent_of_command_as_argument (ELEMENT *current)
   return current->type == ET_block_line_arg
     && (current->parent->cmd == CM_itemize
         || command_data(current->parent->cmd).data == BLOCK_item_line)
-    && (current->c->contents.number == 1);
+    && (current->e.c->contents.number == 1);
 }
 
 /* register a command like @bullet with @itemize, or @asis with @table */
@@ -1112,7 +1112,7 @@ new_value_element (enum command_id cmd, const char *flag,
   /* occasionnally considered as text in conversion, so make it normal text */
   ELEMENT *value_text = new_text_element (ET_normal_text);
 
-  text_append_n (value_text->text, flag, flag_len);
+  text_append_n (value_text->e.text, flag, flag_len);
   add_to_element_args (value_elt, brace_container);
   add_to_element_contents (brace_container, value_text);
   if (spaces_element)
@@ -1464,7 +1464,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                       ELEMENT *e;
                       int n = strspn (line, whitespace_chars);
                       e = new_text_element (ET_raw);
-                      text_append_n (e->text, line, n);
+                      text_append_n (e->e.text, line, n);
                       add_to_element_contents (current, e);
                       line += n;
                       line_warn ("@end %s should only appear at the "
@@ -1476,11 +1476,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                     {
                       char *name;
                       enum command_id existing;
-                      if (current->c->args.number > 0)
+                      if (current->e.c->args.number > 0)
                         {
                           const ELEMENT *macro_name_e
                               = args_child_by_index (current, 0);
-                          name = macro_name_e->text->text;
+                          name = macro_name_e->e.text->text;
 
                           existing = lookup_command (name);
                           if (existing)
@@ -1490,17 +1490,17 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                               if (macro)
                                 {
                                   line_error_ext (MSG_warning, 0,
-                                                  &current->c->source_info,
+                                                  &current->e.c->source_info,
                                      "macro `%s' previously defined", name);
                                   line_error_ext (MSG_warning, 0,
-                                              &macro->element->c->source_info,
+                                              &macro->element->e.c->source_info,
                                      "here is the previous definition of `%s'",
                                                   name);
                                 }
                               else if (!(existing & USER_COMMAND_BIT))
                                 {
                                   line_error_ext (MSG_warning, 0,
-                                                  &current->c->source_info,
+                                                  &current->e.c->source_info,
                                     "redefining Texinfo language command: @%s",
                                     name);
                                 }
@@ -1533,7 +1533,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           ELEMENT *e;
           e = new_text_element (ET_raw);
-          text_append (e->text, line);
+          text_append (e->e.text, line);
           add_to_element_contents (current, e);
 
           retval = GET_A_NEW_LINE;
@@ -1586,7 +1586,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               ELEMENT *e;
               int n = strspn (line, whitespace_chars);
               e = new_text_element (ET_raw);
-              text_append_n (e->text, line, n);
+              text_append_n (e->e.text, line, n);
               add_to_element_contents (current, e);
               line += n;
               line_warn ("@end %s should only appear at the "
@@ -1601,7 +1601,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       else
         {
           ELEMENT *e = new_text_element (ET_raw);
-          text_append (e->text, line);
+          text_append (e->e.text, line);
           add_to_element_contents (current, e);
           retval = GET_A_NEW_LINE;
           goto funexit;
@@ -1640,7 +1640,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           if (q != line)
             {
               ELEMENT *e = new_text_element (ET_raw);
-              text_append_n (e->text, line, q - line);
+              text_append_n (e->e.text, line, q - line);
               add_to_element_contents (current, e);
             }
           debug ("END VERB");
@@ -1651,7 +1651,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           /* Save the rest of line. */
           ELEMENT *e = new_text_element (ET_raw);
-          text_append (e->text, line);
+          text_append (e->e.text, line);
           add_to_element_contents (current, e);
 
           debug_nonl ("LINE VERB: %s", line);
@@ -1692,7 +1692,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               else
                 {
                   ELEMENT *raw_text = new_text_element (ET_raw);
-                  text_append (raw_text->text, line);
+                  text_append (raw_text->e.text, line);
                   add_to_element_contents (e_elided_rawpreformatted, raw_text);
                 }
             }
@@ -1706,7 +1706,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       add_to_element_contents (current, e_empty_line);
 
       n = strspn (line, whitespace_chars_except_newline);
-      text_append_n (e_empty_line->text, line, n);
+      text_append_n (e_empty_line->e.text, line, n);
       line += n;
    /* It is important to let the processing continue from here, such that
       the @end is catched and handled below, as the condition has not changed */
@@ -1813,7 +1813,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             {
               /* special text in "spaces_after_cmd_before_arg" */
               spaces_element = new_text_element (ET_other_text);
-              text_append_n (spaces_element->text,
+              text_append_n (spaces_element->e.text,
                              remaining_line, whitespaces_len);
               remaining_line += whitespaces_len;
             }
@@ -1921,7 +1921,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     {
       line_error ("@%s expected braces",
                   command_name(current->cmd));
-      if (current->c->contents.number > 0)
+      if (current->e.c->contents.number > 0)
         gather_spaces_after_cmd_before_arg (current);
       current = current->parent;
     }
@@ -1997,7 +1997,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                     /* do not consider the end of line to be possibly between
                        the @-command and the argument if at the end of a
                        line or block @-command. */
-                       if (current->c->contents.number > 0)
+                       if (current->e.c->contents.number > 0)
                          gather_spaces_after_cmd_before_arg (current);
                        current = current->parent;
                        current = merge_text (current, line, whitespaces_len, 0);
@@ -2022,17 +2022,17 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               Note that contents is transiently set for brace commands, which in
               general only have args. */
 
-           if (current->c->contents.number == 0)
+           if (current->e.c->contents.number == 0)
              {
                ELEMENT *e_spaces_after_cmd_before_arg
                  = new_text_element (ET_internal_spaces_after_cmd_before_arg);
-               text_append_n (e_spaces_after_cmd_before_arg->text,
+               text_append_n (e_spaces_after_cmd_before_arg->e.text,
                               line, whitespaces_len);
                add_to_element_contents (current, e_spaces_after_cmd_before_arg);
 
                debug_nonl ("BRACE CMD before brace init spaces '");
                debug_print_protected_string
-                                  (e_spaces_after_cmd_before_arg->text->text);
+                                  (e_spaces_after_cmd_before_arg->e.text->text);
                debug ("'");
 
                line += whitespaces_len;
@@ -2042,7 +2042,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
        /* contents, at this point can only be for spaces_after_cmd_before_arg */
             /* only ignore spaces and one newline, two newlines lead to
                an empty line before the brace or argument which is incorrect. */
-               char *previous_value = current->c->contents.list[0]->text->text;
+               char *previous_value
+                  = current->e.c->contents.list[0]->e.text->text;
                if (additional_newline && strchr ("\n", *previous_value))
                  {
                    debug ("BRACE CMD before brace second newline stops spaces");
@@ -2053,11 +2054,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                  }
                else
                  {
-                   text_append_n (current->c->contents.list[0]->text,
+                   text_append_n (current->e.c->contents.list[0]->e.text,
                                   line, whitespaces_len);
                    debug ("BRACE CMD before brace add spaces '%s'",
-                          current->c->contents.list[0]->text->text
-                            + strlen (current->c->contents.list[0]->text->text)
+                          current->e.c->contents.list[0]->e.text->text
+                       + strlen (current->e.c->contents.list[0]->e.text->text)
                                                          - whitespaces_len);
                    line += whitespaces_len;
                  }
@@ -2071,7 +2072,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           ELEMENT *e, *e2;
           int char_len;
 
-          if (current->c->contents.number > 0)
+          if (current->e.c->contents.number > 0)
             gather_spaces_after_cmd_before_arg (current);
           e = new_element (ET_following_arg);
           add_to_element_args (current, e);
@@ -2082,16 +2083,16 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             char_len++;
 
           e2 = new_text_element (ET_normal_text);
-          text_append_n (e2->text, line, char_len);
+          text_append_n (e2->e.text, line, char_len);
           debug ("ACCENT @%s following_arg: %s", command_name(current->cmd),
-                 e2->text->text);
+                 e2->e.text->text);
           add_to_element_contents (e, e2);
 
           if (current->cmd == CM_dotless
               && *line != 'i' && *line != 'j')
             {
               line_error ("@dotless expects `i' or `j' as argument, "
-                          "not `%s'", e2->text->text);
+                          "not `%s'", e2->e.text->text);
             }
           line += char_len;
           current = current->parent;
@@ -2100,7 +2101,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           line_error ("@%s expected braces",
                       command_name(current->cmd));
-          if (current->c->contents.number > 0)
+          if (current->e.c->contents.number > 0)
             gather_spaces_after_cmd_before_arg (current);
           current = current->parent;
         }
@@ -2134,7 +2135,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                 {
                   /* special text in "spaces_after_cmd_before_arg" */
                   spaces_element = new_text_element (ET_other_text);
-                  text_append_n (spaces_element->text,
+                  text_append_n (spaces_element->e.text,
                                  line, whitespaces_len);
                   line += whitespaces_len;
                 }
@@ -2292,7 +2293,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
            || cmd == CM_seeentry
            || cmd == CM_seealso
            || cmd == CM_subentry)
-          && current->c->contents.number > 0
+          && current->e.c->contents.number > 0
        /* it is important to check if in an index command, as otherwise
           the internal space type is not processed and remains as is in
           the final tree. */
@@ -2302,7 +2303,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           ELEMENT *last_elt = last_contents_child (current);
 
           if (last_elt && type_data[last_elt->type].flags & TF_text
-              && last_elt->text->end > 0)
+              && last_elt->e.text->end > 0)
             {
               if (cmd == CM_subentry)
                 {
@@ -2412,7 +2413,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           /* A form feed stops and restarts a paragraph. */
           current = end_paragraph (current, 0, 0);
           e = new_text_element (ET_empty_line);
-          text_append_n (e->text, "\f", 1);
+          text_append_n (e->e.text, "\f", 1);
           add_to_element_contents (current, e);
           e = new_text_element (ET_empty_line);
           add_to_element_contents (current, e);
@@ -2532,7 +2533,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
           debug ("BEGIN LINE");
 
-          if (current->c->contents.number > 0
+          if (current->e.c->contents.number > 0
               && last_contents_child (current)->type
                  == ET_internal_spaces_before_argument)
             {
@@ -2544,7 +2545,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           add_to_element_contents (current, e);
 
           n = strspn (line, whitespace_chars_except_newline);
-          text_append_n (e->text, line, n);
+          text_append_n (e->e.text, line, n);
           line += n;
         }
 
@@ -2620,10 +2621,10 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           break; /* Out of input. */
 
         e = new_text_element (ET_text_after_end);
-        text_append (e->text, line);
+        text_append (e->e.text, line);
         add_to_element_contents (element_after_bye, e);
       }
-    if (element_after_bye->c->contents.number == 0)
+    if (element_after_bye->e.c->contents.number == 0)
       destroy_element (element_after_bye);
     else
       add_to_element_contents (current, element_after_bye);

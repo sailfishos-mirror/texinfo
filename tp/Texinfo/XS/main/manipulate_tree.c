@@ -138,9 +138,9 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           ELEMENT *new_extra_element = new_element (ET_NONE);
           k->k.element = new_extra_element;
-          for (j = 0; j < f->c->contents.number; j++)
+          for (j = 0; j < f->e.c->contents.number; j++)
             {
-              ELEMENT *e = f->c->contents.list[j];
+              ELEMENT *e = f->e.c->contents.list[j];
               k_copy = lookup_extra_by_index (e, "_copy", -1);
               if (k_copy)
                 add_to_contents_as_array (new_extra_element,
@@ -195,17 +195,17 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 
   if (type_data[current->type].flags & TF_text)
     {
-      text_append_n (new->text, current->text->text, current->text->end);
+      text_append_n (new->e.text, current->e.text->text,  current->e.text->end);
       copy_associated_info (&current->extra_info, &new->extra_info);
       return new;
     }
 
-  for (i = 0; i < current->c->args.number; i++)
+  for (i = 0; i < current->e.c->args.number; i++)
     add_to_element_args (new,
-                copy_tree_internal (current->c->args.list[i], new));
-  for (i = 0; i < current->c->contents.number; i++)
+                copy_tree_internal (current->e.c->args.list[i], new));
+  for (i = 0; i < current->e.c->contents.number; i++)
     add_to_element_contents (new,
-                copy_tree_internal (current->c->contents.list[i], new));
+                copy_tree_internal (current->e.c->contents.list[i], new));
 
   if (type_data[current->type].elt_info_number > 0)
     {
@@ -217,7 +217,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
               new->elt_info[i] = copy;
           }
     }
-  copy_associated_info (&current->c->info_info, &new->c->info_info);
+  copy_associated_info (&current->e.c->info_info, &new->e.c->info_info);
   copy_associated_info (&current->extra_info, &new->extra_info);
   return new;
 }
@@ -316,15 +316,15 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             const ELEMENT *f = k_ref->k.element;
             KEY_PAIR *k = lookup_associated_info (new_info, key);
             ELEMENT *new_extra_element = k->k.element;
-            for (j = 0; j < f->c->contents.number; j++)
+            for (j = 0; j < f->e.c->contents.number; j++)
               {
                 KEY_PAIR *k_copy;
-                ELEMENT *e = f->c->contents.list[j];
-                ELEMENT *new_e = new_extra_element->c->contents.list[j];
+                ELEMENT *e = f->e.c->contents.list[j];
+                ELEMENT *new_e = new_extra_element->e.c->contents.list[j];
                 if (!new_e)
                   {
                     ELEMENT *new_ref = get_copy_ref (e);
-                    new_extra_element->c->contents.list[j] = new_ref;
+                    new_extra_element->e.c->contents.list[j] = new_ref;
                   }
 
                 k_copy = lookup_extra_by_index (e, "_copy", -1);
@@ -361,8 +361,9 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
               if (e->type == ET_other_text)
                 {
                   new_e = new_text_element (ET_other_text);
-                  if (e->text->end > 0)
-                    text_append_n (new_e->text, e->text->text, e->text->end);
+                  if (e->e.text->end > 0)
+                    text_append_n (new_e->e.text, e->e.text->text,
+                                   e->e.text->end);
                 }
               else
                 {
@@ -398,10 +399,12 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
 
   if (! (type_data[current->type].flags & TF_text))
     {
-      for (i = 0; i < current->c->args.number; i++)
-        copy_extra_info (current->c->args.list[i], new->c->args.list[i]);
-      for (i = 0; i < current->c->contents.number; i++)
-        copy_extra_info (current->c->contents.list[i], new->c->contents.list[i]);
+      for (i = 0; i < current->e.c->args.number; i++)
+        copy_extra_info (current->e.c->args.list[i],
+                         new->e.c->args.list[i]);
+      for (i = 0; i < current->e.c->contents.number; i++)
+        copy_extra_info (current->e.c->contents.list[i],
+                         new->e.c->contents.list[i]);
 
       if (type_data[current->type].elt_info_number > 0)
         {
@@ -424,7 +427,7 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
                 }
             }
         }
-      associate_info_references (&current->c->info_info, &new->c->info_info);
+      associate_info_references (&current->e.c->info_info, &new->e.c->info_info);
 
       /* text element have _copy and _counter only in extra, not to be copied */
       associate_info_references (&current->extra_info, &new->extra_info);
@@ -445,11 +448,11 @@ copy_contents (ELEMENT *element, enum element_type type)
 {
   ELEMENT *tmp = new_element (type);
   ELEMENT *result;
-  tmp->c->contents = element->c->contents;
+  tmp->e.c->contents = element->e.c->contents;
 
   result = copy_tree (tmp);
 
-  tmp->c->contents.list = 0;
+  tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 
   return result;
@@ -567,7 +570,7 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 
 
 /* In Texinfo::Common */
-/* NODE->c->contents is the Texinfo for the specification of a node.  This
+/* NODE->e.c->contents is the Texinfo for the specification of a node.  This
    function sets two fields on the returned object:
 
      manual_content - Texinfo tree for a manual name extracted from the
@@ -594,7 +597,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 {
   NODE_SPEC_EXTRA *result;
   ELEMENT *node_content = 0;
-  int idx = 0; /* index into node->c->contents */
+  int idx = 0; /* index into node->e.c->contents */
 
   result = malloc (sizeof (NODE_SPEC_EXTRA));
   result->manual_content = result->node_content = 0;
@@ -607,10 +610,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
   result->out_of_tree_elements = 0;
 
   /* If the content starts with a '(', try to get a manual name. */
-  if (node->c->contents.number > 0
-      && node->c->contents.list[0]->type == ET_normal_text
-      && node->c->contents.list[0]->text->end > 0
-      && node->c->contents.list[0]->text->text[0] == '(')
+  if (node->e.c->contents.number > 0
+      && node->e.c->contents.list[0]->type == ET_normal_text
+      && node->e.c->contents.list[0]->e.text->end > 0
+      && node->e.c->contents.list[0]->e.text->text[0] == '(')
     {
       ELEMENT *manual, *first;
       ELEMENT *new_first = 0;
@@ -624,17 +627,17 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
       /* If the first contents element is "(" followed by more text, split
          the leading "(" into its own element. */
-      first = node->c->contents.list[0];
-      if (first->text->end > 1)
+      first = node->e.c->contents.list[0];
+      if (first->e.text->end > 1)
         {
           if (modify_node)
             {
               opening_brace = new_text_element (ET_normal_text);
-              text_append_n (opening_brace->text, "(", 1);
+              text_append_n (opening_brace->e.text, "(", 1);
             }
           new_first = new_text_element (ET_normal_text);
-          text_append_n (new_first->text, first->text->text +1,
-                         first->text->end -1);
+          text_append_n (new_first->e.text, first->e.text->text +1,
+                         first->e.text->end -1);
         }
       else
         {
@@ -642,7 +645,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
           idx++;
         }
 
-      for (; idx < node->c->contents.number; idx++)
+      for (; idx < node->e.c->contents.number; idx++)
         {
           ELEMENT *e;
           char *p, *q;
@@ -650,7 +653,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
           if (idx == 0)
             e = new_first;
           else
-            e = node->c->contents.list[idx];
+            e = node->e.c->contents.list[idx];
 
           if (e->type != ET_normal_text)
             {
@@ -658,8 +661,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
               add_to_contents_as_array (manual, e);
               continue;
             }
-          p = e->text->text;
-          while (p < e->text->text + e->text->end
+          p = e->e.text->text;
+          while (p < e->e.text->text + e->e.text->end
                  && bracket_count > 0)
             {
               opening_bracket = strchr (p, '(');
@@ -716,10 +719,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
                           size_t current_position
                             = relocate_source_marks (&(first->source_mark_list),
                                                      opening_brace, 0,
-                                   count_multibyte (opening_brace->text->text));
+                                   count_multibyte (opening_brace->e.text->text));
                           relocate_source_marks (&(first->source_mark_list),
                                                  new_first, current_position,
-                                       count_multibyte (new_first->text->text));
+                                       count_multibyte (new_first->e.text->text));
                         }
                       destroy_element (first);
                     }
@@ -734,13 +737,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
                     result->out_of_tree_elements[0] = new_first;
                 }
               p--; /* point at ) */
-              if (p > e->text->text)
+              if (p > e->e.text->text)
                 {
                   /* text before ), part of the manual name */
                   ELEMENT *last_manual_element
                                       = new_text_element (ET_normal_text);
-                  text_append_n (last_manual_element->text, e->text->text,
-                                 p - e->text->text);
+                  text_append_n (last_manual_element->e.text, e->e.text->text,
+                                 p - e->e.text->text);
                   add_to_contents_as_array (manual, last_manual_element);
                   if (modify_node)
                     {
@@ -749,7 +752,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                         = relocate_source_marks (&(e->source_mark_list),
                                                  last_manual_element,
                                                  current_position,
-                            count_multibyte (last_manual_element->text->text));
+                            count_multibyte (last_manual_element->e.text->text));
                     }
                   else
                     result->out_of_tree_elements[1] = last_manual_element;
@@ -758,13 +761,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (modify_node)
                 {
                   ELEMENT *closing_brace = new_text_element (ET_normal_text);
-                  text_append_n (closing_brace->text, ")", 1);
+                  text_append_n (closing_brace->e.text, ")", 1);
                   insert_into_contents (node, closing_brace, idx++);
                   current_position
                     = relocate_source_marks (&(e->source_mark_list),
                                              closing_brace,
                                              current_position,
-                        count_multibyte (closing_brace->text->text));
+                        count_multibyte (closing_brace->e.text->text));
                 }
 
               /* Skip ')' and any following whitespace.
@@ -775,13 +778,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
               if (q > p && modify_node)
                 {
                   ELEMENT *spaces_element = new_text_element (ET_normal_text);
-                  text_append_n (spaces_element->text, p, q - p);
+                  text_append_n (spaces_element->e.text, p, q - p);
                   insert_into_contents (node, spaces_element, idx++);
                   current_position
                     = relocate_source_marks (&(e->source_mark_list),
                                              spaces_element,
                                              current_position,
-                        count_multibyte (spaces_element->text->text));
+                        count_multibyte (spaces_element->e.text->text));
                 }
 
               p = q;
@@ -790,8 +793,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   /* text after ), part of the node name. */
                   ELEMENT *leading_node_content
                       = new_text_element (ET_normal_text);
-                  text_append_n (leading_node_content->text, p,
-                                 e->text->text + e->text->end - p);
+                  text_append_n (leading_node_content->e.text, p,
+                                 e->e.text->text + e->e.text->end - p);
                   /* start node_content */
                   node_content = new_element (ET_NONE);
                   add_to_contents_as_array (node_content, leading_node_content);
@@ -802,7 +805,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                         = relocate_source_marks (&(e->source_mark_list),
                                                  leading_node_content,
                                                  current_position,
-                            count_multibyte (leading_node_content->text->text));
+                            count_multibyte (leading_node_content->e.text->text));
                     }
                   else
                     result->out_of_tree_elements[2] = leading_node_content;
@@ -833,13 +836,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
     }
 
   /* If anything left, it is part of the node name. */
-  if (idx < node->c->contents.number)
+  if (idx < node->e.c->contents.number)
     {
       if (!node_content)
         node_content = new_element (ET_NONE);
       insert_slice_into_contents (node_content,
-                                  node_content->c->contents.number,
-                                  node, idx, node->c->contents.number);
+                                  node_content->e.c->contents.number,
+                                  node, idx, node->e.c->contents.number);
     }
 
   if (node_content)
@@ -855,13 +858,13 @@ modify_tree (ELEMENT *tree,
              ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),
              void *argument)
 {
-  if (tree->c->args.number > 0)
+  if (tree->e.c->args.number > 0)
     {
       int i;
-      for (i = 0; i < tree->c->args.number; i++)
+      for (i = 0; i < tree->e.c->args.number; i++)
         {
           ELEMENT_LIST *new_args;
-          ELEMENT *content = tree->c->args.list[i];
+          ELEMENT *content = tree->e.c->args.list[i];
           new_args = (*operation) ("arg", content, argument);
           if (new_args)
             {
@@ -877,12 +880,12 @@ modify_tree (ELEMENT *tree,
             modify_tree (content, operation, argument);
         }
     }
-  if (tree->c->contents.number > 0)
+  if (tree->e.c->contents.number > 0)
     {
       int i;
-      for (i = 0; i < tree->c->contents.number; i++)
+      for (i = 0; i < tree->e.c->contents.number; i++)
         {
-          ELEMENT *content = tree->c->contents.list[i];
+          ELEMENT *content = tree->e.c->contents.list[i];
           ELEMENT_LIST *new_contents;
           new_contents = (*operation) ("content", content, argument);
           if (new_contents)
@@ -932,7 +935,7 @@ new_asis_command_with_text (const char *text, ELEMENT *parent,
   ELEMENT *text_elt = new_text_element (type);
   new_command->parent = parent;
   add_to_element_args (new_command, brace_container);
-  text_append (text_elt->text, text);
+  text_append (text_elt->e.text, text);
   add_to_element_contents (brace_container, text_elt);
   return new_command;
 }
@@ -943,12 +946,12 @@ protect_text (ELEMENT *current, const char *to_protect)
   /* we accept any non raw text as text to be protected, including whitespaces
      only text elements */
   if (type_data[current->type].flags & TF_text
-      && current->text->end > 0 && !(current->type == ET_raw
+      && current->e.text->end > 0 && !(current->type == ET_raw
                                     || current->type == ET_rawline_arg)
-      && strpbrk (current->text->text, to_protect))
+      && strpbrk (current->e.text->text, to_protect))
     {
       ELEMENT_LIST *container = new_list ();
-      char *p = current->text->text;
+      char *p = current->e.text->text;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       uint8_t *u8_text = 0;
       size_t current_position;
@@ -970,7 +973,7 @@ protect_text (ELEMENT *current, const char *to_protect)
           text_elt->parent = current->parent;
           if (leading_nr)
             {
-              text_append_n (text_elt->text, p, leading_nr);
+              text_append_n (text_elt->e.text, p, leading_nr);
               p += leading_nr;
             }
           /*
@@ -1038,7 +1041,7 @@ protect_text (ELEMENT *current, const char *to_protect)
 
                       current_position
                        = relocate_source_marks (&current->source_mark_list,
-                           new_command->c->args.list[0]->c->contents.list[0],
+                           new_command->e.c->args.list[0]->e.c->contents.list[0],
                                               current_position, u8_len);
                     }
                   p += to_protect_nr;
@@ -1096,9 +1099,9 @@ const char *
 normalized_menu_entry_internal_node (const ELEMENT *entry)
 {
   int i;
-  for (i = 0; i < entry->c->contents.number; i++)
+  for (i = 0; i < entry->e.c->contents.number; i++)
     {
-      const ELEMENT *content = entry->c->contents.list[i];
+      const ELEMENT *content = entry->e.c->contents.list[i];
       if (content->type == ET_menu_entry_node)
         {
           if (!lookup_extra_element (content, "manual_content"))
@@ -1136,9 +1139,9 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
         {
           const ELEMENT *menu = menus->list[i];
           int j;
-          for (j = 0; j < menu->c->contents.number; j++)
+          for (j = 0; j < menu->e.c->contents.number; j++)
             {
-              ELEMENT *menu_content = menu->c->contents.list[j];
+              ELEMENT *menu_content = menu->e.c->contents.list[j];
               if (menu_content->type == ET_menu_entry)
                 {
                   int k;
@@ -1149,9 +1152,9 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
                   if (menu_node)
                     return menu_node;
 
-                  for (k = 0; menu_content->c->contents.number; k++)
+                  for (k = 0; menu_content->e.c->contents.number; k++)
                     {
-                      ELEMENT *content = menu_content->c->contents.list[k];
+                      ELEMENT *content = menu_content->e.c->contents.list[k];
                       if (content->type == ET_menu_entry_node)
                         {
                           ELEMENT *manual_content

@@ -266,7 +266,7 @@ message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_warning, continuation,
                             (conf && conf->DEBUG.o.integer > 0),
-                             &e->c->source_info, 0, format, v);
+                             &e->e.c->source_info, 0, format, v);
 }
 
 void
@@ -282,7 +282,7 @@ pmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_warning, continuation,
                             (conf && conf->DEBUG.o.integer > 0),
-                            &e->c->source_info, translation_context, format, v);
+                            &e->e.c->source_info, translation_context, format, v);
 }
 
 /* similar as message_list_command_warn, to be used only when the calling
@@ -294,7 +294,7 @@ vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 {
   vmessage_list_line_error (error_messages, MSG_warning, 0,
                             (conf && conf->DEBUG.o.integer > 0),
-                            &e->c->source_info, 0, format, v);
+                            &e->e.c->source_info, 0, format, v);
 }
 
 void
@@ -307,7 +307,7 @@ message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_error, 0,
                            (conf && conf->DEBUG.o.integer > 0),
-                           &e->c->source_info, 0, format, v);
+                           &e->e.c->source_info, 0, format, v);
 }
 
 void

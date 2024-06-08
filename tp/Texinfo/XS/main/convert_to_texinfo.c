@@ -61,7 +61,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
     {
       elt = e->elt_info[eit_spaces_after_cmd_before_arg];
       if (elt)
-        ADD((char *)elt->text->text);
+        ADD((char *)elt->e.text->text);
     }
 
   if (type_data[e->type].flags & TF_spaces_before)
@@ -76,18 +76,18 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
   if (arg_line)
     {
       if (spc_before_arg)
-        ADD((char *)spc_before_arg->text->text);
+        ADD((char *)spc_before_arg->e.text->text);
 
       ADD(arg_line);
     }
-  else if (e->c->args.number > 0)
+  else if (e->e.c->args.number > 0)
     {
       int braces, arg_nr, i;
       int with_commas = 0;
 
-      braces = (e->c->args.list[0]->type == ET_brace_container
-                || e->c->args.list[0]->type == ET_brace_arg
-                || e->c->args.list[0]->type == ET_brace_command_context);
+      braces = (e->e.c->args.list[0]->type == ET_brace_container
+                || e->e.c->args.list[0]->type == ET_brace_arg
+                || e->e.c->args.list[0]->type == ET_brace_command_context);
       if (braces)
         ADD("{");
 
@@ -98,7 +98,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
         }
 
       if (spc_before_arg)
-        ADD((char *)spc_before_arg->text->text);
+        ADD((char *)spc_before_arg->e.text->text);
 
       if ((builtin_command_data[cmd].flags & CF_block
            && ! (builtin_command_data[cmd].flags & CF_def
@@ -109,9 +109,9 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
         with_commas = 1;
 
       arg_nr = 0;
-      for (i = 0; i < e->c->args.number; i++)
+      for (i = 0; i < e->e.c->args.number; i++)
         {
-          ELEMENT *arg = e->c->args.list[i];
+          ELEMENT *arg = e->e.c->args.list[i];
           if (arg->flags & EF_inserted)
             continue;
 
@@ -136,7 +136,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
   else
     {
       if (spc_before_arg)
-        ADD((char *)spc_before_arg->text->text);
+        ADD((char *)spc_before_arg->e.text->text);
     }
 }
 
@@ -149,8 +149,8 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
     {}
   else if (type_data[e->type].flags & TF_text)
     {
-      if (e->text->end > 0)
-        ADD(e->text->text);
+      if (e->e.text->end > 0)
+        ADD(e->e.text->text);
     }
   else
     {
@@ -168,21 +168,21 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
             {
               elt = e->elt_info[eit_spaces_before_argument];
               if (elt)
-                ADD((char *)elt->text->text);
+                ADD((char *)elt->e.text->text);
             }
         }
-      if (e->c->contents.number > 0)
+      if (e->e.c->contents.number > 0)
         {
           int i;
-          for (i = 0; i < e->c->contents.number; i++)
-            convert_to_texinfo_internal (e->c->contents.list[i], result);
+          for (i = 0; i < e->e.c->contents.number; i++)
+            convert_to_texinfo_internal (e->e.c->contents.list[i], result);
         }
 
       if (type_data[e->type].flags & TF_spaces_after)
         {
           elt = e->elt_info[eit_spaces_after_argument];
           if (elt)
-            ADD((char *)elt->text->text);
+            ADD((char *)elt->e.text->text);
         }
 
       if (e->type == ET_block_line_arg || e->type == ET_line_arg)
@@ -222,9 +222,9 @@ convert_contents_to_texinfo (const ELEMENT *e)
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
-  tmp->c->contents = e->c->contents;
+  tmp->e.c->contents = e->e.c->contents;
   result = convert_to_texinfo (tmp);
-  tmp->c->contents.list = 0;
+  tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 
   return result;
@@ -304,7 +304,7 @@ check_node_same_texinfo_code (const ELEMENT *reference_node,
           ELEMENT *tmp_elt = new_element (ET_NONE);
           insert_slice_into_contents (tmp_elt, 0,
                                       node_content, 0,
-                                      node_content->c->contents.number -1);
+                                      node_content->e.c->contents.number -1);
           tmp_texi = convert_to_texinfo (tmp_elt);
           destroy_element (tmp_elt);
         }
@@ -338,9 +338,9 @@ root_heading_command_to_texinfo (const ELEMENT *element)
     {
       if ((data_cmd == CM_node
            || (builtin_command_data[data_cmd].flags & CF_sectioning_heading))
-          && element->c->args.number > 0
-          && element->c->args.list[0]->c->contents.number > 0)
-        tree = element->c->args.list[0];
+          && element->e.c->args.number > 0
+          && element->e.c->args.list[0]->e.c->contents.number > 0)
+        tree = element->e.c->args.list[0];
     }
   else
     return strdup ("Not a command");

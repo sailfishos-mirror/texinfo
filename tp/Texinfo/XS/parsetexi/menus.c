@@ -44,13 +44,13 @@ register_extra_menu_entry_information (ELEMENT *current)
   int i;
   ELEMENT *menu_entry_node = 0;
 
-  for (i = 0; i < current->c->contents.number; i++)
+  for (i = 0; i < current->e.c->contents.number; i++)
     {
-      ELEMENT *arg = current->c->contents.list[i];
+      ELEMENT *arg = current->e.c->contents.list[i];
 
       if (arg->type == ET_menu_entry_name)
         {
-          if (arg->c->contents.number == 0)
+          if (arg->e.c->contents.number == 0)
             {
               char *texi = convert_to_texinfo (current);
               line_warn ("empty menu entry name in `%s'", texi);
@@ -94,7 +94,7 @@ enter_menu_entry_node (ELEMENT *current)
   ELEMENT *description, *preformatted;
   ELEMENT *menu_entry_node;
 
-  current->c->source_info = current_source_info;
+  current->e.c->source_info = current_source_info;
 
   menu_entry_node = register_extra_menu_entry_information (current);
   if (menu_entry_node)
@@ -124,9 +124,9 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       && current->type == ET_preformatted
       && (current->parent->type == ET_menu_comment
           || current->parent->type == ET_menu_entry_description)
-      && current->c->contents.number > 0
+      && current->e.c->contents.number > 0
       && last_contents_child (current)->type == ET_empty_line
-      && last_contents_child (current)->text->end == 0)
+      && last_contents_child (current)->e.text->end == 0)
     {
       ELEMENT *star;
 
@@ -135,14 +135,14 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       line++; /* Past the '*'. */
 
       star = new_text_element (ET_internal_menu_star);
-      text_append (star->text, "*");
+      text_append (star->e.text, "*");
       add_to_element_contents (current, star);
 
       /* The ET_internal_menu_star element won't appear in the final tree. */
     }
   /* A space after a "*" at the beginning of a line. */
   else if (strchr (whitespace_chars, *line)
-           && current->c->contents.number > 0
+           && current->e.c->contents.number > 0
            && last_contents_child (current)->type == ET_internal_menu_star)
     {
       ELEMENT *menu_entry, *leading_text, *entry_name;
@@ -186,12 +186,12 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       add_to_element_contents (menu_entry, entry_name);
       current = entry_name;
 
-      text_append (leading_text->text, "*");
-      text_append_n (leading_text->text, line, leading_spaces);
+      text_append (leading_text->e.text, "*");
+      text_append_n (leading_text->e.text, line, leading_spaces);
       line += leading_spaces;
     }
   /* A "*" followed by anything other than a space. */
-  else if (current->c->contents.number > 0
+  else if (current->e.c->contents.number > 0
            && last_contents_child (current)->type == ET_internal_menu_star)
     {
       debug_nonl ("ABORT MENU STAR before: ");
@@ -212,28 +212,28 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
 
       current = current->parent;
       e = new_text_element (ET_menu_entry_separator);
-      text_append_n (e->text, &menu_separator, 1);
+      text_append_n (e->e.text, &menu_separator, 1);
       add_to_element_contents (current, e);
 
       /* Note, if a '.' is not followed by whitespace, we revert was was
          done here below. */
     }
   /* After a separator in a menu */
-  else if (current->c->contents.number > 0
+  else if (current->e.c->contents.number > 0
            && last_contents_child (current)->type == ET_menu_entry_separator)
     {
       ELEMENT *last_child;
       char *separator;
 
       last_child = last_contents_child (current);
-      separator = last_child->text->text;
+      separator = last_child->e.text->text;
 
       debug ("AFTER menu_entry_separator %s", separator);
 
       /* Separator is "::". */
       if (!strcmp (separator, ":") && *line == ':')
         {
-          text_append (last_child->text, ":");
+          text_append (last_child->e.text, ":");
           line++;
           /* Whitespace following the "::" is subsequently appended to
              the separator element. */
@@ -243,8 +243,8 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
         {
           pop_element_from_contents (current);
           current = last_contents_child (current);
-          merge_text (current, last_child->text->text, last_child->text->end,
-                      last_child);
+          merge_text (current, last_child->e.text->text,
+                      last_child->e.text->end, last_child);
           destroy_element (last_child);
         }
       /* here we collect spaces following separators. */
@@ -253,7 +253,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
           int n;
 
           n = strspn (line, whitespace_chars_except_newline);
-          text_append_n (last_child->text, line, n);
+          text_append_n (last_child->e.text, line, n);
           line += n;
         }
       /* :: after a menu entry name => change to a menu entry node */
@@ -314,11 +314,11 @@ end_line_menu_entry (ELEMENT *current)
         }
 
       /* If contents empty or is all whitespace. */
-      if (current->c->contents.number == 0
-          || (current->c->contents.number == 1
+      if (current->e.c->contents.number == 0
+          || (current->e.c->contents.number == 1
               && last->type == ET_normal_text
-              && last->text->end > 0
-              && !last->text->text[strspn (last->text->text,
+              && last->e.text->end > 0
+              && !last->e.text->text[strspn (last->e.text->text,
                                           whitespace_chars)]))
         {
           empty_menu_entry_node = 1;
@@ -333,14 +333,14 @@ end_line_menu_entry (ELEMENT *current)
       debug ("FINALLY NOT MENU ENTRY");
       menu = current->parent->parent;
       menu_entry = pop_element_from_contents (menu);
-      if (menu->c->contents.number > 0
+      if (menu->e.c->contents.number > 0
           && last_contents_child (menu)->type == ET_menu_entry)
         {
           ELEMENT *entry, *description = 0;
           int j;
 
           entry = last_contents_child (menu);
-          for (j = entry->c->contents.number - 1; j >= 0; j--)
+          for (j = entry->e.c->contents.number - 1; j >= 0; j--)
             {
               ELEMENT *e = contents_child_by_index (entry, j);
               if (e->type == ET_menu_entry_description)
@@ -361,7 +361,7 @@ end_line_menu_entry (ELEMENT *current)
               description_or_menu_comment = e;
             }
         }
-      else if (menu->c->contents.number > 0
+      else if (menu->e.c->contents.number > 0
                && last_contents_child (menu)->type == ET_menu_comment)
         {
           description_or_menu_comment = last_contents_child (menu);
@@ -369,7 +369,7 @@ end_line_menu_entry (ELEMENT *current)
       if (description_or_menu_comment)
         {
           current = description_or_menu_comment;
-          if (current->c->contents.number > 0
+          if (current->e.c->contents.number > 0
               && last_contents_child (current)->type == ET_preformatted)
             current = last_contents_child (current);
           else
@@ -395,23 +395,23 @@ end_line_menu_entry (ELEMENT *current)
         }
       {
       int i, j;
-      for (i = 0; i < menu_entry->c->contents.number; i++)
+      for (i = 0; i < menu_entry->e.c->contents.number; i++)
         {
           ELEMENT *arg = contents_child_by_index (menu_entry, i);
           if (arg->type == ET_menu_entry_leading_text
               || arg->type == ET_menu_entry_separator)
-            current = merge_text (current, arg->text->text,
-                                  arg->text->end, arg);
+            current = merge_text (current, arg->e.text->text,
+                                  arg->e.text->end, arg);
           else
             {
               ELEMENT *e;
-              for (j = 0; j < arg->c->contents.number; j++)
+              for (j = 0; j < arg->e.c->contents.number; j++)
                 {
                   e = contents_child_by_index (arg, j);
                   if (e->type == ET_normal_text)
                     {
-                      current = merge_text (current, e->text->text,
-                                            e->text->end, e);
+                      current = merge_text (current, e->e.text->text,
+                                            e->e.text->end, e);
                       destroy_element (e);
                     }
                   else

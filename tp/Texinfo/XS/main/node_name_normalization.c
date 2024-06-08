@@ -65,15 +65,15 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                || e->cmd == CM_seealso
                || e->cmd == CM_seeentry)
              /* here ignore the line commands */
-              || (e->c->args.number > 0
-                  && (e->c->args.list[0]->type == ET_line_arg
-                      || e->c->args.list[0]->type == ET_rawline_arg)))))
+              || (e->e.c->args.number > 0
+                  && (e->e.c->args.list[0]->type == ET_line_arg
+                      || e->e.c->args.list[0]->type == ET_rawline_arg)))))
     return;
   else if (type_data[e->type].flags & TF_text)
     {
-      if (e->text->end > 0)
+      if (e->e.text->end > 0)
         {
-          char *text_norm_spaces = collapse_spaces (e->text->text);
+          char *text_norm_spaces = collapse_spaces (e->e.text->text);
           ADD(text_norm_spaces);
           free (text_norm_spaces);
         }
@@ -97,13 +97,13 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
         }
       else if (builtin_command_data[e->cmd].flags & CF_accent)
         {
-          if (e->c->args.number > 0)
+          if (e->e.c->args.number > 0)
             {
               TEXT accent_text;
               char *accented_char;
 
               text_init (&accent_text);
-              convert_to_normalized_internal (e->c->args.list[0], &accent_text);
+              convert_to_normalized_internal (e->e.c->args.list[0], &accent_text);
               accented_char = unicode_accent (accent_text.text, e);
               if (accented_char)
                 {
@@ -125,13 +125,13 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
             arguments_order = ref_3_args_order;
           while (arguments_order[index] >= 0)
             {
-              if (e->c->args.number > arguments_order[index])
+              if (e->e.c->args.number > arguments_order[index])
                 {
                   TEXT arg_text;
 
                   text_init (&arg_text);
                   convert_to_normalized_internal (
-                    e->c->args.list[arguments_order[index]], &arg_text);
+                    e->e.c->args.list[arguments_order[index]], &arg_text);
                   if (arg_text.end > 0)
                     {
                       char *non_space_char = arg_text.text
@@ -147,20 +147,20 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
               index++;
             }
         }
-      else if (e->c->args.number > 0
-               && (e->c->args.list[0]->type == ET_brace_container
-                   || e->c->args.list[0]->type == ET_brace_arg
+      else if (e->e.c->args.number > 0
+               && (e->e.c->args.list[0]->type == ET_brace_container
+                   || e->e.c->args.list[0]->type == ET_brace_arg
                    || e->cmd == CM_math))
         {
-          convert_to_normalized_internal (e->c->args.list[0], result);
+          convert_to_normalized_internal (e->e.c->args.list[0], result);
           return;
         }
     }
-  if (e->c->contents.number > 0)
+  if (e->e.c->contents.number > 0)
     {
       int i;
-      for (i = 0; i < e->c->contents.number; i++)
-        convert_to_normalized_internal (e->c->contents.list[i], result);
+      for (i = 0; i < e->e.c->contents.number; i++)
+        convert_to_normalized_internal (e->e.c->contents.list[i], result);
     }
 }
 #undef ADD
@@ -305,9 +305,9 @@ convert_contents_to_identifier (const ELEMENT *e)
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
-  tmp->c->contents = e->c->contents;
+  tmp->e.c->contents = e->e.c->contents;
   result = convert_to_identifier (tmp);
-  tmp->c->contents.list = 0;
+  tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 
   return result;
@@ -348,9 +348,9 @@ normalize_transliterate_texinfo_contents (const ELEMENT *e,
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
-  tmp->c->contents = e->c->contents;
+  tmp->e.c->contents = e->e.c->contents;
   result = normalize_transliterate_texinfo (tmp, external_translit);
-  tmp->c->contents.list = 0;
+  tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 
   return result;

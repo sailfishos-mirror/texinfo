@@ -60,20 +60,20 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
   const char *add_element_string = "no-add";
 
   source_mark->position = 0;
-  if (e->c->contents.number > 0)
+  if (e->e.c->contents.number > 0)
     {
       ELEMENT *last_child = last_contents_child (e);
       mark_element = last_child;
       if (type_data[last_child->type].flags & TF_text
-          && last_child->text->end > 0)
-        source_mark->position = count_multibyte (last_child->text->text);
+          && last_child->e.text->end > 0)
+        source_mark->position = count_multibyte (last_child->e.text->text);
     }
   else
     {
       /* add an empty element used for source marks */
       mark_element = new_text_element (ET_normal_text);
       /* set empty text to have merge_text work as expected */
-      text_append (mark_element->text, "");
+      text_append (mark_element->e.text, "");
       add_to_element_contents (e, mark_element);
       add_element_string = "add";
     }

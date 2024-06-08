@@ -396,7 +396,7 @@ substitute_element_array (ELEMENT_LIST *list,
       ELEMENT *e = list->list[idx];
       if (e->cmd == CM_txiinternalvalue)
         {
-          char *name = e->c->args.list[0]->c->contents.list[0]->text->text;
+          char *name = e->e.c->args.list[0]->e.c->contents.list[0]->e.text->text;
           int i;
           for (i = 0; i < replaced_substrings->number; i++)
             {
@@ -416,10 +416,10 @@ substitute_element_array (ELEMENT_LIST *list,
 ELEMENT *
 substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
-  if (tree->c->contents.number > 0)
-    substitute_element_array (&tree->c->contents, replaced_substrings);
-  if (tree->c->args.number > 0)
-    substitute_element_array (&tree->c->args, replaced_substrings);
+  if (tree->e.c->contents.number > 0)
+    substitute_element_array (&tree->e.c->contents, replaced_substrings);
+  if (tree->e.c->args.number > 0)
+    substitute_element_array (&tree->e.c->args, replaced_substrings);
 
   return tree;
 }

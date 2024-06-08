@@ -276,7 +276,7 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   TEXT filename;
   char *normalized_file_name;
   char *normalized_name
-    = normalize_transliterate_texinfo_contents (command->c->args.list[0],
+    = normalize_transliterate_texinfo_contents (command->e.c->args.list[0],
                                            (self->conf->TEST.o.integer > 0));
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
@@ -335,12 +335,12 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
   char *float_number = lookup_extra_string (float_e, "float_number");
 
   if (float_type && strlen (float_type))
-    type_element = float_e->c->args.list[0];
+    type_element = float_e->e.c->args.list[0];
 
   if (float_number)
     {
       ELEMENT *e_number = new_text_element (ET_normal_text);
-      text_append (e_number->text, float_number);
+      text_append (e_number->e.text, float_number);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_number", e_number);
     }
@@ -382,12 +382,12 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
     caption_element = lookup_extra_element (float_e, "shortcaption");
 
   if (float_type && strlen (float_type))
-    type_element = float_e->c->args.list[0];
+    type_element = float_e->e.c->args.list[0];
 
   if (float_number)
     {
       ELEMENT *e_number = new_text_element (ET_normal_text);
-      text_append (e_number->text, float_number);
+      text_append (e_number->e.text, float_number);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_number", e_number);
     }
@@ -534,7 +534,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
   const ELEMENT *command_as_argument = lookup_extra_element (table_command,
                                                "command_as_argument");
 
-  if (element->c->args.number > 0 && command_as_argument)
+  if (element->e.c->args.number > 0 && command_as_argument)
     {
       TREE_ADDED_ELEMENTS *tree
         = new_tree_added_elements (tree_added_status_elements_added);
@@ -550,7 +550,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
         = new_command_element_added (tree, command_as_argument->type, cmd);
       tree->tree = command;
 
-      command->c->source_info = element->c->source_info;
+      command->e.c->source_info = element->e.c->source_info;
       command_as_argument_kbd_code = lookup_extra_integer (table_command,
                                  "command_as_argument_kbd_code", &status);
       if (command_as_argument_kbd_code > 0)
@@ -581,24 +581,24 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
           arg = new_element_added (tree, ET_brace_command_context);
           if (cmd == CM_math)
             {
-              add_to_contents_as_array (arg, element->c->args.list[0]);
+              add_to_contents_as_array (arg, element->e.c->args.list[0]);
             }
           else
             {
               ELEMENT *paragraph = new_element_added (tree, ET_paragraph);
-              add_to_contents_as_array (paragraph, element->c->args.list[0]);
+              add_to_contents_as_array (paragraph, element->e.c->args.list[0]);
               add_to_element_contents (arg, paragraph);
             }
         }
       else if (builtin_command_data[data_cmd].data == BRACE_arguments)
         {
           arg = new_element_added (tree, ET_brace_arg);
-          add_to_contents_as_array (arg, element->c->args.list[0]);
+          add_to_contents_as_array (arg, element->e.c->args.list[0]);
         }
       else
         {
           arg = new_element_added (tree, ET_brace_container);
-          add_to_contents_as_array (arg, element->c->args.list[0]);
+          add_to_contents_as_array (arg, element->e.c->args.list[0]);
         }
       add_to_element_args (command, arg);
       return tree;
@@ -674,10 +674,10 @@ comma_index_subentries_tree (const ELEMENT *current_entry,
       if (subentry)
         {
           ELEMENT *separator = new_text_element (ET_normal_text);
-          text_append (separator->text, subentry_separator);
+          text_append (separator->e.text, subentry_separator);
           current_entry = subentry;
           add_to_element_list (result, separator);
-          add_to_element_list (result, current_entry->c->args.list[0]);
+          add_to_element_list (result, current_entry->e.c->args.list[0]);
         }
       else
         break;

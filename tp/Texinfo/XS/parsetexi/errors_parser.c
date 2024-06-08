@@ -83,7 +83,7 @@ command_warn (const ELEMENT *e, const char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (MSG_warning, 0, &e->c->source_info, format, v);
+  line_error_internal (MSG_warning, 0, &e->e.c->source_info, format, v);
 }
 
 void
@@ -92,7 +92,7 @@ command_error (const ELEMENT *e, const char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (MSG_error, 0, &e->c->source_info, format, v);
+  line_error_internal (MSG_error, 0, &e->e.c->source_info, format, v);
 }
 
 static void

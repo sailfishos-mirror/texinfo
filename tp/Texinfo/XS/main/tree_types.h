@@ -256,7 +256,7 @@ typedef struct ELEMENT {
     union {
       TEXT *text;
       CONTAINER *c;
-    };
+    } e;
 
 } ELEMENT;
 
