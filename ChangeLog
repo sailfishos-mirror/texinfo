@@ -1,5 +1,9 @@
 2024-06-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: add items for 7.1.1
+
+2024-06-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	prepare for 7.1.0.90 pretest
 
 	* configure.ac,
