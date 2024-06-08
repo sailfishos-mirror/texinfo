@@ -335,7 +335,8 @@ $result_trees{'raiselowersections'} = {
                   'sourcemark_type' => 'expanded_conditional_command',
                   'status' => 'start'
                 }
-              ]
+              ],
+              'type' => 'menu_comment'
             },
             {
               'contents' => [

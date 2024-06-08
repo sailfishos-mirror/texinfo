@@ -556,8 +556,6 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
       if (command_as_argument_kbd_code > 0)
         add_extra_integer (command, "code", 1);
 
-      command->type = command_as_argument->type;
-
       if (command_as_argument->type == ET_definfoenclose_command)
         {
           const char *begin = lookup_extra_string (command_as_argument,

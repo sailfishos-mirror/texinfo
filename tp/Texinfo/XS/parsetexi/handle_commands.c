@@ -768,7 +768,10 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       else
         {
           /* Add to contents */
-          command_e = new_command_element (ET_line_command, cmd);
+          if (command_data(cmd).flags & CF_index_entry_command)
+            command_e = new_command_element (ET_index_entry_command, cmd);
+          else
+            command_e = new_command_element (ET_line_command, cmd);
           command_e->e.c->source_info = current_source_info;
 
           if (cmd == CM_nodedescription)

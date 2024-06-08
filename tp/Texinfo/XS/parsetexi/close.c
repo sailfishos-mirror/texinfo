@@ -176,16 +176,9 @@ close_container (ELEMENT *current)
       debug_parser_print_element (current, 1);
       debug_nonl (" (%d source marks)",
                   current->source_mark_list.number); debug ("");
-      if (current->source_mark_list.number > 0)
-        {
-          /* Keep the element to keep the source mark, but remove some types.
-            Keep before_item in order not to add empty table definition in
-            gather_previous_item. */
-          if (current->type != ET_before_item)
-            /* FIXME add a specific container type for that case? */
-            current->type = ET_NONE;
-        }
-      else
+
+      /* Keep the element only if there are source marks */
+      if (current->source_mark_list.number <= 0)
         element_to_remove = current;
     }
 

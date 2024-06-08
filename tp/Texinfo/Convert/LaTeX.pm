@@ -533,6 +533,15 @@ my %LaTeX_fixed_width_environments = (
   'Texinfopreformatted' => 1,
 );
 
+# Empty containers do not happen often, mainly when a source mark
+# needs to be kept.  However, it is more robust to remove explictely
+# empty containers that we want to remove instead of relying on a
+# specific tree.
+my %container_ignored_if_empty = (
+  'preformatted' => 1,
+  #'menu_comment' => 1,
+);
+
 foreach my $environment_command (@LaTeX_same_block_commands) {
   $LaTeX_environment_commands{$environment_command} = [$environment_command];
 }
@@ -4112,6 +4121,13 @@ sub _convert($$)
 
   # open 'type' constructs.
   if ($element->{'type'}) {
+
+    if ($container_ignored_if_empty{$element->{'type'}}
+        and !$element->{'contents'}) {
+      return $result;
+    }
+
+
     if ($element->{'type'} eq 'index_entry_command') {
       $result .= _index_entry($self, $element);
     }

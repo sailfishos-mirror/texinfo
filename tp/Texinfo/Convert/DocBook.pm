@@ -251,6 +251,15 @@ my %type_elements = (
   'def_item' => 'blockquote',
 );
 
+# Empty containers do not happen often, mainly when a source mark
+# needs to be kept.  However, it is more robust to remove explictely
+# empty containers that we want to remove instead of relying on a
+# specific tree.
+my %container_ignored_if_empty = (
+  'preformatted' => 1,
+  'menu_comment' => 1,
+);
+
 my %default_context_block_commands = (
   'float' => 1,
 );
@@ -1692,6 +1701,12 @@ sub _convert($$;$)
 
 
   if ($element->{'type'}) {
+
+    if ($container_ignored_if_empty{$element->{'type'}}
+        and !$element->{'contents'}) {
+      return $result;
+    }
+
     #warn " have type $element->{'type'}\n";
     if (exists($docbook_preformatted_formats{$element->{'type'}})) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}},

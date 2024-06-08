@@ -104,7 +104,8 @@ $result_trees{'macro_in_empty_menu_comment'} = {
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'end'
                 }
-              ]
+              ],
+              'type' => 'menu_comment'
             },
             {
               'contents' => [

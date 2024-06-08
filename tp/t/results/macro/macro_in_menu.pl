@@ -394,7 +394,8 @@ $result_trees{'macro_in_menu'} = {
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
-              ]
+              ],
+              'type' => 'menu_comment'
             },
             {
               'contents' => [

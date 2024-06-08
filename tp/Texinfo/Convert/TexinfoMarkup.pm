@@ -259,6 +259,15 @@ my %type_elements = (
   'before_defline' => 'beforefirstdefline',
 );
 
+# Empty containers do not happen often, mainly when a source mark
+# needs to be kept.  However, it is more robust to remove explictely
+# empty containers that we want to remove instead of relying on a
+# specific tree.
+my %container_ignored_if_empty = (
+  'preformatted' => 1,
+  'menu_comment' => 1,
+);
+
 my %default_context_block_commands = (
   'float' => 1,
 );
@@ -1487,6 +1496,12 @@ sub _convert($$;$)
     }
   }
   if ($element->{'type'}) {
+
+    if ($container_ignored_if_empty{$element->{'type'}}
+        and !$element->{'contents'}) {
+      return $result;
+    }
+
     if (defined($type_elements{$element->{'type'}})) {
       my $attribute = [];
       if ($element->{'type'} eq 'preformatted') {

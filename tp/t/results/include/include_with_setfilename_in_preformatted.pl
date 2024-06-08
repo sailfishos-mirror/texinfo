@@ -95,7 +95,8 @@ $result_trees{'include_with_setfilename_in_preformatted'} = {
                   },
                   'sourcemark_type' => 'setfilename'
                 }
-              ]
+              ],
+              'type' => 'preformatted'
             },
             {
               'contents' => [

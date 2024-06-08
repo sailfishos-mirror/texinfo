@@ -1653,12 +1653,8 @@ sub _close_container($$)
       .' ('.($current->{'source_marks'}
             ? scalar(@{$current->{'source_marks'}}) : 0)." source marks)\n"
         if ($self->{'conf'}->{'DEBUG'});
-    if ($current->{'source_marks'}) {
-      # Keep the element to keep the source mark, but remove some types.
-      # Keep before_item in order not to add empty table definition in
-      # gather_previous_item.
-      delete $current->{'type'} if ($current->{'type'} ne 'before_item');
-    } else {
+    # Keep the element only if there are source marks
+    if (!$current->{'source_marks'}) {
       $element_to_remove = $current;
     }
   }

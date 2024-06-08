@@ -777,7 +777,8 @@ $result_trees{'table_nested'} = {
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
-              ]
+              ],
+              'type' => 'preformatted'
             },
             {
               'args' => [

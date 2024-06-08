@@ -1623,7 +1623,6 @@ end_line_misc_line (ELEMENT *current)
     {
       if (command_flags(current) & CF_index_entry_command)
         {
-          current->type = ET_index_entry_command;
           add_info_string_dup (current, "command_name",
                                command_name(current->cmd));
         }
