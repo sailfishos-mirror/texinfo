@@ -215,6 +215,8 @@ typedef struct CONTAINER {
 
     ASSOCIATED_INFO info_info;
     OUTPUT_UNIT *associated_unit;
+    /* depends on the element */
+    char **string_info;
 } CONTAINER;
 
 /* indices in ELEMENT elt_info */
@@ -232,6 +234,7 @@ enum string_info_type {
    sit_alias_of,
    sit_arg_line,
    sit_delimiter = 1,
+   sit_command_name = 1,
 };
 
 typedef struct ELEMENT {
@@ -244,8 +247,6 @@ typedef struct ELEMENT {
     struct ELEMENT *parent;
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
-    /* depends on the element */
-    char **string_info;
     SOURCE_MARK_LIST source_mark_list;
 
     ASSOCIATED_INFO extra_info;

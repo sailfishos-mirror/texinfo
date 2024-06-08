@@ -133,11 +133,11 @@ elided_rawpreformatted
 elided_brace_command_arg
 
 # for macro expansion source marks
-macro_call                                braces
-rmacro_call                               braces
-macro_call_line                           spaces_before
-rmacro_call_line                          spaces_before
-linemacro_call                            spaces_before
+macro_call                                braces,macro_call
+rmacro_call                               braces,macro_call
+macro_call_line                           spaces_before,macro_call
+rmacro_call_line                          spaces_before,macro_call
+linemacro_call                            spaces_before,macro_call
 
 bracketed_linemacro_arg                    text
 
