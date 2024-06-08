@@ -135,12 +135,12 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   const char *args_ptr;
   int index;
 
-  /* FIXME not sure about that.  Could be the best, as there is arg_line
-     and no space.  Otherwise block_command */
+  /* FIXME not sure about that.  Could be the best, as there is arg_line.
+     Otherwise block_command */
   macro = new_command_element (ET_lineraw_command, cmd);
   macro->e.c->source_info = current_source_info;
 
-  add_info_string_dup (macro, "arg_line", line);
+  macro->e.c->string_info[sit_arg_line] = strdup (line);
 
   pline += strspn (pline, whitespace_chars);
   name = read_command_name (&pline);
@@ -938,7 +938,8 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
       goto funexit;
     }
 
-  add_info_string_dup (macro_call_element, "command_name", command_name(cmd));
+  macro_call_element->e.c->string_info[sit_command_name]
+    = strdup (command_name(cmd));
 
   text_init (&expanded);
   expand_macro_body (macro_record, macro_call_element, &expanded);

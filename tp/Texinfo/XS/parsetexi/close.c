@@ -71,7 +71,7 @@ close_brace_command (ELEMENT *current,
 
   if (current->cmd != CM_verb)
     goto yes;
-  delimiter = lookup_info_string (current, "delimiter");
+  delimiter = current->e.c->string_info[sit_delimiter];
   if (!delimiter || !*delimiter)
     goto yes;
   if (0)

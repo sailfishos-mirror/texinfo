@@ -97,6 +97,13 @@ new_element (enum element_type type)
          sizeof (ELEMENT *) * type_data[type].elt_info_number);
     }
 
+  if (type_data[type].flags & TF_macro_call)
+    {
+      int string_info_nr = 2;
+      e->e.c->string_info = (char **) malloc (string_info_nr * sizeof (char *));
+      memset (e->e.c->string_info, 0, string_info_nr * sizeof (char *));
+    }
+
   return e;
 }
 
@@ -105,6 +112,14 @@ new_command_element (enum element_type type, enum command_id cmd)
 {
   ELEMENT *e = new_element (type);
   e->cmd = cmd;
+  int string_info_nr = 1;
+
+  if (type == ET_definfoenclose_command || type == ET_index_entry_command
+      || type == ET_lineraw_command || cmd == CM_verb)
+    string_info_nr = 2;
+
+  e->e.c->string_info = (char **) malloc (string_info_nr * sizeof (char *));
+  memset (e->e.c->string_info, 0, string_info_nr * sizeof (char *));
 
   return e;
 }
@@ -218,6 +233,7 @@ destroy_element (ELEMENT *e)
   else
     {
       int i;
+      int string_info_nr = 0;
       destroy_associated_info (&e->e.c->info_info);
   /* Note the pointers in these lists are not themselves freed. */
       free (e->e.c->contents.list);
@@ -227,6 +243,20 @@ destroy_element (ELEMENT *e)
         if (e->elt_info[i])
           destroy_element_and_children (e->elt_info[i]);
       free (e->elt_info);
+
+      if (e->type == ET_definfoenclose_command
+          || e->type == ET_index_entry_command
+          || e->type == ET_lineraw_command || e->cmd == CM_verb
+          || type_data[e->type].flags & TF_macro_call)
+        {
+          string_info_nr = 2;
+        }
+      else if (e->cmd != CM_NONE)
+        string_info_nr = 1;
+
+      for (i = 0; i < string_info_nr; i++)
+        free (e->e.c->string_info[i]);
+      free (e->e.c->string_info);
 
       free (e->e.c);
     }

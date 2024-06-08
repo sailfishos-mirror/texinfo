@@ -82,18 +82,17 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           if (!*line || *line == '\n')
             {
               line_error ("@verb without associated character");
-              add_info_string_dup (current->parent, "delimiter", "");
+              current->parent->e.c->string_info[sit_delimiter]
+                = strdup ("");
             }
           else
             {
               /* Count any UTF-8 continuation bytes. */
               int char_len = 1;
-              char *delimiter_character;
               while ((line[char_len] & 0xC0) == 0x80)
                 char_len++;
-              delimiter_character = strndup (line, char_len);
-              add_info_string (current->parent, "delimiter",
-                               delimiter_character);
+              current->parent->e.c->string_info[sit_delimiter]
+                = strndup (line, char_len);
               line += char_len;
             }
         }

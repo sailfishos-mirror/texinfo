@@ -561,14 +561,15 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
           const char *begin = lookup_extra_string (command_as_argument,
                                                    "begin");
           const char *end = lookup_extra_string (command_as_argument, "end");
-          const char *command_name = lookup_info_string (command_as_argument,
-                                                   "command_name");
+          const char *command_name
+            = command_as_argument->e.c->string_info[sit_command_name];
+
           if (begin)
             add_extra_string_dup (command, "begin", begin);
           if (end)
             add_extra_string_dup (command, "end", end);
           if (command_name)
-            add_info_string_dup (command, "command_name", command_name);
+            command->e.c->string_info[sit_command_name] = strdup (command_name);
         }
       if (builtin_command_data[data_cmd].data == BRACE_context)
         {

@@ -1613,7 +1613,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     {
       const char *q;
       const char *delimiter
-        = lookup_info_string (current->parent, "delimiter");
+        = current->parent->e.c->string_info[sit_delimiter];
 
       if (strcmp (delimiter, ""))
         {
@@ -1781,8 +1781,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       if (macro_call_element)
         {
           if (from_alias != CM_NONE)
-            add_info_string_dup (macro_call_element, "alias_of",
-                                 command_name (from_alias));
+            macro_call_element->e.c->string_info[sit_alias_of]
+              = strdup (command_name (from_alias));
 
           /* directly get the following input (macro expansion text) instead
              of going through the next call of process_remaining_on_line and
@@ -2369,8 +2369,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
       if (from_alias != CM_NONE && command_element)
         {
-          add_info_string_dup (command_element, "alias_of",
-                               command_name (from_alias));
+          command_element->e.c->string_info[sit_alias_of]
+            = strdup (command_name (from_alias));
         }
     }
   /* "Separator" characters */

@@ -18393,7 +18393,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
   enum command_id cmd = element_builtin_cmd (element);
 
   text_init (&command_type);
-  if (! type_data[element->type].flags & TF_text)
+  if (! (type_data[element->type].flags & TF_text))
     {
       command_name = element_command_name (element);
       if (command_name)

@@ -74,9 +74,11 @@ element_command_name (const ELEMENT *e)
       && e->cmd != CM_index_entry_command
       && e->cmd != CM_definfoenclose_command)
     return builtin_command_data[e->cmd].cmdname;
-  else
+  else if (e->type == ET_definfoenclose_command
+           || e->type == ET_index_entry_command
+           || type_data[e->type].flags & TF_macro_call)
     {
-      char *cmdname = lookup_info_string (e, "command_name");
+      const char *cmdname = e->e.c->string_info[sit_command_name];
       return cmdname;
     }
 

@@ -1623,8 +1623,8 @@ end_line_misc_line (ELEMENT *current)
     {
       if (command_flags(current) & CF_index_entry_command)
         {
-          add_info_string_dup (current, "command_name",
-                               command_name(current->cmd));
+          current->e.c->string_info[sit_command_name]
+            = strdup (command_name(current->cmd));
         }
       /* All the other "line" commands. Check they have an argument. Empty
          @top is allowed. */

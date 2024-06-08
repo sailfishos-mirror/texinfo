@@ -683,7 +683,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           command_e = new_command_element (ET_lineraw_command, cmd);
 
           if (special_arg)
-            add_info_string_dup (command_e, "arg_line", line);
+            command_e->e.c->string_info[sit_arg_line] = strdup (line);
 
           add_to_element_contents (current, command_e);
           for (i = 0; i < args_nr; i++)
@@ -1229,8 +1229,8 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
               add_extra_string_dup (command_e, "begin", ie->begin);
               add_extra_string_dup (command_e, "end", ie->end);
             }
-          add_info_string_dup (command_e, "command_name",
-                               command_name(cmd));
+          command_e->e.c->string_info[sit_command_name]
+            = strdup (command_name(cmd));
         }
       else if (cmd == CM_kbd)
         {

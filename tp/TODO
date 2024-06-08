@@ -73,8 +73,10 @@ Gavin and Patrice
 
  One possibility.  It requires some testing as it should allow for
  faster code, but it is not clear that memory use would be smaller.
-char *alias_of
-char *command_info_string (for arg_line or command_name or @verb delimiter)
+alias_of: macro_call and commands
+command_name: ET_definfoenclose_command macro_call ET_index_entry_command
+arg_line: ET_lineraw_command (inc macros*)
+@verb: delimiter
 ELEMENT *elements[3]
 brace commands
  spaces_after_cmd_before_arg

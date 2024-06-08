@@ -542,11 +542,10 @@ store_source_mark_list (const ELEMENT *e)
     }
 }
 
-/* FIXME it is inefficient to store and get every time an element
-   is stored, better use additional_info_hv or a pointer on it as an argument */
-void
-store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
-                    const char *key, int avoid_recursion, int *nr_info)
+/* FIXME better use additional_info_hv or a pointer on it as an argument */
+static void
+store_info_sv (ELEMENT *e, const char *type_key, const char *key,
+               SV * sv, int *nr_info)
 {
   HV *additional_info_hv;
 
@@ -566,11 +565,30 @@ store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
     }
 
   (*nr_info)++;
+  hv_store (additional_info_hv, key, strlen (key), sv, 0);
+}
+
+static void
+store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
+                    const char *key, int avoid_recursion, int *nr_info)
+{
+  dTHX;
+
   if (!info_element->hv || !avoid_recursion)
     element_to_perl_hash (info_element, avoid_recursion);
 
-  hv_store (additional_info_hv, key, strlen (key),
-            newRV_inc ((SV *)info_element->hv), 0);
+  store_info_sv (e, type_key, key,
+                 newRV_inc ((SV *)info_element->hv), nr_info);
+}
+
+static void
+store_info_string (ELEMENT *e, const char *string, const char *type_key,
+                   const char *key, int *nr_info)
+{
+  dTHX;
+
+  store_info_sv (e, type_key, key,
+                 newSVpv_utf8 (string, strlen (string)), nr_info);
 }
 
 static int hashes_ready = 0;
@@ -683,6 +701,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       return;
     }
 
+  /* non-text elements */
+
   if (e->type == ET_block_line_arg || e->type == ET_line_arg)
     {
       ELEMENT *f = e->elt_info[eit_comment_at_end];
@@ -690,8 +710,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         store_info_element (e, f, "info", "comment_at_end",
                             avoid_recursion, &nr_info);
     }
-
-  /* non-text elements */
 
   if (e->cmd)
     {
@@ -730,6 +748,32 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                             avoid_recursion, &nr_info);
     }
 
+  if (e->cmd || type_data[e->type].flags & TF_macro_call)
+    {
+      if (e->e.c->string_info[sit_alias_of])
+        store_info_string (e, e->e.c->string_info[sit_alias_of],
+                          "info", "alias_of", &nr_info);
+    }
+
+  if (e->type == ET_lineraw_command)
+    {
+      if (e->e.c->string_info[sit_arg_line])
+        store_info_string (e, e->e.c->string_info[sit_arg_line],
+                          "info", "arg_line", &nr_info);
+    }
+  else if (e->type == ET_definfoenclose_command
+           || e->type == ET_index_entry_command
+           || type_data[e->type].flags & TF_macro_call)
+    {
+      if (e->e.c->string_info[sit_command_name])
+        store_info_string (e, e->e.c->string_info[sit_command_name],
+                          "info", "command_name", &nr_info);
+    }
+  else if (e->cmd == CM_verb && e->e.c->args.number > 0)
+    {
+       store_info_string (e, e->e.c->string_info[sit_delimiter],
+                          "info", "delimiter", &nr_info);
+    }
 
   store_additional_info (e, &e->e.c->info_info, "info", &nr_info,
                          avoid_recursion);

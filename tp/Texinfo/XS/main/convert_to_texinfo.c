@@ -47,7 +47,6 @@ static void
 expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 {
   enum command_id cmd = element_builtin_cmd (e);
-  char *arg_line;
   ELEMENT *elt;
   ELEMENT *spc_before_arg = 0;
 
@@ -72,9 +71,12 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
         spc_before_arg = e->elt_info[eit_brace_content_spaces_before_argument];
     }
 
-  arg_line = lookup_info_string (e, "arg_line");
-  if (arg_line)
+  /* if there is no arg_line, the end of line is in rawline_arg in args
+     so the ET_lineraw_command args should be processed along with other
+     commands in that case */
+  if (e->type == ET_lineraw_command && e->e.c->string_info[sit_arg_line])
     {
+      const char *arg_line = e->e.c->string_info[sit_arg_line];
       if (spc_before_arg)
         ADD((char *)spc_before_arg->e.text->text);
 
@@ -93,7 +95,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 
       if (cmd == CM_verb)
         {
-          char *delimiter = lookup_info_string (e, "delimiter");
+          const char *delimiter = e->e.c->string_info[sit_delimiter];
           ADD(delimiter);
         }
 
@@ -126,7 +128,7 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
 
       if (cmd == CM_verb)
         {
-          char *delimiter = lookup_info_string (e, "delimiter");
+          const char *delimiter = e->e.c->string_info[sit_delimiter];
           ADD(delimiter);
         }
 

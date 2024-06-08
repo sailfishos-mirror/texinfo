@@ -217,6 +217,19 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
               new->elt_info[i] = copy;
           }
     }
+
+  if (current->e.c->string_info)
+    {
+      int string_info_nr = 1;
+      if (current->type == ET_definfoenclose_command
+          || current->type == ET_index_entry_command
+          || current->type == ET_lineraw_command || current->cmd == CM_verb)
+        string_info_nr = 2;
+      for (i = 0; i < string_info_nr; i++)
+        if (current->e.c->string_info[i])
+          new->e.c->string_info[i] = strdup (current->e.c->string_info[i]);
+    }
+
   copy_associated_info (&current->e.c->info_info, &new->e.c->info_info);
   copy_associated_info (&current->extra_info, &new->extra_info);
   return new;

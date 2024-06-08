@@ -231,10 +231,11 @@ enum elt_info_type {
 
 /* indices in ELEMENT string_info */
 enum string_info_type {
-   sit_alias_of,
-   sit_arg_line,
-   sit_delimiter = 1,
-   sit_command_name = 1,
+   sit_alias_of,  /* every @-command + macro_call */
+   sit_arg_line, /* ET_lineraw_command, including @macro and similar */
+   sit_delimiter = 1, /* CM_verb */
+   sit_command_name = 1, /* ET_definfoenclose_command, ET_index_entry_command
+                            and macro_call */
 };
 
 typedef struct ELEMENT {
