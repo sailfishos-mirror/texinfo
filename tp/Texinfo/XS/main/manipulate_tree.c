@@ -275,7 +275,7 @@ get_copy_ref (ELEMENT *element)
 }
 
 void
-copy_extra_info (ELEMENT *current, ELEMENT *new);
+copy_extra_info (ELEMENT *current);
 
 void
 associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
@@ -307,8 +307,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                 k->k.element = e;
               }
             if (f->flags & EF_copy)
-              copy_extra_info (f,
-                        f->elt_info[type_data[f->type].elt_info_number]);
+              copy_extra_info (f);
             break;
           }
         case extra_contents:
@@ -331,8 +330,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                         new_extra_contents->list[j] = new_ref;
                       }
                     if (e->flags & EF_copy)
-                      copy_extra_info (e,
-                        e->elt_info[type_data[e->type].elt_info_number]);
+                      copy_extra_info (e);
                   }
               }
             break;
@@ -353,8 +351,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                   }
 
                 if (e->flags & EF_copy)
-                  copy_extra_info (e,
-                        e->elt_info[type_data[e->type].elt_info_number]);
+                  copy_extra_info (e);
               }
             break;
           }
@@ -409,7 +406,7 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
 }
 
 void
-copy_extra_info (ELEMENT *current, ELEMENT *new)
+copy_extra_info (ELEMENT *current)
 {
   int i;
 
@@ -417,17 +414,14 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
     /* already done */
     return;
 
-  /* FIXME check that the element returned is the same as new? */
-  get_copy_ref (current);
+  ELEMENT *new = get_copy_ref (current);
 
   if (! (type_data[current->type].flags & TF_text))
     {
       for (i = 0; i < current->e.c->args.number; i++)
-        copy_extra_info (current->e.c->args.list[i],
-                         new->e.c->args.list[i]);
+        copy_extra_info (current->e.c->args.list[i]);
       for (i = 0; i < current->e.c->contents.number; i++)
-        copy_extra_info (current->e.c->contents.list[i],
-                         new->e.c->contents.list[i]);
+        copy_extra_info (current->e.c->contents.list[i]);
 
       if (type_data[current->type].elt_info_number > 0)
         {
@@ -444,8 +438,7 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
                       new->elt_info[j] = e;
                     }
                   if (f->flags & EF_copy)
-                    copy_extra_info (f,
-                        f->elt_info[type_data[f->type].elt_info_number]);
+                    copy_extra_info (f);
                 }
             }
         }
@@ -457,7 +450,7 @@ ELEMENT *
 copy_tree (ELEMENT *current)
 {
   ELEMENT *copy = copy_tree_internal (current, 0);
-  copy_extra_info (current, copy);
+  copy_extra_info (current);
   return copy;
 }
 

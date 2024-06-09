@@ -1,5 +1,10 @@
 2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_extra_info): remove 'new'
+	argument as it can always be obtained from the element being copied.
+
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/manipulate_tree.c (copy_element)
 	(copy_associated_info, copy_tree_internal, associate_info_references)
 	(copy_extra_info): use the element flags to mark that the copy of an
