@@ -1,5 +1,11 @@
 2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ManipulateTree.pm (_copy_tree)
+	(_remove_element_copy_info): update to be like the C implementation.
+	Rename _copy_extra_info as _remove_element_copy_info.
+
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_tree_copy.t ($tref): do have mix text elements with
 	extra/contents, as it is not a valid tree, make them containers.
 
