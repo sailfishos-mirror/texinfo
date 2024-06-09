@@ -16,20 +16,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Types for @-commands
-index_entry_command                    spaces_before
-definfoenclose_command                 braces
+index_entry_command                    spaces_before,at_command
+definfoenclose_command                 braces,at_command
 
 # only in C
-nobrace_command
-brace_noarg_command                    braces
+nobrace_command                        at_command
+brace_noarg_command                    braces,at_command
 # @item, @tab
-container_command
-lineraw_command
-line_command                           spaces_before
-block_command                          spaces_before
-brace_command                          braces
-brace_args_command                     braces
-context_brace_command                  braces,spaces_before
+container_command                      at_command
+lineraw_command                        at_command
+line_command                           spaces_before,at_command
+block_command                          spaces_before,at_command
+brace_command                          braces,at_command
+# BRACE_arguments and BRACE_inline commands
+brace_args_command                     braces,at_command
+# BRACE_context commands
+context_brace_command                  braces,spaces_before,at_command
 
 # For text elements
 empty_line                                text
@@ -96,6 +98,7 @@ table_entry
 table_term
 table_definition
 inter_item
+# TODO both with and without at_command
 def_line                              spaces_before
 def_item
 inter_def_item

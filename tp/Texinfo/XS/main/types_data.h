@@ -31,5 +31,6 @@ extern TYPE_DATA type_data[];
 #define TF_spaces_before      0x0004
 #define TF_spaces_after       0x0008
 #define TF_macro_call         0x0010
+#define TF_at_command         0x0020
 
 #endif

@@ -1,5 +1,24 @@
 2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/main/types_data.h: add at_command flag.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal),
+	tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	do text element more separately from other elements.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash): 
+	use flag for condition that select types only if needed in Perl.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	use types to separate classes of ignored commands.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_brace_command):
+	put BRACE_inline in ET_brace_args_command.
+
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/counter.c (counter_element_value): add.
 
 	* tp/Texinfo/XS/parsetexi/macro.c (argument_brace_groups)

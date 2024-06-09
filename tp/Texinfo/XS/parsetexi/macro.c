@@ -121,9 +121,9 @@ new_macro (const char *name, const ELEMENT *macro)
   m->macrobody = convert_contents_to_texinfo (macro);
 }
 
-/* CMD will be either CM_macro or CM_rmacro.  Read the line defining a macro's
-   name and the arguments it takes, and return this information in a new
-   ELEMENT. */
+/* CMD will be either CM_macro, CM_rmacro or CM_linemacro.  Read the line
+   defining a macro's name and the arguments it takes, and return this
+   information in a new ELEMENT. */
 ELEMENT *
 parse_macro_command_line (enum command_id cmd, const char **line_inout,
                           ELEMENT *parent)

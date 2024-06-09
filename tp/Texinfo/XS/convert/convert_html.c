@@ -18390,11 +18390,12 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
   TEXT command_type;
   char *debug_str;
   const char *command_name = 0;
-  enum command_id cmd = element_builtin_cmd (element);
+  enum command_id cmd = CM_NONE;
 
   text_init (&command_type);
   if (! (type_data[element->type].flags & TF_text))
     {
+      cmd = element_builtin_cmd (element);
       command_name = element_command_name (element);
       if (command_name)
         text_printf (&command_type, "@%s ", command_name);
@@ -18435,25 +18436,21 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       free (debug_str.text);
     }
 
-  if ((element->type
-       && self->current_types_conversion_function[element->type].status
-                                                     == FRS_status_ignored)
-       && (!cmd
-           || self->current_commands_conversion_function[cmd].status
-                                                     == FRS_status_ignored))
-    {
-      if (self->conf->DEBUG.o.integer > 0)
-        {
-          fprintf (stderr, "IGNORED %s\n", command_type.text);
-        }
-      goto out;
-    }
-
   /* Process text */
 
   if (type_data[element->type].flags & TF_text)
     {
       TEXT text_result;
+      if (self->current_types_conversion_function[element->type].status
+                                                     == FRS_status_ignored)
+        {
+          if (self->conf->DEBUG.o.integer > 0)
+            {
+              fprintf (stderr, "IGNORED %s\n", command_type.text);
+            }
+          goto out;
+        }
+
       text_init (&text_result);
       text_append (&text_result, "");
 
@@ -18478,7 +18475,22 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
       goto out;
     }
 
-  if (element->cmd
+  /* ignored if ignored both as type and command */
+  if ((element->type
+       && self->current_types_conversion_function[element->type].status
+                                                     == FRS_status_ignored)
+       && (!cmd
+           || self->current_commands_conversion_function[cmd].status
+                                                     == FRS_status_ignored))
+    {
+      if (self->conf->DEBUG.o.integer > 0)
+        {
+          fprintf (stderr, "IGNORED %s\n", command_type.text);
+        }
+      goto out;
+    }
+
+  if (cmd
       && (element->type != ET_def_line
           && element->type != ET_definfoenclose_command
           && element->type != ET_index_entry_command))

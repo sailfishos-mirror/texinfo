@@ -659,19 +659,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   store_source_mark_list (e);
 
-  if (e->type && e->type != ET_normal_text && e->type != ET_other_text
-      && e->type != ET_lineraw_command && e->type != ET_line_command
-      && e->type != ET_block_command && e->type != ET_brace_command
-      && e->type != ET_brace_args_command
-      && e->type != ET_context_brace_command
-      && e->type != ET_nobrace_command
-      && e->type != ET_brace_noarg_command
-      && e->type != ET_container_command)
-    {
-      sv = newSVpv (type_data[e->type].name, 0);
-      hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
-    }
-
   if (e->flags & EF_inserted)
     {
       setup_info_hv (e, "info", &info_hv);
@@ -680,12 +667,26 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (type_data[e->type].flags & TF_text)
     {
+      if (e->type != ET_normal_text && e->type != ET_other_text)
+        {
+          sv = newSVpv (type_data[e->type].name, 0);
+          hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
+        }
       sv = newSVpv_utf8 (e->e.text->text, e->e.text->end);
       hv_store (e->hv, "text", strlen ("text"), sv, HSH_text);
       return;
     }
 
   /* non-text elements */
+
+  if (e->type
+      && (!(type_data[e->type].flags & TF_at_command)
+          || e->type == ET_index_entry_command
+          || e->type == ET_definfoenclose_command))
+    {
+      sv = newSVpv (type_data[e->type].name, 0);
+      hv_store (e->hv, "type", strlen ("type"), sv, HSH_type);
+    }
 
   if (e->type == ET_block_line_arg || e->type == ET_line_arg)
     {

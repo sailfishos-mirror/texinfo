@@ -104,10 +104,7 @@ element_builtin_cmd (const ELEMENT *e)
       free (debug_str);
       /* The e->cmd value being outside of the command id tables
          it is likely that it would be associated with incorrect access
-         to memory is returned */
-      /*
-      return e->cmd;
-       */
+         to memory if returned */
       return 0;
     }
   /* should never reach here */

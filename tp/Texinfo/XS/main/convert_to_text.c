@@ -456,78 +456,15 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
            result->e.text);
    */
 
-  /* in data_cmd, user-defined commands are mapped to internal commands
-     with the right flags.  If an element can be a user-defined element,
-     data_cmd need to be used for all access to arrays of command_id to
-     avoid an index > max index of builtin command  */
-  if (element->cmd)
-      data_cmd = element_builtin_data_cmd (element);
-
-  if (!(element->type == ET_def_line)
-      && ((element->type == ET_ignorable_spaces_after_command
-           || element->type == ET_postamble_after_end
-           || element->type == ET_preamble_before_beginning
-           || element->type == ET_spaces_at_end
-           || element->type == ET_spaces_before_paragraph
-           || element->type == ET_spaces_after_close_brace)
-          || (element->cmd
-              && ((element->cmd == CM_anchor /* ignored_brace_commands */
-                   || element->cmd == CM_sortas
-                   || element->cmd == CM_seealso
-                   || element->cmd == CM_seeentry
-                   || element->cmd == CM_footnote
-                   || element->cmd == CM_shortcaption
-                   || element->cmd == CM_caption
-                   || element->cmd == CM_hyphenation
-                   || element->cmd == CM_errormsg
-                   || element->cmd == CM_titlepage /* ignored_block_commands */
-                   || element->cmd == CM_copying
-                   || element->cmd == CM_documentdescription
-                   || element->cmd == CM_ignore
-                   || element->cmd == CM_macro
-                   || element->cmd == CM_rmacro
-                   || element->cmd == CM_linemacro
-                   || element->cmd == CM_nodedescriptionblock)
-                  || ((element->cmd == CM_html
-                       || element->cmd == CM_html
-                       || element->cmd == CM_tex
-                       || element->cmd == CM_xml
-                       || element->cmd == CM_docbook
-                       || element->cmd == CM_latex)
-                      && !format_expanded_p (text_options->expanded_formats,
-                                        builtin_command_name (element->cmd)))
-               /* here ignore most of the line commands */
-                  || (element->e.c->args.number > 0
-                      && (element->e.c->args.list[0]->type == ET_line_arg
-                          || element->e.c->args.list[0]->type == ET_rawline_arg)
-                      && !(builtin_command_data[data_cmd].other_flags
-                                                         & CF_formatted_line)
-                      && !(element->cmd == CM_sp
-                           || element->cmd == CM_verbatiminclude))))))
-    return;
-
-  if (data_cmd
-      && builtin_command_data[data_cmd].flags & CF_brace
-      && builtin_command_data[data_cmd].data == BRACE_inline
-      && element->cmd != CM_inlinefmtifelse)
-    if (builtin_command_data[data_cmd].other_flags & CF_inline_format)
-      {
-        char *format = lookup_extra_string (element, "format");
-        if (!format
-            || !format_expanded_p (text_options->expanded_formats, format))
-          return;
-      }
-    else
-      {
-        int status;
-        int expand_index = lookup_extra_integer (element, "expand_index",
-                                                 &status);
-        if (!expand_index)
-          return;
-      }
 
   if (type_data[element->type].flags & TF_text)
     {
+      if (element->type == ET_ignorable_spaces_after_command
+          || element->type == ET_spaces_at_end
+          || element->type == ET_spaces_before_paragraph
+          || element->type == ET_spaces_after_close_brace)
+        return;
+
       if (element->e.text->end <= 0)
         return;
 
@@ -597,6 +534,70 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       return;
     }
+
+  /* in data_cmd, user-defined commands are mapped to internal commands
+     with the right flags.  If an element can be a user-defined element,
+     data_cmd need to be used for all access to arrays of command_id to
+     avoid an index > max index of builtin command  */
+  if (element->cmd)
+      data_cmd = element_builtin_data_cmd (element);
+
+  if ((element->type == ET_brace_args_command
+       && (element->cmd == CM_anchor
+           || element->cmd == CM_sortas
+           || element->cmd == CM_seealso
+           || element->cmd == CM_seeentry
+           || element->cmd == CM_footnote
+           || element->cmd == CM_hyphenation
+           || element->cmd == CM_errormsg))
+      || (element->type == ET_context_brace_command
+          && (element->cmd == CM_shortcaption
+              || element->cmd == CM_caption))
+      || (element->type == ET_block_command
+          && (element->cmd == CM_titlepage /* ignored_block_commands */
+               || element->cmd == CM_copying
+               || element->cmd == CM_documentdescription
+               || element->cmd == CM_ignore
+               || element->cmd == CM_nodedescriptionblock)
+              || ((element->cmd == CM_html
+                   || element->cmd == CM_html
+                   || element->cmd == CM_tex
+                   || element->cmd == CM_xml
+                   || element->cmd == CM_docbook
+                   || element->cmd == CM_latex)
+                  && !format_expanded_p (text_options->expanded_formats,
+                                    builtin_command_name (element->cmd))))
+       /* here ignore most of the line commands, and also @*macro */
+      || ((element->type == ET_line_command
+           || element->type == ET_lineraw_command
+           || element->type == ET_index_entry_command)
+          && !(builtin_command_data[data_cmd].other_flags
+                                             & CF_formatted_line)
+          && !(element->cmd == CM_sp
+               || element->cmd == CM_verbatiminclude))
+      || element->type == ET_postamble_after_end
+      || element->type == ET_preamble_before_beginning)
+    return;
+
+  if (data_cmd
+      && builtin_command_data[data_cmd].flags & CF_brace
+      && builtin_command_data[data_cmd].data == BRACE_inline
+      && element->cmd != CM_inlinefmtifelse)
+    if (builtin_command_data[data_cmd].other_flags & CF_inline_format)
+      {
+        char *format = lookup_extra_string (element, "format");
+        if (!format
+            || !format_expanded_p (text_options->expanded_formats, format))
+          return;
+      }
+    else
+      {
+        int status;
+        int expand_index = lookup_extra_integer (element, "expand_index",
+                                                 &status);
+        if (!expand_index)
+          return;
+      }
 
   if (data_cmd)
     {
