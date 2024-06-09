@@ -48,12 +48,10 @@ increase_ref_counter (ELEMENT *element)
 ELEMENT *
 copy_element (ELEMENT *f)
 {
-  KEY_PAIR *k_copy;
   ELEMENT *e = 0;
-  k_copy = lookup_extra_by_index (f, "_copy", -1);
-  if (k_copy)
+  if (f->flags & EF_copy)
     {
-      e = k_copy->k.element;
+      e = f->elt_info[type_data[f->type].elt_info_number];
     }
   else
     {
@@ -72,9 +70,6 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
     {
       KEY_PAIR *k_ref = &info->info[i];
       const char *key = k_ref->key;
-      ELEMENT *f = k_ref->k.element;
-      ELEMENT_LIST *new_extra_contents;
-      KEY_PAIR *k_copy = 0;
       int j;
 
       if (k_ref->type == extra_deleted)
@@ -84,9 +79,8 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         {
         case extra_element:
         case extra_element_oot:
-          if (!strcmp (key, "_copy"))
-            break;
           {
+            ELEMENT *f = k_ref->k.element;
             ELEMENT *copy = copy_element (f);
             if (copy)
               {
@@ -100,7 +94,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_directions:
           {
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          new_extra_contents = new_list ();
+          ELEMENT_LIST *new_extra_contents = new_list ();
           k->k.list = new_extra_contents;
           for (j = 0; j < k_ref->k.list->number; j++)
             {
@@ -111,10 +105,9 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
                 }
               else
                 {
-                  k_copy = lookup_extra_by_index (e, "_copy", -1);
-                  if (k_copy)
+                  if (e->flags & EF_copy)
                     add_to_element_list (new_extra_contents,
-                                         k_copy->k.element);
+                        e->elt_info[type_data[e->type].elt_info_number]);
                   else
                     {
                       increase_ref_counter (e);
@@ -127,16 +120,19 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           }
         case extra_container:
           {
+          ELEMENT *f = k_ref->k.element;
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           ELEMENT *new_extra_element = new_element (ET_NONE);
           k->k.element = new_extra_element;
           for (j = 0; j < f->e.c->contents.number; j++)
             {
               ELEMENT *e = f->e.c->contents.list[j];
-              k_copy = lookup_extra_by_index (e, "_copy", -1);
-              if (k_copy)
-                add_to_contents_as_array (new_extra_element,
-                                          k_copy->k.element);
+
+              if (e->flags & EF_copy)
+                {
+                  add_to_contents_as_array (new_extra_element,
+                        e->elt_info[type_data[e->type].elt_info_number]);
+                }
               else
                 {
                   increase_ref_counter (e);
@@ -155,16 +151,24 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
 ELEMENT *
 copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 {
-  KEY_PAIR *k_copy = 0;
   ELEMENT *new;
   int i;
+  int elt_info_nr = type_data[current->type].elt_info_number;
 
-  k_copy = lookup_extra_by_index (current, "_copy", -1);
-  if (k_copy)
+  if (current->flags & EF_copy)
     {
-      new = k_copy->k.element;
+      /* NOTE normally the parent is set when add_to_element_* is called below
+         FIXME why a special need? */
+      new = current->elt_info[elt_info_nr];
       if (parent && !new->parent)
-        new->parent = parent;
+        {
+          /*
+          fprintf (stderr, "PARENT curr %p parent %p %s new %p %s\n", current, parent,
+                                                  print_element_debug (parent, 0),
+                                                  new, print_element_debug (new, 1));
+           */
+          new->parent = parent;
+        }
       return new;
     }
 
@@ -178,7 +182,16 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
   new->flags = current->flags;
 
   increase_ref_counter (current);
-  add_extra_element (current, "_copy", new);
+  /* set that flag to mark that a copy of the element exists */
+  current->flags |= EF_copy;
+
+  /* point to the copy at the end of elt_info after the regular information */
+  current->elt_info = (ELEMENT **) realloc (current->elt_info,
+                               sizeof (ELEMENT *) * (elt_info_nr + 1));
+  if (!current->elt_info)
+    fatal ("realloc failed");
+
+  current->elt_info[elt_info_nr] = new;
 
   /*
   fprintf (stderr, "CTNEW %p %s %p\n", current,
@@ -187,21 +200,24 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 
   if (type_data[current->type].flags & TF_text)
     {
-      text_append_n (new->e.text, current->e.text->text,  current->e.text->end);
-      copy_associated_info (&current->extra_info, &new->extra_info);
+      text_append_n (new->e.text, current->e.text->text, current->e.text->end);
       return new;
     }
 
   for (i = 0; i < current->e.c->args.number; i++)
-    add_to_element_args (new,
-                copy_tree_internal (current->e.c->args.list[i], new));
-  for (i = 0; i < current->e.c->contents.number; i++)
-    add_to_element_contents (new,
-                copy_tree_internal (current->e.c->contents.list[i], new));
-
-  if (type_data[current->type].elt_info_number > 0)
     {
-      for (i = 0; i < type_data[current->type].elt_info_number; i++)
+      ELEMENT *added = copy_tree_internal (current->e.c->args.list[i], new);
+      add_to_element_args (new, added);
+    }
+  for (i = 0; i < current->e.c->contents.number; i++)
+    {
+      ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i], new);
+      add_to_element_contents (new, added);
+    }
+
+  if (elt_info_nr > 0)
+    {
+      for (i = 0; i < elt_info_nr; i++)
         if (current->elt_info[i])
           {
             ELEMENT *copy = copy_element (current->elt_info[i]);
@@ -229,18 +245,30 @@ copy_tree_internal (ELEMENT* current, ELEMENT *parent)
 ELEMENT *
 get_copy_ref (ELEMENT *element)
 {
-  KEY_PAIR *k_counter, *k_copy;
-  int *counter_ptr;
   ELEMENT *result;
+  int elt_info_nr = type_data[element->type].elt_info_number;
 
-  k_copy = lookup_extra_by_index (element, "_copy", -1);
-  result = k_copy->k.element;
+  result = element->elt_info[elt_info_nr];
 
   element->counter--;
 
   if (element->counter == 0)
+    /* all the reference to that element have been resolved, mark
+       as copied by unsetting the flag and deallocate pointer to the copy */
     {
-      element->extra_info.info_number -= 1;
+      element->flags &= ~EF_copy;
+      if (elt_info_nr > 0)
+        {
+          element->elt_info = (ELEMENT **) realloc (element->elt_info,
+                                   sizeof (ELEMENT *) * elt_info_nr);
+          if (!element->elt_info)
+            fatal ("realloc failed");
+        }
+      else
+        {
+          free (element->elt_info);
+          element->elt_info = 0;
+        }
     }
 
   return result;
@@ -267,12 +295,9 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
         {
         case extra_element:
         case extra_element_oot:
-          if (!strcmp (key, "_copy"))
-            break;
           {
             ELEMENT *f = k_ref->k.element;
             KEY_PAIR *k;
-            const KEY_PAIR *k_copy;
             k = lookup_associated_info (new_info, key);
             if (!k)
               {
@@ -281,9 +306,9 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                                              k_ref->type);
                 k->k.element = e;
               }
-            k_copy = lookup_extra_by_index (f, "_copy", -1);
-            if (k_copy)
-              copy_extra_info (f, k_copy->k.element);
+            if (f->flags & EF_copy)
+              copy_extra_info (f,
+                        f->elt_info[type_data[f->type].elt_info_number]);
             break;
           }
         case extra_contents:
@@ -293,7 +318,6 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             ELEMENT_LIST *new_extra_contents = k->k.list;
             for (j = 0; j < k_ref->k.list->number; j++)
               {
-                KEY_PAIR *k_copy;
                 ELEMENT *e = k_ref->k.list->list[j];
                 ELEMENT *new_e = new_extra_contents->list[j];
                 if (!e && info->info[i].type == extra_directions)
@@ -306,9 +330,9 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                         ELEMENT *new_ref = get_copy_ref (e);
                         new_extra_contents->list[j] = new_ref;
                       }
-                    k_copy = lookup_extra_by_index (e, "_copy", -1);
-                    if (k_copy)
-                      copy_extra_info (e, k_copy->k.element);
+                    if (e->flags & EF_copy)
+                      copy_extra_info (e,
+                        e->elt_info[type_data[e->type].elt_info_number]);
                   }
               }
             break;
@@ -320,7 +344,6 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
             ELEMENT *new_extra_element = k->k.element;
             for (j = 0; j < f->e.c->contents.number; j++)
               {
-                KEY_PAIR *k_copy;
                 ELEMENT *e = f->e.c->contents.list[j];
                 ELEMENT *new_e = new_extra_element->e.c->contents.list[j];
                 if (!new_e)
@@ -329,9 +352,9 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
                     new_extra_element->e.c->contents.list[j] = new_ref;
                   }
 
-                k_copy = lookup_extra_by_index (e, "_copy", -1);
-                if (k_copy)
-                  copy_extra_info (e, k_copy->k.element);
+                if (e->flags & EF_copy)
+                  copy_extra_info (e,
+                        e->elt_info[type_data[e->type].elt_info_number]);
               }
             break;
           }
@@ -388,13 +411,13 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
 void
 copy_extra_info (ELEMENT *current, ELEMENT *new)
 {
-  KEY_PAIR *k_copy = 0;
   int i;
 
-  k_copy = lookup_extra_by_index (current, "_copy", -1);
-  if (!k_copy)
+  if (! (current->flags & EF_copy))
     /* already done */
     return;
+
+  /* FIXME check that the element returned is the same as new? */
   get_copy_ref (current);
 
   if (! (type_data[current->type].flags & TF_text))
@@ -414,23 +437,20 @@ copy_extra_info (ELEMENT *current, ELEMENT *new)
               if (current->elt_info[j])
                 {
                   ELEMENT *f = current->elt_info[j];
-                  const KEY_PAIR *k_copy;
 
                   if (!new->elt_info[j])
                     {
                       ELEMENT *e = get_copy_ref (f);
                       new->elt_info[j] = e;
                     }
-                  k_copy = lookup_extra_by_index (f, "_copy", -1);
-                  if (k_copy)
-                    copy_extra_info (f, k_copy->k.element);
+                  if (f->flags & EF_copy)
+                    copy_extra_info (f,
+                        f->elt_info[type_data[f->type].elt_info_number]);
                 }
             }
         }
-      /* text element have _copy and _counter only in extra, not to be copied */
       associate_info_references (&current->extra_info, &new->extra_info);
     }
-
 }
 
 ELEMENT *

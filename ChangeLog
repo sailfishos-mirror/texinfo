@@ -1,8 +1,10 @@
-2024-09-29  Patrice Dumas  <pertusus@free.fr>
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/convert_html.c (html_command_description),
-	tp/Texinfo/XS/structuring_transfo/structuring.c (new_node_menu_entry):
-	use the union e name.
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_element)
+	(copy_associated_info, copy_tree_internal, associate_info_references)
+	(copy_extra_info): use the element flags to mark that the copy of an
+	element was done, and put the pointer to the copy in the element
+	elt_info after the usual information.
 
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
@@ -117,6 +119,12 @@
 	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): set
 	ET_index_entry_command type when creating the element.
+
+2024-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_description),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (new_node_menu_entry):
+	use the union e name.
 
 2024-06-08  Patrice Dumas  <pertusus@free.fr>
 
