@@ -1,5 +1,24 @@
 2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_associated_info)
+	(associate_info_references): move string, integer and misc_arg copying
+	to copy_associated_info.
+
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_tree_internal)
+	(copy_associated_info, get_copy_ref): directly copy an element that has
+	not been copied before and is seen in the tree.  Remove
+	copy_tree_internal.  No need for counter anymore as all the elements
+	are copied when needed.  Remove increase_ref_counter.
+
+	* tp/Texinfo/XS/main/manipulate_tree.c (remove_associated_copy_info)
+	(remove_element_copy_info): since there are no reference to resolve
+	anymore in the second step, it is now only used to remove the
+	reference to the copy element in each element in the copied tree.
+	Rename associate_info_references as remove_associated_copy_info and
+	copy_extra_info as remove_element_copy_info.
+
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/manipulate_tree.c (copy_extra_info): remove 'new'
 	argument as it can always be obtained from the element being copied.
 

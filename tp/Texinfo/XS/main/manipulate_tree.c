@@ -36,30 +36,15 @@
 #include "manipulate_tree.h"
 #include "unicode.h"
 
-ELEMENT *
-copy_tree_internal (ELEMENT* current, ELEMENT *parent);
-
-void
-increase_ref_counter (ELEMENT *element)
-{
-  element->counter++;
-}
+/* To do the copy, we do two pass.  First with copy_tree_internal, the tree is
+   copied and a flag and reference to the copy is put in all the elements,
+   taking care that each element is processed once only.
+   Then, remove_element_copy_info goes through the tree again and remove
+   the references to the copies.
+ */
 
 ELEMENT *
-copy_element (ELEMENT *f)
-{
-  ELEMENT *e = 0;
-  if (f->flags & EF_copy)
-    {
-      e = f->elt_info[type_data[f->type].elt_info_number];
-    }
-  else
-    {
-      increase_ref_counter (f);
-    }
-  copy_tree_internal (f, 0);
-  return e;
-}
+copy_tree_internal (ELEMENT* current);
 
 void
 copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
@@ -81,13 +66,10 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_element_oot:
           {
             ELEMENT *f = k_ref->k.element;
-            ELEMENT *copy = copy_element (f);
-            if (copy)
-              {
-                KEY_PAIR *k
-                  = get_associated_info_key (new_info, key, k_ref->type);
-                k->k.element = copy;
-              }
+            ELEMENT *copy = copy_tree_internal (f);
+            KEY_PAIR *k
+              = get_associated_info_key (new_info, key, k_ref->type);
+            k->k.element = copy;
           }
           break;
         case extra_contents:
@@ -105,15 +87,8 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
                 }
               else
                 {
-                  if (e->flags & EF_copy)
-                    add_to_element_list (new_extra_contents,
-                        e->elt_info[type_data[e->type].elt_info_number]);
-                  else
-                    {
-                      increase_ref_counter (e);
-                      add_to_element_list (new_extra_contents, 0);
-                    }
-                  copy_tree_internal (e, 0);
+                  ELEMENT *copy = copy_tree_internal (e);
+                  add_to_element_list (new_extra_contents, copy);
                 }
             }
           break;
@@ -127,232 +102,9 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           for (j = 0; j < f->e.c->contents.number; j++)
             {
               ELEMENT *e = f->e.c->contents.list[j];
-
-              if (e->flags & EF_copy)
-                {
-                  add_to_contents_as_array (new_extra_element,
-                        e->elt_info[type_data[e->type].elt_info_number]);
-                }
-              else
-                {
-                  increase_ref_counter (e);
-                  add_to_contents_as_array (new_extra_element, 0);
-                }
-              copy_tree_internal (e, 0);
+              ELEMENT *copy = copy_tree_internal (e);
+              add_to_contents_as_array (new_extra_element, copy);
             }
-            break;
-          }
-        default:
-          break;
-        }
-    }
-}
-
-ELEMENT *
-copy_tree_internal (ELEMENT* current, ELEMENT *parent)
-{
-  ELEMENT *new;
-  int i;
-  int elt_info_nr = type_data[current->type].elt_info_number;
-
-  if (current->flags & EF_copy)
-    {
-      /* NOTE normally the parent is set when add_to_element_* is called below
-         FIXME why a special need? */
-      new = current->elt_info[elt_info_nr];
-      if (parent && !new->parent)
-        {
-          /*
-          fprintf (stderr, "PARENT curr %p parent %p %s new %p %s\n", current, parent,
-                                                  print_element_debug (parent, 0),
-                                                  new, print_element_debug (new, 1));
-           */
-          new->parent = parent;
-        }
-      return new;
-    }
-
-  if (type_data[current->type].flags & TF_text)
-    new = new_text_element (current->type);
-  else if (current->cmd)
-    new = new_command_element (current->type, current->cmd);
-  else
-    new = new_element (current->type);
-
-  new->flags = current->flags;
-
-  increase_ref_counter (current);
-  /* set that flag to mark that a copy of the element exists */
-  current->flags |= EF_copy;
-
-  /* point to the copy at the end of elt_info after the regular information */
-  current->elt_info = (ELEMENT **) realloc (current->elt_info,
-                               sizeof (ELEMENT *) * (elt_info_nr + 1));
-  if (!current->elt_info)
-    fatal ("realloc failed");
-
-  current->elt_info[elt_info_nr] = new;
-
-  /*
-  fprintf (stderr, "CTNEW %p %s %p\n", current,
-                                       print_element_debug (current, 1), new);
-  */
-
-  if (type_data[current->type].flags & TF_text)
-    {
-      text_append_n (new->e.text, current->e.text->text, current->e.text->end);
-      return new;
-    }
-
-  for (i = 0; i < current->e.c->args.number; i++)
-    {
-      ELEMENT *added = copy_tree_internal (current->e.c->args.list[i], new);
-      add_to_element_args (new, added);
-    }
-  for (i = 0; i < current->e.c->contents.number; i++)
-    {
-      ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i], new);
-      add_to_element_contents (new, added);
-    }
-
-  if (elt_info_nr > 0)
-    {
-      for (i = 0; i < elt_info_nr; i++)
-        if (current->elt_info[i])
-          {
-            ELEMENT *copy = copy_element (current->elt_info[i]);
-            if (copy)
-              new->elt_info[i] = copy;
-          }
-    }
-
-  if (current->e.c->string_info)
-    {
-      int string_info_nr = 1;
-      if (current->type == ET_definfoenclose_command
-          || current->type == ET_index_entry_command
-          || current->type == ET_lineraw_command || current->cmd == CM_verb)
-        string_info_nr = 2;
-      for (i = 0; i < string_info_nr; i++)
-        if (current->e.c->string_info[i])
-          new->e.c->string_info[i] = strdup (current->e.c->string_info[i]);
-    }
-
-  copy_associated_info (&current->extra_info, &new->extra_info);
-  return new;
-}
-
-ELEMENT *
-get_copy_ref (ELEMENT *element)
-{
-  ELEMENT *result;
-  int elt_info_nr = type_data[element->type].elt_info_number;
-
-  result = element->elt_info[elt_info_nr];
-
-  element->counter--;
-
-  if (element->counter == 0)
-    /* all the reference to that element have been resolved, mark
-       as copied by unsetting the flag and deallocate pointer to the copy */
-    {
-      element->flags &= ~EF_copy;
-      if (elt_info_nr > 0)
-        {
-          element->elt_info = (ELEMENT **) realloc (element->elt_info,
-                                   sizeof (ELEMENT *) * elt_info_nr);
-          if (!element->elt_info)
-            fatal ("realloc failed");
-        }
-      else
-        {
-          free (element->elt_info);
-          element->elt_info = 0;
-        }
-    }
-
-  return result;
-}
-
-void
-copy_extra_info (ELEMENT *current);
-
-void
-associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
-{
-  int i;
-
-  for (i = 0; i < info->info_number; i++)
-    {
-      const KEY_PAIR *k_ref = &info->info[i];
-      const char *key = k_ref->key;
-      int j;
-
-      if (k_ref->type == extra_deleted)
-        continue;
-
-      switch (k_ref->type)
-        {
-        case extra_element:
-        case extra_element_oot:
-          {
-            ELEMENT *f = k_ref->k.element;
-            KEY_PAIR *k;
-            k = lookup_associated_info (new_info, key);
-            if (!k)
-              {
-                ELEMENT *e = get_copy_ref (f);
-                k = get_associated_info_key (new_info, key,
-                                             k_ref->type);
-                k->k.element = e;
-              }
-            if (f->flags & EF_copy)
-              copy_extra_info (f);
-            break;
-          }
-        case extra_contents:
-        case extra_directions:
-          {
-            KEY_PAIR *k = lookup_associated_info (new_info, key);
-            ELEMENT_LIST *new_extra_contents = k->k.list;
-            for (j = 0; j < k_ref->k.list->number; j++)
-              {
-                ELEMENT *e = k_ref->k.list->list[j];
-                ELEMENT *new_e = new_extra_contents->list[j];
-                if (!e && info->info[i].type == extra_directions)
-                  {
-                  }
-                else
-                  {
-                    if (!new_e)
-                      {
-                        ELEMENT *new_ref = get_copy_ref (e);
-                        new_extra_contents->list[j] = new_ref;
-                      }
-                    if (e->flags & EF_copy)
-                      copy_extra_info (e);
-                  }
-              }
-            break;
-          }
-        case extra_container:
-          {
-            const ELEMENT *f = k_ref->k.element;
-            KEY_PAIR *k = lookup_associated_info (new_info, key);
-            ELEMENT *new_extra_element = k->k.element;
-            for (j = 0; j < f->e.c->contents.number; j++)
-              {
-                ELEMENT *e = f->e.c->contents.list[j];
-                ELEMENT *new_e = new_extra_element->e.c->contents.list[j];
-                if (!new_e)
-                  {
-                    ELEMENT *new_ref = get_copy_ref (e);
-                    new_extra_element->e.c->contents.list[j] = new_ref;
-                  }
-
-                if (e->flags & EF_copy)
-                  copy_extra_info (e);
-              }
             break;
           }
         case extra_string:
@@ -399,29 +151,182 @@ associate_info_references (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info)
           break;
           }
         default:
-          fatal ("associate_info_references: unknown extra type");
+          fatal ("copy_associated_info: unknown extra type");
+          break;
+        }
+    }
+}
+
+ELEMENT *
+copy_tree_internal (ELEMENT* current)
+{
+  ELEMENT *new;
+  int i;
+  int elt_info_nr = type_data[current->type].elt_info_number;
+
+  if (current->flags & EF_copy)
+    {
+      return current->elt_info[elt_info_nr];
+    }
+
+  if (type_data[current->type].flags & TF_text)
+    new = new_text_element (current->type);
+  else if (current->cmd)
+    new = new_command_element (current->type, current->cmd);
+  else
+    new = new_element (current->type);
+
+  new->flags = current->flags;
+
+  /* set that flag to mark that a copy of the element exists */
+  current->flags |= EF_copy;
+
+  /* point to the copy at the end of elt_info after the regular information */
+  current->elt_info = (ELEMENT **) realloc (current->elt_info,
+                               sizeof (ELEMENT *) * (elt_info_nr + 1));
+  if (!current->elt_info)
+    fatal ("realloc failed");
+
+  current->elt_info[elt_info_nr] = new;
+
+  /*
+  fprintf (stderr, "CTNEW %p %s %p\n", current,
+                                       print_element_debug (current, 1), new);
+  */
+
+  if (type_data[current->type].flags & TF_text)
+    {
+      text_append_n (new->e.text, current->e.text->text, current->e.text->end);
+      return new;
+    }
+
+  /* the parent of new is set in add_to_element* */
+  for (i = 0; i < current->e.c->args.number; i++)
+    {
+      ELEMENT *added = copy_tree_internal (current->e.c->args.list[i]);
+      add_to_element_args (new, added);
+    }
+  for (i = 0; i < current->e.c->contents.number; i++)
+    {
+      ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i]);
+      add_to_element_contents (new, added);
+    }
+
+  if (elt_info_nr > 0)
+    {
+      for (i = 0; i < elt_info_nr; i++)
+        if (current->elt_info[i])
+          {
+            ELEMENT *copy = copy_tree_internal (current->elt_info[i]);
+            new->elt_info[i] = copy;
+          }
+    }
+
+  if (current->e.c->string_info)
+    {
+      int string_info_nr = 1;
+      if (current->type == ET_definfoenclose_command
+          || current->type == ET_index_entry_command
+          || current->type == ET_lineraw_command || current->cmd == CM_verb)
+        string_info_nr = 2;
+      for (i = 0; i < string_info_nr; i++)
+        if (current->e.c->string_info[i])
+          new->e.c->string_info[i] = strdup (current->e.c->string_info[i]);
+    }
+
+  copy_associated_info (&current->extra_info, &new->extra_info);
+  return new;
+}
+
+void
+remove_element_copy_info (ELEMENT *current);
+
+void
+remove_associated_copy_info (ASSOCIATED_INFO *info)
+{
+  int i;
+
+  for (i = 0; i < info->info_number; i++)
+    {
+      const KEY_PAIR *k_ref = &info->info[i];
+      int j;
+
+      if (k_ref->type == extra_deleted)
+        continue;
+
+      switch (k_ref->type)
+        {
+        case extra_element:
+        case extra_element_oot:
+          {
+            ELEMENT *f = k_ref->k.element;
+            remove_element_copy_info (f);
+            break;
+          }
+        case extra_contents:
+        case extra_directions:
+          {
+            for (j = 0; j < k_ref->k.list->number; j++)
+              {
+                ELEMENT *e = k_ref->k.list->list[j];
+                if (!e && info->info[i].type == extra_directions)
+                  {
+                  }
+                else
+                  {
+                    remove_element_copy_info (e);
+                  }
+              }
+            break;
+          }
+        case extra_container:
+          {
+            const ELEMENT *f = k_ref->k.element;
+            for (j = 0; j < f->e.c->contents.number; j++)
+              {
+                ELEMENT *e = f->e.c->contents.list[j];
+                remove_element_copy_info (e);
+              }
+            break;
+          }
+        default:
           break;
         }
     }
 }
 
 void
-copy_extra_info (ELEMENT *current)
+remove_element_copy_info (ELEMENT *current)
 {
   int i;
+  int elt_info_nr;
 
   if (! (current->flags & EF_copy))
     /* already done */
     return;
 
-  ELEMENT *new = get_copy_ref (current);
+  elt_info_nr = type_data[current->type].elt_info_number;
+  /* mark as copied by unsetting the flag and deallocate pointer to the copy */
+  current->flags &= ~EF_copy;
+  if (elt_info_nr > 0)
+    {
+      current->elt_info = (ELEMENT **) realloc (current->elt_info,
+                               sizeof (ELEMENT *) * elt_info_nr);
+      if (!current->elt_info)
+        fatal ("realloc failed");
+    }
+  else
+    {
+      free (current->elt_info);
+      current->elt_info = 0;
+    }
 
   if (! (type_data[current->type].flags & TF_text))
     {
       for (i = 0; i < current->e.c->args.number; i++)
-        copy_extra_info (current->e.c->args.list[i]);
+        remove_element_copy_info (current->e.c->args.list[i]);
       for (i = 0; i < current->e.c->contents.number; i++)
-        copy_extra_info (current->e.c->contents.list[i]);
+        remove_element_copy_info (current->e.c->contents.list[i]);
 
       if (type_data[current->type].elt_info_number > 0)
         {
@@ -431,26 +336,19 @@ copy_extra_info (ELEMENT *current)
               if (current->elt_info[j])
                 {
                   ELEMENT *f = current->elt_info[j];
-
-                  if (!new->elt_info[j])
-                    {
-                      ELEMENT *e = get_copy_ref (f);
-                      new->elt_info[j] = e;
-                    }
-                  if (f->flags & EF_copy)
-                    copy_extra_info (f);
+                  remove_element_copy_info (f);
                 }
             }
         }
-      associate_info_references (&current->extra_info, &new->extra_info);
+      remove_associated_copy_info (&current->extra_info);
     }
 }
 
 ELEMENT *
 copy_tree (ELEMENT *current)
 {
-  ELEMENT *copy = copy_tree_internal (current, 0);
-  copy_extra_info (current);
+  ELEMENT *copy = copy_tree_internal (current);
+  remove_element_copy_info (current);
   return copy;
 }
 
