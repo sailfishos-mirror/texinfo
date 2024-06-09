@@ -1,5 +1,11 @@
 2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ManipulateTree.pm (_copy_tree): modify code to take into
+	acocunt that there is no command name in text and be more similar with
+	C code.
+
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/transformations.c
 	(reassociate_to_node): select elements with "element_node" before
 	accessing it.

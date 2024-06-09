@@ -99,15 +99,11 @@ sub import {
 
 # TODO document in POD?
 
-# This implementation of tree copy is designed such as to be
-# implementable easily in XS with reference to copy local to
-# the element and not in a hash
-
-# It is important to go through the tree in the same order
-# in _copy_tree and _copy_extra_info, to be sure that elements already
-# seen are the same in both cases, such that _counter is at 0 in
-# _copy_extra_info when all the dependent elements have been seen
-# and going through the target element.
+# To do the copy, we do two pass.  First with copy_tree_internal, the tree is
+# copied and a reference to the copy is put in all the elements,
+# taking care that each element is processed once only.
+# Then, remove_element_copy_info goes through the tree again and remove
+# the references to the copies.
 
 # the *_directions extra items are not elements, they contain
 # up, next and prev that point to elements.
@@ -134,7 +130,7 @@ sub _copy_tree($)
   }
 
   my $new = {};
-  foreach my $key ('type', 'cmdname', 'text') {
+  foreach my $key ('type', 'text') {
     $new->{$key} = $current->{$key} if (exists($current->{$key}));
   }
 
@@ -148,7 +144,8 @@ sub _copy_tree($)
   }
 
   my $command_or_type = '';
-  if ($current->{'cmdname'}) {
+  if (defined($current->{'cmdname'})) {
+    $new->{'cmdname'} = $current->{'cmdname'};
     $command_or_type = '@'.$current->{'cmdname'};
   } elsif ($current->{'type'}) {
     $command_or_type = $current->{'type'};
