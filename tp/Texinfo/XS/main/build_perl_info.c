@@ -803,7 +803,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         }
     }
 
-  store_additional_info (e, &e->extra_info, "extra", &nr_extra,
+  store_additional_info (e, &e->e.c->extra_info, "extra", &nr_extra,
                          avoid_recursion);
 
   if (e->e.c->associated_unit)

@@ -61,7 +61,7 @@ get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
 void
 add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_element);
   k->k.element = value;
 }
@@ -73,7 +73,7 @@ add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
 void
 add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_element_oot);
   k->k.element = value;
 }
@@ -87,7 +87,7 @@ add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_container (ELEMENT *e, char *key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_container);
   k->k.element = value;
 }
@@ -110,7 +110,7 @@ add_extra_contents (ELEMENT *e, const char *key, int no_lookup)
     }
 
   n_list = new_list ();
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_contents);
   k->k.list = n_list;
   return n_list;
@@ -132,7 +132,7 @@ add_extra_directions (ELEMENT *e, const char *key)
     {
       ELEMENT_LIST *n_list = new_list ();
       list_set_empty_contents (n_list, directions_length);
-      KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+      KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                              extra_directions);
       k->k.list = n_list;
       return n_list;
@@ -143,7 +143,7 @@ void
 add_extra_misc_args (ELEMENT *e, char *key, ELEMENT_LIST *value)
 {
   if (!value) return;
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_misc_args);
   k->k.list = value;
 }
@@ -151,14 +151,14 @@ add_extra_misc_args (ELEMENT *e, char *key, ELEMENT_LIST *value)
 void
 add_extra_string (ELEMENT *e, const char *key, char *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
   k->k.string = value;
 }
 
 void
 add_extra_string_dup (ELEMENT *e, const char *key, const char *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
   k->k.string = strdup (value);
 }
 
@@ -180,7 +180,7 @@ add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
 void
 add_extra_integer (ELEMENT *e, char *key, long value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->extra_info, key, extra_integer);
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_integer);
   k->k.integer = value;
 }
 
@@ -203,7 +203,7 @@ ELEMENT *
 lookup_extra_element (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->extra_info, key);
+  k = lookup_associated_info (&e->e.c->extra_info, key);
   if (!k)
     return 0;
   else if (k->type == extra_string || k->type == extra_integer
@@ -222,7 +222,7 @@ char *
 lookup_extra_string (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->extra_info, key);
+  k = lookup_associated_info (&e->e.c->extra_info, key);
   if (!k)
     return 0;
   else
@@ -244,7 +244,7 @@ lookup_extra_string (const ELEMENT *e, const char *key)
 KEY_PAIR *
 lookup_extra (const ELEMENT *e, const char *key)
 {
-  return lookup_associated_info (&e->extra_info, key);
+  return lookup_associated_info (&e->e.c->extra_info, key);
 }
 
 /* *ret is negative if not found or not an integer */
@@ -273,7 +273,7 @@ int
 lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->extra_info, key);
+  k = lookup_associated_info (&e->e.c->extra_info, key);
   return lookup_key_pair_integer (k, key, ret);
 }
 
@@ -348,5 +348,5 @@ lookup_associated_info_by_index (const ASSOCIATED_INFO *a,
 KEY_PAIR *
 lookup_extra_by_index (const ELEMENT *e, const char *key, int index)
 {
-  return lookup_associated_info_by_index (&e->extra_info, key, index);
+  return lookup_associated_info_by_index (&e->e.c->extra_info, key, index);
 }

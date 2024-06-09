@@ -223,11 +223,11 @@ print_element_debug_details (const ELEMENT *e, int print_parent)
   text_append (&text, string);
   text_append (&text, "\n");
 
-  if (e->extra_info.info_number > 0)
+  if (e->e.c->extra_info.info_number > 0)
     {
       char *associated_info_str;
       text_append (&text, " EXTRA\n");
-      associated_info_str = print_associate_info_debug (&e->extra_info);
+      associated_info_str = print_associate_info_debug (&e->e.c->extra_info);
       text_append (&text, associated_info_str);
       free (associated_info_str);
     }

@@ -234,7 +234,7 @@ copy_tree_internal (ELEMENT* current)
           new->e.c->string_info[i] = strdup (current->e.c->string_info[i]);
     }
 
-  copy_associated_info (&current->extra_info, &new->extra_info);
+  copy_associated_info (&current->e.c->extra_info, &new->e.c->extra_info);
   return new;
 }
 
@@ -340,7 +340,7 @@ remove_element_copy_info (ELEMENT *current)
                 }
             }
         }
-      remove_associated_copy_info (&current->extra_info);
+      remove_associated_copy_info (&current->e.c->extra_info);
     }
 }
 

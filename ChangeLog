@@ -1,5 +1,15 @@
 2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reassociate_to_node): select elements with "element_node" before
+	accessing it.
+
+	* tp/Texinfo/XS/main/tree_types.h (CONTAINER, ELEMENT): move
+	ASSOCIATED_INFO extra_info to CONTAINER now that it is never used by
+	text elements.  Update code accessing this field.
+
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ManipulateTree.pm (_copy_tree)
 	(_remove_element_copy_info): update to be like the C implementation.
 	Rename _copy_extra_info as _remove_element_copy_info.

@@ -223,8 +223,6 @@ destroy_element (ELEMENT *e)
 
   destroy_source_mark_list (&e->source_mark_list);
 
-  destroy_associated_info (&e->extra_info);
-
   if (type_data[e->type].flags & TF_text)
     {
       free (e->e.text->text);
@@ -237,6 +235,8 @@ destroy_element (ELEMENT *e)
   /* Note the pointers in these lists are not themselves freed. */
       free (e->e.c->contents.list);
       free (e->e.c->args.list);
+
+      destroy_associated_info (&e->e.c->extra_info);
 
       for (i = 0; i < type_data[e->type].elt_info_number; i++)
         if (e->elt_info[i])

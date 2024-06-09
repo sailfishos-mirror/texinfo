@@ -213,6 +213,7 @@ typedef struct CONTAINER {
     ELEMENT_LIST contents;
     SOURCE_INFO source_info;
 
+    ASSOCIATED_INFO extra_info;
     OUTPUT_UNIT *associated_unit;
     /* depends on the element */
     char **string_info;
@@ -249,8 +250,7 @@ typedef struct ELEMENT {
     struct ELEMENT **elt_info;
     SOURCE_MARK_LIST source_mark_list;
 
-    int counter; /* used temporarily for copy or other use and reset to 0 */
-    ASSOCIATED_INFO extra_info;
+    int counter; /* to be used temporarily and reset to 0 */
 
     enum command_id cmd;
 

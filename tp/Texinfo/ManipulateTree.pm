@@ -141,11 +141,6 @@ sub _copy_tree($)
   $current->{'_copy'} = $new;
 
   if (exists($current->{'text'})) {
-    #foreach my $key ('info', 'extra') {
-    # inserted in info
-    #  print STDERR "TEXT $key: ".join('|', sort(keys(%{$current->{$key}})))."\n"
-    #    if ($current->{$key})
-    #}
     if ($current->{'info'} and defined($current->{'info'}->{'inserted'})) {
       $new->{'info'} = {'inserted' => $current->{'info'}->{'inserted'}};
     }

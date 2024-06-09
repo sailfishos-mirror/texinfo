@@ -727,7 +727,14 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
       added_node_menus = add_extra_contents (added_node, "menus", 0);
       add_to_element_list (added_node_menus, current);
     }
-  else
+  /* what is really important is to avoid commands without extra information,
+     such as text, though it is even better to be precise */
+  else if (current->cmd == CM_nodedescription
+           || current->cmd == CM_nodedescriptionblock
+           /* following for index entries */
+           || current->cmd == CM_item || current->cmd == CM_itemx
+           || current->type == ET_index_entry_command
+           || (current->parent && current->parent->type == ET_def_line))
     {
       ELEMENT *element_node = lookup_extra_element (current, "element_node");
       if (element_node)
