@@ -1,5 +1,16 @@
 2024-06-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/counter.c (counter_element_value): add.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (argument_brace_groups)
+	(expand_linemacro_arguments): use an COUNTER counter instead of a
+	counter in element, there are few elements, there is no issue with
+	linear searching in the counter.
+
+	* tp/Texinfo/XS/main/tree_types.h (ELEMENT): remove counter.
+
+2024-06-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ManipulateTree.pm (_copy_tree): modify code to take into
 	acocunt that there is no command name in text and be more similar with
 	C code.

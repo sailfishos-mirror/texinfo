@@ -47,6 +47,8 @@ static size_t macro_space;
 
 static size_t free_slots_nr;
 
+COUNTER argument_brace_groups;
+
 
 /* Macro definition. */
 
@@ -459,6 +461,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   add_to_element_contents (argument, argument_content);
   arg = argument_content->e.text;
 
+  counter_push (&argument_brace_groups, argument_content, 0);
+
   spaces_nr = strspn (pline, whitespace_chars_except_newline);
   if (spaces_nr)
     {
@@ -567,7 +571,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
           text_append_n (arg, sep, 1);
           pline = sep + 1;
           if (braces_level == 0)
-            argument_content->counter++;
+            counter_inc (&argument_brace_groups);
           break;
         /* spaces */
         default:
@@ -585,6 +589,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
 
               argument = new_element (ET_line_arg);
               argument_content = new_text_element (ET_other_text);
+              counter_push (&argument_brace_groups, argument_content, 0);
 
               add_to_element_args (current, argument);
               add_to_element_contents (argument, argument_content);
@@ -603,8 +608,11 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
  funexit:
   for (i = 0; i < current->e.c->args.number; i++)
     {
-      ELEMENT *argument_content = current->e.c->args.list[i]->e.c->contents.list[0];
-      if (argument_content->counter == 1)
+      ELEMENT *argument_content
+        = current->e.c->args.list[i]->e.c->contents.list[0];
+      int brace_groups_nr = counter_element_value (&argument_brace_groups,
+                                                   argument_content);
+      if (brace_groups_nr == 1)
         {
           int text_len = strlen (argument_content->e.text->text);
           if (argument_content->e.text->text[0] == '{'
@@ -621,7 +629,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               argument_content->type = ET_bracketed_linemacro_arg;
             }
         }
-      argument_content->counter = 0;
+      counter_remove_element (&argument_brace_groups, argument_content);
     }
   debug ("END LINEMACRO ARGS EXPANSION");
 

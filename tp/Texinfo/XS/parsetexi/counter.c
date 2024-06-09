@@ -106,6 +106,24 @@ counter_value (COUNTER *c, ELEMENT *elt)
     return -1;
 }
 
+int
+counter_element_value (COUNTER *c, ELEMENT *elt)
+{
+  int i;
+
+  if (c->nvalues > 0)
+    {
+      for (i = 0; i < c->nvalues; i++)
+        {
+          if (c->elts[i] == elt)
+            {
+              return c->values[i];
+            }
+        }
+    }
+  return -1;
+}
+
 /* If NOT_EMPTY_MESSAGE is set, check that the counter values list
    is empty, if not, show a debugging message */
 void

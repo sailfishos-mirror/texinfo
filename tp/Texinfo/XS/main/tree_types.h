@@ -17,6 +17,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
+#include <stdint.h>
 
 #include "command_ids.h"
 #include "element_types.h"
@@ -244,13 +245,11 @@ typedef struct ELEMENT {
     void *hv;
 
     enum element_type type;
-    unsigned long flags;
+    uint8_t flags; /* 8 flags, could increase to uint16_t if more are needed */
     struct ELEMENT *parent;
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
     SOURCE_MARK_LIST source_mark_list;
-
-    int counter; /* to be used temporarily and reset to 0 */
 
     enum command_id cmd;
 
