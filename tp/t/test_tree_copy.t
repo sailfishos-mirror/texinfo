@@ -39,10 +39,10 @@ ok(1, "modules loading");
 # Not sure that it exists in real trees, so check it here
 my $tref = {'type' => 'document_root',
             'contents' => [{'text' => 'x'},
-                           {'text' => 'a',
+                           {'type' => 'paragraph',
                             'extra' => {'thing' =>
                               {'type' => 'container',
-                               'contents' => [{'text' => 'e1',
+                               'contents' => [{'type' => 'e1',
                                               'extra' => {}}
                                              ]
                               }
