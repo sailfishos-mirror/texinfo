@@ -386,7 +386,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
             case extra_misc_args:
               {
               size_t j;
-              const ELEMENT_LIST *l = k->k.list;
+              const STRING_LIST *l = k->k.strings_list;
               AV *av = newAV ();
               av_unshift (av, l->number);
 
@@ -394,29 +394,9 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               /* An array of strings or integers. */
               for (j = 0; j < l->number; j++)
                 {
-                  const ELEMENT *e = l->list[j];
-                  if (e->type == ET_other_text)
-                    {
-                      if (e->e.text->end > 0)
-                        {
-                          SV *sv = newSVpv_utf8 (e->e.text->text,
-                                                 e->e.text->end);
-                          av_store (av, j, sv);
-                        }
-                      else
-                        /* Empty strings permitted. */
-                        av_store (av, j, newSVpv ("", 0));
-                    }
-                  else
-                    {
-                      const KEY_PAIR *k_integer;
-                      k_integer = lookup_extra (e, "integer");
-                      if (k_integer)
-                        {
-                          IV value = (IV) k_integer->k.integer;
-                          av_store (av, j, newSViv (value));
-                        }
-                    }
+                  SV *sv = newSVpv_utf8 (l->list[j],
+                                         strlen (l->list[j]));
+                  av_store (av, j, sv);
                 }
               break;
               }

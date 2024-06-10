@@ -1,5 +1,22 @@
 2024-06-10  Patrice Dumas  <pertusus@free.fr>
 
+	Use a string list for extra_misc_args
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_sp_command)
+	(convert_tab_command, convert_printindex_command),
+	tp/Texinfo/XS/main/build_perl_info.c (build_additional_info),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal),
+	tp/Texinfo/XS/main/extra.c (add_extra_misc_args)
+	(lookup_extra_misc_args), tp/Texinfo/XS/main/manipulate_tree.c
+	(copy_associated_info), tp/Texinfo/XS/main/tree.c
+	(destroy_associated_info), tp/Texinfo/XS/main/utils.c
+	(informative_command_value), tp/Texinfo/XS/parsetexi/end_line.c
+	(parse_line_command_args, end_line_starting_block)
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command): use a STRING_LIST for extra_misc_args.
+
+2024-06-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (convert_printindex_command),
 	tp/Texinfo/XS/main/build_perl_info.c (build_additional_info),
 	tp/Texinfo/XS/main/extra.c (add_extra_index_entry)

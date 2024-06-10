@@ -644,7 +644,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           ELEMENT *spaces_before = new_text_element (ET_other_text);
           ELEMENT *spaces_after = new_text_element (ET_other_text);
           /* put in extra "misc_args" */
-          ELEMENT_LIST *args_list = new_list ();
+          STRING_LIST *args_list = new_string_list ();
           command_e = new_command_element (ET_line_command, equivalent_cmd);
 
           if (cmd == CM_set)
@@ -655,9 +655,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           /* Now manufacture the parse tree for the equivalent
              command and add it to the tree. */
 
-          e = new_text_element (ET_other_text);
-          text_append (e->e.text, arg);
-          add_to_element_list (args_list, e);
+          add_string (arg, args_list);
 
           command_e->e.c->source_info = current_source_info;
 

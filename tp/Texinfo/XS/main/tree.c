@@ -178,13 +178,7 @@ destroy_associated_info (ASSOCIATED_INFO *a)
             destroy_element (k_pair->k.element);
           break;
         case extra_misc_args:
-          {
-          int j;
-          ELEMENT_LIST *l = k_pair->k.list;
-          for (j = 0; j < l->number; j++)
-            destroy_element (l->list[j]);
-          destroy_list (k_pair->k.list);
-          }
+          destroy_strings_list (k_pair->k.strings_list);
           break;
         case extra_index_entry:
           free (k_pair->k.index_entry);

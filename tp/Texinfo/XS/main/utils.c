@@ -1156,7 +1156,7 @@ get_cmd_global_uniq_command (const GLOBAL_COMMANDS *global_commands_ref,
 char *
 informative_command_value (const ELEMENT *element)
 {
-  const ELEMENT_LIST *misc_args;
+  const STRING_LIST *misc_args;
   char *text_arg;
 
   enum command_id cmd = element_builtin_data_cmd (element);
@@ -1204,7 +1204,7 @@ informative_command_value (const ELEMENT *element)
     return text_arg;
   misc_args = lookup_extra_misc_args (element, "misc_args");
   if (misc_args && misc_args->number > 0)
-    return misc_args->list[0]->e.text->text;
+    return misc_args->list[0];
   if (builtin_command_data[cmd].flags & CF_line
       && builtin_command_data[cmd].data == LINE_line
       && element->e.c->args.number >= 1

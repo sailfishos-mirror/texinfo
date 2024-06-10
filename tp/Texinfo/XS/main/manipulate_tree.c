@@ -122,32 +122,9 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           }
         case extra_misc_args:
           {
-          int j;
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          ELEMENT_LIST *new_extra_misc_args = new_list();
-          k->k.list = new_extra_misc_args;
-          for (j = 0; j < k_ref->k.list->number; j++)
-            {
-              const ELEMENT *e = k_ref->k.list->list[j];
-              ELEMENT *new_e;
-              if (e->type == ET_other_text)
-                {
-                  new_e = new_text_element (ET_other_text);
-                  if (e->e.text->end > 0)
-                    text_append_n (new_e->e.text, e->e.text->text,
-                                   e->e.text->end);
-                }
-              else
-                {
-                  new_e = new_element (ET_NONE);
-                  KEY_PAIR *k_integer = lookup_extra (e, "integer");
-                  if (k_integer)
-                    {
-                      add_extra_integer (new_e, "integer", k_integer->k.integer);
-                    }
-                }
-              add_to_element_list (new_extra_misc_args, new_e);
-            }
+          k->k.strings_list = new_string_list();
+          copy_strings (new_string_list(), k_ref->k.strings_list);
           break;
           }
         case extra_index_entry:

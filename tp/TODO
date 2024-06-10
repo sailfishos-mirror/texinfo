@@ -920,6 +920,7 @@ for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppre
 
 With memory leaks
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=./texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
+for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 # starting in june 2024 on debian testing, need --keep-debuginfo=yes to
 # have a trace
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --keep-debuginfo=yes -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done

@@ -100,17 +100,15 @@ is_whole_number (const char *string)
    is an array of the arguments.  For some commands, there is further
    processing of the arguments (for example, for an @alias, remember the
    alias.) */
-ELEMENT_LIST *
+STRING_LIST *
 parse_line_command_args (ELEMENT *line_command)
 {
 #define ADD_ARG(string) do { \
-    ELEMENT *E = new_text_element (ET_other_text); \
-    text_append (E->e.text, string); \
-    add_to_element_list (line_args, E); \
+    add_string (string, line_args); \
 } while (0)
 
   ELEMENT *arg = line_command->e.c->args.list[0];
-  ELEMENT_LIST *line_args;
+  STRING_LIST *line_args;
   enum command_id cmd;
   const char *line;
 
@@ -131,7 +129,7 @@ parse_line_command_args (ELEMENT *line_command)
     return 0;
 
   /* put in extra "misc_args" */
-  line_args = new_list ();
+  line_args = new_string_list ();
   line = arg->e.c->contents.list[0]->e.text->text;
 
   switch (cmd)
@@ -289,7 +287,6 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_columnfractions:
       {
         /*  @multitable @columnfractions .33 .33 .33 */
-        ELEMENT *new;
         const char *p, *q;
 
         if (!*line)
@@ -318,9 +315,7 @@ parse_line_command_args (ELEMENT *line_command)
               }
             else
               {
-                new = new_text_element (ET_other_text);
-                text_append_n (new->e.text, p, q - p);
-                add_to_element_list (line_args, new);
+                add_string (arg, line_args);
               }
             free (arg);
             p = q;
@@ -666,7 +661,7 @@ parse_line_command_args (ELEMENT *line_command)
     }
   if (line_args->number == 0)
     {
-      destroy_list (line_args);
+      destroy_strings_list (line_args);
       return 0;
     }
   else
@@ -813,7 +808,7 @@ end_line_starting_block (ELEMENT *current)
       && (k = lookup_extra (current->parent, "columnfractions")))
     {
       ELEMENT *misc_cmd = k->k.element;
-      const ELEMENT_LIST *misc_args
+      const STRING_LIST *misc_args
           = lookup_extra_misc_args (misc_cmd, "misc_args");
 
       if (misc_args)
@@ -1249,7 +1244,7 @@ end_line_misc_line (ELEMENT *current)
 
   if (arg_spec == LINE_specific)
     {
-      ELEMENT_LIST *args = parse_line_command_args (current);
+      STRING_LIST *args = parse_line_command_args (current);
       if (args)
         add_extra_misc_args (current, "misc_args", args);
     }

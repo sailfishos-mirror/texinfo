@@ -11028,12 +11028,12 @@ convert_sp_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  const ELEMENT_LIST *misc_args = lookup_extra_misc_args (element, "misc_args");
+  const STRING_LIST *misc_args = lookup_extra_misc_args (element, "misc_args");
   if (misc_args && misc_args->number > 0)
     {
       int i;
-      const ELEMENT *element_with_number = misc_args->list[0];
-      unsigned int sp_nr = strtoul (element_with_number->e.text->text, NULL, 10);
+      const char *sp_number_string = misc_args->list[0];
+      unsigned int sp_nr = strtoul (sp_number_string, NULL, 10);
 
       if (html_in_preformatted_context (self) || html_in_string (self))
         {
@@ -12269,12 +12269,12 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
 
   if (columnfractions)
     {
-      const ELEMENT_LIST *cf_misc_args
+      const STRING_LIST *cf_misc_args
          = lookup_extra_misc_args (columnfractions, "misc_args");
       if (cf_misc_args->number >= cell_nr)
         {
           const char *fraction_str
-            = cf_misc_args->list[cell_nr -1]->e.text->text;
+            = cf_misc_args->list[cell_nr -1];
           double fraction = strtod (fraction_str, NULL);
           if (self->conf->_INLINE_STYLE_WIDTH.o.integer > 0)
             text_printf (result, " style=\"width: %0.f%%\"", 100 * fraction);
@@ -12861,7 +12861,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  const ELEMENT_LIST *misc_args;
+  const STRING_LIST *misc_args;
   const char *index_name;
   const INDEX_SORTED_BY_LETTER *idx;
   const INDEX_SORTED_BY_LETTER *index_sorted = 0;
@@ -12900,7 +12900,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
   misc_args = lookup_extra_misc_args (element, "misc_args");
   if (misc_args && misc_args->number > 0)
-    index_name = misc_args->list[0]->e.text->text;
+    index_name = misc_args->list[0];
   else
     return;
 
