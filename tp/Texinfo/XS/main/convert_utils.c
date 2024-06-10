@@ -28,6 +28,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "options_types.h"
+#include "types_data.h"
 #include "builtin_commands.h"
 #include "tree.h"
 #include "extra.h"
@@ -118,7 +119,7 @@ ACCENTS_STACK *
 find_innermost_accent_contents (const ELEMENT *element)
 {
   const ELEMENT *current = element;
-  ELEMENT *argument = 0;
+  static ELEMENT_LIST argument;
   ACCENTS_STACK *accent_stack = (ACCENTS_STACK *)
          malloc (sizeof (ACCENTS_STACK));
   memset (accent_stack, 0, sizeof (ACCENTS_STACK));
@@ -127,12 +128,19 @@ find_innermost_accent_contents (const ELEMENT *element)
     {
       const ELEMENT *arg;
       int i;
-      enum command_id data_cmd = element_builtin_data_cmd (current);
-      unsigned long flags = builtin_command_data[data_cmd].flags;
+      enum command_id data_cmd;
+      unsigned long flags;
+
+      if (current->type != ET_brace_command)
+        return accent_stack;
+
+      data_cmd = element_builtin_data_cmd (current);
+      flags = builtin_command_data[data_cmd].flags;
 
       /* the following can happen if called with a bad tree */
       if (!data_cmd || !(flags & CF_accent))
         return accent_stack;
+
       push_stack_element (&accent_stack->stack, current);
       /* A bogus accent, that may happen */
       if (current->e.c->args.number <= 0)
@@ -143,40 +151,46 @@ find_innermost_accent_contents (const ELEMENT *element)
       for (i = 0; i < arg->e.c->contents.number; i++)
         {
           ELEMENT *content = arg->e.c->contents.list[i];
-          enum command_id content_data_cmd
-             = element_builtin_data_cmd (content);
-          unsigned long content_flags
-            = builtin_command_data[content_data_cmd].flags;
 
-          if (!(content_data_cmd && (content_data_cmd == CM_c
-                                     || content_data_cmd == CM_comment)))
+          if (! (type_data[content->type].flags & ET_text))
             {
+              enum command_id content_data_cmd
+                = element_builtin_data_cmd (content);
+              if (content_data_cmd)
+                {
+                  unsigned long content_flags
+                     = builtin_command_data[content_data_cmd].flags;
+                  if (content_flags & CF_accent)
+                    {
          /* if accent is tieaccent, keep everything and do not try to
             nest more */
-              if (current->cmd != CM_tieaccent
-                  && content_data_cmd && content_flags & CF_accent)
-                {
-                  current = content;
-                  if (argument)
-                    {
-                      destroy_element (argument);
-                      argument = 0;
+                      if (current->cmd != CM_tieaccent)
+                        {
+                          current = content;
+                          argument.number = 0;
+                          break;
+                        }
                     }
-                  break;
-                }
-              else
-                {
-                  if (!argument)
-                    argument = new_element (ET_NONE);
-                  add_to_contents_as_array (argument, content);
+              /* should be very rare and considered as undefined */
+                  else if (content_data_cmd == CM_c
+                           || content_data_cmd == CM_comment)
+                    {
+                      continue;
+                    }
                 }
             }
+          add_to_element_list (&argument, content);
         }
-      if (argument)
+      if (argument.number > 0)
         break;
     }
-  if (argument)
-    accent_stack->argument = argument;
+  if (argument.number > 0)
+    {
+      accent_stack->argument = new_element (ET_NONE);
+      insert_list_slice_into_contents (accent_stack->argument,
+                             0, &argument, 0, argument.number);
+      argument.number = 0;
+    }
   return accent_stack;
 }
 
@@ -860,7 +874,28 @@ find_root_command_next_heading_command (const ELEMENT *root,
   for (i = 0; i < root->e.c->contents.number; i++)
     {
       const ELEMENT *content = root->e.c->contents.list[i];
-      enum command_id data_cmd = element_builtin_data_cmd (content);
+      enum command_id data_cmd;
+
+      if (type_data[content->type].flags & ET_text)
+        {
+         /* do not happen and should not happen, as normal text should never
+           be in top level root command contents, only empty_line,
+           spaces_after_close_brace... that only contain whitespace_chars */
+          if (content->type == ET_normal_text && content->e.text->end > 0)
+            {
+              const char *text = content->e.text->text;
+              fprintf (stderr,
+                       "BUG: in top level unexpected normal_text: '%s'\n",
+                       text);
+            /* only whitespace characters */
+              if (! text[strspn (text, whitespace_chars)] == '\0')
+                return 0;
+            }
+          else
+            continue;
+        }
+
+      data_cmd = element_builtin_data_cmd (content);
 
       if (data_cmd)
         {
@@ -918,18 +953,6 @@ find_root_command_next_heading_command (const ELEMENT *root,
         }
       if (content->type == ET_paragraph)
         return 0;
-      /* do not happen and should not happen, as normal text should never
-         be in top level root command contents, only empty_line,
-         spaces_after_close_brace... that only contain whitespace_chars */
-      if (content->type == ET_normal_text && content->e.text->end > 0)
-        {
-          const char *text = content->e.text->text;
-          fprintf (stderr, "BUG: in top level unexpected normal_text: '%s'\n",
-                           text);
-          /* only whitespace characters */
-          if (! text[strspn (text, whitespace_chars)] == '\0')
-            return 0;
-        }
     }
   return 0;
 }

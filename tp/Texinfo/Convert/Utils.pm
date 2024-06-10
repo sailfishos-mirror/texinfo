@@ -234,19 +234,20 @@ sub find_innermost_accent_contents($)
     # inside the argument of an accent
     my $text_contents = [];
     foreach my $content (@{$arg->{'contents'}}) {
-      if (!($content->{'cmdname'} and ($content->{'cmdname'} eq 'c'
-                                       or $content->{'cmdname'} eq 'comment'))) {
+      if (!exists($content->{'text'}) and $content->{'cmdname'}) {
+        if ($Texinfo::Commands::accent_commands{$content->{'cmdname'}}) {
         # if accent is tieaccent, keep everything and do not try to
         # nest more
-        if ($current->{'cmdname'} ne 'tieaccent'
-            and $content->{'cmdname'}
-            and $Texinfo::Commands::accent_commands{$content->{'cmdname'}}) {
-          $current = $content;
-          next ACCENT;
-        } else {
-          push @$text_contents, $content;
+          if ($current->{'cmdname'} ne 'tieaccent') {
+            $current = $content;
+            next ACCENT;
+          }
+        } elsif ($content->{'cmdname'} eq 'c'
+                 or $content->{'cmdname'} eq 'comment') {
+          next;
         }
       }
+      push @$text_contents, $content;
     }
     # we go here if there was no nested accent
     return ({'contents' => $text_contents}, \@accent_commands);

@@ -356,6 +356,7 @@ html_special_unit_variety_direction_index (const CONVERTER *self,
   If no known root element type is found, the returned root element is undef,
   and not set to the element at the tree root
  */
+/* NOTE should not be called with a text element */
 static ROOT_AND_UNIT *
 html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                             int find_container)
