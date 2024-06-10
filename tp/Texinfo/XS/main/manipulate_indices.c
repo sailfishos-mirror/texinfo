@@ -18,6 +18,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <locale.h>
+/* for locale_t, newlocale... on MacOs */
+#ifdef HAVE_XLOCALE_H
+ #include <xlocale.h>
+#endif
 #include <ctype.h>
 #include "unictype.h"
 #include "unistr.h"

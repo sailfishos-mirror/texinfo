@@ -1,5 +1,13 @@
 2024-06-10  Patrice Dumas  <pertusus@free.fr>
 
+	Include xlocale.h for newlocale and other symbols if found
+
+	* tp/Texinfo/XS/configure.ac (AC_CHECK_HEADERS),
+	tp/Texinfo/XS/main/manipulate_indices.c: test if xlocale.h exists, and
+	if yes include it.  Needed on MacOs.  Report from Bruno.
+
+2024-06-10  Patrice Dumas  <pertusus@free.fr>
+
 	Fix out-of-source build of pod2texi.texi
 
 	* doc/tp_api/Makefile.am (pod2texi.texi): create pod2texi.texi in
