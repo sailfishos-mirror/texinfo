@@ -559,6 +559,9 @@ store_info_element (ELEMENT *e, ELEMENT *info_element, const char *type_key,
 {
   dTHX;
 
+  if (!info_element)
+    return;
+
   if (!info_element->hv || !avoid_recursion)
     element_to_perl_hash (info_element, avoid_recursion);
 
@@ -695,10 +698,9 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (e->type == ET_block_line_arg || e->type == ET_line_arg)
     {
-      ELEMENT *f = e->elt_info[eit_comment_at_end];
-      if (f)
-        store_info_element (e, f, "info", "comment_at_end",
-                            avoid_recursion, &info_hv);
+      store_info_element (e, e->elt_info[eit_comment_at_end],
+                          "info", "comment_at_end",
+                          avoid_recursion, &info_hv);
     }
 
   if (e->cmd)
@@ -711,10 +713,9 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   if (type_data[e->type].flags & TF_braces)
     {
-      ELEMENT *f = e->elt_info[eit_spaces_after_cmd_before_arg];
-      if (f)
-        store_info_element (e, f, "info", "spaces_after_cmd_before_arg",
-                            avoid_recursion, &info_hv);
+      store_info_element (e, e->elt_info[eit_spaces_after_cmd_before_arg],
+                          "info", "spaces_after_cmd_before_arg",
+                          avoid_recursion, &info_hv);
     }
 
   if (type_data[e->type].flags & TF_spaces_before)
@@ -725,17 +726,15 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       else
         f = e->elt_info[eit_brace_content_spaces_before_argument];
 
-      if (f)
-        store_info_element (e, f, "info", "spaces_before_argument",
-                            avoid_recursion, &info_hv);
+      store_info_element (e, f, "info", "spaces_before_argument",
+                          avoid_recursion, &info_hv);
     }
 
   if (type_data[e->type].flags & TF_spaces_after)
     {
-      ELEMENT *f = e->elt_info[eit_spaces_after_argument];
-      if (f)
-        store_info_element (e, f, "info", "spaces_after_argument",
-                            avoid_recursion, &info_hv);
+      store_info_element (e, e->elt_info[eit_spaces_after_argument],
+                          "info", "spaces_after_argument",
+                          avoid_recursion, &info_hv);
     }
 
   if (e->cmd || type_data[e->type].flags & TF_macro_call)
