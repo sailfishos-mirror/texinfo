@@ -1,3 +1,12 @@
+2024-06-10  Patrice Dumas  <pertusus@free.fr>
+
+	Fix out-of-source build of pod2texi.texi
+
+	* doc/tp_api/Makefile.am (pod2texi.texi): create pod2texi.texi in
+	$(srcdir) by passing the --subdir option.
+	Pass "-I $(top_builddir)/tp" to perl to find generated modules,
+	from Gavin.
+
 2024-06-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix out-of-source build of texi2any_internals.texi
