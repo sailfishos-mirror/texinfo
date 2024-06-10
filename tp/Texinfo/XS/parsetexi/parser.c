@@ -604,8 +604,7 @@ begin_paragraph (ELEMENT *current)
 
       e = new_element (ET_paragraph);
       if (indent)
-        add_extra_integer (e, indent == CM_indent ? "indent" : "noindent",
-                              1);
+        e->flags |= (indent == CM_indent ? EF_indent : EF_noindent);
       add_to_element_contents (current, e);
       return e;
 
@@ -1089,8 +1088,7 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
                      "command_as_argument", cmd_as_arg);
   if (cmd_as_arg->cmd == CM_kbd
       && kbd_formatted_as_code (cmd_as_arg->parent->parent)) {
-    add_extra_integer (cmd_as_arg->parent->parent,
-                       "command_as_argument_kbd_code", 1);
+    cmd_as_arg->parent->parent->flags |= EF_command_as_argument_kbd_code;
   }
 }
 
@@ -1505,7 +1503,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                                     name);
                                 }
                             }
-                          if (!lookup_extra (current, "invalid_syntax"))
+                          if (!(current->flags & EF_invalid_syntax))
                             {
                               new_macro (name, current);
                             }

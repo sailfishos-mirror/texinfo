@@ -148,7 +148,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   if (!name)
     {
       line_error ("@%s requires a name", command_name (cmd));
-      add_extra_integer (macro, "invalid_syntax", 1);
+      macro->flags |= EF_invalid_syntax;
       return macro;
     }
 
@@ -156,7 +156,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
       && !strchr (whitespace_chars, *pline))
     {
       line_error ("bad name for @%s", command_name (cmd));
-      add_extra_integer (macro, "invalid_syntax", 1);
+      macro->flags |= EF_invalid_syntax;
       free (name);
       return macro;
     }
@@ -214,7 +214,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
                           command_name(cmd));
               arg = new_text_element (ET_macro_arg);
               add_to_element_args (macro, arg);
-              add_extra_integer (macro, "invalid_syntax", 1);
+              macro->flags |= EF_invalid_syntax;
             }
         }
       else
@@ -234,7 +234,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
                       line_error ("bad or empty @%s formal argument: %s",
                                   command_name(cmd), formal_arg);
                       free (formal_arg);
-                      add_extra_integer (macro, "invalid_syntax", 1);
+                      macro->flags |= EF_invalid_syntax;
                       break;
                     }
                 }
@@ -263,7 +263,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
       line_error ("bad syntax for @%s argument: %s",
                   command_name(cmd), argument_str);
       free (argument_str);
-      add_extra_integer (macro, "invalid_syntax", 1);
+      macro->flags |= EF_invalid_syntax;
     }
 
   *line_inout = pline;

@@ -245,7 +245,7 @@ typedef struct ELEMENT {
     void *hv;
 
     enum element_type type;
-    uint8_t flags; /* 8 flags, could increase to uint16_t if more are needed */
+    uint16_t flags; /* 16 flags, could use uint32_t if more are needed */
     struct ELEMENT *parent;
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
@@ -362,7 +362,19 @@ typedef struct TREE_ADDED_ELEMENTS {
 } TREE_ADDED_ELEMENTS;
 
 /* tree element flags */
+/* in info in Perl */
 #define EF_inserted                      0x0001
+/* transiently needed for tree element copy */
 #define EF_copy                          0x0002
+/* in extra in Perl */
+#define EF_code                          0x0004
+#define EF_is_target                     0x0008
+#define EF_omit_def_name_space           0x0010
+#define EF_not_after_command             0x0020
+#define EF_invalid_syntax                0x0040
+#define EF_command_as_argument_kbd_code  0x0080
+#define EF_indent                        0x0100
+#define EF_noindent                      0x0200
+#define EF_isindex                       0x0400
 
 #endif

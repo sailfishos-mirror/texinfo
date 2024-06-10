@@ -538,7 +538,6 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
     {
       TREE_ADDED_ELEMENTS *tree
         = new_tree_added_elements (tree_added_status_elements_added);
-      int status;
       int command_as_argument_kbd_code;
       ELEMENT *command;
       ELEMENT *arg;
@@ -551,10 +550,10 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
       tree->tree = command;
 
       command->e.c->source_info = element->e.c->source_info;
-      command_as_argument_kbd_code = lookup_extra_integer (table_command,
-                                 "command_as_argument_kbd_code", &status);
+      command_as_argument_kbd_code
+        = (table_command->flags & EF_command_as_argument_kbd_code);
       if (command_as_argument_kbd_code > 0)
-        add_extra_integer (command, "code", 1);
+        command->flags |= EF_code;
 
       if (command_as_argument->type == ET_definfoenclose_command)
         {

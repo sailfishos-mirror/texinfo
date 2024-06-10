@@ -6417,8 +6417,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                         text_printf (&result, " href=\"%s\"", href);
                       if (associated_node)
                         {
-                          int is_index = lookup_extra_integer (associated_node,
-                                                           "isindex", &status);
+                          int is_index = (associated_node->flags & EF_isindex);
                           if (is_index)
                             text_append_n (&result, " rel=\"index\"", 12);
                         }
@@ -8866,8 +8865,7 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
 
   if (cmd == CM_kbd)
     {
-      int status;
-      int code = lookup_extra_integer (element, "code", &status);
+      int code = (element->flags & EF_code);
       if (code > 0)
         style_cmd = CM_code;
     }
@@ -14697,7 +14695,6 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                                      normalized);
           if (node)
             {
-              int status;
               node_description
                  = lookup_extra_element (node, "node_description");
 
@@ -14725,7 +14722,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           /* will mark the target as an index with rel index.  See
   http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions
            */
-              isindex = lookup_extra_integer (node, "isindex", &status);
+              isindex = (node->flags & EF_isindex);
 
               if (node_description
                   /* not menu_description probably cannot happen */
@@ -15327,10 +15324,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
             {
               char *attribute_class = html_attribute_class (self, "code",
                                               &def_code_arguments_classes);
-              int status;
-              int omit_def_name_space = lookup_extra_integer (element,
-                                              "omit_def_name_space", &status);
-              if (omit_def_name_space <= 0)
+              int omit_def_name_space = (element->flags & EF_omit_def_name_space);
+              if (!omit_def_name_space)
                 text_append_n (&def_call, " ", 1);
               text_append (&def_call, attribute_class);
               free (attribute_class);
@@ -15349,10 +15344,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
             {
               char *attribute_class = html_attribute_class (self, "var",
                                               &def_var_arguments_classes);
-              int status;
-              int omit_def_name_space = lookup_extra_integer (element,
-                                              "omit_def_name_space", &status);
-              if (omit_def_name_space <= 0)
+              int omit_def_name_space = (element->flags & EF_omit_def_name_space);
+              if (!omit_def_name_space)
                 text_append_n (&def_call, " ", 1);
               text_append (&def_call, attribute_class);
               free (attribute_class);

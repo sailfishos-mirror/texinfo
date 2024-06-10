@@ -828,9 +828,8 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
         }
       if (content->cmd == CM_node)
         {
-          int status;
-          int is_target = lookup_extra_integer (content, "is_target", &status);
-          if ((!status) && is_target)
+          int is_target = (content->flags & EF_is_target);
+          if (is_target)
             previous_node = content;
         }
     }

@@ -889,7 +889,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               /* Check txidefnamenospace flag */
               val = fetch_value ("txidefnamenospace");
               if (val)
-                add_extra_integer (command_e, "omit_def_name_space", 1);
+                command_e->flags |= EF_omit_def_name_space;
 
               if (cmdname == base_command || cmdname == CM_defblock)
                 appropriate_command = 1;
@@ -910,7 +910,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   line_error ("must be after `@%s' to use `@%s'",
                                command_name(base_command),
                                command_name(cmd));
-                  add_extra_integer (command_e, "not_after_command", 1);
+                  command_e->flags |= EF_not_after_command;
                 }
             }
         }
@@ -963,7 +963,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       else if (cmd == CM_dircategory && current_node)
         line_warn ("@dircategory after first node");
       else if (cmd == CM_printindex && current_node)
-        add_extra_integer (current_node, "isindex", 1);
+        current_node->flags |= EF_isindex;
 
       current = last_args_child (current);
 
@@ -1061,7 +1061,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           /* Check txidefnamenospace flag */
           val = fetch_value ("txidefnamenospace");
           if (val)
-            add_extra_integer (current, "omit_def_name_space", 1);
+            current->flags |= EF_omit_def_name_space;
         }
       else
         {
@@ -1237,7 +1237,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
         {
           if (kbd_formatted_as_code (command_e))
             {
-              add_extra_integer (command_e, "code", 1);
+              command_e->flags |= EF_code;
             }
         }
     }

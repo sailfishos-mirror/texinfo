@@ -117,7 +117,7 @@ set_labels_identifiers_target (const LABEL_LIST *labels,
           targets_number = i;
           break;
         }
-      add_extra_integer (targets[i].element, "is_target", 1);
+      targets[i].element->flags |= EF_is_target;
       if (i < targets_number - 1)
         {
           /* find redundant labels with the same identifiers and
@@ -217,7 +217,7 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
         {
           LABEL *sorted_identifiers_target;
 
-          add_extra_integer (element, "is_target", 1);
+          element->flags |= EF_is_target;
           register_label_in_list (identifiers_target, element,
                                   normalized);
           sorted_identifiers_target

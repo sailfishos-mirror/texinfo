@@ -431,27 +431,25 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
 
 static void
 store_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
-                       const char *key, int *nr_info, int avoid_recursion)
+                       const char *key, int avoid_recursion, HV **info_hv)
 {
-  HV *additional_info_hv;
+  HV *hv;
+  int nr_info = 0;
 
   dTHX;
 
-  if (*nr_info == 0)
+  if (*info_hv == 0)
     /* Use sv_2mortal so that reference count is decremented if
            the hash is not saved. */
-    additional_info_hv = (HV *) sv_2mortal ((SV *)newHV ());
+    hv = (HV *) sv_2mortal ((SV *)newHV ());
   else
-    {
-      SV **additional_info_sv = hv_fetch (e->hv, key, strlen (key), 0);
-      additional_info_hv = (HV *)SvRV (*additional_info_sv);
-    }
+    hv = *info_hv;
 
-  build_additional_info (additional_info_hv, a, avoid_recursion, nr_info);
+  build_additional_info (hv, a, avoid_recursion, &nr_info);
 
-  if (*nr_info > 0)
+  if (*info_hv == 0 && nr_info > 0)
     hv_store (e->hv, key, strlen (key),
-              newRV_inc ((SV *)additional_info_hv), 0);
+              newRV_inc ((SV *)hv), 0);
 }
 
 static void
@@ -580,6 +578,16 @@ store_info_string (ELEMENT *e, const char *string, const char *type_key,
             newSVpv_utf8 (string, strlen (string)), 0);
 }
 
+static void
+store_info_integer (ELEMENT *e, int value, const char *type_key,
+                     const char *key, HV **info_hv)
+{
+  dTHX;
+
+  setup_info_hv (e, type_key, info_hv);
+  hv_store (*info_hv, key, strlen (key), newSViv (value), 0);
+}
+
 static int hashes_ready = 0;
 static U32 HSH_parent = 0;
 static U32 HSH_type = 0;
@@ -603,7 +611,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 {
   SV *sv;
   HV *info_hv = 0;
-  int nr_extra = 0;
+  HV *extra_hv = 0;
 
   dTHX;
 
@@ -660,10 +668,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   store_source_mark_list (e);
 
   if (e->flags & EF_inserted)
-    {
-      setup_info_hv (e, "info", &info_hv);
-      hv_store (info_hv, "inserted", strlen ("inserted"), newSViv (1), 0);
-    }
+    store_info_integer (e, 1, "info", "inserted", &info_hv);
 
   if (type_data[e->type].flags & TF_text)
     {
@@ -759,6 +764,32 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
        store_info_string (e, e->e.c->string_info[sit_delimiter],
                           "info", "delimiter", &info_hv);
     }
+  /* TODO the flags are  checked for all the elements, it is probably
+     quite inefficient, as is the code above for elt_info and string_info */
+
+#define store_flag(flag) \
+  if (e->flags & EF_##flag) \
+    store_info_integer (e, 1, "extra", #flag, &extra_hv);
+
+  /* kbd */
+  store_flag(code)
+  /* node */
+  store_flag(isindex)
+  /* node, anchor, float */
+  store_flag(is_target)
+  /* flags & CF_def block/line for @def*x */
+  store_flag(omit_def_name_space)
+  /* @def*x */
+  store_flag(not_after_command)
+  /* @*macro */
+  store_flag(invalid_syntax)
+  /* kbd as command_as_arg */
+  store_flag(command_as_argument_kbd_code)
+  /* ET_paragraph */
+  store_flag(indent)
+  /* ET_paragraph */
+  store_flag(noindent)
+#undef store_flag
 
   if (e->e.c->contents.number > 0)
     {
@@ -804,8 +835,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
         }
     }
 
-  store_additional_info (e, &e->e.c->extra_info, "extra", &nr_extra,
-                         avoid_recursion);
+  store_additional_info (e, &e->e.c->extra_info, "extra",
+                         avoid_recursion, &extra_hv);
 
   if (e->e.c->associated_unit)
     {

@@ -607,9 +607,8 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      int status;
       const ELEMENT *node = nodes_list->list[i];
-      int is_target = lookup_extra_integer (node, "is_target", &status);
+      int is_target = (node->flags & EF_is_target);
       const ELEMENT_LIST *node_directions = lookup_extra_directions (node,
                                                     "node_directions");
       const ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
@@ -766,9 +765,8 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      int status;
       ELEMENT *node = nodes_list->list[i];
-      int is_target = lookup_extra_integer (node, "is_target", &status);
+      int is_target = (node->flags & EF_is_target);
 
       if (is_target)
         {
@@ -1250,11 +1248,9 @@ complete_node_tree_with_menus (DOCUMENT *document)
             up_node = node_directions->list[D_up];
           if (up_node)
             {
-              int status;
               ELEMENT *manual_content = lookup_extra_element (up_node,
                                                           "manual_content");
-              int is_target = lookup_extra_integer (node, "is_target",
-                                                    &status);
+              int is_target = (node->flags & EF_is_target);
               ELEMENT_LIST *menus
                    = lookup_extra_contents (up_node, "menus");
 
@@ -1325,7 +1321,6 @@ nodes_tree (DOCUMENT *document)
       ELEMENT *node = root->e.c->contents.list[i];
       char *normalized;
       int is_target;
-      int status;
       int automatic_directions;
 
       if (node->cmd != CM_node)
@@ -1338,7 +1333,7 @@ nodes_tree (DOCUMENT *document)
       document->modified_information |= F_DOCM_tree;
 
       add_to_element_list (nodes_list, node);
-      is_target = lookup_extra_integer (node, "is_target", &status);
+      is_target = (node->flags & EF_is_target);
       if (is_target && !strcmp (normalized, "Top"))
         top_node = node;
 
@@ -1687,8 +1682,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   ELEMENT *menu_entry_leading_text;
   NODE_SPEC_EXTRA *parsed_entry_node;
   int i;
-  int status;
-  int is_target = lookup_extra_integer (node, "is_target", &status);
+  int is_target = (node->flags & EF_is_target);
   if (is_target)
     node_name_element = node->e.c->args.list[0];
 
@@ -1872,9 +1866,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
           for (i = 0; i < node_childs->number; i++)
             {
               ELEMENT *child = node_childs->list[i];
-              int status;
-              int is_target = lookup_extra_integer (child, "is_target",
-                                                    &status);
+              int is_target = (child->flags & EF_is_target);
               ELEMENT *child_section;
 
               if (!is_target)
