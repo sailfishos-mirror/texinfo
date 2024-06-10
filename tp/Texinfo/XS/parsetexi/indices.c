@@ -288,15 +288,11 @@ enter_index_entry (enum command_id index_type_cmd,
      extra_misc_args to pass that information as an array */
   {
     /* put in extra "misc_args" */
-    ELEMENT_LIST *index_entry = new_list ();
-    /* index name put as text in extra "misc_args" */
-    ELEMENT *e = new_text_element (ET_other_text);
-    text_append (e->e.text, idx->name);
-    add_to_element_list (index_entry, e);
-    e = new_element (ET_NONE);
-    add_extra_integer (e, "integer", idx->entries_number);
-    add_to_element_list (index_entry, e);
-    add_extra_misc_args (element, "index_entry", index_entry);
+    INDEX_ENTRY_LOCATION *index_entry = (INDEX_ENTRY_LOCATION *)
+           malloc (sizeof (INDEX_ENTRY_LOCATION));
+    index_entry->index_name = idx->name;
+    index_entry->number = idx->entries_number;
+    add_extra_index_entry (element, "index_entry", index_entry);
   }
 
   if (nesting_context.regions_stack.top > 0)

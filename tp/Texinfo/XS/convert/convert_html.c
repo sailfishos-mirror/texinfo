@@ -13027,7 +13027,6 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
       for (j = 0; j < letter_entry->entries_number; j++)
         {
-          int status;
           int level;
           int in_code;
           int *formatted_index_entry_nr;
@@ -13051,11 +13050,9 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           ELEMENT *entry_ref_tree;
           INDEX_ENTRY *index_entry_ref = letter_entry->entries[j];
           ELEMENT *main_entry_element = index_entry_ref->entry_element;
-          const ELEMENT_LIST *index_entry_info
-             = lookup_extra_misc_args (main_entry_element, "index_entry");
-          int entry_number
-             = lookup_extra_integer (index_entry_info->list[1],
-                                     "integer", &status);
+          const INDEX_ENTRY_LOCATION *index_entry_info
+             = lookup_extra_index_entry (main_entry_element, "index_entry");
+          int entry_number = index_entry_info->number;
           entry_nr++;
 
           if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0)

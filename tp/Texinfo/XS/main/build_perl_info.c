@@ -420,6 +420,22 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                 }
               break;
               }
+            case extra_index_entry:
+              {
+              const INDEX_ENTRY_LOCATION *entry_loc = k->k.index_entry;
+              AV *av = newAV ();
+              SV *sv;
+
+              av_unshift (av, 2);
+
+              STORE(newRV_inc ((SV *)av));
+              sv = newSVpv_utf8 (entry_loc->index_name,
+                                 strlen (entry_loc->index_name));
+              av_store (av, 0, sv);
+              sv = newSViv ((IV) entry_loc->number);
+              av_store (av, 1, sv);
+              break;
+              }
             default:
               fatal ("store_additional_info: unknown extra type");
               break;

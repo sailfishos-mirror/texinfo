@@ -150,6 +150,15 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
             }
           break;
           }
+        case extra_index_entry:
+          {
+            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+            k->k.index_entry = (INDEX_ENTRY_LOCATION *)
+                             malloc (sizeof (INDEX_ENTRY_LOCATION));
+            memcpy (k->k.index_entry, k_ref->k.index_entry,
+                    sizeof (INDEX_ENTRY_LOCATION));
+            break;
+          }
         default:
           fatal ("copy_associated_info: unknown extra type");
           break;

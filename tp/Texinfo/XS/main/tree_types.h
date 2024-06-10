@@ -30,6 +30,7 @@ enum extra_type {
    extra_container,
    extra_directions,
    extra_misc_args,
+   extra_index_entry, /* index name and position in index */
    extra_string,
    extra_integer,
    extra_deleted
@@ -135,6 +136,20 @@ typedef struct ELEMENT_LIST {
     size_t space;
 } ELEMENT_LIST;
 
+/* the index name is allocated in the index info main structure that
+   should outlive the INDEX_ENTRY_LOCATION */
+typedef struct INDEX_ENTRY_LOCATION {
+    const char *index_name;
+    int number; /* position in the original index.  May be different in
+                   merged index */
+} INDEX_ENTRY_LOCATION;
+
+typedef struct STRING_LIST {
+    char **list;
+    size_t number;
+    size_t space;
+} STRING_LIST;
+
 typedef struct KEY_PAIR {
     const char *key;
     enum extra_type type;
@@ -143,6 +158,8 @@ typedef struct KEY_PAIR {
       ELEMENT_LIST *list;
       char *string;
       int integer;
+      INDEX_ENTRY_LOCATION *index_entry;
+      STRING_LIST *strings_list;
     } k;
 } KEY_PAIR;
 
@@ -338,12 +355,6 @@ typedef struct {
     size_t space;
     FLOAT_RECORD *list;
 } FLOAT_RECORD_LIST;
-
-typedef struct STRING_LIST {
-    char **list;
-    size_t number;
-    size_t space;
-} STRING_LIST;
 
 enum tree_added_elements_status {
   tree_added_status_none,

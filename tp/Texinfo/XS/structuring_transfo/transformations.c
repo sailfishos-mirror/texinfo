@@ -51,15 +51,12 @@
 
 /* in Common.pm */
 INDEX_ENTRY_AND_INDEX *
-lookup_index_entry (const ELEMENT_LIST *index_entry_info,
+lookup_index_entry (const INDEX_ENTRY_LOCATION *index_entry_info,
                     INDEX_LIST *indices_info)
 {
   INDEX_ENTRY_AND_INDEX *result = 0;
-  int status;
-  int entry_number
-    = lookup_extra_integer (index_entry_info->list[1], "integer",
-                            &status);
-  const char *entry_index_name = index_entry_info->list[0]->e.text->text;
+  int entry_number = index_entry_info->number;
+  const char *entry_index_name = index_entry_info->index_name;
   INDEX *index_info;
 
   index_info = indices_info_index_by_name (indices_info,
@@ -384,8 +381,8 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                   if (!entry_idx_info)
                     {
                       INDEX_ENTRY_AND_INDEX *idx_info;
-                      const ELEMENT_LIST *index_entry_info
-                        = lookup_extra_misc_args (content, "index_entry");
+                      const INDEX_ENTRY_LOCATION *index_entry_info
+                        = lookup_extra_index_entry (content, "index_entry");
                       idx_info = lookup_index_entry (index_entry_info,
                                                      indices_info);
                       if (idx_info->index_entry)
@@ -402,22 +399,19 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                 }
               if (item && entry_idx_info)
                 {
-                  ELEMENT_LIST *index_entry_command = new_list ();
-                  ELEMENT *e = new_text_element (ET_other_text);
+                  INDEX_ENTRY_LOCATION *index_entry;
                  /*
                   This is better than overwriting 'entry_element', which
                   holds important information.
                   */
                   entry_idx_info->index_entry->entry_associated_element = item;
-              /* also add a reference from element to index entry in index */
-                  text_append (e->e.text, entry_idx_info->index->name);
-                  add_to_element_list (index_entry_command, e);
-                  e = new_element (ET_NONE);
-                  add_extra_integer (e, "integer",
-                                     entry_idx_info->entry_number);
-                  add_to_element_list (index_entry_command, e);
-                  add_extra_misc_args (item, "associated_index_entry",
-                                       index_entry_command);
+               /* also add a reference from element to index entry in index */
+                  index_entry = (INDEX_ENTRY_LOCATION *)
+                     malloc (sizeof (INDEX_ENTRY_LOCATION));
+                  index_entry->index_name = entry_idx_info->index->name;
+                  index_entry->number = entry_idx_info->entry_number;
+                  add_extra_index_entry (item, "associated_index_entry",
+                                         index_entry);
                   free (entry_idx_info);
                   break;
                 }

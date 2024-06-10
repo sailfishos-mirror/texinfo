@@ -186,7 +186,9 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           destroy_list (k_pair->k.list);
           }
           break;
-
+        case extra_index_entry:
+          free (k_pair->k.index_entry);
+          break;
         default:
           break;
         }

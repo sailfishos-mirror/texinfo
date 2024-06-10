@@ -149,6 +149,15 @@ add_extra_misc_args (ELEMENT *e, char *key, ELEMENT_LIST *value)
 }
 
 void
+add_extra_index_entry (ELEMENT *e, char *key, INDEX_ENTRY_LOCATION *value)
+{
+  if (!value) return;
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+                                         extra_index_entry);
+  k->k.index_entry = value;
+}
+
+void
 add_extra_string (ELEMENT *e, const char *key, char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
@@ -326,6 +335,23 @@ lookup_extra_misc_args (const ELEMENT *e, const char *key)
       free (msg);
     }
   return k->k.list;
+}
+
+const INDEX_ENTRY_LOCATION *
+lookup_extra_index_entry (const ELEMENT *e, const char *key)
+{
+  KEY_PAIR *k = lookup_extra (e, key);
+  if (!k)
+    return 0;
+  else if (k->type != extra_index_entry)
+    {
+      char *msg;
+      xasprintf (&msg, "Bad type for lookup_extra_misc_args: %s: %d",
+                 key, k->type);
+      fatal (msg);
+      free (msg);
+    }
+  return k->k.index_entry;
 }
 
 /* only called in tree copy to optimize for speed */
