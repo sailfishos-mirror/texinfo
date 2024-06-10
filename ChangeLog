@@ -1,3 +1,8 @@
+2024-06-10  Bruno Haible  <bruno@clisp.org>
+
+	* man/Makefile.am: In the rules that use HELP2MAN, prefix the
+	target file names with '$(srcdir)/'.
+
 2024-06-10  Patrice Dumas  <pertusus@free.fr>
 
 	Include xlocale.h for newlocale and other symbols if found
