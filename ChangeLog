@@ -1,5 +1,11 @@
 2024-06-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash): nest
+	conditions to avoid calling the conditions on setting Perl data for
+	all the elements.
+
+2024-06-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (store_info_element): check if
 	element to store is 0 in store_info_element.  Update callers.
 
