@@ -1,3 +1,10 @@
+2024-06-10  Bruno Haible  <bruno@clisp.org>
+
+	man: Add support for VPATH builds with OpenBSD 'make'.
+
+	* man/Makefile.am: In the rules that use HELP2MAN, prefix the
+	target file names with '$(srcdir)/'.
+
 2024-06-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	pretest 7.1.0.90
