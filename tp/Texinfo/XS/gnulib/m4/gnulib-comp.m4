@@ -70,6 +70,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module inttypes-incomplete:
   # Code from module libunistring:
   # Code from module limits-h:
+  # Code from module locale:
+  # Code from module malloc-posix:
   # Code from module malloca:
   # Code from module mbszero:
   # Code from module memchr:
@@ -229,6 +231,14 @@ AC_DEFUN([gl_INIT],
   gl_LIMITS_H
   gl_CONDITIONAL_HEADER([limits.h])
   AC_PROG_MKDIR_P
+  gl_LOCALE_H
+  gl_LOCALE_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
+  AC_REQUIRE([gl_FUNC_MALLOC_POSIX])
+  if test $REPLACE_MALLOC_FOR_MALLOC_POSIX = 1; then
+    AC_LIBOBJ([malloc])
+  fi
+  gl_STDLIB_MODULE_INDICATOR([malloc-posix])
   gl_MALLOCA
   AC_REQUIRE([AC_TYPE_MBSTATE_T])
   gl_MBSTATE_T_BROKEN
@@ -652,6 +662,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/libunistring.valgrind
   lib/limits.in.h
   lib/localcharset.h
+  lib/locale.in.h
+  lib/malloc.c
   lib/malloca.c
   lib/malloca.h
   lib/mbszero.c
@@ -815,6 +827,8 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/locale-fr.m4
   m4/locale-ja.m4
   m4/locale-zh.m4
+  m4/locale_h.m4
+  m4/malloc.m4
   m4/malloca.m4
   m4/math_h.m4
   m4/mbrtowc.m4

@@ -40,6 +40,7 @@
 #  getline \
 #  iconv \
 #  libunistring \
+#  locale \
 #  obstack \
 #  setenv \
 #  strchrnul \
@@ -77,6 +78,7 @@ gl_MODULES([
   getline
   iconv
   libunistring
+  locale
   obstack
   setenv
   strchrnul
