@@ -303,8 +303,7 @@ $result_trees{'omit_def_space'} = {
               },
               'source_info' => {
                 'line_nr' => 8
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

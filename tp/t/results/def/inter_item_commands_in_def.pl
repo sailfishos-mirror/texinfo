@@ -221,8 +221,7 @@ $result_trees{'inter_item_commands_in_def'} = {
               },
               'source_info' => {
                 'line_nr' => 4
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -374,8 +373,7 @@ $result_trees{'inter_item_commands_in_def'} = {
               },
               'source_info' => {
                 'line_nr' => 6
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

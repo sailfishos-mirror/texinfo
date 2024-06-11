@@ -61,7 +61,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
   for (i = 0; i < contents_count; i++)
     {
       ELEMENT *last_child = contents_child_by_index (current, -(i+1));
-      if (last_child->type == ET_def_line)
+      if (last_child->flags & EF_def_line)
         break;
     }
 

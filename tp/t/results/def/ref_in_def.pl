@@ -483,8 +483,7 @@ $result_trees{'ref_in_def'} = {
               },
               'source_info' => {
                 'line_nr' => 5
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

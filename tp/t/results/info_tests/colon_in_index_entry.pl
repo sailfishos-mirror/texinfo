@@ -448,8 +448,7 @@ $result_trees{'colon_in_index_entry'} = {
               },
               'source_info' => {
                 'line_nr' => 12
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

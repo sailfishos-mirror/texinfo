@@ -387,5 +387,7 @@ typedef struct TREE_ADDED_ELEMENTS {
 #define EF_indent                        0x0100
 #define EF_noindent                      0x0200
 #define EF_isindex                       0x0400
+/* not in Perl */
+#define EF_def_line                      0x0800
 
 #endif

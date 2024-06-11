@@ -439,11 +439,70 @@ text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
   return result.text;
 }
 
-#define ADD(x) text_append (result, x)
-
 static void
 convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                           TEXT *result);
+
+static void
+convert_def_line(const ELEMENT *element, TEXT_OPTIONS *text_options,
+                 TEXT *result)
+{
+  PARSED_DEF *parsed_def = definition_arguments_content (element);
+  ELEMENT *parsed_definition_category
+     = definition_category_tree (text_options->other_converter_options,
+                                 element);
+  if (parsed_definition_category)
+    {
+      ELEMENT *converted_element = new_element (ET_NONE);
+      ELEMENT *text_colon = new_text_element (ET_normal_text);
+      ELEMENT *text_eol = new_text_element (ET_normal_text);
+      ELEMENT *type_text_space;
+      ELEMENT *args_text_space;
+      add_to_contents_as_array (converted_element,
+                                parsed_definition_category);
+      text_append (text_colon->e.text, ": ");
+      add_to_contents_as_array (converted_element, text_colon);
+      if (parsed_def->type)
+        {
+          type_text_space = new_text_element (ET_normal_text);
+          add_to_contents_as_array (converted_element, parsed_def->type);
+          text_append (type_text_space->e.text, " ");
+          add_to_contents_as_array (converted_element, type_text_space);
+        }
+      if (parsed_def->name)
+        add_to_contents_as_array (converted_element, parsed_def->name);
+      if (parsed_def->args)
+        {
+          args_text_space = new_text_element (ET_normal_text);
+          text_append (args_text_space->e.text, " ");
+          add_to_contents_as_array (converted_element, args_text_space);
+          add_to_contents_as_array (converted_element, parsed_def->args);
+        }
+      text_append (text_eol->e.text, "\n");
+      add_to_contents_as_array (converted_element, text_eol);
+
+      text_options->code_state++;
+      convert_to_text_internal (converted_element,
+                                text_options, result);
+      text_options->code_state--;
+
+      destroy_element (converted_element);
+      destroy_element (text_colon);
+      destroy_element_and_children (parsed_definition_category);
+      destroy_element (text_eol);
+      if (parsed_def->type)
+        {
+          destroy_element (type_text_space);
+        }
+      if (parsed_def->args)
+        {
+          destroy_element (args_text_space);
+        }
+    }
+  destroy_parsed_def (parsed_def);
+}
+
+#define ADD(x) text_append (result, x)
 
 void
 convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
@@ -573,6 +632,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
            || element->type == ET_index_entry_command)
           && !(builtin_command_data[data_cmd].other_flags
                                              & CF_formatted_line)
+          && !(builtin_command_data[data_cmd].flags & CF_def)
           && !(element->cmd == CM_sp
                || element->cmd == CM_verbatiminclude))
       || element->type == ET_postamble_after_end
@@ -871,6 +931,11 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               free (text.text);
             }
         }
+      else if (builtin_command_data[data_cmd].flags & CF_line
+               && builtin_command_data[data_cmd].flags & CF_def)
+        {
+          convert_def_line (element, text_options, result);
+        }
       else if (element->cmd == CM_sp)
         {
           const STRING_LIST *misc_args
@@ -934,59 +999,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
     }
   if (element->type == ET_def_line)
     {
-      PARSED_DEF *parsed_def = definition_arguments_content (element);
-      ELEMENT *parsed_definition_category
-         = definition_category_tree (text_options->other_converter_options,
-                                     element);
-      if (parsed_definition_category)
-        {
-          ELEMENT *converted_element = new_element (ET_NONE);
-          ELEMENT *text_colon = new_text_element (ET_normal_text);
-          ELEMENT *text_eol = new_text_element (ET_normal_text);
-          ELEMENT *type_text_space;
-          ELEMENT *args_text_space;
-          add_to_contents_as_array (converted_element,
-                                    parsed_definition_category);
-          text_append (text_colon->e.text, ": ");
-          add_to_contents_as_array (converted_element, text_colon);
-          if (parsed_def->type)
-            {
-              type_text_space = new_text_element (ET_normal_text);
-              add_to_contents_as_array (converted_element, parsed_def->type);
-              text_append (type_text_space->e.text, " ");
-              add_to_contents_as_array (converted_element, type_text_space);
-            }
-          if (parsed_def->name)
-            add_to_contents_as_array (converted_element, parsed_def->name);
-          if (parsed_def->args)
-            {
-              args_text_space = new_text_element (ET_normal_text);
-              text_append (args_text_space->e.text, " ");
-              add_to_contents_as_array (converted_element, args_text_space);
-              add_to_contents_as_array (converted_element, parsed_def->args);
-            }
-          text_append (text_eol->e.text, "\n");
-          add_to_contents_as_array (converted_element, text_eol);
-
-          text_options->code_state++;
-          convert_to_text_internal (converted_element,
-                                    text_options, result);
-          text_options->code_state--;
-
-          destroy_element (converted_element);
-          destroy_element (text_colon);
-          destroy_element_and_children (parsed_definition_category);
-          destroy_element (text_eol);
-          if (parsed_def->type)
-            {
-              destroy_element (type_text_space);
-            }
-          if (parsed_def->args)
-            {
-              destroy_element (args_text_space);
-            }
-        }
-      destroy_parsed_def (parsed_def);
+      convert_def_line (element, text_options, result);
     }
    else if (element->type == ET_untranslated_def_line_arg)
     {

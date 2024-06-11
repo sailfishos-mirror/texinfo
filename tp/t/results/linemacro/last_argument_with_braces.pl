@@ -234,8 +234,7 @@ $result_trees{'last_argument_with_braces'} = {
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -403,8 +402,7 @@ $result_trees{'last_argument_with_braces'} = {
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -549,8 +547,7 @@ $result_trees{'last_argument_with_braces'} = {
               'source_info' => {
                 'line_nr' => 9,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -666,8 +663,7 @@ $result_trees{'last_argument_with_braces'} = {
               'source_info' => {
                 'line_nr' => 9,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -812,8 +808,7 @@ $result_trees{'last_argument_with_braces'} = {
               'source_info' => {
                 'line_nr' => 11,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -973,8 +968,7 @@ $result_trees{'last_argument_with_braces'} = {
               'source_info' => {
                 'line_nr' => 11,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

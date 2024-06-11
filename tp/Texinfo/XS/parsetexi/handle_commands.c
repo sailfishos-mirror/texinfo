@@ -759,9 +759,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           if (command_data(cmd).flags & CF_index_entry_command)
             command_e = new_command_element (ET_index_entry_command, cmd);
-          else if (command_data(data_cmd).flags & CF_def)
-            /* def*x */
-            command_e = new_command_element (ET_def_line, cmd);
           else
             command_e = new_command_element (ET_line_command, cmd);
 
@@ -876,6 +873,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                     fatal ("no def base command");
                   add_extra_string (command_e, "def_command", base_name);
                 }
+
+              command_e->flags |= EF_def_line;
 
               cmdname = current->cmd;
               if (cmdname != CM_defblock)
@@ -1056,6 +1055,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           add_extra_string_dup (current, "def_command", command_name(cmd));
           add_extra_string_dup (current, "original_def_cmdname",
                                 command_name(cmd));
+          current->flags |= EF_def_line;
           /* Check txidefnamenospace flag */
           val = fetch_value ("txidefnamenospace");
           if (val)

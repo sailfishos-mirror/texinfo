@@ -912,8 +912,7 @@ args \\e\\|\\f\\|
               'source_info' => {
                 'line_nr' => 38,
                 'macro' => 'mymac'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

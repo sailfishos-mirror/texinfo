@@ -1911,8 +1911,8 @@ sub _gather_def_item($$;$)
   # remove everything that is not a def_line to put it in the def_item,
   # starting from the end.
   for (my $i = 0; $i < $contents_count; $i++) {
-    if ($current->{'contents'}->[-1]->{'type'}
-        and $current->{'contents'}->[-1]->{'type'} eq 'def_line') {
+    if ($current->{'contents'}->[-1]->{'extra'}
+        and $current->{'contents'}->[-1]->{'extra'}->{'def_command'}) {
       last;
     } else {
       my $item_content = _pop_element_from_contents($self, $current);
@@ -3597,8 +3597,8 @@ sub _end_line_misc_line($$$)
   }
   _isolate_last_space($self, $current);
 
-  if ($current->{'parent'}->{'type'}
-      and $current->{'parent'}->{'type'} eq 'def_line') {
+  if ($current->{'parent'}->{'extra'}
+      and $current->{'parent'}->{'extra'}->{'def_command'}) {
     $current = _end_line_def_line($self, $current, $source_info);
     return $current;
   }
@@ -4091,8 +4091,8 @@ sub _end_line_starting_block($$$)
   my $document = $self->{'document'};
 
   my $command;
-  if ($current->{'parent'}->{'type'}
-        and $current->{'parent'}->{'type'} eq 'def_line') {
+  if ($current->{'parent'}->{'extra'}
+        and $current->{'parent'}->{'extra'}->{'def_command'}) {
     $command = $current->{'parent'}->{'parent'}->{'cmdname'}
   } else {
     $command = $current->{'parent'}->{'cmdname'};
@@ -4104,8 +4104,8 @@ sub _end_line_starting_block($$$)
   }
   _isolate_last_space($self, $current);
 
-  if ($current->{'parent'}->{'type'}
-        and $current->{'parent'}->{'type'} eq 'def_line') {
+  if ($current->{'parent'}->{'extra'}
+        and $current->{'parent'}->{'extra'}->{'def_command'}) {
     $current = _end_line_def_line($self, $current, $source_info);
     return $current;
   }
@@ -4652,8 +4652,9 @@ sub _end_line($$$)
       .Texinfo::Common::debug_print_element($current, 1)."\n"
         if ($self->{'conf'}->{'DEBUG'});
     if ($top_context eq 'ct_def') {
-      while ($current->{'parent'} and !($current->{'parent'}->{'type'}
-            and $current->{'parent'}->{'type'} eq 'def_line')) {
+      while ($current->{'parent'}
+            and !($current->{'parent'}->{'extra'}
+                  and $current->{'parent'}->{'extra'}->{'def_command'})) {
         $current = _close_current($self, $current, $source_info);
       }
     } else {
@@ -5813,10 +5814,10 @@ sub _handle_line_command($$$$$$)
         my $after_paragraph;
         $after_paragraph = _check_no_text($current) if $cmdname ne 'defblock';
         $self->_push_context('ct_def', $command);
-        $current->{'contents'}->[-1]->{'type'} = 'def_line';
         $current->{'contents'}->[-1]->{'extra'}
           = {'def_command' => $base_command,
-             'original_def_cmdname' => $command};
+             'original_def_cmdname' => $command,
+            };
         if (defined($self->{'values'}->{'txidefnamenospace'})) {
           $current->{'contents'}->[-1]{'extra'}
                               ->{'omit_def_name_space'} = 1;
@@ -5968,7 +5969,8 @@ sub _handle_block_command($$$$$)
                                         'source_info' => {%$source_info},
                                         'extra' =>
                                          {'def_command' => $command,
-                                          'original_def_cmdname' => $command}
+                                          'original_def_cmdname' => $command,
+                                         },
                                         };
       if (defined($self->{'values'}->{'txidefnamenospace'})) {
         $current->{'contents'}->[-1]->{'extra'}
@@ -6242,8 +6244,8 @@ sub _handle_open_brace($$$$)
   } elsif ($current->{'parent'}
             and (($current->{'parent'}->{'cmdname'}
                   and $current->{'parent'}->{'cmdname'} eq 'multitable')
-                 or ($current->{'parent'}->{'type'}
-                     and $current->{'parent'}->{'type'} eq 'def_line'))) {
+                 or ($current->{'parent'}->{'extra'}
+                     and $current->{'parent'}->{'extra'}->{'def_command'}))) {
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}},
          { 'type' => 'bracketed_arg',

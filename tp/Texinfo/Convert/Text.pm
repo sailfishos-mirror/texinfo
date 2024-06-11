@@ -111,12 +111,19 @@ foreach my $accent_letter ('o','O','l','L') {
 my %accent_commands = %Texinfo::Commands::accent_commands;
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
+my %def_commands = %Texinfo::Commands::def_commands;
 # 'page' is a formatted_line_commands and therefore is replaced by an empty
 # line.
 
 my %converted_formattable_line_commands;
 foreach my $command ('verbatiminclude', 'sp') {
   $converted_formattable_line_commands{$command} = 1;
+}
+
+foreach my $command (keys(%def_commands)) {
+  if ($Texinfo::Commands::line_commands{$command}) {
+    $converted_formattable_line_commands{$command} = 1;
+  }
 }
 
 my %ignored_types;
@@ -422,6 +429,42 @@ sub _text_heading($$$;$$)
   return $result;
 }
 
+sub _convert_def_line($$)
+{
+  my $options = shift;
+  my $element = shift;
+
+  my $result = '';
+
+  #print STDERR "DEF: $element->{'extra'}->{'def_command'}\n";
+  my ($category_element, $class_element,
+      $type_element, $name_element, $arguments)
+       = Texinfo::Convert::Utils::definition_arguments_content($element);
+
+  my $parsed_definition_category
+    = Texinfo::Convert::Utils::definition_category_tree(
+                                        $options->{'converter'}, $element);
+  if (defined($parsed_definition_category)) {
+    my $converted_element = {'contents' =>
+                    [$parsed_definition_category, {'text' => ': '}]};
+    my $contents = $converted_element->{'contents'};
+    if ($type_element) {
+      push @$contents, ($type_element, {'text' => ' '});
+    }
+    if ($name_element) {
+      push @$contents, $name_element;
+    }
+
+    if ($arguments) {
+      push @$contents, ({'text' => ' '}, $arguments);
+    }
+    push @$contents, {'text' => "\n"};
+    $options->{'_code_state'}++;
+    $result = _convert($options, $converted_element);
+    $options->{'_code_state'}--;
+  }
+  return $result;
+}
 
 # Will never be called, used for the override.
 sub _convert_tree_with_XS($$)
@@ -641,7 +684,9 @@ sub _convert($$)
       }
     } elsif ($converted_formattable_line_commands{$element->{'cmdname'}}
              and $element->{'args'}) {
-      if ($element->{'cmdname'} eq 'sp') {
+      if ($def_commands{$element->{'cmdname'}}) {
+        $result = _convert_def_line($options, $element);
+      } elsif ($element->{'cmdname'} eq 'sp') {
         if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
             and $element->{'extra'}->{'misc_args'}->[0]) {
           # this useless copy avoids perl changing the type to integer!
@@ -675,33 +720,7 @@ sub _convert($$)
   }
   if ($element->{'type'}) {
     if ($element->{'type'} eq 'def_line') {
-      #print STDERR "DEF: $element->{'extra'}->{'def_command'}\n";
-      my ($category_element, $class_element,
-          $type_element, $name_element, $arguments)
-           = Texinfo::Convert::Utils::definition_arguments_content($element);
-
-      my $parsed_definition_category
-        = Texinfo::Convert::Utils::definition_category_tree(
-                                            $options->{'converter'}, $element);
-      if (defined($parsed_definition_category)) {
-        my $converted_element = {'contents' =>
-                        [$parsed_definition_category, {'text' => ': '}]};
-        my $contents = $converted_element->{'contents'};
-        if ($type_element) {
-          push @$contents, ($type_element, {'text' => ' '});
-        }
-        if ($name_element) {
-          push @$contents, $name_element;
-        }
-
-        if ($arguments) {
-          push @$contents, ({'text' => ' '}, $arguments);
-        }
-        push @$contents, {'text' => "\n"};
-        $options->{'_code_state'}++;
-        $result = _convert($options, $converted_element);
-        $options->{'_code_state'}--;
-      }
+      $result = _convert_def_line($options, $element);
     } elsif ($element->{'type'} eq 'untranslated_def_line_arg') {
       my $tree;
       my $category_text = $element->{'contents'}->[0]->{'text'};

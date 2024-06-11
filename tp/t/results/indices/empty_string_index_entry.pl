@@ -459,8 +459,7 @@ $result_trees{'empty_string_index_entry'} = {
               },
               'source_info' => {
                 'line_nr' => 11
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

@@ -182,8 +182,7 @@ $result_trees{'comment_index_before_defline'} = {
               },
               'source_info' => {
                 'line_nr' => 6
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

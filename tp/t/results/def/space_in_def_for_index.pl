@@ -279,8 +279,7 @@ $result_trees{'space_in_def_for_index'} = {
               },
               'source_info' => {
                 'line_nr' => 5
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

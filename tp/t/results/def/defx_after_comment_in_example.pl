@@ -232,8 +232,7 @@ $result_trees{'defx_after_comment_in_example'} = {
                   },
                   'source_info' => {
                     'line_nr' => 4
-                  },
-                  'type' => 'def_line'
+                  }
                 },
                 {
                   'args' => [

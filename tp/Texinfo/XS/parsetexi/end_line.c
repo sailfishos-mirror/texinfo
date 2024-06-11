@@ -785,7 +785,7 @@ end_line_starting_block (ELEMENT *current)
 
   enum command_id command;
 
-  if (current->parent->type == ET_def_line)
+  if (current->parent->flags & EF_def_line)
     command = current->parent->parent->cmd;
   else
     command = current->parent->cmd;
@@ -794,7 +794,7 @@ end_line_starting_block (ELEMENT *current)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
   isolate_last_space (current);
 
-  if (current->parent->type == ET_def_line)
+  if (current->parent->flags & EF_def_line)
     return end_line_def_line (current);
 
   if (pop_context () != ct_line)
@@ -1229,7 +1229,7 @@ end_line_misc_line (ELEMENT *current)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
   isolate_last_space (current);
 
-  if (current->parent->type == ET_def_line)
+  if (current->parent->flags & EF_def_line)
     return end_line_def_line (current);
 
   current = current->parent;
@@ -1908,7 +1908,7 @@ end_line (ELEMENT *current)
       if (current_context () == ct_def)
         {
           while (current->parent
-                 && current->parent->type != ET_def_line)
+                 && !(current->parent->flags & EF_def_line))
             {
               current = close_current (current, 0, 0);
             }

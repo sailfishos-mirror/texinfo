@@ -188,8 +188,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -210,8 +209,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 3
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -252,8 +250,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 4
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -307,8 +304,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 5
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -342,8 +338,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 6
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -402,8 +397,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 7
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -442,8 +436,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 8
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -492,8 +485,7 @@ $result_trees{'empty_def_arguments'} = {
               },
               'source_info' => {
                 'line_nr' => 9
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

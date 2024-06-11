@@ -313,8 +313,7 @@ $result_trees{'double_command'} = {
                               },
                               'source_info' => {
                                 'line_nr' => 1
-                              },
-                              'type' => 'def_line'
+                              }
                             }
                           ],
                           'type' => 'def_line_arg'

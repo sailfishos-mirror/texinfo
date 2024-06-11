@@ -83,8 +83,7 @@ $result_trees{'defline_no_params'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

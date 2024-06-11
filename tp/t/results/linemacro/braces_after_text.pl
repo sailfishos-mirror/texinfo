@@ -244,8 +244,7 @@ $result_trees{'braces_after_text'} = {
               'source_info' => {
                 'line_nr' => 6,
                 'macro' => 'mymacro'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

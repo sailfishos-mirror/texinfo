@@ -1266,7 +1266,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
              command. */
           ELEMENT *d = current;
           while (d->parent
-                 && d->parent->type != ET_def_line)
+                 && !(d->parent->flags & EF_def_line))
             d = d->parent;
           invalid_parent = d->parent->parent->cmd;
         }

@@ -474,8 +474,7 @@ $result_trees{'test_index'} = {
               },
               'source_info' => {
                 'line_nr' => 13
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

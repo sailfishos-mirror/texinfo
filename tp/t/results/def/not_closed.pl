@@ -165,8 +165,7 @@ $result_trees{'not_closed'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

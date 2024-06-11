@@ -410,8 +410,7 @@ $result_trees{'nested_linemacro_calls'} = {
               'source_info' => {
                 'line_nr' => 11,
                 'macro' => 'outside'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

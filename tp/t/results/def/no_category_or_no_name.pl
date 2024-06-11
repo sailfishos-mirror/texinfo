@@ -322,8 +322,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'line_nr' => 10
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -344,8 +343,7 @@ $result_trees{'no_category_or_no_name'} = {
               },
               'source_info' => {
                 'line_nr' => 11
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

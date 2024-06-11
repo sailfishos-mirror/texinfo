@@ -587,8 +587,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 12
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -669,8 +668,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 13
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -756,8 +754,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 14
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -843,8 +840,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 15
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -937,8 +933,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 16
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1050,8 +1045,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 17
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1107,8 +1101,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 18
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1167,8 +1160,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 19
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1229,8 +1221,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 20
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1347,8 +1338,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 21
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -1480,8 +1470,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 23
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -1613,8 +1602,7 @@ $result_trees{'def'} = {
               },
               'source_info' => {
                 'line_nr' => 25
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

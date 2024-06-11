@@ -350,8 +350,7 @@ $result_trees{'newline_and_continuation_in_brace'} = {
               'source_info' => {
                 'line_nr' => 9,
                 'macro' => 'mylinecommand'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

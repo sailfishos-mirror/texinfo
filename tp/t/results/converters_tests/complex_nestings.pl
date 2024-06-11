@@ -402,8 +402,7 @@ $result_trees{'complex_nestings'} = {
                   },
                   'source_info' => {
                     'line_nr' => 10
-                  },
-                  'type' => 'def_line'
+                  }
                 },
                 {
                   'contents' => [
@@ -736,8 +735,7 @@ $result_trees{'complex_nestings'} = {
                                   },
                                   'source_info' => {
                                     'line_nr' => 14
-                                  },
-                                  'type' => 'def_line'
+                                  }
                                 },
                                 {
                                   'contents' => [

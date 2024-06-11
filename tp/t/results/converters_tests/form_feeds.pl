@@ -754,8 +754,7 @@ $result_trees{'form_feeds'} = {
               },
               'source_info' => {
                 'line_nr' => 29
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

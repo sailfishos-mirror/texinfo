@@ -69,12 +69,19 @@ sub converter_defaults($$)
   return %defaults;
 }
 
+my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
+foreach my $def_command (keys(%Texinfo::Commands::def_commands)) {
+  if ($Texinfo::Commands::line_commands{$def_command}) {
+    $formatted_line_commands{$def_command} = 1;
+  }
+}
+
 sub converter_initialize($)
 {
   my $self = shift;
 
   %{$self->{'formatted_line_commands'}}
-    = %Texinfo::Commands::formatted_line_commands;
+    = %formatted_line_commands;
   if ($self->get_conf('TEXTCONTENT_COMMENT')) {
     $self->{'formatted_line_commands'}->{'c'} = 1;
     $self->{'formatted_line_commands'}->{'comment'} = 1;

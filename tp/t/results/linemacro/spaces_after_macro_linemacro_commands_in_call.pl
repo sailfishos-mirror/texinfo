@@ -394,8 +394,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
               'source_info' => {
                 'line_nr' => 15,
                 'macro' => 'mylinecommand'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -726,8 +725,7 @@ $result_trees{'spaces_after_macro_linemacro_commands_in_call'} = {
               'source_info' => {
                 'line_nr' => 17,
                 'macro' => 'mylinecommand'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

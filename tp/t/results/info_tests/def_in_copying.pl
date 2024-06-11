@@ -343,8 +343,7 @@ $result_trees{'def_in_copying'} = {
                   'source_info' => {
                     'line_nr' => 13,
                     'macro' => 'mymacro'
-                  },
-                  'type' => 'def_line'
+                  }
                 },
                 {
                   'contents' => [
@@ -638,8 +637,7 @@ $result_trees{'def_in_copying'} = {
               'source_info' => {
                 'line_nr' => 17,
                 'macro' => 'mymacro'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

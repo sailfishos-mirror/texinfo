@@ -98,7 +98,6 @@ table_entry
 table_term
 table_definition
 inter_item
-# TODO both with and without at_command
 def_line                              spaces_before
 def_item
 inter_def_item

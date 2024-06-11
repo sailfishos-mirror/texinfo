@@ -728,7 +728,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
            /* following for index entries */
            || current->cmd == CM_item || current->cmd == CM_itemx
            || current->type == ET_index_entry_command
-           || (current->parent && current->parent->type == ET_def_line))
+           || (current->parent && current->parent->flags & EF_def_line))
     {
       ELEMENT *element_node = lookup_extra_element (current, "element_node");
       if (element_node)

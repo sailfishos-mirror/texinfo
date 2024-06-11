@@ -276,8 +276,7 @@ $result_trees{'empty_last_argument'} = {
               'source_info' => {
                 'line_nr' => 8,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -418,8 +417,7 @@ $result_trees{'empty_last_argument'} = {
               'source_info' => {
                 'line_nr' => 10,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -589,8 +587,7 @@ $result_trees{'empty_last_argument'} = {
               'source_info' => {
                 'line_nr' => 12,
                 'macro' => 'defbuiltin'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

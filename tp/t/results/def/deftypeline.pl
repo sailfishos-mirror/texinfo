@@ -209,8 +209,7 @@ $result_trees{'deftypeline'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

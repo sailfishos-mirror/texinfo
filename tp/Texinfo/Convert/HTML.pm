@@ -7115,8 +7115,18 @@ sub _convert_def_command($$$$$) {
   }
 }
 
+# Keys are tree element types, values are function references to convert
+# elements of that type.  Can be overridden accessing
+# Texinfo::Config::GNUT_get_types_conversion, setup by
+# Texinfo::Config::texinfo_register_type_formatting()
+my %default_types_conversion;
+
 foreach my $command (keys(%def_commands), 'defblock') {
-  $default_commands_conversion{$command} = \&_convert_def_command;
+  if ($line_commands{$command}) {
+    $default_commands_conversion{$command} = \&_convert_def_line_type;
+  } else {
+    $default_commands_conversion{$command} = \&_convert_def_command;
+  }
 }
 
 
@@ -7214,12 +7224,6 @@ sub output_unit_conversion($$)
   my $type = shift;
   return $self->{'output_units_conversion'}->{$type};
 }
-
-# Keys are tree element types, values are function references to convert
-# elements of that type.  Can be overridden accessing
-# Texinfo::Config::GNUT_get_types_conversion, setup by
-# Texinfo::Config::texinfo_register_type_formatting()
-my %default_types_conversion;
 
 sub default_type_conversion($$)
 {
@@ -13818,10 +13822,9 @@ sub _convert($$;$)
   # better to consider them as a def_line type, as the whole point of the
   # def_line type is to handle the same the def*x and def* line formatting.
   if ($element->{'cmdname'}
-      and !(($element->{'type'} and $element->{'type'} eq 'def_line')
-             or ($element->{'type'}
+      and !(($element->{'type'}
                  and $element->{'type'} eq 'definfoenclose_command')
-             or ($element->{'type'}
+            or ($element->{'type'}
                  and $element->{'type'} eq 'index_entry_command'))) {
     my $command_name = $element->{'cmdname'};
     if ($root_commands{$command_name}) {

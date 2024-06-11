@@ -2054,6 +2054,244 @@ sub _get_form_feeds($)
   return $form_feeds;
 }
 
+sub _convert_def_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my ($category, $class, $type, $name, $arguments)
+    = Texinfo::Convert::Utils::definition_arguments_content($element);
+  if ($category or $class or $type or $name) {
+    my $tree;
+    my $command;
+    if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
+      $command
+       = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
+    } else {
+      $command = $element->{'extra'}->{'def_command'};
+    }
+    $name = {'text' => ''} if (!defined($name));
+
+    my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
+
+    if ($command eq 'defline'
+        or $command eq 'deffn'
+        or $command eq 'defvr'
+        or $command eq 'deftp'
+        or (($command eq 'deftypefn'
+             or $command eq 'deftypevr')
+            and !defined($type))) {
+      if ($arguments) {
+        my $strings = {
+         'category' => $category,
+         'name' => $name,
+         'arguments' => $arguments};
+        if ($omit_def_space) {
+          $tree = $self->cdt('@tie{}-- {category}: {name}{arguments}',
+                             $strings);
+        } else {
+          $tree = $self->cdt('@tie{}-- {category}: {name} {arguments}',
+                             $strings);
+        }
+      } else {
+        $tree = $self->cdt('@tie{}-- {category}: {name}', {
+             'category' => $category,
+             'name' => $name});
+      }
+    } elsif ($command eq 'deftypeline'
+             or $command eq 'deftypefn'
+             or $command eq 'deftypevr') {
+      if ($arguments) {
+        my $strings = {
+          'category' => $category,
+          'name' => $name,
+          'type' => $type,
+          'arguments' => $arguments};
+        if ($self->get_conf('deftypefnnewline')
+            and $self->get_conf('deftypefnnewline') eq 'on'
+            and $command eq 'deftypefn') {
+          if ($omit_def_space) {
+            $tree
+              = $self->cdt('@tie{}-- {category}:@*{type}@*{name}{arguments}',
+                           $strings);
+          } else {
+            $tree
+              = $self->cdt('@tie{}-- {category}:@*{type}@*{name} {arguments}',
+                           $strings);
+          }
+        } else {
+          if ($omit_def_space) {
+            $tree
+              = $self->cdt('@tie{}-- {category}: {type} {name}{arguments}',
+                           $strings);
+          } else {
+            $tree
+              = $self->cdt('@tie{}-- {category}: {type} {name} {arguments}',
+                           $strings);
+          }
+        }
+      } else {
+        my $strings = {
+         'category' => $category,
+         'type' => $type,
+         'name' => $name};
+        if ($self->get_conf('deftypefnnewline')
+            and $self->get_conf('deftypefnnewline') eq 'on'
+            and $command eq 'deftypefn') {
+          $tree = $self->cdt('@tie{}-- {category}:@*{type}@*{name}',
+                             $strings);
+        } else {
+          $tree = $self->cdt('@tie{}-- {category}: {type} {name}',
+                             $strings);
+        }
+      }
+    } elsif ($command eq 'defcv'
+             or ($command eq 'deftypecv'
+                 and !defined($type))) {
+      if ($arguments) {
+        my $strings = {
+         'category' => $category,
+         'name' => $name,
+         'class' => $class,
+         'arguments' => $arguments};
+        if ($omit_def_space) {
+          $tree
+           = $self->cdt('@tie{}-- {category} of {class}: {name}{arguments}',
+                        $strings);
+        } else {
+          $tree
+           = $self->cdt('@tie{}-- {category} of {class}: {name} {arguments}',
+                        $strings);
+        }
+      } else {
+        $tree = $self->cdt('@tie{}-- {category} of {class}: {name}', {
+         'category' => $category,
+         'class' => $class,
+         'name' => $name});
+      }
+    } elsif ($command eq 'defop'
+             or ($command eq 'deftypeop'
+                 and !defined($type))) {
+      if ($arguments) {
+        my $strings = {
+         'category' => $category,
+         'name' => $name,
+         'class' => $class,
+         'arguments' => $arguments};
+        if ($omit_def_space) {
+          $tree
+            = $self->cdt('@tie{}-- {category} on {class}: {name}{arguments}',
+                         $strings);
+        } else {
+          $tree
+            = $self->cdt('@tie{}-- {category} on {class}: {name} {arguments}',
+                         $strings);
+        }
+      } else {
+        $tree = $self->cdt('@tie{}-- {category} on {class}: {name}', {
+         'category' => $category,
+         'class' => $class,
+         'name' => $name});
+      }
+    } elsif ($command eq 'deftypeop') {
+      if ($arguments) {
+        my $strings = {
+         'category' => $category,
+         'name' => $name,
+         'class' => $class,
+         'type' => $type,
+         'arguments' => $arguments};
+        if ($self->get_conf('deftypefnnewline')
+            and $self->get_conf('deftypefnnewline') eq 'on') {
+          if ($omit_def_space) {
+            $tree
+              = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
+                           $strings);
+          } else {
+            $tree
+              = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}',
+                           $strings);
+          }
+        } else {
+          if ($omit_def_space) {
+            $tree
+              = $self->cdt('@tie{}-- {category} on {class}: {type} {name}{arguments}',
+                           $strings);
+          } else {
+            $tree
+              = $self->cdt('@tie{}-- {category} on {class}: {type} {name} {arguments}',
+                           $strings);
+          }
+        }
+      } else {
+        my $strings = {
+         'category' => $category,
+         'type' => $type,
+         'class' => $class,
+         'name' => $name};
+        if ($self->get_conf('deftypefnnewline')
+            and $self->get_conf('deftypefnnewline') eq 'on') {
+          $tree
+            = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}',
+                         $strings);
+        } else {
+          $tree
+            = $self->cdt('@tie{}-- {category} on {class}: {type} {name}',
+                         $strings);
+        }
+      }
+    } elsif ($command eq 'deftypecv') {
+      if ($arguments) {
+        my $strings = {
+         'category' => $category,
+         'name' => $name,
+         'class' => $class,
+         'type' => $type,
+         'arguments' => $arguments};
+        if ($omit_def_space) {
+          $tree
+            = $self->cdt('@tie{}-- {category} of {class}: {type} {name}{arguments}',
+                         $strings);
+        } else {
+          $tree
+            = $self->cdt('@tie{}-- {category} of {class}: {type} {name} {arguments}',
+                         $strings);
+        }
+      } else {
+        my $strings = {
+         'category' => $category,
+         'type' => $type,
+         'class' => $class,
+         'name' => $name};
+        $tree
+          = $self->cdt('@tie{}-- {category} of {class}: {type} {name}',
+                         $strings);
+      }
+    }
+
+    my $def_paragraph = $self->new_formatter('paragraph',
+     { 'indent_length' =>
+           ($self->{'format_context'}->[-1]->{'indent_level'} -1)
+                                                   * $indent_length,
+       'indent_length_next' =>
+           (1+$self->{'format_context'}->[-1]->{'indent_level'})
+                                                   * $indent_length,
+       'suppress_styles' => 1
+     });
+    push @{$self->{'formatters'}}, $def_paragraph;
+
+    # FIXME the whole line is formatted in code here.  In other formats,
+    # the category is normal text
+    _convert($self, {'type' => '_code', 'contents' => [$tree]});
+    _stream_output($self,
+      Texinfo::Convert::Paragraph::end($def_paragraph->{'container'}),
+      $def_paragraph->{'container'});
+
+    pop @{$self->{'formatters'}};
+    delete $self->{'text_element_context'}->[-1]->{'counter'};
+  }
+}
+
 #my $description_align_column = 32;
 # computed as 32/72, rounded up
 my $description_align_column_factor = 0.45;
@@ -3292,6 +3530,9 @@ sub _convert($$)
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                    'locations' => []};
       $cell = 1;
+    # not block commands and not brace commands
+    } elsif ($def_commands{$command}) {
+      _convert_def_line($self, $element);
     } elsif ($command eq 'center') {
       #my ($counts, $new_locations);
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
@@ -3518,6 +3759,9 @@ sub _convert($$)
     if ($unknown_command
         and !($element->{'type'}
               and ($element->{'type'} eq 'index_entry_command'))
+        # TODO it may have changed now that there is a _convert_def_line
+        # explicit for line def_commands.
+
         # commands like def*x are not processed above, since only the def_line
         # associated is processed. If they have no name and no category they
         # are not considered as index entries either so they have a specific
@@ -3572,237 +3816,7 @@ sub _convert($$)
         }
       }
     } elsif ($type eq 'def_line') {
-      my ($category, $class, $type, $name, $arguments)
-        = Texinfo::Convert::Utils::definition_arguments_content($element);
-      if ($category or $class or $type or $name) {
-        my $tree;
-        my $command;
-        if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-          $command
-           = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
-        } else {
-          $command = $element->{'extra'}->{'def_command'};
-        }
-        $name = {'text' => ''} if (!defined($name));
-
-        my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
-
-        if ($command eq 'defline'
-            or $command eq 'deffn'
-            or $command eq 'defvr'
-            or $command eq 'deftp'
-            or (($command eq 'deftypefn'
-                 or $command eq 'deftypevr')
-                and !defined($type))) {
-          if ($arguments) {
-            my $strings = {
-             'category' => $category,
-             'name' => $name,
-             'arguments' => $arguments};
-            if ($omit_def_space) {
-              $tree = $self->cdt('@tie{}-- {category}: {name}{arguments}',
-                                 $strings);
-            } else {
-              $tree = $self->cdt('@tie{}-- {category}: {name} {arguments}',
-                                 $strings);
-            }
-          } else {
-            $tree = $self->cdt('@tie{}-- {category}: {name}', {
-                 'category' => $category,
-                 'name' => $name});
-          }
-        } elsif ($command eq 'deftypeline'
-                 or $command eq 'deftypefn'
-                 or $command eq 'deftypevr') {
-          if ($arguments) {
-            my $strings = {
-              'category' => $category,
-              'name' => $name,
-              'type' => $type,
-              'arguments' => $arguments};
-            if ($self->get_conf('deftypefnnewline')
-                and $self->get_conf('deftypefnnewline') eq 'on'
-                and $command eq 'deftypefn') {
-              if ($omit_def_space) {
-                $tree
-                  = $self->cdt('@tie{}-- {category}:@*{type}@*{name}{arguments}',
-                               $strings);
-              } else {
-                $tree
-                  = $self->cdt('@tie{}-- {category}:@*{type}@*{name} {arguments}',
-                               $strings);
-              }
-            } else {
-              if ($omit_def_space) {
-                $tree
-                  = $self->cdt('@tie{}-- {category}: {type} {name}{arguments}',
-                               $strings);
-              } else {
-                $tree
-                  = $self->cdt('@tie{}-- {category}: {type} {name} {arguments}',
-                               $strings);
-              }
-            }
-          } else {
-            my $strings = {
-             'category' => $category,
-             'type' => $type,
-             'name' => $name};
-            if ($self->get_conf('deftypefnnewline')
-                and $self->get_conf('deftypefnnewline') eq 'on'
-                and $command eq 'deftypefn') {
-              $tree = $self->cdt('@tie{}-- {category}:@*{type}@*{name}',
-                                 $strings);
-            } else {
-              $tree = $self->cdt('@tie{}-- {category}: {type} {name}',
-                                 $strings);
-            }
-          }
-        } elsif ($command eq 'defcv'
-                 or ($command eq 'deftypecv'
-                     and !defined($type))) {
-          if ($arguments) {
-            my $strings = {
-             'category' => $category,
-             'name' => $name,
-             'class' => $class,
-             'arguments' => $arguments};
-            if ($omit_def_space) {
-              $tree
-               = $self->cdt('@tie{}-- {category} of {class}: {name}{arguments}',
-                            $strings);
-            } else {
-              $tree
-               = $self->cdt('@tie{}-- {category} of {class}: {name} {arguments}',
-                            $strings);
-            }
-          } else {
-            $tree = $self->cdt('@tie{}-- {category} of {class}: {name}', {
-             'category' => $category,
-             'class' => $class,
-             'name' => $name});
-          }
-        } elsif ($command eq 'defop'
-                 or ($command eq 'deftypeop'
-                     and !defined($type))) {
-          if ($arguments) {
-            my $strings = {
-             'category' => $category,
-             'name' => $name,
-             'class' => $class,
-             'arguments' => $arguments};
-            if ($omit_def_space) {
-              $tree
-                = $self->cdt('@tie{}-- {category} on {class}: {name}{arguments}',
-                             $strings);
-            } else {
-              $tree
-                = $self->cdt('@tie{}-- {category} on {class}: {name} {arguments}',
-                             $strings);
-            }
-          } else {
-            $tree = $self->cdt('@tie{}-- {category} on {class}: {name}', {
-             'category' => $category,
-             'class' => $class,
-             'name' => $name});
-          }
-        } elsif ($command eq 'deftypeop') {
-          if ($arguments) {
-            my $strings = {
-             'category' => $category,
-             'name' => $name,
-             'class' => $class,
-             'type' => $type,
-             'arguments' => $arguments};
-            if ($self->get_conf('deftypefnnewline')
-                and $self->get_conf('deftypefnnewline') eq 'on') {
-              if ($omit_def_space) {
-                $tree
-                  = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
-                               $strings);
-              } else {
-                $tree
-                  = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}',
-                               $strings);
-              }
-            } else {
-              if ($omit_def_space) {
-                $tree
-                  = $self->cdt('@tie{}-- {category} on {class}: {type} {name}{arguments}',
-                               $strings);
-              } else {
-                $tree
-                  = $self->cdt('@tie{}-- {category} on {class}: {type} {name} {arguments}',
-                               $strings);
-              }
-            }
-          } else {
-            my $strings = {
-             'category' => $category,
-             'type' => $type,
-             'class' => $class,
-             'name' => $name};
-            if ($self->get_conf('deftypefnnewline')
-                and $self->get_conf('deftypefnnewline') eq 'on') {
-              $tree
-                = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}',
-                             $strings);
-            } else {
-              $tree
-                = $self->cdt('@tie{}-- {category} on {class}: {type} {name}',
-                             $strings);
-            }
-          }
-        } elsif ($command eq 'deftypecv') {
-          if ($arguments) {
-            my $strings = {
-             'category' => $category,
-             'name' => $name,
-             'class' => $class,
-             'type' => $type,
-             'arguments' => $arguments};
-            if ($omit_def_space) {
-              $tree
-                = $self->cdt('@tie{}-- {category} of {class}: {type} {name}{arguments}',
-                             $strings);
-            } else {
-              $tree
-                = $self->cdt('@tie{}-- {category} of {class}: {type} {name} {arguments}',
-                             $strings);
-            }
-          } else {
-            my $strings = {
-             'category' => $category,
-             'type' => $type,
-             'class' => $class,
-             'name' => $name};
-            $tree
-              = $self->cdt('@tie{}-- {category} of {class}: {type} {name}',
-                             $strings);
-          }
-        }
-
-        my $def_paragraph = $self->new_formatter('paragraph',
-         { 'indent_length' =>
-               ($self->{'format_context'}->[-1]->{'indent_level'} -1)
-                                                       * $indent_length,
-           'indent_length_next' =>
-               (1+$self->{'format_context'}->[-1]->{'indent_level'})
-                                                       * $indent_length,
-           'suppress_styles' => 1
-         });
-        push @{$self->{'formatters'}}, $def_paragraph;
-
-        # FIXME the whole line is formatted in code here.  In other formats,
-        # the category is normal text
-        _convert($self, {'type' => '_code', 'contents' => [$tree]});
-        _stream_output($self,
-          Texinfo::Convert::Paragraph::end($def_paragraph->{'container'}),
-          $def_paragraph->{'container'});
-
-        pop @{$self->{'formatters'}};
-        delete $self->{'text_element_context'}->[-1]->{'counter'};
-      }
+      _convert_def_line($self, $element);
     } elsif ($type eq 'menu_entry') {
       my $entry_name_seen = 0;
       my $menu_entry_node;

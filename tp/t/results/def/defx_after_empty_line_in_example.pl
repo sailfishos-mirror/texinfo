@@ -252,8 +252,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                   },
                   'source_info' => {
                     'line_nr' => 7
-                  },
-                  'type' => 'def_line'
+                  }
                 },
                 {
                   'args' => [

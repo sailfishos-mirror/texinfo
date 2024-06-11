@@ -108,8 +108,7 @@ $result_trees{'multiple_defline'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -232,8 +231,7 @@ $result_trees{'multiple_defline'} = {
               },
               'source_info' => {
                 'line_nr' => 5
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

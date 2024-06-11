@@ -285,8 +285,7 @@ $result_trees{'spaces_in_args'} = {
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'mylinecommand'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

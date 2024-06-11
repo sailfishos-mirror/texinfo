@@ -252,8 +252,7 @@ $result_trees{'spaces_in_call'} = {
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'mylinecommand'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

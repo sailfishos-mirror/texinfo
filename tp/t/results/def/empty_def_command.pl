@@ -271,8 +271,7 @@ $result_trees{'empty_def_command'} = {
               },
               'source_info' => {
                 'line_nr' => 5
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

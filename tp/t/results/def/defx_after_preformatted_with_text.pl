@@ -232,8 +232,7 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                   },
                   'source_info' => {
                     'line_nr' => 5
-                  },
-                  'type' => 'def_line'
+                  }
                 },
                 {
                   'args' => [

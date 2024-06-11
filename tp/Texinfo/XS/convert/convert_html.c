@@ -13949,6 +13949,11 @@ convert_contents_command (CONVERTER *self, const enum command_id cmd,
 }
 
 void
+convert_def_line_type (CONVERTER *self, const enum element_type type,
+                       const ELEMENT *element, const char *content,
+                       TEXT *result);
+
+void
 convert_def_command (CONVERTER *self, const enum command_id cmd,
                     const ELEMENT *element,
                     const HTML_ARGS_FORMATTED *args_formatted,
@@ -13957,6 +13962,12 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
   STRING_LIST *classes;
   enum command_id original_cmd = cmd;
   char *class;
+
+  if (builtin_command_data[cmd].flags & CF_line)
+    {
+      convert_def_line_type (self, ET_def_line, element, content, result);
+      return;
+    }
 
   if (html_in_string (self))
     {

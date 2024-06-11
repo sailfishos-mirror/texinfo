@@ -341,8 +341,7 @@ $result_trees{'on_def_line'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

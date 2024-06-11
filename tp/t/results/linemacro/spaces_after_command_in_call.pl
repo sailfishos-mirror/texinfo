@@ -320,8 +320,7 @@ $result_trees{'spaces_after_command_in_call'} = {
               'source_info' => {
                 'line_nr' => 7,
                 'macro' => 'mylinecommand'
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

@@ -887,8 +887,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
                 'line_nr' => 46
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -940,8 +939,7 @@ $result_trees{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
               'source_info' => {
                 'file_name' => 'index_special_region_no_insertcopying.texi',
                 'line_nr' => 47
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

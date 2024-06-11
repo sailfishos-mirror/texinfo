@@ -916,8 +916,7 @@ $result_trees{'wrong_braces_simple'} = {
               },
               'source_info' => {
                 'line_nr' => 14
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1048,8 +1047,7 @@ $result_trees{'wrong_braces_simple'} = {
               },
               'source_info' => {
                 'line_nr' => 15
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1178,8 +1176,7 @@ $result_trees{'wrong_braces_simple'} = {
               },
               'source_info' => {
                 'line_nr' => 16
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -1316,8 +1313,7 @@ $result_trees{'wrong_braces_simple'} = {
               },
               'source_info' => {
                 'line_nr' => 17
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

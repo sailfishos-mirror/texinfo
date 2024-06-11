@@ -1,3 +1,37 @@
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_gather_def_item, _end_line_misc_line)
+	(_end_line_starting_block, _end_line, _handle_line_command)
+	(_handle_block_command, _handle_open_brace),
+	tp/Texinfo/XS/main/tree_types.h, tp/Texinfo/XS/parsetexi/def.c
+	(gather_def_item), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block, end_line_misc_line, end_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command)
+	(handle_block_command), tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reassociate_to_node): do not set def_line as type for @def*x and
+	@def*line.  Use extra def_command to determine that an element is
+	either a @def* line command or a def_line type in Perl.  Set and use
+	EF_def_line flag to determine that an element is either a @def* line
+	command or a def_line type in C.
+
+	* tp/Texinfo/Convert/DocBook.pm (%docbook_line_commands)
+	(_convert_def_line, _convert), tp/Texinfo/Convert/HTML.pm
+	(default_type_conversion), tp/Texinfo/Convert/LaTeX.pm
+	(%def_line_commands, _convert_def_line, _convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert_def_line, _convert),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (%line_commands)
+	(_convert_def_line, _convert), tp/Texinfo/Convert/Text.pm
+	(%converted_formattable_line_commands, _convert_def_line)
+	(_convert), tp/Texinfo/Convert/TextContent.pm
+	(%formatted_line_commands, converter_initialize),
+	tp/Texinfo/XS/convert/convert_html.c (convert_def_command),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_def_line)
+	(convert_to_text_internal), : convert
+	@def* line command in addition to def_line type.
+
 2024-06-10  Patrice Dumas  <pertusus@free.fr>
 
 	Use a string list for extra_misc_args

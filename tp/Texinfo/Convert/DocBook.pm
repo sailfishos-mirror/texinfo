@@ -184,7 +184,7 @@ foreach my $command ('item', 'headitem', 'tab',
 }
 
 my %docbook_line_commands = %Texinfo::Commands::line_commands;
-foreach my $command ('itemx', keys %Texinfo::Commands::def_commands) {
+foreach my $command ('itemx') {
   delete $docbook_line_commands{$command};
 }
 
@@ -721,6 +721,55 @@ sub _new_document_context($)
                           });
 }
 
+sub _convert_def_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $result = "<synopsis>";;
+  $result .= $self->_index_entry($element);
+  $self->_new_document_context();
+  $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
+  $self->{'document_context'}->[-1]->{'inline'}++;
+  if ($element->{'args'} and @{$element->{'args'}}
+      and $element->{'args'}->[0]->{'contents'}) {
+    my $main_command;
+    if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
+      $main_command = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
+    } else {
+      $main_command = $element->{'extra'}->{'def_command'};
+    }
+    foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
+      my $type = $arg->{'type'};
+      next if !$type and $arg->{'type'} eq 'spaces';
+
+      my $content = $self->_convert($arg);
+      if ($type eq 'spaces' or $type eq 'delimiter') {
+        $result .= $content;
+      } elsif ($type eq 'def_category') {
+        $result .= "<phrase role=\"category\"><emphasis role=\"bold\">$content</emphasis>:</phrase>";
+      } elsif ($type eq 'def_name') {
+        $result .= "<$defcommand_name_type{$main_command}>$content</$defcommand_name_type{$main_command}>";
+      } else {
+        if (!defined($def_argument_types_docbook{$type})) {
+          warn "BUG: no def_argument_types_docbook for $type";
+          return undef;
+        }
+        foreach my $element_attribute (reverse (
+                               @{$def_argument_types_docbook{$type}})) {
+          my ($element, $attribute_text) = _parse_attribute($element_attribute);
+          $content = "<$element${attribute_text}>$content</$element>";
+        }
+        $result .= $content;
+      }
+    }
+  }
+  pop @{$self->{'document_context'}};
+  $result .= "</synopsis>";
+  $result .= "\n";
+  return $result;
+}
+
 my $debug_global_element_nr = 0;
 
 
@@ -998,6 +1047,10 @@ sub _convert($$;$)
           return $result;
         }
         return '';
+      } elsif ($Texinfo::Commands::def_commands{$element->{'cmdname'}}) {
+        my $def_line_result = _convert_def_line($self, $element);
+        next if (!defined($def_line_result));
+        $result .= $def_line_result;
       } elsif (exists ($docbook_line_elements_with_arg_map{$element->{'cmdname'}})) {
         my ($docbook_element, $attribute_text)
           = _parse_attribute($docbook_line_elements_with_arg_map{$element->{'cmdname'}});
@@ -1718,47 +1771,9 @@ sub _convert($$;$)
       $result .= "<$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
       $self->{'document_context'}->[-1]->{'in_preformatted'} = 1;
     } elsif ($element->{'type'} eq 'def_line') {
-      $result .= "<synopsis>";
-      $result .= $self->_index_entry($element);
-      $self->_new_document_context();
-      $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
-      $self->{'document_context'}->[-1]->{'inline'}++;
-      if ($element->{'args'} and @{$element->{'args'}}
-          and $element->{'args'}->[0]->{'contents'}) {
-        my $main_command;
-        if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-          $main_command = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
-        } else {
-          $main_command = $element->{'extra'}->{'def_command'};
-        }
-        foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
-          my $type = $arg->{'type'};
-          next if !$type and $arg->{'type'} eq 'spaces';
-
-          my $content = $self->_convert($arg);
-          if ($type eq 'spaces' or $type eq 'delimiter') {
-            $result .= $content;
-          } elsif ($type eq 'def_category') {
-            $result .= "<phrase role=\"category\"><emphasis role=\"bold\">$content</emphasis>:</phrase>";
-          } elsif ($type eq 'def_name') {
-            $result .= "<$defcommand_name_type{$main_command}>$content</$defcommand_name_type{$main_command}>";
-          } else {
-            if (!defined($def_argument_types_docbook{$type})) {
-              warn "BUG: no def_argument_types_docbook for $type";
-              next;
-            }
-            foreach my $element_attribute (reverse (
-                                   @{$def_argument_types_docbook{$type}})) {
-              my ($element, $attribute_text) = _parse_attribute($element_attribute);
-              $content = "<$element${attribute_text}>$content</$element>";
-            }
-            $result .= $content;
-          }
-        }
-      }
-      pop @{$self->{'document_context'}};
-      $result .= "</synopsis>";
-      $result .= "\n";
+      my $def_line_result = _convert_def_line($self, $element);
+      next if (!defined($def_line_result));
+      $result .= $def_line_result;
     } elsif ($element->{'type'} eq 'table_term') {
       # should be closed by the @item.  Allows to have the index entries in
       # term, which is better than out.

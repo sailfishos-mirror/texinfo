@@ -205,7 +205,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       debug_parser_print_element (current, 0); debug ("");
     }
   else if (current->parent && (current->parent->cmd == CM_multitable
-                               || current->parent->type == ET_def_line))
+                               || current->parent->flags & EF_def_line))
     {
       ELEMENT *b, *e;
       abort_empty_line (&current);

@@ -453,8 +453,7 @@ $result_trees{'text_block_before_defline'} = {
               },
               'source_info' => {
                 'line_nr' => 18
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [

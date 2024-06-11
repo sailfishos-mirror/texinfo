@@ -466,8 +466,7 @@ $result_trees{'api_doc_with_linemacro'} = {
               },
               'source_info' => {
                 'line_nr' => 15
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [
@@ -657,8 +656,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'source_info' => {
                         'line_nr' => 19,
                         'macro' => 'param'
-                      },
-                      'type' => 'def_line'
+                      }
                     },
                     {
                       'contents' => [
@@ -830,8 +828,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'source_info' => {
                         'line_nr' => 22,
                         'macro' => 'param'
-                      },
-                      'type' => 'def_line'
+                      }
                     },
                     {
                       'contents' => [
@@ -1026,8 +1023,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'source_info' => {
                         'line_nr' => 26,
                         'macro' => 'param'
-                      },
-                      'type' => 'def_line'
+                      }
                     },
                     {
                       'contents' => [
@@ -1203,8 +1199,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'source_info' => {
                         'line_nr' => 29,
                         'macro' => 'returns'
-                      },
-                      'type' => 'def_line'
+                      }
                     },
                     {
                       'contents' => [
@@ -1323,8 +1318,7 @@ $result_trees{'api_doc_with_linemacro'} = {
                       'source_info' => {
                         'line_nr' => 32,
                         'macro' => 'raises'
-                      },
-                      'type' => 'def_line'
+                      }
                     },
                     {
                       'contents' => [

@@ -287,8 +287,7 @@ $result_trees{'def_defx_mismatch'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

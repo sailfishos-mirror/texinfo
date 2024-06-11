@@ -108,8 +108,7 @@ $result_trees{'adjacent_defline'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
@@ -214,8 +213,7 @@ $result_trees{'adjacent_defline'} = {
               },
               'source_info' => {
                 'line_nr' => 3
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'contents' => [

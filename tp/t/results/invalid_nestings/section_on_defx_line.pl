@@ -164,8 +164,7 @@ $result_trees{'section_on_defx_line'} = {
               },
               'source_info' => {
                 'line_nr' => 2
-              },
-              'type' => 'def_line'
+              }
             }
           ],
           'info' => {

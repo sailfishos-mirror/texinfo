@@ -260,8 +260,7 @@ $result_trees{'defcondx_Dbar'} = {
                   'sourcemark_type' => 'expanded_conditional_command',
                   'status' => 'end'
                 }
-              ],
-              'type' => 'def_line'
+              ]
             },
             {
               'contents' => [

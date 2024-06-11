@@ -241,8 +241,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       },
                       'source_info' => {
                         'line_nr' => 6
-                      },
-                      'type' => 'def_line'
+                      }
                     },
                     {
                       'contents' => [

@@ -218,8 +218,7 @@ $result_trees{'defx_after_paragraph_end'} = {
               },
               'source_info' => {
                 'line_nr' => 4
-              },
-              'type' => 'def_line'
+              }
             },
             {
               'args' => [
