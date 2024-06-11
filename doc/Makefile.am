@@ -41,7 +41,7 @@ if BUILD_PERL_API_TEXI
 # for the included section is therefore determined by the information
 # in the Pod file NAME section.
 $(srcdir)/pod2texi.texi: $(pod2texi_pl)
-	$(PERL) -I $(top_builddir)/tp -I $(top_builddir)/tp/Texinfo/XS -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections --subdir=$(srcdir) $(pod2texi_pl) > /dev/null
+	$(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections --subdir=$(srcdir) $(pod2texi_pl) > /dev/null
 endif
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
