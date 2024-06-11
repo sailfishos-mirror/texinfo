@@ -146,6 +146,12 @@ non_perl_free (void *ptr)
   free (ptr);
 }
 
+void *
+non_perl_malloc (size_t size)
+{
+  return malloc (size);
+}
+
 char *
 non_perl_strdup (const char *s)
 {

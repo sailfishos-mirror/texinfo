@@ -203,7 +203,7 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
 
   dTHX;
 
-  result = malloc (sizeof (BYTES_STRING));
+  result = (BYTES_STRING *) non_perl_malloc (sizeof (BYTES_STRING));
   dSP;
 
   ENTER;
@@ -229,7 +229,7 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
   result_ret = (unsigned char *)SvPVbyte (result_sv, len);
   result->len = (size_t) len;
   result->bytes = (unsigned char *)
-    malloc (sizeof (unsigned char) * len);
+    non_perl_malloc (sizeof (unsigned char) * len);
   memcpy (result->bytes, result_ret, result->len);
 
   PUTBACK;

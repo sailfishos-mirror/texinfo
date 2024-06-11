@@ -155,6 +155,7 @@ typedef struct TARGET_DIRECTORY_FILENAME {
 } TARGET_DIRECTORY_FILENAME;
 
 void non_perl_free (void *ptr);
+void *non_perl_malloc (size_t size);
 char *non_perl_strdup (const char *s);
 char *non_perl_strndup (const char *s, size_t n);
 int non_perl_xvasprintf (char **ptr, const char *template, va_list ap);

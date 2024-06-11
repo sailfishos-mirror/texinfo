@@ -76,7 +76,7 @@
 
       To be sure to use non Perl defined functions, constructors and wrappers
       can be used, from utils.h:
-       non_perl_free, non_perl_strdup, non_perl_strndup,
+       non_perl_free, non_perl_malloc, non_perl_strdup, non_perl_strndup,
        non_perl_xvasprintf, non_perl_xasprintf.
     */
 
