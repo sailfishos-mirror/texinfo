@@ -1,5 +1,12 @@
 2024-06-11  Patrice Dumas  <pertusus@free.fr>
 
+	doc: prefix target file names in srcdir with '$(srcdir)/'
+
+	* doc/Makefile.am (html_default_commands_args.texi): prefix the
+	target file names which is created in srcdir with '$(srcdir)/'.
+
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
+
 	tp/Texinfo/XS/parsetexi/conf.c: add missing stdlib.h include
 
 	Report by Bruno.

@@ -46,7 +46,7 @@ endif
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
-html_default_commands_args.texi: $(top_srcdir)/tp/Texinfo/Convert/HTML.pm $(srcdir)/generate_html_doc_texi.pl
+$(srcdir)/html_default_commands_args.texi: $(top_srcdir)/tp/Texinfo/Convert/HTML.pm $(srcdir)/generate_html_doc_texi.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/generate_html_doc_texi.pl $(srcdir)/html_default_commands_args.texi
 
 # We'd also like to use something like this, but Automake calls
