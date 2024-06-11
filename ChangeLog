@@ -1,5 +1,17 @@
 2024-06-11  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/Makefile.am (pod2texi.texi): add
+	-I $(top_builddir)/tp/Texinfo/XS.
+
+	* tp/Texinfo/ModulePath.pm.in (init): do not add
+	tp/Texinfo/XS/parsetexi to @INC, there is nothing to be found there.
+
+	* tp/Texinfo/ModulePath.pm.in ($tp_builddir),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (init): rename builddir as
+	tp_builddir.
+
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
+
 	doc: prefix target file names in srcdir with '$(srcdir)/'
 
 	* doc/Makefile.am (html_default_commands_args.texi): prefix the

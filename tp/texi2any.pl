@@ -1310,7 +1310,7 @@ require Texinfo::Transformations;
 Texinfo::Transformations->import();
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
-  my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::builddir,
+  my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::tp_builddir,
                                        'LocaleData');
   if (-d $locales_dir) {
     Texinfo::Translations::configure($locales_dir, $strings_textdomain);

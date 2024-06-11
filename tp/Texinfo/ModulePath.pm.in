@@ -25,7 +25,7 @@ our $texinfo_uninstalled = 0;
 # uninstalled locations paths, if $Texinfo::ModulePath::texinfo_uninstalled
 # Pathname of the tp/ build directory.  Used to find the locale
 # data.
-our $builddir = '';
+our $tp_builddir = '';
 
 our $top_builddir;
 our $top_srcdir;
@@ -59,6 +59,7 @@ sub init {
     if ($ENV{'top_srcdir'}) {
       $top_srcdir = $ENV{'top_srcdir'};
     } elsif (defined $named_args{'updirs'}) {
+      # the command used is always in the source directory
       my ($real_command_name, $command_directory, $command_suffix)
               = fileparse($0, '.pl');
       my $updir = File::Spec->updir();
@@ -81,15 +82,14 @@ sub init {
     if (defined($ENV{'top_builddir'})) {
       $top_builddir = $ENV{'top_builddir'};
     } else {
+      # this is correct for in-source builds only.
       $top_builddir = $top_srcdir;
     }
     if (defined($top_builddir)) {
       unshift @INC, File::Spec->catdir($top_builddir, 'tp',
         'Texinfo', 'XS');
-      unshift @INC, File::Spec->catdir($top_builddir, 'tp',
-        'Texinfo', 'XS', 'parsetexi');
 
-      $builddir = File::Spec->catdir($top_builddir, 'tp');
+      $tp_builddir = File::Spec->catdir($top_builddir, 'tp');
     }
 
   } else {
