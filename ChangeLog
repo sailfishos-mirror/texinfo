@@ -1,5 +1,10 @@
 2024-06-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/debug_parser.c: add missing stdlib.h
+	include.  Report by Bruno.
+
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
+
 	Add missing void to prototypes
 
 	* tp/Texinfo/XS/main/builtin_commands.h (set_element_type_name_info),
@@ -27,8 +32,7 @@
 
 2024-06-11  Patrice Dumas  <pertusus@free.fr>
 
-	tp/Texinfo/XS/parsetexi/conf.c: add missing stdlib.h include
-
+	* tp/Texinfo/XS/parsetexi/conf.c: add missing stdlib.h include.
 	Report by Bruno.
 
 2024-06-11  Patrice Dumas  <pertusus@free.fr>
