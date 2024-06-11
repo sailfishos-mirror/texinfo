@@ -584,7 +584,7 @@ locate_init_file (void)
       homedir = getenv ("HOME");
 #ifdef __MINGW32__
       if (!homedir)
-        homedir = getenv ("USERPROFILE")
+        homedir = getenv ("USERPROFILE");
 #endif
       if (homedir)
         {
@@ -612,7 +612,7 @@ locate_init_file (void)
     homedir = getenv ("HOME");
 #ifdef __MINGW32__
     if (!homedir)
-      homedir = getenv ("USERPROFILE")
+      homedir = getenv ("USERPROFILE");
 #endif
 
   if (homedir)
