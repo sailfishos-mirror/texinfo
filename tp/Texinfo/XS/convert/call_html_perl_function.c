@@ -1829,7 +1829,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
     {
       char *element_str = print_element_debug (element, 0);
       fprintf (stderr, "BUG: no hv: %p %s\n", element, element_str);
-      free (element_str);
+      non_perl_free (element_str);
       abort ();
     }
 

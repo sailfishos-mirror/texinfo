@@ -16,6 +16,7 @@
 #include <config.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -610,7 +611,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           text_printf (&message, "parent %p hv not set in %s '%s'\n",
                             e->parent, debug_str, convert_to_texinfo (e));
           fatal (message.text);
-          free (debug_str);
+          non_perl_free (debug_str);
         }
       sv = newRV_inc ((SV *) e->parent->hv);
       hv_store (e->hv, "parent", strlen ("parent"), sv, HSH_parent);
