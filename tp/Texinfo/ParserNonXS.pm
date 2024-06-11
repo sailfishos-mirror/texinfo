@@ -8422,32 +8422,6 @@ possible values of C<type> for tree elements for @-commands.
 
 =over
 
-=item command_as_argument
-
-This is the type of a command given in argument of C<@itemize>,
-C<@table>, C<@vtable> or C<@ftable>.  For example in
-
- @itemize @bullet
- @item item
- @end itemize
-
-the element corresponding with bullet has the following keys:
-
-  'cmdname' => 'bullet'
-
-The parent @-command has an entry in C<extra> for the I<command_as_argument>
-element:
-
-  'cmdname' => 'itemize'
-  'extra' => {'command_as_argument' => $command_element_as_argument}
-
-=item def_line
-
-This type is associated with a definition command with a x form,
-like C<@defunx>, C<@defvrx> and with C<@defline> and C<@deftypeline>.
-For the form without x, the associated I<def_line> is the first C<contents>
-element.  It is described in more details below.
-
 =item definfoenclose_command
 
 This type is set for an @-command that is redefined by C<@definfoenclose>.
@@ -8700,13 +8674,14 @@ C<untranslated_def_line_arg> container.
 
 =item inter_def_item
 
-The I<def_line> type is either associated with a container within a
-definition command, or is the type of a definition command with a x form,
-like C<@deffnx>, or C<@defline>.  It holds the definition line arguments.
-For each element in a C<def_line> I<line_arg> or I<block_line_arg>, the type of
-the element describes the meaning of the element.  It is one of
-I<def_category>, I<def_name>, I<def_class>, I<def_type>, I<def_arg>,
-I<def_typearg>, I<spaces> or I<delimiter>, depending on the definition.
+The I<def_line> type is associated with a container within a block definition
+command.  It holds the definition line arguments in I<block_line_arg>.
+A C<@def*> @-command line command such as C<@deffnx> or C<@defline>
+also holds the definition line arguments, in I<line_arg>.
+The type of each definition line arguments element describes the meaning of the
+element.  It is one of I<def_category>, I<def_name>, I<def_class>, I<def_type>,
+I<def_arg>, I<def_typearg>, I<spaces> or I<delimiter>, depending on the
+definition.
 
 The container with type I<def_item> holds the definition text content.
 Content appearing before a definition command with a x form is in
@@ -9109,7 +9084,7 @@ the cell.
 
 =item C<@ftable>
 
-The I<command_as_argument> C<extra> key points to the @-command on
+The I<command_as_argument> C<extra> key points to the @-command
 as argument on the @-command line.
 
 If the command in argument for C<@table>, C<@vtable> or C<@ftable>
