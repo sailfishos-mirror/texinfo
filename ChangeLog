@@ -1,4 +1,10 @@
-2024-06-10  Patrice Dumas  <pertusus@free.fr>
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
+
+	tp/Texinfo/XS/parsetexi/conf.c: add missing stdlib.h include
+
+	Report by Bruno.
+
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
 
 	Remove check and include of xlocale.h now done in gnulib locale
 
@@ -6,7 +12,7 @@
 	remove test of xlocale.h and explicit include, everything should be
 	covered by the gnulibe locale module.  From Gavin and Bruno.
 
-2024-06-10  Patrice Dumas  <pertusus@free.fr>
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
 
 	Add gnulib locale module for XS
 
