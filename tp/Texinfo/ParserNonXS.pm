@@ -8990,28 +8990,31 @@ or the C<@quotation> or C<@smallquotation> it is associated with.
 
 In I<clickstyle> there is the current clickstyle command.
 
-=item definition command
-
-I<def_command> holds the command name, without x if it is
-an x form of a definition command.
-I<original_def_cmdname> is the original def command.
-
-If it is an x form, it has I<not_after_command> set if not
-appearing after the definition command without x.
-
 =item C<def_line>
+
+=item line definition command
+
+I<def_command> holds the line definition command name, without x if the line
+definition command is an x form of a block definition command.  For a
+C<def_line> container, I<def_command> holds the command name associated
+with the C<def_line>.  I<original_def_cmdname> is the original def command
+name.
+
+If the element is a definition line command and is an x form of a block
+definition command, it has I<not_after_command> set if not appearing
+after the block definition command without x.
 
 The I<def_index_element> is a Texinfo tree element corresponding to
 the index entry associated to the definition line, based on the
 name and class.  If needed this element is based on translated strings.
-In that case, if C<@documentlanguage> is defined where the C<def_line>
+In that case, if C<@documentlanguage> is defined where the element
 is located, I<documentlanguage> holds the documentlanguage value.
 I<def_index_ref_element> is similar, but not translated, and only set if
 there could have been a translation.
 
 The I<omit_def_name_space> key value is set and true if the Texinfo variable
-C<txidefnamenospace> was set for the C<def_line>, signaling that the
-space between function definition name and arguments should be omitted.
+C<txidefnamenospace> was set, signaling that the space between function
+definition name and arguments should be omitted.
 
 =item C<@definfoenclose> defined commands
 
