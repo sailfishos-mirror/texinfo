@@ -153,9 +153,6 @@ GL_GNULIB_MDA_PUTENV=0
 AM_CONDITIONAL([HAVE_ICONV],
                [test "x$am_func_iconv" = "xyes"])
 
-AC_CHECK_HEADERS(xlocale.h)
-
-
 # Do not include Perl configuration values when outputting these variables,
 # as advised in the automake manual for CFLAGS and LDFLAGS, which could be
 # reset by the user.  Here PERL_EXT_CFLAGS and PERL_EXT_LDFLAGS play the

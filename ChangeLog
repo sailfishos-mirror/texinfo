@@ -1,5 +1,13 @@
 2024-06-10  Patrice Dumas  <pertusus@free.fr>
 
+	Remove check and include of xlocale.h now done in gnulib locale
+
+	* tp/Texinfo/XS/configure.ac, tp/Texinfo/XS/main/manipulate_indices.c:
+	remove test of xlocale.h and explicit include, everything should be
+	covered by the gnulibe locale module.  From Gavin and Bruno.
+
+2024-06-10  Patrice Dumas  <pertusus@free.fr>
+
 	Add gnulib locale module for XS
 
 	* tp/Texinfo/XS:
