@@ -825,7 +825,7 @@ for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full 
 
 
 Setting flags
-our_CFLAGS='-g -Wformat-security -Wall -Wno-parentheses -Wno-missing-braces'
+our_CFLAGS='-g -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 

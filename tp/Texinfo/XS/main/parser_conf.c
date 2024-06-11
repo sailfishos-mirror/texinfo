@@ -53,7 +53,7 @@ retrieve_parser_conf (int parser_conf_descriptor)
 }
 
 PARSER_CONF *
-register_conf ()
+register_conf (void)
 {
   size_t parser_conf_index;
   size_t i;

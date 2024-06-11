@@ -163,7 +163,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 #define INTERNAL_line -2
 
 /* following related to element types */
-void set_element_type_name_info ();
+void set_element_type_name_info (void);
 enum element_type find_element_type (char *type_name);
 
 #endif

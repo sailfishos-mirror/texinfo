@@ -1,5 +1,13 @@
 2024-06-11  Patrice Dumas  <pertusus@free.fr>
 
+	Add missing void to prototypes
+
+	* tp/Texinfo/XS/main/builtin_commands.h (set_element_type_name_info),
+	tp/Texinfo/XS/main/parser_conf.c (register_conf): add void in
+	prototypes.  Found thanks to -Wstrict-prototypes based on Bruno.
+
+2024-06-11  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/Makefile.am (pod2texi.texi): add
 	-I $(top_builddir)/tp/Texinfo/XS.
 
