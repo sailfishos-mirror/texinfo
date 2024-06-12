@@ -5781,9 +5781,9 @@ sub _handle_line_command($$$$$$)
         $parent->{'extra'}->{'subentry'} = $command_e;
         my $subentry_level = 1;
         if ($parent->{'cmdname'} eq 'subentry') {
-          $subentry_level = $parent->{'extra'}->{'level'} + 1;
+          $subentry_level = $parent->{'extra'}->{'subentry_level'} + 1;
         }
-        $command_e->{'extra'} = {'level' => $subentry_level,
+        $command_e->{'extra'} = {'subentry_level' => $subentry_level,
                                  'subentry_parent' => $parent};
         if ($subentry_level > 2) {
           $self->_line_error(__(

@@ -205,7 +205,7 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -271,7 +271,6 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
                 'subentry' => {
                   'args' => [
                     {
@@ -291,7 +290,7 @@ $result_trees{'subentries'} = {
                   ],
                   'cmdname' => 'subentry',
                   'extra' => {
-                    'level' => 2,
+                    'subentry_level' => 2,
                     'subentry_parent' => {}
                   },
                   'info' => {
@@ -303,6 +302,7 @@ $result_trees{'subentries'} = {
                     'line_nr' => 9
                   }
                 },
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -369,7 +369,6 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
                 'subentry' => {
                   'args' => [
                     {
@@ -388,7 +387,6 @@ $result_trees{'subentries'} = {
                   ],
                   'cmdname' => 'subentry',
                   'extra' => {
-                    'level' => 2,
                     'subentry' => {
                       'args' => [
                         {
@@ -408,7 +406,7 @@ $result_trees{'subentries'} = {
                       ],
                       'cmdname' => 'subentry',
                       'extra' => {
-                        'level' => 3,
+                        'subentry_level' => 3,
                         'subentry_parent' => {}
                       },
                       'info' => {
@@ -420,6 +418,7 @@ $result_trees{'subentries'} = {
                         'line_nr' => 10
                       }
                     },
+                    'subentry_level' => 2,
                     'subentry_parent' => {}
                   },
                   'info' => {
@@ -431,6 +430,7 @@ $result_trees{'subentries'} = {
                     'line_nr' => 10
                   }
                 },
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -540,7 +540,7 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -606,7 +606,6 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
                 'subentry' => {
                   'args' => [
                     {
@@ -626,7 +625,7 @@ $result_trees{'subentries'} = {
                   ],
                   'cmdname' => 'subentry',
                   'extra' => {
-                    'level' => 2,
+                    'subentry_level' => 2,
                     'subentry_parent' => {}
                   },
                   'info' => {
@@ -638,6 +637,7 @@ $result_trees{'subentries'} = {
                     'line_nr' => 14
                   }
                 },
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -704,7 +704,6 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
                 'subentry' => {
                   'args' => [
                     {
@@ -723,7 +722,6 @@ $result_trees{'subentries'} = {
                   ],
                   'cmdname' => 'subentry',
                   'extra' => {
-                    'level' => 2,
                     'subentry' => {
                       'args' => [
                         {
@@ -743,7 +741,7 @@ $result_trees{'subentries'} = {
                       ],
                       'cmdname' => 'subentry',
                       'extra' => {
-                        'level' => 3,
+                        'subentry_level' => 3,
                         'subentry_parent' => {}
                       },
                       'info' => {
@@ -755,6 +753,7 @@ $result_trees{'subentries'} = {
                         'line_nr' => 15
                       }
                     },
+                    'subentry_level' => 2,
                     'subentry_parent' => {}
                   },
                   'info' => {
@@ -766,6 +765,7 @@ $result_trees{'subentries'} = {
                     'line_nr' => 15
                   }
                 },
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {

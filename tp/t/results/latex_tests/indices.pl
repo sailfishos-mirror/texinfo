@@ -725,8 +725,8 @@ $result_trees{'indices'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
                 'sortas' => 'a!"@b',
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {

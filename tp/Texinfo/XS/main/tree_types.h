@@ -76,6 +76,11 @@ enum output_unit_type {
    OU_special_unit,
 };
 
+#define AI_KEYS_LIST \
+  ai_key_name(expand_index) \
+  ai_key_name(subentry_level) \
+
+
 /* see Texinfo::HTML _prepare_output_units_global_targets
 
    NOTE the special output units direction names

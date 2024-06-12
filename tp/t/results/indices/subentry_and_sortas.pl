@@ -210,8 +210,8 @@ $result_trees{'subentry_and_sortas'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
                 'sortas' => 'B---S1',
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -324,8 +324,8 @@ $result_trees{'subentry_and_sortas'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
                 'sortas' => 'X---S1',
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {

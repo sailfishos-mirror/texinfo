@@ -446,7 +446,7 @@ $result_trees{'double_seeentry_seealso'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {

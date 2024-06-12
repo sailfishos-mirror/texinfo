@@ -804,13 +804,13 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 {
                   int status;
                   int parent_level
-                        = lookup_extra_integer (parent, "level", &status);
+                     = lookup_extra_integer (parent, "subentry_level", &status);
                   if (status >= 0 && parent_level)
                     level = parent_level + 1;
                   else
                     fatal ("No subentry parent level or level 0");
                 }
-              add_extra_integer (command_e, "level", level);
+              add_extra_integer (command_e, "subentry_level", level);
               add_extra_element (command_e, "subentry_parent", parent);
               if (level > 2)
                 {

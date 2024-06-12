@@ -125,7 +125,7 @@ $result_trees{'seealso_duplicate'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -242,7 +242,7 @@ $result_trees{'seealso_duplicate'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
@@ -376,7 +376,7 @@ $result_trees{'seealso_duplicate'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'subentry_level' => 1,
                 'subentry_parent' => {}
               },
               'info' => {
