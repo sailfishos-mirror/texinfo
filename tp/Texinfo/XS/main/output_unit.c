@@ -402,7 +402,7 @@ split_pages (OUTPUT_UNIT_LIST *output_units, const char *split)
       if (section)
         {
           int status;
-          level = lookup_extra_integer (section, "section_level", &status);
+          level = lookup_extra_integer (section, AI_key_section_level, &status);
           if (status < 0)
             level = -3;
         }
@@ -657,8 +657,8 @@ units_directions (LABEL_LIST *identifiers_target,
               if (section_output_unit->directions[RUD_type_FastForward])
                 directions[RUD_type_FastForward]
                  = section_output_unit->directions[RUD_type_FastForward];
-              section_level = lookup_extra_integer (section, "section_level",
-                                                               &status);
+              section_level = lookup_extra_integer (section, 
+                                         AI_key_section_level, &status);
               /* status should always be ok */
               if (status >= 0 && section_level <= 1)
                 directions[RUD_type_FastBack] = section_output_unit;
@@ -704,7 +704,7 @@ units_directions (LABEL_LIST *identifiers_target,
           while (1)
             {
               up_section_level
-                = lookup_extra_integer (up, "section_level", &status);
+                = lookup_extra_integer (up, AI_key_section_level, &status);
 
               const ELEMENT_LIST *up_section_directions
                         = lookup_extra_directions (up,
@@ -754,7 +754,7 @@ units_directions (LABEL_LIST *identifiers_target,
             {
               int status;
               int section_level
-                = lookup_extra_integer (section, "section_level", &status);
+                = lookup_extra_integer (section, AI_key_section_level, &status);
 
               if (status >= 0 && section_level <= 1
                   && directions[RUD_type_FastForward])

@@ -30,9 +30,7 @@ void add_extra_misc_args (ELEMENT *e, char *key, STRING_LIST *value);
 void add_extra_index_entry (ELEMENT *e, char *key, INDEX_ENTRY_LOCATION *value);
 void add_extra_string (ELEMENT *e, const char *key, char *value);
 void add_extra_string_dup (ELEMENT *e, const char *key, const char *value);
-void add_extra_integer (ELEMENT *e, char *key, long value);
-void add_associated_info_integer (ASSOCIATED_INFO *a,
-                                  const char *key, int value);
+void add_extra_integer (ELEMENT *e, enum ai_key_name key, int value);
 void add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
                                      const char *value);
 KEY_PAIR *lookup_extra (const ELEMENT *e, const char *key);
@@ -42,14 +40,18 @@ const STRING_LIST *lookup_extra_misc_args (const ELEMENT *e, const char *key);
 const INDEX_ENTRY_LOCATION *lookup_extra_index_entry (const ELEMENT *e,
                                                       const char *key);
 const ELEMENT_LIST *lookup_extra_directions (const ELEMENT *e, const char *key);
-int lookup_extra_integer (const ELEMENT *e, const char *key, int *ret);
+int lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret);
 char *lookup_extra_string (const ELEMENT *e, const char *key);
 
-KEY_PAIR *lookup_associated_info (const ASSOCIATED_INFO *a, const char *key);
+KEY_PAIR *lookup_associated_info (const ASSOCIATED_INFO *a,
+                                  enum ai_key_name key);
 
 /* not to be used in general, only when using associated info
    as a temporary holder of information, for speed */
-KEY_PAIR *get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
+KEY_PAIR *get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
                                    const enum extra_type type);
-KEY_PAIR *lookup_extra_by_index (const ELEMENT *e, const char *key, int index);
+KEY_PAIR *get_associated_info_skey (ASSOCIATED_INFO *a, const char *key,
+                         const enum extra_type type);
+KEY_PAIR *lookup_extra_by_index (const ELEMENT *e, enum ai_key_name key,
+                                 int index);
 #endif

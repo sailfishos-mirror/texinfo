@@ -696,6 +696,22 @@ typedef struct SORTED_INDEX_NAMES {
     const INDEX **list;
 } SORTED_INDEX_NAMES;
 
+typedef struct FILE_INFO_KEY_PAIR {
+    const char *key;
+    int integer;
+} FILE_INFO_KEY_PAIR;
+
+typedef struct FILE_ASSOCIATED_INFO {
+    size_t info_number;
+    size_t info_space;
+    FILE_INFO_KEY_PAIR *info;
+} FILE_ASSOCIATED_INFO;
+
+typedef struct FILE_ASSOCIATED_INFO_LIST {
+    size_t number;
+    FILE_ASSOCIATED_INFO *list;
+} FILE_ASSOCIATED_INFO_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -841,7 +857,7 @@ typedef struct CONVERTER {
     HTML_ASSOCIATED_INLINE_CONTENT_LIST associated_inline_content;
     PAGES_CSS_LIST page_css;
     STRING_LIST check_htmlxref_already_warned;
-    ASSOCIATED_INFO_LIST html_files_information;
+    FILE_ASSOCIATED_INFO_LIST html_files_information;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
 } CONVERTER;

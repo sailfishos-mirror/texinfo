@@ -1,5 +1,31 @@
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(add_associated_file_info_integer, html_register_file_information)
+	(lookup_associated_file_info, html_get_file_information)
+	(html_set_pages_files, setup_output_simple_page)
+	(html_conversion_finalization), tp/Texinfo/XS/main/converter_types.h
+	(FILE_INFO_KEY_PAIR, FILE_ASSOCIATED_INFO, FILE_ASSOCIATED_INFO_LIST)
+	(CONVERTER), tp/Texinfo/XS/main/extra.c: add a specific structure for
+	information associated to a file instead of using the generic
+	ASSOCIATED_INFO structures.  Remove add_associated_info_integer.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_additional_info),
+	tp/Texinfo/XS/main/debug.c (print_associate_info_debug),
+	tp/Texinfo/XS/main/extra.c (get_associated_info_skey)
+	(get_associated_info_key, lookup_associated_info)
+	(lookup_associated_sinfo, add_extra_integer, lookup_extra_by_index)
+	(lookup_extra_integer), tp/Texinfo/XS/main/manipulate_tree.c
+	(copy_associated_info), tp/Texinfo/XS/main/tree.c (ai_key_names),
+	tp/Texinfo/XS/main/tree_types.h (AI_KEYS_LIST),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reassociate_to_node): use an integer key for extra info integer.
+	Duplicate some functions to still use string as key for other
+	extra types.  Update callers.
+
+2024-06-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_file_information): 
 	make sure that the key is saved on the heap by adding to converter
 	small_strings.

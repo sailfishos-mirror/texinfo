@@ -295,8 +295,11 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
       for (i = 0; i < a->info_number; i++)
         {
           const KEY_PAIR *k = &a->info[i];
-#define STORE(sv) hv_store (extra, key, strlen (key), sv, 0)
-          const char *key = k->key;
+#define STORES(sv) hv_store (extra, skey, strlen (skey), sv, 0)
+#define STORE(sv) hv_store (extra, key_name, strlen (key_name), sv, 0)
+          const char *skey = k->skey;
+          enum ai_key_name key = k->key;
+          const char *key_name = ai_key_names[key];
 
           if (k->type == extra_deleted)
             continue;
@@ -316,7 +319,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               ELEMENT *f = k->k.element;
               if (!f->hv)
                 f->hv = newHV ();
-              STORE(newRV_inc ((SV *)f->hv));
+              STORES(newRV_inc ((SV *)f->hv));
               break;
               }
             case extra_element_oot:
@@ -347,39 +350,39 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               ELEMENT *f = k->k.element;
               if (!f->hv || !avoid_recursion)
                 element_to_perl_hash (f, avoid_recursion);
-              STORE(newRV_inc ((SV *)f->hv));
+              STORES(newRV_inc ((SV *)f->hv));
               break;
               }
             case extra_container:
               {
               ELEMENT *f = k->k.element;
               build_perl_container (f, avoid_recursion);
-              STORE(newRV_inc ((SV *)f->hv));
+              STORES(newRV_inc ((SV *)f->hv));
               break;
               }
             case extra_contents:
               {
               const ELEMENT_LIST *l = k->k.list;
               if (l && l->number)
-                STORE(build_perl_array (l, avoid_recursion));
+                STORES(build_perl_array (l, avoid_recursion));
               break;
               }
             case extra_directions:
               {
-              STORE(build_perl_directions (k->k.list, avoid_recursion));
+              STORES(build_perl_directions (k->k.list, avoid_recursion));
               break;
               }
             case extra_string:
               { /* A simple string. */
               const char *value = k->k.string;
-              STORE(newSVpv_utf8 (value, 0));
+              STORES(newSVpv_utf8 (value, 0));
               break;
               }
             case extra_integer:
               { /* A simple integer.  The intptr_t cast here prevents
                    a warning on MinGW ("cast from pointer to integer of
                    different size"). */
-              IV value = (IV) (intptr_t) k->k.integer;
+              IV value = (IV) (int) k->k.integer;
               STORE(newSViv (value));
               break;
               }
@@ -390,7 +393,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               AV *av = newAV ();
               av_unshift (av, l->number);
 
-              STORE(newRV_inc ((SV *)av));
+              STORES(newRV_inc ((SV *)av));
               /* An array of strings or integers. */
               for (j = 0; j < l->number; j++)
                 {
@@ -408,7 +411,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
 
               av_unshift (av, 2);
 
-              STORE(newRV_inc ((SV *)av));
+              STORES(newRV_inc ((SV *)av));
               sv = newSVpv_utf8 (entry_loc->index_name,
                                  strlen (entry_loc->index_name));
               av_store (av, 0, sv);
@@ -422,6 +425,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
             }
         }
 #undef STORE
+#undef STORES
     }
 }
 

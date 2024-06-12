@@ -1295,7 +1295,8 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                     {
                       int status;
                       int expand_index
-                       = lookup_extra_integer (content, "expand_index", &status);
+                       = lookup_extra_integer (content, AI_key_expand_index,
+                                               &status);
                       if (expand_index > 0)
                         return idx_leading_text_or_command (
                                          content->e.c->args.list[expand_index],

@@ -34,8 +34,6 @@
 #include "option_types.h"
 #include "converter_types.h"
 #include "types_data.h"
-/* for add_associated_info_integer */
-#include "extra.h"
 /* for element_command_name (or could be builtin_command_data) */
 #include "builtin_commands.h"
 #include "utils.h"

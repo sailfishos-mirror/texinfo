@@ -77,8 +77,29 @@ enum output_unit_type {
 };
 
 #define AI_KEYS_LIST \
-  ai_key_name(expand_index) \
-  ai_key_name(subentry_level) \
+  ai_key(cell_number) \
+  ai_key(item_number) \
+  ai_key(global_command_number) \
+  ai_key(expand_index) \
+  ai_key(level_modifier) \
+  ai_key(max_columns) \
+  ai_key(row_number) \
+  ai_key(section_level) \
+  ai_key(subentry_level) \
+
+/*
+  ai_key() \
+  ai_key() \
+*/
+
+extern const char *ai_key_names[];
+
+enum ai_key_name {
+   AI_key_none,
+  #define ai_key(name) AI_key_ ## name,
+   AI_KEYS_LIST
+  #undef ai_key
+};
 
 
 /* see Texinfo::HTML _prepare_output_units_global_targets
@@ -156,7 +177,8 @@ typedef struct STRING_LIST {
 } STRING_LIST;
 
 typedef struct KEY_PAIR {
-    const char *key;
+    const char *skey;
+    enum ai_key_name key;
     enum extra_type type;
     union {
       struct ELEMENT *element;

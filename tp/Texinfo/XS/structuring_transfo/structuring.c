@@ -126,7 +126,7 @@ sectioning_structure (DOCUMENT *document)
         {
           int status;
           int prev_section_level
-             = lookup_extra_integer (previous_section, "section_level",
+             = lookup_extra_integer (previous_section, AI_key_section_level,
                                      &status);
           if (prev_section_level < level)
           /* new command is below */
@@ -171,7 +171,7 @@ sectioning_structure (DOCUMENT *document)
                 {
                   const ELEMENT_LIST *up_section_directions
                     = lookup_extra_directions (up, "section_directions");
-                  up_level = lookup_extra_integer (up, "section_level",
+                  up_level = lookup_extra_integer (up, AI_key_section_level,
                                                    &status);
                   if (up_section_directions
                       && up_section_directions->list[D_up]
@@ -185,7 +185,7 @@ sectioning_structure (DOCUMENT *document)
                 {
                   up = sec_root;
                   int sec_root_level
-                    = lookup_extra_integer (sec_root, "section_level",
+                    = lookup_extra_integer (sec_root, AI_key_section_level,
                                                                &status);
                   if (level <= sec_root_level)
                  /* in that case, the level of the element is not in line
@@ -230,7 +230,7 @@ sectioning_structure (DOCUMENT *document)
                    */
                   ELEMENT_LIST *sec_root_childs
                     = lookup_extra_contents (sec_root, "section_childs");
-                  add_extra_integer (sec_root, "section_level", level -1);
+                  add_extra_integer (sec_root, AI_key_section_level, level -1);
                   add_to_element_list (sec_root_childs, content);
                   number_top_level = level;
                   if (number_top_level == 0)
@@ -271,7 +271,7 @@ sectioning_structure (DOCUMENT *document)
             = add_extra_contents (sec_root, "section_childs", 1);
            /* first section determines the level of the root.  It is
               typically -1 when there is a @top. */
-          add_extra_integer (sec_root, "section_level", level -1);
+          add_extra_integer (sec_root, AI_key_section_level, level -1);
           add_to_element_list (sec_root_childs, content);
            /*
             in the tree as an out of tree element in extra */
@@ -292,7 +292,7 @@ sectioning_structure (DOCUMENT *document)
                  command_unnumbered[level] = 1;
              }
         }
-      add_extra_integer (content, "section_level", level);
+      add_extra_integer (content, AI_key_section_level, level);
 
       if (command_numbers[level] < 0)
         {

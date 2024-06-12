@@ -1361,7 +1361,7 @@ section_level (const ELEMENT *section)
 {
   int level = command_structuring_level[section->cmd];
   int status;
-  int section_modifier = lookup_extra_integer (section, "level_modifier",
+  int section_modifier = lookup_extra_integer (section, AI_key_level_modifier,
                                                &status);
   if (!status && level >= 0)
     {
@@ -1383,7 +1383,7 @@ section_level_adjusted_command_name (const ELEMENT *element)
   int status;
   int heading_level;
 
-  heading_level = lookup_extra_integer (element, "section_level", &status);
+  heading_level = lookup_extra_integer (element, AI_key_section_level, &status);
 
   /* the following condition should only be false if sectioning_structure was
      not called */

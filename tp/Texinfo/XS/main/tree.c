@@ -51,6 +51,13 @@ static int *obs_element_first = 0;
 #include "api_to_perl.h"
 #include "tree.h"
 
+const char *ai_key_names[] = {
+  0,
+  #define ai_key(name) #name,
+   AI_KEYS_LIST
+  #undef ai_key
+};
+
 void
 reset_obstacks (void)
 {

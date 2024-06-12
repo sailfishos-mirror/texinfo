@@ -658,7 +658,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
                   if (parser_format_expanded_p (inline_type))
                     {
                       expandp = 1;
-                      add_extra_integer (current, "expand_index", 1);
+                      add_extra_integer (current, AI_key_expand_index, 1);
                     }
                   else
                     expandp = 0;
@@ -672,7 +672,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
                   if (current->cmd == CM_inlineifclear)
                     expandp = !expandp;
                   if (expandp)
-                    add_extra_integer (current, "expand_index", 1);
+                    add_extra_integer (current, AI_key_expand_index, 1);
                 }
               else
                 expandp = 0;
@@ -687,7 +687,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
               ELEMENT *arg;
               int brace_count = 1;
 
-              add_extra_integer (current, "expand_index", 2);
+              add_extra_integer (current, AI_key_expand_index, 2);
 
               e = new_element (ET_elided_brace_command_arg);
               add_to_element_args (current, e);

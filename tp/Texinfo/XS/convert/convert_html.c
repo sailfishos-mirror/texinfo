@@ -1349,16 +1349,59 @@ html_get_associated_formatted_inline_content (CONVERTER *self,
   return strdup ("");
 }
 
+FILE_INFO_KEY_PAIR *
+add_associated_file_info_integer (FILE_ASSOCIATED_INFO *a,
+                                  const char *key, int value)
+{
+  int i;
+  for (i = 0; i < a->info_number; i++)
+    {
+      if (!strcmp (a->info[i].key, key))
+        break;
+    }
+  if (i == a->info_number)
+    {
+      if (a->info_number == a->info_space)
+        {
+          a->info = realloc (a->info,
+                         (a->info_space += 5) * sizeof (FILE_INFO_KEY_PAIR));
+          if (!a->info)
+            fatal ("realloc failed");
+        }
+      a->info_number++;
+
+      a->info[i].key = key;
+    }
+
+  a->info[i].integer = value;
+
+  return &a->info[i];
+}
+
 /* API to register an information to a file and get it.  To be able to
    set an information during conversion and get it back during headers
    and footers conversion */
+
 void
 html_register_file_information (CONVERTER *self, const char *key,
                                 int value)
 {
-  ASSOCIATED_INFO *associated_info
+  FILE_ASSOCIATED_INFO *associated_info
     = &self->html_files_information.list[self->current_filename.file_number];
-  add_associated_info_integer (associated_info, key, value);
+  add_associated_file_info_integer (associated_info, key, value);
+}
+
+const FILE_INFO_KEY_PAIR *
+lookup_associated_file_info (const FILE_ASSOCIATED_INFO *a,
+                             const char *key)
+{
+  int i;
+  for (i = 0; i < a->info_number; i++)
+    {
+      if (!strcmp (a->info[i].key, key))
+        return &a->info[i];
+    }
+  return 0;
 }
 
 int
@@ -1366,8 +1409,8 @@ html_get_file_information (const CONVERTER *self, const char *key,
                            const char *filename, int *status)
 {
   size_t page_number;
-  const ASSOCIATED_INFO *associated_info;
-  const KEY_PAIR *k;
+  const FILE_ASSOCIATED_INFO *associated_info;
+  const FILE_INFO_KEY_PAIR *k;
 
   *status = 0;
   if (filename)
@@ -1384,13 +1427,13 @@ html_get_file_information (const CONVERTER *self, const char *key,
     page_number = self->current_filename.file_number;
 
   associated_info = &self->html_files_information.list[page_number];
-  k = lookup_associated_info (associated_info, key);
+  k = lookup_associated_file_info (associated_info, key);
   if (!k)
     {
       *status = -2;
       return 0;
     }
-  return k->k.integer;
+  return k->integer;
 }
 
 void
@@ -3894,7 +3937,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                     {
                       int status;
                       int section_level = lookup_extra_integer (command,
-                                               "section_level", &status);
+                                               AI_key_section_level, &status);
                       if (section_level == 1)
                         {
                           tree->tree
@@ -5266,7 +5309,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
                 {
                   int status;
                   int section_level
-                    = lookup_extra_integer (root_command, "section_level",
+                    = lookup_extra_integer (root_command, AI_key_section_level,
                                                                &status);
                   if (!status && section_level <= 1)
                     break;
@@ -5921,10 +5964,10 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
           self->page_css.number * sizeof (CSS_LIST));
 
   self->html_files_information.number = self->output_unit_files.number +1;
-  self->html_files_information.list = (ASSOCIATED_INFO *)
-    malloc (self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+  self->html_files_information.list = (FILE_ASSOCIATED_INFO *)
+   malloc (self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
   memset (self->html_files_information.list, 0,
-          self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+          self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
 
   self->pending_closes.number = self->output_unit_files.number +1;
   self->pending_closes.list = (STRING_STACK *)
@@ -5949,10 +5992,11 @@ setup_output_simple_page (CONVERTER *self, const char *output_filename)
           self->page_css.number * sizeof (CSS_LIST));
 
   self->html_files_information.number = 1+1;
-  self->html_files_information.list = (ASSOCIATED_INFO *)
-       malloc (self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+  self->html_files_information.list = (FILE_ASSOCIATED_INFO *)
+       malloc (self->html_files_information.number
+          * sizeof (FILE_ASSOCIATED_INFO));
   memset (self->html_files_information.list, 0,
-          self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+          self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
 
   self->pending_closes.number = 1+1;
   self->pending_closes.list = (STRING_STACK *)
@@ -6311,15 +6355,16 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
     return result.text;
 
   root_children = lookup_extra_contents (section_root, "section_childs");
-  min_root_level = lookup_extra_integer (root_children->list[0], "section_level",
+  min_root_level = lookup_extra_integer (root_children->list[0],
+                                         AI_key_section_level,
                                          &status);
   max_root_level = min_root_level;
 
   for (i = 0; i < root_children->number; i++)
     {
       const ELEMENT *top_section = root_children->list[i];
-      int section_level = lookup_extra_integer (top_section, "section_level",
-                                      &status);
+      int section_level
+        = lookup_extra_integer (top_section, AI_key_section_level, &status);
       if (section_level < min_root_level)
         min_root_level = section_level;
       if (section_level > max_root_level)
@@ -6378,7 +6423,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
       const ELEMENT *section = top_section;
       while (section)
        {
-         int section_level = lookup_extra_integer (section, "section_level",
+         int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
          const ELEMENT_LIST *section_childs
            = lookup_extra_contents (section, "section_childs");
@@ -6495,7 +6540,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       section = section_directions->list[D_up];
 
                       section_level = lookup_extra_integer (section,
-                                                "section_level", &status);
+                                                AI_key_section_level, &status);
                       text_append_n (&result, "</li>\n", 6);
 
                       for (i = 0; i < 2 * (section_level - min_root_level); i++)
@@ -10403,7 +10448,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
         }
     }
 
-  lookup_extra_integer (element, "section_level", &status);
+  lookup_extra_integer (element, AI_key_section_level, &status);
   level_corrected_cmd = cmd;
   if (status >= 0)
     {
@@ -10492,7 +10537,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   else
     {
       int status;
-      int level = lookup_extra_integer (element, "section_level", &status);
+      int level = lookup_extra_integer (element, AI_key_section_level, &status);
       if (status >= 0)
         {
           heading_level = level;
@@ -10512,7 +10557,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       char *attribute_class;
       int status;
       int level
-        = lookup_extra_integer (opening_section, "section_level", &status);
+        = lookup_extra_integer (opening_section, AI_key_section_level, &status);
       STRING_LIST *closed_strings;
 
        /* if Structuring sectioning_structure was not called on the
@@ -10708,7 +10753,7 @@ convert_inline_command (CONVERTER *self, const enum command_id cmd,
   else
     {
       int status;
-      int expand_index = lookup_extra_integer (element, "expand_index",
+      int expand_index = lookup_extra_integer (element, AI_key_expand_index,
                                                &status);
       if (expand_index > 0)
         arg_index = 1;
@@ -12262,7 +12307,7 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
   text_append_n (result, "<", 1);
   text_append_n (result, html_element, 2);
 
-  cell_nr = lookup_extra_integer (element, "cell_number", &status);
+  cell_nr = lookup_extra_integer (element, AI_key_cell_number, &status);
   multitable = row->parent->parent;
 
   columnfractions = lookup_extra_element (multitable, "columnfractions");
@@ -17368,7 +17413,7 @@ html_conversion_finalization (CONVERTER *self)
   int i;
   for (i = 0; i < self->html_files_information.number; i++)
     {
-      destroy_associated_info (&self->html_files_information.list[i]);
+      free (self->html_files_information.list[i].info);
     }
   free (self->html_files_information.list);
 

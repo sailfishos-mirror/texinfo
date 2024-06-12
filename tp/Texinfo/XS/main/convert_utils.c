@@ -226,7 +226,7 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
             {
               int status;
               int section_level
-                    = lookup_extra_integer (current, "section_level",
+                    = lookup_extra_integer (current, AI_key_section_level,
                                             &status);
               if (section_level == 1)
                 {
@@ -254,7 +254,8 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
       if (current->cmd == CM_appendix)
         {
           int status;
-          int section_level = lookup_extra_integer (current, "section_level",
+          int section_level = lookup_extra_integer (current,
+                                                    AI_key_section_level,
                                                     &status);
           if (section_level == 1)
             text_append (&result, "Appendix ");

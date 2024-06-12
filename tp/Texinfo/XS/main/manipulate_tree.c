@@ -54,7 +54,8 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k_ref = &info->info[i];
-      const char *key = k_ref->key;
+      const char *skey = k_ref->skey;
+      enum ai_key_name key = k_ref->key;
       int j;
 
       if (k_ref->type == extra_deleted)
@@ -68,14 +69,14 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
             ELEMENT *f = k_ref->k.element;
             ELEMENT *copy = copy_tree_internal (f);
             KEY_PAIR *k
-              = get_associated_info_key (new_info, key, k_ref->type);
+              = get_associated_info_skey (new_info, skey, k_ref->type);
             k->k.element = copy;
           }
           break;
         case extra_contents:
         case extra_directions:
           {
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+          KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
           ELEMENT_LIST *new_extra_contents = new_list ();
           k->k.list = new_extra_contents;
           for (j = 0; j < k_ref->k.list->number; j++)
@@ -96,7 +97,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_container:
           {
           ELEMENT *f = k_ref->k.element;
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+          KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
           ELEMENT *new_extra_element = new_element (ET_NONE);
           k->k.element = new_extra_element;
           for (j = 0; j < f->e.c->contents.number; j++)
@@ -110,7 +111,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_string:
           { /* A simple string. */
             char *value = k_ref->k.string;
-            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+            KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
             k->k.string = strdup (value);
             break;
           }
@@ -122,14 +123,14 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           }
         case extra_misc_args:
           {
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+          KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
           k->k.strings_list = new_string_list();
           copy_strings (new_string_list(), k_ref->k.strings_list);
           break;
           }
         case extra_index_entry:
           {
-            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+            KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
             k->k.index_entry = (INDEX_ENTRY_LOCATION *)
                              malloc (sizeof (INDEX_ENTRY_LOCATION));
             memcpy (k->k.index_entry, k_ref->k.index_entry,

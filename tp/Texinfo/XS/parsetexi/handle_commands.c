@@ -409,7 +409,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                   counter_inc (&count_items);
                   command_e = new_command_element (ET_container_command, cmd);
 
-                  add_extra_integer (command_e, "item_number",
+                  add_extra_integer (command_e, AI_key_item_number,
                                      counter_value (&count_items, parent));
 
                   add_to_element_contents (parent, command_e);
@@ -438,8 +438,8 @@ handle_other_command (ELEMENT *current, const char **line_inout,
           /* no need to check status, as max_columns would be set to 0 if
              is was not found, which is correct.  max_columns not found is
              not possible, anyway, so it does not matter at all. */
-              int max_columns = lookup_extra_integer (parent, "max_columns",
-                                                      &status);
+              int max_columns = lookup_extra_integer (parent,
+                                          AI_key_max_columns, &status);
               if (max_columns == 0)
                 {
                   line_warn ("@%s in empty multitable",
@@ -466,7 +466,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                       current = command_e;
                       debug ("TAB");
 
-                      add_extra_integer (current, "cell_number",
+                      add_extra_integer (current, AI_key_cell_number,
                                          counter_value (&count_cells, row));
                     }
                 }
@@ -480,7 +480,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
 
                   /* Note that the "row_number" extra value
                      isn't actually used anywhere at present. */
-                  add_extra_integer (row, "row_number",
+                  add_extra_integer (row, AI_key_row_number,
                                      parent->e.c->contents.number - 1);
 
                   command_e = new_command_element (ET_container_command, cmd);
@@ -488,7 +488,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                   current = command_e;
 
                   counter_push (&count_cells, row, 1);
-                  add_extra_integer (current, "cell_number",
+                  add_extra_integer (current, AI_key_cell_number,
                                      counter_value (&count_cells, row));
                 }
               current = begin_preformatted (current);
@@ -804,13 +804,14 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 {
                   int status;
                   int parent_level
-                     = lookup_extra_integer (parent, "subentry_level", &status);
+                     = lookup_extra_integer (parent, AI_key_subentry_level,
+                                             &status);
                   if (status >= 0 && parent_level)
                     level = parent_level + 1;
                   else
                     fatal ("No subentry parent level or level 0");
                 }
-              add_extra_integer (command_e, "subentry_level", level);
+              add_extra_integer (command_e, AI_key_subentry_level, level);
               add_extra_element (command_e, "subentry_parent", parent);
               if (level > 2)
                 {
@@ -832,7 +833,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 = parsed_document->global_info.sections_level_modifier;
               if (sections_level_modifier)
                 {
-                  add_extra_integer (command_e, "level_modifier",
+                  add_extra_integer (command_e, AI_key_level_modifier,
                                      sections_level_modifier);
                 }
             }

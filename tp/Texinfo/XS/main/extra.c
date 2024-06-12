@@ -28,13 +28,13 @@
 
 /* directly used in tree copy, but should not be directly used in general */
 KEY_PAIR *
-get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
+get_associated_info_skey (ASSOCIATED_INFO *a, const char *key,
                          const enum extra_type type)
 {
   int i;
   for (i = 0; i < a->info_number; i++)
     {
-      if (!strcmp (a->info[i].key, key))
+      if (a->info[i].skey && !strcmp (a->info[i].skey, key))
         break;
     }
   if (i == a->info_number)
@@ -49,7 +49,38 @@ get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
       a->info_number++;
     }
 
-  a->info[i].key = key;
+  a->info[i].skey = key;
+  a->info[i].key = AI_key_none;
+  a->info[i].type = type;
+
+  return &a->info[i];
+}
+
+KEY_PAIR *
+get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
+                         const enum extra_type type)
+{
+  int i;
+  for (i = 0; i < a->info_number; i++)
+    {
+      if (a->info[i].key == key)
+        break;
+    }
+  if (i == a->info_number)
+    {
+      if (a->info_number == a->info_space)
+        {
+          a->info = realloc (a->info,
+                              (a->info_space += 5) * sizeof (KEY_PAIR));
+          if (!a->info)
+            fatal ("realloc failed");
+        }
+      a->info_number++;
+
+      a->info[i].key = key;
+    }
+
+  a->info[i].skey = 0;
   a->info[i].type = type;
 
   return &a->info[i];
@@ -61,7 +92,7 @@ get_associated_info_key (ASSOCIATED_INFO *a, const char *key,
 void
 add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
                                          extra_element);
   k->k.element = value;
 }
@@ -73,7 +104,7 @@ add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
 void
 add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
                                          extra_element_oot);
   k->k.element = value;
 }
@@ -87,7 +118,7 @@ add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
 void
 add_extra_container (ELEMENT *e, char *key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
                                          extra_container);
   k->k.element = value;
 }
@@ -110,7 +141,7 @@ add_extra_contents (ELEMENT *e, const char *key, int no_lookup)
     }
 
   n_list = new_list ();
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
                                          extra_contents);
   k->k.list = n_list;
   return n_list;
@@ -132,7 +163,7 @@ add_extra_directions (ELEMENT *e, const char *key)
     {
       ELEMENT_LIST *n_list = new_list ();
       list_set_empty_contents (n_list, directions_length);
-      KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+      KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
                                              extra_directions);
       k->k.list = n_list;
       return n_list;
@@ -143,7 +174,7 @@ void
 add_extra_misc_args (ELEMENT *e, char *key, STRING_LIST *value)
 {
   if (!value) return;
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
                                          extra_misc_args);
   k->k.strings_list = value;
 }
@@ -152,7 +183,7 @@ void
 add_extra_index_entry (ELEMENT *e, char *key, INDEX_ENTRY_LOCATION *value)
 {
   if (!value) return;
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
                                          extra_index_entry);
   k->k.index_entry = value;
 }
@@ -160,41 +191,34 @@ add_extra_index_entry (ELEMENT *e, char *key, INDEX_ENTRY_LOCATION *value)
 void
 add_extra_string (ELEMENT *e, const char *key, char *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key, extra_string);
   k->k.string = value;
 }
 
 void
 add_extra_string_dup (ELEMENT *e, const char *key, const char *value)
 {
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key, extra_string);
   k->k.string = strdup (value);
-}
-
-void
-add_associated_info_integer (ASSOCIATED_INFO *a, const char *key, int value)
-{
-  KEY_PAIR *k = get_associated_info_key (a, key, extra_integer);
-  k->k.integer = value;
 }
 
 void
 add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
                                 const char *value)
 {
-  KEY_PAIR *k = get_associated_info_key (a, key, extra_string);
+  KEY_PAIR *k = get_associated_info_skey (a, key, extra_string);
   k->k.string = strdup (value);
 }
 
 void
-add_extra_integer (ELEMENT *e, char *key, long value)
+add_extra_integer (ELEMENT *e, enum ai_key_name key, int value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_integer);
   k->k.integer = value;
 }
 
 KEY_PAIR *
-lookup_associated_info (const ASSOCIATED_INFO *a, const char *key)
+lookup_associated_sinfo (const ASSOCIATED_INFO *a, const char *key)
 {
   int i;
   for (i = 0; i < a->info_number; i++)
@@ -202,7 +226,22 @@ lookup_associated_info (const ASSOCIATED_INFO *a, const char *key)
       /* We could reuse extra_deleted slots by keeping the extra_deleted
          key and checking here the type, but in the current code the
          extra_deleted keys will never be set again */
-      if (!strcmp (a->info[i].key, key))
+      if (a->info[i].skey && !strcmp (a->info[i].skey, key))
+        return &a->info[i];
+    }
+  return 0;
+}
+
+KEY_PAIR *
+lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
+{
+  int i;
+  for (i = 0; i < a->info_number; i++)
+    {
+      /* We could reuse extra_deleted slots by keeping the extra_deleted
+         key and checking here the type, but in the current code the
+         extra_deleted keys will never be set again */
+      if (a->info[i].key == key)
         return &a->info[i];
     }
   return 0;
@@ -212,7 +251,7 @@ ELEMENT *
 lookup_extra_element (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->e.c->extra_info, key);
+  k = lookup_associated_sinfo (&e->e.c->extra_info, key);
   if (!k)
     return 0;
   else if (k->type == extra_string || k->type == extra_integer
@@ -231,7 +270,7 @@ char *
 lookup_extra_string (const ELEMENT *e, const char *key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_info (&e->e.c->extra_info, key);
+  k = lookup_associated_sinfo (&e->e.c->extra_info, key);
   if (!k)
     return 0;
   else
@@ -253,12 +292,12 @@ lookup_extra_string (const ELEMENT *e, const char *key)
 KEY_PAIR *
 lookup_extra (const ELEMENT *e, const char *key)
 {
-  return lookup_associated_info (&e->e.c->extra_info, key);
+  return lookup_associated_sinfo (&e->e.c->extra_info, key);
 }
 
 /* *ret is negative if not found or not an integer */
 static int
-lookup_key_pair_integer (const KEY_PAIR *k, const char *key, int *ret)
+lookup_key_pair_integer (const KEY_PAIR *k, enum ai_key_name key, int *ret)
 {
   if (!k)
     {
@@ -268,8 +307,8 @@ lookup_key_pair_integer (const KEY_PAIR *k, const char *key, int *ret)
   if (k->type != extra_integer)
     {
       char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_integer: %s: %d",
-                 key, k->type);
+      xasprintf (&msg, "Bad type for lookup_key_pair_integer: %s: %d",
+                 ai_key_names[key], k->type);
       fatal (msg);
       free (msg);
     }
@@ -279,7 +318,7 @@ lookup_key_pair_integer (const KEY_PAIR *k, const char *key, int *ret)
 
 /* *ret is negative if not found or not an integer */
 int
-lookup_extra_integer (const ELEMENT *e, const char *key, int *ret)
+lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret)
 {
   const KEY_PAIR *k;
   k = lookup_associated_info (&e->e.c->extra_info, key);
@@ -357,7 +396,7 @@ lookup_extra_index_entry (const ELEMENT *e, const char *key)
 /* only called in tree copy to optimize for speed */
 KEY_PAIR *
 lookup_associated_info_by_index (const ASSOCIATED_INFO *a,
-                                 const char *key, int index)
+                                 enum ai_key_name key, int index)
 {
   if (index < 0)
     index = a->info_number + index;
@@ -365,14 +404,14 @@ lookup_associated_info_by_index (const ASSOCIATED_INFO *a,
   if (index < 0 || index >= a->info_number)
     return 0;
 
-  if (!strcmp (a->info[index].key, key))
+  if (a->info[index].key == key)
     return &a->info[index];
 
   return 0;
 }
 
 KEY_PAIR *
-lookup_extra_by_index (const ELEMENT *e, const char *key, int index)
+lookup_extra_by_index (const ELEMENT *e, enum ai_key_name key, int index)
 {
   return lookup_associated_info_by_index (&e->e.c->extra_info, key, index);
 }

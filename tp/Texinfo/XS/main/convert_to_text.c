@@ -420,7 +420,7 @@ text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
   else
    indent_length = 0;
 
-  level = lookup_extra_integer (current, "section_level", &status);
+  level = lookup_extra_integer (current, AI_key_section_level, &status);
   /* could also be status < 0 */
   if (status != 0)
     level = section_level (current);
@@ -653,7 +653,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
     else
       {
         int status;
-        int expand_index = lookup_extra_integer (element, "expand_index",
+        int expand_index = lookup_extra_integer (element, AI_key_expand_index,
                                                  &status);
         if (!expand_index)
           return;
@@ -988,7 +988,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           int status;
           char *enumerate_specification = lookup_extra_string (element->parent,
                                                "enumerate_specification");
-          int item_number = lookup_extra_integer (element, "item_number",
+          int item_number = lookup_extra_integer (element, AI_key_item_number,
                                                   &status);
           char *spec = enumerate_item_representation (enumerate_specification,
                                                       item_number);

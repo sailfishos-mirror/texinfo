@@ -163,7 +163,7 @@ void
 correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
 {
   int status;
-  int section_modifier = lookup_extra_integer (section, "level_modifier",
+  int section_modifier = lookup_extra_integer (section, AI_key_level_modifier,
                                                &status);
   if (status >= 0)
     {
@@ -712,7 +712,8 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
               if (menus->number <= 0)
                 {
                   KEY_PAIR *k = lookup_extra (previous_node, "menus");
-                  k->key = "";
+                  k->skey = "";
+                  k->key = AI_key_none;
                   k->type = extra_deleted;
                   destroy_list (menus);
                 }
