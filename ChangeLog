@@ -1,5 +1,10 @@
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_file_information): 
+	really use the string stored in small_strings.
+
+2024-06-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(add_associated_file_info_integer, html_register_file_information)
 	(lookup_associated_file_info, html_get_file_information)

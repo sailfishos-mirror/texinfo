@@ -1049,8 +1049,8 @@ html_register_file_information (SV *converter_in, key, int value)
                                   "html_register_file_information");
          if (self)
            {
-             add_string (key, &self->small_strings);
-             html_register_file_information (self, key, value);
+             char *stored_key = add_string (key, &self->small_strings);
+             html_register_file_information (self, stored_key, value);
            }
 
 void
