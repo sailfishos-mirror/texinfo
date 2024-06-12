@@ -3157,7 +3157,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   char *directory = 0;
   const char *extension = 0;
   int target_split = 0;
-  char *normalized = lookup_extra_string (external_node, "normalized");
+  char *normalized = lookup_extra_string (external_node, AI_key_normalized);
   ELEMENT *node_contents = lookup_extra_element (external_node,
                                                  AI_key_node_content);
   ELEMENT *manual_content = lookup_extra_element (external_node,
@@ -3919,7 +3919,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
           else
             {
               const char *section_number
-                = lookup_extra_string (command, "section_number");
+                = lookup_extra_string (command, AI_key_section_number);
               if (section_number && !self->conf->NUMBER_SECTIONS.o.integer == 0)
                 {
                   NAMED_STRING_ELEMENT_LIST *replaced_substrings
@@ -4975,7 +4975,7 @@ prepare_index_entries_targets (CONVERTER *self)
                 continue;
 
               region = lookup_extra_string (main_entry_element,
-                                            "element_region");
+                                            AI_key_element_region);
               entry_reference_content_element
                = index_content_element (main_entry_element, 1);
         /* construct element to convert to a normalized identifier to use as
@@ -5586,7 +5586,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                     {
                       const ELEMENT *node_target = 0;
                       const char *normalized = lookup_extra_string (root_command,
-                                                                    "normalized");
+                                                               AI_key_normalized);
                       if (normalized)
                         node_target
                          = find_identifier_target (
@@ -8815,7 +8815,8 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
   if (cmd == CM_click)
     {
       enum command_id click_cmd = 0;
-      const char *click_cmdname = lookup_extra_string (element, "clickstyle");
+      const char *click_cmdname = lookup_extra_string (element,
+                                                     AI_key_clickstyle);
       if (click_cmdname)
         {
           click_cmd = lookup_builtin_command (click_cmdname);
@@ -8854,7 +8855,8 @@ css_string_convert_no_arg_command (CONVERTER *self,
   if (cmd == CM_click)
     {
       enum command_id click_cmd = 0;
-      const char *click_cmdname = lookup_extra_string (element, "clickstyle");
+      const char *click_cmdname = lookup_extra_string (element,
+                                                 AI_key_clickstyle);
       if (click_cmdname)
         {
           click_cmd = lookup_builtin_command (click_cmdname);
@@ -10507,7 +10509,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
     {
       const ELEMENT *associated_section
         = lookup_extra_element (element, AI_key_associated_section);
-      const char *normalized = lookup_extra_string (element, "normalized");
+      const char *normalized = lookup_extra_string (element, AI_key_normalized);
       /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
          output_unit->unit_command is NUL (and not equal to elemen). */
       if (output_unit->unit_command == element
@@ -11355,7 +11357,7 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
   if (!listoffloats->number)
     return;
 
-  listoffloats_name = lookup_extra_string (element, "float_type");
+  listoffloats_name = lookup_extra_string (element, AI_key_float_type);
 
   for (i = 0; i < listoffloats->number; i++)
     {
@@ -11926,7 +11928,7 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
       if (command_as_argument->cmd == CM_click)
         {
           command_as_argument_name = lookup_extra_string (command_as_argument,
-                                                          "clickstyle");
+                                                          AI_key_clickstyle);
         }
       if (!command_as_argument_name)
         command_as_argument_name = element_command_name (command_as_argument);
@@ -12010,7 +12012,7 @@ convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
 
   specification = lookup_extra_string (element,
-                                       "enumerate_specification");
+                                       AI_key_enumerate_specification);
 
   if (specification)
     {
@@ -12395,7 +12397,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   /* check for internal reference */
   if (cmd != CM_inforef && !book && !file && arg_node)
     {
-      char *normalized = lookup_extra_string (arg_node, "normalized");
+      char *normalized = lookup_extra_string (arg_node, AI_key_normalized);
       ELEMENT *manual_content = lookup_extra_element (arg_node,
                                                       AI_key_manual_content);
       if (normalized && !manual_content)
@@ -12555,11 +12557,14 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
           node_content = lookup_extra_element (arg_node, AI_key_node_content);
           if (node_content)
             {
-              const char *normalized = lookup_extra_string (arg_node, "normalized");
+              const char *normalized = lookup_extra_string (arg_node,
+                                                            AI_key_normalized);
               label_element = new_element (ET_NONE);
-              add_extra_element (label_element, AI_key_node_content, node_content);
+              add_extra_element (label_element, AI_key_node_content,
+                                 node_content);
               if (normalized)
-                add_extra_string_dup (label_element, "normalized", normalized);
+                add_extra_string_dup (label_element, AI_key_normalized,
+                                      normalized);
             }
         }
 
@@ -13114,7 +13119,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               if (element_node)
                 {
                   const char *normalized = lookup_extra_string (element_node,
-                                                                "normalized");
+                                                           AI_key_normalized);
                   if (normalized && !strcmp (normalized, "Top"))
                     continue;
                 }
@@ -13564,7 +13569,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                         {
                           char *element_region
                            = lookup_extra_string (main_entry_element,
-                                                  "element_region");
+                                                  AI_key_element_region);
         /* do not warn if the entry is in a special region, like titlepage */
                           if (!element_region)
                             {
@@ -13603,7 +13608,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                             {
                               char *element_region
                                = lookup_extra_string (main_entry_element,
-                                                      "element_region");
+                                                      AI_key_element_region);
         /* do not warn if the entry is in a special region, like titlepage */
                               if (!element_region)
                                 {
@@ -14222,7 +14227,7 @@ open_node_part_command (CONVERTER *self, const enum command_id cmd,
           if (node_element)
             {
               const char *normalized = lookup_extra_string (node_element,
-                                                            "normalized");
+                                                        AI_key_normalized);
               if (normalized && !strcmp (normalized, "Top"))
                 {
                   node_is_top = 1;
@@ -14575,8 +14580,8 @@ convert_definfoenclose_type (CONVERTER *self, const enum element_type type,
                        const ELEMENT *element, const char *content,
                        TEXT *result)
 {
-  const char *begin = lookup_extra_string (element, "begin");
-  const char *end = lookup_extra_string (element, "end");
+  const char *begin = lookup_extra_string (element, AI_key_begin);
+  const char *end = lookup_extra_string (element, AI_key_end);
 
   if (begin)
     format_protect_text (self, begin, result);
@@ -14594,7 +14599,7 @@ convert_untranslated_def_line_arg_type
 {
   const char *category_text = element->e.c->contents.list[0]->e.text->text;
   const char *translation_context
-    = lookup_extra_string (element, "translation_context");
+    = lookup_extra_string (element, AI_key_translation_context);
   ELEMENT *translated = html_cdt_tree (category_text,
                                        self, 0, translation_context);
 
@@ -14748,7 +14753,8 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
   else
     {
   /* may not be defined in case of menu entry node consisting only of spaces */
-      const char *normalized = lookup_extra_string (menu_entry_node, "normalized");
+      const char *normalized = lookup_extra_string (menu_entry_node,
+                                                    AI_key_normalized);
       if (normalized)
         {
           const ELEMENT *node
@@ -19488,7 +19494,7 @@ html_node_redirections (CONVERTER *self,
         is.  The other manual must use the same convention to get it
         right.  We do not do 'node_filename' as a redirection file
         either. */
-          normalized = lookup_extra_string (target_element, "normalized");
+          normalized = lookup_extra_string (target_element, AI_key_normalized);
           if (normalized && !strcmp (normalized, "Top")
               && self->conf->TOP_NODE_FILE_TARGET.o.string)
             {

@@ -320,7 +320,7 @@ text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
 
   if (cmd == CM_click)
     {
-      char *clickstyle = lookup_extra_string (e, "clickstyle");
+      char *clickstyle = lookup_extra_string (e, AI_key_clickstyle);
       if (clickstyle)
         {
           enum command_id clickstyle_cmd = lookup_builtin_command (clickstyle);
@@ -645,7 +645,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       && element->cmd != CM_inlinefmtifelse)
     if (builtin_command_data[data_cmd].other_flags & CF_inline_format)
       {
-        char *format = lookup_extra_string (element, "format");
+        char *format = lookup_extra_string (element, AI_key_format);
         if (!format
             || !format_expanded_p (text_options->expanded_formats, format))
           return;
@@ -817,7 +817,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
           if (element->cmd == CM_inlinefmtifelse)
             {
-              char *format = lookup_extra_string (element, "format");
+              char *format = lookup_extra_string (element, AI_key_format);
               if (!format
                   || !format_expanded_p (text_options->expanded_formats,
                                          format))
@@ -987,7 +987,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         {
           int status;
           char *enumerate_specification = lookup_extra_string (element->parent,
-                                               "enumerate_specification");
+                                               AI_key_enumerate_specification);
           int item_number = lookup_extra_integer (element, AI_key_item_number,
                                                   &status);
           char *spec = enumerate_item_representation (enumerate_specification,
@@ -1006,7 +1006,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       ELEMENT *tree = 0;
       const char *category_text = element->e.c->contents.list[0]->e.text->text;
       const char *translation_context
-        = lookup_extra_string (element, "translation_context");
+        = lookup_extra_string (element, AI_key_translation_context);
 
       if (text_options->converter)
         {
@@ -1025,7 +1025,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
            in the tree. */
 
           const char *documentlanguage
-            = lookup_extra_string (element, "documentlanguage");
+            = lookup_extra_string (element, AI_key_documentlanguage);
 
           /* there is a possibility that some small strings are associated
              to the tree, and there is no document to get them.  However

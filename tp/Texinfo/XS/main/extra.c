@@ -189,16 +189,16 @@ add_extra_index_entry (ELEMENT *e, char *key, INDEX_ENTRY_LOCATION *value)
 }
 
 void
-add_extra_string (ELEMENT *e, const char *key, char *value)
+add_extra_string (ELEMENT *e, enum ai_key_name key, char *value)
 {
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
   k->k.string = value;
 }
 
 void
-add_extra_string_dup (ELEMENT *e, const char *key, const char *value)
+add_extra_string_dup (ELEMENT *e, enum ai_key_name key, const char *value)
 {
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key, extra_string);
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
   k->k.string = strdup (value);
 }
 
@@ -267,10 +267,10 @@ lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 }
 
 char *
-lookup_extra_string (const ELEMENT *e, const char *key)
+lookup_extra_string (const ELEMENT *e, enum ai_key_name key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_sinfo (&e->e.c->extra_info, key);
+  k = lookup_associated_info (&e->e.c->extra_info, key);
   if (!k)
     return 0;
   else
@@ -399,7 +399,8 @@ lookup_extra_index_entry (const ELEMENT *e, const char *key)
   return k->k.index_entry;
 }
 
-/* only called in tree copy to optimize for speed */
+/* called in tree copy to optimize for speed in the past, not used
+   for now */
 KEY_PAIR *
 lookup_associated_info_by_index (const ASSOCIATED_INFO *a,
                                  enum ai_key_name key, int index)

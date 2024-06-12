@@ -206,7 +206,7 @@ char *
 add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
                                    int *status)
 {
-  char *normalized = lookup_extra_string (element, "normalized");
+  char *normalized = lookup_extra_string (element, AI_key_normalized);
   *status = 2;
   if (normalized)
     {

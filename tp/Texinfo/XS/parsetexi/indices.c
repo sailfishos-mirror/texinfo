@@ -280,7 +280,7 @@ enter_index_entry (enum command_id index_type_cmd,
     text_append (&ignored_chars, "@");
   if (ignored_chars.end > 0)
     {
-      add_extra_string_dup (element, "index_ignore_chars", ignored_chars.text);
+      add_extra_string_dup (element, AI_key_index_ignore_chars, ignored_chars.text);
       free (ignored_chars.text);
     }
 
@@ -298,7 +298,7 @@ enter_index_entry (enum command_id index_type_cmd,
   if (nesting_context.regions_stack.top > 0)
     {
       enum command_id region = top_command (&nesting_context.regions_stack);
-      add_extra_string_dup (element, "element_region", command_name (region));
+      add_extra_string_dup (element, AI_key_element_region, command_name (region));
     }
   else if (current_node)
     add_extra_element (element, AI_key_element_node, current_node);
@@ -394,7 +394,7 @@ complete_indices (DOCUMENT *document, int debug_level)
               main_entry_element = entry->entry_element;
 
               def_cmdname = lookup_extra_string (main_entry_element,
-                                                 "def_command");
+                                                 AI_key_def_command);
 
               idx_element = lookup_extra_element (main_entry_element,
                                                   AI_key_def_index_element);
@@ -423,7 +423,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                   if (name && class)
                     {
                       char *lang = lookup_extra_string (main_entry_element,
-                                                       "documentlanguage");
+                                                       AI_key_documentlanguage);
                       ELEMENT *index_entry;
                   /* container without type in extra "def_index_ref_element" */
                       ELEMENT *index_entry_normalized = new_element (ET_NONE);

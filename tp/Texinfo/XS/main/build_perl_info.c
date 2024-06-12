@@ -375,7 +375,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
             case extra_string:
               { /* A simple string. */
               const char *value = k->k.string;
-              STORES(newSVpv_utf8 (value, 0));
+              STORE(newSVpv_utf8 (value, 0));
               break;
               }
             case extra_integer:

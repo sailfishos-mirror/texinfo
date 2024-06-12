@@ -60,7 +60,7 @@ new_block_command (ELEMENT *element)
   args->elt_info[eit_spaces_after_argument] = arg_spaces_after;
   add_to_element_args (element, args);
 
-  add_extra_string_dup (end, "text_arg", command_name);
+  add_extra_string_dup (end, AI_key_text_arg, command_name);
   text_append (end_spaces_before->e.text, " ");
   end->elt_info[eit_spaces_before_argument] = end_spaces_before;
 
@@ -340,7 +340,7 @@ sectioning_structure (DOCUMENT *document)
                     }
                 }
               if (section_number.end > 0)
-                add_extra_string_dup (content, "section_number",
+                add_extra_string_dup (content, AI_key_section_number,
                                       section_number.text);
               free (section_number.text);
             }
@@ -417,7 +417,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
   OPTIONS *options = document->options;
 
   char *normalized_menu_node = lookup_extra_string (menu_entry_node,
-                                                    "normalized");
+                                                    AI_key_normalized);
   if (normalized_menu_node)
     {
       ELEMENT *menu_node = find_identifier_target (identifiers_target,
@@ -539,7 +539,7 @@ register_referenced_node (ELEMENT *node, char **referenced_identifiers,
   if (node->cmd != CM_node)
     return referenced_identifiers;
 
-  normalized = lookup_extra_string (node, "normalized");
+  normalized = lookup_extra_string (node, AI_key_normalized);
   if (normalized)
     {
       if (referenced_identifier_space == referenced_identifier_number)
@@ -596,7 +596,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   if (!top_node)
     {
       top_node = nodes_list->list[0];
-      char *normalized = lookup_extra_string (top_node, "normalized");
+      char *normalized = lookup_extra_string (top_node, AI_key_normalized);
       if (normalized)
         referenced_identifiers[0] = normalized;
       else
@@ -691,7 +691,7 @@ check_nodes_are_referenced (DOCUMENT *document)
             {
               ELEMENT *label_arg = ref->e.c->args.list[0];
               char *ref_normalized = lookup_extra_string (label_arg,
-                                                          "normalized");
+                                                          AI_key_normalized);
               if (ref_normalized)
                 {
                   ELEMENT *target = find_identifier_target (identifiers_target,
@@ -770,7 +770,7 @@ check_nodes_are_referenced (DOCUMENT *document)
 
       if (is_target)
         {
-          char *normalized = lookup_extra_string (node, "normalized");
+          char *normalized = lookup_extra_string (node, AI_key_normalized);
           char *found = (char *)bsearch (&normalized, referenced_identifiers,
                              referenced_identifier_number, sizeof (char *),
                              compare_strings);
@@ -873,7 +873,8 @@ set_menus_node_directions (DOCUMENT *document)
                                 check_menu_entry (document, menu->cmd,
                                                   menu_content, content);
                               char *normalized
-                                = lookup_extra_string (content, "normalized");
+                                = lookup_extra_string (content,
+                                                       AI_key_normalized);
                               if (normalized)
                                 {
                                   menu_node
@@ -1015,7 +1016,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
   for (i = 0; i < nodes_list->number; i++)
     {
       ELEMENT *node = nodes_list->list[i];
-      char *normalized = lookup_extra_string (node, "normalized");
+      char *normalized = lookup_extra_string (node, AI_key_normalized);
       const ELEMENT_LIST *menu_directions = lookup_extra_directions (node,
                                                       "menu_directions");
       int automatic_directions = (node->e.c->args.number <= 1);
@@ -1037,7 +1038,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                         {
                           ELEMENT *prev = node_directions->list[d];
                           char *prev_normalized = lookup_extra_string (prev,
-                                                               "normalized");
+                                                           AI_key_normalized);
                           if (prev_normalized && !strcmp (normalized, "Top"))
                             continue;
                         }
@@ -1331,7 +1332,7 @@ nodes_tree (DOCUMENT *document)
       if (node->cmd != CM_node)
         continue;
 
-      normalized = lookup_extra_string (node, "normalized");
+      normalized = lookup_extra_string (node, AI_key_normalized);
       if (!normalized)
         continue;
 
@@ -1361,7 +1362,7 @@ nodes_tree (DOCUMENT *document)
                   {
                     ELEMENT *prev_element = node_directions->list[d];
                     char *prev_normalized
-                      = lookup_extra_string (prev_element, "normalized");
+                      = lookup_extra_string (prev_element, AI_key_normalized);
                     if (prev_normalized)
                       {
                         if (!strcmp (prev_normalized, "Top"))
@@ -1439,7 +1440,7 @@ nodes_tree (DOCUMENT *document)
               else
                 {
                   char *direction_normalized
-                    = lookup_extra_string (direction_element, "normalized");
+                    = lookup_extra_string (direction_element, AI_key_normalized);
                   if (direction_normalized)
                     {
                       ELEMENT *node_target
@@ -1537,7 +1538,7 @@ associate_internal_references (DOCUMENT *document)
             {
               if (strlen (normalized))
                 {
-                  add_extra_string (label_element, "normalized",
+                  add_extra_string (label_element, AI_key_normalized,
                                     normalized);
                 }
               else
@@ -1551,7 +1552,8 @@ associate_internal_references (DOCUMENT *document)
       else
         {
           ELEMENT *node_target = 0;
-          char *normalized = lookup_extra_string (label_element, "normalized");
+          char *normalized = lookup_extra_string (label_element,
+                                                  AI_key_normalized);
           if (normalized)
             {
               node_target
@@ -1623,7 +1625,7 @@ number_floats (DOCUMENT *document)
           static TEXT number;
           ELEMENT *float_elt = listoffloats->float_list.list[j];
           const char *normalized
-            = lookup_extra_string (float_elt, "normalized");
+            = lookup_extra_string (float_elt, AI_key_normalized);
           const ELEMENT *up;
 
           if (!normalized)
@@ -1659,7 +1661,7 @@ number_floats (DOCUMENT *document)
               if (!(command_other_flags (up) & CF_unnumbered))
                 {
                   const char *section_number
-                       = lookup_extra_string (up, "section_number");
+                       = lookup_extra_string (up, AI_key_section_number);
                   nr_in_chapter++;
                   text_printf (&number, "%s.%zu", section_number,
                                                   nr_in_chapter);
@@ -1667,7 +1669,7 @@ number_floats (DOCUMENT *document)
             }
           if (number.end == 0)
             text_printf (&number, "%d", float_index);
-          add_extra_string_dup (float_elt, "float_number", number.text);
+          add_extra_string_dup (float_elt, AI_key_float_number, number.text);
         }
     }
 }
@@ -1779,7 +1781,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
         {
           if (strlen (normalized))
             {
-              add_extra_string (menu_entry_node, "normalized",
+              add_extra_string (menu_entry_node, AI_key_normalized,
                                 normalized);
             }
           else
@@ -1865,7 +1867,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 
   if (section && section->cmd == CM_top && options)
     {
-      const char *normalized = lookup_extra_string (node, "normalized");
+      const char *normalized = lookup_extra_string (node, AI_key_normalized);
       if (normalized && !strcmp (normalized, "Top"))
         {
           int content_index = 0;
@@ -2036,7 +2038,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
           ELEMENT *child = node_children->list[i];
           ELEMENT_LIST *child_menu_content;
           const char *normalized_child
-            = lookup_extra_string (child, "normalized");
+            = lookup_extra_string (child, AI_key_normalized);
           size_t i;
           int up_node_in_menu = 0;
 
@@ -2044,7 +2046,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
             {
               const ELEMENT *up_node = up_nodes->stack[i];
               const char *normalized_up_node
-                = lookup_extra_string (up_node, "normalized");
+                = lookup_extra_string (up_node, AI_key_normalized);
               if (!strcmp (normalized_child, normalized_up_node))
                 {
                   char *up_node_texi
@@ -2192,7 +2194,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
 
   if (menu_node)
     {
-      char *normalized = lookup_extra_string (node, "normalized");
+      char *normalized = lookup_extra_string (node, AI_key_normalized);
       ELEMENT *associated_section
           = lookup_extra_element (node, AI_key_associated_section);
       if (normalized && !strcmp (normalized, "Top")

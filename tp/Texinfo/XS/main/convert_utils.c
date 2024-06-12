@@ -52,7 +52,8 @@ char *convert_utils_month_name[12] = {
 char *
 element_associated_processing_encoding (const ELEMENT *element)
 {
-  char *input_encoding = lookup_extra_string (element, "input_encoding_name");
+  char *input_encoding = lookup_extra_string (element,
+                                              AI_key_input_encoding_name);
   return input_encoding;
 }
 
@@ -207,7 +208,7 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
   TEXT result;
   char *number = 0;
   if (numbered != 0)
-    number = lookup_extra_string (current, "section_number");
+    number = lookup_extra_string (current, AI_key_section_number);
 
   text_init (&result);
 
@@ -358,7 +359,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 {
   ELEMENT *verbatiminclude = 0;
   char *file_name_encoding;
-  char *file_name_text = lookup_extra_string (current, "text_arg");
+  char *file_name_text = lookup_extra_string (current, AI_key_text_arg);
   char *file_name;
   char *file;
   STRING_LIST *include_directories = 0;
@@ -566,7 +567,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
     }
    */
 
-  def_command = lookup_extra_string (current, "def_command");
+  def_command = lookup_extra_string (current, AI_key_def_command);
 
   /* do something more efficient */
   if (!strcmp (def_command, "defop")
@@ -595,7 +596,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
       else
         {
           const char *documentlanguage
-                = lookup_extra_string (current, "documentlanguage");
+                = lookup_extra_string (current, AI_key_documentlanguage);
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              documentlanguage, substrings, 0, 0);
           /*
@@ -634,7 +635,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
       else
         {
           const char *documentlanguage
-                = lookup_extra_string (current, "documentlanguage");
+                = lookup_extra_string (current, AI_key_documentlanguage);
           result = gdt_tree ("{category} of @code{{class}}", 0,
                              documentlanguage, substrings, 0, 0);
           /*

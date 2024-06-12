@@ -851,9 +851,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               if (cmd == CM_defline || cmd == CM_deftypeline)
                 {
                   base_command = cmd;
-                  add_extra_string_dup (command_e, "original_def_cmdname",
+                  add_extra_string_dup (command_e, AI_key_original_def_cmdname,
                                         command_name(cmd));
-                  add_extra_string_dup (command_e, "def_command",
+                  add_extra_string_dup (command_e, AI_key_def_command,
                                         command_name(cmd));
                 }
               else
@@ -864,7 +864,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   char *base_name;
                   int base_len;
 
-                  add_extra_string_dup (command_e, "original_def_cmdname",
+                  add_extra_string_dup (command_e, AI_key_original_def_cmdname,
                                         command_name(cmd));
                   base_name = strdup (command_name(cmd));
                   base_len = strlen (base_name);
@@ -874,7 +874,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   base_command = lookup_command (base_name);
                   if (base_command == CM_NONE)
                     fatal ("no def base command");
-                  add_extra_string (command_e, "def_command", base_name);
+                  add_extra_string (command_e, AI_key_def_command, base_name);
                 }
 
               command_e->flags |= EF_def_line;
@@ -1055,8 +1055,8 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           def_line->e.c->source_info = current_source_info;
           add_to_element_contents (current, def_line);
           current = def_line;
-          add_extra_string_dup (current, "def_command", command_name(cmd));
-          add_extra_string_dup (current, "original_def_cmdname",
+          add_extra_string_dup (current, AI_key_def_command, command_name(cmd));
+          add_extra_string_dup (current, AI_key_original_def_cmdname,
                                 command_name(cmd));
           current->flags |= EF_def_line;
           /* Check txidefnamenospace flag */
@@ -1220,7 +1220,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
   /* click cannot be definfoenclose'd */
   else if (cmd == CM_click)
     {
-      add_extra_string_dup (command_e, "clickstyle", global_clickstyle);
+      add_extra_string_dup (command_e, AI_key_clickstyle, global_clickstyle);
     }
   else
     {
@@ -1229,8 +1229,8 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
           INFO_ENCLOSE *ie = lookup_infoenclose (cmd);
           if (ie)
             {
-              add_extra_string_dup (command_e, "begin", ie->begin);
-              add_extra_string_dup (command_e, "end", ie->end);
+              add_extra_string_dup (command_e, AI_key_begin, ie->begin);
+              add_extra_string_dup (command_e, AI_key_end, ie->end);
             }
           command_e->e.c->string_info[sit_command_name]
             = strdup (command_name(cmd));

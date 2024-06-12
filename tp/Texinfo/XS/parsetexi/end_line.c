@@ -686,7 +686,7 @@ end_line_def_line (ELEMENT *current)
   if (top_context != ct_def)
     fatal ("def context expected");
 
-  def_cmdname = lookup_extra_string (current->parent, "def_command");
+  def_cmdname = lookup_extra_string (current->parent, AI_key_def_command);
   def_command = lookup_command (def_cmdname);
 
   debug_nonl ("END DEF LINE %s; current ",
@@ -745,7 +745,7 @@ end_line_def_line (ELEMENT *current)
               /* def_index_element will be set in
                  Texinfo::Translations::complete_indices */
               if (global_documentlanguage)
-                add_extra_string_dup (current, "documentlanguage",
+                add_extra_string_dup (current, AI_key_documentlanguage,
                                       global_documentlanguage);
             }
           else
@@ -759,13 +759,14 @@ end_line_def_line (ELEMENT *current)
         }
       else
         {
-          def_cmdname = lookup_extra_string (current, "original_def_cmdname");
+          def_cmdname = lookup_extra_string (current,
+                                             AI_key_original_def_cmdname);
           command_warn (current, "missing name for @%s", def_cmdname);
         }
     }
   else
     {
-      def_cmdname = lookup_extra_string (current, "original_def_cmdname");
+      def_cmdname = lookup_extra_string (current, AI_key_original_def_cmdname);
       command_warn (current, "missing category for @%s", def_cmdname);
     }
 
@@ -919,7 +920,7 @@ end_line_starting_block (ELEMENT *current)
                 command_error (current, "bad argument to @%s",
                                command_name(command));
             }
-          add_extra_string_dup (current, "enumerate_specification", spec);
+          add_extra_string_dup (current, AI_key_enumerate_specification, spec);
         }
       else if (command_data(command).data == BLOCK_item_line)
         {
@@ -1269,7 +1270,7 @@ end_line_misc_line (ELEMENT *current)
         }
       else
         {
-          add_extra_string (current, "text_arg", text);
+          add_extra_string (current, AI_key_text_arg, text);
           if (current->cmd == CM_end)
             {
               const char *line = text;
@@ -1355,7 +1356,7 @@ end_line_misc_line (ELEMENT *current)
               GLOBAL_INFO *global_info = &parsed_document->global_info;
 
               if (global_info->input_encoding_name)
-                add_extra_string_dup (current, "input_encoding_name",
+                add_extra_string_dup (current, AI_key_input_encoding_name,
                                       global_info->input_encoding_name);
               /* gather included file for 'included_files'.  No errors, they
                  should be output by converters */
@@ -1473,7 +1474,7 @@ end_line_misc_line (ELEMENT *current)
                   encoding_set = set_input_encoding (input_encoding);
                   if (encoding_set)
                     {
-                      add_extra_string_dup (current, "input_encoding_name",
+                      add_extra_string_dup (current, AI_key_input_encoding_name,
                                             input_encoding);
                     }
                   else
@@ -1584,7 +1585,7 @@ end_line_misc_line (ELEMENT *current)
               tmp->e.c->contents.list = 0;
               destroy_element (tmp);
 
-              add_extra_string (arg, "normalized", normalized);
+              add_extra_string (arg, AI_key_normalized, normalized);
             }
           if (direction_label_info->manual_content)
             add_extra_container (arg, AI_key_manual_content,

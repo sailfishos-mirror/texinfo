@@ -133,7 +133,8 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
       if (info->info[i].type != extra_integer
           && info->info[i].type != extra_element
           && info->info[i].type != extra_element_oot
-          && info->info[i].type != extra_container)
+          && info->info[i].type != extra_container
+          && info->info[i].type != extra_string)
         {
           const char *key = k->skey;
           text_printf (&text, "  %s|", key);

@@ -87,6 +87,25 @@ enum output_unit_type {
   ai_key(section_level) \
   ai_key(subentry_level) \
   \
+  ai_key(begin) \
+  ai_key(clickstyle) \
+  ai_key(def_command) \
+  ai_key(documentlanguage) \
+  ai_key(element_region) \
+  ai_key(end) \
+  ai_key(enumerate_specification) \
+  ai_key(float_number) \
+  ai_key(float_type) \
+  ai_key(format) \
+  ai_key(index_ignore_chars) \
+  ai_key(input_encoding_name) \
+  ai_key(normalized) \
+  ai_key(original_def_cmdname) \
+  ai_key(section_number) \
+  ai_key(sortas) \
+  ai_key(text_arg) \
+  ai_key(translation_context) \
+  \
   ai_key(associated_node) \
   ai_key(associated_part) \
   ai_key(associated_section) \

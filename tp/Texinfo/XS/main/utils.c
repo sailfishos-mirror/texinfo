@@ -1075,20 +1075,18 @@ wipe_values (VALUE_LIST *values)
 
 /* code related to document global info used both in parser and other codes */
 void
-delete_global_info (GLOBAL_INFO *global_info_ref)
+delete_global_info (GLOBAL_INFO *global_info)
 {
-  GLOBAL_INFO global_info = *global_info_ref;
+  free_strings_list (&global_info->included_files);
 
-  free_strings_list (&global_info.included_files);
+  free (global_info->input_encoding_name);
+  free (global_info->input_file_name);
+  free (global_info->input_directory);
 
-  free (global_info.input_encoding_name);
-  free (global_info.input_file_name);
-  free (global_info.input_directory);
-
-  destroy_associated_info (&global_info.other_info);
+  destroy_associated_info (&global_info->other_info);
 
   /* perl specific information */
-  free (global_info.input_perl_encoding);
+  free (global_info->input_perl_encoding);
 }
 
 void
@@ -1199,7 +1197,7 @@ informative_command_value (const ELEMENT *element)
             return text_seen;
         }
     }
-  text_arg = lookup_extra_string (element, "text_arg");
+  text_arg = lookup_extra_string (element, AI_key_text_arg);
   if (text_arg)
     return text_arg;
   misc_args = lookup_extra_misc_args (element, "misc_args");

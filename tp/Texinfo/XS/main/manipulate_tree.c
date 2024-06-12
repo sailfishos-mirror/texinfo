@@ -111,7 +111,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_string:
           { /* A simple string. */
             char *value = k_ref->k.string;
-            KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
+            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
             k->k.string = strdup (value);
             break;
           }
@@ -1002,7 +1002,7 @@ normalized_menu_entry_internal_node (const ELEMENT *entry)
         {
           if (!lookup_extra_element (content, AI_key_manual_content))
             {
-              return lookup_extra_string (content, "normalized");
+              return lookup_extra_string (content, AI_key_normalized);
             }
           return 0;
         }

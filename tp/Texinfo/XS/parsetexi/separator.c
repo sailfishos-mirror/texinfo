@@ -336,7 +336,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
               check_register_target_element_label (current, current->parent);
               if (nesting_context.regions_stack.top > 0)
                 {
-                  add_extra_string_dup (current, "element_region",
+                  add_extra_string_dup (current, AI_key_element_region,
                     command_name(top_command (&nesting_context.regions_stack)));
                 }
             }
@@ -452,7 +452,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
               line_error ("@image missing filename argument");
             }
           if (global_info->input_encoding_name)
-            add_extra_string_dup (image, "input_encoding_name",
+            add_extra_string_dup (image, AI_key_input_encoding_name,
                                   global_info->input_encoding_name);
         }
       else if (closed_command == CM_dotless)
@@ -554,7 +554,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                                                            &superfluous_arg);
                   if (arg && *arg)
                     {
-                      add_extra_string (subindex_elt, "sortas", arg);
+                      add_extra_string (subindex_elt, AI_key_sortas, arg);
                     }
                 }
               else
@@ -631,7 +631,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   if (command_data(current->cmd).data == BRACE_inline)
     {
       int expandp = 0;
-      const char *format = lookup_extra_string (current, "format");
+      const char *format = lookup_extra_string (current, AI_key_format);
       if (!format)
         {
           ELEMENT *arg = 0;
@@ -648,7 +648,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
             {
               /* Condition is missing */
               debug ("INLINE COND MISSING");
-              add_extra_string (current, "format", 0);
+              add_extra_string (current, AI_key_format, 0);
             }
           else
             {
@@ -679,7 +679,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
               else
                 expandp = 0;
 
-              add_extra_string_dup (current, "format", inline_type);
+              add_extra_string_dup (current, AI_key_format, inline_type);
             }
 
           /* Skip first argument for a false @inlinefmtifelse */

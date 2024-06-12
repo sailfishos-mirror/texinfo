@@ -183,7 +183,7 @@ destroy_indices_sorted_by_letter (
 ELEMENT *
 index_content_element (const ELEMENT *element, int prefer_reference_element)
 {
-  const char *def_command = lookup_extra_string (element, "def_command");
+  const char *def_command = lookup_extra_string (element, AI_key_def_command);
   if (def_command)
    {
      ELEMENT *def_index_element;
@@ -251,7 +251,7 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
       fatal ("index_entry_element_sort_string: NUL element");
     }
 
-  char *sortas = lookup_extra_string (index_entry_element, "sortas");
+  char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
   if (sortas)
     return strdup (sortas);
 
@@ -265,7 +265,7 @@ index_entry_element_sort_string (const INDEX_ENTRY *main_entry,
     options->code_state--;
 
   index_ignore_chars = lookup_extra_string (main_entry->entry_element,
-                                            "index_ignore_chars");
+                                            AI_key_index_ignore_chars);
   if (index_ignore_chars)
     {
       char *sort_string_text = strip_index_ignore_chars (sort_string,
@@ -457,7 +457,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                   if (!entry_cmdname)
                     {
                       entry_cmdname = lookup_extra_string (main_entry_element,
-                                                      "original_def_cmdname");
+                                                  AI_key_original_def_cmdname);
                     }
 
                   message_list_command_warn (error_messages, options,
@@ -510,7 +510,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                         {
                           entry_cmdname
                              = lookup_extra_string (main_entry_element,
-                                                 "original_def_cmdname");
+                                                 AI_key_original_def_cmdname);
                         }
 
                       message_list_command_warn (error_messages, options,
@@ -1353,7 +1353,7 @@ INDEX_ENTRY_TEXT_OR_COMMAND *
 index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
 {
   ELEMENT *index_entry_element = index_entry->entry_element;
-  char *sortas = lookup_extra_string (index_entry_element, "sortas");
+  char *sortas = lookup_extra_string (index_entry_element, AI_key_sortas);
 
   INDEX_ENTRY_TEXT_OR_COMMAND *result;
 
@@ -1366,7 +1366,7 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
       ELEMENT *entry_tree_element
          = index_content_element (index_entry_element, 0);
       char *index_ignore_chars = lookup_extra_string (index_entry_element,
-                                                      "index_ignore_chars");
+                                                  AI_key_index_ignore_chars);
       ELEMENT *parsed_element;
 
       if (entry_tree_element->e.c->contents.number <= 0)

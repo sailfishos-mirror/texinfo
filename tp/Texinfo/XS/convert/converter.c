@@ -331,8 +331,8 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
   ELEMENT *type_element = 0;
   NAMED_STRING_ELEMENT_LIST *replaced_substrings
      = new_named_string_element_list ();
-  char *float_type = lookup_extra_string (float_e, "float_type");
-  char *float_number = lookup_extra_string (float_e, "float_number");
+  char *float_type = lookup_extra_string (float_e, AI_key_float_type);
+  char *float_number = lookup_extra_string (float_e, AI_key_float_number);
 
   if (float_type && strlen (float_type))
     type_element = float_e->e.c->args.list[0];
@@ -374,8 +374,8 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
   NAMED_STRING_ELEMENT_LIST *replaced_substrings
      = new_named_string_element_list ();
 
-  const char *float_type = lookup_extra_string (float_e, "float_type");
-  const char *float_number = lookup_extra_string (float_e, "float_number");
+  const char *float_type = lookup_extra_string (float_e, AI_key_float_type);
+  const char *float_number = lookup_extra_string (float_e, AI_key_float_number);
 
   const ELEMENT *caption_element = lookup_extra_element (float_e,
                                                          AI_key_caption);
@@ -559,15 +559,16 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
       if (command_as_argument->type == ET_definfoenclose_command)
         {
           const char *begin = lookup_extra_string (command_as_argument,
-                                                   "begin");
-          const char *end = lookup_extra_string (command_as_argument, "end");
+                                                   AI_key_begin);
+          const char *end = lookup_extra_string (command_as_argument,
+                                                 AI_key_end);
           const char *command_name
             = command_as_argument->e.c->string_info[sit_command_name];
 
           if (begin)
-            add_extra_string_dup (command, "begin", begin);
+            add_extra_string_dup (command, AI_key_begin, begin);
           if (end)
-            add_extra_string_dup (command, "end", end);
+            add_extra_string_dup (command, AI_key_end, end);
           if (command_name)
             command->e.c->string_info[sit_command_name] = strdup (command_name);
         }

@@ -282,7 +282,8 @@ check_node_same_texinfo_code (const ELEMENT *reference_node,
   char *reference_node_texi;
   char *node_texi;
   int equal_texi;
-  const char *normalized = lookup_extra_string (reference_node, "normalized");
+  const char *normalized = lookup_extra_string (reference_node,
+                                                AI_key_normalized);
 
   if (normalized)
     {

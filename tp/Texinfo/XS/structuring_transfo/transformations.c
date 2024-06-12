@@ -666,7 +666,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       appended_number++;
     }
 
-  add_extra_string (node, "normalized", normalized);
+  add_extra_string (node, AI_key_normalized, normalized);
 
   register_label_element (document_descriptor, node, error_messages);
 
@@ -987,7 +987,8 @@ complete_node_menu (ELEMENT *node, int use_sections)
       for (i = 0; i < node_childs->number; i++)
         {
           const ELEMENT *node_entry = node_childs->list[i];
-          const char *normalized = lookup_extra_string (node_entry, "normalized");
+          const char *normalized = lookup_extra_string (node_entry,
+                                                        AI_key_normalized);
           if (normalized)
             {
               int j;
