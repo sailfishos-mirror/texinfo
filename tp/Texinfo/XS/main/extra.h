@@ -31,8 +31,6 @@ void add_extra_index_entry (ELEMENT *e, enum ai_key_name key,
 void add_extra_string (ELEMENT *e, enum ai_key_name key, char *value);
 void add_extra_string_dup (ELEMENT *e, enum ai_key_name key, const char *value);
 void add_extra_integer (ELEMENT *e, enum ai_key_name key, int value);
-void add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
-                                     const char *value);
 KEY_PAIR *lookup_extra (const ELEMENT *e, enum ai_key_name key);
 ELEMENT *lookup_extra_element (const ELEMENT *e, enum ai_key_name key);
 ELEMENT_LIST *lookup_extra_contents (const ELEMENT *e, enum ai_key_name key);
@@ -52,8 +50,6 @@ KEY_PAIR *lookup_associated_info (const ASSOCIATED_INFO *a,
    as a temporary holder of information, for speed */
 KEY_PAIR *get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
                                    const enum extra_type type);
-KEY_PAIR *get_associated_info_skey (ASSOCIATED_INFO *a, const char *key,
-                         const enum extra_type type);
 KEY_PAIR *lookup_extra_by_index (const ELEMENT *e, enum ai_key_name key,
                                  int index);
 #endif

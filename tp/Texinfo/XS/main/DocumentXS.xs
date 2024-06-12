@@ -209,7 +209,7 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
               }
             else
               {
-                add_associated_info_string_dup (
+                add_other_global_info_string (
                           &document->global_info.other_info,
                           key, (char *)SvPVutf8_nolen(value_sv));
               }

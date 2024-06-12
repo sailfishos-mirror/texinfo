@@ -62,6 +62,17 @@ typedef struct ERROR_MESSAGE_LIST {
     size_t space;
 } ERROR_MESSAGE_LIST;
 
+typedef struct KEY_STRING_PAIR {
+    char *key;
+    char *string;
+} KEY_STRING_PAIR;
+
+typedef struct OTHER_GLOBAL_INFO {
+    KEY_STRING_PAIR *info;
+    size_t info_number;
+    size_t info_space;
+} OTHER_GLOBAL_INFO;
+
 typedef struct GLOBAL_INFO {
     char *input_file_name;
     char *input_directory;
@@ -72,7 +83,7 @@ typedef struct GLOBAL_INFO {
     STRING_LIST included_files;
 
     /* remaining, in general passed to/from perl but not used in C */
-    ASSOCIATED_INFO other_info;
+    OTHER_GLOBAL_INFO other_info;
 
     /* perl specific */
     char *input_perl_encoding;

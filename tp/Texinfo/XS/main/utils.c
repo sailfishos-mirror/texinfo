@@ -1077,13 +1077,20 @@ wipe_values (VALUE_LIST *values)
 void
 delete_global_info (GLOBAL_INFO *global_info)
 {
+  int i;
   free_strings_list (&global_info->included_files);
 
   free (global_info->input_encoding_name);
   free (global_info->input_file_name);
   free (global_info->input_directory);
 
-  destroy_associated_info (&global_info->other_info);
+  for (i = 0; i < global_info->other_info.info_number; i++)
+    {
+      const KEY_STRING_PAIR *k = &global_info->other_info.info[i];
+      free (k->key);
+      free (k->string);
+    }
+  free (global_info->other_info.info);
 
   /* perl specific information */
   free (global_info->input_perl_encoding);

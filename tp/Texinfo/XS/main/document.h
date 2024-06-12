@@ -44,6 +44,10 @@ COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
 void remove_document_descriptor (int document_descriptor);
 ELEMENT *unregister_document_merge_with_document (int document_descriptor,
                                                   DOCUMENT *document);
+
+void add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
+                                   const char *key, const char *value);
+
 void wipe_document_parser_errors (int document_descriptor);
 void wipe_document_errors (int document_descriptor);
 

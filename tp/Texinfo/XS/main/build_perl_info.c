@@ -1210,7 +1210,7 @@ build_global_info (const GLOBAL_INFO *global_info_ref,
   const GLOBAL_INFO global_info = *global_info_ref;
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
   const ELEMENT *document_language;
-  int nr_info;
+  int i;
 
   dTHX;
 
@@ -1235,7 +1235,11 @@ build_global_info (const GLOBAL_INFO *global_info_ref,
                 newRV_noinc ((SV *) av), 0);
     }
 
-  build_additional_info (hv, &global_info.other_info, 0, &nr_info);
+  for (i = 0; i < global_info.other_info.info_number; i++)
+    {
+      const KEY_STRING_PAIR *k = &global_info.other_info.info[i];
+      hv_store (hv, k->key, strlen (k->key), newSVpv_utf8 (k->string, 0), 0);
+    }
 
   /* duplicate information with global_commands to avoid needing to use
      global_commands and build tree elements in other codes, for

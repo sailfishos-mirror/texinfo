@@ -26,36 +26,6 @@
 #include "debug.h"
 #include "extra.h"
 
-/* directly used in tree copy, but should not be directly used in general */
-KEY_PAIR *
-get_associated_info_skey (ASSOCIATED_INFO *a, const char *key,
-                         const enum extra_type type)
-{
-  int i;
-  for (i = 0; i < a->info_number; i++)
-    {
-      if (a->info[i].skey && !strcmp (a->info[i].skey, key))
-        break;
-    }
-  if (i == a->info_number)
-    {
-      if (a->info_number == a->info_space)
-        {
-          a->info = realloc (a->info,
-                              (a->info_space += 5) * sizeof (KEY_PAIR));
-          if (!a->info)
-            fatal ("realloc failed");
-        }
-      a->info_number++;
-    }
-
-  a->info[i].skey = key;
-  a->info[i].key = AI_key_none;
-  a->info[i].type = type;
-
-  return &a->info[i];
-}
-
 KEY_PAIR *
 get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
                          const enum extra_type type)
@@ -200,14 +170,6 @@ void
 add_extra_string_dup (ELEMENT *e, enum ai_key_name key, const char *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_string);
-  k->k.string = strdup (value);
-}
-
-void
-add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
-                                const char *value)
-{
-  KEY_PAIR *k = get_associated_info_skey (a, key, extra_string);
   k->k.string = strdup (value);
 }
 

@@ -516,6 +516,33 @@ unregister_document_merge_with_document (int document_descriptor,
   return tree;
 }
 
+void
+add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
+                              const char *key, const char *value)
+{
+  int i;
+  for (i = 0; i < other_global_info->info_number; i++)
+    {
+      if (!strcmp (other_global_info->info[i].key, key))
+        break;
+    }
+  if (i == other_global_info->info_number)
+    {
+      if (other_global_info->info_number == other_global_info->info_space)
+        {
+          other_global_info->info = realloc (other_global_info->info,
+             (other_global_info->info_space += 5) * sizeof (KEY_STRING_PAIR));
+          if (!other_global_info->info)
+            fatal ("realloc failed");
+        }
+      other_global_info->info_number++;
+
+      other_global_info->info[i].key = strdup (key);
+    }
+
+  other_global_info->info[i].string = strdup (value);
+}
+
 /* does not seems to be used */
 void
 wipe_document_errors (int document_descriptor)

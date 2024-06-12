@@ -5,6 +5,22 @@
 
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/DocumentXS.xs (set_document_global_info),
+	tp/Texinfo/XS/main/build_perl_info.c (build_global_info),
+	tp/Texinfo/XS/main/document.c (add_other_global_info_string),
+	tp/Texinfo/XS/main/document_types.h (KEY_STRING_PAIR)
+	(OTHER_GLOBAL_INFO, GLOBAL_INFO): do not use ASSOCIATED_INFO for
+	global_info.other_info, use specific structures and
+	add_other_global_info_string to add a key, string pair.
+
+	* tp/Texinfo/XS/main/extra.c: remove get_associated_info_skey and
+	add_associated_info_string_dup.
+
+	* tp/Makefile.tres, t/test_document.t: add test of Texinfo::Document
+	set_document_global_info.
+
+2024-06-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (build_additional_info),
 	tp/Texinfo/XS/main/debug.c (print_associate_info_debug),
 	tp/Texinfo/XS/main/extra.c (add_extra_misc_args)
