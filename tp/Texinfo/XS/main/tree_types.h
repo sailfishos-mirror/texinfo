@@ -132,9 +132,20 @@ enum output_unit_type {
   ai_key(subentry) \
   ai_key(subentry_parent) \
   ai_key(titlepage) \
+  \
+  ai_key(authors) \
+  ai_key(menus) \
+  ai_key(section_childs) \
+  \
+  ai_key(menu_directions) \
+  ai_key(node_directions) \
+  ai_key(section_directions) \
+  ai_key(toplevel_directions) \
+
 
 
 /*
+  ai_key() \
   ai_key() \
   ai_key() \
   ai_key(sortas) \

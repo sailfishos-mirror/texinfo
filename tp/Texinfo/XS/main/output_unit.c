@@ -548,7 +548,8 @@ units_directions (LABEL_LIST *identifiers_target,
         {
           ELEMENT *menu_child = first_menu_node (node, identifiers_target);
           enum directions d;
-          node_directions = lookup_extra_directions (node, "node_directions");
+          node_directions = lookup_extra_directions (node,
+                                                     AI_key_node_directions);
           if (node_directions)
             {
               for (d = 0; d < directions_length; d++)
@@ -573,7 +574,7 @@ units_directions (LABEL_LIST *identifiers_target,
               const ELEMENT_LIST *section_childs = 0;
               if (associated_section)
                 section_childs = lookup_extra_contents (associated_section,
-                                                        "section_childs");
+                                                     AI_key_section_childs);
               if (automatic_directions
                   && section_childs && section_childs->number > 0)
                 {
@@ -606,7 +607,7 @@ units_directions (LABEL_LIST *identifiers_target,
                         break;
 
                       up_node_directions = lookup_extra_directions (up,
-                                                   "node_directions");
+                                                   AI_key_node_directions);
                       if (up_node_directions
                           && up_node_directions->list[D_next])
                         {
@@ -676,7 +677,7 @@ units_directions (LABEL_LIST *identifiers_target,
           enum directions d;
           const ELEMENT_LIST *section_directions
                         = lookup_extra_directions (section,
-                                                   "section_directions");
+                                               AI_key_section_directions);
           if (section_directions)
             {
               for (d = 0; d < directions_length; d++)
@@ -708,7 +709,7 @@ units_directions (LABEL_LIST *identifiers_target,
 
               const ELEMENT_LIST *up_section_directions
                         = lookup_extra_directions (up,
-                                                   "section_directions");
+                                                   AI_key_section_directions);
               if (status >= 0 && up_section_level > 1
                   && up_section_directions
                   && up_section_directions->list[D_up])
@@ -717,7 +718,7 @@ units_directions (LABEL_LIST *identifiers_target,
                 break;
             }
 
-          up_section_childs = lookup_extra_contents (up, "section_childs");
+          up_section_childs = lookup_extra_contents (up, AI_key_section_childs);
           if (status >= 0 && up_section_level < 1
               && up->cmd == CM_top && up_section_childs
               && up_section_childs->number > 0)
@@ -728,7 +729,7 @@ units_directions (LABEL_LIST *identifiers_target,
           else
             {
               const ELEMENT_LIST *toplevel_directions
-               = lookup_extra_directions (up, "toplevel_directions");
+               = lookup_extra_directions (up, AI_key_toplevel_directions);
               if (toplevel_directions
                   && toplevel_directions->list[D_next])
                 directions[RUD_type_FastForward]
@@ -737,7 +738,7 @@ units_directions (LABEL_LIST *identifiers_target,
                 {
                   const ELEMENT_LIST *up_section_directions
                         = lookup_extra_directions (up,
-                                                   "section_directions");
+                                                   AI_key_section_directions);
                   if (up_section_directions
                       && up_section_directions->list[D_next])
                     directions[RUD_type_FastForward]

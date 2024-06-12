@@ -130,7 +130,7 @@ add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
    already.
 */
 ELEMENT_LIST *
-add_extra_contents (ELEMENT *e, const char *key, int no_lookup)
+add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
 {
   ELEMENT_LIST *n_list;
   if (!no_lookup)
@@ -141,7 +141,7 @@ add_extra_contents (ELEMENT *e, const char *key, int no_lookup)
     }
 
   n_list = new_list ();
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_contents);
   k->k.list = n_list;
   return n_list;
@@ -154,7 +154,7 @@ add_extra_contents (ELEMENT *e, const char *key, int no_lookup)
    for the first number elements.
 */
 const ELEMENT_LIST *
-add_extra_directions (ELEMENT *e, const char *key)
+add_extra_directions (ELEMENT *e, enum ai_key_name key)
 {
   const ELEMENT_LIST *e_list = lookup_extra_directions (e, key);
   if (e_list)
@@ -163,7 +163,7 @@ add_extra_directions (ELEMENT *e, const char *key)
     {
       ELEMENT_LIST *n_list = new_list ();
       list_set_empty_contents (n_list, directions_length);
-      KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
+      KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                              extra_directions);
       k->k.list = n_list;
       return n_list;
@@ -259,7 +259,7 @@ lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_element: %s: %d",
-                key, k->type);
+                ai_key_names[key], k->type);
       fatal (msg);
       free (msg);
     }
@@ -279,7 +279,7 @@ lookup_extra_string (const ELEMENT *e, enum ai_key_name key)
         {
           char *msg;
           xasprintf (&msg, "Bad type for lookup_extra_string: %s: %d",
-                     key, k->type);
+                     ai_key_names[key], k->type);
           fatal (msg);
           free (msg);
         }
@@ -332,16 +332,16 @@ lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret)
 }
 
 ELEMENT_LIST *
-lookup_extra_contents (const ELEMENT *e, const char *key)
+lookup_extra_contents (const ELEMENT *e, enum ai_key_name key)
 {
-  KEY_PAIR *k = lookup_extras (e, key);
+  KEY_PAIR *k = lookup_extra (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_contents)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_contents: %s: %d",
-                 key, k->type);
+                 ai_key_names[key], k->type);
       fatal (msg);
       free (msg);
     }
@@ -349,16 +349,16 @@ lookup_extra_contents (const ELEMENT *e, const char *key)
 }
 
 const ELEMENT_LIST *
-lookup_extra_directions (const ELEMENT *e, const char *key)
+lookup_extra_directions (const ELEMENT *e, enum ai_key_name key)
 {
-  KEY_PAIR *k = lookup_extras (e, key);
+  KEY_PAIR *k = lookup_extra (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_directions)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_directions: %s: %d",
-                 key, k->type);
+                 ai_key_names[key], k->type);
       fatal (msg);
       free (msg);
     }

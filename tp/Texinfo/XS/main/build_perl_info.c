@@ -364,12 +364,12 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               {
               const ELEMENT_LIST *l = k->k.list;
               if (l && l->number)
-                STORES(build_perl_array (l, avoid_recursion));
+                STORE(build_perl_array (l, avoid_recursion));
               break;
               }
             case extra_directions:
               {
-              STORES(build_perl_directions (k->k.list, avoid_recursion));
+              STORE(build_perl_directions (k->k.list, avoid_recursion));
               break;
               }
             case extra_string:

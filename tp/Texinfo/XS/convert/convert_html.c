@@ -5319,7 +5319,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
 
                   const ELEMENT_LIST *up_section_directions
                     = lookup_extra_directions (root_command,
-                                               "section_directions");
+                                         AI_key_section_directions);
                   if (up_section_directions
                       && up_section_directions->list[D_up]
                       && up_section_directions->list[D_up]
@@ -6357,7 +6357,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   else
     return result.text;
 
-  root_children = lookup_extra_contents (section_root, "section_childs");
+  root_children = lookup_extra_contents (section_root, AI_key_section_childs);
   min_root_level = lookup_extra_integer (root_children->list[0],
                                          AI_key_section_level,
                                          &status);
@@ -6429,7 +6429,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
          int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
          const ELEMENT_LIST *section_childs
-           = lookup_extra_contents (section, "section_childs");
+           = lookup_extra_contents (section, AI_key_section_childs);
          if (section->cmd != CM_top)
             {
               char *text;
@@ -6509,7 +6509,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
           else
             {
               const ELEMENT_LIST *section_directions
-               = lookup_extra_directions (section, "section_directions");
+               = lookup_extra_directions (section, AI_key_section_directions);
               if (section_directions
                   && section_directions->list[D_next]
                   && section->cmd != CM_top)
@@ -6535,7 +6535,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
 
                       const ELEMENT_LIST *section_directions
                         = lookup_extra_directions (section,
-                                                   "section_directions");
+                                               AI_key_section_directions);
                       if (!section_directions
                           || !section_directions->list[D_up])
                         break;
@@ -6558,7 +6558,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                         }
                       section_directions
                         = lookup_extra_directions (section,
-                                                   "section_directions");
+                                               AI_key_section_directions);
                       if (section_directions
                           && section_directions->list[D_next])
                         {
@@ -10234,7 +10234,7 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
   int entry_index = 0;
 
   const ELEMENT_LIST *section_childs = lookup_extra_contents (element,
-                                                        "section_childs");
+                                                  AI_key_section_childs);
   if (section_childs && section_childs->number > 0)
     {
       char *attribute_class;
@@ -10411,7 +10411,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
           if (node)
             {
               int automatic_directions = (node->e.c->args.number <= 1);
-              const ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
+              const ELEMENT_LIST *menus = lookup_extra_contents (node,
+                                                              AI_key_menus);
               if (!menus && automatic_directions)
                 {
                   ELEMENT *menu_node
@@ -11724,7 +11725,7 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
         text_append (result, content);
     }
 
-  authors = lookup_extra_contents (element, "authors");
+  authors = lookup_extra_contents (element, AI_key_authors);
   if (authors)
     {
       int i;

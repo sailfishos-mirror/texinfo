@@ -1,5 +1,15 @@
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_additional_info),
+	tp/Texinfo/XS/main/extra.c (add_extra_contents, add_extra_directions)
+	(lookup_extra_contents, lookup_extra_directions),
+	tp/Texinfo/XS/main/manipulate_tree.c (copy_associated_info),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (direction_bases)
+	(section_direction_associated_node):  use an integer key for
+	extra_contents and extra_directions.
+
+2024-06-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (delete_global_info): use the pointer
 	directly.
 

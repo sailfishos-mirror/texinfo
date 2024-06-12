@@ -76,7 +76,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_contents:
         case extra_directions:
           {
-          KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
+          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           ELEMENT_LIST *new_extra_contents = new_list ();
           k->k.list = new_extra_contents;
           for (j = 0; j < k_ref->k.list->number; j++)
@@ -1027,7 +1027,7 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
 ELEMENT *
 first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
 {
-  const ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
+  const ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
   if (menus)
     {
       int i;
