@@ -661,7 +661,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           line_args = new_element (ET_line_arg);
           add_to_element_args (command_e, line_args);
-          add_extra_misc_args (command_e, "misc_args", args_list);
+          add_extra_misc_args (command_e, AI_key_misc_args, args_list);
           text_append (spaces_before->e.text, " ");
           command_e->elt_info[eit_spaces_before_argument] = spaces_before;
 

@@ -141,7 +141,11 @@ enum output_unit_type {
   ai_key(node_directions) \
   ai_key(section_directions) \
   ai_key(toplevel_directions) \
-
+  \
+  ai_key(misc_args) \
+  \
+  ai_key(index_entry) \
+  ai_key(associated_index_entry) \
 
 
 /*

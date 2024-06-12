@@ -292,7 +292,7 @@ enter_index_entry (enum command_id index_type_cmd,
            malloc (sizeof (INDEX_ENTRY_LOCATION));
     index_entry->index_name = idx->name;
     index_entry->number = idx->entries_number;
-    add_extra_index_entry (element, "index_entry", index_entry);
+    add_extra_index_entry (element, AI_key_index_entry, index_entry);
   }
 
   if (nesting_context.regions_stack.top > 0)

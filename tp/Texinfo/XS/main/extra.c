@@ -171,19 +171,20 @@ add_extra_directions (ELEMENT *e, enum ai_key_name key)
 }
 
 void
-add_extra_misc_args (ELEMENT *e, char *key, STRING_LIST *value)
+add_extra_misc_args (ELEMENT *e, enum ai_key_name key, STRING_LIST *value)
 {
   if (!value) return;
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_misc_args);
   k->k.strings_list = value;
 }
 
 void
-add_extra_index_entry (ELEMENT *e, char *key, INDEX_ENTRY_LOCATION *value)
+add_extra_index_entry (ELEMENT *e, enum ai_key_name key,
+                       INDEX_ENTRY_LOCATION *value)
 {
   if (!value) return;
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_index_entry);
   k->k.index_entry = value;
 }
@@ -215,21 +216,6 @@ add_extra_integer (ELEMENT *e, enum ai_key_name key, int value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key, extra_integer);
   k->k.integer = value;
-}
-
-KEY_PAIR *
-lookup_associated_sinfo (const ASSOCIATED_INFO *a, const char *key)
-{
-  int i;
-  for (i = 0; i < a->info_number; i++)
-    {
-      /* We could reuse extra_deleted slots by keeping the extra_deleted
-         key and checking here the type, but in the current code the
-         extra_deleted keys will never be set again */
-      if (a->info[i].skey && !strcmp (a->info[i].skey, key))
-        return &a->info[i];
-    }
-  return 0;
 }
 
 KEY_PAIR *
@@ -287,12 +273,6 @@ lookup_extra_string (const ELEMENT *e, enum ai_key_name key)
         return (0);
       return k->k.string;
     }
-}
-
-KEY_PAIR *
-lookup_extras (const ELEMENT *e, const char *key)
-{
-  return lookup_associated_sinfo (&e->e.c->extra_info, key);
 }
 
 KEY_PAIR *
@@ -366,16 +346,16 @@ lookup_extra_directions (const ELEMENT *e, enum ai_key_name key)
 }
 
 const STRING_LIST *
-lookup_extra_misc_args (const ELEMENT *e, const char *key)
+lookup_extra_misc_args (const ELEMENT *e, enum ai_key_name key)
 {
-  KEY_PAIR *k = lookup_extras (e, key);
+  KEY_PAIR *k = lookup_extra (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_misc_args)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_misc_args: %s: %d",
-                 key, k->type);
+                 ai_key_names[key], k->type);
       fatal (msg);
       free (msg);
     }
@@ -383,16 +363,16 @@ lookup_extra_misc_args (const ELEMENT *e, const char *key)
 }
 
 const INDEX_ENTRY_LOCATION *
-lookup_extra_index_entry (const ELEMENT *e, const char *key)
+lookup_extra_index_entry (const ELEMENT *e, enum ai_key_name key)
 {
-  KEY_PAIR *k = lookup_extras (e, key);
+  KEY_PAIR *k = lookup_extra (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_index_entry)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_misc_args: %s: %d",
-                 key, k->type);
+                 ai_key_names[key], k->type);
       fatal (msg);
       free (msg);
     }

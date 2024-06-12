@@ -130,19 +130,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k = &info->info[i];
-      if (info->info[i].type != extra_integer
-          && info->info[i].type != extra_element
-          && info->info[i].type != extra_element_oot
-          && info->info[i].type != extra_container
-          && info->info[i].type != extra_string)
-        {
-          const char *key = k->skey;
-          text_printf (&text, "  %s|", key);
-        }
-      else
-        {
-          text_printf (&text, "  %s|", ai_key_names[k->key]);
-        }
+      text_printf (&text, "  %s|", ai_key_names[k->key]);
       switch (info->info[i].type)
         {
         case extra_deleted:

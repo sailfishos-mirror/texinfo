@@ -11079,7 +11079,8 @@ convert_sp_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  const STRING_LIST *misc_args = lookup_extra_misc_args (element, "misc_args");
+  const STRING_LIST *misc_args = lookup_extra_misc_args (element,
+                                                AI_key_misc_args);
   if (misc_args && misc_args->number > 0)
     {
       int i;
@@ -12323,7 +12324,7 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
   if (columnfractions)
     {
       const STRING_LIST *cf_misc_args
-         = lookup_extra_misc_args (columnfractions, "misc_args");
+         = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
       if (cf_misc_args->number >= cell_nr)
         {
           const char *fraction_str
@@ -12955,7 +12956,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   if (html_in_string (self))
     return;
 
-  misc_args = lookup_extra_misc_args (element, "misc_args");
+  misc_args = lookup_extra_misc_args (element, AI_key_misc_args);
   if (misc_args && misc_args->number > 0)
     index_name = misc_args->list[0];
   else
@@ -13108,7 +13109,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           INDEX_ENTRY *index_entry_ref = letter_entry->entries[j];
           ELEMENT *main_entry_element = index_entry_ref->entry_element;
           const INDEX_ENTRY_LOCATION *index_entry_info
-             = lookup_extra_index_entry (main_entry_element, "index_entry");
+             = lookup_extra_index_entry (main_entry_element,
+                                         AI_key_index_entry);
           int entry_number = index_entry_info->number;
           entry_nr++;
 

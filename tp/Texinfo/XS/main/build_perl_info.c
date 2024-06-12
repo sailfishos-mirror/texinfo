@@ -295,9 +295,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
       for (i = 0; i < a->info_number; i++)
         {
           const KEY_PAIR *k = &a->info[i];
-#define STORES(sv) hv_store (extra, skey, strlen (skey), sv, 0)
 #define STORE(sv) hv_store (extra, key_name, strlen (key_name), sv, 0)
-          const char *skey = k->skey;
           enum ai_key_name key = k->key;
           const char *key_name = ai_key_names[key];
 
@@ -393,7 +391,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               AV *av = newAV ();
               av_unshift (av, l->number);
 
-              STORES(newRV_inc ((SV *)av));
+              STORE(newRV_inc ((SV *)av));
               /* An array of strings or integers. */
               for (j = 0; j < l->number; j++)
                 {
@@ -411,7 +409,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
 
               av_unshift (av, 2);
 
-              STORES(newRV_inc ((SV *)av));
+              STORE(newRV_inc ((SV *)av));
               sv = newSVpv_utf8 (entry_loc->index_name,
                                  strlen (entry_loc->index_name));
               av_store (av, 0, sv);
@@ -425,7 +423,6 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
             }
         }
 #undef STORE
-#undef STORES
     }
 }
 

@@ -810,7 +810,7 @@ end_line_starting_block (ELEMENT *current)
     {
       ELEMENT *misc_cmd = k->k.element;
       const STRING_LIST *misc_args
-          = lookup_extra_misc_args (misc_cmd, "misc_args");
+          = lookup_extra_misc_args (misc_cmd, AI_key_misc_args);
 
       if (misc_args)
         {
@@ -1251,7 +1251,7 @@ end_line_misc_line (ELEMENT *current)
     {
       STRING_LIST *args = parse_line_command_args (current);
       if (args)
-        add_extra_misc_args (current, "misc_args", args);
+        add_extra_misc_args (current, AI_key_misc_args, args);
     }
   else if (arg_spec == LINE_text)
     {

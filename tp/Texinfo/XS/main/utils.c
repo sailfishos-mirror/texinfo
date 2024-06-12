@@ -1200,7 +1200,7 @@ informative_command_value (const ELEMENT *element)
   text_arg = lookup_extra_string (element, AI_key_text_arg);
   if (text_arg)
     return text_arg;
-  misc_args = lookup_extra_misc_args (element, "misc_args");
+  misc_args = lookup_extra_misc_args (element, AI_key_misc_args);
   if (misc_args && misc_args->number > 0)
     return misc_args->list[0];
   if (builtin_command_data[cmd].flags & CF_line

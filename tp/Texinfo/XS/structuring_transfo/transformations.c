@@ -382,7 +382,8 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                     {
                       INDEX_ENTRY_AND_INDEX *idx_info;
                       const INDEX_ENTRY_LOCATION *index_entry_info
-                        = lookup_extra_index_entry (content, "index_entry");
+                        = lookup_extra_index_entry (content,
+                                                    AI_key_index_entry);
                       idx_info = lookup_index_entry (index_entry_info,
                                                      indices_info);
                       if (idx_info->index_entry)
@@ -410,7 +411,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                      malloc (sizeof (INDEX_ENTRY_LOCATION));
                   index_entry->index_name = entry_idx_info->index->name;
                   index_entry->number = entry_idx_info->entry_number;
-                  add_extra_index_entry (item, "associated_index_entry",
+                  add_extra_index_entry (item, AI_key_associated_index_entry,
                                          index_entry);
                   free (entry_idx_info);
                   break;

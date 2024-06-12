@@ -54,7 +54,6 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k_ref = &info->info[i];
-      const char *skey = k_ref->skey;
       enum ai_key_name key = k_ref->key;
       int j;
 
@@ -123,14 +122,14 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           }
         case extra_misc_args:
           {
-          KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
+          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           k->k.strings_list = new_string_list();
           copy_strings (new_string_list(), k_ref->k.strings_list);
           break;
           }
         case extra_index_entry:
           {
-            KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
+            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
             k->k.index_entry = (INDEX_ENTRY_LOCATION *)
                              malloc (sizeof (INDEX_ENTRY_LOCATION));
             memcpy (k->k.index_entry, k_ref->k.index_entry,
