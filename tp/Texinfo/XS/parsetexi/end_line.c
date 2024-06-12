@@ -750,7 +750,7 @@ end_line_def_line (ELEMENT *current)
             }
           else
             {
-              add_extra_element (current, "def_index_element",
+              add_extra_element (current, AI_key_def_index_element,
                                  index_entry);
             }
 
@@ -805,7 +805,7 @@ end_line_starting_block (ELEMENT *current)
 
   /* @multitable args */
   if (command == CM_multitable
-      && (k = lookup_extra (current->parent, "columnfractions")))
+      && (k = lookup_extra (current->parent, AI_key_columnfractions)))
     {
       ELEMENT *misc_cmd = k->k.element;
       const STRING_LIST *misc_args
@@ -887,7 +887,7 @@ end_line_starting_block (ELEMENT *current)
       add_to_float_record_list (&parsed_document->floats, float_type, current);
 
       if (current_section)
-        add_extra_element (current, "float_section", current_section);
+        add_extra_element (current, AI_key_float_section, current_section);
     }
   else if (command_data(command).flags & CF_blockitem)
     {
@@ -924,7 +924,7 @@ end_line_starting_block (ELEMENT *current)
       else if (command_data(command).data == BLOCK_item_line)
         {
           KEY_PAIR *k_command_as_arg;
-          k_command_as_arg = lookup_extra (current, "command_as_argument");
+          k_command_as_arg = lookup_extra (current, AI_key_command_as_argument);
           if (!k_command_as_arg)
             {
               if (current->e.c->args.number > 0
@@ -965,7 +965,7 @@ end_line_starting_block (ELEMENT *current)
       else if (command == CM_itemize)
         {
           KEY_PAIR *k_command_as_arg;
-          k_command_as_arg = lookup_extra (current, "command_as_argument");
+          k_command_as_arg = lookup_extra (current, AI_key_command_as_argument);
       /* check that command_as_argument of the @itemize is alone on the line,
          otherwise it is not a command_as_argument */
           if (k_command_as_arg)
@@ -1017,7 +1017,7 @@ end_line_starting_block (ELEMENT *current)
         }
 
       /* Check if command_as_argument isn't an accent command */
-      k = lookup_extra (current, "command_as_argument");
+      k = lookup_extra (current, AI_key_command_as_argument);
       if (k && k->k.element)
         {
           enum command_id as_argument_cmd = k->k.element->cmd;
@@ -1055,17 +1055,17 @@ end_line_starting_block (ELEMENT *current)
           e = new_command_element (ET_brace_noarg_command, CM_bullet);
           e->flags |= EF_inserted;
           insert_into_contents (block_line_arg, e, 0);
-          add_extra_element (current, "command_as_argument", e);
+          add_extra_element (current, AI_key_command_as_argument, e);
         }
       else if (command_data(command).data == BLOCK_item_line
-               && !lookup_extra_element (current, "command_as_argument"))
+               && !lookup_extra_element (current, AI_key_command_as_argument))
         {
           ELEMENT *e;
 
           e = new_command_element (ET_brace_command, CM_asis);
           e->flags |= EF_inserted;
           insert_into_args (current, e, 0);
-          add_extra_element (current, "command_as_argument", e);
+          add_extra_element (current, AI_key_command_as_argument, e);
         }
 
       {
@@ -1576,7 +1576,7 @@ end_line_misc_line (ELEMENT *current)
               ELEMENT *tmp = new_element (ET_NONE);
               char *normalized;
 
-              add_extra_container (arg, "node_content",
+              add_extra_container (arg, AI_key_node_content,
                                    direction_label_info->node_content);
 
               tmp->e.c->contents = direction_label_info->node_content->e.c->contents;
@@ -1587,7 +1587,7 @@ end_line_misc_line (ELEMENT *current)
               add_extra_string (arg, "normalized", normalized);
             }
           if (direction_label_info->manual_content)
-            add_extra_container (arg, "manual_content",
+            add_extra_container (arg, AI_key_manual_content,
                                  direction_label_info->manual_content);
           free (direction_label_info);
         }
@@ -1602,14 +1602,15 @@ end_line_misc_line (ELEMENT *current)
       check_register_target_element_label (label_element, current);
 
       if (current_part
-          && !lookup_extra_element (current_part, "part_associated_section"))
+          && !lookup_extra_element (current_part,
+                                    AI_key_part_associated_section))
         {
          /* we only associate a part to the following node if the
             part is not already associate to a sectioning command,
             but the part can be associated to the sectioning command later
             if a sectioning command follows the node. */
-          add_extra_element (current, "node_preceding_part", current_part);
-          add_extra_element (current_part, "part_following_node",
+          add_extra_element (current, AI_key_node_preceding_part, current_part);
+          add_extra_element (current_part, AI_key_part_following_node,
                                  current);
         }
       current_node = current;
@@ -1771,7 +1772,7 @@ end_line_misc_line (ELEMENT *current)
         }
       else
         {
-          add_extra_element (current->parent, "columnfractions", misc_cmd);
+          add_extra_element (current->parent, AI_key_columnfractions, misc_cmd);
         }
     }
   else if (command_data(data_cmd).flags & CF_root)
@@ -1785,19 +1786,20 @@ end_line_misc_line (ELEMENT *current)
         {
           if (current_node)
             {
-              if (!lookup_extra_element (current_node, "associated_section"))
+              if (!lookup_extra_element (current_node,
+                                         AI_key_associated_section))
                 {
                   add_extra_element
-                    (current_node, "associated_section", current);
+                    (current_node, AI_key_associated_section, current);
                   add_extra_element
-                    (current, "associated_node", current_node);
+                    (current, AI_key_associated_node, current_node);
                 }
             }
 
           if (current_part)
             {
-              add_extra_element (current, "associated_part", current_part);
-              add_extra_element (current_part, "part_associated_section",
+              add_extra_element (current, AI_key_associated_part, current_part);
+              add_extra_element (current_part, AI_key_part_associated_section,
                                  current);
               if (current->cmd == CM_top)
                 {
@@ -1813,7 +1815,8 @@ end_line_misc_line (ELEMENT *current)
         {
           current_part = current;
           if (current_node
-              && !lookup_extra_element (current_node, "associated_section"))
+              && !lookup_extra_element (current_node,
+                                        AI_key_associated_section))
             {
               line_warn ("@node precedes @part, but parts may not be "
                          "associated with nodes");

@@ -301,7 +301,7 @@ enter_index_entry (enum command_id index_type_cmd,
       add_extra_string_dup (element, "element_region", command_name (region));
     }
   else if (current_node)
-    add_extra_element (element, "element_node", current_node);
+    add_extra_element (element, AI_key_element_node, current_node);
 
   if (nesting_context.regions_stack.top == 0
       && !current_node && !current_section)
@@ -397,7 +397,7 @@ complete_indices (DOCUMENT *document, int debug_level)
                                                  "def_command");
 
               idx_element = lookup_extra_element (main_entry_element,
-                                                  "def_index_element");
+                                                  AI_key_def_index_element);
               if (def_cmdname && !idx_element)
                 {
                   ELEMENT *name = 0;
@@ -477,10 +477,10 @@ complete_indices (DOCUMENT *document, int debug_level)
                       index_entry->type = ET_NONE;
 
                       add_extra_element_oot (main_entry_element,
-                                             "def_index_element",
+                                             AI_key_def_index_element,
                                              index_entry);
                       add_extra_element_oot (main_entry_element,
-                                             "def_index_ref_element",
+                                             AI_key_def_index_ref_element,
                                              index_entry_normalized);
                     }
                 }

@@ -19,11 +19,11 @@
 
 #include "tree_types.h"
 
-void add_extra_element (ELEMENT *e, const char *key, ELEMENT *value);
-void add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value);
+void add_extra_element (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
+void add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
 ELEMENT_LIST *add_extra_contents (ELEMENT *e, const char *key,
                                   int no_lookup);
-void add_extra_container (ELEMENT *e, char *key, ELEMENT *value);
+void add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
 const ELEMENT_LIST *add_extra_directions (ELEMENT *e, const char *key);
 void add_extra_text (ELEMENT *e, char *key, ELEMENT *value);
 void add_extra_misc_args (ELEMENT *e, char *key, STRING_LIST *value);
@@ -33,8 +33,9 @@ void add_extra_string_dup (ELEMENT *e, const char *key, const char *value);
 void add_extra_integer (ELEMENT *e, enum ai_key_name key, int value);
 void add_associated_info_string_dup (ASSOCIATED_INFO *a, const char *key,
                                      const char *value);
-KEY_PAIR *lookup_extra (const ELEMENT *e, const char *key);
-ELEMENT *lookup_extra_element (const ELEMENT *e, const char *key);
+KEY_PAIR *lookup_extras (const ELEMENT *e, const char *key);
+KEY_PAIR *lookup_extra (const ELEMENT *e, enum ai_key_name key);
+ELEMENT *lookup_extra_element (const ELEMENT *e, enum ai_key_name key);
 ELEMENT_LIST *lookup_extra_contents (const ELEMENT *e, const char *key);
 const STRING_LIST *lookup_extra_misc_args (const ELEMENT *e, const char *key);
 const INDEX_ENTRY_LOCATION *lookup_extra_index_entry (const ELEMENT *e,

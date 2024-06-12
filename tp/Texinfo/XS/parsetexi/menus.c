@@ -74,10 +74,10 @@ register_extra_menu_entry_information (ELEMENT *current)
             {
               menu_entry_node = arg;
               if (parsed_entry_node->node_content)
-                add_extra_container (arg, "node_content",
+                add_extra_container (arg, AI_key_node_content,
                                      parsed_entry_node->node_content);
               if (parsed_entry_node->manual_content)
-                add_extra_container (arg, "manual_content",
+                add_extra_container (arg, AI_key_manual_content,
                                      parsed_entry_node->manual_content);
             }
           free (parsed_entry_node);

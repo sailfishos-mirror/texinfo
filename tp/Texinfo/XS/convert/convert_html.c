@@ -482,7 +482,7 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
             {
               const ELEMENT *associated_node =
                            lookup_extra_element (root_command,
-                                                 "associated_node");
+                                                 AI_key_associated_node);
               if (associated_node)
                 root_unit->root = associated_node;
             }
@@ -491,7 +491,7 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
         {
           const ELEMENT *associated_section
                               = lookup_extra_element (root_command,
-                                                      "associated_section");
+                                                      AI_key_associated_section);
           if (associated_section)
             root_unit->root = associated_section;
         }
@@ -3158,9 +3158,10 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   const char *extension = 0;
   int target_split = 0;
   char *normalized = lookup_extra_string (external_node, "normalized");
-  ELEMENT *node_contents = lookup_extra_element (external_node, "node_content");
+  ELEMENT *node_contents = lookup_extra_element (external_node,
+                                                 AI_key_node_content);
   ELEMENT *manual_content = lookup_extra_element (external_node,
-                                                  "manual_content");
+                                                  AI_key_manual_content);
 
   TARGET_FILENAME *target_filename =
     normalized_label_id_file (self, normalized, node_contents);
@@ -3534,7 +3535,8 @@ html_command_node (CONVERTER *self, const ELEMENT *command)
                   else
                     {
                       const ELEMENT *associated_node
-                     = lookup_extra_element (root_command, "associated_node");
+                     = lookup_extra_element (root_command,
+                                             AI_key_associated_node);
                       if (associated_node)
                         target_info->node_command = associated_node;
                     }
@@ -3576,7 +3578,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
       const ELEMENT *target_command = command;
       /* for sectioning command prefer the associated node */
       const ELEMENT *associated_node = lookup_extra_element (command,
-                                                       "associated_node");
+                                                 AI_key_associated_node);
       if (associated_node)
         target_command = associated_node;
       target_info = html_get_target (self, target_command);
@@ -3626,7 +3628,7 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
             {
               const ELEMENT *associated_section
                 = lookup_extra_element (command_root_element,
-                                        "associated_section");
+                                        AI_key_associated_section);
               if (command_root_element == command
                   || (associated_section
                       && associated_section == command))
@@ -3674,7 +3676,7 @@ html_command_href (CONVERTER *self, const ELEMENT *command,
                    const char *specified_target)
 {
   const ELEMENT *manual_content = lookup_extra_element (command,
-                                                  "manual_content");
+                                                  AI_key_manual_content);
   if (manual_content)
     {
       return external_node_href (self, command, source_command);
@@ -3986,7 +3988,7 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   ELEMENT *close_p;
 
   ELEMENT *node_content = lookup_extra_element (command,
-                                                "node_content");
+                                                AI_key_node_content);
 
   tree = new_tree_added_elements (tree_added_status_elements_added);
 
@@ -4013,7 +4015,7 @@ html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
 {
 
   ELEMENT *manual_content = lookup_extra_element (command,
-                                                  "manual_content");
+                                                  AI_key_manual_content);
   if (manual_content)
     {
       return html_external_command_tree (self, command, manual_content);
@@ -4122,7 +4124,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
 {
   char *result;
   ELEMENT *manual_content = lookup_extra_element (command,
-                                                  "manual_content");
+                                                  AI_key_manual_content);
   if (manual_content)
     {
       char *context_str;
@@ -4374,7 +4376,7 @@ from_element_direction (CONVERTER *self, int direction,
                 {
                   ELEMENT *associated_node
                     = lookup_extra_element (target_unit->unit_command,
-                                            "associated_node");
+                                            AI_key_associated_node);
                   if (associated_node)
                     command = associated_node;
                 }
@@ -4391,7 +4393,7 @@ from_element_direction (CONVERTER *self, int direction,
                 {
                   ELEMENT *associated_section
                     = lookup_extra_element (target_unit->unit_command,
-                                            "associated_section");
+                                            AI_key_associated_section);
                   if (associated_section)
                     command = associated_section;
                 }
@@ -4964,11 +4966,11 @@ prepare_index_entries_targets (CONVERTER *self)
               index_entry = &idx->index_entries[j];
               main_entry_element = index_entry->entry_element;
               seeentry = lookup_extra_element (main_entry_element,
-                                               "seeentry");
+                                               AI_key_seeentry);
               if (seeentry)
                 continue;
               seealso = lookup_extra_element (main_entry_element,
-                                              "seealso");
+                                              AI_key_seealso);
               if (seealso)
                 continue;
 
@@ -5297,7 +5299,8 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           if (root_command && root_command->cmd == CM_node)
             {
               const ELEMENT *associated_section
-                = lookup_extra_element (root_command, "associated_section");
+                = lookup_extra_element (root_command,
+                                        AI_key_associated_section);
               if (associated_section)
                 root_command = associated_section;
             }
@@ -6342,7 +6345,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
       && self->document->sections_list->number > 0)
     {
       const ELEMENT *first = self->document->sections_list->list[0];
-      section_root = lookup_extra_element (first, "sectioning_root");
+      section_root = lookup_extra_element (first, AI_key_sectioning_root);
       /* this should not happen with $sections_list as set from Structuring
          sectioning_structure, but could happen with another source.
          We consider that if sectioning_root is set as usual, all the
@@ -6454,7 +6457,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                     {
                       const ELEMENT *associated_node
                           = lookup_extra_element (section,
-                                                  "associated_node");
+                                                  AI_key_associated_node);
                       text_append_n (&result, "<a", 2);
                       if (toc_id && strlen (toc_id))
                         text_printf (&result, " id=\"%s\"", toc_id);
@@ -7243,7 +7246,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
           if (self->conf->SECTION_NAME_IN_TITLE.o.integer > 0)
             {
               ELEMENT *associated_section
-                = lookup_extra_element (command, "associated_section");
+                = lookup_extra_element (command, AI_key_associated_section);
               if (associated_section && associated_section->e.c->args.number > 0)
                 {
                   command_tree = associated_section->e.c->args.list[0];
@@ -7507,7 +7510,7 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
       if (element_command && element_command->cmd != CM_node)
         {
           node_command = lookup_extra_element (element_command,
-                                               "associated_node");
+                                               AI_key_associated_node);
         }
       if (!node_command)
         node_command = element_command;
@@ -10402,7 +10405,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       else if (!strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
         {
           const ELEMENT *node
-            = lookup_extra_element (element, "associated_node");
+            = lookup_extra_element (element, AI_key_associated_node);
           if (node)
             {
               int automatic_directions = (node->e.c->args.number <= 1);
@@ -10468,7 +10471,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   if (cmd == CM_node)
     {
       opening_section
-       = lookup_extra_element (element, "associated_section");
+       = lookup_extra_element (element, AI_key_associated_section);
       if (opening_section)
         level_corrected_opening_section_cmd
           = section_level_adjusted_command_name (opening_section);
@@ -10476,7 +10479,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   else
     {
       const ELEMENT *associated_node
-        = lookup_extra_element (element, "associated_node");
+        = lookup_extra_element (element, AI_key_associated_node);
 
        /* if there is an associated node, it is not a section opening
         the section was opened before when the node was encountered */
@@ -10503,7 +10506,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   if (cmd == CM_node)
     {
       const ELEMENT *associated_section
-        = lookup_extra_element (element, "associated_section");
+        = lookup_extra_element (element, AI_key_associated_section);
       const char *normalized = lookup_extra_string (element, "normalized");
       /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
          output_unit->unit_command is NUL (and not equal to elemen). */
@@ -11201,7 +11204,7 @@ convert_author_command (CONVERTER *self, const enum command_id cmd,
   char *attribute_class;
   STRING_LIST *classes;
 
-  const ELEMENT *titlepage = lookup_extra_element (element, "titlepage");
+  const ELEMENT *titlepage = lookup_extra_element (element, AI_key_titlepage);
 
   if (!titlepage)
     return;
@@ -11417,12 +11420,13 @@ convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
               free (float_href);
 
               caption_element = lookup_extra_element (float_elt,
-                                                      "shortcaption");
+                                                      AI_key_shortcaption);
               if (caption_element)
                 caption_classes = &shortcaption_in_listoffloats_classes;
               else
                 {
-                  caption_element = lookup_extra_element (float_elt, "caption");
+                  caption_element = lookup_extra_element (float_elt,
+                                                          AI_key_caption);
                   if (caption_element)
                     caption_classes = &caption_in_listoffloats_classes;
                 }
@@ -11915,7 +11919,8 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  command_as_argument = lookup_extra_element (element, "command_as_argument");
+  command_as_argument = lookup_extra_element (element,
+                                              AI_key_command_as_argument);
   if (command_as_argument)
     {
       if (command_as_argument->cmd == CM_click)
@@ -12310,7 +12315,7 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
   cell_nr = lookup_extra_integer (element, AI_key_cell_number, &status);
   multitable = row->parent->parent;
 
-  columnfractions = lookup_extra_element (multitable, "columnfractions");
+  columnfractions = lookup_extra_element (multitable, AI_key_columnfractions);
 
   if (columnfractions)
     {
@@ -12392,7 +12397,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
     {
       char *normalized = lookup_extra_string (arg_node, "normalized");
       ELEMENT *manual_content = lookup_extra_element (arg_node,
-                                                      "manual_content");
+                                                      AI_key_manual_content);
       if (normalized && !manual_content)
         {
           target_node = find_identifier_target (
@@ -12411,7 +12416,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       const ELEMENT *target_root
              = html_command_root_element_command (self, target_node);
       const ELEMENT *associated_section = lookup_extra_element (target_node,
-                                                       "associated_section");
+                                                   AI_key_associated_section);
       reference_element = new_text_element (ET__converted);
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
@@ -12547,12 +12552,12 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
 
       if (arg_node)
         {
-          node_content = lookup_extra_element (arg_node, "node_content");
+          node_content = lookup_extra_element (arg_node, AI_key_node_content);
           if (node_content)
             {
               const char *normalized = lookup_extra_string (arg_node, "normalized");
               label_element = new_element (ET_NONE);
-              add_extra_element (label_element, "node_content", node_content);
+              add_extra_element (label_element, AI_key_node_content, node_content);
               if (normalized)
                 add_extra_string_dup (label_element, "normalized", normalized);
             }
@@ -12564,12 +12569,13 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
           if (!label_element)
             label_element = new_element (ET_NONE);
           /* TODO would be better to have add_extra_element argument const */
-          add_extra_element (label_element, "manual_content",
+          add_extra_element (label_element, AI_key_manual_content,
                              (ELEMENT *)file_arg->arg_tree);
         }
       else
         {
-          manual_content = lookup_extra_element (arg_node, "manual_content");
+          manual_content = lookup_extra_element (arg_node,
+                                                 AI_key_manual_content);
         }
 
       if (manual_content)
@@ -12579,7 +12585,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
           if (!label_element)
             label_element = new_element (ET_NONE);
 
-          add_extra_element (label_element, "manual_content",
+          add_extra_element (label_element, AI_key_manual_content,
                              manual_content);
 
           root_code = new_element (ET__code);
@@ -13103,7 +13109,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0)
             {
               const ELEMENT *element_node
-                = lookup_extra_element (main_entry_element, "element_node");
+                = lookup_extra_element (main_entry_element,
+                                        AI_key_element_node);
               if (element_node)
                 {
                   const char *normalized = lookup_extra_string (element_node,
@@ -13144,8 +13151,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           add_to_contents_as_array (entry_ref_tree, entry_content_element);
 
           /* index entry with @seeentry or @seealso */
-          seeentry = lookup_extra_element (main_entry_element, "seeentry");
-          seealso = lookup_extra_element (main_entry_element, "seealso");
+          seeentry = lookup_extra_element (main_entry_element, AI_key_seeentry);
+          seealso = lookup_extra_element (main_entry_element, AI_key_seealso);
 
           memset (entry_trees, 0, sizeof (ELEMENT *) * SUBENTRIES_MAX_LEVEL);
 
@@ -13161,7 +13168,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           while (subentry_level <= SUBENTRIES_MAX_LEVEL)
             {
               ELEMENT *new_subentry = lookup_extra_element (subentry,
-                                                            "subentry");
+                                                            AI_key_subentry);
               ELEMENT *subentry_tree = 0;
               if (!new_subentry)
                 break;
@@ -13547,7 +13554,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     {
                       associated_command
                           = lookup_extra_element (main_entry_element,
-                                                         "element_node");
+                                                    AI_key_element_node);
                       if (!associated_command)
                         associated_command
                           = html_command_node (self, target_element);
@@ -14205,7 +14212,7 @@ open_node_part_command (CONVERTER *self, const enum command_id cmd,
       else if (cmd == CM_part)
         {
           const ELEMENT *part_following_node
-            = lookup_extra_element (element, "part_following_node");
+            = lookup_extra_element (element, AI_key_part_following_node);
           if (part_following_node)
             node_element = part_following_node;
         }
@@ -14733,7 +14740,8 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
         menu_entry_node = arg;
     }
 
-  manual_content = lookup_extra_element (menu_entry_node, "manual_content");
+  manual_content = lookup_extra_element (menu_entry_node,
+                                         AI_key_manual_content);
 
   if (manual_content)
     href = html_command_href (self, menu_entry_node, 0, element, 0);
@@ -14749,14 +14757,14 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           if (node)
             {
               node_description
-                 = lookup_extra_element (node, "node_description");
+                 = lookup_extra_element (node, AI_key_node_description);
 
    /* if !NODE_NAME_IN_MENU, we pick the associated section, except if
       the node is the element command */
               if (self->conf->NODE_NAME_IN_MENU.o.integer <= 0)
                 {
                   const ELEMENT *associated_section = lookup_extra_element (node,
-                                                       "associated_section");
+                                                       AI_key_associated_section);
                   if (associated_section)
                     {
                       const ELEMENT *associated_command
@@ -14971,10 +14979,10 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
             {
               const ELEMENT *manual_content
                            = lookup_extra_element (menu_entry_node,
-                                                   "manual_content");
+                                                   AI_key_manual_content);
               ELEMENT *node_content
                          = lookup_extra_element (menu_entry_node,
-                                                 "node_content");
+                                                 AI_key_node_content);
               if (manual_content)
                 {
                   name = html_command_text (self, menu_entry_node, 0);

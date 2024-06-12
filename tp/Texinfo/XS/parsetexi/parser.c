@@ -1085,7 +1085,7 @@ register_command_as_argument (ELEMENT *cmd_as_arg)
          command_name(cmd_as_arg->parent->parent->cmd),
          command_name(cmd_as_arg->cmd));
   add_extra_element (cmd_as_arg->parent->parent,
-                     "command_as_argument", cmd_as_arg);
+                     AI_key_command_as_argument, cmd_as_arg);
   if (cmd_as_arg->cmd == CM_kbd
       && kbd_formatted_as_code (cmd_as_arg->parent->parent)) {
     cmd_as_arg->parent->parent->flags |= EF_command_as_argument_kbd_code;

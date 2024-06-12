@@ -242,7 +242,7 @@ link_element_to_texi (const ELEMENT *element)
   text_init (&result);
   text_append (&result, "");
 
-  element_link = lookup_extra_element (element, "manual_content");
+  element_link = lookup_extra_element (element, AI_key_manual_content);
   if (element_link)
     {
       char *manual_texi = convert_contents_to_texinfo (element_link);
@@ -252,7 +252,7 @@ link_element_to_texi (const ELEMENT *element)
       free (manual_texi);
     }
 
-  element_link = lookup_extra_element (element, "node_content");
+  element_link = lookup_extra_element (element, AI_key_node_content);
   if (element_link)
     {
       char *node_texi = convert_contents_to_texinfo (element_link);

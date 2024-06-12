@@ -769,20 +769,22 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               if (current_node)
                 {
                   ELEMENT *e_description
-                    = lookup_extra_element (current_node, "node_description");
+                    = lookup_extra_element (current_node,
+                                            AI_key_node_description);
                   if (e_description)
                     {
                       if (e_description->cmd == cmd)
                         line_warn ("multiple node @nodedescription");
                       else
                         /* silently replace nodedescriptionblock */
-                        add_extra_element (current_node, "node_description",
+                        add_extra_element (current_node, AI_key_node_description,
                                            command_e);
                     }
                   else
-                    add_extra_element (current_node, "node_description",
+                    add_extra_element (current_node, AI_key_node_description,
                                        command_e);
-                  add_extra_element (command_e, "element_node", current_node);
+                  add_extra_element (command_e, AI_key_element_node,
+                                     current_node);
                 }
               else
                 line_warn ("@nodedescription outside of any node");
@@ -798,7 +800,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   line_warn ("@subentry should only occur in an index entry");
                 }
 
-              add_extra_element (parent, "subentry", command_e);
+              add_extra_element (parent, AI_key_subentry, command_e);
 
               if (parent->cmd == CM_subentry)
                 {
@@ -812,7 +814,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                     fatal ("No subentry parent level or level 0");
                 }
               add_extra_integer (command_e, AI_key_subentry_level, level);
-              add_extra_element (command_e, "subentry_parent", parent);
+              add_extra_element (command_e, AI_key_subentry_parent, parent);
               if (level > 2)
                 {
                   line_error
@@ -942,7 +944,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 break;
               if (parent->cmd == CM_titlepage)
                 {
-                  add_extra_element (current, "titlepage", parent);
+                  add_extra_element (current, AI_key_titlepage, parent);
                   found = 1; break;
                 }
               else if (parent->cmd == CM_quotation
@@ -950,7 +952,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 {
                   ELEMENT_LIST *l = add_extra_contents (parent, "authors", 0);
                   add_to_element_list (l, current);
-                  add_extra_element (current, "quotation", parent);
+                  add_extra_element (current, AI_key_quotation, parent);
                   found = 1; break;
                 }
             }
@@ -1117,22 +1119,23 @@ handle_block_command (ELEMENT *current, const char **line_inout,
           if (current_node)
             {
               ELEMENT *node_long_description
-                = lookup_extra_element (current_node, "node_long_description");
+                = lookup_extra_element (current_node,
+                                        AI_key_node_long_description);
               if (node_long_description)
                 line_warn ("multiple node @nodedescriptionblock");
                else
                 {
                   ELEMENT *node_description
-                    = lookup_extra_element (current_node, "node_description");
+                    = lookup_extra_element (current_node, AI_key_node_description);
 
                   if (!node_description)
-                    add_extra_element (current_node, "node_description",
+                    add_extra_element (current_node, AI_key_node_description,
                                        block);
 
-                  add_extra_element (current_node, "node_long_description",
+                  add_extra_element (current_node, AI_key_node_long_description,
                                      block);
                 }
-              add_extra_element (block, "element_node", current_node);
+              add_extra_element (block, AI_key_element_node, current_node);
             }
           else
             line_warn ("@nodedescriptionblock outside of any node");

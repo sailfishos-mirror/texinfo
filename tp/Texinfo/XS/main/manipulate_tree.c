@@ -69,7 +69,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
             ELEMENT *f = k_ref->k.element;
             ELEMENT *copy = copy_tree_internal (f);
             KEY_PAIR *k
-              = get_associated_info_skey (new_info, skey, k_ref->type);
+              = get_associated_info_key (new_info, key, k_ref->type);
             k->k.element = copy;
           }
           break;
@@ -97,7 +97,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_container:
           {
           ELEMENT *f = k_ref->k.element;
-          KEY_PAIR *k = get_associated_info_skey (new_info, skey, k_ref->type);
+          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           ELEMENT *new_extra_element = new_element (ET_NONE);
           k->k.element = new_extra_element;
           for (j = 0; j < f->e.c->contents.number; j++)
@@ -1000,7 +1000,7 @@ normalized_menu_entry_internal_node (const ELEMENT *entry)
       const ELEMENT *content = entry->e.c->contents.list[i];
       if (content->type == ET_menu_entry_node)
         {
-          if (!lookup_extra_element (content, "manual_content"))
+          if (!lookup_extra_element (content, AI_key_manual_content))
             {
               return lookup_extra_string (content, "normalized");
             }
@@ -1054,7 +1054,8 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
                       if (content->type == ET_menu_entry_node)
                         {
                           ELEMENT *manual_content
-                           = lookup_extra_element (content, "manual_content");
+                           = lookup_extra_element (content,
+                                                  AI_key_manual_content);
                           /* a reference to an external manual */
                           if (manual_content)
                             return content;

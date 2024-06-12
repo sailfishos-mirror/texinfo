@@ -130,7 +130,10 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k = &info->info[i];
-      if (info->info[i].type != extra_integer)
+      if (info->info[i].type != extra_integer
+          && info->info[i].type != extra_element
+          && info->info[i].type != extra_element_oot
+          && info->info[i].type != extra_container)
         {
           const char *key = k->skey;
           text_printf (&text, "  %s|", key);
@@ -163,19 +166,11 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_misc_args:
           {
             int j;
-            const ELEMENT_LIST *l = k->k.list;
+            const STRING_LIST *l = k->k.strings_list;
             text_append (&text, "array: ");
             for (j = 0; j < l->number; j++)
               {
-                const ELEMENT *e = l->list[j];
-                if (e->type == ET_other_text)
-                  text_printf (&text, "%s|", e->e.text->text);
-                else
-                  {
-                    KEY_PAIR *k_integer = lookup_extra (e, "integer");
-                    if (k_integer)
-                      text_printf (&text, "%d|", k_integer->k.integer);
-                  }
+                text_printf (&text, "%s|", l->list[j]);
               }
             break;
            }
@@ -207,6 +202,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
               }
             break;
           }
+        /* FIXME extra_index_entry not shown */
         default:
           text_printf (&text, "UNKNOWN (%d)", info->info[i].type);
           break;

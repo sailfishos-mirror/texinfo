@@ -377,9 +377,10 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
   const char *float_type = lookup_extra_string (float_e, "float_type");
   const char *float_number = lookup_extra_string (float_e, "float_number");
 
-  const ELEMENT *caption_element = lookup_extra_element (float_e, "caption");
+  const ELEMENT *caption_element = lookup_extra_element (float_e,
+                                                         AI_key_caption);
   if (!caption_element)
-    caption_element = lookup_extra_element (float_e, "shortcaption");
+    caption_element = lookup_extra_element (float_e, AI_key_shortcaption);
 
   if (float_type && strlen (float_type))
     type_element = float_e->e.c->args.list[0];
@@ -532,7 +533,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 {
   const ELEMENT *table_command = element->parent->parent->parent;
   const ELEMENT *command_as_argument = lookup_extra_element (table_command,
-                                               "command_as_argument");
+                                               AI_key_command_as_argument);
 
   if (element->e.c->args.number > 0 && command_as_argument)
     {
@@ -668,7 +669,7 @@ comma_index_subentries_tree (const ELEMENT *current_entry,
   while (1)
     {
       const ELEMENT *subentry
-        = lookup_extra_element (current_entry, "subentry");
+        = lookup_extra_element (current_entry, AI_key_subentry);
       if (subentry)
         {
           ELEMENT *separator = new_text_element (ET_normal_text);

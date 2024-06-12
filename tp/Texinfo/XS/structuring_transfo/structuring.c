@@ -275,7 +275,7 @@ sectioning_structure (DOCUMENT *document)
           add_to_element_list (sec_root_childs, content);
            /*
             in the tree as an out of tree element in extra */
-          add_extra_element_oot (content, "sectioning_root", sec_root);
+          add_extra_element_oot (content, AI_key_sectioning_root, sec_root);
           number_top_level = level;
            /*
              if level of top sectioning element is 0, which means that
@@ -372,7 +372,7 @@ sectioning_structure (DOCUMENT *document)
       else if (content->cmd == CM_part)
         {
           ELEMENT *part_associated_section
-            = lookup_extra_element (content, "part_associated_section");
+            = lookup_extra_element (content, AI_key_part_associated_section);
           if (!part_associated_section)
             {
               message_list_command_warn (error_messages, options, content,
@@ -433,7 +433,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
       else
         {
           ELEMENT *node_content = lookup_extra_element (menu_entry_node,
-                                                        "node_content");
+                                                        AI_key_node_content);
           if (!check_node_same_texinfo_code (menu_node, node_content))
             {
               char *entry_node_texi = link_element_to_texi (menu_entry_node);
@@ -456,7 +456,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
   ELEMENT_LIST *node_childs = new_list ();
 
   const ELEMENT *associated_section
-    = lookup_extra_element (node, "associated_section");
+    = lookup_extra_element (node, AI_key_associated_section);
   if (associated_section)
     {
       const ELEMENT_LIST *section_childs
@@ -469,7 +469,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
             {
               const ELEMENT *child = section_childs->list[i];
               ELEMENT *associated_node = lookup_extra_element (child,
-                                                             "associated_node");
+                                                     AI_key_associated_node);
               if (associated_node)
                 add_to_element_list (node_childs, associated_node);
             }
@@ -500,7 +500,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                               ELEMENT *child = section_childs->list[i];
                               ELEMENT *associated_node
                                    = lookup_extra_element (child,
-                                                           "associated_node");
+                                                      AI_key_associated_node);
                               if (associated_node)
                                 add_to_element_list (node_childs,
                                                      associated_node);
@@ -510,7 +510,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                   else
                     {
                       ELEMENT *associated_node = lookup_extra_element (current,
-                                                            "associated_node");
+                                                       AI_key_associated_node);
                       /*
                     for @appendix, and what follows, as it stops a @part, but is
                     not below @top
@@ -864,7 +864,8 @@ set_menus_node_directions (DOCUMENT *document)
                       if (content->type == ET_menu_entry_node)
                         {
                           ELEMENT *manual_content
-                           = lookup_extra_element (content, "manual_content");
+                           = lookup_extra_element (content,
+                                                   AI_key_manual_content);
 
                           if (!manual_content)
                             {
@@ -899,10 +900,11 @@ set_menus_node_directions (DOCUMENT *document)
                       if (previous_node)
                         {
                           ELEMENT *manual_content
-                           = lookup_extra_element (menu_node, "manual_content");
+                           = lookup_extra_element (menu_node,
+                                                   AI_key_manual_content);
                           ELEMENT *prev_manual_content
                            = lookup_extra_element (previous_node,
-                                                   "manual_content");
+                                                   AI_key_manual_content);
                           if (!manual_content)
                             {
                               const ELEMENT_LIST *menu_directions
@@ -945,7 +947,8 @@ set_menus_node_directions (DOCUMENT *document)
                       if (content->type == ET_menu_entry_node)
                         {
                           ELEMENT *manual_content
-                           = lookup_extra_element (content, "manual_content");
+                           = lookup_extra_element (content,
+                                                   AI_key_manual_content);
 
                           if (!manual_content)
                             check_menu_entry (document,
@@ -976,7 +979,7 @@ section_direction_associated_node (const ELEMENT *section,
         {
           const ELEMENT *section_to = directions->list[direction];
           ELEMENT *associated_node = lookup_extra_element (section_to,
-                                                       "associated_node");
+                                                    AI_key_associated_node);
           if ((strcmp (direction_bases[i], "toplevel_directions")
                || direction == D_up
                || section_to->cmd != CM_top)
@@ -1039,7 +1042,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                             continue;
                         }
                     }
-                  section = lookup_extra_element (node, "associated_section");
+                  section = lookup_extra_element (node,
+                                                  AI_key_associated_section);
                   if (section
                       && ((!options)
                           || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0))
@@ -1049,7 +1053,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       const ELEMENT *direction_associated_node;
           /* Prefer the section associated with a @part for node directions. */
                       part_section = lookup_extra_element (section,
-                                                   "part_associated_section");
+                                               AI_key_part_associated_section);
                       if (part_section)
                         node_direction_section = part_section;
                       direction_associated_node
@@ -1068,7 +1072,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                = section_directions->list[D_up];
                               const ELEMENT *up_node
                                     = lookup_extra_element (up_sec,
-                                                            "associated_node");
+                                                     AI_key_associated_node);
                               if (up_node)
                                 menus
                                   = lookup_extra_contents (up_node, "menus");
@@ -1108,7 +1112,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                        = menu_directions->list[d];
                       const ELEMENT *menu_direction_manual_content
                         = lookup_extra_element (elt_menu_direction,
-                                                "manual_content");
+                                                AI_key_manual_content);
                       if (!menu_direction_manual_content)
                         {
                           if (((!options)
@@ -1148,7 +1152,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
                   node_directions->list[D_next] = menu_child;
                   const ELEMENT *menu_child_manual_content
-                    = lookup_extra_element (menu_child, "manual_content");
+                    = lookup_extra_element (menu_child, AI_key_manual_content);
                   if (!menu_child_manual_content)
                     {
                       const ELEMENT_LIST *child_node_directions
@@ -1212,10 +1216,11 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       ELEMENT *menu_direction
                        = menu_directions->list[d];
                       ELEMENT *menu_dir_manual_content
-                       = lookup_extra_element (menu_direction, "manual_content");
+                       = lookup_extra_element (menu_direction,
+                                               AI_key_manual_content);
                       ELEMENT *node_dir_manual_content
                        = lookup_extra_element (node_directions->list[d],
-                                               "manual_content");
+                                               AI_key_manual_content);
                       if (!menu_dir_manual_content && !node_dir_manual_content)
                         {
                           char *node_texi = target_element_to_texi_label (node);
@@ -1249,7 +1254,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
           if (up_node)
             {
               ELEMENT *manual_content = lookup_extra_element (up_node,
-                                                          "manual_content");
+                                                       AI_key_manual_content);
               int is_target = (node->flags & EF_is_target);
               ELEMENT_LIST *menus
                    = lookup_extra_contents (up_node, "menus");
@@ -1363,12 +1368,13 @@ nodes_tree (DOCUMENT *document)
                           continue;
                       }
                   }
-                section = lookup_extra_element (node, "associated_section");
+                section = lookup_extra_element (node,
+                                                AI_key_associated_section);
                 if (section)
                   {
           /* Prefer the section associated with a @part for node directions. */
                     part_section = lookup_extra_element (section,
-                                                 "part_associated_section");
+                                               AI_key_part_associated_section);
                     if (part_section)
                       section = part_section;
                     direction_associated_node
@@ -1386,7 +1392,7 @@ nodes_tree (DOCUMENT *document)
         else /* Special case for Top node, use first section */
           {
             ELEMENT *section
-              = lookup_extra_element (node, "associated_section");
+              = lookup_extra_element (node, AI_key_associated_section);
             if (section)
               {
                 ELEMENT_LIST *section_childs
@@ -1395,7 +1401,8 @@ nodes_tree (DOCUMENT *document)
                   {
                     ELEMENT *first_sec = section_childs->list[0];
                     ELEMENT *top_node_section_child
-                      = lookup_extra_element (first_sec, "associated_node");
+                      = lookup_extra_element (first_sec,
+                                              AI_key_associated_node);
                     if (top_node_section_child)
                       {
                         const ELEMENT_LIST *top_directions
@@ -1422,7 +1429,7 @@ nodes_tree (DOCUMENT *document)
               int direction = i - 1;
               const ELEMENT *manual_content
                             = lookup_extra_element (direction_element,
-                                                     "manual_content");
+                                                    AI_key_manual_content);
               if (manual_content)
                 {
                   const ELEMENT_LIST *node_directions
@@ -1448,7 +1455,7 @@ nodes_tree (DOCUMENT *document)
                             {
                               ELEMENT *direction_node_content
                                 = lookup_extra_element (direction_element,
-                                                    "node_content");
+                                                      AI_key_node_content);
                                if (!check_node_same_texinfo_code (node_target,
                                                        direction_node_content))
                                  {
@@ -1521,7 +1528,7 @@ associate_internal_references (DOCUMENT *document)
         label_element = ref->e.c->args.list[0];
 
       label_node_content
-          = lookup_extra_element (label_element, "node_content");
+          = lookup_extra_element (label_element, AI_key_node_content);
       if (label_node_content)
         {
           char *normalized
@@ -1567,7 +1574,7 @@ associate_internal_references (DOCUMENT *document)
           else
             {
               label_node_content = lookup_extra_element (label_element,
-                                                         "node_content");
+                                                         AI_key_node_content);
               if ((!options)
                   || options->novalidate.o.integer <= 0)
                 {
@@ -1624,7 +1631,7 @@ number_floats (DOCUMENT *document)
 
           text_reset (&number);
           float_index ++;
-          up = lookup_extra_element (float_elt, "float_section");
+          up = lookup_extra_element (float_elt, AI_key_float_section);
           if (up)
             {
               while (1)
@@ -1694,7 +1701,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
       int i;
       ELEMENT *name_element;
       ELEMENT *associated_section
-        = lookup_extra_element (node, "associated_section");
+        = lookup_extra_element (node, AI_key_associated_section);
       if (associated_section)
         name_element = associated_section->e.c->args.list[0];
       else
@@ -1765,7 +1772,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   if (parsed_entry_node->node_content)
     {
       char *normalized;
-      add_extra_container (menu_entry_node, "node_content",
+      add_extra_container (menu_entry_node, AI_key_node_content,
                            parsed_entry_node->node_content);
       normalized = convert_to_identifier (parsed_entry_node->node_content);
       if (normalized)
@@ -1781,7 +1788,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     }
   /* seems that it may happen, if there is leading parenthesised text? */
   if (parsed_entry_node->manual_content)
-    add_extra_container (menu_entry_node, "manual_content",
+    add_extra_container (menu_entry_node, AI_key_manual_content,
                          parsed_entry_node->manual_content);
   free (parsed_entry_node);
 
@@ -1842,7 +1849,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
   /* only holds contents here, will add spaces and end in
      new_block_command */
 
-  section = lookup_extra_element (node, "associated_section");
+  section = lookup_extra_element (node, AI_key_associated_section);
   new_menu = new_command_element (ET_block_command, CM_menu);
   new_menu->parent = section;
 
@@ -1873,16 +1880,19 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                 continue;
 
               child_section
-                  = lookup_extra_element (child, "associated_section");
+                  = lookup_extra_element (child, AI_key_associated_section);
               if (child_section)
                 {
                   int part_added = 0;
                   ELEMENT *associated_part
-                    = lookup_extra_element (child_section, "associated_part");
-                  if (associated_part && associated_part->e.c->args.number > 0)
+                    = lookup_extra_element (child_section,
+                                            AI_key_associated_part);
+                  if (associated_part
+                      && associated_part->e.c->args.number > 0)
                     {
                       ELEMENT *part_title_copy
-                       = copy_contents (associated_part->e.c->args.list[0], ET_NONE);
+                       = copy_contents (associated_part->e.c->args.list[0],
+                                        ET_NONE);
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                       ELEMENT *part_title;
@@ -1997,7 +2007,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
       ELEMENT *node_name_element;
       ELEMENT *node_title_copy;
       ELEMENT *associated_section
-       = lookup_extra_element (node, "associated_section");
+       = lookup_extra_element (node, AI_key_associated_section);
       int new_up_nodes = 0;
       if (associated_section)
         node_name_element = associated_section->e.c->args.list[0];
@@ -2184,7 +2194,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
     {
       char *normalized = lookup_extra_string (node, "normalized");
       ELEMENT *associated_section
-          = lookup_extra_element (node, "associated_section");
+          = lookup_extra_element (node, AI_key_associated_section);
       if (normalized && !strcmp (normalized, "Top")
           && associated_section && associated_section->cmd == CM_top)
         {

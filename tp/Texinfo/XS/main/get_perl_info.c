@@ -1123,7 +1123,7 @@ find_index_entry_subentry (const ELEMENT *index_element, HV *element_hv)
   while (1)
     {
       const ELEMENT *subentry = lookup_extra_element (current_element,
-                                                      "subentry");
+                                                      AI_key_subentry);
       if (subentry)
         {
           if (subentry->hv == element_hv)

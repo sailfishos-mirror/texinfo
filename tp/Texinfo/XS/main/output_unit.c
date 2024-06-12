@@ -234,14 +234,14 @@ split_by_section (DOCUMENT *document)
       if (data_cmd == CM_node)
         {
           ELEMENT *associated_section
-            = lookup_extra_element (content, "associated_section");
+            = lookup_extra_element (content, AI_key_associated_section);
           if (associated_section)
             new_section = associated_section;
         }
       else if (data_cmd == CM_part)
         {
           ELEMENT *part_associated_section
-            = lookup_extra_element (content, "part_associated_section");
+            = lookup_extra_element (content, AI_key_part_associated_section);
           if (part_associated_section)
             new_section = part_associated_section;
         }
@@ -311,7 +311,7 @@ output_unit_section (OUTPUT_UNIT *output_unit)
   if (element->cmd == CM_node)
     {
       ELEMENT *associated_section
-         = lookup_extra_element (element, "associated_section");
+         = lookup_extra_element (element, AI_key_associated_section);
       if (associated_section)
         return associated_section;
       else
@@ -336,7 +336,7 @@ output_unit_node (OUTPUT_UNIT *output_unit)
   else
    {
      ELEMENT *associated_node
-         = lookup_extra_element (element, "associated_node");
+         = lookup_extra_element (element, AI_key_associated_node);
       if (associated_node)
         return associated_node;
       else
@@ -450,7 +450,7 @@ output_unit_texi (const OUTPUT_UNIT *output_unit)
 static OUTPUT_UNIT *
 label_target_unit_element (ELEMENT *label)
 {
-  ELEMENT *manual_content = lookup_extra_element (label, "manual_content");
+  ELEMENT *manual_content = lookup_extra_element (label, AI_key_manual_content);
   if (manual_content)
     {
   /* setup an output_unit for consistency with regular output units */
@@ -569,7 +569,7 @@ units_directions (LABEL_LIST *identifiers_target,
             {
               int automatic_directions = (node->e.c->args.number <= 1);
               const ELEMENT *associated_section = lookup_extra_element (node,
-                                                   "associated_section");
+                                                   AI_key_associated_section);
               const ELEMENT_LIST *section_childs = 0;
               if (associated_section)
                 section_childs = lookup_extra_contents (associated_section,

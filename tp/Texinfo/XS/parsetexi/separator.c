@@ -128,14 +128,21 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
                 float = current->parent->parent;
               if (float)
                 {
-                  if (lookup_extra_element (float, caption_cmdname))
+                  if ((command == CM_caption
+                       && lookup_extra_element (float, AI_key_caption))
+                      || (command == CM_shortcaption
+                          && lookup_extra_element (float, AI_key_shortcaption)))
                     line_warn ("ignoring multiple @%s",
                                caption_cmdname);
                   else
                     {
-                      add_extra_element (current->parent, "float", float);
-                      add_extra_element (float, caption_cmdname,
-                                         current->parent);
+                      add_extra_element (current->parent, AI_key_float, float);
+                      if (command == CM_caption)
+                        add_extra_element (float, AI_key_caption,
+                                           current->parent);
+                      else
+                        add_extra_element (float, AI_key_shortcaption,
+                                           current->parent);
                     }
                 }
 #undef float
@@ -366,10 +373,10 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                                          || ref_label_info->node_content))
                     {
                       if (ref_label_info->node_content)
-                        add_extra_container (arg_label, "node_content",
+                        add_extra_container (arg_label, AI_key_node_content,
                                             ref_label_info->node_content);
                       if (ref_label_info->manual_content)
-                        add_extra_container (arg_label, "manual_content",
+                        add_extra_container (arg_label, AI_key_manual_content,
                                             ref_label_info->manual_content);
                     }
                   else
@@ -547,9 +554,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                                                            &superfluous_arg);
                   if (arg && *arg)
                     {
-                      add_extra_string (subindex_elt,
-                                        command_name(current->parent->cmd),
-                                        arg);
+                      add_extra_string (subindex_elt, "sortas", arg);
                     }
                 }
               else
@@ -558,22 +563,19 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                   while (index_elt->cmd == CM_subentry)
                     {
                       ELEMENT *subentry_parent
-                        = lookup_extra_element (index_elt, "subentry_parent");
+                        = lookup_extra_element (index_elt,
+                                                AI_key_subentry_parent);
                       if (!subentry_parent)
                         break;
                       else
                         index_elt = subentry_parent;
                     }
-                  add_extra_element (index_elt,
-                                     command_name(current->parent->cmd),
-                                     current->parent);
-        /* Following should be uncommented association to the subentry is
-           wanted
-                  if (index_elt != subindex_elt)
-                    add_extra_element (subindex_elt,
-                                       command_name(current->parent->cmd),
+                  if (current->parent->cmd == CM_seeentry)
+                    add_extra_element (index_elt, AI_key_seeentry,
                                        current->parent);
-         */
+                  else
+                    add_extra_element (index_elt, AI_key_seealso,
+                                       current->parent);
                 }
             }
         }

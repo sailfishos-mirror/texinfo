@@ -86,10 +86,39 @@ enum output_unit_type {
   ai_key(row_number) \
   ai_key(section_level) \
   ai_key(subentry_level) \
+  \
+  ai_key(associated_node) \
+  ai_key(associated_part) \
+  ai_key(associated_section) \
+  ai_key(caption) \
+  ai_key(columnfractions) \
+  ai_key(command_as_argument) \
+  ai_key(def_index_element) \
+  ai_key(def_index_ref_element) \
+  ai_key(element_node) \
+  ai_key(float) \
+  ai_key(float_section) \
+  ai_key(manual_content) \
+  ai_key(node_content) \
+  ai_key(node_description) \
+  ai_key(node_long_description) \
+  ai_key(node_preceding_part) \
+  ai_key(part_associated_section) \
+  ai_key(part_following_node) \
+  ai_key(quotation) \
+  ai_key(sectioning_root) \
+  ai_key(shortcaption) \
+  ai_key(seealso) \
+  ai_key(seeentry) \
+  ai_key(subentry) \
+  ai_key(subentry_parent) \
+  ai_key(titlepage) \
+
 
 /*
   ai_key() \
   ai_key() \
+  ai_key(sortas) \
 */
 
 extern const char *ai_key_names[];

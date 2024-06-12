@@ -319,7 +319,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               ELEMENT *f = k->k.element;
               if (!f->hv)
                 f->hv = newHV ();
-              STORES(newRV_inc ((SV *)f->hv));
+              STORE(newRV_inc ((SV *)f->hv));
               break;
               }
             case extra_element_oot:
@@ -350,14 +350,14 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               ELEMENT *f = k->k.element;
               if (!f->hv || !avoid_recursion)
                 element_to_perl_hash (f, avoid_recursion);
-              STORES(newRV_inc ((SV *)f->hv));
+              STORE(newRV_inc ((SV *)f->hv));
               break;
               }
             case extra_container:
               {
               ELEMENT *f = k->k.element;
               build_perl_container (f, avoid_recursion);
-              STORES(newRV_inc ((SV *)f->hv));
+              STORE(newRV_inc ((SV *)f->hv));
               break;
               }
             case extra_contents:

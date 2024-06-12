@@ -90,9 +90,9 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
    'associated_section' on a node command element. */
 /* TODO would be good to have ELEMENT be const */
 void
-add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
+add_extra_element (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_element);
   k->k.element = value;
 }
@@ -102,9 +102,9 @@ add_extra_element (ELEMENT *e, const char *key, ELEMENT *value)
    Unused in the parser in 2023, but used in other codes.
 */
 void
-add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
+add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_element_oot);
   k->k.element = value;
 }
@@ -116,9 +116,9 @@ add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
    contents.
  */
 void
-add_extra_container (ELEMENT *e, char *key, ELEMENT *value)
+add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 {
-  KEY_PAIR *k = get_associated_info_skey (&e->e.c->extra_info, key,
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_container);
   k->k.element = value;
 }
@@ -248,10 +248,10 @@ lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
 }
 
 ELEMENT *
-lookup_extra_element (const ELEMENT *e, const char *key)
+lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 {
   const KEY_PAIR *k;
-  k = lookup_associated_sinfo (&e->e.c->extra_info, key);
+  k = lookup_associated_info (&e->e.c->extra_info, key);
   if (!k)
     return 0;
   else if (k->type == extra_string || k->type == extra_integer
@@ -290,9 +290,15 @@ lookup_extra_string (const ELEMENT *e, const char *key)
 }
 
 KEY_PAIR *
-lookup_extra (const ELEMENT *e, const char *key)
+lookup_extras (const ELEMENT *e, const char *key)
 {
   return lookup_associated_sinfo (&e->e.c->extra_info, key);
+}
+
+KEY_PAIR *
+lookup_extra (const ELEMENT *e, enum ai_key_name key)
+{
+  return lookup_associated_info (&e->e.c->extra_info, key);
 }
 
 /* *ret is negative if not found or not an integer */
@@ -328,7 +334,7 @@ lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret)
 ELEMENT_LIST *
 lookup_extra_contents (const ELEMENT *e, const char *key)
 {
-  KEY_PAIR *k = lookup_extra (e, key);
+  KEY_PAIR *k = lookup_extras (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_contents)
@@ -345,7 +351,7 @@ lookup_extra_contents (const ELEMENT *e, const char *key)
 const ELEMENT_LIST *
 lookup_extra_directions (const ELEMENT *e, const char *key)
 {
-  KEY_PAIR *k = lookup_extra (e, key);
+  KEY_PAIR *k = lookup_extras (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_directions)
@@ -362,7 +368,7 @@ lookup_extra_directions (const ELEMENT *e, const char *key)
 const STRING_LIST *
 lookup_extra_misc_args (const ELEMENT *e, const char *key)
 {
-  KEY_PAIR *k = lookup_extra (e, key);
+  KEY_PAIR *k = lookup_extras (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_misc_args)
@@ -379,7 +385,7 @@ lookup_extra_misc_args (const ELEMENT *e, const char *key)
 const INDEX_ENTRY_LOCATION *
 lookup_extra_index_entry (const ELEMENT *e, const char *key)
 {
-  KEY_PAIR *k = lookup_extra (e, key);
+  KEY_PAIR *k = lookup_extras (e, key);
   if (!k)
     return 0;
   else if (k->type != extra_index_entry)

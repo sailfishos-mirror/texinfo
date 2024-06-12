@@ -711,7 +711,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
               remove_from_element_list (menus, previous_idx);
               if (menus->number <= 0)
                 {
-                  KEY_PAIR *k = lookup_extra (previous_node, "menus");
+                  KEY_PAIR *k = lookup_extras (previous_node, "menus");
                   k->skey = "";
                   k->key = AI_key_none;
                   k->type = extra_deleted;
@@ -731,7 +731,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
            || current->type == ET_index_entry_command
            || (current->parent && current->parent->flags & EF_def_line))
     {
-      ELEMENT *element_node = lookup_extra_element (current, "element_node");
+      ELEMENT *element_node = lookup_extra_element (current, AI_key_element_node);
       if (element_node)
         {
           if (previous_node && element_node != previous_node)
@@ -749,7 +749,7 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
               free (previous_node_texi);
               free (element_node_texi);
             }
-          add_extra_element (current, "element_node", added_node);
+          add_extra_element (current, AI_key_element_node, added_node);
         }
     }
   return 0;
@@ -778,7 +778,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
           && flags & CF_root)
         {
           const ELEMENT *associated_node = lookup_extra_element (content,
-                                                       "associated_node");
+                                                    AI_key_associated_node);
           if (!associated_node)
             {
               ELEMENT *added_node;
@@ -808,9 +808,9 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   insert_into_contents (root, added_node, idx);
                   idx++;
                   add_to_element_list (added_nodes, added_node);
-                  add_extra_element (added_node, "associated_section",
+                  add_extra_element (added_node, AI_key_associated_section,
                                      content);
-                  add_extra_element (content, "associated_node", added_node);
+                  add_extra_element (content, AI_key_associated_node, added_node);
                   added_node->parent = content->parent;
                   /* reassociate index entries and menus */
                   add_to_element_list (new_previous, added_node);
@@ -1038,7 +1038,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
           if (!current_menu)
             {
               ELEMENT *section = lookup_extra_element (node,
-                                                       "associated_section");
+                                                       AI_key_associated_section);
               current_menu = new_command_element (ET_block_command, CM_menu);
               insert_list_slice_into_contents (current_menu, 0,
                                                pending, 0,
@@ -1085,7 +1085,7 @@ get_non_automatic_nodes_with_sections (const ELEMENT *root)
           && content->e.c->args.number <= 1)
         {
           const ELEMENT *associated_section
-            = lookup_extra_element (content, "associated_section");
+            = lookup_extra_element (content, AI_key_associated_section);
           if (associated_section)
             add_to_element_list (non_automatic_nodes, content);
         }
@@ -1122,7 +1122,8 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
       const ELEMENT_LIST *menus = lookup_extra_contents (node, "menus");
       if (!(menus && menus->number > 0))
         {
-          ELEMENT *section = lookup_extra_element (node, "associated_section");
+          ELEMENT *section = lookup_extra_element (node,
+                                                   AI_key_associated_section);
           ELEMENT *current_menu = new_complete_node_menu (node, document,
                                                       options, use_sections);
           if (current_menu)
