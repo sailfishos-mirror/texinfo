@@ -713,7 +713,6 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
               if (menus->number <= 0)
                 {
                   KEY_PAIR *k = lookup_extra (previous_node, AI_key_menus);
-                  k->skey = "";
                   k->key = AI_key_none;
                   k->type = extra_deleted;
                   destroy_list (menus);

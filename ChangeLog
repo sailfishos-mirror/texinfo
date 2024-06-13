@@ -1,7 +1,10 @@
-2024-09-29  Patrice Dumas  <pertusus@free.fr>
+2024-06-13  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/convert_html.c (html_command_description):
-	use integer key lookup_extra_element.
+	* tp/Texinfo/XS/main/tree_types.h (KEY_PAIR),
+	tp/Texinfo/XS/main/extra.c (get_associated_info_key),
+	tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/structuring_transfo/transformations.c: remove the skey
+	field of KEY_PAIR, now that it is not used anywhere anymore.
 
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 
@@ -18,6 +21,11 @@
 
 	* tp/Makefile.tres, t/test_document.t: add test of Texinfo::Document
 	set_document_global_info.
+
+2024-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_description):
+	use integer key lookup_extra_element.
 
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 

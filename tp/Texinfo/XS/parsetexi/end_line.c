@@ -820,7 +820,6 @@ end_line_starting_block (ELEMENT *current)
       else
         {
           add_extra_integer (current->parent, AI_key_max_columns, 0);
-          k->skey = "";
           k->key = AI_key_none;
           k->type = extra_deleted;
         }
@@ -957,7 +956,6 @@ end_line_starting_block (ELEMENT *current)
                                  "should not be on @%s line",
                                  command_name(e->cmd),
                                  command_name(command));
-                  k_command_as_arg->skey = "";
                   k_command_as_arg->key = AI_key_none;
                   k_command_as_arg->type = extra_deleted;
                 }
@@ -993,7 +991,6 @@ end_line_starting_block (ELEMENT *current)
                            && !*(f->e.text->text
                                  + strspn (f->e.text->text, whitespace_chars))))
                     {
-                      k_command_as_arg->skey = "";
                       k_command_as_arg->key = AI_key_none;
                       k_command_as_arg->type = extra_deleted;
                       k_command_as_arg = 0;
@@ -1029,7 +1026,6 @@ end_line_starting_block (ELEMENT *current)
                             "not allowed as @%s argument",
                             command_name(as_argument_cmd),
                             command_name(command));
-              k->skey = "";
               k->key = AI_key_none;
               k->type = extra_deleted;
             }

@@ -240,7 +240,6 @@ typedef struct STRING_LIST {
 } STRING_LIST;
 
 typedef struct KEY_PAIR {
-    const char *skey;
     enum ai_key_name key;
     enum extra_type type;
     union {

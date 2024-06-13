@@ -50,7 +50,6 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
       a->info[i].key = key;
     }
 
-  a->info[i].skey = 0;
   a->info[i].type = type;
 
   return &a->info[i];
