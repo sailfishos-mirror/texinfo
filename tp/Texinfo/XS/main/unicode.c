@@ -105,9 +105,9 @@ unicode_accent (const char *text, const ELEMENT *e)
   what is going on for that character.
   */
 
-  if (e->cmd == CM_dotless)
+  if (e->e.c->cmd == CM_dotless)
     {
-      if (!e->parent || !e->parent->parent || !e->parent->parent->cmd
+      if (!e->parent || !e->parent->parent || !e->parent->parent->e.c->cmd
           || !unicode_diacritics[element_builtin_cmd (e->parent->parent)].text)
         {
           if (!strcmp (text, "i"))
@@ -120,10 +120,10 @@ unicode_accent (const char *text, const ELEMENT *e)
       return strdup (text);
     }
 
-  if (unicode_diacritics[e->cmd].text)
+  if (unicode_diacritics[e->e.c->cmd].text)
     {
       static TEXT accented_text;
-      if (e->cmd == CM_tieaccent)
+      if (e->e.c->cmd == CM_tieaccent)
         {
           /* tieaccent diacritic is naturally and correctly composed
              between two characters */
@@ -154,7 +154,7 @@ unicode_accent (const char *text, const ELEMENT *e)
                   text_init (&accented_text);
                   text_append (&accented_text, first_char_text);
                   free (first_char_text);
-                  text_append (&accented_text, unicode_diacritics[e->cmd].text);
+                  text_append (&accented_text, unicode_diacritics[e->e.c->cmd].text);
                   next_text = string_from_utf8 (next);
                   text_append (&accented_text, next_text);
                   free (next_text);
@@ -168,7 +168,7 @@ unicode_accent (const char *text, const ELEMENT *e)
         }
       text_init (&accented_text);
       text_append (&accented_text, text);
-      text_append (&accented_text, unicode_diacritics[e->cmd].text);
+      text_append (&accented_text, unicode_diacritics[e->e.c->cmd].text);
       result = normalize_NFC (accented_text.text);
       free (accented_text.text);
     }
@@ -285,7 +285,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
     #    underbar.
     */
       if (!strcmp (new_eight_bit, prev_eight_bit)
-          && !(stack->stack[j]->cmd == CM_dotless
+          && !(stack->stack[j]->e.c->cmd == CM_dotless
                && !strcmp (results_stack[j], "i")))
         {
           free (new_eight_bit);

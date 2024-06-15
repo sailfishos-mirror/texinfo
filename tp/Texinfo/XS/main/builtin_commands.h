@@ -33,8 +33,9 @@ extern COMMAND builtin_command_data[];
    (!(e) ? 0 : (builtin_command_data[(e)->cmd].flags))
 #define builtin_command_name(cmd) (builtin_command_data[cmd].cmdname)
 /* no builtin_ prefix, as it is not used in parser, so no ambiguity */
-#define command_other_flags(e) \
-   (!(e) ? 0 : (builtin_command_data[(e)->cmd].other_flags))
+/* should not be called on a text element */
+#define command_other_flags(elt) \
+   (!(elt) ? 0 : (builtin_command_data[(elt)->e.c->cmd].other_flags))
 
 enum command_id lookup_builtin_command (const char *cmdname);
 const char *element_command_name (const ELEMENT *e);

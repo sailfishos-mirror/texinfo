@@ -255,12 +255,12 @@ existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized,
       char *label_element_texi = convert_contents_to_texinfo (label_element);
       message_list_command_error (error_messages, document->options,
                      element, "@%s `%s' previously defined",
-                     builtin_command_name (element->cmd),
+                     builtin_command_name (element->e.c->cmd),
                      label_element_texi);
       message_list_line_error_ext (error_messages, document->options,
                       MSG_error, 1, &existing_target->e.c->source_info,
                       "here is the previous definition as @%s",
-                      builtin_command_name (existing_target->cmd));
+                      builtin_command_name (existing_target->e.c->cmd));
       free (label_element_texi);
     }
 }

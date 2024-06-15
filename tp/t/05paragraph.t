@@ -143,6 +143,26 @@ in flushleft
 
 @end flushright
 '],
+['indent_before_macro_definition_and_other',
+'
+@indent
+@author someone
+@image{my_image}
+@vskip 0pt plus 1filll
+@html
+<code>in c</code>
+@end html
+@ifnothtml
+not html
+@end ifnothtml
+@setchapternewpage on
+@anchor{spot}
+@cpindex ei
+@macro aaa {g}
+ll /g/
+@end macro
+HHERE
+'],
 );
 
 my @test_invalid = (

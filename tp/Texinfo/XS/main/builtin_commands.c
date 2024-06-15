@@ -68,12 +68,12 @@ lookup_builtin_command (const char *cmdname)
 const char *
 element_command_name (const ELEMENT *e)
 {
-  if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER
+  if (e->e.c->cmd && e->e.c->cmd < BUILTIN_CMD_NUMBER
     /* this can happen if a tree portion is copied and to simplify
        following code the generic command is used in the copy */
-      && e->cmd != CM_index_entry_command
-      && e->cmd != CM_definfoenclose_command)
-    return builtin_command_data[e->cmd].cmdname;
+      && e->e.c->cmd != CM_index_entry_command
+      && e->e.c->cmd != CM_definfoenclose_command)
+    return builtin_command_data[e->e.c->cmd].cmdname;
   else if (e->type == ET_definfoenclose_command
            || e->type == ET_index_entry_command
            || type_data[e->type].flags & TF_macro_call)
@@ -90,13 +90,13 @@ element_command_name (const ELEMENT *e)
 enum command_id
 element_builtin_cmd (const ELEMENT *e)
 {
-  if (e->cmd && e->cmd < BUILTIN_CMD_NUMBER)
-    return e->cmd;
+  if (e->e.c->cmd && e->e.c->cmd < BUILTIN_CMD_NUMBER)
+    return e->e.c->cmd;
   else if (e->type == ET_definfoenclose_command)
     return CM_definfoenclose_command;
   else if (e->type == ET_index_entry_command)
     return CM_index_entry_command;
-  else if (e->cmd)
+  else if (e->e.c->cmd)
     {
       char *debug_str = print_element_debug (e, 0);
       fprintf (stderr, "BUG: element_builtin_cmd: unexpected %s; add code?\n",
@@ -116,7 +116,7 @@ element_builtin_cmd (const ELEMENT *e)
 enum command_id
 element_builtin_data_cmd (const ELEMENT *e)
 {
-  if (e->cmd == CM_item
+  if (e->e.c->cmd == CM_item
       && e->parent->type == ET_table_term)
     return CM_item_LINE;
 

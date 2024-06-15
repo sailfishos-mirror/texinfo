@@ -217,7 +217,7 @@ static char *
 ascii_accent (CONVERTER *self, const char *text,
               const ELEMENT *command, int set_case)
 {
-  const enum command_id cmd = command->cmd;
+  const enum command_id cmd = command->e.c->cmd;
   TEXT accent_text;
 
   text_init (&accent_text);
@@ -312,7 +312,7 @@ char *
 text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
 {
   char *result = 0;
-  enum command_id cmd = e->cmd;
+  enum command_id cmd = e->e.c->cmd;
   const char *encoding = 0;
 
   if (options->encoding)
@@ -598,34 +598,34 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
      with the right flags.  If an element can be a user-defined element,
      data_cmd need to be used for all access to arrays of command_id to
      avoid an index > max index of builtin command  */
-  if (element->cmd)
+  if (element->e.c->cmd)
       data_cmd = element_builtin_data_cmd (element);
 
   if ((element->type == ET_brace_args_command
-       && (element->cmd == CM_anchor
-           || element->cmd == CM_sortas
-           || element->cmd == CM_seealso
-           || element->cmd == CM_seeentry
-           || element->cmd == CM_footnote
-           || element->cmd == CM_hyphenation
-           || element->cmd == CM_errormsg))
+       && (element->e.c->cmd == CM_anchor
+           || element->e.c->cmd == CM_sortas
+           || element->e.c->cmd == CM_seealso
+           || element->e.c->cmd == CM_seeentry
+           || element->e.c->cmd == CM_footnote
+           || element->e.c->cmd == CM_hyphenation
+           || element->e.c->cmd == CM_errormsg))
       || (element->type == ET_context_brace_command
-          && (element->cmd == CM_shortcaption
-              || element->cmd == CM_caption))
+          && (element->e.c->cmd == CM_shortcaption
+              || element->e.c->cmd == CM_caption))
       || (element->type == ET_block_command
-          && (element->cmd == CM_titlepage /* ignored_block_commands */
-               || element->cmd == CM_copying
-               || element->cmd == CM_documentdescription
-               || element->cmd == CM_ignore
-               || element->cmd == CM_nodedescriptionblock)
-              || ((element->cmd == CM_html
-                   || element->cmd == CM_html
-                   || element->cmd == CM_tex
-                   || element->cmd == CM_xml
-                   || element->cmd == CM_docbook
-                   || element->cmd == CM_latex)
+          && (element->e.c->cmd == CM_titlepage /* ignored_block_commands */
+               || element->e.c->cmd == CM_copying
+               || element->e.c->cmd == CM_documentdescription
+               || element->e.c->cmd == CM_ignore
+               || element->e.c->cmd == CM_nodedescriptionblock)
+              || ((element->e.c->cmd == CM_html
+                   || element->e.c->cmd == CM_html
+                   || element->e.c->cmd == CM_tex
+                   || element->e.c->cmd == CM_xml
+                   || element->e.c->cmd == CM_docbook
+                   || element->e.c->cmd == CM_latex)
                   && !format_expanded_p (text_options->expanded_formats,
-                                    builtin_command_name (element->cmd))))
+                                    builtin_command_name (element->e.c->cmd))))
        /* here ignore most of the line commands, and also @*macro */
       || ((element->type == ET_line_command
            || element->type == ET_lineraw_command
@@ -633,8 +633,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           && !(builtin_command_data[data_cmd].other_flags
                                              & CF_formatted_line)
           && !(builtin_command_data[data_cmd].flags & CF_def)
-          && !(element->cmd == CM_sp
-               || element->cmd == CM_verbatiminclude))
+          && !(element->e.c->cmd == CM_sp
+               || element->e.c->cmd == CM_verbatiminclude))
       || element->type == ET_postamble_after_end
       || element->type == ET_preamble_before_beginning)
     return;
@@ -642,7 +642,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
   if (data_cmd
       && builtin_command_data[data_cmd].flags & CF_brace
       && builtin_command_data[data_cmd].data == BRACE_inline
-      && element->cmd != CM_inlinefmtifelse)
+      && element->e.c->cmd != CM_inlinefmtifelse)
     if (builtin_command_data[data_cmd].other_flags & CF_inline_format)
       {
         char *format = lookup_extra_string (element, AI_key_format);
@@ -716,7 +716,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           ADD(text);
           free (text);
         }
-      else if (element->cmd == CM_image)
+      else if (element->e.c->cmd == CM_image)
         {
           text_options->code_state++;
           convert_to_text_internal (element->e.c->args.list[0],
@@ -724,7 +724,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           text_options->code_state--;
           return;
         }
-      else if (element->cmd == CM_email)
+      else if (element->e.c->cmd == CM_email)
         {
           if (element->e.c->args.number >= 2)
             {
@@ -745,7 +745,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           text_options->code_state--;
           return;
         }
-      else if (element->cmd == CM_uref || element->cmd == CM_url)
+      else if (element->e.c->cmd == CM_uref || element->e.c->cmd == CM_url)
         {
           TEXT url_text;
 
@@ -812,10 +812,10 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                && builtin_command_data[data_cmd].data == BRACE_inline)
         {
           int arg_index = 1;
-          if (element->cmd == CM_inlineraw)
+          if (element->e.c->cmd == CM_inlineraw)
             text_options->raw_state++;
 
-          if (element->cmd == CM_inlinefmtifelse)
+          if (element->e.c->cmd == CM_inlinefmtifelse)
             {
               char *format = lookup_extra_string (element, AI_key_format);
               if (!format
@@ -828,7 +828,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
             convert_to_text_internal (element->e.c->args.list[arg_index],
                                       text_options, result);
 
-          if (element->cmd == CM_inlineraw)
+          if (element->e.c->cmd == CM_inlineraw)
             text_options->raw_state--;
           return;
         }
@@ -839,7 +839,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                         && builtin_command_data[data_cmd].flags & CF_math)))
         {
           int in_code = 0;
-          if (element->cmd == CM_sc)
+          if (element->e.c->cmd == CM_sc)
             text_options->set_case++;
 
           if (builtin_command_data[data_cmd].other_flags & CF_brace_code
@@ -853,15 +853,15 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           if (in_code)
             text_options->code_state--;
 
-          if (element->cmd == CM_sc)
+          if (element->e.c->cmd == CM_sc)
             text_options->set_case--;
           return;
         }
       /* block commands */
-      else if (element->cmd == CM_quotation
-               || element->cmd == CM_smallquotation
-               || element->cmd == CM_float
-               || element->cmd == CM_cartouche)
+      else if (element->e.c->cmd == CM_quotation
+               || element->e.c->cmd == CM_smallquotation
+               || element->e.c->cmd == CM_float
+               || element->e.c->cmd == CM_cartouche)
         {
           if (element->e.c->args.number >= 0)
             {
@@ -905,12 +905,12 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else if (builtin_command_data[data_cmd].other_flags & CF_formatted_line)
         {
-          if (element->cmd != CM_node)
+          if (element->e.c->cmd != CM_node)
             {
               TEXT text;
               text_init (&text);
               text_append (&text, "");
-              if (element->cmd != CM_page)
+              if (element->e.c->cmd != CM_page)
                 convert_to_text_internal (element->e.c->args.list[0],
                                           text_options, &text);
               if (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
@@ -936,7 +936,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         {
           convert_def_line (element, text_options, result);
         }
-      else if (element->cmd == CM_sp)
+      else if (element->e.c->cmd == CM_sp)
         {
           const STRING_LIST *misc_args
              = lookup_extra_misc_args (element, AI_key_misc_args);
@@ -951,7 +951,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                   ADD("\n");
             }
         }
-      else if (element->cmd == CM_verbatiminclude)
+      else if (element->e.c->cmd == CM_verbatiminclude)
         {
           ELEMENT *verbatim_include_verbatim = 0;
           ERROR_MESSAGE_LIST *error_messages = 0;
@@ -982,8 +982,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               destroy_element_and_children (verbatim_include_verbatim);
             }
         }
-      else if (element->cmd && CM_item
-               && element->parent->cmd == CM_enumerate)
+      else if (element->e.c->cmd && CM_item
+               && element->parent->e.c->cmd == CM_enumerate)
         {
           int status;
           char *enumerate_specification = lookup_extra_string (element->parent,
@@ -1053,12 +1053,12 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
            && (builtin_command_data[data_cmd].flags & CF_preformatted_code)
                || builtin_command_data[data_cmd].flags & CF_math
                || (builtin_command_data[data_cmd].flags & CF_block
-                   && builtin_command_data[element->cmd].data == BLOCK_raw))
+                   && builtin_command_data[element->e.c->cmd].data == BLOCK_raw))
           || element->type == ET_menu_entry_node)
         in_code = 1;
-      else if (element->cmd
+      else if (element->e.c->cmd
                && builtin_command_data[data_cmd].flags & CF_block
-               && builtin_command_data[element->cmd].data == BLOCK_format_raw)
+               && builtin_command_data[element->e.c->cmd].data == BLOCK_format_raw)
         in_raw = 1;
 
       if (in_raw)

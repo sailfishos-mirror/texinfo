@@ -165,7 +165,7 @@ find_innermost_accent_contents (const ELEMENT *element)
                     {
          /* if accent is tieaccent, keep everything and do not try to
             nest more */
-                      if (current->cmd != CM_tieaccent)
+                      if (current->e.c->cmd != CM_tieaccent)
                         {
                           current = content;
                           argument.number = 0;
@@ -223,7 +223,7 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
                                                   "number", number);
           add_string_to_named_string_element_list (substrings,
                                              "section_title", text);
-          if (current->cmd == CM_appendix)
+          if (current->e.c->cmd == CM_appendix)
             {
               int status;
               int section_level
@@ -252,7 +252,7 @@ add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
     }
   else
     {
-      if (current->cmd == CM_appendix)
+      if (current->e.c->cmd == CM_appendix)
         {
           int status;
           int section_level = lookup_extra_integer (current,
@@ -456,7 +456,7 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
     {
       message_list_command_error (error_messages, options, current,
                                   "@%s: could not find %s",
-                                  builtin_command_name (current->cmd),
+                                  builtin_command_name (current->e.c->cmd),
                                   file_name_text);
     }
   free (file_name);
@@ -890,7 +890,9 @@ find_root_command_next_heading_command (const ELEMENT *root,
                        "BUG: in top level unexpected normal_text: '%s'\n",
                        text);
             /* only whitespace characters */
-              if (! text[strspn (text, whitespace_chars)] == '\0')
+              if (text[strspn (text, whitespace_chars)] == '\0')
+                continue;
+              else
                 return 0;
             }
           else
@@ -918,9 +920,9 @@ find_root_command_next_heading_command (const ELEMENT *root,
               if (other_flags & CF_formatted_line
                   || other_flags & CF_formattable_line
                   || (do_not_ignore_contents
-                      && (content->cmd == CM_contents
-                          || content->cmd == CM_shortcontents
-                          || content->cmd == CM_summarycontents)))
+                      && (content->e.c->cmd == CM_contents
+                          || content->e.c->cmd == CM_shortcontents
+                          || content->e.c->cmd == CM_summarycontents)))
                 return 0;
               else
                 continue;

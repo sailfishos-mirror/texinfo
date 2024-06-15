@@ -1712,6 +1712,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/paragraph/comment_in_quotation.pl \
   t/results/paragraph/double_style_paragraph.pl \
   t/results/paragraph/image_in_paragraph.pl \
+  t/results/paragraph/indent_before_macro_definition_and_other.pl \
   t/results/paragraph/no_paragraph_commands.pl \
   t/results/paragraph/paragraph_command.pl \
   t/results/paragraph/paragraph_count_and_example.pl \

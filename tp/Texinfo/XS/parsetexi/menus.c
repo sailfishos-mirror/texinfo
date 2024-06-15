@@ -307,7 +307,9 @@ end_line_menu_entry (ELEMENT *current)
       ELEMENT *last = last_contents_child (current);
 
       if (last
-          && (last->cmd == CM_c || last->cmd == CM_comment))
+         /* last can be a text element */
+          && last->type == ET_lineraw_command
+          && (last->e.c->cmd == CM_c || last->e.c->cmd == CM_comment))
         {
           end_comment = pop_element_from_contents (current);
           last = last_contents_child (current);

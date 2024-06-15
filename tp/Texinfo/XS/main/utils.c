@@ -642,7 +642,9 @@ item_line_parent (ELEMENT *current)
   /* this code handles current being a user defined command even tough
      it is not clear that it may happen */
   cmd = element_builtin_cmd (current);
-  if (builtin_command_data[cmd].data == BLOCK_item_line)
+  if (cmd == CM_table
+      || cmd == CM_ftable
+      || cmd == CM_vtable)
     return current;
 
   return 0;
@@ -651,10 +653,10 @@ item_line_parent (ELEMENT *current)
 ELEMENT *
 get_label_element (const ELEMENT *e)
 {
-  if ((e->cmd == CM_node || e->cmd == CM_anchor)
+  if ((e->e.c->cmd == CM_node || e->e.c->cmd == CM_anchor)
       && e->e.c->args.number > 0)
     return e->e.c->args.list[0];
-  else if (e->cmd == CM_float && e->e.c->args.number >= 2)
+  else if (e->e.c->cmd == CM_float && e->e.c->args.number >= 2)
     return e->e.c->args.list[1];
   return 0;
 }
@@ -1364,7 +1366,7 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
 int
 section_level (const ELEMENT *section)
 {
-  int level = command_structuring_level[section->cmd];
+  int level = command_structuring_level[section->e.c->cmd];
   int status;
   int section_modifier = lookup_extra_integer (section, AI_key_level_modifier,
                                                &status);
@@ -1372,8 +1374,8 @@ section_level (const ELEMENT *section)
     {
       level -= section_modifier;
       if (level < min_level)
-        if (command_structuring_level[section->cmd] < min_level)
-          level = command_structuring_level[section->cmd];
+        if (command_structuring_level[section->e.c->cmd] < min_level)
+          level = command_structuring_level[section->e.c->cmd];
         else
           level = min_level;
       else if (level > max_level)
@@ -1394,13 +1396,13 @@ section_level_adjusted_command_name (const ELEMENT *element)
      not called */
   if (status == 0)
     {
-      if (command_structuring_level[element->cmd] != heading_level)
+      if (command_structuring_level[element->e.c->cmd] != heading_level)
         {
-          return level_to_structuring_command[element->cmd][heading_level];
+          return level_to_structuring_command[element->e.c->cmd][heading_level];
         }
     }
 
-  return element->cmd;
+  return element->e.c->cmd;
 }
 
 /* corresponding perl function in Common.pm */
@@ -1414,8 +1416,24 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
   for (i = 0; i < tree->e.c->contents.number; i++)
     {
       const ELEMENT *content = tree->e.c->contents.list[i];
-      enum command_id data_cmd = element_builtin_data_cmd (content);
+      enum command_id data_cmd;
 
+      if (type_data[content->type].flags & TF_text)
+        {
+          if (content->e.text->end == 0)
+            return 1;
+          else
+            {
+              const char *text = content->e.text->text;
+              /* only whitespace characters */
+              if (! text[strspn (text, whitespace_chars)] == '\0')
+                return 0;
+              else
+                continue;
+            }
+        }
+
+      data_cmd = element_builtin_data_cmd (content);
       if (data_cmd)
         {
           unsigned long flags = builtin_command_data[data_cmd].flags;
@@ -1452,19 +1470,7 @@ is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
         }
       if (content->type == ET_paragraph)
         return 0;
-      if (type_data[content->type].flags & TF_text)
-        {
-          if (content->e.text->end == 0)
-            return 1;
-          else
-            {
-              const char *text = content->e.text->text;
-              /* only whitespace characters */
-              if (! text[strspn (text, whitespace_chars)] == '\0')
-                return 0;
-            }
-        }
-      else if (! is_content_empty (content, do_not_ignore_index_entries))
+      if (! is_content_empty (content, do_not_ignore_index_entries))
         return 0;
     }
   return 1;

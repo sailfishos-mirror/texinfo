@@ -156,7 +156,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
     }
   else
     {
-      if (e->cmd
+      if (e->e.c->cmd
           || e->type == ET_def_line)
         {
           expand_cmd_args_to_texi (e, result);

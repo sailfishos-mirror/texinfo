@@ -508,6 +508,21 @@ sub _idx_leading_text_or_command($$)
 
   return (undef, undef) if (!$tree->{'contents'});
   foreach my $content (@{$tree->{'contents'}}) {
+    if (defined($content->{'text'})) {
+      if ($content->{'text'} =~ /\S/) {
+        my $result_text = $content->{'text'};
+        $result_text =~ s/^\s*//;
+        if (defined($ignore_chars)) {
+          $result_text =~ s/[$ignore_chars]//g;
+          $result_text =~ s/^\s*//;
+          next if ($result_text eq '');
+        }
+        return ($result_text, undef);
+      } else {
+        next;
+      }
+    }
+
     if ($content->{'cmdname'}) {
       my $cmdname = $content->{'cmdname'};
       if ($Texinfo::Commands::formatted_nobrace_commands{$cmdname}) {
@@ -547,15 +562,6 @@ sub _idx_leading_text_or_command($$)
                                               $ignore_chars);
         }
       }
-    } elsif (defined($content->{'text'}) and $content->{'text'} =~ /\S/) {
-      my $result_text = $content->{'text'};
-      $result_text =~ s/^\s*//;
-      if (defined($ignore_chars)) {
-        $result_text =~ s/[$ignore_chars]//g;
-        $result_text =~ s/^\s*//;
-        next if ($result_text eq '');
-      }
-      return ($result_text, undef);
     } elsif ($content->{'contents'}) {
       return _idx_leading_text_or_command($content, $ignore_chars);
     }

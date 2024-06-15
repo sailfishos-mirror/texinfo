@@ -1574,6 +1574,13 @@ sub is_content_empty($;$)
     return 1;
   }
   foreach my $content (@{$tree->{'contents'}}) {
+    if (defined($content->{'text'})) {
+      if ($content->{'text'} =~ /\S/) {
+        return 0;
+      } else {
+        next;
+      }
+    }
     if ($content->{'cmdname'}) {
       if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
         if ($do_not_ignore_index_entries) {
@@ -1606,9 +1613,6 @@ sub is_content_empty($;$)
       if ($content->{'type'} eq 'paragraph') {
         return 0;
       }
-    }
-    if (defined($content->{'text'}) and $content->{'text'} =~ /\S/) {
-      return 0;
     }
     if (not is_content_empty($content, $do_not_ignore_index_entries)) {
       return 0;

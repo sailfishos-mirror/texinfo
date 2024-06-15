@@ -1,3 +1,64 @@
+2024-06-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_close_command_cleanup): separate
+	multitable head and body only if the multitable has contents.
+
+	* tp/Texinfo/ParserNonXS.pm (_close_command_cleanup),
+	tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup): update code
+	taking into account that
+	i) there cannot be ignorable_spaces_after_command before before_item,
+	as it is added only after commands, and inside commands arguments.  
+	ii) there cannot be an @end in before_item, as soon as an @end is seen
+	it is popped from the element it is in, before closing.
+	iii) there can only be before_item or elements associated with @*item
+	directly in block item at commands.
+
+	* tp/Texinfo/XS/parsetexi/utils.c (item_line_parent): use explicit
+	command enums.
+
+	* tp/Texinfo/XS/main/convert_utils.c
+	(find_root_command_next_heading_command): fix condition.
+
+	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments): fix condition.
+
+	* tp/Texinfo/Document.pm (new_document): do not initialize explicitely
+	'included_files' to give the same output as with XS.
+
+	* tp/Texinfo/XS/main/manipulate_indices.c
+	(idx_leading_text_or_command), tp/Texinfo/Indices.pm
+	(_idx_leading_text_or_command), tp/Texinfo/XS/main/utils.c
+	(is_content_empty), tp/Texinfo/Common.pm (is_content_empty): handle
+	text element first.
+
+	* tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (%ignored_text_types)
+	(_convert): handle text first, including ignored text types, and the
+	remaining elements afterwards.
+
+	* tp/Texinfo/Translations.pm (_substitute_element_array),
+	tp/Texinfo/XS/main/translations.c (substitute_element_array): check
+	for text first, as there is no recursion in that case.
+
+	* tp/Texinfo/XS/main/tree_types.h (CONTAINER, ELEMENT),
+	tp/Texinfo/XS/main/tree.c (new_command_element),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/indices.c
+	(set_non_ignored_space_in_index_before_command): move cmd from
+	ELEMENT to CONTAINER, as text element do not have a command name.
+	Update users, making sure in particular that element_command_name,
+	element_builtin_cmd, element_builtin_data_cmd and similar functions
+	and macros are never called for a text element.
+
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace): rename
+	command variable as cmd.
+
+	* tp/t/test_document.t: fix the calls to is().
+
+	* tp/Makefile.tres, tp/t/05paragraph.t
+	(indent_before_macro_definition_and_other): add test with command that
+	are skipped between @indent and the next paragraph.
+
 2024-06-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/tree_types.h (KEY_PAIR),

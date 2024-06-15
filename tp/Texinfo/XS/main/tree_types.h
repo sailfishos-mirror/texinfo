@@ -324,6 +324,7 @@ typedef struct CONTAINER {
     OUTPUT_UNIT *associated_unit;
     /* depends on the element */
     char **string_info;
+    enum command_id cmd;
 } CONTAINER;
 
 /* indices in ELEMENT elt_info */
@@ -356,8 +357,6 @@ typedef struct ELEMENT {
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
     SOURCE_MARK_LIST source_mark_list;
-
-    enum command_id cmd;
 
     union {
       TEXT *text;

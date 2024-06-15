@@ -53,23 +53,22 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
 
   if (command_flags(current) & CF_brace)
     {
-      enum command_id command;
+      enum command_id cmd = current->e.c->cmd;
       ELEMENT *arg;
 
-      command = current->cmd;
 
       /* if there is already content it is for spaces_after_cmd_before_arg */
       if (current->e.c->contents.number > 0)
         gather_spaces_after_cmd_before_arg (current);
 
-      if (command_data(command).flags & CF_contain_basic_inline)
-        push_command (&nesting_context.basic_inline_stack, command);
+      if (command_data(cmd).flags & CF_contain_basic_inline)
+        push_command (&nesting_context.basic_inline_stack, cmd);
 
       counter_push (&count_remaining_args, current,
-                    command_data(current->cmd).args_number);
+                    command_data(cmd).args_number);
       counter_dec (&count_remaining_args);
 
-      if (command == CM_verb)
+      if (cmd == CM_verb)
         {
           arg = new_element (ET_brace_container);
           add_to_element_args (current, arg);
@@ -96,24 +95,24 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               line += char_len;
             }
         }
-      else if (command_data(command).data == BRACE_context)
+      else if (command_data(cmd).data == BRACE_context)
         {
           arg = new_element (ET_brace_command_context);
           add_to_element_args (current, arg);
           current = arg;
-          if (command == CM_caption || command == CM_shortcaption)
+          if (cmd == CM_caption || cmd == CM_shortcaption)
             {
 #define float floatxx
               ELEMENT *float;
-              const char *caption_cmdname = command_name(command);
+              const char *caption_cmdname = command_name(cmd);
               nesting_context.caption++;
               if (!current->parent->parent
-                  || current->parent->parent->cmd != CM_float)
+                  || current->parent->parent->e.c->cmd != CM_float)
                 {
                   float = current->parent;
-                  while (float->parent && float->cmd != CM_float)
+                  while (float->parent && float->e.c->cmd != CM_float)
                     float = float->parent;
-                  if (float->cmd != CM_float)
+                  if (float->e.c->cmd != CM_float)
                     {
                       line_error ("@%s is not meaningful outside "
                                   "`@float' environment",
@@ -128,16 +127,16 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
                 float = current->parent->parent;
               if (float)
                 {
-                  if ((command == CM_caption
+                  if ((cmd == CM_caption
                        && lookup_extra_element (float, AI_key_caption))
-                      || (command == CM_shortcaption
+                      || (cmd == CM_shortcaption
                           && lookup_extra_element (float, AI_key_shortcaption)))
                     line_warn ("ignoring multiple @%s",
                                caption_cmdname);
                   else
                     {
                       add_extra_element (current->parent, AI_key_float, float);
-                      if (command == CM_caption)
+                      if (cmd == CM_caption)
                         add_extra_element (float, AI_key_caption,
                                            current->parent);
                       else
@@ -147,25 +146,25 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
                 }
 #undef float
             }
-          else if (command == CM_footnote)
+          else if (cmd == CM_footnote)
             {
               nesting_context.footnote++;
             }
 
           /* Add to context stack. */
-          switch (command)
+          switch (cmd)
             {
             case CM_footnote:
-              push_context (ct_brace_command, command);
+              push_context (ct_brace_command, cmd);
               break;
             case CM_caption:
-              push_context (ct_brace_command, command);
+              push_context (ct_brace_command, cmd);
               break;
             case CM_shortcaption:
-              push_context (ct_brace_command, command);
+              push_context (ct_brace_command, cmd);
               break;
             case CM_math:
-              push_context (ct_math, command);
+              push_context (ct_math, cmd);
               break;
             default:
               fatal ("no context for command");
@@ -186,8 +185,8 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       else /* not context brace */
         {
           /* Commands that disregard leading whitespace. */
-          if (command_data(command).data == BRACE_arguments
-              || command_data(command).data == BRACE_inline)
+          if (command_data(cmd).data == BRACE_arguments
+              || command_data(cmd).data == BRACE_inline)
             {
               arg = new_element (ET_brace_arg);
               ELEMENT *e;
@@ -195,8 +194,8 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               add_to_element_contents (arg, e);
               internal_space_holder = arg;
 
-              if (command == CM_inlineraw)
-                push_context (ct_inlineraw, command);
+              if (cmd == CM_inlineraw)
+                push_context (ct_inlineraw, cmd);
             }
           else
             {
@@ -206,12 +205,12 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           current = arg;
         }
       debug_nonl ("OPENED @%s, remaining: %d ",
-                  command_name (current->parent->cmd),
+                  command_name (current->parent->e.c->cmd),
                   counter_value (&count_remaining_args, current->parent) > 0 ?
                    counter_value (&count_remaining_args, current->parent) : 0);
       debug_parser_print_element (current, 0); debug ("");
     }
-  else if (current->parent && (current->parent->cmd == CM_multitable
+  else if (current->parent && (current->parent->e.c->cmd == CM_multitable
                                || current->parent->flags & EF_def_line))
     {
       ELEMENT *b, *e;
@@ -314,10 +313,10 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
       abort_empty_line (&current);
 
       /* determine if trailing spaces are ignored */
-      if (command_data(current->parent->cmd).data == BRACE_arguments)
+      if (command_data(current->parent->e.c->cmd).data == BRACE_arguments)
         isolate_last_space (current);
 
-      closed_command = current->parent->cmd;
+      closed_command = current->parent->e.c->cmd;
       debug ("CLOSING(brace) @%s", command_data(closed_command).cmdname);
 
       if (current->e.c->contents.number > 0
@@ -330,7 +329,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
           current->parent->e.c->source_info = current_source_info;
           if (current->e.c->contents.number == 0)
             line_error ("empty argument in @%s",
-                        command_name(current->parent->cmd));
+                        command_name(current->parent->e.c->cmd));
           else
             {
               check_register_target_element_label (current, current->parent);
@@ -471,7 +470,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                || closed_command == CM_abbr
                || closed_command == CM_acronym)
         {
-          if (current->parent->cmd == CM_inlineraw)
+          if (current->parent->e.c->cmd == CM_inlineraw)
             {
               if (ct_inlineraw != pop_context ())
                 fatal ("inlineraw context expected");
@@ -480,7 +479,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
               || current->parent->e.c->args.list[0]->e.c->contents.number == 0)
             {
               line_warn ("@%s missing first argument",
-                         command_name(current->parent->cmd));
+                         command_name(current->parent->e.c->cmd));
             }
         }
       else if (closed_command == CM_errormsg)
@@ -535,19 +534,19 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           register_command_as_argument (current->parent);
         }
-      else if (current->parent->cmd == CM_sortas
-               || current->parent->cmd == CM_seeentry
-               || current->parent->cmd == CM_seealso)
+      else if (current->parent->e.c->cmd == CM_sortas
+               || current->parent->e.c->cmd == CM_seeentry
+               || current->parent->e.c->cmd == CM_seealso)
         {
           ELEMENT *subindex_elt;
           if (current->parent->parent
               && current->parent->parent->parent
               && ((command_flags(current->parent->parent->parent)
                     & CF_index_entry_command)
-                  || current->parent->parent->parent->cmd == CM_subentry))
+                  || current->parent->parent->parent->e.c->cmd == CM_subentry))
             {
               subindex_elt = current->parent->parent->parent;
-              if (current->parent->cmd == CM_sortas)
+              if (current->parent->e.c->cmd == CM_sortas)
                 {
                   int superfluous_arg;
                   char *arg = text_contents_to_plain_text (current,
@@ -560,7 +559,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
               else
                 {
                   ELEMENT *index_elt = subindex_elt;
-                  while (index_elt->cmd == CM_subentry)
+                  while (index_elt->e.c->cmd == CM_subentry)
                     {
                       ELEMENT *subentry_parent
                         = lookup_extra_element (index_elt,
@@ -570,7 +569,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                       else
                         index_elt = subentry_parent;
                     }
-                  if (current->parent->cmd == CM_seeentry)
+                  if (current->parent->e.c->cmd == CM_seeentry)
                     add_extra_element (index_elt, AI_key_seeentry,
                                        current->parent);
                   else
@@ -581,13 +580,13 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         }
       register_global_command (current->parent);
 
-      if (current->parent->cmd == CM_anchor
-          || current->parent->cmd == CM_hyphenation
-          || current->parent->cmd == CM_caption
-          || current->parent->cmd == CM_shortcaption
-          || current->parent->cmd == CM_sortas
-          || current->parent->cmd == CM_seeentry
-          || current->parent->cmd == CM_seealso)
+      if (current->parent->e.c->cmd == CM_anchor
+          || current->parent->e.c->cmd == CM_hyphenation
+          || current->parent->e.c->cmd == CM_caption
+          || current->parent->e.c->cmd == CM_shortcaption
+          || current->parent->e.c->cmd == CM_sortas
+          || current->parent->e.c->cmd == CM_seeentry
+          || current->parent->e.c->cmd == CM_seealso)
         {
           ELEMENT *e;
           e = new_text_element (ET_spaces_after_close_brace);
@@ -628,7 +627,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   type = current->type;
   current = current->parent;
 
-  if (command_data(current->cmd).data == BRACE_inline)
+  if (command_data(current->e.c->cmd).data == BRACE_inline)
     {
       int expandp = 0;
       const char *format = lookup_extra_string (current, AI_key_format);
@@ -653,9 +652,9 @@ handle_comma (ELEMENT *current, const char **line_inout)
           else
             {
               debug ("INLINE: %s", inline_type);
-              if (current->cmd == CM_inlineraw
-                  || current->cmd == CM_inlinefmt
-                  || current->cmd == CM_inlinefmtifelse)
+              if (current->e.c->cmd == CM_inlineraw
+                  || current->e.c->cmd == CM_inlinefmt
+                  || current->e.c->cmd == CM_inlinefmtifelse)
                 {
                   if (parser_format_expanded_p (inline_type))
                     {
@@ -665,13 +664,13 @@ handle_comma (ELEMENT *current, const char **line_inout)
                   else
                     expandp = 0;
                 }
-              else if (current->cmd == CM_inlineifset
-                       || current->cmd == CM_inlineifclear)
+              else if (current->e.c->cmd == CM_inlineifset
+                       || current->e.c->cmd == CM_inlineifclear)
                 {
                   expandp = 0;
                   if (fetch_value (inline_type))
                     expandp = 1;
-                  if (current->cmd == CM_inlineifclear)
+                  if (current->e.c->cmd == CM_inlineifclear)
                     expandp = !expandp;
                   if (expandp)
                     add_extra_integer (current, AI_key_expand_index, 1);
@@ -683,7 +682,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
             }
 
           /* Skip first argument for a false @inlinefmtifelse */
-          if (!expandp && current->cmd == CM_inlinefmtifelse)
+          if (!expandp && current->e.c->cmd == CM_inlinefmtifelse)
             {
               ELEMENT *e;
               ELEMENT *arg;
@@ -746,7 +745,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
               expandp = 1;
             }
         }
-      else if (current->cmd == CM_inlinefmtifelse)
+      else if (current->e.c->cmd == CM_inlinefmtifelse)
         {
           /* Second part of @inlinefmtifelse when condition is true.  Discard
              second argument. */

@@ -80,14 +80,20 @@ foreach my $ignored_brace_command ('anchor', 'footnote', 'shortcaption',
   $ignored_brace_commands{$ignored_brace_command} = 1;
 }
 
-my %ignored_types;
-foreach my $type ('ignorable_spaces_after_command',
-            'postamble_after_end',
-            'preamble_before_beginning',
+my %ignored_text_types;
+foreach my $type (
+            'ignorable_spaces_after_command',
             'spaces_at_end',
             'spaces_before_paragraph',
             'space_at_end_menu_node',
             'spaces_after_close_brace') {
+  $ignored_text_types{$type} = 1;
+}
+
+my %ignored_types;
+foreach my $type (
+            'postamble_after_end',
+            'preamble_before_beginning') {
   $ignored_types{$type} = 1;
 }
 
@@ -258,6 +264,14 @@ sub _convert($)
 {
   my $element = shift;
 
+  if (defined($element->{'text'})) {
+    return ''
+      if ($element->{'type'} and $ignored_text_types{$element->{'type'}});
+    my $result = $element->{'text'};
+    $result =~ s/\s+/ /g;
+    return $result;
+  }
+
   return '' if (($element->{'type'} and $ignored_types{$element->{'type'}})
           or ($element->{'cmdname'}
              and ($ignored_brace_commands{$element->{'cmdname'}}
@@ -266,11 +280,6 @@ sub _convert($)
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')))));
-  my $result = '';
-  if (defined($element->{'text'})) {
-    $result = $element->{'text'};
-    $result =~ s/\s+/ /g;
-  }
   if ($element->{'cmdname'}) {
     my $cmdname = $element->{'cmdname'};
     if (defined($normalize_node_nobrace_symbol_text{$cmdname})) {
@@ -319,6 +328,7 @@ sub _convert($)
       return _convert($element->{'args'}->[0]);
     }
   }
+  my $result = '';
   if ($element->{'contents'}) {
     foreach my $content (@{$element->{'contents'}}) {
       $result .= _convert($content);

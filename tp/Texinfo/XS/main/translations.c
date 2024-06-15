@@ -394,22 +394,26 @@ substitute_element_array (ELEMENT_LIST *list,
   for (; idx < list->number; idx++)
     {
       ELEMENT *e = list->list[idx];
-      if (e->cmd == CM_txiinternalvalue)
+      if (! (type_data[e->type].flags & TF_text))
         {
-          char *name = e->e.c->args.list[0]->e.c->contents.list[0]->e.text->text;
-          int i;
-          for (i = 0; i < replaced_substrings->number; i++)
+          if (e->e.c->cmd == CM_txiinternalvalue)
             {
-              if (!strcmp (name, replaced_substrings->list[i].name))
+              char *name = e->e.c->args.list[0]->e.c->contents.list[0]
+                                                            ->e.text->text;
+              int i;
+              for (i = 0; i < replaced_substrings->number; i++)
                 {
-                  list->list[idx] = replaced_substrings->list[i].element;
-                  destroy_element_and_children (e);
-                  break;
+                  if (!strcmp (name, replaced_substrings->list[i].name))
+                    {
+                      list->list[idx] = replaced_substrings->list[i].element;
+                      destroy_element_and_children (e);
+                      break;
+                    }
                 }
             }
+          else
+            substitute (e, replaced_substrings);
         }
-      else if (! (type_data[e->type].flags & TF_text))
-        substitute (e, replaced_substrings);
     }
 }
 

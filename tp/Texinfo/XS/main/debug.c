@@ -31,9 +31,9 @@
 const char *
 debug_element_command_name (const ELEMENT *e)
 {
-  if (e->cmd == CM_TAB)
+  if (e->e.c->cmd == CM_TAB)
     return "\\t";
-  else if (e->cmd == CM_NEWLINE)
+  else if (e->e.c->cmd == CM_NEWLINE)
     return "\\n";
   else
     return element_command_name (e);
@@ -99,7 +99,7 @@ print_element_debug (const ELEMENT *e, int print_parent)
     }
   else
     {
-      if (e->cmd)
+      if (e->e.c->cmd)
         text_printf (&text, "@%s", debug_element_command_name (e));
       if (e->e.c->args.number)
         text_printf (&text, "[A%d]", e->e.c->args.number);
@@ -109,8 +109,8 @@ print_element_debug (const ELEMENT *e, int print_parent)
   if (print_parent && e->parent)
     {
       text_append (&text, " <- ");
-      if (e->parent->cmd)
-        text_printf (&text, "@%s", element_command_name (e->parent));
+      if (e->parent->e.c->cmd)
+        text_printf (&text, "@%s", debug_element_command_name (e->parent));
       if (e->parent->type)
         text_printf (&text, "(%s)", type_data[e->parent->type].name);
     }

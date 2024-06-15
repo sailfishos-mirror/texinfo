@@ -157,8 +157,8 @@ copy_tree_internal (ELEMENT* current)
 
   if (type_data[current->type].flags & TF_text)
     new = new_text_element (current->type);
-  else if (current->cmd)
-    new = new_command_element (current->type, current->cmd);
+  else if (current->e.c->cmd)
+    new = new_command_element (current->type, current->e.c->cmd);
   else
     new = new_element (current->type);
 
@@ -213,7 +213,8 @@ copy_tree_internal (ELEMENT* current)
       int string_info_nr = 1;
       if (current->type == ET_definfoenclose_command
           || current->type == ET_index_entry_command
-          || current->type == ET_lineraw_command || current->cmd == CM_verb)
+          || current->type == ET_lineraw_command
+          || current->e.c->cmd == CM_verb)
         string_info_nr = 2;
       for (i = 0; i < string_info_nr; i++)
         if (current->e.c->string_info[i])

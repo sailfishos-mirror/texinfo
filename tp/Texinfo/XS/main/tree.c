@@ -118,8 +118,9 @@ ELEMENT *
 new_command_element (enum element_type type, enum command_id cmd)
 {
   ELEMENT *e = new_element (type);
-  e->cmd = cmd;
   int string_info_nr = 1;
+
+  e->e.c->cmd = cmd;
 
   if (type == ET_definfoenclose_command || type == ET_index_entry_command
       || type == ET_lineraw_command || cmd == CM_verb)
@@ -248,12 +249,12 @@ destroy_element (ELEMENT *e)
 
       if (e->type == ET_definfoenclose_command
           || e->type == ET_index_entry_command
-          || e->type == ET_lineraw_command || e->cmd == CM_verb
+          || e->type == ET_lineraw_command || e->e.c->cmd == CM_verb
           || type_data[e->type].flags & TF_macro_call)
         {
           string_info_nr = 2;
         }
-      else if (e->cmd != CM_NONE)
+      else if (e->e.c->cmd != CM_NONE)
         string_info_nr = 1;
 
       for (i = 0; i < string_info_nr; i++)

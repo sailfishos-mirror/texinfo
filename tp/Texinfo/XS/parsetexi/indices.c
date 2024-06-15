@@ -23,6 +23,7 @@
 #include "tree_types.h"
 /* document used in complete_indices */
 #include "document_types.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -328,15 +329,17 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
           /* set to "spaces_at_end" in case there are only spaces after */
           e->type = ET_spaces_at_end;
         }
-      else if (pending_spaces_element
-                && ! (e->cmd == CM_sortas
-                       || e->cmd == CM_seeentry
-                       || e->cmd == CM_seealso
-                       || e->type == ET_spaces_after_close_brace)
-                && (! check_space_element (e)))
+      else if (pending_spaces_element)
         {
-          pending_spaces_element->type = ET_normal_text;
-          pending_spaces_element = 0;
+          if (! (!(type_data[e->type].flags & TF_text)
+                 && (e->e.c->cmd == CM_sortas
+                     || e->e.c->cmd == CM_seeentry
+                     || e->e.c->cmd == CM_seealso))
+              && (! check_space_element (e)))
+            {
+              pending_spaces_element->type = ET_normal_text;
+              pending_spaces_element = 0;
+            }
         }
     }
 }

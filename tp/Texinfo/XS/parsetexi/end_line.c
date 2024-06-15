@@ -25,6 +25,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "text.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -112,7 +113,7 @@ parse_line_command_args (ELEMENT *line_command)
   enum command_id cmd;
   const char *line;
 
-  cmd = line_command->cmd;
+  cmd = line_command->e.c->cmd;
   if (arg->e.c->contents.number == 0)
    {
      command_error (line_command, "@%s missing argument", command_name(cmd));
@@ -787,9 +788,9 @@ end_line_starting_block (ELEMENT *current)
   enum command_id command;
 
   if (current->parent->flags & EF_def_line)
-    command = current->parent->parent->cmd;
+    command = current->parent->parent->e.c->cmd;
   else
-    command = current->parent->cmd;
+    command = current->parent->e.c->cmd;
 
   if (command_data(command).flags & CF_contain_basic_inline)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
@@ -837,23 +838,25 @@ end_line_starting_block (ELEMENT *current)
             {
               max_columns++;
             }
-          else if (e->type == ET_normal_text && e->e.text->end > 0)
+          else if (e->type == ET_normal_text)
             {
               /*
               TODO: this should be a warning or an error - all prototypes
               on a @multitable line should be in braces, as documented in the
               Texinfo manual.
+              if (e->e.text->end > 0)
+                 .....
                */
             }
           else
             {
-              if (e->cmd != CM_c && e->cmd != CM_comment)
+              if (e->e.c->cmd != CM_c && e->e.c->cmd != CM_comment)
                 {
                   char *texi;
                   texi = convert_to_texinfo (e);
                   command_warn (current->parent,
                                 "unexpected argument on @%s line: %s",
-                                command_name(current->parent->cmd),
+                                command_name(current->parent->e.c->cmd),
                                 texi);
                   free (texi);
                 }
@@ -902,7 +905,7 @@ end_line_starting_block (ELEMENT *current)
               ELEMENT *g;
               if (current->e.c->args.list[0]->e.c->contents.number > 1)
                 command_error (current, "superfluous argument to @%s",
-                               command_name(current->cmd));
+                               command_name(current->e.c->cmd));
               g = current->e.c->args.list[0]->e.c->contents.list[0];
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
@@ -949,12 +952,12 @@ end_line_starting_block (ELEMENT *current)
             {
               ELEMENT *e = k_command_as_arg->k.element;
               if (!(command_flags(e) & CF_brace)
-                  || (command_data(e->cmd).data == BRACE_noarg))
+                  || (command_data(e->e.c->cmd).data == BRACE_noarg))
                 {
                   command_error (current,
                                  "command @%s not accepting argument in brace "
                                  "should not be on @%s line",
-                                 command_name(e->cmd),
+                                 command_name(e->e.c->cmd),
                                  command_name(command));
                   k_command_as_arg->key = AI_key_none;
                   k_command_as_arg->type = extra_deleted;
@@ -983,13 +986,21 @@ end_line_starting_block (ELEMENT *current)
                 }
               for (; i < e->e.c->contents.number; i++)
                 {
+                  int not_command_as_arg = 0;
                   ELEMENT *f = contents_child_by_index (e, i);
-                  if (f->cmd != CM_c
-                      && f->cmd != CM_comment
-                      && !(f->type == ET_normal_text
-                           && f->e.text->end > 0
-                           && !*(f->e.text->text
-                                 + strspn (f->e.text->text, whitespace_chars))))
+                  if (f->type == ET_normal_text)
+                    {
+                      if (f->e.text->end > 0
+                          && *(f->e.text->text
+                                 + strspn (f->e.text->text, whitespace_chars)))
+                        not_command_as_arg = 1;
+                    }
+                  else if (!(f->type == ET_lineraw_command
+                             && (f->e.c->cmd == CM_c
+                                 || f->e.c->cmd == CM_comment)))
+                    not_command_as_arg = 1;
+
+                  if (not_command_as_arg)
                     {
                       k_command_as_arg->key = AI_key_none;
                       k_command_as_arg->type = extra_deleted;
@@ -1004,12 +1015,12 @@ end_line_starting_block (ELEMENT *current)
                   && command_as_arg_e->e.c->args.number <= 0
               /* only brace commands are registered as command_as_argument
                  so we can assume that the following is true:
-                 && command_data(command_as_arg_e->cmd).flags & CF_brace
+                 && command_data(command_as_arg_e->e.c->cmd).flags & CF_brace
                */
-                  && command_data(command_as_arg_e->cmd).data != BRACE_noarg)
+                  && command_data(command_as_arg_e->e.c->cmd).data != BRACE_noarg)
                 {
                    command_warn (current, "@%s expected braces",
-                                 command_name(command_as_arg_e->cmd));
+                                 command_name(command_as_arg_e->e.c->cmd));
                 }
             }
         }
@@ -1018,7 +1029,7 @@ end_line_starting_block (ELEMENT *current)
       k = lookup_extra (current, AI_key_command_as_argument);
       if (k && k->k.element)
         {
-          enum command_id as_argument_cmd = k->k.element->cmd;
+          enum command_id as_argument_cmd = k->k.element->e.c->cmd;
           if (as_argument_cmd
               && (command_data(as_argument_cmd).flags & CF_accent))
             {
@@ -1220,7 +1231,7 @@ end_line_misc_line (ELEMENT *current)
   int included_file = 0;
   SOURCE_MARK *include_source_mark = 0;
 
-  data_cmd = cmd = current->parent->cmd;
+  data_cmd = cmd = current->parent->e.c->cmd;
   /* we are in a command line context, so the @item command information is
      associated to CM_item_LINE */
   if (cmd == CM_item)
@@ -1267,7 +1278,7 @@ end_line_misc_line (ELEMENT *current)
       else
         {
           add_extra_string (current, AI_key_text_arg, text);
-          if (current->cmd == CM_end)
+          if (current->e.c->cmd == CM_end)
             {
               const char *line = text;
 
@@ -1306,7 +1317,7 @@ end_line_misc_line (ELEMENT *current)
             {
               /* An error message is issued below. */
             }
-          else if (current->cmd == CM_include)
+          else if (current->e.c->cmd == CM_include)
             {
               int status;
               char *fullpath, *sys_filename;
@@ -1346,7 +1357,7 @@ end_line_misc_line (ELEMENT *current)
                   free (fullpath);
                 }
             }
-          else if (current->cmd == CM_verbatiminclude)
+          else if (current->e.c->cmd == CM_verbatiminclude)
             {
               char *fullpath, *sys_filename;
               GLOBAL_INFO *global_info = &parsed_document->global_info;
@@ -1362,7 +1373,7 @@ end_line_misc_line (ELEMENT *current)
                 add_string (fullpath, &global_info->included_files);
               free (fullpath);
             }
-          else if (current->cmd == CM_documentencoding)
+          else if (current->e.c->cmd == CM_documentencoding)
             {
               int i;
               char *normalized_text;
@@ -1479,7 +1490,7 @@ end_line_misc_line (ELEMENT *current)
                 }
               free (normalized_text);
             }
-          else if (current->cmd == CM_documentlanguage)
+          else if (current->e.c->cmd == CM_documentlanguage)
             {
               const char *p;
 
@@ -1555,11 +1566,11 @@ end_line_misc_line (ELEMENT *current)
               *p1 = '\0';
             }
           command_error (current, "bad argument to @%s: %s",
-                         command_name(current->cmd), p);
+                         command_name(current->e.c->cmd), p);
           free (texi_line);
         }
     }
-  else if (current->cmd == CM_node)
+  else if (current->e.c->cmd == CM_node)
     {
       int i;
       ELEMENT *label_element;
@@ -1612,7 +1623,7 @@ end_line_misc_line (ELEMENT *current)
         }
       current_node = current;
     }
-  else if (current->cmd == CM_listoffloats)
+  else if (current->e.c->cmd == CM_listoffloats)
     {
       parse_float_type (current);
     }
@@ -1621,36 +1632,37 @@ end_line_misc_line (ELEMENT *current)
       if (command_flags(current) & CF_index_entry_command)
         {
           current->e.c->string_info[sit_command_name]
-            = strdup (command_name(current->cmd));
+            = strdup (command_name(current->e.c->cmd));
         }
       /* All the other "line" commands. Check they have an argument. Empty
          @top is allowed. */
       if (current->e.c->args.list[0]->e.c->contents.number == 0
-          && current->cmd != CM_top)
+          && current->e.c->cmd != CM_top)
         {
           command_warn (current, "@%s missing argument",
-                        command_name(current->cmd));
+                        command_name(current->e.c->cmd));
         }
       else
         {
-          if ((current->parent->cmd == CM_ftable
-               || current->parent->cmd == CM_vtable)
-              && (current->cmd == CM_item || current->cmd == CM_itemx))
+          if ((current->parent->e.c->cmd == CM_ftable
+               || current->parent->e.c->cmd == CM_vtable)
+              && (current->e.c->cmd == CM_item
+                  || current->e.c->cmd == CM_itemx))
             {
-              enter_index_entry (current->parent->cmd,
+              enter_index_entry (current->parent->e.c->cmd,
                                  current);
             }
           else if (command_flags(current) & CF_index_entry_command)
           /* Index commands */
             {
-              enter_index_entry (current->cmd, current);
+              enter_index_entry (current->e.c->cmd, current);
             }
           /* if there is a brace command interrupting an index or subentry
              command, replace the internal internal_spaces_before_brace_in_index
              text type with its final type depending on whether there is
              text after the brace command. */
           if ((command_flags(current) & CF_index_entry_command
-                || current->cmd == CM_subentry))
+                || current->e.c->cmd == CM_subentry))
             {
               set_non_ignored_space_in_index_before_command (
                                                      current->e.c->args.list[0]);
@@ -1673,7 +1685,7 @@ end_line_misc_line (ELEMENT *current)
       /* If not a conditional */
       if (command_data(end_id).data != BLOCK_conditional
           /* ignored conditional */
-          || current->cmd == end_id
+          || current->e.c->cmd == end_id
           /* not a non-ignored conditional */
           || (conditional_number == 0
               || top_conditional_stack ()->command != end_id))
@@ -1691,7 +1703,7 @@ end_line_misc_line (ELEMENT *current)
 
               add_to_element_contents (closed_command, end_elt);
 
-              if (command_data(closed_command->cmd).data == BLOCK_menu
+              if (command_data(closed_command->e.c->cmd).data == BLOCK_menu
                   && command_data(current_context_command ()).data
                                                               == BLOCK_menu)
                 {
@@ -1763,7 +1775,7 @@ end_line_misc_line (ELEMENT *current)
   else if (cmd == CM_columnfractions)
     {
       /* Check if in multitable. */
-      if (!current->parent || current->parent->cmd != CM_multitable)
+      if (!current->parent || current->parent->e.c->cmd != CM_multitable)
         {
           line_error ("@columnfractions only meaningful on a @multitable line");
         }
@@ -1798,7 +1810,7 @@ end_line_misc_line (ELEMENT *current)
               add_extra_element (current, AI_key_associated_part, current_part);
               add_extra_element (current_part, AI_key_part_associated_section,
                                  current);
-              if (current->cmd == CM_top)
+              if (current->e.c->cmd == CM_top)
                 {
                   line_error_ext (MSG_warning, 0, &current_part->e.c->source_info,
                          "@part should not be associated with @top");

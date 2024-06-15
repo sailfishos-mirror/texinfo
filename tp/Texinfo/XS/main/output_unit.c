@@ -308,7 +308,7 @@ output_unit_section (OUTPUT_UNIT *output_unit)
     return 0;
 
   element = output_unit->unit_command;
-  if (element->cmd == CM_node)
+  if (element->e.c->cmd == CM_node)
     {
       ELEMENT *associated_section
          = lookup_extra_element (element, AI_key_associated_section);
@@ -331,7 +331,7 @@ output_unit_node (OUTPUT_UNIT *output_unit)
 
   element = output_unit->unit_command;
 
-  if (element->cmd == CM_node)
+  if (element->e.c->cmd == CM_node)
     return element;
   else
    {
@@ -459,7 +459,7 @@ label_target_unit_element (ELEMENT *label)
       external_node_unit->unit_command = label;
       return external_node_unit;
     }
-  else if (label->cmd == CM_node)
+  else if (label->e.c->cmd == CM_node)
     return label->e.c->associated_unit;
   else
  /* case of a @float or an @anchor, no target element defined at this stage */
@@ -720,7 +720,7 @@ units_directions (LABEL_LIST *identifiers_target,
 
           up_section_childs = lookup_extra_contents (up, AI_key_section_childs);
           if (status >= 0 && up_section_level < 1
-              && up->cmd == CM_top && up_section_childs
+              && up->e.c->cmd == CM_top && up_section_childs
               && up_section_childs->number > 0)
             {
               directions[RUD_type_FastForward]

@@ -478,7 +478,7 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
       const ELEMENT *root_command = root_unit->root;
       if (self->conf->USE_NODES.o.integer > 0)
         {
-          if (root_command->cmd != CM_node)
+          if (root_command->e.c->cmd != CM_node)
             {
               const ELEMENT *associated_node =
                            lookup_extra_element (root_command,
@@ -487,7 +487,7 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
                 root_unit->root = associated_node;
             }
         }
-      else if (root_command->cmd == CM_node)
+      else if (root_command->e.c->cmd == CM_node)
         {
           const ELEMENT *associated_section
                               = lookup_extra_element (root_command,
@@ -2083,7 +2083,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
 
   target_base = normalized_to_id (normalized_name);
 
-  if (!strlen (target_base) && command->cmd == CM_top)
+  if (!strlen (target_base) && command->e.c->cmd == CM_top)
     {
       /* @top is allowed to be empty.  In that case it gets this target name */
       free (target_base);
@@ -3530,7 +3530,7 @@ html_command_node (CONVERTER *self, const ELEMENT *command)
               if (root_unit->root)
                 {
                   const ELEMENT *root_command = root_unit->root;
-                  if (root_command && root_command->cmd == CM_node)
+                  if (root_command && root_command->e.c->cmd == CM_node)
                     target_info->node_command = root_command;
                   else
                     {
@@ -3898,14 +3898,15 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                                    SUIT_type_heading, special_unit_variety);
               tree->tree = heading_tree;
             }
-          else if (command->cmd == CM_node || command->cmd == CM_anchor)
+          else if (command->e.c->cmd == CM_node
+                   || command->e.c->cmd == CM_anchor)
             {
               ELEMENT *root_code = new_element_added (tree, ET__code);
               add_to_contents_as_array (root_code, command->e.c->args.list[0]);
               tree->tree = root_code;
               add_tree_to_build (self, tree->tree);
             }
-          else if (command->cmd == CM_float)
+          else if (command->e.c->cmd == CM_float)
             {
               tree->tree = float_type_number (self, command);
               tree->status = tree_added_status_new_tree;
@@ -3935,7 +3936,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                   add_element_to_named_string_element_list (
                               replaced_substrings, "number", e_number);
 
-                  if (command->cmd == CM_appendix)
+                  if (command->e.c->cmd == CM_appendix)
                     {
                       int status;
                       int section_level = lookup_extra_integer (command,
@@ -4047,7 +4048,7 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           if (!command_tree->tree)
             return strdup ("");
 
-          if (command->cmd)
+          if (command->e.c->cmd)
             {
               const char *command_name = element_command_name (command);
               context_name = command_name;
@@ -4140,7 +4141,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       else
         tree_root = command_tree->tree;
 
-      if (command->cmd)
+      if (command->e.c->cmd)
         /* this never happens, as the external node label tree
            element is never directly an @-command.  It can be an @-command
            argument, in a menu, or a reconstituted tree. */
@@ -4371,7 +4372,7 @@ from_element_direction (CONVERTER *self, int direction,
         {
           if (target_unit->unit_command)
             {
-              if (target_unit->unit_command->cmd == CM_node)
+              if (target_unit->unit_command->e.c->cmd == CM_node)
                 command = target_unit->unit_command;
               else
                 {
@@ -4388,7 +4389,7 @@ from_element_direction (CONVERTER *self, int direction,
         {
           if (target_unit->unit_command)
             {
-              if (target_unit->unit_command->cmd != CM_node)
+              if (target_unit->unit_command->e.c->cmd != CM_node)
                 command = target_unit->unit_command;
               else
                 {
@@ -5297,7 +5298,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
         {
           const OUTPUT_UNIT *document_unit = root_unit->output_unit;
           const ELEMENT *root_command = root_unit->root;
-          if (root_command && root_command->cmd == CM_node)
+          if (root_command && root_command->e.c->cmd == CM_node)
             {
               const ELEMENT *associated_section
                 = lookup_extra_element (root_command,
@@ -5307,7 +5308,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
             }
        /* find the first level 1 sectioning element to associate the printindex
            with */
-          if (root_command && root_command->cmd != CM_node)
+          if (root_command && root_command->e.c->cmd != CM_node)
             {
               while (1)
                 {
@@ -5583,7 +5584,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                 {
                   const ELEMENT *root_command
                      = file_output_unit->unit_contents.list[j];
-                  if (root_command->cmd == CM_node)
+                  if (root_command->e.c->cmd == CM_node)
                     {
                       const ELEMENT *node_target = 0;
                       const char *normalized = lookup_extra_string (root_command,
@@ -5660,7 +5661,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                   const ELEMENT *command = file_output_unit->unit_command;
                   if (command)
                     {
-                      if (command->cmd == CM_top && !node_top
+                      if (command->e.c->cmd == CM_top && !node_top
                           && top_node_filename_str)
                         {
                    /* existing top_node_filename can happen, see
@@ -6431,7 +6432,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                                                    &status);
          const ELEMENT_LIST *section_childs
            = lookup_extra_contents (section, AI_key_section_childs);
-         if (section->cmd != CM_top)
+         if (section->e.c->cmd != CM_top)
             {
               char *text;
               char *href;
@@ -6513,7 +6514,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                = lookup_extra_directions (section, AI_key_section_directions);
               if (section_directions
                   && section_directions->list[D_next]
-                  && section->cmd != CM_top)
+                  && section->e.c->cmd != CM_top)
                 {
                   text_append_n (&result, "</li>\n", 6);
                   if (section == top_section)
@@ -6525,7 +6526,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                   int is_top_section = 0;
                   if (section == top_section)
                     {
-                      if (section->cmd != CM_top)
+                      if (section->e.c->cmd != CM_top)
                         text_append_n (&result, "</li>\n", 6);
                       break;
                     }
@@ -7278,7 +7279,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           add_tree_to_build (self, title_tree);
 
-          if (command->cmd)
+          if (command->e.c->cmd)
             xasprintf (&context_str, "file_header_title-element-@%s",
                        element_command_name (command));
           else if (command->type)
@@ -7508,7 +7509,7 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   if (output_unit)
     {
       element_command = output_unit->unit_command;
-      if (element_command && element_command->cmd != CM_node)
+      if (element_command && element_command->e.c->cmd != CM_node)
         {
           node_command = lookup_extra_element (element_command,
                                                AI_key_associated_node);
@@ -8290,7 +8291,7 @@ html_default_format_element_header (CONVERTER *self,
 
   /* Do the heading if the command is the first command in the element */
   if ((output_unit->unit_contents.list[0] == command
-       || (!output_unit->unit_contents.list[0]->cmd
+       || (!output_unit->unit_contents.list[0]->e.c->cmd
            && output_unit->unit_contents.list[1] == command))
         /* and there is more than one element */
       && (output_unit->tree_unit_directions[D_next]
@@ -9754,12 +9755,12 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
 
   /* do not return a dotless i or j as such if it is further composed
      with an accented letter, return the letter as is */
-  if (element->cmd == CM_dotless
+  if (element->e.c->cmd == CM_dotless
   /* corresponds to perl exists unicode_accented_letters{accent}->{text} */
       && (!strcmp (text_set, "i") || !strcmp (text_set, "j")))
     {
       if (element->parent && element->parent->parent
-          && element->parent->parent->cmd)
+          && element->parent->parent->e.c->cmd)
         {
           enum command_id p_cmd
             = element_builtin_cmd (element->parent->parent);
@@ -9774,7 +9775,7 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
   if (use_numeric_entities)
     {
       char *formatted_accent
-        = xml_numeric_entity_accent (element->cmd, text_set);
+        = xml_numeric_entity_accent (element->e.c->cmd, text_set);
       if (formatted_accent)
         {
           free (text_set);
@@ -9785,18 +9786,19 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
     {
       char *formatted_accent;
       if (strlen (text_set) == 1 && isascii_alpha (*text_set)
-          && self->accent_entities[element->cmd].entity
-          && self->accent_entities[element->cmd].characters
-          && strlen (self->accent_entities[element->cmd].characters)
-          && strrchr (self->accent_entities[element->cmd].characters,
+          && self->accent_entities[element->e.c->cmd].entity
+          && self->accent_entities[element->e.c->cmd].characters
+          && strlen (self->accent_entities[element->e.c->cmd].characters)
+          && strrchr (self->accent_entities[element->e.c->cmd].characters,
                        *text_set))
         {
           xasprintf (&formatted_accent, "&%s%s;", text_set,
-                     self->accent_entities[element->cmd].entity);
+                     self->accent_entities[element->e.c->cmd].entity);
           free (text_set);
           return formatted_accent;
         }
-      formatted_accent = xml_numeric_entity_accent (element->cmd, text_set);
+      formatted_accent = xml_numeric_entity_accent (element->e.c->cmd,
+                                                    text_set);
       if (formatted_accent)
         {
           free (text_set);
@@ -9878,7 +9880,7 @@ css_string_accent (CONVERTER *self, const char *text,
 {
   char *text_set = set_case_if_only_word_characters (text, set_case);
 
-  if (element->cmd == CM_dotless)
+  if (element->e.c->cmd == CM_dotless)
     {
       /* corresponds in perl, and for dotless, to
  Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text} */
@@ -9894,13 +9896,13 @@ css_string_accent (CONVERTER *self, const char *text,
         }
     }
 
-  if (unicode_diacritics[element->cmd].text)
+  if (unicode_diacritics[element->e.c->cmd].text)
     {
       char *accent_and_diacritic;
       char *normalized_accent_text;
       static TEXT accented_text;
       text_init (&accented_text);
-      if (element->cmd == CM_tieaccent)
+      if (element->e.c->cmd == CM_tieaccent)
         {
           /* tieaccent diacritic is naturally and correctly composed
              between two characters */
@@ -9982,7 +9984,7 @@ css_string_accent (CONVERTER *self, const char *text,
 
                   /* add the tie accent */
                   text_printf (&accented_text, "\\%s ",
-                               unicode_diacritics[element->cmd].hex_codepoint);
+                         unicode_diacritics[element->e.c->cmd].hex_codepoint);
                   /* add the remaining, second character or escaped text
                      and everything else after (which is in general invalid
                      but we do not care) */
@@ -10005,7 +10007,7 @@ css_string_accent (CONVERTER *self, const char *text,
          if yes use the merged character, if not output text and diacitic
          to be set up for composition */
       xasprintf (&accent_and_diacritic, "%s%s",
-                 text, unicode_diacritics[element->cmd].text);
+                 text, unicode_diacritics[element->e.c->cmd].text);
       normalized_accent_text = normalize_NFC (accent_and_diacritic);
       free (accent_and_diacritic);
       /* check if the normalization led to merging text and diacritic
@@ -10017,7 +10019,7 @@ css_string_accent (CONVERTER *self, const char *text,
              such that they could be composed */
           text_append (&accented_text, text);
           text_printf (&accented_text, "\\%s ",
-                   unicode_diacritics[element->cmd].hex_codepoint);
+                   unicode_diacritics[element->e.c->cmd].hex_codepoint);
         }
       else
         {
@@ -10332,7 +10334,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   /* No situation where this could happen */
   if (html_in_string (self))
     {
-      if (element->cmd != CM_node)
+      if (element->e.c->cmd != CM_node)
         {
           char *heading = html_command_text (self, element, HTT_string);
           text_append (result, heading);
@@ -10366,7 +10368,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
 
   text_init (&tables_of_contents);
   text_append (&tables_of_contents, "");
-  if (element->cmd == CM_top
+  if (element->e.c->cmd == CM_top
       && self->conf->CONTENTS_OUTPUT_LOCATION.o.string
       && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "after_top")
       && self->document->sections_list
@@ -11573,7 +11575,7 @@ convert_float_command (CONVERTER *self, const enum command_id cmd,
     }
 
   if (caption_element)
-    caption_command_name = builtin_command_name (caption_element->cmd);
+    caption_command_name = builtin_command_name (caption_element->e.c->cmd);
 
   classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
@@ -11928,7 +11930,7 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
                                               AI_key_command_as_argument);
   if (command_as_argument)
     {
-      if (command_as_argument->cmd == CM_click)
+      if (command_as_argument->e.c->cmd == CM_click)
         {
           command_as_argument_name = lookup_extra_string (command_as_argument,
                                                           AI_key_clickstyle);
@@ -12453,7 +12455,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
               else
                 name = html_command_text (self, target_root, HTT_text_nonumber);
             }
-          else if (target_node->cmd == CM_float)
+          else if (target_node->e.c->cmd == CM_float)
             {
               if (self->conf->XREF_USE_FLOAT_LABEL.o.integer <= 0)
                 {
@@ -14912,7 +14914,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                          formatted_nodedescription_nr);
             }
 
-          if (node_description->cmd == CM_nodedescription)
+          if (node_description->e.c->cmd == CM_nodedescription)
             description_element = node_description->e.c->args.list[0];
           else
             {
@@ -14934,7 +14936,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
-          if (node_description->cmd != CM_nodedescription)
+          if (node_description->e.c->cmd != CM_nodedescription)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;
@@ -15060,7 +15062,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                          formatted_nodedescription_nr);
             }
 
-          if (node_description->cmd == CM_nodedescription)
+          if (node_description->e.c->cmd == CM_nodedescription)
             description_element = node_description->e.c->args.list[0];
           else
             {
@@ -15076,7 +15078,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
           if (formatted_nodedescription_nr > 1)
             free (multiple_formatted);
-          if (node_description->cmd != CM_nodedescription)
+          if (node_description->e.c->cmd != CM_nodedescription)
             {
               remove_tree_to_build (self, description_element);
               description_element->e.c->contents.list = 0;
@@ -15232,10 +15234,10 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
 
   parsed_def = definition_arguments_content (element);
 
-  if (element->cmd)
-    original_def_cmd = element->cmd;
+  if (element->e.c->cmd)
+    original_def_cmd = element->e.c->cmd;
   else
-    original_def_cmd = element->parent->cmd;
+    original_def_cmd = element->parent->e.c->cmd;
 
   if (builtin_command_data[original_def_cmd].flags & CF_def_alias)
     {
@@ -15257,11 +15259,11 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
     original_cmd = original_def_cmd;
 
   /* parent is defblock, we do not put it in class */
-  if (element->cmd == CM_defline || element->cmd == CM_deftypeline)
-    def_cmd = element->cmd;
+  if (element->e.c->cmd == CM_defline || element->e.c->cmd == CM_deftypeline)
+    def_cmd = element->e.c->cmd;
   else
   /* the parent is the def both for def* def_line and def*x */
-    def_cmd = element->parent->cmd;
+    def_cmd = element->parent->e.c->cmd;
 
   if (builtin_command_data[def_cmd].flags & CF_def_alias)
     {
@@ -18556,8 +18558,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
     }
 
   if (cmd
-      && (element->type != ET_def_line
-          && element->type != ET_definfoenclose_command
+      && (element->type != ET_definfoenclose_command
           && element->type != ET_index_entry_command))
     {
       enum command_id data_cmd = element_builtin_data_cmd (element);
@@ -18836,7 +18837,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
           html_convert_command_update_context (self, data_cmd);
 
-          if (element->cmd == CM_node)
+          if (element->e.c->cmd == CM_node)
             {
               self->current_node = element;
               self->modified_state |= HMSF_current_node;

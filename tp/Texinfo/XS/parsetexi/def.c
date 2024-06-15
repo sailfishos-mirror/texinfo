@@ -23,6 +23,7 @@
 #include "command_ids.h"
 #include "tree_types.h"
 #include "text.h"
+#include "types_data.h"
 #include "tree.h"
 #include "builtin_commands.h"
 #include "extra.h"
@@ -42,14 +43,14 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
 {
   int contents_count, i;
 
-  if (!current->cmd)
+  if (!current->e.c->cmd)
     return;
 
   /* Check this isn't an "x" type command.
      "This may happen for a construct like:
      @deffnx a b @section
      but otherwise the end of line will lead to the command closing." */
-  if (command_data(current->cmd).flags & CF_line)
+  if (command_data(current->e.c->cmd).flags & CF_line)
     return;
 
   contents_count = current->e.c->contents.number;
@@ -72,7 +73,7 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       int j;
       ELEMENT *def_item;
 
-      if (current->cmd == CM_defblock
+      if (current->e.c->cmd == CM_defblock
        /* all content between @defblock and first @def*line */
           && i == contents_count)
         type = ET_before_defline;
@@ -481,8 +482,9 @@ parse_def (enum command_id command, ELEMENT *current)
           continue;
         }
       if (e->type == ET_def_line_arg && e->e.c->contents.number == 1
-          && e->e.c->contents.list[0]->cmd
-          && e->e.c->contents.list[0]->cmd != CM_code)
+          && !(type_data[e->e.c->contents.list[0]->type].flags & TF_text)
+          && e->e.c->contents.list[0]->e.c->cmd
+          && e->e.c->contents.list[0]->e.c->cmd != CM_code)
         {
           type = set_type_not_arg;
         }

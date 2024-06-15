@@ -54,7 +54,7 @@ new_block_command (ELEMENT *element)
   ELEMENT *end_spaces_before = new_text_element (ET_other_text);
   ELEMENT *end_spaces_after = new_text_element (ET_other_text);
   ELEMENT *command_name_text = new_text_element (ET_normal_text);
-  const char *command_name = builtin_command_name (element->cmd);
+  const char *command_name = builtin_command_name (element->e.c->cmd);
 
   text_append (arg_spaces_after->e.text, "\n");
   args->elt_info[eit_spaces_after_argument] = arg_spaces_after;
@@ -102,15 +102,15 @@ sectioning_structure (DOCUMENT *document)
       ELEMENT *content = root->e.c->contents.list[i];
       int level;
 
-      if (!content->cmd || content->cmd == CM_node
-          || content->cmd == CM_bye)
+      if (!content->e.c->cmd || content->e.c->cmd == CM_node
+          || content->e.c->cmd == CM_bye)
         continue;
 
       document->modified_information |= F_DOCM_tree;
 
       add_to_element_list (sections_list, content);
 
-      if (content->cmd == CM_top && !section_top)
+      if (content->e.c->cmd == CM_top && !section_top)
         section_top = content;
 
       level = section_level (content);
@@ -140,7 +140,7 @@ sectioning_structure (DOCUMENT *document)
                 {
                   message_list_command_error (error_messages, options, content,
                         "raising the section level of @%s which is too low",
-                                 builtin_command_name (content->cmd));
+                                 builtin_command_name (content->e.c->cmd));
                   level = prev_section_level + 1;
                 }
               add_to_element_list (section_childs, content);
@@ -193,7 +193,7 @@ sectioning_structure (DOCUMENT *document)
                     with being below the sectioning root, something need to
                     be done */
                     {
-                      if (builtin_command_name (content->cmd == CM_part))
+                      if (builtin_command_name (content->e.c->cmd == CM_part))
                         {
          /* the first part just appeared, and there was no @top first in
             document.  Mark that the sectioning root level needs to be updated
@@ -205,21 +205,21 @@ sectioning_structure (DOCUMENT *document)
                  */
                             message_list_command_warn (error_messages, options,
                               content, 0, "no chapter-level command before @%s",
-                                   builtin_command_name (content->cmd));
+                                   builtin_command_name (content->e.c->cmd));
                         }
                       else
                         {
                           message_list_command_warn (error_messages, options,
                                  content, 0,
           "lowering the section level of @%s appearing after a lower element",
-                                 builtin_command_name (content->cmd));
+                                 builtin_command_name (content->e.c->cmd));
                           level = sec_root_level +1;
                         }
                     }
                 }
               if ((command_other_flags (content) & CF_appendix)
                   && !in_appendix && level <= number_top_level
-                  && up->cmd == CM_part)
+                  && up->e.c->cmd == CM_part)
                 {
                   up = sec_root;
                 }
@@ -285,7 +285,7 @@ sectioning_structure (DOCUMENT *document)
             */
            if (number_top_level == 0)
              number_top_level = 1;
-           if (content->cmd != CM_top)
+           if (content->e.c->cmd != CM_top)
              {
                if (!(command_other_flags (content) & CF_unnumbered))
                  command_unnumbered[level] = 0;
@@ -347,7 +347,7 @@ sectioning_structure (DOCUMENT *document)
             }
         }
       previous_section = content;
-      if (content->cmd != CM_part && level <= number_top_level)
+      if (content->e.c->cmd != CM_part && level <= number_top_level)
         {
           if (previous_toplevel || (section_top && section_top != content))
             {
@@ -370,7 +370,7 @@ sectioning_structure (DOCUMENT *document)
             }
           previous_toplevel = content;
         }
-      else if (content->cmd == CM_part)
+      else if (content->e.c->cmd == CM_part)
         {
           ELEMENT *part_associated_section
             = lookup_extra_element (content, AI_key_part_associated_section);
@@ -378,7 +378,7 @@ sectioning_structure (DOCUMENT *document)
             {
               message_list_command_warn (error_messages, options, content,
                             0, "no sectioning command associated with @%s",
-                                      builtin_command_name (content->cmd));
+                                   builtin_command_name (content->e.c->cmd));
             }
         }
     }
@@ -405,7 +405,7 @@ warn_non_empty_parts (DOCUMENT *document)
       const ELEMENT *part = global_commands->part.list[i];
       if (!is_content_empty (part, 0))
         message_list_command_warn (error_messages, options, part, 0,
-                      "@%s not empty", builtin_command_name (part->cmd));
+                      "@%s not empty", builtin_command_name (part->e.c->cmd));
     }
 }
 
@@ -443,7 +443,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
                   menu_content, 0,
                   "@%s entry node name `%s' different from %s name `%s'",
                   builtin_command_name (cmd), entry_node_texi,
-                  builtin_command_name (menu_node->cmd), menu_node_texi);
+                  builtin_command_name (menu_node->e.c->cmd), menu_node_texi);
               free (entry_node_texi);
               free (menu_node_texi);
             }
@@ -477,7 +477,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
         }
        /* Special case for @top.  Gather all the children of the @part following
           @top. */
-      if (associated_section->cmd == CM_top)
+      if (associated_section->e.c->cmd == CM_top)
         {
           const ELEMENT *current = associated_section;
           while (1)
@@ -489,7 +489,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                   && section_directions->list[D_next])
                 {
                   current = section_directions->list[D_next];
-                  if (current->cmd == CM_part)
+                  if (current->e.c->cmd == CM_part)
                     {
                       ELEMENT_LIST *section_childs
                        = lookup_extra_contents (current, AI_key_section_childs);
@@ -537,7 +537,7 @@ register_referenced_node (ELEMENT *node, char **referenced_identifiers,
   size_t referenced_identifier_number = *referenced_identifier_number_ptr;
   char *normalized;
 
-  if (node->cmd != CM_node)
+  if (node->e.c->cmd != CM_node)
     return referenced_identifiers;
 
   normalized = lookup_extra_string (node, AI_key_normalized);
@@ -843,7 +843,7 @@ set_menus_node_directions (DOCUMENT *document)
                ELEMENT *menu = menus->list[j];
                message_list_command_warn (error_messages, options,
                              menu, 0, "multiple @%s",
-                             builtin_command_name (menu->cmd));
+                             builtin_command_name (menu->e.c->cmd));
             }
         }
 
@@ -871,7 +871,7 @@ set_menus_node_directions (DOCUMENT *document)
                           if (!manual_content)
                             {
                               if (check_menu_entries)
-                                check_menu_entry (document, menu->cmd,
+                                check_menu_entry (document, menu->e.c->cmd,
                                                   menu_content, content);
                               char *normalized
                                 = lookup_extra_string (content,
@@ -954,7 +954,7 @@ set_menus_node_directions (DOCUMENT *document)
 
                           if (!manual_content)
                             check_menu_entry (document,
-                                              detailmenu->cmd,
+                                              detailmenu->e.c->cmd,
                                               menu_content, content);
                           break;
                         }
@@ -985,7 +985,7 @@ section_direction_associated_node (const ELEMENT *section,
                                                     AI_key_associated_node);
           if ((direction_bases[i] != AI_key_toplevel_directions
                || direction == D_up
-               || section_to->cmd != CM_top)
+               || section_to->e.c->cmd != CM_top)
               && associated_node)
             return associated_node;
         }
@@ -1331,7 +1331,7 @@ nodes_tree (DOCUMENT *document)
       int is_target;
       int automatic_directions;
 
-      if (node->cmd != CM_node)
+      if (node->e.c->cmd != CM_node)
         continue;
 
       normalized = lookup_extra_string (node, AI_key_normalized);
@@ -1474,7 +1474,8 @@ nodes_tree (DOCUMENT *document)
                 "%s pointer `%s' (for node `%s') different from %s name `%s'",
                                        direction_texts[direction],
                                        direction_texi, node_texi,
-                                       builtin_command_name (node_target->cmd),
+                                       builtin_command_name
+                                                   (node_target->e.c->cmd),
                                        node_target_texi);
                                    free (direction_texi);
                                    free (node_texi);
@@ -1572,7 +1573,7 @@ associate_internal_references (DOCUMENT *document)
                   char *label_texi = link_element_to_texi (label_element);
                   message_list_command_error (error_messages, options,
                              ref, "@%s reference to nonexistent node `%s'",
-                             builtin_command_name (ref->cmd), label_texi);
+                             builtin_command_name (ref->e.c->cmd), label_texi);
                   free (label_texi);
                 }
             }
@@ -1592,8 +1593,8 @@ associate_internal_references (DOCUMENT *document)
                       message_list_command_warn (error_messages,
                                 options, ref, 0,
                                 "@%s to `%s', different from %s name `%s'",
-                                builtin_command_name (ref->cmd), label_texi,
-                                builtin_command_name (node_target->cmd),
+                                builtin_command_name (ref->e.c->cmd), label_texi,
+                                builtin_command_name (node_target->e.c->cmd),
                                 target_texi);
                       free (label_texi);
                       free (target_texi);
@@ -1647,8 +1648,8 @@ number_floats (DOCUMENT *document)
                       && section_directions->list[D_up])
                     {
                       ELEMENT *up_elt = section_directions->list[D_up];
-                      if (up_elt->cmd
-                          && command_structuring_level[up_elt->cmd] > 0)
+                      if (up_elt->e.c->cmd
+                          && command_structuring_level[up_elt->e.c->cmd] > 0)
                         {
                           up = up_elt;
                           continue;
@@ -1868,7 +1869,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
         }
     }
 
-  if (section && section->cmd == CM_top && options)
+  if (section && section->e.c->cmd == CM_top && options)
     {
       const char *normalized = lookup_extra_string (node, AI_key_normalized);
       if (normalized && !strcmp (normalized, "Top"))
@@ -2201,7 +2202,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
       ELEMENT *associated_section
           = lookup_extra_element (node, AI_key_associated_section);
       if (normalized && !strcmp (normalized, "Top")
-          && associated_section && associated_section->cmd == CM_top)
+          && associated_section && associated_section->e.c->cmd == CM_top)
         {
           ELEMENT_LIST *menus = new_list ();
           ELEMENT *detailmenu;

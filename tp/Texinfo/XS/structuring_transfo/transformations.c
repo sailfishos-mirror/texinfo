@@ -375,6 +375,11 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
           */
           for (j = 0; j < term->e.c->contents.number; j++)
             {
+              /* see gather_previous_item, CM_item a term can only contain
+                 leading index entries that were left out of the
+                 preceding table_entry, or from the beginning of the table
+                 and the @item command line
+               */
               ELEMENT *content = term->e.c->contents.list[j];
               if (content->type == ET_index_entry_command)
                 {
@@ -393,7 +398,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                    }
                 }
               /* the command in the tree is CM_item, not CM_item_LINE */
-              else if (content->cmd == CM_item)
+              else if (content->e.c->cmd == CM_item)
                 {
                   if (!item)
                     item = content;
@@ -426,7 +431,8 @@ relate_index_entries_to_table_items_internal (const char *type,
                                               ELEMENT *current,
                                               void *argument)
 {
-  if (current->cmd && current->cmd == CM_table)
+  if (type_data[current->type].flags & TF_at_command
+      && current->e.c->cmd == CM_table)
     {
       INDEX_LIST *indices_info = (INDEX_LIST *)argument;
       relate_index_entries_to_table_items_in (current, indices_info);
@@ -442,6 +448,7 @@ relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
                indices_info);
 }
 
+/* in itemize or enumerate */
 void
 move_index_entries_after_items (ELEMENT *current)
 {
@@ -450,8 +457,9 @@ move_index_entries_after_items (ELEMENT *current)
 
   for (i = 0; i < current->e.c->contents.number; i++)
     {
+      /* item can only be before_item, @item, or @end */
       ELEMENT *item = current->e.c->contents.list[i];
-      if (previous && item->cmd && item->cmd == CM_item
+      if (previous && item->e.c->cmd && item->e.c->cmd == CM_item
           && previous->e.c->contents.number > 0)
         {
           ELEMENT *previous_ending_container;
@@ -472,9 +480,9 @@ move_index_entries_after_items (ELEMENT *current)
               ELEMENT *content = previous_ending_container->e.c->contents.list[j];
               if (content->type == ET_index_entry_command)
                 last_entry_idx = j;
-              else if (!content->cmd
-                       || (content->cmd != CM_comment
-                           && content->cmd != CM_c))
+              else if ((!type_data[content->type].flags & TF_at_command)
+                       || (content->e.c->cmd != CM_comment
+                           && content->e.c->cmd != CM_c))
                 break;
             }
 
@@ -525,8 +533,9 @@ move_index_entries_after_items_internal (const char *type,
                                          ELEMENT *current,
                                          void *argument)
 {
-  if (current->cmd && (current->cmd == CM_enumerate
-                       || current->cmd == CM_itemize))
+  if (type_data[current->type].flags & TF_at_command
+      && (current->e.c->cmd == CM_enumerate
+          || current->e.c->cmd == CM_itemize))
     {
       move_index_entries_after_items (current);
     }
@@ -585,7 +594,9 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
     }
 
   last_content = last_contents_child (node_tree);
-  if (last_content->cmd == CM_c || last_content->cmd == CM_comment)
+  if (!(type_data[last_content->type].flags & TF_text)
+      && (last_content->e.c->cmd == CM_c
+          || last_content->e.c->cmd == CM_comment))
     {
       comment_at_end = pop_element_from_contents (node_tree);
       last_content = last_contents_child (node_tree);
@@ -683,7 +694,8 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   ELEMENT *added_node = new_previous->list[0];
   ELEMENT *previous_node = new_previous->list[1];
 
-  if (current->cmd == CM_menu)
+  if (type_data[current->type].flags & TF_at_command
+      && current->e.c->cmd == CM_menu)
     {
       ELEMENT_LIST *added_node_menus;
       if (previous_node)
@@ -724,12 +736,13 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
     }
   /* what is really important is to avoid commands without extra information,
      such as text, though it is even better to be precise */
-  else if (current->cmd == CM_nodedescription
-           || current->cmd == CM_nodedescriptionblock
+  else if (!(type_data[current->type].flags & TF_text)
+           && (current->e.c->cmd == CM_nodedescription
+               || current->e.c->cmd == CM_nodedescriptionblock
            /* following for index entries */
-           || current->cmd == CM_item || current->cmd == CM_itemx
-           || current->type == ET_index_entry_command
-           || (current->parent && current->parent->flags & EF_def_line))
+               || current->e.c->cmd == CM_item || current->e.c->cmd == CM_itemx
+               || current->type == ET_index_entry_command
+               || (current->parent && current->parent->flags & EF_def_line)))
     {
       ELEMENT *element_node = lookup_extra_element (current, AI_key_element_node);
       if (element_node)
@@ -787,7 +800,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
 
               document->modified_information |= F_DOCM_tree;
 
-              if (content->cmd == CM_top)
+              if (content->e.c->cmd == CM_top)
                 {
                   ELEMENT *top_node_text = new_text_element (ET_normal_text);
                   new_node_tree = new_element (ET_NONE);
@@ -821,7 +834,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                 }
             }
         }
-      if (content->cmd == CM_node)
+      if (content->e.c->cmd == CM_node)
         {
           int is_target = (content->flags & EF_is_target);
           if (is_target)
@@ -847,8 +860,8 @@ reference_to_arg_internal (const char *type,
                            ELEMENT *e,
                            void *argument)
 {
-  if (e->cmd
-      && builtin_command_data[e->cmd].flags & CF_ref)
+  if (type_data[e->type].flags & TF_at_command
+      && builtin_command_data[e->e.c->cmd].flags & CF_ref)
     {
       DOCUMENT *document = (DOCUMENT *) argument;
       int index = 0;
@@ -859,7 +872,7 @@ reference_to_arg_internal (const char *type,
       ELEMENT *new = new_element (ET_NONE);
       new->parent = e->parent;
       add_to_element_list (container, new);
-      if (e->cmd == CM_inforef || e->cmd == CM_link)
+      if (e->e.c->cmd == CM_inforef || e->e.c->cmd == CM_link)
         arguments_order = ref_3_args_order;
       while (arguments_order[index] >= 0)
         {
@@ -1055,7 +1068,8 @@ complete_node_menu (ELEMENT *node, int use_sections)
               const ELEMENT *last_menu_content
                 = last_contents_child (current_menu);
 
-              if (last_menu_content->cmd != CM_end)
+              if (!(type_data[last_menu_content->type].flags & TF_at_command)
+                  || last_menu_content->e.c->cmd != CM_end)
                 offset_at_end = 0;
               insert_list_slice_into_contents (current_menu,
                                 current_menu->e.c->contents.number + offset_at_end,
@@ -1082,7 +1096,7 @@ get_non_automatic_nodes_with_sections (const ELEMENT *root)
   for (i = 0; i < root->e.c->contents.number; i++)
     {
       ELEMENT *content = root->e.c->contents.list[i];
-      if (content->cmd && content->cmd == CM_node
+      if (content->e.c->cmd && content->e.c->cmd == CM_node
           && content->e.c->args.number <= 1)
         {
           const ELEMENT *associated_section
@@ -1176,8 +1190,10 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
       for (detailmenu_index = 0; detailmenu_index < menu->e.c->contents.number;
            detailmenu_index++)
         {
+          /* entry should be one of the menu specific containers, a
+             @detailmenu or @end */
           const ELEMENT *entry = menu->e.c->contents.list[detailmenu_index];
-          if (entry->cmd == CM_detailmenu)
+          if (entry->e.c->cmd == CM_detailmenu)
             {
               size_t j;
               ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
@@ -1225,7 +1241,10 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   last_menu = menus->list[menus->number -1];
   index = last_menu->e.c->contents.number;
   last_content = last_contents_child (last_menu);
-  if (last_content && last_content->cmd == CM_end)
+  /* In a regular setting the last content is @end, but here we also
+     allow for a missing @end, including for an empty @menu.  In that
+     case last_content could be one of the menu specific containers */
+  if (last_content && last_content->e.c->cmd == CM_end)
     index--;
 
   new_detailmenu_e->parent = last_menu;
@@ -1331,7 +1350,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                           ELEMENT *parent_for_warn = parent;
                           while (parent_for_warn)
                             {
-                              if (parent_for_warn->cmd
+                              if (parent_for_warn->e.c->cmd
                                   && parent_for_warn->e.c->source_info.line_nr)
                                 {
                                   DOCUMENT *document = (DOCUMENT *) argument;
@@ -1341,7 +1360,7 @@ protect_hashchar_at_line_beginning_internal (const char *type,
                                     &document->error_messages,
                                     options, parent_for_warn, 0,
                                     "could not protect hash character in @%s",
-                                builtin_command_name (parent_for_warn->cmd));
+                                builtin_command_name (parent_for_warn->e.c->cmd));
                                   break;
                                 }
                               parent_for_warn = parent_for_warn->parent;

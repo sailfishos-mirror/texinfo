@@ -2007,7 +2007,11 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
 
   build_tree_to_build (&self->tree_to_build);
 
-  /* could also be builtin_command_data[cmd].cmdname) */
+  /* could also be builtin_command_data[cmd].cmdname as cmd
+     can only be < BUILTIN_CMD_NUMBER for two reasons:
+      - cmd is element_builtin_cmd (element) in convert_to_html_internal
+      - registered cmd are < BUILTIN_CMD_NUMBER
+   */
   command_name = element_command_name (element);
 
   formatting_reference_sv = formatting_reference->sv_reference;
@@ -2075,7 +2079,11 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
 
   formatting_reference_sv = self->commands_open[cmd].sv_reference;
 
-  /* could also be builtin_command_data[cmd].cmdname) */
+  /* could also be builtin_command_data[cmd].cmdname as cmd
+     can only be < BUILTIN_CMD_NUMBER for two reasons:
+      - cmd is element_builtin_cmd (element) in convert_to_html_internal
+      - registered cmd are < BUILTIN_CMD_NUMBER
+   */
   command_name = element_command_name (element);
 
   if (self->modified_state)

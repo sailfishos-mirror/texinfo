@@ -624,7 +624,7 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
     {
       char *explanation;
       xasprintf (&explanation, "ACCENT ARG %s",
-                 builtin_command_name (accent->cmd));
+                 builtin_command_name (accent->e.c->cmd));
       arg_text = (*convert_tree) (self, accent_stack->argument, explanation);
       free (explanation);
     }

@@ -1940,31 +1940,32 @@ sub _close_command_cleanup($$) {
   # tree.  Also determine the multitable_body and multitable_head with
   # @item or @headitem rows.
   if ($current->{'cmdname'} eq 'multitable') {
-    my $in_head_or_rows;
-    my @contents;
-    @contents = @{$current->{'contents'}} if ($current->{'contents'});
-    $current->{'contents'} = [];
-    foreach my $row (@contents) {
-      if ($row->{'type'} and $row->{'type'} eq 'row') {
-        delete $row->{'cells_count'};
-        if ($row->{'contents'}->[0]->{'cmdname'} eq 'headitem') {
-          if (!$in_head_or_rows) {
-            push @{$current->{'contents'}}, {'type' => 'multitable_head',
-                                             'parent' => $current};
-            $in_head_or_rows = 1;
+    if ($current->{'contents'}) {
+      my $in_head_or_rows;
+      my @contents = @{$current->{'contents'}};
+      $current->{'contents'} = [];
+      foreach my $row (@contents) {
+        if ($row->{'type'} and $row->{'type'} eq 'row') {
+          delete $row->{'cells_count'};
+          if ($row->{'contents'}->[0]->{'cmdname'} eq 'headitem') {
+            if (!$in_head_or_rows) {
+              push @{$current->{'contents'}}, {'type' => 'multitable_head',
+                                               'parent' => $current};
+              $in_head_or_rows = 1;
+            }
+          } elsif ($row->{'contents'}->[0]->{'cmdname'} eq 'item') {
+            if (!defined($in_head_or_rows) or $in_head_or_rows) {
+              push @{$current->{'contents'}}, {'type' => 'multitable_body',
+                                               'parent' => $current};
+              $in_head_or_rows = 0;
+            }
           }
-        } elsif ($row->{'contents'}->[0]->{'cmdname'} eq 'item') {
-          if (!defined($in_head_or_rows) or $in_head_or_rows) {
-            push @{$current->{'contents'}}, {'type' => 'multitable_body',
-                                             'parent' => $current};
-            $in_head_or_rows = 0;
-          }
+          push @{$current->{'contents'}->[-1]->{'contents'}}, $row;
+          $row->{'parent'} = $current->{'contents'}->[-1];
+        } else {
+          push @{$current->{'contents'}}, $row;
+          $in_head_or_rows = undef;
         }
-        push @{$current->{'contents'}->[-1]->{'contents'}}, $row;
-        $row->{'parent'} = $current->{'contents'}->[-1];
-      } else {
-        push @{$current->{'contents'}}, $row;
-        $in_head_or_rows = undef;
       }
     }
   } elsif ($block_commands{$current->{'cmdname'}}
@@ -1995,72 +1996,34 @@ sub _close_command_cleanup($$) {
   # remove empty before_item.
   # warn if not empty before_item, but format is empty
   if ($blockitem_commands{$current->{'cmdname'}}) {
-    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
-      my $leading_spaces = 0;
-      my $before_item;
-      if ($current->{'contents'}->[0]->{'type'}
-          and $current->{'contents'}->[0]->{'type'} eq 'ignorable_spaces_after_command'
-          and $current->{'contents'}->[1]
-          and $current->{'contents'}->[1]->{'type'}
-          and $current->{'contents'}->[1]->{'type'} eq 'before_item') {
-        $leading_spaces = 1;
-        $before_item = $current->{'contents'}->[1];
-      } elsif ($current->{'contents'}->[0]->{'type'}
-              and $current->{'contents'}->[0]->{'type'} eq 'before_item') {
-        $before_item = $current->{'contents'}->[0];
-      }
-      if ($before_item) {
-        if ($before_item->{'contents'}
-            and scalar(@{$before_item->{'contents'}}) > 0
-            and $before_item->{'contents'}->[-1]->{'cmdname'}
-            and $before_item->{'contents'}->[-1]->{'cmdname'} eq 'end') {
-          my $end = _pop_element_from_contents($self, $before_item);
-          $end->{'parent'} = $current;
-          push @{$current->{'contents'}}, $end;
-        }
-        # remove empty before_items.  Both conditions can happen, the first
-        # if the before item remained empty, the second if after removing end
-        # and spaces it became empty.
-        if (_is_container_empty($before_item)
-            and not $before_item->{'source_marks'}) {
-          if ($leading_spaces) {
-            my $space = shift @{$current->{'contents'}};
-            shift @{$current->{'contents'}};
-            unshift @{$current->{'contents'}}, $space;
-          } else {
-            shift @{$current->{'contents'}};
-          }
-        } else {
-          # warn if not empty before_item, but format is empty
+    if ($current->{'contents'}
+        and $current->{'contents'}->[0]->{'type'}
+        and $current->{'contents'}->[0]->{'type'} eq 'before_item') {
+      my $before_item = $current->{'contents'}->[0];
+      if (_is_container_empty($before_item)
+          and not $before_item->{'source_marks'}) {
+        # remove empty before_item
+        shift @{$current->{'contents'}};
+      } else {
+        # The elements that can appear right in a block item command
+        # besides before_item are either an @*item or are associated
+        # with items
+        if (scalar(@{$current->{'contents'}}) == 1) {
+          # no @*item, only before_item.  Warn if before_item is not empty
           my $empty_before_item = 1;
           if ($before_item->{'contents'}) {
             foreach my $before_item_content (@{$before_item->{'contents'}}) {
-              if (!$before_item_content->{'cmdname'} or
-                    ($before_item_content->{'cmdname'} ne 'c'
-                     and $before_item_content->{'cmdname'} ne 'comment')) {
+              if (!$before_item_content->{'cmdname'}
+                 or ($before_item_content->{'cmdname'} ne 'c'
+                      and $before_item_content->{'cmdname'} ne 'comment')) {
                 $empty_before_item = 0;
                 last;
               }
             }
           }
           if (!$empty_before_item) {
-            my $empty_format = 1;
-            foreach my $format_content (@{$current->{'contents'}}) {
-              next if ($format_content eq $before_item);
-              if (($format_content->{'cmdname'}
-                   and ($format_content->{'cmdname'} ne 'c'
-                        and $format_content->{'cmdname'} ne 'comment'
-                        and $format_content->{'cmdname'} ne 'end'))
-                  or ($format_content->{'type'} and
-                   ($format_content->{'type'} ne 'ignorable_spaces_after_command'))) {
-                $empty_format = 0;
-                last;
-              }
-            }
-            if ($empty_format) {
-              $self->_line_warn(sprintf(__("\@%s has text but no \@item"),
-                           $current->{'cmdname'}), $current->{'source_info'});
-            }
+            $self->_line_warn(sprintf(__("\@%s has text but no \@item"),
+                         $current->{'cmdname'}), $current->{'source_info'});
           }
         }
       }
@@ -2658,7 +2621,7 @@ sub _expand_macro_arguments($$$$$)
 
   $line =~ s/^{(\s*)//;
   if ($1 ne '') {
-    $argument->{'info'} = {} if (!$current->{'info'});
+    $argument->{'info'} = {} if (!$argument->{'info'});
     $argument->{'info'}->{'spaces_before_argument'} = {'text' => $1};
   }
 
@@ -4687,8 +4650,12 @@ sub _end_line($$$)
   return $current;
 }
 
-# $command may be undef if we are after a wrong other command such as
-# a buggy @tab.
+# Add an "ignorable_spaces_after_command" element containing the
+# whitespace at the beginning of the rest of the line after skipspaces
+# commands, if COMMAND is undef.  Otherwise add an
+# "internal_spaces_after_command" text element, after line commands
+# or commands starting a block, that will end up in COMMAND info
+# spaces_before_argument.
 sub _start_empty_line_after_command($$$$) {
   my ($self, $line, $current, $command) = @_;
 

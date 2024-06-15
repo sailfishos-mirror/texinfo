@@ -42,6 +42,7 @@
 #include "counter.h"
 /* for nesting_context */
 #include "context_stack.h"
+#include "convert_to_texinfo.h"
 #include "commands.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
@@ -167,17 +168,22 @@ read_comment (const char *line, int *has_comment)
 int
 check_space_element (ELEMENT *e)
 {
-  if (!(
-          e->cmd == CM_SPACE
-        || e->cmd == CM_TAB
-        || e->cmd == CM_NEWLINE
-        || e->cmd == CM_c
-        || e->cmd == CM_comment
-        || e->cmd == CM_COLON
-        || (type_data[e->type].flags & TF_text
-            && (e->e.text->end == 0
-                || !*(e->e.text->text
-                        + strspn (e->e.text->text, whitespace_chars))))
+  if (type_data[e->type].flags & TF_text)
+    {
+      if (e->e.text->end == 0
+          || !*(e->e.text->text
+                      + strspn (e->e.text->text, whitespace_chars)))
+        return 1;
+      else
+        return 0;
+    }
+  else if (!(
+          e->e.c->cmd == CM_SPACE
+        || e->e.c->cmd == CM_TAB
+        || e->e.c->cmd == CM_NEWLINE
+        || e->e.c->cmd == CM_c
+        || e->e.c->cmd == CM_comment
+        || e->e.c->cmd == CM_COLON
      ))
     {
       return 0;
@@ -198,22 +204,27 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 
   TEXT result; int i;
 
+  /* FIXME check if that can happen, probably not.  If yes, the
+     string should be strdup'ed */
   if (!e)
     return "";
   text_init (&result);
   for (i = 0; i < e->e.c->contents.number; i++)
     {
       const ELEMENT *e1 = contents_child_by_index (e, i);
-      if (type_data[e1->type].flags & TF_text && e1->e.text->end > 0)
-        ADD(e1->e.text->text);
-      else if (e1->cmd == CM_AT_SIGN
-               || e1->cmd == CM_atchar)
+      if (type_data[e1->type].flags & TF_text)
+        {
+          if (e1->e.text->end > 0)
+            ADD(e1->e.text->text);
+        }
+      else if (e1->e.c->cmd == CM_AT_SIGN
+               || e1->e.c->cmd == CM_atchar)
         ADD("@");
-      else if (e1->cmd == CM_OPEN_BRACE
-               || e1->cmd == CM_lbracechar)
+      else if (e1->e.c->cmd == CM_OPEN_BRACE
+               || e1->e.c->cmd == CM_lbracechar)
         ADD("{");
-      else if (e1->cmd == CM_CLOSE_BRACE
-               || e1->cmd == CM_rbracechar)
+      else if (e1->e.c->cmd == CM_CLOSE_BRACE
+               || e1->e.c->cmd == CM_rbracechar)
         ADD("}");
       else
         *superfluous_arg = 1;
@@ -330,7 +341,7 @@ int
 register_global_command (ELEMENT *current)
 {
   GLOBAL_COMMANDS *global_commands = &parsed_document->global_commands;
-  enum command_id cmd = current->cmd;
+  enum command_id cmd = current->e.c->cmd;
   if (cmd == CM_summarycontents)
     cmd = CM_shortcontents;
 
@@ -438,11 +449,17 @@ rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
     {
       ELEMENT *before_setfilename
          = new_element (ET_preamble_before_setfilename);
-      while (before_node_section->e.c->contents.number > 0
-             && before_node_section->e.c->contents.list[0]->cmd != CM_setfilename)
+      while (before_node_section->e.c->contents.number > 0)
         {
-          ELEMENT *e = remove_from_contents (before_node_section, 0);
-          add_to_element_contents (before_setfilename, e);
+          ELEMENT *content = before_node_section->e.c->contents.list[0];
+          if (type_data[content->type].flags & TF_text
+              || content->e.c->cmd != CM_setfilename)
+            {/* e should be the same as content */
+              ELEMENT *e = remove_from_contents (before_node_section, 0);
+              add_to_element_contents (before_setfilename, e);
+            }
+          else
+            break;
         }
       if (before_setfilename->e.c->contents.number > 0)
         insert_into_contents (before_node_section, before_setfilename, 0);
@@ -464,8 +481,8 @@ rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
             add_to_element_list (first_types,
                             remove_from_contents (before_node_section, 0));
           else if (next_content->type == ET_paragraph
-                   || (next_content->cmd
-                       && !(command_data(next_content->cmd).flags
+                   || (!(type_data[next_content->type].flags & TF_text)
+                       && !(command_data(next_content->e.c->cmd).flags
                                                       & CF_preamble)))
             break;
           else
@@ -590,14 +607,28 @@ begin_paragraph (ELEMENT *current)
               if (child->type == ET_empty_line
                   || child->type == ET_paragraph)
                 break;
-              if (command_data(child->cmd).flags & CF_close_paragraph)
+              if (type_data[child->type].flags & TF_at_command
+                  && command_data(child->e.c->cmd).flags & CF_close_paragraph)
                 break;
-              if (child->cmd == CM_indent
-                  || child->cmd == CM_noindent)
+              /* after an indent there are ignorable_spaces_after_command
+                 skip through spaces only text element that could be there */
+              if (type_data[child->type].flags & TF_text) {}
+              else if (child->e.c->cmd == CM_indent
+                  || child->e.c->cmd == CM_noindent)
                 {
-                  indent = child->cmd;
+                  indent = child->e.c->cmd;
                   break;
                 }
+         /* skip through @macro definitions, raw block commands, ignored
+            conditional block commands, @author, informational commands,
+            commands meant for titlepage such as @vskip or @title, index
+            commands and types such as def_line (but cannot find an @*indent
+            before), a few brace commands that can be out of paragraphs and
+            do not close paragraphs such as @anchor or @image
+              else
+                fprintf(stderr, "INDENT search skipping through %s\n",
+                        print_element_debug_parser(child, 0));
+                */
               i--;
             }
         }
@@ -969,12 +1000,16 @@ isolate_last_space (ELEMENT *current)
   /* Store a final comment command in the 'info' hash, except for brace
      commands */
   if (current->type != ET_brace_container
-      && current->type != ET_brace_arg
-      && (last_contents_child (current)->cmd == CM_c
-          || last_contents_child (current)->cmd == CM_comment))
+      && current->type != ET_brace_arg)
     {
-      current->elt_info[eit_comment_at_end]
-         = pop_element_from_contents (current);
+      last_elt = last_contents_child (current);
+      if (last_elt->type == ET_lineraw_command
+          && (last_elt->e.c->cmd == CM_c
+              || last_elt->e.c->cmd == CM_comment))
+        {
+          current->elt_info[eit_comment_at_end]
+            = pop_element_from_contents (current);
+        }
     }
 
   if (current->e.c->contents.number == 0)
@@ -1030,18 +1065,19 @@ start_empty_line_after_command (ELEMENT *current, const char **line_inout,
   ELEMENT *e;
   int len;
 
-  len = strspn (line, whitespace_chars_except_newline);
-  e = new_text_element (ET_ignorable_spaces_after_command);
-  add_to_element_contents (current, e);
-  text_append_n (e->e.text, line, len);
-  line += len;
-
   if (command)
     {
+      e = new_text_element (ET_internal_spaces_after_command);
       internal_space_holder = command;
-      e->type = ET_internal_spaces_after_command;
     }
+  else
+    e = new_text_element (ET_ignorable_spaces_after_command);
 
+  add_to_element_contents (current, e);
+
+  len = strspn (line, whitespace_chars_except_newline);
+  text_append_n (e->e.text, line, len);
+  line += len;
   *line_inout = line;
 }
 
@@ -1072,8 +1108,8 @@ int
 parent_of_command_as_argument (ELEMENT *current)
 {
   return current->type == ET_block_line_arg
-    && (current->parent->cmd == CM_itemize
-        || command_data(current->parent->cmd).data == BLOCK_item_line)
+    && (current->parent->e.c->cmd == CM_itemize
+        || command_data(current->parent->e.c->cmd).data == BLOCK_item_line)
     && (current->e.c->contents.number == 1);
 }
 
@@ -1082,11 +1118,11 @@ void
 register_command_as_argument (ELEMENT *cmd_as_arg)
 {
   debug ("FOR PARENT @%s command_as_argument %s",
-         command_name(cmd_as_arg->parent->parent->cmd),
-         command_name(cmd_as_arg->cmd));
+         command_name(cmd_as_arg->parent->parent->e.c->cmd),
+         command_name(cmd_as_arg->e.c->cmd));
   add_extra_element (cmd_as_arg->parent->parent,
                      AI_key_command_as_argument, cmd_as_arg);
-  if (cmd_as_arg->cmd == CM_kbd
+  if (cmd_as_arg->e.c->cmd == CM_kbd
       && kbd_formatted_as_code (cmd_as_arg->parent->parent)) {
     cmd_as_arg->parent->parent->flags |= EF_command_as_argument_kbd_code;
   }
@@ -1169,7 +1205,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   int ok = 0; /* Whether nesting is allowed. */
 
-  enum command_id outer = current->parent->cmd;
+  enum command_id outer = current->parent->e.c->cmd;
   unsigned long outer_flags = command_data(outer).flags;
   unsigned long cmd_flags = command_data(cmd).flags;
 
@@ -1259,7 +1295,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   if (!ok)
     {
-      invalid_parent = current->parent->cmd;
+      invalid_parent = current->parent->e.c->cmd;
       if (!invalid_parent)
         {
           /* current_context () == ct_def.  Find def block containing
@@ -1268,7 +1304,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
           while (d->parent
                  && !(d->parent->flags & EF_def_line))
             d = d->parent;
-          invalid_parent = d->parent->parent->cmd;
+          invalid_parent = d->parent->parent->e.c->cmd;
         }
 
       line_warn ("@%s should not appear in @%s",
@@ -1397,16 +1433,17 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
   */
 
+  /* at this point we are necessarily in a command or container */
   /********* BLOCK_raw ******************/
   if (command_flags(current) & CF_block
-      && (command_data(current->cmd).data == BLOCK_raw))
+      && (command_data(current->e.c->cmd).data == BLOCK_raw))
     {
       const char *p = line;
       enum command_id cmd = 0;
       int closed_nested_raw = 0;
       /* Check if we are using a macro within a macro. */
-      if (current->cmd == CM_macro || current->cmd == CM_rmacro
-          || current->cmd == CM_linemacro)
+      if (current->e.c->cmd == CM_macro || current->e.c->cmd == CM_rmacro
+          || current->e.c->cmd == CM_linemacro)
         {
           p += strspn (p, whitespace_chars);
           if (!strncmp (p, "@macro", strlen ("@macro")))
@@ -1427,7 +1464,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           if (*p && !strchr (whitespace_chars, *p))
             cmd = 0;
         }
-      else if (current->cmd == CM_ignore)
+      else if (current->e.c->cmd == CM_ignore)
         {
           p += strspn (p, whitespace_chars);
           if (!strncmp (p, "@ignore", strlen ("@ignore")))
@@ -1440,7 +1477,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       if (cmd)
         {
           debug ("RAW SECOND LEVEL %s in @%s", command_name(cmd),
-                 command_name(current->cmd));
+                 command_name(current->e.c->cmd));
           push_raw_block_stack (cmd);
         }
       /* Else check if line is "@end ..." for current command. */
@@ -1449,7 +1486,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           enum command_id top_stack_cmd = raw_block_stack_top ();
           if (top_stack_cmd == CM_NONE)
             {/* current is the first command */
-              top_stack_cmd = current->cmd;
+              top_stack_cmd = current->e.c->cmd;
             }
           if (is_end_current_command (top_stack_cmd, &p, &end_cmd))
             {
@@ -1540,15 +1577,15 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     } /********* BLOCK_raw *************/
   /********* (ignored) BLOCK_conditional ******************/
   else if (command_flags(current) & CF_block
-      && (command_data(current->cmd).data == BLOCK_conditional))
+      && (command_data(current->e.c->cmd).data == BLOCK_conditional))
     {
       const char *p = line;
 
       /* check for nested @ifset (so that @end ifset doesn't end the
          the outermost @ifset). */
-      if (current->cmd == CM_ifclear || current->cmd == CM_ifset
-          || current->cmd == CM_ifcommanddefined
-          || current->cmd == CM_ifcommandnotdefined)
+      if (current->e.c->cmd == CM_ifclear || current->e.c->cmd == CM_ifset
+          || current->e.c->cmd == CM_ifcommanddefined
+          || current->e.c->cmd == CM_ifcommandnotdefined)
         {
           ELEMENT *e;
           p += strspn (p, whitespace_chars);
@@ -1561,7 +1598,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                 {
                   cmd = lookup_command (command);
                   free (command);
-                  if (cmd == current->cmd)
+                  if (cmd == current->e.c->cmd)
                     {
                       e = new_command_element (ET_block_command, cmd);
                       add_to_element_contents (current, e);
@@ -1575,7 +1612,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       p = line;
       /* Else check if line is "@end ..." for current command. */
-      if (is_end_current_command (current->cmd, &p, &end_cmd))
+      if (is_end_current_command (current->e.c->cmd, &p, &end_cmd))
         {
           ELEMENT *e;
 
@@ -1607,7 +1644,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     } /********* (ignored) BLOCK_conditional *************/
 
   /* Check if parent element is 'verb' */
-  else if (current->parent && current->parent->cmd == CM_verb)
+  else if (current->parent && current->parent->e.c->cmd == CM_verb)
     {
       const char *q;
       const char *delimiter
@@ -1658,8 +1695,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
     } /* CM_verb */
   else if (command_flags(current) & CF_block
-           && command_data(current->cmd).data == BLOCK_format_raw
-           && !parser_format_expanded_p (command_name(current->cmd)))
+           && command_data(current->e.c->cmd).data == BLOCK_format_raw
+           && !parser_format_expanded_p (command_name(current->e.c->cmd)))
     {
       ELEMENT *e_elided_rawpreformatted;
       ELEMENT *e_empty_line;
@@ -1680,11 +1717,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           else
             {
               line_dummy = line;
-              if (is_end_current_command (current->cmd, &line_dummy,
+              if (is_end_current_command (current->e.c->cmd, &line_dummy,
                                           &dummy))
                 {
                   debug ("CLOSED ignored raw preformated %s",
-                         command_name(current->cmd));
+                         command_name(current->e.c->cmd));
                   break;
                 }
               else
@@ -1895,7 +1932,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
      Need to be done as early as possible such that no other condition
      prevail and lead to a missed command */
   if (command_flags(current) & CF_brace && *line != '{'
-      && command_data(current->cmd).data != BRACE_accent
+      && command_data(current->e.c->cmd).data != BRACE_accent
       && parent_of_command_as_argument (current->parent))
     {
       register_command_as_argument (current);
@@ -1904,7 +1941,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
   /* command but before an opening brace, otherwise current
      would be an argument type and not the command, and a new
-     @-command was found.  This means that the current->cmd
+     @-command was found.  This means that the current->e.c->cmd
      argument (an opening brace, or a character after spaces for
      accent commands) was not found and there is already a new command.
 
@@ -1918,7 +1955,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   if (command_flags(current) & CF_brace && (cmd || command))
     {
       line_error ("@%s expected braces",
-                  command_name(current->cmd));
+                  command_name(current->e.c->cmd));
       if (current->e.c->contents.number > 0)
         gather_spaces_after_cmd_before_arg (current);
       current = current->parent;
@@ -1972,7 +2009,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   if (command_flags(current) & CF_brace && *line != '{')
     {
       debug_nonl ("BRACE CMD: no brace after @%s||| ",
-                  command_name (current->cmd));
+                  command_name (current->e.c->cmd));
       debug_print_protected_string (line); debug ("");
 
       if (strchr (whitespace_chars, *line)
@@ -1988,7 +2025,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                if (*(line + i) == '\n')
                  {
                    line_warn ("command `@%s' must not be followed by new line",
-                              command_name(current->cmd));
+                              command_name(current->e.c->cmd));
                    if (current_context () == ct_def
                        || current_context () == ct_line)
                      {
@@ -2046,7 +2083,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                  {
                    debug ("BRACE CMD before brace second newline stops spaces");
                    line_error ("@%s expected braces",
-                               command_name(current->cmd));
+                               command_name(current->e.c->cmd));
                    gather_spaces_after_cmd_before_arg (current);
                    current = current->parent;
                  }
@@ -2082,11 +2119,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
           e2 = new_text_element (ET_normal_text);
           text_append_n (e2->e.text, line, char_len);
-          debug ("ACCENT @%s following_arg: %s", command_name(current->cmd),
+          debug ("ACCENT @%s following_arg: %s", command_name(current->e.c->cmd),
                  e2->e.text->text);
           add_to_element_contents (e, e2);
 
-          if (current->cmd == CM_dotless
+          if (current->e.c->cmd == CM_dotless
               && *line != 'i' && *line != 'j')
             {
               line_error ("@dotless expects `i' or `j' as argument, "
@@ -2098,7 +2135,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       else
         {
           line_error ("@%s expected braces",
-                      command_name(current->cmd));
+                      command_name(current->e.c->cmd));
           if (current->e.c->contents.number > 0)
             gather_spaces_after_cmd_before_arg (current);
           current = current->parent;
@@ -2296,7 +2333,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           the internal space type is not processed and remains as is in
           the final tree. */
           && (command_flags(current->parent) & CF_index_entry_command
-               || current->parent->cmd == CM_subentry))
+               || current->parent->e.c->cmd == CM_subentry))
         {
           ELEMENT *last_elt = last_contents_child (current);
 
@@ -2388,7 +2425,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* comma as a command argument separator */
       if (counter_value (&count_remaining_args, current->parent) > 0)
         current = handle_comma (current, &line);
-      else if (current->type == ET_line_arg && current->parent->cmd == CM_node)
+      else if (current->type == ET_line_arg
+               && current->parent->e.c->cmd == CM_node)
         line_warn ("superfluous arguments for node");
       else
         current = merge_text (current, ",", 1, 0);
@@ -2516,11 +2554,12 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
          element type can be changed in 'abort_empty_line' when more text is
          read. */
       if (!(((command_flags(current) & CF_block)
-             && ((command_data(current->cmd).data == BLOCK_raw
-                  || command_data(current->cmd).data == BLOCK_conditional)
-                 || (command_data(current->cmd).data == BLOCK_format_raw
-                     && !parser_format_expanded_p (command_name(current->cmd)))))
-            || (current->parent && current->parent->cmd == CM_verb))
+             && ((command_data(current->e.c->cmd).data == BLOCK_raw
+                  || command_data(current->e.c->cmd).data == BLOCK_conditional)
+                 || (command_data(current->e.c->cmd).data == BLOCK_format_raw
+                     && !parser_format_expanded_p
+                                              (command_name(current->e.c->cmd)))))
+            || (current->parent && current->parent->e.c->cmd == CM_verb))
           && current_context () != ct_def)
         {
           ELEMENT *e;

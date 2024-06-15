@@ -697,7 +697,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 #define store_flag(flag) \
   if (e->flags & EF_##flag) \
     store_info_integer (e, 1, "extra", #flag, &extra_hv);
-  if (e->cmd)
+  if (e->e.c->cmd)
     {
       enum command_id data_cmd;
       unsigned long flags;
@@ -788,7 +788,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
                           e->e.c->string_info[sit_command_name],
                           "info", "command_name", &info_hv);
                 }
-              if (e->cmd == CM_verb && e->e.c->args.number > 0)
+              if (e->e.c->cmd == CM_verb && e->e.c->args.number > 0)
                 {
                   store_info_string (e, e->e.c->string_info[sit_delimiter],
                                      "info", "delimiter", &info_hv);

@@ -1252,7 +1252,37 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
     {
       ELEMENT *content = tree->e.c->contents.list[i];
 
-      if (content->cmd)
+      if (content->type == ET_normal_text)
+        {
+          if (content->e.text->end > 0
+              && content->e.text->text[strspn
+                           (content->e.text->text, whitespace_chars)] != '\0')
+            {
+              char *p = content->e.text->text;
+              p += strspn (p, whitespace_chars);
+              if (ignore_chars)
+                {
+                  char *text = strip_index_ignore_chars (p, ignore_chars);
+                  INDEX_ENTRY_TEXT_OR_COMMAND *result = 0;
+
+                  if (text[strspn (text, whitespace_chars)] != '\0')
+                    result = new_index_entry_text_or_command (text, 0);
+
+                  free (text);
+
+                  if (result)
+                    return result;
+                  else
+                    continue;
+                }
+              else
+                return new_index_entry_text_or_command (p, 0);
+            }
+          else
+            continue;
+        }
+
+      if (content->e.c->cmd)
         {
           enum command_id data_cmd = element_builtin_data_cmd (content);
 
@@ -1315,29 +1345,6 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                                                               ignore_chars);
                 }
             }
-        }
-      else if (content->type == ET_normal_text
-               && content->e.text->end > 0
-               && content->e.text->text[strspn 
-                           (content->e.text->text, whitespace_chars)] != '\0')
-        {
-          char *p = content->e.text->text;
-          p += strspn (p, whitespace_chars);
-          if (ignore_chars)
-            {
-              char *text = strip_index_ignore_chars (p, ignore_chars);
-              INDEX_ENTRY_TEXT_OR_COMMAND *result = 0;
-
-              if (text[strspn (text, whitespace_chars)] != '\0')
-                result = new_index_entry_text_or_command (text, 0);
-
-              free (text);
-
-              if (result)
-                return result;
-            }
-          else
-            return new_index_entry_text_or_command (p, 0);
         }
       else if (content->e.c->contents.number > 0)
         return idx_leading_text_or_command (content, ignore_chars);

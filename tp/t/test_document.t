@@ -27,13 +27,15 @@ T
 
 my $global_info = $document->global_information();
 
-is ('input_encoding_name|input_perl_encoding',
-    join('|', sort(keys(%$global_info))), 'initial global info keys');
+is (join('|', sort(keys(%$global_info))),
+    'input_encoding_name|input_perl_encoding',
+    'initial global info keys');
 
 $document->set_document_global_info('toto', 'la tete a');
 
-is ('input_encoding_name|input_perl_encoding|toto',
-    join('|', sort(keys(%$global_info))), 'with set global info keys');
+is (join('|', sort(keys(%$global_info))),
+    'input_encoding_name|input_perl_encoding|toto',
+    'with set global info keys');
 
-is ('la tete a', $global_info->{'toto'}, 'check global info set value');
+is ($global_info->{'toto'}, 'la tete a', 'check global info set value');
 

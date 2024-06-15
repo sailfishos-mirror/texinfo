@@ -52,11 +52,11 @@
 static ELEMENT *
 item_container_parent (const ELEMENT *current)
 {
-  if ((current->cmd == CM_item
+  if ((current->e.c->cmd == CM_item
        || current->type == ET_before_item)
       && current->parent
-      && ((current->parent->cmd == CM_itemize
-           || current->parent->cmd == CM_enumerate)))
+      && ((current->parent->e.c->cmd == CM_itemize
+           || current->parent->e.c->cmd == CM_enumerate)))
     {
       return current->parent;
     }
@@ -90,8 +90,10 @@ check_no_text (const ELEMENT *current)
                    && g->e.text->end > 0
                    && g->e.text->text[strspn 
                                        (g->e.text->text, whitespace_chars)])
-                  || (g->cmd && g->cmd != CM_c
-                      && g->cmd != CM_comment
+                  /* empty_line text is possible */
+                  || (type_data[g->type].flags & TF_at_command
+                      && g->e.c->cmd != CM_c
+                      && g->e.c->cmd != CM_comment
                       && g->type != ET_index_entry_command))
                 {
                   after_paragraph = 1;
@@ -110,7 +112,7 @@ in_paragraph (ELEMENT *current)
 {
   while (current->parent
          && (command_flags(current->parent) & CF_brace)
-         && !(command_data(current->parent->cmd).data == BRACE_context))
+         && !(command_data(current->parent->e.c->cmd).data == BRACE_context))
     {
       current = current->parent->parent;
     }
@@ -419,7 +421,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                 {
                   line_error ("@%s not meaningful inside `@%s' block",
                               command_name(cmd),
-                              command_name(parent->cmd));
+                              command_name(parent->e.c->cmd));
                 }
               current = begin_preformatted (current);
             }
@@ -428,7 +430,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
             {
               line_error ("@%s not meaningful inside `@%s' block",
                           command_name(cmd),
-                          command_name(parent->cmd));
+                          command_name(parent->e.c->cmd));
               current = begin_preformatted (current);
             }
           /* In a @multitable */
@@ -581,7 +583,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           const ELEMENT *p = current;
           while (p)
             {
-              if (p->cmd == CM_copying)
+              if (p->e.c->cmd == CM_copying)
                 {
                   line_error ("@%s not allowed inside `@copying' block",
                               command_name(cmd));
@@ -773,7 +775,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                                             AI_key_node_description);
                   if (e_description)
                     {
-                      if (e_description->cmd == cmd)
+                      if (e_description->e.c->cmd == cmd)
                         line_warn ("multiple node @nodedescription");
                       else
                         /* silently replace nodedescriptionblock */
@@ -795,14 +797,14 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               ELEMENT *parent = current->parent;
 
               if (!(command_flags(parent) & CF_index_entry_command)
-                  && parent->cmd != CM_subentry)
+                  && parent->e.c->cmd != CM_subentry)
                 {
                   line_warn ("@subentry should only occur in an index entry");
                 }
 
               add_extra_element (parent, AI_key_subentry, command_e);
 
-              if (parent->cmd == CM_subentry)
+              if (parent->e.c->cmd == CM_subentry)
                 {
                   int status;
                   int parent_level
@@ -879,7 +881,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
               command_e->flags |= EF_def_line;
 
-              cmdname = current->cmd;
+              cmdname = current->e.c->cmd;
               if (cmdname != CM_defblock)
                 after_paragraph = check_no_text (current);
               else
@@ -942,13 +944,13 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               parent = parent->parent;
               if (parent->type == ET_brace_command_context)
                 break;
-              if (parent->cmd == CM_titlepage)
+              if (parent->e.c->cmd == CM_titlepage)
                 {
                   add_extra_element (current, AI_key_titlepage, parent);
                   found = 1; break;
                 }
-              else if (parent->cmd == CM_quotation
-                       || parent->cmd == CM_smallquotation)
+              else if (parent->e.c->cmd == CM_quotation
+                       || parent->e.c->cmd == CM_smallquotation)
                 {
                   ELEMENT_LIST *l = add_extra_contents (parent,
                                                         AI_key_authors, 0);
@@ -1149,13 +1151,13 @@ handle_block_command (ELEMENT *current, const char **line_inout,
       bla = new_element (ET_block_line_arg);
       add_to_element_args (current, bla);
 
-      if (command_data (current->cmd).args_number > 1)
+      if (command_data (current->e.c->cmd).args_number > 1)
         {
           counter_push (&count_remaining_args,
                         current,
-                        command_data (current->cmd).args_number - 1);
+                        command_data (current->e.c->cmd).args_number - 1);
         }
-      else if (command_data (current->cmd).flags & CF_variadic)
+      else if (command_data (current->e.c->cmd).flags & CF_variadic)
         {
           /* Unlimited args */
           counter_push (&count_remaining_args, current,
@@ -1212,7 +1214,7 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
   if (cmd == CM_sortas)
     {
       if (!(command_flags(current->parent) & CF_index_entry_command)
-          && current->parent->cmd != CM_subentry)
+          && current->parent->e.c->cmd != CM_subentry)
         {
           line_warn ("@%s should only appear in an index entry",
                      command_name(cmd));

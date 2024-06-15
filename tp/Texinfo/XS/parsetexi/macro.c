@@ -790,7 +790,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   macro_expansion_nr++;
   debug ("MACRO EXPANSION NUMBER %d %s", macro_expansion_nr, command_name(cmd));
 
-  if (macro->cmd != CM_rmacro)
+  if (macro->e.c->cmd != CM_rmacro)
     {
       if (expanding_macro (command_name(cmd)))
         {
@@ -810,7 +810,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
       error = 1;
     }
 
-  if (macro->cmd == CM_linemacro)
+  if (macro->e.c->cmd == CM_linemacro)
     {
       macro_call_element = new_element (ET_linemacro_call);
       expand_linemacro_arguments (macro, &line, cmd, macro_call_element);
@@ -823,9 +823,9 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
       p = line + strspn (line, whitespace_chars);
       if (*p == '{')
         {
-          if (macro->cmd == CM_macro)
+          if (macro->e.c->cmd == CM_macro)
             macro_call_element = new_element (ET_macro_call);
-          else if (macro->cmd == CM_rmacro)
+          else if (macro->e.c->cmd == CM_rmacro)
             macro_call_element = new_element (ET_rmacro_call);
           if (p - line > 0)
             {
@@ -847,17 +847,17 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
           /* As agreed on the bug-texinfo mailing list, no warn when zero
              arg and not called with {}. */
 
-          if (macro->cmd == CM_macro)
+          if (macro->e.c->cmd == CM_macro)
             macro_call_element = new_element (ET_macro_call);
-          else if (macro->cmd == CM_rmacro)
+          else if (macro->e.c->cmd == CM_rmacro)
             macro_call_element = new_element (ET_rmacro_call);
         }
       else
         {
           ELEMENT *arg_elt = new_element (ET_line_arg);
-          if (macro->cmd == CM_macro)
+          if (macro->e.c->cmd == CM_macro)
             macro_call_element = new_element (ET_macro_call_line);
-          else if (macro->cmd == CM_rmacro)
+          else if (macro->e.c->cmd == CM_rmacro)
             macro_call_element = new_element (ET_rmacro_call_line);
           add_to_element_args (macro_call_element, arg_elt);
 
@@ -942,7 +942,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
 
   debug ("MACROBODY: %s||||||", expanded_macro_text);
 
-  if (macro->cmd == CM_linemacro)
+  if (macro->e.c->cmd == CM_linemacro)
     macro_source_mark = new_source_mark (SM_type_linemacro_expansion);
   else
     macro_source_mark = new_source_mark (SM_type_macro_expansion);
