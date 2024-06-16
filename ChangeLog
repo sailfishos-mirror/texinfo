@@ -5,6 +5,11 @@
 
 2024-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_associated_info): use
+	the newly initialized string list instead of allocating another one.
+
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/command_stack.c
 	(command_is_in_referred_command_stack): add braces for better code
 	readability.

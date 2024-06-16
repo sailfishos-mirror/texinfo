@@ -124,7 +124,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           {
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           k->k.strings_list = new_string_list();
-          copy_strings (new_string_list(), k_ref->k.strings_list);
+          copy_strings (k->k.strings_list, k_ref->k.strings_list);
           break;
           }
         case extra_index_entry:
