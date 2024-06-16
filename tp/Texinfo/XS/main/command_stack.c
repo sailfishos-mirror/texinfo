@@ -259,8 +259,8 @@ command_is_in_referred_command_stack (const ELEMENT_REFERENCE_STACK *stack,
   for (i = 0; i < stack->top; i++)
     {
       ELEMENT_REFERENCE *element_reference = &stack->stack[i];
-      if (e && element_reference->element == e
-          || hv && element_reference->hv == hv)
+      if ((e && element_reference->element == e)
+          || (hv && element_reference->hv == hv))
         {
           return 1;
         }

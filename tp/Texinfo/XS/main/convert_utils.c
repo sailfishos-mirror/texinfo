@@ -300,8 +300,8 @@ encoded_input_file_name (const OPTIONS *options,
 
   if (options && options->INPUT_FILE_NAME_ENCODING.o.string)
     encoding = options->INPUT_FILE_NAME_ENCODING.o.string;
-  else if (options && options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer != 0
-           || (!options))
+  else if (!options
+           || options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer != 0)
     {
       if (input_file_encoding)
         encoding = input_file_encoding;
@@ -334,8 +334,8 @@ encoded_output_file_name (const OPTIONS *options,
 
   if (options && options->OUTPUT_FILE_NAME_ENCODING.o.string)
     encoding = options->OUTPUT_FILE_NAME_ENCODING.o.string;
-  else if (options && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.o.integer != 0
-           || (!options))
+  else if (!options
+           || options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.o.integer != 0)
     {
       if (global_information && global_information->input_encoding_name)
         encoding = global_information->input_encoding_name;
