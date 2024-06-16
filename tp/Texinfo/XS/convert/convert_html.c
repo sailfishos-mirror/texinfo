@@ -384,7 +384,8 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
                && builtin_command_data[data_cmd].data == BLOCK_region)
         {
           const OUTPUT_UNIT_LIST *output_units
-         = retrieve_output_units (self->output_units_descriptors[OUDT_units]);
+         = retrieve_output_units (self->document,
+                                  self->output_units_descriptors[OUDT_units]);
           if (data_cmd == CM_copying
               && self->document->global_commands.insertcopying.number > 0)
             {
@@ -1538,19 +1539,21 @@ prepare_special_units (CONVERTER *self, int output_units_descriptor)
   SPECIAL_UNIT_ORDER *special_units_order;
   OUTPUT_UNIT *previous_output_unit = 0;
 
-  int special_units_descriptor = new_output_units_descriptor ();
-  int associated_special_units_descriptor = new_output_units_descriptor ();
+  int special_units_descriptor = new_output_units_descriptor (self->document);
+  int associated_special_units_descriptor
+         = new_output_units_descriptor (self->document);
 
   /* retrieve after reallocating */
 
   OUTPUT_UNIT_LIST *special_units
-    = retrieve_output_units (special_units_descriptor);
+    = retrieve_output_units (self->document, special_units_descriptor);
 
   OUTPUT_UNIT_LIST *associated_special_units
-    = retrieve_output_units (associated_special_units_descriptor);
+    = retrieve_output_units (self->document,
+                             associated_special_units_descriptor);
 
   OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
+    = retrieve_output_units (self->document, output_units_descriptor);
 
   /* for separate special output units */
   STRING_LIST *do_special = new_string_list ();
@@ -1828,7 +1831,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
 {
   int i;
   OUTPUT_UNIT_LIST *special_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_special_units]);
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
 
   char *extension = "";
   if (self->conf->EXTENSION.o.string)
@@ -1916,7 +1919,8 @@ static void
 prepare_associated_special_units_targets (CONVERTER *self)
 {
   OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
-   (self->output_units_descriptors[OUDT_associated_special_units]);
+   (self->document,
+    self->output_units_descriptors[OUDT_associated_special_units]);
 
   if (associated_special_units && associated_special_units->number > 0)
     {
@@ -3597,7 +3601,8 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
       as in the test cases.  Also for things in @titlepage when
       titlepage is not output. */
       const OUTPUT_UNIT_LIST *output_units
-         = retrieve_output_units (self->output_units_descriptors[OUDT_units]);
+         = retrieve_output_units (self->document,
+                            self->output_units_descriptors[OUDT_units]);
       if (output_units->list[0]->unit_filename)
         { /* In that case use the first page. */
           set_target_filename = (FILE_NUMBER_NAME *)
@@ -5270,7 +5275,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   int all_special_units_nr = 0;
   int s;
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
-   (self->output_units_descriptors[OUDT_units]);
+   (self->document, self->output_units_descriptors[OUDT_units]);
 
   const OUTPUT_UNIT *top_output_unit = get_top_unit (self->document,
                                                      output_units);
@@ -5364,7 +5369,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
     {
       int special_units_descriptor = special_output_units_lists[i];
       const OUTPUT_UNIT_LIST *units_list
-       = retrieve_output_units (special_units_descriptor);
+       = retrieve_output_units (self->document, special_units_descriptor);
       if (units_list && units_list->number)
         all_special_units_nr += units_list->number;
     }
@@ -5379,7 +5384,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
     {
       int special_units_descriptor = special_output_units_lists[i];
       const OUTPUT_UNIT_LIST *units_list
-        = retrieve_output_units (special_units_descriptor);
+        = retrieve_output_units (self->document, special_units_descriptor);
       if (units_list && units_list->number)
         {
           int j;
@@ -6043,11 +6048,12 @@ html_prepare_units_directions_files (CONVERTER *self,
   int i;
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
   OUTPUT_UNIT_LIST *output_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_units]);
+    (self->document, self->output_units_descriptors[OUDT_units]);
   OUTPUT_UNIT_LIST *special_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_special_units]);
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
   OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_associated_special_units]);
+    (self->document,
+     self->output_units_descriptors[OUDT_associated_special_units]);
 
   html_prepare_output_units_global_targets (self);
 
@@ -19086,9 +19092,9 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root)
   int i;
 
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_units]);
+    (self->document, self->output_units_descriptors[OUDT_units]);
   const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_special_units]);
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
 
   text_init (&result);
 
@@ -19283,7 +19289,7 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                               const char *output_filename)
 {
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_units]);
+    (self->document, self->output_units_descriptors[OUDT_units]);
 
   if (strlen (output_file))
     {
@@ -19314,9 +19320,9 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
   TEXT text; /* reused for all the output units */
 
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_units]);
+    (self->document, self->output_units_descriptors[OUDT_units]);
   const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
-    (self->output_units_descriptors[OUDT_special_units]);
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
 
   text_init (&result);
   text_init (&text);

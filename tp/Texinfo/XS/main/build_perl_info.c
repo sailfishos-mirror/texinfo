@@ -2150,7 +2150,8 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 }
 
 static int
-fill_output_units_descriptor_av (AV *av_output_units,
+fill_output_units_descriptor_av (const DOCUMENT *document,
+                                 AV *av_output_units,
                                  size_t output_units_descriptor)
 {
   const OUTPUT_UNIT_LIST *output_units;
@@ -2158,7 +2159,7 @@ fill_output_units_descriptor_av (AV *av_output_units,
 
   dTHX;
 
-  output_units = retrieve_output_units (output_units_descriptor);
+  output_units = retrieve_output_units (document, output_units_descriptor);
 
   if (!output_units || !output_units->number)
     return 0;
@@ -2183,7 +2184,8 @@ fill_output_units_descriptor_av (AV *av_output_units,
 }
 
 SV *
-build_output_units_list (size_t output_units_descriptor)
+build_output_units_list (const DOCUMENT *document,
+                         size_t output_units_descriptor)
 {
   AV *av_output_units;
 
@@ -2191,7 +2193,8 @@ build_output_units_list (size_t output_units_descriptor)
 
   av_output_units = newAV ();
 
-  if (!fill_output_units_descriptor_av (av_output_units,
+  if (!fill_output_units_descriptor_av (document,
+                                        av_output_units,
                                         output_units_descriptor))
     {/* no output unit */
       av_undef (av_output_units);
@@ -2204,7 +2207,8 @@ build_output_units_list (size_t output_units_descriptor)
 /* a fake output units list that only holds a descriptor allowing
    to retrieve the C data */
 SV *
-setup_output_units_handler (size_t output_units_descriptor)
+setup_output_units_handler (const DOCUMENT *document,
+                            size_t output_units_descriptor)
 {
   AV *av_output_units;
   HV *dummy_output_unit;
@@ -2213,7 +2217,7 @@ setup_output_units_handler (size_t output_units_descriptor)
 
   dTHX;
 
-  output_units = retrieve_output_units (output_units_descriptor);
+  output_units = retrieve_output_units (document, output_units_descriptor);
 
   if (!output_units || !output_units->number)
     return newSV (0);
@@ -2233,7 +2237,8 @@ setup_output_units_handler (size_t output_units_descriptor)
 }
 
 void
-rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
+rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
+                           size_t output_units_descriptor)
 {
   AV *av_output_units;
 
@@ -2242,7 +2247,7 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
   if (!SvOK (output_units_sv))
     {
       const OUTPUT_UNIT_LIST *output_units
-        = retrieve_output_units (output_units_descriptor);
+        = retrieve_output_units (document, output_units_descriptor);
       if (output_units && output_units->number)
         fprintf (stderr, "BUG: no input sv for %zu output units (%zu)\n",
                  output_units->number, output_units_descriptor);
@@ -2252,7 +2257,7 @@ rebuild_output_units_list (SV *output_units_sv, size_t output_units_descriptor)
   av_output_units = (AV *) SvRV (output_units_sv);
   av_clear (av_output_units);
 
-  if (!fill_output_units_descriptor_av (av_output_units,
+  if (!fill_output_units_descriptor_av (document, av_output_units,
                                         output_units_descriptor))
     {
  /* the output_units_descriptor is not found.  In the codes calling

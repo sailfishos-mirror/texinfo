@@ -5,11 +5,13 @@
 #include <stddef.h>
 
 #include "tree_types.h"
+#include "document_types.h"
 
 extern const char *relative_unit_direction_name[];
 
-OUTPUT_UNIT_LIST *retrieve_output_units (int output_units_descriptor);
-size_t new_output_units_descriptor (void);
+OUTPUT_UNIT_LIST *retrieve_output_units (const DOCUMENT *document,
+                                         int output_units_descriptor);
+size_t new_output_units_descriptor (DOCUMENT *document);
 
 int split_by_node (DOCUMENT *document);
 int split_by_section (DOCUMENT *document);

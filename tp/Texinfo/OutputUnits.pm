@@ -237,8 +237,9 @@ sub unsplit($)
 }
 
 # does nothing in perl, the XS version reexports the output units
-sub rebuild_output_units($)
+sub rebuild_output_units($$)
 {
+  my $document = shift;
   my $output_units = shift;
 }
 

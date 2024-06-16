@@ -216,14 +216,15 @@ get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
 
 
 OUTPUT_UNIT_LIST *
-get_sv_output_units (SV *output_units_in, char *warn_string)
+get_sv_output_units (const DOCUMENT *document, SV *output_units_in,
+                     char *warn_string)
 {
   OUTPUT_UNIT_LIST *output_units = 0;
   int output_units_descriptor
      = get_sv_output_units_descriptor (output_units_in, warn_string);
   if (output_units_descriptor)
     {
-      output_units = retrieve_output_units (output_units_descriptor);
+      output_units = retrieve_output_units (document, output_units_descriptor);
       if (!output_units && warn_string)
         fprintf (stderr, "ERROR: %s: no units %d\n", warn_string,
                                              output_units_descriptor);
@@ -1086,7 +1087,7 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
             {
               int unit_index = SvIV (*unit_index_sv);
               const OUTPUT_UNIT_LIST *output_units
-               = retrieve_output_units (output_units_descriptor);
+               = retrieve_output_units (document, output_units_descriptor);
 
               if (output_units && unit_index < output_units->number)
                 {

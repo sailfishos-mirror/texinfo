@@ -185,6 +185,12 @@ typedef struct COLLATIONS_INDICES_SORTED_BY_LETTER {
     COLLATION_INDICES_SORTED_BY_LETTER *collation_sorted_indices;
 } COLLATIONS_INDICES_SORTED_BY_LETTER;
 
+typedef struct OUTPUT_UNIT_LISTS {
+    OUTPUT_UNIT_LIST *output_units_lists;
+    size_t number;
+    size_t space;
+} OUTPUT_UNIT_LISTS;
+
 typedef struct DOCUMENT {
     size_t descriptor;
     ELEMENT *tree;
@@ -212,6 +218,7 @@ typedef struct DOCUMENT {
     INDICES_SORT_STRINGS *indices_sort_strings;
     COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
+    OUTPUT_UNIT_LISTS output_units_lists;
 
     /* flags for modified information not already passed to Perl */
     unsigned long modified_information;

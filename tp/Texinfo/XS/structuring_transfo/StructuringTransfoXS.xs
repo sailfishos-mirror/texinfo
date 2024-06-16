@@ -393,7 +393,8 @@ split_by_node (SV *document_in)
         if (document)
           {
             int output_units_descriptor = split_by_node (document);
-            RETVAL = build_output_units_list (output_units_descriptor);
+            RETVAL = build_output_units_list (document,
+                                              output_units_descriptor);
           }
         else
           RETVAL = newSV(0);
@@ -409,7 +410,8 @@ split_by_section (SV *document_in)
         if (document)
           {
             int output_units_descriptor = split_by_section (document);
-            RETVAL = build_output_units_list (output_units_descriptor);
+            RETVAL = build_output_units_list (document,
+                                              output_units_descriptor);
           }
         else
           RETVAL = newSV(0);
@@ -431,23 +433,34 @@ unsplit (SV *document_in)
         RETVAL
 
 void
-rebuild_output_units (SV *output_units_in)
+rebuild_output_units (SV *document_in, SV *output_units_in)
     PREINIT:
+        DOCUMENT *document = 0;
         int output_units_descriptor = 0;
      CODE:
+        document = get_sv_document_document (document_in,
+                                             "rebuild_output_units");
       /* This may be called in Texinfo::Convert::Converter::output on
          converters that may or may not have XS information, so no warning */
-        output_units_descriptor
-           = get_sv_output_units_descriptor (output_units_in, 0);
-        if (output_units_descriptor)
-          rebuild_output_units_list (output_units_in, output_units_descriptor);
+        if (document)
+          {
+            output_units_descriptor
+             = get_sv_output_units_descriptor (output_units_in, 0);
+            if (output_units_descriptor)
+              rebuild_output_units_list (document, output_units_in,
+                                         output_units_descriptor);
+          }
 
 void
-split_pages (SV *output_units_in, char *split)
+split_pages (SV *document_in, SV *output_units_in, char *split)
     PREINIT:
+        const DOCUMENT *document = 0;
         OUTPUT_UNIT_LIST *output_units = 0;
      CODE:
-        output_units = get_sv_output_units (output_units_in, "split_pages");
+        document = get_sv_document_document (document_in,
+                                             "split_pages");
+        output_units = get_sv_output_units (document,
+                                            output_units_in, "split_pages");
         if (output_units)
           split_pages (output_units, split);
 

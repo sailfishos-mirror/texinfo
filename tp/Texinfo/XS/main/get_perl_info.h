@@ -23,8 +23,10 @@ void set_option_key_configured (OPTIONS *options, const char *key,
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 
-OUTPUT_UNIT_LIST *get_sv_output_units (SV *output_units_in, char *warn_string);
 int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
+OUTPUT_UNIT_LIST *get_sv_output_units (const DOCUMENT *document,
+                                       SV *output_units_in,
+                                       char *warn_string);
 
 void apply_sv_parser_conf (SV *parser_sv);
 

@@ -2007,20 +2007,24 @@ html_prepare_conversion_units (SV *converter_in, ...)
                }
 
              output_units_sv = build_output_units_list
-               (self->output_units_descriptors[OUDT_units]);
+               (self->document, self->output_units_descriptors[OUDT_units]);
              special_units_sv = build_output_units_list
-               (self->output_units_descriptors[OUDT_special_units]);
+               (self->document,
+                self->output_units_descriptors[OUDT_special_units]);
              associated_special_units_sv = build_output_units_list
-               (self->output_units_descriptors[OUDT_associated_special_units]);
+               (self->document,
+                self->output_units_descriptors[OUDT_associated_special_units]);
            }
          else
            {
              output_units_sv = setup_output_units_handler
-               (self->output_units_descriptors[OUDT_units]);
+               (self->document, self->output_units_descriptors[OUDT_units]);
              special_units_sv = setup_output_units_handler
-               (self->output_units_descriptors[OUDT_special_units]);
+               (self->document,
+                self->output_units_descriptors[OUDT_special_units]);
              associated_special_units_sv = setup_output_units_handler
-               (self->output_units_descriptors[OUDT_associated_special_units]);
+               (self->document,
+                self->output_units_descriptors[OUDT_associated_special_units]);
            }
 
          output_units_hv = (HV *) SvRV (output_units_sv);
@@ -2056,11 +2060,12 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
 
          if (self->external_references_number > 0)
            {
-             rebuild_output_units_list (output_units_in,
+             rebuild_output_units_list (self->document, output_units_in,
                            self->output_units_descriptors[OUDT_units]);
-             rebuild_output_units_list (special_units_in,
+             rebuild_output_units_list (self->document, special_units_in,
                       self->output_units_descriptors[OUDT_special_units]);
-             rebuild_output_units_list (associated_special_units_in,
+             rebuild_output_units_list (self->document,
+                                        associated_special_units_in,
                 self->output_units_descriptors[OUDT_associated_special_units]);
 
              pass_html_global_units_directions (converter_in,
@@ -2088,11 +2093,12 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
 
          if (self->external_references_number > 0)
            {
-             rebuild_output_units_list (output_units_in,
+             rebuild_output_units_list (self->document, output_units_in,
                                 self->output_units_descriptors[OUDT_units]);
-             rebuild_output_units_list (special_units_in,
+             rebuild_output_units_list (self->document, special_units_in,
                         self->output_units_descriptors[OUDT_special_units]);
-             rebuild_output_units_list (associated_special_units_in,
+             rebuild_output_units_list (self->document,
+                                        associated_special_units_in,
                self->output_units_descriptors[OUDT_associated_special_units]);
 
              pass_html_global_units_directions (converter_in,

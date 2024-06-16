@@ -48,17 +48,15 @@ const char *relative_unit_direction_name[] = {
 };
 
 
-static OUTPUT_UNIT_LIST *output_units_list;
-static size_t output_units_number;
-static size_t output_units_space;
-
 OUTPUT_UNIT_LIST *
-retrieve_output_units (int output_units_descriptor)
+retrieve_output_units (const DOCUMENT *document, int output_units_descriptor)
 {
+  const OUTPUT_UNIT_LISTS *output_units = &document->output_units_lists;
+
   /* the list can still be uninitialized and .list be 0 */
   if (output_units_descriptor > 0
-      && output_units_descriptor <= output_units_number)
-    return &output_units_list[output_units_descriptor -1];
+      && output_units_descriptor <= output_units->number)
+    return &output_units->output_units_lists[output_units_descriptor -1];
   return 0;
 }
 
@@ -76,15 +74,16 @@ reallocate_output_unit_list (OUTPUT_UNIT_LIST *list)
 
 /* descriptor starts at 1, 0 is an error */
 size_t
-new_output_units_descriptor (void)
+new_output_units_descriptor (DOCUMENT *document)
 {
   size_t output_units_index;
   int slot_found = 0;
   int i;
+  OUTPUT_UNIT_LISTS *output_units = &document->output_units_lists;
 
-  for (i = 0; i < output_units_number; i++)
+  for (i = 0; i < output_units->number; i++)
     {
-      if (output_units_list[i].list == 0)
+      if (output_units->output_units_lists[i].list == 0)
         {
           slot_found = 1;
           output_units_index = i;
@@ -92,22 +91,25 @@ new_output_units_descriptor (void)
     }
   if (!slot_found)
     {
-      if (output_units_number == output_units_space)
+      if (output_units->number == output_units->space)
         {
-          output_units_list = realloc (output_units_list,
-                      (output_units_space += 5) * sizeof (OUTPUT_UNIT_LIST));
-          if (!output_units_list)
+          output_units->output_units_lists
+              = realloc (output_units->output_units_lists,
+                      (output_units->space += 1) * sizeof (OUTPUT_UNIT_LIST));
+          if (!output_units->output_units_lists)
             fatal ("realloc failed");
         }
-      output_units_index = output_units_number;
-      output_units_number++;
+      output_units_index = output_units->number;
+      output_units->number++;
     }
 
-  memset (&output_units_list[output_units_index], 0, sizeof (OUTPUT_UNIT_LIST));
+  memset (&output_units->output_units_lists[output_units_index],
+          0, sizeof (OUTPUT_UNIT_LIST));
 
   /* immediately allocate, even if the list will remain empty, such
      that the slot is reserved */
-  reallocate_output_unit_list (&output_units_list[output_units_index]);
+  reallocate_output_unit_list
+       (&output_units->output_units_lists[output_units_index]);
 
   /*
   fprintf (stderr, "Register output units (%d): %d\n", slot_found,
@@ -140,9 +142,9 @@ int
 split_by_node (DOCUMENT *document)
 {
   const ELEMENT *root = document->tree;
-  int output_units_descriptor = new_output_units_descriptor ();
+  int output_units_descriptor = new_output_units_descriptor (document);
   OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
+    = retrieve_output_units (document, output_units_descriptor);
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
   ELEMENT_LIST *pending_parts = new_list ();
   int i;
@@ -213,9 +215,9 @@ int
 split_by_section (DOCUMENT *document)
 {
   const ELEMENT *root = document->tree;
-  int output_units_descriptor = new_output_units_descriptor ();
+  int output_units_descriptor = new_output_units_descriptor (document);
   OUTPUT_UNIT_LIST *output_units
-    = retrieve_output_units (output_units_descriptor);
+    = retrieve_output_units (document, output_units_descriptor);
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
   int i;
 

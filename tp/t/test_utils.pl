@@ -1395,7 +1395,7 @@ sub test($$)
   }
 
   if ($test_split or $split_pages) {
-    Texinfo::OutputUnits::rebuild_output_units($output_units);
+    Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
   }
 
   my $file = "t/results/$self->{'name'}/$test_name.pl";
