@@ -303,6 +303,10 @@ unsplit (DOCUMENT *document)
 void
 destroy_output_unit (OUTPUT_UNIT *output_unit)
 {
+  /* need to destroy elements associated with special output units
+     as they are not in the document Texinfo tree */
+  if (output_unit->special_unit_variety)
+    destroy_element (output_unit->unit_command);
   free (output_unit->unit_contents.list);
   /* no need to free output_unit->unit_filename as it is a
      reference on output_unit_files list FILE_NAME_PATH_COUNTER

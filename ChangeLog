@@ -5,6 +5,13 @@
 
 2024-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/output_unit.c (destroy_output_unit): destroy the
+	unit_command if the output_unit is a special_unit_variety as in that
+	case the element is not in the main document Texinfo tree and will not
+	be freed.
+
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/output_unit.c (retrieve_output_units)
 	(new_output_units_descriptor): rename output_units variable as
 	output_units_lists.
