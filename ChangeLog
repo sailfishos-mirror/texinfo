@@ -5,6 +5,14 @@
 
 2024-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal): use
+	data_cmd instead of element->e.c->cmd more.
+
+	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	use more flags and command data in conditions and rearrange.
+
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/transformations.c
 	(move_index_entries_after_items): fix condition.
 
