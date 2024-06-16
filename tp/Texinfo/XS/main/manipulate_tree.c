@@ -767,6 +767,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
 
 
+/* the caller should make sure that the tree is not a text element */
+/* NOTE there is no recursion in modified elements.  If this becomes relevant,
+   OPERATION should be changed such that it becomes possible to signal that
+   a recursion is needed */
 ELEMENT *
 modify_tree (ELEMENT *tree,
              ELEMENT_LIST *(*operation)(const char *type, ELEMENT *element, void* argument),

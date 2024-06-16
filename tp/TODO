@@ -13,9 +13,6 @@ Before next release
 Bugs
 ====
 
-valgrind perl -w t/transformations.t protect_first_parenthesis_after_parenthesis_source_mark
-
-
 HTML API
 ========
 

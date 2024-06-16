@@ -650,6 +650,8 @@ item_line_parent (ELEMENT *current)
   return 0;
 }
 
+/* The caller should take care not to call get_label_element on a text
+   element */
 ELEMENT *
 get_label_element (const ELEMENT *e)
 {

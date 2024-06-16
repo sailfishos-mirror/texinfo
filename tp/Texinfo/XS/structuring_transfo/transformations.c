@@ -1490,7 +1490,11 @@ protect_first_parenthesis_in_targets_internal (const char *type,
                                                ELEMENT *current,
                                                void *argument)
 {
-  ELEMENT *element_label = get_label_element (current);
+  ELEMENT *element_label;
+  if (!(type_data[current->type].flags & TF_at_command))
+    return 0;
+
+  element_label = get_label_element (current);
   if (element_label)
     protect_first_parenthesis (element_label);
   return 0;
