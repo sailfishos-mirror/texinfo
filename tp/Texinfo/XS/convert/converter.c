@@ -1149,24 +1149,6 @@ char *
 xml_numeric_entity_accent (enum command_id cmd, const char *text)
 {
   char *result;
-  if (! builtin_command_data[cmd].flags & CF_accent)
-    {
-      return 0;
-    }
-
-  if (strlen (text) == 1 && isascii_alpha (*text))
-    {
-      int i;
-      for (i = 0; unicode_accented_letters[i].cmd; i++)
-        {
-          UNICODE_ACCENT_LETTER *letter = &unicode_accented_letters[i];
-          if (cmd == letter->cmd && ! strcmp (text, letter->letter))
-            {
-              xasprintf (&result, "&#%s;", letter->numerical_entity);
-              return result;
-            }
-        }
-    }
 
   if (unicode_diacritics[cmd].text)
     {
@@ -1234,6 +1216,20 @@ xml_numeric_entity_accent (enum command_id cmd, const char *text)
           return result;
         }
     }
+  else if (strlen (text) == 1 && isascii_alpha (*text))
+    {
+      int i;
+      for (i = 0; unicode_accented_letters[i].cmd; i++)
+        {
+          UNICODE_ACCENT_LETTER *letter = &unicode_accented_letters[i];
+          if (cmd == letter->cmd && ! strcmp (text, letter->letter))
+            {
+              xasprintf (&result, "&#%s;", letter->numerical_entity);
+              return result;
+            }
+        }
+    }
+
   return 0;
 }
 
