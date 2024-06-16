@@ -228,7 +228,7 @@ split_delimiters (ELEMENT *current, int starting_idx)
 
       p = e->e.text->text;
 
-      if (e->source_mark_list.number)
+      if (e->source_mark_list)
         {
           u8_text = utf8_from_string (p);
           u8_p = u8_text;
@@ -249,8 +249,8 @@ split_delimiters (ELEMENT *current, int starting_idx)
                   u8_p += u8_len;
 
                   current_position
-                   = relocate_source_marks (&(e->source_mark_list), new,
-                                                 current_position, u8_len);
+                   = relocate_source_marks (e->source_mark_list, new,
+                                            current_position, u8_len);
                 }
 
               insert_into_contents (current, new, i++);
@@ -269,8 +269,8 @@ split_delimiters (ELEMENT *current, int starting_idx)
               u8_p += u8_len;
 
              current_position
-               = relocate_source_marks (&(e->source_mark_list), new_text,
-                                          current_position, u8_len);
+               = relocate_source_marks (e->source_mark_list, new_text,
+                                        current_position, u8_len);
             }
 
           new = new_element (ET_def_line_arg);
@@ -315,7 +315,7 @@ split_def_args (ELEMENT *current, int starting_idx)
 
       p = e->e.text->text;
 
-      if (e->source_mark_list.number)
+      if (e->source_mark_list)
         {
           u8_text = utf8_from_string (p);
           u8_p = u8_text;
@@ -344,7 +344,7 @@ split_def_args (ELEMENT *current, int starting_idx)
               u8_p += u8_len;
 
               current_position
-                = relocate_source_marks (&(e->source_mark_list), new,
+                = relocate_source_marks (e->source_mark_list, new,
                                          current_position, u8_len);
             }
           insert_into_contents (current, new, i++);

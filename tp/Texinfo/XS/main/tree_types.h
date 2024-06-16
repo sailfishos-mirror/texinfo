@@ -356,7 +356,7 @@ typedef struct ELEMENT {
     struct ELEMENT *parent;
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
-    SOURCE_MARK_LIST source_mark_list;
+    SOURCE_MARK_LIST *source_mark_list;
 
     union {
       TEXT *text;

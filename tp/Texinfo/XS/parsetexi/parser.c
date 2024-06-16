@@ -777,11 +777,11 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
     {
       /* Transfer source marks */
       if (transfer_marks_element
-          && transfer_marks_element->source_mark_list.number > 0)
+          && transfer_marks_element->source_mark_list)
         {
           size_t additional_length = count_multibyte (last_element->e.text->text);
           SOURCE_MARK_LIST *s_mark_list
-             = &(transfer_marks_element->source_mark_list);
+             = transfer_marks_element->source_mark_list;
           int i;
           for (i = 0; i < s_mark_list->number; i++)
             {
@@ -790,7 +790,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                 source_mark->position += additional_length;
               add_source_mark (source_mark, last_element);
             }
-          transfer_marks_element->source_mark_list.number = 0;
+          free_element_source_mark_list (transfer_marks_element);
         }
 
       if (global_parser_conf.debug)
@@ -860,14 +860,14 @@ abort_empty_line (ELEMENT **current_inout)
       if (last_child->e.text->end == 0)
         {
           ELEMENT *e = pop_element_from_contents (current);
-          if (e->source_mark_list.number)
+          if (e->source_mark_list)
             {
-              SOURCE_MARK_LIST *source_mark_list = &e->source_mark_list;
+              SOURCE_MARK_LIST *source_mark_list = e->source_mark_list;
 
               int i;
               for (i = 0; i < source_mark_list->number; i++)
                 place_source_mark (current, source_mark_list->list[i]);
-              source_mark_list->number = 0;
+              free_element_source_mark_list (e);
             }
 
           destroy_element (e);
@@ -938,12 +938,13 @@ isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
       text[text_len - trailing_spaces] = '\0';
       last_elt->e.text->end -= trailing_spaces;
 
-      if (last_elt->source_mark_list.number > 0)
+      if (last_elt->source_mark_list)
         {
           size_t begin_position = count_multibyte (text);
-          relocate_source_marks (&(last_elt->source_mark_list), spaces_element,
+          relocate_source_marks (last_elt->source_mark_list, spaces_element,
                                  begin_position,
                                  count_multibyte (spaces_element->e.text->text));
+          destroy_element_empty_source_mark_list (last_elt);
         }
       current->elt_info[eit_spaces_after_argument] = spaces_element;
     }

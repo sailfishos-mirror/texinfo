@@ -172,13 +172,15 @@ close_container (ELEMENT *current)
   /* remove element without contents nor associated information */
   if (is_container_empty (current))
     {
+      int source_marks_nr = 0;
+      if (current->source_mark_list)
+        source_marks_nr = current->source_mark_list->number;
       debug_nonl ("CONTAINER EMPTY ");
       debug_parser_print_element (current, 1);
-      debug_nonl (" (%d source marks)",
-                  current->source_mark_list.number); debug ("");
+      debug_nonl (" (%d source marks)", source_marks_nr); debug ("");
 
       /* Keep the element only if there are source marks */
-      if (current->source_mark_list.number <= 0)
+      if (!current->source_mark_list)
         element_to_remove = current;
     }
 
@@ -288,7 +290,7 @@ close_command_cleanup (ELEMENT *current)
          some before_item content could also have been reparented in
          gather_previous_item */
       if (is_container_empty (before_item)
-          && before_item->source_mark_list.number == 0)
+          && !before_item->source_mark_list)
         {
           ELEMENT *removed = remove_from_contents (current, 0);
           destroy_element (removed);

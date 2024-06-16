@@ -454,20 +454,28 @@ store_source_mark_list (const ELEMENT *e)
 {
   dTHX;
 
-  if (e->source_mark_list.number > 0)
+  if (e->source_mark_list)
     {
       AV *av;
       SV *sv;
       int i;
+
+      if (e->source_mark_list->number == 0)
+        {
+          fprintf (stderr, "BUG: store_source_mark_list: 0 source marks but "
+                           "source_mark_list\n");
+          return;
+        }
+
       av = newAV ();
       sv = newRV_noinc ((SV *) av);
       hv_store (e->hv, "source_marks", strlen ("source_marks"), sv, 0);
 
-      for (i = 0; i < e->source_mark_list.number; i++)
+      for (i = 0; i < e->source_mark_list->number; i++)
         {
           HV *source_mark;
           SV *sv;
-          const SOURCE_MARK *s_mark = e->source_mark_list.list[i];
+          const SOURCE_MARK *s_mark = e->source_mark_list->list[i];
           IV source_mark_position;
           IV source_mark_counter;
           source_mark = newHV ();

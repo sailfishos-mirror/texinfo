@@ -359,7 +359,16 @@ copy_contents (ELEMENT *element, enum element_type type)
 void
 add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
 {
-  SOURCE_MARK_LIST *s_mark_list = &e->source_mark_list;
+  SOURCE_MARK_LIST *s_mark_list;
+
+  if (!e->source_mark_list)
+    {
+      e->source_mark_list = (SOURCE_MARK_LIST *) malloc (sizeof (SOURCE_MARK_LIST));
+      memset (e->source_mark_list, 0, sizeof (SOURCE_MARK_LIST));
+    }
+
+  s_mark_list = e->source_mark_list;
+
   if (s_mark_list->number == s_mark_list->space)
     {
       s_mark_list->space++;
@@ -392,10 +401,15 @@ remove_from_source_mark_list (SOURCE_MARK_LIST *list, size_t where)
 }
 
 /* In Texinfo::Common */
-/* relocate SOURCE_MARKS source marks with position between
+/* relocate SOURCE_MARK_LIST source marks with position between
    BEGIN_POSITION and BEGIN_POSITION + LEN to be relative to BEGIN_POSITION,
    and move to element NEW_E.
    Returns BEGIN_POSITION + LEN if there were source marks.
+
+   Even if it is emptied, SOURCE_MARK_LIST is not freed.  If all the source
+   marks are relocated and the element is destroyed, the SOURCE_MARK_LIST
+   will be freed, otherwise it is up to the caller to call
+   destroy_element_empty_source_mark_list on the element.
 */
 size_t
 relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
@@ -403,11 +417,15 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 {
   size_t i = 0;
   size_t j;
-  size_t list_number = source_mark_list->number;
+  size_t list_number;
   size_t *indices_to_remove;
   size_t end_position;
 
-  if (list_number == 0)
+  if (!source_mark_list)
+    return 0;
+
+  list_number = source_mark_list->number;
+  if (list_number <= 0)
     return 0;
 
   end_position = begin_position + len;
@@ -610,13 +628,13 @@ parse_node_manual (ELEMENT *node, int modify_node)
                       insert_into_contents (node, new_first, 0);
                       insert_into_contents (node, opening_brace, 0);
                       idx++;
-                      if (first->source_mark_list.number > 0)
+                      if (first->source_mark_list)
                         {
                           size_t current_position
-                            = relocate_source_marks (&(first->source_mark_list),
+                            = relocate_source_marks (first->source_mark_list,
                                                      opening_brace, 0,
                                    count_multibyte (opening_brace->e.text->text));
-                          relocate_source_marks (&(first->source_mark_list),
+                          relocate_source_marks (first->source_mark_list,
                                                  new_first, current_position,
                                        count_multibyte (new_first->e.text->text));
                         }
@@ -645,7 +663,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                     {
                       insert_into_contents (node, last_manual_element, idx++);
                       current_position
-                        = relocate_source_marks (&(e->source_mark_list),
+                        = relocate_source_marks (e->source_mark_list,
                                                  last_manual_element,
                                                  current_position,
                             count_multibyte (last_manual_element->e.text->text));
@@ -660,7 +678,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   text_append_n (closing_brace->e.text, ")", 1);
                   insert_into_contents (node, closing_brace, idx++);
                   current_position
-                    = relocate_source_marks (&(e->source_mark_list),
+                    = relocate_source_marks (e->source_mark_list,
                                              closing_brace,
                                              current_position,
                         count_multibyte (closing_brace->e.text->text));
@@ -677,7 +695,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   text_append_n (spaces_element->e.text, p, q - p);
                   insert_into_contents (node, spaces_element, idx++);
                   current_position
-                    = relocate_source_marks (&(e->source_mark_list),
+                    = relocate_source_marks (e->source_mark_list,
                                              spaces_element,
                                              current_position,
                         count_multibyte (spaces_element->e.text->text));
@@ -698,7 +716,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                     {
                       insert_into_contents (node, leading_node_content, idx);
                       current_position
-                        = relocate_source_marks (&(e->source_mark_list),
+                        = relocate_source_marks (e->source_mark_list,
                                                  leading_node_content,
                                                  current_position,
                             count_multibyte (leading_node_content->e.text->text));
@@ -798,21 +816,21 @@ modify_tree (ELEMENT *tree,
             modify_tree (content, operation, argument);
         }
     }
-  if (tree->source_mark_list.number > 0)
+  if (tree->source_mark_list != 0)
     {
       int i;
-      for (i = 0; i < tree->source_mark_list.number; i++)
+      for (i = 0; i < tree->source_mark_list->number; i++)
         {
-          if (tree->source_mark_list.list[i]->element)
+          if (tree->source_mark_list->list[i]->element)
             {
               ELEMENT_LIST *new_element;
               new_element = (*operation) ("source_mark",
-                                     tree->source_mark_list.list[i]->element,
+                                     tree->source_mark_list->list[i]->element,
                                           argument);
               if (new_element)
                 {
                /* *operation should take care of destroying removed element */
-                  tree->source_mark_list.list[i]->element
+                  tree->source_mark_list->list[i]->element
                       = new_element->list[0];
                   destroy_list (new_element);
                 }
@@ -854,7 +872,7 @@ protect_text (ELEMENT *current, const char *to_protect)
       const uint8_t *u8_p = 0;
       size_t u8_len;
 
-      if (current->source_mark_list.number)
+      if (current->source_mark_list)
         {
           u8_text = utf8_from_string (p);
           u8_p = u8_text;
@@ -883,12 +901,12 @@ protect_text (ELEMENT *current, const char *to_protect)
               u8_p += u8_len;
 
               current_position
-                = relocate_source_marks (&current->source_mark_list,
+                = relocate_source_marks (current->source_mark_list,
                                         text_elt,
                                         current_position, u8_len);
             }
 
-          if (leading_nr || text_elt->source_mark_list.number)
+          if (leading_nr || text_elt->source_mark_list)
             add_to_element_list (container, text_elt);
           else
             destroy_element (text_elt);
@@ -915,7 +933,7 @@ protect_text (ELEMENT *current, const char *to_protect)
                           u8_p += u8_len;
 
                         current_position
-                          = relocate_source_marks (&current->source_mark_list,
+                          = relocate_source_marks (current->source_mark_list,
                                                    comma,
                                                    current_position, u8_len);
                         }
@@ -936,7 +954,7 @@ protect_text (ELEMENT *current, const char *to_protect)
                       u8_p += u8_len;
 
                       current_position
-                       = relocate_source_marks (&current->source_mark_list,
+                       = relocate_source_marks (current->source_mark_list,
                            new_command->e.c->args.list[0]->e.c->contents.list[0],
                                               current_position, u8_len);
                     }

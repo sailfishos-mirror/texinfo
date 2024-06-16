@@ -48,7 +48,8 @@ int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
                              ELEMENT *added);
 void destroy_node_spec (NODE_SPEC_EXTRA *nse);
 void destroy_associated_info (ASSOCIATED_INFO *a);
-
+void free_element_source_mark_list (ELEMENT *e);
+void destroy_element_empty_source_mark_list (ELEMENT *e);
 
 #define element_contents_number(e) ((e)->contents.number)
 #define element_args_number(e) ((e)->args.number)

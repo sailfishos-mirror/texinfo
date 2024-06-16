@@ -215,9 +215,24 @@ destroy_source_mark_list (SOURCE_MARK_LIST *source_mark_list)
   for (i = 0; i < source_mark_list->number; i++)
     destroy_source_mark (source_mark_list->list[i]);
 
-  source_mark_list->number = 0;
   free (source_mark_list->list);
-  source_mark_list->space = 0;
+  free (source_mark_list);
+}
+
+/* does not free the source marks themselves */
+void
+free_element_source_mark_list (ELEMENT *e)
+{
+  free (e->source_mark_list->list);
+  free (e->source_mark_list);
+  e->source_mark_list = 0;
+}
+
+void
+destroy_element_empty_source_mark_list (ELEMENT *e)
+{
+  if (e->source_mark_list && e->source_mark_list->number <= 0)
+    free_element_source_mark_list (e);
 }
 
 void
@@ -225,7 +240,8 @@ destroy_element (ELEMENT *e)
 {
   unregister_perl_tree_element (e);
 
-  destroy_source_mark_list (&e->source_mark_list);
+  if (e->source_mark_list)
+    destroy_source_mark_list (e->source_mark_list);
 
   if (type_data[e->type].flags & TF_text)
     {

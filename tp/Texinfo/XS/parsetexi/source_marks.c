@@ -106,15 +106,15 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 void
 transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
 {
-  SOURCE_MARK_LIST *source_mark_list = &from_e->source_mark_list;
-  if (source_mark_list->number)
+  SOURCE_MARK_LIST *source_mark_list = from_e->source_mark_list;
+  if (source_mark_list)
     {
       size_t i;
       for (i = 0; i < source_mark_list->number; i++)
         {
           add_source_mark (source_mark_list->list[i], e);
         }
-      source_mark_list->number = 0;
+      free_element_source_mark_list (from_e);
     }
 }
 

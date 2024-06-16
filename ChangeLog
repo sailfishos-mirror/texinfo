@@ -1,3 +1,25 @@
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
+	Turn source_mark_list to a pointer
+
+	* tp/Texinfo/XS/main/tree_types.h (ELEMENT),
+	tp/Texinfo/XS/main/build_perl_info.c (store_source_mark_list),
+	tp/Texinfo/XS/main/manipulate_tree.c (add_source_mark)
+	(relocate_source_marks, parse_node_manual, modify_tree, protect_text),
+	tp/Texinfo/XS/main/tree.c (free_element_source_mark_list)
+	(destroy_element_empty_source_mark_list, destroy_element),
+	tp/Texinfo/XS/parsetexi/close.c (close_container)
+	(close_command_cleanup), tp/Texinfo/XS/parsetexi/def.c
+	(split_delimiters, split_def_args), tp/Texinfo/XS/parsetexi/parser.c
+	(merge_text, abort_empty_line, isolate_last_space_internal),
+	tp/Texinfo/XS/parsetexi/source_marks.c (transfer_source_marks),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_first_parenthesis)
+	(protect_hashchar_at_line_beginning_internal): turn the
+	source_mark_list field of ELEMENT to a pointer.  Add
+	free_element_source_mark_list and
+	destroy_element_empty_source_mark_list.
+
 2024-06-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_close_command_cleanup): separate
