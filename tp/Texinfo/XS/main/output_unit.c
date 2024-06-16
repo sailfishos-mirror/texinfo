@@ -51,12 +51,12 @@ const char *relative_unit_direction_name[] = {
 OUTPUT_UNIT_LIST *
 retrieve_output_units (const DOCUMENT *document, int output_units_descriptor)
 {
-  const OUTPUT_UNIT_LISTS *output_units = &document->output_units_lists;
+  const OUTPUT_UNIT_LISTS *output_units_lists = &document->output_units_lists;
 
   /* the list can still be uninitialized and .list be 0 */
   if (output_units_descriptor > 0
-      && output_units_descriptor <= output_units->number)
-    return &output_units->output_units_lists[output_units_descriptor -1];
+      && output_units_descriptor <= output_units_lists->number)
+    return &output_units_lists->output_units_lists[output_units_descriptor -1];
   return 0;
 }
 
@@ -79,11 +79,11 @@ new_output_units_descriptor (DOCUMENT *document)
   size_t output_units_index;
   int slot_found = 0;
   int i;
-  OUTPUT_UNIT_LISTS *output_units = &document->output_units_lists;
+  OUTPUT_UNIT_LISTS *output_units_lists = &document->output_units_lists;
 
-  for (i = 0; i < output_units->number; i++)
+  for (i = 0; i < output_units_lists->number; i++)
     {
-      if (output_units->output_units_lists[i].list == 0)
+      if (output_units_lists->output_units_lists[i].list == 0)
         {
           slot_found = 1;
           output_units_index = i;
@@ -91,25 +91,25 @@ new_output_units_descriptor (DOCUMENT *document)
     }
   if (!slot_found)
     {
-      if (output_units->number == output_units->space)
+      if (output_units_lists->number == output_units_lists->space)
         {
-          output_units->output_units_lists
-              = realloc (output_units->output_units_lists,
-                      (output_units->space += 1) * sizeof (OUTPUT_UNIT_LIST));
-          if (!output_units->output_units_lists)
+          output_units_lists->output_units_lists
+              = realloc (output_units_lists->output_units_lists,
+                  (output_units_lists->space += 1) * sizeof (OUTPUT_UNIT_LIST));
+          if (!output_units_lists->output_units_lists)
             fatal ("realloc failed");
         }
-      output_units_index = output_units->number;
-      output_units->number++;
+      output_units_index = output_units_lists->number;
+      output_units_lists->number++;
     }
 
-  memset (&output_units->output_units_lists[output_units_index],
+  memset (&output_units_lists->output_units_lists[output_units_index],
           0, sizeof (OUTPUT_UNIT_LIST));
 
   /* immediately allocate, even if the list will remain empty, such
      that the slot is reserved */
   reallocate_output_unit_list
-       (&output_units->output_units_lists[output_units_index]);
+       (&output_units_lists->output_units_lists[output_units_index]);
 
   /*
   fprintf (stderr, "Register output units (%d): %d\n", slot_found,

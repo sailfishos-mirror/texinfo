@@ -5,6 +5,12 @@
 
 2024-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/output_unit.c (retrieve_output_units)
+	(new_output_units_descriptor): rename output_units variable as
+	output_units_lists.
+
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c
 	(destroy_document_information_except_tree),
 	tp/Texinfo/XS/main/output_unit.c (destroy_output_unit)
