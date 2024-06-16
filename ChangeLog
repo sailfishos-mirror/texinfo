@@ -6,6 +6,11 @@
 2024-06-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(move_index_entries_after_items): fix condition.
+
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
 	(protect_first_parenthesis_in_targets_internal): check that the
 	element is an @-command element before calling get_label_element.
 

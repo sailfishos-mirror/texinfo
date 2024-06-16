@@ -480,7 +480,7 @@ move_index_entries_after_items (ELEMENT *current)
               ELEMENT *content = previous_ending_container->e.c->contents.list[j];
               if (content->type == ET_index_entry_command)
                 last_entry_idx = j;
-              else if ((!type_data[content->type].flags & TF_at_command)
+              else if ((!(type_data[content->type].flags & TF_at_command))
                        || (content->e.c->cmd != CM_comment
                            && content->e.c->cmd != CM_c))
                 break;
