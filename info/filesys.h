@@ -21,7 +21,7 @@
 #define INFO_FILESYS_H
 
 /* Return a string describing the search path. */
-extern char *infopath_string ();
+char *infopath_string (void);
 
 /* Initialize INFOPATH */
 void infopath_init (void);

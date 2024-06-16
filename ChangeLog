@@ -1,3 +1,9 @@
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
+	* info/filesys.h (infopath_string), info/infopath.c (infopath_string):
+	remove extern in infopath_string filesys.h declaration.  Add void in
+	infopath_string argument.
+
 2024-06-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/infomap.c (locate_init_file) [__MINGW32__]:

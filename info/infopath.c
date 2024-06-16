@@ -82,7 +82,7 @@ infopath_init ()
 
 /* Return value to be freed by caller. */
 char *
-infopath_string ()
+infopath_string (void)
 {
   struct text_buffer path;
   int dir_idx;
