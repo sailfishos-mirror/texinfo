@@ -300,6 +300,43 @@ unsplit (DOCUMENT *document)
   return unsplit_needed;
 }
 
+void
+destroy_output_unit (OUTPUT_UNIT *output_unit)
+{
+  free (output_unit->unit_contents.list);
+  /* no need to free output_unit->unit_filename as it is a
+     reference on output_unit_files list FILE_NAME_PATH_COUNTER
+   */
+  free (output_unit);
+}
+
+void
+free_output_unit_list (OUTPUT_UNIT_LIST *output_units_list)
+{
+  size_t i;
+
+  for (i = 0; i < output_units_list->number; i++)
+    {
+      destroy_output_unit (output_units_list->list[i]);
+    }
+  free (output_units_list->list);
+}
+
+void
+free_output_units_lists (OUTPUT_UNIT_LISTS *output_units_lists)
+{
+  size_t i;
+
+  for (i = 0; i < output_units_lists->number; i++)
+    {
+      OUTPUT_UNIT_LIST *output_units_list
+         = &output_units_lists->output_units_lists[i];
+      free_output_unit_list (output_units_list);
+    }
+  free (output_units_lists->output_units_lists);
+  memset (output_units_lists, 0, sizeof (OUTPUT_UNIT_LISTS));
+}
+
 
 static ELEMENT *
 output_unit_section (OUTPUT_UNIT *output_unit)

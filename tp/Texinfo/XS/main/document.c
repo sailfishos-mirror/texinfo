@@ -31,6 +31,7 @@
 #include "floats.h"
 #include "manipulate_indices.h"
 #include "convert_to_text.h"
+#include "output_unit.h"
 #include "document.h"
 
 static DOCUMENT **document_list;
@@ -407,6 +408,9 @@ destroy_document_information_except_tree (DOCUMENT *document)
     }
   if (document->convert_index_text_options)
     destroy_text_options (document->convert_index_text_options);
+
+  free_output_units_lists (&document->output_units_lists);
+
   if (document->merged_indices)
     destroy_merged_indices (document->merged_indices);
   if (document->indices_sort_strings)
