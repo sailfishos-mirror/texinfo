@@ -1,5 +1,10 @@
 2024-06-16  Patrice Dumas  <pertusus@free.fr>
 
+	* system.h: remove strerror definition, the prototype looks wrong and
+	the conditional is not set anywhere.
+
+2024-06-16  Patrice Dumas  <pertusus@free.fr>
+
 	* info/filesys.h (infopath_string), info/infopath.c (infopath_string):
 	remove extern in infopath_string filesys.h declaration.  Add void in
 	infopath_string argument.
