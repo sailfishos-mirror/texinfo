@@ -1,5 +1,16 @@
 2024-06-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line): call with a
+	pointer on element, not a pointer on pointer.  Update callers.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line)
+	(do_abort_empty_line, merge_text): move do_abort_empty_line out of
+	abort_empty_line and call it directly in merge_text instead of redoing
+	the same check of elements again in abort_empty_line.  Change
+	merge_text code to be simpler.
+
+2024-06-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (merge_text): modify code to have
 	the new_text label before a statement and not a declaration.
 

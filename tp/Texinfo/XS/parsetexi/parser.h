@@ -72,7 +72,7 @@ CONDITIONAL_STACK_ITEM *pop_conditional_stack (void);
 CONDITIONAL_STACK_ITEM *top_conditional_stack (void);
 extern size_t conditional_number;
 
-int abort_empty_line (ELEMENT **current_inout);
+int abort_empty_line (ELEMENT *current);
 ELEMENT *end_paragraph (ELEMENT *current,
                         enum command_id closed_block_command,
                         enum command_id interrupting_command);

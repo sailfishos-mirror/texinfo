@@ -569,7 +569,7 @@ parse_texi_document (void)
 
 
 static int
-begin_paragraph_p (ELEMENT *current)
+begin_paragraph_p (const ELEMENT *current)
 {
   /* we want to avoid
      paragraphs, line_arg, brace_container, brace_arg, root_line,
@@ -705,6 +705,61 @@ end_preformatted (ELEMENT *current,
  */
 ELEMENT *internal_space_holder;
 
+static void
+do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
+{
+  if (global_parser_conf.debug)
+    {
+      debug_nonl ("ABORT EMPTY in ");
+      debug_parser_print_element (current, 0);
+      debug_nonl ("(p:%d): %s; ", in_paragraph_context (current_context ()),
+                  type_data[last_elt->type].name);
+      debug_nonl ("|%s|",
+                  last_elt->e.text->end > 0 ? last_elt->e.text->text : "");
+      debug ("");
+    }
+
+
+  /* Remove element altogether if it's empty. */
+  if (last_elt->e.text->end == 0)
+    {
+      ELEMENT *e = pop_element_from_contents (current);
+      if (e->source_mark_list)
+        {
+          SOURCE_MARK_LIST *source_mark_list = e->source_mark_list;
+
+          int i;
+          for (i = 0; i < source_mark_list->number; i++)
+            place_source_mark (current, source_mark_list->list[i]);
+          free_element_source_mark_list (e);
+        }
+
+      destroy_element (e);
+    }
+  else if (last_elt->type == ET_empty_line)
+    {
+      last_elt->type = begin_paragraph_p (current)
+                         ? ET_spaces_before_paragraph : ET_normal_text;
+    }
+  else if (last_elt->type == ET_internal_spaces_after_command
+           || last_elt->type == ET_internal_spaces_before_argument)
+    {
+      /* Remove element from main tree. It will still be referenced in
+         the 'info' hash as 'spaces_before_argument'. */
+      ELEMENT *owning_element;
+      ELEMENT *e = pop_element_from_contents (current);
+      owning_element = internal_space_holder;
+      e->type = ET_other_text;
+      e->parent = 0;
+      if (owning_element->type != ET_context_brace_command)
+        owning_element->elt_info[eit_spaces_before_argument] = e;
+      else
+        owning_element->elt_info[eit_brace_content_spaces_before_argument]
+           = e;
+      internal_space_holder = 0;
+    }
+}
+
 /* Add LEN_TEXT of TEXT to the contents of CURRENT, maybe starting a new
    paragraph.
    TEXT may not have a NUL character at TEXT + LEN_TEXT.
@@ -715,7 +770,6 @@ ELEMENT *
 merge_text (ELEMENT *current, const char *text, size_t len_text,
             ELEMENT *transfer_marks_element)
 {
-  int no_merge_with_following_text = 0;
   int leading_spaces = 0;
   ELEMENT *last_element = last_contents_child (current);
 
@@ -735,6 +789,8 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               || last_element->type == ET_internal_spaces_before_argument
               || last_element->type == ET_spaces_after_close_brace))
         {
+          int no_merge_with_following_text
+               = (last_element->type != ET_empty_line);
           if (leading_spaces)
             {
               if (global_parser_conf.debug)
@@ -750,11 +806,16 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               len_text -= leading_spaces;
             }
 
-          if (last_element->type != ET_empty_line)
-            no_merge_with_following_text = 1;
-        }
+          do_abort_empty_line (current, last_element);
 
-      abort_empty_line (&current);
+          if (no_merge_with_following_text)
+         /* we do not merge these special types, unset last_element */
+            last_element = 0;
+          else
+          /* need to retrieve the last element in case the one obtained above
+             was removed in do_abort_empty_line */
+            last_element = last_contents_child (current);
+        }
 
       paragraph = begin_paragraph (current);
       if (paragraph)
@@ -766,11 +827,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
         }
     }
 
-  /* need to retrieve the last element in case the one obtained above was
-     removed in abort_empty_line */
-  last_element = last_contents_child (current);
-  if (!no_merge_with_following_text
-      && last_element
+  if (last_element
       /* can actually be normal_text, and some space elements */
       && type_data[last_element->type].flags & TF_text
       && !strchr (last_element->e.text->text, '\n'))
@@ -779,7 +836,8 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       if (transfer_marks_element
           && transfer_marks_element->source_mark_list)
         {
-          size_t additional_length = count_multibyte (last_element->e.text->text);
+          size_t additional_length
+            = count_multibyte (last_element->e.text->text);
           SOURCE_MARK_LIST *s_mark_list
              = transfer_marks_element->source_mark_list;
           int i;
@@ -830,11 +888,8 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
    or merge text, and return true.
  */
 int
-abort_empty_line (ELEMENT **current_inout)
+abort_empty_line (ELEMENT *current)
 {
-  ELEMENT *current = *current_inout;
-  int retval;
-
   ELEMENT *last_child = last_contents_child (current);
 
   if (last_child
@@ -844,63 +899,11 @@ abort_empty_line (ELEMENT **current_inout)
           || last_child->type == ET_internal_spaces_before_argument
           || last_child->type == ET_spaces_after_close_brace))
     {
-      retval = 1;
-      if (global_parser_conf.debug)
-        {
-          debug_nonl ("ABORT EMPTY in ");
-          debug_parser_print_element (current, 0);
-          debug_nonl ("(p:%d): %s; ", in_paragraph_context (current_context ()),
-                      type_data[last_child->type].name);
-          debug_nonl ("|%s|",
-                      last_child->e.text->end > 0 ? last_child->e.text->text : "");
-          debug ("");
-        }
-
-
-      /* Remove element altogether if it's empty. */
-      if (last_child->e.text->end == 0)
-        {
-          ELEMENT *e = pop_element_from_contents (current);
-          if (e->source_mark_list)
-            {
-              SOURCE_MARK_LIST *source_mark_list = e->source_mark_list;
-
-              int i;
-              for (i = 0; i < source_mark_list->number; i++)
-                place_source_mark (current, source_mark_list->list[i]);
-              free_element_source_mark_list (e);
-            }
-
-          destroy_element (e);
-        }
-      else if (last_child->type == ET_empty_line)
-        {
-          last_child->type = begin_paragraph_p (current)
-                             ? ET_spaces_before_paragraph : ET_normal_text;
-        }
-      else if (last_child->type == ET_internal_spaces_after_command
-               || last_child->type == ET_internal_spaces_before_argument)
-        {
-          /* Remove element from main tree. It will still be referenced in
-             the 'info' hash as 'spaces_before_argument'. */
-          ELEMENT *owning_element;
-          ELEMENT *e = pop_element_from_contents (current);
-          owning_element = internal_space_holder;
-          e->type = ET_other_text;
-          e->parent = 0;
-          if (owning_element->type != ET_context_brace_command)
-            owning_element->elt_info[eit_spaces_before_argument] = e;
-          else
-            owning_element->elt_info[eit_brace_content_spaces_before_argument]
-               = e;
-          internal_space_holder = 0;
-        }
+      do_abort_empty_line (current, last_child);
+      return 1;
     }
-  else
-    retval = 0;
 
-  *current_inout = current;
-  return retval;
+  return 0;
 }
 
 /* The caller verifies that last_elt is a text element */
@@ -2206,7 +2209,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                        for the converters to handle */
                       ELEMENT *value_elt;
 
-                      abort_empty_line (&current);
+                      abort_empty_line (current);
 
                       line_warn ("undefined flag: %s", flag);
 
@@ -2232,7 +2235,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                 { /* CM_txiinternalvalue */
                   ELEMENT *txiinternalvalue_elt;
 
-                  abort_empty_line (&current);
+                  abort_empty_line (current);
 
                   txiinternalvalue_elt
                     = new_value_element (cmd, line, flag_len,
@@ -2281,7 +2284,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* warn on not appearing at line beginning.  Need to do before closing
          paragraph as it also closes the empty line */
       if (!def_line_continuation
-          && !abort_empty_line (&current)
+          && !abort_empty_line (current)
           && ((cmd == CM_node || cmd == CM_bye)
               || (command_data(cmd).flags & CF_block)
               || ((command_data(cmd).flags & CF_line)
@@ -2348,7 +2351,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                 }
               else
                /* an internal and temporary space type that is converted to
-                  a normal space without type if followed by text or a
+                  a normal space if followed by text or a
                   "spaces_at_end" if followed by spaces only when the
                   index or subentry command is done. */
                 {
@@ -2577,7 +2580,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
                  == ET_internal_spaces_before_argument)
             {
               /* Remove this element and update 'info' values. */
-              abort_empty_line (&current);
+              abort_empty_line (current);
             }
 
           e = new_text_element (ET_empty_line);
@@ -2606,7 +2609,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           if (!line)
             {
               debug ("END LINE in line loop STILL_MORE_TO_PROCESS");
-              abort_empty_line (&current);
+              abort_empty_line (current);
               current = end_line (current);
               break;
             }

@@ -84,8 +84,11 @@ menu_comment
 
 # Used internally
 internal_menu_star                         text
+# right after a line command or block command
 internal_spaces_after_command              text
+# after opening brace or comma
 internal_spaces_before_argument            text
+# on @*index commands line before brace specific @-command
 internal_spaces_before_brace_in_index      text
 internal_spaces_after_cmd_before_arg       text
 
