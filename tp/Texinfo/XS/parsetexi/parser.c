@@ -820,15 +820,15 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               goto add_to_empty_text;
             }
 
+          /* since last_element cannot be empty as this case is
+             handled just above, the last_element is
+             always kept in current in do_abort_empty_line
+             for an empty_line; its type may have changed */
           do_abort_empty_line (current, last_element);
 
           if (no_merge_with_following_text)
          /* we do not merge these special types, unset last_element */
             last_element = 0;
-          else
-          /* need to retrieve the last element in case the one obtained above
-             was removed in do_abort_empty_line */
-            last_element = last_contents_child (current);
         }
 
       paragraph = begin_paragraph (current);

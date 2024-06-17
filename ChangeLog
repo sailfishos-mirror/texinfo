@@ -1,5 +1,14 @@
 2024-06-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (merge_text): no need to retrieve
+	the last element with empty_line anymore, as it is not removed in
+	do_abort_empty_line anymore, as the case of empty text is handled
+	before.
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text): update to match C code.
+
+2024-06-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_merge_text),
 	tp/Texinfo/XS/parsetexi/parser.c (merge_text): if a special space text
 	element is empty and there is non space text merged, reuse the element

@@ -2220,6 +2220,12 @@ sub _close_commands($$$;$$)
 sub _merge_text {
   my ($self, $current, $text, $transfer_marks_element) = @_;
 
+  my $last_element;
+
+  if ($current->{'contents'}) {
+    $last_element = $current->{'contents'}->[-1];
+  }
+
   my $paragraph;
 
   my $no_merge_with_following_text = 0;
@@ -2228,53 +2234,55 @@ sub _merge_text {
     if ($text =~ /^(\s+)/) {
       $leading_spaces = $1;
     }
-    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
-      my $last_element = $current->{'contents'}->[-1];
-      if ($last_element->{'type'}) {
-        my $last_element_type = $last_element->{'type'};
-        if ($last_element_type eq 'empty_line'
-            or $last_element_type eq 'ignorable_spaces_after_command'
-            or $last_element_type eq 'internal_spaces_after_command'
-            or $last_element_type eq 'internal_spaces_before_argument'
-            or $last_element_type eq 'spaces_after_close_brace') {
+    if ($last_element->{'type'}) {
+      my $last_element_type = $last_element->{'type'};
+      if ($last_element_type eq 'empty_line'
+          or $last_element_type eq 'ignorable_spaces_after_command'
+          or $last_element_type eq 'internal_spaces_after_command'
+          or $last_element_type eq 'internal_spaces_before_argument'
+          or $last_element_type eq 'spaces_after_close_brace') {
 
-          if ($leading_spaces) {
-            print STDERR "MERGE_TEXT ADD leading empty |$leading_spaces|"
-                      ." to $last_element_type\n"
-                           if ($self->{'conf'}->{'DEBUG'});
+        if ($leading_spaces) {
+          print STDERR "MERGE_TEXT ADD leading empty |$leading_spaces|"
+                    ." to $last_element_type\n"
+                         if ($self->{'conf'}->{'DEBUG'});
 
-            $last_element->{'text'} .= $leading_spaces;
-            $text =~ s/^(\s+)//;
-          } elsif ($last_element->{'text'} eq '') {
-            # empty special space.  Reuse it as normal text element.
-            # This is different from calling do_abort_empty_line and
-            # afterwards adding a new element if there are source marks:
-            # we avoid an empty element being added by reusing.
-            my $popped_element = _pop_element_from_contents($self, $current);
-            delete $popped_element->{'type'};
-            $popped_element->{'text'} = $text;
-            $paragraph = _begin_paragraph($self, $current);
-            if ($paragraph) {
-              $current = $paragraph;
-            }
-            # do not jump with a goto as in C, as it is not possible
-            # in Perl to use a goto to go further than the calling scope
-            _transfer_source_marks($transfer_marks_element, $popped_element)
-              if ($transfer_marks_element);
-            push @{$current->{'contents'}}, $popped_element;
-            $popped_element->{'parent'} = $current;
-            print STDERR "NEW TEXT (merge): $text|||\n"
-                        if ($self->{'conf'}->{'DEBUG'});
-            return $current;
+          $last_element->{'text'} .= $leading_spaces;
+          $text =~ s/^(\s+)//;
+        } elsif ($last_element->{'text'} eq '') {
+          # empty special space.  Reuse it as normal text element.
+          # This is different from calling do_abort_empty_line and
+          # afterwards adding a new element if there are source marks:
+          # we avoid an empty element being added by reusing.
+          my $popped_element = _pop_element_from_contents($self, $current);
+          delete $popped_element->{'type'};
+          $popped_element->{'text'} = $text;
+          $paragraph = _begin_paragraph($self, $current);
+          if ($paragraph) {
+            $current = $paragraph;
           }
+          # do not jump with a goto as in C, as it is not possible
+          # in Perl to use a goto to go further than the calling scope
+          _transfer_source_marks($transfer_marks_element, $popped_element)
+            if ($transfer_marks_element);
+          push @{$current->{'contents'}}, $popped_element;
+          $popped_element->{'parent'} = $current;
+          print STDERR "NEW TEXT (merge): $text|||\n"
+                      if ($self->{'conf'}->{'DEBUG'});
+          return $current;
+        }
 
-          if ($last_element_type ne 'empty_line') {
-            $no_merge_with_following_text = 1;
-          }
+        # since last_element cannot be empty as this case is
+        # handled just above, the last_element is
+        # always kept in current in _abort_empty_line
+        # for an empty_line; its type may have changed
+        _abort_empty_line($self, $current);
+
+        if ($last_element_type ne 'empty_line') {
+          # we do not merge these special types, unset last_element
+          $last_element = undef;
         }
       }
-      _abort_empty_line($self, $current);
-
     }
 
     $paragraph = _begin_paragraph($self, $current);
@@ -2283,20 +2291,12 @@ sub _merge_text {
     }
   }
 
-  if (!defined($current->{'contents'})) {
-    # this can happen at least for preformatted, with a new
-    # paragraph and if the first text element was removed in _abort_empty_line.
-    $current->{'contents'} = [];
-  }
-
   # if a paragraph was started we know that there is no leading
   # text to merge with
   if (!$paragraph
-      and !$no_merge_with_following_text
-      and scalar(@{$current->{'contents'}})
-      and exists($current->{'contents'}->[-1]->{'text'})
-      and $current->{'contents'}->[-1]->{'text'} !~ /\n/) {
-    my $last_element = $current->{'contents'}->[-1];
+      and $last_element
+      and exists($last_element->{'text'})
+      and $last_element->{'text'} !~ /\n/) {
     # Transfer source marks
     if ($transfer_marks_element
         and $transfer_marks_element->{'source_marks'}) {
@@ -2322,6 +2322,9 @@ sub _merge_text {
     my $new_element = { 'text' => $text, 'parent' => $current };
     _transfer_source_marks($transfer_marks_element, $new_element)
       if ($transfer_marks_element);
+    if (!defined($current->{'contents'})) {
+      $current->{'contents'} = [];
+    }
     push @{$current->{'contents'}}, $new_element;
     print STDERR "NEW TEXT (merge): $text|||\n"
                          if ($self->{'conf'}->{'DEBUG'});
