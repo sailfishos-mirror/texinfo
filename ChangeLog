@@ -1,3 +1,13 @@
+2024-06-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Info tests timeout
+
+	* info/t/Init-test.inc (TEXINFO_INFO_TESTS_TIMEOUT, run_ginfo):
+	Use environment variable to allow changing tests timeout
+	from the environment.  Increase default timeout from 5 to 10
+	seconds. This is to support running the tests on slow systems,
+	such as under CPU emulation.  Report of test timeouts from Nelson.
+
 2024-06-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/maintain/regenerate_C_options_info.pl: remove a spurious ; output
