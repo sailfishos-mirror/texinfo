@@ -60,11 +60,7 @@ More generally, the plaintext ref_commands formatting code
 could be completly different from the Info code, which is the current
 code, as most of the code deals with specific contraints of Info.
 
-
-Some ideas for the reduction of the XS/C ELEMENT memory footprint, from
-Gavin and Patrice
-
-1) make building "source marks" optional.
+Make building "source marks" optional?
 
 valgrinf massif useful-heap approximate distribution in 2024 (obsolete)
 valgrind --tool=massif --massif-out-file=massif_info.out perl -w texi2any.pl ../doc/texinfo.texi

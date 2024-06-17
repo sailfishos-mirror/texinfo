@@ -808,8 +808,9 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
     }
   else
     {
+      ELEMENT *e;
      new_text:
-      ELEMENT *e = new_text_element (ET_normal_text);
+      e = new_text_element (ET_normal_text);
       if (transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e);
       text_append_n (e->e.text, text, len_text);
@@ -2192,7 +2193,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
           if (1) /* @value syntax is valid */
             {
-          value_valid:
+          /* value_valid: */
               if (cmd == CM_value)
                 {
                   char *value;
