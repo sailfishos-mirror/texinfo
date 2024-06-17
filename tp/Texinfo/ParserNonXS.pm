@@ -2245,17 +2245,37 @@ sub _merge_text {
 
             $last_element->{'text'} .= $leading_spaces;
             $text =~ s/^(\s+)//;
+          } elsif ($last_element->{'text'} eq '') {
+            # empty special space.  Reuse it as normal text element.
+            # This is different from calling do_abort_empty_line and
+            # afterwards adding a new element if there are source marks:
+            # we avoid an empty element being added by reusing.
+            my $popped_element = _pop_element_from_contents($self, $current);
+            delete $popped_element->{'type'};
+            $popped_element->{'text'} = $text;
+            $paragraph = _begin_paragraph($self, $current);
+            if ($paragraph) {
+              $current = $paragraph;
+            }
+            # do not jump with a goto as in C, as it is not possible
+            # in Perl to use a goto to go further than the calling scope
+            _transfer_source_marks($transfer_marks_element, $popped_element)
+              if ($transfer_marks_element);
+            push @{$current->{'contents'}}, $popped_element;
+            $popped_element->{'parent'} = $current;
+            print STDERR "NEW TEXT (merge): $text|||\n"
+                        if ($self->{'conf'}->{'DEBUG'});
+            return $current;
           }
 
           if ($last_element_type ne 'empty_line') {
             $no_merge_with_following_text = 1;
           }
-
         }
       }
-    }
+      _abort_empty_line($self, $current);
 
-    _abort_empty_line($self, $current);
+    }
 
     $paragraph = _begin_paragraph($self, $current);
     if ($paragraph) {

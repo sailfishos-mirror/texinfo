@@ -81,6 +81,16 @@ $result_trees{'cpp_directives_in_macro'} = {
               }
             },
             {
+              'text' => '
+',
+              'type' => 'empty_line'
+            }
+          ],
+          'type' => 'preamble_before_content'
+        },
+        {
+          'contents' => [
+            {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -109,21 +119,10 @@ $result_trees{'cpp_directives_in_macro'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
               'text' => '#line 100 "in_arg_file"
 '
             }

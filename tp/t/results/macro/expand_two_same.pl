@@ -74,6 +74,10 @@ $result_trees{'expand_two_same'} = {
         {
           'contents' => [
             {
+              'text' => 'Call macro2
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -103,15 +107,10 @@ arg}
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 12,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => 'Call macro2
-'
-            },
-            {
               'text' => 'With a doubles arg a simple '
             },
             {
@@ -191,6 +190,10 @@ arg}
         {
           'contents' => [
             {
+              'text' => 'Call macro2 with 2 args
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 2,
@@ -218,16 +221,9 @@ arg}
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 24,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
-                }
-              ],
-              'text' => 'Call macro2 with 2 args
-'
-            },
-            {
-              'source_marks' => [
+                },
                 {
                   'counter' => 2,
                   'position' => 72,

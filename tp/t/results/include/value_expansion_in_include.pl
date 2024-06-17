@@ -229,7 +229,10 @@ $result_trees{'value_expansion_in_include'} = {
                   'status' => 'start'
                 }
               ],
-              'text' => 'testvar include: This is the '
+              'text' => 'testvar include: '
+            },
+            {
+              'text' => 'This is the '
             },
             {
               'args' => [
@@ -418,7 +421,10 @@ $result_trees{'value_expansion_in_include'} = {
                   'status' => 'start'
                 }
               ],
-              'text' => 'test-var include: This is the '
+              'text' => 'test-var include: '
+            },
+            {
+              'text' => 'This is the '
             },
             {
               'args' => [
@@ -605,7 +611,10 @@ $result_trees{'value_expansion_in_include'} = {
                   'status' => 'start'
                 }
               ],
-              'text' => 'test_var include: This is the '
+              'text' => 'test_var include: '
+            },
+            {
+              'text' => 'This is the '
             },
             {
               'args' => [

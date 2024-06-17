@@ -133,51 +133,6 @@ $result_trees{'form_feeds'} = {
           }
         },
         {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'arg1'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => '  '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'arg2'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'mymacro',
-                  'spaces_after_cmd_before_arg' => {
-                    'text' => '  '
-                  }
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -185,6 +140,50 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'arg1'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => '  '
+                          }
+                        },
+                        'type' => 'brace_arg'
+                      },
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'arg2'
+                          }
+                        ],
+                        'info' => {
+                          'spaces_before_argument' => {
+                            'text' => ' '
+                          }
+                        },
+                        'type' => 'brace_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'mymacro',
+                      'spaces_after_cmd_before_arg' => {
+                        'text' => '  '
+                      }
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'f arg1'
             }
           ],
@@ -216,33 +215,6 @@ $result_trees{'form_feeds'} = {
           'type' => 'paragraph'
         },
         {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'args' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'a@{rgline'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'oneargmacro',
-                  'spaces_before_argument' => {
-                    'text' => '   '
-                  }
-                },
-                'type' => 'macro_call_line'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'text' => '
 ',
           'type' => 'empty_line'
@@ -250,6 +222,32 @@ $result_trees{'form_feeds'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'a@{rgline'
+                          }
+                        ],
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'oneargmacro',
+                      'spaces_before_argument' => {
+                        'text' => '   '
+                      }
+                    },
+                    'type' => 'macro_call_line'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'g a'
             },
             {

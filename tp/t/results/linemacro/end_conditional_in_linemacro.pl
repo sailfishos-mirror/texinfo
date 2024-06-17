@@ -100,33 +100,6 @@ $result_trees{'end_conditional_in_linemacro'} = {
               'position' => 1,
               'sourcemark_type' => 'expanded_conditional_command',
               'status' => 'start'
-            },
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'text
-  @end ifclear',
-                        'type' => 'bracketed_linemacro_arg'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'lm',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'start'
             }
           ],
           'text' => '
@@ -136,6 +109,34 @@ $result_trees{'end_conditional_in_linemacro'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'text
+  @end ifclear',
+                            'type' => 'bracketed_linemacro_arg'
+                          }
+                        ],
+                        'type' => 'line_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'lm',
+                      'spaces_before_argument' => {
+                        'text' => ' '
+                      }
+                    },
+                    'type' => 'linemacro_call'
+                  },
+                  'sourcemark_type' => 'linemacro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'text
 '
             },

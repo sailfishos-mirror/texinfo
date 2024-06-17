@@ -731,7 +731,13 @@ macroseven defined
                   },
                   'position' => 19,
                   'sourcemark_type' => 'ignored_conditional_block'
-                },
+                }
+              ],
+              'text' => 'macroseven defined
+'
+            },
+            {
+              'source_marks' => [
                 {
                   'counter' => 4,
                   'element' => {
@@ -745,15 +751,10 @@ macroseven defined
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 19,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => 'macroseven defined
-'
-            },
-            {
               'text' => '1
 '
             },

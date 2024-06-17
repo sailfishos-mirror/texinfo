@@ -47,15 +47,6 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
               'cmdname' => 'c'
             },
             {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'line' => ' this is a comment.
-',
-                  'position' => 1,
-                  'sourcemark_type' => 'delcomment'
-                }
-              ],
               'text' => '
 ',
               'type' => 'empty_line'
@@ -66,6 +57,14 @@ $result_trees{'delcomment_followed_by_cpp_line'} = {
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'line' => ' this is a comment.
+',
+                  'sourcemark_type' => 'delcomment'
+                }
+              ],
               'text' => '#line 46 "a_file_after_del_comment"
 '
             }

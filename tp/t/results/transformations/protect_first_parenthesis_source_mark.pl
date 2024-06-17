@@ -72,31 +72,28 @@ $result_trees{'protect_first_parenthesis_source_mark'} = {
             {
               'contents' => [
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'args' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'vvv'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
-                },
-                {
                   'args' => [
                     {
                       'contents' => [
                         {
+                          'source_marks' => [
+                            {
+                              'counter' => 1,
+                              'element' => {
+                                'args' => [
+                                  {
+                                    'type' => 'brace_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'command_name' => 'vvv'
+                                },
+                                'type' => 'macro_call'
+                              },
+                              'sourcemark_type' => 'macro_expansion',
+                              'status' => 'start'
+                            }
+                          ],
                           'text' => '('
                         }
                       ],
@@ -157,7 +154,15 @@ $result_texts{'protect_first_parenthesis_source_mark'} = '
 .
 ';
 
-$result_errors{'protect_first_parenthesis_source_mark'} = [];
+$result_errors{'protect_first_parenthesis_source_mark'} = [
+  {
+    'error_line' => 'syntax for an external node used for `(some text) aa,,\'
+',
+    'line_nr' => 5,
+    'text' => 'syntax for an external node used for `(some text) aa,,\'',
+    'type' => 'error'
+  }
+];
 
 
 $result_floats{'protect_first_parenthesis_source_mark'} = {};

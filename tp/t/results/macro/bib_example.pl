@@ -3126,7 +3126,11 @@ $result_trees{'bib_example'} = {
                   },
                   'sourcemark_type' => 'expanded_conditional_command',
                   'status' => 'start'
-                },
+                }
+              ]
+            },
+            {
+              'source_marks' => [
                 {
                   'counter' => 5,
                   'element' => {
@@ -3161,9 +3165,7 @@ $result_trees{'bib_example'} = {
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
-              ]
-            },
-            {
+              ],
               'text' => '(See item [LaTeX2e] in '
             },
             {
@@ -3206,12 +3208,7 @@ $result_trees{'bib_example'} = {
                           'line' => 'References',
                           'sourcemark_type' => 'value_expansion',
                           'status' => 'start'
-                        }
-                      ],
-                      'text' => ''
-                    },
-                    {
-                      'source_marks' => [
+                        },
                         {
                           'counter' => 2,
                           'position' => 10,
@@ -3231,7 +3228,6 @@ $result_trees{'bib_example'} = {
                   'extra' => {
                     'node_content' => {
                       'contents' => [
-                        {},
                         {}
                       ]
                     },
@@ -3956,7 +3952,6 @@ $result_trees{'bib_example'} = {
 $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'bib_example'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[1];
 $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
 
 $result_texis{'bib_example'} = '\\input texinfo   @c -*-texinfo-*-

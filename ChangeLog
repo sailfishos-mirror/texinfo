@@ -1,5 +1,15 @@
 2024-06-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_merge_text),
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text): if a special space text
+	element is empty and there is non space text merged, reuse the element
+	as a normal text element.  This is different from before if there are
+	source marks as now they are kept as is, previously, a call to
+	*_abort_empty_line followed by adding a new element led to an empty
+	text element added to store the source marks.
+
+2024-06-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (merge_text),
 	tp/Texinfo/XS/parsetexi/source_marks.c (transfer_source_marks): add an
 	added length argument to transfer_source_marks, to use the function in

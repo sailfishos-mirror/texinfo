@@ -70,6 +70,10 @@ $result_trees{'macro_zero'} = {
         {
           'contents' => [
             {
+              'text' => 'Macro
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -84,16 +88,9 @@ $result_trees{'macro_zero'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 6,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
-                }
-              ],
-              'text' => 'Macro
-'
-            },
-            {
-              'source_marks' => [
+                },
                 {
                   'counter' => 1,
                   'position' => 1,

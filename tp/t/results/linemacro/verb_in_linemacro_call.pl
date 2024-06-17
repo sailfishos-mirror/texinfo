@@ -115,78 +115,75 @@ $result_trees{'verb_in_linemacro_call'} = {
             {
               'contents' => [
                 {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'args' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'Name',
-                                'type' => 'bracketed_linemacro_arg'
-                              }
-                            ],
-                            'type' => 'line_arg'
-                          },
-                          {
-                            'contents' => [
-                              {
-                                'text' => '@verb{: in verb :}'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'line_arg'
-                          },
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'A @verb{| in bracketed |} ',
-                                'type' => 'bracketed_linemacro_arg'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'line_arg'
-                          },
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'other {j}'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'mycommand',
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'linemacro_call'
-                      },
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
-                },
-                {
                   'contents' => [
                     {
+                      'source_marks' => [
+                        {
+                          'counter' => 1,
+                          'element' => {
+                            'args' => [
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'Name',
+                                    'type' => 'bracketed_linemacro_arg'
+                                  }
+                                ],
+                                'type' => 'line_arg'
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => '@verb{: in verb :}'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                },
+                                'type' => 'line_arg'
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'A @verb{| in bracketed |} ',
+                                    'type' => 'bracketed_linemacro_arg'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                },
+                                'type' => 'line_arg'
+                              },
+                              {
+                                'contents' => [
+                                  {
+                                    'text' => 'other {j}'
+                                  }
+                                ],
+                                'info' => {
+                                  'spaces_before_argument' => {
+                                    'text' => ' '
+                                  }
+                                },
+                                'type' => 'line_arg'
+                              }
+                            ],
+                            'info' => {
+                              'command_name' => 'mycommand',
+                              'spaces_before_argument' => {
+                                'text' => ' '
+                              }
+                            },
+                            'type' => 'linemacro_call'
+                          },
+                          'sourcemark_type' => 'linemacro_expansion',
+                          'status' => 'start'
+                        }
+                      ],
                       'text' => 'first Name
 '
                     },

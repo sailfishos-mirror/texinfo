@@ -174,6 +174,10 @@ $result_trees{'two_macros_on_a_line'} = {
               'cmdname' => '}'
             },
             {
+              'text' => '
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -188,16 +192,9 @@ $result_trees{'two_macros_on_a_line'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
-                }
-              ],
-              'text' => '
-'
-            },
-            {
-              'source_marks' => [
+                },
                 {
                   'counter' => 1,
                   'position' => 10,
@@ -260,6 +257,10 @@ $result_trees{'two_macros_on_a_line'} = {
               'cmdname' => '}'
             },
             {
+              'text' => '
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 3,
@@ -269,16 +270,9 @@ $result_trees{'two_macros_on_a_line'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
-                }
-              ],
-              'text' => '
-'
-            },
-            {
-              'source_marks' => [
+                },
                 {
                   'counter' => 3,
                   'position' => 10,
@@ -341,6 +335,10 @@ $result_trees{'two_macros_on_a_line'} = {
               'cmdname' => '@'
             },
             {
+              'text' => 'mymacro
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 5,
@@ -355,16 +353,9 @@ $result_trees{'two_macros_on_a_line'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 8,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
-                }
-              ],
-              'text' => 'mymacro
-'
-            },
-            {
-              'source_marks' => [
+                },
                 {
                   'counter' => 5,
                   'position' => 10,
@@ -404,6 +395,10 @@ $result_trees{'two_macros_on_a_line'} = {
         {
           'contents' => [
             {
+              'text' => 'with args
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 7,
@@ -429,15 +424,10 @@ in macro'
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 10,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => 'with args
-'
-            },
-            {
               'text' => 'in with args
 '
             },

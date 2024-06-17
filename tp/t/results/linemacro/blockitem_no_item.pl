@@ -106,6 +106,10 @@ $result_trees{'blockitem_no_item'} = {
                 {
                   'contents' => [
                     {
+                      'text' => 'AA
+'
+                    },
+                    {
                       'source_marks' => [
                         {
                           'counter' => 1,
@@ -155,15 +159,10 @@ $result_trees{'blockitem_no_item'} = {
                             },
                             'type' => 'linemacro_call'
                           },
-                          'position' => 3,
                           'sourcemark_type' => 'linemacro_expansion',
                           'status' => 'start'
                         }
                       ],
-                      'text' => 'AA
-'
-                    },
-                    {
                       'text' => 'd, e f '
                     },
                     {

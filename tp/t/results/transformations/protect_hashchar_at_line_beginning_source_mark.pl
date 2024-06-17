@@ -77,6 +77,16 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
               }
             },
             {
+              'text' => '
+',
+              'type' => 'empty_line'
+            }
+          ],
+          'type' => 'preamble_before_content'
+        },
+        {
+          'contents' => [
+            {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -91,20 +101,12 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 1,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
+              'text' => ''
+            },
             {
               'args' => [
                 {
@@ -189,31 +191,33 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
           }
         },
         {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'args' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'machash'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'contents' => [
+            {
+              'source_marks' => [
+                {
+                  'counter' => 2,
+                  'element' => {
+                    'args' => [
+                      {
+                        'type' => 'brace_arg'
+                      }
+                    ],
+                    'info' => {
+                      'command_name' => 'machash'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
+              'text' => ''
+            },
             {
               'args' => [
                 {
@@ -375,34 +379,36 @@ $result_trees{'protect_hashchar_at_line_beginning_source_mark'} = {
           }
         },
         {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'args' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'hash'
-                      }
-                    ],
-                    'type' => 'brace_container'
-                  }
-                ],
-                'cmdname' => 'value'
-              },
-              'line' => '#',
-              'position' => 1,
-              'sourcemark_type' => 'value_expansion',
-              'status' => 'start'
-            }
-          ],
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'contents' => [
+            {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'args' => [
+                      {
+                        'contents' => [
+                          {
+                            'text' => 'hash'
+                          }
+                        ],
+                        'type' => 'brace_container'
+                      }
+                    ],
+                    'cmdname' => 'value'
+                  },
+                  'line' => '#',
+                  'sourcemark_type' => 'value_expansion',
+                  'status' => 'start'
+                }
+              ],
+              'text' => ''
+            },
             {
               'args' => [
                 {

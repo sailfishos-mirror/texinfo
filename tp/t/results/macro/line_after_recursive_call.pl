@@ -70,24 +70,24 @@ $result_trees{'line_after_recursive_call'} = {
           },
           'source_info' => {
             'line_nr' => 1
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'info' => {
-                  'command_name' => 'mac'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ]
+          }
         },
         {
           'contents' => [
             {
+              'source_marks' => [
+                {
+                  'counter' => 1,
+                  'element' => {
+                    'info' => {
+                      'command_name' => 'mac'
+                    },
+                    'type' => 'macro_call'
+                  },
+                  'sourcemark_type' => 'macro_expansion',
+                  'status' => 'start'
+                }
+              ],
               'text' => 'ggg
 '
             },

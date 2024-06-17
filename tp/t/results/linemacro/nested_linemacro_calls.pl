@@ -292,9 +292,6 @@ $result_trees{'nested_linemacro_calls'} = {
                                   'status' => 'start'
                                 }
                               ],
-                              'text' => ''
-                            },
-                            {
                               'text' => 'inside X operator Y'
                             }
                           ],

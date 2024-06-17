@@ -177,12 +177,7 @@ $result_trees{'macro_in_brace_command'} = {
                                   },
                                   'sourcemark_type' => 'macro_expansion',
                                   'status' => 'start'
-                                }
-                              ],
-                              'text' => ''
-                            },
-                            {
-                              'source_marks' => [
+                                },
                                 {
                                   'counter' => 1,
                                   'position' => 13,

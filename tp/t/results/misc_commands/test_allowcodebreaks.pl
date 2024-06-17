@@ -233,6 +233,10 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'contents' => [
             {
+              'text' => 'Before first allowcodebreaks
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 1,
@@ -252,15 +256,10 @@ $result_trees{'test_allowcodebreaks'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 29,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => 'Before first allowcodebreaks
-'
-            },
-            {
               'text' => 'Out of code --- out-of-code.
 '
             },
@@ -706,6 +705,10 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'contents' => [
             {
+              'text' => 'After false
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 3,
@@ -725,15 +728,10 @@ $result_trees{'test_allowcodebreaks'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 12,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => 'After false
-'
-            },
-            {
               'text' => 'Out of code --- out-of-code.
 '
             },
@@ -1620,6 +1618,10 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'contents' => [
             {
+              'text' => 'After true
+'
+            },
+            {
               'source_marks' => [
                 {
                   'counter' => 6,
@@ -1639,15 +1641,10 @@ $result_trees{'test_allowcodebreaks'} = {
                     },
                     'type' => 'macro_call'
                   },
-                  'position' => 11,
                   'sourcemark_type' => 'macro_expansion',
                   'status' => 'start'
                 }
               ],
-              'text' => 'After true
-'
-            },
-            {
               'text' => 'Out of code --- out-of-code.
 '
             },

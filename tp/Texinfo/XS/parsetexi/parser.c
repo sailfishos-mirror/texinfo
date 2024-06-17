@@ -771,6 +771,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
             ELEMENT *transfer_marks_element)
 {
   int leading_spaces = 0;
+  ELEMENT *e;
   ELEMENT *last_element = last_contents_child (current);
 
   /* determine the number of leading characters in whitespace_chars */
@@ -804,6 +805,19 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               text_append_n (last_element->e.text, text, leading_spaces);
               text += leading_spaces;
               len_text -= leading_spaces;
+            }
+          else if (last_element->e.text->end == 0)
+            { /* empty special space.  Reuse it as normal text element.
+                 This is different from calling do_abort_empty_line and
+                 afterwards adding a new element if there are source marks:
+                 we avoid an empty element being added by reusing.
+               */
+              e = pop_element_from_contents (current);
+              e->type = ET_normal_text;
+              paragraph = begin_paragraph (current);
+              if (paragraph)
+                current = paragraph;
+              goto add_to_empty_text;
             }
 
           do_abort_empty_line (current, last_element);
@@ -857,9 +871,9 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
     }
   else
     {
-      ELEMENT *e;
      new_text:
       e = new_text_element (ET_normal_text);
+     add_to_empty_text:
       if (transfer_marks_element)
         transfer_source_marks (transfer_marks_element, e, 0);
       text_append_n (e->e.text, text, len_text);
