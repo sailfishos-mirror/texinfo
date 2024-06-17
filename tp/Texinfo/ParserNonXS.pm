@@ -2300,17 +2300,11 @@ sub _merge_text {
     # Transfer source marks
     if ($transfer_marks_element
         and $transfer_marks_element->{'source_marks'}) {
-      $last_element->{'source_marks'} = []
-        if (!defined($last_element->{'source_marks'}));
       my $additional_length = length($current->{'contents'}->[-1]->{'text'});
-      while (scalar(@{$transfer_marks_element->{'source_marks'}})) {
-        my $source_mark = shift @{$transfer_marks_element->{'source_marks'}};
-        if ($additional_length) {
-          $source_mark->{'position'} += $additional_length;
-        }
-        push @{$last_element->{'source_marks'}}, $source_mark;
+      foreach my $source_mark (@{$transfer_marks_element->{'source_marks'}}) {
+        $source_mark->{'position'} += $additional_length;
       }
-      delete $transfer_marks_element->{'source_marks'};
+      _transfer_source_marks($transfer_marks_element, $last_element);
     }
     # Append text
     print STDERR "MERGED TEXT: $text||| in "
