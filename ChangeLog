@@ -1,3 +1,18 @@
+2024-06-17  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/tp_api/Makefile.am
+	(MAKEINFO_ENVIRONMENT, MAKEINFO, texi2any_internals.texi): set/use
+	environment variables to have ModulePath.pm work correctly.  Remove -I
+	options now unneeded.
+
+2024-06-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix out-of-source build of texi2any_internals.texi
+
+        Pass  "-I $(top_builddir)/tp" to perl to find generated modules.
+        Filter output through sed by outputting a temporary file rather
+        than piping output - this allows detecting if perl run failed.
+
 2024-06-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Info tests timeout
