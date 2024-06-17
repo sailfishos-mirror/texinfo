@@ -1,5 +1,13 @@
 2024-06-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (merge_text),
+	tp/Texinfo/XS/parsetexi/source_marks.c (transfer_source_marks): add an
+	added length argument to transfer_source_marks, to use the function in
+	merge_text when merging with existing text.  Update
+	transfer_source_marks callers.
+
+2024-06-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line): call with a
 	pointer on element, not a pointer on pointer.  Update callers.
 

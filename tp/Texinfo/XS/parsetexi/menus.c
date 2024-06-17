@@ -178,7 +178,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       menu_entry = new_element (ET_menu_entry);
       leading_text = new_text_element (ET_menu_entry_leading_text);
       /* transfer source marks from removed menu star to leading text */
-      transfer_source_marks (menu_star_element, leading_text);
+      transfer_source_marks (menu_star_element, leading_text, 0);
       destroy_element (menu_star_element);
       entry_name = new_element (ET_menu_entry_name);
       add_to_element_contents (current, menu_entry);

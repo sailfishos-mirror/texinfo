@@ -150,7 +150,7 @@ remove_empty_content (ELEMENT *current)
       if (!(type_data[child_element->type].flags & TF_at_command)
           && is_container_empty (child_element))
         {
-          transfer_source_marks (child_element, current);
+          transfer_source_marks (child_element, current, 0);
 
           debug_nonl ("REMOVE empty child ");
           debug_parser_print_element (child_element, 0); debug_nonl (" from ");

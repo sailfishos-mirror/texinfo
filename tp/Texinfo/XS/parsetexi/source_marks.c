@@ -104,7 +104,7 @@ register_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
 }
 
 void
-transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
+transfer_source_marks (ELEMENT *from_e, ELEMENT *e, size_t added_len)
 {
   SOURCE_MARK_LIST *source_mark_list = from_e->source_mark_list;
   if (source_mark_list)
@@ -112,7 +112,9 @@ transfer_source_marks (ELEMENT *from_e, ELEMENT *e)
       size_t i;
       for (i = 0; i < source_mark_list->number; i++)
         {
-          add_source_mark (source_mark_list->list[i], e);
+          SOURCE_MARK *source_mark = source_mark_list->list[i];
+          source_mark->position += added_len;
+          add_source_mark (source_mark, e);
         }
       free_element_source_mark_list (from_e);
     }

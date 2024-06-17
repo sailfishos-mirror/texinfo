@@ -838,17 +838,8 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
         {
           size_t additional_length
             = count_multibyte (last_element->e.text->text);
-          SOURCE_MARK_LIST *s_mark_list
-             = transfer_marks_element->source_mark_list;
-          int i;
-          for (i = 0; i < s_mark_list->number; i++)
-            {
-              SOURCE_MARK *source_mark = s_mark_list->list[i];
-              if (additional_length > 0)
-                source_mark->position += additional_length;
-              add_source_mark (source_mark, last_element);
-            }
-          free_element_source_mark_list (transfer_marks_element);
+          transfer_source_marks (transfer_marks_element,
+                                 last_element, additional_length);
         }
 
       if (global_parser_conf.debug)
@@ -870,7 +861,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
      new_text:
       e = new_text_element (ET_normal_text);
       if (transfer_marks_element)
-        transfer_source_marks (transfer_marks_element, e);
+        transfer_source_marks (transfer_marks_element, e, 0);
       text_append_n (e->e.text, text, len_text);
       add_to_element_contents (current, e);
       if (global_parser_conf.debug)
