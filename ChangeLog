@@ -1,3 +1,8 @@
+2024-06-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/tp_api/Makefile.am (texi2any_internals.texi):
+	Pass -f option to rm for removing temporary file.
+
 2024-06-17  Patrice Dumas  <pertusus@free.fr>
 
 	Use explicit prototype for Info command functions
