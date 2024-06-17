@@ -1,3 +1,13 @@
+2024-06-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Info tests timeout
+
+	* info/t/Init-test.inc (TEXINFO_INFO_TESTS_TIMEOUT, run_ginfo):
+	Use environment variable to allow changing tests timeout
+	from the environment.  Increase default timeout from 5 to 10
+	seconds. This is to support running the tests on slow systems,
+	such as under CPU emulation.  Report of test timeouts from Nelson.
+
 2024-06-10  Bruno Haible  <bruno@clisp.org>
 
 	man: Add support for VPATH builds with OpenBSD 'make'.
