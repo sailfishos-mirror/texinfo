@@ -840,8 +840,22 @@ for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppre
 With memory leaks
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=./texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
-# starting in june 2024 on debian testing, need --keep-debuginfo=yes to
-# have a trace
+
+In some cases, memory that is not released/freed, but that should still be
+accessible at the end of conversion is shown by valgrind as being leaked,
+ie, not accessible, with some missing symbols.  Typically static/global
+variables freed upon reuse, or left unreleased on purpose (parser conf, for
+example).  In that case adding --keep-debuginfo=yes shows the missing
+symbols.  The documentation of valgrind
+  https://valgrind.org/docs/manual/faq.html#faq.unhelpful
+hints that the memory appearing as leaked probably comes from a dlclosed object:
+ "if the shared object is unloaded before the program terminates, Valgrind will discard the debug information and the error message will be full of ??? entries. If you use the option --keep-debuginfo=yes, then Valgrind will keep the debug information"
+What probably happens in that case is that a true leak or memory issue
+prevents the memory still accessible from the dlclosed object to be released
+properly, such that all the data that would have been accessible before
+dlcosing becomes inaccessible, while being kept in valgrind output and appear
+as memory leaks.
+Call with --keep-debuginfo=yes:
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --keep-debuginfo=yes -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 
 For tests in tp/tests, a way to have valgrind call prependend is to add,
