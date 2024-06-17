@@ -147,7 +147,7 @@ foreach my $category (sort(keys(%option_categories))) {
     print CODE "  initialize_option (&options->$option, GOT_$type);\n";
   }
 }
-print CODE "};\n\n";
+print CODE "}\n\n";
 
 print CODE "void\nfree_options (OPTIONS *options)\n{\n";
 foreach my $category (sort(keys(%option_categories))) {
@@ -157,7 +157,7 @@ foreach my $category (sort(keys(%option_categories))) {
     print CODE "  free_option (&options->$option);\n";
   }
 }
-print CODE "};\n\n";
+print CODE "}\n\n";
 
 print CODE "void\nclear_options (OPTIONS *options)\n{\n";
 print CODE "  options->BIT_user_function_number = 0;\n";
@@ -168,7 +168,7 @@ foreach my $category (sort(keys(%option_categories))) {
     print CODE "  clear_option (&options->$option);\n";
   }
 }
-print CODE "};\n\n";
+print CODE "}\n\n";
 
 # set configured based on the name
 print CODE 'void
@@ -219,7 +219,7 @@ print CODE "
     default:
       return 0;
     }
-};\n\n";
+}\n\n";
 
 # table of defaults for options corresponding to commands
 print CODE "COMMAND_OPTION_DEFAULT command_option_default_table[] = {\n";
