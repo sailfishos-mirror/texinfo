@@ -62,36 +62,6 @@ code, as most of the code deals with specific contraints of Info.
 
 Make building "source marks" optional?
 
-valgrinf massif useful-heap approximate distribution in 2024 (obsolete)
-valgrind --tool=massif --massif-out-file=massif_info.out perl -w texi2any.pl ../doc/texinfo.texi
-ms_print massif_info.out > ms_print_info.out
-16M Perl
-36M C tree
-50M Perl tree (visible in detailed use, but difficult to do the
-               imputation right, some may correspond with other uses
-               of Perl memory)
-5M (approximate, not visible in the detailed use, based on difference
-    in use over time) conversion
-
-With full XS (7.2 64M, with text separate 58.5M, without info_info 56M
-              with integer extra keys 54M, with source marks as pointers 52.3M)
-valgrind --tool=massif --massif-out-file=massif_html.out perl -w texi2any.pl --html ../doc/texinfo.texi
-ms_print massif_html.out > ms_print_html.out
-useful-heap
-25M = 13.1 + 5.8 + 2.9 + 2.5 + 0.7 Perl
-17.8M Tree
- 6 + 5 = 11M new_element
- 3.5M reallocate_list
- 0.5M get_associated_info_key (below threshold in later reports)
- 2.8M = 0.8 + 0.7 +1.3 text
-5.2M = 3.8 (text) + 0.7 (text printindex) + 0.7: conversion,
-               mainly text in convert_output_output_unit*
-                  (+1.3M by approximate difference with total)
-(7.5 + 1.3) - (3.8 + 0.7 + 0.7 + 0.8 +1.3) = 1.5 M Text not imputed
-3. - 0.5 = 2.5M remaining not imputed (- get_associated_info_key)
-52M TOTAL (for 52.3M reported)
-
-
 check for comma after @xref{...}, in parser to simplify checking for
 it in Info output module.
 The code checking if punctuation followed the closing brace
@@ -100,46 +70,6 @@ required fiddly checking ahead (see code following comment
 Gavin wondered if it would be easier to do this in the parser instead so the
 converter could check if the punctuation was present simply by checking
 $current->{'extra'}->{'following_punctuation'} or similar.
-
-
-Using callgrind to find the time used by functions
-
-valgrind --tool=callgrind perl -w texi2any.pl ../doc/texinfo.texi --html
-# to avoid cycles (some remain in Perl only code) that mess up the graph:
-valgrind --tool=callgrind --separate-callers=3 --separate-recs=10 perl -w texi2any.pl ../doc/texinfo.texi --html
-kcachegrind callgrind.out.XXXXXX
-
-
-A Perl hash map is used for fast access, see USE_PERL_HASHMAP in
-convert_html.c and interface in call_html_perl_function.c.
-If a hash without Perl dependency is needed, C++ std::unordered_map could
-be used instead of a Perl hash map, by setting up an interface with
-functions similar with the call_html_perl_function.c defined as extern "C".
-
-
-For the Texinfo manual with full XS, in 2024, Perl uses 22% of the time
-(for html), now only for code hopefully called once.  The switch to
-global locales for setlocale calling that is needed for Perl takes also 4%.
-Calling Perl getSortKey uses about 28% (more on sorting and C below).
-Decomposition of the time used for the Texinfo manual with full XS
-(in percent):
- parser: 11.5
- index sorting: 30
- main conversion to HTML: 24.8 = 54.8 - 30
-
- node redirections: 2.6
- prepare conversion units: 2.3
- remove document: 1.8
- associate internal references: 0.53
- prepare unit directions: 0.41
- setup indices sort strings: 0.36
- reset converter: 0.23
- structuring transformation1: 0.19
- structuring transformation2: 0.19
- remaining Texinfo XS code: 0.35
-  = 8.95
- Perl: 22.5 = 7 + 15.2 + (75.57 - 54.8 - 11.5 - 8.95) 
-SUM: 98
 
 
 hyphenation: should only appear in toplevel.
@@ -181,7 +111,7 @@ Modules included in tp/maintain/lib/ need to be updated from time to
 time.
 
 
-Transliteration/protection with iconv in C leads to a result different of Perl
+Transliteration/protection with iconv in C leads to a result different from Perl
 for some characters.  It seems that the iconv result depends on the locale, and
 there are quite a bit of ? output, probably when there is no obvious
 transliteration.  In those cases, the Unidecode transliterations are not
@@ -336,8 +266,11 @@ advance the lenght of text to underline (if any).  It is therefore unclear
 what would be the correct underlying characters count.
 An example in formats_encodings/at_commands_in_refs.
 
-Many strings in debugging output are not encoded.  Not clear that it is
-an issue.  For example with
+When using Perl modules, many strings in debugging output are internal
+Perl strings not encoded before being output, leading to
+'Wide character in print' messages (in C those strings are always encoded
+in UTF-8).  Not clear that it is an issue.  For example with
+export TEXINFO_XS=omit
 /usr/bin/perl -w ./..//texi2any.pl  --force --conf-dir ./../t/init/ --conf-dir ./../init --conf-dir ./../ext -I ./coverage/ -I coverage// -I ./ -I . -I built_input --error-limit=1000 -c TEST=1  --output coverage//out_parser/formatting_macro_expand/ --macro-expand=coverage//out_parser/formatting_macro_expand/formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure ./coverage//formatting.texi --debug=1 2>t.err
 
 
@@ -629,8 +562,11 @@ Labels in Info (not index entries, in index entries the last : not in
 Interrogations and remarks
 ==========================
 
-Should more Converter ignore the last new line (with type
-last_raw_newline) of a raw block format?
+A Perl hash map is used for fast access, see USE_PERL_HASHMAP in
+convert_html.c and interface in call_html_perl_function.c.
+If a hash without Perl dependency is needed, C++ std::unordered_map could
+be used instead of a Perl hash map, by setting up an interface with
+functions similar with the call_html_perl_function.c defined as extern "C".
 
 There is no forward looking code anymore, so maybe a lex/yacc parser
 could be used for the main loop.  More simply, a binary tokenizer, at
@@ -871,6 +807,69 @@ export TEXINFO_XS_CONVERT=1
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
 for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
+
+
+Analysing memory use:
+valgrinf massif useful-heap approximate distribution in 2024 (obsolete)
+valgrind --tool=massif --massif-out-file=massif_info.out perl -w texi2any.pl ../doc/texinfo.texi
+ms_print massif_info.out > ms_print_info.out
+16M Perl
+36M C tree
+50M Perl tree (visible in detailed use, but difficult to do the
+               imputation right, some may correspond with other uses
+               of Perl memory)
+5M (approximate, not visible in the detailed use, based on difference
+    in use over time) conversion
+
+With full XS (7.2 64M, with text separate 58.5M, without info_info 56M
+              with integer extra keys 54M, with source marks as pointers 52.3M)
+valgrind --tool=massif --massif-out-file=massif_html.out perl -w texi2any.pl --html ../doc/texinfo.texi
+ms_print massif_html.out > ms_print_html.out
+useful-heap
+25M = 13.1 + 5.8 + 2.9 + 2.5 + 0.7 Perl
+17.8M Tree
+ 6 + 5 = 11M new_element
+ 3.5M reallocate_list
+ 0.5M get_associated_info_key (below threshold in later reports)
+ 2.8M = 0.8 + 0.7 +1.3 text
+5.2M = 3.8 (text) + 0.7 (text printindex) + 0.7: conversion,
+               mainly text in convert_output_output_unit*
+                  (+1.3M by approximate difference with total)
+(7.5 + 1.3) - (3.8 + 0.7 + 0.7 + 0.8 +1.3) = 1.5 M Text not imputed
+3. - 0.5 = 2.5M remaining not imputed (- get_associated_info_key)
+52M TOTAL (for 52.3M reported)
+
+
+Using callgrind to find the time used by functions
+
+valgrind --tool=callgrind perl -w texi2any.pl ../doc/texinfo.texi --html
+# to avoid cycles (some remain in Perl only code) that mess up the graph:
+valgrind --tool=callgrind --separate-callers=3 --separate-recs=10 perl -w texi2any.pl ../doc/texinfo.texi --html
+kcachegrind callgrind.out.XXXXXX
+
+For the Texinfo manual with full XS, in 2024, Perl uses 22% of the time
+(for html), now only for code hopefully called once.  The switch to
+global locales for setlocale calling that is needed for Perl takes also 4%.
+Calling Perl getSortKey uses about 28% (more on sorting and C below).
+Decomposition of the time used for the Texinfo manual with full XS
+(in percent):
+ parser: 11.5
+ index sorting: 30
+ main conversion to HTML: 24.8 = 54.8 - 30
+
+ node redirections: 2.6
+ prepare conversion units: 2.3
+ remove document: 1.8
+ associate internal references: 0.53
+ prepare unit directions: 0.41
+ setup indices sort strings: 0.36
+ reset converter: 0.23
+ structuring transformation1: 0.19
+ structuring transformation2: 0.19
+ remaining Texinfo XS code: 0.35
+  = 8.95
+ Perl: 22.5 = 7 + 15.2 + (75.57 - 54.8 - 11.5 - 8.95) 
+SUM: 98
 
 
 Setting flags
