@@ -58,8 +58,8 @@ extern int scroll_last_node;
 int get_input_key (void);
 int get_another_input_key (void);
 
-VFunction *read_key_sequence (Keymap map, int menu, int mouse,
-                              int insert, int *count);
+COMMAND_FUNCTION *read_key_sequence (Keymap map, int menu, int mouse,
+                                     int insert, int *count);
 unsigned char info_input_pending_p (void);
 void info_set_node_of_window (WINDOW *window, NODE *node);
 void info_set_node_of_window_fast (WINDOW *window, NODE *node);

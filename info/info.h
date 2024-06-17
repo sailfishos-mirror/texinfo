@@ -23,8 +23,8 @@
 /* System dependencies.  */
 #include "system.h"
 
-/* Some of our other include files use this.  */
-typedef void VFunction ();
+struct window_struct;
+typedef void COMMAND_FUNCTION (struct window_struct *window, int count);
 
 #include "string.h"
 #include "mbiter.h"

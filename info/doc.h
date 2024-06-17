@@ -44,7 +44,7 @@ typedef struct function_keyseq
 /* Structure describing an Info command. */
 typedef struct InfoCommand
 {
-  VFunction *func;        /* Pointer to function implementing command. */
+  COMMAND_FUNCTION *func; /* Pointer to function implementing command. */
   char *func_name;        /* Name of this command. */
   FUNCTION_KEYSEQ *keys;  /* Key sequences that could invoke this command. */
   char *doc;              /* Documentation string. */

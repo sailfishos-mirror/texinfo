@@ -31,7 +31,7 @@ int info_aborted_echo_area = 0;
 int echo_area_is_active = 0;
 
 /* The address of the last command executed in the echo area. */
-static VFunction *ea_last_executed_command = NULL;
+static COMMAND_FUNCTION *ea_last_executed_command = NULL;
 
 /* Non-zero means that the last command executed while reading input
    killed some text. */
@@ -158,7 +158,7 @@ read_and_dispatch_in_echo_area (void)
   while (1)
     {
       int count;
-      VFunction *cmd;
+      COMMAND_FUNCTION *cmd;
       int lk = 0;
 
       lk = echo_area_last_command_was_kill;
@@ -669,8 +669,8 @@ DECLARE_INFO_COMMAND (ea_yank_pop, _("Yank back a previous kill"))
 {
   register int len;
 
-  if (((ea_last_executed_command != (VFunction *) ea_yank) &&
-       (ea_last_executed_command != (VFunction *) ea_yank_pop)) ||
+  if (((ea_last_executed_command != ea_yank) &&
+       (ea_last_executed_command != ea_yank_pop)) ||
       (kill_ring_index == 0))
     return;
 
@@ -1166,7 +1166,7 @@ DECLARE_INFO_COMMAND (ea_possible_completions, _("List possible completions"))
 
 DECLARE_INFO_COMMAND (ea_complete, _("Insert completion"))
 {
-  if (ea_last_executed_command == (VFunction *) ea_complete)
+  if (ea_last_executed_command == ea_complete)
     {
       ea_possible_completions (window, count);
       return;

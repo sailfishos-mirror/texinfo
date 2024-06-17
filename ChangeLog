@@ -1,3 +1,19 @@
+2024-06-17  Patrice Dumas  <pertusus@free.fr>
+
+	Use explicit prototype for Info command functions
+
+	* info/m-x.c (info_execute_command): call command function with two
+	arguments only, window and count.
+
+	* info/doc.h (InfoCommand), info/echo-area.c
+	(read_and_dispatch_in_echo_area, ea_yank_pop)
+	(ea_possible_completions), info/info.h (COMMAND_FUNCTION),
+	info/makedoc.c (process_one_file), info/session.c
+	(info_read_and_dispatch, read_key_sequence), info/terminal.h
+	(VFunction): add a function type COMMAND_FUNCTION for pointers on info
+	commands function and replace the VFunction untyped generic function
+	type.  Move VFunction definition to terminal.h.
+
 2024-06-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Info tests timeout

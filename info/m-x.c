@@ -137,7 +137,7 @@ DECLARE_INFO_COMMAND (info_execute_command,
     free (line);
 
     if (command && command->func)
-      (*command->func) (active_window, count, 0);
+      (*command->func) (active_window, count);
   }
 }
 

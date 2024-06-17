@@ -20,7 +20,7 @@
 #if !defined (TERMINAL_H)
 #define TERMINAL_H
 
-#include "info.h"
+typedef void VFunction ();
 
 /* For almost every function externally visible from terminal.c, there is
    a corresponding "hook" function which can be bound in order to replace

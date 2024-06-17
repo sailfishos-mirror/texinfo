@@ -229,7 +229,7 @@ static int info_keyseq_displayed_p;
 void
 info_read_and_dispatch (void)
 {
-  VFunction *cmd;
+  COMMAND_FUNCTION *cmd;
   int count;
 
   for (quit_info_immediately = 0; !quit_info_immediately; )
@@ -5034,7 +5034,7 @@ incremental_search (WINDOW *window, int count)
 
   while (isearch_is_active)
     {
-      VFunction *func = NULL;
+      COMMAND_FUNCTION *func = NULL;
       int quoted = 0;
 
       /* Show the search string in the echo area. */
@@ -5562,7 +5562,7 @@ void info_add_digit_to_numeric_arg (WINDOW *, int count);
 
    If INSERT, call ea_insert if a printable character was input.
  */
-VFunction *
+COMMAND_FUNCTION *
 read_key_sequence (Keymap map, int menu, int mouse,
                    int insert, int *count)
 {
@@ -5570,7 +5570,7 @@ read_key_sequence (Keymap map, int menu, int mouse,
   int reading_universal_argument = 0;
 
   int numeric_arg = 1, numeric_arg_sign = 1, *which_explicit_arg;
-  VFunction *func;
+  COMMAND_FUNCTION *func;
 
   /* Process the right numeric argument. */
   if (!echo_area_is_active)

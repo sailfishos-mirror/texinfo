@@ -436,7 +436,7 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
       doc[offset - point] = '\0';
 
       fprintf (doc_stream,
-          "   { (VFunction *)%s, \"%s\", (FUNCTION_KEYSEQ *)0, %s },\n",
+          "   { %s, \"%s\", (FUNCTION_KEYSEQ *)0, %s },\n",
           func, func_name, doc);
 
       free (func_name);
