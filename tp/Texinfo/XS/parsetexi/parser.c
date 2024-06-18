@@ -2266,19 +2266,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* Warn on deprecated command */
       if (command_data(cmd).flags & CF_deprecated)
         {
-          char *msg = 0;
-          switch (cmd)
-            {
-              /* messages for commands could go here. */
-            default:
-              break;
-            }
-          if (!msg)
-            line_warn ("@%s is obsolete", command_name(cmd));
-          else
-            line_warn ("@%s is obsolete; %s", command_name(cmd), msg);
-          /* note: will have to translate msg if string translation with
-             gettext is implemented */
+          line_warn ("@%s is obsolete", command_name(cmd));
         }
 
       /* special case with @ followed by a newline protecting end of lines

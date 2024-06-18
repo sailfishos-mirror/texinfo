@@ -1,3 +1,8 @@
+2024-06-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	simplify code related to deprecated commands, make it more like Perl.
+
 2024-06-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_merge_text): also use
