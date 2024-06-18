@@ -2102,6 +2102,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/value/set_on_item_line.pl \
   t/results/value/simple.pl \
   t/results/value/spaces_before_value.pl \
+  t/results/value/unknown_value_after_spaces.pl \
   t/results/value/value_after_accent.pl \
   t/results/value/value_after_brace_command.pl \
   t/results/value/value_in_index_commands.pl \

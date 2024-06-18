@@ -884,13 +884,14 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                       if (leading_spaces_nr)
                         {
                           ELEMENT *internal_space
-                            = new_text_element (ET_internal_spaces_before_argument);
+                            = new_text_element (ET_other_text);
                           text_append_n (internal_space->e.text, line,
                                          leading_spaces_nr);
                           internal_space_holder = macro_call_element;
 
-                          add_to_element_contents (arg_elt, internal_space);
-
+                          macro_call_element
+                           ->elt_info[eit_spaces_before_argument]
+                                                        = internal_space;
                           line += leading_spaces_nr;
 
                           leading_spaces_added = 1;
@@ -899,7 +900,13 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                   if (! leading_spaces_added)
                     {
                       const char *p = strchrnul (line, '\n');
-                      arg_elt = merge_text (arg_elt, line, (p - line), 0);
+                      if (arg_elt->e.c->contents.number == 0)
+                        {
+                          ELEMENT *e = new_text_element (ET_normal_text);
+                          add_to_element_contents (arg_elt, e);
+                        }
+                      text_append_n (arg_elt->e.c->contents.list[0]->e.text,
+                                     line, (p - line));
                       if (!p)
                         line = p;
                       else

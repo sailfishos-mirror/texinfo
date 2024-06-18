@@ -169,6 +169,10 @@ close_container (ELEMENT *current)
 
   remove_empty_content (current);
 
+  if (current->type == ET_paragraph)
+    if (pop_context () != ct_paragraph)
+      fatal ("paragraph context expected");
+
   /* remove element without contents nor associated information */
   if (is_container_empty (current))
     {

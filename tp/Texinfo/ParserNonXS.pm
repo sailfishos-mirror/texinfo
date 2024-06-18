@@ -202,7 +202,7 @@ my %parsing_state_initialization = (
                            'footnote' => 0,
                            'caption' => 0,
                           },
-  'context_stack'      => ['_root'],
+  'context_stack'      => ['ct_NONE'],
                          # stack of the contexts, more recent on top.
                          # 'ct_line' is added when on a line or
                          # block @-command line,
@@ -219,6 +219,7 @@ my %parsing_state_initialization = (
                          # caption, or shortcaption (context brace_commands
                          # that does not already start another context, ie not
                          # math).
+                         # 'ct_paragraph' is added in paragraph.
   'context_command_stack' => [''],
                          # the stack of @-commands. An @-command name can
                          # be added each time a context is pushed on
@@ -371,11 +372,16 @@ my @set_flag_index_char_ignore = (
    ['txiindexatsignignore', '@'],
 );
 
-my %type_with_paragraph;
-foreach my $type ('before_item', 'before_node_section', 'document_root',
-                  'brace_command_context') {
-  $type_with_paragraph{$type} = 1;
-}
+#my %type_with_paragraph;
+#foreach my $type ('before_item', 'before_node_section', 'document_root',
+#                  'brace_command_context') {
+#  $type_with_paragraph{$type} = 1;
+#}
+
+my %type_without_paragraph;
+foreach my $type ('brace_arg', 'brace_container', 'root_line') {
+  $type_without_paragraph{$type} = 1;
+};
 
 my %command_ignore_space_after;
 foreach my $command ('anchor', 'hyphenation', 'caption', 'shortcaption',
@@ -564,6 +570,11 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
                                   'def', 'inlineraw', 'linecommand') {
   $no_paragraph_contexts{'ct_'.$no_paragraph_context} = 1;
 };
+
+my %begin_paragraph_contexts;
+foreach my $begin_paragraph_context ('NONE', 'brace_command') {
+  $begin_paragraph_contexts{'ct_'.$begin_paragraph_context} = 1;
+}
 
 
 
@@ -1045,7 +1056,7 @@ sub _push_context($$$)
   push @{$self->{'context_command_stack'}}, $command;
 }
 
-# if needed it could be possible to guard against removing '_root' context
+# if needed it could be possible to guard against removing 'ct_NONE' context
 # but it is unlikely to be useful since the expected context is checked.
 sub _pop_context($$$$;$)
 {
@@ -1362,15 +1373,14 @@ sub _begin_paragraph($$;$)
 {
   my ($self, $current, $source_info) = @_;
 
-  # !$current->{'type'} is true for @-commands and other containers
-  # and some text.
   # we want to avoid
-  # paragraphs, line_arg, brace_container, brace_arg, root_line,
-  # balanced_braces, block_line_arg, preformatted (which is already
-  # avoided by the context check)
-  if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
-      and !$no_paragraph_contexts{$self->_top_context()}) {
-
+  # brace_container, brace_arg, root_line,
+  # paragraphs (ct_paragraph), line_arg (ct_line, ct_def), balanced_braces
+  # (only in ct_math, ct_rawpreformatted, ct_inlineraw), block_line_arg
+  # (ct_line, ct_def), preformatted (ct_preformatted).
+  if ($begin_paragraph_contexts{$self->_top_context()}
+      and not ($current->{'type'}
+               and $type_without_paragraph{$current->{'type'}})) {
     # find whether an @indent precedes the paragraph
     my $indent;
     if ($current->{'contents'}) {
@@ -1397,6 +1407,7 @@ sub _begin_paragraph($$;$)
     if ($indent) {
       $current->{'extra'} = {$indent => 1};
     }
+    $self->_push_context('ct_paragraph', undef);
     print STDERR "PARAGRAPH\n" if ($self->{'conf'}->{'DEBUG'});
     return $current;
   }
@@ -1601,7 +1612,7 @@ sub _end_paragraph($$$;$$)
                                        $interrupting_command);
   if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
     print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
-    $current = _close_container($self, $current);
+    $current = _close_container($self, $current, $source_info);
   }
   return $current;
 }
@@ -1638,12 +1649,17 @@ sub _remove_empty_content($$)
   }
 }
 
-sub _close_container($$)
+sub _close_container($$$)
 {
   my $self = shift;
   my $current = shift;
+  my $source_info = shift;
 
   _remove_empty_content($self, $current);
+
+  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+    $self->_pop_context(['ct_paragraph'], $source_info, $current);
+  }
 
   # remove element without contents nor associated information
   my $element_to_remove;
@@ -1687,7 +1703,7 @@ sub _end_preformatted($$$;$$)
 
   if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
     print STDERR "CLOSE PREFORMATTED\n" if ($self->{'conf'}->{'DEBUG'});
-    $current = _close_container($self, $current);
+    $current = _close_container($self, $current, $source_info);
   }
   return $current;
 }
@@ -2138,7 +2154,7 @@ sub _close_current($$$;$$)
     } elsif ($current->{'type'} eq 'block_line_arg') {
       $current = _end_line_starting_block($self, $current, $source_info);
     } else {
-      $current = _close_container($self, $current);
+      $current = _close_container($self, $current, $source_info);
     }
   } else { # Should never go here.
     $current = $current->{'parent'} if ($current->{'parent'});
@@ -2598,24 +2614,6 @@ sub _new_line($;$)
   return ($new_line, $source_info);
 }
 
-# not done by _close_container as argument is in args and not in
-# contents.
-# Currently unused
-sub _remove_empty_arg($$)
-{
-  my $self = shift;
-  my $argument = shift;
-
-  my $current = _close_container($self, $argument);
-  if (_is_container_empty($argument)
-      and not $argument->{'source_marks'}) {
-    if ($current->{'args'}->[-1] eq $argument) {
-      pop @{$current->{'args'}};
-    }
-  }
-  return $current;
-}
-
 # $MACRO is the element in the tree defining the macro.
 sub _expand_macro_arguments($$$$$)
 {
@@ -2986,8 +2984,8 @@ sub _abort_empty_line {
 
     if ($self->{'conf'}->{'DEBUG'}) {
       print STDERR "ABORT EMPTY in "
-        .Texinfo::Common::debug_print_element($current)."(p:".
-          (!$no_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
+        .Texinfo::Common::debug_print_element($current)."(bpara:".
+          ($begin_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
          .$spaces_element->{'type'}."; ";
       print STDERR "|$spaces_element->{'text'}|\n";
     }
@@ -3013,8 +3011,9 @@ sub _abort_empty_line {
       delete $popped_element->{'source_marks'};
     } elsif ($spaces_element->{'type'} eq 'empty_line') {
       # exactly the same condition as to begin a paragraph
-      if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
-         and !$no_paragraph_contexts{$self->_top_context()}) {
+      if ($begin_paragraph_contexts{$self->_top_context()}
+          and not ($current->{'type'}
+                  and $type_without_paragraph{$current->{'type'}})) {
         $spaces_element->{'type'} = 'spaces_before_paragraph';
       } else {
         delete $spaces_element->{'type'};
@@ -4604,8 +4603,20 @@ sub _end_line($$$)
       push @{$current->{'contents'}}, $after_menu_description_line;
       print STDERR "MENU: END DESCRIPTION, OPEN COMMENT\n"
                                    if ($self->{'conf'}->{'DEBUG'});
-    } elsif (!$no_paragraph_contexts{$self->_top_context()}) {
+    } elsif ($self->_top_context() eq 'ct_paragraph') {
+      # in a paragraph, but not directly.  For instance an empty line
+      # in a style brace @-command
       $current = _end_paragraph($self, $current, $source_info);
+    # FIXME not sure about this one, could be better to close
+    # brace commands in more contexts.  Should make sure that
+    # it is ok before, for instance, it is not sure that CM_inlineraw
+    # should be closed that way, as it does not seems that the
+    # ct_inlineraw context is popped.
+    } elsif ($self->_top_context() eq 'ct_NONE'
+             or $self->_top_context() eq 'ct_brace_command') {
+      # closes no_paragraph brace commands that are not context brace
+      # commands but contain a new line, anchor for example
+      $current = _close_all_style_commands($self, $current, $source_info);
     }
 
   # end of a menu line.
@@ -5148,20 +5159,24 @@ sub _handle_macro($$$$$)
         } else {
           # based on whitespace_chars_except_newline in XS parser
           if (not $arg_elt->{'contents'} and $line =~ s/^([ \t\cK\f]+)//) {
-            my $internal_space = {'type' => 'internal_spaces_before_argument',
-                                  'text' => $1,
-                                  'parent' => $arg_elt};
-            $self->{'internal_space_holder'} = $macro_call_element;
-            push @{$arg_elt->{'contents'}}, $internal_space;
+            my $internal_space = {'text' => $1};
+            $macro_call_element->{'info'} = {}
+                if (!$macro_call_element->{'info'});
+            $macro_call_element->{'info'}->{'spaces_before_argument'}
+               = $internal_space;
           } else {
-            if ($line !~ /\n/) {
-              $arg_elt = _merge_text($self, $arg_elt, $line);
-              $line = '';
+            my $has_end_of_line = chomp $line;
+            if (not $arg_elt->{'contents'}) {
+              push @{$arg_elt->{'contents'}}, {'text' => $line,
+                                               'parent' => $arg_elt};
             } else {
-              my $has_end_of_line = chomp $line;
-              $arg_elt = _merge_text($self, $arg_elt, $line);
-              $line = "\n" if ($has_end_of_line);
+              $arg_elt->{'contents'}->[0]->{'text'} .= $line;
+            }
+            if ($has_end_of_line) {
+              $line = "\n";
               last;
+            } else {
+              $line = '';
             }
           }
         }
@@ -5277,9 +5292,9 @@ sub _handle_menu_entry_separators($$$$$$)
           and $current->{'parent'}->{'type'}
           and $current->{'parent'}->{'type'} eq 'menu_comment') {
         # close preformatted
-        $current = _close_container($self, $current);
+        $current = _close_container($self, $current, $source_info);
         # close menu_comment
-        $current = _close_container($self, $current);
+        $current = _close_container($self, $current, $source_info);
       } else {
         # if in the preceding menu entry description, first parent is preformatted,
         # second is the description, third is the menu_entry
@@ -5292,11 +5307,11 @@ sub _handle_menu_entry_separators($$$$$$)
                                $source_info, $current);
         }
         # close preformatted
-        $current = _close_container($self, $current);
+        $current = _close_container($self, $current, $source_info);
         # close menu_description
-        $current = _close_container($self, $current);
+        $current = _close_container($self, $current, $source_info);
         # close menu_entry (which cannot actually be empty).
-        $current = _close_container($self, $current);
+        $current = _close_container($self, $current, $source_info);
       }
 
       my $menu_entry = { 'type' => 'menu_entry',
@@ -5925,9 +5940,9 @@ sub _handle_block_command($$$$$)
 
       # This is, in general, caused by @detailmenu within @menu
       if ($current->{'type'} eq 'menu_comment') {
-        $current = _close_container($self, $current);
+        $current = _close_container($self, $current, $source_info);
       } else { # menu_entry_description
-        $current = _close_container($self, $current);
+        $current = _close_container($self, $current, $source_info);
         if ($current->{'type'} and $current->{'type'} eq 'menu_entry') {
           $current = $current->{'parent'};
         } else {

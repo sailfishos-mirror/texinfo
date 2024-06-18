@@ -572,18 +572,27 @@ static int
 begin_paragraph_p (const ELEMENT *current)
 {
   /* we want to avoid
-     paragraphs, line_arg, brace_container, brace_arg, root_line,
-     balanced_braces, block_line_arg, preformatted (which is already
-     avoided by the context check) */
-  return (current->type == ET_line_command /* for nodes, sectioning content */
-           || current->type == ET_block_command /* block command content */
-           || current->type == ET_container_command /* @item, @tab block
+     brace_container, brace_arg, root_line,
+     paragraphs (ct_paragraph), line_arg (ct_line, ct_def), balanced_braces
+     (only in ct_math, ct_rawpreformatted, ct_inlineraw), block_line_arg
+     (ct_line, ct_def), preformatted (ct_preformatted).
+   */
+  return (begin_paragraph_context (current_context ())
+          && current->type != ET_brace_arg
+          && current->type != ET_brace_container
+          && current->type != ET_root_line);
+
+  /* explicit selection of types with paragraphs within */
+  /*
+  return (current->type == ET_line_command */ /* for nodes, sectioning content */
+         /*  || current->type == ET_block_command */ /* block command content */
+         /*  || current->type == ET_container_command */ /* @item, @tab block
                                                        command content */
-           || current->type == ET_before_item
+         /*  || current->type == ET_before_item
            || current->type == ET_before_node_section
            || current->type == ET_document_root
            || current->type == ET_brace_command_context)
-         && in_paragraph_context (current_context ());
+         && begin_paragraph_context (current_context ()); */
 }
 
 /* If in a context where paragraphs are to be started, start a new
@@ -637,9 +646,11 @@ begin_paragraph (ELEMENT *current)
       if (indent)
         e->flags |= (indent == CM_indent ? EF_indent : EF_noindent);
       add_to_element_contents (current, e);
-      return e;
 
+      push_context (ct_paragraph, 0);
       debug ("PARAGRAPH");
+
+      return e;
     }
   return 0;
 }
@@ -712,7 +723,8 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
     {
       debug_nonl ("ABORT EMPTY in ");
       debug_parser_print_element (current, 0);
-      debug_nonl ("(p:%d): %s; ", in_paragraph_context (current_context ()),
+      debug_nonl ("(bpara:%d): %s; ",
+                  begin_paragraph_context (current_context ()),
                   type_data[last_elt->type].name);
       debug_nonl ("|%s|",
                   last_elt->e.text->end > 0 ? last_elt->e.text->text : "");
@@ -2638,7 +2650,10 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
     }
 
   if (current_context () != ct_NONE)
-    fatal ("context_stack not empty at the end");
+    {
+      fprintf (stderr, "Context: %s\n", context_name (current_context ()));
+      fatal ("context_stack not empty at the end");
+    }
 
   /* Gather text after @bye */
   if (line && status == FINISHED_TOTALLY) {

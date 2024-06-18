@@ -1892,9 +1892,22 @@ end_line (ELEMENT *current)
 
           debug ("MENU: END DESCRIPTION, OPEN COMMENT");
         }
-      else if (in_paragraph_context (current_context ()))
-        {
+      else if (current_context () == ct_paragraph)
+        {/* in a paragraph, but not directly.  For instance an empty line
+            in a style brace @-command */
           current = end_paragraph (current, 0, 0);
+        }
+      /* FIXME not sure about this one, could be better to close
+         brace commands in more contexts.  Should make sure that
+         it is ok before, for instance, it is not sure that CM_inlineraw
+         should be closed that way, as it does not seems that the
+         ct_inlineraw context is popped.
+       */
+      else if (current_context () == ct_NONE
+               || current_context () == ct_brace_command)
+        { /* closes no_paragraph brace commands that are not context brace
+             commands but contain a new line, anchor for example */
+          current = close_all_style_commands (current, 0, 0);
         }
     }
   /* The end of the line of a menu entry, without description. */

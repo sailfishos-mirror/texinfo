@@ -61,6 +61,10 @@ context_name (enum context c)
          : c == ct_line ? "ct_line"
          : c == ct_def ? "ct_def"
          : c == ct_brace_command ? "ct_brace_command"
+         : c == ct_paragraph ? "ct_paragraph"
+         : c == ct_rawpreformatted ? "ct_rawpreformatted"
+         : c == ct_math ? "ct_math"
+         : c == ct_inlineraw ? "ct_inlineraw"
          : "";
 }
 

@@ -31,15 +31,12 @@ enum context {
    ct_math,
    ct_brace_command,
    ct_inlineraw,
+   ct_paragraph,
 };
 
-/* Contexts where an empty line doesn't start a new paragraph. */
-#define in_paragraph_context(c) \
-  !((c) == ct_math \
-   || (c) == ct_def \
-   || (c) == ct_preformatted \
-   || (c) == ct_rawpreformatted \
-   || (c) == ct_inlineraw)
+/* Contexts where an empty line starts a new paragraph. */
+#define begin_paragraph_context(c) \
+  ((c) == ct_NONE || (c) == ct_brace_command)
 
 enum command_id current_context_command (void);
 

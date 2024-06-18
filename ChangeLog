@@ -1,3 +1,32 @@
+2024-06-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (%parsing_state_initialization): call
+	toplevel context ct_NONE as in C.
+
+	* tp/Texinfo/ParserNonXS.pm (_close_container): add source_info
+	argument to _close_container, update callers.
+
+	* tp/Texinfo/ParserNonXS.pm: remove unused _remove_empty_arg.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_macro),
+	tp/Texinfo/XS/parsetexi/macro.c (handle_macro): do not call
+	_merge_text, setup more simply the macro_call_element contents
+	when a macro is called with the whole line as argument.
+
+	* tp/Texinfo/ParserNonXS.pm (%type_without_paragraph)
+	(%begin_paragraph_contexts, _begin_paragraph, _close_container)
+	(_abort_empty_line, _end_line), tp/Texinfo/XS/parsetexi/close.c
+	(close_container), tp/Texinfo/XS/parsetexi/context_stack.h
+	(begin_paragraph_context, enum context),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line),
+	tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph_p, begin_paragraph):
+	add paragraph in context.  Change the logic of determination of
+	paragraph beginning and treatment of empty lines at end of line.
+
+	* tp/Makefile.tres, tp/t/50value.t (unknown_value_after_spaces): add
+	test with unknown @value after spaces on a line and not in a
+	paragraph.
+
 2024-06-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
