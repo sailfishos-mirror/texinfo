@@ -5256,6 +5256,11 @@ sub _handle_menu_entry_separators($$$$$$)
 
   my $retval = 1;
 
+  my $last_element;
+  if ($current->{'contents'}) {
+    $last_element = $current->{'contents'}->[-1];
+  }
+
   # maybe a menu entry beginning: a * at the beginning of a menu line
   if ($current->{'type'}
       and $current->{'type'} eq 'preformatted'
@@ -5263,24 +5268,22 @@ sub _handle_menu_entry_separators($$$$$$)
       and ($current->{'parent'}->{'type'} eq 'menu_comment'
            or $current->{'parent'}->{'type'} eq 'menu_entry_description')
       and $asterisk
-      and $current->{'contents'}
-      and $current->{'contents'}->[-1]->{'type'}
-      and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
-      and $current->{'contents'}->[-1]->{'text'} eq '') {
+      and $last_element
+      and $last_element->{'type'}
+      and $last_element->{'type'} eq 'empty_line'
+      and $last_element->{'text'} eq '') {
     print STDERR "MENU STAR\n" if ($self->{'conf'}->{'DEBUG'});
-    _abort_empty_line($self, $current);
     $$line_ref =~ s/^\*//;
-    push @{$current->{'contents'}}, { 'parent' => $current,
-                                      'type' => 'internal_menu_star',
-                                      'text' => '*' };
+    $last_element->{'type'} = 'internal_menu_star';
+    $last_element->{'text'} = '*';
   # a space after a * at the beginning of a menu line
-  } elsif ($current->{'contents'} and @{$current->{'contents'}}
-           and $current->{'contents'}->[-1]->{'type'}
-           and $current->{'contents'}->[-1]->{'type'} eq 'internal_menu_star') {
+  } elsif ($last_element
+           and $last_element->{'type'}
+           and $last_element->{'type'} eq 'internal_menu_star') {
     if ($$line_ref !~ /^\s+/) {
       print STDERR "ABORT MENU STAR before: "
           ._debug_protect_eol($$line_ref)."\n" if ($self->{'conf'}->{'DEBUG'});
-      delete $current->{'contents'}->[-1]->{'type'};
+      delete $last_element->{'type'};
     } else {
       print STDERR "MENU ENTRY (certainly)\n" if ($self->{'conf'}->{'DEBUG'});
       # this is the menu star collected previously
@@ -5343,15 +5346,15 @@ sub _handle_menu_entry_separators($$$$$$)
                                       'text' => $menu_separator,
                                       'parent' => $current };
   # after a separator in menu
-  } elsif ($current->{'contents'} and @{$current->{'contents'}}
-           and $current->{'contents'}->[-1]->{'type'}
-           and $current->{'contents'}->[-1]->{'type'} eq 'menu_entry_separator') {
-    my $separator = $current->{'contents'}->[-1]->{'text'};
+  } elsif ($last_element
+           and $last_element->{'type'}
+           and $last_element->{'type'} eq 'menu_entry_separator') {
+    my $separator = $last_element->{'text'};
     print STDERR "AFTER menu_entry_separator $separator\n"
        if ($self->{'conf'}->{'DEBUG'});
     # Separator is ::.
     if ($separator eq ':' and $$line_ref =~ s/^(:)//) {
-      $current->{'contents'}->[-1]->{'text'} .= $1;
+      $last_element->{'text'} .= $1;
       # Whitespace following the :: is subsequently appended to
       # the separator.
     # a . not followed by a space.  Not a separator.
@@ -5365,7 +5368,7 @@ sub _handle_menu_entry_separators($$$$$$)
       # NOTE a trailing end of line could be considered to be part
       # of the separator. Right now it is part of the description,
       # since it is catched (in the next while) as one of the case below
-      $current->{'contents'}->[-1]->{'text'} .= $1;
+      $last_element->{'text'} .= $1;
     # :: after a menu entry name => change to a menu entry node
     } elsif ($separator =~ /^::/) {
       print STDERR "MENU NODE done (change from menu entry name) $separator\n"

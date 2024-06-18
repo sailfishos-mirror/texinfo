@@ -82,34 +82,31 @@ $result_trees{'macro_in_empty_menu_comment'} = {
           'cmdname' => 'menu',
           'contents' => [
             {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'args' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'emptystring'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
               'contents' => [
                 {
+                  'source_marks' => [
+                    {
+                      'counter' => 1,
+                      'element' => {
+                        'args' => [
+                          {
+                            'type' => 'brace_arg'
+                          }
+                        ],
+                        'info' => {
+                          'command_name' => 'emptystring'
+                        },
+                        'type' => 'macro_call'
+                      },
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'start'
+                    },
+                    {
+                      'counter' => 1,
+                      'sourcemark_type' => 'macro_expansion',
+                      'status' => 'end'
+                    }
+                  ],
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
@@ -194,7 +191,7 @@ $result_trees{'macro_in_empty_menu_comment'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_empty_menu_comment'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 
 $result_texis{'macro_in_empty_menu_comment'} = '@macro emptystring
 

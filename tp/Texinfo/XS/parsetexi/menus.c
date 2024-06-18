@@ -118,6 +118,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
   ELEMENT *current = *current_inout;
   const char *line = *line_inout;
   int retval = 1;
+  ELEMENT *last_element = last_contents_child (current);
 
   /* A "*" at the start of a line beginning a menu entry. */
   if (*line == '*'
@@ -125,25 +126,22 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       && (current->parent->type == ET_menu_comment
           || current->parent->type == ET_menu_entry_description)
       && current->e.c->contents.number > 0
-      && last_contents_child (current)->type == ET_empty_line
-      && last_contents_child (current)->e.text->end == 0)
+      && last_element->type == ET_empty_line
+      && last_element->e.text->end == 0)
     {
-      ELEMENT *star;
-
       debug ("MENU STAR");
-      abort_empty_line (current);
+
       line++; /* Past the '*'. */
 
-      star = new_text_element (ET_internal_menu_star);
-      text_append (star->e.text, "*");
-      add_to_element_contents (current, star);
+      last_element->type = ET_internal_menu_star;
+      text_append (last_element->e.text, "*");
 
       /* The ET_internal_menu_star element won't appear in the final tree. */
     }
   /* A space after a "*" at the beginning of a line. */
   else if (strchr (whitespace_chars, *line)
-           && current->e.c->contents.number > 0
-           && last_contents_child (current)->type == ET_internal_menu_star)
+           && last_element
+           && last_element->type == ET_internal_menu_star)
     {
       ELEMENT *menu_entry, *leading_text, *entry_name;
       ELEMENT *menu_star_element;
@@ -191,13 +189,13 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       line += leading_spaces;
     }
   /* A "*" followed by anything other than a space. */
-  else if (current->e.c->contents.number > 0
-           && last_contents_child (current)->type == ET_internal_menu_star)
+  else if (last_element
+           && last_element->type == ET_internal_menu_star)
     {
       debug_nonl ("ABORT MENU STAR before: ");
       debug_print_protected_string (line); debug ("");
 
-      last_contents_child (current)->type = ET_normal_text;
+      last_element->type = ET_normal_text;
     }
   /* After a separator in a menu, end of menu entry node or menu entry name
    (. must be followed by a space to stop the node). */
@@ -219,21 +217,19 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
          done here below. */
     }
   /* After a separator in a menu */
-  else if (current->e.c->contents.number > 0
-           && last_contents_child (current)->type == ET_menu_entry_separator)
+  else if (last_element
+           && last_element->type == ET_menu_entry_separator)
     {
-      ELEMENT *last_child;
       char *separator;
 
-      last_child = last_contents_child (current);
-      separator = last_child->e.text->text;
+      separator = last_element->e.text->text;
 
       debug ("AFTER menu_entry_separator %s", separator);
 
       /* Separator is "::". */
       if (!strcmp (separator, ":") && *line == ':')
         {
-          text_append (last_child->e.text, ":");
+          text_append (last_element->e.text, ":");
           line++;
           /* Whitespace following the "::" is subsequently appended to
              the separator element. */
@@ -243,9 +239,9 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
         {
           pop_element_from_contents (current);
           current = last_contents_child (current);
-          merge_text (current, last_child->e.text->text,
-                      last_child->e.text->end, last_child);
-          destroy_element (last_child);
+          merge_text (current, last_element->e.text->text,
+                      last_element->e.text->end, last_element);
+          destroy_element (last_element);
         }
       /* here we collect spaces following separators. */
       else if (strchr (whitespace_chars_except_newline, *line))
@@ -253,7 +249,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
           int n;
 
           n = strspn (line, whitespace_chars_except_newline);
-          text_append_n (last_child->e.text, line, n);
+          text_append_n (last_element->e.text, line, n);
           line += n;
         }
       /* :: after a menu entry name => change to a menu entry node */

@@ -1,5 +1,12 @@
 2024-06-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_menu_entry_separators),
+	tp/Texinfo/XS/parsetexi/menus.c (handle_menu_entry_separators): reuse
+	the empty_line as the internal_menu_star element.  Setup last_element
+	at the beginning of the function.
+
+2024-06-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parsing_state_initialization): call
 	toplevel context ct_NONE as in C.
 
