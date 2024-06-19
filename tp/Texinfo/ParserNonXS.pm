@@ -4550,10 +4550,17 @@ sub _end_line($$$)
 
   my $current_old = $current;
 
+  my $prev_element_type;
+  if ($current->{'contents'}) {
+    my $prev_element = $current->{'contents'}->[-1];
+    if ($prev_element->{'type'}) {
+      $prev_element_type = $prev_element->{'type'};
+    }
+  }
+
   # a line consisting only of spaces.
-  if ($current->{'contents'} and @{$current->{'contents'}}
-      and $current->{'contents'}->[-1]->{'type'}
-      and $current->{'contents'}->[-1]->{'type'} eq 'empty_line') {
+  if (defined($prev_element_type)
+      and $prev_element_type eq 'empty_line') {
     print STDERR "END EMPTY LINE in "
         . Texinfo::Common::debug_print_element($current)."\n"
           if ($self->{'conf'}->{'DEBUG'});
@@ -4632,6 +4639,11 @@ sub _end_line($$$)
   # Never go here if lineraw/noarg/...
   } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
     $current = _end_line_misc_line($self, $current, $source_info);
+  } elsif (defined($prev_element_type)
+           and $prev_element_type eq 'internal_spaces_before_argument') {
+    # Empty spaces after brace or comma till the end of line.
+    # Remove this element and update 'extra' values.
+    _abort_empty_line($self, $current);
   }
 
   # this happens if there is a nesting of line @-commands on a line.
@@ -7566,14 +7578,6 @@ sub _parse_texi($$$)
       next NEXT_LINE if _check_line_directive ($self, $line, $source_info);
       print STDERR "BEGIN LINE\n" if ($self->{'conf'}->{'DEBUG'});
 
-      if ($current->{'contents'}
-          and $current->{'contents'}->[-1]->{'type'}
-          and $current->{'contents'}->[-1]->{'type'}
-               eq 'internal_spaces_before_argument') {
-        # Empty spaces after brace or comma till the end of line.
-        # Remove this element and update 'extra' values.
-        _abort_empty_line($self, $current);
-      }
       # based on whitespace_chars_except_newline in XS parser
       $line =~ s/^([ \t\cK\f]*)//;
       push @{$current->{'contents'}}, { 'type' => 'empty_line',

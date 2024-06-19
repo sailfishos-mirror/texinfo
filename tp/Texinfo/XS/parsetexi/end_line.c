@@ -1841,10 +1841,14 @@ ELEMENT *
 end_line (ELEMENT *current)
 {
   ELEMENT *current_old = current; /* Used at very end of function */
+  ELEMENT *last_element = last_contents_child (current);
+  enum element_type last_element_type = ET_NONE;
+
+  if (last_element)
+    last_element_type = last_element->type;
 
   /* If empty line, start a new paragraph. */
-  if (last_contents_child (current)
-      && last_contents_child (current)->type == ET_empty_line)
+  if (last_element_type == ET_empty_line)
     {
       debug_nonl ("END EMPTY LINE in ");
       debug_parser_print_element (current, 0); debug ("");
@@ -1924,6 +1928,13 @@ end_line (ELEMENT *current)
   else if (current->type == ET_line_arg)
     {
       current = end_line_misc_line (current);
+    }
+  else if (last_element_type
+              == ET_internal_spaces_before_argument)
+    {
+      /* Empty spaces after brace or comma till the end of line.
+         Remove this element and update 'extra' values. */
+      abort_empty_line (current);
     }
 
   /* 'line' or 'def' at top of "context stack" - this happens when

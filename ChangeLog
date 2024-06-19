@@ -1,5 +1,12 @@
 2024-06-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line, parse_texi): call
+	abort_empty_line for an internal_spaces_before_argument at end of line
+	in end_line and not in parse_texi.
+
+2024-06-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (set_menus_node_directions): handle
 	undef FORMAT_MENU.
 

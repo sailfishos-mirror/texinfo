@@ -846,6 +846,10 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
       paragraph = begin_paragraph (current);
       if (paragraph)
         {
+          /* NOTE a new paragraph happens necessarily after a special
+             space as handled just above, or after a no_paragraph
+             command outside of a paragraph or after a non expanded @value
+             outside of a paragraph */
           current = paragraph;
           /* shortcut the case with text as last content child as
              it cannot happen if a new paragraph is started */
@@ -2579,14 +2583,6 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
             continue;
 
           debug ("BEGIN LINE");
-
-          if (current->e.c->contents.number > 0
-              && last_contents_child (current)->type
-                 == ET_internal_spaces_before_argument)
-            {
-              /* Remove this element and update 'info' values. */
-              abort_empty_line (current);
-            }
 
           e = new_text_element (ET_empty_line);
           add_to_element_contents (current, e);
