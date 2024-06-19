@@ -2613,8 +2613,16 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
             }
           if (!line)
             {
+              ELEMENT *last_element = last_contents_child (current);
               debug ("END LINE in line loop STILL_MORE_TO_PROCESS");
-              abort_empty_line (current);
+              /* If we are in an empty line, we want to end the line as usual.
+                 If we are after an opening brace or comma or after an empty
+                 string, there won't be any more output to abort those unfinished
+                 constructs, so we call abort_empty_line here */
+              if (!(last_element
+                    && last_element->type == ET_empty_line
+                    && last_element->e.text->end > 0))
+                abort_empty_line (current);
               current = end_line (current);
               break;
             }

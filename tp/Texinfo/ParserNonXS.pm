@@ -7593,11 +7593,20 @@ sub _parse_texi($$$)
         goto finished_totally;
       }
       # can happen if there is macro expansion at the end of a text fragment
-      # or at the end of a text fragment.
+      # or if at the end of a text fragment.
       if (! defined($line)) {
         print STDERR "END LINE in line loop STILL_MORE_TO_PROCESS\n"
                                             if ($self->{'conf'}->{'DEBUG'});
-        _abort_empty_line($self, $current);
+        # If we are in an empty line, we want to end the line as usual.
+        # If we are after an opening brace or comma or after an empty
+        # string, there won't be any more output to abort those unfinished
+        # constructs, so we call abort_empty_line here
+        if (not ($current->{'contents'}
+                 and $current->{'contents'}->[-1]->{'type'}
+                 and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
+                 and $current->{'contents'}->[-1]->{'text'} ne '')) {
+          _abort_empty_line($self, $current);
+        }
         $current = _end_line($self, $current, $source_info);
         # It may happen that there was an @include file on the line, it
         # was pushed to input in _end_line, its contents will be picked up at
