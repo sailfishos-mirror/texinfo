@@ -202,7 +202,7 @@ my %parsing_state_initialization = (
                            'footnote' => 0,
                            'caption' => 0,
                           },
-  'context_stack'      => ['ct_NONE'],
+  'context_stack'      => ['ct_base'],
                          # stack of the contexts, more recent on top.
                          # 'ct_line' is added when on a line or
                          # block @-command line,
@@ -215,7 +215,7 @@ my %parsing_state_initialization = (
                          # 'ct_rawpreformatted' is added in raw block commands
                          # (html, xml, docbook...)
                          # 'ct_inlineraw' is added when in inlineraw
-                         # 'ct_brace_command' is added when in footnote,
+                         # 'ct_base' is (re-)added when in footnote,
                          # caption, or shortcaption (context brace_commands
                          # that does not already start another context, ie not
                          # math).
@@ -572,7 +572,7 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
 };
 
 my %begin_paragraph_contexts;
-foreach my $begin_paragraph_context ('NONE', 'brace_command') {
+foreach my $begin_paragraph_context ('base') {
   $begin_paragraph_contexts{'ct_'.$begin_paragraph_context} = 1;
 }
 
@@ -1056,8 +1056,8 @@ sub _push_context($$$)
   push @{$self->{'context_command_stack'}}, $command;
 }
 
-# if needed it could be possible to guard against removing 'ct_NONE' context
-# but it is unlikely to be useful since the expected context is checked.
+# if needed it could be possible to guard against removing first 'ct_base'
+# context.
 sub _pop_context($$$$;$)
 {
   my ($self, $expected_contexts, $source_info, $current, $message) = @_;
@@ -1077,7 +1077,7 @@ sub _pop_context($$$$;$)
 sub _get_context_stack($)
 {
   my $self = shift;
-  (undef, my @context_stack) = @{$self->{'context_stack'}};
+  my @context_stack = @{$self->{'context_stack'}};
   return @context_stack;
 }
 
@@ -1483,7 +1483,7 @@ sub _close_brace_command($$$;$$$)
     if ($math_commands{$current->{'cmdname'}}) {
       $expected_context = 'ct_math';
     } else {
-      $expected_context = 'ct_brace_command';
+      $expected_context = 'ct_base';
     }
     $self->_pop_context([$expected_context], $source_info, $current);
 
@@ -4612,8 +4612,7 @@ sub _end_line($$$)
     # it is ok before, for instance, it is not sure that CM_inlineraw
     # should be closed that way, as it does not seems that the
     # ct_inlineraw context is popped.
-    } elsif ($self->_top_context() eq 'ct_NONE'
-             or $self->_top_context() eq 'ct_brace_command') {
+    } elsif ($self->_top_context() eq 'ct_base') {
       # closes no_paragraph brace commands that are not context brace
       # commands but contain a new line, anchor for example
       $current = _close_all_style_commands($self, $current, $source_info);
@@ -6205,7 +6204,7 @@ sub _handle_open_brace($$$$)
       if ($math_commands{$command}) {
         $self->_push_context('ct_math', $command);
       } else {
-        $self->_push_context('ct_brace_command', $command);
+        $self->_push_context('ct_base', $command);
       }
       # based on whitespace_chars_except_newline in XS parser
       $line =~ s/([ \t\cK\f]*)//;
@@ -7635,7 +7634,7 @@ sub _parse_texi($$$)
   $current = _close_commands($self, $current, $source_info);
 
   my @context_stack = $self->_get_context_stack();
-  if (scalar(@context_stack) != 0) {
+  if (scalar(@context_stack) != 1) {
     die($self->_bug_message("CONTEXT_STACK not empty at _parse_texi end: "
            .join('|', @context_stack)));
   }

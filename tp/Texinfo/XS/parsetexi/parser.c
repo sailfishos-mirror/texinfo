@@ -2657,7 +2657,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
         current = current->parent;
     }
 
-  if (current_context () != ct_NONE)
+  if (!is_context_empty ())
     {
       fprintf (stderr, "Context: %s\n", context_name (current_context ()));
       fatal ("context_stack not empty at the end");

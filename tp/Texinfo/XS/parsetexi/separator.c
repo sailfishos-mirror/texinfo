@@ -155,13 +155,13 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           switch (cmd)
             {
             case CM_footnote:
-              push_context (ct_brace_command, cmd);
+              push_context (ct_base, cmd);
               break;
             case CM_caption:
-              push_context (ct_brace_command, cmd);
+              push_context (ct_base, cmd);
               break;
             case CM_shortcaption:
-              push_context (ct_brace_command, cmd);
+              push_context (ct_base, cmd);
               break;
             case CM_math:
               push_context (ct_math, cmd);

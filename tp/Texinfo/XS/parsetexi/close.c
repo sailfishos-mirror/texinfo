@@ -58,8 +58,8 @@ close_brace_command (ELEMENT *current,
           if (pop_context () != ct_math)
             fatal ("math context expected");
         }
-      else if (pop_context () != ct_brace_command)
-        fatal ("context brace command context expected");
+      else if (pop_context () != ct_base)
+        fatal ("base context brace command context expected");
       if (current->e.c->cmd == CM_footnote)
         nesting_context.footnote--;
       if (current->e.c->cmd == CM_caption

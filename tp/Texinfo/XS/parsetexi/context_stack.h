@@ -23,26 +23,26 @@
 #include "converter_types.h"
 
 enum context {
-   ct_NONE,
+   ct_base,
    ct_line,
    ct_def,
    ct_preformatted,
    ct_rawpreformatted,
    ct_math,
-   ct_brace_command,
    ct_inlineraw,
    ct_paragraph,
 };
 
 /* Contexts where an empty line starts a new paragraph. */
 #define begin_paragraph_context(c) \
-  ((c) == ct_NONE || (c) == ct_brace_command)
+  ((c) == ct_base)
 
 enum command_id current_context_command (void);
 
 void push_context (enum context c, enum command_id cmd);
 enum context pop_context (void);
 enum context current_context (void);
+int is_context_empty (void);
 void reset_context_stack (void);
 int in_context (enum context context);
 char *context_name (enum context c);

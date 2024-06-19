@@ -60,7 +60,6 @@ context_name (enum context c)
   return c == ct_preformatted ? "ct_preformatted"
          : c == ct_line ? "ct_line"
          : c == ct_def ? "ct_def"
-         : c == ct_brace_command ? "ct_brace_command"
          : c == ct_paragraph ? "ct_paragraph"
          : c == ct_rawpreformatted ? "ct_rawpreformatted"
          : c == ct_math ? "ct_math"
@@ -103,7 +102,7 @@ enum context
 current_context (void)
 {
   if (top == 0)
-    return ct_NONE;
+    return ct_base;
 
   return context_stack[top - 1];
 }
@@ -122,6 +121,12 @@ in_context (enum context context)
         return 1;
     }
   return 0;
+}
+
+int
+is_context_empty (void)
+{
+  return (top == 0);
 }
 
 

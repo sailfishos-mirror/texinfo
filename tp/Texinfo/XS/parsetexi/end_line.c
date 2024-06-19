@@ -1903,8 +1903,7 @@ end_line (ELEMENT *current)
          should be closed that way, as it does not seems that the
          ct_inlineraw context is popped.
        */
-      else if (current_context () == ct_NONE
-               || current_context () == ct_brace_command)
+      else if (current_context () == ct_base)
         { /* closes no_paragraph brace commands that are not context brace
              commands but contain a new line, anchor for example */
           current = close_all_style_commands (current, 0, 0);
