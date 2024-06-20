@@ -1203,12 +1203,14 @@ end_line_starting_block (ELEMENT *current)
       current = menu_comment;
       debug ("MENU_COMMENT OPEN");
     }
-  if (command_data(command).data == BLOCK_format_raw
-      && parser_format_expanded_p (command_name(command)))
+  if (command_data(command).data == BLOCK_format_raw)
     {
-      ELEMENT *rawpreformatted = new_element (ET_rawpreformatted);
-      add_to_element_contents (current, rawpreformatted);
-      current = rawpreformatted;
+      if (parser_format_expanded_p (command_name(command)))
+        {
+          ELEMENT *rawpreformatted = new_element (ET_rawpreformatted);
+          add_to_element_contents (current, rawpreformatted);
+          current = rawpreformatted;
+        }
     }
   if (command_data(command).data != BLOCK_raw
       && command_data(command).data != BLOCK_conditional)

@@ -1729,60 +1729,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           retval = GET_A_NEW_LINE; goto funexit;  /* Get next line. */
         }
     } /* CM_verb */
-  else if (command_flags(current) & CF_block
-      /* we can only be in an ignored format_raw if we are directly in
-         the command, as a rawpreformatted container is immediatly added in a non
-         ignored format_raw */
-           && command_data(current->e.c->cmd).data == BLOCK_format_raw)
-    {
-      ELEMENT *e_elided_rawpreformatted;
-      ELEMENT *e_empty_line;
-      enum command_id dummy;
-      const char *line_dummy;
-      int n;
-
-      e_elided_rawpreformatted = new_element (ET_elided_rawpreformatted);
-      add_to_element_contents (current, e_elided_rawpreformatted);
-      line_dummy = line;
-      while (1)
-        {
-          if (!line)
-            {
-              /* unclosed block */
-              goto funexit;
-            }
-          else
-            {
-              line_dummy = line;
-              if (is_end_current_command (current->e.c->cmd, &line_dummy,
-                                          &dummy))
-                {
-                  debug ("CLOSED ignored raw preformated %s",
-                         command_name(current->e.c->cmd));
-                  break;
-                }
-              else
-                {
-                  ELEMENT *raw_text = new_text_element (ET_raw);
-                  text_append (raw_text->e.text, line);
-                  add_to_element_contents (e_elided_rawpreformatted, raw_text);
-                }
-            }
-          line = new_line (e_elided_rawpreformatted);
-        }
-
-      /* start a new line for the @end line, this is normally done
-         at the beginning of a line, but not here, as we directly
-         got the lines. */
-      e_empty_line = new_text_element (ET_empty_line);
-      add_to_element_contents (current, e_empty_line);
-
-      n = strspn (line, whitespace_chars_except_newline);
-      text_append_n (e_empty_line->e.text, line, n);
-      line += n;
-   /* It is important to let the processing continue from here, such that
-      the @end is catched and handled below, as the condition has not changed */
-    } /* ignored raw format */
 
   /* Skip empty lines.  If we reach the end of input, continue in case there
      is an @include. */
@@ -2513,7 +2459,70 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       /* '@end' is processed in here. */
       current = end_line (current);
-      retval = GET_A_NEW_LINE;
+
+      /* we can only be in an ignored format_raw if we are directly in
+          the command, as a rawpreformatted container is immediatly added in a non
+          ignored format_raw */
+      if (command_flags(current) & CF_block
+          && command_data(current->e.c->cmd).data == BLOCK_format_raw)
+        {
+      /* we proceed with an internal loop here as there cannot be any
+         expansion within an ignored format_raw.  We leave the @end line
+         in line and do not change retval to have the @end line be processed
+         by the following call to process_remaining_on_line */
+
+          ELEMENT *e_elided_rawpreformatted;
+          ELEMENT *e_empty_line;
+          enum command_id dummy;
+          const char *line_dummy;
+          int n;
+
+          line = next_text (current);
+
+          e_elided_rawpreformatted = new_element (ET_elided_rawpreformatted);
+          add_to_element_contents (current, e_elided_rawpreformatted);
+
+          line_dummy = line;
+          while (1)
+            {
+              if (!line)
+                {
+                  /* unclosed block */
+                  goto funexit;
+                }
+              else
+                {
+                  line_dummy = line;
+                  if (is_end_current_command (current->e.c->cmd, &line_dummy,
+                                              &dummy))
+                    {
+                      debug ("CLOSED ignored raw preformated %s",
+                             command_name(current->e.c->cmd));
+                      break;
+                    }
+                  else
+                    {
+                      ELEMENT *raw_text = new_text_element (ET_raw);
+                      text_append (raw_text->e.text, line);
+                      add_to_element_contents (e_elided_rawpreformatted, raw_text);
+                    }
+                }
+              line = new_line (e_elided_rawpreformatted);
+            }
+
+      /* start a new line for the @end line, this is normally done
+         at the beginning of a line, but not here, as we directly
+         got the line. */
+
+          e_empty_line = new_text_element (ET_empty_line);
+          add_to_element_contents (current, e_empty_line);
+
+          n = strspn (line, whitespace_chars_except_newline);
+          text_append_n (e_empty_line->e.text, line, n);
+          line += n;
+        }
+      else
+        retval = GET_A_NEW_LINE;
     }
 
 funexit:
@@ -2578,14 +2587,10 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
          leading whitespace and save as an "ET_empty_line" element.  This
          element type can be changed in 'abort_empty_line' when more text is
          read. */
-      if (!(((command_flags(current) & CF_block)
+      if (!((command_flags(current) & CF_block
              && (command_data(current->e.c->cmd).data == BLOCK_raw
                  || command_data(current->e.c->cmd).data == BLOCK_conditional
-      /* we can only be in an ignored format_raw if we are directly in
-         the command, as a rawpreformatted container is immediatly added in a non
-         ignored format_raw */
-                 || command_data(current->e.c->cmd).data == BLOCK_format_raw)
-                )
+                ))
             || (current->parent && current->parent->e.c->cmd == CM_verb))
           && current_context () != ct_def)
         {

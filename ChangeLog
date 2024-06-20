@@ -1,4 +1,14 @@
-2024-06-21  Patrice Dumas  <pertusus@free.fr>
+2024-06-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)
+	(parse_texi): handle ignored format raw command right after end_line
+	call, by calling next_text within process_remaining_on_line and
+	processing until @end instead of returning.  @end is then processed by
+	the next call of process_remaining_on_line without going through
+	the parse_texi lines loop.
+
+2024-06-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line, _parse_texi),
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)

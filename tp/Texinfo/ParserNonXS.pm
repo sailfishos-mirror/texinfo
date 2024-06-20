@@ -6932,42 +6932,6 @@ sub _process_remaining_on_line($$$$)
       return ($current, $line, $source_info, $GET_A_NEW_LINE);
       # goto funexit;  # used in XS code
     }
-  } elsif ($current->{'cmdname'}
-           and $block_commands{$current->{'cmdname'}}
-       # we can only be in an ignored format_raw if we are directly in
-       # the command, as a rawpreformatted container is immediatly added in a non
-       # ignored format_raw
-           and $block_commands{$current->{'cmdname'}} eq 'format_raw') {
-    my $e_elided_rawpreformatted = { 'type' => 'elided_rawpreformatted',
-                                   'parent' => $current };
-    push @{$current->{'contents'}}, $e_elided_rawpreformatted;
-    while (1) {
-    # A source mark here is tested in t/*macro.t macro_end_call_in_ignored_raw
-      if (!defined($line)) {
-        # unclosed block
-        return ($current, $line, $source_info, $retval);
-        # goto funexit;  # used in XS code
-      } elsif ($line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
-        print STDERR "CLOSED ignored raw preformated $current->{'cmdname'}\n"
-          if ($self->{'conf'}->{'DEBUG'});
-        last;
-      } else {
-        my $raw_text = {'type' => 'raw', 'text' => $line,
-                        'parent' => $e_elided_rawpreformatted};
-        push @{$e_elided_rawpreformatted->{'contents'}}, $raw_text;
-      }
-      ($line, $source_info) = _new_line($self, $e_elided_rawpreformatted);
-    }
-    # start a new line for the @end line, this is normally done
-    # at the beginning of a line, but not here, as we directly
-    # got the lines.
-    # based on whitespace_chars_except_newline in XS parser
-    $line =~ s/^([ \t\cK\f]*)//;
-    push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                      'text' => $1,
-                                      'parent' => $current };
-    # It is important to let the processing continue from here, such that
-    # the @end is catched and handled below, as the condition has not changed
   }
   # this mostly happens in the following cases:
   #   after expansion of user defined macro that doesn't end with EOL
@@ -7507,7 +7471,50 @@ sub _process_remaining_on_line($$$$)
       die;
     }
     $current = _end_line($self, $current, $source_info);
-    $retval = $GET_A_NEW_LINE;
+
+    # we can only be in an ignored format_raw if we are directly in
+    # the command, as a rawpreformatted container is immediatly added in a non
+    # ignored format_raw
+    if ($current->{'cmdname'}
+        and $block_commands{$current->{'cmdname'}}
+        and $block_commands{$current->{'cmdname'}} eq 'format_raw') {
+      # we proceed with an internal loop here as there cannot be any
+      # expansion within an ignored format_raw.  We leave the @end line
+      # in line and do not change retval to have the @end line be processed
+      # by the following call to process_remaining_on_line
+      ($line, $source_info) = _next_text($self, $current);
+
+      my $e_elided_rawpreformatted = {'type' => 'elided_rawpreformatted',
+                                     'parent' => $current };
+      push @{$current->{'contents'}}, $e_elided_rawpreformatted;
+      while (1) {
+      # A source mark here is tested in t/*macro.t macro_end_call_in_ignored_raw
+        if (!defined($line)) {
+          # unclosed block
+          return ($current, $line, $source_info, $retval);
+          # goto funexit;  # used in XS code
+        } elsif ($line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
+          print STDERR "CLOSED ignored raw preformated $current->{'cmdname'}\n"
+            if ($self->{'conf'}->{'DEBUG'});
+          last;
+        } else {
+          my $raw_text = {'type' => 'raw', 'text' => $line,
+                          'parent' => $e_elided_rawpreformatted};
+          push @{$e_elided_rawpreformatted->{'contents'}}, $raw_text;
+        }
+        ($line, $source_info) = _new_line($self, $e_elided_rawpreformatted);
+      }
+      # start a new line for the @end line, this is normally done
+      # at the beginning of a line, but not here, as we directly
+      # got the line.
+      # based on whitespace_chars_except_newline in XS parser
+      $line =~ s/^([ \t\cK\f]*)//;
+      push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                        'text' => $1,
+                                        'parent' => $current };
+    } else {
+      $retval = $GET_A_NEW_LINE;
+    }
   }
 
  funexit:
@@ -7568,11 +7575,7 @@ sub _parse_texi($$$)
           (($current->{'cmdname'}
            and $block_commands{$current->{'cmdname'}}
            and ($block_commands{$current->{'cmdname'}} eq 'raw'
-                or $block_commands{$current->{'cmdname'}} eq 'conditional'
-       # we can only be in an ignored format_raw if we are directly in
-       # the command, as a rawpreformatted container is immediatly added in a non
-       # ignored format_raw
-                or $block_commands{$current->{'cmdname'}} eq 'format_raw'))
+                or $block_commands{$current->{'cmdname'}} eq 'conditional'))
           or
            ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
             and $current->{'parent'}->{'cmdname'} eq 'verb')
