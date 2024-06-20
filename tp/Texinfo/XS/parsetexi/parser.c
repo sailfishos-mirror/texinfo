@@ -1444,38 +1444,22 @@ check_valid_nesting_context (enum command_id cmd)
     }
 }
 
-/* *LINEP is a pointer into the line being processed.  It is advanced past any
-   bytes processed.
-   Return STILL_MORE_TO_PROCESS when there is more to process on the line
-          GET_A_NEW_LINE when we need to read a new line
-          FINISHED_TOTALLY when @bye was found */
-int
-process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
+static const char *
+process_raw_block_contents (ELEMENT *current)
 {
-  ELEMENT *current = *current_inout;
-  ELEMENT *macro_call_element = 0;
-  const char *line = *line_inout;
-  const char *line_after_command;
-  int retval = STILL_MORE_TO_PROCESS;
   enum command_id end_cmd;
-  enum command_id from_alias = CM_NONE;
+  const char *line = next_text (current);
 
-  enum command_id cmd = CM_NONE;
-  /* remains set only if command is unknown, otherwise cmd is used */
-  char *command = 0;
-
-  /*
-  debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
-  */
-
-  /* at this point we are necessarily in a command or container */
-  /********* BLOCK_raw ******************/
-  if (command_flags(current) & CF_block
-      && (command_data(current->e.c->cmd).data == BLOCK_raw))
+  while (1)
     {
       const char *p = line;
       enum command_id cmd = 0;
-      int closed_nested_raw = 0;
+
+      if (!line)
+        {/* unclosed block */
+          return 0;
+        }
+
       /* Check if we are using a macro within a macro. */
       if (current->e.c->cmd == CM_macro || current->e.c->cmd == CM_rmacro
           || current->e.c->cmd == CM_linemacro)
@@ -1592,26 +1576,50 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                   e = new_text_element (ET_empty_line);
                   add_to_element_contents (current, e);
 
-                  closed_nested_raw = 1;
+                  break;
                 }
               else
                 pop_raw_block_stack ();
             }
         }
       /* save the line verbatim */
-      if (! closed_nested_raw)
-        {
-          ELEMENT *e;
-          e = new_text_element (ET_raw);
-          text_append (e->e.text, line);
-          add_to_element_contents (current, e);
+      ELEMENT *e;
+      e = new_text_element (ET_raw);
+      text_append (e->e.text, line);
+      add_to_element_contents (current, e);
 
-          retval = GET_A_NEW_LINE;
-          goto funexit;
-        }
-    } /********* BLOCK_raw *************/
+      line = next_text (current);
+    }
+  return line;
+}
+
+/* *LINEP is a pointer into the line being processed.  It is advanced past any
+   bytes processed.
+   Return STILL_MORE_TO_PROCESS when there is more to process on the line
+          GET_A_NEW_LINE when we need to read a new line
+          FINISHED_TOTALLY when @bye was found */
+int
+process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
+{
+  ELEMENT *current = *current_inout;
+  ELEMENT *macro_call_element = 0;
+  const char *line = *line_inout;
+  const char *line_after_command;
+  int retval = STILL_MORE_TO_PROCESS;
+  enum command_id end_cmd;
+  enum command_id from_alias = CM_NONE;
+
+  enum command_id cmd = CM_NONE;
+  /* remains set only if command is unknown, otherwise cmd is used */
+  char *command = 0;
+
+  /*
+  debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
+  */
+
+  /* at this point we are necessarily in a command or container */
   /********* (ignored) BLOCK_conditional ******************/
-  else if (command_flags(current) & CF_block
+  if (command_flags(current) & CF_block
       && (command_data(current->e.c->cmd).data == BLOCK_conditional))
     {
       const char *p = line;
@@ -2352,7 +2360,18 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           int status;
           current = handle_line_command (current, &line, cmd, data_cmd, &status,
                                          &command_element);
-          if (status == GET_A_NEW_LINE || status == FINISHED_TOTALLY)
+          if (status == GET_A_NEW_LINE)
+            {
+              /* @ignore or @verbatim followed by a comment */
+              if (command_flags(current) & CF_block
+                  && command_data(current->e.c->cmd).data == BLOCK_raw)
+                {
+                  line = process_raw_block_contents (current);
+                }
+              else
+                retval = status;
+            }
+          else if (status == FINISHED_TOTALLY)
             {
               retval = status;
             }
@@ -2362,11 +2381,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           int new_line = 0;
           current = handle_block_command (current, &line, cmd, &new_line,
                                           &command_element);
+
+           /* For @macro, which processes the whole line */
           if (new_line)
             {
-              /* For @macro, to get a new line.  This is done instead of
-                 doing the EMPTY TEXT code on the next time round. */
-              retval = GET_A_NEW_LINE;
+              if (command_data(data_cmd).data == BLOCK_raw)
+                {
+                  line = process_raw_block_contents (current);
+                }
             }
         }
       else if (command_data(data_cmd).flags & (CF_brace | CF_accent))
@@ -2521,6 +2543,12 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           text_append_n (e_empty_line->e.text, line, n);
           line += n;
         }
+      /* @ignore and @verbatim followed by an end of line */
+      else if (command_flags(current) & CF_block
+          && command_data(current->e.c->cmd).data == BLOCK_raw)
+        {
+          line = process_raw_block_contents (current);
+        }
       else
         retval = GET_A_NEW_LINE;
     }
@@ -2588,9 +2616,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
          element type can be changed in 'abort_empty_line' when more text is
          read. */
       if (!((command_flags(current) & CF_block
-             && (command_data(current->e.c->cmd).data == BLOCK_raw
-                 || command_data(current->e.c->cmd).data == BLOCK_conditional
-                ))
+             && command_data(current->e.c->cmd).data == BLOCK_conditional)
             || (current->parent && current->parent->e.c->cmd == CM_verb))
           && current_context () != ct_def)
         {

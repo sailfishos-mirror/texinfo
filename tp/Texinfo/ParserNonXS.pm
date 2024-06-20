@@ -6783,23 +6783,20 @@ sub _new_macro($$$)
   # are expanded earlier
 }
 
-sub _process_remaining_on_line($$$$)
+# get input text to until the @end of raw block command, return the
+# @end line.
+sub _process_raw_block_contents($$)
 {
   my $self = shift;
   my $current = shift;
-  my $line = shift;
-  my $source_info = shift;
 
-  my $retval = $STILL_MORE_TO_PROCESS;
+  my ($line, $source_info) = _next_text($self, $current);
 
-  #print STDERR "PROCESS "._debug_protect_eol($line)."\n"
-  #    if ($self->{'conf'}->{'DEBUG'});
-
-  # in a 'raw' (verbatim, ignore, (r)macro)
-  if ($current->{'cmdname'}
-      and $block_commands{$current->{'cmdname'}}
-      and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
-    my $closed_nested_raw;
+  while (1) {
+    if (!defined($line)) {
+      # unclosed block
+      return (undef, $source_info);
+    }
     # r?macro may be nested
     if ((($current->{'cmdname'} eq 'macro'
           or $current->{'cmdname'} eq 'rmacro'
@@ -6861,19 +6858,33 @@ sub _process_remaining_on_line($$$$)
         push @{$current->{'contents'}}, { 'type' => 'empty_line',
                                           'text' => '',
                                           'parent' => $current };
-        $closed_nested_raw = 1;
+        last;
       } else {
         my $closed_cmdname = pop @{$self->{'raw_block_stack'}};
       }
     }
-    if (not $closed_nested_raw) {
-      push @{$current->{'contents'}},
-        { 'text' => $line, 'type' => 'raw', 'parent' => $current };
-      return ($current, $line, $source_info, $GET_A_NEW_LINE);
-      # goto funexit;  # used in XS code
-    }
+    push @{$current->{'contents'}},
+      { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+
+    ($line, $source_info) = _next_text($self, $current);
+  }
+  return ($line, $source_info);
+}
+
+sub _process_remaining_on_line($$$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $line = shift;
+  my $source_info = shift;
+
+  my $retval = $STILL_MORE_TO_PROCESS;
+
+  #print STDERR "PROCESS "._debug_protect_eol($line)."\n"
+  #    if ($self->{'conf'}->{'DEBUG'});
+
   # in ignored conditional block command
-  } elsif ($current->{'cmdname'}
+  if ($current->{'cmdname'}
       and $block_commands{$current->{'cmdname'}}
       and ($block_commands{$current->{'cmdname'}} eq 'conditional')) {
     # check for nested @ifset (so that @end ifset doesn't end the
@@ -7394,10 +7405,26 @@ sub _process_remaining_on_line($$$$)
        = _handle_line_command($self, $current, $command, $data_cmdname, $line,
                               $source_info);
 
+      # in a 'raw' verbatim, ignore followed by a comment
+      if ($retval == $GET_A_NEW_LINE
+          and $current->{'cmdname'}
+          and $block_commands{$current->{'cmdname'}}
+          and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+        ($line, $source_info) = _process_raw_block_contents($self, $current);
+        $retval = $STILL_MORE_TO_PROCESS;
+      }
     } elsif (exists($block_commands{$data_cmdname})) {
       # @-command with matching @end opening
       ($current, $line, $retval, $command_element)
        = _handle_block_command($self, $current, $command, $line, $source_info);
+      # in a 'raw' (r)macro
+      if ($retval == $GET_A_NEW_LINE
+          and $current->{'cmdname'}
+          and $block_commands{$current->{'cmdname'}}
+          and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+        ($line, $source_info) = _process_raw_block_contents($self, $current);
+        $retval = $STILL_MORE_TO_PROCESS;
+      }
 
     } elsif (defined($self->{'brace_commands'}->{$data_cmdname})) {
       ($current, $command_element)
@@ -7512,6 +7539,11 @@ sub _process_remaining_on_line($$$$)
       push @{$current->{'contents'}}, { 'type' => 'empty_line',
                                         'text' => $1,
                                         'parent' => $current };
+    # in a 'raw' verbatim, ignore followed by an end of line
+    } elsif ($current->{'cmdname'}
+             and $block_commands{$current->{'cmdname'}}
+             and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+      ($line, $source_info) = _process_raw_block_contents($self, $current);
     } else {
       $retval = $GET_A_NEW_LINE;
     }
@@ -7574,8 +7606,7 @@ sub _parse_texi($$$)
         # 'raw' command or ignored conditional or verb or ignored raw format
           (($current->{'cmdname'}
            and $block_commands{$current->{'cmdname'}}
-           and ($block_commands{$current->{'cmdname'}} eq 'raw'
-                or $block_commands{$current->{'cmdname'}} eq 'conditional'))
+           and $block_commands{$current->{'cmdname'}} eq 'conditional')
           or
            ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
             and $current->{'parent'}->{'cmdname'} eq 'verb')
