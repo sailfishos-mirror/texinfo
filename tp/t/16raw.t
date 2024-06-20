@@ -159,6 +159,30 @@ $$
 ',
 {'EXPANDED_FORMATS' => ['tex']}
 ],
+['empty_line_in_command_in_expanded_not_expanded',
+'
+@tex
+@anchor{a
+
+b}.
+
+@code{v
+
+n}
+@end tex
+
+@html
+@anchor{ha
+
+hb}.
+
+@code{hv
+
+hn}
+@end html
+',
+{'EXPANDED_FORMATS' => ['html']}
+],
 ['verbatim_and_verbatiminclude',
 '@verbatim
 In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb

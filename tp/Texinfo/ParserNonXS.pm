@@ -6934,8 +6934,10 @@ sub _process_remaining_on_line($$$$)
     }
   } elsif ($current->{'cmdname'}
            and $block_commands{$current->{'cmdname'}}
-           and $block_commands{$current->{'cmdname'}} eq 'format_raw'
-           and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
+       # we can only be in an ignored format_raw if we are directly in
+       # the command, as a rawpreformatted container is immediatly added in a non
+       # ignored format_raw
+           and $block_commands{$current->{'cmdname'}} eq 'format_raw') {
     my $e_elided_rawpreformatted = { 'type' => 'elided_rawpreformatted',
                                    'parent' => $current };
     push @{$current->{'contents'}}, $e_elided_rawpreformatted;
@@ -7567,8 +7569,10 @@ sub _parse_texi($$$)
            and $block_commands{$current->{'cmdname'}}
            and ($block_commands{$current->{'cmdname'}} eq 'raw'
                 or $block_commands{$current->{'cmdname'}} eq 'conditional'
-                or ($block_commands{$current->{'cmdname'}} eq 'format_raw'
-           and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}})))
+       # we can only be in an ignored format_raw if we are directly in
+       # the command, as a rawpreformatted container is immediatly added in a non
+       # ignored format_raw
+                or $block_commands{$current->{'cmdname'}} eq 'format_raw'))
           or
            ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
             and $current->{'parent'}->{'cmdname'} eq 'verb')

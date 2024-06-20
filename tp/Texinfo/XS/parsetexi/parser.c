@@ -56,7 +56,7 @@
 #include "macro.h"
 /* for forget_indices complete_indices */
 #include "indices.h"
-/* parser_format_expanded_p handle_other_command handle_line_command
+/* handle_other_command handle_line_command
    handle_block_command handle_brace_command */
 #include "handle_commands.h"
 #include "parser.h"
@@ -828,7 +828,9 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               e->type = ET_normal_text;
               paragraph = begin_paragraph (current);
               if (paragraph)
-                current = paragraph;
+                {
+                  current = paragraph;
+                }
               goto add_to_empty_text;
             }
 
@@ -849,7 +851,14 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
           /* NOTE a new paragraph happens necessarily after a special
              space as handled just above, or after a no_paragraph
              command outside of a paragraph or after a non expanded @value
-             outside of a paragraph */
+             outside of a paragraph (here), because
+              - there is always an element where a paragraph can begin, since
+                elements without anything in them are only brace_container
+                or menu/preformatted contexts
+              - if the element is not a special space nor a no_paragraph
+                command, we are already in a paragraph if a paragraph can
+                be opened.
+            */
           current = paragraph;
           /* shortcut the case with text as last content child as
              it cannot happen if a new paragraph is started */
@@ -1721,8 +1730,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
     } /* CM_verb */
   else if (command_flags(current) & CF_block
-           && command_data(current->e.c->cmd).data == BLOCK_format_raw
-           && !parser_format_expanded_p (command_name(current->e.c->cmd)))
+      /* we can only be in an ignored format_raw if we are directly in
+         the command, as a rawpreformatted container is immediatly added in a non
+         ignored format_raw */
+           && command_data(current->e.c->cmd).data == BLOCK_format_raw)
     {
       ELEMENT *e_elided_rawpreformatted;
       ELEMENT *e_empty_line;
@@ -2568,11 +2579,13 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
          element type can be changed in 'abort_empty_line' when more text is
          read. */
       if (!(((command_flags(current) & CF_block)
-             && ((command_data(current->e.c->cmd).data == BLOCK_raw
-                  || command_data(current->e.c->cmd).data == BLOCK_conditional)
-                 || (command_data(current->e.c->cmd).data == BLOCK_format_raw
-                     && !parser_format_expanded_p
-                                              (command_name(current->e.c->cmd)))))
+             && (command_data(current->e.c->cmd).data == BLOCK_raw
+                 || command_data(current->e.c->cmd).data == BLOCK_conditional
+      /* we can only be in an ignored format_raw if we are directly in
+         the command, as a rawpreformatted container is immediatly added in a non
+         ignored format_raw */
+                 || command_data(current->e.c->cmd).data == BLOCK_format_raw)
+                )
             || (current->parent && current->parent->e.c->cmd == CM_verb))
           && current_context () != ct_def)
         {
@@ -2586,7 +2599,6 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
           e = new_text_element (ET_empty_line);
           add_to_element_contents (current, e);
-
           n = strspn (line, whitespace_chars_except_newline);
           text_append_n (e->e.text, line, n);
           line += n;
