@@ -1859,6 +1859,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/quotation/standard_quotations.pl \
   t/results/raw/beginning_and_end_on_line.pl \
   t/results/raw/braces_in_tex.pl \
+  t/results/raw/comments_on_raw_block_line.pl \
   t/results/raw/displaymath.pl \
   t/results/raw/displaymath_not_closed.pl \
   t/results/raw/empty_line_in_command_in_expanded_not_expanded.pl \

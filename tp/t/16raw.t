@@ -43,6 +43,17 @@ in verbatim2
 ',
 {'EXPANDED_FORMATS' => ['tex', 'html']}
 ],
+['comments_on_raw_block_line',
+'@html@c Hcomment
+In HTML
+@end html@c Hafter end
+
+@tex@c Tcomment
+In TeX
+@end tex@c Tafter end
+',
+{'EXPANDED_FORMATS' => ['tex']},
+],
 ['raw_in_para',
 'para
 @verbatim
