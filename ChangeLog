@@ -1,5 +1,14 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	minor changes.  avoid setting current twice.  use else if for
+	conditions that are exclusive instead of series of if.
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_block_command): update to be more
+	like C code.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_block_command)
 	(_process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),

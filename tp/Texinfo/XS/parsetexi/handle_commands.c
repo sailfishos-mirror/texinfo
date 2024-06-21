@@ -1037,11 +1037,11 @@ handle_block_command (ELEMENT *current, const char **line_inout,
       block = new_command_element (ET_block_command, cmd);
       block->e.c->source_info = current_source_info;
       add_to_element_contents (current, block);
-      current = block;
 
       def_line = new_element (ET_def_line);
       def_line->e.c->source_info = current_source_info;
-      add_to_element_contents (current, def_line);
+      add_to_element_contents (block, def_line);
+
       current = def_line;
       add_extra_string_dup (current, AI_key_def_command, command_name(cmd));
       add_extra_string_dup (current, AI_key_original_def_cmdname,
@@ -1101,8 +1101,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
             }
         }
     }
-
-  if (cmd == CM_nodedescriptionblock)
+  else if (cmd == CM_nodedescriptionblock)
     {
       if (current_node)
         {
@@ -1127,10 +1126,8 @@ handle_block_command (ELEMENT *current, const char **line_inout,
         }
       else
         line_warn ("@nodedescriptionblock outside of any node");
-
     }
-
-  if (cmd == CM_itemize || cmd == CM_enumerate)
+  else if (cmd == CM_itemize || cmd == CM_enumerate)
     counter_push (&count_items, current, 0);
 
   bla = new_element (ET_block_line_arg);

@@ -5966,27 +5966,27 @@ sub _handle_block_command($$$$$)
                'cmdname' => $command,
                'contents' => [] };
     push @{$current->{'contents'}}, $block;
-    $current = $current->{'contents'}->[-1];
-    push @{$current->{'contents'}}, {
-                                      'type' => 'def_line',
-                                      'parent' => $current,
-                                      'source_info' => {%$source_info},
-                                      'extra' =>
-                                       {'def_command' => $command,
-                                        'original_def_cmdname' => $command,
-                                       },
-                                      };
+    my $def_line = {
+                     'type' => 'def_line',
+                     'parent' => $block,
+                     'source_info' => {%$source_info},
+                     'extra' =>
+                       {'def_command' => $command,
+                        'original_def_cmdname' => $command,
+                       },
+                    };
+    push @{$block->{'contents'}}, $def_line;
     if (defined($self->{'values'}->{'txidefnamenospace'})) {
-      $current->{'contents'}->[-1]->{'extra'}
-                                  ->{'omit_def_name_space'} = 1;
+      $def_line->{'extra'}->{'omit_def_name_space'} = 1;
     }
+    $current = $def_line;
   } else {
     $block = { 'cmdname' => $command,
                'parent' => $current,
              };
     push @{$current->{'contents'}}, $block;
+    $current = $block;
   }
-  $current = $current->{'contents'}->[-1];
 
   if ($preformatted_commands{$command}) {
     $self->_push_context('ct_preformatted', $command);
@@ -5994,10 +5994,10 @@ sub _handle_block_command($$$$$)
     $self->_push_context('ct_math', $command);
   } elsif ($block_commands{$command} eq 'format_raw') {
     $self->_push_context('ct_rawpreformatted', $command);
-  }
-  if ($block_commands{$command} eq 'region') {
+  } elsif ($block_commands{$command} eq 'region') {
     push @{$self->{'nesting_context'}->{'regions_stack'}}, $command;
   }
+
   if ($block_commands{$command} eq 'menu') {
     $self->_push_context('ct_preformatted', $command);
     push @{$self->{'document'}->{'commands_info'}->{'dircategory_direntry'}},
@@ -6022,14 +6022,11 @@ sub _handle_block_command($$$$$)
         }
       }
     }
-  }
+  } elsif ($block_commands{$command} eq 'item_container') {
   # cleaner, and more similar to XS parser, but not required, would have
   # been initialized automatically.
-  $current->{'items_count'} = 0
-     if ($block_commands{$command}
-         and $block_commands{$command} eq 'item_container');
-
-  if ($command eq 'nodedescriptionblock') {
+    $current->{'items_count'} = 0;
+  } elsif ($command eq 'nodedescriptionblock') {
     if ($self->{'current_node'}) {
       $block->{'extra'} = {} if (!defined($block->{'extra'}));
       $block->{'extra'}->{'element_node'} = $self->{'current_node'};
@@ -6053,10 +6050,6 @@ sub _handle_block_command($$$$$)
     }
   }
 
-  $current->{'args'} = [ {
-     'type' => 'block_line_arg',
-     'parent' => $current } ];
-
   if ($commands_args_number{$command}) {
     if ($commands_args_number{$command} - 1 > 0) {
       $current->{'remaining_args'}
@@ -6065,7 +6058,13 @@ sub _handle_block_command($$$$$)
   } elsif ($variadic_commands{$command}) {
     $current->{'remaining_args'} = -1; # unlimited args
   }
-  $current = $current->{'args'}->[-1];
+  my $block_line_arg_element = {
+                 'type' => 'block_line_arg',
+                 'parent' => $current};
+  $current->{'args'} = [$block_line_arg_element];
+
+  $current = $block_line_arg_element;
+
   $self->_push_context('ct_line', $command)
     unless ($def_commands{$command});
   if ($self->{'basic_inline_commands'}->{$command}) {
