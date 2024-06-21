@@ -1614,6 +1614,9 @@ number_floats (DOCUMENT *document)
   if (!listoffloats_list)
     return;
 
+  TEXT number;
+  text_init (&number);
+
   document->modified_information |= F_DOCM_tree;
 
   for (i = 0; i < listoffloats_list->number; i++)
@@ -1626,7 +1629,6 @@ number_floats (DOCUMENT *document)
       size_t j;
       for (j = 0; j < listoffloats->float_list.number; j++)
         {
-          static TEXT number;
           ELEMENT *float_elt = listoffloats->float_list.list[j];
           const char *normalized
             = lookup_extra_string (float_elt, AI_key_normalized);
@@ -1676,6 +1678,7 @@ number_floats (DOCUMENT *document)
           add_extra_string_dup (float_elt, AI_key_float_number, number.text);
         }
     }
+  free (number.text);
 }
 
 /*

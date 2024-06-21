@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Remove static for number floats, free at the end.
-
 Free special output unit setup for consistency in label_target_unit_element
 ==1817037==    by 0x7C7C32C: new_output_unit (output_unit.c:125)
 ==1817037==    by 0x7C7CE86: label_target_unit_element (output_unit.c:501)
