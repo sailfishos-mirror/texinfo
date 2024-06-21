@@ -1745,38 +1745,21 @@ process_ignored_raw_format_block_contents (ELEMENT *current)
   return line;
 }
 
-/* *LINEP is a pointer into the line being processed.  It is advanced past any
-   bytes processed.
-   Return STILL_MORE_TO_PROCESS when there is more to process on the line
-          GET_A_NEW_LINE when we need to read a new line
-          FINISHED_TOTALLY when @bye was found */
-int
-process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
+static char *allocated_text;
+
+void
+process_verb_contents (ELEMENT *current, const char **line_inout)
 {
-  ELEMENT *current = *current_inout;
-  ELEMENT *macro_call_element = 0;
+  const char *q;
+  const char *delimiter
+    = current->parent->e.c->string_info[sit_delimiter];
   const char *line = *line_inout;
-  const char *line_after_command;
-  int retval = STILL_MORE_TO_PROCESS;
-  enum command_id from_alias = CM_NONE;
-  static char *allocated_text;
 
-  enum command_id cmd = CM_NONE;
-  /* remains set only if command is unknown, otherwise cmd is used */
-  char *command = 0;
+  int delimiter_len = strlen (delimiter);
 
-  /*
-  debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
-  */
-
-  /* Check if parent element is 'verb' */
-  if (current->parent && current->parent->e.c->cmd == CM_verb)
+  while (1)
     {
-      const char *q;
-      const char *delimiter
-        = current->parent->e.c->string_info[sit_delimiter];
-
-      if (strcmp (delimiter, ""))
+      if (delimiter_len)
         {
           /* Look forward for the delimiter character followed by a close
              brace. */
@@ -1805,21 +1788,54 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
               add_to_element_contents (current, e);
             }
           debug ("END VERB");
-          line = q + strlen (delimiter);
-          /* The '}' will close the @verb command in handle_separator below. */
+          line = q + delimiter_len;
+          /* The '}' will close the @verb command in handle_separator. */
+          break;
         }
-      else
+
+      /* Save the rest of line. */
+      ELEMENT *e = new_text_element (ET_raw);
+      text_append (e->e.text, line);
+      add_to_element_contents (current, e);
+
+      debug_nonl ("LINE VERB: %s", line);
+
+      free (allocated_text);
+      line = allocated_text = next_text (current);
+
+      if (!line)
         {
-          /* Save the rest of line. */
-          ELEMENT *e = new_text_element (ET_raw);
-          text_append (e->e.text, line);
-          add_to_element_contents (current, e);
-
-          debug_nonl ("LINE VERB: %s", line);
-
-          retval = GET_A_NEW_LINE; goto funexit;  /* Get next line. */
+          /* unclosed verb */
+          goto funexit;
         }
-    } /* CM_verb */
+    }
+
+ funexit:
+  *line_inout = line;
+}
+
+/* *LINEP is a pointer into the line being processed.  It is advanced past any
+   bytes processed.
+   Return STILL_MORE_TO_PROCESS when there is more to process on the line
+          GET_A_NEW_LINE when we need to read a new line
+          FINISHED_TOTALLY when @bye was found */
+int
+process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
+{
+  ELEMENT *current = *current_inout;
+  ELEMENT *macro_call_element = 0;
+  const char *line = *line_inout;
+  const char *line_after_command;
+  int retval = STILL_MORE_TO_PROCESS;
+  enum command_id from_alias = CM_NONE;
+
+  enum command_id cmd = CM_NONE;
+  /* remains set only if command is unknown, otherwise cmd is used */
+  char *command = 0;
+
+  /*
+  debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
+  */
 
   /* Skip empty lines.  If we reach the end of input, continue in case there
      is an @include. */
@@ -2501,6 +2517,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     {
       line++;
       current = handle_open_brace (current, &line);
+      if (current->parent && current->parent->e.c->cmd == CM_verb)
+        {
+          process_verb_contents (current, &line);
+        }
     }
   else if (*line == '}')
     {
@@ -2658,13 +2678,10 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
       debug_nonl ("NEW LINE %s", line);
 
-      /* If not in 'raw' or 'conditional' and parent isn't a 'verb',
-         and not an ignored raw format, collect
-         leading whitespace and save as an "ET_empty_line" element.  This
-         element type can be changed in 'abort_empty_line' when more text is
-         read. */
-      if (!(current->parent && current->parent->e.c->cmd == CM_verb)
-          && current_context () != ct_def)
+      /* collect leading whitespace and save as an "ET_empty_line" element.
+         This element type can be changed in 'abort_empty_line' when more
+         text is read. */
+      if (current_context () != ct_def)
         {
           ELEMENT *e;
           int n;

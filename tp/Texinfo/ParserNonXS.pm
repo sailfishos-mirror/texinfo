@@ -6979,23 +6979,6 @@ sub _process_remaining_on_line($$$$)
   #print STDERR "PROCESS "._debug_protect_eol($line)."\n"
   #    if ($self->{'conf'}->{'DEBUG'});
 
-  # in @verb. type should be 'brace_container'
-  if ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-      and $current->{'parent'}->{'cmdname'} eq 'verb') {
-    my $char = quotemeta($current->{'parent'}->{'info'}->{'delimiter'});
-    if ($line =~ s/^(.*?)$char\}/\}/) {
-      push @{$current->{'contents'}},
-          { 'text' => $1, 'type' => 'raw', 'parent' => $current }
-            if ($1 ne '');
-      print STDERR "END VERB\n" if ($self->{'conf'}->{'DEBUG'});
-    } else {
-      push @{$current->{'contents'}},
-         { 'text' => $line, 'type' => 'raw', 'parent' => $current };
-      print STDERR "LINE VERB: $line" if ($self->{'conf'}->{'DEBUG'});
-      return ($current, $line, $source_info, $GET_A_NEW_LINE);
-      # goto funexit;  # used in XS code
-    }
-  }
   # this mostly happens in the following cases:
   #   after expansion of user defined macro that doesn't end with EOL
   #   after a protection of @\n in @def* line
@@ -7502,7 +7485,27 @@ sub _process_remaining_on_line($$$$)
     substr ($line, 0, 1) = '';
     ($current, $line)
        = _handle_open_brace($self, $current, $line, $source_info);
-
+    # in @verb. type should be 'brace_container'
+    if ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+        and $current->{'parent'}->{'cmdname'} eq 'verb') {
+      my $char = quotemeta($current->{'parent'}->{'info'}->{'delimiter'});
+      while (1) {
+        if ($line =~ s/^(.*?)$char\}/\}/) {
+          push @{$current->{'contents'}},
+             { 'text' => $1, 'type' => 'raw', 'parent' => $current }
+              if ($1 ne '');
+          print STDERR "END VERB\n" if ($self->{'conf'}->{'DEBUG'});
+          last;
+        }
+        push @{$current->{'contents'}},
+          { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+        print STDERR "LINE VERB: $line" if ($self->{'conf'}->{'DEBUG'});
+        ($line, $source_info) = _next_text($self, $current);
+        if (!defined($line)) {
+          return ($current, $line, $source_info, $retval);
+        }
+      }
+    }
   } elsif ($close_brace) {
     substr ($line, 0, 1) = '';
     $current = _handle_close_brace($self, $current, $source_info);
@@ -7634,10 +7637,8 @@ sub _parse_texi($$$)
     #  next;
     #}
 
-    if (not ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-             and $current->{'parent'}->{'cmdname'} eq 'verb')
-        # not def line
-        and $self->_top_context() ne 'ct_def') {
+    if (# not def line
+        $self->_top_context() ne 'ct_def') {
       next NEXT_LINE if _check_line_directive ($self, $line, $source_info);
       print STDERR "BEGIN LINE\n" if ($self->{'conf'}->{'DEBUG'});
 

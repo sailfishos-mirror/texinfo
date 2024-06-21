@@ -1,5 +1,13 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (process_verb_contents)
+	(process_remaining_on_line, parse_texi): process verb contents right
+	after brace opening.  Do it in the process_verb_contents function in
+	C.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_prepare_units_directions_files),
 	tp/Texinfo/XS/main/converter_types.h
