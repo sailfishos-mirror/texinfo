@@ -1548,7 +1548,7 @@ process_macro_block_contents (ELEMENT *current)
                           new_macro (name, current);
                         }
                     }
-                  debug ("CLOSED raw %s", command_name(end_cmd));
+                  debug ("CLOSED user-defined %s", command_name(end_cmd));
            /* start a new line for the @end line (without the first spaces on
               the line that have already been put in a raw container).
               This is normally done at the beginning of a line, but not here,
@@ -1643,7 +1643,7 @@ process_raw_block_contents (ELEMENT *current)
                   line_warn ("@end %s should only appear at the "
                              "beginning of a line", command_name(end_cmd));
                 }
-              debug ("CLOSED raw %s", command_name(end_cmd));
+              debug ("CLOSED raw or ignored %s", command_name(end_cmd));
        /* start a new line for the @end line (without the first spaces on
           the line that have already been put in a raw container).
           This is normally done at the beginning of a line, but not here,
@@ -1744,7 +1744,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   const char *line = *line_inout;
   const char *line_after_command;
   int retval = STILL_MORE_TO_PROCESS;
-  enum command_id end_cmd;
   enum command_id from_alias = CM_NONE;
 
   enum command_id cmd = CM_NONE;
@@ -1755,81 +1754,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   debug_nonl ("PROCESS "); debug_print_protected_string (line); debug ("");
   */
 
-  /* at this point we are necessarily in a command or container */
-  /********* (ignored) BLOCK_conditional ******************/
-  if (command_flags(current) & CF_block
-      && (command_data(current->e.c->cmd).data == BLOCK_conditional))
-    {
-      const char *p = line;
-
-      /* check for nested @ifset (so that @end ifset doesn't end the
-         the outermost @ifset). */
-      if (current->e.c->cmd == CM_ifclear || current->e.c->cmd == CM_ifset
-          || current->e.c->cmd == CM_ifcommanddefined
-          || current->e.c->cmd == CM_ifcommandnotdefined)
-        {
-          ELEMENT *e;
-          p += strspn (p, whitespace_chars);
-          if (*p == '@')
-            {
-              char *command;
-              p++;
-              command = read_command_name (&p);
-              if (command)
-                {
-                  cmd = lookup_command (command);
-                  free (command);
-                  if (cmd == current->e.c->cmd)
-                    {
-                       /*
-                      debug ("CONDITIONAL SECOND LEVEL %s",
-                             command_name(cmd));
-                        */
-                      e = new_command_element (ET_block_command, cmd);
-                      add_to_element_contents (current, e);
-                      current = e;
-                      retval = GET_A_NEW_LINE;
-                      goto funexit;
-                    }
-                }
-            }
-        }
-
-      p = line;
-      /* Else check if line is "@end ..." for current command. */
-      if (is_end_current_command (current->e.c->cmd, &p, &end_cmd))
-        {
-          ELEMENT *e;
-
-          if (strchr (whitespace_chars, *line))
-            {
-              ELEMENT *e;
-              int n = strspn (line, whitespace_chars);
-              e = new_text_element (ET_raw);
-              text_append_n (e->e.text, line, n);
-              add_to_element_contents (current, e);
-              line += n;
-              line_warn ("@end %s should only appear at the "
-                         "beginning of a line", command_name(end_cmd));
-            }
-
-          debug ("CLOSED conditional %s", command_name(end_cmd));
-
-          e = new_text_element (ET_empty_line);
-          add_to_element_contents (current, e);
-        }
-      else
-        {
-          ELEMENT *e = new_text_element (ET_raw);
-          text_append (e->e.text, line);
-          add_to_element_contents (current, e);
-          retval = GET_A_NEW_LINE;
-          goto funexit;
-        }
-    } /********* (ignored) BLOCK_conditional *************/
-
   /* Check if parent element is 'verb' */
-  else if (current->parent && current->parent->e.c->cmd == CM_verb)
+  if (current->parent && current->parent->e.c->cmd == CM_verb)
     {
       const char *q;
       const char *delimiter
@@ -2504,9 +2430,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                                          &command_element);
           if (status == GET_A_NEW_LINE)
             {
-              /* @ignore or @verbatim followed by a comment */
+              /* @ignore or @verbatim and ignored conditionals
+                 followed by a comment */
               if (command_flags(current) & CF_block
-                  && command_data(current->e.c->cmd).data == BLOCK_raw)
+                  && (command_data(current->e.c->cmd).data == BLOCK_raw
+             || command_data(current->e.c->cmd).data == BLOCK_conditional))
                 {
                   line = process_raw_block_contents (current);
                 }
@@ -2637,9 +2565,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           line = process_ignored_raw_format_block_contents (current);
         }
-      /* @ignore and @verbatim followed by an end of line */
+      /* @ignore and @verbatim followed by an end of line
+         and ignored conditionals */
       else if (command_flags(current) & CF_block
-          && command_data(current->e.c->cmd).data == BLOCK_raw)
+          && (command_data(current->e.c->cmd).data == BLOCK_raw
+             || command_data(current->e.c->cmd).data == BLOCK_conditional))
         {
           line = process_raw_block_contents (current);
         }
@@ -2709,9 +2639,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
          leading whitespace and save as an "ET_empty_line" element.  This
          element type can be changed in 'abort_empty_line' when more text is
          read. */
-      if (!((command_flags(current) & CF_block
-             && command_data(current->e.c->cmd).data == BLOCK_conditional)
-            || (current->parent && current->parent->e.c->cmd == CM_verb))
+      if (!(current->parent && current->parent->e.c->cmd == CM_verb)
           && current_context () != ct_def)
         {
           ELEMENT *e;

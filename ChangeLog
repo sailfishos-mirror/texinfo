@@ -1,5 +1,15 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_raw_block_contents): fix
+	detection of @end to gather the whole command name.
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line)
+	(_parse_texi), tp/Texinfo/XS/parsetexi/parser.c
+	(process_remaining_on_line, parse_texi): use process_raw_block_contents
+	to process ignored conditional block commands.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_raw_block_contents)
 	(_process_macro_block_contents, _process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/parser.c (process_macro_block_contents)

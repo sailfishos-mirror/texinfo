@@ -3506,7 +3506,7 @@ $result_trees{'bib_example'} = {
                       'status' => 'start'
                     },
                     {
-                      'counter' => 4,
+                      'counter' => 3,
                       'element' => {
                         'args' => [
                           {
@@ -3527,55 +3527,19 @@ $result_trees{'bib_example'} = {
                         'cmdname' => 'ifclear',
                         'contents' => [
                           {
-                            'source_marks' => [
-                              {
-                                'counter' => 3,
-                                'element' => {
-                                  'cmdname' => 'ifclear',
-                                  'contents' => [
-                                    {
-                                      'text' => '@set mybiblist true
+                            'text' => '@ifclear mybibtable
 ',
-                                      'type' => 'raw'
-                                    },
-                                    {
-                                      'args' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'ifclear'
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'line_arg'
-                                        }
-                                      ],
-                                      'cmdname' => 'end',
-                                      'extra' => {
-                                        'text_arg' => 'ifclear'
-                                      },
-                                      'info' => {
-                                        'spaces_before_argument' => {
-                                          'text' => ' '
-                                        }
-                                      },
-                                      'source_info' => {
-                                        'file_name' => 'bib-example.texi',
-                                        'line_nr' => 51,
-                                        'macro' => 'mybibitem'
-                                      }
-                                    }
-                                  ]
-                                },
-                                'sourcemark_type' => 'ignored_conditional_block'
-                              }
-                            ],
-                            'text' => ''
+                            'type' => 'raw'
+                          },
+                          {
+                            'text' => '@set mybiblist true
+',
+                            'type' => 'raw'
+                          },
+                          {
+                            'text' => '@end ifclear
+',
+                            'type' => 'raw'
                           },
                           {
                             'args' => [
@@ -3754,7 +3718,7 @@ $result_trees{'bib_example'} = {
                       'cmdname' => 'c',
                       'source_marks' => [
                         {
-                          'counter' => 5,
+                          'counter' => 4,
                           'element' => {
                             'args' => [
                               {

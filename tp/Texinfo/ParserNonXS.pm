@@ -6835,7 +6835,7 @@ sub _process_macro_block_contents($$)
             _new_macro($self, $name, $current);
           }
         }
-        print STDERR "CLOSED raw $current->{'cmdname'}\n"
+        print STDERR "CLOSED user-defined $current->{'cmdname'}\n"
                                      if ($self->{'conf'}->{'DEBUG'});
         # start a new line for the @end line (without the first spaces on
         # the line that have already been put in a raw container).
@@ -6891,7 +6891,8 @@ sub _process_raw_block_contents($$)
       $level++;
       print STDERR "RAW SECOND LEVEL \@$cmdname\n"
         if ($self->{'conf'}->{'DEBUG'});
-    } elsif ($line =~ /^(\s*?)\@end\s+($cmdname)/) {
+    } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
+             and $2 eq $cmdname) {
       $level--;
       if ($level == 0) {
         if ($line =~ s/^(\s+)//) {
@@ -6902,7 +6903,7 @@ sub _process_raw_block_contents($$)
                 __("\@end %s should only appear at the beginning of a line"),
                                    $cmdname), $source_info);
         }
-        print STDERR "CLOSED raw $current->{'cmdname'}\n"
+        print STDERR "CLOSED raw or ignored $cmdname\n"
                                      if ($self->{'conf'}->{'DEBUG'});
         # start a new line for the @end line (without the first spaces on
         # the line that have already been put in a raw container).
@@ -6978,53 +6979,9 @@ sub _process_remaining_on_line($$$$)
   #print STDERR "PROCESS "._debug_protect_eol($line)."\n"
   #    if ($self->{'conf'}->{'DEBUG'});
 
-  # in ignored conditional block command
-  if ($current->{'cmdname'}
-      and $block_commands{$current->{'cmdname'}}
-      and ($block_commands{$current->{'cmdname'}} eq 'conditional')) {
-    # check for nested @ifset (so that @end ifset doesn't end the
-    # outermost @ifset).
-    if (($current->{'cmdname'} eq 'ifclear'
-         or $current->{'cmdname'} eq 'ifset'
-         or $current->{'cmdname'} eq 'ifcommanddefined'
-         or $current->{'cmdname'} eq 'ifcommandnotdefined')
-        and ($line =~ /^\s*\@([a-zA-Z][\w-]*)/
-             and ($1 eq $current->{'cmdname'}))) {
-      push @{$current->{'contents'}}, { 'cmdname' => $current->{'cmdname'},
-                                        'parent' => $current,
-                                      };
-      $current = $current->{'contents'}->[-1];
-      return ($current, $line, $source_info, $GET_A_NEW_LINE);
-      # goto funexit;  # used in XS code
-    } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
-             and ($2 eq $current->{'cmdname'})) {
-      my $end_command = $current->{'cmdname'};
-      if ($line =~ s/^(\s+)//) {
-        push @{$current->{'contents'}},
-          { 'text' => $1,
-            'type' => 'raw', 'parent' => $current };
-        $self->_line_warn(sprintf(
-              __("\@end %s should only appear at the beginning of a line"),
-                                 $current->{'cmdname'}), $source_info);
-      }
-
-      print STDERR "CLOSED conditional $end_command\n"
-                                  if ($self->{'conf'}->{'DEBUG'});
-      # see comment above for raw output formats
-      push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                        'text' => '',
-                                        'parent' => $current };
-      # the line beginning by @end is processed like any line beginning
-      # with @end below
-    } else {
-      push @{$current->{'contents'}}, { 'type' => 'raw', 'text' => $line,
-                                        'parent' => $current, };
-      return ($current, $line, $source_info, $GET_A_NEW_LINE);
-      # goto funexit;  # used in XS code
-    }
   # in @verb. type should be 'brace_container'
-  } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-         and $current->{'parent'}->{'cmdname'} eq 'verb') {
+  if ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+      and $current->{'parent'}->{'cmdname'} eq 'verb') {
     my $char = quotemeta($current->{'parent'}->{'info'}->{'delimiter'});
     if ($line =~ s/^(.*?)$char\}/\}/) {
       push @{$current->{'contents'}},
@@ -7509,11 +7466,13 @@ sub _process_remaining_on_line($$$$)
         ($line, $source_info)
            = _process_ignored_raw_format_block_contents($self, $current);
         $retval = $STILL_MORE_TO_PROCESS;
-      # in a 'raw' verbatim, ignore followed by a comment
+      # in a 'raw' verbatim or ignore or ignored conditional followed by
+      # a comment
       } elsif ($retval == $GET_A_NEW_LINE
           and $current->{'cmdname'}
           and $block_commands{$current->{'cmdname'}}
-          and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+          and ($block_commands{$current->{'cmdname'}} eq 'raw'
+               or $block_commands{$current->{'cmdname'}} eq 'conditional')) {
         ($line, $source_info) = _process_raw_block_contents($self, $current);
         $retval = $STILL_MORE_TO_PROCESS;
       }
@@ -7611,10 +7570,12 @@ sub _process_remaining_on_line($$$$)
         and $block_commands{$current->{'cmdname'}} eq 'format_raw') {
       ($line, $source_info)
          = _process_ignored_raw_format_block_contents($self, $current);
-    # in a 'raw' verbatim, ignore followed by an end of line
+    # in a 'raw' verbatim or ignore or ignored conditional followed by an
+    # end of line
     } elsif ($current->{'cmdname'}
              and $block_commands{$current->{'cmdname'}}
-             and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+             and ($block_commands{$current->{'cmdname'}} eq 'raw'
+                  or $block_commands{$current->{'cmdname'}} eq 'conditional')) {
       ($line, $source_info) = _process_raw_block_contents($self, $current);
     } else {
       $retval = $GET_A_NEW_LINE;
@@ -7673,16 +7634,8 @@ sub _parse_texi($$$)
     #  next;
     #}
 
-    if (not
-        # all the format handled early that have specific containers
-        # 'raw' command or ignored conditional or verb or ignored raw format
-          (($current->{'cmdname'}
-           and $block_commands{$current->{'cmdname'}}
-           and $block_commands{$current->{'cmdname'}} eq 'conditional')
-          or
-           ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-            and $current->{'parent'}->{'cmdname'} eq 'verb')
-          )
+    if (not ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+             and $current->{'parent'}->{'cmdname'} eq 'verb')
         # not def line
         and $self->_top_context() ne 'ct_def') {
       next NEXT_LINE if _check_line_directive ($self, $line, $source_info);

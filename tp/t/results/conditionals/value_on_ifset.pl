@@ -163,7 +163,7 @@ $result_trees{'value_on_ifset'} = {
         {
           'source_marks' => [
             {
-              'counter' => 2,
+              'counter' => 1,
               'element' => {
                 'args' => [
                   {
@@ -184,53 +184,19 @@ $result_trees{'value_on_ifset'} = {
                 'cmdname' => 'ifset',
                 'contents' => [
                   {
-                    'source_marks' => [
-                      {
-                        'counter' => 1,
-                        'element' => {
-                          'cmdname' => 'ifset',
-                          'contents' => [
-                            {
-                              'text' => 'INTERNALXV
+                    'text' => '@ifset @value{xval}
 ',
-                              'type' => 'raw'
-                            },
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'ifset'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'cmdname' => 'end',
-                              'extra' => {
-                                'text_arg' => 'ifset'
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 11
-                              }
-                            }
-                          ]
-                        },
-                        'sourcemark_type' => 'ignored_conditional_block'
-                      }
-                    ],
-                    'text' => ''
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => 'INTERNALXV
+',
+                    'type' => 'raw'
+                  },
+                  {
+                    'text' => '@end ifset
+',
+                    'type' => 'raw'
                   },
                   {
                     'args' => [
