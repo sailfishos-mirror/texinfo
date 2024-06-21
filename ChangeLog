@@ -1,5 +1,14 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (process_macro_block_contents)
+	(process_raw_block_contents)
+	(process_ignored_raw_format_block_contents)
+	(process_remaining_on_line): free and set allocated_text in functions,
+	as soon as next_line is called.  Pass line as out parameter by
+	reference.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line, _parse_texi),
 	tp/Texinfo/XS/parsetexi/parser.c (process_verb_contents)
 	(process_remaining_on_line, parse_texi): process verb contents right
