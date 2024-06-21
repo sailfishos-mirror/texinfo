@@ -6047,6 +6047,10 @@ html_prepare_units_directions_files (CONVERTER *self,
 {
   int i;
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
+  int external_nodes_units_descriptor
+     = new_output_units_descriptor (self->document);
+  OUTPUT_UNIT_LIST *external_node_target_units
+    = retrieve_output_units (self->document, external_nodes_units_descriptor);
   OUTPUT_UNIT_LIST *output_units = retrieve_output_units
     (self->document, self->output_units_descriptors[OUDT_units]);
   OUTPUT_UNIT_LIST *special_units = retrieve_output_units
@@ -6054,6 +6058,9 @@ html_prepare_units_directions_files (CONVERTER *self,
   OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
     (self->document,
      self->output_units_descriptors[OUDT_associated_special_units]);
+
+   self->output_units_descriptors[OUDT_external_nodes_units]
+     = external_nodes_units_descriptor;
 
   html_prepare_output_units_global_targets (self);
 
@@ -6069,8 +6076,8 @@ html_prepare_units_directions_files (CONVERTER *self,
   else
     setup_output_simple_page (self, output_filename);
 
-
   units_directions (&self->document->identifiers_target, output_units,
+                    external_node_target_units,
                     self->conf->DEBUG.o.integer);
 
   prepare_special_units_directions (self, special_units);

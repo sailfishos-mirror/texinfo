@@ -491,7 +491,8 @@ output_unit_texi (const OUTPUT_UNIT *output_unit)
 }
 
 static OUTPUT_UNIT *
-label_target_unit_element (ELEMENT *label)
+label_target_unit_element (ELEMENT *label,
+                           OUTPUT_UNIT_LIST *external_node_target_units)
 {
   ELEMENT *manual_content = lookup_extra_element (label, AI_key_manual_content);
   if (manual_content)
@@ -500,6 +501,8 @@ label_target_unit_element (ELEMENT *label)
       OUTPUT_UNIT *external_node_unit
         = new_output_unit (OU_external_node_unit);
       external_node_unit->unit_command = label;
+      add_to_output_unit_list (external_node_target_units,
+                               external_node_unit);
       return external_node_unit;
     }
   else if (label->e.c->cmd == CM_node)
@@ -559,7 +562,9 @@ static enum relative_unit_direction_type section_unit_directions[]
  */
 void
 units_directions (LABEL_LIST *identifiers_target,
-                  OUTPUT_UNIT_LIST *output_units, int print_debug)
+                  OUTPUT_UNIT_LIST *output_units,
+                  OUTPUT_UNIT_LIST *external_node_target_units,
+                  int print_debug)
 {
   ELEMENT *node_top;
   int i;
@@ -600,14 +605,16 @@ units_directions (LABEL_LIST *identifiers_target,
                   ELEMENT *node_direction = node_directions->list[d];
                   if (node_direction)
                     directions[node_unit_directions[d]]
-                      = label_target_unit_element (node_direction);
+                      = label_target_unit_element (node_direction,
+                                                   external_node_target_units);
                 }
             }
      /*  Now do NodeForward which is something like the following node. */
           if (menu_child)
             {
               directions[RUD_type_NodeForward]
-                = label_target_unit_element (menu_child);
+                = label_target_unit_element (menu_child,
+                                             external_node_target_units);
             }
           else
             {
@@ -628,7 +635,8 @@ units_directions (LABEL_LIST *identifiers_target,
                        && node_directions->list[D_next])
                directions[RUD_type_NodeForward]
                  = label_target_unit_element (
-                         node_directions->list[D_next]);
+                         node_directions->list[D_next],
+                         external_node_target_units);
               else if (node_directions && node_directions->list[D_up])
                 {
                   ELEMENT *up = node_directions->list[D_up];
@@ -656,7 +664,8 @@ units_directions (LABEL_LIST *identifiers_target,
                         {
                            directions[RUD_type_NodeForward]
                              = label_target_unit_element (
-                              up_node_directions->list[D_next]);
+                                   up_node_directions->list[D_next],
+                                   external_node_target_units);
                            break;
                         }
                       add_to_element_list (&up_list, up);

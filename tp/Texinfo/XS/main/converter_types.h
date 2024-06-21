@@ -41,6 +41,7 @@ enum output_units_descriptor_type {
    OUDT_units,
    OUDT_special_units,
    OUDT_associated_special_units,
+   OUDT_external_nodes_units,
 };
 
 enum formatting_reference_status {
@@ -794,7 +795,7 @@ typedef struct CONVERTER {
     const char **direction_unit_direction_name;
 
     /* set for a document */
-    int output_units_descriptors[OUDT_associated_special_units+1];
+    int output_units_descriptors[OUDT_external_nodes_units+1];
     enum htmlxref_split_type document_htmlxref_split_type;
     const OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;

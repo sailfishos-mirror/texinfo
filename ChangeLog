@@ -1,5 +1,17 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/main/converter_types.h
+	(enum output_units_descriptor_type, CONVERTER),
+	tp/Texinfo/XS/main/output_unit.c (label_target_unit_element)
+	(units_directions): create an output unit list in
+	html_prepare_units_directions_files to register external nodes special
+	output units created in label_target_unit_element.  This is such that
+	the output units can be freed when the document is destroyed.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/structuring.c (number_floats): do
 	not use a static TEXT variable, instead initialize the TEXT variable
 	at the beginning of the function and reuse the storage.  The function
