@@ -1,5 +1,15 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_raw_block_contents)
+	(_process_macro_block_contents, _process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_macro_block_contents)
+	(process_raw_block_contents, process_remaining_on_line): create
+	process_macro_block_contents out of process_raw_block_contents for
+	macro specific code.  Change C code to separate better determination
+	of nested command beginning and detection of @end line.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/55conditionals.t (value_on_ifset): add test with @value on
 	@ifset line.
 

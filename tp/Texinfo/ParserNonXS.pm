@@ -6783,9 +6783,7 @@ sub _new_macro($$$)
   # are expanded earlier
 }
 
-# get input text to until the @end of raw block command, return the
-# @end line.
-sub _process_raw_block_contents($$)
+sub _process_macro_block_contents($$)
 {
   my $self = shift;
   my $current = shift;
@@ -6798,12 +6796,7 @@ sub _process_raw_block_contents($$)
       return (undef, $source_info);
     }
     # r?macro may be nested
-    if ((($current->{'cmdname'} eq 'macro'
-          or $current->{'cmdname'} eq 'rmacro'
-          or $current->{'cmdname'} eq 'linemacro')
-         and $line =~ /^\s*\@((line|r)?macro)\s+/)
-        or ($current->{'cmdname'} eq 'ignore'
-            and $line =~ /^\s*\@(ignore)(\@|\s+)/)) {
+    if ($line =~ /^\s*\@((line|r)?macro)\s+/) {
       push @{$self->{'raw_block_stack'}}, $1;
       print STDERR "RAW SECOND LEVEL $1 in \@$current->{'cmdname'}\n"
         if ($self->{'conf'}->{'DEBUG'});
@@ -6821,29 +6814,25 @@ sub _process_raw_block_contents($$)
                 __("\@end %s should only appear at the beginning of a line"),
                                    $current->{'cmdname'}), $source_info);
         }
-        if ($current->{'cmdname'} eq 'macro'
-            or $current->{'cmdname'} eq 'rmacro'
-            or $current->{'cmdname'} eq 'linemacro') {
-          if ($current->{'args'} and $current->{'args'}->[0]) {
-            my $name = $current->{'args'}->[0]->{'text'};
-            if (exists($self->{'macros'}->{$name})) {
-              $self->_line_warn(sprintf(__("macro `%s' previously defined"),
-                                        $name), $current->{'source_info'});
-              $self->_line_warn(sprintf(__(
-                                 "here is the previous definition of `%s'"),
-             $name), $self->{'macros'}->{$name}->{'element'}->{'source_info'});
-            }
-            if ($all_commands{$name}
-                or ($name eq 'txiinternalvalue'
-                    and $self->{'conf'}->{'accept_internalvalue'})) {
-              $self->_line_warn(sprintf(__(
-                                "redefining Texinfo language command: \@%s"),
-                                        $name), $current->{'source_info'});
-            }
-            if (!($current->{'extra'}
-                  and $current->{'extra'}->{'invalid_syntax'})) {
-              _new_macro($self, $name, $current);
-            }
+        if ($current->{'args'} and $current->{'args'}->[0]) {
+          my $name = $current->{'args'}->[0]->{'text'};
+          if (exists($self->{'macros'}->{$name})) {
+            $self->_line_warn(sprintf(__("macro `%s' previously defined"),
+                                      $name), $current->{'source_info'});
+            $self->_line_warn(sprintf(__(
+                               "here is the previous definition of `%s'"),
+           $name), $self->{'macros'}->{$name}->{'element'}->{'source_info'});
+          }
+          if ($all_commands{$name}
+              or ($name eq 'txiinternalvalue'
+                  and $self->{'conf'}->{'accept_internalvalue'})) {
+            $self->_line_warn(sprintf(__(
+                              "redefining Texinfo language command: \@%s"),
+                                      $name), $current->{'source_info'});
+          }
+          if (!($current->{'extra'}
+                and $current->{'extra'}->{'invalid_syntax'})) {
+            _new_macro($self, $name, $current);
           }
         }
         print STDERR "CLOSED raw $current->{'cmdname'}\n"
@@ -6861,6 +6850,71 @@ sub _process_raw_block_contents($$)
         last;
       } else {
         my $closed_cmdname = pop @{$self->{'raw_block_stack'}};
+      }
+    }
+    push @{$current->{'contents'}},
+      { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+
+    ($line, $source_info) = _next_text($self, $current);
+  }
+  return ($line, $source_info);
+}
+
+# get input text to until the @end of raw block command, return the
+# @end line.
+sub _process_raw_block_contents($$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $cmdname = $current->{'cmdname'};
+
+  print STDERR "BLOCK raw or ignored $cmdname\n"
+    if ($self->{'DEBUG'});
+
+  my ($line, $source_info) = _next_text($self, $current);
+
+  my $level = 1;
+
+  while (1) {
+    if (!defined($line)) {
+      # unclosed block
+      # no warning for the top-level @-command, there will be one
+      # when closing the command
+      while ($level > 1) {
+        $self->_line_error(sprintf(__("expected \@end %s"), $cmdname),
+                           $source_info);
+        $level--;
+      }
+      return (undef, $source_info);
+    }
+    if ($line =~ /^\s*\@($cmdname)(\@|\s+)/) {
+      $level++;
+      print STDERR "RAW SECOND LEVEL \@$cmdname\n"
+        if ($self->{'conf'}->{'DEBUG'});
+    } elsif ($line =~ /^(\s*?)\@end\s+($cmdname)/) {
+      $level--;
+      if ($level == 0) {
+        if ($line =~ s/^(\s+)//) {
+          push @{$current->{'contents'}},
+            { 'text' => $1,
+              'type' => 'raw', 'parent' => $current };
+          $self->_line_warn(sprintf(
+                __("\@end %s should only appear at the beginning of a line"),
+                                   $cmdname), $source_info);
+        }
+        print STDERR "CLOSED raw $current->{'cmdname'}\n"
+                                     if ($self->{'conf'}->{'DEBUG'});
+        # start a new line for the @end line (without the first spaces on
+        # the line that have already been put in a raw container).
+        # This is normally done at the beginning of a line, but not here,
+        # as we directly got the line.  As the @end is processed just below,
+        # an empty line will not appear in the output, but it is needed to
+        # avoid a duplicate warning on @end not appearing at the beginning
+        # of the line
+        push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                          'text' => '',
+                                          'parent' => $current };
+        last;
       }
     }
     push @{$current->{'contents'}},
@@ -7472,7 +7526,7 @@ sub _process_remaining_on_line($$$$)
           and $current->{'cmdname'}
           and $block_commands{$current->{'cmdname'}}
           and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
-        ($line, $source_info) = _process_raw_block_contents($self, $current);
+        ($line, $source_info) = _process_macro_block_contents($self, $current);
         $retval = $STILL_MORE_TO_PROCESS;
       }
 

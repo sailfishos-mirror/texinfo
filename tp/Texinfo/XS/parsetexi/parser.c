@@ -1445,7 +1445,7 @@ check_valid_nesting_context (enum command_id cmd)
 }
 
 static const char *
-process_raw_block_contents (ELEMENT *current)
+process_macro_block_contents (ELEMENT *current)
 {
   enum command_id end_cmd;
   const char *line = next_text (current);
@@ -1453,6 +1453,7 @@ process_raw_block_contents (ELEMENT *current)
   while (1)
     {
       const char *p = line;
+      const char *q;
       enum command_id cmd = 0;
 
       if (!line)
@@ -1461,39 +1462,26 @@ process_raw_block_contents (ELEMENT *current)
         }
 
       /* Check if we are using a macro within a macro. */
-      if (current->e.c->cmd == CM_macro || current->e.c->cmd == CM_rmacro
-          || current->e.c->cmd == CM_linemacro)
+      p += strspn (p, whitespace_chars);
+      q = p;
+      if (!strncmp (p, "@macro", strlen ("@macro")))
         {
-          p += strspn (p, whitespace_chars);
-          if (!strncmp (p, "@macro", strlen ("@macro")))
-            {
-              p += strlen ("@macro");
-              cmd = CM_macro;
-            }
-          else if (!strncmp (p, "@rmacro", strlen ("@rmacro")))
-            {
-              p += strlen ("@rmacro");
-              cmd = CM_rmacro;
-            }
-          else if (!strncmp (p, "@linemacro", strlen ("@linemacro")))
-            {
-              p += strlen ("@linemacro");
-              cmd = CM_linemacro;
-            }
-          if (*p && !strchr (whitespace_chars, *p))
-            cmd = 0;
+          q += strlen ("@macro");
+          cmd = CM_macro;
         }
-      else if (current->e.c->cmd == CM_ignore)
+      else if (!strncmp (p, "@rmacro", strlen ("@rmacro")))
         {
-          p += strspn (p, whitespace_chars);
-          if (!strncmp (p, "@ignore", strlen ("@ignore")))
-            {
-              p += strlen ("@ignore");
-              if (!(*p && *p != '@' && !strchr (whitespace_chars, *p)))
-                cmd = CM_ignore;
-            }
+          q += strlen ("@rmacro");
+          cmd = CM_rmacro;
         }
-      if (cmd)
+      else if (!strncmp (p, "@linemacro", strlen ("@linemacro")))
+        {
+          q += strlen ("@linemacro");
+          cmd = CM_linemacro;
+        }
+      if (*q && !strchr (whitespace_chars, *q))
+        cmd = CM_NONE;
+      if (cmd != CM_NONE)
         {
           debug ("RAW SECOND LEVEL %s in @%s", command_name(cmd),
                  command_name(current->e.c->cmd));
@@ -1512,6 +1500,8 @@ process_raw_block_contents (ELEMENT *current)
               if (raw_block_number == 0)
                 {
                   ELEMENT *e;
+                  char *name;
+                  enum command_id existing;
 
                   if (strchr (whitespace_chars, *line))
                     {
@@ -1524,45 +1514,38 @@ process_raw_block_contents (ELEMENT *current)
                       line_warn ("@end %s should only appear at the "
                                  "beginning of a line", command_name(end_cmd));
                     }
-                  /* For macros, define a new macro. */
-                  if (end_cmd == CM_macro || end_cmd == CM_rmacro
-                      || end_cmd == CM_linemacro)
+                  if (current->e.c->args.number > 0)
                     {
-                      char *name;
-                      enum command_id existing;
-                      if (current->e.c->args.number > 0)
-                        {
-                          const ELEMENT *macro_name_e
-                              = args_child_by_index (current, 0);
-                          name = macro_name_e->e.text->text;
+                      const ELEMENT *macro_name_e
+                          = args_child_by_index (current, 0);
+                      name = macro_name_e->e.text->text;
 
-                          existing = lookup_command (name);
-                          if (existing)
+                      existing = lookup_command (name);
+                      if (existing)
+                        {
+                          MACRO *macro;
+                          macro = lookup_macro (existing);
+                          if (macro)
                             {
-                              MACRO *macro;
-                              macro = lookup_macro (existing);
-                              if (macro)
-                                {
-                                  line_error_ext (MSG_warning, 0,
-                                                  &current->e.c->source_info,
-                                     "macro `%s' previously defined", name);
-                                  line_error_ext (MSG_warning, 0,
-                                              &macro->element->e.c->source_info,
-                                     "here is the previous definition of `%s'",
-                                                  name);
-                                }
-                              else if (!(existing & USER_COMMAND_BIT))
-                                {
-                                  line_error_ext (MSG_warning, 0,
-                                                  &current->e.c->source_info,
-                                    "redefining Texinfo language command: @%s",
-                                    name);
-                                }
+                              line_error_ext (MSG_warning, 0,
+                                              &current->e.c->source_info,
+                                 "macro `%s' previously defined", name);
+                              line_error_ext (MSG_warning, 0,
+                                          &macro->element->e.c->source_info,
+                                 "here is the previous definition of `%s'",
+                                              name);
                             }
-                          if (!(current->flags & EF_invalid_syntax))
+                          else if (!(existing & USER_COMMAND_BIT))
                             {
-                              new_macro (name, current);
+                              line_error_ext (MSG_warning, 0,
+                                              &current->e.c->source_info,
+                                "redefining Texinfo language command: @%s",
+                                name);
                             }
+                        }
+                      if (!(current->flags & EF_invalid_syntax))
+                        {
+                          new_macro (name, current);
                         }
                     }
                   debug ("CLOSED raw %s", command_name(end_cmd));
@@ -1580,6 +1563,98 @@ process_raw_block_contents (ELEMENT *current)
                 }
               else
                 pop_raw_block_stack ();
+            }
+        }
+      /* save the line verbatim */
+      ELEMENT *e;
+      e = new_text_element (ET_raw);
+      text_append (e->e.text, line);
+      add_to_element_contents (current, e);
+
+      line = next_text (current);
+    }
+  return line;
+}
+
+static const char *
+process_raw_block_contents (ELEMENT *current)
+{
+  enum command_id end_cmd;
+  enum command_id cmd = current->e.c->cmd;
+  const char *block_name = command_name(cmd);
+  int cmdname_len = strlen (block_name);
+  const char *line;
+  int level = 1;
+
+  debug ("BLOCK raw or ignored %s", block_name);
+  line = next_text (current);
+
+  while (1)
+    {
+      const char *p = line;
+      const char *q;
+      int new_opened = 0;
+
+      if (!line)
+        {/* unclosed block */
+         /* no warning for the top-level @-command, there will be one
+            when closing the command */
+          while (level > 1)
+            {
+              line_error ("expected @end %s", block_name);
+              level--;
+            }
+          return 0;
+        }
+
+      p += strspn (p, whitespace_chars);
+      if (*p == '@')
+        {
+          q = p;
+          q++;
+          if (!strncmp (q, block_name, cmdname_len))
+            {
+              q += cmdname_len;
+              if (!(*q && *q != '@' && !strchr (whitespace_chars, *q)))
+                new_opened = 1;
+            }
+        }
+      if (new_opened)
+        {
+          debug ("RAW SECOND LEVEL @%s", block_name);
+          level++;
+        }
+      /* Else check if line is "@end ..." for current command. */
+      else if (is_end_current_command (cmd, &p, &end_cmd))
+        {
+          level--;
+          if (level == 0)
+            {
+              ELEMENT *e;
+
+              if (strchr (whitespace_chars, *line))
+                {
+                  ELEMENT *e;
+                  int n = strspn (line, whitespace_chars);
+                  e = new_text_element (ET_raw);
+                  text_append_n (e->e.text, line, n);
+                  add_to_element_contents (current, e);
+                  line += n;
+                  line_warn ("@end %s should only appear at the "
+                             "beginning of a line", command_name(end_cmd));
+                }
+              debug ("CLOSED raw %s", command_name(end_cmd));
+       /* start a new line for the @end line (without the first spaces on
+          the line that have already been put in a raw container).
+          This is normally done at the beginning of a line, but not here,
+          as we directly got the line.  As the @end is processed just below,
+          an empty line will not appear in the output, but it is needed to
+          avoid a duplicate warning on @end not appearing at the beginning
+          of the line */
+              e = new_text_element (ET_empty_line);
+              add_to_element_contents (current, e);
+
+              break;
             }
         }
       /* save the line verbatim */
@@ -2459,7 +2534,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             {
               if (command_data(data_cmd).data == BLOCK_raw)
                 {
-                  line = process_raw_block_contents (current);
+                  line = process_macro_block_contents (current);
                 }
             }
         }
