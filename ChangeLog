@@ -1,5 +1,14 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_block_command)
+	(_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): remove
+	the code related to @*macro from handle_block_command and put it
+	directly in process_remaining_on_line.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_macro_block_contents)
 	(process_raw_block_contents)
 	(process_ignored_raw_format_block_contents)

@@ -2482,18 +2482,16 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         }
       else if (command_data(data_cmd).flags & CF_block)
         {
-          int new_line = 0;
-          current = handle_block_command (current, &line, cmd, &new_line,
-                                          &command_element);
-
-           /* For @macro, which processes the whole line */
-          if (new_line)
+          if (cmd == CM_macro || cmd == CM_rmacro || cmd == CM_linemacro)
             {
-              if (command_data(data_cmd).data == BLOCK_raw)
-                {
-                  process_macro_block_contents (current, &line);
-                }
+              command_element = parse_macro_command_line (cmd, &line, current);
+              add_to_element_contents (current, command_element);
+              current = command_element;
+              process_macro_block_contents (current, &line);
             }
+          else
+            current = handle_block_command (current, &line, cmd,
+                                            &command_element);
         }
       else if (command_data(data_cmd).flags & (CF_brace | CF_accent))
         {
@@ -2591,8 +2589,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       current = end_line (current);
 
       /* we can only be in an ignored format_raw if we are directly in
-          the command, as a rawpreformatted container is immediatly added in a non
-          ignored format_raw */
+          the command, as a rawpreformatted container is immediatly added
+          in a non ignored format_raw */
       if (command_flags(current) & CF_block
           && command_data(current->e.c->cmd).data == BLOCK_format_raw)
         {

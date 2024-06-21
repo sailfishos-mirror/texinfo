@@ -5933,159 +5933,150 @@ sub _handle_block_command($$$$$)
   my $line = shift;
   my $source_info = shift;
 
-  my $retval = $STILL_MORE_TO_PROCESS;
+  # a menu command closes a menu_comment, but not the other
+  # block commands. This won't catch menu commands buried in
+  # other formats (that are incorrect anyway).
+  if ($block_commands{$command} eq 'menu' and $current->{'type'}
+      and ($current->{'type'} eq 'menu_comment'
+           or $current->{'type'} eq 'menu_entry_description')) {
+
+    # This is, in general, caused by @detailmenu within @menu
+    if ($current->{'type'} eq 'menu_comment') {
+      $current = _close_container($self, $current, $source_info);
+    } else { # menu_entry_description
+      $current = _close_container($self, $current, $source_info);
+      if ($current->{'type'} and $current->{'type'} eq 'menu_entry') {
+        $current = $current->{'parent'};
+      } else {
+        $self->_bug_message("menu description parent not a menu_entry",
+                            $source_info, $current);
+        die;
+      }
+    }
+  }
 
   my $block;
 
-  if ($command eq 'macro' or $command eq 'rmacro' or $command eq 'linemacro') {
-    $block = _parse_macro_command_line($self, $command, $line,
-                                       $current, $source_info);
+  # the def command holds a line_def* which corresponds with the
+  # definition line.  This allows to have a treatement similar
+  # with def*x.
+  if ($def_commands{$command}) {
+    $self->_push_context('ct_def', $command);
+    $block = { 'parent' => $current,
+               'cmdname' => $command,
+               'contents' => [] };
     push @{$current->{'contents'}}, $block;
     $current = $current->{'contents'}->[-1];
-    return ($current, $line, $GET_A_NEW_LINE, $block);
-    # goto funexit;  # used in XS code
+    push @{$current->{'contents'}}, {
+                                      'type' => 'def_line',
+                                      'parent' => $current,
+                                      'source_info' => {%$source_info},
+                                      'extra' =>
+                                       {'def_command' => $command,
+                                        'original_def_cmdname' => $command,
+                                       },
+                                      };
+    if (defined($self->{'values'}->{'txidefnamenospace'})) {
+      $current->{'contents'}->[-1]->{'extra'}
+                                  ->{'omit_def_name_space'} = 1;
+    }
   } else {
-    # a menu command closes a menu_comment, but not the other
-    # block commands. This won't catch menu commands buried in
-    # other formats (that are incorrect anyway).
-    if ($block_commands{$command} eq 'menu' and $current->{'type'}
-        and ($current->{'type'} eq 'menu_comment'
-             or $current->{'type'} eq 'menu_entry_description')) {
+    $block = { 'cmdname' => $command,
+               'parent' => $current,
+             };
+    push @{$current->{'contents'}}, $block;
+  }
+  $current = $current->{'contents'}->[-1];
 
-      # This is, in general, caused by @detailmenu within @menu
-      if ($current->{'type'} eq 'menu_comment') {
-        $current = _close_container($self, $current, $source_info);
-      } else { # menu_entry_description
-        $current = _close_container($self, $current, $source_info);
-        if ($current->{'type'} and $current->{'type'} eq 'menu_entry') {
-          $current = $current->{'parent'};
+  if ($preformatted_commands{$command}) {
+    $self->_push_context('ct_preformatted', $command);
+  } elsif ($math_commands{$command}) {
+    $self->_push_context('ct_math', $command);
+  } elsif ($block_commands{$command} eq 'format_raw') {
+    $self->_push_context('ct_rawpreformatted', $command);
+  }
+  if ($block_commands{$command} eq 'region') {
+    push @{$self->{'nesting_context'}->{'regions_stack'}}, $command;
+  }
+  if ($block_commands{$command} eq 'menu') {
+    $self->_push_context('ct_preformatted', $command);
+    push @{$self->{'document'}->{'commands_info'}->{'dircategory_direntry'}},
+         $block if ($command eq 'direntry');
+    if ($self->{'current_node'}) {
+      if ($command eq 'direntry') {
+        if ($self->{'conf'}->{'FORMAT_MENU'} eq 'menu') {
+          $self->_line_warn(__("\@direntry after first node"),
+                    $source_info);
+        }
+      } elsif ($command eq 'menu') {
+        if (!(defined $current->{'parent'}->{'cmdname'})
+            or $root_commands{$current->{'parent'}->{'cmdname'}}) {
+          $self->{'current_node'}->{'extra'} = {}
+            if (!defined($self->{'current_node'}->{'extra'}));
+          $self->{'current_node'}->{'extra'}->{'menus'} = []
+            if (!defined($self->{'current_node'}->{'extra'}->{'menus'}));
+          push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
         } else {
-          $self->_bug_message("menu description parent not a menu_entry",
-                              $source_info, $current);
-          die;
+          $self->_line_warn(__("\@menu in invalid context"),
+                            $source_info);
         }
       }
     }
-    # the def command holds a line_def* which corresponds with the
-    # definition line.  This allows to have a treatement similar
-    # with def*x.
-    if ($def_commands{$command}) {
-      $self->_push_context('ct_def', $command);
-      $block = { 'parent' => $current,
-                 'cmdname' => $command,
-                 'contents' => [] };
-      push @{$current->{'contents'}}, $block;
-      $current = $current->{'contents'}->[-1];
-      push @{$current->{'contents'}}, {
-                                        'type' => 'def_line',
-                                        'parent' => $current,
-                                        'source_info' => {%$source_info},
-                                        'extra' =>
-                                         {'def_command' => $command,
-                                          'original_def_cmdname' => $command,
-                                         },
-                                        };
-      if (defined($self->{'values'}->{'txidefnamenospace'})) {
-        $current->{'contents'}->[-1]->{'extra'}
-                                    ->{'omit_def_name_space'} = 1;
+  }
+  # cleaner, and more similar to XS parser, but not required, would have
+  # been initialized automatically.
+  $current->{'items_count'} = 0
+     if ($block_commands{$command}
+         and $block_commands{$command} eq 'item_container');
+
+  if ($command eq 'nodedescriptionblock') {
+    if ($self->{'current_node'}) {
+      $block->{'extra'} = {} if (!defined($block->{'extra'}));
+      $block->{'extra'}->{'element_node'} = $self->{'current_node'};
+      if ($self->{'current_node'}->{'extra'}
+          and $self->{'current_node'}->{'extra'}->{'node_long_description'}) {
+        $self->_line_warn(__("multiple node \@nodedescriptionblock"),
+                          $source_info);
+      } else {
+        $self->{'current_node'}->{'extra'} = {}
+          if (!$self->{'current_node'}->{'extra'});
+        $self->{'current_node'}->{'extra'}->{'node_long_description'}
+          = $block;
+        if (!$self->{'current_node'}->{'extra'}->{'node_description'}) {
+          $self->{'current_node'}->{'extra'}->{'node_description'}
+            = $block;
+        }
       }
     } else {
-      $block = { 'cmdname' => $command,
-                 'parent' => $current,
-               };
-      push @{$current->{'contents'}}, $block;
+      $self->_line_warn(__("\@nodedescriptionblock outside of any node"),
+                        $source_info);
     }
-    $current = $current->{'contents'}->[-1];
-
-    if ($preformatted_commands{$command}) {
-      $self->_push_context('ct_preformatted', $command);
-    } elsif ($math_commands{$command}) {
-      $self->_push_context('ct_math', $command);
-    } elsif ($block_commands{$command} eq 'format_raw') {
-      $self->_push_context('ct_rawpreformatted', $command);
-    }
-    if ($block_commands{$command} eq 'region') {
-      push @{$self->{'nesting_context'}->{'regions_stack'}}, $command;
-    }
-    if ($block_commands{$command} eq 'menu') {
-      $self->_push_context('ct_preformatted', $command);
-      push @{$self->{'document'}->{'commands_info'}->{'dircategory_direntry'}},
-           $block if ($command eq 'direntry');
-      if ($self->{'current_node'}) {
-        if ($command eq 'direntry') {
-          if ($self->{'conf'}->{'FORMAT_MENU'} eq 'menu') {
-            $self->_line_warn(__("\@direntry after first node"),
-                      $source_info);
-          }
-        } elsif ($command eq 'menu') {
-          if (!(defined $current->{'parent'}->{'cmdname'})
-              or $root_commands{$current->{'parent'}->{'cmdname'}}) {
-            $self->{'current_node'}->{'extra'} = {}
-              if (!defined($self->{'current_node'}->{'extra'}));
-            $self->{'current_node'}->{'extra'}->{'menus'} = []
-              if (!defined($self->{'current_node'}->{'extra'}->{'menus'}));
-            push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
-          } else {
-            $self->_line_warn(__("\@menu in invalid context"),
-                              $source_info);
-          }
-        }
-      }
-    }
-    # cleaner, and more similar to XS parser, but not required, would have
-    # been initialized automatically.
-    $current->{'items_count'} = 0
-       if ($block_commands{$command}
-           and $block_commands{$command} eq 'item_container');
-
-    if ($command eq 'nodedescriptionblock') {
-      if ($self->{'current_node'}) {
-        $block->{'extra'} = {} if (!defined($block->{'extra'}));
-        $block->{'extra'}->{'element_node'} = $self->{'current_node'};
-        if ($self->{'current_node'}->{'extra'}
-            and $self->{'current_node'}->{'extra'}->{'node_long_description'}) {
-          $self->_line_warn(__("multiple node \@nodedescriptionblock"),
-                            $source_info);
-        } else {
-          $self->{'current_node'}->{'extra'} = {}
-            if (!$self->{'current_node'}->{'extra'});
-          $self->{'current_node'}->{'extra'}->{'node_long_description'}
-            = $block;
-          if (!$self->{'current_node'}->{'extra'}->{'node_description'}) {
-            $self->{'current_node'}->{'extra'}->{'node_description'}
-              = $block;
-          }
-        }
-      } else {
-        $self->_line_warn(__("\@nodedescriptionblock outside of any node"),
-                          $source_info);
-      }
-    }
-
-    $current->{'args'} = [ {
-       'type' => 'block_line_arg',
-       'parent' => $current } ];
-
-    if ($commands_args_number{$command}) {
-      if ($commands_args_number{$command} - 1 > 0) {
-        $current->{'remaining_args'}
-          = $commands_args_number{$command} - 1;
-      }
-    } elsif ($variadic_commands{$command}) {
-      $current->{'remaining_args'} = -1; # unlimited args
-    }
-    $current = $current->{'args'}->[-1];
-    $self->_push_context('ct_line', $command)
-      unless ($def_commands{$command});
-    if ($self->{'basic_inline_commands'}->{$command}) {
-      push @{$self->{'nesting_context'}->{'basic_inline_stack_block'}},
-           $command;
-    }
-    $block->{'source_info'} = {%$source_info};
-    _register_global_command($self, $block, $source_info);
-    $line = _start_empty_line_after_command($self, $line, $current, $block);
   }
-  return ($current, $line, $retval, $block);
+
+  $current->{'args'} = [ {
+     'type' => 'block_line_arg',
+     'parent' => $current } ];
+
+  if ($commands_args_number{$command}) {
+    if ($commands_args_number{$command} - 1 > 0) {
+      $current->{'remaining_args'}
+        = $commands_args_number{$command} - 1;
+    }
+  } elsif ($variadic_commands{$command}) {
+    $current->{'remaining_args'} = -1; # unlimited args
+  }
+  $current = $current->{'args'}->[-1];
+  $self->_push_context('ct_line', $command)
+    unless ($def_commands{$command});
+  if ($self->{'basic_inline_commands'}->{$command}) {
+    push @{$self->{'nesting_context'}->{'basic_inline_stack_block'}},
+         $command;
+  }
+  $block->{'source_info'} = {%$source_info};
+  _register_global_command($self, $block, $source_info);
+  $line = _start_empty_line_after_command($self, $line, $current, $block);
+
+  return ($current, $line, $block);
 }
 
 sub _handle_brace_command($$$$)
@@ -7460,16 +7451,16 @@ sub _process_remaining_on_line($$$$)
         $retval = $STILL_MORE_TO_PROCESS;
       }
     } elsif (exists($block_commands{$data_cmdname})) {
-      # @-command with matching @end opening
-      ($current, $line, $retval, $command_element)
-       = _handle_block_command($self, $current, $command, $line, $source_info);
-      # in a 'raw' (r)macro
-      if ($retval == $GET_A_NEW_LINE
-          and $current->{'cmdname'}
-          and $block_commands{$current->{'cmdname'}}
-          and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+      if ($command eq 'macro' or $command eq 'rmacro' or $command eq 'linemacro') {
+        $command_element = _parse_macro_command_line($self, $command, $line,
+                                                     $current, $source_info);
+        push @{$current->{'contents'}}, $command_element;
+        $current = $command_element;
         ($line, $source_info) = _process_macro_block_contents($self, $current);
-        $retval = $STILL_MORE_TO_PROCESS;
+      } else {
+        # @-command with matching @end opening
+        ($current, $line, $command_element)
+          = _handle_block_command($self, $current, $command, $line, $source_info);
       }
 
     } elsif (defined($self->{'brace_commands'}->{$data_cmdname})) {
