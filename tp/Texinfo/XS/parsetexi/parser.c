@@ -1444,11 +1444,11 @@ check_valid_nesting_context (enum command_id cmd)
     }
 }
 
-static const char *
+static char *
 process_macro_block_contents (ELEMENT *current)
 {
   enum command_id end_cmd;
-  const char *line = next_text (current);
+  char *line = next_text (current);
 
   while (1)
     {
@@ -1506,11 +1506,14 @@ process_macro_block_contents (ELEMENT *current)
                   if (strchr (whitespace_chars, *line))
                     {
                       ELEMENT *e;
+                      char *no_spaces_line;
                       int n = strspn (line, whitespace_chars);
                       e = new_text_element (ET_raw);
                       text_append_n (e->e.text, line, n);
                       add_to_element_contents (current, e);
-                      line += n;
+                      no_spaces_line = strdup (line + n);
+                      free (line);
+                      line = no_spaces_line;
                       line_warn ("@end %s should only appear at the "
                                  "beginning of a line", command_name(end_cmd));
                     }
@@ -1570,20 +1573,21 @@ process_macro_block_contents (ELEMENT *current)
       e = new_text_element (ET_raw);
       text_append (e->e.text, line);
       add_to_element_contents (current, e);
+      free (line);
 
       line = next_text (current);
     }
   return line;
 }
 
-static const char *
+static char *
 process_raw_block_contents (ELEMENT *current)
 {
   enum command_id end_cmd;
   enum command_id cmd = current->e.c->cmd;
   const char *block_name = command_name(cmd);
   int cmdname_len = strlen (block_name);
-  const char *line;
+  char *line;
   int level = 1;
 
   debug ("BLOCK raw or ignored %s", block_name);
@@ -1635,11 +1639,14 @@ process_raw_block_contents (ELEMENT *current)
               if (strchr (whitespace_chars, *line))
                 {
                   ELEMENT *e;
+                  char *no_spaces_line;
                   int n = strspn (line, whitespace_chars);
                   e = new_text_element (ET_raw);
                   text_append_n (e->e.text, line, n);
                   add_to_element_contents (current, e);
-                  line += n;
+                  no_spaces_line = strdup (line + n);
+                  free (line);
+                  line = no_spaces_line;
                   line_warn ("@end %s should only appear at the "
                              "beginning of a line", command_name(end_cmd));
                 }
@@ -1662,6 +1669,7 @@ process_raw_block_contents (ELEMENT *current)
       e = new_text_element (ET_raw);
       text_append (e->e.text, line);
       add_to_element_contents (current, e);
+      free (line);
 
       line = next_text (current);
     }
@@ -1669,7 +1677,7 @@ process_raw_block_contents (ELEMENT *current)
 }
 
 
-static const char *
+static char *
 process_ignored_raw_format_block_contents (ELEMENT *current)
 {
 
@@ -1684,18 +1692,17 @@ process_ignored_raw_format_block_contents (ELEMENT *current)
   const char *line_dummy;
   int n;
 
-  const char *line = next_text (current);
+  char *line = next_text (current);
 
   e_elided_rawpreformatted = new_element (ET_elided_rawpreformatted);
   add_to_element_contents (current, e_elided_rawpreformatted);
 
-  line_dummy = line;
   while (1)
     {
       if (!line)
         {
           /* unclosed block */
-          return line;
+          return 0;
         }
       else
         {
@@ -1707,26 +1714,33 @@ process_ignored_raw_format_block_contents (ELEMENT *current)
                      command_name(current->e.c->cmd));
               break;
             }
-          else
-            {
-              ELEMENT *raw_text = new_text_element (ET_raw);
-              text_append (raw_text->e.text, line);
-              add_to_element_contents (e_elided_rawpreformatted, raw_text);
-            }
         }
-      line = new_line (e_elided_rawpreformatted);
+
+      ELEMENT *raw_text = new_text_element (ET_raw);
+      text_append (raw_text->e.text, line);
+      add_to_element_contents (e_elided_rawpreformatted, raw_text);
+
+      free (line);
+
+      line = next_text (e_elided_rawpreformatted);
     }
 
-      /* start a new line for the @end line, this is normally done
-         at the beginning of a line, but not here, as we directly
-         got the line. */
+  /* start a new line for the @end line, this is normally done
+     at the beginning of a line, but not here, as we directly
+     got the line. */
 
   e_empty_line = new_text_element (ET_empty_line);
   add_to_element_contents (current, e_empty_line);
 
   n = strspn (line, whitespace_chars_except_newline);
-  text_append_n (e_empty_line->e.text, line, n);
-  line += n;
+  if (n > 0)
+    {
+      char *no_spaces_line;
+      text_append_n (e_empty_line->e.text, line, n);
+      no_spaces_line = strdup (line + n);
+      free (line);
+      line = no_spaces_line;
+    }
 
   return line;
 }
@@ -1745,6 +1759,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   const char *line_after_command;
   int retval = STILL_MORE_TO_PROCESS;
   enum command_id from_alias = CM_NONE;
+  static char *allocated_text;
 
   enum command_id cmd = CM_NONE;
   /* remains set only if command is unknown, otherwise cmd is used */
@@ -1817,7 +1832,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
    */
   while (*line == '\0')
     {
-      static char *allocated_text;
       debug_nonl ("EMPTY TEXT in: ");
       debug_parser_print_element (current, 0); debug ("");
 
@@ -2436,12 +2450,16 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                   && (command_data(current->e.c->cmd).data == BLOCK_raw
              || command_data(current->e.c->cmd).data == BLOCK_conditional))
                 {
-                  line = process_raw_block_contents (current);
+                  free (allocated_text);
+                  line = allocated_text
+                    = process_raw_block_contents (current);
                 }
               else if (command_flags(current) & CF_block
                   && command_data(current->e.c->cmd).data == BLOCK_format_raw)
                 {
-                  line = process_ignored_raw_format_block_contents (current);
+                  free (allocated_text);
+                  line = allocated_text
+                     = process_ignored_raw_format_block_contents (current);
                 }
               else
                 retval = status;
@@ -2462,7 +2480,9 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
             {
               if (command_data(data_cmd).data == BLOCK_raw)
                 {
-                  line = process_macro_block_contents (current);
+                  free (allocated_text);
+                  line = allocated_text
+                       = process_macro_block_contents (current);
                 }
             }
         }
@@ -2563,7 +2583,9 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       if (command_flags(current) & CF_block
           && command_data(current->e.c->cmd).data == BLOCK_format_raw)
         {
-          line = process_ignored_raw_format_block_contents (current);
+          free (allocated_text);
+          line = allocated_text
+            = process_ignored_raw_format_block_contents (current);
         }
       /* @ignore and @verbatim followed by an end of line
          and ignored conditionals */
@@ -2571,7 +2593,9 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           && (command_data(current->e.c->cmd).data == BLOCK_raw
              || command_data(current->e.c->cmd).data == BLOCK_conditional))
         {
-          line = process_raw_block_contents (current);
+          free (allocated_text);
+          line = allocated_text
+            = process_raw_block_contents (current);
         }
       else
         retval = GET_A_NEW_LINE;

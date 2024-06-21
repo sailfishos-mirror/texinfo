@@ -1,5 +1,22 @@
 2024-06-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c
+	(process_ignored_raw_format_block_contents): use next_text instead of
+	next_line to get a new line within contents.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_macro_block_contents)
+	(process_raw_block_contents)
+	(process_ignored_raw_format_block_contents): free the line returned by
+	next_text.  free and reallocate the line when the line is returned
+	without leading spaces.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): free
+	allocated before storing and store the lines returned by
+	process_*_block_contents functions in allocated_text to avoid memory
+	leaks.
+
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_raw_block_contents): fix
 	detection of @end to gather the whole command name.
 
