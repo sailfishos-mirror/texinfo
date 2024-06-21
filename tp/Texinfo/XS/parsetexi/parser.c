@@ -1706,6 +1706,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                   free (command);
                   if (cmd == current->e.c->cmd)
                     {
+                       /*
+                      debug ("CONDITIONAL SECOND LEVEL %s",
+                             command_name(cmd));
+                        */
                       e = new_command_element (ET_block_command, cmd);
                       add_to_element_contents (current, e);
                       current = e;

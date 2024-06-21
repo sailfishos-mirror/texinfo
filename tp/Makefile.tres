@@ -159,6 +159,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/conditionals/text_on_conditional_line_expanded.pl \
   t/results/conditionals/txiinternalvalue.pl \
   t/results/conditionals/user_defined_txiinternalvalue.pl \
+  t/results/conditionals/value_on_ifset.pl \
   t/results/converters_tests/accent_with_text.pl \
   t/results/converters_tests/at_commands_in_raw.pl \
   t/results/converters_tests/combined_fonts.pl \

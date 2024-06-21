@@ -440,6 +440,20 @@ Ra&b
 R#something
 @end ifclear
 '],
+['value_on_ifset',
+'@set xval x
+@set x 1
+
+@ifset @value{xval}
+XVAL SET
+@end ifset
+
+@ifset b
+@ifset @value{xval}
+INTERNALXV
+@end ifset
+@end ifset
+'],
 ['ignore_not_closed',
 '@ignore
 

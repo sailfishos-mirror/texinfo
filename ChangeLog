@@ -1,3 +1,8 @@
+2024-06-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/55conditionals.t (value_on_ifset): add test with @value on
+	@ifset line.
+
 2024-06-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm
