@@ -282,38 +282,38 @@ top_conditional_stack (void)
 
 /* Raw block commands stack. */
 
-enum command_id *raw_block_stack;
-size_t raw_block_number;
-size_t raw_block_space;
+enum command_id *macro_block_stack;
+size_t macro_block_number;
+size_t macro_block_space;
 
 void
-push_raw_block_stack (enum command_id raw_block)
+push_macro_block_stack (enum command_id macro_cmd)
 {
-  if (raw_block_number == raw_block_space)
+  if (macro_block_number == macro_block_space)
     {
-      raw_block_stack = realloc (raw_block_stack,
-                                   (raw_block_space += 5)
+      macro_block_stack = realloc (macro_block_stack,
+                                   (macro_block_space += 5)
                                    * sizeof (enum command_id));
-      if (!raw_block_stack)
+      if (!macro_block_stack)
         fatal ("realloc failed");
     }
-  raw_block_stack[raw_block_number++] = raw_block;
+  macro_block_stack[macro_block_number++] = macro_cmd;
 }
 
 enum command_id
-pop_raw_block_stack (void)
+pop_macro_block_stack (void)
 {
-  if (raw_block_number == 0)
+  if (macro_block_number == 0)
     return CM_NONE;
-  return raw_block_stack[--raw_block_number];
+  return macro_block_stack[--macro_block_number];
 }
 
 enum command_id
-raw_block_stack_top (void)
+macro_block_stack_top (void)
 {
-  if (raw_block_number == 0)
+  if (macro_block_number == 0)
     return CM_NONE;
-  return raw_block_stack[raw_block_number-1];
+  return macro_block_stack[macro_block_number-1];
 }
 
 
@@ -1464,11 +1464,11 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
       if (!line)
         {/* unclosed block */
      /* Error for unclosed raw block commands (except for the first level) */
-          while (raw_block_number > 0)
+          while (macro_block_number > 0)
             {
               line_error ("expected @end %s",
-                   command_name(raw_block_stack[raw_block_number - 1]));
-              raw_block_number--;
+                   command_name(macro_block_stack[macro_block_number - 1]));
+              macro_block_number--;
             }
           break;
         }
@@ -1497,19 +1497,19 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
         {
           debug ("RAW SECOND LEVEL %s in @%s", command_name(cmd),
                  command_name(current->e.c->cmd));
-          push_raw_block_stack (cmd);
+          push_macro_block_stack (cmd);
         }
       /* Else check if line is "@end ..." for current command. */
       else
         {
-          enum command_id top_stack_cmd = raw_block_stack_top ();
+          enum command_id top_stack_cmd = macro_block_stack_top ();
           if (top_stack_cmd == CM_NONE)
             {/* current is the first command */
               top_stack_cmd = current->e.c->cmd;
             }
           if (is_end_current_command (top_stack_cmd, &p, &end_cmd))
             {
-              if (raw_block_number == 0)
+              if (macro_block_number == 0)
                 {
                   ELEMENT *e;
                   char *name;
@@ -1574,7 +1574,7 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
                   break;
                 }
               else
-                pop_raw_block_stack ();
+                pop_macro_block_stack ();
             }
         }
       /* save the line verbatim */

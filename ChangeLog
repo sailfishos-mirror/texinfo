@@ -1,5 +1,15 @@
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/parser.c
+	(macro_block_stack, macro_block_number, macro_block_space)
+	(push_macro_block_stack, pop_macro_block_stack)
+	(macro_block_stack_top): rename raw_block_stack as macro_block_stack,
+	other raw_block_* variables as macro_block_*, push_raw_block_stack as
+	push_macro_block_stack, pop_raw_block_stack as pop_macro_block_stack
+	and raw_block_stack_top as macro_block_stack_top.  Update callers.
+
+2024-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_macro_block_contents)
 	(_parse_tex), tp/Texinfo/XS/parsetexi/parser.c
 	(process_macro_block_contents, parse_texi): emit errors on unclosed

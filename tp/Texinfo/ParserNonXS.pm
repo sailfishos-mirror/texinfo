@@ -189,7 +189,7 @@ my %parsing_state_initialization = (
                        # is also in that structure.
   'conditional_stack' => [],  # a stack of conditional commands that are
                               # expanded.
-  'raw_block_stack' => [],    # a stack of raw block commands that are nested.
+  'macro_block_stack' => [],  # a stack of *macro block commands that are nested.
   'macro_expansion_nr' => 0,  # number of macros being expanded
   'value_expansion_nr' => 0,  # number of values being expanded
   'nesting_context'    => {
@@ -6784,24 +6784,24 @@ sub _process_macro_block_contents($$)
     if (!defined($line)) {
       # unclosed block
       # Error for unclosed raw block commands (except for the first level)
-      while (@{$self->{'raw_block_stack'}}) {
-        my $end_raw_block = pop @{$self->{'raw_block_stack'}};
-        $self->_line_error(sprintf(__("expected \@end %s"), $end_raw_block),
+      while (@{$self->{'macro_block_stack'}}) {
+        my $end_macro_block = pop @{$self->{'macro_block_stack'}};
+        $self->_line_error(sprintf(__("expected \@end %s"), $end_macro_block),
                            $source_info);
       }
       return (undef, $source_info);
     }
     # r?macro may be nested
     if ($line =~ /^\s*\@((line|r)?macro)\s+/) {
-      push @{$self->{'raw_block_stack'}}, $1;
+      push @{$self->{'macro_block_stack'}}, $1;
       print STDERR "RAW SECOND LEVEL $1 in \@$current->{'cmdname'}\n"
         if ($self->{'conf'}->{'DEBUG'});
     } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
-             and ((scalar(@{$self->{'raw_block_stack'}}) > 0
-                   and $2 eq $self->{'raw_block_stack'}->[-1])
-                  or (scalar(@{$self->{'raw_block_stack'}}) == 0
+             and ((scalar(@{$self->{'macro_block_stack'}}) > 0
+                   and $2 eq $self->{'macro_block_stack'}->[-1])
+                  or (scalar(@{$self->{'macro_block_stack'}}) == 0
                       and $2 eq $current->{'cmdname'}))) {
-      if (scalar(@{$self->{'raw_block_stack'}}) == 0) {
+      if (scalar(@{$self->{'macro_block_stack'}}) == 0) {
         if ($line =~ s/^(\s+)//) {
           push @{$current->{'contents'}},
             { 'text' => $1,
@@ -6845,7 +6845,7 @@ sub _process_macro_block_contents($$)
                                           'parent' => $current };
         last;
       } else {
-        my $closed_cmdname = pop @{$self->{'raw_block_stack'}};
+        my $closed_cmdname = pop @{$self->{'macro_block_stack'}};
       }
     }
     push @{$current->{'contents'}},
