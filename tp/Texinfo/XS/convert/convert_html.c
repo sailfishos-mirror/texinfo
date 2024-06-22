@@ -16258,6 +16258,9 @@ command_conversion_external (CONVERTER *self, const enum command_id cmd,
   const FORMATTING_REFERENCE *formatting_reference
     = self->current_commands_conversion_function[cmd].formatting_reference;
 
+  /* NOTE it should always be true as in the main loop a formatting
+     function is called only if command_conversion is set, which should
+     not be if formatting_reference status is 0 */
   if (formatting_reference->status > 0)
     call_commands_conversion (self, cmd, formatting_reference,
                               element, args_formatted, content,
@@ -16279,6 +16282,9 @@ type_conversion_external (CONVERTER *self, const enum element_type type,
 {
   const FORMATTING_REFERENCE *formatting_reference
     = self->current_types_conversion_function[type].formatting_reference;
+  /* NOTE it should always be true, as in the main loop a formatting
+     function is called only if type_conversion is set, which should not
+     be if formatting_reference status is 0 */
   if (formatting_reference->status > 0)
     call_types_conversion (self, type, formatting_reference,
                            element, content, result);
@@ -18521,6 +18527,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
   if (type_data[element->type].flags & TF_text)
     {
       TEXT text_result;
+      /* NOTE C only text types cannot be ignored here */
       if (self->current_types_conversion_function[element->type].status
                                                      == FRS_status_ignored)
         {
@@ -18557,8 +18564,12 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
   /* ignored if ignored both as type and command */
   if ((element->type
-       && self->current_types_conversion_function[element->type].status
-                                                     == FRS_status_ignored)
+       && (self->current_types_conversion_function[element->type].status
+                                                     == FRS_status_ignored
+         /* type unknown in Perl */
+           || (type_data[element->type].flags & TF_at_command
+               && element->type != ET_index_entry_command
+               && element->type != ET_definfoenclose_command)))
        && (!cmd
            || self->current_commands_conversion_function[cmd].status
                                                      == FRS_status_ignored))
