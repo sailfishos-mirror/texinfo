@@ -6783,6 +6783,12 @@ sub _process_macro_block_contents($$)
   while (1) {
     if (!defined($line)) {
       # unclosed block
+      # Error for unclosed raw block commands (except for the first level)
+      while (@{$self->{'raw_block_stack'}}) {
+        my $end_raw_block = pop @{$self->{'raw_block_stack'}};
+        $self->_line_error(sprintf(__("expected \@end %s"), $end_raw_block),
+                           $source_info);
+      }
       return (undef, $source_info);
     }
     # r?macro may be nested
@@ -7673,11 +7679,6 @@ sub _parse_texi($$$)
     my $cond_info = pop @{$self->{'conditional_stack'}};
     my ($cond_command, $cond_source_mark) = @$cond_info;
     $self->_line_error(sprintf(__("expected \@end %s"), $cond_command),
-                      $source_info);
-  }
-  while (@{$self->{'raw_block_stack'}}) {
-    my $end_raw_block = pop @{$self->{'raw_block_stack'}};
-    $self->_line_error(sprintf(__("expected \@end %s"), $end_raw_block),
                       $source_info);
   }
   $current = _close_commands($self, $current, $source_info);

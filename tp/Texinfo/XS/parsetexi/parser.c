@@ -1463,6 +1463,13 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
 
       if (!line)
         {/* unclosed block */
+     /* Error for unclosed raw block commands (except for the first level) */
+          while (raw_block_number > 0)
+            {
+              line_error ("expected @end %s",
+                   command_name(raw_block_stack[raw_block_number - 1]));
+              raw_block_number--;
+            }
           break;
         }
 
@@ -2721,14 +2728,6 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
       line_error ("expected @end %s",
         command_name(conditional_stack[conditional_number - 1].command));
       conditional_number--;
-    }
-
-  /* Check for unclosed raw block commands */
-  while (raw_block_number > 0)
-    {
-      line_error ("expected @end %s",
-                  command_name(raw_block_stack[raw_block_number - 1]));
-      raw_block_number--;
     }
 
     {

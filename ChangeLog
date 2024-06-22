@@ -1,5 +1,14 @@
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_macro_block_contents)
+	(_parse_tex), tp/Texinfo/XS/parsetexi/parser.c
+	(process_macro_block_contents, parse_texi): emit errors on unclosed
+	raw block commands (except for the first level) in
+	process_macro_block_contents if the block is not finished instead of
+	checking at the end of the parsing.
+
+2024-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line, _parse_texi),
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line)
 	(parse_texi): process a definition line continuation right where it is
