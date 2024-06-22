@@ -3189,6 +3189,8 @@ foreach my $explained_command (keys(%explained_commands)) {
 
 my %kept_line_commands;
 
+# FIXME check that all the commands are in %default_commands_conversion?
+
 # TODO add the possibility to customize to add more commands to
 # @informative_global_commands?
 my @informative_global_commands = ('documentlanguage', 'footnotestyle',
@@ -3219,8 +3221,8 @@ $default_commands_conversion{'page'} = undef;
 $default_commands_conversion{'need'} = undef;
 $default_commands_conversion{'vskip'} = undef;
 
-foreach my $ignored_brace_commands ('caption', 'shortcaption',
-  'hyphenation', 'sortas') {
+foreach my $ignored_brace_commands ('caption', 'errormsg', 'hyphenation',
+  'shortcaption', 'seealso', 'seeentry', 'sortas') {
   $default_commands_conversion{$ignored_brace_commands} = undef;
 }
 

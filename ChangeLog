@@ -4,6 +4,11 @@
 
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%default_commands_conversion): ignore
+	explicitly seealso, seeentry and sortas.
+
+2024-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_abort_empty_line),
 	tp/Texinfo/XS/parsetexi/parser.c (do_abort_empty_line): simplify debug
 	message.
