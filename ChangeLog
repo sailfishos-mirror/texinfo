@@ -1,5 +1,10 @@
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (text_contents_to_plain_text): use
+	text_append_n in ADD, as we always know the text length.
+
+2024-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (text_contents_to_plain_text): do
 	not check that the element is not NULL, it should never happen.
 

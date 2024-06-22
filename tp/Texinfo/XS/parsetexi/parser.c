@@ -200,7 +200,7 @@ check_space_element (ELEMENT *e)
 char *
 text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 {
-#define ADD(x) text_append (&result, x)
+#define ADD(x,n) text_append_n (&result, x, n)
 
   TEXT result; int i;
 
@@ -211,17 +211,17 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
       if (type_data[e1->type].flags & TF_text)
         {
           if (e1->e.text->end > 0)
-            ADD(e1->e.text->text);
+            ADD(e1->e.text->text, e1->e.text->end);
         }
       else if (e1->e.c->cmd == CM_AT_SIGN
                || e1->e.c->cmd == CM_atchar)
-        ADD("@");
+        ADD("@", 1);
       else if (e1->e.c->cmd == CM_OPEN_BRACE
                || e1->e.c->cmd == CM_lbracechar)
-        ADD("{");
+        ADD("{", 1);
       else if (e1->e.c->cmd == CM_CLOSE_BRACE
                || e1->e.c->cmd == CM_rbracechar)
-        ADD("}");
+        ADD("}", 1);
       else
         *superfluous_arg = 1;
     }
