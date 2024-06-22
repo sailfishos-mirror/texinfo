@@ -2236,7 +2236,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
   /* Any other @-command. */
   else if (cmd)
     {
-      int def_line_continuation;
       /* command used to get command data.  Needed for the multicategory
          @item command. */
       enum command_id data_cmd = cmd;
@@ -2349,13 +2348,20 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       /* special case with @ followed by a newline protecting end of lines
          in  @def* */
-      def_line_continuation = (current_context () == ct_def
-                               && cmd == CM_NEWLINE);
+      if (current_context () == ct_def && cmd == CM_NEWLINE)
+        {
+          SOURCE_MARK *line_continuation_source_mark
+            = new_source_mark (SM_type_defline_continuation);
+          register_source_mark (current, line_continuation_source_mark);
+
+          free (allocated_text);
+          line = allocated_text = next_text (current);
+          goto funexit;
+        }
 
       /* warn on not appearing at line beginning.  Need to do before closing
          paragraph as it also closes the empty line */
-      if (!def_line_continuation
-          && !abort_empty_line (current)
+      if (!abort_empty_line (current)
           && ((cmd == CM_node || cmd == CM_bye)
               || (command_data(cmd).flags & CF_block)
               || ((command_data(cmd).flags & CF_line)
@@ -2389,15 +2395,6 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
              the checks are done with @item as NOBRACE_skipspace */
           check_valid_nesting (current, cmd);
           check_valid_nesting_context (cmd);
-        }
-
-      if (def_line_continuation)
-        {
-          SOURCE_MARK *line_continuation_source_mark
-            = new_source_mark (SM_type_defline_continuation);
-          register_source_mark (current, line_continuation_source_mark);
-          retval = GET_A_NEW_LINE;
-          goto funexit;
         }
 
       if ((cmd == CM_sortas
@@ -2655,6 +2652,9 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   /* Read input file line-by-line. */
   while (1)
     {
+      ELEMENT *e;
+      int n;
+
       free (allocated_line);
       line = allocated_line = next_text (current);
       if (!allocated_line)
@@ -2665,22 +2665,18 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
       debug_nonl ("NEW LINE %s", line);
 
+      if (check_line_directive (line))
+        continue;
+
       /* collect leading whitespace and save as an "ET_empty_line" element.
          This element type can be changed in 'abort_empty_line' when more
          text is read. */
-      if (current_context () != ct_def)
+
+      e = new_text_element (ET_empty_line);
+      add_to_element_contents (current, e);
+      n = strspn (line, whitespace_chars_except_newline);
+      if (n > 0)
         {
-          ELEMENT *e;
-          int n;
-
-          if (check_line_directive (line))
-            continue;
-
-          debug ("BEGIN LINE");
-
-          e = new_text_element (ET_empty_line);
-          add_to_element_contents (current, e);
-          n = strspn (line, whitespace_chars_except_newline);
           text_append_n (e->e.text, line, n);
           line += n;
         }

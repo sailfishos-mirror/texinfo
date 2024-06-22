@@ -7355,14 +7355,18 @@ sub _process_remaining_on_line($$$$)
 
     # special case with @ followed by a newline protecting end of lines
     # in @def*
-    my $def_line_continuation
-      = ($self->_top_context() eq 'ct_def' and $command eq "\n");
+    if ($self->_top_context() eq 'ct_def' and $command eq "\n") {
+      my $line_continuation_source_mark
+        = { 'sourcemark_type' => 'defline_continuation' };
+      _register_source_mark($self, $current, $line_continuation_source_mark);
+      ($line, $source_info) = _next_text($self, $current);
+      return ($current, $line, $source_info, $retval);
+    }
 
     # warn on not appearing at line beginning.  Need to do before closing
     # paragraph as it also closes the empty line
-    if (not $def_line_continuation
-           and not _abort_empty_line($self, $current)
-           and $begin_line_commands{$command}) {
+    if (not _abort_empty_line($self, $current)
+        and $begin_line_commands{$command}) {
       $self->_line_warn(
           sprintf(__("\@%s should only appear at the beginning of a line"),
                   $command), $source_info);
@@ -7384,14 +7388,6 @@ sub _process_remaining_on_line($$$$)
 
     _check_valid_nesting ($self, $current, $command, $source_info);
     _check_valid_nesting_context ($self, $command, $source_info);
-
-    if ($def_line_continuation) {
-      my $line_continuation_source_mark
-        = { 'sourcemark_type' => 'defline_continuation' };
-      _register_source_mark($self, $current, $line_continuation_source_mark);
-      return ($current, $line, $source_info, $GET_A_NEW_LINE);
-      # goto funexit;  # used in XS code
-    }
 
     if ($in_index_commands{$command}
         and $current->{'contents'}
@@ -7627,18 +7623,13 @@ sub _parse_texi($$$)
     #  next;
     #}
 
-    if (# not def line
-        $self->_top_context() ne 'ct_def') {
-      next NEXT_LINE if _check_line_directive ($self, $line, $source_info);
-      print STDERR "BEGIN LINE\n" if ($self->{'conf'}->{'DEBUG'});
+    next NEXT_LINE if _check_line_directive ($self, $line, $source_info);
 
-      # based on whitespace_chars_except_newline in XS parser
-      $line =~ s/^([ \t\cK\f]*)//;
-      push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                        'text' => $1,
-                                        'parent' => $current };
-    }
-
+    # based on whitespace_chars_except_newline in XS parser
+    $line =~ s/^([ \t\cK\f]*)//;
+    push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                      'text' => $1,
+                                      'parent' => $current };
     while (1) {
       ($current, $line, $source_info, $status)
          = _process_remaining_on_line($self, $current, $line, $source_info);
