@@ -1,5 +1,12 @@
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%type_without_paragraph),
+	tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph_p): remove explicit
+	check for root_line as non-paragraph type, as it is in ct_line context
+	now.
+
+2024-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_current_context_command): rename
 	_top_context_command as _current_context_command to match C code.
 

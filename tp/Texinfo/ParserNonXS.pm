@@ -379,7 +379,7 @@ my @set_flag_index_char_ignore = (
 #}
 
 my %type_without_paragraph;
-foreach my $type ('brace_arg', 'brace_container', 'root_line') {
+foreach my $type ('brace_arg', 'brace_container') {
   $type_without_paragraph{$type} = 1;
 };
 
@@ -1376,7 +1376,7 @@ sub _begin_paragraph($$;$)
   my ($self, $current, $source_info) = @_;
 
   # we want to avoid
-  # brace_container, brace_arg, root_line,
+  # brace_container, brace_arg, root_line (ct_line),
   # paragraphs (ct_paragraph), line_arg (ct_line, ct_def), balanced_braces
   # (only in ct_math, ct_rawpreformatted, ct_inlineraw), block_line_arg
   # (ct_line, ct_def), preformatted (ct_preformatted).

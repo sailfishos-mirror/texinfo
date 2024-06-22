@@ -568,15 +568,14 @@ static int
 begin_paragraph_p (const ELEMENT *current)
 {
   /* we want to avoid
-     brace_container, brace_arg, root_line,
+     brace_container, brace_arg, root_line (ct_line),
      paragraphs (ct_paragraph), line_arg (ct_line, ct_def), balanced_braces
      (only in ct_math, ct_rawpreformatted, ct_inlineraw), block_line_arg
      (ct_line, ct_def), preformatted (ct_preformatted).
    */
   return (begin_paragraph_context (current_context ())
           && current->type != ET_brace_arg
-          && current->type != ET_brace_container
-          && current->type != ET_root_line);
+          && current->type != ET_brace_container);
 
   /* explicit selection of types with paragraphs within */
   /*
