@@ -204,10 +204,6 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 
   TEXT result; int i;
 
-  /* FIXME check if that can happen, probably not.  If yes, the
-     string should be strdup'ed */
-  if (!e)
-    return "";
   text_init (&result);
   for (i = 0; i < e->e.c->contents.number; i++)
     {
