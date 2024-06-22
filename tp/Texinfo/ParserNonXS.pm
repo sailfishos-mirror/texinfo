@@ -372,12 +372,8 @@ my @set_flag_index_char_ignore = (
    ['txiindexatsignignore', '@'],
 );
 
-#my %type_with_paragraph;
-#foreach my $type ('before_item', 'before_node_section', 'document_root',
-#                  'brace_command_context') {
-#  $type_with_paragraph{$type} = 1;
-#}
-
+# after checking that the context is in begin_paragraph_contexts, the list
+# of types in which paragraphs are not started.
 my %type_without_paragraph;
 foreach my $type ('brace_arg', 'brace_container') {
   $type_without_paragraph{$type} = 1;
@@ -562,14 +558,6 @@ foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
                   'iso-8859-15', 'iso-8859-2', 'koi8-r', 'koi8-u') {
   $canonical_texinfo_encodings{$canonical_encoding} = 1;
 }
-
-# context_stack stack contexts in which an empty line doesn't trigger
-# a paragraph
-my %no_paragraph_contexts;
-foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
-                                  'def', 'inlineraw', 'linecommand') {
-  $no_paragraph_contexts{'ct_'.$no_paragraph_context} = 1;
-};
 
 my %begin_paragraph_contexts;
 foreach my $begin_paragraph_context ('base') {
@@ -2986,10 +2974,8 @@ sub _abort_empty_line {
 
     if ($self->{'conf'}->{'DEBUG'}) {
       print STDERR "ABORT EMPTY in "
-        .Texinfo::Common::debug_print_element($current)."(bpara:".
-          ($begin_paragraph_contexts{$self->_top_context()} ? 1 : 0)."): "
-         .$spaces_element->{'type'}."; ";
-      print STDERR "|$spaces_element->{'text'}|\n";
+         .Texinfo::Common::debug_print_element($current)
+          .": $spaces_element->{'type'}; |$spaces_element->{'text'}|\n";
     }
 
     # remove empty 'empty*before'.  Happens in many situations.

@@ -574,20 +574,12 @@ begin_paragraph_p (const ELEMENT *current)
      (ct_line, ct_def), preformatted (ct_preformatted).
    */
   return (begin_paragraph_context (current_context ())
+     /* after checking begin_paragraph_context, it remains the
+        brace no_paragraph command that are not context commands,
+        outside of paragraph.  Including commands nested in those commands.
+        For example, in @anchor and also in @samp in @anchor */
           && current->type != ET_brace_arg
           && current->type != ET_brace_container);
-
-  /* explicit selection of types with paragraphs within */
-  /*
-  return (current->type == ET_line_command */ /* for nodes, sectioning content */
-         /*  || current->type == ET_block_command */ /* block command content */
-         /*  || current->type == ET_container_command */ /* @item, @tab block
-                                                       command content */
-         /*  || current->type == ET_before_item
-           || current->type == ET_before_node_section
-           || current->type == ET_document_root
-           || current->type == ET_brace_command_context)
-         && begin_paragraph_context (current_context ()); */
 }
 
 /* If in a context where paragraphs are to be started, start a new
@@ -718,12 +710,8 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
     {
       debug_nonl ("ABORT EMPTY in ");
       debug_parser_print_element (current, 0);
-      debug_nonl ("(bpara:%d): %s; ",
-                  begin_paragraph_context (current_context ()),
-                  type_data[last_elt->type].name);
-      debug_nonl ("|%s|",
-                  last_elt->e.text->end > 0 ? last_elt->e.text->text : "");
-      debug ("");
+      debug (": %s; |%s|", type_data[last_elt->type].name,
+                           last_elt->e.text->text);
     }
 
 

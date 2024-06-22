@@ -4,6 +4,14 @@
 
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_abort_empty_line),
+	tp/Texinfo/XS/parsetexi/parser.c (do_abort_empty_line): simplify debug
+	message.
+	
+	Changes in comments.
+
+2024-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%type_without_paragraph),
 	tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph_p): remove explicit
 	check for root_line as non-paragraph type, as it is in ct_line context

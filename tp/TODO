@@ -806,7 +806,7 @@ Full check, including XS conversion and memory leaks in debug:
 export TEXINFO_XS_CONVERT=1
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
-for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
+for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full --keep-debuginfo=yes perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
 
 
 Analysing memory use:
