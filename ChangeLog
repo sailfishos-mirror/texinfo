@@ -1,5 +1,32 @@
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_current_context_command): rename
+	_top_context_command as _current_context_command to match C code.
+
+	* tp/Texinfo/ParserNonXS.pm (%parsing_state_initialization)
+	(_initialize_parsing, parse_texi_piece, parse_texi_line)
+	(parse_texi_text, parse_texi_file, _parse_texi),
+	tp/Texinfo/XS/parsetexi/api.c (initialize_parsing, parse_file)
+	(parse_text, parse_string, parse_piece),
+	tp/Texinfo/XS/parsetexi/context_stack.c (current_context_command)
+	(top_context_command, current_context),
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi): add the root context as
+	argument to initialize_parsing.  Set root context to ct_line if in
+	parse_texi_line, and to ct_base otherwise.  Modify C code to have an
+	explicit root context.
+
+	* tp/Texinfo/ParserNonXS.pm (_current_context_command)
+	(_end_line, _handle_other_command, _process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command)
+	(process_remaining_on_line): verify that the top context command is
+	defined when checking that we are in line context on a command line
+	argument.
+
+	* tp/Texinfo/XS/parsetexi/context_stack.c: remove in_context.
+
+2024-06-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (text_contents_to_plain_text): use
 	text_append_n in ADD, as we always know the text length.
 

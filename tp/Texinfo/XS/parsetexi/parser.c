@@ -2116,7 +2116,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                    line_warn ("command `@%s' must not be followed by new line",
                               command_name(current->e.c->cmd));
                    if (current_context () == ct_def
-                       || current_context () == ct_line)
+                       || (current_context () == ct_line
+                           && top_context_command () != CM_NONE))
                      {
                     /* do not consider the end of line to be possibly between
                        the @-command and the argument if at the end of a
@@ -2735,6 +2736,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
         current = current->parent;
     }
 
+  pop_context ();
   if (!is_context_empty ())
     {
       fprintf (stderr, "Context: %s\n", context_name (current_context ()));

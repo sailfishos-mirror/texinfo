@@ -380,7 +380,8 @@ handle_other_command (ELEMENT *current, const char **line_inout,
             }
           if (cmd == CM_NEWLINE)
             {
-              if (current_context () == ct_line)
+              if (current_context () == ct_line
+                  && top_context_command () != CM_NONE)
                 line_warn ("@ should not occur at end of argument "
                            "to line command");
               current = end_line (current);
@@ -731,11 +732,11 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       goto funexit;
     }
   else
+    /* text, line, or specific.
+       (This includes handling of "@end", which is LINE_text.) */
     {
       ELEMENT *arg;
 
-      /* text, line, or specific.
-         (This includes handling of "@end", which is LINE_text.) */
       if (cmd == CM_item || cmd == CM_itemx)
         {
           ELEMENT *parent;

@@ -202,7 +202,7 @@ my %parsing_state_initialization = (
                            'footnote' => 0,
                            'caption' => 0,
                           },
-  'context_stack'      => ['ct_base'],
+  'context_stack'      => [],
                          # stack of the contexts, more recent on top.
                          # 'ct_line' is added when on a line or
                          # block @-command line,
@@ -220,7 +220,7 @@ my %parsing_state_initialization = (
                          # that does not already start another context, ie not
                          # math).
                          # 'ct_paragraph' is added in paragraph.
-  'context_command_stack' => [''],
+  'context_command_stack' => [],
                          # the stack of @-commands. An @-command name can
                          # be added each time a context is pushed on
                          # 'context_stack'.  Could be undef if there
@@ -645,9 +645,10 @@ sub parser(;$)
   return $parser;
 }
 
-sub _initialize_parsing()
+sub _initialize_parsing($$)
 {
   my $parser = shift;
+  my $context = shift;
 
   my $index_names;
   if (!$parser->{'conf'}->{'NO_INDEX'}) {
@@ -660,6 +661,7 @@ sub _initialize_parsing()
   my $document = Texinfo::Document::new_document($index_names);
 
   my $parser_state = dclone(\%parser_state_initialization);
+  _push_context($parser_state, $context, undef);
 
   # initialize from conf.
   if ($parser->{'conf'}->{'values'}) {
@@ -802,7 +804,7 @@ sub parse_texi_piece($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $parser_state = $self->_initialize_parsing();
+  my $parser_state = $self->_initialize_parsing('ct_base');
   # We rely on parser state overriding the previous state infomation
   # in self, as documented in perldata:
   #   If a key appears more than once in the initializer list of a hash, the last occurrence wins
@@ -827,7 +829,7 @@ sub parse_texi_line($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $parser_state = $self->_initialize_parsing();
+  my $parser_state = $self->_initialize_parsing('ct_line');
   %$self = (%$self, %$parser_state);
 
   _input_push_text($self, $text, $line_nr);
@@ -846,7 +848,7 @@ sub parse_texi_text($$;$)
 
   $line_nr = 1 if (not defined($line_nr));
 
-  my $parser_state = $self->_initialize_parsing();
+  my $parser_state = $self->_initialize_parsing('ct_base');
   %$self = (%$self, %$parser_state);
 
   _input_push_text($self, $text, $line_nr);
@@ -951,7 +953,7 @@ sub parse_texi_file($$)
 
   return undef if (!defined($self));
 
-  my $parser_state = $self->_initialize_parsing();
+  my $parser_state = $self->_initialize_parsing('ct_base');
   %$self = (%$self, %$parser_state);
 
   my ($status, $file_name, $directories, $error_message)
@@ -1088,7 +1090,7 @@ sub _top_context($)
 }
 
 # find first non undef command
-sub _top_context_command($)
+sub _current_context_command($)
 {
   my $self = shift;
   for (my $i = scalar(@{$self->{'context_command_stack'}}) -1; $i > 0; $i--) {
@@ -3866,8 +3868,8 @@ sub _end_line_misc_line($$$)
       # closing a menu command, but still in a menu. Open a menu_comment
       if ($closed_command
           and $block_commands{$closed_command->{'cmdname'}} eq 'menu'
-          and defined($self->_top_context_command())
-          and $block_commands{$self->_top_context_command()} eq 'menu') {
+          and defined($self->_current_context_command())
+          and $block_commands{$self->_current_context_command()} eq 'menu') {
         print STDERR "CLOSE menu but still in menu context\n"
           if ($self->{'conf'}->{'DEBUG'});
         push @{$current->{'contents'}}, {'type' => 'menu_comment',
@@ -4649,7 +4651,9 @@ sub _end_line($$$)
   # this happens if there is a nesting of line @-commands on a line.
   # they are reprocessed here.
   my $top_context = $self->_top_context();
-  if ($top_context eq 'ct_line' or $top_context eq 'ct_def') {
+  if (($top_context eq 'ct_line'
+       and defined($self->{'context_command_stack'}->[-1]))
+      or $top_context eq 'ct_def') {
     print STDERR "Still opened line/block command $top_context: "
       .Texinfo::Common::debug_print_element($current, 1)."\n"
         if ($self->{'conf'}->{'DEBUG'});
@@ -5468,7 +5472,8 @@ sub _handle_other_command($$$$$)
                               $command), $source_info);
       }
       if ($command eq "\n") {
-        if ($self->_top_context() eq 'ct_line') {
+        if ($self->_top_context() eq 'ct_line'
+            and defined($self->{'context_command_stack'}->[-1])) {
           $self->_line_warn(
             "\@ should not occur at end of argument to line command",
             $source_info);
@@ -7206,7 +7211,9 @@ sub _process_remaining_on_line($$$$)
            __("command `\@%s' must not be followed by new line"),
            $current->{'cmdname'}), $source_info);
         my $top_context = $self->_top_context();
-        if ($top_context eq 'ct_line' or $top_context eq 'ct_def') {
+        if (($top_context eq 'ct_line'
+             and defined($self->{'context_command_stack'}->[-1]))
+            or $top_context eq 'ct_def') {
           # do not consider the end of line to be possibly between
           # the @-command and the argument if at the end of a
           # line or block @-command.
@@ -7683,8 +7690,10 @@ sub _parse_texi($$$)
   }
   $current = _close_commands($self, $current, $source_info);
 
+  pop @{$self->{'context_stack'}};
+  pop @{$self->{'context_command_stack'}};
   my @context_stack = $self->_get_context_stack();
-  if (scalar(@context_stack) != 1) {
+  if (scalar(@context_stack) != 0) {
     die($self->_bug_message("CONTEXT_STACK not empty at _parse_texi end: "
            .join('|', @context_stack)));
   }

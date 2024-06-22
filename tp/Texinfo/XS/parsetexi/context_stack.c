@@ -37,14 +37,21 @@ current_context_command (void)
   int i;
 
   if (top == 0)
-    return CM_NONE;
-  for (i = top -1; i >= 0; i--)
+    fatal ("command stack empty");
+  for (i = top -1; i > 0; i--)
     {
       if (command_stack.stack[i] != CM_NONE)
         return command_stack.stack[i];
     }
   return CM_NONE;
 }
+
+enum command_id
+top_context_command (void)
+{
+  return top_command (&command_stack);
+}
+
 /* Context stacks */
 
 void
@@ -102,25 +109,9 @@ enum context
 current_context (void)
 {
   if (top == 0)
-    return ct_base;
+    fatal ("context stack empty");
 
   return context_stack[top - 1];
-}
-
-int
-in_context (enum context context)
-{
-  int i;
-
-  if (top == 0)
-    return 0;
-
-  for (i = 0; i < top; i++)
-    {
-      if (context_stack[i] == context)
-        return 1;
-    }
-  return 0;
 }
 
 int

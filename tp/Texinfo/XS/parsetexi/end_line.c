@@ -1941,7 +1941,9 @@ end_line (ELEMENT *current)
 
   /* 'line' or 'def' at top of "context stack" - this happens when
      line commands are nested (always incorrectly?) */
-  if (current_context () == ct_line || current_context () == ct_def)
+  if ((current_context () == ct_line
+       && top_context_command () != CM_NONE)
+       || current_context () == ct_def)
     {
       debug_nonl ("Still opened line/block command %s: ",
                   context_name (current_context ()));

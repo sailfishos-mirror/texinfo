@@ -48,7 +48,7 @@
 #include "api.h"
 
 static int
-initialize_parsing (void)
+initialize_parsing (enum context root_ct)
 {
   parsed_document = new_document ();
 
@@ -91,6 +91,7 @@ initialize_parsing (void)
 
   /* initialize parsing state */
   reset_context_stack ();
+  push_context (root_ct, CM_NONE);
   reset_command_stack (&nesting_context.basic_inline_stack);
   reset_command_stack (&nesting_context.basic_inline_stack_on_line);
   reset_command_stack (&nesting_context.basic_inline_stack_block);
@@ -162,7 +163,7 @@ parse_file_path (const char *input_file_path, char **result)
 int
 parse_file (const char *input_file_path, int *status)
 {
-  int document_descriptor = initialize_parsing ();
+  int document_descriptor = initialize_parsing (ct_base);
   GLOBAL_INFO *global_info;
   char *input_file_name_and_directory[2];
   int input_error;
@@ -210,7 +211,7 @@ parse_file (const char *input_file_path, int *status)
 int
 parse_text (const char *string, int line_nr)
 {
-  int document_descriptor = initialize_parsing ();
+  int document_descriptor = initialize_parsing (ct_base);
 
   input_push_text (strdup (string), line_nr, 0, 0);
   parse_texi_document ();
@@ -224,7 +225,7 @@ int
 parse_string (const char *string, int line_nr)
 {
   ELEMENT *root_elt;
-  int document_descriptor = initialize_parsing ();
+  int document_descriptor = initialize_parsing (ct_line);
 
   root_elt = new_element (ET_root_line);
 
@@ -237,7 +238,7 @@ parse_string (const char *string, int line_nr)
 int
 parse_piece (const char *string, int line_nr)
 {
-  int document_descriptor = initialize_parsing ();
+  int document_descriptor = initialize_parsing (ct_base);
   ELEMENT *before_node_section, *document_root;
 
   before_node_section = setup_document_root_and_before_node_section ();
