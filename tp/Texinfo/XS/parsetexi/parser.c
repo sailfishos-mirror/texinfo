@@ -1192,11 +1192,11 @@ new_value_element (enum command_id cmd, const char *flag,
 
 /* Check if line is "@end ..." for current cmd.  If so, advance LINE. */
 static int
-is_end_current_command (enum command_id cmd, const char **line,
-                        enum command_id *end_cmd)
+is_end_current_command (enum command_id cmd, const char **line)
 {
   const char *linep;
   char *cmdname;
+  enum command_id end_cmd;
 
   linep = *line;
 
@@ -1216,9 +1216,9 @@ is_end_current_command (enum command_id cmd, const char **line,
   if (!cmdname)
     return 0;
 
-  *end_cmd = lookup_command (cmdname);
+  end_cmd = lookup_command (cmdname);
   free (cmdname);
-  if (*end_cmd != cmd)
+  if (end_cmd != cmd)
     return 0;
 
   *line = linep;
@@ -1449,7 +1449,6 @@ static char *allocated_text;
 static void
 process_macro_block_contents (ELEMENT *current, const char **line_out)
 {
-  enum command_id end_cmd;
   const char *line;
 
   free (allocated_text);
@@ -1507,24 +1506,26 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
             {/* current is the first command */
               top_stack_cmd = current->e.c->cmd;
             }
-          if (is_end_current_command (top_stack_cmd, &p, &end_cmd))
+          if (is_end_current_command (top_stack_cmd, &p))
             {
               if (macro_block_number == 0)
                 {
                   ELEMENT *e;
                   char *name;
                   enum command_id existing;
+                  int n;
 
-                  if (strchr (whitespace_chars, *line))
+                  n = strspn (line, whitespace_chars);
+
+                  if (n > 0)
                     {
-                      ELEMENT *e;
-                      int n = strspn (line, whitespace_chars);
-                      e = new_text_element (ET_raw);
+                      ELEMENT *e = new_text_element (ET_raw);
                       text_append_n (e->e.text, line, n);
                       add_to_element_contents (current, e);
                       line += n;
                       line_warn ("@end %s should only appear at the "
-                                 "beginning of a line", command_name(end_cmd));
+                                 "beginning of a line",
+                                 command_name(top_stack_cmd));
                     }
                   if (current->e.c->args.number > 0)
                     {
@@ -1560,7 +1561,8 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
                           new_macro (name, current);
                         }
                     }
-                  debug ("CLOSED user-defined %s", command_name(end_cmd));
+                  debug ("CLOSED user-defined %s",
+                         command_name(top_stack_cmd));
            /* start a new line for the @end line (without the first spaces on
               the line that have already been put in a raw container).
               This is normally done at the beginning of a line, but not here,
@@ -1593,7 +1595,6 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
 static void
 process_raw_block_contents (ELEMENT *current, const char **line_out)
 {
-  enum command_id end_cmd;
   enum command_id cmd = current->e.c->cmd;
   const char *block_name = command_name(cmd);
   int cmdname_len = strlen (block_name);
@@ -1641,25 +1642,24 @@ process_raw_block_contents (ELEMENT *current, const char **line_out)
           level++;
         }
       /* Else check if line is "@end ..." for current command. */
-      else if (is_end_current_command (cmd, &p, &end_cmd))
+      else if (is_end_current_command (cmd, &p))
         {
           level--;
           if (level == 0)
             {
               ELEMENT *e;
+              int n = strspn (line, whitespace_chars);
 
-              if (strchr (whitespace_chars, *line))
+              if (n > 0)
                 {
-                  ELEMENT *e;
-                  int n = strspn (line, whitespace_chars);
-                  e = new_text_element (ET_raw);
+                  ELEMENT *e = new_text_element (ET_raw);
                   text_append_n (e->e.text, line, n);
                   add_to_element_contents (current, e);
                   line += n;
                   line_warn ("@end %s should only appear at the "
-                             "beginning of a line", command_name(end_cmd));
+                             "beginning of a line", command_name(cmd));
                 }
-              debug ("CLOSED raw or ignored %s", command_name(end_cmd));
+              debug ("CLOSED raw or ignored %s", command_name(cmd));
        /* start a new line for the @end line (without the first spaces on
           the line that have already been put in a raw container).
           This is normally done at the beginning of a line, but not here,
@@ -1698,7 +1698,6 @@ process_ignored_raw_format_block_contents (ELEMENT *current,
 
   ELEMENT *e_elided_rawpreformatted;
   ELEMENT *e_empty_line;
-  enum command_id dummy;
   const char *line_dummy;
   const char *line;
   int n;
@@ -1719,8 +1718,7 @@ process_ignored_raw_format_block_contents (ELEMENT *current,
       else
         {
           line_dummy = line;
-          if (is_end_current_command (current->e.c->cmd, &line_dummy,
-                                      &dummy))
+          if (is_end_current_command (current->e.c->cmd, &line_dummy))
             {
               debug ("CLOSED ignored raw preformated %s",
                      command_name(current->e.c->cmd));
