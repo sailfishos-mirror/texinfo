@@ -1,5 +1,12 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): call
+	close_container instead of end_paragraph to close a paragraph when
+	directly in the paragraph.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%close_paragraph_not_preformatted)
 	(_end_paragraph_preformatted, _close_commands)
 	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/close.c

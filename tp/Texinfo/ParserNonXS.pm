@@ -7591,7 +7591,7 @@ sub _process_remaining_on_line($$$$)
     if ($current->{'type'}
         and $current->{'type'} eq 'paragraph') {
       # A form feed stops and restart a paragraph.
-      $current = _end_paragraph($self, $current, $source_info);
+      $current = _close_container($self, $current, $source_info);
       my $line_feed = {'type' => 'empty_line', 'text' => $form_feed,
                        'parent' => $current };
       push @{$current->{'contents'}}, $line_feed;

@@ -2580,7 +2580,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           ELEMENT *e;
 
           /* A form feed stops and restarts a paragraph. */
-          current = end_paragraph (current, 0, 0);
+          current = close_container (current);
           e = new_text_element (ET_empty_line);
           text_append_n (e->e.text, "\f", 1);
           add_to_element_contents (current, e);
