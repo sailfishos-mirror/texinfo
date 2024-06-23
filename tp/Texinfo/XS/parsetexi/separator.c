@@ -287,7 +287,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
     {
       abort_empty_line (current);
       debug ("IN BRACE_COMMAND_CONTEXT end paragraph");
-      current = end_paragraph (current, 0, 0);
+      current = close_container (current);
     }
 
   if (current->type == ET_balanced_braces)

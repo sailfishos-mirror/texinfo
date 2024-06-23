@@ -42,8 +42,8 @@
    should be printed. */
 ELEMENT *
 close_brace_command (ELEMENT *current,
-                     enum command_id closed_block_command,
-                     enum command_id interrupting_command,
+                     enum command_id closed_block_cmd,
+                     enum command_id interrupting_cmd,
                      int missing_brace)
 {
 
@@ -78,15 +78,15 @@ close_brace_command (ELEMENT *current,
   if (0)
     {
   yes:
-      if (closed_block_command)
+      if (closed_block_cmd)
         command_error (current,
                         "@end %s seen before @%s closing brace",
-                        command_name(closed_block_command),
+                        command_name(closed_block_cmd),
                         command_name(current->e.c->cmd));
-      else if (interrupting_command)
+      else if (interrupting_cmd)
         command_error (current,
                         "@%s seen before @%s closing brace",
-                        command_name(interrupting_command),
+                        command_name(interrupting_cmd),
                         command_name(current->e.c->cmd));
       else if (missing_brace)
          command_error (current,
@@ -108,8 +108,8 @@ close_brace_command (ELEMENT *current,
    paragraphs. */
 ELEMENT *
 close_all_style_commands (ELEMENT *current,
-                          enum command_id closed_block_command,
-                          enum command_id interrupting_command)
+                          enum command_id closed_block_cmd,
+                          enum command_id interrupting_cmd)
 {
   while (current->parent
          && (command_flags(current->parent) & CF_brace)
@@ -118,7 +118,7 @@ close_all_style_commands (ELEMENT *current,
       debug ("CLOSING(all_style_commands) @%s",
              command_name(current->parent->e.c->cmd));
       current = close_brace_command (current->parent,
-                           closed_block_command, interrupting_command, 1);
+                           closed_block_cmd, interrupting_cmd, 1);
     }
 
   return current;
@@ -371,8 +371,8 @@ close_ignored_block_conditional (ELEMENT *current)
 
 ELEMENT *
 close_current (ELEMENT *current,
-               enum command_id closed_block_command,
-               enum command_id interrupting_command)
+               enum command_id closed_block_cmd,
+               enum command_id interrupting_cmd)
 {
   /* Element is a command */
   if (current->e.c->cmd)
@@ -381,21 +381,21 @@ close_current (ELEMENT *current,
       debug ("CLOSING(close_current) @%s", command_name(cmd));
       if (command_flags(current) & CF_brace)
         {
-          current = close_brace_command (current, closed_block_command,
-                                         interrupting_command, 1);
+          current = close_brace_command (current, closed_block_cmd,
+                                         interrupting_cmd, 1);
         }
       else if (command_flags(current) & CF_block)
         {
-          if (closed_block_command)
+          if (closed_block_cmd)
             {
               line_error ("`@end' expected `%s', but saw `%s'",
                           command_name(cmd),
-                          command_name(closed_block_command));
+                          command_name(closed_block_cmd));
             }
-          else if (interrupting_command)
+          else if (interrupting_cmd)
             {
               line_error ("@%s seen before @end %s",
-                          command_name(interrupting_command),
+                          command_name(interrupting_cmd),
                           command_name(cmd));
             }
           else
@@ -478,25 +478,35 @@ close_current (ELEMENT *current,
    CLOSED_BLOCK_COMMAND should be the id of a block command.
  */
 ELEMENT *
-close_commands (ELEMENT *current, enum command_id closed_block_command,
-                ELEMENT **closed_element, enum command_id interrupting)
+close_commands (ELEMENT *current, enum command_id closed_block_cmd,
+                ELEMENT **closed_element, enum command_id interrupting_cmd)
 {
   *closed_element = 0;
-  current = end_paragraph (current, closed_block_command, interrupting);
-  current = end_preformatted (current, closed_block_command, interrupting);
+  current = close_all_style_commands (current, closed_block_cmd,
+                                      interrupting_cmd);
+  if (current->type == ET_preformatted)
+    {
+      debug ("CLOSE PREFORMATTED");
+      current = close_container (current);
+    }
+  else if (current->type == ET_preformatted)
+    {
+      debug ("CLOSE PREFORMATTED");
+      current = close_container (current);
+    }
 
   while (current->parent
-         && (!closed_block_command || current->e.c->cmd != closed_block_command)
+         && (!closed_block_cmd || current->e.c->cmd != closed_block_cmd)
      /* Stop if in a root command. */
          && !(current->e.c->cmd && command_flags(current) & CF_root)
      /* Stop if at a type at the root */
          && !(current->type == ET_before_node_section))
     {
       close_command_cleanup (current);
-      current = close_current (current, closed_block_command, interrupting);
+      current = close_current (current, closed_block_cmd, interrupting_cmd);
     }
 
-  if (closed_block_command && current->e.c->cmd == closed_block_command)
+  if (closed_block_cmd && current->e.c->cmd == closed_block_cmd)
     {
       pop_block_command_contexts (current->e.c->cmd);
       *closed_element = current;
@@ -508,8 +518,8 @@ close_commands (ELEMENT *current, enum command_id closed_block_command,
     }
   else
     {
-      if (closed_block_command)
-        line_error ("unmatched `@end %s'", command_name(closed_block_command));
+      if (closed_block_cmd)
+        line_error ("unmatched `@end %s'", command_name(closed_block_cmd));
       if (! ((current->e.c->cmd && command_flags(current) & CF_root)
              || (current->type == ET_before_node_section)
              || (current->type == ET_root_line)

@@ -1860,7 +1860,8 @@ end_line (ELEMENT *current)
           /* Remove empty_line element. */
           e = pop_element_from_contents (current);
 
-          current = end_paragraph (current, 0, 0);
+          debug ("CLOSE PARA");
+          current = close_container (current);
 
           /* Add empty_line to higher-level element. */
           add_to_element_contents (current, e);

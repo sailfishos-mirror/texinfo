@@ -655,11 +655,11 @@ begin_preformatted (ELEMENT *current)
 
 ELEMENT *
 end_paragraph (ELEMENT *current,
-               enum command_id closed_block_command,
-               enum command_id interrupting_command)
+               enum command_id closed_block_cmd,
+               enum command_id interrupting_cmd)
 {
-  current = close_all_style_commands (current, closed_block_command,
-                                      interrupting_command);
+  current = close_all_style_commands (current, closed_block_cmd,
+                                      interrupting_cmd);
   if (current->type == ET_paragraph)
     {
       debug ("CLOSE PARA");
@@ -671,11 +671,11 @@ end_paragraph (ELEMENT *current,
 
 ELEMENT *
 end_preformatted (ELEMENT *current,
-                  enum command_id closed_block_command,
-                  enum command_id interrupting_command)
+                  enum command_id closed_block_cmd,
+                  enum command_id interrupting_cmd)
 {
-  current = close_all_style_commands (current, closed_block_command,
-                                      interrupting_command);
+  current = close_all_style_commands (current, closed_block_cmd,
+                                      interrupting_cmd);
   if (current->type == ET_preformatted)
     {
       debug ("CLOSE PREFORMATTED");
@@ -2394,13 +2394,10 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       abort_empty_line (current);
 
-      if (cmd)
-        {
-          if (command_data(cmd).flags & CF_close_paragraph)
-            current = end_paragraph (current, 0, 0);
-          if (close_preformatted_command (cmd))
-            current = end_preformatted (current, 0, 0);
-        }
+      if (command_data(cmd).flags & CF_close_paragraph)
+        current = end_paragraph (current, 0, 0);
+      if (close_preformatted_command (cmd))
+        current = end_preformatted (current, 0, 0);
 
       /* done here and not above because it is not possible to check the parent
          before closing paragraph/preformatted */

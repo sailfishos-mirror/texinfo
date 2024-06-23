@@ -2166,10 +2166,17 @@ sub _close_commands($$$;$$)
   my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
-  $current = _end_paragraph($self, $current, $source_info,
-                            $closed_block_command, $interrupting_command);
-  $current = _end_preformatted($self, $current, $source_info,
-                               $closed_block_command, $interrupting_command);
+  $current = _close_all_style_commands($self, $current, $source_info,
+                                       $closed_block_command,
+                                       $interrupting_command);
+
+  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+    print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
+    $current = _close_container($self, $current, $source_info);
+  } elsif ($current->{'type'} and $current->{'type'} eq 'preformatted') {
+    print STDERR "CLOSE PREFORMATTED\n" if ($self->{'conf'}->{'DEBUG'});
+    $current = _close_container($self, $current, $source_info);
+  }
 
         # stop if the command is found
   while (!($closed_block_command and $current->{'cmdname'}
@@ -4596,7 +4603,8 @@ sub _end_line($$$)
     if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
       # Remove empty_line element.
       my $empty_line = _pop_element_from_contents($self, $current);
-      $current = _end_paragraph($self, $current, $source_info);
+      print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
+      $current = _close_container($self, $current, $source_info);
       push @{$current->{'contents'}}, $empty_line;
       $empty_line->{'parent'} = $current;
     } elsif ($current->{'type'}
@@ -6350,7 +6358,7 @@ sub _handle_close_brace($$$)
     _abort_empty_line($self, $current);
     print STDERR "IN BRACE_COMMAND_CONTEXT end paragraph\n"
       if ($self->{'conf'}->{'DEBUG'});
-    $current = _end_paragraph($self, $current, $source_info);
+    $current = _close_container($self, $current, $source_info);
   }
 
   if ($current->{'type'} and $current->{'type'} eq 'balanced_braces') {

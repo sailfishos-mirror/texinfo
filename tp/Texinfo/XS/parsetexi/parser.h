@@ -33,17 +33,18 @@ extern ELEMENT *internal_space_holder;
 void remove_empty_content (ELEMENT *current);
 ELEMENT *close_container (ELEMENT *current);
 void close_command_cleanup (ELEMENT *current);
-ELEMENT *close_commands (ELEMENT *current, enum command_id closed_block_command,
-                         ELEMENT **closed_element, enum command_id);
+ELEMENT *close_commands (ELEMENT *current, enum command_id closed_block_cmd,
+                         ELEMENT **closed_element,
+                         enum command_id interrupting_cmd);
 ELEMENT *close_all_style_commands (ELEMENT *current,
-                               enum command_id closed_block_command,
-                               enum command_id interrupting_command);
+                               enum command_id closed_block_cmd,
+                               enum command_id interrupting_cmd);
 ELEMENT *close_current (ELEMENT *current,
-                        enum command_id closed_block_command,
-                        enum command_id interrupting_command);
+                        enum command_id closed_block_cmd,
+                        enum command_id interrupting_cmd);
 ELEMENT *close_brace_command (ELEMENT *current,
-                              enum command_id closed_block_command,
-                              enum command_id interrupting_command,
+                              enum command_id closed_block_cmd,
+                              enum command_id interrupting_cmd,
                               int missing_brace);
 void close_ignored_block_conditional (ELEMENT *current);
 
@@ -75,16 +76,16 @@ extern size_t conditional_number;
 void move_last_space_to_element (ELEMENT *current);
 void abort_empty_line (ELEMENT *current);
 ELEMENT *end_paragraph (ELEMENT *current,
-                        enum command_id closed_block_command,
-                        enum command_id interrupting_command);
+                        enum command_id closed_block_cmd,
+                        enum command_id interrupting_cmd);
 void isolate_last_space (ELEMENT *current);
 int kbd_formatted_as_code (ELEMENT *current);
 int parent_of_command_as_argument (ELEMENT *current);
 void register_command_as_argument (ELEMENT *cmd_as_arg);
 ELEMENT *begin_preformatted (ELEMENT *current);
 ELEMENT *end_preformatted (ELEMENT *current,
-                           enum command_id closed_block_command,
-                           enum command_id interrupting_command);
+                           enum command_id closed_block_cmd,
+                           enum command_id interrupting_cmd);
 char *read_command_name (const char **ptr);
 const char *read_comment (const char *line, int *has_comment);
 char *text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg);
