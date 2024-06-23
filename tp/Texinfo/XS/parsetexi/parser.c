@@ -684,6 +684,28 @@ end_preformatted (ELEMENT *current,
   return current;
 }
 
+/* end paragraph or preformatted */
+ELEMENT *
+end_paragraph_preformatted (ELEMENT *current,
+                            enum command_id closed_block_cmd,
+                            enum command_id interrupting_cmd)
+{
+  current = close_all_style_commands (current, closed_block_cmd,
+                                      interrupting_cmd);
+  if (current->type == ET_paragraph)
+    {
+      debug ("CLOSE PARA");
+      current = close_container (current);
+    }
+  else if (current->type == ET_preformatted)
+    {
+      debug ("CLOSE PREFORMATTED");
+      current = close_container (current);
+    }
+
+  return current;
+}
+
 /* the element associated with the last internal spaces element added.
    We know that there can only be one at a time as a non space
    character should always lead to abort_empty_line or another
@@ -2394,10 +2416,11 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       abort_empty_line (current);
 
-      if (command_data(cmd).flags & CF_close_paragraph)
+      /* close_paragraph_not_preformatted */
+      if (cmd == CM_sp)
         current = end_paragraph (current, 0, 0);
-      if (close_preformatted_command (cmd))
-        current = end_preformatted (current, 0, 0);
+      else if (command_data(cmd).flags & CF_close_paragraph)
+        current = end_paragraph_preformatted (current, 0, 0);
 
       /* done here and not above because it is not possible to check the parent
          before closing paragraph/preformatted */

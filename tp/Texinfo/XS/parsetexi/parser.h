@@ -78,6 +78,9 @@ void abort_empty_line (ELEMENT *current);
 ELEMENT *end_paragraph (ELEMENT *current,
                         enum command_id closed_block_cmd,
                         enum command_id interrupting_cmd);
+ELEMENT *end_paragraph_preformatted (ELEMENT *current,
+                                 enum command_id closed_block_cmd,
+                                 enum command_id interrupting_cmd);
 void isolate_last_space (ELEMENT *current);
 int kbd_formatted_as_code (ELEMENT *current);
 int parent_of_command_as_argument (ELEMENT *current);

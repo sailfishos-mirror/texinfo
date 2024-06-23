@@ -1,5 +1,18 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%close_paragraph_not_preformatted)
+	(_end_paragraph_preformatted, _close_commands)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/close.c
+	(close_commands), tp/Texinfo/XS/parsetexi/parser.c
+	(end_paragraph_preformatted, process_remaining_on_line): add
+	_end_paragraph_preformatted that closes preofrmatted or paragraph.
+	Use it in close_commands.  In process_remaining_on_line, handle
+	especially @-command closing paragraph and not preformatted, and
+	@-command closing both, calling end_paragraph_preformatted in that
+	case.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Customization Variables and Options): put @vindex
 	at beginning of line.
 

@@ -409,7 +409,8 @@ my %no_paragraph_commands = %Texinfo::Commands::no_paragraph_commands;
 
 # does not include index commands
 my %close_preformatted_commands = %close_paragraph_commands;
-foreach my $no_close_preformatted('sp') {
+my %close_paragraph_not_preformatted = ('sp' => 1);
+foreach my $no_close_preformatted(keys(%close_paragraph_not_preformatted)) {
   delete $close_preformatted_commands{$no_close_preformatted};
 }
 
@@ -1611,6 +1612,26 @@ sub _end_paragraph($$$;$$)
   return $current;
 }
 
+# close brace commands except for @caption, @footnote then the paragraph
+# or preformatted
+sub _end_paragraph_preformatted($$$;$$)
+{
+  my ($self, $current, $source_info, $closed_block_command,
+      $interrupting_command) = @_;
+
+  $current = _close_all_style_commands($self, $current, $source_info,
+                                       $closed_block_command,
+                                       $interrupting_command);
+  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+    print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
+    $current = _close_container($self, $current, $source_info);
+  } elsif ($current->{'type'} and $current->{'type'} eq 'preformatted') {
+    print STDERR "CLOSE PREFORMATTED\n" if ($self->{'conf'}->{'DEBUG'});
+    $current = _close_container($self, $current, $source_info);
+  }
+  return $current;
+}
+
 sub _is_container_empty($)
 {
   my $current = shift;
@@ -2166,17 +2187,9 @@ sub _close_commands($$$;$$)
   my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
-  $current = _close_all_style_commands($self, $current, $source_info,
-                                       $closed_block_command,
-                                       $interrupting_command);
-
-  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
-    print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
-    $current = _close_container($self, $current, $source_info);
-  } elsif ($current->{'type'} and $current->{'type'} eq 'preformatted') {
-    print STDERR "CLOSE PREFORMATTED\n" if ($self->{'conf'}->{'DEBUG'});
-    $current = _close_container($self, $current, $source_info);
-  }
+  $current = _end_paragraph_preformatted($self, $current, $source_info,
+                                         $closed_block_command,
+                                         $interrupting_command);
 
         # stop if the command is found
   while (!($closed_block_command and $current->{'cmdname'}
@@ -7431,11 +7444,10 @@ sub _process_remaining_on_line($$$$)
 
     _abort_empty_line($self, $current);
 
-    if ($close_paragraph_commands{$command}) {
+    if ($close_paragraph_not_preformatted{$command}) {
       $current = _end_paragraph($self, $current, $source_info);
-    }
-    if ($close_preformatted_commands{$command}) {
-      $current = _end_preformatted($self, $current, $source_info);
+    } elsif ($close_preformatted_commands{$command}) {
+      $current = _end_paragraph_preformatted($self, $current, $source_info);
     }
 
     # command used to get command data.  Needed for the multicategory

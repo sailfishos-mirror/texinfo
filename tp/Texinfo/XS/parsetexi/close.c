@@ -482,18 +482,8 @@ close_commands (ELEMENT *current, enum command_id closed_block_cmd,
                 ELEMENT **closed_element, enum command_id interrupting_cmd)
 {
   *closed_element = 0;
-  current = close_all_style_commands (current, closed_block_cmd,
-                                      interrupting_cmd);
-  if (current->type == ET_preformatted)
-    {
-      debug ("CLOSE PREFORMATTED");
-      current = close_container (current);
-    }
-  else if (current->type == ET_preformatted)
-    {
-      debug ("CLOSE PREFORMATTED");
-      current = close_container (current);
-    }
+  current = end_paragraph_preformatted (current, closed_block_cmd,
+                                        interrupting_cmd);
 
   while (current->parent
          && (!closed_block_cmd || current->e.c->cmd != closed_block_cmd)
