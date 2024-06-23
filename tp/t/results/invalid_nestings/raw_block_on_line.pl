@@ -67,6 +67,13 @@ $result_texts{'raw_block_on_line'} = '';
 
 $result_errors{'raw_block_on_line'} = [
   {
+    'error_line' => 'warning: @tex should only appear at the beginning of a line
+',
+    'line_nr' => 1,
+    'text' => '@tex should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'no matching `@end tex\'
 ',
     'line_nr' => 1,

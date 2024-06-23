@@ -159,11 +159,25 @@ $result_sectioning{'section_on_cartouche_line'}{'extra'}{'section_childs'}[1]{'e
 
 $result_errors{'section_on_cartouche_line'} = [
   {
+    'error_line' => 'warning: @section should only appear at the beginning of a line
+',
+    'line_nr' => 1,
+    'text' => '@section should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@section seen before @end cartouche
 ',
     'line_nr' => 1,
     'text' => '@section seen before @end cartouche',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @section should only appear at the beginning of a line
+',
+    'line_nr' => 3,
+    'text' => '@section should only appear at the beginning of a line',
+    'type' => 'warning'
   },
   {
     'error_line' => '@section seen before @end cartouche

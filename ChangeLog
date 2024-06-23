@@ -1,5 +1,14 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	Stricter check of @-commands not appearing at the beginning of a line
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): check
+	that an @-command is opened at the beginning of a line by checking
+	that the previous element is an empty_line text element.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_in_begin_paragraph),
 	tp/Texinfo/XS/parsetexi/parser.c (in_begin_paragraph): rename
 	begin_paragraph_p as in_begin_paragraph.

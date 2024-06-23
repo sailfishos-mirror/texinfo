@@ -214,6 +214,13 @@ $result_errors{'example_invalid_at_commands_arguments'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @center should only appear at the beginning of a line
+',
+    'line_nr' => 1,
+    'text' => '@center should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @center should not appear on @example line
 ',
     'line_nr' => 1,

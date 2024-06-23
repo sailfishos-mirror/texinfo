@@ -7411,12 +7411,19 @@ sub _process_remaining_on_line($$$$)
 
     # warn on not appearing at line beginning.  Need to do before closing
     # paragraph as it also closes the empty line
-    if (not _abort_empty_line($self, $current)
+    my $last_element;
+    if ($current->{'contents'}) {
+      $last_element = $current->{'contents'}->[-1];
+    }
+    if ((!$last_element or !$last_element->{'type'}
+         or $last_element->{'type'} ne 'empty_line')
         and $begin_line_commands{$command}) {
       $self->_line_warn(
           sprintf(__("\@%s should only appear at the beginning of a line"),
                   $command), $source_info);
     }
+
+    _abort_empty_line($self, $current);
 
     if ($close_paragraph_commands{$command}) {
       $current = _end_paragraph($self, $current, $source_info);

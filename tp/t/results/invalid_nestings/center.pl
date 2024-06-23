@@ -1337,6 +1337,13 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @quotation should only appear at the beginning of a line
+',
+    'line_nr' => 5,
+    'text' => '@quotation should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @quotation should not appear in @center
 ',
     'line_nr' => 5,
@@ -1468,6 +1475,13 @@ $result_errors{'center'} = [
     'line_nr' => 27,
     'text' => '@item outside of table or list',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @center should only appear at the beginning of a line
+',
+    'line_nr' => 31,
+    'text' => '@center should only appear at the beginning of a line',
+    'type' => 'warning'
   },
   {
     'error_line' => 'warning: @center should not appear in @center

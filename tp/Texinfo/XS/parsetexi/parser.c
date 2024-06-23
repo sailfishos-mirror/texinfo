@@ -2259,6 +2259,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
          @item command. */
       enum command_id data_cmd = cmd;
       ELEMENT *command_element;
+      ELEMENT *last_element = last_contents_child (current);
 
       debug ("COMMAND @%s", debug_parser_command_name (cmd));
 
@@ -2380,7 +2381,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       /* warn on not appearing at line beginning.  Need to do before closing
          paragraph as it also closes the empty line */
-      if (!abort_empty_line (current)
+      if ((!last_element || last_element->type != ET_empty_line)
           && ((cmd == CM_node || cmd == CM_bye)
               || (command_data(cmd).flags & CF_block)
               || ((command_data(cmd).flags & CF_line)
@@ -2393,6 +2394,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           line_warn ("@%s should only appear at the beginning of a line",
                      command_name(cmd));
         }
+
+      abort_empty_line (current);
 
       if (cmd)
         {

@@ -420,6 +420,13 @@ $result_errors{'section_on_itemize_line'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @section should only appear at the beginning of a line
+',
+    'line_nr' => 5,
+    'text' => '@section should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @section should not appear on @itemize line
 ',
     'line_nr' => 5,

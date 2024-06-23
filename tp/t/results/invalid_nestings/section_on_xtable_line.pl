@@ -383,6 +383,13 @@ $result_sectioning{'section_on_xtable_line'}{'extra'}{'section_childs'}[3]{'extr
 
 $result_errors{'section_on_xtable_line'} = [
   {
+    'error_line' => 'warning: @section should only appear at the beginning of a line
+',
+    'line_nr' => 1,
+    'text' => '@section should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @section should not appear on @vtable line
 ',
     'line_nr' => 1,

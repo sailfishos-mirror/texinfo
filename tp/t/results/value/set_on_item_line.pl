@@ -538,6 +538,13 @@ $result_errors{'set_on_item_line'} = [
   {
     'error_line' => 'warning: @set should only appear at the beginning of a line
 ',
+    'line_nr' => 2,
+    'text' => '@set should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @set should only appear at the beginning of a line
+',
     'line_nr' => 5,
     'text' => '@set should only appear at the beginning of a line',
     'type' => 'warning'
@@ -546,6 +553,13 @@ $result_errors{'set_on_item_line'} = [
     'error_line' => 'warning: @set should only appear at the beginning of a line
 ',
     'line_nr' => 7,
+    'text' => '@set should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @set should only appear at the beginning of a line
+',
+    'line_nr' => 11,
     'text' => '@set should only appear at the beginning of a line',
     'type' => 'warning'
   },

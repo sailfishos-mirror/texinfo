@@ -1083,10 +1083,24 @@ $result_errors{'in_table'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @center should only appear at the beginning of a line
+',
+    'line_nr' => 13,
+    'text' => '@center should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @center should not appear in @item
 ',
     'line_nr' => 13,
     'text' => '@center should not appear in @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @cindex should only appear at the beginning of a line
+',
+    'line_nr' => 14,
+    'text' => '@cindex should only appear at the beginning of a line',
     'type' => 'warning'
   },
   {
@@ -1097,10 +1111,24 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @cindex should only appear at the beginning of a line
+',
+    'line_nr' => 18,
+    'text' => '@cindex should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @cindex should not appear in @item
 ',
     'line_nr' => 18,
     'text' => '@cindex should not appear in @item',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @cindex should only appear at the beginning of a line
+',
+    'line_nr' => 21,
+    'text' => '@cindex should only appear at the beginning of a line',
     'type' => 'warning'
   },
   {

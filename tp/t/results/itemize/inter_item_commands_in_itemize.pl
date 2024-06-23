@@ -789,7 +789,15 @@ $result_menus{'inter_item_commands_in_itemize'} = [
   }
 ];
 
-$result_errors{'inter_item_commands_in_itemize'} = [];
+$result_errors{'inter_item_commands_in_itemize'} = [
+  {
+    'error_line' => 'warning: @cindex should only appear at the beginning of a line
+',
+    'line_nr' => 16,
+    'text' => '@cindex should only appear at the beginning of a line',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'inter_item_commands_in_itemize'} = {};

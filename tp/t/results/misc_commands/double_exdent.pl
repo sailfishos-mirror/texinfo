@@ -194,6 +194,13 @@ double  exdented nested other line
 
 $result_errors{'double_exdent'} = [
   {
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
+',
+    'line_nr' => 5,
+    'text' => '@exdent should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @exdent should not appear in @exdent
 ',
     'line_nr' => 5,
