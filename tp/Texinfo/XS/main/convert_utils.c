@@ -153,7 +153,7 @@ find_innermost_accent_contents (const ELEMENT *element)
         {
           ELEMENT *content = arg->e.c->contents.list[i];
 
-          if (! (type_data[content->type].flags & ET_text))
+          if (! (type_data[content->type].flags & TF_text))
             {
               enum command_id content_data_cmd
                 = element_builtin_data_cmd (content);
@@ -878,7 +878,7 @@ find_root_command_next_heading_command (const ELEMENT *root,
       const ELEMENT *content = root->e.c->contents.list[i];
       enum command_id data_cmd;
 
-      if (type_data[content->type].flags & ET_text)
+      if (type_data[content->type].flags & TF_text)
         {
          /* do not happen and should not happen, as normal text should never
            be in top level root command contents, only empty_line,

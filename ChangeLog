@@ -1,5 +1,11 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents)
+	(find_root_command_next_heading_command): fix type_data text flag
+	symbol.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi): call _pop_context at the
 	end of document parsing.
 
