@@ -2126,7 +2126,7 @@ sub _close_current($$$;$$)
           and $current->{'contents'}->[0]->{'type'}
                         eq 'internal_spaces_before_argument') {
         # remove spaces element from tree and update extra values
-        _abort_empty_line($self, $current);
+        _move_last_space_to_element($self, $current);
       }
       $current = $current->{'parent'};
     } elsif ($current->{'type'} eq 'balanced_braces') {
@@ -2226,11 +2226,24 @@ sub _close_commands($$$;$$)
 sub _merge_text {
   my ($self, $current, $text, $transfer_marks_element) = @_;
 
-  my $last_element;
-
-  if ($current->{'contents'}) {
-    $last_element = $current->{'contents'}->[-1];
+  # paragraphs are only started in empty lines or in context brace
+  # commands, if there is nothing in the current element, cannot
+  # be in a case where a paragraph is started.
+  # Also, elements without anything in them are only brace_container
+  # or menu_entry_name, otherwise there is always some kind of element
+  # leading added for leading spaces when the element is created
+  if (!$current->{'contents'}) {
+    my $new_element = { 'text' => $text, 'parent' => $current };
+    _transfer_source_marks($transfer_marks_element, $new_element)
+      if ($transfer_marks_element);
+    $current->{'contents'} = [];
+    push @{$current->{'contents'}}, $new_element;
+    print STDERR "NEW TEXT (merge): $text|||\n"
+                         if ($self->{'conf'}->{'DEBUG'});
+    return $current;
   }
+
+  my $last_element = $current->{'contents'}->[-1];
 
   my $paragraph;
 
@@ -2957,10 +2970,25 @@ sub _pop_element_from_contents($$)
   return $popped_element;
 }
 
+sub _move_last_space_to_element($$) {
+  my ($self, $current) = @_;
+
+  # Remove element from main tree. It will still be referenced in
+  # the 'info' hash as 'spaces_before_argument'.
+  my $spaces_before_argument = _pop_element_from_contents($self, $current);
+  delete $spaces_before_argument->{'type'};
+  delete $spaces_before_argument->{'parent'};
+  my $owning_element = $self->{'internal_space_holder'};
+  $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
+  $owning_element->{'info'}->{'spaces_before_argument'}
+    = $spaces_before_argument;
+  $self->{'internal_space_holder'} = undef;
+}
+
 # each time a new line appeared, a container is opened to hold the text
 # consisting only of spaces.  This container is removed here, typically
 # this is called when non-space happens on a line.
-sub _abort_empty_line {
+sub _abort_empty_line($$) {
   my ($self, $current) = @_;
 
   if ($current->{'contents'}) {
@@ -3011,16 +3039,7 @@ sub _abort_empty_line {
         } elsif ($type eq 'internal_spaces_after_command'
                  or $type eq 'internal_spaces_before_argument'
                  or $type eq 'internal_spaces_before_context_argument') {
-          # Remove element from main tree. It will still be referenced in
-          # the 'info' hash as 'spaces_before_argument'.
-          my $spaces_before_argument = _pop_element_from_contents($self, $current);
-          delete $spaces_before_argument->{'type'};
-          delete $spaces_before_argument->{'parent'};
-          my $owning_element = $self->{'internal_space_holder'};
-          $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
-          $owning_element->{'info'}->{'spaces_before_argument'}
-            = $spaces_before_argument;
-          $self->{'internal_space_holder'} = undef;
+          _move_last_space_to_element($self, $current);
         }
         return 1;
       }
@@ -4637,7 +4656,7 @@ sub _end_line($$$)
                           eq 'internal_spaces_before_context_argument')) {
     # Empty spaces after brace or comma till the end of line.
     # Remove this element and update 'extra' values.
-    _abort_empty_line($self, $current);
+    _move_last_space_to_element($self, $current);
   }
 
   # this happens if there is a nesting of line @-commands on a line.

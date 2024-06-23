@@ -1936,7 +1936,7 @@ end_line (ELEMENT *current)
     {
       /* Empty spaces after brace or comma till the end of line.
          Remove this element and update 'extra' values. */
-      abort_empty_line (current);
+      move_last_space_to_element (current);
     }
 
   /* 'line' or 'def' at top of "context stack" - this happens when

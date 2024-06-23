@@ -703,6 +703,23 @@ end_preformatted (ELEMENT *current,
  */
 ELEMENT *internal_space_holder;
 
+void
+move_last_space_to_element (ELEMENT *current)
+{
+  /* Remove element from main tree. It will still be referenced in
+     the 'info' hash as 'spaces_before_argument'. */
+  ELEMENT *owning_element;
+  ELEMENT *e = pop_element_from_contents (current);
+  owning_element = internal_space_holder;
+  e->type = ET_other_text;
+  e->parent = 0;
+  if (owning_element->type != ET_context_brace_command)
+    owning_element->elt_info[eit_spaces_before_argument] = e;
+  else
+    owning_element->elt_info[eit_brace_content_spaces_before_argument] = e;
+  internal_space_holder = 0;
+}
+
 static void
 do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
 {
@@ -740,19 +757,7 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
            || last_elt->type == ET_internal_spaces_before_argument
            || last_elt->type == ET_internal_spaces_before_context_argument)
     {
-      /* Remove element from main tree. It will still be referenced in
-         the 'info' hash as 'spaces_before_argument'. */
-      ELEMENT *owning_element;
-      ELEMENT *e = pop_element_from_contents (current);
-      owning_element = internal_space_holder;
-      e->type = ET_other_text;
-      e->parent = 0;
-      if (owning_element->type != ET_context_brace_command)
-        owning_element->elt_info[eit_spaces_before_argument] = e;
-      else
-        owning_element->elt_info[eit_brace_content_spaces_before_argument]
-           = e;
-      internal_space_holder = 0;
+      move_last_space_to_element (current);
     }
 }
 
@@ -770,6 +775,17 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   ELEMENT *e;
   ELEMENT *last_element = last_contents_child (current);
 
+  /* paragraphs are only started in empty lines or in context brace
+     commands, if there is nothing in the current element, cannot
+     be in a case where a paragraph is started.
+     Also, elements without anything in them are only brace_container
+     or menu_entry_name, otherwise there is always some kind of element
+     leading added for leading spaces when the element is created */
+  if (!last_element)
+    goto new_text;
+
+  enum element_type last_elt_type = last_element->type;
+
   /* determine the number of leading characters in whitespace_chars */
   for (; leading_spaces < len_text
          && strchr (whitespace_chars, text[leading_spaces]);
@@ -779,17 +795,13 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   if (leading_spaces < len_text)
     {
       ELEMENT *paragraph;
-      if (last_element
-          && (last_element->type == ET_empty_line
-              || last_element->type == ET_ignorable_spaces_after_command
-              || last_element->type == ET_internal_spaces_after_command
-              || last_element->type == ET_internal_spaces_before_argument
-              || last_element->type
-                           == ET_internal_spaces_before_context_argument
-              || last_element->type == ET_spaces_after_close_brace))
+      if ((last_elt_type == ET_empty_line
+           || last_elt_type == ET_ignorable_spaces_after_command
+           || last_elt_type == ET_internal_spaces_after_command
+           || last_elt_type == ET_internal_spaces_before_argument
+           || last_elt_type == ET_internal_spaces_before_context_argument
+           || last_elt_type == ET_spaces_after_close_brace))
         {
-          int no_merge_with_following_text
-               = (last_element->type != ET_empty_line);
           if (leading_spaces)
             {
               if (global_parser_conf.debug)
@@ -797,7 +809,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                   char *additional_text_dbg = strndup (text, leading_spaces);
                   debug ("MERGE_TEXT ADD leading empty |%s| to %s",
                          additional_text_dbg,
-                         type_data[last_element->type].name);
+                         type_data[last_elt_type].name);
                   free (additional_text_dbg);
                 }
               text_append_n (last_element->e.text, text, leading_spaces);
@@ -812,6 +824,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                */
               e = pop_element_from_contents (current);
               e->type = ET_normal_text;
+
               paragraph = begin_paragraph (current);
               if (paragraph)
                 {
@@ -823,10 +836,10 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
           /* since last_element cannot be empty as this case is
              handled just above, the last_element is
              always kept in current in do_abort_empty_line
-             for an empty_line; its type may have changed */
+             for an empty_line; its type may change */
           do_abort_empty_line (current, last_element);
 
-          if (no_merge_with_following_text)
+          if (last_elt_type != ET_empty_line)
          /* we do not merge these special types, unset last_element */
             last_element = 0;
         }
@@ -838,9 +851,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
              space as handled just above, or after a no_paragraph
              command outside of a paragraph or after a non expanded @value
              outside of a paragraph (here), because
-              - there is always an element where a paragraph can begin, since
-                elements without anything in them are only brace_container
-                or menu/preformatted contexts
+              - there is always an element where a paragraph can begin
               - if the element is not a special space nor a no_paragraph
                 command, we are already in a paragraph if a paragraph can
                 be opened.
@@ -854,7 +865,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
 
   if (last_element
       /* can actually be normal_text, and some space elements */
-      && type_data[last_element->type].flags & TF_text
+      && type_data[last_elt_type].flags & TF_text
       && !strchr (last_element->e.text->text, '\n'))
     {
       /* Transfer source marks */
