@@ -1,5 +1,22 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_begin_paragraph_p, _begin_paragraph),
+	tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph): add
+	_begin_paragraph_p in Perl code.  Do not call begin_paragraph_p in
+	begin_paragraph, instead let the caller call begin_paragraph is
+	begin_paragraph_p returns true.  Update callers.
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text): rename
+	$last_element_type as $last_elt_type.
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text),
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text): instead of calling
+	*abort_empty_line, inline the corresponding code, mixing with
+	paragraph opening, and without the case of last_element text empty,
+	already handled.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/03coverage_braces.t
 	(footnote_ending_on_empty_line_spaces): test with footnote with end
 	line and spaces after end line before closing brace.

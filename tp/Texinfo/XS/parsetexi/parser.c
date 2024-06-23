@@ -564,6 +564,8 @@ parse_texi_document (void)
 }
 
 
+/* If in a context where paragraphs are to be started, return 1,
+   else return 0 */
 static int
 begin_paragraph_p (const ELEMENT *current)
 {
@@ -582,64 +584,59 @@ begin_paragraph_p (const ELEMENT *current)
           && current->type != ET_brace_container);
 }
 
-/* If in a context where paragraphs are to be started, start a new
-   paragraph and return it.  Else return 0 */
+/* Start a new paragraph and return it */
 static ELEMENT *
 begin_paragraph (ELEMENT *current)
 {
-  if (begin_paragraph_p (current))
+  ELEMENT *e;
+  enum command_id indent = 0;
+
+  /* Check if an @indent precedes the paragraph (to record it
+     in the 'extra' key). */
+  if (current->e.c->contents.number > 0)
     {
-      ELEMENT *e;
-      enum command_id indent = 0;
-
-      /* Check if an @indent precedes the paragraph (to record it
-         in the 'extra' key). */
-      if (current->e.c->contents.number > 0)
+      int i = current->e.c->contents.number - 1;
+      while (i >= 0)
         {
-          int i = current->e.c->contents.number - 1;
-          while (i >= 0)
+          ELEMENT *child = contents_child_by_index (current, i);
+          if (child->type == ET_empty_line
+              || child->type == ET_paragraph)
+            break;
+          if (type_data[child->type].flags & TF_at_command
+              && command_data(child->e.c->cmd).flags & CF_close_paragraph)
+            break;
+          /* after an indent there are ignorable_spaces_after_command
+             skip through spaces only text element that could be there */
+          if (type_data[child->type].flags & TF_text) {}
+          else if (child->e.c->cmd == CM_indent
+              || child->e.c->cmd == CM_noindent)
             {
-              ELEMENT *child = contents_child_by_index (current, i);
-              if (child->type == ET_empty_line
-                  || child->type == ET_paragraph)
-                break;
-              if (type_data[child->type].flags & TF_at_command
-                  && command_data(child->e.c->cmd).flags & CF_close_paragraph)
-                break;
-              /* after an indent there are ignorable_spaces_after_command
-                 skip through spaces only text element that could be there */
-              if (type_data[child->type].flags & TF_text) {}
-              else if (child->e.c->cmd == CM_indent
-                  || child->e.c->cmd == CM_noindent)
-                {
-                  indent = child->e.c->cmd;
-                  break;
-                }
-         /* skip through @macro definitions, raw block commands, ignored
-            conditional block commands, @author, informational commands,
-            commands meant for titlepage such as @vskip or @title, index
-            commands and types such as def_line (but cannot find an @*indent
-            before), a few brace commands that can be out of paragraphs and
-            do not close paragraphs such as @anchor or @image
-              else
-                fprintf(stderr, "INDENT search skipping through %s\n",
-                        print_element_debug_parser(child, 0));
-                */
-              i--;
+              indent = child->e.c->cmd;
+              break;
             }
+     /* skip through @macro definitions, raw block commands, ignored
+        conditional block commands, @author, informational commands,
+        commands meant for titlepage such as @vskip or @title, index
+        commands and types such as def_line (but cannot find an @*indent
+        before), a few brace commands that can be out of paragraphs and
+        do not close paragraphs such as @anchor or @image
+          else
+            fprintf(stderr, "INDENT search skipping through %s\n",
+                    print_element_debug_parser(child, 0));
+            */
+          i--;
         }
-
-      e = new_element (ET_paragraph);
-      if (indent)
-        e->flags |= (indent == CM_indent ? EF_indent : EF_noindent);
-      add_to_element_contents (current, e);
-
-      push_context (ct_paragraph, 0);
-      debug ("PARAGRAPH");
-
-      return e;
     }
-  return 0;
+
+  e = new_element (ET_paragraph);
+  if (indent)
+    e->flags |= (indent == CM_indent ? EF_indent : EF_noindent);
+  add_to_element_contents (current, e);
+
+  push_context (ct_paragraph, 0);
+  debug ("PARAGRAPH");
+
+  return e;
 }
 
 /* Begin a preformatted element if in a preformatted context. */
@@ -794,7 +791,6 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   /* Is there a non-whitespace character in the line? */
   if (leading_spaces < len_text)
     {
-      ELEMENT *paragraph;
       if ((last_elt_type == ET_empty_line
            || last_elt_type == ET_ignorable_spaces_after_command
            || last_elt_type == ET_internal_spaces_after_command
@@ -825,27 +821,45 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               e = pop_element_from_contents (current);
               e->type = ET_normal_text;
 
-              paragraph = begin_paragraph (current);
-              if (paragraph)
+              if (begin_paragraph_p (current))
                 {
-                  current = paragraph;
+                  current = begin_paragraph (current);
                 }
               goto add_to_empty_text;
             }
 
-          /* since last_element cannot be empty as this case is
-             handled just above, the last_element is
-             always kept in current in do_abort_empty_line
-             for an empty_line; its type may change */
-          do_abort_empty_line (current, last_element);
-
-          if (last_elt_type != ET_empty_line)
-         /* we do not merge these special types, unset last_element */
-            last_element = 0;
+          /* following is similar to do_abort_empty_line, except
+             for the empty text already handled above, and with
+             paragraph opening mixed in */
+          if (last_elt_type == ET_internal_spaces_after_command
+              || last_elt_type == ET_internal_spaces_before_argument)
+            {
+              move_last_space_to_element (current);
+              /* we do not merge these special types */
+              goto new_text;
+            }
+          else if (last_elt_type == ET_empty_line)
+            {
+              if (begin_paragraph_p (current))
+                {
+                  last_element->type = ET_spaces_before_paragraph;
+                  current = begin_paragraph (current);
+                  goto new_text;
+                }
+              /* in that case, we can merge */
+              last_element->type = ET_normal_text;
+            }
+          else
+            {/* other special spaces, in general in paragraph begin context */
+              if (last_elt_type == ET_internal_spaces_before_context_argument)
+                move_last_space_to_element (current);
+              if (begin_paragraph_p (current))
+                current = begin_paragraph (current);
+              /* we do not merge these special types */
+              goto new_text;
+            }
         }
-
-      paragraph = begin_paragraph (current);
-      if (paragraph)
+      else if (begin_paragraph_p (current))
         {
           /* NOTE a new paragraph happens necessarily after a special
              space as handled just above, or after a no_paragraph
@@ -856,16 +870,15 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                 command, we are already in a paragraph if a paragraph can
                 be opened.
             */
-          current = paragraph;
+          current = begin_paragraph (current);
           /* shortcut the case with text as last content child as
              it cannot happen if a new paragraph is started */
           goto new_text;
         }
     }
 
-  if (last_element
-      /* can actually be normal_text, and some space elements */
-      && type_data[last_elt_type].flags & TF_text
+  if (/* can actually be normal_text, and some space elements */
+      type_data[last_elt_type].flags & TF_text
       && !strchr (last_element->e.text->text, '\n'))
     {
       /* Transfer source marks */
@@ -2436,10 +2449,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* check command doesn't start a paragraph */
       if (!(command_data(data_cmd).flags & CF_no_paragraph))
         {
-          ELEMENT *paragraph;
-          paragraph = begin_paragraph (current);
-          if (paragraph)
-            current = paragraph;
+          if (begin_paragraph_p (current))
+            current = begin_paragraph (current);
         }
 
       /* No-brace command */

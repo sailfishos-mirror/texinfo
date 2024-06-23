@@ -1358,50 +1358,54 @@ sub _parse_macro_command_line($$$$$;$)
   return $macro;
 }
 
-# start a paragraph if in a context where paragraphs are to be started.
-sub _begin_paragraph($$;$)
+# return true if in a context where paragraphs are to be started.
+sub _begin_paragraph_p($$)
 {
-  my ($self, $current, $source_info) = @_;
-
   # we want to avoid
   # brace_container, brace_arg, root_line (ct_line),
   # paragraphs (ct_paragraph), line_arg (ct_line, ct_def), balanced_braces
   # (only in ct_math, ct_rawpreformatted, ct_inlineraw), block_line_arg
   # (ct_line, ct_def), preformatted (ct_preformatted).
-  if ($begin_paragraph_contexts{$self->_top_context()}
-      and not ($current->{'type'}
-               and $type_without_paragraph{$current->{'type'}})) {
-    # find whether an @indent precedes the paragraph
-    my $indent;
-    if ($current->{'contents'}) {
-      my $index = scalar(@{$current->{'contents'}}) -1;
-      while ($index >= 0
-            and !($current->{'contents'}->[$index]->{'type'}
-              and ($current->{'contents'}->[$index]->{'type'} eq 'empty_line'
-                   or $current->{'contents'}->[$index]->{'type'} eq 'paragraph'))
-            and !($current->{'contents'}->[$index]->{'cmdname'}
-                  and $close_paragraph_commands
-                           {$current->{'contents'}->[$index]->{'cmdname'}})) {
-        if ($current->{'contents'}->[$index]->{'cmdname'}
-          and ($current->{'contents'}->[$index]->{'cmdname'} eq 'indent'
-              or $current->{'contents'}->[$index]->{'cmdname'} eq 'noindent')) {
-          $indent = $current->{'contents'}->[$index]->{'cmdname'};
-          last;
-        }
-        $index--;
+  my ($self, $current) = @_;
+  return ($begin_paragraph_contexts{$self->_top_context()}
+          and not ($current->{'type'}
+                   and $type_without_paragraph{$current->{'type'}}));
+}
+
+# start a paragraph.
+sub _begin_paragraph($$)
+{
+  my ($self, $current) = @_;
+
+  # find whether an @indent precedes the paragraph
+  my $indent;
+  if ($current->{'contents'}) {
+    my $index = scalar(@{$current->{'contents'}}) -1;
+    while ($index >= 0
+          and !($current->{'contents'}->[$index]->{'type'}
+            and ($current->{'contents'}->[$index]->{'type'} eq 'empty_line'
+                 or $current->{'contents'}->[$index]->{'type'} eq 'paragraph'))
+          and !($current->{'contents'}->[$index]->{'cmdname'}
+                and $close_paragraph_commands
+                         {$current->{'contents'}->[$index]->{'cmdname'}})) {
+      if ($current->{'contents'}->[$index]->{'cmdname'}
+        and ($current->{'contents'}->[$index]->{'cmdname'} eq 'indent'
+            or $current->{'contents'}->[$index]->{'cmdname'} eq 'noindent')) {
+        $indent = $current->{'contents'}->[$index]->{'cmdname'};
+        last;
       }
+      $index--;
     }
-    push @{$current->{'contents'}},
-            { 'type' => 'paragraph', 'parent' => $current };
-    $current = $current->{'contents'}->[-1];
-    if ($indent) {
-      $current->{'extra'} = {$indent => 1};
-    }
-    $self->_push_context('ct_paragraph', undef);
-    print STDERR "PARAGRAPH\n" if ($self->{'conf'}->{'DEBUG'});
-    return $current;
   }
-  return 0;
+  push @{$current->{'contents'}},
+          { 'type' => 'paragraph', 'parent' => $current };
+  $current = $current->{'contents'}->[-1];
+  if ($indent) {
+    $current->{'extra'} = {$indent => 1};
+  }
+  $self->_push_context('ct_paragraph', undef);
+  print STDERR "PARAGRAPH\n" if ($self->{'conf'}->{'DEBUG'});
+  return $current;
 }
 
 sub _begin_preformatted($$)
@@ -2247,24 +2251,23 @@ sub _merge_text {
 
   my $paragraph;
 
-  my $no_merge_with_following_text = 0;
   if ($text =~ /\S/) {
     my $leading_spaces;
     if ($text =~ /^(\s+)/) {
       $leading_spaces = $1;
     }
     if ($last_element->{'type'}) {
-      my $last_element_type = $last_element->{'type'};
-      if ($last_element_type eq 'empty_line'
-          or $last_element_type eq 'ignorable_spaces_after_command'
-          or $last_element_type eq 'internal_spaces_after_command'
-          or $last_element_type eq 'internal_spaces_before_argument'
-          or $last_element_type eq 'internal_spaces_before_context_argument'
-          or $last_element_type eq 'spaces_after_close_brace') {
+      my $last_elt_type = $last_element->{'type'};
+      if ($last_elt_type eq 'empty_line'
+          or $last_elt_type eq 'ignorable_spaces_after_command'
+          or $last_elt_type eq 'internal_spaces_after_command'
+          or $last_elt_type eq 'internal_spaces_before_argument'
+          or $last_elt_type eq 'internal_spaces_before_context_argument'
+          or $last_elt_type eq 'spaces_after_close_brace') {
 
         if ($leading_spaces) {
           print STDERR "MERGE_TEXT ADD leading empty |$leading_spaces|"
-                    ." to $last_element_type\n"
+                    ." to $last_elt_type\n"
                          if ($self->{'conf'}->{'DEBUG'});
 
           $last_element->{'text'} .= $leading_spaces;
@@ -2277,9 +2280,8 @@ sub _merge_text {
           my $popped_element = _pop_element_from_contents($self, $current);
           delete $popped_element->{'type'};
           $popped_element->{'text'} = $text;
-          $paragraph = _begin_paragraph($self, $current);
-          if ($paragraph) {
-            $current = $paragraph;
+          if (_begin_paragraph_p($self, $current)) {
+            $current = _begin_paragraph($self, $current);
           }
           # do not jump with a goto as in C, as it is not possible
           # in Perl to use a goto to go further than the calling scope
@@ -2292,22 +2294,40 @@ sub _merge_text {
           return $current;
         }
 
-        # since last_element cannot be empty as this case is
-        # handled just above, the last_element is
-        # always kept in current in _abort_empty_line
-        # for an empty_line; its type may have changed
-        _abort_empty_line($self, $current);
-
-        if ($last_element_type ne 'empty_line') {
-          # we do not merge these special types, unset last_element
+        # following is similar to _abort_empty_line, except
+        # for the empty text already handled above, and with
+        # paragraph opening mixed in
+        if ($last_elt_type eq 'internal_spaces_after_command'
+            or $last_elt_type eq 'internal_spaces_before_argument') {
+          _move_last_space_to_element($self, $current);
+          # we do not merge these special types
+          $last_element = undef;
+        } elsif ($last_elt_type eq 'empty_line') {
+          if (_begin_paragraph_p($self, $current)) {
+            $last_element->{'type'} = 'spaces_before_paragraph';
+            $paragraph = _begin_paragraph($self, $current);
+            $current = $paragraph;
+          } else {
+            # in that case, we can merge
+            delete $last_element->{'type'};
+          }
+        } else {
+          # other special spaces, in general in paragraph begin context
+          if ($last_elt_type eq 'internal_spaces_before_context_argument') {
+            _move_last_space_to_element($self, $current);
+          }
+          if (_begin_paragraph_p($self, $current)) {
+            $current = _begin_paragraph($self, $current);
+          }
+          # we do not merge these special types
           $last_element = undef;
         }
       }
-    }
-
-    $paragraph = _begin_paragraph($self, $current);
-    if ($paragraph) {
-      $current = $paragraph;
+    } else {
+      if (_begin_paragraph_p($self, $current)) {
+        $paragraph = _begin_paragraph($self, $current);
+        $current = $paragraph;
+      }
     }
   }
 
@@ -7436,8 +7456,9 @@ sub _process_remaining_on_line($$$$)
     }
 
     unless ($self->{'no_paragraph_commands'}->{$data_cmdname}) {
-      my $paragraph = _begin_paragraph($self, $current, $source_info);
-      $current = $paragraph if ($paragraph);
+      if (_begin_paragraph_p($self, $current)) {
+        $current = _begin_paragraph($self, $current);
+      }
     }
 
     my $command_element;
