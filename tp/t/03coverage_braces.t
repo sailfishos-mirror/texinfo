@@ -114,6 +114,9 @@ ggg *}}.
 ['footnote_ending_on_empty_line','text@footnote{ in footnote.
 
 }'],
+['footnote_ending_on_empty_line_spaces','text@footnote{ in footnote.
+
+  }'],
 ['heading_in_footnote',
 'T@footnote{
 AAA

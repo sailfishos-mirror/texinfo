@@ -1,5 +1,17 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/03coverage_braces.t
+	(footnote_ending_on_empty_line_spaces): test with footnote with end
+	line and spaces after end line before closing brace.
+
+	* tp/Makefile.tres, tp/t/08misc_commands.t
+	(indent_with_command_after_without_space)
+	(indent_with_text_after_without_space): tests with indent followed by
+	command starting a paragraph or text (through a @value expansion)
+	without space in-between.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_merge_text),
 	tp/Texinfo/XS/parsetexi/parser.c (merge_text): handle especially the
 	case of no last element, as there cannot be paragraph or special text

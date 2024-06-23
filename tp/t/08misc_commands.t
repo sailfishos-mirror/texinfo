@@ -305,6 +305,16 @@ qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 indent in quotation
 @end quotation
 '],
+['indent_with_command_after_without_space',
+'@indent@AA{} b
+'],
+# Need to use a trick such as @value to have a text following
+# @indent without being part of the command name
+['indent_with_text_after_without_space',
+'@set myvalue a
+
+@indent@value{myvalue} b
+'],
 ['noindent_after_smallexample',
 'To obtain.
 @smallexample

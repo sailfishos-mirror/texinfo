@@ -401,6 +401,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/end_line_in_anchor.pl \
   t/results/coverage_braces/footnote.pl \
   t/results/coverage_braces/footnote_ending_on_empty_line.pl \
+  t/results/coverage_braces/footnote_ending_on_empty_line_spaces.pl \
   t/results/coverage_braces/footnote_in_command_not_closed.pl \
   t/results/coverage_braces/footnote_no_node.pl \
   t/results/coverage_braces/footnote_not_closed.pl \
@@ -1598,6 +1599,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/incorrect_allowcodebreaks_argument.pl \
   t/results/misc_commands/indent_in_command_in_paragraph.pl \
   t/results/misc_commands/indent_in_quotation.pl \
+  t/results/misc_commands/indent_with_command_after_without_space.pl \
+  t/results/misc_commands/indent_with_text_after_without_space.pl \
   t/results/misc_commands/index_entries.pl \
   t/results/misc_commands/invalid_clickstyle.pl \
   t/results/misc_commands/invalid_documentencoding.pl \
