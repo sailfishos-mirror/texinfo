@@ -574,9 +574,9 @@ begin_paragraph_p (const ELEMENT *current)
      (ct_line, ct_def), preformatted (ct_preformatted).
    */
   return (begin_paragraph_context (current_context ())
-     /* after checking begin_paragraph_context, it remains the
-        brace no_paragraph command that are not context commands,
-        outside of paragraph.  Including commands nested in those commands.
+     /* after checking begin_paragraph_context, it remains to check if not
+        in brace no_paragraph command that are not context commands,
+        outside of paragraph.  Including in commands nested in those commands.
         For example, in @anchor and also in @samp in @anchor */
           && current->type != ET_brace_arg
           && current->type != ET_brace_container);
@@ -2637,6 +2637,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   const char *line;
   int status;
   DOCUMENT *document = parsed_document;
+  enum context top_context;
 
   /* Read input file line-by-line. */
   while (1)
@@ -2723,7 +2724,9 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
         current = current->parent;
     }
 
-  pop_context ();
+  top_context = pop_context ();
+  if (top_context != ct_base && top_context != ct_line)
+    fatal ("base or line context expected at end of parsing");
   if (!is_context_empty ())
     {
       fprintf (stderr, "Context: %s\n", context_name (current_context ()));

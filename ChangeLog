@@ -1,6 +1,13 @@
-2024-09-29  Patrice Dumas  <pertusus@free.fr>
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
-	Update/fix test result
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi): call _pop_context at the
+	end of document parsing.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (parse_texi): check that the
+	context popped at the end of the document is base or line.
+
+	* tp/Texinfo/ParserNonXS.pm: do not call _pop_context with an object
+	oriented syntax.
 
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 
@@ -20,6 +27,10 @@
 	message.
 	
 	Changes in comments.
+
+2024-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	Update/fix test result
 
 2024-06-22  Patrice Dumas  <pertusus@free.fr>
 

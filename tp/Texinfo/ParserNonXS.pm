@@ -1475,7 +1475,7 @@ sub _close_brace_command($$$;$$$)
     } else {
       $expected_context = 'ct_base';
     }
-    $self->_pop_context([$expected_context], $source_info, $current);
+    _pop_context($self, [$expected_context], $source_info, $current);
 
     $self->{'nesting_context'}->{'footnote'} -= 1
       if ($current->{'cmdname'} eq 'footnote');
@@ -1648,7 +1648,7 @@ sub _close_container($$$)
   _remove_empty_content($self, $current);
 
   if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
-    $self->_pop_context(['ct_paragraph'], $source_info, $current);
+    _pop_context($self, ['ct_paragraph'], $source_info, $current);
   }
 
   # remove element without contents nor associated information
@@ -2045,13 +2045,13 @@ sub _pop_block_command_contexts($$$;$)
   my $context_string = shift;
   if ($preformatted_commands{$current->{'cmdname'}}
       or $block_commands{$current->{'cmdname'}} eq 'menu') {
-    $self->_pop_context(['ct_preformatted'], $source_info, $current,
+    _pop_context($self, ['ct_preformatted'], $source_info, $current,
                         $context_string);
   } elsif ($block_commands{$current->{'cmdname'}} eq 'format_raw') {
-    $self->_pop_context(['ct_rawpreformatted'], $source_info, $current,
+    _pop_context($self, ['ct_rawpreformatted'], $source_info, $current,
                         $context_string);
   } elsif ($math_commands{$current->{'cmdname'}}) {
-    $self->_pop_context(['ct_math'], $source_info, $current,
+    _pop_context($self, ['ct_math'], $source_info, $current,
                         $context_string);
   } elsif ($block_commands{$current->{'cmdname'}} eq 'region') {
     pop @{$self->{'nesting_context'}->{'regions_stack'}};
@@ -3570,7 +3570,7 @@ sub _end_line_misc_line($$$)
     return $current;
   }
 
-  $self->_pop_context(['ct_line'], $source_info, $current, 'in line_arg');
+  _pop_context($self, ['ct_line'], $source_info, $current, 'in line_arg');
 
   $current = $current->{'parent'};
   my $misc_cmd = $current;
@@ -3975,7 +3975,7 @@ sub _end_line_def_line($$$)
   my $top_context = $self->_top_context();
 
   my $context_command
-   = $self->_pop_context(['ct_def'], $source_info, $current);
+   = _pop_context($self, ['ct_def'], $source_info, $current);
   $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
 
   print STDERR "END DEF LINE $def_command; current "
@@ -4078,7 +4078,7 @@ sub _end_line_starting_block($$$)
   }
 
   my $empty_text;
-  $self->_pop_context(['ct_line'], $source_info, $current,
+  _pop_context($self, ['ct_line'], $source_info, $current,
                       'in block_line_arg');
 
   print STDERR "END BLOCK LINE: "
@@ -6452,7 +6452,7 @@ sub _handle_close_brace($$$)
       my $current_command = $current->{'parent'};
       if ($brace_commands{$current_command->{'cmdname'}} eq 'inline') {
         if ($current_command->{'cmdname'} eq 'inlineraw') {
-          $self->_pop_context(['ct_inlineraw'], $source_info, $current,
+          _pop_context($self, ['ct_inlineraw'], $source_info, $current,
                               ' inlineraw');
         }
       }
@@ -7676,8 +7676,7 @@ sub _parse_texi($$$)
   }
   $current = _close_commands($self, $current, $source_info);
 
-  pop @{$self->{'context_stack'}};
-  pop @{$self->{'context_command_stack'}};
+  _pop_context($self, ['ct_base', 'ct_line'], $source_info, $current);
   my @context_stack = $self->_get_context_stack();
   if (scalar(@context_stack) != 0) {
     die($self->_bug_message("CONTEXT_STACK not empty at _parse_texi end: "
