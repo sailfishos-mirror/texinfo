@@ -1,5 +1,18 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_abort_empty_line): define more variables
+	and add separate if.
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text, _abort_empty_line)
+	(_end_line, _handle_open_brace), tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line, do_abort_empty_line)
+	(merge_text, abort_empty_line), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace): add a new internal text type,
+	internal_spaces_before_context_argument, for context brace commands
+	only, otherwise very similar with internal_spaces_before_argument.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/convert_utils.c (find_innermost_accent_contents)
 	(find_root_command_next_heading_command): fix type_data text flag
 	symbol.

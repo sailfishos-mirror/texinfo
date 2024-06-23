@@ -97,6 +97,9 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
         }
       else if (command_data(cmd).data == BRACE_context)
         {
+          ELEMENT *space_e;
+          int n;
+
           arg = new_element (ET_brace_command_context);
           add_to_element_args (current, arg);
           current = arg;
@@ -151,36 +154,27 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               nesting_context.footnote++;
             }
 
-          /* Add to context stack. */
-          switch (cmd)
+          if (cmd == CM_math)
             {
-            case CM_footnote:
-              push_context (ct_base, cmd);
-              break;
-            case CM_caption:
-              push_context (ct_base, cmd);
-              break;
-            case CM_shortcaption:
-              push_context (ct_base, cmd);
-              break;
-            case CM_math:
               push_context (ct_math, cmd);
-              break;
-            default:
-              fatal ("no context for command");
+              space_e = new_text_element (ET_internal_spaces_before_argument);
+            }
+          else
+            {
+              push_context (ct_base, cmd);
+              space_e
+                = new_text_element (ET_internal_spaces_before_context_argument);
             }
 
-          {
-            ELEMENT *e;
-            int n;
-            n = strspn (line, whitespace_chars_except_newline);
-            e = new_text_element (ET_internal_spaces_before_argument);
-            text_append_n (e->e.text, line, n);
-            add_to_element_contents (current, e);
-            internal_space_holder = current->parent;
+          add_to_element_contents (current, space_e);
+          internal_space_holder = current->parent;
 
-            line += n;
-          }
+          n = strspn (line, whitespace_chars_except_newline);
+          if (n > 0)
+            {
+              text_append_n (space_e->e.text, line, n);
+              line += n;
+            }
         }
       else /* not context brace */
         {
@@ -188,8 +182,8 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           if (command_data(cmd).data == BRACE_arguments
               || command_data(cmd).data == BRACE_inline)
             {
-              arg = new_element (ET_brace_arg);
               ELEMENT *e;
+              arg = new_element (ET_brace_arg);
               e = new_text_element (ET_internal_spaces_before_argument);
               add_to_element_contents (arg, e);
               internal_space_holder = arg;

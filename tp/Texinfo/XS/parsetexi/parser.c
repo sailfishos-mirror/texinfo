@@ -737,7 +737,8 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
                          ? ET_spaces_before_paragraph : ET_normal_text;
     }
   else if (last_elt->type == ET_internal_spaces_after_command
-           || last_elt->type == ET_internal_spaces_before_argument)
+           || last_elt->type == ET_internal_spaces_before_argument
+           || last_elt->type == ET_internal_spaces_before_context_argument)
     {
       /* Remove element from main tree. It will still be referenced in
          the 'info' hash as 'spaces_before_argument'. */
@@ -783,6 +784,8 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               || last_element->type == ET_ignorable_spaces_after_command
               || last_element->type == ET_internal_spaces_after_command
               || last_element->type == ET_internal_spaces_before_argument
+              || last_element->type
+                           == ET_internal_spaces_before_context_argument
               || last_element->type == ET_spaces_after_close_brace))
         {
           int no_merge_with_following_text
@@ -910,6 +913,7 @@ abort_empty_line (ELEMENT *current)
           || last_child->type == ET_ignorable_spaces_after_command
           || last_child->type == ET_internal_spaces_after_command
           || last_child->type == ET_internal_spaces_before_argument
+          || last_child->type == ET_internal_spaces_before_context_argument
           || last_child->type == ET_spaces_after_close_brace))
     {
       do_abort_empty_line (current, last_child);

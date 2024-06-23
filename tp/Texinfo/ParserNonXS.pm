@@ -2246,6 +2246,7 @@ sub _merge_text {
           or $last_element_type eq 'ignorable_spaces_after_command'
           or $last_element_type eq 'internal_spaces_after_command'
           or $last_element_type eq 'internal_spaces_before_argument'
+          or $last_element_type eq 'internal_spaces_before_context_argument'
           or $last_element_type eq 'spaces_after_close_brace') {
 
         if ($leading_spaces) {
@@ -2962,65 +2963,68 @@ sub _pop_element_from_contents($$)
 sub _abort_empty_line {
   my ($self, $current) = @_;
 
-  if ($current->{'contents'} and @{$current->{'contents'}}
-       and $current->{'contents'}->[-1]->{'type'}
-       and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line'
-           or $current->{'contents'}->[-1]->{'type'} eq 'ignorable_spaces_after_command'
-           or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_after_command'
-           or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_before_argument'
-           or $current->{'contents'}->[-1]->{'type'} eq 'spaces_after_close_brace')) {
+  if ($current->{'contents'}) {
+    my $last_element = $current->{'contents'}->[-1];
+    if ($last_element->{'type'}) {
+      my $type = $last_element->{'type'};
+      if ($type eq 'empty_line'
+          or $type eq 'ignorable_spaces_after_command'
+          or $type eq 'internal_spaces_after_command'
+          or $type eq 'internal_spaces_before_argument'
+          or $type eq 'internal_spaces_before_context_argument'
+          or $type eq 'spaces_after_close_brace') {
 
-    my $spaces_element = $current->{'contents'}->[-1];
+        if ($self->{'conf'}->{'DEBUG'}) {
+          print STDERR "ABORT EMPTY in "
+             .Texinfo::Common::debug_print_element($current)
+              .": $type; |$last_element->{'text'}|\n";
+        }
 
-    if ($self->{'conf'}->{'DEBUG'}) {
-      print STDERR "ABORT EMPTY in "
-         .Texinfo::Common::debug_print_element($current)
-          .": $spaces_element->{'type'}; |$spaces_element->{'text'}|\n";
-    }
-
-    # remove empty 'empty*before'.  Happens in many situations.
-    if ($spaces_element->{'text'} eq '') {
-      my $popped_element = _pop_element_from_contents($self, $current);
-      # if first in parent and with source mark, placing a source mark
-      # should lead to readding an element for the source mark.  In that
-      # case, the type is not readded, such that it is actually relatively
-      # similar to the case of an empty line just below, except that an empty
-      # text string is left.
-      #
-      # Note that an empty text string first in parent does not happen often,
-      # as it cannot happen in paragraph, as there is some command or text that
-      # started the paragraph before, and being first in the main text out of
-      # paragraph does not happen often either.  The situation in which it
-      # happens is a macro expansion to an empty string right after an
-      # @-command opening (block or brace command).
-      foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
-        _place_source_mark($self, $current, $source_mark);
+        # remove empty 'empty*before'.  Happens in many situations.
+        if ($last_element->{'text'} eq '') {
+          my $popped_element = _pop_element_from_contents($self, $current);
+          # if first in parent and with source mark, placing a source mark
+          # should lead to readding an element for the source mark.  In that
+          # case, the type is not readded, such that it is actually relatively
+          # similar to the case of an empty line just below, except that an empty
+          # text string is left.
+          #
+          # Note that an empty text string first in parent does not happen often,
+          # as it cannot happen in paragraph, as there is some command or text that
+          # started the paragraph before, and being first in the main text out of
+          # paragraph does not happen often either.  The situation in which it
+          # happens is a macro expansion to an empty string right after an
+          # @-command opening (block or brace command).
+          foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
+            _place_source_mark($self, $current, $source_mark);
+          }
+          delete $popped_element->{'source_marks'};
+        } elsif ($type eq 'empty_line') {
+          # exactly the same condition as to begin a paragraph
+          if ($begin_paragraph_contexts{$self->_top_context()}
+              and not ($current->{'type'}
+                      and $type_without_paragraph{$current->{'type'}})) {
+            $last_element->{'type'} = 'spaces_before_paragraph';
+          } else {
+            delete $last_element->{'type'};
+          }
+        } elsif ($type eq 'internal_spaces_after_command'
+                 or $type eq 'internal_spaces_before_argument'
+                 or $type eq 'internal_spaces_before_context_argument') {
+          # Remove element from main tree. It will still be referenced in
+          # the 'info' hash as 'spaces_before_argument'.
+          my $spaces_before_argument = _pop_element_from_contents($self, $current);
+          delete $spaces_before_argument->{'type'};
+          delete $spaces_before_argument->{'parent'};
+          my $owning_element = $self->{'internal_space_holder'};
+          $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
+          $owning_element->{'info'}->{'spaces_before_argument'}
+            = $spaces_before_argument;
+          $self->{'internal_space_holder'} = undef;
+        }
+        return 1;
       }
-      delete $popped_element->{'source_marks'};
-    } elsif ($spaces_element->{'type'} eq 'empty_line') {
-      # exactly the same condition as to begin a paragraph
-      if ($begin_paragraph_contexts{$self->_top_context()}
-          and not ($current->{'type'}
-                  and $type_without_paragraph{$current->{'type'}})) {
-        $spaces_element->{'type'} = 'spaces_before_paragraph';
-      } else {
-        delete $spaces_element->{'type'};
-      }
-    } elsif ($spaces_element->{'type'} eq 'internal_spaces_after_command'
-             or $spaces_element->{'type'} eq 'internal_spaces_before_argument') {
-      # Remove element from main tree. It will still be referenced in
-      # the 'info' hash as 'spaces_before_argument'.
-      my $spaces_before_argument = _pop_element_from_contents($self, $current);
-      delete $spaces_before_argument->{'type'};
-      delete $spaces_before_argument->{'parent'};
-      my $owning_element = $self->{'internal_space_holder'};
-      $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
-      $owning_element->{'info'}->{'spaces_before_argument'}
-        = $spaces_before_argument;
-      $self->{'internal_space_holder'} = undef;
     }
-
-    return 1;
   }
   return 0;
 }
@@ -4628,7 +4632,9 @@ sub _end_line($$$)
   } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
     $current = _end_line_misc_line($self, $current, $source_info);
   } elsif (defined($prev_element_type)
-           and $prev_element_type eq 'internal_spaces_before_argument') {
+           and ($prev_element_type eq 'internal_spaces_before_argument'
+                or $prev_element_type
+                          eq 'internal_spaces_before_context_argument')) {
     # Empty spaces after brace or comma till the end of line.
     # Remove this element and update 'extra' values.
     _abort_empty_line($self, $current);
@@ -6155,6 +6161,7 @@ sub _handle_open_brace($$$$)
         $current->{'parent'}->{'info'}->{'delimiter'} = $1;
       }
     } elsif ($self->{'brace_commands'}->{$command} eq 'context') {
+      $current->{'type'} = 'brace_command_context';
       if ($command eq 'caption' or $command eq 'shortcaption') {
         my $float;
         $self->{'nesting_context'}->{'caption'} += 1;
@@ -6194,22 +6201,23 @@ sub _handle_open_brace($$$$)
       } elsif ($command eq 'footnote') {
         $self->{'nesting_context'}->{'footnote'} += 1;
       }
+
+      my $spaces_e = {'parent' => $current};
+      push @{$current->{'contents'}}, $spaces_e;
+
       if ($math_commands{$command}) {
+        # internal_spaces_before_argument is a transient internal type,
+        # which should end up in info spaces_before_argument.
+        $spaces_e->{'type'} = 'internal_spaces_before_argument';
         $self->_push_context('ct_math', $command);
       } else {
+        $spaces_e->{'type'} = 'internal_spaces_before_context_argument';
         $self->_push_context('ct_base', $command);
       }
+      $self->{'internal_space_holder'} = $current->{'parent'};
       # based on whitespace_chars_except_newline in XS parser
       $line =~ s/([ \t\cK\f]*)//;
-      $current->{'type'} = 'brace_command_context';
-      # internal_spaces_before_argument is a transient internal type,
-      # which should end up in info spaces_before_argument.
-      push @{$current->{'contents'}}, {
-        'type' => 'internal_spaces_before_argument',
-        'text' => $1,
-        'parent' => $current,
-      };
-      $self->{'internal_space_holder'} = $current->{'parent'};
+      $spaces_e->{'text'} = $1;
     } else {
       # Commands that disregard leading whitespace.
       if ($brace_commands{$command}
