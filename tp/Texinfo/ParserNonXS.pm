@@ -1359,7 +1359,7 @@ sub _parse_macro_command_line($$$$$;$)
 }
 
 # return true if in a context where paragraphs are to be started.
-sub _begin_paragraph_p($$)
+sub _in_begin_paragraph($$)
 {
   # we want to avoid
   # brace_container, brace_arg, root_line (ct_line),
@@ -2280,7 +2280,7 @@ sub _merge_text {
           my $popped_element = _pop_element_from_contents($self, $current);
           delete $popped_element->{'type'};
           $popped_element->{'text'} = $text;
-          if (_begin_paragraph_p($self, $current)) {
+          if (_in_begin_paragraph($self, $current)) {
             $current = _begin_paragraph($self, $current);
           }
           # do not jump with a goto as in C, as it is not possible
@@ -2303,7 +2303,7 @@ sub _merge_text {
           # we do not merge these special types
           $last_element = undef;
         } elsif ($last_elt_type eq 'empty_line') {
-          if (_begin_paragraph_p($self, $current)) {
+          if (_in_begin_paragraph($self, $current)) {
             $last_element->{'type'} = 'spaces_before_paragraph';
             $paragraph = _begin_paragraph($self, $current);
             $current = $paragraph;
@@ -2316,7 +2316,7 @@ sub _merge_text {
           if ($last_elt_type eq 'internal_spaces_before_context_argument') {
             _move_last_space_to_element($self, $current);
           }
-          if (_begin_paragraph_p($self, $current)) {
+          if (_in_begin_paragraph($self, $current)) {
             $current = _begin_paragraph($self, $current);
           }
           # we do not merge these special types
@@ -2324,7 +2324,7 @@ sub _merge_text {
         }
       }
     } else {
-      if (_begin_paragraph_p($self, $current)) {
+      if (_in_begin_paragraph($self, $current)) {
         $paragraph = _begin_paragraph($self, $current);
         $current = $paragraph;
       }
@@ -7456,7 +7456,7 @@ sub _process_remaining_on_line($$$$)
     }
 
     unless ($self->{'no_paragraph_commands'}->{$data_cmdname}) {
-      if (_begin_paragraph_p($self, $current)) {
+      if (_in_begin_paragraph($self, $current)) {
         $current = _begin_paragraph($self, $current);
       }
     }

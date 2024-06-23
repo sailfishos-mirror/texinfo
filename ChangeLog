@@ -1,5 +1,11 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_in_begin_paragraph),
+	tp/Texinfo/XS/parsetexi/parser.c (in_begin_paragraph): rename
+	begin_paragraph_p as in_begin_paragraph.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_begin_paragraph_p, _begin_paragraph),
 	tp/Texinfo/XS/parsetexi/parser.c (begin_paragraph): add
 	_begin_paragraph_p in Perl code.  Do not call begin_paragraph_p in

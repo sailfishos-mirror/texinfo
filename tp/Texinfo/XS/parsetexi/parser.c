@@ -567,7 +567,7 @@ parse_texi_document (void)
 /* If in a context where paragraphs are to be started, return 1,
    else return 0 */
 static int
-begin_paragraph_p (const ELEMENT *current)
+in_begin_paragraph (const ELEMENT *current)
 {
   /* we want to avoid
      brace_container, brace_arg, root_line (ct_line),
@@ -747,7 +747,7 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
     }
   else if (last_elt->type == ET_empty_line)
     {
-      last_elt->type = begin_paragraph_p (current)
+      last_elt->type = in_begin_paragraph (current)
                          ? ET_spaces_before_paragraph : ET_normal_text;
     }
   else if (last_elt->type == ET_internal_spaces_after_command
@@ -821,7 +821,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
               e = pop_element_from_contents (current);
               e->type = ET_normal_text;
 
-              if (begin_paragraph_p (current))
+              if (in_begin_paragraph (current))
                 {
                   current = begin_paragraph (current);
                 }
@@ -840,10 +840,12 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
             }
           else if (last_elt_type == ET_empty_line)
             {
-              if (begin_paragraph_p (current))
+              if (in_begin_paragraph (current))
                 {
                   last_element->type = ET_spaces_before_paragraph;
                   current = begin_paragraph (current);
+          /* shortcut the case with text as last content child as
+             it cannot happen if a new paragraph is started */
                   goto new_text;
                 }
               /* in that case, we can merge */
@@ -853,13 +855,13 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
             {/* other special spaces, in general in paragraph begin context */
               if (last_elt_type == ET_internal_spaces_before_context_argument)
                 move_last_space_to_element (current);
-              if (begin_paragraph_p (current))
+              if (in_begin_paragraph (current))
                 current = begin_paragraph (current);
               /* we do not merge these special types */
               goto new_text;
             }
         }
-      else if (begin_paragraph_p (current))
+      else if (in_begin_paragraph (current))
         {
           /* NOTE a new paragraph happens necessarily after a special
              space as handled just above, or after a no_paragraph
@@ -2449,7 +2451,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       /* check command doesn't start a paragraph */
       if (!(command_data(data_cmd).flags & CF_no_paragraph))
         {
-          if (begin_paragraph_p (current))
+          if (in_begin_paragraph (current))
             current = begin_paragraph (current);
         }
 
