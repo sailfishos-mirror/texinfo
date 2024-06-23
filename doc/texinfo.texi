@@ -15423,52 +15423,70 @@ meaning of the options.
 
 @multitable @columnfractions 0.5 0.5
 @headitem Option @tab Variable
-@item @vindex ENABLE_ENCODING
+@item
+@vindex ENABLE_ENCODING
 @option{--enable-encoding}   @tab @code{ENABLE_ENCODING}
 @item
 @option{--document-language} @tab @code{documentlanguage}
-@item @vindex ERROR_LIMIT
+@item
+@vindex ERROR_LIMIT
 @option{--error-limit}       @tab @code{ERROR_LIMIT}
-@item @vindex FILLCOLUMN
+@item
+@vindex FILLCOLUMN
 @option{--fill-column}       @tab @code{FILLCOLUMN}
 @item
 @option{--footnote-style}    @tab @code{footnotestyle}
-@item @vindex FORCE
+@item
+@vindex FORCE
 @option{--force}             @tab @code{FORCE}
-@item @vindex INTERNAL_LINKS
+@item
+@vindex INTERNAL_LINKS
 @option{--internal-links}    @tab @code{INTERNAL_LINKS}
-@item @vindex MACRO_EXPAND
+@item
+@vindex MACRO_EXPAND
 @option{--macro-expand}      @tab @code{MACRO_EXPAND}
-@item @vindex HEADERS
+@item
+@vindex HEADERS
 @option{--headers}           @tab @code{HEADERS}, @code{FORMAT_MENU}
-@item @vindex NO_WARN
+@item
+@vindex NO_WARN
 @option{--no-warn}           @tab @code{NO_WARN}
 @item
 @vindex novalidate
 @option{--no-validate}       @tab @code{novalidate}
-@item @vindex NUMBER_FOOTNOTES
+@item
+@vindex NUMBER_FOOTNOTES
 @option{--number-footnotes}  @tab @code{NUMBER_FOOTNOTES}
-@item @vindex NUMBER_SECTIONS
+@item
+@vindex NUMBER_SECTIONS
 @option{--number-sections}   @tab @code{NUMBER_SECTIONS}
-@item @vindex NODE_FILES
+@item
+@vindex NODE_FILES
 @option{--node-files}        @tab @code{NODE_FILES}
-@item @vindex OUTFILE
+@item
+@vindex OUTFILE
 @vindex SUBDIR
 @option{--output}            @tab @code{OUTFILE}, @code{SUBDIR}
 @item
 @vindex paragraphindent
 @option{--paragraph-indent}  @tab @code{paragraphindent}
-@item @vindex SILENT
+@item
+@vindex SILENT
 @option{--silent}            @tab @code{SILENT}
-@item @vindex SPLIT
+@item
+@vindex SPLIT
 @option{--split}             @tab @code{SPLIT}
-@item @vindex SPLIT_SIZE
+@item
+@vindex SPLIT_SIZE
 @option{--split-size}        @tab @code{SPLIT_SIZE}
-@item @vindex TRACE_INCLUDES
+@item
+@vindex TRACE_INCLUDES
 @option{--trace-includes}    @tab @code{TRACE_INCLUDES}
-@item @vindex TRANSLITERATE_FILE_NAMES
+@item
+@vindex TRANSLITERATE_FILE_NAMES
 @option{--transliterate-file-names} @tab @code{TRANSLITERATE_FILE_NAMES}
-@item @vindex VERBOSE
+@item
+@vindex VERBOSE
 @option{--verbose}           @tab @code{VERBOSE}
 @end multitable
 

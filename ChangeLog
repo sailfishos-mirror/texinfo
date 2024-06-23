@@ -1,5 +1,10 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Customization Variables and Options): put @vindex
+	at beginning of line.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_close_commands),
 	tp/Texinfo/XS/parsetexi/close.c (close_commands): instead of calling
 	end_paragraph and end_preformatted, call close_all_style_commands once
