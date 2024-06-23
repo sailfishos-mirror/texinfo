@@ -1,5 +1,11 @@
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_abort_empty_line),
+	tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line): remove returned
+	status from abort_empty_line.
+
+2024-06-23  Patrice Dumas  <pertusus@free.fr>
+
 	Stricter check of @-commands not appearing at the beginning of a line
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

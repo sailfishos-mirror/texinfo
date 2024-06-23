@@ -929,7 +929,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
 /* If last contents child of CURRENT is an empty line element, remove
    or merge text, and return true.
  */
-int
+void
 abort_empty_line (ELEMENT *current)
 {
   ELEMENT *last_child = last_contents_child (current);
@@ -943,10 +943,7 @@ abort_empty_line (ELEMENT *current)
           || last_child->type == ET_spaces_after_close_brace))
     {
       do_abort_empty_line (current, last_child);
-      return 1;
     }
-
-  return 0;
 }
 
 /* The caller verifies that last_elt is a text element */

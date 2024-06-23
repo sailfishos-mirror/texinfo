@@ -73,7 +73,7 @@ CONDITIONAL_STACK_ITEM *top_conditional_stack (void);
 extern size_t conditional_number;
 
 void move_last_space_to_element (ELEMENT *current);
-int abort_empty_line (ELEMENT *current);
+void abort_empty_line (ELEMENT *current);
 ELEMENT *end_paragraph (ELEMENT *current,
                         enum command_id closed_block_command,
                         enum command_id interrupting_command);

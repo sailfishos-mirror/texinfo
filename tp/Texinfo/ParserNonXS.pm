@@ -3061,11 +3061,9 @@ sub _abort_empty_line($$) {
                  or $type eq 'internal_spaces_before_context_argument') {
           _move_last_space_to_element($self, $current);
         }
-        return 1;
       }
     }
   }
-  return 0;
 }
 
 sub _isolate_trailing_space($$)
