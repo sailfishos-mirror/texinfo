@@ -794,12 +794,12 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   ELEMENT *e;
   ELEMENT *last_element = last_contents_child (current);
 
-  /* paragraphs are only started in empty lines or in context brace
-     commands, if there is nothing in the current element, cannot
-     be in a case where a paragraph is started.
+  /* paragraphs are mainly started in empty lines, in context brace
+     commands or after some commands, if there is nothing in the current
+     element, we cannot be in a case where a paragraph is started.
      Also, elements without anything in them are only brace_container
-     or menu_entry_name, otherwise there is always some kind of element
-     leading added for leading spaces when the element is created */
+     or menu_entry_name, otherwise a text element is added for leading
+     spaces when the element is created */
   if (!last_element)
     goto new_text;
 
@@ -855,7 +855,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
              paragraph opening mixed in */
           if (last_elt_type == ET_internal_spaces_after_command
               || last_elt_type == ET_internal_spaces_before_argument)
-            {
+            {/* no paragraph start in those contexts */
               move_last_space_to_element (current);
               /* we do not merge these special types */
               goto new_text;
@@ -1084,19 +1084,25 @@ isolate_last_space (ELEMENT *current)
   else
    goto no_isolate_space;
 
-  debug_nonl ("ISOLATE SPACE p ");
-  debug_parser_print_element (current, 0);
-  debug_nonl ("; c ");
-  debug_parser_print_element (last_elt, 0); debug ("");
+  if (global_parser_conf.debug)
+    {
+      debug_nonl ("ISOLATE SPACE p ");
+      debug_parser_print_element (current, 0);
+      debug_nonl ("; c ");
+      debug_parser_print_element (last_elt, 0); debug ("");
+    }
   return;
 
  no_isolate_space:
-  debug_nonl ("NOT ISOLATING p ");
-  debug_parser_print_element (current, 0);
-  debug_nonl ("; c ");
-  if (last_elt)
-    debug_parser_print_element (last_elt, 0);
-  debug ("");
+  if (global_parser_conf.debug)
+    {
+      debug_nonl ("NOT ISOLATING p ");
+      debug_parser_print_element (current, 0);
+      debug_nonl ("; c ");
+      if (last_elt)
+        debug_parser_print_element (last_elt, 0);
+      debug ("");
+    }
 
   return;
 }
@@ -1461,6 +1467,9 @@ check_valid_nesting_context (enum command_id cmd)
 
 static char *allocated_text;
 
+/* Read input until finding the @end of the CURRENT macro block command,
+   taking into account the possibility to have nested @*macro.
+   Leave the closing @end on the line. */
 static void
 process_macro_block_contents (ELEMENT *current, const char **line_out)
 {
@@ -1607,6 +1616,9 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
   *line_out = line;
 }
 
+/* Read input until finding the @end of the CURRENT block command,
+   taking into account the possibility to have nested @-commands.
+   Leave the closing @end on the line. */
 static void
 process_raw_block_contents (ELEMENT *current, const char **line_out)
 {
@@ -1701,6 +1713,8 @@ process_raw_block_contents (ELEMENT *current, const char **line_out)
 }
 
 
+/* Read input until finding the @end of the CURRENT ignored raw format
+   block command.  Leave the closing @end on the line */
 static void
 process_ignored_raw_format_block_contents (ELEMENT *current,
                                            const char **line_out)
@@ -1708,8 +1722,9 @@ process_ignored_raw_format_block_contents (ELEMENT *current,
 
   /* we proceed with an internal loop here as there cannot be any
      expansion within an ignored format_raw.  We leave the @end line
-     in line and do not change retval to have the @end line be processed
-     by the following call to process_remaining_on_line */
+     in line and do not change retval (in calling code) to have the
+     @end line be processed by the following call to
+     process_remaining_on_line */
 
   ELEMENT *e_elided_rawpreformatted;
   ELEMENT *e_empty_line;
@@ -1766,6 +1781,8 @@ process_ignored_raw_format_block_contents (ELEMENT *current,
   *line_out = line;
 }
 
+/* Read input until finding the delimiter and end brace of the
+   CURRENT @verb command element.  Leave the closing } on the line */
 void
 process_verb_contents (ELEMENT *current, const char **line_inout)
 {
@@ -1786,9 +1803,9 @@ process_verb_contents (ELEMENT *current, const char **line_inout)
           while (1)
             {
               q = strstr (q, delimiter);
-              if (!q || q[strlen (delimiter)] == '}')
+              if (!q || q[delimiter_len] == '}')
                 break;
-              q += strlen (delimiter);
+              q += delimiter_len;
             }
         }
       else
@@ -1825,11 +1842,10 @@ process_verb_contents (ELEMENT *current, const char **line_inout)
       if (!line)
         {
           /* unclosed verb */
-          goto funexit;
+          break;
         }
     }
 
- funexit:
   *line_inout = line;
 }
 

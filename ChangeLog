@@ -1,5 +1,15 @@
 2024-06-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (process_verb_contents): use
+	delimiter_len instead of calling strlen.  Use break instead of goto.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space): check the
+	debug conditional when there are several debug function calls.
+
+	Change in comments.
+
+2024-06-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (isolate_trailing_spaces_element)
 	(isolate_trailing_space, isolate_last_space): have
 	isolate_trailing_spaces_element return the input element if it
