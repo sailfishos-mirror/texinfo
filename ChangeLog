@@ -1,5 +1,14 @@
 2024-06-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (isolate_trailing_spaces_element)
+	(isolate_trailing_space, isolate_last_space): have
+	isolate_trailing_spaces_element return the input element if it
+	consists only of spaces.  Use that information to determine that the
+	element text is only space in isolate_last_space and
+	isolate_trailing_space instead of calling strspn.
+
+2024-06-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_isolate_trailing_space)
 	(_register_extra_menu_entry_information, _isolate_last_space)
 	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/menus.c

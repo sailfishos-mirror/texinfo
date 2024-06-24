@@ -968,19 +968,29 @@ abort_empty_line (ELEMENT *current)
     }
 }
 
+/* returns the input ELEMENT if the element text consists only of spaces.
+   If there are trailing spaces in ELEMENT, remove them from ELEMENT,
+   create and return a new element holding the removed trailing spaces.
+   Otherwise return 0.
+ */
 static ELEMENT *
-isolate_trailing_spaces_element (char *text, enum element_type spaces_type,
+isolate_trailing_spaces_element (enum element_type spaces_type,
                                  ELEMENT *element)
 {
   ELEMENT *spaces_element = 0;
   int i, trailing_spaces;
   int text_len = element->e.text->end;
+  char *text = element->e.text->text;
 
   trailing_spaces = 0;
   for (i = text_len - 1;
-       i > 0 && strchr (whitespace_chars, text[i]);
+       i >= 0 && strchr (whitespace_chars, text[i]);
        i--)
     trailing_spaces++;
+
+  /* only spaces in input element text, return the element */
+  if (i < 0)
+    return element;
 
   if (trailing_spaces)
     {
@@ -1009,26 +1019,21 @@ void
 isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
 {
   ELEMENT *last_elt = last_contents_child (current);
-  char *text;
+  ELEMENT *spaces_element;
 
   if (!last_elt || !(type_data[last_elt->type].flags & TF_text)
       || last_elt->e.text->end <= 0)
     return;
 
-  text = last_elt->e.text->text;
-
+  spaces_element = isolate_trailing_spaces_element (spaces_type, last_elt);
   /* If text all whitespace */
-  if (text[strspn (text, whitespace_chars)] == '\0')
+  if (spaces_element == last_elt)
     {
       last_elt->type = spaces_type;
     }
-  else
-    {
-      ELEMENT *new_spaces = isolate_trailing_spaces_element (text,
-                                             spaces_type, last_elt);
-      if (new_spaces)
-        add_to_element_contents (current, new_spaces);
-    }
+  else if (spaces_element)
+    /* a new element with traling spaces transferred from last_elt */
+    add_to_element_contents (current, spaces_element);
 }
 
 void
@@ -1059,9 +1064,10 @@ isolate_last_space (ELEMENT *current)
   if (last_elt && type_data[last_elt->type].flags & TF_text
       && last_elt->e.text->end > 0)
     {
-      char *text = last_elt->e.text->text;
+      ELEMENT *spaces_element
+            = isolate_trailing_spaces_element (ET_other_text, last_elt);
+      if (spaces_element == last_elt)
       /* If text all whitespace */
-      if (text[strspn (text, whitespace_chars)] == '\0')
         {
           /* e is last_elt */
           ELEMENT *e = pop_element_from_contents (current);
@@ -1069,16 +1075,11 @@ isolate_last_space (ELEMENT *current)
           e->type = ET_other_text;
           current->elt_info[eit_spaces_after_argument] = e;
         }
+    /* a new element with traling spaces transferred from last_elt */
+      else if (spaces_element)
+        current->elt_info[eit_spaces_after_argument] = spaces_element;
       else
-        {
-          ELEMENT *spaces_element
-            = isolate_trailing_spaces_element (text,
-                                               ET_other_text, last_elt);
-          if (spaces_element)
-            current->elt_info[eit_spaces_after_argument] = spaces_element;
-          else
-            goto no_isolate_space;
-        }
+        goto no_isolate_space;
     }
   else
    goto no_isolate_space;
