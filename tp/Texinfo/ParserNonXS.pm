@@ -379,6 +379,14 @@ foreach my $type ('brace_arg', 'brace_container') {
   $type_without_paragraph{$type} = 1;
 };
 
+my %leading_space_types;
+foreach my $type ('empty_line', 'ignorable_spaces_after_command',
+        'internal_spaces_after_command', 'internal_spaces_before_argument',
+        'internal_spaces_before_context_argument',
+        'spaces_after_close_brace') {
+  $leading_space_types{$type} = 1;
+}
+
 my %command_ignore_space_after;
 foreach my $command ('anchor', 'hyphenation', 'caption', 'shortcaption',
                      'sortas', 'seeentry', 'seealso') {
@@ -2278,13 +2286,7 @@ sub _merge_text {
     }
     if ($last_element->{'type'}) {
       my $last_elt_type = $last_element->{'type'};
-      if ($last_elt_type eq 'empty_line'
-          or $last_elt_type eq 'ignorable_spaces_after_command'
-          or $last_elt_type eq 'internal_spaces_after_command'
-          or $last_elt_type eq 'internal_spaces_before_argument'
-          or $last_elt_type eq 'internal_spaces_before_context_argument'
-          or $last_elt_type eq 'spaces_after_close_brace') {
-
+      if ($leading_space_types{$last_elt_type}) {
         if ($leading_spaces) {
           print STDERR "MERGE_TEXT ADD leading empty |$leading_spaces|"
                     ." to $last_elt_type\n"
@@ -3035,13 +3037,7 @@ sub _abort_empty_line($$) {
     my $last_element = $current->{'contents'}->[-1];
     if ($last_element->{'type'}) {
       my $type = $last_element->{'type'};
-      if ($type eq 'empty_line'
-          or $type eq 'ignorable_spaces_after_command'
-          or $type eq 'internal_spaces_after_command'
-          or $type eq 'internal_spaces_before_argument'
-          or $type eq 'internal_spaces_before_context_argument'
-          or $type eq 'spaces_after_close_brace') {
-
+      if ($leading_space_types{$type}) {
         if ($self->{'conf'}->{'DEBUG'}) {
           print STDERR "ABORT EMPTY in "
              .Texinfo::Common::debug_print_element($current)

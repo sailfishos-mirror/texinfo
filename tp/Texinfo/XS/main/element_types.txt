@@ -15,6 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# The first column holds type names, second column contains flags for types
+
 # Types for @-commands
 index_entry_command                    spaces_before,at_command
 definfoenclose_command                 braces,at_command
@@ -34,11 +36,11 @@ brace_args_command                     braces,at_command
 context_brace_command                  braces,spaces_before,at_command
 
 # For text elements
-empty_line                                text
+empty_line                                text,leading_space
 raw                                       text
-ignorable_spaces_after_command            text
+ignorable_spaces_after_command            text,leading_space
 spaces_at_end                             text
-spaces_after_close_brace                  text
+spaces_after_close_brace                  text,leading_space
 spaces_before_paragraph                   text
 text_after_end                            text
 text_before_beginning                     text
@@ -85,10 +87,10 @@ menu_comment
 # Used internally
 internal_menu_star                         text
 # right after a line command or block command
-internal_spaces_after_command              text
+internal_spaces_after_command              text,leading_space
 # after opening brace or comma
-internal_spaces_before_argument            text
-internal_spaces_before_context_argument    text
+internal_spaces_before_argument            text,leading_space
+internal_spaces_before_context_argument    text,leading_space
 # on @*index commands line before brace specific @-command
 internal_spaces_before_brace_in_index      text
 internal_spaces_after_cmd_before_arg       text

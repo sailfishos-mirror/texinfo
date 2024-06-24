@@ -1,5 +1,17 @@
 2024-06-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%leading_space_types, _merge_text)
+	(_abort_empty_line): use a hash for special spaces text types in
+	merge_text and abort_empty_line.
+
+	* tp/Texinfo/XS/main/element_types.txt,
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text),
+	tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line): add a new
+	TF_leading_space flag, and use it for special spaces text types in
+	merge_text and abort_empty_line.
+
+2024-06-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_verb_contents): use
 	delimiter_len instead of calling strlen.  Use break instead of goto.
 

@@ -813,12 +813,9 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
   /* Is there a non-whitespace character in the line? */
   if (leading_spaces < len_text)
     {
-      if ((last_elt_type == ET_empty_line
-           || last_elt_type == ET_ignorable_spaces_after_command
-           || last_elt_type == ET_internal_spaces_after_command
-           || last_elt_type == ET_internal_spaces_before_argument
-           || last_elt_type == ET_internal_spaces_before_context_argument
-           || last_elt_type == ET_spaces_after_close_brace))
+      /* empty_line, ignorable_spaces_after_command, internal_spaces_*,
+         spaces_after_close_brace */
+      if (type_data[last_elt_type].flags & TF_leading_space)
         {
           if (leading_spaces)
             {
@@ -957,12 +954,9 @@ abort_empty_line (ELEMENT *current)
   ELEMENT *last_child = last_contents_child (current);
 
   if (last_child
-      && (last_child->type == ET_empty_line
-          || last_child->type == ET_ignorable_spaces_after_command
-          || last_child->type == ET_internal_spaces_after_command
-          || last_child->type == ET_internal_spaces_before_argument
-          || last_child->type == ET_internal_spaces_before_context_argument
-          || last_child->type == ET_spaces_after_close_brace))
+      /* empty_line, ignorable_spaces_after_command, internal_spaces_*,
+         spaces_after_close_brace */
+      && type_data[last_child->type].flags & TF_leading_space)
     {
       do_abort_empty_line (current, last_child);
     }
