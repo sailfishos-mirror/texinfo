@@ -9,10 +9,8 @@
 
 ELEMENT *find_identifier_target (const LABEL_LIST *identifiers_target,
                                  const char *normalized);
-int register_label_element (int document_descriptor, ELEMENT *element,
+int register_label_element (size_t document_descriptor, ELEMENT *element,
                             ERROR_MESSAGE_LIST *error_messages);
-
-void set_labels_identifiers_target (const LABEL_LIST *labels,
-                                    LABEL_LIST *result);
+int compare_labels (const void *a, const void *b);
 
 #endif

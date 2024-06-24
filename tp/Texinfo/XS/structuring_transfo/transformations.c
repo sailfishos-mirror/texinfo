@@ -558,7 +558,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
           DOCUMENT *document)
 {
   const LABEL_LIST *identifiers_target = &document->identifiers_target;
-  int document_descriptor = document->descriptor;
+  size_t document_descriptor = document->descriptor;
   int empty_node = 0;
   int appended_number;
   int new_line_at_end = 0;

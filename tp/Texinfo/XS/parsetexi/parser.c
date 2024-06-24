@@ -46,11 +46,9 @@
 #include "commands.h"
 #include "debug_parser.h"
 #include "errors_parser.h"
-/* for set_labels_identifiers_target */
-#include "targets.h"
 #include "source_marks.h"
 #include "input.h"
-/* for labels_list labels_number forget_labels forget_internal_xrefs */
+/* for set_labels_identifiers_target */
 #include "labels.h"
 /* MACRO lookup_macro new_macro handle_macro fetch_value */
 #include "macro.h"

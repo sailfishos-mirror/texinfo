@@ -25,6 +25,8 @@
 
 void check_register_target_element_label (ELEMENT *label_element,
                                           ELEMENT *target_element);
+void set_labels_identifiers_target (const LABEL_LIST *labels,
+                                    LABEL_LIST *result);
 
 
 
