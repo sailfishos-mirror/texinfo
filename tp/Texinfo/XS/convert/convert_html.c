@@ -18518,6 +18518,10 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
             text_append_n (&debug_str, " text(EMPTY)", 12);
         }
       text_append (&debug_str, "\n");
+       /*
+      text_printf (&debug_str, "DETAILS: %s",
+                               print_element_debug_details (element, 0));
+        */
       fprintf (stderr, "%s", debug_str.text);
       free (debug_str.text);
     }

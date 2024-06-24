@@ -26,6 +26,8 @@
 #include "types_data.h"
 #include "extra.h"
 #include "builtin_commands.h"
+/* for directions_length and direction_names */
+#include "utils.h"
 #include "debug.h"
 
 const char *
@@ -121,7 +123,6 @@ char *
 print_associate_info_debug (const ASSOCIATED_INFO *info)
 {
   TEXT text;
-  char *result;
   int i;
 
   text_init (&text);
@@ -134,7 +135,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
       switch (info->info[i].type)
         {
         case extra_deleted:
-          text_printf (&text, "deleted");
+          text_append (&text, "deleted");
           break;
         case extra_integer:
           text_printf (&text, "integer: %d", k->k.integer);
@@ -163,6 +164,13 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
               }
             break;
            }
+        case extra_index_entry:
+           {
+             const INDEX_ENTRY_LOCATION *entry_loc = k->k.index_entry;
+             text_printf (&text, "index_entry: %s, %d",
+                          entry_loc->index_name, entry_loc->number);
+             break;
+           }
         case extra_contents:
           {
             int j;
@@ -174,6 +182,24 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
                 char *element_str = print_element_debug (e, 0);
                 text_printf (&text, "%p;%s|", e, element_str);
                 free (element_str);
+              }
+            break;
+          }
+        case extra_directions:
+          {
+            int d;
+            const ELEMENT_LIST *l = k->k.list;
+            text_append (&text, "directions: ");
+            for (d = 0; d < directions_length; d++)
+              {
+                if (l->list[d])
+                  {
+                    const char *d_key = direction_names[d];
+                    const ELEMENT *e = l->list[d];
+                    char *element_str = print_element_debug (e, 0);
+                    text_printf (&text, "%s->%s|", d_key, element_str);
+                    free (element_str);
+                  }
               }
             break;
           }
@@ -191,7 +217,6 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
               }
             break;
           }
-        /* FIXME extra_index_entry not shown */
         default:
           text_printf (&text, "UNKNOWN (%d)", info->info[i].type);
           break;
@@ -199,9 +224,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
       text_append (&text, "\n");
     }
 
-  result = strdup (text.text);
-  free (text.text);
-  return result;
+  return text.text;
 }
 
 char *
@@ -209,21 +232,23 @@ print_element_debug_details (const ELEMENT *e, int print_parent)
 {
   char *string = print_element_debug (e, print_parent);
   TEXT text;
-  char *result;
 
   text_init (&text);
   text_append (&text, string);
-  text_append (&text, "\n");
+  free (string);
+  text_append_n (&text, "\n", 1);
 
-  if (e->e.c->extra_info.info_number > 0)
+  if (!(type_data[e->type].flags & TF_text)
+      && e->e.c->extra_info.info_number > 0)
     {
       char *associated_info_str;
-      text_append (&text, " EXTRA\n");
+      text_append_n (&text, " EXTRA\n", 7);
       associated_info_str = print_associate_info_debug (&e->e.c->extra_info);
       text_append (&text, associated_info_str);
       free (associated_info_str);
     }
 
+  /* TODO could print extra flags */
   /* TODO could print elt_info and string_info arrays
   if (e->e.c->info_info.info_number > 0)
     {
@@ -231,9 +256,6 @@ print_element_debug_details (const ELEMENT *e, int print_parent)
     }
    */
 
-  free (string);
-  result = strdup (text.text);
-  free (text.text);
-  return result;
+  return text.text;
 }
 

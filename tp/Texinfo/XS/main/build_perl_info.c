@@ -224,7 +224,7 @@ build_perl_container (ELEMENT *e, int avoid_recursion)
 }
 
 static SV *
-build_perl_directions (const ELEMENT_LIST *e, int avoid_recursion)
+build_perl_directions (const ELEMENT_LIST *e_l, int avoid_recursion)
 {
   SV *sv;
   HV *hv;
@@ -237,19 +237,20 @@ build_perl_directions (const ELEMENT_LIST *e, int avoid_recursion)
 
   for (d = 0; d < directions_length; d++)
     {
-      if (e->list[d])
+      if (e_l->list[d])
         {
           const char *key = direction_names[d];
-          if (!e->list[d]->hv)
+          ELEMENT *e = e_l->list[d];
+          if (!e->hv)
             {
-              if (e->list[d]->parent)
-                e->list[d]->hv = newHV ();
+              if (e->parent)
+                e->hv = newHV ();
               else
                 {
                   /* NOTE This should not happen, all the elements are in-tree.
                    */
                   static TEXT message;
-                  char *debug_str = print_element_debug (e->list[d], 1);
+                  char *debug_str = print_element_debug (e, 1);
                   text_init (&message);
                   text_printf (&message,
                     "BUG: build_perl_directions oot %s: %s\n", key, debug_str);
@@ -260,11 +261,11 @@ build_perl_directions (const ELEMENT_LIST *e, int avoid_recursion)
                   free (message.text);
                   /* Out-of-tree element */
                   /* WARNING: This is possibly recursive. */
-                  element_to_perl_hash (e->list[d], avoid_recursion);
+                  element_to_perl_hash (e, avoid_recursion);
                 }
             }
           hv_store (hv, key, strlen (key),
-                    newRV_inc ((SV *) e->list[d]->hv), 0);
+                    newRV_inc ((SV *) e->hv), 0);
         }
     }
   return sv;
