@@ -427,8 +427,9 @@ setup_document_root_and_before_node_section (void)
 
 /* Put everything before @setfilename in a special type and separate
    a preamble for informative commands */
-void
-rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
+static void
+rearrange_tree_beginning (ELEMENT *before_node_section,
+                          size_t document_descriptor)
 {
   DOCUMENT *document = retrieve_document (document_descriptor);
   ELEMENT *informational_preamble;
@@ -502,10 +503,10 @@ rearrange_tree_beginning (ELEMENT *before_node_section, int document_descriptor)
 }
 
 
-int
+void
 parse_texi_document (void)
 {
-  int document_descriptor;
+  size_t document_descriptor;
   char *line = 0;
   const char *linep;
 
@@ -557,8 +558,6 @@ parse_texi_document (void)
    */
 
   rearrange_tree_beginning (before_node_section, document_descriptor);
-
-  return document_descriptor;
 }
 
 
@@ -2657,8 +2656,11 @@ check_line_directive (const char *line)
 }
 
 /* Pass in a ROOT_ELT root of "Texinfo tree".  Starting point for adding
-   to the tree is CURRENT_ELT.  Returns a stored DOCUMENT_DESCRIPTOR */
-int
+   to the tree is CURRENT_ELT.
+   Returns a stored DOCUMENT_DESCRIPTOR, though caller could also take it
+   directly from parsed_document.
+  */
+size_t
 parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 {
   ELEMENT *current = current_elt;

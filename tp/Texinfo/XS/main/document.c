@@ -39,7 +39,7 @@ static size_t document_number;
 static size_t document_space;
 
 DOCUMENT *
-retrieve_document (int document_descriptor)
+retrieve_document (size_t document_descriptor)
 {
   if (document_descriptor <= document_number
       && document_list[document_descriptor -1] != 0)
@@ -454,7 +454,7 @@ destroy_document_information_except_tree (DOCUMENT *document)
 }
 
 void
-remove_document_descriptor (int document_descriptor)
+remove_document_descriptor (size_t document_descriptor)
 {
   DOCUMENT *document = 0;
 
@@ -474,7 +474,7 @@ remove_document_descriptor (int document_descriptor)
     destroy_strings_list (document->small_strings);
 
   /*
-  fprintf (stderr, "REMOVE %d %p\n", document_descriptor, document);
+  fprintf (stderr, "REMOVE %zu %p\n", document_descriptor, document);
    */
 
   free (document);
@@ -484,7 +484,7 @@ remove_document_descriptor (int document_descriptor)
 /* destroy everything except for the tree and merge small string to
    DOCUMENT */
 ELEMENT *
-unregister_document_merge_with_document (int document_descriptor,
+unregister_document_merge_with_document (size_t document_descriptor,
                                          DOCUMENT *document)
 {
   DOCUMENT *removed_document = retrieve_document (document_descriptor);
@@ -499,7 +499,7 @@ unregister_document_merge_with_document (int document_descriptor,
   removed_document->tree = 0;
 
   /*
-  fprintf (stderr, "UNREGISTER %p (%d)\n", removed_document,
+  fprintf (stderr, "UNREGISTER %p (%zu)\n", removed_document,
                                            document_descriptor);
    */
 
@@ -549,7 +549,7 @@ add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
 
 /* does not seems to be used */
 void
-wipe_document_errors (int document_descriptor)
+wipe_document_errors (size_t document_descriptor)
 {
   DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
@@ -557,7 +557,7 @@ wipe_document_errors (int document_descriptor)
 }
 
 void
-wipe_document_parser_errors (int document_descriptor)
+wipe_document_parser_errors (size_t document_descriptor)
 {
   DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)

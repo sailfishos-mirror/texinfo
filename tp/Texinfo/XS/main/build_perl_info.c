@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stddef.h>
 
 /* Avoid namespace conflicts. */
 #define context perl_context
@@ -1577,7 +1578,7 @@ pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
 }
 
 void
-pass_document_parser_errors_to_registrar (int document_descriptor,
+pass_document_parser_errors_to_registrar (size_t document_descriptor,
                                           SV *parser_sv)
 {
   DOCUMENT *document;

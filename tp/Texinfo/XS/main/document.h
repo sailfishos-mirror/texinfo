@@ -12,7 +12,7 @@
 struct TEXT_OPTIONS;
 
 
-DOCUMENT *retrieve_document (int document_descriptor);
+DOCUMENT *retrieve_document (size_t document_descriptor);
 DOCUMENT *new_document (void);
 void register_document_nodes_list (DOCUMENT *document,
                                    ELEMENT_LIST *nodes_list);
@@ -41,14 +41,14 @@ COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
                           const char *collation_language,
                           const char *collation_locale);
 
-void remove_document_descriptor (int document_descriptor);
-ELEMENT *unregister_document_merge_with_document (int document_descriptor,
+void remove_document_descriptor (size_t document_descriptor);
+ELEMENT *unregister_document_merge_with_document (size_t document_descriptor,
                                                   DOCUMENT *document);
 
 void add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
                                    const char *key, const char *value);
 
-void wipe_document_parser_errors (int document_descriptor);
-void wipe_document_errors (int document_descriptor);
+void wipe_document_parser_errors (size_t document_descriptor);
+void wipe_document_errors (size_t document_descriptor);
 
 #endif

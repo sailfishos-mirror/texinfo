@@ -2,6 +2,8 @@
 #ifndef CONVERT_TO_TEXT_H
 #define CONVERT_TO_TEXT_H
 
+#include <stddef.h>
+
 #include "options_types.h"
 #include "tree_types.h"
 #include "document_types.h"
@@ -28,7 +30,7 @@ typedef struct TEXT_OPTIONS {
       in which case other_options is set */
     OPTIONS *self_converter_options; /* text converter options available
                                         as the OPTIONS structure */
-    int document_descriptor;
+    size_t document_descriptor;
 } TEXT_OPTIONS;
 
 char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);

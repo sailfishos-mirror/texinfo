@@ -26,15 +26,15 @@ void configure_output_strings_translations (char *localesdir,
 
 char *translate_string (const char * string, const char *lang,
                         const char *translation_context);
-int replace_convert_substrings (char *translated_string,
-                            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-                            int debug_level);
+size_t replace_convert_substrings (char *translated_string,
+                          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                          int debug_level);
 char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
-int gdt (const char *string, const char *lang,
-         NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-         int debug_level, const char *translation_context);
+size_t gdt (const char *string, const char *lang,
+            NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+            int debug_level, const char *translation_context);
 
 ELEMENT *gdt_tree (const char *string, DOCUMENT *document,
                    const char *lang,

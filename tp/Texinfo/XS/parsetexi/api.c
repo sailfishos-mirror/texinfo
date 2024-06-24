@@ -161,7 +161,7 @@ parse_file_path (const char *input_file_path, char **result)
    messages and destroy the document.
 
    Used for parse_texi_file. */
-int
+size_t
 parse_file (const char *input_file_path, int *status)
 {
   size_t document_descriptor = initialize_parsing (ct_base);
@@ -209,7 +209,7 @@ parse_file (const char *input_file_path, int *status)
 }
 
 /* Used for parse_texi_text.  STRING should be a UTF-8 buffer. */
-int
+size_t
 parse_text (const char *string, int line_nr)
 {
   size_t document_descriptor = initialize_parsing (ct_base);
@@ -222,7 +222,7 @@ parse_text (const char *string, int line_nr)
 /* Set DOCUMENT_DESCRIPTOR to the value corresponding to the tree
    obtained by parsing the Texinfo code in STRING.
    STRING should be a UTF-8 buffer.  Used for parse_texi_line. */
-int
+size_t
 parse_string (const char *string, int line_nr)
 {
   ELEMENT *root_elt;
@@ -236,7 +236,7 @@ parse_string (const char *string, int line_nr)
 }
 
 /* Used for parse_texi_piece.  STRING should be a UTF-8 buffer. */
-int
+size_t
 parse_piece (const char *string, int line_nr)
 {
   size_t document_descriptor = initialize_parsing (ct_base);

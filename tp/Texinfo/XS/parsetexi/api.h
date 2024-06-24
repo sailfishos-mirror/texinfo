@@ -4,10 +4,10 @@
 
 #include "tree_types.h"
 
-int parse_file (const char *input_file_path, int *status);
-int parse_piece (const char *, int line_nr);
-int parse_string (const char *, int line_nr);
-int parse_text (const char *, int line_nr);
+size_t parse_file (const char *input_file_path, int *status);
+size_t parse_piece (const char *, int line_nr);
+size_t parse_string (const char *, int line_nr);
+size_t parse_text (const char *, int line_nr);
 void reset_parser (int debug_output);
 
 void parser_conf_reset_values (void);

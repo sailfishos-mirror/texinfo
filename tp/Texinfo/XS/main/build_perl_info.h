@@ -55,7 +55,7 @@ SV *document_labels_list (SV *document_in);
 
 SV *document_global_information (SV *document_in);
 
-void pass_document_parser_errors_to_registrar (int document_descriptor,
+void pass_document_parser_errors_to_registrar (size_t document_descriptor,
                                                SV *parser_sv);
 SV *pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
                               SV *object_sv,

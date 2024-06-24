@@ -624,14 +624,14 @@ html_translate_string (CONVERTER *self, const char *string,
 
 /* returns a document descriptor. */
 /* same as gdt with html_translate_string called instead of translate_string */
-int
+size_t
 html_gdt (const char *string, CONVERTER *self, const char *lang,
-     NAMED_STRING_ELEMENT_LIST *replaced_substrings,
-     const char *translation_context)
+          NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+          const char *translation_context)
 {
   const OPTIONS *options = self->conf;
   int debug_level = 0;
-  int document_descriptor;
+  size_t document_descriptor;
 
   char *translated_string = html_translate_string (self, string, lang,
                                                    translation_context);
@@ -639,8 +639,8 @@ html_gdt (const char *string, CONVERTER *self, const char *lang,
   if (options && options->DEBUG.o.integer >= 0)
     debug_level = options->DEBUG.o.integer;
 
-  document_descriptor  = replace_convert_substrings (translated_string,
-                                  replaced_substrings, debug_level);
+  document_descriptor = replace_convert_substrings (translated_string,
+                                    replaced_substrings, debug_level);
   free (translated_string);
   return document_descriptor;
 }
@@ -653,7 +653,7 @@ html_gdt_tree (const char *string, CONVERTER *self,
 {
   DOCUMENT *document = self->document;
 
-  int gdt_document_descriptor = html_gdt (string, self, lang,
+  size_t gdt_document_descriptor = html_gdt (string, self, lang,
                                      replaced_substrings, translation_context);
 
   ELEMENT *tree

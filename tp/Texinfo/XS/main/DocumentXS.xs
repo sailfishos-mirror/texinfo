@@ -15,6 +15,8 @@
 
 #include <config.h>
 
+#include <stddef.h>
+
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -93,7 +95,7 @@ rebuild_tree (SV *tree_in, ...)
         RETVAL
 
 void
-remove_document_descriptor (int document_descriptor)
+remove_document_descriptor (size_t document_descriptor)
 
 void
 remove_document (SV *document_in)
@@ -370,7 +372,7 @@ gdt (string, ...)
         HV *hv_replaced_substrings = 0;
         NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
         HV *result_tree;
-        int gdt_document_descriptor;
+        size_t gdt_document_descriptor;
         DOCUMENT *gdt_document;
       CODE:
         if (items > 1 && SvOK(ST(1)))

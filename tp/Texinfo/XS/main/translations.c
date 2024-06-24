@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <errno.h>
+#include <stddef.h>
 
 #ifdef ENABLE_NLS
 #include <gettext.h>
@@ -430,14 +431,14 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 
 /* the caller should have made sure that the
    inserted elements do not appear elsewhere in the tree. */
-int
+size_t
 replace_convert_substrings (char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                             int debug_level)
 {
   int i;
   char *texinfo_line;
-  int document_descriptor;
+  size_t document_descriptor;
   int parser_debug_level = 0;
   DOCUMENT *document;
 
@@ -527,17 +528,17 @@ replace_convert_substrings (char *translated_string,
 }
 
 /* returns a document descriptor. */
-int
+size_t
 gdt (const char *string, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      int debug_level, const char *translation_context)
 {
-  int document_descriptor;
+  size_t document_descriptor;
 
   char *translated_string = translate_string (string, lang,
                                               translation_context);
 
-  document_descriptor  = replace_convert_substrings (translated_string,
+  document_descriptor = replace_convert_substrings (translated_string,
                                   replaced_substrings, debug_level);
   free (translated_string);
   return document_descriptor;
@@ -552,8 +553,8 @@ gdt_tree (const char *string, DOCUMENT *document,
           const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           int debug_level, const char *translation_context)
 {
-  int gdt_document_descriptor = gdt (string, lang, replaced_substrings,
-                                    debug_level, translation_context);
+  size_t gdt_document_descriptor = gdt (string, lang, replaced_substrings,
+                                        debug_level, translation_context);
   ELEMENT *tree
     = unregister_document_merge_with_document (gdt_document_descriptor,
                                                document);

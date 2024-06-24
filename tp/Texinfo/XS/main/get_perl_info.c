@@ -112,7 +112,7 @@ debug_print_element_sv (SV *element_sv)
 DOCUMENT *
 get_document_or_warn (SV *sv_in, char *key, char *warn_string)
 {
-  int document_descriptor;
+  size_t document_descriptor;
   DOCUMENT *document = 0;
   SV** document_descriptor_sv;
   HV *hv_in;
@@ -128,7 +128,8 @@ get_document_or_warn (SV *sv_in, char *key, char *warn_string)
   document_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
   if (document_descriptor_sv && SvOK (*document_descriptor_sv))
     {
-      document_descriptor = SvIV (*document_descriptor_sv);
+      /* NOTE if size_t size is more than IV we could have overflow here */
+      document_descriptor = (size_t) SvIV (*document_descriptor_sv);
       document = retrieve_document (document_descriptor);
     }
   else if (warn_string)
@@ -138,7 +139,7 @@ get_document_or_warn (SV *sv_in, char *key, char *warn_string)
     }
   if (! document && warn_string)
     {
-      fprintf (stderr, "ERROR: %s: no document %d\n", warn_string,
+      fprintf (stderr, "ERROR: %s: no document %zu\n", warn_string,
                                                       document_descriptor);
     }
   return document;
