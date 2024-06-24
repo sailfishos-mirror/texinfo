@@ -1,3 +1,26 @@
+2024-06-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_trailing_space)
+	(_register_extra_menu_entry_information, _isolate_last_space)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_trailing_space)
+	(isolate_last_space, process_remaining_on_line): check if there is
+	content and the last content is text in isolate_trailing_space.  Call
+	directly isolate_trailing_space in
+	register_extra_menu_entry_information.  Remove call of
+	isolate_trailing_space from isolate_last_space.
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_trailing_spaces_element)
+	(_isolate_trailing_space, _isolate_last_space),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_trailing_spaces_element)
+	(isolate_trailing_space, isolate_last_space): split
+	isolate_trailing_spaces_element out of isolate_last_space, and use it
+	in isolate_trailing_space to correctly transfer source marks.
+	Reorganize isolate_last_space code to be more like
+	isolate_trailing_space code, in particular do not check separately
+	that the text ends with spaces.
+
 2024-06-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

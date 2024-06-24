@@ -968,61 +968,54 @@ abort_empty_line (ELEMENT *current)
     }
 }
 
-/* The caller verifies that last_elt is a text element */
-static void
-isolate_last_space_internal (ELEMENT *current, ELEMENT *last_elt)
+static ELEMENT *
+isolate_trailing_spaces_element (char *text, enum element_type spaces_type,
+                                 ELEMENT *element)
 {
-  char *text;
-  int text_len;
+  ELEMENT *spaces_element = 0;
+  int i, trailing_spaces;
+  int text_len = element->e.text->end;
 
-  text = last_elt->e.text->text;
-  text_len = last_elt->e.text->end;
+  trailing_spaces = 0;
+  for (i = text_len - 1;
+       i > 0 && strchr (whitespace_chars, text[i]);
+       i--)
+    trailing_spaces++;
 
-  /* If text all whitespace */
-  if (text[strspn (text, whitespace_chars)] == '\0')
+  if (trailing_spaces)
     {
-      /* e is last_elt */
-      ELEMENT *e = pop_element_from_contents (current);
-      e->parent = 0;
-      e->type = ET_other_text;
-      current->elt_info[eit_spaces_after_argument] = e;
-    }
-  else
-    {
-      int i, trailing_spaces;
-      ELEMENT *spaces_element = new_text_element (ET_other_text);
-
-      trailing_spaces = 0;
-      for (i = text_len - 1;
-           i > 0 && strchr (whitespace_chars, text[i]);
-           i--)
-        trailing_spaces++;
-
-      text_append_n (spaces_element->e.text, text + text_len - trailing_spaces,
+      spaces_element = new_text_element (spaces_type);
+      text_append_n (spaces_element->e.text,
+                     text + text_len - trailing_spaces,
                      trailing_spaces);
 
       text[text_len - trailing_spaces] = '\0';
-      last_elt->e.text->end -= trailing_spaces;
+      element->e.text->end -= trailing_spaces;
 
-      if (last_elt->source_mark_list)
+      if (element->source_mark_list)
         {
           size_t begin_position = count_multibyte (text);
-          relocate_source_marks (last_elt->source_mark_list, spaces_element,
-                                 begin_position,
-                                 count_multibyte (spaces_element->e.text->text));
-          destroy_element_empty_source_mark_list (last_elt);
+          relocate_source_marks (element->source_mark_list,
+                                 spaces_element, begin_position,
+                       count_multibyte (spaces_element->e.text->text));
+          destroy_element_empty_source_mark_list (element);
         }
-      current->elt_info[eit_spaces_after_argument] = spaces_element;
     }
+  return spaces_element;
 }
 
-/* The caller verifies that last_elt is a text element */
-static void
-isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
-                        enum element_type spaces_type)
-{
-  char *text = last_elt->e.text->text;
 
+void
+isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
+{
+  ELEMENT *last_elt = last_contents_child (current);
+  char *text;
+
+  if (!last_elt || !(type_data[last_elt->type].flags & TF_text)
+      || last_elt->e.text->end <= 0)
+    return;
+
+  text = last_elt->e.text->text;
 
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
@@ -1031,27 +1024,10 @@ isolate_trailing_space (ELEMENT *current, ELEMENT *last_elt,
     }
   else
     {
-      ELEMENT *new_spaces;
-      int i, trailing_spaces;
-      int text_len = last_elt->e.text->end;
-
-      trailing_spaces = 0;
-      for (i = text_len - 1;
-           i > 0 && strchr (whitespace_chars, text[i]);
-           i--)
-        trailing_spaces++;
-
-      if (trailing_spaces)
-        {
-          new_spaces = new_text_element (spaces_type);
-          text_append_n (new_spaces->e.text,
-                         text + text_len - trailing_spaces,
-                         trailing_spaces);
-          text[text_len - trailing_spaces] = '\0';
-          last_elt->e.text->end -= trailing_spaces;
-
-          add_to_element_contents (current, new_spaces);
-        }
+      ELEMENT *new_spaces = isolate_trailing_spaces_element (text,
+                                             spaces_type, last_elt);
+      if (new_spaces)
+        add_to_element_contents (current, new_spaces);
     }
 }
 
@@ -1059,7 +1035,6 @@ void
 isolate_last_space (ELEMENT *current)
 {
   ELEMENT *last_elt = 0;
-  int text_len;
 
   if (current->e.c->contents.number == 0)
     return;
@@ -1079,32 +1054,39 @@ isolate_last_space (ELEMENT *current)
         }
     }
 
-  if (current->e.c->contents.number == 0)
-    goto no_isolate_space;
-
   last_elt = last_contents_child (current);
 
-  if (!(type_data[last_elt->type].flags & TF_text))
-    goto no_isolate_space;
-
-  text_len = last_elt->e.text->end;
-  if (text_len <= 0)
-    goto no_isolate_space;
-
-  /* Does the text end in whitespace? */
-  if (!strchr (whitespace_chars, last_elt->e.text->text[text_len - 1]))
-    goto no_isolate_space;
+  if (last_elt && type_data[last_elt->type].flags & TF_text
+      && last_elt->e.text->end > 0)
+    {
+      char *text = last_elt->e.text->text;
+      /* If text all whitespace */
+      if (text[strspn (text, whitespace_chars)] == '\0')
+        {
+          /* e is last_elt */
+          ELEMENT *e = pop_element_from_contents (current);
+          e->parent = 0;
+          e->type = ET_other_text;
+          current->elt_info[eit_spaces_after_argument] = e;
+        }
+      else
+        {
+          ELEMENT *spaces_element
+            = isolate_trailing_spaces_element (text,
+                                               ET_other_text, last_elt);
+          if (spaces_element)
+            current->elt_info[eit_spaces_after_argument] = spaces_element;
+          else
+            goto no_isolate_space;
+        }
+    }
+  else
+   goto no_isolate_space;
 
   debug_nonl ("ISOLATE SPACE p ");
   debug_parser_print_element (current, 0);
   debug_nonl ("; c ");
   debug_parser_print_element (last_elt, 0); debug ("");
-
-  if (current->type == ET_menu_entry_node)
-    isolate_trailing_space (current, last_elt, ET_space_at_end_menu_node);
-  else
-    isolate_last_space_internal (current, last_elt);
-
   return;
 
  no_isolate_space:
@@ -2447,25 +2429,15 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
           && (command_flags(current->parent) & CF_index_entry_command
                || current->parent->e.c->cmd == CM_subentry))
         {
-          ELEMENT *last_elt = last_contents_child (current);
-
-          if (last_elt && type_data[last_elt->type].flags & TF_text
-              && last_elt->e.text->end > 0)
-            {
-              if (cmd == CM_subentry)
-                {
-                  isolate_trailing_space (current, last_elt, ET_spaces_at_end);
-                }
-              else
+          if (cmd == CM_subentry)
+            isolate_trailing_space (current, ET_spaces_at_end);
+          else
                /* an internal and temporary space type that is converted to
                   a normal space if followed by text or a
                   "spaces_at_end" if followed by spaces only when the
                   index or subentry command is done. */
-                {
-                  isolate_trailing_space (current, last_elt,
-                               ET_internal_spaces_before_brace_in_index);
-                }
-            }
+            isolate_trailing_space (current,
+                                ET_internal_spaces_before_brace_in_index);
         }
 
       /* check command doesn't start a paragraph */

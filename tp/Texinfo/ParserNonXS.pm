@@ -3086,18 +3086,44 @@ sub _abort_empty_line($$) {
   }
 }
 
+sub _isolate_trailing_spaces_element($)
+{
+  my $element = shift;
+  my $new_space_element;
+
+  if ($element->{'text'} =~ s/(\s+)$//) {
+    $new_space_element = {'text' => $1};
+    if ($element->{'source_marks'}) {
+      my $current_position = length($element->{'text'});
+      Texinfo::Common::relocate_source_marks(
+                          $element->{'source_marks'}, $new_space_element,
+                          $current_position, length($1));
+      delete $element->{'source_marks'}
+        if (!scalar(@{$element->{'source_marks'}}));
+    }
+  }
+  return $new_space_element;
+}
+
 sub _isolate_trailing_space($$)
 {
   my $current = shift;
   my $spaces_type = shift;
 
-  if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
-    $current->{'contents'}->[-1]->{'type'} = $spaces_type;
-  } else {
-    if ($current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//) {
-      my $new_spaces = { 'text' => $1, 'parent' => $current,
-        'type' => $spaces_type };
-      push @{$current->{'contents'}}, $new_spaces;
+  if ($current->{'contents'}) {
+    my $last_element = $current->{'contents'}->[-1];
+    if (defined($last_element->{'text'})
+        and $last_element->{'text'} ne '') {
+      if ($last_element->{'text'} !~ /\S/) {
+        $last_element->{'type'} = $spaces_type;
+      } else {
+        my $new_space_element = _isolate_trailing_spaces_element($last_element);
+        if ($new_space_element) {
+          $new_space_element->{'type'} = $spaces_type;
+          $new_space_element->{'parent'} = $current;
+          push @{$current->{'contents'}}, $new_space_element;
+        }
+      }
     }
   }
 }
@@ -3131,53 +3157,43 @@ sub _isolate_last_space
   my $debug_str;
   if ($self->{'conf'}->{'DEBUG'}) {
     $debug_str = 'p '.Texinfo::Common::debug_print_element($current).'; c ';
-    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
+    if ($current->{'contents'}) {
       $debug_str .=
          Texinfo::Common::debug_print_element($current->{'contents'}->[-1]);
     }
   }
 
-  if (!$current->{'contents'}
-      or !scalar(@{$current->{'contents'}})
-      or !defined($current->{'contents'}->[-1]->{'text'})
-      or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/) {
-    print STDERR "NOT ISOLATING $debug_str\n"
-       if ($self->{'conf'}->{'DEBUG'});
-    return;
-  }
-
-  my $last_element = $current->{'contents'}->[-1];
-
-  print STDERR "ISOLATE SPACE $debug_str\n"
-    if ($self->{'conf'}->{'DEBUG'});
-
-  if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
-    _isolate_trailing_space($current, 'space_at_end_menu_node');
-  } else {
-    # Store final spaces in 'spaces_after_argument'.
-    #$current->{'info'} = {} if (!$current->{'info'});
-    if ($last_element->{'text'} !~ /\S/) {
-      my $spaces_after_argument = _pop_element_from_contents($self, $current);
-      delete $spaces_after_argument->{'parent'};
-      delete $spaces_after_argument->{'type'};
-      $current->{'info'} = {} if (!exists($current->{'info'}));
-      $current->{'info'}->{'spaces_after_argument'}
-                 = $spaces_after_argument;
-    } else {
-      $last_element->{'text'} =~ s/(\s+)$//;
-      my $new_space_element = {'text' => $1,};
-      if ($last_element->{'source_marks'}) {
-        my $current_position = length($last_element->{'text'});
-        Texinfo::Common::relocate_source_marks(
-                            $last_element->{'source_marks'}, $new_space_element,
-                            $current_position, length($1));
-        delete $last_element->{'source_marks'}
-          if (!scalar(@{$last_element->{'source_marks'}}));
+  if ($current->{'contents'}) {
+    my $last_element = $current->{'contents'}->[-1];
+    if (defined($last_element->{'text'})
+        and $last_element->{'text'} ne '') {
+      # Store final spaces in 'spaces_after_argument'.
+      if ($last_element->{'text'} !~ /\S/) {
+        my $spaces_after_argument = _pop_element_from_contents($self, $current);
+        delete $spaces_after_argument->{'parent'};
+        delete $spaces_after_argument->{'type'};
+        $current->{'info'} = {} if (!exists($current->{'info'}));
+        $current->{'info'}->{'spaces_after_argument'}
+               = $spaces_after_argument;
+      } else {
+        my $new_space_element = _isolate_trailing_spaces_element($last_element);
+        if ($new_space_element) {
+          $current->{'info'} = {} if (!exists($current->{'info'}));
+          $current->{'info'}->{'spaces_after_argument'} = $new_space_element;
+        } else {
+          print STDERR "NOT ISOLATING $debug_str\n"
+            if ($self->{'conf'}->{'DEBUG'});
+          return;
+        }
       }
-      $current->{'info'} = {} if (!exists($current->{'info'}));
-      $current->{'info'}->{'spaces_after_argument'} = $new_space_element;
+      print STDERR "ISOLATE SPACE $debug_str\n"
+        if ($self->{'conf'}->{'DEBUG'});
+      return;
     }
   }
+
+  print STDERR "NOT ISOLATING $debug_str\n"
+     if ($self->{'conf'}->{'DEBUG'});
 }
 
 # split non-space text elements into strings without [ ] ( ) , and single
@@ -4832,7 +4848,7 @@ sub _register_extra_menu_entry_information($$;$)
                           $source_info);
       }
     } elsif ($arg->{'type'} eq 'menu_entry_node') {
-      _isolate_last_space($self, $arg);
+      _isolate_trailing_space($arg, 'space_at_end_menu_node');
       if (! $arg->{'contents'}) {
         if ($self->{'conf'}->{'FORMAT_MENU'} eq 'menu') {
           $self->_line_error(__("empty node name in menu entry"), $source_info);
@@ -7461,9 +7477,6 @@ sub _process_remaining_on_line($$$$)
     _check_valid_nesting_context ($self, $command, $source_info);
 
     if ($in_index_commands{$command}
-        and $current->{'contents'}
-        and $current->{'contents'}->[-1]
-        and $current->{'contents'}->[-1]->{'text'}
         # it is important to check if in an index command, as otherwise
         # the internal space type is not processed and remains as is in
         # the final tree.
