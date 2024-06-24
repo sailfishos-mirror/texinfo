@@ -490,6 +490,10 @@ in displaymath
 
 <i>@acronym{HTML}</i>}.
 '],
+['inlineraw_not_closed',
+'@inlineraw{html, aa
+@section sec
+'],
 ['inline_missing_first_arg',
 '@inlinefmt{ , aaa}. @inlineraw{, bbb}.
 '],

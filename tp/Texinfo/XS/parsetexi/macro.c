@@ -135,8 +135,9 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
   const char *args_ptr;
   int index;
 
-  /* FIXME not sure about that.  Could be the best, as there is arg_line.
-     Otherwise block_command */
+ /* TODO not sure about using lineraw_command. There is an arg_line info,
+    which is consistent with lineraw_command, but the *macro are block
+    commands. block_command could be used instead */
   macro = new_command_element (ET_lineraw_command, cmd);
   macro->e.c->source_info = current_source_info;
 

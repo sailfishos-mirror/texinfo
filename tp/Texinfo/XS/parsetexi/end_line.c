@@ -1905,10 +1905,7 @@ end_line (ELEMENT *current)
           current = end_paragraph (current, 0, 0);
         }
       /* FIXME not sure about this one, could be better to close
-         brace commands in more contexts.  Should make sure that
-         it is ok before, for instance, it is not sure that CM_inlineraw
-         should be closed that way, as it does not seems that the
-         ct_inlineraw context is popped.
+         brace commands in more contexts.
        */
       else if (current_context () == ct_base)
         { /* closes no_paragraph brace commands that are not context brace

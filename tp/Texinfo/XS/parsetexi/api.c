@@ -148,7 +148,6 @@ parse_file_path (const char *input_file_path, char **result)
   else
     {
       result[0] = strdup (input_file_path);
-      /* FIXME or strdup ("") */
       result[1] = 0;
     }
 }

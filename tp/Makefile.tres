@@ -1872,6 +1872,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/raw/inlinefmt.pl \
   t/results/raw/inlinefmt_with_empty_line.pl \
   t/results/raw/inlineraw.pl \
+  t/results/raw/inlineraw_not_closed.pl \
   t/results/raw/inlineraw_with_empty_line.pl \
   t/results/raw/lone_braces_in_html.pl \
   t/results/raw/misc_raw.pl \

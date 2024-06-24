@@ -464,11 +464,6 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                || closed_command == CM_abbr
                || closed_command == CM_acronym)
         {
-          if (current->parent->e.c->cmd == CM_inlineraw)
-            {
-              if (ct_inlineraw != pop_context ())
-                fatal ("inlineraw context expected");
-            }
           if (current->parent->e.c->args.number == 0
               || current->parent->e.c->args.list[0]->e.c->contents.number == 0)
             {

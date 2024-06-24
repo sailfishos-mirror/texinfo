@@ -66,6 +66,11 @@ close_brace_command (ELEMENT *current,
           || current->e.c->cmd == CM_shortcaption)
         nesting_context.caption--;
     }
+  else if (current->e.c->cmd == CM_inlineraw)
+    {
+      if (pop_context () != ct_inlineraw)
+        fatal ("inlineraw context expected");
+    }
 
   if (command_flags(current) & CF_contain_basic_inline)
     (void) pop_command (&nesting_context.basic_inline_stack);

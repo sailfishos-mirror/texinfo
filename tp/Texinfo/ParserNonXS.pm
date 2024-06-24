@@ -1495,6 +1495,9 @@ sub _close_brace_command($$$;$$$)
     $self->{'nesting_context'}->{'caption'} -= 1
       if ($current->{'cmdname'} eq 'caption'
         or $current->{'cmdname'} eq 'shortcaption');
+  } elsif ($current->{'cmdname'} eq 'inlineraw') {
+    _pop_context($self, ['ct_inlineraw'], $source_info, $current,
+                 ' inlineraw');
   }
 
   # args are always set
@@ -6528,12 +6531,6 @@ sub _handle_close_brace($$$)
              or ($brace_commands{$current->{'parent'}->{'cmdname'}}
                  and $brace_commands{$current->{'parent'}->{'cmdname'}} eq 'inline')) {
       my $current_command = $current->{'parent'};
-      if ($brace_commands{$current_command->{'cmdname'}} eq 'inline') {
-        if ($current_command->{'cmdname'} eq 'inlineraw') {
-          _pop_context($self, ['ct_inlineraw'], $source_info, $current,
-                              ' inlineraw');
-        }
-      }
       if (!$current_command->{'args'}
           or !$current_command->{'args'}->[0]->{'contents'}) {
         $self->_line_warn(
