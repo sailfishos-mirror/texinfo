@@ -743,16 +743,16 @@ end_line_def_line (ELEMENT *current)
                   || def_command == CM_deftypeivar
                   || def_command == CM_deftypecv))
             {
-              /* def_index_element will be set in
-                 Texinfo::Translations::complete_indices */
+              /* def_index_element will be set in complete_indices */
               if (global_documentlanguage)
                 add_extra_string_dup (current, AI_key_documentlanguage,
                                       global_documentlanguage);
             }
           else
             {
-              add_extra_element (current, AI_key_def_index_element,
-                                 index_entry);
+              ELEMENT *element_copy = copy_tree (index_entry);
+              add_extra_element_oot (current, AI_key_def_index_element,
+                                     element_copy);
             }
 
           if (def_command != CM_defline && def_command != CM_deftypeline)

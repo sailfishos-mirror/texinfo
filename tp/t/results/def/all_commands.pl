@@ -58,7 +58,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defvr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efvr_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   1
@@ -195,7 +207,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'n--ame'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -315,7 +339,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'n--ame'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   2
@@ -469,7 +505,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypefn_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   3
@@ -606,7 +654,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypefn_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   4
@@ -1198,7 +1258,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypevr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypevr_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   2
@@ -1335,7 +1407,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defcv',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efcv_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   3
@@ -1489,7 +1573,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defcv',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efcv_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   4
@@ -2502,7 +2598,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftp',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftp_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'tp',
                   1
@@ -2645,7 +2753,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efun_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   9
@@ -2788,7 +2908,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defmac',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efmac_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   10
@@ -2931,7 +3063,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efspec_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   11
@@ -3057,7 +3201,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defvar',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efvar_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   7
@@ -3217,7 +3373,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defvar',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efvar_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   8
@@ -3343,7 +3511,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defopt',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--efopt_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   9
@@ -3503,7 +3683,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypefun_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   12
@@ -3646,7 +3838,19 @@ $result_trees{'all_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypevar',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--eftypevar_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   10
@@ -4618,23 +4822,6 @@ $result_trees{'all_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[16]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[16]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[18]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[32]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[32]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[34]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[36]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[38]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[38]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[40]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[40]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[42]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[42]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands'}{'contents'}[0]{'contents'}[44]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands'}{'contents'}[0]{'contents'}[44]{'contents'}[0]{'args'}[0]{'contents'}[4];
 
 $result_texis{'all_commands'} = '@defvr c--ategory d--efvr_name
 d--efvr

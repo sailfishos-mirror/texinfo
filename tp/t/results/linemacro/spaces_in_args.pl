@@ -274,7 +274,19 @@ $result_trees{'spaces_in_args'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -338,7 +350,6 @@ $result_trees{'spaces_in_args'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_in_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_in_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'spaces_in_args'} = '@linemacro mylinecommand {first, second, rest}
 @defblock

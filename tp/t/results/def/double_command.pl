@@ -298,7 +298,19 @@ $result_trees{'double_command'} = {
                               'cmdname' => 'deffnx',
                               'extra' => {
                                 'def_command' => 'deffn',
-                                'def_index_element' => {},
+                                'def_index_element' => {
+                                  'contents' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'plot2'
+                                        }
+                                      ],
+                                      'type' => 'def_line_arg'
+                                    }
+                                  ],
+                                  'type' => 'def_name'
+                                },
                                 'index_entry' => [
                                   'fn',
                                   1
@@ -327,7 +339,19 @@ $result_trees{'double_command'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'plot'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   2
@@ -509,7 +533,19 @@ $result_trees{'double_command'} = {
                                   ],
                                   'extra' => {
                                     'def_command' => 'defvr',
-                                    'def_index_element' => {},
+                                    'def_index_element' => {
+                                      'contents' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'text' => 'd--efvr_name'
+                                            }
+                                          ],
+                                          'type' => 'def_line_arg'
+                                        }
+                                      ],
+                                      'type' => 'def_name'
+                                    },
                                     'index_entry' => [
                                       'vr',
                                       1
@@ -543,7 +579,19 @@ $result_trees{'double_command'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'aaaa'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   3
@@ -615,10 +663,6 @@ $result_trees{'double_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'double_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'double_command'} = '@deffn func plot (a, b, c, ...) @deffnx func plot2 (a, b, c, ..., d)
 aaa

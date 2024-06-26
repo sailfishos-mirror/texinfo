@@ -499,7 +499,19 @@ $result_trees{'macro_in_def_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'forward-word'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -527,7 +539,6 @@ $result_trees{'macro_in_def_delimiters'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_def_delimiters'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'macro_in_def_delimiters'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'macro_in_def_delimiters'} = '@macro string
 aa(b *c)

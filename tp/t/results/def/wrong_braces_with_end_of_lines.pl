@@ -105,7 +105,19 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -289,7 +301,19 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   2
@@ -367,8 +391,6 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'wrong_braces_with_end_of_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'wrong_braces_with_end_of_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'wrong_braces_with_end_of_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'wrong_braces_with_end_of_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'wrong_braces_with_end_of_lines'} = '@deffn category name args {   more args
 }deffn with @{

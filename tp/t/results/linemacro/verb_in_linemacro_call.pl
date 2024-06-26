@@ -324,7 +324,19 @@ $result_trees{'verb_in_linemacro_call'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'other'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -378,7 +390,6 @@ $result_trees{'verb_in_linemacro_call'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'verb_in_linemacro_call'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'verb_in_linemacro_call'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'verb_in_linemacro_call'} = '@linemacro mycommand {a, b, c, d}
 first \\a\\

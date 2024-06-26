@@ -864,7 +864,19 @@ args \\e\\|\\f\\|
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'arg1'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -976,7 +988,6 @@ args \\e\\|\\f\\|
   ],
   'type' => 'document_root'
 };
-$result_trees{'block_begin_end_in_linemacro_call'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'block_begin_end_in_linemacro_call'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'block_begin_end_in_linemacro_call'} = '@linemacro lm {a}
 b \\a\\ a

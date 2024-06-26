@@ -75,10 +75,14 @@ use File::Basename;
 use Storable qw(dclone); # standard in 5.007003
 
 # commands definitions
-use Texinfo::Common;
 use Texinfo::Commands;
+use Texinfo::Common;
+
 # Error reporting and counting
 use Texinfo::Report;
+
+# fpr tree copy
+use Texinfo::ManipulateTree;
 
 # To register the parsed manual and associated information
 # and also to call set_labels_identifiers_target.
@@ -4105,7 +4109,9 @@ sub _end_line_def_line($$$)
         }
       }
       if ($index_entry) {
-        $current->{'extra'}->{'def_index_element'} = $index_entry;
+        my $element_copy
+          = Texinfo::ManipulateTree::copy_treeNonXS($index_entry);
+        $current->{'extra'}->{'def_index_element'} = $element_copy;
       }
 
       _enter_index_entry($self,

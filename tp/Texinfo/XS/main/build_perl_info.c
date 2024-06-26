@@ -324,11 +324,8 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               }
             case extra_element_oot:
               {
-              /* Note that this is only used for info hash in the parser, with
-                 simple elements that are associated to one element only, should
-                 not be referred to elsewhere (and should not contain other
-                 commands or containers).
-                 In other codes, can be used for more complex subtrees or special
+              /*
+                 Can be used for complex subtrees or special
                  out of tree elements, but must always be associated to only one
                  element and must not refer to the tree through args or contents.
                */

@@ -233,7 +233,27 @@ $result_trees{'braces_after_text'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'rest'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'in paren'
+                            }
+                          ],
+                          'type' => 'bracketed_arg'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -287,7 +307,6 @@ $result_trees{'braces_after_text'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'braces_after_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'braces_after_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'braces_after_text'} = '@linemacro mymacro {a, b, c}
 @defline \\a\\ \\b\\ \\c\\

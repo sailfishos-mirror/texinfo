@@ -519,7 +519,19 @@ $result_trees{'conversion_with_undef_customization'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -603,7 +615,6 @@ $result_trees{'conversion_with_undef_customization'} = {
   'type' => 'document_root'
 };
 $result_trees{'conversion_with_undef_customization'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'conversion_with_undef_customization'}{'contents'}[3];
-$result_trees{'conversion_with_undef_customization'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'conversion_with_undef_customization'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'conversion_with_undef_customization'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'conversion_with_undef_customization'}{'contents'}[5];
 
 $result_texis{'conversion_with_undef_customization'} = '@node Top

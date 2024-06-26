@@ -262,7 +262,19 @@ $result_trees{'protected_spaces_on_line'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -545,7 +557,25 @@ $result_trees{'protected_spaces_on_line'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        },
+                        {
+                          'cmdname' => ' '
+                        },
+                        {
+                          'text' => 'b'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   2
@@ -775,7 +805,19 @@ $result_trees{'protected_spaces_on_line'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   3
@@ -876,9 +918,6 @@ $result_trees{'protected_spaces_on_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'protected_spaces_on_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'protected_spaces_on_line'} = '@linemacro test {first, rest}
 @deffn Function \\first\\ \\rest\\

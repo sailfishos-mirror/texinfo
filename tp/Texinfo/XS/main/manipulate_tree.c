@@ -53,7 +53,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
 
   for (i = 0; i < info->info_number; i++)
     {
-      KEY_PAIR *k_ref = &info->info[i];
+      const KEY_PAIR *k_ref = &info->info[i];
       enum ai_key_name key = k_ref->key;
       int j;
 

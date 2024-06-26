@@ -83,7 +83,19 @@ $result_trees{'def'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'd--effn_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -329,7 +341,19 @@ $result_trees{'def'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'de--ffn_name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   2
@@ -496,7 +520,29 @@ $result_trees{'def'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'i'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   3
@@ -573,7 +619,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'truc'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   4
@@ -654,7 +712,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'log trap'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   5
@@ -740,7 +810,24 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'log trap1'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   6
@@ -826,7 +913,24 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'log trap2'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   7
@@ -919,7 +1023,29 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'id ule'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'b'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   8
@@ -1031,7 +1157,45 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'id '
+                                },
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'i'
+                                        }
+                                      ],
+                                      'type' => 'brace_container'
+                                    }
+                                  ],
+                                  'cmdname' => 'samp'
+                                },
+                                {
+                                  'text' => ' ule'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'b'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   9
@@ -1092,7 +1256,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   10
@@ -1151,7 +1327,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'bidule machin'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   11
@@ -1212,7 +1400,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'machin'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   12
@@ -1324,7 +1524,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'followed'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   13
@@ -1456,7 +1668,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'after'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   14
@@ -1588,7 +1812,19 @@ $result_trees{'def'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'deffnx'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   15
@@ -1664,21 +1900,6 @@ $result_trees{'def'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'def'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[4]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[6]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[7]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[8]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[9]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[10]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[12]{'args'}[0]{'contents'}[2];
-$result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'def'}{'contents'}[0]{'contents'}[5]{'contents'}[14]{'args'}[0]{'contents'}[2];
 
 $result_texis{'def'} = '
 @deffn {c--ategory} d--effn_name a--rguments...

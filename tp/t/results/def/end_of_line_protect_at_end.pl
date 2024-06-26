@@ -79,7 +79,19 @@ $result_trees{'end_of_line_protect_at_end'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'deffn_name2'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -107,7 +119,6 @@ $result_trees{'end_of_line_protect_at_end'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'end_of_line_protect_at_end'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'end_of_line_protect_at_end'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'end_of_line_protect_at_end'} = '
 @deffn category2 deffn_name2 arguments2 ';

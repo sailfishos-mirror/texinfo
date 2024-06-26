@@ -112,7 +112,19 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   ],
                   'extra' => {
                     'def_command' => 'deftypefun',
-                    'def_index_element' => {},
+                    'def_index_element' => {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'NAME'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_name'
+                    },
                     'element_region' => 'copying',
                     'index_entry' => [
                       'fn',
@@ -507,7 +519,19 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'something'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -595,8 +619,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'deftypefnnewline_for_copying_after'}{'contents'}[3];
 
 $result_texis{'deftypefnnewline_for_copying_after'} = '@copying

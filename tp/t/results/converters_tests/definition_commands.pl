@@ -219,7 +219,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'fname'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -438,7 +450,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'fname'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -683,7 +707,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'fname'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -957,7 +993,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -1194,7 +1242,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -1435,7 +1495,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -1676,7 +1748,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -1917,7 +2001,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -2158,7 +2254,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -2438,7 +2546,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -2718,7 +2838,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -2998,7 +3130,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -3278,7 +3422,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -3558,7 +3714,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -3838,7 +4006,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -4118,7 +4298,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -4398,7 +4590,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -4678,7 +4882,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -4843,7 +5059,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -4956,7 +5184,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5073,7 +5313,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5190,7 +5442,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5307,7 +5571,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5424,7 +5700,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5554,7 +5842,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5684,7 +5984,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5814,7 +6126,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -5944,7 +6268,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -6074,7 +6410,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -6204,7 +6552,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -6334,7 +6694,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -6464,7 +6836,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -6594,7 +6978,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -6783,7 +7179,29 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => '.ft'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -6910,7 +7328,60 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => '\\f'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'f'
+                                        }
+                                      ],
+                                      'type' => 'brace_container'
+                                    }
+                                  ],
+                                  'cmdname' => 'slanted'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'r'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -7041,7 +7512,60 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => '\\f('
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'fn'
+                                        }
+                                      ],
+                                      'type' => 'brace_container'
+                                    }
+                                  ],
+                                  'cmdname' => 'slanted'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'r'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -7272,7 +7796,65 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => '\\f['
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'text' => 'font'
+                                        }
+                                      ],
+                                      'type' => 'brace_container'
+                                    }
+                                  ],
+                                  'cmdname' => 'slanted'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'r'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => ']'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -7349,7 +7931,29 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => '\\n[.sty]'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 't'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -8530,7 +9134,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -8870,7 +9486,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'defspecx',
               'extra' => {
                 'def_command' => 'defspec',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -9121,7 +9749,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -9443,7 +10083,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -9655,7 +10307,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defcv',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'border-pattern'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'vr',
@@ -10174,7 +10838,19 @@ $result_trees{'definition_commands'} = {
                   ],
                   'extra' => {
                     'def_command' => 'deftypefn',
-                    'def_index_element' => {},
+                    'def_index_element' => {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'foobar'
+                            }
+                          ],
+                          'type' => 'def_line_arg'
+                        }
+                      ],
+                      'type' => 'def_name'
+                    },
                     'element_node' => {},
                     'index_entry' => [
                       'fn',
@@ -10436,7 +11112,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'apply'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -10694,7 +11382,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'apply'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -11166,7 +11866,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -11438,7 +12150,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -11693,7 +12417,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -11952,7 +12688,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -12211,7 +12959,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -12470,7 +13230,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -12729,7 +13501,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -13014,7 +13798,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -13299,7 +14095,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -13584,7 +14392,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -13869,7 +14689,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -14154,7 +14986,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -14439,7 +15283,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -14724,7 +15580,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -15009,7 +15877,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -15294,7 +16174,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -15570,7 +16462,19 @@ $result_trees{'definition_commands'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -15794,7 +16698,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -16022,7 +16938,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -16250,7 +17178,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -16478,7 +17418,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -16706,7 +17658,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -16947,7 +17911,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -17188,7 +18164,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -17429,7 +18417,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -17670,7 +18670,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -17911,7 +18923,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -18152,7 +19176,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -18393,7 +19429,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -18634,7 +19682,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -18875,7 +19935,19 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -18967,160 +20039,83 @@ $result_trees{'definition_commands'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[7]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[28]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[32]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[34]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'def_index_element'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'args'}[0]{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'definition_commands'}{'contents'}[3];
 
 $result_texis{'definition_commands'} = '@node Top

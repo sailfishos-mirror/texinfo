@@ -478,7 +478,19 @@ $result_trees{'simple_nested_linemacro_calls'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'a function'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -593,7 +605,6 @@ $result_trees{'simple_nested_linemacro_calls'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple_nested_linemacro_calls'}{'contents'}[1]{'contents'}[5]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'simple_nested_linemacro_calls'}{'contents'}[1]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'simple_nested_linemacro_calls'}{'contents'}[1]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'simple_nested_linemacro_calls'}{'contents'}[1];
 
 $result_texis{'simple_nested_linemacro_calls'} = '@node Top

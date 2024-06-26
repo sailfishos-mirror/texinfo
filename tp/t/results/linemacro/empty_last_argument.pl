@@ -265,7 +265,19 @@ $result_trees{'empty_last_argument'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -406,7 +418,19 @@ $result_trees{'empty_last_argument'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -576,7 +600,19 @@ $result_trees{'empty_last_argument'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -630,9 +666,6 @@ $result_trees{'empty_last_argument'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_last_argument'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'empty_last_argument'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'empty_last_argument'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'extra'}{'def_index_element'} = $result_trees{'empty_last_argument'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'empty_last_argument'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'extra'}{'def_index_element'} = $result_trees{'empty_last_argument'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'args'}[0]{'contents'}[2];
 
 $result_texis{'empty_last_argument'} = '@defcodeindex BI
 @linemacro defbuiltin {symbol, rest}

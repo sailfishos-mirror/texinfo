@@ -235,7 +235,19 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => "deffn_n\x{f9}me"
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -315,7 +327,6 @@ $result_trees{'end_of_lines_protected_non_ascii'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'end_of_lines_protected_non_ascii'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'end_of_lines_protected_non_ascii'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'end_of_lines_protected_non_ascii'} = '
 @deffn catégorie deffn_nùme àrguments    more {àrgs   with end ôf line within} with 3 @@ @@ {one last arg}

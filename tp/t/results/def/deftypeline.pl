@@ -199,7 +199,19 @@ $result_trees{'deftypeline'} = {
               'cmdname' => 'deftypeline',
               'extra' => {
                 'def_command' => 'deftypeline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foo'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'deftypeline'
               },
               'info' => {
@@ -277,7 +289,6 @@ $result_trees{'deftypeline'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'deftypeline'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'deftypeline'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
 
 $result_texis{'deftypeline'} = '@defblock
 @deftypeline Function {long int} foo (int @var{bar}, int @var{baz})

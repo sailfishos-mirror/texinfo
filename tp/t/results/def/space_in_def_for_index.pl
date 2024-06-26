@@ -181,7 +181,27 @@ $result_trees{'space_in_def_for_index'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => {
+                          'text' => ' '
+                        },
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -264,7 +284,19 @@ $result_trees{'space_in_def_for_index'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'AAA2'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'element_node' => {},
                 'index_entry' => [
                   'fn',
@@ -376,9 +408,7 @@ $result_trees{'space_in_def_for_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_in_def_for_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'space_in_def_for_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'space_in_def_for_index'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'space_in_def_for_index'}{'contents'}[2];
-$result_trees{'space_in_def_for_index'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'space_in_def_for_index'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'space_in_def_for_index'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'space_in_def_for_index'}{'contents'}[2];
 
 $result_texis{'space_in_def_for_index'} = '@node Top

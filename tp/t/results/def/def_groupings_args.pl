@@ -77,7 +77,35 @@ $result_trees{'def_groupings_args'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'b'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'aa'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        },
+                        {
+                          'text' => 'c'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -365,7 +393,32 @@ $result_trees{'def_groupings_args'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'br '
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 's'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'samp'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   2
@@ -423,8 +476,6 @@ $result_trees{'def_groupings_args'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def_groupings_args'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'def_groupings_args'} = '@deffn a b@code{aa}c
 @end deffn

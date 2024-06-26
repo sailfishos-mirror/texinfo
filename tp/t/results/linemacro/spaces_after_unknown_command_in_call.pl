@@ -291,7 +291,19 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'A'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -355,7 +367,6 @@ $result_trees{'spaces_after_unknown_command_in_call'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_after_unknown_command_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'spaces_after_unknown_command_in_call'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'spaces_after_unknown_command_in_call'} = '@linemacro mylinecommand {first, second, rest}
 @defblock

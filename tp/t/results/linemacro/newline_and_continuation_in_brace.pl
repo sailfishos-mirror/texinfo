@@ -339,7 +339,35 @@ $result_trees{'newline_and_continuation_in_brace'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'a'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'b c'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        },
+                        {
+                          'text' => 'd'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -393,7 +421,6 @@ $result_trees{'newline_and_continuation_in_brace'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'newline_and_continuation_in_brace'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'newline_and_continuation_in_brace'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'newline_and_continuation_in_brace'} = '
 @linemacro mylinecommand {first, second, rest}

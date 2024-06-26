@@ -83,7 +83,24 @@ $result_trees{'leading_space_in_def_arg'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_before_argument' => {
+                          'text' => ' '
+                        }
+                      },
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -141,7 +158,6 @@ $result_trees{'leading_space_in_def_arg'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'leading_space_in_def_arg'} = '@deffn category { name} arg
 @end deffn

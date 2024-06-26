@@ -397,7 +397,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'forward--char'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -799,7 +821,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'defvr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'fill-column'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   1
@@ -1031,7 +1065,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   2
@@ -1561,7 +1607,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobar'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   3
@@ -1707,7 +1765,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'foobug'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   4
@@ -2067,7 +2137,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'push'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   5
@@ -2449,7 +2531,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypevr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'enable'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   2
@@ -2848,7 +2942,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftp',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'pair'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'tp',
                   1
@@ -3230,7 +3336,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'defcv',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'border-pattern'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   3
@@ -8382,7 +8500,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'apply'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   22
@@ -8574,7 +8704,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A2'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   23
@@ -8766,7 +8918,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deffn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A2'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   24
@@ -8958,7 +9132,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'defvr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A2'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   5
@@ -9150,7 +9346,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'defvr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A2'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   6
@@ -9372,7 +9590,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A3'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   25
@@ -9594,7 +9834,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A3'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   26
@@ -9816,7 +10078,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypevr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A3'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   7
@@ -10038,7 +10322,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypevr',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A3'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   8
@@ -10230,7 +10536,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftp',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A2'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'tp',
                   2
@@ -10422,7 +10750,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftp',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A2'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'tp',
                   3
@@ -10644,7 +10994,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'defcv',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A3'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'var'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'vr',
                   9
@@ -10866,7 +11238,29 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftp',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'A2'
+                                }
+                              ],
+                              'type' => 'brace_container'
+                            }
+                          ],
+                          'cmdname' => 'code'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'tp',
                   4
@@ -13200,7 +13594,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'fun_name'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   31
@@ -13452,7 +13858,19 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'extra' => {
                 'def_command' => 'deftypefn',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'fun_name1'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   32
@@ -13510,30 +13928,6 @@ $result_trees{'all_commands_delimiters'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[14]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[16]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[16]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[52]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[52]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[54]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[54]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[56]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[56]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[58]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[58]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[60]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[60]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[62]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[62]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[64]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[64]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[66]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[66]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[68]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[68]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[70]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[70]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[72]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[72]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[74]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[74]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[76]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[76]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[90]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[90]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[92]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'all_commands_delimiters'}{'contents'}[0]{'contents'}[92]{'contents'}[0]{'args'}[0]{'contents'}[4];
 
 $result_texis{'all_commands_delimiters'} = '@deffn Command @var{forward--char} @var{nchars} {argument2} {argument3}         (arg in brace, [something @var{in v--ar}, @b{in, b} {, comma} a@var{pref} p]) last
 @end deffn

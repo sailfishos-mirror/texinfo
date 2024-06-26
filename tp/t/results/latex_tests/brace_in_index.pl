@@ -352,7 +352,25 @@ $result_trees{'brace_in_index'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'A'
+                        },
+                        {
+                          'cmdname' => '{'
+                        },
+                        {
+                          'text' => 'A'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -424,7 +442,6 @@ $result_trees{'brace_in_index'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'brace_in_index'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'brace_in_index'} = '@{
 

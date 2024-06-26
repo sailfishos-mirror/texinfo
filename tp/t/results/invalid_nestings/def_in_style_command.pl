@@ -103,7 +103,19 @@ $result_trees{'def_in_style_command'} = {
               ],
               'extra' => {
                 'def_command' => 'defun',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'name'
+                        }
+                      ],
+                      'type' => 'def_line_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'index_entry' => [
                   'fn',
                   1
@@ -175,7 +187,6 @@ $result_trees{'def_in_style_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'def_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'def_index_element'} = $result_trees{'def_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 
 $result_texis{'def_in_style_command'} = '@code{
 }@defun name args...

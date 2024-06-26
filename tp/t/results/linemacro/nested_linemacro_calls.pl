@@ -396,7 +396,19 @@ $result_trees{'nested_linemacro_calls'} = {
               'cmdname' => 'defline',
               'extra' => {
                 'def_command' => 'defline',
-                'def_index_element' => {},
+                'def_index_element' => {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'inside X operator Y'
+                        }
+                      ],
+                      'type' => 'bracketed_arg'
+                    }
+                  ],
+                  'type' => 'def_name'
+                },
                 'original_def_cmdname' => 'defline'
               },
               'info' => {
@@ -549,7 +561,6 @@ $result_trees{'nested_linemacro_calls'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_linemacro_calls'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'def_index_element'} = $result_trees{'nested_linemacro_calls'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2];
 
 $result_texis{'nested_linemacro_calls'} = '@linemacro inside {a, b}
 inside {\\a\\ operator \\b\\}
