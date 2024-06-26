@@ -291,7 +291,7 @@ typedef struct OUTPUT_UNIT {
 
     enum output_unit_type unit_type;
     size_t index;
-    struct {
+    union {
       const struct ELEMENT *unit_command;
       /* for special units, not in the tree */
       struct ELEMENT *special_unit_command;

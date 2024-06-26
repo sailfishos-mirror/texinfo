@@ -1,5 +1,10 @@
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/tree_types.h (OUTPUT_UNIT): use a union for
+	unit_command and special_unit_command.
+
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/OutputUnits.pm (output_unit_texi),
 	tp/Texinfo/XS/main/output_unit.c (output_unit_texi): prepend
 	'_EXT_NODE: ' to external node output unit debug string output.
