@@ -1,5 +1,10 @@
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/prove.sh: remove -I that are not needed with Texinfo::ModulePath
+	anymore.  Comments on use of srcdir.
+
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/no_structure_test.t, tp/t/same_parser_multiple_files.t,
 	tp/t/test_tree_copy.t, tp/t/test_utils.pl: add fallback for $srcdir
 	based on Texinfo::ModulePath $top_srcdir.
