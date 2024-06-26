@@ -340,7 +340,7 @@ copy_tree (ELEMENT *current)
 }
 
 ELEMENT *
-copy_contents (ELEMENT *element, enum element_type type)
+copy_contents (const ELEMENT *element, enum element_type type)
 {
   ELEMENT *tmp = new_element (type);
   ELEMENT *result;

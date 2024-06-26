@@ -12437,8 +12437,8 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   /* check for internal reference */
   if (cmd != CM_inforef && !book && !file && arg_node)
     {
-      char *normalized = lookup_extra_string (arg_node, AI_key_normalized);
-      ELEMENT *manual_content = lookup_extra_element (arg_node,
+      const char *normalized = lookup_extra_string (arg_node, AI_key_normalized);
+      const ELEMENT *manual_content = lookup_extra_element (arg_node,
                                                       AI_key_manual_content);
       if (normalized && !manual_content)
         {
@@ -13130,8 +13130,8 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           char *multiple_pass_str;
           size_t entry_index_nr;
           const INDEX *entry_index;
-          ELEMENT *seeentry;
-          ELEMENT *seealso;
+          const ELEMENT *seeentry;
+          const ELEMENT *seealso;
           char *new_normalized_entry_levels[SUBENTRIES_MAX_LEVEL +1];
           ELEMENT *entry_trees[SUBENTRIES_MAX_LEVEL +1];
           int last_entry_level;
@@ -13140,7 +13140,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           const ELEMENT *associated_command = 0;
           char *entry_href;
           ELEMENT *entry_tree;
-          ELEMENT *subentry;
+          const ELEMENT *subentry;
           ELEMENT_LIST *other_subentries_tree = 0;
           int subentry_level = 1;
           ELEMENT *entry_content_element;
@@ -13214,7 +13214,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
           while (subentry_level <= SUBENTRIES_MAX_LEVEL)
             {
-              ELEMENT *new_subentry = lookup_extra_element (subentry,
+              const ELEMENT *new_subentry = lookup_extra_element (subentry,
                                                             AI_key_subentry);
               ELEMENT *subentry_tree = 0;
               if (!new_subentry)
@@ -13351,7 +13351,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
               ELEMENT *referred_tree;
-              ELEMENT *referred_entry;
+              const ELEMENT *referred_entry;
               char *entry;
               char *reference = 0;
 

@@ -1,5 +1,9 @@
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	Add some const
+
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree_types.h (OUTPUT_UNIT): use a union for
 	unit_command and special_unit_command.
 
