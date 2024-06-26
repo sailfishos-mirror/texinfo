@@ -6362,7 +6362,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
       && self->document->sections_list->number > 0)
     {
       const ELEMENT *first = self->document->sections_list->list[0];
-      section_root = lookup_extra_element (first, AI_key_sectioning_root);
+      section_root = lookup_extra_element_oot (first, AI_key_sectioning_root);
       /* this should not happen with $sections_list as set from Structuring
          sectioning_structure, but could happen with another source.
          We consider that if sectioning_root is set as usual, all the

@@ -399,8 +399,8 @@ complete_indices (DOCUMENT *document, int debug_level)
               def_cmdname = lookup_extra_string (main_entry_element,
                                                  AI_key_def_command);
 
-              idx_element = lookup_extra_element (main_entry_element,
-                                                  AI_key_def_index_element);
+              idx_element = lookup_extra_element_oot (main_entry_element,
+                                                      AI_key_def_index_element);
               if (def_cmdname && !idx_element)
                 {
                   ELEMENT *name = 0;

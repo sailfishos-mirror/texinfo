@@ -33,6 +33,7 @@ void add_extra_string_dup (ELEMENT *e, enum ai_key_name key, const char *value);
 void add_extra_integer (ELEMENT *e, enum ai_key_name key, int value);
 KEY_PAIR *lookup_extra (const ELEMENT *e, enum ai_key_name key);
 ELEMENT *lookup_extra_element (const ELEMENT *e, enum ai_key_name key);
+ELEMENT *lookup_extra_element_oot (const ELEMENT *e, enum ai_key_name key);
 ELEMENT_LIST *lookup_extra_contents (const ELEMENT *e, enum ai_key_name key);
 const STRING_LIST *lookup_extra_misc_args (const ELEMENT *e,
                                            enum ai_key_name key);

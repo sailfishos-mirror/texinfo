@@ -190,12 +190,12 @@ index_content_element (const ELEMENT *element, int prefer_reference_element)
      if (prefer_reference_element)
        {
          ELEMENT *def_index_ref_element
-           = lookup_extra_element (element, AI_key_def_index_ref_element);
+           = lookup_extra_element_oot (element, AI_key_def_index_ref_element);
          if (def_index_ref_element)
            return def_index_ref_element;
        }
      def_index_element
-       = lookup_extra_element (element, AI_key_def_index_element);
+       = lookup_extra_element_oot (element, AI_key_def_index_element);
      return def_index_element;
    }
   else

@@ -200,8 +200,25 @@ lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
   k = lookup_associated_info (&e->e.c->extra_info, key);
   if (!k)
     return 0;
-  else if (k->type == extra_string || k->type == extra_integer
-           || k->type == extra_contents || k->type == extra_directions)
+  else if (k->type != extra_element && k->type != extra_container)
+    {
+      char *msg;
+      xasprintf (&msg, "Bad type for lookup_extra_element: %s: %d",
+                ai_key_names[key], k->type);
+      fatal (msg);
+      free (msg);
+    }
+  return k->k.element;
+}
+
+ELEMENT *
+lookup_extra_element_oot (const ELEMENT *e, enum ai_key_name key)
+{
+  const KEY_PAIR *k;
+  k = lookup_associated_info (&e->e.c->extra_info, key);
+  if (!k)
+    return 0;
+  else if (k->type != extra_element_oot)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_element: %s: %d",

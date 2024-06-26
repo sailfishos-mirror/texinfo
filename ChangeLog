@@ -1,5 +1,15 @@
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_default_format_contents),
+	tp/Texinfo/XS/main/extra.c (lookup_extra_element)
+	(lookup_extra_element_oot), tp/Texinfo/XS/main/manipulate_indices.c
+	(index_content_element), tp/Texinfo/XS/parsetexi/indices.c
+	(complete_indices): add lookup_extra_element_oot and use it
+	exclusively for extra_element_oot.  Modify lookup_extra_element to
+	accept only extra_element and extra_container.
+
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line_def_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line): copy element
 	used as 'def_index_element' extra information, even if it is not
