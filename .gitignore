@@ -182,9 +182,7 @@ doc/refcard/*.ps
 
 doc/tp_api/*.t2p
 doc/tp_api/*.info
-doc/tp_api/api_includes
 doc/tp_api/texi2any_internals.pdf
-doc/tp_api/texi2any_internals.texi
 
 man/info.1
 man/install-info.1
