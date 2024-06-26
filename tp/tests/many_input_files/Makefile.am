@@ -26,7 +26,7 @@ TESTS = tex_l2h.sh tex_t4ht.sh \
   output_dir_file_non_ascii.sh tex_t4ht_output_dir_non_ascii.sh \
   tex_l2h_output_dir_non_ascii.sh
 
-AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; builddir="$(builddir)"; export buildir; top_builddir="$(top_builddir)"; export top_builddir;
+AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; top_builddir="$(top_builddir)"; export top_builddir;
 
 tex_html_dirs = tex_l2h tex_t4ht tex_t4ht_output_dir_non_ascii \
   tex_l2h_output_dir_non_ascii

@@ -1,5 +1,13 @@
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (AM_TESTS_ENVIRONMENT), tp/tests/Makefile.am
+	(AM_TESTS_ENVIRONMENT), tp/tests/many_input_files/Makefile.am
+	(AM_TESTS_ENVIRONMENT), Pod-Simple-Texinfo/Makefile.am
+	(AM_TESTS_ENVIRONMENT): do not set builddir (nor buildir) it should
+	not be used anywhere.
+
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (EXTRA_DIST): remove tp_tests variable.  Change in
 	comments.
 

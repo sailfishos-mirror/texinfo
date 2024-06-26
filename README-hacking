@@ -186,10 +186,10 @@ your environment.
 To directly run programs out of source, you should set the top_builddir
 variable to the top build directory, in order to have compiled modules
 and translated in-document strings found.  If you use scripts with
-names ending in .pl, the source directory obtained from the script name
-is used to determine the source directories and you do not need to set them
-explicitely.  Otherwise, you may need to set the srcdir and/or the
-top_srcdir variables.
+names ending in .pl or .t test files, the source directory obtained
+from the script name is used to determine the source directories and
+you do not need to set them explicitely.  Otherwise, you may need to
+set the srcdir and/or the top_srcdir variables.
 
 
 

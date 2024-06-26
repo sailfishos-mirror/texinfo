@@ -313,7 +313,7 @@ T_LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) \
 T_LOG_COMPILER = $(PERL)
 AM_T_LOG_FLAGS = -w
 
-AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; builddir="$(builddir)"; export buildir; top_builddir="$(top_builddir)"; export top_builddir;
+AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; top_builddir="$(top_builddir)"; export top_builddir;
 
 maintenance_files = \
   maintain/all_tests.sh \
