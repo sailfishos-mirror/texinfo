@@ -10,7 +10,9 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-# Generated lists of tests and of test result files
+# Generated lists of tests and of test result files.  If tests results are
+# added it should be regenerated manually, as the rule below is only
+# triggered by change in the generating script.
 include $(srcdir)/Makefile.tres
 
 # Generated list of document string locale files and associated rules.
@@ -295,6 +297,7 @@ test_files = \
  t/input_files/htmlxref-split.cnf \
  #
 
+# used in Makefile.docstr, in particular in document_strings_mo_files
 document_domain = $(PACKAGE)_document
 
 # $(document_strings_mo_files) comes from the generated Makefile.docstr.
@@ -331,6 +334,7 @@ maintenance_files = \
   maintain/template.pod \
   maintain/catalog.xml.in
 
+# test_files_generated_list comes from the generated Makefile.tres
 EXTRA_DIST = \
   texi2any.pl \
   texi2any.supp \
