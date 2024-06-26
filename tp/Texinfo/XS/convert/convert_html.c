@@ -6269,7 +6269,9 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
   else
     {
       /* TODO if defaults of converter options become more used in C code,
-         setup a structure with options defaults instead of hardcoding */
+         it could be relevant to predefine a table with code generated
+         by a specific Perl script with options defaults instead of
+         hardcoding */
       int max_header_level = 4;
       if (self->conf->MAX_HEADER_LEVEL.o.integer >= 1)
         max_header_level = self->conf->MAX_HEADER_LEVEL.o.integer;
