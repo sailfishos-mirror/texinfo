@@ -67,6 +67,11 @@ sub _do_format_test_file($$$$$$)
 
 
 my $srcdir = $ENV{'srcdir'};
+# fallback based on Texinfo::ModulePath $top_srcdir
+if (!defined($srcdir) and defined($Texinfo::ModulePath::top_srcdir)) {
+  $srcdir = File::Spec->catdir($Texinfo::ModulePath::top_srcdir, 'tp');
+}
+
 if (defined($srcdir)) {
   $srcdir =~ s/\/*$/\//;
 } else {

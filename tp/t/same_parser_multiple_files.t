@@ -68,6 +68,11 @@ my $debug = 0;
 #my $debug = 1;
 
 my $srcdir = $ENV{'srcdir'};
+# fallback based on Texinfo::ModulePath $top_srcdir
+if (!defined($srcdir) and defined($Texinfo::ModulePath::top_srcdir)) {
+  $srcdir = File::Spec->catdir($Texinfo::ModulePath::top_srcdir, 'tp');
+}
+
 my $locales_srcdir;
 if (defined($srcdir)) {
   $srcdir =~ s/\/*$/\//;

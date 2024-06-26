@@ -95,6 +95,11 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 Locale::Messages->select_package('gettext_pp');
 
 my $srcdir = $ENV{'srcdir'};
+# fallback based on Texinfo::ModulePath $top_srcdir
+if (!defined($srcdir) and defined($Texinfo::ModulePath::top_srcdir)) {
+  $srcdir = File::Spec->catdir($Texinfo::ModulePath::top_srcdir, 'tp');
+}
+
 my $locales_srcdir;
 if (defined($srcdir)) {
   $srcdir =~ s/\/*$/\//;
@@ -1053,7 +1058,6 @@ sub test($$)
   my ($errors, $error_nrs) = $parser->errors();
 
   my $tree;
-  my $document_information;
   my ($sorted_index_entries, $index_entries_sort_strings);
   my $indices_sorted_sort_strings;
   my $indices;
