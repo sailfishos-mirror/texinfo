@@ -673,12 +673,12 @@ $result_directions_text{'unnumbered_top_without_node_nodes'} = 'output unit: @no
   Forward: @node second
   FastForward: @node a node
   FastBack: @node a node
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
 output unit: @node second
   This: @node second
   Back: @node a node
   Prev: @node a node
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
 ';
 
 

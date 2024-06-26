@@ -5388,7 +5388,7 @@ $result_directions_text{'complex_split_at_node'} = 'output unit: @node Top
   Forward: @node First node
   FastForward: @node First node
   NodeNext: @node First node
-  NodePrev: (dir)
+  NodePrev: _EXT_NODE: (dir)
   NodeForward: @node First node
 output unit: @node First node
   This: @node First node

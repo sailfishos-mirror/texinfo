@@ -735,15 +735,15 @@ $result_directions_text{'non_automatic_top_node_up_url'} = 'output unit: @node T
   This: @node Top
   Forward: @node chap
   NodeNext: @node chap
-  NodePrev: (dir)
-  NodeUp: (dir)
+  NodePrev: _EXT_NODE: (dir)
+  NodeUp: _EXT_NODE: (dir)
   NodeForward: @node chap
 output unit: @node chap
   This: @node chap
   Back: @node Top
   FastBack: @node Top
   NodePrev: @node Top
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
   NodeBack: @node Top
 ';
 

@@ -424,7 +424,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
               INDEX_ENTRY_SORT_STRING entry_sort_string;
 
               ELEMENT *main_entry_element = index_entry->entry_element;
-              ELEMENT *subentry = main_entry_element;
+              const ELEMENT *subentry = main_entry_element;
 
               INDEX *entry_index
                 = indices_info_index_by_name (indices_information,
@@ -472,7 +472,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 
               while (1)
                 {
-                  ELEMENT *next_subentry = lookup_extra_element (subentry,
+                  const ELEMENT *next_subentry
+                           = lookup_extra_element (subentry,
                                                         AI_key_subentry);
                   if (!next_subentry)
                     break;

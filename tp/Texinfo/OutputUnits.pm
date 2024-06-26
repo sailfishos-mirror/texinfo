@@ -638,7 +638,7 @@ sub output_unit_texi($)
   my $unit_command = $output_unit->{'unit_command'};
 
   if ($output_unit->{'unit_type'} eq 'external_node_unit') {
-    return Texinfo::Convert::Texinfo::convert_to_texinfo(
+    return "_EXT_NODE: ".Texinfo::Convert::Texinfo::convert_to_texinfo(
                             {'contents' => $unit_command->{'contents'}});
   } elsif ($output_unit->{'unit_type'} eq 'special_unit') {
     return "_SPECIAL_UNIT: $output_unit->{'special_unit_variety'}";

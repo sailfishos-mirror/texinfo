@@ -507,7 +507,7 @@ $result_elements{'nodes_no_node_top_explicit_directions'}[1] = $result_elements{
 $result_directions_text{'nodes_no_node_top_explicit_directions'} = 'output unit: @node first
   This: @node first
   Forward: @node second node
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
   NodeForward: @node second node
 output unit: @node second node
   This: @node second node

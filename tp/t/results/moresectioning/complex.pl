@@ -5107,7 +5107,7 @@ $result_directions_text{'complex'} = 'output unit: @top
   Forward: @chapter first node chapter
   FastForward: @chapter first node chapter
   NodeNext: @chapter first node chapter
-  NodePrev: (dir)
+  NodePrev: _EXT_NODE: (dir)
   NodeForward: @chapter first node chapter
 output unit: @chapter first node chapter
   This: @chapter first node chapter

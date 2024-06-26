@@ -52,5 +52,5 @@ ELEMENT *protect_node_after_label_in_tree (ELEMENT *tree);
 const char *normalized_menu_entry_internal_node (const ELEMENT *entry);
 ELEMENT *normalized_entry_associated_internal_node (const ELEMENT *entry,
                                                     const LABEL_LIST *identifiers_target);
-ELEMENT *first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target);
+ELEMENT *first_menu_node (const ELEMENT *node, LABEL_LIST *identifiers_target);
 #endif

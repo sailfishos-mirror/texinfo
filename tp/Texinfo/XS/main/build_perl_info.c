@@ -2039,29 +2039,35 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
         }
     }
 
-  if (output_unit->unit_command)
+  if (output_unit->unit_type == OU_special_unit)
     {
-      const ELEMENT *command;
-      if (!output_unit->unit_command->hv
-          && output_unit->unit_command->type == ET_special_unit_element)
+      ELEMENT *command = output_unit->uc.special_unit_command;
+      if (!command->hv)
         {
           SV *unit_sv;
 
           /* a virtual out of tree element, add it to perl */
-          element_to_perl_hash (output_unit->unit_command, 0);
+          element_to_perl_hash (command, 0);
 
           unit_sv = newRV_inc ((SV *) output_unit->hv);
-          hv_store (output_unit->unit_command->hv, "associated_unit",
+          hv_store (command->hv, "associated_unit",
                     strlen ("associated_unit"), unit_sv, 0);
         }
-
-      command = output_unit->unit_command;
-
-      if (!command->hv)
-        fatal ("Missing output unit unit_command hv");
-
       sv = newRV_inc ((SV *) command->hv);
       STORE("unit_command");
+    }
+  else
+    {
+      const ELEMENT *command = output_unit->uc.unit_command;
+
+      if (command)
+        {
+          if (!command->hv)
+            fatal ("Missing output unit unit_command hv");
+
+          sv = newRV_inc ((SV *) command->hv);
+          STORE("unit_command");
+        }
     }
 
   if (output_unit->associated_document_unit)

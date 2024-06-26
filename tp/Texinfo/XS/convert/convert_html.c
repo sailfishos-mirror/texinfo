@@ -409,7 +409,7 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
             {
               ROOT_AND_UNIT *result = malloc (sizeof (ROOT_AND_UNIT));
               result->output_unit = output_units->list[0];
-              result->root = output_units->list[0]->unit_command;
+              result->root = output_units->list[0]->uc.unit_command;
               return result;
             }
           if (output_unit || root_command)
@@ -1509,7 +1509,7 @@ register_special_unit (CONVERTER *self, char *special_unit_variety)
 
   special_unit->special_unit_variety = special_unit_variety;
   unit_command->e.c->associated_unit = special_unit;
-  special_unit->unit_command = unit_command;
+  special_unit->uc.special_unit_command = unit_command;
 
   return special_unit;
 }
@@ -1901,7 +1901,8 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
         }
 
       HTML_TARGET *element_target
-        = add_element_target (self, special_unit->unit_command, target);
+        = add_element_target (self, special_unit->uc.special_unit_command,
+                              target);
       element_target->special_unit_filename = filename;
       html_register_id (self, target);
 
@@ -1964,7 +1965,8 @@ prepare_associated_special_units_targets (CONVERTER *self)
                                 str_target, str_filename);
             }
           element_target
-           = add_element_target (self, special_unit->unit_command, target);
+           = add_element_target (self, special_unit->uc.special_unit_command,
+             target);
           if (target)
             html_register_id (self, target);
           if (filename)
@@ -3162,9 +3164,9 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   const char *extension = 0;
   int target_split = 0;
   char *normalized = lookup_extra_string (external_node, AI_key_normalized);
-  ELEMENT *node_contents = lookup_extra_element (external_node,
+  const ELEMENT *node_contents = lookup_extra_element (external_node,
                                                  AI_key_node_content);
-  ELEMENT *manual_content = lookup_extra_element (external_node,
+  const ELEMENT *manual_content = lookup_extra_element (external_node,
                                                   AI_key_manual_content);
 
   TARGET_FILENAME *target_filename =
@@ -3500,7 +3502,7 @@ html_command_root_element_command (CONVERTER *self, const ELEMENT *command)
               && root_unit->output_unit->unit_type == OU_unit)
             {
               target_info->root_element_command
-                = root_unit->output_unit->unit_command;
+                = root_unit->output_unit->uc.unit_command;
             }
           else
             target_info->root_element_command = 0;
@@ -3766,7 +3768,7 @@ html_command_contents_href (CONVERTER *self, const ELEMENT *command,
           if (special_unit)
             {
               target_filename = html_command_filename (self,
-                                               special_unit->unit_command);
+                                        special_unit->uc.special_unit_command);
             }
 
           text_init (&href);
@@ -4315,7 +4317,7 @@ from_element_direction (CONVERTER *self, int direction,
 {
   const char *filename_from;
   const OUTPUT_UNIT *target_unit = 0;
-  ELEMENT *command = 0;
+  const ELEMENT *command = 0;
 
   if (!source_unit)
     source_unit = self->current_output_unit;
@@ -4325,12 +4327,20 @@ from_element_direction (CONVERTER *self, int direction,
   else
     filename_from = self->current_filename.filename;
 
+  /* To debug:
+  fprintf (stderr, "%s %s\n", html_command_text_type_name[type],
+                              self->direction_unit_direction_name[direction]);
+   */
+
   if (direction < D_direction_Space)
     target_unit = self->global_units_directions[direction];
   else if (direction > NON_SPECIAL_DIRECTIONS_NR - 1)
-    target_unit
+    {
+      /* special units (global) directions */
+      target_unit
        = self->global_units_directions
            [D_direction_Last + direction - NON_SPECIAL_DIRECTIONS_NR +1];
+    }
   else if ((!source_unit || unit_is_top_output_unit (self, source_unit))
            && self->conf->TOP_NODE_UP_URL.o.string
            && (direction == D_direction_Up || direction == D_direction_NodeUp))
@@ -4363,7 +4373,8 @@ from_element_direction (CONVERTER *self, int direction,
     {
       if (target_unit->unit_type == OU_external_node_unit)
         {
-          ELEMENT *external_node_element = target_unit->unit_command;
+          const ELEMENT *external_node_element
+            = target_unit->uc.unit_command;
           if (type == HTT_href)
             return external_node_href (self, external_node_element,
                                        source_command);
@@ -4375,14 +4386,15 @@ from_element_direction (CONVERTER *self, int direction,
         }
       else if (type == HTT_node)
         {
-          if (target_unit->unit_command)
+          if (target_unit->unit_type == OU_unit && target_unit->uc.unit_command)
             {
-              if (target_unit->unit_command->e.c->cmd == CM_node)
-                command = target_unit->unit_command;
+              const ELEMENT *target_command = target_unit->uc.unit_command;
+              if (target_command->e.c->cmd == CM_node)
+                command = target_command;
               else
                 {
-                  ELEMENT *associated_node
-                    = lookup_extra_element (target_unit->unit_command,
+                  const ELEMENT *associated_node
+                    = lookup_extra_element (target_command,
                                             AI_key_associated_node);
                   if (associated_node)
                     command = associated_node;
@@ -4392,14 +4404,15 @@ from_element_direction (CONVERTER *self, int direction,
         }
       else if (type == HTT_section)
         {
-          if (target_unit->unit_command)
+          if (target_unit->unit_type == OU_unit && target_unit->uc.unit_command)
             {
-              if (target_unit->unit_command->e.c->cmd != CM_node)
-                command = target_unit->unit_command;
+              const ELEMENT *target_command = target_unit->uc.unit_command;
+              if (target_command->e.c->cmd != CM_node)
+                command = target_command;
               else
                 {
-                  ELEMENT *associated_section
-                    = lookup_extra_element (target_unit->unit_command,
+                  const ELEMENT *associated_section
+                    = lookup_extra_element (target_command,
                                             AI_key_associated_section);
                   if (associated_section)
                     command = associated_section;
@@ -4409,7 +4422,10 @@ from_element_direction (CONVERTER *self, int direction,
         }
       else
         {
-          command = target_unit->unit_command;
+          if (target_unit->unit_type == OU_special_unit)
+            command = target_unit->uc.special_unit_command;
+          else
+            command = target_unit->uc.unit_command;
           if (type == HTT_href)
             {
               if (command)
@@ -5663,7 +5679,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
               if (!node_filename)
                 {
                   /* use section to do the file name if there is no node */
-                  const ELEMENT *command = file_output_unit->unit_command;
+                  const ELEMENT *command = file_output_unit->uc.unit_command;
                   if (command)
                     {
                       if (command->e.c->cmd == CM_top && !node_top
@@ -5882,7 +5898,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
           size_t special_unit_file_idx = 0;
           const FILE_NAME_PATH_COUNTER *special_unit_file;
           OUTPUT_UNIT *special_unit = special_units->list[i];
-          const ELEMENT *unit_command = special_unit->unit_command;
+          const ELEMENT *unit_command = special_unit->uc.special_unit_command;
           const HTML_TARGET *special_unit_target
             = find_element_target (self->html_targets, unit_command);
           const char *filename = special_unit_target->special_unit_filename;
@@ -5944,7 +5960,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
           OUTPUT_UNIT *special_unit = associated_special_units->list[i];
           const OUTPUT_UNIT *associated_output_unit
             = special_unit->associated_document_unit;
-          const ELEMENT *unit_command = special_unit->unit_command;
+          const ELEMENT *unit_command = special_unit->uc.special_unit_command;
           HTML_TARGET *element_target
             = find_element_target (self->html_targets, unit_command);
 
@@ -7262,7 +7278,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           if (self->conf->SECTION_NAME_IN_TITLE.o.integer > 0)
             {
-              ELEMENT *associated_section
+              const ELEMENT *associated_section
                 = lookup_extra_element (command, AI_key_associated_section);
               if (associated_section && associated_section->e.c->args.number > 0)
                 {
@@ -7523,7 +7539,10 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
 
   if (output_unit)
     {
-      element_command = output_unit->unit_command;
+      if (output_unit->unit_type == OU_special_unit)
+        element_command = output_unit->uc.special_unit_command;
+      else
+        element_command = output_unit->uc.unit_command;
       if (element_command && element_command->e.c->cmd != CM_node)
         {
           node_command = lookup_extra_element (element_command,
@@ -10191,7 +10210,8 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
                                                 special_unit_variety);
               const OUTPUT_UNIT *special_unit
                 = self->global_units_directions[special_unit_direction_index];
-              const ELEMENT *unit_command = special_unit->unit_command;
+              const ELEMENT *unit_command
+                = special_unit->uc.special_unit_command;
 
               text_init (&result);
 
@@ -10530,8 +10550,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
         = lookup_extra_element (element, AI_key_associated_section);
       const char *normalized = lookup_extra_string (element, AI_key_normalized);
       /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
-         output_unit->unit_command is NUL (and not equal to elemen). */
-      if (output_unit->unit_command == element
+         output_unit->uc.unit_command is NUL (and not equal to elemen). */
+      if (output_unit->uc.unit_command == element
           && !associated_section
           && normalized)
         {
@@ -12991,9 +13011,10 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   if (!index_sorted || !index_sorted->letter_number)
     return;
 
-  if (self->current_output_unit && self->current_output_unit->unit_command)
+  if (self->current_output_unit
+      && self->current_output_unit->uc.unit_command)
     index_element_id
-      = html_command_id (self, self->current_output_unit->unit_command);
+      = html_command_id (self, self->current_output_unit->uc.unit_command);
 
   if (!index_element_id)
     {
@@ -13614,7 +13635,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                       if (!associated_command)
                         {
                           associated_command
-                           = self->global_units_directions[D_Top]->unit_command;
+                     = self->global_units_directions[D_Top]->uc.unit_command;
 
          /* NOTE the warning here catches the most relevant cases of
             index entry that is not associated to the right command, which
@@ -15723,7 +15744,7 @@ convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
   if (content)
     text_append (result, content);
 
-  unit_command = output_unit->unit_command;
+  unit_command = output_unit->uc.unit_command;
 
   format_element_footer (self, unit_type, output_unit, content, unit_command,
                          result);
@@ -15788,7 +15809,7 @@ convert_special_unit_type (CONVERTER *self,
 
   classes = new_string_list ();
 
-  unit_command = output_unit->unit_command;
+  unit_command = output_unit->uc.special_unit_command;
   id = html_command_id (self, unit_command);
   class_base = special_unit_info (self, SUI_type_class,
                                   special_unit_variety);
@@ -18045,7 +18066,7 @@ html_translate_names (CONVERTER *self)
            = self->global_units_directions[special_unit_direction_index];
           if (special_unit)
             {
-              const ELEMENT *command = special_unit->unit_command;
+              const ELEMENT *command = special_unit->uc.special_unit_command;
               if (command)
                 {
                   HTML_TARGET *target_info

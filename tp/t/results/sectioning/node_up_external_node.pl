@@ -575,10 +575,10 @@ $result_directions_text{'node_up_external_node'} = 'output unit: @node Top
 output unit: @node chap first
   This: @node chap first
   Back: @node Top
-  NodeNext: (manual1)
-  NodePrev: (manual2)
-  NodeUp: (manual3)
-  NodeForward: (manual1)
+  NodeNext: _EXT_NODE: (manual1)
+  NodePrev: _EXT_NODE: (manual2)
+  NodeUp: _EXT_NODE: (manual3)
+  NodeForward: _EXT_NODE: (manual1)
   NodeBack: @node Top
 ';
 

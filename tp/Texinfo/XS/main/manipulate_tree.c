@@ -1047,7 +1047,7 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
 }
 
 ELEMENT *
-first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
+first_menu_node (const ELEMENT *node, LABEL_LIST *identifiers_target)
 {
   const ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
   if (menus)
@@ -1075,7 +1075,7 @@ first_menu_node (ELEMENT *node, LABEL_LIST *identifiers_target)
                       ELEMENT *content = menu_content->e.c->contents.list[k];
                       if (content->type == ET_menu_entry_node)
                         {
-                          ELEMENT *manual_content
+                          const ELEMENT *manual_content
                            = lookup_extra_element (content,
                                                   AI_key_manual_content);
                           /* a reference to an external manual */

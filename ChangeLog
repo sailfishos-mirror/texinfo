@@ -1,5 +1,25 @@
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/OutputUnits.pm (output_unit_texi),
+	tp/Texinfo/XS/main/output_unit.c (output_unit_texi): prepend
+	'_EXT_NODE: ' to external node output unit debug string output.
+
+	* tp/Texinfo/XS/main/output_unit.c (units_directions): use a
+	ELEMENT_STACK for up list instead of an ELEMENT_LIST and reuse is for
+	all the elements.
+
+	* tp/Texinfo/XS/main/tree_types.h (OUTPUT_UNIT),
+	tp/Texinfo/XS/convert/convert_html.c (from_element_direction)
+	(html_default_format_begin_file), tp/Texinfo/XS/main/build_perl_info.c
+	(output_unit_to_perl_hash), tp/Texinfo/XS/main/output_unit.c
+	(output_unit_texi, label_target_unit_element, split_by_node)
+	(split_by_section): distinguish unit_command for an output unit
+	unit_command found in the tree and special_unit_command for a special
+	output unit unit_command, which is added.  Update uses of
+	unit_command.
+
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_default_format_contents),
 	tp/Texinfo/XS/main/extra.c (lookup_extra_element)
 	(lookup_extra_element_oot), tp/Texinfo/XS/main/manipulate_indices.c

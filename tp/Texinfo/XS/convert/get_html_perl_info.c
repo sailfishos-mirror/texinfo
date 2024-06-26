@@ -1299,7 +1299,7 @@ html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
                   const OUTPUT_UNIT *special_unit
             = converter->global_units_directions[special_unit_direction_index];
                   if (special_unit)
-                    return special_unit->unit_command;
+                    return special_unit->uc.special_unit_command;
                 }
             }
         }

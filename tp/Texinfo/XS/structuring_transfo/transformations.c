@@ -744,7 +744,8 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
                || current->type == ET_index_entry_command
                || (current->parent && current->parent->flags & EF_def_line)))
     {
-      ELEMENT *element_node = lookup_extra_element (current, AI_key_element_node);
+      const ELEMENT *element_node
+        = lookup_extra_element (current, AI_key_element_node);
       if (element_node)
         {
           if (previous_node && element_node != previous_node)

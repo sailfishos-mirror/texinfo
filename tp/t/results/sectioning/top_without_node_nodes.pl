@@ -351,7 +351,7 @@ $result_elements{'top_without_node_nodes'}[0]{'unit_command'}{'associated_unit'}
 
 $result_directions_text{'top_without_node_nodes'} = 'output unit: @node second
   This: @node second
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
 ';
 
 

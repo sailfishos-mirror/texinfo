@@ -472,7 +472,7 @@ output unit: @chapter Chapter
   Back: @top top section
   FastBack: @top top section
   Up: @top top section
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
 ';
 
 

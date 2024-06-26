@@ -804,7 +804,7 @@ $result_directions_text{'unnumbered_top_without_node_sections'} = 'output unit: 
   Forward: @top top section
   FastForward: @top top section
   Next: @top top section
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
 output unit: @top top section
   This: @top top section
   Forward: @chapter Chapter
@@ -818,7 +818,7 @@ output unit: @chapter Chapter
   Back: @top top section
   FastBack: @top top section
   Prev: @top top section
-  NodeUp: (dir)
+  NodeUp: _EXT_NODE: (dir)
 ';
 
 

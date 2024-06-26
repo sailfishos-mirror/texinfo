@@ -372,7 +372,7 @@ sectioning_structure (DOCUMENT *document)
         }
       else if (content->e.c->cmd == CM_part)
         {
-          ELEMENT *part_associated_section
+          const ELEMENT *part_associated_section
             = lookup_extra_element (content, AI_key_part_associated_section);
           if (!part_associated_section)
             {
@@ -433,7 +433,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
         }
       else
         {
-          ELEMENT *node_content = lookup_extra_element (menu_entry_node,
+          const ELEMENT *node_content = lookup_extra_element (menu_entry_node,
                                                         AI_key_node_content);
           if (!check_node_same_texinfo_code (menu_node, node_content))
             {

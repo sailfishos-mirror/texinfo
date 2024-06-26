@@ -29,6 +29,7 @@
 #include "tree.h"
 #include "builtin_commands.h"
 #include "extra.h"
+#include "command_stack.h"
 /* for xasprintf fatal */
 #include "utils.h"
 #include "debug.h"
@@ -166,13 +167,13 @@ split_by_node (DOCUMENT *document)
         }
       if (data_cmd == CM_node)
         {
-          if (!current->unit_command)
-            current->unit_command = content;
+          if (!current->uc.unit_command)
+            current->uc.unit_command = content;
           else
             {
               OUTPUT_UNIT *last = output_units->list[output_units->number -1];
               current = new_output_unit (OU_unit);
-              current->unit_command = content;
+              current->uc.unit_command = content;
               current->tree_unit_directions[D_prev] = last;
               last->tree_unit_directions[D_next] = current;
               add_to_output_unit_list (output_units, current);
@@ -232,17 +233,17 @@ split_by_section (DOCUMENT *document)
       enum command_id data_cmd = element_builtin_data_cmd (content);
       unsigned long flags = builtin_command_data[data_cmd].flags;
 
-      ELEMENT *new_section = 0;
+      const ELEMENT *new_section = 0;
       if (data_cmd == CM_node)
         {
-          ELEMENT *associated_section
+          const ELEMENT *associated_section
             = lookup_extra_element (content, AI_key_associated_section);
           if (associated_section)
             new_section = associated_section;
         }
       else if (data_cmd == CM_part)
         {
-          ELEMENT *part_associated_section
+          const ELEMENT *part_associated_section
             = lookup_extra_element (content, AI_key_part_associated_section);
           if (part_associated_section)
             new_section = part_associated_section;
@@ -253,15 +254,15 @@ split_by_section (DOCUMENT *document)
         }
       if (new_section)
         {
-          if (!current->unit_command)
+          if (!current->uc.unit_command)
             {
-              current->unit_command = new_section;
+              current->uc.unit_command = new_section;
             }
-          else if (new_section != current->unit_command)
+          else if (new_section != current->uc.unit_command)
             {
               OUTPUT_UNIT *last = output_units->list[output_units->number -1];
               current = new_output_unit (OU_unit);
-              current->unit_command = new_section;
+              current->uc.unit_command = new_section;
               current->tree_unit_directions[D_prev] = last;
               last->tree_unit_directions[D_next] = current;
               add_to_output_unit_list (output_units, current);
@@ -306,7 +307,7 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
   /* need to destroy elements associated with special output units
      as they are not in the document Texinfo tree */
   if (output_unit->special_unit_variety)
-    destroy_element (output_unit->unit_command);
+    destroy_element (output_unit->uc.special_unit_command);
   free (output_unit->unit_contents.list);
   /* no need to free output_unit->unit_filename as it is a
      reference on output_unit_files list FILE_NAME_PATH_COUNTER
@@ -342,18 +343,18 @@ free_output_units_lists (OUTPUT_UNIT_LISTS *output_units_lists)
 }
 
 
-static ELEMENT *
+static const ELEMENT *
 output_unit_section (OUTPUT_UNIT *output_unit)
 {
-  ELEMENT *element;
+  const ELEMENT *element;
 
-  if (!output_unit->unit_command)
+  if (!output_unit->uc.unit_command)
     return 0;
 
-  element = output_unit->unit_command;
+  element = output_unit->uc.unit_command;
   if (element->e.c->cmd == CM_node)
     {
-      ELEMENT *associated_section
+      const ELEMENT *associated_section
          = lookup_extra_element (element, AI_key_associated_section);
       if (associated_section)
         return associated_section;
@@ -364,21 +365,21 @@ output_unit_section (OUTPUT_UNIT *output_unit)
     return element;
 }
 
-static ELEMENT *
+static const ELEMENT *
 output_unit_node (OUTPUT_UNIT *output_unit)
 {
-  ELEMENT *element;
+  const ELEMENT *element;
 
-  if (!output_unit->unit_command)
+  if (!output_unit->uc.unit_command)
     return 0;
 
-  element = output_unit->unit_command;
+  element = output_unit->uc.unit_command;
 
   if (element->e.c->cmd == CM_node)
     return element;
   else
    {
-     ELEMENT *associated_node
+     const ELEMENT *associated_node
          = lookup_extra_element (element, AI_key_associated_node);
       if (associated_node)
         return associated_node;
@@ -440,7 +441,7 @@ split_pages (OUTPUT_UNIT_LIST *output_units, const char *split)
   for (i = 0; i < output_units->number; i++)
     {
       OUTPUT_UNIT *output_unit = output_units->list[i];
-      ELEMENT *section = output_unit_section (output_unit);
+      const ELEMENT *section = output_unit_section (output_unit);
       int level = -3;
       if (section)
         {
@@ -461,15 +462,20 @@ split_pages (OUTPUT_UNIT_LIST *output_units, const char *split)
 char *
 output_unit_texi (const OUTPUT_UNIT *output_unit)
 {
-  ELEMENT *unit_command;
+  const ELEMENT *unit_command;
 
   if (!output_unit)
     return strdup ("UNDEF OUTPUT UNIT");
 
-  unit_command = output_unit->unit_command;
-
   if (output_unit->unit_type == OU_external_node_unit)
-    return convert_contents_to_texinfo (unit_command);
+    {
+      char *result;
+      char *reference_texi
+       = convert_contents_to_texinfo (output_unit->uc.unit_command);
+      xasprintf (&result, "_EXT_NODE: %s", reference_texi);
+      free (reference_texi);
+      return result;
+    }
   else if (output_unit->unit_type == OU_special_unit)
     {
       char *result;
@@ -478,6 +484,7 @@ output_unit_texi (const OUTPUT_UNIT *output_unit)
       return result;
     }
 
+  unit_command = output_unit->uc.unit_command;
   if (!unit_command)
     {
     /* happens when there are only nodes and sections are used as elements */
@@ -491,16 +498,17 @@ output_unit_texi (const OUTPUT_UNIT *output_unit)
 }
 
 static OUTPUT_UNIT *
-label_target_unit_element (ELEMENT *label,
+label_target_unit_element (const ELEMENT *label,
                            OUTPUT_UNIT_LIST *external_node_target_units)
 {
-  ELEMENT *manual_content = lookup_extra_element (label, AI_key_manual_content);
+  const ELEMENT *manual_content
+    = lookup_extra_element (label, AI_key_manual_content);
   if (manual_content)
     {
   /* setup an output_unit for consistency with regular output units */
       OUTPUT_UNIT *external_node_unit
         = new_output_unit (OU_external_node_unit);
-      external_node_unit->unit_command = label;
+      external_node_unit->uc.unit_command = label;
       add_to_output_unit_list (external_node_target_units,
                                external_node_unit);
       return external_node_unit;
@@ -566,11 +574,14 @@ units_directions (LABEL_LIST *identifiers_target,
                   OUTPUT_UNIT_LIST *external_node_target_units,
                   int print_debug)
 {
-  ELEMENT *node_top;
   int i;
+  ELEMENT_STACK up_list;
+  ELEMENT *node_top;
 
   if (!output_units || !output_units->number)
     return;
+
+  memset (&up_list, 0, sizeof (ELEMENT_STACK));
 
   node_top = find_identifier_target (identifiers_target, "Top");
 
@@ -578,9 +589,9 @@ units_directions (LABEL_LIST *identifiers_target,
     {
       OUTPUT_UNIT *output_unit = output_units->list[i];
       OUTPUT_UNIT **directions = output_unit->directions;
-      ELEMENT *node = output_unit_node (output_unit);
+      const ELEMENT *node = output_unit_node (output_unit);
       const ELEMENT_LIST *node_directions;
-      ELEMENT *section = output_unit_section (output_unit);
+      const ELEMENT *section = output_unit_section (output_unit);
 
       directions[RUD_type_This] = output_unit;
       if (output_unit->tree_unit_directions[D_next]
@@ -594,7 +605,8 @@ units_directions (LABEL_LIST *identifiers_target,
 
       if (node)
         {
-          ELEMENT *menu_child = first_menu_node (node, identifiers_target);
+          const ELEMENT *menu_child
+           = first_menu_node (node, identifiers_target);
           enum directions d;
           node_directions = lookup_extra_directions (node,
                                                      AI_key_node_directions);
@@ -602,7 +614,7 @@ units_directions (LABEL_LIST *identifiers_target,
             {
               for (d = 0; d < directions_length; d++)
                 {
-                  ELEMENT *node_direction = node_directions->list[d];
+                  const ELEMENT *node_direction = node_directions->list[d];
                   if (node_direction)
                     directions[node_unit_directions[d]]
                       = label_target_unit_element (node_direction,
@@ -640,16 +652,14 @@ units_directions (LABEL_LIST *identifiers_target,
               else if (node_directions && node_directions->list[D_up])
                 {
                   ELEMENT *up = node_directions->list[D_up];
-                  ELEMENT_LIST up_list;
-                  memset (&up_list, 0, sizeof (ELEMENT_LIST));
-                  add_to_element_list (&up_list, node);
+                  push_stack_element (&up_list, node);
                   while (1)
                     {
                       const ELEMENT_LIST *up_node_directions;
                       int i;
                       int in_up = 0;
-                      for (i = 0; i < up_list.number; i++)
-                        if (up == up_list.list[i])
+                      for (i = 0; i < up_list.top; i++)
+                        if (up == up_list.stack[i])
                           {
                             in_up = 1;
                             break;
@@ -668,14 +678,14 @@ units_directions (LABEL_LIST *identifiers_target,
                                    external_node_target_units);
                            break;
                         }
-                      add_to_element_list (&up_list, up);
+                      push_stack_element (&up_list, up);
                       if (up_node_directions
                           && up_node_directions->list[D_up])
                         up = up_node_directions->list[D_up];
                       else
                         break;
                     }
-                  free (up_list.list);
+                  up_list.top = 0;
                 }
             }
           if (directions[RUD_type_NodeForward]
@@ -819,6 +829,7 @@ units_directions (LABEL_LIST *identifiers_target,
             }
         }
     }
+  free (up_list.stack);
   if (print_debug > 0)
     {
       int i;

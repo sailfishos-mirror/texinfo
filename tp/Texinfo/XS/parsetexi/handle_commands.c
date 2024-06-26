@@ -771,7 +771,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             {
               if (current_node)
                 {
-                  ELEMENT *e_description
+                  const ELEMENT *e_description
                     = lookup_extra_element (current_node,
                                             AI_key_node_description);
                   if (e_description)
@@ -1106,14 +1106,14 @@ handle_block_command (ELEMENT *current, const char **line_inout,
     {
       if (current_node)
         {
-          ELEMENT *node_long_description
+          const ELEMENT *node_long_description
             = lookup_extra_element (current_node,
                                     AI_key_node_long_description);
           if (node_long_description)
             line_warn ("multiple node @nodedescriptionblock");
            else
             {
-              ELEMENT *node_description
+              const ELEMENT *node_description
                 = lookup_extra_element (current_node, AI_key_node_description);
 
               if (!node_description)

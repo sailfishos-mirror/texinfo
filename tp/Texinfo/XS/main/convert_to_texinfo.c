@@ -237,7 +237,7 @@ char *
 link_element_to_texi (const ELEMENT *element)
 {
   TEXT result;
-  ELEMENT *element_link;
+  const ELEMENT *element_link;
 
   text_init (&result);
   text_append (&result, "");

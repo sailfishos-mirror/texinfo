@@ -291,7 +291,11 @@ typedef struct OUTPUT_UNIT {
 
     enum output_unit_type unit_type;
     size_t index;
-    struct ELEMENT *unit_command;
+    struct {
+      const struct ELEMENT *unit_command;
+      /* for special units, not in the tree */
+      struct ELEMENT *special_unit_command;
+    } uc;
     char *unit_filename;
     ELEMENT_LIST unit_contents;
     struct OUTPUT_UNIT *tree_unit_directions[2];
