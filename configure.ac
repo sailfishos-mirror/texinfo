@@ -550,23 +550,6 @@ AC_MSG_CHECKING([parser tests requirements])
 AC_MSG_RESULT([$tp_tests])
 AM_CONDITIONAL([TP_TESTS], [test "z$tp_tests" = 'zyes'])
 
-build_perl_api_texi='no'
-AC_ARG_ENABLE([perl-api-texi-build],
-    AS_HELP_STRING([--enable-perl-api-texi-build],[build the perl api texinfo files (default: detected)]),
-    [if test $enableval = 'no'; then
-       build_perl_api_texi='no'
-     else
-       build_perl_api_texi='yes'
-     fi],
-    [
-     if $PERL -e "use 5.008_001; use Encode; use Pod::Simple::PullParser;" > /dev/null 2>&1;
-     then
-       build_perl_api_texi='yes'
-     else
-       build_perl_api_texi='no'
-     fi
-    ])
-
 AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
 if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
   perl_unicode_collation_requirement='yes'
@@ -577,13 +560,10 @@ AC_MSG_RESULT($perl_unicode_collation_requirement)
 PERL_UNICODE_COLLATE_OK=$perl_unicode_collation_requirement
 AC_SUBST([PERL_UNICODE_COLLATE_OK])
 
-AC_MSG_CHECKING([Perl Texinfo API texinfo documentation build requirements])
-AC_MSG_RESULT([$build_perl_api_texi])
-AM_CONDITIONAL([BUILD_PERL_API_TEXI], [test "z$build_perl_api_texi" = 'zyes'])
 
 pod_simple_texinfo_tests='no'
 AC_ARG_ENABLE([pod-simple-texinfo-tests],
-    AS_HELP_STRING([--enable-pod-simple-texinfo-tests],[run the parser and converters testsuite (default: detected)]),
+    AS_HELP_STRING([--enable-pod-simple-texinfo-tests],[run Pod to Texinfo conversion testsuite (default: detected)]),
     [if test $enableval = 'no'; then
        pod_simple_texinfo_tests='no'
      else
@@ -603,6 +583,29 @@ AC_ARG_ENABLE([pod-simple-texinfo-tests],
 AC_MSG_CHECKING([Pod::Simple::Texinfo tests requirements])
 AC_MSG_RESULT([$pod_simple_texinfo_tests])
 AM_CONDITIONAL([POD_SIMPLE_TEXINFO_TESTS], [test "z$pod_simple_texinfo_tests" = 'zyes'])
+
+
+build_perl_api_texi='no'
+AC_ARG_ENABLE([perl-api-texi-build],
+    AS_HELP_STRING([--enable-perl-api-texi-build],[build the perl api Texinfo files (default: detected)]),
+    [if test $enableval = 'no'; then
+       build_perl_api_texi='no'
+     else
+       build_perl_api_texi='yes'
+     fi],
+    [
+     if $PERL -e "use 5.008_001; use Encode; use Pod::Simple::PullParser;" > /dev/null 2>&1;
+     then
+       build_perl_api_texi='yes'
+     else
+       build_perl_api_texi='no'
+     fi
+    ])
+
+AC_MSG_CHECKING([Perl Texinfo API Texinfo documentation build requirements])
+AC_MSG_RESULT([$build_perl_api_texi])
+AM_CONDITIONAL([BUILD_PERL_API_TEXI], [test "z$build_perl_api_texi" = 'zyes'])
+
 
 host_is_windows=no
 case "$host" in

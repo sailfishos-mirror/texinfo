@@ -30,10 +30,11 @@ TEXI2DVI_ENVIRONMENT = TEXINDEX=${abs_top_builddir}/texindex/texindex \
                        TEXINDEX_SCRIPT=${abs_top_srcdir}/texindex/texindex.awk
 TEXI2DVI = $(TEXI2DVI_ENVIRONMENT) $(top_srcdir)/util/texi2dvi
 
-# include pod2texi in the main manual
 pod2texi_pl = $(abs_top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl
 
 if BUILD_PERL_API_TEXI
+# include pod2texi.pl POD converted to Texinfo in the main manual.
+
 # we setup the conversion to Texinfo for inclusion in a document,
 # but we ignore the main document (output to /dev/null) that includes
 # each portion of Texinfo converted from the pod files (here only from

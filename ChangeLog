@@ -1,5 +1,11 @@
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
+	* configure.ac: fix --enable-pod-simple-texinfo-tests help string.
+
+	* configure.ac: rearrange code.
+
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (AM_TESTS_ENVIRONMENT), tp/tests/Makefile.am
 	(AM_TESTS_ENVIRONMENT), tp/tests/many_input_files/Makefile.am
 	(AM_TESTS_ENVIRONMENT), Pod-Simple-Texinfo/Makefile.am
