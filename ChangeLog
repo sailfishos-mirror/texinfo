@@ -1,3 +1,12 @@
+2024-06-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/test_utils.pl (test): reset ir create output directories early.
+	Set parser errors only once.  Do not abort if input file is not found
+	and $document is undef.  Skip structuring and conversion with a goto
+	if there is no $document.  Skip most of test out file output if there
+	is no $document.  Call $document methods in comparisons only if
+	$document is not undef.
+
 2024-06-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_close_brace_command)

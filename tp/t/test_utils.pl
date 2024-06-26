@@ -900,6 +900,36 @@ sub test($$)
     delete $parser_options->{'test_formats'};
   }
 
+  my $test_base_dir = "t/results/$self->{'name'}/$test_name/";
+
+  # set/reset converted formats output directories
+  foreach my $format (@tested_formats) {
+    if (defined($formats{$format})) {
+      my $format_type = $format;
+      if ($format_type =~ s/^file_//) {
+        my $base = $test_base_dir;
+        my $test_out_dir;
+        if ($self->{'generate'}) {
+          $base = $srcdir.$base;
+          $test_out_dir = $base.'res_'.$format_type;
+          if (-d $test_out_dir) {
+            unlink_dir_files($test_out_dir);
+          }
+        } else {
+          $test_out_dir = $base.'out_'.$format_type;
+        }
+        mkdir ($base)
+          if (! -d $base);
+        if (! -d $test_out_dir) {
+          mkdir ($test_out_dir);
+        } else {
+          # remove any files from previous runs
+          unlink glob ("$test_out_dir/*");
+        }
+      }
+    }
+  }
+
   # Setup default customization options to be ready for init files options
   # setting.
 
@@ -1020,20 +1050,27 @@ sub test($$)
     $document = $parser->parse_texi_file($test_file);
   }
 
+  my ($errors, $error_nrs) = $parser->errors();
+
+  my $tree;
+  my $document_information;
+  my ($sorted_index_entries, $index_entries_sort_strings);
+  my $indices_sorted_sort_strings;
+  my $indices;
+
   if (not defined($document)) {
-    warn "ERROR: parsing result undef\n";
-    my ($parser_errors, $parser_error_count) = $parser->errors();
-    foreach my $error_message (@$parser_errors) {
+    warn "ERROR: $test_name: parsing result undef\n";
+    foreach my $error_message (@$errors) {
       warn $error_message->{'error_line'}
         if ($error_message->{'type'} eq 'error');
     }
+    goto COMPARE;
   }
+
   # Get the tree object.  Note that if XS structuring in on, the argument
   # prevents the tree being built as a Perl structure at this stage; only
   # a "handle" is returned.
-  my $tree = $document->tree($XS_structuring);
-
-  my ($errors, $error_nrs) = $parser->errors();
+  $tree = $document->tree($XS_structuring);
 
   # Setup main configuration options, used for structuring.
   my $document_information = $document->global_information();
@@ -1151,13 +1188,10 @@ sub test($$)
 
   # only print indices information if it differs from the default
   # indices.  Indices information here is everything but the entries.
-  my $indices;
   my $trimmed_index_names = remove_keys($indices_information, ['index_entries']);
   $indices = {'index_names' => $trimmed_index_names}
     unless (Data::Compare::Compare($trimmed_index_names, $initial_index_names));
 
-  my ($sorted_index_entries, $index_entries_sort_strings);
-  my $indices_sorted_sort_strings;
   if ($merged_index_entries) {
     my $use_unicode_collation
       = $document->get_conf('USE_UNICODE_COLLATION');
@@ -1227,30 +1261,15 @@ sub test($$)
         # the information that the results is a file is passed
         # through $format_converter_options->{'SUBDIR'} being defined,
         # except for EPUB, which set (and reuse) SUBDIR internally.
-        my $test_base_dir = "t/results/$self->{'name'}/$test_name/";
-        my $base;
         my $test_out_dir;
         if ($self->{'generate'}) {
-          $base = $srcdir.$test_base_dir;
+          my $base = $srcdir.$test_base_dir;
           $test_out_dir = $base.'res_'.$format_type;
-          if (-d $test_out_dir) {
-            unlink_dir_files($test_out_dir);
-          }
         } else {
-          $base = $test_base_dir;
+          my $base = $test_base_dir;
           $test_out_dir = $base.'out_'.$format_type;
         }
-        if (!defined($format_converter_options->{'SUBDIR'})) {
-          mkdir ($base)
-            if (! -d $base);
-          if (! -d $test_out_dir) {
-            mkdir ($test_out_dir);
-          } else {
-            # remove any files from previous runs
-            unlink glob ("$test_out_dir/*");
-          }
-          $format_converter_options->{'SUBDIR'} = "$test_out_dir/";
-        }
+        $format_converter_options->{'SUBDIR'} = "$test_out_dir/";
       } elsif (!defined($format_converter_options->{'OUTFILE'})) {
         $format_converter_options->{'OUTFILE'} = '';
       }
@@ -1398,6 +1417,8 @@ sub test($$)
     Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
   }
 
+ COMPARE:
+
   my $file = "t/results/$self->{'name'}/$test_name.pl";
   my $new_file = $file.'.new';
 
@@ -1455,6 +1476,11 @@ sub test($$)
                                          ['$result_trees{\''.$test_name.'\'}']);
       }
     }
+
+    if (!defined($document)) {
+      goto END_OUT_FILE;
+    }
+
     my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
     my $texi_string_result = $converter_to_texinfo->convert($document);
     #my $texi_string_result
@@ -1535,6 +1561,8 @@ sub test($$)
       }
     }
 
+   END_OUT_FILE:
+
     $out_result .= "1;\n";
     print OUT $out_result;
     close (OUT);
@@ -1550,14 +1578,20 @@ sub test($$)
     cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
                 $test_name.' tree');
 
-    my $sections_list = $document->sections_list();
+    my $sections_list;
+    if ($document) {
+      $sections_list = $document->sections_list();
+    }
     my $sectioning_root
         = $sections_list->[0]->{'extra'}->{'sectioning_root'}
       if ($sections_list and scalar(@$sections_list));
     cmp_trimmed($sectioning_root, $result_sectioning{$test_name},
                  \@avoided_keys_sectioning, $test_name.' sectioning' );
 
-    my $nodes_list = $document->nodes_list();
+    my $nodes_list;
+    if ($document) {
+      $nodes_list = $document->nodes_list();
+    }
     my $nodes_result;
     $nodes_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
     cmp_trimmed($nodes_result, $result_nodes{$test_name}, \@avoided_keys_nodes,
@@ -1567,7 +1601,10 @@ sub test($$)
     cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
                 $test_name.' menus');
 
-    my $floats = $document->floats_information();
+    my $floats;
+    if ($document) {
+      $floats = $document->floats_information();
+    }
     cmp_trimmed($floats, $result_floats{$test_name},
                 \@avoided_keys_floats, $test_name.' floats');
 
@@ -1582,7 +1619,10 @@ sub test($$)
     # convert_to_texinfo can be used to test conversion to raw text,
     # both for pure Perl and XS.
     my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
-    my $texi_result = $converter_to_texinfo->convert($document);
+    my $texi_result;
+    if ($document) {
+      $texi_result = $converter_to_texinfo->convert($document);
+    }
     #my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     is ($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
@@ -1607,7 +1647,7 @@ sub test($$)
         my $reference_exists;
         my $format_type = $format;
         if ($format_type =~ s/^file_//) {
-          my $base = "t/results/$self->{'name'}/$test_name/";
+          my $base = $test_base_dir;
           my $reference_dir = "$srcdir$base".'res_'.$format_type;
           my $results_dir = $base.'out_'.$format_type;
           if (-d $reference_dir) {
