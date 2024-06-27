@@ -3164,9 +3164,9 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   const char *extension = 0;
   int target_split = 0;
   char *normalized = lookup_extra_string (external_node, AI_key_normalized);
-  const ELEMENT *node_contents = lookup_extra_element (external_node,
+  const ELEMENT *node_contents = lookup_extra_container (external_node,
                                                  AI_key_node_content);
-  const ELEMENT *manual_content = lookup_extra_element (external_node,
+  const ELEMENT *manual_content = lookup_extra_container (external_node,
                                                   AI_key_manual_content);
 
   TARGET_FILENAME *target_filename =
@@ -3682,7 +3682,7 @@ html_command_href (CONVERTER *self, const ELEMENT *command,
                    const ELEMENT *source_command,
                    const char *specified_target)
 {
-  const ELEMENT *manual_content = lookup_extra_element (command,
+  const ELEMENT *manual_content = lookup_extra_container (command,
                                                   AI_key_manual_content);
   if (manual_content)
     {
@@ -3995,7 +3995,7 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   ELEMENT *open_p;
   ELEMENT *close_p;
 
-  ELEMENT *node_content = lookup_extra_element (command,
+  ELEMENT *node_content = lookup_extra_container (command,
                                                 AI_key_node_content);
 
   tree = new_tree_added_elements (tree_added_status_elements_added);
@@ -4022,7 +4022,7 @@ TREE_ADDED_ELEMENTS *
 html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
 {
 
-  ELEMENT *manual_content = lookup_extra_element (command,
+  ELEMENT *manual_content = lookup_extra_container (command,
                                                   AI_key_manual_content);
   if (manual_content)
     {
@@ -4131,7 +4131,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
                    const enum html_text_type type)
 {
   char *result;
-  ELEMENT *manual_content = lookup_extra_element (command,
+  ELEMENT *manual_content = lookup_extra_container (command,
                                                   AI_key_manual_content);
   if (manual_content)
     {
@@ -12438,7 +12438,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   if (cmd != CM_inforef && !book && !file && arg_node)
     {
       const char *normalized = lookup_extra_string (arg_node, AI_key_normalized);
-      const ELEMENT *manual_content = lookup_extra_element (arg_node,
+      const ELEMENT *manual_content = lookup_extra_container (arg_node,
                                                       AI_key_manual_content);
       if (normalized && !manual_content)
         {
@@ -12594,14 +12594,14 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
 
       if (arg_node)
         {
-          node_content = lookup_extra_element (arg_node, AI_key_node_content);
+          node_content = lookup_extra_container (arg_node, AI_key_node_content);
           if (node_content)
             {
               const char *normalized = lookup_extra_string (arg_node,
                                                             AI_key_normalized);
               label_element = new_element (ET_NONE);
-              add_extra_element (label_element, AI_key_node_content,
-                                 node_content);
+              add_extra_container (label_element, AI_key_node_content,
+                                   copy_container_contents (node_content));
               if (normalized)
                 add_extra_string_dup (label_element, AI_key_normalized,
                                       normalized);
@@ -12613,13 +12613,12 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
         {
           if (!label_element)
             label_element = new_element (ET_NONE);
-          /* TODO would be better to have add_extra_element argument const */
-          add_extra_element (label_element, AI_key_manual_content,
-                             (ELEMENT *)file_arg->arg_tree);
+          add_extra_container (label_element, AI_key_manual_content,
+                               copy_container_contents (file_arg->arg_tree));
         }
       else
         {
-          manual_content = lookup_extra_element (arg_node,
+          manual_content = lookup_extra_container (arg_node,
                                                  AI_key_manual_content);
         }
 
@@ -12630,9 +12629,10 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
           if (!label_element)
             label_element = new_element (ET_NONE);
 
-          add_extra_element (label_element, AI_key_manual_content,
-                             manual_content);
+          add_extra_container (label_element, AI_key_manual_content,
+                               copy_container_contents (manual_content));
 
+          /* convert the manual part to file string */
           root_code = new_element (ET__code);
 
           add_to_contents_as_array (root_code, manual_content);
@@ -14787,7 +14787,7 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
         menu_entry_node = arg;
     }
 
-  manual_content = lookup_extra_element (menu_entry_node,
+  manual_content = lookup_extra_container (menu_entry_node,
                                          AI_key_manual_content);
 
   if (manual_content)
@@ -15026,10 +15026,10 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
           if (!name)
             {
               const ELEMENT *manual_content
-                           = lookup_extra_element (menu_entry_node,
+                           = lookup_extra_container (menu_entry_node,
                                                    AI_key_manual_content);
               ELEMENT *node_content
-                         = lookup_extra_element (menu_entry_node,
+                         = lookup_extra_container (menu_entry_node,
                                                  AI_key_node_content);
               if (manual_content)
                 {

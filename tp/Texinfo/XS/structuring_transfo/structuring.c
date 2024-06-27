@@ -433,7 +433,7 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
         }
       else
         {
-          const ELEMENT *node_content = lookup_extra_element (menu_entry_node,
+          const ELEMENT *node_content = lookup_extra_container (menu_entry_node,
                                                           AI_key_node_content);
           if (!check_node_same_texinfo_code (menu_node, node_content))
             {
@@ -865,8 +865,8 @@ set_menus_node_directions (DOCUMENT *document)
                       if (content->type == ET_menu_entry_node)
                         {
                           const ELEMENT *manual_content
-                           = lookup_extra_element (content,
-                                                   AI_key_manual_content);
+                           = lookup_extra_container (content,
+                                                     AI_key_manual_content);
 
                           if (!manual_content)
                             {
@@ -902,10 +902,10 @@ set_menus_node_directions (DOCUMENT *document)
                       if (previous_node)
                         {
                           const ELEMENT *manual_content
-                           = lookup_extra_element (menu_node,
+                           = lookup_extra_container (menu_node,
                                                    AI_key_manual_content);
                           const ELEMENT *prev_manual_content
-                           = lookup_extra_element (previous_node,
+                           = lookup_extra_container (previous_node,
                                                    AI_key_manual_content);
                           if (!manual_content)
                             {
@@ -949,7 +949,7 @@ set_menus_node_directions (DOCUMENT *document)
                       if (content->type == ET_menu_entry_node)
                         {
                           const ELEMENT *manual_content
-                           = lookup_extra_element (content,
+                           = lookup_extra_container (content,
                                                    AI_key_manual_content);
 
                           if (!manual_content)
@@ -1114,7 +1114,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       ELEMENT *elt_menu_direction
                        = menu_directions->list[d];
                       const ELEMENT *menu_direction_manual_content
-                        = lookup_extra_element (elt_menu_direction,
+                        = lookup_extra_container (elt_menu_direction,
                                                 AI_key_manual_content);
                       if (!menu_direction_manual_content)
                         {
@@ -1155,7 +1155,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
                   node_directions->list[D_next] = menu_child;
                   const ELEMENT *menu_child_manual_content
-                    = lookup_extra_element (menu_child, AI_key_manual_content);
+                   = lookup_extra_container (menu_child, AI_key_manual_content);
                   if (!menu_child_manual_content)
                     {
                       const ELEMENT_LIST *child_node_directions
@@ -1219,11 +1219,11 @@ complete_node_tree_with_menus (DOCUMENT *document)
                       const ELEMENT *menu_direction
                        = menu_directions->list[d];
                       const ELEMENT *menu_dir_manual_content
-                       = lookup_extra_element (menu_direction,
-                                               AI_key_manual_content);
+                       = lookup_extra_container (menu_direction,
+                                                 AI_key_manual_content);
                       const ELEMENT *node_dir_manual_content
-                       = lookup_extra_element (node_directions->list[d],
-                                               AI_key_manual_content);
+                       = lookup_extra_container (node_directions->list[d],
+                                                 AI_key_manual_content);
                       if (!menu_dir_manual_content && !node_dir_manual_content)
                         {
                           char *node_texi = target_element_to_texi_label (node);
@@ -1256,7 +1256,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
             up_node = node_directions->list[D_up];
           if (up_node)
             {
-              const ELEMENT *manual_content = lookup_extra_element (up_node,
+              const ELEMENT *manual_content = lookup_extra_container (up_node,
                                                        AI_key_manual_content);
               int is_target = (node->flags & EF_is_target);
               const ELEMENT_LIST *menus
@@ -1431,7 +1431,7 @@ nodes_tree (DOCUMENT *document)
               ELEMENT *direction_element = node->e.c->args.list[i];
               int direction = i - 1;
               const ELEMENT *manual_content
-                            = lookup_extra_element (direction_element,
+                            = lookup_extra_container (direction_element,
                                                     AI_key_manual_content);
               if (manual_content)
                 {
@@ -1458,7 +1458,7 @@ nodes_tree (DOCUMENT *document)
                                || options->novalidate.o.integer <= 0)
                             {
                               ELEMENT *direction_node_content
-                                = lookup_extra_element (direction_element,
+                                = lookup_extra_container (direction_element,
                                                       AI_key_node_content);
                                if (!check_node_same_texinfo_code (node_target,
                                                        direction_node_content))
@@ -1533,7 +1533,7 @@ associate_internal_references (DOCUMENT *document)
         label_element = ref->e.c->args.list[0];
 
       label_node_content
-          = lookup_extra_element (label_element, AI_key_node_content);
+          = lookup_extra_container (label_element, AI_key_node_content);
       if (label_node_content)
         {
           char *normalized
@@ -1579,7 +1579,7 @@ associate_internal_references (DOCUMENT *document)
             }
           else
             {
-              label_node_content = lookup_extra_element (label_element,
+              label_node_content = lookup_extra_container (label_element,
                                                          AI_key_node_content);
               if ((!options)
                   || options->novalidate.o.integer <= 0)

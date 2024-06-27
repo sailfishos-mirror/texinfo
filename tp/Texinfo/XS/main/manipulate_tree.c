@@ -356,6 +356,29 @@ copy_contents (const ELEMENT *element, enum element_type type)
 
 
 
+/* This function is designed to create a new element passed in
+   argument of add_extra_container to be registered as extra_container,
+   with CONTAINER contents.  The new element (but not the contents) will
+   be destroyed when the element it is registered in with
+   add_extra_container is destroyed.
+ */
+ELEMENT *
+copy_container_contents (const ELEMENT *container)
+{
+  ELEMENT *result;
+  if (container->e.c->cmd)
+    result = new_command_element (container->e.c->cmd,
+                                  container->type);
+  else
+    result = new_element (container->type);
+
+  insert_slice_into_contents (result, 0, container,
+                              0, container->e.c->contents.number);
+  return result;
+}
+
+
+
 void
 add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
 {
@@ -1022,7 +1045,7 @@ normalized_menu_entry_internal_node (const ELEMENT *entry)
       const ELEMENT *content = entry->e.c->contents.list[i];
       if (content->type == ET_menu_entry_node)
         {
-          if (!lookup_extra_element (content, AI_key_manual_content))
+          if (!lookup_extra_container (content, AI_key_manual_content))
             {
               return lookup_extra_string (content, AI_key_normalized);
             }
@@ -1076,7 +1099,7 @@ first_menu_node (const ELEMENT *node, LABEL_LIST *identifiers_target)
                       if (content->type == ET_menu_entry_node)
                         {
                           const ELEMENT *manual_content
-                           = lookup_extra_element (content,
+                           = lookup_extra_container (content,
                                                   AI_key_manual_content);
                           /* a reference to an external manual */
                           if (manual_content)

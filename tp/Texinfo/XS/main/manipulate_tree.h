@@ -26,6 +26,10 @@ ELEMENT *copy_contents (const ELEMENT *element, enum element_type type);
 
 
 
+ELEMENT *copy_container_contents (const ELEMENT *container);
+
+
+
 void add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e);
 size_t relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
                               size_t previous_position, size_t current_position);

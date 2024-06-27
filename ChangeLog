@@ -1,3 +1,16 @@
+2024-06-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_xref_commands),
+	tp/Texinfo/XS/main/extra.c (lookup_extra_element)
+	(lookup_extra_container), tp/Texinfo/XS/main/manipulate_tree.c
+	(copy_container_contents): separate extra_container from
+	extra_element, by adding a specific function to lookup extra
+	container, lookup_extra_container.  Add copy_container_contents to
+	create a new element to be used as extra_container and refer to the
+	contents of another element.  Use it to add containers instead of
+	elements.  Replace lookup_extra_element by lookup_extra_container for
+	all the callers with extra_container keys.
+
 2024-06-26  Patrice Dumas  <pertusus@free.fr>
 
 	Add some const
