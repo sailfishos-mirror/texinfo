@@ -57,7 +57,14 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
 
 /* Add an extra key that is a reference to another element (for example,
    'associated_section' on a node command element. */
-/* TODO would be good to have ELEMENT be const */
+/* In general, the element should not be modified as it refers to another
+   part of the tree and element should not be modified in converters.
+   However, during the structuring/tree transformation phase, the elements
+   can be modified (addition f menus, for exaple).  Also when the tree is
+   copied, the source tree elements are temporarily modified.  Lastly, in
+   general, lists of elements are not for const elements, even when they
+   are not modified as it is the case in the converters.
+ */
 void
 add_extra_element (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 {
@@ -193,7 +200,7 @@ lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
   return 0;
 }
 
-ELEMENT *
+const ELEMENT *
 lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 {
   const KEY_PAIR *k;

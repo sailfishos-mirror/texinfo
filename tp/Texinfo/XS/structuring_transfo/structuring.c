@@ -529,7 +529,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
 }
 
 static char **
-register_referenced_node (ELEMENT *node, char **referenced_identifiers,
+register_referenced_node (const ELEMENT *node, char **referenced_identifiers,
                           size_t *referenced_identifier_space_ptr,
                           size_t *referenced_identifier_number_ptr)
 {
@@ -640,10 +640,10 @@ check_nodes_are_referenced (DOCUMENT *document)
               int k;
               for (k = 0; k < menu->e.c->contents.number; k++)
                 {
-                  ELEMENT *menu_content = menu->e.c->contents.list[k];
+                  const ELEMENT *menu_content = menu->e.c->contents.list[k];
                   if (menu_content->type == ET_menu_entry)
                     {
-                      ELEMENT *menu_node
+                      const ELEMENT *menu_node
                         = normalized_entry_associated_internal_node (
                                             menu_content, identifiers_target);
                       if (menu_node)
@@ -2119,7 +2119,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
               ELEMENT *entry = menu->e.c->contents.list[j];
               if (entry->type == ET_menu_entry)
                 {
-                  ELEMENT *menu_node
+                  const ELEMENT *menu_node
                    = normalized_entry_associated_internal_node (entry,
                                                   identifiers_target);
                   if (menu_node)
