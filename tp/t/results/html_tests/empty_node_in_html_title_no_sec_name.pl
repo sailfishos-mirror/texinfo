@@ -211,9 +211,6 @@ $result_nodes{'empty_node_in_html_title_no_sec_name'} = [
               'extra' => {
                 'section_number' => '1'
               }
-            },
-            'node_directions' => {
-              'prev' => {}
             }
           }
         }
@@ -222,7 +219,6 @@ $result_nodes{'empty_node_in_html_title_no_sec_name'} = [
     }
   }
 ];
-$result_nodes{'empty_node_in_html_title_no_sec_name'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'empty_node_in_html_title_no_sec_name'}[0];
 
 $result_menus{'empty_node_in_html_title_no_sec_name'} = [
   {

@@ -1,5 +1,13 @@
 2024-06-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (nodes_tree),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (nodes_tree):
+	determine top node section child when processing top node, but set
+	the direction in top node section child when processing the node,
+	as done for other nodes.
+
+2024-06-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (build_perl_directions),
 	tp/Texinfo/XS/main/extra.c (add_extra_directions)
 	(lookup_extra_directions), tp/Texinfo/XS/main/manipulate_tree.c

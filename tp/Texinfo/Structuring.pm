@@ -932,7 +932,8 @@ sub nodes_tree($)
   my $identifier_target = $document->labels_information();
   my $registrar = $document->registrar();
 
-  my $top_node;
+  my $top_node = $identifier_target->{'Top'};
+  my $top_node_section_child;
   my @nodes_list = ();
   # Go through all the nodes and set directions.
   foreach my $node (@{$root->{'contents'}}) {
@@ -942,24 +943,19 @@ sub nodes_tree($)
       next;
     }
     push @nodes_list, $node;
-    if ($node->{'extra'}->{'normalized'} eq 'Top'
-        and $node->{'extra'}->{'is_target'}) {
-      $top_node = $node;
-    }
+
     my $automatic_directions
       = (not ($node->{'args'} and scalar(@{$node->{'args'}}) > 1));
 
     if ($automatic_directions) {
       if (!$top_node or $node ne $top_node) {
         foreach my $direction (@node_directions_names) {
-          # prev already defined for the node first Top node menu entry
-          if ($direction eq 'prev' and $node->{'extra'}->{'node_directions'}
-              and $node->{'extra'}->{'node_directions'}->{$direction}
-              and $node->{'extra'}->{'node_directions'}->{$direction}->{'extra'}
-              and $node->{'extra'}->{'node_directions'}->{$direction}
-                                        ->{'extra'}->{'normalized'}
-              and $node->{'extra'}->{'node_directions'}->{$direction}
-                                        ->{'extra'}->{'normalized'} eq 'Top') {
+          # prev defined as Top for the first Top node menu entry node
+          if ($direction eq 'prev' and $top_node_section_child
+              and $node eq $top_node_section_child) {
+            $node->{'extra'}->{'node_directions'} = {}
+              if (! $node->{'extra'}->{'node_directions'});
+            $node->{'extra'}->{'node_directions'}->{'prev'} = $top_node;
             next;
           }
           if ($node->{'extra'}->{'associated_section'}) {
@@ -992,7 +988,7 @@ sub nodes_tree($)
             and $node->{'extra'}->{'associated_section'}
                           ->{'extra'}->{'section_childs'}->[0]
                                              ->{'extra'}->{'associated_node'}) {
-          my $top_node_section_child
+          $top_node_section_child
             = $node->{'extra'}->{'associated_section'}
                         ->{'extra'}->{'section_childs'}->[0]
                                              ->{'extra'}->{'associated_node'};
@@ -1001,16 +997,6 @@ sub nodes_tree($)
           $node->{'extra'}->{'node_directions'}->{'next'}
              = $top_node_section_child;
 
-          my $first_section_child_automatic
-             = (not ($top_node_section_child->{'args'}
-                     and scalar(@{$top_node_section_child->{'args'}}) > 1));
-
-          if ($first_section_child_automatic) {
-            $top_node_section_child->{'extra'}->{'node_directions'} = {}
-              if (! $top_node_section_child->{'extra'}->{'node_directions'});
-            $top_node_section_child->{'extra'}->{'node_directions'}->{'prev'}
-               = $node;
-          }
         }
       }
     } else { # explicit directions

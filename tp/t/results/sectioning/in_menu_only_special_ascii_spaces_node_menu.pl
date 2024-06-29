@@ -428,9 +428,6 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node_menu'} = [
               'extra' => {
                 'section_number' => '1'
               }
-            },
-            'node_directions' => {
-              'prev' => {}
             }
           }
         }
@@ -439,7 +436,6 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node_menu'} = [
     }
   }
 ];
-$result_nodes{'in_menu_only_special_ascii_spaces_node_menu'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_menu_only_special_ascii_spaces_node_menu'}[0];
 
 $result_menus{'in_menu_only_special_ascii_spaces_node_menu'} = [
   {
@@ -567,10 +563,6 @@ Next: CARRIAGE RETURN|'."\r".'| &nbsp; </p>
 
 <hr>
 <div class="chapter-level-extent">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
-</div>
 <h2 class="chapter" id="CARRIAGE-RETURN_007c-_007c"><span>1 CARRIAGE RETURN|'."\r".'|<a class="copiable-link" href="#CARRIAGE-RETURN_007c-_007c"> &para;</a></span></h2>
 
 <hr>

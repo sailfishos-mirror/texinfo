@@ -1324,6 +1324,7 @@ nodes_tree (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   const ELEMENT *top_node = 0;
+  const ELEMENT *top_node_section_child = 0;
   ELEMENT_LIST *nodes_list = new_list ();
 
   int i;
@@ -1355,25 +1356,20 @@ nodes_tree (DOCUMENT *document)
         if (!top_node || node != top_node)
           {
             enum directions d;
-            const ELEMENT * const *node_d_set
-                        = lookup_extra_directions (node,
-                                                   AI_key_node_directions);
             for (d = 0; d < directions_length; d++)
               {
                 const ELEMENT *section;
                 const ELEMENT *part_section;
                 const ELEMENT *direction_associated_node;
-           /* prev already defined for the node first Top node menu entry */
-                if (d == D_prev && node_d_set && node_d_set[d])
+           /* prev defined as Top for the first Top node menu entry node */
+                if (d == D_prev && top_node_section_child
+                    && node == top_node_section_child)
                   {
-                    const ELEMENT *prev_element = node_d_set[d];
-                    const char *prev_normalized
-                      = lookup_extra_string (prev_element, AI_key_normalized);
-                    if (prev_normalized)
-                      {
-                        if (!strcmp (prev_normalized, "Top"))
-                          continue;
-                      }
+                    const ELEMENT **node_directions
+                      = add_extra_directions (node,
+                                              AI_key_node_directions);
+                    node_directions[D_prev] = top_node;
+                    continue;
                   }
                 section = lookup_extra_element (node,
                                                 AI_key_associated_section);
@@ -1388,7 +1384,7 @@ nodes_tree (DOCUMENT *document)
                       = section_direction_associated_node (section, d);
                     if (direction_associated_node)
                       {
-                        const ELEMENT ** node_directions
+                        const ELEMENT **node_directions
                           = add_extra_directions (node,
                                                   AI_key_node_directions);
                         node_directions[d]
@@ -1408,24 +1404,14 @@ nodes_tree (DOCUMENT *document)
                 if (section_childs && section_childs->number > 0)
                   {
                     const ELEMENT *first_sec = section_childs->list[0];
-                    /* TODO do it when processing top_node_section_child
-                            as node */
-                    ELEMENT *top_node_section_child
+                    top_node_section_child
                       = lookup_extra_element (first_sec,
                                               AI_key_associated_node);
                     if (top_node_section_child)
                       {
                         const ELEMENT **top_directions
                          = add_extra_directions (node, AI_key_node_directions);
-                        top_directions[D_next]
-                          = top_node_section_child;
-                        if (top_node_section_child->e.c->args.number <= 1)
-                          {
-                            const ELEMENT **top_section_child_directions
-                             = add_extra_directions (top_node_section_child,
-                                                   AI_key_node_directions);
-                            top_section_child_directions[D_prev] = node;
-                          }
+                        top_directions[D_next] = top_node_section_child;
                       }
                   }
               }
