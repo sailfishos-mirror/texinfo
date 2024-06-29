@@ -147,9 +147,15 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_element_oot:
           {
             char *element_str = print_element_debug (k->k.element, 0);
+            const ELEMENT *e;
             if (k->type == extra_element_oot)
-              text_append (&text, "oot ");
-            text_printf (&text, "element %p: %s", k->k.element, element_str);
+              {
+                text_append (&text, "oot ");
+                e = k->k.element;
+              }
+            else
+              e = k->k.const_element;
+            text_printf (&text, "element %p: %s", e, element_str);
             free (element_str);
             break;
           }

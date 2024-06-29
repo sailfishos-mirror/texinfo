@@ -1054,8 +1054,10 @@ complete_node_menu (ELEMENT *node, int use_sections)
           int j;
           if (!current_menu)
             {
-              ELEMENT *section = lookup_extra_element (node,
-                                                       AI_key_associated_section);
+  /* cast to remove const, as the section is modified, with the new menu
+     inserted */
+              ELEMENT *section = (ELEMENT *)lookup_extra_element (node,
+                                                  AI_key_associated_section);
               current_menu = new_command_element (ET_block_command, CM_menu);
               insert_list_slice_into_contents (current_menu, 0,
                                                pending, 0,
@@ -1140,7 +1142,9 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
       const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
       if (!(menus && menus->number > 0))
         {
-          ELEMENT *section = lookup_extra_element (node,
+  /* cast to remove const, as the section is modified, with the new menu
+     inserted */
+          ELEMENT *section = (ELEMENT *)lookup_extra_element (node,
                                                    AI_key_associated_section);
           ELEMENT *current_menu = new_complete_node_menu (node, document,
                                                       options, use_sections);

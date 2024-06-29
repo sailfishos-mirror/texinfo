@@ -19,7 +19,7 @@
 
 #include "tree_types.h"
 
-void add_extra_element (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
+void add_extra_element (ELEMENT *e, enum ai_key_name key, const ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
 CONST_ELEMENT_LIST *add_extra_contents (ELEMENT *e, enum ai_key_name key,
                                         int no_lookup);
@@ -33,7 +33,7 @@ void add_extra_string (ELEMENT *e, enum ai_key_name key, char *value);
 void add_extra_string_dup (ELEMENT *e, enum ai_key_name key, const char *value);
 void add_extra_integer (ELEMENT *e, enum ai_key_name key, int value);
 KEY_PAIR *lookup_extra (const ELEMENT *e, enum ai_key_name key);
-ELEMENT *lookup_extra_element (const ELEMENT *e, enum ai_key_name key);
+const ELEMENT *lookup_extra_element (const ELEMENT *e, enum ai_key_name key);
 ELEMENT *lookup_extra_element_oot (const ELEMENT *e, enum ai_key_name key);
 ELEMENT *lookup_extra_container (const ELEMENT *e, enum ai_key_name key);
 CONST_ELEMENT_LIST * lookup_extra_contents (const ELEMENT *e, enum ai_key_name key);

@@ -57,20 +57,26 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
 
 /* Add an extra key that is a reference to another element (for example,
    'associated_section' on a node command element. */
-/* In general, the element should not be modified as it refers to another
-   part of the tree and element should not be modified in converters.
-   However, during the structuring/tree transformation phase, the elements
-   can be modified (addition f menus, for exaple).  Also when the tree is
-   copied, the source tree elements are temporarily modified.  Lastly, in
-   general, lists of elements are not for const elements, even when they
-   are not modified as it is the case in the converters.
+/* The extra element is marked as const because, as a general rule, an
+   extra element should not be modified when accessed through
+   lookup_extra_element as it refers to another part of the tree.
+   In addition, tree elements should not be modified in converters.
+   Having the element registered here as const and lookup_extra_element
+   return const helps guarding against errors.
+
+   However, during the structuring/tree transformation phase, an element
+   obtained through lookup_extra_element could need to be modified (addition
+   of menus, for example).  The element could also be modified when a
+   reference to Perl is needed when building to Perl.  When the tree is
+   copied, the source tree elements are temporarily modified.  For those
+   cases, a cast should be (and is) used to remove the const.
  */
 void
-add_extra_element (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
+add_extra_element (ELEMENT *e, enum ai_key_name key, const ELEMENT *value)
 {
   KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                          extra_element);
-  k->k.element = value;
+  k->k.const_element = value;
 }
 
 /* Add an extra key that is a reference to another element that is
@@ -103,6 +109,11 @@ add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
    Check if it already exists, unless NO_LOOKUP is set
    if the caller knows that the array has not been set
    already.
+
+   A list of const elements is used as the extra contents
+   contain elements from elsewhere in the tree.  See the comment
+   before add_extra_element for more on that subject and on casting
+   the elements from the list to remove const if needed.
 */
 CONST_ELEMENT_LIST *
 add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
@@ -202,7 +213,7 @@ lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
   return 0;
 }
 
-ELEMENT *
+const ELEMENT *
 lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 {
   const KEY_PAIR *k;

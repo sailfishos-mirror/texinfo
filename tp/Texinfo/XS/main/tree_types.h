@@ -244,6 +244,7 @@ typedef struct KEY_PAIR {
     enum extra_type type;
     union {
       struct ELEMENT *element;
+      const struct ELEMENT *const_element;
       ELEMENT_LIST *list;
       CONST_ELEMENT_LIST *const_list;
       char *string;

@@ -63,6 +63,14 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
       switch (k_ref->type)
         {
         case extra_element:
+          {
+            /* cast const off */
+            ELEMENT *f = (ELEMENT *)k_ref->k.const_element;
+            ELEMENT *copy = copy_tree_internal (f);
+            KEY_PAIR *k
+              = get_associated_info_key (new_info, key, k_ref->type);
+            k->k.const_element = copy;
+          }
         case extra_element_oot:
           {
             ELEMENT *f = k_ref->k.element;
@@ -255,6 +263,13 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
       switch (k_ref->type)
         {
         case extra_element:
+          {
+            /* cast to discard const, as the element needs to be modified
+               transiently for copy */
+            ELEMENT *f = (ELEMENT *)k_ref->k.element;
+            remove_element_copy_info (f);
+            break;
+          }
         case extra_element_oot:
           {
             ELEMENT *f = k_ref->k.element;

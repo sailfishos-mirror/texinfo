@@ -362,9 +362,13 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
                  happens for root commands (sections, nodes) and associated
                  commands, and could also happen for subentry as it is not
                  a children of the associated index command */
-              ELEMENT *f = k->k.element;
+              const ELEMENT *f = k->k.const_element;
               if (!f->hv)
-                f->hv = newHV ();
+                {
+         /* need to cast to remove const to add the Perl object reference */
+                  ELEMENT *e = (ELEMENT *)f;
+                  e->hv = newHV ();
+                }
               STORE(newRV_inc ((SV *)f->hv));
               break;
               }

@@ -550,8 +550,10 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                   ELEMENT *index_elt = subindex_elt;
                   while (index_elt->e.c->cmd == CM_subentry)
                     {
+            /* cast to remove const, as the element is modified, since an extra
+               element is added */
                       ELEMENT *subentry_parent
-                        = lookup_extra_element (index_elt,
+                        = (ELEMENT *) lookup_extra_element (index_elt,
                                                 AI_key_subentry_parent);
                       if (!subentry_parent)
                         break;
