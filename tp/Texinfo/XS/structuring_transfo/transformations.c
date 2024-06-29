@@ -697,11 +697,11 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   if (type_data[current->type].flags & TF_at_command
       && current->e.c->cmd == CM_menu)
     {
-      ELEMENT_LIST *added_node_menus;
+      CONST_ELEMENT_LIST *added_node_menus;
       if (previous_node)
         {
-          ELEMENT_LIST *menus
-            = lookup_extra_contents (previous_node, AI_key_menus);
+          CONST_ELEMENT_LIST *menus
+            = lookup_extra_load (previous_node, AI_key_menus);
           int previous_idx = -1;
           if (menus)
             {
@@ -721,18 +721,18 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
           else
             {
               /* removed element should be current */
-              remove_from_element_list (menus, previous_idx);
+              remove_from_const_element_list (menus, previous_idx);
               if (menus->number <= 0)
                 {
                   KEY_PAIR *k = lookup_extra (previous_node, AI_key_menus);
                   k->key = AI_key_none;
                   k->type = extra_deleted;
-                  destroy_list (menus);
+                  destroy_const_element_list (menus);
                 }
             }
         }
-      added_node_menus = add_extra_contents (added_node, AI_key_menus, 0);
-      add_to_element_list (added_node_menus, current);
+      added_node_menus = add_extra_load (added_node, AI_key_menus, 0);
+      add_to_const_element_list (added_node_menus, current);
     }
   /* what is really important is to avoid commands without extra information,
      such as text, though it is even better to be precise */
@@ -931,13 +931,13 @@ prepend_new_menu_in_node_section (ELEMENT *node, ELEMENT *section,
                                   ELEMENT *current_menu)
 {
   ELEMENT *empty_line = new_text_element (ET_empty_line);
-  ELEMENT_LIST *menus = add_extra_contents (node, AI_key_menus, 0);
+  CONST_ELEMENT_LIST *menus = add_extra_load (node, AI_key_menus, 0);
 
   add_to_element_contents (section, current_menu);
   text_append (empty_line->e.text, "\n");
   add_to_element_contents (section, empty_line);
 
-  add_to_element_list (menus, current_menu);
+  add_to_const_element_list (menus, current_menu);
 }
 
 typedef struct EXISTING_ENTRY {
@@ -962,7 +962,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
       ELEMENT *current_menu = 0;
 
       int i;
-      const ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
+      const CONST_ELEMENT_LIST *menus = lookup_extra_load (node, AI_key_menus);
 
       if (menus)
         {
@@ -971,7 +971,8 @@ complete_node_menu (ELEMENT *node, int use_sections)
 
           for (i = 0; i < menus->number; i++)
             {
-              ELEMENT *menu = menus->list[i];
+              /* cast to remove the const, as the menu is to be modified */
+              ELEMENT *menu = (ELEMENT *)menus->list[i];
               int j;
               for (j = 0; j < menu->e.c->contents.number; j++)
                 {
@@ -1136,7 +1137,7 @@ complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections)
   for (i = 0; i < non_automatic_nodes->number; i++)
     {
       ELEMENT *node = non_automatic_nodes->list[i];
-      const ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
+      const CONST_ELEMENT_LIST *menus = lookup_extra_load (node, AI_key_menus);
       if (!(menus && menus->number > 0))
         {
           ELEMENT *section = lookup_extra_element (node,
@@ -1159,7 +1160,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   const LABEL_LIST *identifiers_target = &document->identifiers_target;
 
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
-  const ELEMENT_LIST *menus;
+  const CONST_ELEMENT_LIST *menus;
   ELEMENT *new_detailmenu_e;
   ELEMENT *last_menu;
   const ELEMENT *last_content;
@@ -1168,7 +1169,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   if (top_node)
     {
-      menus = lookup_extra_contents (top_node, AI_key_menus);
+      menus = lookup_extra_load (top_node, AI_key_menus);
       if (!menus || (menus->number <= 0))
         return 0;
     }
@@ -1188,7 +1189,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   for (i = 0; i < menus->number; i++)
     {
       int detailmenu_index = 0;
-      ELEMENT *menu = menus->list[i];
+      /* cast to remove const to be able to replace the detailmenu */
+      ELEMENT *menu = (ELEMENT *)menus->list[i];
       for (detailmenu_index = 0; detailmenu_index < menu->e.c->contents.number;
            detailmenu_index++)
         {
@@ -1240,7 +1242,8 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
         }
     }
 
-  last_menu = menus->list[menus->number -1];
+  /* cast to remove const, as the detailmenu will be inserted in this menu */
+  last_menu = (ELEMENT *)menus->list[menus->number -1];
   index = last_menu->e.c->contents.number;
   last_content = last_contents_child (last_menu);
   /* In a regular setting the last content is @end, but here we also

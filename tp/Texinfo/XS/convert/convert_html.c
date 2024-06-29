@@ -10449,7 +10449,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
           if (node)
             {
               int automatic_directions = (node->e.c->args.number <= 1);
-              const ELEMENT_LIST *menus = lookup_extra_contents (node,
+              const CONST_ELEMENT_LIST *menus = lookup_extra_load (node,
                                                               AI_key_menus);
               if (!menus && automatic_directions)
                 {

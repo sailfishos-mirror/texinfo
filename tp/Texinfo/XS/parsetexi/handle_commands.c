@@ -1095,9 +1095,9 @@ handle_block_command (ELEMENT *current, const char **line_inout,
                 line_warn ("@menu in invalid context");
               else
                 {
-                  ELEMENT_LIST *l
-                    = add_extra_contents (current_node, AI_key_menus, 0);
-                  add_to_element_list (l, block);
+                  CONST_ELEMENT_LIST *l
+                    = add_extra_load (current_node, AI_key_menus, 0);
+                  add_to_const_element_list (l, block);
                 }
             }
         }

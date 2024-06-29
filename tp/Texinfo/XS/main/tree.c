@@ -519,6 +519,25 @@ remove_from_element_list (ELEMENT_LIST *list, int where)
   return removed;
 }
 
+const ELEMENT *
+remove_from_const_element_list (CONST_ELEMENT_LIST *list, int where)
+{
+  const ELEMENT *removed;
+
+  if (where < 0)
+    where = list->number + where;
+
+  if (where < 0 || where > list->number -1)
+    fatal ("element list index out of bounds");
+
+  removed = list->list[where];
+  if (where < list->number - 1)
+    memmove (&list->list[where], &list->list[where + 1],
+             (list->number - (where+1)) * sizeof (ELEMENT *));
+  list->number--;
+  return removed;
+}
+
 ELEMENT *
 remove_from_contents (ELEMENT *parent, int where)
 {

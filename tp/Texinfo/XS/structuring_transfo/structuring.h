@@ -24,7 +24,7 @@ void new_block_command (ELEMENT *element);
 ELEMENT *new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                  const OPTIONS *options,
                  const LABEL_LIST *identifiers_target,
-                 const ELEMENT_LIST *menus, int use_sections);
+                 const CONST_ELEMENT_LIST *menus, int use_sections);
 ELEMENT *new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                                const OPTIONS *options,
                                const LABEL_LIST *identifiers_target,
