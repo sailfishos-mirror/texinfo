@@ -329,26 +329,24 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = [
             },
             'normalized' => 'chap'
           }
-        },
-        'prev' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'next' => {}
-            },
-            'normalized' => 'Top'
-          }
         }
       },
       'normalized' => 'node-before'
     }
   },
-  {},
+  {
+    'cmdname' => 'node',
+    'extra' => {
+      'node_directions' => {
+        'next' => {}
+      },
+      'normalized' => 'Top'
+    }
+  },
   {}
 ];
 $result_nodes{'node_sectop_before_lone_node_Top'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'node_sectop_before_lone_node_Top'}[0];
-$result_nodes{'node_sectop_before_lone_node_Top'}[0]{'extra'}{'node_directions'}{'prev'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'node_sectop_before_lone_node_Top'}[0];
-$result_nodes{'node_sectop_before_lone_node_Top'}[1] = $result_nodes{'node_sectop_before_lone_node_Top'}[0]{'extra'}{'node_directions'}{'prev'};
+$result_nodes{'node_sectop_before_lone_node_Top'}[1]{'extra'}{'node_directions'}{'next'} = $result_nodes{'node_sectop_before_lone_node_Top'}[0];
 $result_nodes{'node_sectop_before_lone_node_Top'}[2] = $result_nodes{'node_sectop_before_lone_node_Top'}[0]{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'node_sectop_before_lone_node_Top'} = [
@@ -418,7 +416,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="node-before">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
+Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top-sectionning"><span>top sectionning<a class="copiable-link" href="#top-sectionning"> &para;</a></span></h1>
 

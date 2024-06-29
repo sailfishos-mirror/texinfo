@@ -484,7 +484,6 @@ $result_nodes{'chapter_between_nodes'} = [
               }
             },
             'node_directions' => {
-              'prev' => {},
               'up' => {}
             },
             'normalized' => 'section-node'
@@ -496,7 +495,6 @@ $result_nodes{'chapter_between_nodes'} = [
   },
   {}
 ];
-$result_nodes{'chapter_between_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chapter_between_nodes'}[0];
 $result_nodes{'chapter_between_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chapter_between_nodes'}[0];
 $result_nodes{'chapter_between_nodes'}[1] = $result_nodes{'chapter_between_nodes'}[0]{'extra'}{'node_directions'}{'next'};
 
@@ -547,7 +545,7 @@ Top node
 In chapter
 
 
-File: ,  Node: section node,  Prev: Top,  Up: Top
+File: ,  Node: section node,  Up: Top
 
 1.1 section
 ===========
@@ -619,7 +617,7 @@ Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; [<a hr
 <div class="section-level-extent" id="section-node">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="section" id="section"><span>1.1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
@@ -662,7 +660,7 @@ $result_converted{'xml'}->{'chapter_between_nodes'} = '<node name="Top" spaces="
 
 <para>In chapter
 </para>
-<node name="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
+<node name="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 <section spaces=" "><sectiontitle>section</sectiontitle>
 
 <para>section.

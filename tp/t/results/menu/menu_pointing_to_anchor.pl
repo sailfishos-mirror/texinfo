@@ -276,9 +276,6 @@ $result_nodes{'menu_pointing_to_anchor'} = [
         'next' => {
           'cmdname' => 'anchor',
           'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
             'normalized' => 'An-anchor'
           }
         }
@@ -287,7 +284,6 @@ $result_nodes{'menu_pointing_to_anchor'} = [
     }
   }
 ];
-$result_nodes{'menu_pointing_to_anchor'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'menu_pointing_to_anchor'}[0];
 
 $result_menus{'menu_pointing_to_anchor'} = [
   {

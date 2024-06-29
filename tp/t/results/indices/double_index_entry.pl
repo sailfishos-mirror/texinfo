@@ -433,7 +433,6 @@ $result_nodes{'double_index_entry'} = [
           'extra' => {
             'isindex' => 1,
             'node_directions' => {
-              'prev' => {},
               'up' => {}
             },
             'normalized' => 'chap-other-node'
@@ -445,7 +444,6 @@ $result_nodes{'double_index_entry'} = [
   },
   {}
 ];
-$result_nodes{'double_index_entry'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'double_index_entry'}[0];
 $result_nodes{'double_index_entry'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'double_index_entry'}[0];
 $result_nodes{'double_index_entry'}[1] = $result_nodes{'double_index_entry'}[0]{'extra'}{'node_directions'}{'next'};
 
@@ -497,7 +495,7 @@ Text
 * chap other node::
 
 
-File: ,  Node: chap other node,  Prev: Top,  Up: Top
+File: ,  Node: chap other node,  Up: Top
 
  [index ]
 * Menu:
@@ -579,7 +577,7 @@ $result_converted{'xml'}->{'double_index_entry'} = '<node name="Top" spaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap other node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="chap-other-node" spaces=" "><nodename>chap other node</nodename><nodenext></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
+<node name="chap-other-node" spaces=" "><nodename>chap other node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="3">aaa</indexterm></cindex>
 

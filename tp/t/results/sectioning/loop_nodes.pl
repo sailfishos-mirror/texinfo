@@ -612,7 +612,6 @@ $result_nodes{'loop_nodes'} = [
           'cmdname' => 'node',
           'extra' => {
             'node_directions' => {
-              'prev' => {},
               'up' => {
                 'cmdname' => 'node',
                 'extra' => {
@@ -642,7 +641,6 @@ $result_nodes{'loop_nodes'} = [
   {},
   {}
 ];
-$result_nodes{'loop_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'loop_nodes'}[0];
 $result_nodes{'loop_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'loop_nodes'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'loop_nodes'}[1] = $result_nodes{'loop_nodes'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'loop_nodes'}[2] = $result_nodes{'loop_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'up'};

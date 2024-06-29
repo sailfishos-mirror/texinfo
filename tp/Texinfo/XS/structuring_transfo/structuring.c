@@ -1008,6 +1008,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   int i;
+  const ELEMENT *top_node = 0;
+  const ELEMENT *top_node_next = 0;
 
   if (!nodes_list || nodes_list->number <= 0)
     return;
@@ -1038,17 +1040,16 @@ complete_node_tree_with_menus (DOCUMENT *document)
                 {
                   const ELEMENT *section;
               /* prev already defined for the node first Top node menu entry */
-                  if (d == D_prev)
+                  if (d == D_prev && top_node_next && node == top_node_next)
                     {
-                      if (node_directions && node_directions[d])
-                        {
-                          const ELEMENT *prev = node_directions[d];
-                          const char *prev_normalized
-                                    = lookup_extra_string (prev,
-                                                           AI_key_normalized);
-                          if (prev_normalized && !strcmp (normalized, "Top"))
-                            continue;
-                        }
+                      if (!node_directions)
+                        node_directions
+                          = add_extra_directions (node,
+                                                  AI_key_node_directions);
+
+                      if (!node_directions[D_prev])
+                         node_directions[D_prev] = top_node;
+                      continue;
                     }
                   section = lookup_extra_element (node,
                                                   AI_key_associated_section);
@@ -1155,24 +1156,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
               ELEMENT *menu_child = first_menu_node (node, identifiers_target);
               if (menu_child)
                 {
-                  node_directions = add_extra_directions (node,
-                                           AI_key_node_directions);
-
-                  node_directions[D_next] = menu_child;
-                  const ELEMENT *menu_child_manual_content
-                   = lookup_extra_container (menu_child, AI_key_manual_content);
-                  if (!menu_child_manual_content)
-                    {
-                      const ELEMENT **child_node_directions
-                        = lookup_extra_directions (menu_child,
-                                               AI_key_node_directions);
-                      if (!child_node_directions)
-                        child_node_directions
-                          = add_extra_directions (menu_child,
-                                               AI_key_node_directions);
-                      if (!child_node_directions[D_prev])
-                        child_node_directions[D_prev] = node;
-                    }
+                  top_node_next = menu_child;
                 }
               else
                 {
@@ -1180,28 +1164,27 @@ complete_node_tree_with_menus (DOCUMENT *document)
                   int j;
                   for (j = 0; j < nodes_list->number; j++)
                     {
-                      /* FIXME do simpler code */
-                      ELEMENT *first_non_top_node
-                        = (ELEMENT *)nodes_list->list[j];
+                      const ELEMENT *first_non_top_node
+                        = nodes_list->list[j];
                       if (first_non_top_node != node)
                         {
-                          node_directions = add_extra_directions (node,
-                                                 AI_key_node_directions);
-                          node_directions[D_next]
-                              = first_non_top_node;
-                          int first_non_top_node_automatic
-                            = (first_non_top_node->e.c->args.number <= 1);
-                          if (first_non_top_node_automatic)
-                            {
-                              const ELEMENT **non_top_node_directions
-                               = add_extra_directions (first_non_top_node,
-                                                  AI_key_node_directions);
-                              non_top_node_directions[D_prev]
-                               = node;
-                            }
+                          top_node_next = first_non_top_node;
                           break;
                         }
                     }
+                }
+              if (top_node_next)
+                {
+                  node_directions = add_extra_directions (node,
+                                            AI_key_node_directions);
+                  node_directions[D_next] = top_node_next;
+                  const ELEMENT *top_node_next_manual_content
+                   = lookup_extra_container (top_node_next,
+                                             AI_key_manual_content);
+                  if (!top_node_next_manual_content)
+                    top_node = node;
+                  else
+                    top_node_next = 0;
                 }
             }
         }

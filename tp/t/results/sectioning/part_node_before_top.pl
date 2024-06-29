@@ -407,7 +407,6 @@ $result_nodes{'part_node_before_top'} = [
             'normalized' => 'Top'
           }
         },
-        'prev' => {},
         'up' => {}
       },
       'normalized' => 'part-node-before-top'
@@ -425,7 +424,6 @@ $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'next'}{'as
 $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'associated_section'} = $result_nodes{'part_node_before_top'}[0]{'associated_unit'}{'unit_command'};
 $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'part_node_before_top'}[0];
 $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_preceding_part'} = $result_nodes{'part_node_before_top'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'associated_part'};
-$result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'prev'} = $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'up'} = $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'part_node_before_top'}[1] = $result_nodes{'part_node_before_top'}[0]{'extra'}{'node_directions'}{'next'};
 
@@ -538,7 +536,7 @@ $result_directions_text{'part_node_before_top'} = 'output unit: @top top
 $result_converted{'info'}->{'part_node_before_top'} = 'This is , produced from .
 
 
-File: ,  Node: part node before top,  Next: Top,  Prev: Top,  Up: Top
+File: ,  Node: part node before top,  Next: Top,  Up: Top
 
 
 File: ,  Node: Top,  Next: part node before top,  Up: (dir)
@@ -553,7 +551,7 @@ top
 
 Tag Table:
 Node: part node before top27
-Node: Top100
+Node: Top88
 
 End Tag Table
 
@@ -591,7 +589,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 <a class="node-id" id="part-node-before-top"></a><div class="nav-panel">
 <p>
-Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#Top" accesskey="n" rel="next">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h4 class="node"><span>part node before top<a class="copiable-link" href="#part-node-before-top"> &para;</a></span></h4>
 <hr>
@@ -616,7 +614,7 @@ Next: <a href="#part-node-before-top" accesskey="n" rel="next">part node before 
 ';
 
 
-$result_converted{'xml'}->{'part_node_before_top'} = '<node name="part-node-before-top" spaces=" "><nodename>part node before top</nodename><nodenext spaces=" ">Top</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
+$result_converted{'xml'}->{'part_node_before_top'} = '<node name="part-node-before-top" spaces=" "><nodename>part node before top</nodename><nodenext spaces=" ">Top</nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 <part spaces=" "><sectiontitle>part</sectiontitle>
 
 </part>

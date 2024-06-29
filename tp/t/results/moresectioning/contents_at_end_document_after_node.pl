@@ -374,7 +374,6 @@ $result_nodes{'contents_at_end_document_after_node'} = [
           'cmdname' => 'node',
           'extra' => {
             'node_directions' => {
-              'prev' => {},
               'up' => {}
             },
             'normalized' => 'a-node'
@@ -386,7 +385,6 @@ $result_nodes{'contents_at_end_document_after_node'} = [
   },
   {}
 ];
-$result_nodes{'contents_at_end_document_after_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'contents_at_end_document_after_node'}[0];
 $result_nodes{'contents_at_end_document_after_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'contents_at_end_document_after_node'}[0];
 $result_nodes{'contents_at_end_document_after_node'}[1] = $result_nodes{'contents_at_end_document_after_node'}[0]{'extra'}{'node_directions'}{'next'};
 

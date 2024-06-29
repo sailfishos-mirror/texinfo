@@ -479,7 +479,6 @@ $result_nodes{'chapter_between_nodes_texi2html'} = [
               }
             },
             'node_directions' => {
-              'prev' => {},
               'up' => {}
             },
             'normalized' => 'section-node'
@@ -491,7 +490,6 @@ $result_nodes{'chapter_between_nodes_texi2html'} = [
   },
   {}
 ];
-$result_nodes{'chapter_between_nodes_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'chapter_between_nodes_texi2html'}[0];
 $result_nodes{'chapter_between_nodes_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'chapter_between_nodes_texi2html'}[0];
 $result_nodes{'chapter_between_nodes_texi2html'}[1] = $result_nodes{'chapter_between_nodes_texi2html'}[0]{'extra'}{'node_directions'}{'next'};
 
@@ -542,7 +540,7 @@ Top node
 In chapter
 
 
-File: ,  Node: section node,  Prev: Top,  Up: Top
+File: ,  Node: section node,  Up: Top
 
 1.1 section
 ===========

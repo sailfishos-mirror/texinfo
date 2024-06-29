@@ -494,7 +494,6 @@ $result_nodes{'index_entry_before_node'} = [
                   'normalized' => 'second'
                 }
               },
-              'prev' => {},
               'up' => {}
             },
             'normalized' => 'chap-first'
@@ -509,7 +508,6 @@ $result_nodes{'index_entry_before_node'} = [
 ];
 $result_nodes{'index_entry_before_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entry_before_node'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'index_entry_before_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entry_before_node'}[0];
-$result_nodes{'index_entry_before_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'index_entry_before_node'}[0];
 $result_nodes{'index_entry_before_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'index_entry_before_node'}[0];
 $result_nodes{'index_entry_before_node'}[1] = $result_nodes{'index_entry_before_node'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'index_entry_before_node'}[2] = $result_nodes{'index_entry_before_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
@@ -572,7 +570,7 @@ File: ,  Node: Top,  Next: chap first,  Up: (dir)
 * second::
 
 
-File: ,  Node: chap first,  Next: second,  Prev: Top,  Up: Top
+File: ,  Node: chap first,  Next: second,  Up: Top
 
 Para.
 
@@ -588,7 +586,7 @@ File: ,  Node: second,  Prev: chap first,  Up: Top
 Tag Table:
 Node: Top27
 Node: chap first116
-Node: second189
+Node: second177
 
 End Tag Table
 
@@ -652,7 +650,7 @@ $result_converted{'xml'}->{'index_entry_before_node'} = '<node name="Top" spaces
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>second</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="chap-first" spaces=" "><nodename>chap first</nodename><nodenext>second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
+<node name="chap-first" spaces=" "><nodename>chap first</nodename><nodenext>second</nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 
 <para>Para.
 </para>

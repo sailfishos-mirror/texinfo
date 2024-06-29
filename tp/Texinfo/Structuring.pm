@@ -716,6 +716,9 @@ sub complete_node_tree_with_menus($)
 
   return unless ($nodes_list and @{$nodes_list});
 
+  my $top_node_next;
+  my $top_node;
+
   my %cached_menu_nodes;
   # Go through all the nodes
   foreach my $node (@{$nodes_list}) {
@@ -731,14 +734,15 @@ sub complete_node_tree_with_menus($)
 
       if ($normalized ne 'Top') {
         foreach my $direction (@node_directions_names) {
-          # prev already defined for the node first Top node menu entry
-          if ($direction eq 'prev' and $node_directions
-              and $node_directions->{$direction}
-              and $node_directions->{$direction}->{'extra'}
-              and $node_directions->{$direction}
-                                      ->{'extra'}->{'normalized'}
-              and $node_directions->{$direction}
-                                      ->{'extra'}->{'normalized'} eq 'Top') {
+          # prev defined as first Top node menu entry node
+          if ($direction eq 'prev' and $top_node_next
+              and $node eq $top_node_next) {
+            $node->{'extra'}->{'node_directions'} = {}
+              if (!$node->{'extra'}->{'node_directions'});
+            if (!$node->{'extra'}->{'node_directions'}->{'prev'}) {
+              $node->{'extra'}->{'node_directions'}->{'prev'}
+                = $top_node;
+            }
             next;
           }
           my $section = $node->{'extra'}->{'associated_section'};
@@ -820,37 +824,25 @@ sub complete_node_tree_with_menus($)
         my $menu_child = Texinfo::ManipulateTree::first_menu_node($node,
                                                       $identifier_target);
         if ($menu_child) {
-          $node->{'extra'}->{'node_directions'} = {}
-             if (!$node->{'extra'}->{'node_directions'});
-          $node->{'extra'}->{'node_directions'}->{'next'}
-             = $menu_child;
-          if (!$menu_child->{'extra'}->{'manual_content'}) {
-            $menu_child->{'extra'}->{'node_directions'} = {}
-              if (!$menu_child->{'extra'}->{'node_directions'});
-            if (!$menu_child->{'extra'}->{'node_directions'}->{'prev'}) {
-              $menu_child->{'extra'}->{'node_directions'}->{'prev'}
-                = $node;
-            }
-          }
+          $top_node_next = $menu_child;
         } else {
           # use the first non top node as next for Top
           foreach my $first_non_top_node (@{$nodes_list}) {
             if ($first_non_top_node ne $node) {
-              $node->{'extra'}->{'node_directions'} = {}
-                 if (!$node->{'extra'}->{'node_directions'});
-              $node->{'extra'}->{'node_directions'}->{'next'}
-                  = $first_non_top_node;
-              my $first_non_top_automatic
-                = (not ($first_non_top_node->{'args'}
-                        and scalar(@{$first_non_top_node->{'args'}}) > 1));
-              if ($first_non_top_automatic) {
-                $first_non_top_node->{'extra'}->{'node_directions'} = {}
-                   if (!$first_non_top_node->{'extra'}->{'node_directions'});
-                $first_non_top_node->{'extra'}->{'node_directions'}->{'prev'}
-                    = $node;
-              }
+              $top_node_next = $first_non_top_node;
               last;
             }
+          }
+        }
+        if ($top_node_next) {
+          $node->{'extra'}->{'node_directions'} = {}
+             if (!$node->{'extra'}->{'node_directions'});
+          $node->{'extra'}->{'node_directions'}->{'next'}
+            = $top_node_next;
+          if ($top_node_next->{'extra'}->{'manual_content'}) {
+            $top_node_next = undef;
+          } else {
+            $top_node = $node;
           }
         }
       }

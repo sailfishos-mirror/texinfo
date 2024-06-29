@@ -344,7 +344,7 @@ $result_nodes{'section_before_top'} = [
         }
       },
       'node_directions' => {
-        'prev' => {
+        'up' => {
           'cmdname' => 'node',
           'extra' => {
             'associated_section' => {
@@ -356,17 +356,15 @@ $result_nodes{'section_before_top'} = [
             },
             'normalized' => 'Top'
           }
-        },
-        'up' => {}
+        }
       },
       'normalized' => 'section-node'
     }
   },
   {}
 ];
-$result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'prev'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'section_before_top'}[0];
-$result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'up'} = $result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'prev'};
-$result_nodes{'section_before_top'}[1] = $result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'prev'};
+$result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'up'}{'extra'}{'node_directions'}{'next'} = $result_nodes{'section_before_top'}[0];
+$result_nodes{'section_before_top'}[1] = $result_nodes{'section_before_top'}[0]{'extra'}{'node_directions'}{'up'};
 
 $result_menus{'section_before_top'} = [
   {
@@ -406,7 +404,7 @@ $result_floats{'section_before_top'} = {};
 $result_converted{'info'}->{'section_before_top'} = 'This is , produced from .
 
 
-File: ,  Node: section node,  Prev: Top,  Up: Top
+File: ,  Node: section node,  Up: Top
 
 1 section
 =========
@@ -424,7 +422,7 @@ top
 
 Tag Table:
 Node: section node27
-Node: Top101
+Node: Top89
 
 End Tag Table
 
@@ -463,7 +461,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="section-level-extent" id="section-node">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h3 class="section" id="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
@@ -485,7 +483,7 @@ Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; </p>
 ';
 
 
-$result_converted{'xml'}->{'section_before_top'} = '<node name="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
+$result_converted{'xml'}->{'section_before_top'} = '<node name="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 <section spaces=" "><sectiontitle>section </sectiontitle>
 
 </section>

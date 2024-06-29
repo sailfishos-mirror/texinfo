@@ -317,7 +317,7 @@ $nodes_after_top_before_chapter_text
 # as @node Top next is with the first non Top node which
 # happens to be before.  Then the next node for the
 # node before node is obtained with toplevel next which is
-# the node associated with the chapter, after the Top node!
+# the node associated with the chapter, after the Top node.
 ['node_sectop_before_lone_node_Top',
 '@node node before
 @top top sectionning

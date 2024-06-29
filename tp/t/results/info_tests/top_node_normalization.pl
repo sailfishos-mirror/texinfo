@@ -236,15 +236,13 @@ $result_nodes{'top_node_normalization'} = [
     'cmdname' => 'node',
     'extra' => {
       'node_directions' => {
-        'next' => {},
-        'prev' => {}
+        'next' => {}
       },
       'normalized' => 'Top'
     }
   }
 ];
 $result_nodes{'top_node_normalization'}[0]{'extra'}{'node_directions'}{'next'} = $result_nodes{'top_node_normalization'}[0];
-$result_nodes{'top_node_normalization'}[0]{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_normalization'}[0];
 
 $result_menus{'top_node_normalization'} = [
   {
@@ -293,7 +291,7 @@ $result_floats{'top_node_normalization'} = {};
 $result_converted{'info'}->{'top_node_normalization'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Next: Top,  Prev: Top,  Up: (dir)
+File: ,  Node: Top,  Next: Top,  Up: (dir)
 
 *Note ToP::.  *Note ToP::.
 

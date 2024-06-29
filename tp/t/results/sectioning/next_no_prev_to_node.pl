@@ -378,7 +378,6 @@ $result_nodes{'next_no_prev_to_node'} = [
                   'normalized' => 'no-return'
                 }
               },
-              'prev' => {},
               'up' => {}
             },
             'normalized' => 'chap-first-node'
@@ -392,7 +391,6 @@ $result_nodes{'next_no_prev_to_node'} = [
   {}
 ];
 $result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'next_no_prev_to_node'}[0];
-$result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'next_no_prev_to_node'}[0];
 $result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'next_no_prev_to_node'}[0];
 $result_nodes{'next_no_prev_to_node'}[1] = $result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'next_no_prev_to_node'}[2] = $result_nodes{'next_no_prev_to_node'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
@@ -444,7 +442,7 @@ $result_converted{'xml'}->{'next_no_prev_to_node'} = '<node name="Top" spaces=" 
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>no return</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="chap-first-node" spaces=" "><nodename>chap first node</nodename><nodenext spaces=" ">no return</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup spaces=" ">Top</nodeup></node>
+<node name="chap-first-node" spaces=" "><nodename>chap first node</nodename><nodenext spaces=" ">no return</nodenext><nodeprev></nodeprev><nodeup spaces=" ">Top</nodeup></node>
 
 <node name="no-return" spaces=" "><nodename>no return</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup spaces=" " trailingspaces=" ">Top</nodeup></node>
 ';
