@@ -225,6 +225,13 @@ typedef struct ELEMENT_LIST {
     size_t space;
 } ELEMENT_LIST;
 
+/* not used in parser */
+typedef struct CONST_ELEMENT_LIST {
+    const struct ELEMENT **list;
+    size_t number;
+    size_t space;
+} CONST_ELEMENT_LIST;
+
 /* the index name is allocated in the index info main structure that
    should outlive the INDEX_ENTRY_LOCATION */
 typedef struct INDEX_ENTRY_LOCATION {

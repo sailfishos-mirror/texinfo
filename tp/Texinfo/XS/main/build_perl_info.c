@@ -1037,7 +1037,7 @@ build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
 }
 
 AV *
-build_elements_list (const ELEMENT_LIST *list)
+build_elements_list (const CONST_ELEMENT_LIST *list)
 {
   AV *list_av;
   SV *sv;

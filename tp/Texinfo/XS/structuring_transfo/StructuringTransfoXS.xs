@@ -183,7 +183,7 @@ sectioning_structure (SV *document_in)
                                              "sectioning_structure");
         if (document)
           {
-            ELEMENT_LIST *sections_list = sectioning_structure (document);
+            CONST_ELEMENT_LIST *sections_list = sectioning_structure (document);
             register_document_sections_list (document, sections_list);
           }
 
@@ -309,7 +309,7 @@ nodes_tree (SV *document_in)
         document = get_sv_document_document (document_in, "nodes_tree");
         if (document)
           {
-            ELEMENT_LIST *nodes_list = nodes_tree (document);
+            CONST_ELEMENT_LIST *nodes_list = nodes_tree (document);
             register_document_nodes_list (document, nodes_list);
           }
 

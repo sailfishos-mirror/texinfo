@@ -74,7 +74,7 @@ new_block_command (ELEMENT *element)
   add_to_element_contents (element, end);
 }
 
-ELEMENT_LIST *
+CONST_ELEMENT_LIST *
 sectioning_structure (DOCUMENT *document)
 {
   const ELEMENT *root = document->tree;
@@ -87,7 +87,7 @@ sectioning_structure (DOCUMENT *document)
   int in_appendix = 0;
   /* lowest level with a number.  This is the lowest level above 0. */
   int number_top_level = 0;
-  ELEMENT_LIST *sections_list = new_list ();
+  CONST_ELEMENT_LIST *sections_list = new_const_element_list ();
   const ELEMENT *section_top = 0;
   int i;
   TEXT section_number;
@@ -110,7 +110,7 @@ sectioning_structure (DOCUMENT *document)
 
       document->modified_information |= F_DOCM_tree;
 
-      add_to_element_list (sections_list, content);
+      add_to_const_element_list (sections_list, content);
 
       if (content->e.c->cmd == CM_top && !section_top)
         section_top = content;
@@ -385,7 +385,7 @@ sectioning_structure (DOCUMENT *document)
 
   if (sections_list->number == 0)
     {
-      destroy_list (sections_list);
+      destroy_const_element_list (sections_list);
       return 0;
     }
   free (section_number.text);
@@ -571,9 +571,9 @@ compare_strings (const void *a, const void *b)
 void
 check_nodes_are_referenced (DOCUMENT *document)
 {
-  ELEMENT_LIST *nodes_list = document->nodes_list;
-  LABEL_LIST *identifiers_target = &document->identifiers_target;
-  ELEMENT_LIST *refs = &document->internal_references;
+  const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
+  const LABEL_LIST *identifiers_target = &document->identifiers_target;
+  const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -584,7 +584,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   size_t nr_nodes_to_find = 0;
   size_t nr_not_found = 0;
 
-  ELEMENT *top_node;
+  const ELEMENT *top_node;
 
   if (!nodes_list || nodes_list->number <= 0)
     return;
@@ -767,7 +767,7 @@ check_nodes_are_referenced (DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      ELEMENT *node = nodes_list->list[i];
+      const ELEMENT *node = nodes_list->list[i];
       int is_target = (node->flags & EF_is_target);
 
       if (is_target)
@@ -800,9 +800,9 @@ check_nodes_are_referenced (DOCUMENT *document)
 void
 set_menus_node_directions (DOCUMENT *document)
 {
-  GLOBAL_COMMANDS *global_commands = &document->global_commands;
-  ELEMENT_LIST *nodes_list = document->nodes_list;
-  LABEL_LIST *identifiers_target = &document->identifiers_target;
+  const GLOBAL_COMMANDS *global_commands = &document->global_commands;
+  const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
+  const LABEL_LIST *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1002,8 +1002,8 @@ section_direction_associated_node (const ELEMENT *section,
 void
 complete_node_tree_with_menus (DOCUMENT *document)
 {
-  ELEMENT_LIST *nodes_list = document->nodes_list;
-  LABEL_LIST *identifiers_target = &document->identifiers_target;
+  const CONST_ELEMENT_LIST *nodes_list = document->nodes_list;
+  const LABEL_LIST *identifiers_target = &document->identifiers_target;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1018,8 +1018,10 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      ELEMENT *node = nodes_list->list[i];
-      char *normalized = lookup_extra_string (node, AI_key_normalized);
+    /* as an exception to the rule we modify an element of the nodes list,
+       so use a cast to remove const */
+      ELEMENT *node = (ELEMENT *)nodes_list->list[i];
+      const char *normalized = lookup_extra_string (node, AI_key_normalized);
       const ELEMENT * const *menu_directions = lookup_extra_directions (node,
                                                  AI_key_menu_directions);
       int automatic_directions = (node->e.c->args.number <= 1);
@@ -1178,8 +1180,9 @@ complete_node_tree_with_menus (DOCUMENT *document)
                   int j;
                   for (j = 0; j < nodes_list->number; j++)
                     {
+                      /* FIXME do simpler code */
                       ELEMENT *first_non_top_node
-                        = nodes_list->list[j];
+                        = (ELEMENT *)nodes_list->list[j];
                       if (first_non_top_node != node)
                         {
                           node_directions = add_extra_directions (node,
@@ -1316,7 +1319,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 }
 
 /* set node directions based on sectioning and @node explicit directions */
-ELEMENT_LIST *
+CONST_ELEMENT_LIST *
 nodes_tree (DOCUMENT *document)
 {
   const LABEL_LIST *identifiers_target = &document->identifiers_target;
@@ -1326,7 +1329,7 @@ nodes_tree (DOCUMENT *document)
 
   const ELEMENT *top_node = 0;
   const ELEMENT *top_node_section_child = 0;
-  ELEMENT_LIST *nodes_list = new_list ();
+  CONST_ELEMENT_LIST *nodes_list = new_const_element_list ();
 
   int i;
 
@@ -1346,7 +1349,7 @@ nodes_tree (DOCUMENT *document)
 
       document->modified_information |= F_DOCM_tree;
 
-      add_to_element_list (nodes_list, node);
+      add_to_const_element_list (nodes_list, node);
       is_target = (node->flags & EF_is_target);
       if (is_target && !strcmp (normalized, "Top"))
         top_node = node;

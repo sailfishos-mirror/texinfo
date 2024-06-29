@@ -25,7 +25,7 @@ void free_output_units_lists (OUTPUT_UNIT_LISTS *output_units_lists);
 
 char *output_unit_texi (const OUTPUT_UNIT *output_unit);
 
-void units_directions (LABEL_LIST *identifiers_target,
+void units_directions (const LABEL_LIST *identifiers_target,
                        OUTPUT_UNIT_LIST *output_units,
                        OUTPUT_UNIT_LIST *external_node_target_units,
                        int print_debug);

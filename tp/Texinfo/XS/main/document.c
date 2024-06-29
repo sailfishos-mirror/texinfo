@@ -98,7 +98,8 @@ new_document (void)
 }
 
 void
-register_document_nodes_list (DOCUMENT *document, ELEMENT_LIST *nodes_list)
+register_document_nodes_list (DOCUMENT *document,
+                              CONST_ELEMENT_LIST *nodes_list)
 {
   document->nodes_list = nodes_list;
   document->modified_information |= F_DOCM_nodes_list;
@@ -106,7 +107,7 @@ register_document_nodes_list (DOCUMENT *document, ELEMENT_LIST *nodes_list)
 
 void
 register_document_sections_list (DOCUMENT *document,
-                                 ELEMENT_LIST *sections_list)
+                                 CONST_ELEMENT_LIST *sections_list)
 {
   document->sections_list = sections_list;
   document->modified_information |= F_DOCM_sections_list;
@@ -398,9 +399,9 @@ destroy_document_information_except_tree (DOCUMENT *document)
   wipe_error_message_list (&document->error_messages);
   wipe_error_message_list (&document->parser_error_messages);
   if (document->nodes_list)
-    destroy_list (document->nodes_list);
+    destroy_const_element_list (document->nodes_list);
   if (document->sections_list)
-    destroy_list (document->sections_list);
+    destroy_const_element_list (document->sections_list);
   if (document->options)
     {
       free_options (document->options);

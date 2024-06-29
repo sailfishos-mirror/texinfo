@@ -1,5 +1,20 @@
 2024-06-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/tree.c (new_const_element_list)
+	(destroy_const_element_list, reallocate_const_element_list)
+	(add_to_const_element_list), tp/Texinfo/XS/main/tree_types.h
+	(CONST_ELEMENT_LIST): add a list of const ELEMENT *, to be used in
+	cases the elements in the list are not to be modified.
+
+	* tp/Texinfo/XS/main/document_types.h (DOCUMENT),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(sectioning_structure, complete_node_tree_with_menus, nodes_tree): set
+	document nodes list and sections list to be CONST_ELEMENT_LIST.  Use a
+	cast to remove const in complete_node_tree_with_menus where, as an
+	exception to the rule, the node from nodes list is modified.
+
+2024-06-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/structuring.c
 	(sectioning_structure): use only one TEXT for section numbers for all
 	the sections, to reuse memory.

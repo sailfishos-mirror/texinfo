@@ -1085,7 +1085,7 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
 }
 
 ELEMENT *
-first_menu_node (const ELEMENT *node, LABEL_LIST *identifiers_target)
+first_menu_node (const ELEMENT *node, const LABEL_LIST *identifiers_target)
 {
   const ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
   if (menus)

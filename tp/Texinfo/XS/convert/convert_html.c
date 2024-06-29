@@ -2271,7 +2271,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
   if (self->document->sections_list
       && self->document->sections_list->number >= 0)
     {
-      const ELEMENT_LIST *sections_list = self->document->sections_list;
+      const CONST_ELEMENT_LIST *sections_list = self->document->sections_list;
       int i;
       for (i = 0; i < sections_list->number; i++)
         {

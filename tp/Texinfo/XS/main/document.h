@@ -15,9 +15,9 @@ struct TEXT_OPTIONS;
 DOCUMENT *retrieve_document (size_t document_descriptor);
 DOCUMENT *new_document (void);
 void register_document_nodes_list (DOCUMENT *document,
-                                   ELEMENT_LIST *nodes_list);
+                                   CONST_ELEMENT_LIST *nodes_list);
 void register_document_sections_list (DOCUMENT *document,
-                                      ELEMENT_LIST *sections_list);
+                                      CONST_ELEMENT_LIST *sections_list);
 void register_document_options (DOCUMENT *document, OPTIONS *options);
 void register_document_convert_index_text_options (DOCUMENT *document,
                                          struct TEXT_OPTIONS *text_options);

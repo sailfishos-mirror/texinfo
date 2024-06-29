@@ -155,7 +155,23 @@ new_list (void)
 }
 
 void
-destroy_list (ELEMENT_LIST * list)
+destroy_list (ELEMENT_LIST *list)
+{
+  free (list->list);
+  free (list);
+}
+
+CONST_ELEMENT_LIST *
+new_const_element_list (void)
+{
+  CONST_ELEMENT_LIST *list
+    = (CONST_ELEMENT_LIST *) malloc (sizeof (CONST_ELEMENT_LIST));
+  memset (list, 0, sizeof (CONST_ELEMENT_LIST));
+  return list;
+}
+
+void
+destroy_const_element_list (CONST_ELEMENT_LIST *list)
 {
   free (list->list);
   free (list);
@@ -315,6 +331,18 @@ reallocate_list (ELEMENT_LIST *list)
     }
 }
 
+static void
+reallocate_const_element_list (CONST_ELEMENT_LIST *list)
+{
+  if (list->number + 1 >= list->space)
+    {
+      list->space += 10;
+      list->list = realloc (list->list, list->space * sizeof (const ELEMENT *));
+      if (!list->list)
+        fatal ("realloc failed");
+    }
+}
+
 /* Make sure there is space for at least N more elements. */
 static void
 reallocate_list_for (int n, ELEMENT_LIST *list)
@@ -328,8 +356,14 @@ reallocate_list_for (int n, ELEMENT_LIST *list)
     }
 }
 
-/* directly used for output units, which has a contents_list, not for
-   tree elements */
+void
+add_to_const_element_list (CONST_ELEMENT_LIST *list, const ELEMENT *e)
+{
+  reallocate_const_element_list (list);
+
+  list->list[list->number++] = e;
+}
+
 void
 add_to_element_list (ELEMENT_LIST *list, ELEMENT *e)
 {

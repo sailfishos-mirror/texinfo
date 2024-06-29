@@ -569,7 +569,7 @@ static enum relative_unit_direction_type section_unit_directions[]
    The directions are only created if pointing to other output units.
  */
 void
-units_directions (LABEL_LIST *identifiers_target,
+units_directions (const LABEL_LIST *identifiers_target,
                   OUTPUT_UNIT_LIST *output_units,
                   OUTPUT_UNIT_LIST *external_node_target_units,
                   int print_debug)
