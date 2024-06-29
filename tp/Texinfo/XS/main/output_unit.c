@@ -635,7 +635,7 @@ units_directions (const LABEL_LIST *identifiers_target,
                                                    AI_key_associated_section);
               const CONST_ELEMENT_LIST *section_childs = 0;
               if (associated_section)
-                section_childs = lookup_extra_load (associated_section,
+                section_childs = lookup_extra_contents (associated_section,
                                                      AI_key_section_childs);
               if (automatic_directions
                   && section_childs && section_childs->number > 0)
@@ -785,7 +785,7 @@ units_directions (const LABEL_LIST *identifiers_target,
                 break;
             }
 
-          up_section_childs = lookup_extra_load (up, AI_key_section_childs);
+          up_section_childs = lookup_extra_contents (up, AI_key_section_childs);
           if (status >= 0 && up_section_level < 1
               && up->e.c->cmd == CM_top && up_section_childs
               && up_section_childs->number > 0)

@@ -405,13 +405,6 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               }
             case extra_contents:
               {
-              const ELEMENT_LIST *l = k->k.list;
-              if (l && l->number)
-                STORE(build_perl_array (l, avoid_recursion));
-              break;
-              }
-            case extra_load:
-              {
               const CONST_ELEMENT_LIST *l = k->k.const_list;
               if (l && l->number)
                 STORE(build_perl_const_element_array (l, avoid_recursion));

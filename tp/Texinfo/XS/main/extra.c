@@ -104,38 +104,20 @@ add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
    if the caller knows that the array has not been set
    already.
 */
-ELEMENT_LIST *
-add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
-{
-  ELEMENT_LIST *n_list;
-  if (!no_lookup)
-    {
-      ELEMENT_LIST *e_list = lookup_extra_contents (e, key);
-      if (e_list)
-        return e_list;
-    }
-
-  n_list = new_list ();
-  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
-                                         extra_contents);
-  k->k.list = n_list;
-  return n_list;
-}
-
 CONST_ELEMENT_LIST *
-add_extra_load (ELEMENT *e, enum ai_key_name key, int no_lookup)
+add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
 {
   CONST_ELEMENT_LIST *n_list;
   if (!no_lookup)
     {
-      CONST_ELEMENT_LIST *e_list = lookup_extra_load (e, key);
+      CONST_ELEMENT_LIST *e_list = lookup_extra_contents (e, key);
       if (e_list)
         return e_list;
     }
 
   n_list = new_const_element_list ();
   KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
-                                         extra_load);
+                                         extra_contents);
   k->k.const_list = n_list;
   return n_list;
 }
@@ -333,7 +315,7 @@ lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret)
   return lookup_key_pair_integer (k, key, ret);
 }
 
-ELEMENT_LIST *
+CONST_ELEMENT_LIST *
 lookup_extra_contents (const ELEMENT *e, enum ai_key_name key)
 {
   KEY_PAIR *k = lookup_extra (e, key);
@@ -343,23 +325,6 @@ lookup_extra_contents (const ELEMENT *e, enum ai_key_name key)
     {
       char *msg;
       xasprintf (&msg, "Bad type for lookup_extra_contents: %s: %d",
-                 ai_key_names[key], k->type);
-      fatal (msg);
-      free (msg);
-    }
-  return k->k.list;
-}
-
-CONST_ELEMENT_LIST *
-lookup_extra_load (const ELEMENT *e, enum ai_key_name key)
-{
-  KEY_PAIR *k = lookup_extra (e, key);
-  if (!k)
-    return 0;
-  else if (k->type != extra_load)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_load: %s: %d",
                  ai_key_names[key], k->type);
       fatal (msg);
       free (msg);

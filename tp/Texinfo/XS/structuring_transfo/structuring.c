@@ -136,7 +136,7 @@ sectioning_structure (DOCUMENT *document)
               const ELEMENT **section_directions
                   = add_extra_directions (content, AI_key_section_directions);
               CONST_ELEMENT_LIST *section_childs
-                = add_extra_load (previous_section,
+                = add_extra_contents (previous_section,
                                       AI_key_section_childs, 1);
               if (level - prev_section_level > 1)
                 {
@@ -232,7 +232,7 @@ sectioning_structure (DOCUMENT *document)
                   first 'part' just appeared, no direction to set.
                    */
                   CONST_ELEMENT_LIST *sec_root_childs
-                    = lookup_extra_load (sec_root, AI_key_section_childs);
+                    = lookup_extra_contents (sec_root, AI_key_section_childs);
                   add_extra_integer (sec_root, AI_key_section_level, level -1);
                   add_to_const_element_list (sec_root_childs, content);
                   number_top_level = level;
@@ -242,7 +242,7 @@ sectioning_structure (DOCUMENT *document)
               else
                 {
                   CONST_ELEMENT_LIST *up_section_childs
-                    = lookup_extra_load (up, AI_key_section_childs);
+                    = lookup_extra_contents (up, AI_key_section_childs);
                   /* cast to remove const to be able to set directions */
                   ELEMENT *prev = (ELEMENT *)
                     up_section_childs->list[up_section_childs->number -1];
@@ -272,7 +272,7 @@ sectioning_structure (DOCUMENT *document)
         {
           sec_root = new_element (ET_NONE);
           CONST_ELEMENT_LIST *sec_root_childs
-            = add_extra_load (sec_root, AI_key_section_childs, 1);
+            = add_extra_contents (sec_root, AI_key_section_childs, 1);
            /* first section determines the level of the root.  It is
               typically -1 when there is a @top. */
           add_extra_integer (sec_root, AI_key_section_level, level -1);
@@ -463,7 +463,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
   if (associated_section)
     {
       const CONST_ELEMENT_LIST *section_childs
-                   = lookup_extra_load (associated_section,
+                   = lookup_extra_contents (associated_section,
                                             AI_key_section_childs);
       if (section_childs)
         {
@@ -494,7 +494,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                   if (current->e.c->cmd == CM_part)
                     {
                       const CONST_ELEMENT_LIST *section_childs
-                       = lookup_extra_load (current, AI_key_section_childs);
+                       = lookup_extra_contents (current, AI_key_section_childs);
                       if (section_childs)
                         {
                           int i;
@@ -616,7 +616,7 @@ check_nodes_are_referenced (DOCUMENT *document)
       int is_target = (node->flags & EF_is_target);
       const ELEMENT * const *node_directions = lookup_extra_directions (node,
                                                    AI_key_node_directions);
-      const CONST_ELEMENT_LIST *menus = lookup_extra_load (node, AI_key_menus);
+      const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
 
       if (is_target)
         nr_nodes_to_find++;
@@ -833,7 +833,7 @@ set_menus_node_directions (DOCUMENT *document)
     {
       int j;
       const ELEMENT *node = nodes_list->list[i];
-      const CONST_ELEMENT_LIST *menus = lookup_extra_load (node, AI_key_menus);
+      const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
 
       if (!menus)
         continue;
@@ -1088,7 +1088,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                      AI_key_associated_node);
                               if (up_node)
                                 menus
-                                = lookup_extra_load (up_node, AI_key_menus);
+                                = lookup_extra_contents (up_node, AI_key_menus);
                             }
 
                           if (menus
@@ -1256,7 +1256,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                        AI_key_manual_content);
               int is_target = (node->flags & EF_is_target);
               const CONST_ELEMENT_LIST *menus
-                   = lookup_extra_load (up_node, AI_key_menus);
+                   = lookup_extra_contents (up_node, AI_key_menus);
 
               /* No check if node up is an external manual */
               if (!manual_content
@@ -1392,7 +1392,7 @@ nodes_tree (DOCUMENT *document)
             if (section)
               {
                 const CONST_ELEMENT_LIST *section_childs
-                  = lookup_extra_load (section, AI_key_section_childs);
+                  = lookup_extra_contents (section, AI_key_section_childs);
                 if (section_childs && section_childs->number > 0)
                   {
                     const ELEMENT *first_sec = section_childs->list[0];
@@ -1947,7 +1947,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 {
   ELEMENT_LIST *master_menu_contents = new_list ();
   CONST_ELEMENT_LIST *menus;
-  CONST_ELEMENT_LIST *node_menus = lookup_extra_load (node, AI_key_menus);
+  CONST_ELEMENT_LIST *node_menus = lookup_extra_contents (node, AI_key_menus);
   ELEMENT_LIST *node_children;
   ELEMENT *new_current_menu = 0;
   int i;

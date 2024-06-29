@@ -75,28 +75,15 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         case extra_contents:
           {
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          ELEMENT_LIST *new_extra_contents = new_list ();
-          k->k.list = new_extra_contents;
-          for (j = 0; j < k_ref->k.list->number; j++)
-            {
-              ELEMENT *e = k_ref->k.list->list[j];
-              ELEMENT *copy = copy_tree_internal (e);
-              add_to_element_list (new_extra_contents, copy);
-            }
-          break;
-          }
-        case extra_load:
-          {
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          CONST_ELEMENT_LIST *new_extra_load = new_const_element_list ();
-          k->k.const_list = new_extra_load;
+          CONST_ELEMENT_LIST *new_extra_contents = new_const_element_list ();
+          k->k.const_list = new_extra_contents;
           for (j = 0; j < k_ref->k.const_list->number; j++)
             {
               /* cast to discard const, as the element needs to be modified
                  transiently for copy */
               ELEMENT *e = (ELEMENT *)k_ref->k.const_list->list[j];
               ELEMENT *copy = copy_tree_internal (e);
-              add_to_const_element_list (new_extra_load, copy);
+              add_to_const_element_list (new_extra_contents, copy);
             }
           break;
           }
@@ -275,15 +262,6 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
             break;
           }
         case extra_contents:
-          {
-            for (j = 0; j < k_ref->k.list->number; j++)
-              {
-                ELEMENT *e = k_ref->k.list->list[j];
-                remove_element_copy_info (e);
-              }
-            break;
-          }
-        case extra_load:
           {
             for (j = 0; j < k_ref->k.const_list->number; j++)
               {
@@ -1113,7 +1091,7 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
 const ELEMENT *
 first_menu_node (const ELEMENT *node, const LABEL_LIST *identifiers_target)
 {
-  const CONST_ELEMENT_LIST *menus = lookup_extra_load (node, AI_key_menus);
+  const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
   if (menus)
     {
       int i;

@@ -6390,7 +6390,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   else
     return result.text;
 
-  root_children = lookup_extra_load (section_root, AI_key_section_childs);
+  root_children = lookup_extra_contents (section_root, AI_key_section_childs);
   min_root_level = lookup_extra_integer (root_children->list[0],
                                          AI_key_section_level,
                                          &status);
@@ -6462,7 +6462,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
          int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
          const CONST_ELEMENT_LIST *section_childs
-           = lookup_extra_load (section, AI_key_section_childs);
+           = lookup_extra_contents (section, AI_key_section_childs);
          if (section->e.c->cmd != CM_top)
             {
               char *text;
@@ -10271,7 +10271,7 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
 {
   int entry_index = 0;
 
-  const CONST_ELEMENT_LIST *section_childs = lookup_extra_load (element,
+  const CONST_ELEMENT_LIST *section_childs = lookup_extra_contents (element,
                                                   AI_key_section_childs);
   if (section_childs && section_childs->number > 0)
     {
@@ -10449,7 +10449,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
           if (node)
             {
               int automatic_directions = (node->e.c->args.number <= 1);
-              const CONST_ELEMENT_LIST *menus = lookup_extra_load (node,
+              const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node,
                                                               AI_key_menus);
               if (!menus && automatic_directions)
                 {
@@ -11764,7 +11764,7 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
         text_append (result, content);
     }
 
-  authors = lookup_extra_load (element, AI_key_authors);
+  authors = lookup_extra_contents (element, AI_key_authors);
   if (authors)
     {
       int i;

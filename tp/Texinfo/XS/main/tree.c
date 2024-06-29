@@ -194,9 +194,6 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           destroy_element_and_children (k_pair->k.element);
           break;
         case extra_contents:
-          destroy_list (k_pair->k.list);
-          break;
-        case extra_load:
           destroy_const_element_list (k_pair->k.const_list);
           break;
         case extra_directions:
