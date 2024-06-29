@@ -24,7 +24,8 @@ void add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
 ELEMENT_LIST *add_extra_contents (ELEMENT *e, enum ai_key_name key,
                                   int no_lookup);
 void add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
-const ELEMENT_LIST *add_extra_directions (ELEMENT *e, enum ai_key_name key);
+const ELEMENT **add_extra_directions (ELEMENT *e,
+                                                enum ai_key_name key);
 void add_extra_misc_args (ELEMENT *e, enum ai_key_name key, STRING_LIST *value);
 void add_extra_index_entry (ELEMENT *e, enum ai_key_name key,
                             INDEX_ENTRY_LOCATION *value);
@@ -40,7 +41,7 @@ const STRING_LIST *lookup_extra_misc_args (const ELEMENT *e,
                                            enum ai_key_name key);
 const INDEX_ENTRY_LOCATION *lookup_extra_index_entry (const ELEMENT *e,
                                                       enum ai_key_name key);
-const ELEMENT_LIST *lookup_extra_directions (const ELEMENT *e,
+const ELEMENT **lookup_extra_directions (const ELEMENT *e,
                                              enum ai_key_name key);
 int lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret);
 char *lookup_extra_string (const ELEMENT *e, enum ai_key_name key);

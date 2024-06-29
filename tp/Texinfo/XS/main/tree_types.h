@@ -249,6 +249,7 @@ typedef struct KEY_PAIR {
       int integer;
       INDEX_ENTRY_LOCATION *index_entry;
       STRING_LIST *strings_list;
+      const struct ELEMENT **directions;
     } k;
 } KEY_PAIR;
 

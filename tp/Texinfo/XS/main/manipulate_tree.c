@@ -73,7 +73,6 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           }
           break;
         case extra_contents:
-        case extra_directions:
           {
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
           ELEMENT_LIST *new_extra_contents = new_list ();
@@ -81,14 +80,24 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           for (j = 0; j < k_ref->k.list->number; j++)
             {
               ELEMENT *e = k_ref->k.list->list[j];
-              if (!e && info->info[i].type == extra_directions)
+              ELEMENT *copy = copy_tree_internal (e);
+              add_to_element_list (new_extra_contents, copy);
+            }
+          break;
+          }
+        case extra_directions:
+          {
+          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+          const ELEMENT **new_d = new_directions ();
+          k->k.directions = new_d;
+          for (j = 0; j < directions_length; j++)
+            {
+              /* cast const off */
+              ELEMENT *e = (ELEMENT *)k_ref->k.directions[j];
+              if (e)
                 {
-                  add_to_element_list (new_extra_contents, 0);
-                }
-              else
-                {
-                  ELEMENT *copy = copy_tree_internal (e);
-                  add_to_element_list (new_extra_contents, copy);
+                  const ELEMENT *copy = copy_tree_internal (e);
+                  new_d[j] = copy;
                 }
             }
           break;
@@ -251,15 +260,21 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
             break;
           }
         case extra_contents:
-        case extra_directions:
           {
             for (j = 0; j < k_ref->k.list->number; j++)
               {
                 ELEMENT *e = k_ref->k.list->list[j];
-                if (!e && info->info[i].type == extra_directions)
-                  {
-                  }
-                else
+                remove_element_copy_info (e);
+              }
+            break;
+          }
+        case extra_directions:
+          {
+            for (j = 0; j < directions_length; j++)
+              {
+                /* cast const off */
+                ELEMENT *e = (ELEMENT *) k_ref->k.directions[j];
+                if (e)
                   {
                     remove_element_copy_info (e);
                   }

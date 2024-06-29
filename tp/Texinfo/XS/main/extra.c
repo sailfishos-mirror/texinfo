@@ -123,24 +123,26 @@ add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
 }
 
 /* Holds 3 elements corresponding to directions in enum directions.
-   A general difference other element lists, is that an element
-   pointer set to 0 is ok, it means that there is no such direction
-   In general, all the pointer elements are non NULL in element lists
-   for the first number elements.
+
+  The elements are set const because directions are set after the tree is
+  done and, as a rule, the elements should not be modified when accessed
+  from directions.  When the element need to be modified, the const is removed
+  with a cast.  This happens when associating to a reference on a Perl
+  object when building the Perl tree, and when copying the tree, as the
+  element is temporarily modified in that case.
 */
-const ELEMENT_LIST *
+const ELEMENT **
 add_extra_directions (ELEMENT *e, enum ai_key_name key)
 {
-  const ELEMENT_LIST *e_list = lookup_extra_directions (e, key);
+  const ELEMENT **e_list = lookup_extra_directions (e, key);
   if (e_list)
     return e_list;
   else
     {
-      ELEMENT_LIST *n_list = new_list ();
-      list_set_empty_contents (n_list, directions_length);
+      const ELEMENT **n_list = new_directions ();
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
                                              extra_directions);
-      k->k.list = n_list;
+      k->k.directions = n_list;
       return n_list;
     }
 }
@@ -200,7 +202,7 @@ lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
   return 0;
 }
 
-const ELEMENT *
+ELEMENT *
 lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 {
   const KEY_PAIR *k;
@@ -330,7 +332,7 @@ lookup_extra_contents (const ELEMENT *e, enum ai_key_name key)
   return k->k.list;
 }
 
-const ELEMENT_LIST *
+const ELEMENT **
 lookup_extra_directions (const ELEMENT *e, enum ai_key_name key)
 {
   KEY_PAIR *k = lookup_extra (e, key);
@@ -344,7 +346,7 @@ lookup_extra_directions (const ELEMENT *e, enum ai_key_name key)
       fatal (msg);
       free (msg);
     }
-  return k->k.list;
+  return k->k.directions;
 }
 
 const STRING_LIST *

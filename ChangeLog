@@ -1,3 +1,18 @@
+2024-06-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_perl_directions),
+	tp/Texinfo/XS/main/extra.c (add_extra_directions)
+	(lookup_extra_directions), tp/Texinfo/XS/main/manipulate_tree.c
+	(copy_associated_info, remove_associated_copy_info),
+	tp/Texinfo/XS/main/tree.c (destroy_associated_info, new_directions),
+	tp/Texinfo/XS/main/tree_types.h (KEY_PAIR): use a simple list for
+	directions in extra info with elements const.  The elements are set to
+	const because directions are set after the tree is and, as a rule, the
+	elements should not be modified when accessed from directions.  cast
+	to remove the const where the element accessed through directions need
+	to be modified, in build_perl_directions and for tree copying code.
+	Update users/callers.
+
 2024-06-27  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (convert_xref_commands),

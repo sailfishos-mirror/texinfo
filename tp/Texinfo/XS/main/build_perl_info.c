@@ -224,7 +224,7 @@ build_perl_container (ELEMENT *e, int avoid_recursion)
 }
 
 static SV *
-build_perl_directions (const ELEMENT_LIST *e_l, int avoid_recursion)
+build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
 {
   SV *sv;
   HV *hv;
@@ -237,14 +237,16 @@ build_perl_directions (const ELEMENT_LIST *e_l, int avoid_recursion)
 
   for (d = 0; d < directions_length; d++)
     {
-      if (e_l->list[d])
+      if (e_l[d])
         {
           const char *key = direction_names[d];
-          ELEMENT *e = e_l->list[d];
+          const ELEMENT *e = e_l[d];
           if (!e->hv)
             {
+              /* recast to a non const element, as we need to modify it */
+              ELEMENT *f = (ELEMENT *)e;
               if (e->parent)
-                e->hv = newHV ();
+                f->hv = newHV ();
               else
                 {
                   /* NOTE This should not happen, all the elements are in-tree.
@@ -261,7 +263,7 @@ build_perl_directions (const ELEMENT_LIST *e_l, int avoid_recursion)
                   free (message.text);
                   /* Out-of-tree element */
                   /* WARNING: This is possibly recursive. */
-                  element_to_perl_hash (e, avoid_recursion);
+                  element_to_perl_hash (f, avoid_recursion);
                 }
             }
           hv_store (hv, key, strlen (key),
@@ -366,7 +368,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               }
             case extra_directions:
               {
-              STORE(build_perl_directions (k->k.list, avoid_recursion));
+              STORE(build_perl_directions (k->k.directions, avoid_recursion));
               break;
               }
             case extra_string:

@@ -5340,15 +5340,15 @@ html_prepare_output_units_global_targets (CONVERTER *self)
                   if (!status && section_level <= 1)
                     break;
 
-                  const ELEMENT_LIST *up_section_directions
+                  const ELEMENT * const *up_section_directions
                     = lookup_extra_directions (root_command,
                                          AI_key_section_directions);
                   if (up_section_directions
-                      && up_section_directions->list[D_up]
-                      && up_section_directions->list[D_up]
+                      && up_section_directions[D_up]
+                      && up_section_directions[D_up]
                                      ->e.c->associated_unit)
                     {
-                      root_command = up_section_directions->list[D_up];
+                      root_command = up_section_directions[D_up];
                       document_unit = root_command->e.c->associated_unit;
                     }
                   else
@@ -6541,16 +6541,16 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
             }
           else
             {
-              const ELEMENT_LIST *section_directions
+              const ELEMENT * const *section_directions
                = lookup_extra_directions (section, AI_key_section_directions);
               if (section_directions
-                  && section_directions->list[D_next]
+                  && section_directions[D_next]
                   && section->e.c->cmd != CM_top)
                 {
                   text_append_n (&result, "</li>\n", 6);
                   if (section == top_section)
                     break;
-                  section = section_directions->list[D_next];
+                  section = section_directions[D_next];
                 }
               else
                 {
@@ -6566,14 +6566,14 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                       int section_level;
                       int i;
 
-                      const ELEMENT_LIST *section_directions
+                      const ELEMENT * const *section_directions
                         = lookup_extra_directions (section,
                                                AI_key_section_directions);
                       if (!section_directions
-                          || !section_directions->list[D_up])
+                          || !section_directions[D_up])
                         break;
 
-                      section = section_directions->list[D_up];
+                      section = section_directions[D_up];
 
                       section_level = lookup_extra_integer (section,
                                                 AI_key_section_level, &status);
@@ -6593,10 +6593,10 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
                         = lookup_extra_directions (section,
                                                AI_key_section_directions);
                       if (section_directions
-                          && section_directions->list[D_next])
+                          && section_directions[D_next])
                         {
                           text_append_n (&result, "</li>\n", 6);
-                          section = section_directions->list[D_next];
+                          section = section_directions[D_next];
                           break;
                         }
                     }

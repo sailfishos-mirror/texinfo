@@ -188,14 +188,14 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
         case extra_directions:
           {
             int d;
-            const ELEMENT_LIST *l = k->k.list;
+            const ELEMENT * const *l = k->k.directions;
             text_append (&text, "directions: ");
             for (d = 0; d < directions_length; d++)
               {
-                if (l->list[d])
+                if (l[d])
                   {
                     const char *d_key = direction_names[d];
-                    const ELEMENT *e = l->list[d];
+                    const ELEMENT *e = l[d];
                     char *element_str = print_element_debug (e, 0);
                     text_printf (&text, "%s->%s|", d_key, element_str);
                     free (element_str);

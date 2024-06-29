@@ -11,6 +11,7 @@ ELEMENT *new_element (enum element_type type);
 ELEMENT *new_command_element (enum element_type type, enum command_id cmd);
 ELEMENT *new_text_element (enum element_type type);
 ELEMENT_LIST *new_list (void);
+const ELEMENT **new_directions (void);
 void add_to_element_list (ELEMENT_LIST *list, ELEMENT *e);
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_to_contents_as_array (ELEMENT *parent, ELEMENT *e);

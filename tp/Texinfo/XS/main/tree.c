@@ -178,8 +178,10 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           destroy_element_and_children (k_pair->k.element);
           break;
         case extra_contents:
-        case extra_directions:
           destroy_list (k_pair->k.list);
+          break;
+        case extra_directions:
+          free (k_pair->k.directions);
           break;
         case extra_container:
           if (k_pair->k.element)
@@ -648,4 +650,13 @@ destroy_node_spec (NODE_SPEC_EXTRA *nse)
   if (nse->node_content)
     destroy_element (nse->node_content);
   free (nse);
+}
+
+const ELEMENT **
+new_directions (void)
+{
+  const ELEMENT **result = (const ELEMENT **)  malloc ((D_up + 1)
+                                             * sizeof (const ELEMENT *));
+  memset (result, 0, (D_up + 1) * sizeof (const ELEMENT *));
+  return result;
 }
