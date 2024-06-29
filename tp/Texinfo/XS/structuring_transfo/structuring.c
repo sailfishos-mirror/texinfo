@@ -864,7 +864,8 @@ set_menus_node_directions (DOCUMENT *document)
                   int l;
                   for (l = 0; l < menu_content->e.c->contents.number; l++)
                     {
-                      ELEMENT *content = menu_content->e.c->contents.list[l];
+                      const ELEMENT *content
+                        = menu_content->e.c->contents.list[l];
                       if (content->type == ET_menu_entry_node)
                         {
                           const ELEMENT *manual_content
@@ -895,7 +896,7 @@ set_menus_node_directions (DOCUMENT *document)
                             }
                           else
                             {
-                              menu_node = content;
+                              menu_node = menu_content->e.c->contents.list[l];
                             }
                           break;
                         }
@@ -1155,7 +1156,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                    || !node_directions[D_next])
             {
               /* use first menu entry if available as next for Top */
-              ELEMENT *menu_child = first_menu_node (node, identifiers_target);
+              const ELEMENT *menu_child
+                 = first_menu_node (node, identifiers_target);
               if (menu_child)
                 {
                   top_node_next = menu_child;
@@ -1491,8 +1493,8 @@ nodes_tree (DOCUMENT *document)
 void
 associate_internal_references (DOCUMENT *document)
 {
-  LABEL_LIST *identifiers_target = &document->identifiers_target;
-  ELEMENT_LIST *refs = &document->internal_references;
+  const LABEL_LIST *identifiers_target = &document->identifiers_target;
+  const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
@@ -1507,7 +1509,7 @@ associate_internal_references (DOCUMENT *document)
     {
       ELEMENT *ref = refs->list[i];
       ELEMENT *label_element;
-      ELEMENT *label_node_content;
+      const ELEMENT *label_node_content;
 
       if (ref->type == ET_menu_entry_node)
         label_element = ref;
@@ -1515,7 +1517,7 @@ associate_internal_references (DOCUMENT *document)
         label_element = ref->e.c->args.list[0];
 
       label_node_content
-          = lookup_extra_container (label_element, AI_key_node_content);
+        = lookup_extra_container (label_element, AI_key_node_content);
       if (label_node_content)
         {
           char *normalized
@@ -1537,14 +1539,14 @@ associate_internal_references (DOCUMENT *document)
         continue;
       else
         {
-          ELEMENT *node_target = 0;
-          char *normalized = lookup_extra_string (label_element,
+          const ELEMENT *node_target = 0;
+          const char *normalized = lookup_extra_string (label_element,
                                                   AI_key_normalized);
           if (normalized)
             {
               node_target
                 = find_identifier_target (identifiers_target,
-                                         normalized);
+                                          normalized);
             }
 
           if (!node_target)
@@ -2095,11 +2097,11 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
       int i;
       for (i = 0; i < menus->number; i++)
         {
-          ELEMENT *menu = menus->list[i];
+          const ELEMENT *menu = menus->list[i];
           int j;
           for (j = 0; j < menu->e.c->contents.number; j++)
             {
-              ELEMENT *entry = menu->e.c->contents.list[j];
+              const ELEMENT *entry = menu->e.c->contents.list[j];
               if (entry->type == ET_menu_entry)
                 {
                   const ELEMENT *menu_node

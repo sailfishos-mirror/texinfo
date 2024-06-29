@@ -524,7 +524,7 @@ label_target_unit_element (const ELEMENT *label,
    documented in pod section and not exportable as it should not, in
    general, be used. */
 char *
-print_output_unit_directions (OUTPUT_UNIT *output_unit)
+print_output_unit_directions (const OUTPUT_UNIT *output_unit)
 {
   TEXT result;
   int i;
@@ -537,7 +537,7 @@ print_output_unit_directions (OUTPUT_UNIT *output_unit)
 
   for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
     {
-      OUTPUT_UNIT *direction = output_unit->directions[i];
+      const OUTPUT_UNIT *direction = output_unit->directions[i];
       if (direction)
         {
           char *direction_text = output_unit_texi (direction);
@@ -835,7 +835,7 @@ units_directions (const LABEL_LIST *identifiers_target,
       int i;
       for (i = 0; i < output_units->number; i++)
         {
-          OUTPUT_UNIT *output_unit = output_units->list[i];
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
           char *element_directions
                             = print_output_unit_directions (output_unit);
           fprintf (stderr, "Directions: %s\n", element_directions);

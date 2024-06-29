@@ -1084,7 +1084,7 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
   return 0;
 }
 
-ELEMENT *
+const ELEMENT *
 first_menu_node (const ELEMENT *node, const LABEL_LIST *identifiers_target)
 {
   const ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
@@ -1097,11 +1097,11 @@ first_menu_node (const ELEMENT *node, const LABEL_LIST *identifiers_target)
           int j;
           for (j = 0; j < menu->e.c->contents.number; j++)
             {
-              ELEMENT *menu_content = menu->e.c->contents.list[j];
+              const ELEMENT *menu_content = menu->e.c->contents.list[j];
               if (menu_content->type == ET_menu_entry)
                 {
                   int k;
-                  ELEMENT *menu_node
+                  const ELEMENT *menu_node
                     = normalized_entry_associated_internal_node (menu_content,
                                                           identifiers_target);
                   /* an internal node */
@@ -1110,7 +1110,8 @@ first_menu_node (const ELEMENT *node, const LABEL_LIST *identifiers_target)
 
                   for (k = 0; menu_content->e.c->contents.number; k++)
                     {
-                      ELEMENT *content = menu_content->e.c->contents.list[k];
+                      const ELEMENT *content
+                        = menu_content->e.c->contents.list[k];
                       if (content->type == ET_menu_entry_node)
                         {
                           const ELEMENT *manual_content
