@@ -792,7 +792,8 @@ sub relocate_source_marks($$$$)
          and (!defined($source_mark->{'position'})
               # this should never happen
               or $source_mark->{'position'} == 0))
-        or ($source_mark->{'position'} > $begin_position
+        or (defined($source_mark->{'position'})
+            and $source_mark->{'position'} > $begin_position
             and $source_mark->{'position'} <= $end_position)) {
       unshift @indices_to_remove, $i;
       if (defined($e->{'text'})) {
@@ -816,7 +817,8 @@ sub relocate_source_marks($$$$)
       }
       $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
       push @{$e->{'source_marks'}}, $source_mark;
-    } elsif ($source_marks->[$i]->{'position'} > $end_position) {
+    } elsif (defined($source_marks->[$i]->{'position'})
+             and $source_marks->[$i]->{'position'} > $end_position) {
       # only correct if positions are always monotonically increasing
       # but should be the case for now
       last;

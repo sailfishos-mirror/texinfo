@@ -1,5 +1,11 @@
 2024-06-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (relocate_source_marks): check if source_mark
+	position is defined before comparing with positions, if not it is as
+	if it was 0.
+
+2024-06-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (output_unit_to_perl_hash):
 	move unit_command storing earlier.  Return after unit_command storing
 	if the unit_type is external_node_unit since there isn't anything else
@@ -12,7 +18,7 @@
 	using a new function output_units_list_to_perl_hash that sets up Perl
 	hashes for output units but do not put the output units in an array.
 
-	* * tp/Texinfo/XS/main/build_perl_info.c (output_unit_to_perl_hash):
+	* tp/Texinfo/XS/main/build_perl_info.c (output_unit_to_perl_hash):
 	assume that all the output units in directions have a reference to a
 	Perl object now that external_node_unit are built before directions in
 	other output units are.
