@@ -148,13 +148,6 @@ enum output_unit_type {
   ai_key(associated_index_entry) \
 
 
-/*
-  ai_key() \
-  ai_key() \
-  ai_key() \
-  ai_key(sortas) \
-*/
-
 extern const char *ai_key_names[];
 
 enum ai_key_name {
@@ -341,12 +334,12 @@ typedef struct CONTAINER {
 
 /* indices in ELEMENT elt_info */
 enum elt_info_type {
-  eit_spaces_after_cmd_before_arg, /* types with braces flag */
-  eit_spaces_after_argument,
-  eit_comment_at_end, /* block_line_arg line_arg */
-  eit_spaces_before_argument = 0, /* diverse types.  Only context_brace_command
+   eit_spaces_after_cmd_before_arg, /* types with braces flag */
+   eit_spaces_after_argument,
+   eit_comment_at_end, /* block_line_arg line_arg */
+   eit_spaces_before_argument = 0, /* diverse types.  Only context_brace_command
                                      also with braces */
-  eit_brace_content_spaces_before_argument = 1, /* not 0, also brace commands */
+   eit_brace_content_spaces_before_argument = 1, /* not 0, also brace commands */
 };
 
 /* indices in ELEMENT string_info */
@@ -457,11 +450,11 @@ typedef struct {
 } FLOAT_RECORD_LIST;
 
 enum tree_added_elements_status {
-  tree_added_status_none,
-  tree_added_status_elements_added,
-  tree_added_status_new_tree,
-  tree_added_status_reused_tree,
-  tree_added_status_no_tree,
+   tree_added_status_none,
+   tree_added_status_elements_added,
+   tree_added_status_new_tree,
+   tree_added_status_reused_tree,
+   tree_added_status_no_tree,
 };
 
 /* not used in parser */

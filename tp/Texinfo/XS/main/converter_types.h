@@ -32,9 +32,9 @@ struct TEXT_OPTIONS;
 
 /* for string information passing to/from perl */
 enum sv_string_type {
-  svt_byte,
-  svt_dir,
-  svt_char,
+   svt_byte,
+   svt_dir,
+   svt_char,
 };
 
 enum output_units_descriptor_type {
