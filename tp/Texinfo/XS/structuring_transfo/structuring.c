@@ -90,6 +90,8 @@ sectioning_structure (DOCUMENT *document)
   ELEMENT_LIST *sections_list = new_list ();
   const ELEMENT *section_top = 0;
   int i;
+  TEXT section_number;
+  text_init (&section_number);
 
   /* holds the current number for all the levels.  It is not possible to use
      something like the last child index, because of @unnumbered. */
@@ -314,8 +316,7 @@ sectioning_structure (DOCUMENT *document)
           if (!command_unnumbered[number_top_level])
             {
               int i;
-              TEXT section_number;
-              text_init (&section_number);
+              text_reset (&section_number);
               if (!in_appendix)
                 text_printf (&section_number, "%d",
                              command_numbers[number_top_level]);
@@ -343,7 +344,6 @@ sectioning_structure (DOCUMENT *document)
               if (section_number.end > 0)
                 add_extra_string_dup (content, AI_key_section_number,
                                       section_number.text);
-              free (section_number.text);
             }
         }
       previous_section = content;
@@ -388,6 +388,7 @@ sectioning_structure (DOCUMENT *document)
       destroy_list (sections_list);
       return 0;
     }
+  free (section_number.text);
   return sections_list;
 }
 
