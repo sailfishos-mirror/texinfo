@@ -67,6 +67,8 @@ void rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
                                 size_t output_units_descriptor);
 SV *setup_output_units_handler (const DOCUMENT *document,
                                 size_t output_units_descriptor);
+void output_units_list_to_perl_hash (const DOCUMENT *document,
+                                     size_t output_units_descriptor);
 
 AV *build_integer_stack (const INTEGER_STACK *integer_stack);
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);

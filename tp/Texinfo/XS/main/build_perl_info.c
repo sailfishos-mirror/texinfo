@@ -2005,42 +2005,6 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   sv = newSVpv (output_unit_type_names[output_unit->unit_type], 0);
   STORE("unit_type");
 
-  sv = newSViv ((IV) output_unit->index);
-  STORE("unit_index");
-
-  /* setup an hash reference in any case */
-  directions_hv = newHV ();
-  sv = newRV_noinc ((SV *) directions_hv);
-  STORE("directions");
-
-  for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
-    {
-      if (output_unit->directions[i])
-        {
-          const char *direction_name = relative_unit_direction_name[i];
-          OUTPUT_UNIT *direction_unit = output_unit->directions[i];
-          SV *unit_sv;
-          /* should only happen for references to external nodes that have
-             not yet been processed */
-          if (!direction_unit->hv)
-            {
-              if (direction_unit->unit_type != OU_external_node_unit)
-                {
-                  char *msg;
-                  xasprintf (&msg, "BUG: not external node but no"
-                                   " output unit Perl ref: %s",
-                                   output_unit_texi (direction_unit));
-                  fatal (msg);
-                  free (msg);
-                }
-              output_unit_to_perl_hash (direction_unit);
-            }
-          unit_sv = newRV_inc ((SV *) direction_unit->hv);
-          hv_store (directions_hv, direction_name, strlen (direction_name),
-                    unit_sv, 0);
-        }
-    }
-
   if (output_unit->unit_type == OU_special_unit)
     {
       ELEMENT *command = output_unit->uc.special_unit_command;
@@ -2069,6 +2033,45 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
           sv = newRV_inc ((SV *) command->hv);
           STORE("unit_command");
+        }
+   /* there is nothing else of use for external_node_unit, exit now */
+      if (output_unit->unit_type == OU_external_node_unit)
+        return;
+    }
+
+  sv = newSViv ((IV) output_unit->index);
+  STORE("unit_index");
+
+  /* setup an hash reference in any case */
+  directions_hv = newHV ();
+  sv = newRV_noinc ((SV *) directions_hv);
+  STORE("directions");
+
+  for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
+    {
+      if (output_unit->directions[i])
+        {
+          const char *direction_name = relative_unit_direction_name[i];
+          const OUTPUT_UNIT *direction_unit = output_unit->directions[i];
+          SV *unit_sv;
+          if (!direction_unit->hv)
+            {
+  /* the Perl references should exist for all the output units because
+     they are setup and built to Perl if needed in _prepare_conversion_units,
+     while directions are setup afterwards in _prepare_units_directions_files.
+     external_node_target are not set in _prepare_conversion_units, but
+     are set before rebuilding the other output units in
+     _prepare_units_directions_files XS code */
+
+              char *msg;
+              xasprintf (&msg, "BUG: no output unit Perl ref: %s",
+                                   output_unit_texi (direction_unit));
+              fatal (msg);
+              free (msg);
+            }
+          unit_sv = newRV_inc ((SV *) direction_unit->hv);
+          hv_store (directions_hv, direction_name, strlen (direction_name),
+                    unit_sv, 0);
         }
     }
 
@@ -2278,6 +2281,29 @@ rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
       fprintf (stderr, "BUG: rebuild_output_units_list: output unit"
                   " descriptor not found: %zu\n", output_units_descriptor);
       return;
+    }
+}
+
+/* build output unit hashes but do not put output units hashes in
+   an array.  Useful for external_nodes_units, which are to be
+   built to Perl, but have no array in Perl, they are only referred to
+   in directions. */
+void
+output_units_list_to_perl_hash (const DOCUMENT *document,
+                                size_t output_units_descriptor)
+{
+  const OUTPUT_UNIT_LIST *output_units;
+  size_t i;
+
+  output_units = retrieve_output_units (document, output_units_descriptor);
+
+  if (!output_units || !output_units->number)
+    return;
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      output_unit_to_perl_hash (output_unit);
     }
 }
 

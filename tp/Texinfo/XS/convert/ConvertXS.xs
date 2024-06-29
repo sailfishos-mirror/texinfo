@@ -2060,6 +2060,13 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
 
          if (self->external_references_number > 0)
            {
+             /* build external_nodes_units before rebuilding the other
+                output units as the external_nodes_units have never been built,
+                while other units were already built without directions
+                information in html_prepare_conversion_units */
+             output_units_list_to_perl_hash (self->document,
+                   self->output_units_descriptors[OUDT_external_nodes_units]);
+
              rebuild_output_units_list (self->document, output_units_in,
                            self->output_units_descriptors[OUDT_units]);
              rebuild_output_units_list (self->document, special_units_in,

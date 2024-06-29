@@ -1,5 +1,24 @@
 2024-06-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (output_unit_to_perl_hash):
+	move unit_command storing earlier.  Return after unit_command storing
+	if the unit_type is external_node_unit since there isn't anything else
+	of interest in such output units.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/main/build_perl_info.c (output_units_list_to_perl_hash):
+	build external_node_unit Perl hashes especially when they are ready,
+	using a new function output_units_list_to_perl_hash that sets up Perl
+	hashes for output units but do not put the output units in an array.
+
+	* * tp/Texinfo/XS/main/build_perl_info.c (output_unit_to_perl_hash):
+	assume that all the output units in directions have a reference to a
+	Perl object now that external_node_unit are built before directions in
+	other output units are.
+
+2024-06-29  Patrice Dumas  <pertusus@free.fr>
+
 	Add const.
 
 2024-06-29  Patrice Dumas  <pertusus@free.fr>
