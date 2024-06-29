@@ -309,7 +309,7 @@ typedef struct OUTPUT_UNIT {
     struct OUTPUT_UNIT *tree_unit_directions[2];
 
     struct OUTPUT_UNIT *first_in_page;
-    struct OUTPUT_UNIT *directions[RUD_type_FirstInFileNodeBack+1];
+    const struct OUTPUT_UNIT *directions[RUD_type_FirstInFileNodeBack+1];
 
     /* for special output units only */
     /* could be an enum as for now new special types cannot be customized

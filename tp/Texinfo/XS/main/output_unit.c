@@ -588,7 +588,7 @@ units_directions (const LABEL_LIST *identifiers_target,
   for (i = 0; i < output_units->number; i++)
     {
       OUTPUT_UNIT *output_unit = output_units->list[i];
-      OUTPUT_UNIT **directions = output_unit->directions;
+      const OUTPUT_UNIT **directions = output_unit->directions;
       const ELEMENT *node = output_unit_node (output_unit);
       const ELEMENT * const *node_directions;
       const ELEMENT *section = output_unit_section (output_unit);
@@ -692,8 +692,13 @@ units_directions (const LABEL_LIST *identifiers_target,
               && directions[RUD_type_NodeForward]->unit_type == OU_unit
               && !directions[RUD_type_NodeForward]
                               ->directions[RUD_type_NodeBack])
-            directions[RUD_type_NodeForward]->directions[RUD_type_NodeBack]
-               = output_unit;
+            {
+             /* to modify the NodeForward element direction, we remove
+                the const by casting */
+              OUTPUT_UNIT *forward_unit
+                = (OUTPUT_UNIT *)directions[RUD_type_NodeForward];
+              forward_unit->directions[RUD_type_NodeBack] = output_unit;
+            }
         }
       if (!section)
         {
@@ -821,11 +826,15 @@ units_directions (const LABEL_LIST *identifiers_target,
 
               if (status >= 0 && section_level <= 1
                   && directions[RUD_type_FastForward])
+                {
                  /* the element is a top level element, we adjust the next
                     toplevel element fastback */
-                directions[RUD_type_FastForward]
-                   ->directions[RUD_type_FastBack] = output_unit;
-
+                 /* to modify the FastForward element direction, we remove
+                    the const by casting */
+                  OUTPUT_UNIT *fastf_unit
+                     = (OUTPUT_UNIT *)directions[RUD_type_FastForward];
+                  fastf_unit->directions[RUD_type_FastBack] = output_unit;
+                }
             }
         }
     }
