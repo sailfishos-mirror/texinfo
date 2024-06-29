@@ -452,10 +452,10 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
     }
 }
 
-ELEMENT_LIST *
+CONST_ELEMENT_LIST *
 get_node_node_childs_from_sectioning (const ELEMENT *node)
 {
-  ELEMENT_LIST *node_childs = new_list ();
+  CONST_ELEMENT_LIST *node_childs = new_const_element_list ();
 
   const ELEMENT *associated_section
     = lookup_extra_element (node, AI_key_associated_section);
@@ -470,10 +470,10 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
           for (i = 0; i < section_childs->number; i++)
             {
               const ELEMENT *child = section_childs->list[i];
-              ELEMENT *associated_node = lookup_extra_element (child,
+              const ELEMENT *associated_node = lookup_extra_element (child,
                                                      AI_key_associated_node);
               if (associated_node)
-                add_to_element_list (node_childs, associated_node);
+                add_to_const_element_list (node_childs, associated_node);
             }
         }
        /* Special case for @top.  Gather all the children of the @part following
@@ -492,7 +492,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                   current = section_directions[D_next];
                   if (current->e.c->cmd == CM_part)
                     {
-                      ELEMENT_LIST *section_childs
+                      const ELEMENT_LIST *section_childs
                        = lookup_extra_contents (current, AI_key_section_childs);
                       if (section_childs)
                         {
@@ -500,25 +500,27 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                           for (i = 0; i < section_childs->number; i++)
                             {
                               const ELEMENT *child = section_childs->list[i];
-                              ELEMENT *associated_node
+                              const ELEMENT *associated_node
                                    = lookup_extra_element (child,
                                                       AI_key_associated_node);
                               if (associated_node)
-                                add_to_element_list (node_childs,
-                                                     associated_node);
+                                add_to_const_element_list (node_childs,
+                                                           associated_node);
                             }
                         }
                     }
                   else
                     {
-                      ELEMENT *associated_node = lookup_extra_element (current,
+                      const ELEMENT *associated_node
+                               = lookup_extra_element (current,
                                                        AI_key_associated_node);
                       /*
                     for @appendix, and what follows, as it stops a @part, but is
                     not below @top
                        */
                       if (associated_node)
-                        add_to_element_list (node_childs, associated_node);
+                        add_to_const_element_list (node_childs,
+                                                   associated_node);
                     }
                 }
               else
@@ -666,7 +668,7 @@ check_nodes_are_referenced (DOCUMENT *document)
           int automatic_directions = (node->e.c->args.number <= 1);
           if (automatic_directions)
             {
-              ELEMENT_LIST *node_childs
+              CONST_ELEMENT_LIST *node_childs
                 = get_node_node_childs_from_sectioning (node);
               int j;
               for (j = 0; j < node_childs->number; j++)
@@ -678,7 +680,7 @@ check_nodes_are_referenced (DOCUMENT *document)
                                              &referenced_identifier_number);
 
                 }
-              destroy_list (node_childs);
+              destroy_const_element_list (node_childs);
             }
         }
     }
@@ -841,7 +843,7 @@ set_menus_node_directions (DOCUMENT *document)
         {
           for (j = 1; j < menus->number; j++)
             {
-               ELEMENT *menu = menus->list[j];
+               const ELEMENT *menu = menus->list[j];
                message_list_command_warn (error_messages, options,
                              menu, 0, "multiple @%s",
                              builtin_command_name (menu->e.c->cmd));
@@ -850,12 +852,12 @@ set_menus_node_directions (DOCUMENT *document)
 
       for (j = 0; j < menus->number; j++)
         {
-          ELEMENT *menu = menus->list[j];
+          const ELEMENT *menu = menus->list[j];
           ELEMENT *previous_node = 0;
           int k;
           for (k = 0; k < menu->e.c->contents.number; k++)
             {
-              ELEMENT *menu_content = menu->e.c->contents.list[k];
+              const ELEMENT *menu_content = menu->e.c->contents.list[k];
               if (menu_content->type == ET_menu_entry)
                 {
                   ELEMENT *menu_node = 0;
@@ -1824,14 +1826,15 @@ ELEMENT *
 new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                         const OPTIONS *options, int use_sections)
 {
-  ELEMENT_LIST *node_childs = get_node_node_childs_from_sectioning (node);
+  CONST_ELEMENT_LIST *node_childs
+    = get_node_node_childs_from_sectioning (node);
   ELEMENT *section;
   ELEMENT *new_menu;
   int i;
 
   if (node_childs->number <= 0)
     {
-      destroy_list (node_childs);
+      destroy_const_element_list (node_childs);
       return 0;
     }
 
@@ -1844,7 +1847,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 
   for (i = 0; i < node_childs->number; i++)
     {
-      ELEMENT *child = node_childs->list[i];
+      const ELEMENT *child = node_childs->list[i];
       ELEMENT *entry = new_node_menu_entry (child, use_sections);
       if (entry)
         {
@@ -1925,7 +1928,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
         }
     }
 
-  destroy_list (node_childs);
+  destroy_const_element_list (node_childs);
 
   new_block_command (new_menu);
 

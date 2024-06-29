@@ -1,5 +1,11 @@
 2024-06-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(get_node_node_childs_from_sectioning): return a CONST_ELEMENT_LIST.
+	Update callers.
+
+2024-06-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (complete_node_tree_with_menus),
 	tp/Texinfo/XS/structuring_transfo/structuring.c
 	(complete_node_tree_with_menus): determine the next of Top node with

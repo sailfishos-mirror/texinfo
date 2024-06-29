@@ -949,7 +949,8 @@ typedef struct EXISTING_ENTRY {
 void
 complete_node_menu (ELEMENT *node, int use_sections)
 {
-  ELEMENT_LIST *node_childs = get_node_node_childs_from_sectioning (node);
+  CONST_ELEMENT_LIST *node_childs
+    = get_node_node_childs_from_sectioning (node);
 
   if (node_childs->number)
     {
@@ -1085,7 +1086,7 @@ complete_node_menu (ELEMENT *node, int use_sections)
 
       free (existing_entries);
     }
-  destroy_list (node_childs);
+  destroy_const_element_list (node_childs);
 }
 
 static ELEMENT_LIST *
