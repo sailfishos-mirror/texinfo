@@ -973,7 +973,7 @@ set_menus_node_directions (DOCUMENT *document)
 static enum ai_key_name direction_bases[] = {AI_key_section_directions,
                                              AI_key_toplevel_directions};
 
-static ELEMENT *
+static const ELEMENT *
 section_direction_associated_node (const ELEMENT *section,
                                    enum directions direction)
 {
@@ -986,7 +986,7 @@ section_direction_associated_node (const ELEMENT *section,
       if (directions && directions[direction])
         {
           const ELEMENT *section_to = directions[direction];
-          ELEMENT *associated_node = lookup_extra_element (section_to,
+          const ELEMENT *associated_node = lookup_extra_element (section_to,
                                                     AI_key_associated_node);
           if ((direction_bases[i] != AI_key_toplevel_directions
                || direction == D_up
@@ -1831,7 +1831,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 {
   CONST_ELEMENT_LIST *node_childs
     = get_node_node_childs_from_sectioning (node);
-  ELEMENT *section;
+  const ELEMENT *section;
   ELEMENT *new_menu;
   int i;
 
@@ -1846,7 +1846,6 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
 
   section = lookup_extra_element (node, AI_key_associated_section);
   new_menu = new_command_element (ET_block_command, CM_menu);
-  new_menu->parent = section;
 
   for (i = 0; i < node_childs->number; i++)
     {

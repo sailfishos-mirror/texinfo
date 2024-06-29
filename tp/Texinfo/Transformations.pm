@@ -511,6 +511,7 @@ sub _prepend_new_menu_in_node_section($$$)
     cluck "input menu undef";
   }
   push @{$section->{'contents'}}, $current_menu;
+  $current_menu->{'parent'} = $section;
   push @{$section->{'contents'}}, {'type' => 'empty_line',
                                    'text' => "\n",
                                    'parent' => $section};

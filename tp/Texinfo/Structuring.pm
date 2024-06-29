@@ -1348,7 +1348,7 @@ sub new_complete_node_menu
   # only holds contents here, will be turned into a proper block
   # command in new_block_command below
   my $section = $node->{'extra'}->{'associated_section'};
-  my $new_menu = {'contents' => [], 'parent' => $section};
+  my $new_menu = {'contents' => []};
   foreach my $child (@node_childs) {
     my $entry = new_node_menu_entry($child, $use_sections);
     if (defined($entry)) {
@@ -1505,6 +1505,7 @@ sub new_complete_menu_master_menu($$$)
   return $menu_node;
 }
 
+# returns menu contents
 sub _print_down_menus($$$$$;$);
 sub _print_down_menus($$$$$;$)
 {
@@ -1515,6 +1516,8 @@ sub _print_down_menus($$$$$;$)
   my $identifier_target = shift;
   my $use_sections = shift;
 
+  # NOTE the menus are not used directly, the entry of the menus are copied
+  # and returned in @master_menu_contents.
   my @menus;
 
   my @master_menu_contents;
