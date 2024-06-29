@@ -27,6 +27,7 @@ enum extra_type {
    extra_element,
    extra_element_oot,
    extra_contents,
+   extra_load,
    extra_container,
    extra_directions,
    extra_misc_args,
@@ -245,6 +246,7 @@ typedef struct KEY_PAIR {
     union {
       struct ELEMENT *element;
       ELEMENT_LIST *list;
+      CONST_ELEMENT_LIST *const_list;
       char *string;
       int integer;
       INDEX_ENTRY_LOCATION *index_entry;

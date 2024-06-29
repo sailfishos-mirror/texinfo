@@ -185,6 +185,20 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
               }
             break;
           }
+        case extra_load:
+          {
+            int j;
+            const CONST_ELEMENT_LIST *l = k->k.const_list;
+            text_append (&text, "load: ");
+            for (j = 0; j < l->number; j++)
+              {
+                const ELEMENT *e = l->list[j];
+                char *element_str = print_element_debug (e, 0);
+                text_printf (&text, "%p;%s|", e, element_str);
+                free (element_str);
+              }
+            break;
+          }
         case extra_directions:
           {
             int d;

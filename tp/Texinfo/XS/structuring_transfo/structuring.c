@@ -135,8 +135,8 @@ sectioning_structure (DOCUMENT *document)
             {
               const ELEMENT **section_directions
                   = add_extra_directions (content, AI_key_section_directions);
-              ELEMENT_LIST *section_childs
-                = add_extra_contents (previous_section,
+              CONST_ELEMENT_LIST *section_childs
+                = add_extra_load (previous_section,
                                       AI_key_section_childs, 1);
               if (level - prev_section_level > 1)
                 {
@@ -145,7 +145,7 @@ sectioning_structure (DOCUMENT *document)
                                  builtin_command_name (content->e.c->cmd));
                   level = prev_section_level + 1;
                 }
-              add_to_element_list (section_childs, content);
+              add_to_const_element_list (section_childs, content);
               section_directions[D_up] = previous_section;
                /*
                 if the up is unnumbered, the number information has to be kept,
@@ -231,20 +231,21 @@ sectioning_structure (DOCUMENT *document)
                   In that case the root level has to be updated because the
                   first 'part' just appeared, no direction to set.
                    */
-                  ELEMENT_LIST *sec_root_childs
-                    = lookup_extra_contents (sec_root, AI_key_section_childs);
+                  CONST_ELEMENT_LIST *sec_root_childs
+                    = lookup_extra_load (sec_root, AI_key_section_childs);
                   add_extra_integer (sec_root, AI_key_section_level, level -1);
-                  add_to_element_list (sec_root_childs, content);
+                  add_to_const_element_list (sec_root_childs, content);
                   number_top_level = level;
                   if (number_top_level == 0)
                     number_top_level = 1;
                 }
               else
                 {
-                  ELEMENT_LIST *up_section_childs
-                    = lookup_extra_contents (up, AI_key_section_childs);
-                  ELEMENT *prev
-                    = up_section_childs->list[up_section_childs->number -1];
+                  CONST_ELEMENT_LIST *up_section_childs
+                    = lookup_extra_load (up, AI_key_section_childs);
+                  /* cast to remove const to be able to set directions */
+                  ELEMENT *prev = (ELEMENT *)
+                    up_section_childs->list[up_section_childs->number -1];
                   const ELEMENT **prev_section_directions
                     = add_extra_directions (prev, AI_key_section_directions);
                   const ELEMENT **section_directions
@@ -254,7 +255,7 @@ sectioning_structure (DOCUMENT *document)
                     section_directions[D_up] = up;
                   section_directions[D_prev] = prev;
                   prev_section_directions[D_next] = content;
-                  add_to_element_list (up_section_childs, content);
+                  add_to_const_element_list (up_section_childs, content);
                 }
               if (!(command_other_flags (content) & CF_unnumbered))
                 {
@@ -270,12 +271,12 @@ sectioning_structure (DOCUMENT *document)
       else
         {
           sec_root = new_element (ET_NONE);
-          ELEMENT_LIST *sec_root_childs
-            = add_extra_contents (sec_root, AI_key_section_childs, 1);
+          CONST_ELEMENT_LIST *sec_root_childs
+            = add_extra_load (sec_root, AI_key_section_childs, 1);
            /* first section determines the level of the root.  It is
               typically -1 when there is a @top. */
           add_extra_integer (sec_root, AI_key_section_level, level -1);
-          add_to_element_list (sec_root_childs, content);
+          add_to_const_element_list (sec_root_childs, content);
            /*
             in the tree as an out of tree element in extra */
           add_extra_element_oot (content, AI_key_sectioning_root, sec_root);
@@ -461,8 +462,8 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
     = lookup_extra_element (node, AI_key_associated_section);
   if (associated_section)
     {
-      const ELEMENT_LIST *section_childs
-                   = lookup_extra_contents (associated_section,
+      const CONST_ELEMENT_LIST *section_childs
+                   = lookup_extra_load (associated_section,
                                             AI_key_section_childs);
       if (section_childs)
         {
@@ -492,8 +493,8 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                   current = section_directions[D_next];
                   if (current->e.c->cmd == CM_part)
                     {
-                      const ELEMENT_LIST *section_childs
-                       = lookup_extra_contents (current, AI_key_section_childs);
+                      const CONST_ELEMENT_LIST *section_childs
+                       = lookup_extra_load (current, AI_key_section_childs);
                       if (section_childs)
                         {
                           int i;
@@ -1390,8 +1391,8 @@ nodes_tree (DOCUMENT *document)
               = lookup_extra_element (node, AI_key_associated_section);
             if (section)
               {
-                const ELEMENT_LIST *section_childs
-                  = lookup_extra_contents (section, AI_key_section_childs);
+                const CONST_ELEMENT_LIST *section_childs
+                  = lookup_extra_load (section, AI_key_section_childs);
                 if (section_childs && section_childs->number > 0)
                   {
                     const ELEMENT *first_sec = section_childs->list[0];

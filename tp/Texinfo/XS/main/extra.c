@@ -122,6 +122,24 @@ add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
   return n_list;
 }
 
+CONST_ELEMENT_LIST *
+add_extra_load (ELEMENT *e, enum ai_key_name key, int no_lookup)
+{
+  CONST_ELEMENT_LIST *n_list;
+  if (!no_lookup)
+    {
+      CONST_ELEMENT_LIST *e_list = lookup_extra_load (e, key);
+      if (e_list)
+        return e_list;
+    }
+
+  n_list = new_const_element_list ();
+  KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key,
+                                         extra_load);
+  k->k.const_list = n_list;
+  return n_list;
+}
+
 /* Holds 3 elements corresponding to directions in enum directions.
 
   The elements are set const because directions are set after the tree is
@@ -330,6 +348,23 @@ lookup_extra_contents (const ELEMENT *e, enum ai_key_name key)
       free (msg);
     }
   return k->k.list;
+}
+
+CONST_ELEMENT_LIST *
+lookup_extra_load (const ELEMENT *e, enum ai_key_name key)
+{
+  KEY_PAIR *k = lookup_extra (e, key);
+  if (!k)
+    return 0;
+  else if (k->type != extra_load)
+    {
+      char *msg;
+      xasprintf (&msg, "Bad type for lookup_extra_load: %s: %d",
+                 ai_key_names[key], k->type);
+      fatal (msg);
+      free (msg);
+    }
+  return k->k.const_list;
 }
 
 const ELEMENT **

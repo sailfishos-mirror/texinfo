@@ -633,9 +633,9 @@ units_directions (const LABEL_LIST *identifiers_target,
               int automatic_directions = (node->e.c->args.number <= 1);
               const ELEMENT *associated_section = lookup_extra_element (node,
                                                    AI_key_associated_section);
-              const ELEMENT_LIST *section_childs = 0;
+              const CONST_ELEMENT_LIST *section_childs = 0;
               if (associated_section)
-                section_childs = lookup_extra_contents (associated_section,
+                section_childs = lookup_extra_load (associated_section,
                                                      AI_key_section_childs);
               if (automatic_directions
                   && section_childs && section_childs->number > 0)
@@ -738,7 +738,7 @@ units_directions (const LABEL_LIST *identifiers_target,
       else
         {
           const ELEMENT *up = section;
-          const ELEMENT_LIST *up_section_childs;
+          const CONST_ELEMENT_LIST *up_section_childs;
           int up_section_level;
           int status;
           enum directions d;
@@ -785,7 +785,7 @@ units_directions (const LABEL_LIST *identifiers_target,
                 break;
             }
 
-          up_section_childs = lookup_extra_contents (up, AI_key_section_childs);
+          up_section_childs = lookup_extra_load (up, AI_key_section_childs);
           if (status >= 0 && up_section_level < 1
               && up->e.c->cmd == CM_top && up_section_childs
               && up_section_childs->number > 0)

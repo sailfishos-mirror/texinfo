@@ -163,7 +163,7 @@ void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
    information where build_perl_array is called.
  */
 static SV *
-build_perl_array (const ELEMENT_LIST *e, int avoid_recursion)
+build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
 {
   SV *sv;
   AV *av;
@@ -174,19 +174,19 @@ build_perl_array (const ELEMENT_LIST *e, int avoid_recursion)
   av = newAV ();
   sv = newRV_inc ((SV *) av);
 
-  for (i = 0; i < e->number; i++)
+  for (i = 0; i < e_l->number; i++)
     {
-      if (!e->list[i]->hv)
+      if (!e_l->list[i]->hv)
         {
-          if (e->list[i]->parent)
-            e->list[i]->hv = newHV ();
+          if (e_l->list[i]->parent)
+            e_l->list[i]->hv = newHV ();
           else
             {
               /* NOTE should not be possible, all the elements in
                  extra_contents should be in-tree.  Checked in 2023.
                */
               static TEXT message;
-              char *debug_str = print_element_debug (e->list[i], 1);
+              char *debug_str = print_element_debug (e_l->list[i], 1);
               text_init (&message);
               text_printf (&message,
                 "BUG: build_perl_array oot %d: %s\n", i, debug_str);
@@ -197,10 +197,54 @@ build_perl_array (const ELEMENT_LIST *e, int avoid_recursion)
               free (message.text);
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
-              element_to_perl_hash (e->list[i], avoid_recursion);
+              element_to_perl_hash (e_l->list[i], avoid_recursion);
             }
         }
-      av_store (av, i, newRV_inc ((SV *) e->list[i]->hv));
+      av_store (av, i, newRV_inc ((SV *) e_l->list[i]->hv));
+    }
+  return sv;
+}
+
+static SV *
+build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursion)
+{
+  SV *sv;
+  AV *av;
+  int i;
+
+  dTHX;
+
+  av = newAV ();
+  sv = newRV_inc ((SV *) av);
+
+  for (i = 0; i < e_l->number; i++)
+    {
+      if (!e_l->list[i]->hv)
+        {
+          ELEMENT *f = (ELEMENT *)e_l->list[i];
+          if (f->parent)
+            f->hv = newHV ();
+          else
+            {
+              /* NOTE should not be possible, all the elements in
+                 extra_contents should be in-tree.  Checked in 2023.
+               */
+              static TEXT message;
+              char *debug_str = print_element_debug (f, 1);
+              text_init (&message);
+              text_printf (&message,
+                "BUG: build_perl_const_element_array oot %d: %s\n", i, debug_str);
+      /* Calling free in this file on data possibly allocated with gnulib
+         is not ok in general, but ok here, as it should never be called */
+              free (debug_str);
+              fprintf (stderr, "%s", message.text);
+              free (message.text);
+              /* Out-of-tree element */
+              /* WARNING: This is possibly recursive. */
+              element_to_perl_hash (f, avoid_recursion);
+            }
+        }
+      av_store (av, i, newRV_inc ((SV *) e_l->list[i]->hv));
     }
   return sv;
 }
@@ -364,6 +408,13 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               const ELEMENT_LIST *l = k->k.list;
               if (l && l->number)
                 STORE(build_perl_array (l, avoid_recursion));
+              break;
+              }
+            case extra_load:
+              {
+              const CONST_ELEMENT_LIST *l = k->k.const_list;
+              if (l && l->number)
+                STORE(build_perl_const_element_array (l, avoid_recursion));
               break;
               }
             case extra_directions:

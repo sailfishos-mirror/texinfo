@@ -85,6 +85,21 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
             }
           break;
           }
+        case extra_load:
+          {
+          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+          CONST_ELEMENT_LIST *new_extra_load = new_const_element_list ();
+          k->k.const_list = new_extra_load;
+          for (j = 0; j < k_ref->k.const_list->number; j++)
+            {
+              /* cast to discard const, as the element needs to be modified
+                 transiently for copy */
+              ELEMENT *e = (ELEMENT *)k_ref->k.const_list->list[j];
+              ELEMENT *copy = copy_tree_internal (e);
+              add_to_const_element_list (new_extra_load, copy);
+            }
+          break;
+          }
         case extra_directions:
           {
           KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
@@ -264,6 +279,17 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
             for (j = 0; j < k_ref->k.list->number; j++)
               {
                 ELEMENT *e = k_ref->k.list->list[j];
+                remove_element_copy_info (e);
+              }
+            break;
+          }
+        case extra_load:
+          {
+            for (j = 0; j < k_ref->k.const_list->number; j++)
+              {
+              /* cast to discard const, as the element needs to be modified
+                 transiently for copy */
+                ELEMENT *e = (ELEMENT *)k_ref->k.const_list->list[j];
                 remove_element_copy_info (e);
               }
             break;

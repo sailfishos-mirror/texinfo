@@ -6356,7 +6356,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   const char *filename_from;
   int is_contents = (cmd == CM_contents);
   TEXT result;
-  const ELEMENT_LIST *root_children;
+  const CONST_ELEMENT_LIST *root_children;
   const ELEMENT *section_root;
   int min_root_level;
   int max_root_level;
@@ -6390,7 +6390,7 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
   else
     return result.text;
 
-  root_children = lookup_extra_contents (section_root, AI_key_section_childs);
+  root_children = lookup_extra_load (section_root, AI_key_section_childs);
   min_root_level = lookup_extra_integer (root_children->list[0],
                                          AI_key_section_level,
                                          &status);
@@ -6461,8 +6461,8 @@ html_default_format_contents (CONVERTER *self, const enum command_id cmd,
        {
          int section_level = lookup_extra_integer (section, AI_key_section_level,
                                                    &status);
-         const ELEMENT_LIST *section_childs
-           = lookup_extra_contents (section, AI_key_section_childs);
+         const CONST_ELEMENT_LIST *section_childs
+           = lookup_extra_load (section, AI_key_section_childs);
          if (section->e.c->cmd != CM_top)
             {
               char *text;
@@ -10271,7 +10271,7 @@ mini_toc_internal (CONVERTER *self, const ELEMENT *element, TEXT *result)
 {
   int entry_index = 0;
 
-  const ELEMENT_LIST *section_childs = lookup_extra_contents (element,
+  const CONST_ELEMENT_LIST *section_childs = lookup_extra_load (element,
                                                   AI_key_section_childs);
   if (section_childs && section_childs->number > 0)
     {
@@ -11721,7 +11721,7 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  const ELEMENT_LIST *authors;
+  const CONST_ELEMENT_LIST *authors;
 
   char *cancelled = html_cancel_pending_formatted_inline_content (self,
                                             builtin_command_name (cmd));
@@ -11764,7 +11764,7 @@ convert_quotation_command (CONVERTER *self, const enum command_id cmd,
         text_append (result, content);
     }
 
-  authors = lookup_extra_contents (element, AI_key_authors);
+  authors = lookup_extra_load (element, AI_key_authors);
   if (authors)
     {
       int i;

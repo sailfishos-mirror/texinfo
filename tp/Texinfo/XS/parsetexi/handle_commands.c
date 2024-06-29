@@ -953,9 +953,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
               else if (parent->e.c->cmd == CM_quotation
                        || parent->e.c->cmd == CM_smallquotation)
                 {
-                  ELEMENT_LIST *l = add_extra_contents (parent,
+                  CONST_ELEMENT_LIST *l = add_extra_load (parent,
                                                         AI_key_authors, 0);
-                  add_to_element_list (l, current);
+                  add_to_const_element_list (l, current);
                   add_extra_element (current, AI_key_quotation, parent);
                   found = 1; break;
                 }

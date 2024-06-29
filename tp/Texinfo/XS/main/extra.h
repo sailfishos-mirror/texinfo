@@ -23,6 +23,8 @@ void add_extra_element (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
 void add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
 ELEMENT_LIST *add_extra_contents (ELEMENT *e, enum ai_key_name key,
                                   int no_lookup);
+CONST_ELEMENT_LIST *add_extra_load (ELEMENT *e, enum ai_key_name key,
+                                    int no_lookup);
 void add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value);
 const ELEMENT **add_extra_directions (ELEMENT *e,
                                                 enum ai_key_name key);
@@ -37,6 +39,7 @@ ELEMENT *lookup_extra_element (const ELEMENT *e, enum ai_key_name key);
 ELEMENT *lookup_extra_element_oot (const ELEMENT *e, enum ai_key_name key);
 ELEMENT *lookup_extra_container (const ELEMENT *e, enum ai_key_name key);
 ELEMENT_LIST *lookup_extra_contents (const ELEMENT *e, enum ai_key_name key);
+CONST_ELEMENT_LIST * lookup_extra_load (const ELEMENT *e, enum ai_key_name key);
 const STRING_LIST *lookup_extra_misc_args (const ELEMENT *e,
                                            enum ai_key_name key);
 const INDEX_ENTRY_LOCATION *lookup_extra_index_entry (const ELEMENT *e,
