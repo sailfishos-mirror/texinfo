@@ -231,7 +231,7 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 /* Current node, section and part. */
 
 ELEMENT *current_node = 0;
-ELEMENT *current_section = 0;
+const ELEMENT *current_section = 0;
 ELEMENT *current_part = 0;
 
 
@@ -717,16 +717,15 @@ end_paragraph_preformatted (ELEMENT *current,
    the previous internal_space_holder, which is now irrelevant as
    its associated space has disappeared.
  */
-ELEMENT *internal_space_holder;
+const ELEMENT *internal_space_holder;
 
 void
 move_last_space_to_element (ELEMENT *current)
 {
   /* Remove element from main tree. It will still be referenced in
      the 'info' hash as 'spaces_before_argument'. */
-  ELEMENT *owning_element;
+  const ELEMENT *owning_element = internal_space_holder;
   ELEMENT *e = pop_element_from_contents (current);
-  owning_element = internal_space_holder;
   e->type = ET_other_text;
   e->parent = 0;
   if (owning_element->type != ET_context_brace_command)
@@ -1106,7 +1105,7 @@ isolate_last_space (ELEMENT *current)
    spaces_before_argument. */
 void
 start_empty_line_after_command (ELEMENT *current, const char **line_inout,
-                                ELEMENT *command)
+                                const ELEMENT *command)
 {
   const char *line = *line_inout;
   ELEMENT *e;

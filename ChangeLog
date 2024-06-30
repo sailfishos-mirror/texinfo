@@ -1,5 +1,12 @@
 2024-06-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (handle_macro): remove a useless
+	setting of internal_space_holder.
+
+	Add const.
+
+2024-06-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_close_brace),
 	tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): reorganize
 	code, add variables, change variable names for clearer code. Remove

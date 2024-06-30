@@ -27,7 +27,7 @@
 #include "counter.h"
 
 
-extern ELEMENT *internal_space_holder;
+extern const ELEMENT *internal_space_holder;
 
 /* In close.c */
 void remove_empty_content (ELEMENT *current);
@@ -96,7 +96,7 @@ char *text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg);
 ELEMENT *merge_text (ELEMENT *current, const char *text, size_t text_len,
                      ELEMENT *transfer_marks_element);
 void start_empty_line_after_command (ELEMENT *current, const char **line_inout,
-                                     ELEMENT *command);
+                                     const ELEMENT *command);
 int check_space_element (ELEMENT *e);
 void gather_spaces_after_cmd_before_arg (ELEMENT *current);
 char *parse_command_name (const char **ptr, int *single_char);
@@ -112,7 +112,7 @@ extern const char *linecommand_expansion_delimiters;
 extern DOCUMENT *parsed_document;
 
 extern ELEMENT *current_node;
-extern ELEMENT *current_section;
+extern const ELEMENT *current_section;
 extern ELEMENT *current_part;
 
 extern char *global_clickstyle;

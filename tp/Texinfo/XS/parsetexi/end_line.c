@@ -809,7 +809,7 @@ end_line_starting_block (ELEMENT *current)
   if (command == CM_multitable
       && (k = lookup_extra (current->parent, AI_key_columnfractions)))
     {
-      ELEMENT *misc_cmd = k->k.element;
+      const ELEMENT *misc_cmd = k->k.const_element;
       const STRING_LIST *misc_args
           = lookup_extra_misc_args (misc_cmd, AI_key_misc_args);
 
@@ -1621,7 +1621,7 @@ end_line_misc_line (ELEMENT *current)
             if a sectioning command follows the node. */
           add_extra_element (current, AI_key_node_preceding_part, current_part);
           add_extra_element (current_part, AI_key_part_following_node,
-                                 current);
+                             current);
         }
       current_node = current;
     }

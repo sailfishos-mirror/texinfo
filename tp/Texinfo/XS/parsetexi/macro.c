@@ -888,7 +888,6 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
                             = new_text_element (ET_other_text);
                           text_append_n (internal_space->e.text, line,
                                          leading_spaces_nr);
-                          internal_space_holder = macro_call_element;
 
                           macro_call_element
                            ->elt_info[eit_spaces_before_argument]

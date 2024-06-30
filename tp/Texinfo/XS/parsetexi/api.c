@@ -81,7 +81,9 @@ initialize_parsing (enum context root_ct)
   global_clickstyle = strdup ("arrow");
   global_kbdinputstyle = kbd_distinct;
 
-  current_node = current_section = current_part = 0;
+  current_node = 0;
+  current_section = 0;
+  current_part = 0;
   source_marks_reset_counters ();
 
   /* it is not totally obvious that is it better to reset the
