@@ -476,14 +476,18 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         }
       else if (closed_cmd == CM_U)
         {
-          if (current->e.c->contents.number == 0)
+          const char *arg_text = 0;
+          if (current->e.c->contents.number > 0
+              && type_data[current->e.c->contents.list[0]->type].flags
+                   == TF_text)
+            arg_text = current->e.c->contents.list[0]->e.text->text;
+
+          if (!arg_text || !*arg_text)
             {
               line_warn ("no argument specified for @U");
             }
           else
             {
-              const char *arg_text
-                = current->e.c->contents.list[0]->e.text->text;
               int n = strspn (arg_text, "0123456789ABCDEFabcdef");
               if (arg_text[n])
                 {
@@ -513,7 +517,6 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                         arg_text);
                     }
                 }
-
             }
         }
       else if (parent_of_command_as_argument (brace_command->parent)

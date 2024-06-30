@@ -1,6 +1,13 @@
 2024-06-30  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): fix the
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): fix @U
+	argument checking code.
+
+	* tp/Makefile.tres, tp/t/03coverage_braces.t (command_in_U): add test.
+
+2024-06-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): fix
 	@dotless argument checking code.
 
 	* tp/Makefile.tres, tp/t/03coverage_braces.t (command_in_dotless): add

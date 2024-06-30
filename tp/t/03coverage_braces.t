@@ -87,6 +87,8 @@ my @test_cases = (
 '],
 ['command_in_dotless',
 '@dotless{@code{i}}'],
+['command_in_U',
+'@U{@code{09AF}}'],
 ['verb_in_xref',
 '@anchor{point}
 
