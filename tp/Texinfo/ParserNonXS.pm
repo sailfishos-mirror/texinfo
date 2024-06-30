@@ -6764,7 +6764,7 @@ sub _handle_comma($$$$)
       push @{$brace_command->{'args'}}, $elided_arg_elt;
       my $arg_text_e = {'type' => 'raw', 'text' => '',
                         'parent' => $elided_arg_elt};
-      push @{$elided_arg_elt->{'contents'}}, $arg_text;
+      push @{$elided_arg_elt->{'contents'}}, $arg_text_e;
 
       my $brace_count = 1;
       while ($brace_count > 0) {

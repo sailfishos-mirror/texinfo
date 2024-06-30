@@ -386,6 +386,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/brace_opened_no_command.pl \
   t/results/coverage_braces/caption_not_closed.pl \
   t/results/coverage_braces/code_not_closed.pl \
+  t/results/coverage_braces/command_in_dotless.pl \
   t/results/coverage_braces/contain_plain_text_nestings.pl \
   t/results/coverage_braces/definfoenclose_texinfo_commands.pl \
   t/results/coverage_braces/email_possibilities.pl \

@@ -22,6 +22,7 @@
 #include "command_ids.h"
 #include "tree_types.h"
 #include "text.h"
+#include "types_data.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -442,11 +443,16 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           if (current->e.c->contents.number > 0)
             {
-              char *text = current->e.c->contents.list[0]->e.text->text;
+              const char *text = 0;
+              if (type_data[current->e.c->contents.list[0]->type].flags
+                   == TF_text)
+                text = current->e.c->contents.list[0]->e.text->text;
               if (!text || (strcmp (text, "i") && strcmp (text, "j")))
                 {
+                  char *texi_arg = convert_to_texinfo (current);
                   line_error ("@dotless expects `i' or `j' as argument, "
-                              "not `%s'", text);
+                              "not `%s'", texi_arg);
+                  free (texi_arg);
                 }
             }
         }

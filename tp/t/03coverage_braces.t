@@ -85,6 +85,8 @@ my @test_cases = (
 @^{ e } @ringaccent{ a } @dotless{ i } @tieaccent{ bb }
 @aa{ i } @enddots{ ei }
 '],
+['command_in_dotless',
+'@dotless{@code{i}}'],
 ['verb_in_xref',
 '@anchor{point}
 
