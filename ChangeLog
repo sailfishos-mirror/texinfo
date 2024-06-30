@@ -1,5 +1,14 @@
 2024-06-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_handle_comma),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_comma): make code clearer.
+	Decrease remaining_args right after seeing a comma.  Use different
+	variables for elements instead or using input current element.  Use
+	input current element as the first argument if the comma is is the
+	first seen for a BRACE_inline command.
+
+2024-06-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_handle_block_command),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
 	reorganize code, change variable names for clearer code, better

@@ -610,81 +610,85 @@ handle_comma (ELEMENT *current, const char **line_inout)
 {
   const char *line = *line_inout;
   enum element_type type;
-  ELEMENT *new_arg, *e;
+  ELEMENT *brace_command;
+  ELEMENT *new_arg, *spaces_before_e;
+  ELEMENT *new_current;
 
   abort_empty_line (current);
   isolate_last_space (current);
 
   type = current->type;
-  current = current->parent;
+  brace_command = current->parent;
 
-  if (command_data(current->e.c->cmd).data == BRACE_inline)
+  if (counter_value (&count_remaining_args, brace_command) != COUNTER_VARIADIC)
+    counter_dec (&count_remaining_args);
+
+  if (command_data(brace_command->e.c->cmd).data == BRACE_inline)
     {
       int expandp = 0;
-      const char *format = lookup_extra_string (current, AI_key_format);
+      const char *format = lookup_extra_string (brace_command, AI_key_format);
       if (!format)
-        {
-          ELEMENT *arg = 0;
+        {/* get the first argument, which is also current that was before the comma
+            and put it in extra format */
           char *inline_type = 0;
-          if (current->e.c->args.number > 0
-              && current->e.c->args.list[0]->e.c->contents.number > 0
-              && (arg = current->e.c->args.list[0]->e.c->contents.list[0]))
+          if (current->e.c->contents.number > 0)
             {
-              if (arg->type ==  ET_normal_text && arg->e.text->end > 0)
-                inline_type = arg->e.text->text;
+              ELEMENT *type_arg = current->e.c->contents.list[0];
+              if (type_arg->type == ET_normal_text && type_arg->e.text->end > 0)
+                inline_type = type_arg->e.text->text;
             }
 
           if (!inline_type)
             {
               /* Condition is missing */
               debug ("INLINE COND MISSING");
-              add_extra_string (current, AI_key_format, 0);
+              add_extra_string (brace_command, AI_key_format, 0);
             }
           else
             {
               debug ("INLINE: %s", inline_type);
-              if (current->e.c->cmd == CM_inlineraw
-                  || current->e.c->cmd == CM_inlinefmt
-                  || current->e.c->cmd == CM_inlinefmtifelse)
+              if (brace_command->e.c->cmd == CM_inlineraw
+                  || brace_command->e.c->cmd == CM_inlinefmt
+                  || brace_command->e.c->cmd == CM_inlinefmtifelse)
                 {
                   if (parser_format_expanded_p (inline_type))
                     {
                       expandp = 1;
-                      add_extra_integer (current, AI_key_expand_index, 1);
+                      add_extra_integer (brace_command, AI_key_expand_index, 1);
                     }
                   else
                     expandp = 0;
                 }
-              else if (current->e.c->cmd == CM_inlineifset
-                       || current->e.c->cmd == CM_inlineifclear)
+              else if (brace_command->e.c->cmd == CM_inlineifset
+                       || brace_command->e.c->cmd == CM_inlineifclear)
                 {
                   expandp = 0;
                   if (fetch_value (inline_type))
                     expandp = 1;
-                  if (current->e.c->cmd == CM_inlineifclear)
+                  if (brace_command->e.c->cmd == CM_inlineifclear)
                     expandp = !expandp;
                   if (expandp)
-                    add_extra_integer (current, AI_key_expand_index, 1);
+                    add_extra_integer (brace_command, AI_key_expand_index, 1);
                 }
               else
                 expandp = 0;
 
-              add_extra_string_dup (current, AI_key_format, inline_type);
+              add_extra_string_dup (brace_command, AI_key_format, inline_type);
             }
 
           /* Skip first argument for a false @inlinefmtifelse */
-          if (!expandp && current->e.c->cmd == CM_inlinefmtifelse)
+          if (!expandp && brace_command->e.c->cmd == CM_inlinefmtifelse)
             {
-              ELEMENT *e;
-              ELEMENT *arg;
+              ELEMENT *elided_arg_elt;
+              ELEMENT *arg_text;
               int brace_count = 1;
 
-              add_extra_integer (current, AI_key_expand_index, 2);
+              add_extra_integer (brace_command, AI_key_expand_index, 2);
 
-              e = new_element (ET_elided_brace_command_arg);
-              add_to_element_args (current, e);
-              arg = new_text_element (ET_raw);
-              add_to_element_contents (e, arg);
+              elided_arg_elt = new_element (ET_elided_brace_command_arg);
+              add_to_element_args (brace_command, elided_arg_elt);
+              arg_text = new_text_element (ET_raw);
+              add_to_element_contents (elided_arg_elt, arg_text);
 
               /* Scan forward to get the next argument. */
               while (brace_count > 0)
@@ -692,7 +696,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
                   static char *alloc_line;
                   size_t non_separator_len = strcspn (line, "{},");
                   if (non_separator_len > 0)
-                    text_append_n (arg->e.text, line, non_separator_len);
+                    text_append_n (arg_text->e.text, line, non_separator_len);
                   line += non_separator_len;
                   switch (*line)
                     {
@@ -700,47 +704,58 @@ handle_comma (ELEMENT *current, const char **line_inout)
                       if (brace_count == 1)
                         {
                           line++;
+                          /* we start the third argument here */
+                          counter_dec (&count_remaining_args);
                           goto inlinefmtifelse_done;
                         }
-                      text_append_n (arg->e.text, line, 1);
+                      text_append_n (arg_text->e.text, line, 1);
                       break;
                     case '{':
                       brace_count++;
-                      text_append_n (arg->e.text, line, 1);
+                      text_append_n (arg_text->e.text, line, 1);
                       break;
                     case '}':
                       brace_count--;
                       if (brace_count > 0)
-                        text_append_n (arg->e.text, line, 1);
+                        text_append_n (arg_text->e.text, line, 1);
                       break;
                     default:
                       /* at the end of line */
                       free (alloc_line);
-                      line = alloc_line = next_text (e);
+                      line = alloc_line = next_text (elided_arg_elt);
                       if (!line)
-                        goto funexit;
+                        {
+                          new_current = brace_command;
+                          goto funexit;
+                        }
                       continue;
                     }
                   line++;
                 }
             inlinefmtifelse_done:
-              /* Second argument is missing. */
+              /* Second part (not counting the format) is missing. */
               if (brace_count == 0)
                 {
-                  current = last_args_child (current);
+                  new_current = elided_arg_elt;
                   line--; /* on '}' */
                   goto funexit;
                 }
-              else
-                counter_dec (&count_remaining_args);
+              /* Second part (not counting the format) of @inlinefmtifelse
+                 when condition is false, right after the comma delimitating the
+                 elided first part.  Keep the second part */
               expandp = 1;
             }
         }
-      else if (current->e.c->cmd == CM_inlinefmtifelse)
-        {
-          /* Second part of @inlinefmtifelse when condition is true.  Discard
-             second argument. */
-          expandp = 0;
+      else
+        { /* format is set, so this is the second comma */
+          /* Second part (not counting the format) of @inlinefmtifelse when
+             condition is true.  Discard second part. */
+          if (brace_command->e.c->cmd == CM_inlinefmtifelse)
+            expandp = 0;
+          else
+        /* the functions is called only for an @-command with 3 arguments for
+           a second comma, so it can only be inlinefmtifelse */
+            bug ("impossible @inline* with three arguments and not inlinefmtifelse");
         }
 
       /* If this command is not being expanded, add an elided argument, and
@@ -748,60 +763,61 @@ handle_comma (ELEMENT *current, const char **line_inout)
       if (!expandp)
         {
           static char *alloc_line;
-          ELEMENT *e;
-          ELEMENT *arg;
+          ELEMENT *elided_arg_elt;
+          ELEMENT *arg_text;
           int brace_count = 1;
 
-          e = new_element (ET_elided_brace_command_arg);
-          add_to_element_args (current, e);
-          arg = new_text_element (ET_raw);
-          add_to_element_contents (e, arg);
+          elided_arg_elt = new_element (ET_elided_brace_command_arg);
+          add_to_element_args (brace_command, elided_arg_elt);
+          arg_text = new_text_element (ET_raw);
+          add_to_element_contents (elided_arg_elt, arg_text);
 
           while (brace_count > 0)
             {
               size_t non_separator_len = strcspn (line, "{}");
               if (non_separator_len > 0)
-                text_append_n (arg->e.text, line, non_separator_len);
+                text_append_n (arg_text->e.text, line, non_separator_len);
               line += non_separator_len;
               switch (*line)
                 {
                 case '{':
                   brace_count++;
-                  text_append_n (arg->e.text, line, 1);
+                  text_append_n (arg_text->e.text, line, 1);
                   break;
                 case '}':
                   brace_count--;
                   if (brace_count > 0)
-                    text_append_n (arg->e.text, line, 1);
+                    text_append_n (arg_text->e.text, line, 1);
                   break;
                 default:
                   /* at the end of line */
                   free (alloc_line);
-                  line = alloc_line = next_text (e);
+                  line = alloc_line = next_text (elided_arg_elt);
                   if (!alloc_line)
-                    goto funexit;
+                    {
+                      /* FIXME not sure about that */
+                      new_current = brace_command;
+                      goto funexit;
+                    }
                   continue;
                 }
               line++;
             }
-          counter_dec (&count_remaining_args);
-          current = last_args_child (current);
+          new_current = elided_arg_elt;
           line--;  /* on '}' */
           goto funexit;
         }
     }
 
-  if (counter_value (&count_remaining_args, current) != COUNTER_VARIADIC)
-    counter_dec (&count_remaining_args);
   new_arg = new_element (type);
-  add_to_element_args (current, new_arg);
-  current = new_arg;
-  e = new_text_element (ET_internal_spaces_before_argument);
-  add_to_element_contents (current, e);
-  internal_space_holder = current;
+  add_to_element_args (brace_command, new_arg);
+  spaces_before_e = new_text_element (ET_internal_spaces_before_argument);
+  add_to_element_contents (new_arg, spaces_before_e);
+  internal_space_holder = new_arg;
+  new_current = new_arg;
 
 funexit:
   *line_inout = line;
-  return current;
+  return new_current;
 }
 

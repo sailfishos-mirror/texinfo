@@ -6666,17 +6666,20 @@ sub _handle_comma($$$$)
   #                          and $type ne 'brace_arg'
   #                          and $type ne 'block_line_arg'
   #                          and $type ne 'line_arg');
-  $current = $current->{'parent'};
-  if ($brace_commands{$current->{'cmdname'}}
-      and $brace_commands{$current->{'cmdname'}} eq 'inline') {
+  my $brace_command = $current->{'parent'};
+
+  $brace_command->{'remaining_args'}--;
+
+  if ($brace_commands{$brace_command->{'cmdname'}}
+      and $brace_commands{$brace_command->{'cmdname'}} eq 'inline') {
     my $expandp = 0;
-    $current->{'extra'} = {} if (!$current->{'extra'});
-    if (! $current->{'extra'}->{'format'}) {
+    $brace_command->{'extra'} = {} if (!$brace_command->{'extra'});
+    if (! $brace_command->{'extra'}->{'format'}) {
       my $inline_type;
-      if (defined $current->{'args'}->[0]
-          and $current->{'args'}->[0]->{'contents'}
-          and scalar(@{$current->{'args'}->[0]->{'contents'}})) {
-        $inline_type = $current->{'args'}->[0]->{'contents'}->[0]->{'text'};
+      # get the first argument, which is also $current, which was before the comma
+      # and put it in extra format
+      if ($current->{'contents'}) {
+        $inline_type = $current->{'contents'}->[0]->{'text'};
       }
 
       if (!defined($inline_type) or $inline_type eq '') {
@@ -6685,83 +6688,84 @@ sub _handle_comma($$$$)
           if ($self->{'conf'}->{'DEBUG'});
       } else {
         print STDERR "INLINE: $inline_type\n" if ($self->{'conf'}->{'DEBUG'});
-        if ($inline_format_commands{$current->{'cmdname'}}) {
+        if ($inline_format_commands{$brace_command->{'cmdname'}}) {
           if ($self->{'expanded_formats_hash'}->{$inline_type}) {
             $expandp = 1;
-            $current->{'extra'}->{'expand_index'} = 1;
+            $brace_command->{'extra'}->{'expand_index'} = 1;
           } else {
             $expandp = 0;
           }
-        } elsif (($current->{'cmdname'} eq 'inlineifset'
+        } elsif (($brace_command->{'cmdname'} eq 'inlineifset'
                   and exists($self->{'values'}->{$inline_type}))
-                 or ($current->{'cmdname'} eq 'inlineifclear'
+                 or ($brace_command->{'cmdname'} eq 'inlineifclear'
                      and ! exists($self->{'values'}->{$inline_type}))) {
           $expandp = 1;
-          $current->{'extra'}->{'expand_index'} = 1;
+          $brace_command->{'extra'}->{'expand_index'} = 1;
         } else {
           $expandp = 0;
         }
       }
-      $current->{'extra'}->{'format'} = $inline_type;
+      $brace_command->{'extra'}->{'format'} = $inline_type;
 
       # Skip first argument for a false @inlinefmtifelse
-      if (!$expandp and $current->{'cmdname'} eq 'inlinefmtifelse') {
-        $current->{'extra'}->{'expand_index'} = 2;
+      if (!$expandp and $brace_command->{'cmdname'} eq 'inlinefmtifelse') {
+        $brace_command->{'extra'}->{'expand_index'} = 2;
 
         my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
                               'contents' => [],
-                              'parent' => $current,};
-        push @{$current->{'args'}}, $elided_arg_elt;
-        my $raw = {'type' => 'raw', 'text' => '', 'parent' => $elided_arg_elt};
-        push @{$elided_arg_elt->{'contents'}}, $raw;
+                              'parent' => $brace_command,};
+        push @{$brace_command->{'args'}}, $elided_arg_elt;
+        my $arg_text = {'type' => 'raw', 'text' => '',
+                        'parent' => $elided_arg_elt};
+        push @{$elided_arg_elt->{'contents'}}, $arg_text;
 
         # Scan forward to get the next argument.
         my $brace_count = 1;
         while ($brace_count > 0) {
           # Forward to next comma or brace
           if ($line =~ s/([^{,}]*)([,{}])//) {
-            $raw->{'text'} .= $1;
+            $arg_text->{'text'} .= $1;
             my $delimiter = $2;
             if ($delimiter eq ',') {
               if ($brace_count == 1) {
+                $brace_command->{'remaining_args'}--;
                 last;
               }
-              $raw->{'text'} .= $delimiter;
+              $arg_text->{'text'} .= $delimiter;
             } elsif ($delimiter eq '{') {
               $brace_count++;
-              $raw->{'text'} .= $delimiter;
+              $arg_text->{'text'} .= $delimiter;
             } elsif ($delimiter eq '}') {
               $brace_count--;
-              $raw->{'text'} .= $delimiter if ($brace_count);
+              $arg_text->{'text'} .= $delimiter if ($brace_count);
             }
           } else {
-            $raw->{'text'} .= $line;
+            $arg_text->{'text'} .= $line;
             ($line, $source_info)
             # there is a test a situation with macro call closing in ignored
-            # @inlinefmtifelse first arg:
+            # @inlinefmtifelse first part (not counting the format):
             # t/*macro.t macro_end_call_in_ignored_inlinefmtifelse.
                = _next_text($self, $elided_arg_elt);
             if (not defined($line)) {
               # error - unbalanced brace
-              return ($current, $line, $source_info, $GET_A_NEW_LINE);
+              return ($brace_command, $line, $source_info, $GET_A_NEW_LINE);
               # goto funexit;  # used in XS code
             }
           }
         }
         if ($brace_count == 0) {
-          # Second argument is missing.
-          $current = $current->{'args'}->[-1];
+          # Second part (not counting the format) is missing.
           $line = '}' . $line;
-          return ($current, $line, $source_info);
+          return ($elided_arg_elt, $line, $source_info);
           # goto funexit;  # used in XS code
-        } else {
-          $current->{'remaining_args'}--;
         }
+        # start of the second @inlinefmtifelse part (not counting the format)
+        # when condition is false.  Keep it.
         $expandp = 1;
       }
-    } elsif ($current->{'cmdname'} eq 'inlinefmtifelse') {
-      # Second arg of @inlinefmtifelse when condition is true.
-      # Discard second argument.
+    } elsif ($brace_command->{'cmdname'} eq 'inlinefmtifelse') {
+      # Second part of @inlinefmtifelse (not counting the format) when
+      # condition is true. Discard second part.
       $expandp = 0;
     }
     # If this command is not being expanded, add an elided argument,
@@ -6769,25 +6773,26 @@ sub _handle_comma($$$$)
     if (!$expandp) {
       my $elided_arg_elt = {'type' => 'elided_brace_command_arg',
                             'contents' => [],
-                            'parent' => $current,};
-      push @{$current->{'args'}}, $elided_arg_elt;
-      my $raw = {'type' => 'raw', 'text' => '', 'parent' => $elided_arg_elt};
-      push @{$elided_arg_elt->{'contents'}}, $raw;
+                            'parent' => $brace_command,};
+      push @{$brace_command->{'args'}}, $elided_arg_elt;
+      my $arg_text = {'type' => 'raw', 'text' => '',
+                      'parent' => $elided_arg_elt};
+      push @{$elided_arg_elt->{'contents'}}, $arg_text;
 
       my $brace_count = 1;
       while ($brace_count > 0) {
         if ($line =~ s/([^{}]*)([{}])//) {
-          $raw->{'text'} .= $1;
+          $arg_text->{'text'} .= $1;
           my $delimiter = $2;
           if ($delimiter eq '{') {
             $brace_count++;
-            $raw->{'text'} .= $delimiter;
+            $arg_text->{'text'} .= $delimiter;
           } else {
             $brace_count--;
-            $raw->{'text'} .= $delimiter if ($brace_count);
+            $arg_text->{'text'} .= $delimiter if ($brace_count);
           }
         } else {
-          $raw->{'text'} .= $line;
+          $arg_text->{'text'} .= $line;
           # test for a situation with macro call end in ignored
           # @inline* last arg are in
           # t/*macro.t macro_end_call_in_ignored_inlinefmt
@@ -6797,31 +6802,27 @@ sub _handle_comma($$$$)
              = _next_text($self, $elided_arg_elt);
           if (not defined($line)) {
             # error - unbalanced brace
-            return ($current, $line, $source_info, $GET_A_NEW_LINE);
+            return ($brace_command, $line, $source_info, $GET_A_NEW_LINE);
             # goto funexit;  # used in XS code
           }
         }
       }
-      $current->{'remaining_args'}--;
-      $current = $current->{'args'}->[-1];
       $line = '}' . $line;
-      return ($current, $line, $source_info);
+      return ($elided_arg_elt, $line, $source_info);
       # goto funexit;  # used in XS code
     }
   }
-  $current->{'remaining_args'}--;
-  my $new_arg = { 'type' => $type, 'parent' => $current, 'contents' => [] };
-  push @{$current->{'args'}}, $new_arg;
-  $current = $new_arg;
+  my $new_arg = {'type' => $type, 'parent' => $brace_command, 'contents' => []};
+  push @{$brace_command->{'args'}}, $new_arg;
   # internal_spaces_before_argument is a transient internal type,
   # which should end up in info spaces_before_argument.
   my $space_before = {'type' => 'internal_spaces_before_argument',
-                      'text' => '', 'parent' => $current,
+                      'text' => '', 'parent' => $new_arg,
                      };
-  $self->{'internal_space_holder'} = $current;
-  push @{$current->{'contents'}}, $space_before;
+  $self->{'internal_space_holder'} = $new_arg;
+  push @{$new_arg->{'contents'}}, $space_before;
 
-  return ($current, $line, $source_info);
+  return ($new_arg, $line, $source_info);
 }
 
 sub _new_macro($$$)
