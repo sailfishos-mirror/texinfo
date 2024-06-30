@@ -1,3 +1,9 @@
+2024-06-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/htmlxref.cnf: add R-FAQ.
+
+	From Sebastian Meyer <seb.meyer@fau.de>.
+
 2024-06-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/tp_api/Makefile.am (texi2any_internals.texi):

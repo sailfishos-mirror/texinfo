@@ -1,8 +1,8 @@
 # htmlxref.cnf - reference file for free Texinfo manuals on the web.
 
-htmlxrefversion=2023-04-02.12; # UTC
+htmlxrefversion=2024-06-28.08; # UTC
 
-# Copyright 2010-2023 Free Software Foundation, Inc.
+# Copyright 2010-2024 Free Software Foundation, Inc.
 # 
 # Copying and distribution of this file, with or without modification,
 # are permitted in any medium without royalty provided the copyright
@@ -663,6 +663,7 @@ R = https://cran.r-project.org/doc/manuals
  R-data		mono	${R}/R-data.html
  R-admin	mono	${R}/R-admin.html
  R-ints		mono	${R}/R-ints.html
+ R-FAQ		mono	${R}/R-FAQ.html
 
 rcs		mono	${GS}/rcs/manual/rcs.html
 rcs		node	${GS}/rcs/manual/html_node/
