@@ -1,3 +1,11 @@
+2024-06-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_handle_block_command),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	reorganize code, change variable names for clearer code, better
+	separation of def* and other block commands, and try to finish
+	modifying an element before registering it as an arg or content.
+
 2024-06-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/build_perl_info.c (build_additional_info),

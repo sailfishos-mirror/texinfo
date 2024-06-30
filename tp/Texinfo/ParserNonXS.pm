@@ -6032,16 +6032,15 @@ sub _handle_block_command($$$$$)
   }
 
   my $block;
+  my $block_line_e;
 
   # the def command holds a line_def* which corresponds with the
   # definition line.  This allows to have a treatement similar
   # with def*x.
   if ($def_commands{$command}) {
-    $self->_push_context('ct_def', $command);
     $block = { 'parent' => $current,
                'cmdname' => $command,
                'contents' => [] };
-    push @{$current->{'contents'}}, $block;
     my $def_line = {
                      'type' => 'def_line',
                      'parent' => $block,
@@ -6051,107 +6050,110 @@ sub _handle_block_command($$$$$)
                         'original_def_cmdname' => $command,
                        },
                     };
-    push @{$block->{'contents'}}, $def_line;
     if (defined($self->{'values'}->{'txidefnamenospace'})) {
       $def_line->{'extra'}->{'omit_def_name_space'} = 1;
     }
-    $current = $def_line;
+    push @{$block->{'contents'}}, $def_line;
+    $block_line_e = $def_line;
+    $self->_push_context('ct_def', $command);
   } else {
     $block = { 'cmdname' => $command,
                'parent' => $current,
              };
-    push @{$current->{'contents'}}, $block;
-    $current = $block;
-  }
 
-  if ($preformatted_commands{$command}) {
-    $self->_push_context('ct_preformatted', $command);
-  } elsif ($math_commands{$command}) {
-    $self->_push_context('ct_math', $command);
-  } elsif ($block_commands{$command} eq 'format_raw') {
-    $self->_push_context('ct_rawpreformatted', $command);
-  } elsif ($block_commands{$command} eq 'region') {
-    push @{$self->{'nesting_context'}->{'regions_stack'}}, $command;
-  }
-
-  if ($block_commands{$command} eq 'menu') {
-    $self->_push_context('ct_preformatted', $command);
-    push @{$self->{'document'}->{'commands_info'}->{'dircategory_direntry'}},
-         $block if ($command eq 'direntry');
-    if ($self->{'current_node'}) {
-      if ($command eq 'direntry') {
-        if ($self->{'conf'}->{'FORMAT_MENU'} eq 'menu') {
-          $self->_line_warn(__("\@direntry after first node"),
-                    $source_info);
+    if ($preformatted_commands{$command}) {
+      $self->_push_context('ct_preformatted', $command);
+    } elsif ($math_commands{$command}) {
+      $self->_push_context('ct_math', $command);
+    } elsif ($block_commands{$command} eq 'format_raw') {
+      $self->_push_context('ct_rawpreformatted', $command);
+    } elsif ($block_commands{$command} eq 'region') {
+      push @{$self->{'nesting_context'}->{'regions_stack'}}, $command;
+    } elsif ($block_commands{$command} eq 'menu') {
+      $self->_push_context('ct_preformatted', $command);
+      push @{$self->{'document'}->{'commands_info'}->{'dircategory_direntry'}},
+           $block if ($command eq 'direntry');
+      if ($self->{'current_node'}) {
+        if ($command eq 'direntry') {
+          if ($self->{'conf'}->{'FORMAT_MENU'} eq 'menu') {
+            $self->_line_warn(__("\@direntry after first node"),
+                      $source_info);
+          }
+        } elsif ($command eq 'menu') {
+          if (!(defined $current->{'cmdname'})
+              or $root_commands{$current->{'cmdname'}}) {
+            $self->{'current_node'}->{'extra'} = {}
+              if (!defined($self->{'current_node'}->{'extra'}));
+            $self->{'current_node'}->{'extra'}->{'menus'} = []
+              if (!defined($self->{'current_node'}->{'extra'}->{'menus'}));
+            push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $block;
+          } else {
+            $self->_line_warn(__("\@menu in invalid context"),
+                              $source_info);
+          }
         }
-      } elsif ($command eq 'menu') {
-        if (!(defined $current->{'parent'}->{'cmdname'})
-            or $root_commands{$current->{'parent'}->{'cmdname'}}) {
-          $self->{'current_node'}->{'extra'} = {}
-            if (!defined($self->{'current_node'}->{'extra'}));
-          $self->{'current_node'}->{'extra'}->{'menus'} = []
-            if (!defined($self->{'current_node'}->{'extra'}->{'menus'}));
-          push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
-        } else {
-          $self->_line_warn(__("\@menu in invalid context"),
+      }
+    } elsif ($block_commands{$command} eq 'item_container') {
+    # cleaner, and more similar to XS parser, but not required, would have
+    # been initialized automatically.
+      $block->{'items_count'} = 0;
+    } elsif ($command eq 'nodedescriptionblock') {
+      if ($self->{'current_node'}) {
+        $block->{'extra'} = {} if (!defined($block->{'extra'}));
+        $block->{'extra'}->{'element_node'} = $self->{'current_node'};
+        if ($self->{'current_node'}->{'extra'}
+            and $self->{'current_node'}->{'extra'}->{'node_long_description'}) {
+          $self->_line_warn(__("multiple node \@nodedescriptionblock"),
                             $source_info);
-        }
-      }
-    }
-  } elsif ($block_commands{$command} eq 'item_container') {
-  # cleaner, and more similar to XS parser, but not required, would have
-  # been initialized automatically.
-    $current->{'items_count'} = 0;
-  } elsif ($command eq 'nodedescriptionblock') {
-    if ($self->{'current_node'}) {
-      $block->{'extra'} = {} if (!defined($block->{'extra'}));
-      $block->{'extra'}->{'element_node'} = $self->{'current_node'};
-      if ($self->{'current_node'}->{'extra'}
-          and $self->{'current_node'}->{'extra'}->{'node_long_description'}) {
-        $self->_line_warn(__("multiple node \@nodedescriptionblock"),
-                          $source_info);
-      } else {
-        $self->{'current_node'}->{'extra'} = {}
-          if (!$self->{'current_node'}->{'extra'});
-        $self->{'current_node'}->{'extra'}->{'node_long_description'}
-          = $block;
-        if (!$self->{'current_node'}->{'extra'}->{'node_description'}) {
-          $self->{'current_node'}->{'extra'}->{'node_description'}
+        } else {
+          $self->{'current_node'}->{'extra'} = {}
+            if (!$self->{'current_node'}->{'extra'});
+          $self->{'current_node'}->{'extra'}->{'node_long_description'}
             = $block;
+          if (!$self->{'current_node'}->{'extra'}->{'node_description'}) {
+            $self->{'current_node'}->{'extra'}->{'node_description'}
+              = $block;
+          }
         }
+      } else {
+        $self->_line_warn(__("\@nodedescriptionblock outside of any node"),
+                          $source_info);
       }
-    } else {
-      $self->_line_warn(__("\@nodedescriptionblock outside of any node"),
-                        $source_info);
     }
-  }
 
-  if ($commands_args_number{$command}) {
-    if ($commands_args_number{$command} - 1 > 0) {
-      $current->{'remaining_args'}
-        = $commands_args_number{$command} - 1;
+    $block_line_e = $block;
+    my $remaining_args = 0;
+    if ($commands_args_number{$command}) {
+      if ($commands_args_number{$command} - 1 > 0) {
+        $remaining_args
+          = $commands_args_number{$command} - 1;
+      }
+    } elsif ($variadic_commands{$command}) {
+      $remaining_args = -1; # unlimited args
     }
-  } elsif ($variadic_commands{$command}) {
-    $current->{'remaining_args'} = -1; # unlimited args
+    $block_line_e->{'remaining_args'} = $remaining_args
+      if ($remaining_args);
+
+    $self->_push_context('ct_line', $command)
   }
-  my $block_line_arg_element = {
+  $block->{'source_info'} = {%$source_info};
+  push @{$current->{'contents'}}, $block;
+
+  # bla = block line argument
+  my $bla_element = {
                  'type' => 'block_line_arg',
-                 'parent' => $current};
-  $current->{'args'} = [$block_line_arg_element];
+                 'parent' => $block_line_e};
 
-  $current = $block_line_arg_element;
+  $block_line_e->{'args'} = [$bla_element];
 
-  $self->_push_context('ct_line', $command)
-    unless ($def_commands{$command});
   if ($self->{'basic_inline_commands'}->{$command}) {
     push @{$self->{'nesting_context'}->{'basic_inline_stack_block'}},
          $command;
   }
-  $block->{'source_info'} = {%$source_info};
   _register_global_command($self, $block, $source_info);
-  $line = _start_empty_line_after_command($self, $line, $current, $block);
+  $line = _start_empty_line_after_command($self, $line, $bla_element, $block);
 
-  return ($current, $line, $block);
+  return ($bla_element, $line, $block);
 }
 
 sub _handle_brace_command($$$$)

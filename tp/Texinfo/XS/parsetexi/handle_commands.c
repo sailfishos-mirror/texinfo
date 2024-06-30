@@ -1008,6 +1008,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   unsigned long flags = command_data(cmd).flags;
   ELEMENT *block = 0;
   ELEMENT *bla;   /* block line arg element */
+  ELEMENT *block_line_e;
 
   if (command_data(cmd).data == BLOCK_menu
       && (current->type == ET_menu_comment
@@ -1034,132 +1035,132 @@ handle_block_command (ELEMENT *current, const char **line_inout,
     {
       ELEMENT *def_line;
       char *val;
-      push_context (ct_def, cmd);
       block = new_command_element (ET_block_command, cmd);
       block->e.c->source_info = current_source_info;
-      add_to_element_contents (current, block);
 
       def_line = new_element (ET_def_line);
       def_line->e.c->source_info = current_source_info;
-      add_to_element_contents (block, def_line);
 
-      current = def_line;
-      add_extra_string_dup (current, AI_key_def_command, command_name(cmd));
-      add_extra_string_dup (current, AI_key_original_def_cmdname,
+      add_extra_string_dup (def_line, AI_key_def_command, command_name(cmd));
+      add_extra_string_dup (def_line, AI_key_original_def_cmdname,
                             command_name(cmd));
-      current->flags |= EF_def_line;
+      def_line->flags |= EF_def_line;
       /* Check txidefnamenospace flag */
       val = fetch_value ("txidefnamenospace");
       if (val)
-        current->flags |= EF_omit_def_name_space;
+        def_line->flags |= EF_omit_def_name_space;
+
+      add_to_element_contents (block, def_line);
+      block_line_e = def_line;
+      push_context (ct_def, cmd);
     }
   else
     {
       block = new_command_element (ET_block_command, cmd);
-      add_to_element_contents (current, block);
-      current = block;
-    }
 
-  /* Check if 'block args command' */
-  if (command_data(cmd).flags & CF_preformatted)
-    push_context (ct_preformatted, cmd);
-  else if (cmd == CM_displaymath)
-    push_context (ct_math, cmd);
-  else if (command_data(cmd).data == BLOCK_format_raw)
-    {
-      push_context (ct_rawpreformatted, cmd);
-    }
-  else if (command_data(cmd).data == BLOCK_region)
-    {
-      push_command (&nesting_context.regions_stack, cmd);
-    }
-
-  if (command_data(cmd).data == BLOCK_menu)
-    {
-      push_context (ct_preformatted, cmd);
-
-      if (cmd == CM_direntry)
-        add_to_element_list (&parsed_document->global_commands
-                                                 .dircategory_direntry,
-                             block);
-
-      if (current_node)
+      if (command_data(cmd).data == BLOCK_preformatted)
+        push_context (ct_preformatted, cmd);
+      else if (cmd == CM_displaymath)
+        push_context (ct_math, cmd);
+      else if (command_data(cmd).data == BLOCK_format_raw)
         {
-          if (cmd == CM_direntry && global_parser_conf.show_menu)
+          push_context (ct_rawpreformatted, cmd);
+        }
+      else if (command_data(cmd).data == BLOCK_region)
+        {
+          push_command (&nesting_context.regions_stack, cmd);
+        }
+      else if (command_data(cmd).data == BLOCK_menu)
+        {
+          push_context (ct_preformatted, cmd);
+
+          if (cmd == CM_direntry)
+            add_to_element_list (&parsed_document->global_commands
+                                                 .dircategory_direntry,
+                                 block);
+
+          if (current_node)
             {
-              line_warn ("@direntry after first node");
-            }
-          else if (cmd == CM_menu)
-            {
-              if (!(command_flags(current->parent) & CF_root))
-                line_warn ("@menu in invalid context");
-              else
+              if (cmd == CM_direntry && global_parser_conf.show_menu)
                 {
-                  CONST_ELEMENT_LIST *l
-                    = add_extra_contents (current_node, AI_key_menus, 0);
-                  add_to_const_element_list (l, block);
+                  line_warn ("@direntry after first node");
+                }
+              else if (cmd == CM_menu)
+                {
+                  if (!(command_flags(current) & CF_root))
+                    line_warn ("@menu in invalid context");
+                  else
+                    {
+                      CONST_ELEMENT_LIST *l
+                        = add_extra_contents (current_node, AI_key_menus, 0);
+                      add_to_const_element_list (l, block);
+                    }
                 }
             }
         }
-    }
-  else if (cmd == CM_nodedescriptionblock)
-    {
-      if (current_node)
+      /* BLOCK_item_container */
+      else if (cmd == CM_itemize || cmd == CM_enumerate)
+        counter_push (&count_items, block, 0);
+      /* BLOCK_other */
+      else if (cmd == CM_nodedescriptionblock)
         {
-          const ELEMENT *node_long_description
-            = lookup_extra_element (current_node,
-                                    AI_key_node_long_description);
-          if (node_long_description)
-            line_warn ("multiple node @nodedescriptionblock");
-           else
+          if (current_node)
             {
-              const ELEMENT *node_description
-                = lookup_extra_element (current_node, AI_key_node_description);
+              const ELEMENT *node_long_description
+                = lookup_extra_element (current_node,
+                                    AI_key_node_long_description);
+              if (node_long_description)
+                line_warn ("multiple node @nodedescriptionblock");
+               else
+                {
+                  const ELEMENT *node_description
+                    = lookup_extra_element (current_node,
+                                            AI_key_node_description);
 
-              if (!node_description)
-                add_extra_element (current_node, AI_key_node_description,
-                                   block);
+                  if (!node_description)
+                    add_extra_element (current_node, AI_key_node_description,
+                                       block);
 
-              add_extra_element (current_node, AI_key_node_long_description,
-                                 block);
+                  add_extra_element (current_node, AI_key_node_long_description,
+                                     block);
+                }
+              add_extra_element (block, AI_key_element_node, current_node);
             }
-          add_extra_element (block, AI_key_element_node, current_node);
+          else
+            line_warn ("@nodedescriptionblock outside of any node");
         }
-      else
-        line_warn ("@nodedescriptionblock outside of any node");
+
+      block_line_e = block;
+      if (command_data (block_line_e->e.c->cmd).args_number > 1)
+        {
+          counter_push (&count_remaining_args,
+                        block_line_e,
+                        command_data (block_line_e->e.c->cmd).args_number - 1);
+        }
+      else if (command_data (block_line_e->e.c->cmd).flags & CF_variadic)
+        {
+          /* Unlimited args */
+          counter_push (&count_remaining_args, block_line_e,
+                        COUNTER_VARIADIC);
+        }
+      push_context (ct_line, cmd);
     }
-  else if (cmd == CM_itemize || cmd == CM_enumerate)
-    counter_push (&count_items, current, 0);
+  block->e.c->source_info = current_source_info;
+  add_to_element_contents (current, block);
 
   bla = new_element (ET_block_line_arg);
-  add_to_element_args (current, bla);
+  add_to_element_args (block_line_e, bla);
 
-  if (command_data (current->e.c->cmd).args_number > 1)
-    {
-      counter_push (&count_remaining_args,
-                    current,
-                    command_data (current->e.c->cmd).args_number - 1);
-    }
-  else if (command_data (current->e.c->cmd).flags & CF_variadic)
-    {
-      /* Unlimited args */
-      counter_push (&count_remaining_args, current,
-                    COUNTER_VARIADIC);
-    }
 
-  current = bla;
-  if (!(command_data(cmd).flags & CF_def))
-    push_context (ct_line, cmd);
   if (command_data(cmd).flags & CF_contain_basic_inline)
     push_command (&nesting_context.basic_inline_stack_block, cmd);
 
-  block->e.c->source_info = current_source_info;
   register_global_command (block);
-  start_empty_line_after_command (current, &line, block);
+  start_empty_line_after_command (bla, &line, block);
 
   *line_inout = line;
   *command_element = block;
-  return current;
+  return bla;
 }
 
 /* in that case command_element always point to the returned current
