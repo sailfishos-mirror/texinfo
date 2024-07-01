@@ -386,6 +386,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/anchor_not_closed.pl \
   t/results/coverage_braces/brace_command_no_braces.pl \
   t/results/coverage_braces/brace_opened_no_command.pl \
+  t/results/coverage_braces/caption_no_braces.pl \
   t/results/coverage_braces/caption_not_closed.pl \
   t/results/coverage_braces/code_not_closed.pl \
   t/results/coverage_braces/command_in_U.pl \
@@ -408,11 +409,13 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/footnote_ending_on_empty_line.pl \
   t/results/coverage_braces/footnote_ending_on_empty_line_spaces.pl \
   t/results/coverage_braces/footnote_in_command_not_closed.pl \
+  t/results/coverage_braces/footnote_no_braces.pl \
   t/results/coverage_braces/footnote_no_node.pl \
   t/results/coverage_braces/footnote_not_closed.pl \
   t/results/coverage_braces/form_feed_in_brace_commands.pl \
   t/results/coverage_braces/format_on_first_footnote_line.pl \
   t/results/coverage_braces/heading_in_footnote.pl \
+  t/results/coverage_braces/hyphenation_no_braces.pl \
   t/results/coverage_braces/image_no_braces.pl \
   t/results/coverage_braces/inforef_too_much_args.pl \
   t/results/coverage_braces/kbd.pl \
@@ -420,6 +423,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/math_bracketed_not_closed.pl \
   t/results/coverage_braces/math_bracketed_not_closed_next_line.pl \
   t/results/coverage_braces/math_leading_trailing_spaces.pl \
+  t/results/coverage_braces/math_no_braces.pl \
   t/results/coverage_braces/math_not_closed.pl \
   t/results/coverage_braces/nested.pl \
   t/results/coverage_braces/nested_args.pl \
@@ -436,6 +440,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/space_in_anchor.pl \
   t/results/coverage_braces/space_in_footnote.pl \
   t/results/coverage_braces/space_in_image.pl \
+  t/results/coverage_braces/strong_no_braces.pl \
   t/results/coverage_braces/test_image.pl \
   t/results/coverage_braces/test_w.pl \
   t/results/coverage_braces/too_much_args.pl \

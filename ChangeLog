@@ -1,5 +1,12 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/03coverage_braces.t (math_no_braces)
+	(strong_no_braces, caption_no_braces, footnote_no_braces)
+	(hyphenation_no_braces): test of brace commands without braces at end
+	of document.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (_convert): revert a change on
 	explained_commands conversion, if the number of args is >= 2, handle
 	them especially.

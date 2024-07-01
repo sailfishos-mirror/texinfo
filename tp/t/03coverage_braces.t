@@ -94,6 +94,11 @@ my @test_cases = (
 ['abbr_no_braces', '@abbr'],
 ['email_no_braces', '@email'],
 ['url_no_braces', '@url'],
+['math_no_braces', '@math'],
+['strong_no_braces', '@strong'],
+['caption_no_braces', '@caption'],
+['footnote_no_braces', '@footnote'],
+['hyphenation_no_braces', '@hyphenation'],
 ['verb_in_xref',
 '@anchor{point}
 
