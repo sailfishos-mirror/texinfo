@@ -1,5 +1,16 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args): remove a
+	useless argument of sprintf.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert): handle better @-command
+	defined with definfoenclose missing braces and with 0 args.
+
+	* tp/Makefile.tres, tp/t/03coverage_braces.t
+	(definfoenclose_bad_argument, definfoenclose_no_braces): new tests.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): simplify args
 	conditions, use element instead of element contents.
 

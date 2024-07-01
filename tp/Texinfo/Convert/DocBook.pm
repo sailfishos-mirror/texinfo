@@ -1106,8 +1106,10 @@ sub _convert($$;$)
       }
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command') {
-      my $arg = $self->_convert($element->{'args'}->[0]);
-      $result .= $arg;
+      if ($element->{'args'}) {
+        my $arg_text = $self->_convert($element->{'args'}->[0]);
+        $result .= $arg_text;
+      }
 
     } elsif ($element->{'args'}
              and exists($Texinfo::Commands::brace_commands{$cmdname})) {

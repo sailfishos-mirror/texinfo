@@ -101,6 +101,8 @@ my @test_cases = (
 ['U_no_braces', '@U'],
 ['hyphenation_no_braces', '@hyphenation'],
 ['titlefont_no_braces', '@titlefont'],
+['definfoenclose_no_braces', '@definfoenclose phoo,;,:
+@phoo'],
 # tests a brace command without braces on a line command at the end of a
 # document
 ['seeentry_no_braces', '@node Top
@@ -431,6 +433,7 @@ third}
 @ref{,,,manual} @ref{,,, , Manual} @inforef{,,imanual}
 @xref{ , Bidule, Truc, file, Printed}.
 '],
+['definfoenclose_bad_argument', '@definfoenclose #phoo,;,:'],
 );
 
 foreach my $test (@test_cases) {

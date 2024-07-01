@@ -13830,9 +13830,9 @@ sub _convert($$;$)
   # def_line type is to handle the same the def*x and def* line formatting.
   if ($element->{'cmdname'}
       and !(($element->{'type'}
-                 and $element->{'type'} eq 'definfoenclose_command')
+             and $element->{'type'} eq 'definfoenclose_command')
             or ($element->{'type'}
-                 and $element->{'type'} eq 'index_entry_command'))) {
+                and $element->{'type'} eq 'index_entry_command'))) {
     my $command_name = $element->{'cmdname'};
     if ($root_commands{$command_name}) {
       $self->{'current_root_command'} = $element;

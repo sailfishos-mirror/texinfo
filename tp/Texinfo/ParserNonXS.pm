@@ -8042,8 +8042,7 @@ sub _parse_line_command_args($$$)
         # @-command otherwise will remain there, possibly having specific effects.
       }
     } else {
-      $self->_line_error(sprintf(__("bad argument to \@definfoenclose"),
-                                 $command),
+      $self->_line_error(sprintf(__("bad argument to \@definfoenclose")),
                          $source_info);
     }
   } elsif ($command eq 'columnfractions') {
