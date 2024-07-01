@@ -1454,12 +1454,11 @@ sub _convert($$;$)
           return '';
         }
 
-      } elsif ($element->{'cmdname'} eq 'uref' or $element->{'cmdname'} eq 'url') {
+      } elsif ($element->{'cmdname'} eq 'uref'
+               or $element->{'cmdname'} eq 'url') {
         if ($element->{'args'}) {
           my ($url_text, $url_arg);
-          if (defined($element->{'args'}->[0])
-              and $element->{'args'}->[0]->{'contents'}
-              and @{$element->{'args'}->[0]->{'contents'}}) {
+          if ($element->{'args'}->[0]->{'contents'}) {
             $url_arg = $element->{'args'}->[0];
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
@@ -1477,16 +1476,12 @@ sub _convert($$;$)
           }
           my $replacement;
           if (scalar(@{$element->{'args'}}) >= 2
-              and defined($element->{'args'}->[1])
-              and $element->{'args'}->[1]->{'contents'}
-              and @{$element->{'args'}->[1]->{'contents'}}) {
+              and $element->{'args'}->[1]->{'contents'}) {
             $replacement = $self->_convert($element->{'args'}->[1]);
           }
           if (!defined($replacement) or $replacement eq '') {
             if (scalar(@{$element->{'args'}}) == 3
-                and defined($element->{'args'}->[2])
-                and $element->{'args'}->[2]->{'contents'}
-                and @{$element->{'args'}->[2]->{'contents'}}) {
+                and $element->{'args'}->[2]->{'contents'}) {
               $replacement = $self->_convert($element->{'args'}->[2]);
             }
           }
@@ -1500,7 +1495,8 @@ sub _convert($$;$)
           # return "<link xlink:href=\"$url_text\">$replacement</link>";
         }
 
-      } elsif ($element->{'cmdname'} eq 'abbr' or $element->{'cmdname'} eq 'acronym') {
+      } elsif ($element->{'cmdname'} eq 'abbr'
+               or $element->{'cmdname'} eq 'acronym') {
         my $argument;
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {

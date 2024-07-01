@@ -3293,29 +3293,23 @@ sub _convert($$)
     } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
       if ($element->{'args'}) {
         if (scalar(@{$element->{'args'}}) == 3
-             and defined($element->{'args'}->[2])
-             and $element->{'args'}->[2]->{'contents'}
-             and @{$element->{'args'}->[2]->{'contents'}}) {
+             and $element->{'args'}->[2]->{'contents'}) {
           unshift @{$self->{'current_contents'}->[-1]},
-            {'contents' => $element->{'args'}->[2]->{'contents'}};
-        } elsif ($element->{'args'}->[0]
-                 and $element->{'args'}->[0]->{'contents'}
-                 and @{$element->{'args'}->[0]->{'contents'}}) {
-          my $url_content = $element->{'args'}->[0];
+                     $element->{'args'}->[2];
+        } elsif ($element->{'args'}->[0]->{'contents'}) {
+          my $url_arg = $element->{'args'}->[0];
           Texinfo::Convert::Text::set_options_code(
                                    $self->{'convert_text_options'});
           my $url_text = $self->_protect_url(
-            Texinfo::Convert::Text::convert_to_text($url_content,
+            Texinfo::Convert::Text::convert_to_text($url_arg,
                                  $self->{'convert_text_options'}));
           Texinfo::Convert::Text::reset_options_code(
                                    $self->{'convert_text_options'});
           if (scalar(@{$element->{'args'}}) == 2
-              and defined($element->{'args'}->[1])
-              and $element->{'args'}->[1]->{'contents'}
-              and @{$element->{'args'}->[1]->{'contents'}}) {
-            my $description = _convert($self, $element->{'args'}->[1]);
+              and $element->{'args'}->[1]->{'contents'}) {
+            my $description_text = _convert($self, $element->{'args'}->[1]);
             my $text = $self->cdt_string('{text} ({url})',
-                {'text' => $description, 'url' => "\\nolinkurl{$url_text}"});
+              {'text' => $description_text, 'url' => "\\nolinkurl{$url_text}"});
             $result .= "\\href{$url_text}{$text}";
             return $result;
           } else {
