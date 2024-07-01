@@ -1,5 +1,17 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info),
+	tp/Texinfo/Convert/LaTeX.pm (_title_font),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/XS/convert/convert_html.c (convert_titlefont_command):
+	simplify args conditions for titlefont and/or handle titlefont element
+	without braces and with 0 args.
+
+	* tp/Makefile.tres, tp/t/03coverage_braces.t (titlefont_no_braces):
+	test of @titlefont without braces at end of document.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.tres, tp/t/03coverage_braces.t (U_no_braces): test of
 	@U without braces at end of document.
 

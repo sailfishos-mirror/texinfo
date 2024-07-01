@@ -444,6 +444,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/strong_no_braces.pl \
   t/results/coverage_braces/test_image.pl \
   t/results/coverage_braces/test_w.pl \
+  t/results/coverage_braces/titlefont_no_braces.pl \
   t/results/coverage_braces/too_much_args.pl \
   t/results/coverage_braces/two_footnotes_in_nodes.pl \
   t/results/coverage_braces/two_footnotes_in_nodes_separate.pl \

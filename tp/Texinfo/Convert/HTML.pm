@@ -12865,11 +12865,7 @@ sub _prepare_converted_output_info($)
     }
     if (!$fulltitle_tree and $global_commands->{'titlefont'}
         and $global_commands->{'titlefont'}->[0]->{'args'}
-        and defined($global_commands->{'titlefont'}->[0]->{'args'}->[0])
-        and $global_commands->{'titlefont'}->[0]
-                                                ->{'args'}->[0]->{'contents'}
-        and @{$global_commands->{'titlefont'}->[0]
-                                                ->{'args'}->[0]->{'contents'}}) {
+        and $global_commands->{'titlefont'}->[0]->{'args'}->[0]->{'contents'}) {
       $fulltitle_tree = $global_commands->{'titlefont'}->[0];
     }
   }

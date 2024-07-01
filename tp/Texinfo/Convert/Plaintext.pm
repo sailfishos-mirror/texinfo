@@ -3188,15 +3188,17 @@ sub _convert($$)
         die if ($old_context ne $command);
         return;
       } elsif ($command eq 'titlefont') {
-        my $result = $self->_text_heading(
+        if ($element->{'args'}) {
+          my $result = $self->_text_heading(
                           {'extra' => {'section_level' => 0},
                            'cmdname' => 'titlefont'},
                             $element->{'args'}->[0],
                             $self->get_conf('NUMBER_SECTIONS'),
           ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);
-        $result =~ s/\n$//; # final newline has its own tree element
-        _stream_output($self, $result);
-        _add_lines_count($self, 1);
+          $result =~ s/\n$//; # final newline has its own tree element
+          _stream_output($self, $result);
+          _add_lines_count($self, 1);
+        }
         return;
       } elsif ($command eq 'U') {
         if ($element->{'args'}

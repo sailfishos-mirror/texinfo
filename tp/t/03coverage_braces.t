@@ -100,6 +100,7 @@ my @test_cases = (
 ['footnote_no_braces', '@footnote'],
 ['U_no_braces', '@U'],
 ['hyphenation_no_braces', '@hyphenation'],
+['titlefont_no_braces', '@titlefont'],
 ['verb_in_xref',
 '@anchor{point}
 

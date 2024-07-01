@@ -2312,11 +2312,10 @@ sub _title_font($$)
   my $self = shift;
   my $element = shift;
 
-  if ($element->{'args'}->[0] and $element->{'args'}->[0]->{'contents'}) {
+  if ($element->{'args'} and $element->{'args'}->[0]->{'contents'}) {
     # in Texinfo TeX seems a bit smaller, but LARGE seems too small
     my $result = "{\\huge \\bfseries ";
-    $result
-      .= _convert($self, {'contents' => $element->{'args'}->[0]->{'contents'}});
+    $result .= _convert($self, $element->{'args'}->[0]);
     $result .= '}';
     return $result;
   }
