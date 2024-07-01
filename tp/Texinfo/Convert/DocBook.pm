@@ -416,7 +416,7 @@ sub conversion_output_begin($;$$)
     foreach my $title_cmdname ('title', 'shorttitlepage', 'titlefont') {
       if ($global_commands->{$title_cmdname}) {
         my $command = $global_commands->{$title_cmdname};
-        next if (!$command->{'args'} or !$command->{'args'}->[0]
+        next if (!$command->{'args'}
                  or !$command->{'args'}->[0]->{'contents'});
         $fulltitle_command = $command;
         last;
@@ -480,7 +480,7 @@ sub conversion_output_begin($;$$)
   if ($global_commands and $global_commands->{'settitle'}) {
     my $command = $global_commands->{'settitle'};
     $settitle_command = $command
-      unless (!$command->{'args'} or !$command->{'args'}->[0]
+      unless (!$command->{'args'}
               or !$command->{'args'}->[0]->{'contents'});
   }
 
@@ -495,7 +495,7 @@ sub conversion_output_begin($;$$)
     # preceding it, so we also use @top
     my $command = $global_commands->{'top'};
     $fulltitle_command = $command
-      unless (!$command->{'args'} or !$command->{'args'}->[0]
+      unless (!$command->{'args'}
               or !$command->{'args'}->[0]->{'contents'});
   }
 
@@ -731,7 +731,7 @@ sub _convert_def_line($$)
   $self->_new_document_context();
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
-  if ($element->{'args'} and @{$element->{'args'}}
+  if ($element->{'args'}
       and $element->{'args'}->[0]->{'contents'}) {
     my $main_command;
     if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
@@ -863,8 +863,7 @@ sub _convert($$;$)
                   and $element->{'parent'}->{'extra'}->{'command_as_argument'}
                   and $element->{'parent'}->{'extra'}->{'command_as_argument'}
                                                       ->{'cmdname'} eq 'bullet')
-            and $element->{'parent'}->{'args'}
-            and $element->{'parent'}->{'args'}->[0]) {
+            and $element->{'parent'}->{'args'}) {
           $self->{'pending_prepend'}
             = $self->_convert($element->{'parent'}->{'args'}->[0]);
           $self->{'pending_prepend'} .= " ";
@@ -877,7 +876,7 @@ sub _convert($$;$)
 
         $result .= "<term>" if ($element->{'cmdname'} eq 'itemx');
         $result .= $self->_index_entry($element);
-        if ($element->{'args'} and scalar(@{$element->{'args'}})
+        if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {
           my $table_item_tree = $self->table_item_content_tree($element);
           $table_item_tree = $element->{'args'}->[0]
@@ -904,7 +903,7 @@ sub _convert($$;$)
       my $end_line;
       if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
           # this condition is probably always true
-          and $element->{'args'}->[0]) {
+          and $element->{'args'}) {
         $end_line = $self->format_comment_or_return_end_line($element);
         if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
           chomp($end_line);
@@ -1018,8 +1017,9 @@ sub _convert($$;$)
             }
             push @{$self->{'lang_stack'}}, $language;
             $result .= "<$docbook_sectioning_element${section_attribute}>\n";
-            if ($opened_element->{'args'} and $opened_element->{'args'}->[0]) {
-              my ($arg, $end_line) = $self->_convert_argument_and_end_line($opened_element);
+            if ($opened_element->{'args'}) {
+              my ($arg, $end_line)
+                = $self->_convert_argument_and_end_line($opened_element);
               $result .= "<title>$arg</title>$end_line";
               chomp ($result);
               $result .= "\n";
@@ -1038,7 +1038,7 @@ sub _convert($$;$)
       } elsif ($element->{'cmdname'} eq 'c' or $element->{'cmdname'} eq 'comment') {
         return $self->xml_comment($element->{'args'}->[0]->{'text'})
       } elsif ($Texinfo::Commands::sectioning_heading_commands{$element->{'cmdname'}}) {
-        if ($element->{'args'} and $element->{'args'}->[0]) {
+        if ($element->{'args'}) {
           my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
           $result .=
             "<bridgehead renderas=\"$docbook_sections{$element->{'cmdname'}}\">$arg</bridgehead>$end_line";
@@ -1088,7 +1088,8 @@ sub _convert($$;$)
             and defined($element->{'extra'}->{'misc_args'})) {
           # FIXME DocBook 5
           #return "<index type=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
-          return "<index role=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
+          return "<index role=\"$element->{'extra'}->{'misc_args'}->[0]\">"
+                 ."</index>\n";
         } else {
           return "<index></index>\n";
         }
