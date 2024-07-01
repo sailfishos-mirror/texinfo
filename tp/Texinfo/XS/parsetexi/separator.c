@@ -699,6 +699,8 @@ handle_comma (ELEMENT *current, const char **line_inout)
               arg_text_e = new_text_element (ET_raw);
               add_to_element_contents (elided_arg_elt, arg_text_e);
 
+              new_current = elided_arg_elt;
+
               /* Scan forward to get the next argument. */
               while (brace_count > 0)
                 {
@@ -734,7 +736,6 @@ handle_comma (ELEMENT *current, const char **line_inout)
                       line = alloc_line = next_text (elided_arg_elt);
                       if (!line)
                         {
-                          new_current = brace_command;
                           goto funexit;
                         }
                       continue;
@@ -745,7 +746,6 @@ handle_comma (ELEMENT *current, const char **line_inout)
               /* Second part (not counting the format) is missing. */
               if (brace_count == 0)
                 {
-                  new_current = elided_arg_elt;
                   line--; /* on '}' */
                   goto funexit;
                 }
@@ -781,6 +781,8 @@ handle_comma (ELEMENT *current, const char **line_inout)
           arg_text_e = new_text_element (ET_raw);
           add_to_element_contents (elided_arg_elt, arg_text_e);
 
+          new_current = elided_arg_elt;
+
           while (brace_count > 0)
             {
               size_t non_separator_len = strcspn (line, "{}");
@@ -804,15 +806,12 @@ handle_comma (ELEMENT *current, const char **line_inout)
                   line = alloc_line = next_text (elided_arg_elt);
                   if (!alloc_line)
                     {
-                      /* FIXME not sure about that */
-                      new_current = brace_command;
                       goto funexit;
                     }
                   continue;
                 }
               line++;
             }
-          new_current = elided_arg_elt;
           line--;  /* on '}' */
           goto funexit;
         }

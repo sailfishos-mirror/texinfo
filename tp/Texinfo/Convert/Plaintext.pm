@@ -2679,7 +2679,9 @@ sub _convert($$)
         }
         return;
       } elsif ($ref_commands{$command}) {
-        if (scalar(@{$element->{'args'}})) {
+        # no args may happen with bogus @-commands without argument, maybe only
+        # at the end of a document
+        if ($element->{'args'} and scalar(@{$element->{'args'}})) {
           my @args;
           for my $arg (@{$element->{'args'}}) {
             if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {

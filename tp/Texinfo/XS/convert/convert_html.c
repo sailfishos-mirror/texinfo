@@ -12399,6 +12399,11 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   ELEMENT *book_element = 0;
   ELEMENT *reference_element = 0;
 
+  /* may happen with bogus @-commands without argument, maybe only
+     at the end of a document */
+  if (!args_formatted)
+    return;
+
   if (cmd != CM_link && cmd != CM_inforef && args_formatted->number > 2
       && args_formatted->args[2].formatted[AFT_type_normal]
       && strlen (args_formatted->args[2].formatted[AFT_type_normal]))

@@ -89,6 +89,7 @@ my @test_cases = (
 '@dotless{@code{i}}'],
 ['command_in_U',
 '@U{@code{09AF}}'],
+['brace_command_no_braces', '@xref'],
 ['verb_in_xref',
 '@anchor{point}
 

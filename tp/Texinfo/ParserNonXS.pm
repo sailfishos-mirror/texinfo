@@ -1504,12 +1504,21 @@ sub _close_brace_command($$$;$$$)
                  ' inlineraw');
   }
 
-  # args are always set
+  # args are always set except in cases of bogus brace @-commands
+  # without argument, maybe only at the end of a document.
   #die ("$current->{'cmdname'} no args\n") if (!$current->{'args'});
 
-  pop @{$self->{'nesting_context'}->{'basic_inline_stack'}}
-    if ($self->{'basic_inline_commands'}
-        and $self->{'basic_inline_commands'}->{$current->{'cmdname'}});
+  if ($self->{'basic_inline_commands'}
+      and $self->{'basic_inline_commands'}->{$current->{'cmdname'}}) {
+    my $popped = pop @{$self->{'nesting_context'}->{'basic_inline_stack'}};
+    if (!defined($popped)) {
+      print STDERR "BUG: popped basic_inline_commands command "
+                          ."stack empty: $current->{'cmdname'}\n";
+    } elsif ($popped ne $current->{'cmdname'}) {
+      print STDERR "BUG: popped basic_inline_commands "
+                       ."'$popped': $current->{'cmdname'}\n";
+    }
+  }
 
   if ($current->{'cmdname'} ne 'verb'
       or $current->{'info'}->{'delimiter'} eq '') {
@@ -2201,6 +2210,18 @@ sub _close_commands($$$;$$)
 {
   my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
+
+  # should correspond to a bogus brace @-commands without argument
+  # followed by spaces only, and not by newline, at the end of the document
+  if ($current->{'cmdname'}
+      and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
+    $self->_line_error(sprintf(__("\@%s expected braces"),
+                       $current->{'cmdname'}), $source_info);
+    if ($current->{'contents'}) {
+      _gather_spaces_after_cmd_before_arg($self, $current);
+    }
+    $current = $current->{'parent'};
+  }
 
   $current = _end_paragraph_preformatted($self, $current, $source_info,
                                          $closed_block_command,
@@ -6735,7 +6756,7 @@ sub _handle_comma($$$$)
                = _next_text($self, $elided_arg_elt);
             if (not defined($line)) {
               # error - unbalanced brace
-              return ($brace_command, $line, $source_info, $GET_A_NEW_LINE);
+              return ($elided_arg_elt, $line, $source_info, $GET_A_NEW_LINE);
               # goto funexit;  # used in XS code
             }
           }
@@ -6789,7 +6810,7 @@ sub _handle_comma($$$$)
              = _next_text($self, $elided_arg_elt);
           if (not defined($line)) {
             # error - unbalanced brace
-            return ($brace_command, $line, $source_info, $GET_A_NEW_LINE);
+            return ($elided_arg_elt, $line, $source_info, $GET_A_NEW_LINE);
             # goto funexit;  # used in XS code
           }
         }

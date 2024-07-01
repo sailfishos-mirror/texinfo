@@ -6178,6 +6178,12 @@ sub _convert_xref_commands($$$$)
   my $command = shift;
   my $args = shift;
 
+  # may happen with bogus @-commands without argument, maybe only
+  # at the end of a document
+  if (!$args) {
+    return '';
+  }
+
   my $tree;
   my $name;
   if ($cmdname ne 'link' and $cmdname ne 'inforef'

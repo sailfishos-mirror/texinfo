@@ -383,6 +383,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/verbatiminclude.pl \
   t/results/coverage_braces/abbr_acronym.pl \
   t/results/coverage_braces/anchor_not_closed.pl \
+  t/results/coverage_braces/brace_command_no_braces.pl \
   t/results/coverage_braces/brace_opened_no_command.pl \
   t/results/coverage_braces/caption_not_closed.pl \
   t/results/coverage_braces/code_not_closed.pl \

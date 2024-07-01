@@ -3352,7 +3352,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($ref_commands{$cmdname}) {
-      if (scalar(@{$element->{'args'}})) {
+      if ($element->{'args'} and scalar(@{$element->{'args'}})) {
         my @args;
         for my $arg (@{$element->{'args'}}) {
           if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {

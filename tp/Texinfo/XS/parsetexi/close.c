@@ -46,8 +46,7 @@ close_brace_command (ELEMENT *current,
                      enum command_id interrupting_cmd,
                      int missing_brace)
 {
-
-  char *delimiter;
+  const char *delimiter;
 
   counter_pop (&count_remaining_args);
 
@@ -192,6 +191,14 @@ close_container (ELEMENT *current)
       if (!current->source_mark_list)
         element_to_remove = current;
     }
+   /* not in Perl. Add?
+  else
+    {
+      debug_nonl ("CLOSE CONTAINER ");
+      debug_parser_print_element (current, 1);
+      debug ("");
+    }
+    */
 
   current = current->parent;
   if (element_to_remove)
@@ -487,6 +494,19 @@ close_commands (ELEMENT *current, enum command_id closed_block_cmd,
                 ELEMENT **closed_element, enum command_id interrupting_cmd)
 {
   *closed_element = 0;
+
+  /* should correspond to a bogus brace @-commands without argument
+     followed by spaces only, and not by newline, at the end of the document
+   */
+  if (command_flags(current) & CF_brace)
+    {
+      line_error ("@%s expected braces",
+                  command_name(current->e.c->cmd));
+      if (current->e.c->contents.number > 0)
+        gather_spaces_after_cmd_before_arg (current);
+      current = current->parent;
+    }
+
   current = end_paragraph_preformatted (current, closed_block_cmd,
                                         interrupting_cmd);
 
