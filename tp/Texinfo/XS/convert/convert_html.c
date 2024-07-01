@@ -9229,7 +9229,7 @@ convert_explained_command (CONVERTER *self, const enum command_id cmd,
   else
     text_result = result;
 
-  if (args_formatted->number > 0 &&
+  if (args_formatted && args_formatted->number > 0 &&
       args_formatted->args[0].formatted[AFT_type_normal])
     explained_arg = args_formatted->args[0].formatted[AFT_type_normal];
   else
@@ -12399,7 +12399,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   ELEMENT *book_element = 0;
   ELEMENT *reference_element = 0;
 
-  /* may happen with bogus @-commands without argument, maybe only
+  /* happens with bogus @-commands without argument, maybe only
      at the end of a document */
   if (!args_formatted)
     return;

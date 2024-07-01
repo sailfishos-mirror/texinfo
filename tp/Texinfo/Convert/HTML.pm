@@ -3721,7 +3721,8 @@ sub _convert_explained_command($$$$)
   my $explanation_result;
   my $explanation_string;
   my $normalized_type = '';
-  if ($command->{'args'}->[0]
+
+  if ($command->{'args'}
       and $command->{'args'}->[0]->{'contents'}) {
     $normalized_type
        = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(

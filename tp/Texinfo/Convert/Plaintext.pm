@@ -3136,9 +3136,7 @@ sub _convert($$)
         return;
       } elsif ($explained_commands{$command}) {
         if ($element->{'args'}
-            and defined($element->{'args'}->[0])
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+            and $element->{'args'}->[0]->{'contents'}) {
           # in abbr spaces never end a sentence.
           my $argument;
           if ($command eq 'abbr') {

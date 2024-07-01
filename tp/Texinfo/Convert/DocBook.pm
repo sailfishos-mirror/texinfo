@@ -1506,10 +1506,8 @@ sub _convert($$;$)
 
       } elsif ($element->{'cmdname'} eq 'abbr' or $element->{'cmdname'} eq 'acronym') {
         my $argument;
-        if (scalar(@{$element->{'args'}}) >= 1
-            and defined($element->{'args'}->[0])
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+        if ($element->{'args'}
+            and $element->{'args'}->[0]->{'contents'}) {
           my $arg = $self->_convert($element->{'args'}->[0]);
           if ($arg ne '') {
             my $format_element;
@@ -1522,10 +1520,9 @@ sub _convert($$;$)
           }
         }
         #
-        if (scalar(@{$element->{'args'}}) == 2
-           and defined($element->{'args'}->[-1])
-           and $element->{'args'}->[-1]->{'contents'}
-           and @{$element->{'args'}->[-1]->{'contents'}}) {
+        if ($element->{'args'}
+            and scalar(@{$element->{'args'}}) == 2
+            and $element->{'args'}->[-1]->{'contents'}) {
           if (defined($argument)) {
             my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
                            {'abbr_or_acronym' => {'type' => '_converted',
