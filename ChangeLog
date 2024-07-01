@@ -1,5 +1,17 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_index_entry): use element
+	instead of contents.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert_def_line): remove useless
+	impossible condition.  Reindent.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert): simplify conditions on
+	args.  Use elements instead of contents.  Use variables for
+	$substituted_strings.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line): close a bogus brace
 	@-command without argument followed by spaces only, and not by

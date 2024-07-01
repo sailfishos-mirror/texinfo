@@ -648,14 +648,15 @@ sub _index_entry($$)
     }
     if ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}) {
       $result .= "<see>";
-      $result .= $self->_convert({'contents'
-        => $index_entry->{'entry_element'}->{'extra'}->{'seeentry'}->{'args'}});
+      # args is set as the extra information is added when closing braces
+      $result .= $self->_convert($index_entry->{'entry_element'}
+                                   ->{'extra'}->{'seeentry'}->{'args'}->[0]);
       $result .= "</see>";
     }
     if ($index_entry->{'entry_element'}->{'extra'}->{'seealso'}) {
       $result .= "<seealso>";
-      $result .= $self->_convert({'contents'
-        => $index_entry->{'entry_element'}->{'extra'}->{'seealso'}->{'args'}});
+      $result .= $self->_convert($index_entry->{'entry_element'}
+                               ->{'extra'}->{'seealso'}->{'args'}->[0]);
       $result .= "</seealso>";
     }
 
@@ -735,21 +736,23 @@ sub _convert_def_line($$)
       and $element->{'args'}->[0]->{'contents'}) {
     my $main_command;
     if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-      $main_command = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
+      $main_command
+        = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
     } else {
       $main_command = $element->{'extra'}->{'def_command'};
     }
     foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
       my $type = $arg->{'type'};
-      next if !$type and $arg->{'type'} eq 'spaces';
 
       my $content = $self->_convert($arg);
       if ($type eq 'spaces' or $type eq 'delimiter') {
         $result .= $content;
       } elsif ($type eq 'def_category') {
-        $result .= "<phrase role=\"category\"><emphasis role=\"bold\">$content</emphasis>:</phrase>";
+        $result .= "<phrase role=\"category\"><emphasis role=\"bold\">"
+                     ."$content</emphasis>:</phrase>";
       } elsif ($type eq 'def_name') {
-        $result .= "<$defcommand_name_type{$main_command}>$content</$defcommand_name_type{$main_command}>";
+        $result .= "<$defcommand_name_type{$main_command}>$content"
+                       ."</$defcommand_name_type{$main_command}>";
       } else {
         if (!defined($def_argument_types_docbook{$type})) {
           warn "BUG: no def_argument_types_docbook for $type";
@@ -1041,7 +1044,8 @@ sub _convert($$;$)
         if ($element->{'args'}) {
           my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
           $result .=
-            "<bridgehead renderas=\"$docbook_sections{$element->{'cmdname'}}\">$arg</bridgehead>$end_line";
+            "<bridgehead renderas=\"$docbook_sections{$element->{'cmdname'}}\">"
+                ."$arg</bridgehead>$end_line";
           chomp ($result);
           $result .= "\n";
           return $result;
@@ -1161,6 +1165,7 @@ sub _convert($$;$)
         return _output_anchor($element);
       } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
         if ($element->{'args'}) {
+          my $args_nr = scalar(@{$element->{'args'}});
           my $cmdname;
           my $book_element;
           my ($section_name, $node_name);
@@ -1172,43 +1177,30 @@ sub _convert($$;$)
             $manual_file_index = 2;
             $cmdname = 'ref';
           } else {
-            if (scalar(@{$element->{'args'}}) == 5
-                and defined($element->{'args'}->[-1])
-                and $element->{'args'}->[-1]->{'contents'}
-                and @{$element->{'args'}->[-1]->{'contents'}}) {
+            if ($args_nr == 5
+                and $element->{'args'}->[-1]->{'contents'}) {
               $book_element = $element->{'args'}->[-1];
             }
-            if (defined($element->{'args'}->[2])
-                and $element->{'args'}->[2]->{'contents'}
-                and @{$element->{'args'}->[2]->{'contents'}}) {
-              my $section_name_contents = $element->{'args'}->[2]->{'contents'};
-              $section_name = $self->_convert(
-                   {'contents' => $section_name_contents});
+            if ($args_nr >= 3
+                and $element->{'args'}->[2]->{'contents'}) {
+              my $section_arg = $element->{'args'}->[2];
+              $section_name = $self->_convert($section_arg);
             }
             $cmdname = $element->{'cmdname'};
           }
           my $manual_file_element;
-          if (scalar(@{$element->{'args'}}) >= $manual_file_index+1
-              and defined($element->{'args'}->[$manual_file_index])
-              and $element->{'args'}->[$manual_file_index]->{'contents'}
-              and @{$element->{'args'}->[$manual_file_index]->{'contents'}}) {
+          if ($args_nr >= $manual_file_index+1
+              and $element->{'args'}->[$manual_file_index]->{'contents'}) {
             $manual_file_element = $element->{'args'}->[$manual_file_index];
           }
-          if (! defined($section_name) and defined($element->{'args'}->[1])
-              and $element->{'args'}->[1]->{'contents'}
-              and @{$element->{'args'}->[1]->{'contents'}}) {
-            my $section_name_contents
-              = $element->{'args'}->[1]->{'contents'};
-            $section_name = $self->_convert(
-                   {'contents' => $section_name_contents});
-          } elsif (defined($element->{'args'}->[0])
-                   and $element->{'args'}->[0]->{'contents'}
-                   and @{$element->{'args'}->[0]->{'contents'}}) {
-            my $node_contents
-              = $element->{'args'}->[0]->{'contents'};
+          if (! defined($section_name) and $args_nr >= 2
+              and $element->{'args'}->[1]->{'contents'}) {
+            my $section_arg = $element->{'args'}->[1];
+            $section_name = $self->_convert($section_arg);
+          } elsif ($element->{'args'}->[0]->{'contents'}) {
+            my $node_arg = $element->{'args'}->[0];
             push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
-            $node_name = $self->_convert(
-                   {'contents' => $node_contents});
+            $node_name = $self->_convert($node_arg);
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
 
             if (($book_element or $manual_file_element)
@@ -1222,38 +1214,42 @@ sub _convert($$;$)
           # external book ref
           if ($book_element) {
             if ($section_name) {
+              my $substituted_strings = {
+                  'section_name' => {'type' => '_converted',
+                                     'text' => $section_name},
+                  'book' => $book_element
+                };
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
                   $self->cdt('section ``{section_name}\'\' in @cite{{book}}',
-                    { 'section_name' => {'type' => '_converted', 'text' => $section_name},
-                      'book' => $book_element }));
+                             $substituted_strings));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->cdt('See section ``{section_name}\'\' in @cite{{book}}',
-                    { 'section_name' => {'type' => '_converted', 'text' => $section_name},
-                      'book' => $book_element }));
+                 $self->cdt('See section ``{section_name}\'\' in @cite{{book}}',
+                             $substituted_strings));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->cdt('see section ``{section_name}\'\' in @cite{{book}}',
-                    { 'section_name' => {'type' => '_converted', 'text' => $section_name},
-                      'book' => $book_element }));
+                 $self->cdt('see section ``{section_name}\'\' in @cite{{book}}',
+                             $substituted_strings));
               }
             } elsif ($node_name) {
+              my $substituted_strings = {
+                 'node_name' => {'type' => '_converted',
+                                 'text' => $node_name},
+                 'book' => $book_element
+                };
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
                   $self->cdt('``{node_name}\'\' in @cite{{book}}',
-                    { 'node_name' => {'type' => '_converted', 'text' => $node_name},
-                      'book' => $book_element }));
+                             $substituted_strings));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
                   $self->cdt('See ``{node_name}\'\' in @cite{{book}}',
-                    { 'node_name' => {'type' => '_converted', 'text' => $node_name},
-                      'book' => $book_element }));
+                             $substituted_strings));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
                   $self->cdt('see ``{node_name}\'\' in @cite{{book}}',
-                    { 'node_name' => {'type' => '_converted', 'text' => $node_name},
-                      'book' => $book_element }));
+                             $substituted_strings));
               }
             } else {
               if ($cmdname eq 'ref') {
@@ -1272,38 +1268,42 @@ sub _convert($$;$)
             }
           } elsif ($manual_file_element) {
             if ($section_name) {
+              my $substituted_strings = {
+                'section_name' => {'type' => '_converted',
+                                   'text' => $section_name},
+                'manual' => $manual_file_element
+               };
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
                   $self->cdt('section ``{section_name}\'\' in @file{{manual}}',
-                    { 'section_name' => {'type' => '_converted', 'text' => $section_name},
-                      'manual' => $manual_file_element }));
+                             $substituted_strings));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
-                  $self->cdt('See section ``{section_name}\'\' in @file{{manual}}',
-                    { 'section_name' => {'type' => '_converted', 'text' => $section_name},
-                      'manual' => $manual_file_element }));
+               $self->cdt('See section ``{section_name}\'\' in @file{{manual}}',
+                             $substituted_strings));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
-                  $self->cdt('see section ``{section_name}\'\' in @file{{manual}}',
-                    { 'section_name' => {'type' => '_converted', 'text' => $section_name},
-                      'manual' => $manual_file_element }));
+               $self->cdt('see section ``{section_name}\'\' in @file{{manual}}',
+                             $substituted_strings));
               }
             } elsif ($node_name) {
+              my $substituted_strings = {
+                  'node_name' => {'type' => '_converted',
+                                  'text' => $node_name},
+                  'manual' => $manual_file_element
+                };
               if ($cmdname eq 'ref') {
                 $result = $self->_convert(
                   $self->cdt('``{node_name}\'\' in @file{{manual}}',
-                    { 'node_name' => {'type' => '_converted', 'text' => $node_name},
-                      'manual' => $manual_file_element }));
+                             $substituted_strings));
               } elsif ($cmdname eq 'xref') {
                 $result = $self->_convert(
                   $self->cdt('See ``{node_name}\'\' in @file{{manual}}',
-                    { 'node_name' => {'type' => '_converted', 'text' => $node_name},
-                      'manual' => $manual_file_element }));
+                             $substituted_strings));
               } elsif ($cmdname eq 'pxref') {
                 $result = $self->_convert(
                   $self->cdt('see ``{node_name}\'\' in @file{{manual}}',
-                    { 'node_name' => {'type' => '_converted', 'text' => $node_name},
-                      'manual' => $manual_file_element }));
+                             $substituted_strings));
               }
             } else {
               if ($cmdname eq 'ref') {
@@ -1458,6 +1458,7 @@ sub _convert($$;$)
       } elsif ($element->{'cmdname'} eq 'uref'
                or $element->{'cmdname'} eq 'url') {
         if ($element->{'args'}) {
+          my $args_nr = scalar(@{$element->{'args'}});
           my ($url_text, $url_arg);
           if ($element->{'args'}->[0]->{'contents'}) {
             $url_arg = $element->{'args'}->[0];
@@ -1476,12 +1477,12 @@ sub _convert($$;$)
             $url_text = '';
           }
           my $replacement;
-          if (scalar(@{$element->{'args'}}) >= 2
+          if ($args_nr >= 2
               and $element->{'args'}->[1]->{'contents'}) {
             $replacement = $self->_convert($element->{'args'}->[1]);
           }
           if (!defined($replacement) or $replacement eq '') {
-            if (scalar(@{$element->{'args'}}) == 3
+            if ($args_nr == 3
                 and $element->{'args'}->[2]->{'contents'}) {
               $replacement = $self->_convert($element->{'args'}->[2]);
             }
@@ -1565,11 +1566,8 @@ sub _convert($$;$)
           $arg_index = 2;
         }
         if (scalar(@{$element->{'args'}}) > $arg_index
-            and defined($element->{'args'}->[$arg_index])
-            and $element->{'args'}->[$arg_index]->{'contents'}
-            and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
-          $result .= $self->_convert({'contents'
-                        => $element->{'args'}->[$arg_index]->{'contents'}});
+            and $element->{'args'}->[$arg_index]->{'contents'}) {
+          $result .= $self->_convert($element->{'args'}->[$arg_index]);
         }
         if ($element->{'cmdname'} eq 'inlineraw') {
           pop @{$self->{'document_context'}};
@@ -1637,7 +1635,7 @@ sub _convert($$;$)
           if ($element->{'extra'}->{'columnfractions'}) {
             @fractions = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
             $multiply = 100;
-          } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
+          } elsif ($element->{'args'}
                    and $element->{'args'}->[0]->{'contents'}) {
             $multiply = 1;
             foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
@@ -1678,16 +1676,15 @@ sub _convert($$;$)
           if ($element->{'extra'}->{'authors'}) {
             foreach my $author (@{$element->{'extra'}->{'authors'}}) {
               if ($author->{'extra'} and $author->{'args'}->[0]->{'contents'}) {
-                $appended .= '<attribution>'.$self->_convert(
-                  {'contents' => $author->{'args'}->[0]->{'contents'}})
+                $appended .= '<attribution>'.
+                       $self->_convert($author->{'args'}->[0])
                            ."</attribution>\n";
               }
             }
           }
         }
-        if ($element->{'args'} and $element->{'args'}->[0]
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+        if ($element->{'args'}
+            and $element->{'args'}->[0]->{'contents'}) {
           my $quotation_arg_text
             = Texinfo::Convert::Text::convert_to_text(
                           $element->{'args'}->[0],
@@ -1705,11 +1702,9 @@ sub _convert($$;$)
         push @format_elements, $format_element;
       } elsif ($element->{'cmdname'} eq 'cartouche') {
         push @format_elements, 'sidebar';
-        if ($element->{'args'} and $element->{'args'}->[0]
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
-          my $title = $self->_convert(
-                  {'contents' => $element->{'args'}->[0]->{'contents'}});
+        if ($element->{'args'}
+            and $element->{'args'}->[0]->{'contents'}) {
+          my $title = $self->_convert($element->{'args'}->[0]);
           if ($title ne '') {
             $appended .= '<title>'.$title.'</title>'."\n";
           }
