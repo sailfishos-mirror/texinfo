@@ -447,6 +447,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/uref_in_ref.pl \
   t/results/coverage_braces/uref_url.pl \
   t/results/coverage_braces/uref_with_commands_characters.pl \
+  t/results/coverage_braces/url_no_braces.pl \
   t/results/coverage_braces/verb_in_xref.pl \
   t/results/coverage_braces/w_end_sentence.pl \
   t/results/def/adjacent_defline.pl \

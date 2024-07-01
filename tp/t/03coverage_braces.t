@@ -93,6 +93,7 @@ my @test_cases = (
 ['image_no_braces', '@image '],
 ['abbr_no_braces', '@abbr'],
 ['email_no_braces', '@email'],
+['url_no_braces', '@url'],
 ['verb_in_xref',
 '@anchor{point}
 

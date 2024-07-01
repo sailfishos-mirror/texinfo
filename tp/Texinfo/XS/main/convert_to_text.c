@@ -748,47 +748,50 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else if (data_cmd == CM_uref || data_cmd == CM_url)
         {
-          TEXT url_text;
-
-          if (element->e.c->args.number >= 3)
+          if (element->e.c->args.number > 0)
             {
-              TEXT replacement;
-              text_init (&replacement);
-              convert_to_text_internal (element->e.c->args.list[2],
-                                        text_options, &replacement);
-              if (replacement.end > 0)
+              TEXT url_text;
+
+              if (element->e.c->args.number >= 3)
                 {
-                  ADD(replacement.text);
-                  free (replacement.text);
-                  return;
+                  TEXT replacement;
+                  text_init (&replacement);
+                  convert_to_text_internal (element->e.c->args.list[2],
+                                            text_options, &replacement);
+                  if (replacement.end > 0)
+                    {
+                      ADD(replacement.text);
+                      free (replacement.text);
+                      return;
+                    }
                 }
-            }
 
-          text_init (&url_text);
-          text_append (&url_text, "");
-          text_options->code_state++;
-          convert_to_text_internal (element->e.c->args.list[0],
-                                    text_options, &url_text);
-          text_options->code_state--;
-          if (element->e.c->args.number >= 2)
-            {
-              TEXT text;
-              text_init (&text);
-              convert_to_text_internal (element->e.c->args.list[1],
-                                        text_options, &text);
-              if (text.end > 0)
+              text_init (&url_text);
+              text_append (&url_text, "");
+              text_options->code_state++;
+              convert_to_text_internal (element->e.c->args.list[0],
+                                        text_options, &url_text);
+              text_options->code_state--;
+              if (element->e.c->args.number >= 2)
                 {
-                  text_printf (result, "%s (%s)", url_text.text, text.text);
-                  free (text.text);
+                  TEXT text;
+                  text_init (&text);
+                  convert_to_text_internal (element->e.c->args.list[1],
+                                            text_options, &text);
+                  if (text.end > 0)
+                    {
+                      text_printf (result, "%s (%s)", url_text.text, text.text);
+                      free (text.text);
+                      free (url_text.text);
+                      return;
+                    }
+                }
+
+              if (url_text.text)
+                {
+                  ADD(url_text.text);
                   free (url_text.text);
-                  return;
                 }
-            }
-
-          if (url_text.text)
-            {
-              ADD(url_text.text);
-              free (url_text.text);
             }
           return;
         }

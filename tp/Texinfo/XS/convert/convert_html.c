@@ -9447,6 +9447,9 @@ convert_uref_command (CONVERTER *self, const enum command_id cmd,
   char *attribute_class;
   STRING_LIST *classes;
 
+  if (!args_formatted)
+    return;
+
   if (args_formatted->number > 0
       && args_formatted->args[0].formatted[AFT_type_url]
       && args_formatted->args[0].formatted[AFT_type_monospacestring])

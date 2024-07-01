@@ -591,29 +591,37 @@ sub _convert($$)
       } else {
         return '';
       }
-    } elsif ($element->{'cmdname'} eq 'uref' or $element->{'cmdname'} eq 'url') {
-      my $replacement;
-      $replacement = _convert($options, $element->{'args'}->[2])
-        if (defined($element->{'args'}->[2]));
-      return $replacement if (defined($replacement) and $replacement ne '');
-      my $text;
-      $text = _convert($options, $element->{'args'}->[1])
-        if (defined($element->{'args'}->[1]));
-      $options->{'_code_state'}++;
-      my $url = _convert($options, $element->{'args'}->[0]);
-      $options->{'_code_state'}--;
-      if (defined($text) and $text ne '') {
-        return "$url ($text)";
+    } elsif ($element->{'cmdname'} eq 'uref'
+             or $element->{'cmdname'} eq 'url') {
+      if ($element->{'args'}) {
+        my $replacement;
+        $replacement = _convert($options, $element->{'args'}->[2])
+          if (defined($element->{'args'}->[2]));
+        return $replacement if (defined($replacement) and $replacement ne '');
+        my $text;
+        $text = _convert($options, $element->{'args'}->[1])
+          if (defined($element->{'args'}->[1]));
+        $options->{'_code_state'}++;
+        my $url = _convert($options, $element->{'args'}->[0]);
+        $options->{'_code_state'}--;
+        if (defined($text) and $text ne '') {
+          return "$url ($text)";
+        } else {
+          return $url;
+        }
       } else {
-        return $url;
+        return '';
       }
-    } elsif ($Texinfo::Commands::explained_commands{$element->{'cmdname'}}
-             and $element->{'args'} and $element->{'args'}->[1]) {
-      my $explanation = _convert($options, $element->{'args'}->[1]);
-      if ($explanation ne '') {
-        return _convert($options, $element->{'args'}->[0]) ." ($explanation)";
+    } elsif ($Texinfo::Commands::explained_commands{$element->{'cmdname'}}) {
+      if ($element->{'args'} and $element->{'args'}->[1]) {
+        my $explanation = _convert($options, $element->{'args'}->[1]);
+        if ($explanation ne '') {
+          return _convert($options, $element->{'args'}->[0]) ." ($explanation)";
+        } else {
+          return _convert($options, $element->{'args'}->[0]);
+        }
       } else {
-        return _convert($options, $element->{'args'}->[0]);
+        return '';
       }
     } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
              and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
@@ -637,7 +645,7 @@ sub _convert($$)
         $options->{'_raw_state'}--;
       }
       return $result;
-    } elsif ($element->{'args'} and $element->{'args'}->[0]
+    } elsif ($element->{'args'}
            and (($element->{'args'}->[0]->{'type'}
                 and ($element->{'args'}->[0]->{'type'} eq 'brace_container'
                      or $element->{'args'}->[0]->{'type'} eq 'brace_arg'))
