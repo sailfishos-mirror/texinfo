@@ -193,10 +193,6 @@ documentlanguage @documentlanguage  en
 '],
 ['command_not_closed_in_documentencoding',
 '@documentencoding @strong{'],
-['command_not_closed_on_center_line',
-'@center c @strong{
-st}
-'],
 ['text_before_line_command',
 'before title @title the title
 
@@ -239,6 +235,12 @@ my @converted_test_cases = (
 '@documentencoding utf8
 
 '],
+['command_not_closed_on_center_line',
+'@center c @strong{
+st}
+'],
+['comment_without_line',
+'@comment'],
 ['definfoenclose',
 '
 definfoenclose phoo,//,\\  @definfoenclose phoo,//,\\
@@ -639,6 +641,8 @@ my %docbook_tests = (
   'ref_in_center' => 1,
   'footnote_in_center' => 1,
   'command_in_heading_footing' => 1,
+  'command_not_closed_on_center_line' => 1,
+  'comment_without_line' => 1,
 );
 
 my %docbooc_doc_tests = (

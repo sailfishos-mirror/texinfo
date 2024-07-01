@@ -1,5 +1,13 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.tres, tp/t/08misc_commands.t (comment_without_line): add
+	test with @comment without argument at the very end of a document.
+
+	* tp/t/08misc_commands.t (command_not_closed_on_center_line): move to
+	@converted_test_cases.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): use $cmdname instead of
 	$element->{'cmdname'} and $command_name instead of $cmdname.
 	Reindent.
