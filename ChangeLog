@@ -1,5 +1,14 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
+	handle @image without brace, with 0 args.
+
+	* tp/Makefile.tres, tp/t/03coverage_braces.t (image_no_braces): test
+	of @image without braces at end of document.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): simplify condition.
 
 2024-07-01  Patrice Dumas  <pertusus@free.fr>

@@ -90,6 +90,7 @@ my @test_cases = (
 ['command_in_U',
 '@U{@code{09AF}}'],
 ['brace_command_no_braces', '@xref'],
+['image_no_braces', '@image '],
 ['verb_in_xref',
 '@anchor{point}
 

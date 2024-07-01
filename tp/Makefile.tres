@@ -411,6 +411,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/form_feed_in_brace_commands.pl \
   t/results/coverage_braces/format_on_first_footnote_line.pl \
   t/results/coverage_braces/heading_in_footnote.pl \
+  t/results/coverage_braces/image_no_braces.pl \
   t/results/coverage_braces/inforef_too_much_args.pl \
   t/results/coverage_braces/kbd.pl \
   t/results/coverage_braces/math_bracketed_inside_not_closed.pl \

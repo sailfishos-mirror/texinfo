@@ -570,10 +570,14 @@ sub _convert($$)
                                 $options->{'set_case'});
       return $result;
     } elsif ($element->{'cmdname'} eq 'image') {
-      $options->{'_code_state'}++;
-      my $text = _convert($options, $element->{'args'}->[0]);
-      $options->{'_code_state'}--;
-      return $text;
+      if ($element->{'args'}) {
+        $options->{'_code_state'}++;
+        my $text = _convert($options, $element->{'args'}->[0]);
+        $options->{'_code_state'}--;
+        return $text;
+      } else {
+        return '';
+      }
     } elsif ($element->{'cmdname'} eq 'email') {
       my $text;
       $text = _convert($options, $element->{'args'}->[1])
