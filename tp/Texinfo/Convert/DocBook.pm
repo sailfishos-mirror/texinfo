@@ -1356,9 +1356,8 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($element->{'cmdname'} eq 'image') {
-        if (defined($element->{'args'}->[0])
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+        if ($element->{'args'}
+            and $element->{'args'}->[0]->{'contents'}) {
           Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
           Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,

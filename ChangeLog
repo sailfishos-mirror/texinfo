@@ -1,5 +1,9 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert): simplify condition.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands),
 	tp/Texinfo/Convert/LaTeX.pm (_convert),
 	tp/Texinfo/Convert/Plaintext.pm (_convert),
