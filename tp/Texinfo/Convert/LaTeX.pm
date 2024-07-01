@@ -3757,36 +3757,34 @@ sub _convert($$)
       $result .= _title_font($self, $element);
       return $result;
     } elsif ($cmdname eq 'U') {
-      my $arg;
       if ($element->{'args'}
-          and $element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}
-          and $element->{'args'}->[0]->{'contents'}->[0]
           and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-        $arg = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
-      }
-      if ($arg) {
-        # Syntactic checks on the value were already done in Parser.pm,
-        # but we have one more thing to test: since this is the one
-        # place where we might output actual UTF-8 binary bytes, we have
-        # to check that it is possible.  If not, silently fall back to
-        # plain text, on the theory that the user wants something.
-        # Note that being able to output an unicode point as encoded
-        # character does not mean that LaTeX will be able to process it.
-        my $res;
-        if ($self->{'to_utf8'}) {
-          my $possible_conversion
-            = Texinfo::Convert::Unicode::check_unicode_point_conversion($arg,
-                                                             $self->{'debug'});
-          if ($possible_conversion) {
-            $res = chr(hex($arg)); # ok to call chr
+        my $arg_text = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
+
+        if (defined($arg_text)) {
+          # Syntactic checks on the value were already done in Parser.pm,
+          # but we have one more thing to test: since this is the one
+          # place where we might output actual UTF-8 binary bytes, we have
+          # to check that it is possible.  If not, silently fall back to
+          # plain text, on the theory that the user wants something.
+          # Note that being able to output an unicode point as encoded
+          # character does not mean that LaTeX will be able to process it.
+          my $res;
+          if ($self->{'to_utf8'}) {
+            my $possible_conversion
+            = Texinfo::Convert::Unicode::check_unicode_point_conversion(
+                                                  $arg_text, $self->{'debug'});
+            if ($possible_conversion) {
+              $res = chr(hex($arg_text)); # ok to call chr
+            } else {
+              $res = "U+$arg_text";
+            }
           } else {
-            $res = "U+$arg";
+            $res = "U+$arg_text";  # not outputting UTF-8
           }
-        } else {
-          $res = "U+$arg";  # not outputting UTF-8
+          $result .= _protect_text($self, $res);
         }
-        $result .= _protect_text($self, $res);
       }
       return $result;
     } elsif ($cmdname eq 'value') {

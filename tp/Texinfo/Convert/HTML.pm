@@ -4232,10 +4232,10 @@ sub _convert_U_command($$$$)
   my $args = shift;
 
   if ($args and $args->[0]) {
-    my $arg = $args->[0]->{'normal'};
-    if ($arg ne '') {
+    my $arg_text = $args->[0]->{'normal'};
+    if ($arg_text ne '') {
       # checks on the value already done in Parser, just output it here.
-      return "&#x$arg;";
+      return "&#x$arg_text;";
     }
   }
   return '';

@@ -1533,19 +1533,17 @@ sub _convert($$;$)
         }
 
       } elsif ($element->{'cmdname'} eq 'U') {
-        my $argument_text;
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}
             and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-          $argument_text = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
-        }
-        if ($argument_text) {
-          $result = "&#x$argument_text;";
-        } else {
-          $result = '';
-        }
-        return $result;
+          my $arg_text = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
 
+          if (defined($arg_text)) {
+            my $result = "&#x$arg_text;";
+            return $result;
+          }
+        }
+        return '';
       } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
         my $expand = 0;
         if ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
