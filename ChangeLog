@@ -1,5 +1,11 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert): use $cmdname instead of
+	$element->{'cmdname'} and $command_name instead of $cmdname.
+	Reindent.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_index_entry): use element
 	instead of contents.
 
