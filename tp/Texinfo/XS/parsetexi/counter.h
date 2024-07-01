@@ -35,6 +35,8 @@ int counter_value (COUNTER *c, ELEMENT *e);
 void counter_reset (COUNTER *c, const char* not_empty_message);
 int counter_element_value (COUNTER *c, ELEMENT *elt);
 
+void print_counter_top (COUNTER *c);
+
 /* A large positive number used to represent an unlimited number of remaining
    arguments. */
 #define COUNTER_VARIADIC 32767

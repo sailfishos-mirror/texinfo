@@ -149,3 +149,21 @@ counter_reset (COUNTER *c, const char* not_empty_message)
 
   c->nvalues = 0;
 }
+
+/* for debugging */
+void
+print_counter_top (COUNTER *c)
+{
+  if (c->nvalues > 0)
+    {
+      ELEMENT *top_elt = c->elts[c->nvalues - 1];
+      char *element_string = print_element_debug (top_elt, 0);
+      int value = counter_value (c, top_elt);
+      fprintf (stderr, "COUNTER %p: %s: %d\n", c, element_string, value);
+      free (element_string);
+    }
+  else
+    {
+      fprintf (stderr, "COUNTER %p: no values\n", c);
+    }
+}

@@ -19,6 +19,9 @@
 
 #include "tree_types.h"
 #include "command_ids.h"
+/*
+#include "commands.h"
+ */
 #include "utils.h"
 #include "command_stack.h"
 
@@ -43,6 +46,10 @@ push_command (COMMAND_STACK *stack, enum command_id cmd)
                    (stack->space += 5) * sizeof (enum command_id));
     }
 
+  /*
+  fprintf (stderr, "---STPUSH %p (%ld) %d %s\n", stack, stack->top,
+                                            cmd, command_name(cmd));
+   */
   stack->stack[stack->top] = cmd;
   stack->top++;
 }
@@ -53,6 +60,10 @@ pop_command (COMMAND_STACK *stack)
   if (stack->top == 0)
     fatal ("command stack empty");
 
+  /*
+  fprintf (stderr, "---STPOP %p (%ld) %d %s\n", stack, stack->top,
+   stack->stack[stack->top-1], command_name(stack->stack[stack->top-1]));
+   */
   return stack->stack[--stack->top];
 }
 

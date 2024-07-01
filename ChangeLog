@@ -1,3 +1,8 @@
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/command_stack.c,
+	tp/Texinfo/XS/parsetexi/counter.c (print_counter_top): debugging code.
+
 2024-06-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace): fix @U
