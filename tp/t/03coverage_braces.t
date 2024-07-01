@@ -101,6 +101,17 @@ my @test_cases = (
 ['U_no_braces', '@U'],
 ['hyphenation_no_braces', '@hyphenation'],
 ['titlefont_no_braces', '@titlefont'],
+# tests a brace command without braces on a line command at the end of a
+# document
+['seeentry_no_braces', '@node Top
+@top top
+
+@node chap
+@chapter chap
+
+@printindex cp
+
+@cindex aa @seeentry'],
 ['verb_in_xref',
 '@anchor{point}
 

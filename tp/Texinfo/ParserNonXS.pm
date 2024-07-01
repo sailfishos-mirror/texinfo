@@ -4740,8 +4740,9 @@ sub _end_line($$$)
     _move_last_space_to_element($self, $current);
   }
 
-  # this happens if there is a nesting of line @-commands on a line.
-  # they are reprocessed here.
+  # this happens if there is a nesting of @-commands on a line, for
+  # instance line commands, but also bogus brace commands
+  # without args or not closed.   They are reprocessed here.
   my $top_context = $self->_top_context();
   if (($top_context eq 'ct_line'
        and defined($self->{'context_command_stack'}->[-1]))
@@ -4749,6 +4750,20 @@ sub _end_line($$$)
     print STDERR "Still opened line/block command $top_context: "
       .Texinfo::Common::debug_print_element($current, 1)."\n"
         if ($self->{'conf'}->{'DEBUG'});
+
+    # should correspond to a bogus brace @-commands without argument
+    # followed by spaces only, and not by newline, at the end of the document
+    # on a line/def command
+    if ($current->{'cmdname'}
+      and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
+      $self->_line_error(sprintf(__("\@%s expected braces"),
+                         $current->{'cmdname'}), $source_info);
+      if ($current->{'contents'}) {
+        _gather_spaces_after_cmd_before_arg($self, $current);
+      }
+      $current = $current->{'parent'};
+    }
+
     if ($top_context eq 'ct_def') {
       while ($current->{'parent'}
             and !($current->{'parent'}->{'extra'}

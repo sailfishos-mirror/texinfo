@@ -193,6 +193,10 @@ documentlanguage @documentlanguage  en
 '],
 ['command_not_closed_in_documentencoding',
 '@documentencoding @strong{'],
+['command_not_closed_on_center_line',
+'@center c @strong{
+st}
+'],
 ['text_before_line_command',
 'before title @title the title
 

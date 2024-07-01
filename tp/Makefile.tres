@@ -436,6 +436,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/recursive_acronym_definition.pl \
   t/results/coverage_braces/ref_empty_node.pl \
   t/results/coverage_braces/ref_in_style_command.pl \
+  t/results/coverage_braces/seeentry_no_braces.pl \
   t/results/coverage_braces/simple.pl \
   t/results/coverage_braces/space_command_in_image.pl \
   t/results/coverage_braces/space_in_anchor.pl \
@@ -1595,6 +1596,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/command_in_heading_footing.pl \
   t/results/misc_commands/command_line_in_paragraph.pl \
   t/results/misc_commands/command_not_closed_in_documentencoding.pl \
+  t/results/misc_commands/command_not_closed_on_center_line.pl \
   t/results/misc_commands/comment_space_command_on_line.pl \
   t/results/misc_commands/comments_in_text.pl \
   t/results/misc_commands/contents.pl \

@@ -1,5 +1,19 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line): close a bogus brace
+	@-command without argument followed by spaces only, and not by
+	newlinewithout argument followed by spaces only, and not by newline.
+
+	* tp/Makefile.tres, tp/t/03coverage_braces.t (seeentry_no_braces):
+	test of @seeentry without braces at end of document, on an index entry
+	command line.
+
+	* tp/Makefile.tres, tp/t/08misc_commands.t
+	(command_not_closed_on_center_line): add test.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info),
 	tp/Texinfo/Convert/LaTeX.pm (_title_font),
 	tp/Texinfo/Convert/Plaintext.pm (_convert),
@@ -520,7 +534,7 @@
 	* tp/Texinfo/XS/convert/convert_html.c,
 	tp/Texinfo/XS/main/DocumentXS.xs,
 	tp/Texinfo/XS/main/build_perl_info.c, tp/Texinfo/XS/main/document.c,
-	tp/Texinfo/XS/main/get_perl_info.c, tp/Texinfo/XS/main/translations.c, 
+	tp/Texinfo/XS/main/get_perl_info.c, tp/Texinfo/XS/main/translations.c,
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs, tp/Texinfo/XS/parsetexi/api.c,
 	tp/Texinfo/XS/parsetexi/parser.c: use size_t more for document
 	descriptors.
@@ -1228,7 +1242,7 @@
 	tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup): update code
 	taking into account that
 	i) there cannot be ignorable_spaces_after_command before before_item,
-	as it is added only after commands, and inside commands arguments.  
+	as it is added only after commands, and inside commands arguments.
 	ii) there cannot be an @end in before_item, as soon as an @end is seen
 	it is popped from the element it is in, before closing.
 	iii) there can only be before_item or elements associated with @*item
@@ -1355,7 +1369,7 @@
 
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_file_information): 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_file_information):
 	really use the string stored in small_strings.
 
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
@@ -1386,7 +1400,7 @@
 
 2024-06-12  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_file_information): 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_register_file_information):
 	make sure that the key is saved on the heap by adding to converter
 	small_strings.
 
@@ -1458,7 +1472,7 @@
 	(INDEX_ENTRY_LOCATION, KEY_PAIR, enum extra_type),
 	tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry),
 	tp/Texinfo/XS/structuring_transfo/transformations.c
-	(lookup_index_entry, relate_index_entries_to_table_items_in): add 
+	(lookup_index_entry, relate_index_entries_to_table_items_in): add
 	extra_index_entry extra type that represents the location of an index
 	entry, with index name and number in index.  Use it instead of
 	misc_args for index entries.
@@ -1523,7 +1537,7 @@
 	tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
 	do text element more separately from other elements.
 
-	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash): 
+	* tp/Texinfo/XS/main/build_perl_info.c (element_to_perl_hash):
 	use flag for condition that select types only if needed in Perl.
 
 	* tp/Texinfo/XS/main/convert_to_text.c (convert_to_text_internal):
@@ -1701,7 +1715,7 @@
 	* tp/Texinfo/Convert/DocBook.pm (%container_ignored_if_empty)
 	(_convert), tp/Texinfo/Convert/LaTeX.pm (%container_ignored_if_empty)
 	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm
-	(%container_ignored_if_empty, _convert): ignore explicitely some 
+	(%container_ignored_if_empty, _convert): ignore explicitely some
 	empty containers instead of relying on the tree to be without those
 	empty containers.
 

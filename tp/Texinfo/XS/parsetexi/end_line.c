@@ -1952,6 +1952,20 @@ end_line (ELEMENT *current)
       debug_nonl ("Still opened line/block command %s: ",
                   context_name (current_context ()));
       debug_parser_print_element (current, 1); debug ("");
+
+     /* should correspond to a bogus brace @-commands without argument
+       followed by spaces only, and not by newline, at the end of the document
+       on a line/def command
+     */
+      if (command_flags(current) & CF_brace)
+        {
+          line_error ("@%s expected braces",
+                      command_name(current->e.c->cmd));
+          if (current->e.c->contents.number > 0)
+            gather_spaces_after_cmd_before_arg (current);
+          current = current->parent;
+        }
+
       if (current_context () == ct_def)
         {
           while (current->parent
