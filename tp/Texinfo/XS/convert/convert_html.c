@@ -9069,17 +9069,20 @@ convert_email_command (CONVERTER *self, const enum command_id cmd,
   const char *mail_string = 0;
   const char *text = 0;
 
-  if (args_formatted->number > 0)
+  if (args_formatted)
     {
-      mail = args_formatted->args[0].formatted[AFT_type_url];
-      mail_string
-       = args_formatted->args[0].formatted[AFT_type_monospacestring];
-    }
+      if (args_formatted->number > 0)
+        {
+          mail = args_formatted->args[0].formatted[AFT_type_url];
+          mail_string
+           = args_formatted->args[0].formatted[AFT_type_monospacestring];
+        }
 
-  if (args_formatted->number > 1
-      && args_formatted->args[1].formatted[AFT_type_normal])
-    {
-      text = args_formatted->args[1].formatted[AFT_type_normal];
+      if (args_formatted->number > 1
+          && args_formatted->args[1].formatted[AFT_type_normal])
+        {
+          text = args_formatted->args[1].formatted[AFT_type_normal];
+        }
     }
 
   if (!text || !strlen (text))

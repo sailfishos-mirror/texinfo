@@ -579,14 +579,18 @@ sub _convert($$)
         return '';
       }
     } elsif ($element->{'cmdname'} eq 'email') {
-      my $text;
-      $text = _convert($options, $element->{'args'}->[1])
-         if (defined($element->{'args'}->[1]));
-      return $text if (defined($text) and ($text ne ''));
-      $options->{'_code_state'}++;
-      my $mail = _convert($options, $element->{'args'}->[0]);
-      $options->{'_code_state'}--;
-      return $mail;
+      if ($element->{'args'}) {
+        my $text;
+        $text = _convert($options, $element->{'args'}->[1])
+           if (defined($element->{'args'}->[1]));
+        return $text if (defined($text) and ($text ne ''));
+        $options->{'_code_state'}++;
+        my $mail = _convert($options, $element->{'args'}->[0]);
+        $options->{'_code_state'}--;
+        return $mail;
+      } else {
+        return '';
+      }
     } elsif ($element->{'cmdname'} eq 'uref' or $element->{'cmdname'} eq 'url') {
       my $replacement;
       $replacement = _convert($options, $element->{'args'}->[2])

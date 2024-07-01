@@ -392,6 +392,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/command_in_dotless.pl \
   t/results/coverage_braces/contain_plain_text_nestings.pl \
   t/results/coverage_braces/definfoenclose_texinfo_commands.pl \
+  t/results/coverage_braces/email_no_braces.pl \
   t/results/coverage_braces/email_possibilities.pl \
   t/results/coverage_braces/empty_commands.pl \
   t/results/coverage_braces/empty_images.pl \

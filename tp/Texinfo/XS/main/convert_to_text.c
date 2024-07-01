@@ -735,10 +735,15 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                   return;
                 }
             }
-          text_options->code_state++;
-          convert_to_text_internal (element->e.c->args.list[0],
-                                    text_options, result);
-          text_options->code_state--;
+
+          if (element->e.c->args.number > 0)
+            {
+              text_options->code_state++;
+              convert_to_text_internal (element->e.c->args.list[0],
+                                        text_options, result);
+              text_options->code_state--;
+            }
+
           return;
         }
       else if (data_cmd == CM_uref || data_cmd == CM_url)
