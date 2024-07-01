@@ -1,5 +1,13 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command): rename $command
+	as $command_name.
+
+	* tp/Texinfo/Convert/Text.pm (_convert): set $cmdname based on
+	$element->{'cmdname'} and use it instead.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (%ignored_types, %ignored_text_types)
 	(_convert): process text elements first.
 
