@@ -5507,8 +5507,10 @@ sub _convert_exdent_command($$$$)
   my $command = shift;
   my $args = shift;
 
-
-  my $arg = $self->get_pending_formatted_inline_content().$args->[0]->{'normal'};
+  my $arg = $self->get_pending_formatted_inline_content();
+  if ($args and defined($args->[0])) {
+    $arg .= $args->[0]->{'normal'};
+  }
 
   if (in_string($self)) {
     return $arg ."\n";

@@ -1600,6 +1600,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/empty_center.pl \
   t/results/misc_commands/empty_center_with_arg.pl \
   t/results/misc_commands/empty_documentencoding.pl \
+  t/results/misc_commands/exdent_no_line.pl \
   t/results/misc_commands/footnote_in_center.pl \
   t/results/misc_commands/heading_command_in_commands.pl \
   t/results/misc_commands/incorrect_allowcodebreaks_argument.pl \

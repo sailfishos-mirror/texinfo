@@ -608,6 +608,8 @@ in example
 
 @codekbdmacro{}
 '],
+['exdent_no_line',
+'@exdent'],
 );
 
 # info and xml

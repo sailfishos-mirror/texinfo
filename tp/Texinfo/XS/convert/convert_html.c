@@ -11156,7 +11156,8 @@ convert_exdent_command (CONVERTER *self, const enum command_id cmd,
   char *attribute_class;
   STRING_LIST *classes;
 
-  if (args_formatted->number > 0
+  /* args_formatted null does not seems to be possible in practice */
+  if (args_formatted && args_formatted->number > 0
       && args_formatted->args[0].formatted[AFT_type_normal]
       && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
     arg = args_formatted->args[0].formatted[AFT_type_normal];
@@ -11169,7 +11170,7 @@ convert_exdent_command (CONVERTER *self, const enum command_id cmd,
           free (pending_formatted);
         }
       if (arg)
-          text_append (result, arg);
+        text_append (result, arg);
       text_append_n (result, "\n", 1);
       return;
     }
@@ -11211,7 +11212,8 @@ convert_center_command (CONVERTER *self, const enum command_id cmd,
   char *attribute_class;
   STRING_LIST *classes;
 
-  if (args_formatted->number > 0
+  /* args_formatted null does not seems to be possible in practice */
+  if (args_formatted && args_formatted->number > 0
       && args_formatted->args[0].formatted[AFT_type_normal]
       && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
     arg = args_formatted->args[0].formatted[AFT_type_normal];
