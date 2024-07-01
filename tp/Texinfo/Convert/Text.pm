@@ -127,15 +127,18 @@ foreach my $command (keys(%def_commands)) {
 }
 
 my %ignored_types;
-foreach my $type ('ignorable_spaces_after_command',
-            'postamble_after_end',
-            'preamble_before_beginning',
-            'spaces_at_end',
-            'spaces_before_paragraph',
-            'spaces_after_close_brace') {
+foreach my $type ('postamble_after_end',
+            'preamble_before_beginning') {
   $ignored_types{$type} = 1;
 }
 
+my %ignored_text_types;
+foreach my $type ('ignorable_spaces_after_command',
+            'spaces_at_end',
+            'spaces_before_paragraph',
+            'spaces_after_close_brace') {
+  $ignored_text_types{$type} = 1;
+}
 
 my @text_indicator_converter_options
       = ('ASCII_GLYPH', 'NUMBER_SECTIONS', 'TEST');
@@ -486,6 +489,32 @@ sub _convert($$)
     confess("Texinfo::Convert::Text::_convert: element undef");
   }
 
+  if (defined($element->{'text'})) {
+    if ($element->{'type'} and $ignored_text_types{$element->{'type'}}) {
+      return '';
+    }
+    my $result = $element->{'text'};
+    if ((! defined($element->{'type'})
+         or $element->{'type'} ne 'raw')
+        and !$options->{'_raw_state'}) {
+      if ($options->{'set_case'}) {
+        if ($options->{'set_case'} > 0) {
+          $result = uc($result);
+        } else {
+          $result = lc($result);
+        }
+      }
+      if (!$options->{'_code_state'}) {
+        $result =~ s/``/"/g;
+        $result =~ s/\'\'/"/g;
+        $result =~ s/---/\x{1F}/g;
+        $result =~ s/--/-/g;
+        $result =~ s/\x{1F}/--/g;
+      }
+    }
+    return $result;
+  }
+
   return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
      and (($element->{'type'} and $ignored_types{$element->{'type'}})
           or ($element->{'cmdname'}
@@ -511,36 +540,15 @@ sub _convert($$)
                              and (!$element->{'extra'}
                                   or !defined($element->{'extra'}->{'expand_index'})))))
              # here ignore most of the line commands
-                 or ($element->{'args'} and $element->{'args'}->[0]
+                 or ($element->{'args'}
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
                      and !$formatted_line_commands{$element->{'cmdname'}}
                      and !$converted_formattable_line_commands{
                                                     $element->{'cmdname'}})))));
+
   my $result = '';
-  if (defined($element->{'text'})) {
-    $result = $element->{'text'};
-    if ((! defined($element->{'type'})
-         or $element->{'type'} ne 'raw')
-        and !$options->{'_raw_state'}) {
-      if ($options->{'set_case'}) {
-        if ($options->{'set_case'} > 0) {
-          $result = uc($result);
-        } else {
-          $result = lc($result);
-        }
-      }
-      if (!$options->{'_code_state'}) {
-        $result =~ s/``/"/g;
-        $result =~ s/\'\'/"/g;
-        $result =~ s/---/\x{1F}/g;
-        $result =~ s/--/-/g;
-        $result =~ s/\x{1F}/--/g;
-      }
-    }
-    return $result;
-  }
   if ($element->{'cmdname'}) {
     my $command = $element->{'cmdname'};
     if (defined($nobrace_symbol_text{$element->{'cmdname'}})) {
