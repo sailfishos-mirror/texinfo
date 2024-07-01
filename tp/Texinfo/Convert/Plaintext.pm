@@ -2609,8 +2609,7 @@ sub _convert($$)
           _convert($self, $element->{'args'}->[0]);
           if ($command eq 'strong'
               and $element->{'args'}->[0]->{'contents'}
-              and scalar (@{$element->{'args'}->[0]->{'contents'}})
-              and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
+              and defined($element->{'args'}->[0]->{'contents'}->[0]->{'text'})
               and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
                     =~ /^Note\s/i
               and $self->{'converted_format'}
@@ -2668,7 +2667,7 @@ sub _convert($$)
         my $text_arg;
 
         if (defined($element->{'args'}->[1])
-              and defined($element->{'args'}->[1]->{'contents'})) {
+            and defined($element->{'args'}->[1]->{'contents'})) {
           $text_arg = $element->{'args'}->[1];
         } elsif (defined($element->{'args'}->[0])
               and defined($element->{'args'}->[0]->{'contents'})) {
@@ -3342,9 +3341,8 @@ sub _convert($$)
       }
       if ($command eq 'quotation'
           or $command eq 'smallquotation') {
-        if ($element->{'args'} and $element->{'args'}->[0]
-            and $element->{'args'}->[0]->{'contents'}
-            and scalar(@{$element->{'args'}->[0]->{'contents'}})) {
+        if ($element->{'args'}
+            and $element->{'args'}->[0]->{'contents'}) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
              {'quotation_arg' => $element->{'args'}->[0]});
           $prepended->{'type'} = 'frenchspacing';
@@ -3367,7 +3365,7 @@ sub _convert($$)
                    int($fraction
                        * $self->{'text_element_context'}->[-1]->{'max'} +0.5);
           }
-        } elsif ($element->{'args'} and scalar(@{$element->{'args'}})
+        } elsif ($element->{'args'}
                  and $element->{'args'}->[0]->{'contents'}) {
           foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
             if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
@@ -3391,9 +3389,8 @@ sub _convert($$)
           $self->_anchor($element);
         }
       } elsif ($command eq 'cartouche') {
-        if ($element->{'args'} and $element->{'args'}->[0]
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+        if ($element->{'args'}
+            and $element->{'args'}->[0]->{'contents'}) {
           # FIXME reset the paragraph count in cartouche and use a
           # specific format_context?
           my $prepended = $self->cdt('@center @b{{cartouche_arg}}',
@@ -3415,8 +3412,8 @@ sub _convert($$)
       # use settitle for empty @top
       # ignore @part
       my $heading_element;
-      if ($element->{'args'}->[0]->{'contents'}
-          and @{$element->{'args'}->[0]->{'contents'}}
+      if ($element->{'args'}
+          and $element->{'args'}->[0]->{'contents'}
           and $command ne 'part') {
         $heading_element = $element->{'args'}->[0];
       } elsif ($command eq 'top') {
@@ -3426,11 +3423,7 @@ sub _convert($$)
         }
         if ($global_commands and $global_commands->{'settitle'}
             and $global_commands->{'settitle'}->{'args'}
-            and scalar(@{$global_commands->{'settitle'}->{'args'}})
-            and $global_commands->{'settitle'}
-                                                 ->{'args'}->[0]->{'contents'}
-            and scalar(@{$global_commands->{'settitle'}
-                                              ->{'args'}->[0]->{'contents'}})) {
+            and $global_commands->{'settitle'}->{'args'}->[0]->{'contents'}) {
           $heading_element
             = $global_commands->{'settitle'}->{'args'}->[0];
         }
@@ -3453,10 +3446,10 @@ sub _convert($$)
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
     } elsif (($command eq 'item' or $command eq 'itemx')
-            and $element->{'args'} and $element->{'args'}->[0]
-            and $element->{'args'}->[0]->{'type'}
-            and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
-      if ($element->{'args'} and scalar(@{$element->{'args'}})
+             and $element->{'args'}
+             and $element->{'args'}->[0]->{'type'}
+             and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
+      if ($element->{'args'}
           and $element->{'args'}->[0]->{'contents'}) {
         my $table_item_tree = $self->table_item_content_tree($element);
         $table_item_tree = $element->{'args'}->[0]
@@ -3546,7 +3539,7 @@ sub _convert($$)
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       return $result;
     } elsif ($command eq 'exdent') {
-      if ($element->{'args'}->[0]
+      if ($element->{'args'}
           and $element->{'args'}->[0]->{'contents'}) {
         if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
           my $formatter = $self->new_formatter('unfilled',
@@ -3602,9 +3595,8 @@ sub _convert($$)
         _stream_output($self, "* Menu:\n\n");
         $lines_count += 2;
         foreach my $float (@{$floats->{$float_type}}) {
-          next if !$float->{'args'} or !$float->{'args'}->[1]
-                   or !$float->{'args'}->[1]->{'contents'}
-                   or !@{$float->{'args'}->[1]->{'contents'}};
+          next if (!$float->{'args'} or scalar(@{$float->{'args'}}) < 2
+                   or !$float->{'args'}->[1]->{'contents'});
 
           my $float_entry = $self->float_type_number($float);
           next if !defined($float_entry);
@@ -3656,7 +3648,7 @@ sub _convert($$)
           } elsif ($float->{'extra'}->{'caption'}) {
             $caption = $float->{'extra'}->{'caption'};
           }
-          if ($caption and $caption->{'args'}->[0]
+          if ($caption and $caption->{'args'}
               and $caption->{'args'}->[0]->{'contents'}) {
             push @{$self->{'context'}}, 'listoffloats';
             $self->{'multiple_pass'} = 1;
@@ -3829,10 +3821,7 @@ sub _convert($$)
           push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                              'encoding_disabled' => 1};
           $self->_convert({'type' => '_code',
-                          'contents' => $content->{'contents'}});
-          # note that $content->{'contents'} may be undefined in rare cases,
-          # such as in 30sectioning.t in_menu_only_special_ascii_spaces_node
-          # test
+                          'contents' => [$content]});
 
           _stream_output($self,
                         Texinfo::Convert::Paragraph::add_pending_word
