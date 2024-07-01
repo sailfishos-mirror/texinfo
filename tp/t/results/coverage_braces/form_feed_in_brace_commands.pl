@@ -247,4 +247,8 @@ something \\href{mailto:aaa}{fff}\\footnote{ f1 \\par{}
 jj}.
 ';
 
+
+$result_converted{'docbook'}->{'form_feed_in_brace_commands'} = '<para><option>  aa</option> <anchor id="aa"/></para> <para>something <ulink url="mailto:aaa">fff</ulink><footnote><para>f1 </para> </footnote> <footnote><para>gg</para> <para>jj</para></footnote>.
+</para>';
+
 1;

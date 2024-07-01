@@ -125,4 +125,10 @@ $result_converted{'latex_text'}->{'email_possibilities'} = '\\href{mailto:--a}{-
 \\href{mailto:--a}{\\nolinkurl{--a}}
 ';
 
+
+$result_converted{'docbook'}->{'email_possibilities'} = '<para><ulink url="mailto:--a">&#8211;b</ulink>
+&#8211;b
+<email>--a</email>
+</para>';
+
 1;

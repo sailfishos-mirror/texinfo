@@ -281,4 +281,13 @@ Last text \\footnote{\\begin{Texinfoindented}
 }
 ';
 
+
+$result_converted{'docbook'}->{'format_on_first_footnote_line'} = '<para>Texte<footnote><blockquote><para>in quotation on the first footnote line
+</para></blockquote></footnote>.
+</para>
+<para>Last text <footnote><screen>in example
+</screen>
+</footnote>
+</para>';
+
 1;

@@ -752,4 +752,41 @@ convention should be followed in Texinfo files.  TeX converts
 two single quotes to left- and right-hand doubled.
 ';
 
+
+$result_converted{'docbook'}->{'test_w'} = '<para>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&amp;#160;bbbbbbbbbbbbb&amp;#160;bbbbb&amp;#160;bbb&amp;#160;b&amp;#160;b&amp;#160;b&amp;#160;b&amp;#160;b&amp;#160;b&amp;#160;b&amp;#160;b&amp;#160;b&amp;#160;bb&amp;#160;.&amp;#160;ccc&amp;#160;dddd<!-- /@w -->.
+</para>
+<para>a a a a a a a a a a a a a a a a a a a a a a a a a a a a  b&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a&amp;#160;a<!-- /@w -->
+</para>
+
+<para><!-- /@w -->
+</para>
+<para>&amp;#160;a&amp;#160;rr&amp;#160;&amp;#160;ggg.<!-- /@w -->
+</para>
+<para>AA<!-- /@w -->bbb.
+</para>
+<para>FFd<!-- /@w -->nnn.
+</para>
+<para>aa&amp;#160;f&amp;#160;f<!-- /@w -->ggg.
+</para>
+<para>aa2&amp;#160;f&amp;#160;f&amp;#160;<!-- /@w -->ggg2.
+</para>
+
+<para>aa3 &amp;#160;f&amp;#160;f&amp;#160;<!-- /@w -->ggg3.
+</para>
+
+<para>aa4 &amp;#160;f&amp;#160;f&amp;#160;<!-- /@w --> ggg4.
+</para>
+<para>aa5 <!-- /@w --> ggg5.
+</para>
+<para>aa6 <!-- /@w -->ggg6.
+</para>
+<para>aa6<!-- /@w --> ggg6.
+</para>
+<para>aaf &amp;#160;<!-- /@w --> bbb.
+</para>
+<para>begin and end quotations: <literal>`<!-- /@w -->`&#8230;\'<!-- /@w -->\'</literal><!-- /@w -->.  This
+convention should be followed in Texinfo files.  TeX converts
+two single quotes to left- and right-hand doubled.
+</para>';
+
 1;

@@ -337,4 +337,16 @@ $result_converted{'latex_text'}->{'uref_url'} = '\\href{--a}{--b (\\nolinkurl{--
 --q
 ';
 
+
+$result_converted{'docbook'}->{'uref_url'} = '<para><ulink url="--a">&#8211;b</ulink>
+<ulink url="--c">--c</ulink>
+<ulink url="">&#8211;d</ulink>
+<ulink url="--e">&#8211;f</ulink>
+<ulink url="">&#8211;h</ulink>
+<ulink url="--j">&#8211;k</ulink>
+<ulink url="">&#8211;l</ulink>
+<ulink url="--m">&#8211;n</ulink>
+<ulink url="--o">&#8211;p</ulink>
+</para>';
+
 1;

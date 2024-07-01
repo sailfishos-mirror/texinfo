@@ -209,4 +209,10 @@ $result_converted{'latex_text'}->{'empty_commands'} = '
    \\texttt{}\\footnote{} \\~{}  
 ';
 
+
+$result_converted{'docbook'}->{'empty_commands'} = '
+
+<para><ulink url=""></ulink>   <literal></literal><footnote></footnote> &#771;  <literal></literal>
+</para>';
+
 1;

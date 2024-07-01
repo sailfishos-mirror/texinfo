@@ -86,4 +86,7 @@ $result_converted{'html_text'}->{'command_in_dotless'} = '<p><code class="code">
 
 $result_converted{'latex_text'}->{'command_in_dotless'} = '\\textbackslash{}texttt\\{i\\}';
 
+
+$result_converted{'docbook'}->{'command_in_dotless'} = '<para><literal>i</literal></para>';
+
 1;

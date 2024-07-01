@@ -106,4 +106,7 @@ $result_converted{'html_text'}->{'space_command_in_image'} = '<img class="image"
 
 $result_converted{'latex_text'}->{'space_command_in_image'} = '\\includegraphics{f--ile} \\includegraphics{f--ile}';
 
+
+$result_converted{'docbook'}->{'space_command_in_image'} = '<informalfigure><mediaobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>Image description&quot;&quot;\\.</literallayout></textobject></mediaobject></informalfigure> <informalfigure><mediaobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>Image description&quot;&quot;\\.</literallayout></textobject></mediaobject></informalfigure>';
+
 1;

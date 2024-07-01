@@ -170,4 +170,12 @@ $result_converted{'latex_text'}->{'verb_in_xref'} = '\\label{anchor:point}%
 See \\hyperref[anchor:point]{[point], page~\\pageref*{anchor:point}}.
 ';
 
+
+$result_converted{'docbook'}->{'verb_in_xref'} = '<anchor id="point"/>
+<para>See <link linkend="point"><literal>with
+verb
+
+ggg </literal></link>.
+</para>';
+
 1;

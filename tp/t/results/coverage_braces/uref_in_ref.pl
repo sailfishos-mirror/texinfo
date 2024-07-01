@@ -250,4 +250,8 @@ $result_converted{'html_text'}->{'uref_in_ref'} = '<p><a data-manual="info file 
 $result_converted{'latex_text'}->{'uref_in_ref'} = 'Section ``title with uref2 \\href{href://http/myhost.com/index2.html}{uref2 (\\nolinkurl{href://http/myhost.com/index2.html})}\'\' in \\textsl{printed manual with uref4 \\href{href://http/myhost.com/index4.html}{uref4 (\\nolinkurl{href://http/myhost.com/index4.html})}}
 ';
 
+
+$result_converted{'docbook'}->{'uref_in_ref'} = '<para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
+</para>';
+
 1;

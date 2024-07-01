@@ -55,4 +55,7 @@ $result_converted{'html_text'}->{'brace_command_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'brace_command_no_braces'} = '';
 
+
+$result_converted{'docbook'}->{'brace_command_no_braces'} = '<para></para>';
+
 1;

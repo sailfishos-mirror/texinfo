@@ -124,4 +124,11 @@ $result_converted{'latex_text'}->{'empty_line_in_email'} = '\\href{mailto:
 text
 ';
 
+
+$result_converted{'docbook'}->{'empty_line_in_email'} = '<para><email>
+</email></para><para>mail,
+</para>
+<para>text
+</para>';
+
 1;

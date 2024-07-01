@@ -3383,4 +3383,98 @@ $result_converted_errors{'latex_text'}->{'test_image'} = [
 ];
 
 
+
+$result_converted{'docbook'}->{'test_image'} = '<anchor id="chapter"/>
+
+<informalfigure><mediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></mediaobject></informalfigure>
+
+<para>In text <inlinemediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>.
+</para>
+<para>Insertcopying
+</para><para>Text in copying.
+<inlinemediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
+<para>In text <inlinemediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>.
+</para>
+<screen><inlinemediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+
+In text <inlinemediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>.
+</screen>
+<anchor id="Image-with-commands"/>
+<informalfigure><mediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></mediaobject></informalfigure>
+
+<para>In text <inlinemediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>.
+</para>
+
+
+';
+
+$result_converted_errors{'docbook'}->{'test_image'} = [
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 15,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 15,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 9,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 9,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 21,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 21,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 25,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+',
+    'line_nr' => 25,
+    'macro' => 'files-char',
+    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
+    'type' => 'warning'
+  }
+];
+
+
 1;

@@ -77,4 +77,7 @@ $result_converted{'html_text'}->{'empty_second_email_argument'} = '<p><a class="
 
 $result_converted{'latex_text'}->{'empty_second_email_argument'} = '\\href{mailto:a@b.c}{\\nolinkurl{a@b.c}}';
 
+
+$result_converted{'docbook'}->{'empty_second_email_argument'} = '<para><email>a@b.c</email></para>';
+
 1;

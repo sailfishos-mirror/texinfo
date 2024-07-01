@@ -822,4 +822,19 @@ para2}
 
 ';
 
+
+$result_converted{'docbook'}->{'two_footnotes_in_nodes'} = '<chapter label="1" id="chapter">
+<title>chapter</title>
+
+<para>C<footnote><para>Footnote chapter/1
+</para>
+<para>para2</para></footnote>
+</para>
+<para>D<footnote><para>Footnote chapter/2
+</para>
+<para>para2</para></footnote>
+</para>
+</chapter>
+';
+
 1;

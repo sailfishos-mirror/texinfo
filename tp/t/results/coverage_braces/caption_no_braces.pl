@@ -50,4 +50,7 @@ $result_converted{'html_text'}->{'caption_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'caption_no_braces'} = '';
 
+
+$result_converted{'docbook'}->{'caption_no_braces'} = '';
+
 1;

@@ -1533,20 +1533,15 @@ sub _convert($$;$)
         }
 
       } elsif ($element->{'cmdname'} eq 'U') {
-        my $argument;
+        my $argument_text;
         if ($element->{'args'}
-            and $element->{'args'}->[0]
             and $element->{'args'}->[0]->{'contents'}
-            and $element->{'args'}->[0]->{'contents'}->[0]
             and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-          $argument = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
+          $argument_text = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
         }
-        if ($argument) {
-          $result = "&#x$argument;";
+        if ($argument_text) {
+          $result = "&#x$argument_text;";
         } else {
-          $self->converter_line_warn(
-                  __("no argument specified for \@U"),
-                           $element->{'source_info'});
           $result = '';
         }
         return $result;

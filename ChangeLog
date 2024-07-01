@@ -1,5 +1,14 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert): simplify conditions on
+	element args for @U.  Remove error message for empty @U as there is
+	already the same message output un Parser.
+
+	* tp/t/03coverage_braces.t: add docbook as test_formats for all the
+	tests in @test_cases.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm: simplify conditions on element args.
 
 2024-07-01  Patrice Dumas  <pertusus@free.fr>

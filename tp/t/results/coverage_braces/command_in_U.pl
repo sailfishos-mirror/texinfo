@@ -78,4 +78,7 @@ $result_converted{'html_text'}->{'command_in_U'} = '<p>&#x<code class="code">09A
 
 $result_converted{'latex_text'}->{'command_in_U'} = '';
 
+
+$result_converted{'docbook'}->{'command_in_U'} = '<para></para>';
+
 1;

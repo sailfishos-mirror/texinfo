@@ -341,4 +341,13 @@ $result_converted{'latex_text'}->{'abbr_acronym'} = '--a (an accronym)
 \\\'{E}--a.\\@ ,A.\\@
 ';
 
+
+$result_converted{'docbook'}->{'abbr_acronym'} = '<para><acronym>&#8211;a</acronym> (an accronym)
+<acronym>&#8211;a</acronym>
+<acronym>&#8211;a</acronym> (an accronym &#44; ...)
+</para>
+<para><abbrev>&#201;&#8211;a. &#44;A.</abbrev> (&#201;tude&#8211;&#44; <emphasis role="bold">Autonome</emphasis>)
+<abbrev>&#201;&#8211;a. &#44;A.</abbrev>
+</para>';
+
 1;

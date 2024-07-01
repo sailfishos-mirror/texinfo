@@ -97,4 +97,7 @@ $result_converted{'html_text'}->{'ref_in_style_command'} = '<p>&lsquo;<samp clas
 
 $result_converted{'latex_text'}->{'ref_in_style_command'} = '`\\texttt{(manula)other node}\'.';
 
+
+$result_converted{'docbook'}->{'ref_in_style_command'} = '<para>&#8216;<literal><link>(manula)other node</link></literal>&#8217;.</para>';
+
 1;

@@ -71,4 +71,7 @@ $result_converted{'html_text'}->{'too_much_args'} = '<p><abbr class="abbr" title
 
 $result_converted{'latex_text'}->{'too_much_args'} = 'AZE (A truc Z b, E eep)';
 
+
+$result_converted{'docbook'}->{'too_much_args'} = '<para><abbrev>AZE</abbrev> (A truc Z b, E eep)</para>';
+
 1;

@@ -120,4 +120,9 @@ $result_converted{'latex_text'}->{'footnote'} = 'text\\footnote{in footnote.
 
 \\textnormal{in footnote r}. } after footnote.';
 
+
+$result_converted{'docbook'}->{'footnote'} = '<para>text<footnote><para>in footnote.
+</para>
+<para>in footnote r. </para></footnote> after footnote.</para>';
+
 1;

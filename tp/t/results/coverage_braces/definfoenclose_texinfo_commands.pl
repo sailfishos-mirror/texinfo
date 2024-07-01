@@ -421,4 +421,13 @@ $result_converted{'latex_text'}->{'definfoenclose_texinfo_commands'} = '
 \\end{quote}
 ';
 
+
+$result_converted{'docbook'}->{'definfoenclose_texinfo_commands'} = '
+<para><literal>aaa</literal>.
+</para>
+<para>&tex;. in strong.
+</para>
+<important><para>in quotation
+</para></important>';
+
 1;

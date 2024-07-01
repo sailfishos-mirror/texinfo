@@ -60,4 +60,7 @@ $result_converted{'html_text'}->{'footnote_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'footnote_no_braces'} = '\\footnote{}';
 
+
+$result_converted{'docbook'}->{'footnote_no_braces'} = '<para></para>';
+
 1;

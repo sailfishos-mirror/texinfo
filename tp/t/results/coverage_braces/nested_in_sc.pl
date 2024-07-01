@@ -252,4 +252,9 @@ $result_converted{'latex_text'}->{'nested_in_sc'} = '\\textsc{\\textsc{aaa \\~{n
 \\verb:in verb:}}
 ';
 
+
+$result_converted{'docbook'}->{'nested_in_sc'} = '<para>AAA &#209; &#197; &tex; &#197;&#771; <footnote><para>In footnote</para></footnote>, <abbrev>ABR</abbrev> (EXPL), 
+<literal>IN VERB</literal>
+</para>';
+
 1;

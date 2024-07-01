@@ -185,4 +185,7 @@ $result_converted_errors{'latex_text'}->{'space_in_image'} = [
 ];
 
 
+
+$result_converted{'docbook'}->{'space_in_image'} = '<informalfigure><mediaobject><imageobject><imagedata fileref="a.jpg" format="JPG"></imagedata></imageobject><textobject><literallayout>An image text before paragraph.</literallayout></textobject></mediaobject></informalfigure><para>. <inlinemediaobject><imageobject><imagedata fileref="f.jpg" format="JPG"></imagedata></imageobject><textobject><literallayout>Another image text, in paragraph.</literallayout></textobject></inlinemediaobject>.</para>';
+
 1;

@@ -79,4 +79,8 @@ $result_converted{'latex_text'}->{'space_in_anchor'} = '\\label{anchor:anchor-na
 .
 ';
 
+
+$result_converted{'docbook'}->{'space_in_anchor'} = '<anchor id="anchor-name"/><para>.
+</para>';
+
 1;

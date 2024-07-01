@@ -55,4 +55,7 @@ $result_converted{'html_text'}->{'abbr_no_braces'} = '<p><abbr class="abbr"></ab
 
 $result_converted{'latex_text'}->{'abbr_no_braces'} = '';
 
+
+$result_converted{'docbook'}->{'abbr_no_braces'} = '<para></para>';
+
 1;

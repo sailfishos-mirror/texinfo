@@ -199,4 +199,12 @@ BBB
 }
 ';
 
+
+$result_converted{'docbook'}->{'heading_in_footnote'} = '<para>T<footnote><para>AAA
+</para><bridgehead renderas="sect1">H1</bridgehead>
+<indexterm role="cp"><primary>ind e</primary></indexterm>
+<para>BBB
+</para></footnote>
+</para>';
+
 1;

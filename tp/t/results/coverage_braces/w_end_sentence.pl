@@ -61,4 +61,7 @@ $result_converted{'html_text'}->{'w_end_sentence'} = '<p>a. b<!-- /@w --></p>';
 
 $result_converted{'latex_text'}->{'w_end_sentence'} = 'a. \\hbox{b}';
 
+
+$result_converted{'docbook'}->{'w_end_sentence'} = '<para>a. b<!-- /@w --></para>';
+
 1;

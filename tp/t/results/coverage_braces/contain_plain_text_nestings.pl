@@ -952,4 +952,21 @@ Text \\hbox{\\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~
 \\printindex[cp]
 ';
 
+
+$result_converted{'docbook'}->{'contain_plain_text_nestings'} = '<chapter label="1" id="chap">
+<title>Chap</title>
+
+<para>Text <literal>code&amp;#160;in&amp;#160;w</literal>&amp;#160;text<!-- /@w -->.
+<keycap><literal>code in key</literal> text</keycap>
+<indexterm role="cp"><primary>ii</primary></indexterm>
+</para>
+<!-- no warning for @ref in @w -->
+<para>Text <link linkend="Top">cross&amp;#160;in&amp;#160;w</link>&amp;#160;text<!-- /@w -->.
+<keycap><link linkend="Top">cross in key</link> text</keycap>
+<indexterm role="cp"><primary>ii</primary></indexterm>
+</para>
+<index role="cp"></index>
+</chapter>
+';
+
 1;

@@ -457,4 +457,22 @@ in format
 \\end{Texinfopreformatted}
 ';
 
+
+$result_converted{'docbook'}->{'kbd'} = '<para>kbd: <literal>in kbd</literal>.
+</para>
+<para>kbd in code: <literal>in first <userinput>in nested kbd</userinput></literal>.
+</para>
+<para>kbd in kbd: <userinput>in top kbd <userinput>in nested kbd</userinput></userinput>.
+</para>
+<para>kbd in @example:
+</para>
+<screen>in example
+<literal>in example in kbd</literal>.
+</screen>
+<para>kbd in @format:
+</para>
+<literallayout>in format
+<literal>in format in kbd</literal>.
+</literallayout>';
+
 1;

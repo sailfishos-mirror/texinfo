@@ -181,4 +181,7 @@ $result_converted{'html_text'}->{'nested_args'} = '<p>See <a data-manual="manual
 
 $result_converted{'latex_text'}->{'nested_args'} = 'See Section ``S\\~{e}ction\'\' in \\texttt{\\Texinfocommandstyletextcite{manual}}.';
 
+
+$result_converted{'docbook'}->{'nested_args'} = '<para>See section &#8220;S&#7869;ction&#8221; in <filename><citetitle>manual</citetitle></filename>.</para>';
+
 1;

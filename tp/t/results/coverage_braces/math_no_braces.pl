@@ -55,4 +55,7 @@ $result_converted{'html_text'}->{'math_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'math_no_braces'} = '';
 
+
+$result_converted{'docbook'}->{'math_no_braces'} = '<para></para>';
+
 1;

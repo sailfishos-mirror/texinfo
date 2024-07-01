@@ -50,4 +50,7 @@ $result_converted{'html_text'}->{'hyphenation_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'hyphenation_no_braces'} = '\\hyphenation{}';
 
+
+$result_converted{'docbook'}->{'hyphenation_no_braces'} = '';
+
 1;

@@ -394,4 +394,11 @@ $result_converted{'latex_text'}->{'one_argument_leading_trailing_spaces'} = '\\t
 \\aa{} \\dots{}
 ';
 
+
+$result_converted{'docbook'}->{'one_argument_leading_trailing_spaces'} = '<para><literal> in code </literal>  in slanted  <replaceable> var </replaceable> <subscript> sub </subscript>
+<literal> http://example.com </literal> &#x1234; &amp;#160;w&amp;#160;<!-- /@w --> <literal> verb </literal>.
+ e &#770;  a &#778;  i   bb &#865;
+&#229; ...
+</para>';
+
 1;

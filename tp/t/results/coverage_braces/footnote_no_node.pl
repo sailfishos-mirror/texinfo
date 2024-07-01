@@ -150,4 +150,12 @@ $result_converted{'latex_text'}->{'footnote_no_node'} = '\\part*{{top}}
 F\\footnote{In footnote}.
 ';
 
+
+$result_converted{'docbook'}->{'footnote_no_node'} = '<chapter label="">
+<title>top</title>
+
+<para>F<footnote><para>In footnote</para></footnote>.
+</para></chapter>
+';
+
 1;

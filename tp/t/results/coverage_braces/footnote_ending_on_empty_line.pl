@@ -95,4 +95,9 @@ $result_converted{'latex_text'}->{'footnote_ending_on_empty_line'} = 'text\\foot
 
 }';
 
+
+$result_converted{'docbook'}->{'footnote_ending_on_empty_line'} = '<para>text<footnote><para>in footnote.
+</para>
+</footnote></para>';
+
 1;

@@ -305,15 +305,4 @@ $result_converted{'docbook'}->{'invalid_U'} = '<para> &#xz; &#xabc; &#x999999999
 &#x0023; &#xFFFD; &#xwxyz;
 </para>';
 
-$result_converted_errors{'docbook'}->{'invalid_U'} = [
-  {
-    'error_line' => 'warning: no argument specified for @U
-',
-    'line_nr' => 1,
-    'text' => 'no argument specified for @U',
-    'type' => 'warning'
-  }
-];
-
-
 1;

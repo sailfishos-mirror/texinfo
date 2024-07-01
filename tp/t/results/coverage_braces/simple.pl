@@ -61,4 +61,7 @@ $result_converted{'html_text'}->{'simple'} = '<p><b class="b">in  b</b>.</p>';
 
 $result_converted{'latex_text'}->{'simple'} = '\\textbf{in  b}.';
 
+
+$result_converted{'docbook'}->{'simple'} = '<para><emphasis role="bold">in  b</emphasis>.</para>';
+
 1;

@@ -55,4 +55,7 @@ $result_converted{'html_text'}->{'email_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'email_no_braces'} = '';
 
+
+$result_converted{'docbook'}->{'email_no_braces'} = '<para></para>';
+
 1;

@@ -56,4 +56,7 @@ $result_converted{'html_text'}->{'strong_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'strong_no_braces'} = '\\textbf{}';
 
+
+$result_converted{'docbook'}->{'strong_no_braces'} = '<para></para>';
+
 1;

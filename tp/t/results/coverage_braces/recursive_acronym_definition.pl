@@ -137,4 +137,8 @@ $result_converted{'html_text'}->{'recursive_acronym_definition'} = '<p><abbr cla
 $result_converted{'latex_text'}->{'recursive_acronym_definition'} = 'GNU (GNU (GNU (is something)\'s Not Unix)\'s Not Unix)
 ';
 
+
+$result_converted{'docbook'}->{'recursive_acronym_definition'} = '<para><acronym>GNU</acronym> (<acronym>GNU</acronym> (<acronym>GNU</acronym> (is something)&#8217;s Not Unix)&#8217;s Not Unix)
+</para>';
+
 1;

@@ -55,4 +55,7 @@ $result_converted{'html_text'}->{'image_no_braces'} = '';
 
 $result_converted{'latex_text'}->{'image_no_braces'} = '';
 
+
+$result_converted{'docbook'}->{'image_no_braces'} = '';
+
 1;

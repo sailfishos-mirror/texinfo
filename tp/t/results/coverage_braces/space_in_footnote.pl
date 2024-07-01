@@ -84,4 +84,7 @@ $result_converted{'html_text'}->{'space_in_footnote'} = '<p>text<a class="footno
 
 $result_converted{'latex_text'}->{'space_in_footnote'} = 'text\\footnote{in footnote.}';
 
+
+$result_converted{'docbook'}->{'space_in_footnote'} = '<para>text<footnote><para>in footnote.</para></footnote></para>';
+
 1;

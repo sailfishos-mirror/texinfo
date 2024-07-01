@@ -168,4 +168,10 @@ $result_converted{'latex_text'}->{'inforef_too_much_args'} = '\\label{anchor:cha
 Section ``chapter\'\' in \\texttt{file name,\\ spurious arg}
 ';
 
+
+$result_converted{'docbook'}->{'inforef_too_much_args'} = '<anchor id="chapter"/>
+
+<para>See section &#8220;cross ref name&#8221; in <filename>file name, spurious arg</filename>
+</para>';
+
 1;
