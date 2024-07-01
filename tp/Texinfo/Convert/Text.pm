@@ -516,43 +516,44 @@ sub _convert($$)
     return $result;
   }
 
+  my $cmdname;
+  if (defined($element->{'cmdname'})) {
+    $cmdname = $element->{'cmdname'};
+  }
+
   return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
      and (($element->{'type'} and $ignored_types{$element->{'type'}})
-          or ($element->{'cmdname'}
-             and ($ignored_brace_commands{$element->{'cmdname'}}
-                 or $ignored_block_commands{$element->{'cmdname'}}
-                 or ($ignored_format_raw_commands{$element->{'cmdname'}}
+          or ($cmdname
+             and ($ignored_brace_commands{$cmdname}
+                 or $ignored_block_commands{$cmdname}
+                 or ($ignored_format_raw_commands{$cmdname}
                      and !(defined($options->{'expanded_formats'})
-                           and $options->{'expanded_formats'}
-                                                    ->{$element->{'cmdname'}}))
-                 or ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
+                           and $options->{'expanded_formats'}->{$cmdname}))
+                 or ($Texinfo::Commands::brace_commands{$cmdname}
                      and $Texinfo::Commands::brace_commands{
-                                             $element->{'cmdname'}} eq 'inline'
-                     and $element->{'cmdname'} ne 'inlinefmtifelse'
-                     and (($Texinfo::Commands::inline_format_commands{
-                                                         $element->{'cmdname'}}
+                                             $cmdname} eq 'inline'
+                     and $cmdname ne 'inlinefmtifelse'
+                     and (($Texinfo::Commands::inline_format_commands{$cmdname}
                            and (!$element->{'extra'}
                                 or !$element->{'extra'}->{'format'}
                                 or !$options->{'expanded_formats'}
                                 or !$options->{'expanded_formats'}
                                            ->{$element->{'extra'}->{'format'}}))
                          or (!$Texinfo::Commands::inline_format_commands{
-                                                          $element->{'cmdname'}}
+                                                                       $cmdname}
                              and (!$element->{'extra'}
-                                  or !defined($element->{'extra'}->{'expand_index'})))))
+                                  or !defined($element->{'extra'}
+                                                         ->{'expand_index'})))))
              # here ignore most of the line commands
                  or ($element->{'args'}
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'rawline_arg')
-                     and !$formatted_line_commands{$element->{'cmdname'}}
-                     and !$converted_formattable_line_commands{
-                                                    $element->{'cmdname'}})))));
+                     and !$formatted_line_commands{$cmdname}
+                     and !$converted_formattable_line_commands{$cmdname})))));
 
   my $result = '';
-  my $cmdname;
-  if (defined($element->{'cmdname'})) {
-    $cmdname = $element->{'cmdname'};
+  if (defined($cmdname)) {
     if (defined($nobrace_symbol_text{$cmdname})) {
       return $nobrace_symbol_text{$cmdname};
     } elsif ($cmdname eq 'today') {
