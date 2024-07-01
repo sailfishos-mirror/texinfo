@@ -98,6 +98,7 @@ my @test_cases = (
 ['strong_no_braces', '@strong'],
 ['caption_no_braces', '@caption'],
 ['footnote_no_braces', '@footnote'],
+['U_no_braces', '@U'],
 ['hyphenation_no_braces', '@hyphenation'],
 ['verb_in_xref',
 '@anchor{point}

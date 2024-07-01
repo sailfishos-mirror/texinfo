@@ -381,6 +381,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/unknown_accents.pl \
   t/results/coverage/unknown_commands.pl \
   t/results/coverage/verbatiminclude.pl \
+  t/results/coverage_braces/U_no_braces.pl \
   t/results/coverage_braces/abbr_acronym.pl \
   t/results/coverage_braces/abbr_no_braces.pl \
   t/results/coverage_braces/anchor_not_closed.pl \
