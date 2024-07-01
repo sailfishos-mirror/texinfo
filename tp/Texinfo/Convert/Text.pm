@@ -612,16 +612,15 @@ sub _convert($$)
       } else {
         return '';
       }
-    } elsif ($Texinfo::Commands::explained_commands{$element->{'cmdname'}}) {
-      if ($element->{'args'} and $element->{'args'}->[1]) {
-        my $explanation = _convert($options, $element->{'args'}->[1]);
-        if ($explanation ne '') {
-          return _convert($options, $element->{'args'}->[0]) ." ($explanation)";
-        } else {
-          return _convert($options, $element->{'args'}->[0]);
-        }
+    # if there is only one argument, it is processed below with the other
+    # brace commands
+    } elsif ($Texinfo::Commands::explained_commands{$element->{'cmdname'}}
+             and $element->{'args'} and scalar(@{$element->{'args'}}) >= 2) {
+      my $explanation = _convert($options, $element->{'args'}->[1]);
+      if ($explanation ne '') {
+        return _convert($options, $element->{'args'}->[0]) ." ($explanation)";
       } else {
-        return '';
+        return _convert($options, $element->{'args'}->[0]);
       }
     } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
              and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
