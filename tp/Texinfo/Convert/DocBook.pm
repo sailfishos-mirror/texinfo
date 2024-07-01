@@ -1421,14 +1421,10 @@ sub _convert($$;$)
           my $email;
           my $email_text;
           if (scalar(@{$element->{'args'}}) == 2
-              and defined($element->{'args'}->[-1])
-              and $element->{'args'}->[-1]->{'contents'}
-              and @{$element->{'args'}->[-1]->{'contents'}}) {
-            $name = $element->{'args'}->[1]->{'contents'};
+              and $element->{'args'}->[1]->{'contents'}) {
+            $name = $element->{'args'}->[1];
           }
-          if (defined($element->{'args'}->[0])
-              and $element->{'args'}->[0]->{'contents'}
-              and @{$element->{'args'}->[0]->{'contents'}}) {
+          if ($element->{'args'}->[0]->{'contents'}) {
             $email = $element->{'args'}->[0];
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
@@ -1448,11 +1444,11 @@ sub _convert($$;$)
             # The best is probably either to forget about the name, or
             # follow <email> by the name in parentheses
             return "<ulink url=\"mailto:$email_text\">"
-              .$self->_convert({'contents' => $name}).'</ulink>';
+              .$self->_convert($name).'</ulink>';
           } elsif ($email) {
             return "<email>$email_text</email>";
           } elsif ($name) {
-            return $self->_convert({'contents' => $name});
+            return $self->_convert($name);
           }
         } else {
           return '';

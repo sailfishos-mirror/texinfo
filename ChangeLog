@@ -1,5 +1,12 @@
 2024-07-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert): simplify conditions on
+	element args, convert arg and not arg contents.
+
+2024-07-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert),
 	tp/Texinfo/Convert/Plaintext.pm (_convert): simplify conditions.
 

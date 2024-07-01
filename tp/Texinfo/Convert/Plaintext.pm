@@ -3029,14 +3029,10 @@ sub _convert($$)
           my $name;
           my $email;
           if (scalar (@{$element->{'args'}}) == 2
-              and defined($element->{'args'}->[1])
-              and $element->{'args'}->[1]->{'contents'}
-              and @{$element->{'args'}->[1]->{'contents'}}) {
+              and $element->{'args'}->[1]->{'contents'}) {
             $name = $element->{'args'}->[1];
           }
-          if (defined($element->{'args'}->[0])
-              and $element->{'args'}->[0]->{'contents'}
-              and @{$element->{'args'}->[0]->{'contents'}}) {
+          if ($element->{'args'}->[0]->{'contents'}) {
             $email = $element->{'args'}->[0];
           }
           my $email_tree;
@@ -3049,32 +3045,26 @@ sub _convert($$)
           } elsif ($name) {
             $email_tree = $name;
           } else {
-            return '';
+            return;
           }
           _convert($self, $email_tree);
-          return;
         }
-        return '';
+        return;
       } elsif ($command eq 'uref' or $command eq 'url') {
         my $inserted;
         if ($element->{'args'}) {
           if (scalar(@{$element->{'args'}}) == 3
-               and defined($element->{'args'}->[2])
-               and $element->{'args'}->[2]->{'contents'}
-               and @{$element->{'args'}->[2]->{'contents'}}) {
+               and $element->{'args'}->[2]->{'contents'}) {
             $inserted = {'type' => '_stop_upper_case',
                          'contents' => [$element->{'args'}->[2]]};
-          } elsif ($element->{'args'}->[0]->{'contents'}
-                   and @{$element->{'args'}->[0]->{'contents'}}) {
+          } elsif ($element->{'args'}->[0]->{'contents'}) {
             # no mangling of --- and similar in url.
             my $url = {'type' => '_stop_upper_case',
               'contents' => [
                {'type' => '_code',
                 'contents' => [$element->{'args'}->[0]]}]};
             if (scalar(@{$element->{'args'}}) == 2
-               and defined($element->{'args'}->[1])
-               and $element->{'args'}->[1]->{'contents'}
-               and @{$element->{'args'}->[1]->{'contents'}}) {
+                and $element->{'args'}->[1]->{'contents'}) {
               $inserted = $self->cdt('{text} ({url})',
                    {'text' => $element->{'args'}->[1],
                     'url' => $url });
@@ -3082,9 +3072,7 @@ sub _convert($$)
               $inserted = $self->cdt('@t{<{url}>}', {'url' => $url});
             }
           } elsif (scalar(@{$element->{'args'}}) == 2
-                   and defined($element->{'args'}->[1])
-                   and $element->{'args'}->[1]->{'contents'}
-                   and @{$element->{'args'}->[1]->{'contents'}}) {
+                   and $element->{'args'}->[1]->{'contents'}) {
             $inserted = $element->{'args'}->[1];
           }
         }

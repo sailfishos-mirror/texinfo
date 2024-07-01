@@ -3266,15 +3266,11 @@ sub _convert($$)
         my $email_arg;
         my $email_text;
         if (scalar (@{$element->{'args'}}) == 2
-            and defined($element->{'args'}->[1])
-            and $element->{'args'}->[1]->{'contents'}
-            and @{$element->{'args'}->[1]->{'contents'}}) {
-          $name = $element->{'args'}->[1]->{'contents'};
-          $converted_name = _convert($self, {'contents' => $name});
+            and $element->{'args'}->[1]->{'contents'}) {
+          $name = $element->{'args'}->[1];
+          $converted_name = _convert($self, $name);
         }
-        if (defined($element->{'args'}->[0])
-            and $element->{'args'}->[0]->{'contents'}
-            and @{$element->{'args'}->[0]->{'contents'}}) {
+        if ($element->{'args'}->[0]->{'contents'}) {
           $email_arg = $element->{'args'}->[0];
           Texinfo::Convert::Text::set_options_code(
                           $self->{'convert_text_options'});
