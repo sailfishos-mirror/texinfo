@@ -2064,23 +2064,23 @@ sub _convert_def_line($$)
     = Texinfo::Convert::Utils::definition_arguments_content($element);
   if ($category or $class or $type or $name) {
     my $tree;
-    my $command;
+    my $cmdname;
     if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-      $command
+      $cmdname
        = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
     } else {
-      $command = $element->{'extra'}->{'def_command'};
+      $cmdname = $element->{'extra'}->{'def_command'};
     }
     $name = {'text' => ''} if (!defined($name));
 
     my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
 
-    if ($command eq 'defline'
-        or $command eq 'deffn'
-        or $command eq 'defvr'
-        or $command eq 'deftp'
-        or (($command eq 'deftypefn'
-             or $command eq 'deftypevr')
+    if ($cmdname eq 'defline'
+        or $cmdname eq 'deffn'
+        or $cmdname eq 'defvr'
+        or $cmdname eq 'deftp'
+        or (($cmdname eq 'deftypefn'
+             or $cmdname eq 'deftypevr')
             and !defined($type))) {
       if ($arguments) {
         my $strings = {
@@ -2099,9 +2099,9 @@ sub _convert_def_line($$)
              'category' => $category,
              'name' => $name});
       }
-    } elsif ($command eq 'deftypeline'
-             or $command eq 'deftypefn'
-             or $command eq 'deftypevr') {
+    } elsif ($cmdname eq 'deftypeline'
+             or $cmdname eq 'deftypefn'
+             or $cmdname eq 'deftypevr') {
       if ($arguments) {
         my $strings = {
           'category' => $category,
@@ -2110,7 +2110,7 @@ sub _convert_def_line($$)
           'arguments' => $arguments};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
-            and $command eq 'deftypefn') {
+            and $cmdname eq 'deftypefn') {
           if ($omit_def_space) {
             $tree
               = $self->cdt('@tie{}-- {category}:@*{type}@*{name}{arguments}',
@@ -2138,7 +2138,7 @@ sub _convert_def_line($$)
          'name' => $name};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
-            and $command eq 'deftypefn') {
+            and $cmdname eq 'deftypefn') {
           $tree = $self->cdt('@tie{}-- {category}:@*{type}@*{name}',
                              $strings);
         } else {
@@ -2146,8 +2146,8 @@ sub _convert_def_line($$)
                              $strings);
         }
       }
-    } elsif ($command eq 'defcv'
-             or ($command eq 'deftypecv'
+    } elsif ($cmdname eq 'defcv'
+             or ($cmdname eq 'deftypecv'
                  and !defined($type))) {
       if ($arguments) {
         my $strings = {
@@ -2170,8 +2170,8 @@ sub _convert_def_line($$)
          'class' => $class,
          'name' => $name});
       }
-    } elsif ($command eq 'defop'
-             or ($command eq 'deftypeop'
+    } elsif ($cmdname eq 'defop'
+             or ($cmdname eq 'deftypeop'
                  and !defined($type))) {
       if ($arguments) {
         my $strings = {
@@ -2194,7 +2194,7 @@ sub _convert_def_line($$)
          'class' => $class,
          'name' => $name});
       }
-    } elsif ($command eq 'deftypeop') {
+    } elsif ($cmdname eq 'deftypeop') {
       if ($arguments) {
         my $strings = {
          'category' => $category,
@@ -2241,7 +2241,7 @@ sub _convert_def_line($$)
                          $strings);
         }
       }
-    } elsif ($command eq 'deftypecv') {
+    } elsif ($cmdname eq 'deftypecv') {
       if ($arguments) {
         my $strings = {
          'category' => $category,
@@ -2311,20 +2311,20 @@ sub _convert($$)
   my $formatter = $self->{'formatters'}->[-1];
 
   my $type = $element->{'type'};
-  my $command = $element->{'cmdname'};
+  my $cmdname = $element->{'cmdname'};
 
   if (($type and $self->{'ignored_types'}->{$type})
-       or ($command
-            and ($self->{'ignored_commands'}->{$command}
-                 or ($brace_commands{$command}
-                     and $brace_commands{$command} eq 'inline'
-                     and $command ne 'inlinefmtifelse'
-                     and (($inline_format_commands{$command}
+       or ($cmdname
+            and ($self->{'ignored_commands'}->{$cmdname}
+                 or ($brace_commands{$cmdname}
+                     and $brace_commands{$cmdname} eq 'inline'
+                     and $cmdname ne 'inlinefmtifelse'
+                     and (($inline_format_commands{$cmdname}
                           and (!$element->{'extra'}
                                or !$element->{'extra'}->{'format'}
                                or !$self->{'expanded_formats'}
                                            ->{$element->{'extra'}->{'format'}}))
-                         or (!$inline_format_commands{$command}
+                         or (!$inline_format_commands{$cmdname}
                              and (!$element->{'extra'}
                   or  !defined($element->{'extra'}->{'expand_index'})))))))) {
     return;
@@ -2510,9 +2510,9 @@ sub _convert($$)
 
   my $cell;
   my $preformatted;
-  if ($command) {
+  if ($cmdname) {
     my $unknown_command;
-    if ($accent_commands{$command}) {
+    if ($accent_commands{$cmdname}) {
       my $encoding;
       if ($self->{'enable_encoding'}) {
         $encoding = $self->{'output_encoding_name'};
@@ -2546,18 +2546,18 @@ sub _convert($$)
       remove_end_sentence($formatter->{'container'})
         if ($accented_text ne '');
       return;
-    } elsif (exists($brace_commands{$command})
+    } elsif (exists($brace_commands{$cmdname})
              or ($type and $type eq 'definfoenclose_command')) {
-      if ($self->{'style_map'}->{$command}
+      if ($self->{'style_map'}->{$cmdname}
            or ($type and $type eq 'definfoenclose_command')) {
-        if ($brace_code_commands{$command}) {
+        if ($brace_code_commands{$cmdname}) {
           if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
           } else {
             $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
           }
-        } elsif (exists($brace_commands{$command})
-                 and $brace_commands{$command} eq 'style_no_code') {
+        } elsif (exists($brace_commands{$cmdname})
+                 and $brace_commands{$cmdname} eq 'style_no_code') {
           if ($formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 0,
                                                       'normal' => 1};
@@ -2565,17 +2565,17 @@ sub _convert($$)
             $formatter->{'font_type_stack'}->[-1]->{'normal'}++;
           }
         }
-        if ($no_punctation_munging_commands{$command}) {
+        if ($no_punctation_munging_commands{$cmdname}) {
           push @{$formatter->{'frenchspacing_stack'}}, 'on';
           set_space_protection($formatter->{'container'}, undef,
                                undef, undef, 1);
         }
-        if ($upper_case_commands{$command}) {
+        if ($upper_case_commands{$cmdname}) {
           $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}++;
           $formatter->{'upper_case_stack'}->[-1]->{'var'}++
-            if ($command eq 'var');
+            if ($cmdname eq 'var');
         }
-        if ($command eq 'w') {
+        if ($cmdname eq 'w') {
           $formatter->{'w'}++;
           set_space_protection($formatter->{'container'}, 1, undef)
             if ($formatter->{'w'} == 1);
@@ -2585,21 +2585,21 @@ sub _convert($$)
             and $element->{'type'} eq 'definfoenclose_command') {
           $text_before = $element->{'extra'}->{'begin'};
           $text_after = $element->{'extra'}->{'end'};
-        } elsif ($non_quoted_commands_when_nested{$command}
+        } elsif ($non_quoted_commands_when_nested{$cmdname}
                  and $formatter->{'font_type_stack'}->[-1]->{'code_command'}) {
           $text_before = '';
           $text_after = '';
         } elsif ($formatter->{'suppress_styles'}
-                 and !$index_style_commands{$command}) {
+                 and !$index_style_commands{$cmdname}) {
           $text_before = '';
           $text_after = '';
         } else {
-          $text_before = $self->{'style_map'}->{$command}->[0];
-          $text_after = $self->{'style_map'}->{$command}->[1];
+          $text_before = $self->{'style_map'}->{$cmdname}->[0];
+          $text_after = $self->{'style_map'}->{$cmdname}->[1];
         }
         # do this after determining $text_before/$text_after such that it
         # doesn't impact the current command, but only commands nested within
-        if ($non_quoted_commands_when_nested{$command}) {
+        if ($non_quoted_commands_when_nested{$cmdname}) {
           $formatter->{'font_type_stack'}->[-1]->{'code_command'}++;
         }
         _stream_output($self,
@@ -2608,7 +2608,7 @@ sub _convert($$)
            if ($text_before ne '');
         if ($element->{'args'}) {
           _convert($self, $element->{'args'}->[0]);
-          if ($command eq 'strong'
+          if ($cmdname eq 'strong'
               and $element->{'args'}->[0]->{'contents'}
               and defined($element->{'args'}->[0]->{'contents'}->[0]->{'text'})
               and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
@@ -2624,28 +2624,28 @@ sub _convert($$)
                        add_next($formatter->{'container'}, $text_after, 1),
                        $formatter->{'container'})
            if ($text_after ne '');
-        if ($command eq 'w') {
+        if ($cmdname eq 'w') {
           $formatter->{'w'}--;
           set_space_protection($formatter->{'container'}, 0, undef)
             if ($formatter->{'w'} == 0);
         }
-        if ($brace_code_commands{$command}) {
+        if ($brace_code_commands{$cmdname}) {
           $formatter->{'font_type_stack'}->[-1]->{'monospace'}--;
           allow_end_sentence($formatter->{'container'});
           pop @{$formatter->{'font_type_stack'}}
             if !$formatter->{'font_type_stack'}->[-1]->{'monospace'};
-        } elsif (exists($brace_commands{$command})
-                 and $brace_commands{$command} eq 'style_no_code') {
+        } elsif (exists($brace_commands{$cmdname})
+                 and $brace_commands{$cmdname} eq 'style_no_code') {
           if ($formatter->{'font_type_stack'}->[-1]->{'normal'}) {
             $formatter->{'font_type_stack'}->[-1]->{'normal'}--;
             pop @{$formatter->{'font_type_stack'}}
               if !$formatter->{'font_type_stack'}->[-1]->{'normal'};
           }
         }
-        if ($non_quoted_commands_when_nested{$command}) {
+        if ($non_quoted_commands_when_nested{$cmdname}) {
           $formatter->{'font_type_stack'}->[-1]->{'code_command'}--;
         }
-        if ($no_punctation_munging_commands{$command}) {
+        if ($no_punctation_munging_commands{$cmdname}) {
           pop @{$formatter->{'frenchspacing_stack'}};
           my $frenchspacing = 0;
           $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1]
@@ -2653,16 +2653,16 @@ sub _convert($$)
           set_space_protection($formatter->{'container'}, undef,
                                undef, undef, $frenchspacing);
         }
-        if ($upper_case_commands{$command}) {
+        if ($upper_case_commands{$cmdname}) {
           $formatter->{'upper_case_stack'}->[-1]->{'upper_case'}--;
-          if ($command eq 'var') {
+          if ($cmdname eq 'var') {
             $formatter->{'upper_case_stack'}->[-1]->{'var'}--;
             # Allow a following full stop to terminate a sentence.
             allow_end_sentence($formatter->{'container'});
           }
         }
         return;
-      } elsif ($command eq 'link') {
+      } elsif ($cmdname eq 'link') {
         if ($element->{'args'}) {
           # Use arg 2 if present, otherwise use arg 1.  Do not produce
           # functional link in Info/plaintext output.
@@ -2679,7 +2679,7 @@ sub _convert($$)
           }
         }
         return;
-      } elsif ($ref_commands{$command}) {
+      } elsif ($ref_commands{$cmdname}) {
         # no args may happen with bogus @-commands without argument, maybe only
         # at the end of a document
         if ($element->{'args'}) {
@@ -2731,7 +2731,7 @@ sub _convert($$)
             my $name = $self->float_type_number($target_element);
             $args[1] = $name;
           }
-          if ($command eq 'inforef' and scalar(@args) == 3) {
+          if ($cmdname eq 'inforef' and scalar(@args) >= 3) {
             $args[3] = $args[2];
             $args[2] = undef;
           }
@@ -2753,7 +2753,7 @@ sub _convert($$)
           set_space_protection($formatter->{'container'},
                       undef, undef, undef, undef, 1);
 
-          if ($command eq 'xref') {
+          if ($cmdname eq 'xref') {
             _convert($self, {'type' => '_stop_upper_case',
                              'contents' => [{'text' => '*Note '}]});
           } else {
@@ -2795,7 +2795,7 @@ sub _convert($$)
               if ($self->{'info_special_chars_warning'}) {
                 $self->plaintext_line_warn($self, sprintf(__(
                    "\@%s cross-reference name should not contain `:'"),
-                                         $command), $element->{'source_info'});
+                                         $cmdname), $element->{'source_info'});
               }
               if ($self->{'info_special_chars_quote'}) {
                 $quoting_required = 1;
@@ -2869,7 +2869,7 @@ sub _convert($$)
           if ($node_name =~ /([$check_chars])/m) {
             if ($self->{'info_special_chars_warning'}) {
               $self->plaintext_line_warn($self, sprintf(__(
-                 "\@%s node name should not contain `%s'"), $command, $1),
+                 "\@%s node name should not contain `%s'"), $cmdname, $1),
                                $element->{'source_info'});
             }
             if ($self->{'info_special_chars_quote'}) {
@@ -2925,7 +2925,7 @@ sub _convert($$)
 
             if (!($next and $next->{'text'}
                     and $next->{'text'} =~ /^[\.,]/)) {
-              if ($command eq 'xref') {
+              if ($cmdname eq 'xref') {
                 if ($next and defined($next->{'text'})
                     and $next->{'text'} =~ /\S/) {
                   my $text = $next->{'text'};
@@ -2962,7 +2962,7 @@ sub _convert($$)
           return;
         }
         return;
-      } elsif ($command eq 'image') {
+      } elsif ($cmdname eq 'image') {
         _stream_output($self,
                        add_pending_word($formatter->{'container'}, 1),
                        $formatter->{'container'});
@@ -2972,14 +2972,14 @@ sub _convert($$)
         _add_lines_count($self, $lines_count);
         _stream_output($self, $image);
         return;
-      } elsif ($command eq 'today') {
+      } elsif ($cmdname eq 'today') {
         my $today = $self->Texinfo::Convert::Utils::expand_today();
         _convert($self, $today);
         return;
-      } elsif (exists($brace_no_arg_commands{$command})) {
+      } elsif (exists($brace_no_arg_commands{$cmdname})) {
         my $text;
 
-        if ($command eq 'dots' or $command eq 'enddots') {
+        if ($cmdname eq 'dots' or $cmdname eq 'enddots') {
           # Don't use Unicode ellipsis character.
           $text = '...';
         } else {
@@ -2987,12 +2987,12 @@ sub _convert($$)
                                              $self->{'convert_text_options'});
         }
 
-        if ($punctuation_no_arg_commands{$command}) {
+        if ($punctuation_no_arg_commands{$cmdname}) {
           _stream_output($self,
                          add_next($formatter->{'container'}, $text),
                          $formatter->{'container'});
           add_end_sentence($formatter->{'container'}, 1);
-        } elsif ($command eq 'tie') {
+        } elsif ($cmdname eq 'tie') {
           _stream_output($self,
                          add_next($formatter->{'container'}, $text),
                          $formatter->{'container'});
@@ -3000,7 +3000,7 @@ sub _convert($$)
           # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
           # is the case whether we are in @sc or not.
           if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
-              and $letter_no_arg_commands{$command}) {
+              and $letter_no_arg_commands{$cmdname}) {
             $text = _protect_sentence_ends($text);
             $text = uc($text);
           }
@@ -3010,11 +3010,11 @@ sub _convert($$)
                          $formatter->{'container'});
 
           # This is to have @TeX{}, for example, not to prevent end sentences.
-          if (!$letter_no_arg_commands{$command}) {
+          if (!$letter_no_arg_commands{$cmdname}) {
             allow_end_sentence($formatter->{'container'});
           }
 
-          if ($command eq 'dots') {
+          if ($cmdname eq 'dots') {
             remove_end_sentence($formatter->{'container'});
           }
         }
@@ -3023,9 +3023,7 @@ sub _convert($$)
           allow_end_sentence($formatter->{'container'});
         }
         return;
-      } elsif ($command eq 'email') {
-        # nothing is output for email, instead the command is substituted.
-        my @email_contents;
+      } elsif ($cmdname eq 'email') {
         if ($element->{'args'}) {
           my $name;
           my $email;
@@ -3051,7 +3049,7 @@ sub _convert($$)
           _convert($self, $email_tree);
         }
         return;
-      } elsif ($command eq 'uref' or $command eq 'url') {
+      } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
         my $inserted;
         if ($element->{'args'}) {
           if (scalar(@{$element->{'args'}}) == 3
@@ -3081,7 +3079,7 @@ sub _convert($$)
           _convert($self, $inserted);
         }
         return;
-      } elsif ($command eq 'footnote') {
+      } elsif ($cmdname eq 'footnote') {
         $self->{'footnote_index'}++ unless ($self->{'multiple_pass'});
         my $formatted_footnote_number;
         if ($self->get_conf('NUMBER_FOOTNOTES')) {
@@ -3118,17 +3116,17 @@ sub _convert($$)
             });
         }
         return;
-      } elsif ($command eq 'anchor') {
+      } elsif ($cmdname eq 'anchor') {
         _stream_output($self, add_pending_word($formatter->{'container'}),
                        $formatter->{'container'});
         $self->_anchor($element);
         return;
-      } elsif ($explained_commands{$command}) {
+      } elsif ($explained_commands{$cmdname}) {
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {
           # in abbr spaces never end a sentence.
           my $argument;
-          if ($command eq 'abbr') {
+          if ($cmdname eq 'abbr') {
             $argument = {'type' => 'frenchspacing',
                          'contents' => [$element->{'args'}->[0]]};
           } else {
@@ -3151,9 +3149,9 @@ sub _convert($$)
           }
         }
         return '';
-      } elsif ($brace_commands{$command} eq 'inline') {
+      } elsif ($brace_commands{$cmdname} eq 'inline') {
         my $arg_index = 1;
-        if ($command eq 'inlinefmtifelse'
+        if ($cmdname eq 'inlinefmtifelse'
             and (!$element->{'extra'}->{'format'}
                  or !$self->{'expanded_formats'}
                                         ->{$element->{'extra'}->{'format'}})) {
@@ -3165,7 +3163,7 @@ sub _convert($$)
            and scalar(@{$element->{'args'}->[$arg_index]->{'contents'}})) {
           my $arg = $element->{'args'}->[$arg_index];
           my $argument;
-          if ($command eq 'inlineraw') {
+          if ($cmdname eq 'inlineraw') {
             $argument = {'type' => '_stop_upper_case',
                          'contents' => [{'type' => '_code',
                                          'contents' => [$arg]}]};
@@ -3175,18 +3173,18 @@ sub _convert($$)
           _convert($self, $argument);
         }
         return;
-        # condition should actually be that the $command is inline
-      } elsif ($math_commands{$command}) {
-        push @{$self->{'context'}}, $command;
+        # condition should actually be that the $cmdname is inline
+      } elsif ($math_commands{$cmdname}) {
+        push @{$self->{'context'}}, $cmdname;
         if ($element->{'args'}) {
           _convert($self, {'type' => 'frenchspacing',
                'contents' => [{'type' => '_code',
                               'contents' => [$element->{'args'}->[0]]}]});
         }
         my $old_context = pop @{$self->{'context'}};
-        die if ($old_context ne $command);
+        die if ($old_context ne $cmdname);
         return;
-      } elsif ($command eq 'titlefont') {
+      } elsif ($cmdname eq 'titlefont') {
         if ($element->{'args'}) {
           my $result = $self->_text_heading(
                           {'extra' => {'section_level' => 0},
@@ -3199,7 +3197,7 @@ sub _convert($$)
           _add_lines_count($self, 1);
         }
         return;
-      } elsif ($command eq 'U') {
+      } elsif ($cmdname eq 'U') {
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}
             and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
@@ -3229,7 +3227,7 @@ sub _convert($$)
           }
         }
         return;
-      } elsif ($command eq 'value') {
+      } elsif ($cmdname eq 'value') {
         my $expansion = $self->cdt('@{No value for `{value}\'@}',
                                    {'value' => $element->{'args'}->[0]});
         my $piece;
@@ -3242,11 +3240,11 @@ sub _convert($$)
         _convert($self, $piece);
         return;
       }
-    } elsif (defined($nobrace_symbol_text{$command})) {
-      if ($command eq ':') {
+    } elsif (defined($nobrace_symbol_text{$cmdname})) {
+      if ($cmdname eq ':') {
         remove_end_sentence($formatter->{'container'});
         return '';
-      } elsif ($command eq '*') {
+      } elsif ($cmdname eq '*') {
         _stream_output($self,
                        add_pending_word($formatter->{'container'}),
                        $formatter->{'container'});
@@ -3262,45 +3260,45 @@ sub _convert($$)
                          end_line($formatter->{'container'}),
                          $formatter->{'container'});
         }
-      } elsif ($command eq '.' or $command eq '?' or $command eq '!') {
+      } elsif ($cmdname eq '.' or $cmdname eq '?' or $cmdname eq '!') {
         _stream_output($self,
-                       add_next($formatter->{'container'}, $command),
+                       add_next($formatter->{'container'}, $cmdname),
                        $formatter->{'container'});
         add_end_sentence($formatter->{'container'}, 1);
-      } elsif ($command eq ' ' or $command eq "\n" or $command eq "\t") {
+      } elsif ($cmdname eq ' ' or $cmdname eq "\n" or $cmdname eq "\t") {
         _stream_output($self,
                        add_next($formatter->{'container'},
-                                $nobrace_symbol_text{$command}),
+                                $nobrace_symbol_text{$cmdname}),
                        $formatter->{'container'});
       } else {
         _stream_output($self,
                        add_text($formatter->{'container'},
-                                $nobrace_symbol_text{$command}),
+                                $nobrace_symbol_text{$cmdname}),
                        $formatter->{'container'});
       }
       return;
     # block commands
-    } elsif (exists($block_commands{$command})) {
+    } elsif (exists($block_commands{$cmdname})) {
       # remark:
       # cartouche group and raggedright -> nothing on format stack
 
       my $format_menu = $self->get_conf('FORMAT_MENU');
-      if ($menu_commands{$command}
+      if ($menu_commands{$cmdname}
           and (!$format_menu or $format_menu eq 'nomenu')) {
         return '';
       }
-      if ($self->{'preformatted_context_commands'}->{$command}
-          or $command eq 'float') {
-        if ($format_raw_commands{$command}) {
+      if ($self->{'preformatted_context_commands'}->{$cmdname}
+          or $cmdname eq 'float') {
+        if ($format_raw_commands{$cmdname}) {
           _stream_output($self,
                          add_pending_word($formatter->{'container'}, 1),
                          $formatter->{'container'});
         }
-        push @{$self->{'context'}}, $command;
-      } elsif ($flush_commands{$command}) {
-        push @{$self->{'context'}}, $command;
-      } elsif ($block_commands{$command} eq 'raw' # can only be @verbatim
-               or $block_math_commands{$command}) {
+        push @{$self->{'context'}}, $cmdname;
+      } elsif ($flush_commands{$cmdname}) {
+        push @{$self->{'context'}}, $cmdname;
+      } elsif ($block_commands{$cmdname} eq 'raw' # can only be @verbatim
+               or $block_math_commands{$cmdname}) {
         if (!$self->{'formatters'}->[-1]->{'_top_formatter'}) {
           # reuse the current formatter if not in top level
           _stream_output($self,
@@ -3313,34 +3311,33 @@ sub _convert($$)
           # if in top level, the raw block command is turned into a
           # simple preformatted command (alike @verbatim), to have a
           # formatter container being created.
-          push @{$self->{'context'}}, $command;
-          $self->{'format_context_commands'}->{$command} = 1;
-          $self->{'preformatted_context_commands'}->{$command} = 1;
+          push @{$self->{'context'}}, $cmdname;
+          $self->{'format_context_commands'}->{$cmdname} = 1;
+          $self->{'preformatted_context_commands'}->{$cmdname} = 1;
         }
       }
 
-      if ($self->{'format_context_commands'}->{$command}) {
+      if ($self->{'format_context_commands'}->{$cmdname}) {
         push @{$self->{'format_context'}},
-             { 'cmdname' => $command,
+             { 'cmdname' => $cmdname,
                'paragraph_count' => 0,
                'indent_level' =>
                    $self->{'format_context'}->[-1]->{'indent_level'},
              };
         $self->{'format_context'}->[-1]->{'indent_level'}++
-           if ($indented_commands{$command});
+           if ($indented_commands{$cmdname});
         # open a preformatted container, if the command opening the
         # preformatted context is not a classical preformatted
         # command (ie if it is menu or verbatim, and not example or
         # similar)
-        if ($self->{'preformatted_context_commands'}->{$command}
-            and ! $preformatted_commands{$command}
-            and ! $format_raw_commands{$command}) {
+        if ($self->{'preformatted_context_commands'}->{$cmdname}
+            and ! $preformatted_commands{$cmdname}
+            and ! $format_raw_commands{$cmdname}) {
           $preformatted = $self->new_formatter('unfilled');
           push @{$self->{'formatters'}}, $preformatted;
         }
       }
-      if ($command eq 'quotation'
-          or $command eq 'smallquotation') {
+      if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {
           my $prepended = $self->cdt('@b{{quotation_arg}:} ',
@@ -3354,9 +3351,9 @@ sub _convert($$)
 
           $self->{'text_element_context'}->[-1]->{'counter'} += $width;
         }
-      } elsif ($menu_commands{$command}) {
+      } elsif ($menu_commands{$cmdname}) {
         $self->_menu($element);
-      } elsif ($command eq 'multitable') {
+      } elsif ($cmdname eq 'multitable') {
         my $columnsize = [];
         if ($element->{'extra'}->{'columnfractions'}) {
           foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
@@ -3382,13 +3379,13 @@ sub _convert($$)
         }
         $self->{'format_context'}->[-1]->{'columns_size'} = $columnsize;
         $self->{'document_context'}->[-1]->{'in_multitable'}++;
-      } elsif ($command eq 'float') {
+      } elsif ($cmdname eq 'float') {
         _add_newline_if_needed($self);
         if ($element->{'args'} and scalar(@{$element->{'args'}}) >= 2
             and $element->{'args'}->[1]->{'contents'}) {
           $self->_anchor($element);
         }
-      } elsif ($command eq 'cartouche') {
+      } elsif ($cmdname eq 'cartouche') {
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {
           # FIXME reset the paragraph count in cartouche and use a
@@ -3404,19 +3401,19 @@ sub _convert($$)
               = $previous_paragraph_count;
         }
       }
-    } elsif ($command eq 'node') {
+    } elsif ($cmdname eq 'node') {
       $self->{'current_node'} = $element;
       $self->format_node($element);
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
-    } elsif ($sectioning_heading_commands{$command}) {
+    } elsif ($sectioning_heading_commands{$cmdname}) {
       # use settitle for empty @top
       # ignore @part
       my $heading_element;
       if ($element->{'args'}
           and $element->{'args'}->[0]->{'contents'}
-          and $command ne 'part') {
+          and $cmdname ne 'part') {
         $heading_element = $element->{'args'}->[0];
-      } elsif ($command eq 'top') {
+      } elsif ($cmdname eq 'top') {
         my $global_commands;
         if ($self->{'document'}) {
           $global_commands = $self->{'document'}->global_commands_information();
@@ -3445,7 +3442,7 @@ sub _convert($$)
         }
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
-    } elsif (($command eq 'item' or $command eq 'itemx')
+    } elsif (($cmdname eq 'item' or $cmdname eq 'itemx')
              and $element->{'args'}
              and $element->{'args'}->[0]->{'type'}
              and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
@@ -3461,7 +3458,7 @@ sub _convert($$)
                    * $indent_length});
         _ensure_end_of_line($self);
       }
-    } elsif ($command eq 'item' and $element->{'parent'}->{'cmdname'}
+    } elsif ($cmdname eq 'item' and $element->{'parent'}->{'cmdname'}
              and $block_commands{$element->{'parent'}->{'cmdname'}}
              and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_container') {
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
@@ -3490,19 +3487,19 @@ sub _convert($$)
          Texinfo::Convert::Paragraph::counter($line->{'container'});
       pop @{$self->{'formatters'}};
     # open a multitable cell
-    } elsif ($command eq 'headitem' or $command eq 'item'
-             or $command eq 'tab') {
+    } elsif ($cmdname eq 'headitem' or $cmdname eq 'item'
+             or $cmdname eq 'tab') {
       my $cell_width
         = $self->{'format_context'}->[-1]->{'columns_size'}
                                     ->[$element->{'extra'}->{'cell_number'}-1];
-      $self->{'format_context'}->[-1]->{'item_command'} = $command
-        if ($command ne 'tab');
+      $self->{'format_context'}->[-1]->{'item_command'} = $cmdname
+        if ($cmdname ne 'tab');
       #die if (!defined($cell_width));
       # happens with bogus multitables
       $cell_width = 2 if (!defined ($cell_width));
 
       push @{$self->{'format_context'}},
-           { 'cmdname' => $command,
+           { 'cmdname' => $cmdname,
              'paragraph_count' => 0,
              'indent_level' => 0 };
       push @{$self->{'text_element_context'}}, {'max' => $cell_width - 2 };
@@ -3510,9 +3507,9 @@ sub _convert($$)
                                                    'locations' => []};
       $cell = 1;
     # not block commands and not brace commands
-    } elsif ($def_commands{$command}) {
+    } elsif ($def_commands{$cmdname}) {
       _convert_def_line($self, $element);
-    } elsif ($command eq 'center') {
+    } elsif ($cmdname eq 'center') {
       #my ($counts, $new_locations);
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                    'locations' => []};
@@ -3526,7 +3523,6 @@ sub _convert($$)
       _ensure_end_of_line($self);
       my $result = _stream_result($self);
       if ($result ne '') {
-
         $result = $self->_align_environment ($result,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'center');
         _stream_output_encoded($self, $result);
@@ -3536,7 +3532,7 @@ sub _convert($$)
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       return $result;
-    } elsif ($command eq 'exdent') {
+    } elsif ($cmdname eq 'exdent') {
       if ($element->{'args'}
           and $element->{'args'}->[0]->{'contents'}) {
         if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
@@ -3560,12 +3556,12 @@ sub _convert($$)
       }
       _ensure_end_of_line($self);
       return;
-    } elsif ($command eq 'verbatiminclude') {
+    } elsif ($cmdname eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude(
                                                                $self, $element);
       _convert($self, $expansion) if (defined($expansion));
       return;
-    } elsif ($command eq 'insertcopying') {
+    } elsif ($cmdname eq 'insertcopying') {
       my $global_commands;
       if ($self->{'document'}) {
         $global_commands = $self->{'document'}->global_commands_information();
@@ -3576,10 +3572,10 @@ sub _convert($$)
         _convert($self, $inserted);
       }
       return;
-    } elsif ($command eq 'printindex') {
+    } elsif ($cmdname eq 'printindex') {
       $self->format_printindex($element);
       return;
-    } elsif ($command eq 'listoffloats') {
+    } elsif ($cmdname eq 'listoffloats') {
       my $float_type = $element->{'extra'}->{'float_type'};
       my $lines_count = 0;
       my $floats;
@@ -3683,7 +3679,7 @@ sub _convert($$)
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       _add_lines_count($self, $lines_count);
       return '';
-    } elsif ($command eq 'sp') {
+    } elsif ($cmdname eq 'sp') {
       # FIXME No argument should mean 1, not 0, to check
       if ($element->{'extra'}
           and $element->{'extra'}->{'misc_args'}) {
@@ -3700,7 +3696,7 @@ sub _convert($$)
         delete $self->{'text_element_context'}->[-1]->{'counter'};
       }
       return;
-    } elsif ($command eq 'contents') {
+    } elsif ($cmdname eq 'contents') {
       my $sections_list;
       if ($self->{'document'}) {
         $sections_list = $self->{'document'}->sections_list();
@@ -3712,8 +3708,7 @@ sub _convert($$)
         $self->format_contents($sectioning_root, 'contents');
       }
       return;
-    } elsif ($command eq 'shortcontents'
-               or $command eq 'summarycontents') {
+    } elsif ($cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
       my $sections_list;
       if ($self->{'document'}) {
         $sections_list = $self->{'document'}->sections_list();
@@ -3727,7 +3722,7 @@ sub _convert($$)
       return;
     # all the @-commands that have an information for the formatting, like
     # @paragraphindent, @frenchspacing...
-    } elsif ($informative_commands{$command}) {
+    } elsif ($informative_commands{$cmdname}) {
       Texinfo::Common::set_informative_command_value($self, $element);
       return;
     } else {
@@ -3743,11 +3738,11 @@ sub _convert($$)
         # associated is processed. If they have no name and no category they
         # are not considered as index entries either so they have a specific
         # condition
-        and !($def_commands{$command}
-              and ($command eq 'defline' or $command eq 'deftypeline'
-                    or $command =~ /x$/))) {
-      warn "Unhandled $command\n";
-      _stream_output($self, "!!!!!!!!! Unhandled $command !!!!!!!!!\n");
+        and !($def_commands{$cmdname}
+              and ($cmdname eq 'defline' or $cmdname eq 'deftypeline'
+                    or $cmdname =~ /x$/))) {
+      warn "Unhandled $cmdname\n";
+      _stream_output($self, "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n");
       _add_lines_count($self, 1)
     }
   }
@@ -4223,8 +4218,8 @@ sub _convert($$)
   }
 
   # close commands
-  if ($command) {
-    if ($command eq 'float') {
+  if ($cmdname) {
+    if ($cmdname eq 'float') {
       if ($element->{'extra'}
           and ($element->{'extra'}->{'float_type'} ne ''
                or ($element->{'extra'}
@@ -4248,8 +4243,7 @@ sub _convert($$)
           _convert($self, $tree);
         }
       }
-    } elsif (($command eq 'quotation'
-               or $command eq 'smallquotation')
+    } elsif (($cmdname eq 'quotation' or $cmdname eq 'smallquotation')
              and $element->{'extra'} and $element->{'extra'}->{'authors'}) {
       foreach my $author (@{$element->{'extra'}->{'authors'}}) {
         if ($author->{'args'}->[0]
@@ -4260,11 +4254,11 @@ sub _convert($$)
                {'author' => $author->{'args'}->[0]}));
         }
       }
-    } elsif (($command eq 'multitable')) {
+    } elsif ($cmdname eq 'multitable') {
       $self->{'document_context'}->[-1]->{'in_multitable'}--;
-    } elsif ($root_commands{$command}
-        and $sectioning_heading_commands{$command}
-        and $command ne 'part') {
+    } elsif ($root_commands{$cmdname}
+             and $sectioning_heading_commands{$cmdname}
+             and $cmdname ne 'part') {
       # add menu if missing
       my $node = $self->{'current_node'};
       my $automatic_directions = 1;
@@ -4289,23 +4283,23 @@ sub _convert($$)
     }
 
     # close the contexts and register the cells
-    if ($self->{'preformatted_context_commands'}->{$command}
-        or $command eq 'float') {
+    if ($self->{'preformatted_context_commands'}->{$cmdname}
+        or $cmdname eq 'float') {
       my $old_context = pop @{$self->{'context'}};
       die "Not a preformatted context: $old_context"
         if (!$self->{'preformatted_context_commands'}->{$old_context}
             and $old_context ne 'float');
-      delete ($self->{'preformatted_context_commands'}->{$command})
-       unless ($default_preformatted_context_commands{$command});
-    } elsif ($flush_commands{$command}) {
+      delete ($self->{'preformatted_context_commands'}->{$cmdname})
+       unless ($default_preformatted_context_commands{$cmdname});
+    } elsif ($flush_commands{$cmdname}) {
       my $old_context = pop @{$self->{'context'}};
       die if (! $flush_commands{$old_context});
     }
 
-    if ($self->{'format_context_commands'}->{$command}) {
+    if ($self->{'format_context_commands'}->{$cmdname}) {
       pop @{$self->{'format_context'}};
-      delete ($self->{'format_context_commands'}->{$command})
-       unless ($default_format_context_commands{$command});
+      delete ($self->{'format_context_commands'}->{$cmdname})
+       unless ($default_format_context_commands{$cmdname});
     } elsif ($cell) {
       my $result = _stream_result($self);
 
@@ -4315,7 +4309,7 @@ sub _convert($$)
       my $cell_counts = pop @{$self->{'count_context'}};
       push @{$self->{'format_context'}->[-1]->{'row_counts'}}, $cell_counts;
     }
-    if ($advance_paragraph_count_commands{$command}) {
+    if ($advance_paragraph_count_commands{$cmdname}) {
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
     }
   }
