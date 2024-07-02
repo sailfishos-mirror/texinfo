@@ -1470,7 +1470,7 @@ sub table_item_content_tree($$)
   my $element = shift;
 
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
-  if (defined($element->{'args'}) and scalar(@{$element->{'args'}})
+  if ($element->{'args'}
       and $table_command->{'extra'}
       and $table_command->{'extra'}->{'command_as_argument'}) {
     my $command_as_argument
@@ -1671,7 +1671,8 @@ sub sort_element_counts($$;$$)
     my $name;
     if ($output_unit->{'unit_command'}) {
       my $command = $output_unit->{'unit_command'};
-      if ($command->{'args'}->[0]->{'contents'}) {
+      if ($command->{'args'}
+          and $command->{'args'}->[0]->{'contents'}) {
         # convert contents to avoid outputting end of lines
         $name = "\@$command->{'cmdname'} "
           .Texinfo::Convert::Texinfo::convert_to_texinfo(

@@ -1,4 +1,15 @@
-2024-07-01  Patrice Dumas  <pertusus@free.fr>
+2024-07-02  Patrice Dumas  <pertusus@free.f>
+
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/Plaintext.pm:
+	simplify conditions on args.
+
+	* tp/Texinfo/Convert/Plaintext.pm (process_footnotes): add types to
+	node and anchor element generated for a separate footnote.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): check if there are args
+	for @link.
+
+2024-07-01  Patrice Dumas  <pertusus@free.f>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args): remove a
 	useless argument of sprintf.

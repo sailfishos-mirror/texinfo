@@ -1295,7 +1295,7 @@ sub process_footnotes($;$)
     _add_newline_if_needed($self);
     my $footnotestyle = $self->get_conf('footnotestyle');
     if (!defined($footnotestyle) or $footnotestyle ne 'separate'
-        # no node content happens only in very special cases, such as
+        # no node label happens only in very special cases, such as
         # a @footnote in @copying and @insertcopying (and USE_NODES=0?)
         or !$label_element) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
@@ -1303,7 +1303,8 @@ sub process_footnotes($;$)
       _add_lines_count($self, 2);
     } else {
       my $footnotes_node_arg
-            = {'contents' => [$label_element, {'text' => '-Footnotes'}]};
+            = {'type' => 'line_arg',
+               'contents' => [$label_element, {'text' => '-Footnotes'}]};
       my $footnotes_node = {
         'cmdname' => 'node',
         'args' => [$footnotes_node_arg],
@@ -1328,7 +1329,8 @@ sub process_footnotes($;$)
       if ($label_element) {
         my $footnote_anchor_postfix = "-Footnote-$footnote_number";
         my $footnote_anchor_arg
-         = {'contents' => [$label_element,
+         = {'type' => 'brace_arg',
+            'contents' => [$label_element,
                            {'text' => $footnote_anchor_postfix}]};
         $self->add_location({'cmdname' => 'anchor',
                     'args' => [$footnote_anchor_arg],
@@ -1933,9 +1935,8 @@ sub image_formatted_text($$$$)
   my $result;
   if (defined($text)) {
     $result = $text;
-  } elsif (defined($element->{'args'}->[3])
-           and $element->{'args'}->[3]->{'contents'}
-           and @{$element->{'args'}->[3]->{'contents'}}) {
+  } elsif (scalar(@{$element->{'args'}}) >= 4
+           and $element->{'args'}->[3]->{'contents'}) {
     $result = '[' .Texinfo::Convert::Text::convert_to_text(
          $element->{'args'}->[3], $self->{'convert_text_options'}) .']';
   } else {
@@ -1956,8 +1957,8 @@ sub format_image($$)
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-                      $element->{'args'}->[0],
-                     $self->{'convert_text_options'});
+                                      $element->{'args'}->[0],
+                                      $self->{'convert_text_options'});
     Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
     my ($text, $width) = $self->txt_image_text($element, $basefile);
@@ -2662,28 +2663,29 @@ sub _convert($$)
         }
         return;
       } elsif ($command eq 'link') {
-        # Use arg 2 if present, otherwise use arg 1.  Do not produce
-        # functional link in Info/plaintext output.
-        my $text_arg;
+        if ($element->{'args'}) {
+          # Use arg 2 if present, otherwise use arg 1.  Do not produce
+          # functional link in Info/plaintext output.
+          my $text_arg;
 
-        if (defined($element->{'args'}->[1])
-            and defined($element->{'args'}->[1]->{'contents'})) {
-          $text_arg = $element->{'args'}->[1];
-        } elsif (defined($element->{'args'}->[0])
-              and defined($element->{'args'}->[0]->{'contents'})) {
-          $text_arg = $element->{'args'}->[0];
-        }
-        if (defined($text_arg)) {
-          _convert($self, $text_arg);
+          if (scalar(@{$element->{'args'}}) >= 2
+              and $element->{'args'}->[1]->{'contents'}) {
+            $text_arg = $element->{'args'}->[1];
+          } elsif ($element->{'args'}->[0]->{'contents'}) {
+            $text_arg = $element->{'args'}->[0];
+          }
+          if (defined($text_arg)) {
+            _convert($self, $text_arg);
+          }
         }
         return;
       } elsif ($ref_commands{$command}) {
         # no args may happen with bogus @-commands without argument, maybe only
         # at the end of a document
-        if ($element->{'args'} and scalar(@{$element->{'args'}})) {
+        if ($element->{'args'}) {
           my @args;
           for my $arg (@{$element->{'args'}}) {
-            if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {
+            if (defined $arg->{'contents'}) {
               push @args, $arg;
             } else {
               push @args, undef;
@@ -3027,7 +3029,7 @@ sub _convert($$)
         if ($element->{'args'}) {
           my $name;
           my $email;
-          if (scalar (@{$element->{'args'}}) == 2
+          if (scalar (@{$element->{'args'}}) >= 2
               and $element->{'args'}->[1]->{'contents'}) {
             $name = $element->{'args'}->[1];
           }
@@ -3130,15 +3132,13 @@ sub _convert($$)
             $argument = {'type' => 'frenchspacing',
                          'contents' => [$element->{'args'}->[0]]};
           } else {
-            $argument = { 'contents' => [$element->{'args'}->[0]]};
+            $argument = $element->{'args'}->[0];
           }
-          if (scalar (@{$element->{'args'}}) == 2
-              and defined($element->{'args'}->[-1])
-              and $element->{'args'}->[-1]->{'contents'}
-              and @{$element->{'args'}->[-1]->{'contents'}}) {
+          if (scalar(@{$element->{'args'}}) >= 2
+              and $element->{'args'}->[1]->{'contents'}) {
             my $inserted = $self->cdt('{abbr_or_acronym} ({explanation})',
                    {'abbr_or_acronym' => $argument,
-                    'explanation' => $element->{'args'}->[-1]});
+                    'explanation' => $element->{'args'}->[1]});
             _convert($self, $inserted);
             return;
           } else {
@@ -3449,8 +3449,7 @@ sub _convert($$)
              and $element->{'args'}
              and $element->{'args'}->[0]->{'type'}
              and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
-      if ($element->{'args'}
-          and $element->{'args'}->[0]->{'contents'}) {
+      if ($element->{'args'}->[0]->{'contents'}) {
         my $table_item_tree = $self->table_item_content_tree($element);
         $table_item_tree = $element->{'args'}->[0]
           if (!defined($table_item_tree));
@@ -3479,8 +3478,7 @@ sub _convert($$)
                  $element->{'parent'}->{'extra'}->{'enumerate_specification'},
                  $element->{'extra'}->{'item_number'}) . '. '),
             $line->{'container'});
-      } elsif ($element->{'parent'}->{'args'}
-          and $element->{'parent'}->{'args'}->[0]) {
+      } elsif ($element->{'parent'}->{'args'}) {
         # this is the text prepended to items.
         _convert($self, $element->{'parent'}->{'args'}->[0]);
         _convert($self, { 'text' => ' ' });
@@ -3688,8 +3686,7 @@ sub _convert($$)
     } elsif ($command eq 'sp') {
       # FIXME No argument should mean 1, not 0, to check
       if ($element->{'extra'}
-          and $element->{'extra'}->{'misc_args'}
-          and $element->{'extra'}->{'misc_args'}->[0]) {
+          and $element->{'extra'}->{'misc_args'}) {
         _stream_output($self,
                     add_pending_word($formatter->{'container'}),
                     $formatter->{'container'});
@@ -3732,7 +3729,7 @@ sub _convert($$)
     # @paragraphindent, @frenchspacing...
     } elsif ($informative_commands{$command}) {
       Texinfo::Common::set_informative_command_value($self, $element);
-      return '';
+      return;
     } else {
       $unknown_command = 1;
     }
