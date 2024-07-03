@@ -250,6 +250,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/minimal_empty_with_input/res_info \
   t/results/converters_tests/minimal_empty_with_input/res_latex \
   t/results/converters_tests/minimal_empty_with_input/res_xml \
+  t/results/converters_tests/multitable_prototypes.pl \
   t/results/converters_tests/non_empty_part.pl \
   t/results/converters_tests/non_empty_part_no_top_node_output.pl \
   t/results/converters_tests/normal_font_in_monospace.pl \

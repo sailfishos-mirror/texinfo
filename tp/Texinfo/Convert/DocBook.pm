@@ -1182,9 +1182,9 @@ sub _convert($$;$)
             $manual_file_index = 2;
             $command_name = 'ref';
           } else {
-            if ($args_nr == 5
-                and $element->{'args'}->[-1]->{'contents'}) {
-              $book_element = $element->{'args'}->[-1];
+            if ($args_nr >= 5
+                and $element->{'args'}->[4]->{'contents'}) {
+              $book_element = $element->{'args'}->[4];
             }
             if ($args_nr >= 3
                 and $element->{'args'}->[2]->{'contents'}) {
@@ -1426,7 +1426,7 @@ sub _convert($$;$)
           my $name;
           my $email;
           my $email_text;
-          if (scalar(@{$element->{'args'}}) == 2
+          if (scalar(@{$element->{'args'}}) >= 2
               and $element->{'args'}->[1]->{'contents'}) {
             $name = $element->{'args'}->[1];
           }
@@ -1486,7 +1486,7 @@ sub _convert($$;$)
             $replacement = $self->_convert($element->{'args'}->[1]);
           }
           if (!defined($replacement) or $replacement eq '') {
-            if ($args_nr == 3
+            if ($args_nr >= 3
                 and $element->{'args'}->[2]->{'contents'}) {
               $replacement = $self->_convert($element->{'args'}->[2]);
             }
@@ -1647,10 +1647,10 @@ sub _convert($$;$)
                                   $self, $self->{'convert_text_options'});
                   $prototype_text
                     = Texinfo::Convert::Text::convert_to_text(
-                                 {'contents' => $content->{'contents'}},
+                                     $content,
                                      $self->{'convert_text_options'});
                   Texinfo::Convert::Text::reset_options_encoding(
-                                 $self->{'convert_text_options'});
+                                     $self->{'convert_text_options'});
                 }
                 push @fractions,
                   Texinfo::Convert::Unicode::string_width($prototype_text);

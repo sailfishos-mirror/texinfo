@@ -737,6 +737,15 @@ explanation
 
 @end example
 '],
+['multitable_prototypes',
+'@multitable  {aa b}  { r } {j @code{some code} } @var{cmd}gg hh j 
+@item cc d
+@tab s
+@tab k @samp{same samp}
+@tab Invalid tab
+@end multitable
+
+'],
 ['image_with_spaces',
 '@image{f--ile,,,@ }.
 @image{f--ile,,,@:}.
