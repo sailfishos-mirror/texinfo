@@ -3729,17 +3729,7 @@ sub _convert($$)
     }
     if ($unknown_command
         and !($element->{'type'}
-              and ($element->{'type'} eq 'index_entry_command'))
-        # TODO it may have changed now that there is a _convert_def_line
-        # explicit for line def_commands.
-
-        # commands like def*x are not processed above, since only the def_line
-        # associated is processed. If they have no name and no category they
-        # are not considered as index entries either so they have a specific
-        # condition
-        and !($def_commands{$cmdname}
-              and ($cmdname eq 'defline' or $cmdname eq 'deftypeline'
-                    or $cmdname =~ /x$/))) {
+              and ($element->{'type'} eq 'index_entry_command'))) {
       warn "Unhandled $cmdname\n";
       _stream_output($self, "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n");
       _add_lines_count($self, 1)

@@ -986,8 +986,8 @@ sub _convert($$;$)
               $sectioning_commands_done{$section_element} = 1;
             }
             my $section_attribute = '';
-            # FIXME it is not clear that a label should be set for
-            # @appendix* or @chapter/@*section as the formatter should be
+            # It is not clear if a label should be set for @appendix* and
+            # @chapter/@*section or not, as the formatter should be
             # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
             # having a label (empty) is important.
             my $label = '';

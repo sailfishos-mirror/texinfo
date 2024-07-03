@@ -1,5 +1,12 @@
 2024-07-03  Patrice Dumas  <pertusus@free.f>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): remove condition on
+	line definition command now that it is handled directly.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert): remove FIXME.
+
+2024-07-03  Patrice Dumas  <pertusus@free.f>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): use direcly braced element
 	for multitable prototype.  Other minor changes.
 
