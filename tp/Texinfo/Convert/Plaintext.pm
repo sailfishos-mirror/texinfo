@@ -3680,21 +3680,20 @@ sub _convert($$)
       _add_lines_count($self, $lines_count);
       return '';
     } elsif ($cmdname eq 'sp') {
-      # FIXME No argument should mean 1, not 0, to check
+      _stream_output($self,
+                     add_pending_word($formatter->{'container'}),
+                     $formatter->{'container'});
+      my $sp_nr = 1;
       if ($element->{'extra'}
           and $element->{'extra'}->{'misc_args'}) {
-        _stream_output($self,
-                    add_pending_word($formatter->{'container'}),
-                    $formatter->{'container'});
-        # this useless copy avoids perl changing the type to integer!
-        my $sp_nr = $element->{'extra'}->{'misc_args'}->[0];
-        for (my $i = 0; $i < $sp_nr; $i++) {
-          _stream_output($self,
-                         end_line($formatter->{'container'}),
-                         $formatter->{'container'});
-        }
-        delete $self->{'text_element_context'}->[-1]->{'counter'};
+        $sp_nr = $element->{'extra'}->{'misc_args'}->[0];
       }
+      for (my $i = 0; $i < $sp_nr; $i++) {
+        _stream_output($self,
+                       end_line($formatter->{'container'}),
+                       $formatter->{'container'});
+      }
+      delete $self->{'text_element_context'}->[-1]->{'counter'};
       return;
     } elsif ($cmdname eq 'contents') {
       my $sections_list;

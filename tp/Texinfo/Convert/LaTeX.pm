@@ -4116,17 +4116,14 @@ sub _convert($$)
       $result .= "\\noindent{}";
       return $result;
     } elsif ($cmdname eq 'sp') {
-      my $sp_nr = 1;
+      my $sp_nr = '';
       if ($element->{'extra'}
-          and $element->{'extra'}->{'misc_args'}
-          and $element->{'extra'}->{'misc_args'}->[0]) {
-        # this useless copy avoids perl changing the type to integer!
+          and $element->{'extra'}->{'misc_args'}) {
         $sp_nr = $element->{'extra'}->{'misc_args'}->[0];
       }
-      # FIXME \vskip is a TeX primitive, so the syntax seems to be
-      # different from LaTeX, and some people warn against using
-      # TeX primitives.  However there is no obvious corresponding
-      # command in LaTeX, except for adding enough \\.
+      # NOTE \vskip is a TeX primitive that does what we need here,
+      # stop any paragraph and add vertical space.
+      # The code output here is the same as the code used in Texinfo TeX.
       $result .= "\\vskip $sp_nr\\baselineskip %\n";
       return $result;
     } elsif ($cmdname eq 'need') {

@@ -1,3 +1,18 @@
+2024-07-03  Patrice Dumas  <pertusus@free.f>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_sp_command),
+	tp/Texinfo/Convert/Plaintext.pm (_convert),
+	tp/Texinfo/XS/convert/convert_html.c (convert_sp_command): consider
+	empty @sp argument to be 1, to have an output more consistent with
+	Texinfo TeX.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): consider empty @sp argument
+	to be empty.
+
+	* tp/Makefile.tres, tp/t/converters_tests.t
+	(sp_empty_lines_1_no_arg_zero): test of @sp, @sp 0 and @sp 1 with
+	diverse possibilities for empty lines.
+
 2024-07-02  Patrice Dumas  <pertusus@free.f>
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert_def_line, _convert):

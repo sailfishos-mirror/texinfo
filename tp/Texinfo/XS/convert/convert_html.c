@@ -11125,25 +11125,27 @@ convert_sp_command (CONVERTER *self, const enum command_id cmd,
 {
   const STRING_LIST *misc_args = lookup_extra_misc_args (element,
                                                 AI_key_misc_args);
+  unsigned int sp_nr = 1;
+  int i;
+
   if (misc_args && misc_args->number > 0)
     {
-      int i;
       const char *sp_number_string = misc_args->list[0];
-      unsigned int sp_nr = strtoul (sp_number_string, NULL, 10);
+      sp_nr = strtoul (sp_number_string, NULL, 10);
+    }
 
-      if (html_in_preformatted_context (self) || html_in_string (self))
+  if (html_in_preformatted_context (self) || html_in_string (self))
+    {
+      for (i = 0; i < sp_nr; i++)
+        text_append_n (result, "\n", 1);
+    }
+  else
+    {
+      for (i = 0; i < sp_nr; i++)
         {
-          for (i= 0; i < sp_nr; i++)
-            text_append_n (result, "\n", 1);
-        }
-      else
-        {
-          for (i= 0; i < sp_nr; i++)
-            {
-              text_append_n (result, self->line_break_element.string,
-                                     self->line_break_element.len);
-              text_append_n (result, "\n", 1);
-            }
+          text_append_n (result, self->line_break_element.string,
+                                 self->line_break_element.len);
+         text_append_n (result, "\n", 1);
         }
     }
 }

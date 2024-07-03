@@ -5486,15 +5486,19 @@ sub _convert_sp_command($$$$)
   my $command = shift;
   my $args = shift;
 
+  my $sp_nr = 1;
   if (defined($command->{'extra'})
-      and defined($command->{'extra'}->{'misc_args'})
-      and defined($command->{'extra'}->{'misc_args'}->[0])) {
-    my $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
+      and $command->{'extra'}->{'misc_args'}) {
+    $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
+  }
+  if ($sp_nr > 0) {
     if (in_preformatted_context($self) or in_string($self)) {
       return "\n" x $sp_nr;
     } else {
       return ($self->get_info('line_break_element')."\n") x $sp_nr;
     }
+  } else {
+    return '';
   }
 }
 

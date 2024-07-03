@@ -446,6 +446,56 @@ sp after para
 @sp 1
 @end example
 '],
+# NOTE comparison of TeX/LaTeX output with Plaintext show differences.
+# In TeX/LaTeX with @sp 1, and irrespective of the number of empty line
+# the vertical space is always the same, interparagraph small space + 1
+# character.  In plaintext trailing empty lines do not produce an empty
+# line (as in TeX), but leading empty line do.  Also, @sp 0 without empty
+# lines lead to no empty line between paragraphs in Plaintext.
+# This is not of practical concern, as both @sp 0 (and @sp without
+# argument) behaviour are undefined, and both TeX and Plaintext output
+# are consistent with the documentation.  Also @sp should rarely, if ever,
+# be used in Plaintext.
+['sp_empty_lines_1_no_arg_zero',
+'A
+
+A010
+@sp 1
+A110
+
+@sp 1
+A011
+
+@sp 1
+A111
+
+@sp 1
+
+A000
+@sp 0
+A100
+
+@sp 0
+A001
+
+@sp 0
+A101
+
+@sp 0
+
+A0 0
+@sp
+A1 0
+
+@sp 
+A0 1
+
+@sp
+A1 1
+
+@sp 
+
+B'],
 ['line_breaks',
 '@documentdescription 
 a document @* yes!

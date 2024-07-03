@@ -284,6 +284,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/simplest_test_prefix/res_latex \
   t/results/converters_tests/simplest_test_prefix/res_xml \
   t/results/converters_tests/some_at_commands_in_ref_nodes.pl \
+  t/results/converters_tests/sp_empty_lines_1_no_arg_zero.pl \
   t/results/converters_tests/sp_in_example.pl \
   t/results/converters_tests/spaces_in_empty_node_names.pl \
   t/results/converters_tests/spaces_in_node_names.pl \
