@@ -589,7 +589,9 @@ File: ,  Node: chapter index,  Prev: Top,  Up: Top
  [index ]
 * Menu:
 
+  aaa continue aagain, See other second.
 * other second:                          chapter index.         (line 6)
+  entry secret, See something else.
 
 
 Tag Table:
@@ -610,7 +612,9 @@ $result_converted{'plaintext'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 
 * Menu:
 
+  aaa continue aagain, See other second.
 * other second:                          chapter index.         (line 3)
+  entry secret, See something else.
 
 ';
 

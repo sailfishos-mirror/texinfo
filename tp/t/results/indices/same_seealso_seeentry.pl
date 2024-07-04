@@ -769,6 +769,12 @@ File: ,  Node: node,  Prev: Top,  Up: Top
  [index ]
 * Menu:
 
+  aaa:                                   See also sss.
+  aaa:                                   See also 123.
+  bbb, See yyy.
+  bbb, See ttt.
+  ccc:                                   See also also.
+  ccc, See entry.
 * entry:                                 node.                  (line 6)
 
 
@@ -793,6 +799,12 @@ $result_converted{'plaintext'}->{'same_seealso_seeentry'} = 'top
 
 * Menu:
 
+  aaa:                                   See also sss.
+  aaa:                                   See also 123.
+  bbb, See yyy.
+  bbb, See ttt.
+  ccc:                                   See also also.
+  ccc, See entry.
 * entry:                                 node.                  (line 6)
 
 ';

@@ -1683,15 +1683,20 @@ sub process_printindex($$;$)
   my %entry_nodes;
   my $max_index_line_nr_string_length = 0;
   my %ignored_entries;
+  # number of index entries that refer to something else than an index entry
+  # in a node.  Corresponding with @seeentry or @seealso
+  my $reference_entries_nr = 0;
+
   foreach my $entry (@{$index_entries->{$index_name}}) {
     my $main_entry_element = $entry->{'entry_element'};
-    # FIXME format in a way instead of ignoring
+
     if ($main_entry_element->{'extra'}
          and ($main_entry_element->{'extra'}->{'seeentry'}
               or $main_entry_element->{'extra'}->{'seealso'})) {
-      $ignored_entries{$entry} = 1;
+      $reference_entries_nr++;
       next;
     }
+
     my $line_nr;
 
     if ($self->{'index_entries_line_location'}
@@ -1733,7 +1738,7 @@ sub process_printindex($$;$)
     $line_nrs{$entry} = $line_nr;
   }
 
-  return '' if (scalar(keys(%line_nrs)) == 0);
+  return '' if (scalar(keys(%line_nrs)) + $reference_entries_nr == 0);
 
   _add_newline_if_needed($self);
   if ($in_info) {
@@ -1790,6 +1795,66 @@ sub process_printindex($$;$)
     pop @{$self->{'count_context'}};
 
     next if ($entry_text !~ /\S/);
+
+    if ($main_entry_element->{'extra'}
+         and ($main_entry_element->{'extra'}->{'seeentry'}
+              or $main_entry_element->{'extra'}->{'seealso'})) {
+      my $line_width = 0;
+      my $referred_entry;
+      my $seeentry = 1;
+      if ($main_entry_element->{'extra'}->{'seeentry'}) {
+        $referred_entry = $main_entry_element->{'extra'}->{'seeentry'};
+      } else {
+        $referred_entry = $main_entry_element->{'extra'}->{'seealso'};
+        $seeentry = 0;
+      }
+
+      my $referred_tree = {};
+      $referred_tree->{'type'} = '_code'
+        if ($indices_information->{$entry_index_name}->{'in_code'});
+      if ($referred_entry->{'args'} and $referred_entry->{'args'}->[0]
+          and $referred_entry->{'args'}->[0]->{'contents'}) {
+        $referred_tree->{'contents'} = [$referred_entry->{'args'}->[0]];
+      }
+
+      # indent with the same width as '* ', but do not use * such that the
+      # info readers never find a cross reference for @seeentry or @seealso
+      _stream_output($self, '  ');
+      $line_width += 2;
+      my $reference_tree;
+      if ($seeentry) {
+        if (defined($subentries_tree)) {
+          $reference_tree
+      = $self->cdt('{main_index_entry}{subentries}, See@: {seeentry}',
+                                        {'subentries' => $subentries_tree,
+                                         'main_index_entry' => $entry_tree,
+                                         'seeentry' => $referred_tree});
+        } else {
+          $reference_tree
+      = $self->cdt('{main_index_entry}, See@: {seeentry}',
+                                        {'main_index_entry' => $entry_tree,
+                                         'seeentry' => $referred_tree});
+        }
+      } else {
+        my $entry_line = "$entry_text: ";
+        $line_width += Texinfo::Convert::Unicode::string_width($entry_line);
+        _stream_output($self, $entry_line);
+        if ($line_width < $index_length_to_node) {
+          my $spaces = ' ' x ($index_length_to_node - $line_width);
+          _stream_output($self, $spaces);
+          $line_width += length($spaces);
+        }
+        $reference_tree = $self->cdt('See also {see_also_entry}',
+                           {'see_also_entry' => $referred_tree});
+      }
+      $self->_convert($reference_tree);
+      _stream_output($self,
+             Texinfo::Convert::Paragraph::end($formatter->{'container'}),
+                     $formatter->{'container'});
+      _stream_output($self, ".\n");
+      _add_lines_count($self, 1);
+      next;
+    }
 
     # No need for protection, the Info readers should find the last : on
     # the line.  : in the node following the index entry node should be

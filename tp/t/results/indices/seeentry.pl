@@ -626,6 +626,18 @@ File: ,  Node: chapter index,  Prev: Top,  Up: Top
 1 Index
 *******
 
+ [index ]
+* Menu:
+
+  aaa, See bbb.
+  ddd:                                   See also ccc.
+
+ [index ]
+* Menu:
+
+  f---aaa, See f---bbb.
+  f---ddd:                               See also f---ccc.
+
 
 Tag Table:
 Node: Top27
@@ -642,6 +654,16 @@ End:
 
 $result_converted{'plaintext'}->{'seeentry'} = '1 Index
 *******
+
+* Menu:
+
+  aaa, See bbb.
+  ddd:                                   See also ccc.
+
+* Menu:
+
+  f---aaa, See f---bbb.
+  f---ddd:                               See also f---ccc.
 
 ';
 

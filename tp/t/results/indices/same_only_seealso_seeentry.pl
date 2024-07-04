@@ -720,6 +720,16 @@ File: ,  Node: node,  Prev: Top,  Up: Top
 1 chap
 ******
 
+ [index ]
+* Menu:
+
+  aaa:                                   See also sss.
+  aaa:                                   See also 123.
+  bbb, See yyy.
+  bbb, See ttt.
+  ccc:                                   See also also.
+  ccc, See entry.
+
 
 Tag Table:
 Node: Top27
@@ -739,6 +749,15 @@ $result_converted{'plaintext'}->{'same_only_seealso_seeentry'} = 'top
 
 1 chap
 ******
+
+* Menu:
+
+  aaa:                                   See also sss.
+  aaa:                                   See also 123.
+  bbb, See yyy.
+  bbb, See ttt.
+  ccc:                                   See also also.
+  ccc, See entry.
 
 ';
 

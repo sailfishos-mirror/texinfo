@@ -714,6 +714,14 @@ File: ,  Node: node index,  Prev: Top,  Up: Top
 1 Chapter Index
 ***************
 
+ [index ]
+* Menu:
+
+  , subggg, See subhhh.
+  aaa, See ccc.
+  ddd:                                   See also eee.
+  ggg, See hhh.
+
 
 Tag Table:
 Node: Top27
@@ -733,6 +741,13 @@ $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 
 1 Chapter Index
 ***************
+
+* Menu:
+
+  , subggg, See subhhh.
+  aaa, See ccc.
+  ddd:                                   See also eee.
+  ggg, See hhh.
 
 ';
 

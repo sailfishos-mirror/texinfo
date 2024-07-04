@@ -562,6 +562,8 @@ b
 * Menu:
 
 * awk, POSIX and:                        chap.                  (line 3)
+  awk, POSIX and:                        See also POSIX awk.
+  awk, POSIX and, See Another entry.
 
 
 Tag Table:
@@ -584,6 +586,8 @@ $result_converted{'plaintext'}->{'seealso_duplicate'} = 'b
 * Menu:
 
 * awk, POSIX and:                        chap.                  (line 0)
+  awk, POSIX and:                        See also POSIX awk.
+  awk, POSIX and, See Another entry.
 
 ';
 
