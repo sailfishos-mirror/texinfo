@@ -2978,14 +2978,13 @@ sub _convert($$)
           if ($name) {
             # Find next element
             my $next;
-            my $count = 0;
-
-            for my $e (@{$self->{'current_contents'}->[-1]}) {
-               if ($count == 1) {
-                 $next = $e;
+            my $current_contents = $self->{'current_contents'}->[-1];
+            my $contents_nr = scalar(@$current_contents);
+            for (my $i = 0; $i < $contents_nr - 1; $i++) {
+               if ($current_contents->[$i] == $element) {
+                 $next = $current_contents->[$i+1];
                  last;
                }
-               $count++ if $e == $element;
             }
 
             if (!($next and $next->{'text'}
