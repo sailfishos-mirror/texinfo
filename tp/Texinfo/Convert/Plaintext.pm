@@ -3470,8 +3470,6 @@ sub _convert($$)
       } elsif ($cmdname eq 'cartouche') {
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {
-          # FIXME reset the paragraph count in cartouche and use a
-          # specific format_context?
           my $prepended = $self->cdt('@center @b{{cartouche_arg}}',
              {'cartouche_arg' => $element->{'args'}->[0]});
           $prepended->{'type'} = 'frenchspacing';

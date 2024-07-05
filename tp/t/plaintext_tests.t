@@ -85,7 +85,7 @@ Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw
 @end quotation
 '],
 # This tests all the possibilities for end sentence related characters
-# ans splitting by commands (also tested in other tests)
+# and splitting by commands (also tested in other tests)
 ['split_punctuation_detection_in_commands',
 'Before @asis{B}@asis{)}@asis{.}]]? Afte@strong{R}@emph{"!}\'? Last'],
 ['html_expanded',
@@ -518,6 +518,39 @@ Para
 @section after sp
 @indent
 Para indented.
+
+'],
+['cartouche_and_paragraph_indentation',
+'@node top
+@top top
+
+@node chap
+@chapter chap
+
+aa
+
+bb
+
+@cartouche toto
+
+cc
+
+dd
+
+@end cartouche
+
+@node chap2
+@chapter c2
+
+@cartouche titi
+
+ll m
+
+mm
+
+@end cartouche
+
+oo
 
 '],
 ['nested_code_commands',

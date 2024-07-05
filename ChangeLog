@@ -1,5 +1,14 @@
 2024-07-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm: remove a FIXME on @cartouche, the
+	output is already correct.
+
+	* tp/Makefile.tres, tp/t/plaintext_tests.t
+	(cartouche_and_paragraph_indentation): add a test for cartouche and
+	paragraph indentation.
+
+2024-07-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): do not copy
 	$self->{'current_roots'}, iterate over it starting from the end.
 

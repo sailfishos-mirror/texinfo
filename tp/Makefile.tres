@@ -1760,6 +1760,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/at_commands_glued_in_example.pl \
   t/results/plaintext_tests/at_commands_glued_in_paragraph.pl \
   t/results/plaintext_tests/before_accent_punctuation.pl \
+  t/results/plaintext_tests/cartouche_and_paragraph_indentation.pl \
   t/results/plaintext_tests/characters_and_commands_in_var.pl \
   t/results/plaintext_tests/chinese_mixed_with_en.pl \
   t/results/plaintext_tests/chinese_mixed_with_en/res_plaintext \
