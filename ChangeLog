@@ -1,5 +1,10 @@
 2024-07-05  Patrice Dumas  <pertusus@free.f>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): use parent contents to
+	get the contents a ref command is in.
+
+2024-07-05  Patrice Dumas  <pertusus@free.f>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): remove an obsolete
 	FIXME.  Add a comment with an explanation why there is a warning for
 	@xref not followed by comma or full stop.

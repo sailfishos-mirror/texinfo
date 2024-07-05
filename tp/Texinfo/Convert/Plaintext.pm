@@ -2974,7 +2974,7 @@ sub _convert($$)
           if ($name) {
             # Find next element
             my $next;
-            my $current_contents = $self->{'current_contents'}->[-1];
+            my $current_contents = $element->{'parent'}->{'contents'};
             my $contents_nr = scalar(@$current_contents);
             for (my $i = 0; $i < $contents_nr - 1; $i++) {
               if ($current_contents->[$i] == $element) {
