@@ -2523,12 +2523,11 @@ sub _convert($$)
     if ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
       my $following_not_empty;
       my @parents = @{$self->{'current_roots'}};
-      my @parent_contents = @{$self->{'current_contents'}};
       my $last_parent = $element;
       while (@parents) {
         my $current_child = $last_parent;
         my $parent = pop @parents;
-        my $parent_content = pop @parent_contents;
+        my $parent_content = $parent->{'contents'};
         $last_parent = $parent;
 
         if ($parent->{'type'} and $parent->{'type'} eq 'paragraph') {
@@ -4117,15 +4116,10 @@ sub _convert($$)
   # The processing of contents is done here.
   # $element->{'contents'} undef may happen for some empty commands/containers
   if ($element->{'contents'}) {
-    my $contents = $element->{'contents'};
-    push @{$self->{'current_contents'}}, $contents;
-
     push @{$self->{'current_roots'}}, $element;
-
-    for my $content (@$contents) {
+    for my $content (@{$element->{'contents'}}) {
       _convert($self, $content);
     }
-    pop @{$self->{'current_contents'}};
     pop @{$self->{'current_roots'}};
   }
 
