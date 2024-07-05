@@ -1,5 +1,10 @@
 2024-07-05  Patrice Dumas  <pertusus@free.f>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): do not copy
+	$self->{'current_roots'}, iterate over it starting from the end.
+
+2024-07-05  Patrice Dumas  <pertusus@free.f>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): use directly
 	$self->{'current_roots'} element contents instead of using
 	$self->{'current_contents'}.  Remove $self->{'current_contents'}.

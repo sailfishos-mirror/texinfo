@@ -2522,13 +2522,17 @@ sub _convert($$)
     # since it will lead to the next node otherwise.
     if ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
       my $following_not_empty;
-      my @parents = @{$self->{'current_roots'}};
-      my $last_parent = $element;
-      while (@parents) {
-        my $current_child = $last_parent;
-        my $parent = pop @parents;
+      # NOTE we cannot use the chain of $element->{'parent'} if a
+      # converted element copies another element contents list
+      # (as is the case for @insertcopying conversion or float caption in
+      # listoffloats).  Indeed, in that case, the elements parent will
+      # be the original tree element, and not the element being converted.
+      my $parents = $self->{'current_roots'};
+      my $parents_nr = scalar(@$parents);
+      my $current_child = $element;
+      for (my $i = $parents_nr - 1; $i >= 0; $i--) {
+        my $parent = $parents->[$i];
         my $parent_content = $parent->{'contents'};
-        $last_parent = $parent;
 
         if ($parent->{'type'} and $parent->{'type'} eq 'paragraph') {
           $following_not_empty = 1;
@@ -2554,6 +2558,7 @@ sub _convert($$)
         if ($parent->{'cmdname'} and $root_commands{$parent->{'cmdname'}}) {
           last;
         }
+        $current_child = $parent;
       }
       if (! $following_not_empty) {
         $location->{'lines'}--;
