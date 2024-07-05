@@ -2969,26 +2969,39 @@ sub _convert($$)
               $self->{'formatters'}[-1]{'container'});
           }
 
-          # Check if punctuation follows the ref command.
-          #
-          # FIXME is @xref really special here?  Original comment:
-          # "If command is @xref, the punctuation must always follow the
-          # command, for other commands it may be in the argument..."
-
+          # Check if punctuation follows the ref command with a label
+          # argument.  If not, add a full stop.
           if ($name) {
             # Find next element
             my $next;
             my $current_contents = $self->{'current_contents'}->[-1];
             my $contents_nr = scalar(@$current_contents);
             for (my $i = 0; $i < $contents_nr - 1; $i++) {
-               if ($current_contents->[$i] == $element) {
-                 $next = $current_contents->[$i+1];
-                 last;
-               }
+              if ($current_contents->[$i] == $element) {
+                $next = $current_contents->[$i+1];
+                last;
+              }
             }
 
             if (!($next and $next->{'text'}
-                    and $next->{'text'} =~ /^[\.,]/)) {
+                  and $next->{'text'} =~ /^[\.,]/)) {
+              # In the past, it was explicily described in the manual that
+              # some punctuation was automatically added for @pxref only,
+              # while the other commands required a following full stop or
+              # comma.
+              #
+              # It is better if the user manages to find a wording with a
+              # comma or full stop following naturally the ref command.
+              # However, it is not possible in general except for @xref -- and
+              # even for @xref it may be cumbersome.  Therefore we only warn
+              # that a comma or full stop is missing with @xref such that the
+              # user tries to add it in that case, in the other case, we
+              # automatically add a full stop without warning.
+              #
+              # There cannot be a perfect solution, as these issues stem from
+              # the Info language design where it is not possible to
+              # distinguish if punctuation used in cross reference is
+              # part of the text or is added and should be considered as markup.
               if ($cmdname eq 'xref') {
                 if ($next and defined($next->{'text'})
                     and $next->{'text'} =~ /\S/) {
@@ -3008,7 +3021,8 @@ sub _convert($$)
               # The added full stop does not end a sentence.  Info readers will
               # have a chance of guessing correctly whether the full stop was
               # added by whether it is followed by 2 spaces (although this
-              # doesn't help at the end of a line).
+              # doesn't help at the end of a line nor when a parenthesis
+              # follows the ref command).
               push @added, {'cmdname' => ':'};
               for my $added_element (@added) {
                 _convert($self, $added_element);
