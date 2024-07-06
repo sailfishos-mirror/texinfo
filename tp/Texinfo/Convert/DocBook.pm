@@ -316,7 +316,7 @@ sub conversion_initialization($;$)
   }
 
   $self->{'document_context'} = [];
-  $self->_new_document_context();
+  _new_document_context($self);
   $self->{'lang_stack'} = [];
   $self->{'in_skipped_node_top'} = 0;
   %sectioning_commands_done = ();
@@ -355,7 +355,7 @@ sub convert_tree($$)
   if (scalar(@{$self->{'lang_stack'}}) == 0) {
     push @{$self->{'lang_stack'}}, '';
   }
-  return $self->_convert($root);
+  return _convert($self, $root);
 }
 
 # not the same as a default for @documentlanguage.  $DEFAULT_LANG
@@ -441,7 +441,8 @@ sub conversion_output_begin($;$$)
           push @authors_elements, $element;
         } elsif ($cmdname eq 'subtitle') {
           # concatenate the text of @subtitle as DocBook only allows one.
-          my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+          my ($arg, $end_line)
+            = _convert_argument_and_end_line($self, $element);
           $subtitle_text .= $arg . $end_line
         }
       }
@@ -457,7 +458,7 @@ sub conversion_output_begin($;$$)
       # FIXME dblatex ignores collab/collabname.
       $authors_info .= "<authorgroup>\n";
       foreach my $element (@authors_elements) {
-        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
         # FIXME DocBook 5 no more collabname, merged with other elements in
         # orgname, which is much more specific than collabname, it is for an
         # organisation and therefore not suitable here.
@@ -506,7 +507,7 @@ sub conversion_output_begin($;$$)
                                  [$titleabbrev_command, 'titleabbrev']) {
       my ($element, $docbook_element) = @$element_command;
       if (defined($element)) {
-        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
         my $result = "<$docbook_element>$arg</$docbook_element>$end_line";
         chomp ($result);
         $result .= "\n";
@@ -629,11 +630,11 @@ sub _index_entry($$)
     # FIXME DocBook 5 role->type
     my $result = "<indexterm role=\"$index_entry->{'index_name'}\">";
 
-    $self->_new_document_context();
+    _new_document_context($self);
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_info->{'in_code'});
     $result .= "<primary>";
-    $result .= $self->_convert(Texinfo::Common::index_content_element($element));
+    $result .= _convert($self, Texinfo::Common::index_content_element($element));
     $result .= "</primary>";
 
     # Add any index subentries.
@@ -642,20 +643,20 @@ sub _index_entry($$)
     while ($tmp->{'extra'}->{'subentry'}) {
       $result .= "<$level>";
       $tmp = $tmp->{'extra'}->{'subentry'};
-      $result .= $self->_convert($tmp->{'args'}->[0]);
+      $result .= _convert($self, $tmp->{'args'}->[0]);
       $result .= "</$level>";
       $level = "tertiary";
     }
     if ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}) {
       $result .= "<see>";
       # args is set as the extra information is added when closing braces
-      $result .= $self->_convert($index_entry->{'entry_element'}
+      $result .= _convert($self, $index_entry->{'entry_element'}
                                    ->{'extra'}->{'seeentry'}->{'args'}->[0]);
       $result .= "</see>";
     }
     if ($index_entry->{'entry_element'}->{'extra'}->{'seealso'}) {
       $result .= "<seealso>";
-      $result .= $self->_convert($index_entry->{'entry_element'}
+      $result .= _convert($self, $index_entry->{'entry_element'}
                                ->{'extra'}->{'seealso'}->{'args'}->[0]);
       $result .= "</seealso>";
     }
@@ -728,8 +729,8 @@ sub _convert_def_line($$)
   my $element = shift;
 
   my $result = "<synopsis>";;
-  $result .= $self->_index_entry($element);
-  $self->_new_document_context();
+  $result .= _index_entry($self, $element);
+  _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
   if ($element->{'args'}
@@ -744,7 +745,7 @@ sub _convert_def_line($$)
     foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
       my $type = $arg->{'type'};
 
-      my $content = $self->_convert($arg);
+      my $content = _convert($self, $arg);
       if ($type eq 'spaces' or $type eq 'delimiter') {
         $result .= $content;
       } elsif ($type eq 'def_category') {
@@ -814,7 +815,7 @@ sub _convert($$;$)
       $result =~ s/\n/ /g;
       $result =~ s/ +/$nbsp/g;
     }
-    $result = $self->_protect_text($result);
+    $result = _protect_text($self, $result);
     if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
       if (!$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
         $result = $self->xml_format_text_with_numeric_entities($result);
@@ -851,7 +852,7 @@ sub _convert($$;$)
         return $docbook_no_arg_commands_formatting{$command_name};
       }
     } elsif ($cmdname eq 'today') {
-      return $self->_convert(Texinfo::Convert::Utils::expand_today($self));
+      return _convert($self, Texinfo::Convert::Utils::expand_today($self));
     } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
       return $self->xml_accents($element,
                $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
@@ -869,7 +870,7 @@ sub _convert($$;$)
                                                       ->{'cmdname'} eq 'bullet')
             and $element->{'parent'}->{'args'}) {
           $self->{'pending_prepend'}
-            = $self->_convert($element->{'parent'}->{'args'}->[0]);
+            = _convert($self, $element->{'parent'}->{'args'}->[0]);
           $self->{'pending_prepend'} .= " ";
         }
         push @close_format_elements, 'listitem';
@@ -879,14 +880,14 @@ sub _convert($$;$)
                and $element->{'parent'}->{'type'} eq 'table_term') {
 
         $result .= "<term>" if ($cmdname eq 'itemx');
-        $result .= $self->_index_entry($element);
+        $result .= _index_entry($self, $element);
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {
           my $table_item_tree = $self->table_item_content_tree($element);
           $table_item_tree = $element->{'args'}->[0]
             if (!defined($table_item_tree));
 
-          $result .= $self->_convert($table_item_tree);
+          $result .= _convert($self, $table_item_tree);
         }
         chomp ($result);
         $result .= "\n";
@@ -916,7 +917,7 @@ sub _convert($$;$)
       } else {
         $end_line = '';
       }
-      return $self->_index_entry($element).${end_line};
+      return _index_entry($self, $element).${end_line};
     } elsif (exists($docbook_nobrace_commands{$cmdname})) {
       return '';
     } elsif (exists($docbook_line_commands{$cmdname})) {
@@ -1000,7 +1001,7 @@ sub _convert($$;$)
               $label = $opened_element->{'extra'}->{'section_number'};
             }
             my $docbook_sectioning_element
-               = $self->_docbook_section_element($opened_element);
+               = _docbook_section_element($self, $opened_element);
             if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
               $section_attribute .= " label=\"$label\"";
             }
@@ -1024,7 +1025,7 @@ sub _convert($$;$)
             $result .= "<$docbook_sectioning_element${section_attribute}>\n";
             if ($opened_element->{'args'}) {
               my ($arg, $end_line)
-                = $self->_convert_argument_and_end_line($opened_element);
+                = _convert_argument_and_end_line($self, $opened_element);
               $result .= "<title>$arg</title>$end_line";
               chomp ($result);
               $result .= "\n";
@@ -1045,7 +1046,8 @@ sub _convert($$;$)
         return $self->xml_comment($element->{'args'}->[0]->{'text'})
       } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
         if ($element->{'args'}) {
-          my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+          my ($arg, $end_line)
+            = _convert_argument_and_end_line($self, $element);
           $result .=
             "<bridgehead renderas=\"$docbook_sections{$cmdname}\">"
                 ."$arg</bridgehead>$end_line";
@@ -1062,11 +1064,12 @@ sub _convert($$;$)
         my ($docbook_element, $attribute_text)
           = _parse_attribute($docbook_line_elements_with_arg_map{$cmdname});
         my ($arg, $end_line)
-          = $self->_convert_argument_and_end_line($element);
+          = _convert_argument_and_end_line($self, $element);
         if ($docbook_element eq '') {
           $result .= "$arg$end_line";
         } else {
-          $result .= "<$docbook_element${attribute_text}>$arg</$docbook_element>$end_line";
+          $result .= "<$docbook_element${attribute_text}>"
+                                  ."$arg</$docbook_element>$end_line";
         }
         chomp ($result);
         $result .= "\n";
@@ -1076,7 +1079,7 @@ sub _convert($$;$)
           my $global_commands
             = $self->{'document'}->global_commands_information();
           if ($global_commands and $global_commands->{'copying'}) {
-            return $self->_convert({'contents'
+            return _convert($self, {'contents'
               => $global_commands->{'copying'}->{'contents'}});
           }
         }
@@ -1086,7 +1089,7 @@ sub _convert($$;$)
         my $verbatim_include_verbatim
           = Texinfo::Convert::Utils::expand_verbatiminclude($self, $element);
         if (defined($verbatim_include_verbatim)) {
-          $result .= $self->_convert($verbatim_include_verbatim);
+          $result .= _convert($self, $verbatim_include_verbatim);
         } else {
           return '';
         }
@@ -1107,7 +1110,7 @@ sub _convert($$;$)
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command') {
       if ($element->{'args'}) {
-        my $arg_text = $self->_convert($element->{'args'}->[0]);
+        my $arg_text = _convert($self, $element->{'args'}->[0]);
         $result .= $arg_text;
       }
 
@@ -1116,7 +1119,7 @@ sub _convert($$;$)
       #Texinfo::Common::debug_list(" brace command with args", $element->{'args'});
       if ($style_commands_formatting{$cmdname}) {
         if ($Texinfo::Commands::brace_commands{$cmdname} eq 'context') {
-          $self->_new_document_context();
+          _new_document_context($self);
         }
         my $formatting = $style_commands_formatting{$cmdname};
 
@@ -1138,8 +1141,9 @@ sub _convert($$;$)
           $in_monospace_not_normal
             if (defined($in_monospace_not_normal));
 
-        my ($style, $attribute_text) = _parse_attribute($formatting->{'attribute'});
-        my $result = $self->_convert($element->{'args'}->[0]);
+        my ($style, $attribute_text)
+           = _parse_attribute($formatting->{'attribute'});
+        my $result = _convert($self, $element->{'args'}->[0]);
         if ($style ne '' and (!$self->{'document_context'}->[-1]->{'inline'}
                                or $inline_elements{$style})) {
           $result = "<$style${attribute_text}>$result</$style>";
@@ -1189,7 +1193,7 @@ sub _convert($$;$)
             if ($args_nr >= 3
                 and $element->{'args'}->[2]->{'contents'}) {
               my $section_arg = $element->{'args'}->[2];
-              $section_name = $self->_convert($section_arg);
+              $section_name = _convert($self, $section_arg);
             }
             $command_name = $cmdname;
           }
@@ -1201,11 +1205,11 @@ sub _convert($$;$)
           if (! defined($section_name) and $args_nr >= 2
               and $element->{'args'}->[1]->{'contents'}) {
             my $section_arg = $element->{'args'}->[1];
-            $section_name = $self->_convert($section_arg);
+            $section_name = _convert($self, $section_arg);
           } elsif ($element->{'args'}->[0]->{'contents'}) {
             my $node_arg = $element->{'args'}->[0];
             push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
-            $node_name = $self->_convert($node_arg);
+            $node_name = _convert($self, $node_arg);
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
 
             if (($book_element or $manual_file_element)
@@ -1225,15 +1229,15 @@ sub _convert($$;$)
                   'book' => $book_element
                 };
               if ($command_name eq 'ref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('section ``{section_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               } elsif ($command_name eq 'xref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                  $self->cdt('See section ``{section_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               } elsif ($command_name eq 'pxref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                  $self->cdt('see section ``{section_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               }
@@ -1244,29 +1248,29 @@ sub _convert($$;$)
                  'book' => $book_element
                 };
               if ($command_name eq 'ref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('``{node_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               } elsif ($command_name eq 'xref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('See ``{node_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               } elsif ($command_name eq 'pxref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('see ``{node_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               }
             } else {
               if ($command_name eq 'ref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('@cite{{book}}',
                     {'book' => $book_element }));
               } elsif ($command_name eq 'xref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('See @cite{{book}}',
                     {'book' => $book_element }));
               } elsif ($command_name eq 'pxref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('see @cite{{book}}',
                     {'book' => $book_element }));
               }
@@ -1279,15 +1283,15 @@ sub _convert($$;$)
                 'manual' => $manual_file_element
                };
               if ($command_name eq 'ref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('section ``{section_name}\'\' in @file{{manual}}',
                              $substituted_strings));
               } elsif ($command_name eq 'xref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                $self->cdt('See section ``{section_name}\'\' in @file{{manual}}',
                              $substituted_strings));
               } elsif ($command_name eq 'pxref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                $self->cdt('see section ``{section_name}\'\' in @file{{manual}}',
                              $substituted_strings));
               }
@@ -1298,29 +1302,29 @@ sub _convert($$;$)
                   'manual' => $manual_file_element
                 };
               if ($command_name eq 'ref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('``{node_name}\'\' in @file{{manual}}',
                              $substituted_strings));
               } elsif ($command_name eq 'xref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('See ``{node_name}\'\' in @file{{manual}}',
                              $substituted_strings));
               } elsif ($command_name eq 'pxref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('see ``{node_name}\'\' in @file{{manual}}',
                              $substituted_strings));
               }
             } else {
               if ($command_name eq 'ref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('@file{{manual}}',
                     {'manual' => $manual_file_element }));
               } elsif ($command_name eq 'xref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('See @file{{manual}}',
                     {'manual' => $manual_file_element }));
               } elsif ($command_name eq 'pxref') {
-                $result = $self->_convert(
+                $result = _convert($self,
                   $self->cdt('see @file{{manual}}',
                     {'manual' => $manual_file_element }));
               }
@@ -1340,17 +1344,17 @@ sub _convert($$;$)
             my $argument = "<link${linkend}>".$link_text."</link>";
             if ($cmdname eq 'ref'
                 or $cmdname eq 'link') {
-              $result = $self->_convert(
+              $result = _convert($self,
                       $self->cdt('{title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             } elsif ($cmdname eq 'xref') {
-              $result = $self->_convert(
+              $result = _convert($self,
                       $self->cdt('See {title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
             } elsif ($cmdname eq 'pxref') {
-              $result = $self->_convert(
+              $result = _convert($self,
                       $self->cdt('see {title_ref}', {'title_ref' =>
                            {'type' => '_converted',
                             'text' => $argument}}));
@@ -1406,7 +1410,7 @@ sub _convert($$;$)
             # remove last end of line
             chomp($image_text);
             $result .= "<textobject><literallayout>"
-               .$self->_protect_text($image_text)
+               ._protect_text($self, $image_text)
                .'</literallayout></textobject>';
           }
           if (!defined($image_text) and !$image_file_found) {
@@ -1437,7 +1441,7 @@ sub _convert($$;$)
             Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                   $self->{'convert_text_options'});
             $email_text
-              = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
+              = _protect_text($self, Texinfo::Convert::Text::convert_to_text(
                             $email, $self->{'convert_text_options'}));
             Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
@@ -1450,11 +1454,11 @@ sub _convert($$;$)
             # The best is probably either to forget about the name, or
             # follow <email> by the name in parentheses
             return "<ulink url=\"mailto:$email_text\">"
-              .$self->_convert($name).'</ulink>';
+              ._convert($self, $name).'</ulink>';
           } elsif ($email) {
             return "<email>$email_text</email>";
           } elsif ($name) {
-            return $self->_convert($name);
+            return _convert($self, $name);
           }
         } else {
           return '';
@@ -1470,7 +1474,7 @@ sub _convert($$;$)
                                  $self->{'convert_text_options'});
             Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                   $self->{'convert_text_options'});
-            $url_text = $self->_protect_text(
+            $url_text = _protect_text($self, 
               Texinfo::Convert::Text::convert_to_text($url_arg,
                                        $self->{'convert_text_options'}));
             Texinfo::Convert::Text::reset_options_code(
@@ -1483,12 +1487,12 @@ sub _convert($$;$)
           my $replacement;
           if ($args_nr >= 2
               and $element->{'args'}->[1]->{'contents'}) {
-            $replacement = $self->_convert($element->{'args'}->[1]);
+            $replacement = _convert($self, $element->{'args'}->[1]);
           }
           if (!defined($replacement) or $replacement eq '') {
             if ($args_nr >= 3
                 and $element->{'args'}->[2]->{'contents'}) {
-              $replacement = $self->_convert($element->{'args'}->[2]);
+              $replacement = _convert($self, $element->{'args'}->[2]);
             }
           }
           if (!defined($replacement) or $replacement eq '') {
@@ -1505,7 +1509,7 @@ sub _convert($$;$)
         if ($element->{'args'}) {
           my $argument;
           if ($element->{'args'}->[0]->{'contents'}) {
-            my $arg_text = $self->_convert($element->{'args'}->[0]);
+            my $arg_text = _convert($self, $element->{'args'}->[0]);
             if ($arg_text ne '') {
               my $format_element;
               if ($cmdname eq 'abbr') {
@@ -1524,9 +1528,9 @@ sub _convert($$;$)
                                                     'text' => $argument},
                               'explanation' =>
                                   $element->{'args'}->[1]});
-              return $self->_convert($tree);
+              return _convert($self, $tree);
             } else {
-              return $self->_convert($element->{'args'}->[1]);
+              return _convert($self, $element->{'args'}->[1]);
             }
           } elsif (defined($argument)) {
             return $argument;
@@ -1560,7 +1564,7 @@ sub _convert($$;$)
         return '' if (! $expand);
         my $arg_index = 1;
         if ($cmdname eq 'inlineraw') {
-          $self->_new_document_context();
+          _new_document_context($self);
           $self->{'document_context'}->[-1]->{'raw'} = 1;
         } elsif ($cmdname eq 'inlinefmtifelse'
                  and ! $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}) {
@@ -1568,7 +1572,7 @@ sub _convert($$;$)
         }
         if (scalar(@{$element->{'args'}}) > $arg_index
             and $element->{'args'}->[$arg_index]->{'contents'}) {
-          $result .= $self->_convert($element->{'args'}->[$arg_index]);
+          $result .= _convert($self, $element->{'args'}->[$arg_index]);
         }
         if ($cmdname eq 'inlineraw') {
           pop @{$self->{'document_context'}};
@@ -1590,7 +1594,7 @@ sub _convert($$;$)
         return '';
       }
       if ($self->{'context_block_commands'}->{$cmdname}) {
-        $self->_new_document_context();
+        _new_document_context($self);
       }
       my @attributes;
       my $appended = '';
@@ -1677,7 +1681,7 @@ sub _convert($$;$)
             foreach my $author (@{$element->{'extra'}->{'authors'}}) {
               if ($author->{'args'} and $author->{'args'}->[0]->{'contents'}) {
                 $appended .= '<attribution>'.
-                       $self->_convert($author->{'args'}->[0])
+                       _convert($self, $author->{'args'}->[0])
                            ."</attribution>\n";
               }
             }
@@ -1693,7 +1697,7 @@ sub _convert($$;$)
             $format_element = lc($quotation_arg_text);
           } else {
             $self->{'pending_prepend'}
-              = $self->_convert($self->cdt('@b{{quotation_arg}:} ',
+              = _convert($self, $self->cdt('@b{{quotation_arg}:} ',
                             {'quotation_arg' =>
                                   $element->{'args'}->[0]}));
           }
@@ -1704,7 +1708,7 @@ sub _convert($$;$)
         push @format_elements, 'sidebar';
         if ($element->{'args'}
             and $element->{'args'}->[0]->{'contents'}) {
-          my $title = $self->_convert($element->{'args'}->[0]);
+          my $title = _convert($self, $element->{'args'}->[0]);
           if ($title ne '') {
             $appended .= '<title>'.$title.'</title>'."\n";
           }
@@ -1785,7 +1789,7 @@ sub _convert($$;$)
       #$nr++;
       #print STDERR "C$debug_element_nr[$nr] "
       #   .Texinfo::Common::debug_print_element($content)."\n";
-      $result .= $self->_convert($content);
+      $result .= _convert($self, $content);
     }
     pop @{$self->{'document_context'}->[-1]->{'monospace'}}
       if ($in_code);
@@ -1826,7 +1830,7 @@ sub _convert($$;$)
   # close sectioning command
   } elsif ($cmdname and $cmdname ne 'node'
            and $Texinfo::Commands::root_commands{$cmdname}) {
-    my $docbook_sectioning_element = $self->_docbook_section_element($element);
+    my $docbook_sectioning_element = _docbook_section_element($self, $element);
     if ($docbook_sectioning_element eq 'part'
         and not ($element->{'extra'}
                  and $element->{'extra'}->{'part_associated_section'})
@@ -1852,7 +1856,7 @@ sub _convert($$;$)
              and Texinfo::Structuring::section_level_adjusted_command_name(
                $current->{'extra'}->{'section_directions'}->{'up'}) ne 'top') {
         $current = $current->{'extra'}->{'section_directions'}->{'up'};
-        $result .= '</'.$self->_docbook_section_element($current) .">\n";
+        $result .= '</'._docbook_section_element($self, $current) .">\n";
         pop @{$self->{'lang_stack'}};
       }
     }
