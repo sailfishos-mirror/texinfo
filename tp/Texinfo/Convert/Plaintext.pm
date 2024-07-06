@@ -2045,24 +2045,10 @@ sub format_ref($$$$)
   }
 
   if ($name) {
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-    $self->_convert($name);
-    my $name_text = _stream_result($self);
-    # needed, as last word is added only when : is added below
-    # NB this mixes encoded and unencoded strings but is ok for
-    # checking for : only
-    my $name_text_checked = $name_text
-       .get_pending($self->{'formatters'}->[-1]->{'container'});
-
+    _convert($self, $name);
     _stream_output($self,
              add_text($formatter->{'container'}, ": "),
              $formatter->{'container'});
-    my $result = _stream_result($self);
-
-    my $lines_added = $self->{'count_context'}->[-1]->{'lines'};
-    pop @{$self->{'count_context'}};
-    _stream_output_encoded($self, $result);
-    $self->{'count_context'}->[-1]->{'lines'} += $lines_added;
   }
 
   if ($file) {
