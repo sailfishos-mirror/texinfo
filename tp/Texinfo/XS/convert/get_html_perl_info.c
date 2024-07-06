@@ -1329,13 +1329,13 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
                           jslicense_file_info->license
                             = non_perl_strdup (license);
                         }
-                      url_sv = av_fetch (file_info_av, 0, 0);
+                      url_sv = av_fetch (file_info_av, 1, 0);
                       if (url_sv && SvOK (*url_sv))
                         {
                           const char *url = (char *) SvPVutf8_nolen (*url_sv);
                           jslicense_file_info->url = non_perl_strdup (url);
                         }
-                      source_sv = av_fetch (file_info_av, 0, 0);
+                      source_sv = av_fetch (file_info_av, 2, 0);
                       if (source_sv && SvOK (*source_sv))
                         {
                           const char *source

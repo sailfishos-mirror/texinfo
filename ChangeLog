@@ -1,5 +1,11 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_prepare_output_sv): fix the index in AV of the
+	jslicense file info data.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_html_perl_function.c
 	(call_stage_handler), tp/Texinfo/XS/convert/convert_html.c
 	(html_stage_handler_stage_type_names, run_stage_handlers),
