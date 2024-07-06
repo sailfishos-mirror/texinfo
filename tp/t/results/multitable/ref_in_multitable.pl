@@ -535,6 +535,56 @@ $result_floats{'ref_in_multitable'} = {};
 
 
 
+$result_converted{'info'}->{'ref_in_multitable'} = 'This is , produced from .
+
+*note XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX
+XXX XXX XXX XXX XXX XXX XXX XXX XX::.
+
+XXX XXX XXX XXX XXX XXX   See
+XXX XXX XXX XXX XXX XXX   *note RRR RRR RRR RRR RRR RRR RRR RRR RRR RRRR::.
+XX
+XXX XXX XXX XXX XXX XXX   See
+XXX XXX XXX XXX XXX XXX   *note SSS SSS SSS SSS SSS SSS SSS SSS SSS SSS SSS SSS SSSSS::.
+XX
+adsf(1)                   second column
+
+   *note XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX
+XXX XXX XXX XXX XXX XXX XXX XXX XXX XX::.
+
+   ---------- Footnotes ----------
+
+   (1) *note XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX
+XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX::
+
+
+Tag Table:
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
+$result_converted_errors{'info'}->{'ref_in_multitable'} = [
+  {
+    'error_line' => 'warning: document without nodes
+',
+    'text' => 'document without nodes',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @footnote outside of any node
+',
+    'line_nr' => 11,
+    'text' => '@footnote outside of any node',
+    'type' => 'warning'
+  }
+];
+
+
+
 $result_converted{'plaintext'}->{'ref_in_multitable'} = 'XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX XXX
 XXX XXX XXX XXX XXX XXX XXX XX.
 

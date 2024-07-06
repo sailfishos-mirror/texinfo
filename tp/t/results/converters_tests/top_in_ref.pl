@@ -3220,4 +3220,62 @@ $result_converted{'latex_text'}->{'top_in_ref'} = '\\label{anchor:Top}%
 \\texttt{@inforef\\{Top{,}{,}file name\\}} Section ``Top\'\' in \\texttt{file name}
 ';
 
+
+$result_converted{'info'}->{'top_in_ref'} = 'This is , produced from .
+
+
+File: ,  Node: Top,  Next: chap refs node,  Up: (dir)
+
+
+File: ,  Node: chap refs node,  Prev: Top
+
+‘@ref{Top,cross ref name}’ *note cross ref name: Top. ‘@ref{Top,,title}’
+*note title: Top. ‘@ref{Top,,,file name}’ *note (file name)Top::
+‘@ref{Top,,,,manual}’ *note ()Top:: ‘@ref{Top,cross ref name,title,}’
+*note cross ref name: Top. ‘@ref{Top,cross ref name,,file name}’ *note
+cross ref name: (file name)Top. ‘@ref{Top,cross ref name,,,manual}’
+*note cross ref name: ()Top. ‘@ref{Top,cross ref name,title,file name}’
+*note cross ref name: (file name)Top. ‘@ref{Top,cross ref
+name,title,,manual}’ *note cross ref name: ()Top. ‘@ref{Top,cross ref
+name,title, file name, manual}’ *note cross ref name: (file name)Top.
+‘@ref{Top,,title,file name}’ *note title: (file name)Top.
+‘@ref{Top,,title,,manual}’ *note title: ()Top. ‘@ref{Top,,title, file
+name, manual}’ *note title: (file name)Top. ‘@ref{Top,,,file
+name,manual}’ *note (file name)Top::
+
+   ‘@ref{(pman)Top,cross ref name}’ *note cross ref name: (pman)Top.
+‘@ref{(pman)Top,,title}’ *note title: (pman)Top. ‘@ref{(pman)Top,,,file
+name}’ *note (file name)(pman)Top:: ‘@ref{(pman)Top,,,,manual}’ *note
+()(pman)Top:: ‘@ref{(pman)Top,cross ref name,title,}’ *note cross ref
+name: (pman)Top. ‘@ref{(pman)Top,cross ref name,,file name}’ *note cross
+ref name: (file name)(pman)Top. ‘@ref{(pman)Top,cross ref
+name,,,manual}’ *note cross ref name: ()(pman)Top. ‘@ref{(pman)Top,cross
+ref name,title,file name}’ *note cross ref name: (file name)(pman)Top.
+‘@ref{(pman)Top,cross ref name,title,,manual}’ *note cross ref name:
+()(pman)Top. ‘@ref{(pman)Top,cross ref name,title, file name, manual}’
+*note cross ref name: (file name)(pman)Top. ‘@ref{(pman)Top,,title,file
+name}’ *note title: (file name)(pman)Top.
+‘@ref{(pman)Top,,title,,manual}’ *note title: ()(pman)Top.
+‘@ref{(pman)Top,,title, file name, manual}’ *note title: (file
+name)(pman)Top. ‘@ref{(pman)Top,,,file name,manual}’ *note (file
+name)(pman)Top::
+
+   ‘@inforef{Top, cross ref name, file name}’ *note cross ref name:
+(file name)Top. ‘@inforef{Top}’ *note Top:: ‘@inforef{Top, cross ref
+name}’ *note cross ref name: Top. ‘@inforef{Top,,file name}’ *note (file
+name)Top::
+
+
+Tag Table:
+Node: Top27
+Node: chap refs node84
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
 1;

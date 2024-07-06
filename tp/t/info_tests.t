@@ -231,6 +231,36 @@ text.
 Hey (@pxref{(m) in pxref}) and continue (@pxref{(m) in pxref, name}) and end.
 @pxref{(m) n}. @pxref{(m) n, name}.
 '],
+['del_quote_linebreaking',
+'first para
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{noxde,,, manual,Manual}
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{noxde,,, manual,Manual}
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{noxde,,, manual,Manual}
+
+%
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{no:de,,, manual,Manual}
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{no:de,,, manual,Manual}
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{no:de,,, manual,Manual}
+
+', undef,
+{'INFO_SPECIAL_CHARS_WARNING' => 0,}
+],
+['xref_quote_long_item',
+'@table @asis
+
+@item @code{@@verbatiminclude}
+@xref{Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar@comma{} $configuration_information@comma{} $verbatiminclude),,
+Texinfo::Convert::Utils::expand_verbatiminclude, tp_api}.
+
+@end table
+',{},
+{'INFO_SPECIAL_CHARS_WARNING' => 0,}],
 ['anchor_in_command',
 '@node Top
 

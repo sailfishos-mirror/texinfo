@@ -1582,6 +1582,10 @@ my %info_tests = (
  'contents_at_document_begin_inline' => 1,
  'contents_at_document_begin_separate_element' => 1,
  'commands_in_sc' => 1,
+ 'refs_formatting' => 1,
+ 'top_in_ref' => 1,
+ 'ref_error_formatting' => 1,
+ 'ref_in_sectioning' => 1,
 );
 
 my %html_tests = (

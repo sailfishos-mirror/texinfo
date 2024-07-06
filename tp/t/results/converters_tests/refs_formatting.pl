@@ -3230,4 +3230,74 @@ $result_converted{'latex_text'}->{'refs_formatting'} = '\\chapter{{chapter}}
 \\texttt{@inforef\\{chapter{,}{,}file name\\}} Section ``chapter\'\' in \\texttt{file name}
 ';
 
+
+$result_converted{'info'}->{'refs_formatting'} = 'This is , produced from .
+
+
+File: ,  Node: chapter
+
+1 chapter
+*********
+
+‘@ref{chapter,cross ref name}’ *note cross ref name: chapter.
+‘@ref{chapter,,title}’ *note title: chapter. ‘@ref{chapter,,,file name}’
+*note (file name)chapter:: ‘@ref{chapter,,,,manual}’ *note ()chapter::
+‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter.
+‘@ref{chapter,cross ref name,,file name}’ *note cross ref name: (file
+name)chapter. ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
+name: ()chapter. ‘@ref{chapter,cross ref name,title,file name}’ *note
+cross ref name: (file name)chapter. ‘@ref{chapter,cross ref
+name,title,,manual}’ *note cross ref name: ()chapter.
+‘@ref{chapter,cross ref name,title, file name, manual}’ *note cross ref
+name: (file name)chapter. ‘@ref{chapter,,title,file name}’ *note title:
+(file name)chapter. ‘@ref{chapter,,title,,manual}’ *note title:
+()chapter. ‘@ref{chapter,,title, file name, manual}’ *note title: (file
+name)chapter. ‘@ref{chapter,,,file name,manual}’ *note (file
+name)chapter::
+
+   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode.
+‘@ref{(pman)anode,,title}’ *note title: (pman)anode.
+‘@ref{(pman)anode,,,file name}’ *note (file name)(pman)anode::
+‘@ref{(pman)anode,,,,manual}’ *note ()(pman)anode::
+‘@ref{(pman)anode,cross ref name,title,}’ *note cross ref name:
+(pman)anode. ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
+ref name: (file name)(pman)anode. ‘@ref{(pman)anode,cross ref
+name,,,manual}’ *note cross ref name: ()(pman)anode.
+‘@ref{(pman)anode,cross ref name,title,file name}’ *note cross ref name:
+(file name)(pman)anode. ‘@ref{(pman)anode,cross ref name,title,,manual}’
+*note cross ref name: ()(pman)anode. ‘@ref{(pman)anode,cross ref
+name,title, file name, manual}’ *note cross ref name: (file
+name)(pman)anode. ‘@ref{(pman)anode,,title,file name}’ *note title:
+(file name)(pman)anode. ‘@ref{(pman)anode,,title,,manual}’ *note title:
+()(pman)anode. ‘@ref{(pman)anode,,title, file name, manual}’ *note
+title: (file name)(pman)anode. ‘@ref{(pman)anode,,,file name,manual}’
+*note (file name)(pman)anode::
+
+   ‘@inforef{chapter, cross ref name, file name}’ *note cross ref name:
+(file name)chapter. ‘@inforef{chapter}’ *note chapter::
+‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter.
+‘@inforef{chapter,,file name}’ *note (file name)chapter::
+
+
+Tag Table:
+Node: chapter27
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
+$result_converted_errors{'info'}->{'refs_formatting'} = [
+  {
+    'error_line' => 'warning: document without Top node
+',
+    'text' => 'document without Top node',
+    'type' => 'warning'
+  }
+];
+
+
 1;

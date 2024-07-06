@@ -177,7 +177,7 @@ second column
 
 @ref{XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX 
 XXX XXX XXX XXX XXX XXX XXX XXX XX}.
-'],
+', {'test_formats' => ['info']}],
 ['multitable_figure_space',
 '@multitable {999999999} {xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
 @item '."\x{2007}\x{2007}\x{2007}55".' @tab explanation

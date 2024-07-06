@@ -1030,6 +1030,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/colons_in_index_entries_and_node_no_quoting.pl \
   t/results/info_tests/colons_in_index_entries_and_node_no_quoting/res_info \
   t/results/info_tests/def_in_copying.pl \
+  t/results/info_tests/del_quote_linebreaking.pl \
   t/results/info_tests/direntry_dircategory.pl \
   t/results/info_tests/direntry_dircategory/res_info \
   t/results/info_tests/direntry_dircategory_and_commands.pl \
@@ -1095,6 +1096,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/two_paragraphindent_in_preamble.pl \
   t/results/info_tests/two_paragraphindent_in_preamble_and_in_document.pl \
   t/results/info_tests/unknown_encoding.pl \
+  t/results/info_tests/xref_quote_long_item.pl \
   t/results/info_tests/xref_test.pl \
   t/results/init_files_tests/customize_special_element.pl \
   t/results/init_files_tests/customize_special_element/res_html \
@@ -1767,7 +1769,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/code_commands_and_punctuation.pl \
   t/results/plaintext_tests/command_brace_no_arg_punctuation.pl \
   t/results/plaintext_tests/commands_and_punctuation.pl \
-  t/results/plaintext_tests/del_quote_linebreaking.pl \
   t/results/plaintext_tests/east_asian_in_w.pl \
   t/results/plaintext_tests/east_asian_in_w/res_plaintext \
   t/results/plaintext_tests/empty_line_in_example_end.pl \
@@ -1854,7 +1855,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/plaintext_tests/tab_in_table_in_example.pl \
   t/results/plaintext_tests/tab_item_in_example.pl \
   t/results/plaintext_tests/transparent_text.pl \
-  t/results/plaintext_tests/xref_quote_long_item.pl \
   t/results/preformatted/caption_in_example.pl \
   t/results/preformatted/comment_example_and_blank_lines.pl \
   t/results/preformatted/comments_in_example.pl \

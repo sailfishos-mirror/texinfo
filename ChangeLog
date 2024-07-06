@@ -1,5 +1,15 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/21multitable.t (ref_in_multitable), tp/t/converters_tests.t
+	(refs_formatting, top_in_ref, ref_error_formatting)
+	(ref_in_sectioning): add info as formatted output.
+
+	* tp/t/info_tests.t (del_quote_linebreaking, xref_quote_long_item),
+	tp/t/plaintext_tests.t, tp/Makefile.tres: move tests from
+	plaintext_tests to info_tests.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (format_ref): do not prepend :: at
 	the end of a reference.  Move code auround.
 
