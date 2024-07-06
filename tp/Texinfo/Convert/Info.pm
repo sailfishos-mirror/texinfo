@@ -536,7 +536,11 @@ sub format_ref($$$$)
 
   if ($node_arg and $node_arg->{'extra'}
       and !$node_arg->{'extra'}->{'manual_content'}
+      # excludes external nodes, as only internal refs get an extra normalized
       and defined($node_arg->{'extra'}->{'normalized'})
+      # exlude external nodes again, in case internal refs get normalized
+      and !defined($args[3])
+      and !defined($args[4])
       and $identifiers_target
       and $identifiers_target->{$node_arg->{'extra'}->{'normalized'}}) {
     $target_element

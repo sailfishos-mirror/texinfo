@@ -1,5 +1,16 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Info.pm (format_ref),
+	tp/Texinfo/Convert/Plaintext.pm (format_ref): double check that a
+	reference is an internal reference before using the normalized
+	reference as label.
+
+	* tp/Makefile.tres, tp/t/info_tests.t
+	(similar_external_and_internal_node): add a test with external and
+	internal references with the same normalized node names.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/21multitable.t (ref_in_multitable), tp/t/converters_tests.t
 	(refs_formatting, top_in_ref, ref_error_formatting)
 	(ref_in_sectioning): add info as formatted output.

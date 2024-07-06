@@ -251,6 +251,17 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{no:de,,, manual,Manual}
 ', undef,
 {'INFO_SPECIAL_CHARS_WARNING' => 0,}
 ],
+# the external node direction is there to be able to check the tree to
+# see that it gets a 'normalized' extra information, while the external
+# xref do not.
+['similar_external_and_internal_node',
+'@node aa, (toto)bb
+
+@xref{@emph{aa},,,ext}.
+@xref{@var{aa},,,,Book}.
+@xref{@emph{aa}}.
+@xref{@var{aa}}.
+'],
 ['xref_quote_long_item',
 '@table @asis
 
