@@ -1,5 +1,15 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert, converter_initialize):
+	use directly %ignored_types and %ignorable_space_types.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert, %ignorable_space_types): 
+	handle text elements before other elements.  Remove
+	spaces_before_paragraph from %ignorable_space_types and handle it
+	in one place only.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm: remove an obsolete FIXME.
 
 2024-07-05  Patrice Dumas  <pertusus@free.fr>

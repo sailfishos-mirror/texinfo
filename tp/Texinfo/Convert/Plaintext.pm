@@ -283,7 +283,6 @@ my %upper_case_commands = (
 my %ignorable_space_types;
 foreach my $type ('ignorable_spaces_after_command',
             'spaces_at_end',
-            'spaces_before_paragraph',
             'spaces_after_close_brace') {
   $ignorable_space_types{$type} = 1;
 }
@@ -514,8 +513,6 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  %{$self->{'ignored_types'}} = %ignored_types;
-  %{$self->{'ignorable_space_types'}} = %ignorable_space_types;
   %{$self->{'ignored_commands'}} = %ignored_commands;
 
   foreach my $format (keys(%format_raw_commands)) {
@@ -2374,77 +2371,51 @@ sub _convert($$)
   my $formatter = $self->{'formatters'}->[-1];
 
   my $type = $element->{'type'};
-  my $cmdname = $element->{'cmdname'};
 
-  if (($type and $self->{'ignored_types'}->{$type})
-       or ($cmdname
-            and ($self->{'ignored_commands'}->{$cmdname}
-                 or ($brace_commands{$cmdname}
-                     and $brace_commands{$cmdname} eq 'inline'
-                     and $cmdname ne 'inlinefmtifelse'
-                     and (($inline_format_commands{$cmdname}
-                          and (!$element->{'extra'}
-                               or !$element->{'extra'}->{'format'}
-                               or !$self->{'expanded_formats'}
-                                           ->{$element->{'extra'}->{'format'}}))
-                         or (!$inline_format_commands{$cmdname}
-                             and (!$element->{'extra'}
-                  or  !defined($element->{'extra'}->{'expand_index'})))))))) {
-    return;
-  }
-
-  # First handle empty lines. This has to be done before the handling
-  # of text below to be sure that an empty line is always processed
-  # especially
-  if ($type and ($type eq 'empty_line'
-                 or $type eq 'after_menu_description_line')) {
-    delete $self->{'text_element_context'}->[-1]->{'counter'};
-    if ($element->{'text'} =~ /\f/) {
-      my $result = _get_form_feeds($element->{'text'});
-      _stream_output($self, $result);
-    }
-    if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
-      _stream_output($self, add_text($formatter->{'container'}, "\n"),
-                     $formatter->{'container'});
-    } else {
-      # inlined below for efficiency
-      #$self->_add_newline_if_needed();
-
-      use bytes;
-      if (defined($self->{'count_context'}->[-1]->{'pending_text'})
-        and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
-        and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
-              ne "\n\n") {
-        _stream_output($self, "\n");
-        _add_lines_count($self, 1);
+  if (defined($element->{'text'})) {
+    # First handle empty lines. This has to be done before the handling
+    # of text below to be sure that an empty line is always processed
+    # especially
+    if ($type and ($type eq 'empty_line'
+                   or $type eq 'after_menu_description_line')) {
+      delete $self->{'text_element_context'}->[-1]->{'counter'};
+      if ($element->{'text'} =~ /\f/) {
+        my $result = _get_form_feeds($element->{'text'});
+        _stream_output($self, $result);
+      }
+      if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
+        _stream_output($self, add_text($formatter->{'container'}, "\n"),
+                       $formatter->{'container'});
       } else {
-        my $result = _stream_result($self);
-        if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
+        # inlined below for efficiency
+        #$self->_add_newline_if_needed();
+
+        use bytes;
+        if (defined($self->{'count_context'}->[-1]->{'pending_text'})
+          and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
+          and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
+                ne "\n\n") {
           _stream_output($self, "\n");
           _add_lines_count($self, 1);
+        } else {
+          my $result = _stream_result($self);
+          if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
+            _stream_output($self, "\n");
+            _add_lines_count($self, 1);
+          }
         }
       }
+      return;
+    } elsif ($type and $ignorable_space_types{$type}) {
+      if ($type eq 'spaces_after_close_brace'
+          and $element->{'text'} =~ /\f/) {
+        my $result = _get_form_feeds($element->{'text'});
+        _stream_output($self, $result);
+      }
+      return;
     }
-    return;
-  }
 
-  # in ignorable spaces, keep only form feeds.
-  if ($type and $self->{'ignorable_space_types'}->{$type}
-      and ($type ne 'spaces_before_paragraph'
-           or $self->get_conf('paragraphindent') ne 'asis')) {
-    my $result = '';
-    if ($type eq 'spaces_after_close_brace'
-        and $element->{'text'} =~ /\f/) {
-      # FIXME also in spaces_before_paragraph?  Does not seems to be
-      # relevant to keep form feeds in other ignorable spaces.
-      $result = _get_form_feeds($element->{'text'});
-    }
-    _stream_output($self, $result);
-    return;
-  }
-
-  # process text
-  if (defined($element->{'text'})) {
+    # process text
     # '_top_formatter' is only set in the formatter setup when calling
     # push_top_formatter.  It should be setup in containers that
     # contains paragraphs, lines and blocks, but no inline content.
@@ -2495,9 +2466,11 @@ sub _convert($$)
         $count_context->{'pending_text'} .= $added_text;
       }
       return;
-    # the following is only possible if paragraphindent is set to asis
     } elsif ($type and $type eq 'spaces_before_paragraph') {
-      _stream_output($self, $element->{'text'});
+      if ($self->get_conf('paragraphindent') eq 'asis') {
+        _stream_output($self, $element->{'text'});
+      }
+      # TODO if not asis, output _get_form_feeds($element->{'text'})?
       return;
     # ignore text outside of any format, but warn if ignored text not empty
     } elsif ($element->{'text'} =~ /\S/) {
@@ -2511,6 +2484,25 @@ sub _convert($$)
                      $formatter->{'container'});
       return;
     }
+  }
+
+  my $cmdname = $element->{'cmdname'};
+
+  if (($type and $ignored_types{$type})
+       or ($cmdname
+            and ($self->{'ignored_commands'}->{$cmdname}
+                 or ($brace_commands{$cmdname}
+                     and $brace_commands{$cmdname} eq 'inline'
+                     and $cmdname ne 'inlinefmtifelse'
+                     and (($inline_format_commands{$cmdname}
+                          and (!$element->{'extra'}
+                               or !$element->{'extra'}->{'format'}
+                               or !$self->{'expanded_formats'}
+                                           ->{$element->{'extra'}->{'format'}}))
+                         or (!$inline_format_commands{$cmdname}
+                             and (!$element->{'extra'}
+                  or  !defined($element->{'extra'}->{'expand_index'})))))))) {
+    return;
   }
 
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
