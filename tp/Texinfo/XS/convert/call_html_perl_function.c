@@ -2451,6 +2451,65 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
   return result;
 }
 
+int
+call_stage_handler (CONVERTER *self, void *stage_handler_sv,
+                    const char *stage_name)
+{
+  int count;
+  SV *document_sv = 0;
+  SV *result_sv;
+  int status;
+
+  dTHX;
+
+  if (self->document)
+    {
+      SV **document_ref_sv = hv_fetch (self->hv, "document",
+                                       strlen ("document"), 0);
+      if (document_ref_sv && *document_ref_sv)
+        {
+          document_sv = *document_ref_sv;
+          SvREFCNT_inc (document_sv);
+        }
+    }
+
+  if (!document_sv)
+    document_sv = newSV (0);
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (document_sv));
+  PUSHs(sv_2mortal (newSVpv (stage_name, 0)));
+
+  PUTBACK;
+
+  count = call_sv ((SV *) stage_handler_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("call_stage_handler should return 1 item\n");
+
+
+  result_sv = POPs;
+  status = (int) SvIV (result_sv);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return status;
+}
+
 
 /* Interface with Perl hash map for registered ids */
 

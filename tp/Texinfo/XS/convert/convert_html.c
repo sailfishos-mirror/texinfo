@@ -150,6 +150,12 @@ const char *html_argument_formatting_type_names[] = {
   #undef html_aft_type
 };
 
+const char *html_stage_handler_stage_type_names[] = {
+  #define html_hsht_type(name) #name,
+   HTML_STAGE_HANDLER_STAGE_TYPE
+  #undef html_hsht_type
+};
+
 const char *special_unit_info_type_names[SUI_type_heading + 1] =
 {
   #define sui_type(name) #name,
@@ -2279,6 +2285,60 @@ set_root_commands_targets_node_files (CONVERTER *self)
           new_sectioning_command_target (self, root_element);
         }
     }
+}
+
+int
+run_stage_handlers (CONVERTER *self, enum html_stage_handler_stage_type stage)
+{
+  size_t i;
+  HTML_STAGE_HANDLER_INFO_LIST *stage_handlers
+    = &self->html_stage_handlers[stage];
+
+  if (stage_handlers->number > 0)
+    {
+      const char *stage_name = html_stage_handler_stage_type_names[stage];
+
+      for (i = 0; i < stage_handlers->number; i++)
+        {
+          int call_status;
+          HTML_STAGE_HANDLER_INFO *stage_handler
+            = &stage_handlers->list[i];
+
+          if (self->conf->DEBUG.o.integer > 0)
+            fprintf (stderr, "RUN handler %zu: stage %s, priority %s\n",
+                     i +1, stage_name, stage_handler->priority);
+
+          if (stage_handler->sv)
+            {
+              call_status = call_stage_handler (self, stage_handler->sv,
+                                                stage_name);
+              if (call_status != 0)
+                {
+                  if (call_status < 0)
+                    {
+                      message_list_document_error (&self->error_messages,
+                                                   self->conf, 0,
+                              "handler %d of stage %s priority %s failed",
+                              (int) i+1, stage_name, stage_handler->priority);
+                    }
+                  else
+                    {
+                   /* the handler is supposed to have output an error message
+                      already if $status > 0 */
+                      if (self->conf->DEBUG.o.integer > 0
+                          || self->conf->VERBOSE.o.integer > 0)
+                        {
+                          fprintf (stderr,
+                                   "FAIL handler %zu: stage %s, priority %s\n",
+                                   i +1, stage_name, stage_handler->priority);
+                        }
+                    }
+                  return call_status;
+                }
+            }
+        }
+    }
+  return 0;
 }
 
 /* to be inlined in text parsing codes */

@@ -1,5 +1,18 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_stage_handler), tp/Texinfo/XS/convert/convert_html.c
+	(html_stage_handler_stage_type_names, run_stage_handlers),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(enum html_stage_handler_stage_type, HTML_STAGE_HANDLER_INFO)
+	(HTML_STAGE_HANDLER_INFO_LIST, CONVERTER): get stage handlers from
+	Perl and put them in HTML_STAGE_HANDLER_INFO_LIST structure in
+	converter.  Add run_stage_handlers and call_stage_handler to call Perl
+	registered stage handlers references.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.h, tp/Texinfo/XS/convert/convert_html.h:
 	move declaration of html_argument_formatting_type_names to
 	convert_html.h.

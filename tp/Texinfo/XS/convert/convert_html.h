@@ -37,6 +37,8 @@ extern const char *direction_string_context_names[];
 
 extern const char *count_elements_in_filename_type_names[];
 
+extern const char *html_stage_handler_stage_type_names[];
+
 void html_format_init (void);
 
 void html_converter_initialize (CONVERTER *self);

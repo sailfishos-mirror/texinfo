@@ -281,7 +281,7 @@ void
 add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
                          enum sv_string_type type)
 {
-  int i;
+  size_t i;
   SSize_t strings_nr;
 
   dTHX;
@@ -293,7 +293,7 @@ add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
   strings_nr = av_top_index (av) +1;
   for (i = 0; i < strings_nr; i++)
     {
-      SV** string_sv = av_fetch (av, i, 0);
+      SV **string_sv = av_fetch (av, i, 0);
       if (string_sv)
         {
           const char *string;

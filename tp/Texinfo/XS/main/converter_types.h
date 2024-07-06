@@ -219,6 +219,20 @@ enum htmlxref_split_type {
    htmlxref_split_type_chapter,
 };
 
+#define HTML_STAGE_HANDLER_STAGE_TYPE \
+  html_hsht_type(setup) \
+  html_hsht_type(structure) \
+  html_hsht_type(init) \
+  html_hsht_type(finish)
+
+enum html_stage_handler_stage_type {
+   HSHT_type_none = -1,
+
+   #define html_hsht_type(name) HSHT_type_##name,
+    HTML_STAGE_HANDLER_STAGE_TYPE
+   #undef html_hsht_type
+};
+
 typedef struct {
     enum command_id *stack;
     size_t top;   /* One above last pushed command. */
@@ -713,6 +727,17 @@ typedef struct FILE_ASSOCIATED_INFO_LIST {
     FILE_ASSOCIATED_INFO *list;
 } FILE_ASSOCIATED_INFO_LIST;
 
+typedef struct HTML_STAGE_HANDLER_INFO {
+    /* Perl function reference */
+    void *sv;
+    char *priority;
+} HTML_STAGE_HANDLER_INFO;
+
+typedef struct HTML_STAGE_HANDLER_INFO_LIST {
+    size_t number;
+    HTML_STAGE_HANDLER_INFO *list;
+} HTML_STAGE_HANDLER_INFO_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -789,6 +814,7 @@ typedef struct CONVERTER {
     OUTPUT_UNIT_CONVERSION_FUNCTION output_unit_conversion_function[OU_special_unit+1];
     SPECIAL_UNIT_BODY_FORMATTING *special_unit_body_formatting;
     HTML_DIRECTION_STRING_TRANSLATED *translated_direction_strings[TDS_TRANSLATED_MAX_NR];
+    HTML_STAGE_HANDLER_INFO_LIST html_stage_handlers[HSHT_type_finish +1];
     /* set for a converter, modified in a document */
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
     char ***directions_strings[TDS_TYPE_MAX_NR];

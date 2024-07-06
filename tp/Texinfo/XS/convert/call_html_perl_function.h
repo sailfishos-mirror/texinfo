@@ -148,6 +148,8 @@ FORMATTED_BUTTON_INFO *call_button_direction_function (CONVERTER *self,
                              void *formatting_reference_sv,
                              int direction, const ELEMENT *element);
 
+int call_stage_handler (CONVERTER *self, void *stage_handler_sv,
+                        const char *stage_name);
 
 char *call_latex_convert_to_latex_math (CONVERTER *self,
                                         const ELEMENT *element);

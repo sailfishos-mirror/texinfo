@@ -152,6 +152,7 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **sorted_special_unit_varieties_sv;
   SV **accent_entities_sv;
   SV **style_commands_formatting_sv;
+  SV **stage_handlers_sv;
   SV **types_open_sv;
   SV **types_conversion_sv;
   SV **commands_open_sv;
@@ -391,6 +392,7 @@ html_converter_initialize_sv (SV *converter_sv,
   memcpy (&converter->css_string_types_conversion,
           &converter->types_conversion,
       (TXI_TREE_TYPES_NUMBER) * sizeof (FORMATTING_REFERENCE));
+
   for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
       char *ref_name;
@@ -818,6 +820,97 @@ html_converter_initialize_sv (SV *converter_sv,
                           fprintf (stderr, "HHH %d %d %s %d %d %s %d %s\n", i, cmd, cmdname, j, context_idx, context_name, format_spec->quote, format_spec->element);
                              */
                         }
+                    }
+                }
+            }
+        }
+    }
+
+  FETCH(stage_handlers)
+
+  if (stage_handlers_sv)
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *stage_handlers_hv
+        = (HV *)SvRV (*stage_handlers_sv);
+
+      hv_number = hv_iterinit (stage_handlers_hv);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          int j;
+          enum html_stage_handler_stage_type stage = HSHT_type_none;
+          char *stage_name;
+          I32 retlen;
+          SV *stage_sv = hv_iternextsv (stage_handlers_hv,
+                                        &stage_name, &retlen);
+          for (j = 0; j < HSHT_type_finish +1; j++)
+            {
+              if (!strcmp (stage_name, html_stage_handler_stage_type_names[j]))
+                {
+                  stage = j;
+                  break;
+                }
+            }
+          if (stage == HSHT_type_none)
+            {
+              fprintf (stderr, "ERROR: %s: unknown handler stage\n",
+                               stage_name);
+              break;
+            }
+
+          if (SvOK (stage_sv))
+            {
+              size_t k;
+              AV *stage_av = (AV *)SvRV (stage_sv);
+              HTML_STAGE_HANDLER_INFO_LIST *stage_handler_list
+                = &converter->html_stage_handlers[stage];
+              SSize_t stage_handlers_info_nr = av_top_index (stage_av) +1;
+
+              stage_handler_list->number = stage_handlers_info_nr;
+              stage_handler_list->list = (HTML_STAGE_HANDLER_INFO *)
+                 malloc (sizeof (HTML_STAGE_HANDLER_INFO)
+                                                  * stage_handlers_info_nr);
+
+              for (k = 0; k < stage_handlers_info_nr; k++)
+                {
+                  HTML_STAGE_HANDLER_INFO *handler_info
+                        = &stage_handler_list->list[k];
+                  SV **stage_info_sv = av_fetch (stage_av, k, 0);
+                  memset (handler_info, 0, sizeof (HTML_STAGE_HANDLER_INFO));
+
+                  if (stage_info_sv && SvOK (*stage_info_sv))
+                    {
+                      AV *stage_info_av = (AV *)SvRV (*stage_info_sv);
+                      SV **handler_sv;
+                      SV **priority_sv;
+
+                      SSize_t stage_info_nr = av_top_index (stage_info_av) +1;
+                      if (stage_info_nr != 2)
+                        {
+                          fprintf (stderr,
+                            "BUG: %s: %zu: stage handler info need 2 item: %zu\n",
+                                   stage_name, k, stage_info_nr);
+                          continue;
+                        }
+                      handler_sv = av_fetch (stage_info_av, 0, 0);
+                      if (handler_sv && SvOK (*handler_sv))
+                        {
+                          handler_info->sv = *handler_sv;
+                        }
+                      priority_sv = av_fetch (stage_info_av, 1, 0);
+                      if (priority_sv && SvOK (*priority_sv))
+                        {
+                          const char *priority
+                            = (char *) SvPVutf8_nolen (*priority_sv);
+                          handler_info->priority = non_perl_strdup (priority);
+                        }
+                       /*
+                      fprintf (stderr, "REGISTER handler %s: %s %p\n", stage_name,
+                               handler_info->priority, handler_info->sv);
+                        */
                     }
                 }
             }

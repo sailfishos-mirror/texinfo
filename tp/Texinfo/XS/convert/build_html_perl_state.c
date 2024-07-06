@@ -45,6 +45,7 @@
 #include "build_perl_info.h"
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
+/* also for html_argument_formatting_type_names */
 #include "convert_html.h"
 #include "build_html_perl_state.h"
 
