@@ -6184,7 +6184,7 @@ list of floats
 **************
 
 See *note Text 1.3: text in section.  And (*note Text 1.1: text in
-chapter.).  *Note Text 1: text with a lot of features.
+chapter).  *Note Text 1: text with a lot of features.
 
    And now a ref (without manual or printed manual) *note cross ref:
 text with a lot of features.

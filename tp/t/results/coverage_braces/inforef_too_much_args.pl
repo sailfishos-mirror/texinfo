@@ -153,7 +153,7 @@ $result_floats{'inforef_too_much_args'} = {};
 
 
 
-$result_converted{'plaintext'}->{'inforef_too_much_args'} = '*note cross ref name: (file name, spurious arg)chapter.
+$result_converted{'plaintext'}->{'inforef_too_much_args'} = '*note cross ref name: (file name, spurious arg)chapter
 ';
 
 

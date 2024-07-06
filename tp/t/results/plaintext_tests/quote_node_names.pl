@@ -2417,48 +2417,4 @@ $result_errors{'quote_node_names'} = [
 $result_floats{'quote_node_names'} = {};
 
 
-$result_converted_errors{'file_plaintext'}->{'quote_node_names'} = [
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 4,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 5,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 7,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 8,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 10,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  }
-];
-
-
 1;

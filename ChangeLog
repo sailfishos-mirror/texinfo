@@ -1,5 +1,10 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (format_ref): do not add a full stop
+	after a ref command not followed by a comma or full stop.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (format_ref, _convert),
 	tp/Texinfo/Convert/Info.pm (format_ref): split format_ref function out
 	of _convert to format *ref commands.  Put format_ref both in

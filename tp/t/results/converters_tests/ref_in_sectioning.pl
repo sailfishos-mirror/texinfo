@@ -2168,14 +2168,14 @@ $result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example *note node:
 1 *Note title: (file name)node.
 2 *note node:: just node
   2.1 for example *note node:: (*note node::) (*note (file)Top::)
-  2.2 *note cross ref name: node. node, crossref arg2
-  2.3 *note ‘title’: node. code node, samptitle arg3
+  2.2 *note cross ref name: node node, crossref arg2
+  2.3 *note ‘title’: node code node, samptitle arg3
   2.4 *note (file name)node:: code node, file name
   2.5 *note ()node:: node and manual
   2.6 *note ()Top:: Top and manual
   2.7 *note ()Top:: no node just manual
   2.8 *note (file name)Top:: no node just file name
-  2.9 *note b: (c)a. inforef a b c
+  2.9 *note b: (c)a inforef a b c
   2.10 (*note (file name)Top::) pxref Top file name, spaces
   2.11 (*note (file name)Top::) pxref file name only, spaces
   2.12 *Note (filename)Top::, xref Top filename only, no spaces
@@ -2193,11 +2193,11 @@ for example *note node:: (*note node::) (*note (file)Top::)
 2.1 for example *note node:: (*note node::) (*note (file)Top::)
 ===============================================================
 
-2.2 *note cross ref name: node. node, crossref arg2
-===================================================
-
-2.3 *note ‘title’: node. code node, samptitle arg3
+2.2 *note cross ref name: node node, crossref arg2
 ==================================================
+
+2.3 *note ‘title’: node code node, samptitle arg3
+=================================================
 
 2.4 *note (file name)node:: code node, file name
 ================================================
@@ -2214,8 +2214,8 @@ for example *note node:: (*note node::) (*note (file)Top::)
 2.8 *note (file name)Top:: no node just file name
 =================================================
 
-2.9 *note b: (c)a. inforef a b c
-================================
+2.9 *note b: (c)a inforef a b c
+===============================
 
 2.10 (*note (file name)Top::) pxref Top file name, spaces
 =========================================================

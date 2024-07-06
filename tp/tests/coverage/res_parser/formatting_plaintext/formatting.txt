@@ -453,10 +453,10 @@ s-mallformat
    ‘@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@,
 ma---nual@@}’ *Note cross r--ef name@: (file n---ame@)c---hapter@.
 ‘@ref{chapter, cross ref name, title, file name, manual}’ *note cross
-ref name: (file name)chapter. ‘@pxref{chapter, cross ref name, title,
-file name, manual}’ *note cross ref name: (file name)chapter.
+ref name: (file name)chapter ‘@pxref{chapter, cross ref name, title,
+file name, manual}’ *note cross ref name: (file name)chapter
 ‘@inforef{chapter, cross ref name, file name}’ *note cross ref name:
-(file name)chapter.
+(file name)chapter
 
    ‘@ref{chapter}’ *note chapter:: ‘@xref{chapter}’ *Note chapter::.
 ‘@pxref{chapter}’ *note chapter:: ‘@ref{s--ect@comma{}ion}’ *note
@@ -464,61 +464,61 @@ s--ect,ion::
 
    ‘@ref{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{} in
 title, a comma@comma{} in file, a @comma{} in manual name }’ *note a ,
-in cross ref: (a comma, in file)s--ect,ion.
+in cross ref: (a comma, in file)s--ect,ion
 
-   ‘@ref{chapter,cross ref name}’ *note cross ref name: chapter.
-‘@ref{chapter,,title}’ *note title: chapter. ‘@ref{chapter,,,file name}’
+   ‘@ref{chapter,cross ref name}’ *note cross ref name: chapter
+‘@ref{chapter,,title}’ *note title: chapter ‘@ref{chapter,,,file name}’
 *note (file name)chapter:: ‘@ref{chapter,,,,manual}’ *note ()chapter::
-‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter.
+‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter
 ‘@ref{chapter,cross ref name,,file name}’ *note cross ref name: (file
-name)chapter. ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
-name: ()chapter. ‘@ref{chapter,cross ref name,title,file name}’ *note
-cross ref name: (file name)chapter. ‘@ref{chapter,cross ref
-name,title,,manual}’ *note cross ref name: ()chapter.
-‘@ref{chapter,cross ref name,title, file name, manual}’ *note cross ref
-name: (file name)chapter. ‘@ref{chapter,,title,file name}’ *note title:
-(file name)chapter. ‘@ref{chapter,,title,,manual}’ *note title:
-()chapter. ‘@ref{chapter,,title, file name, manual}’ *note title: (file
-name)chapter. ‘@ref{chapter,,,file name,manual}’ *note (file
+name)chapter ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
+name: ()chapter ‘@ref{chapter,cross ref name,title,file name}’ *note
+cross ref name: (file name)chapter ‘@ref{chapter,cross ref
+name,title,,manual}’ *note cross ref name: ()chapter ‘@ref{chapter,cross
+ref name,title, file name, manual}’ *note cross ref name: (file
+name)chapter ‘@ref{chapter,,title,file name}’ *note title: (file
+name)chapter ‘@ref{chapter,,title,,manual}’ *note title: ()chapter
+‘@ref{chapter,,title, file name, manual}’ *note title: (file
+name)chapter ‘@ref{chapter,,,file name,manual}’ *note (file
 name)chapter::
 
-   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode.
-‘@ref{(pman)anode,,title}’ *note title: (pman)anode.
+   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode
+‘@ref{(pman)anode,,title}’ *note title: (pman)anode
 ‘@ref{(pman)anode,,,file name}’ *note (file name)(pman)anode::
 ‘@ref{(pman)anode,,,,manual}’ *note ()(pman)anode::
 ‘@ref{(pman)anode,cross ref name,title,}’ *note cross ref name:
-(pman)anode. ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
-ref name: (file name)(pman)anode. ‘@ref{(pman)anode,cross ref
-name,,,manual}’ *note cross ref name: ()(pman)anode.
+(pman)anode ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
+ref name: (file name)(pman)anode ‘@ref{(pman)anode,cross ref
+name,,,manual}’ *note cross ref name: ()(pman)anode
 ‘@ref{(pman)anode,cross ref name,title,file name}’ *note cross ref name:
-(file name)(pman)anode. ‘@ref{(pman)anode,cross ref name,title,,manual}’
-*note cross ref name: ()(pman)anode. ‘@ref{(pman)anode,cross ref
+(file name)(pman)anode ‘@ref{(pman)anode,cross ref name,title,,manual}’
+*note cross ref name: ()(pman)anode ‘@ref{(pman)anode,cross ref
 name,title, file name, manual}’ *note cross ref name: (file
-name)(pman)anode. ‘@ref{(pman)anode,,title,file name}’ *note title:
-(file name)(pman)anode. ‘@ref{(pman)anode,,title,,manual}’ *note title:
-()(pman)anode. ‘@ref{(pman)anode,,title, file name, manual}’ *note
-title: (file name)(pman)anode. ‘@ref{(pman)anode,,,file name,manual}’
-*note (file name)(pman)anode::
+name)(pman)anode ‘@ref{(pman)anode,,title,file name}’ *note title: (file
+name)(pman)anode ‘@ref{(pman)anode,,title,,manual}’ *note title:
+()(pman)anode ‘@ref{(pman)anode,,title, file name, manual}’ *note title:
+(file name)(pman)anode ‘@ref{(pman)anode,,,file name,manual}’ *note
+(file name)(pman)anode::
 
    ‘@inforef{chapter, cross ref name, file name}’ *note cross ref name:
-(file name)chapter. ‘@inforef{chapter}’ *note chapter::
-‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter.
+(file name)chapter ‘@inforef{chapter}’ *note chapter::
+‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter
 ‘@inforef{chapter,,file name}’ *note (file name)chapter::
 ‘@inforef{node, cross ref name, file name}’ *note cross ref name: (file
-name)node. ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref
-name}’ *note cross ref name: node. ‘@inforef{node,,file name}’ *note
-(file name)node:: ‘@inforef{chapter, cross ref name, file name, spurious
-arg}’ *note cross ref name: (file name, spurious arg)chapter.
+name)node ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref name}’
+*note cross ref name: node ‘@inforef{node,,file name}’ *note (file
+name)node:: ‘@inforef{chapter, cross ref name, file name, spurious arg}’
+*note cross ref name: (file name, spurious arg)chapter
 
    ‘@inforef{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{}
-in file}’ *note a , in cross ref: (a comma, in file)s--ect,ion.
+in file}’ *note a , in cross ref: (a comma, in file)s--ect,ion
 
    ‘*note chapter::’.
 
    *note cross ref with uref uref1 (href://http/myhost.com/index.html):
-(info file with uref3 uref3 (href://http/myhost.com/index3.html))ext.
+(info file with uref3 uref3 (href://http/myhost.com/index3.html))ext
 *note cross ref with uref uref1 (href://http/myhost.com/index.html):
-chapter.
+chapter
 
 *a-strong*
      l-ine
@@ -680,36 +680,36 @@ b
 
    ‘@ref{node}’ *note node::
 
-   ‘@ref{,cross ref name}’ *note cross ref name: . ‘@ref{,,title}’ *note
-title: . ‘@ref{,,,file name}’ *note (file name)Top:: ‘@ref{,,,,manual}’
-*note ()Top:: ‘@ref{node,cross ref name}’ *note cross ref name: node.
-‘@ref{node,,title}’ *note title: node. ‘@ref{node,,,file name}’ *note
+   ‘@ref{,cross ref name}’ *note cross ref name: ‘@ref{,,title}’ *note
+title: ‘@ref{,,,file name}’ *note (file name)Top:: ‘@ref{,,,,manual}’
+*note ()Top:: ‘@ref{node,cross ref name}’ *note cross ref name: node
+‘@ref{node,,title}’ *note title: node ‘@ref{node,,,file name}’ *note
 (file name)node:: ‘@ref{node,,,,manual}’ *note ()node:: ‘@ref{node,cross
-ref name,title,}’ *note cross ref name: node. ‘@ref{node,cross ref
-name,,file name}’ *note cross ref name: (file name)node.
-‘@ref{node,cross ref name,,,manual}’ *note cross ref name: ()node.
-‘@ref{node,cross ref name,title,file name}’ *note cross ref name: (file
-name)node. ‘@ref{node,cross ref name,title,,manual}’ *note cross ref
-name: ()node. ‘@ref{node,cross ref name,title, file name, manual}’ *note
-cross ref name: (file name)node. ‘@ref{node,,title,file name}’ *note
-title: (file name)node. ‘@ref{node,,title,,manual}’ *note title: ()node.
+ref name,title,}’ *note cross ref name: node ‘@ref{node,cross ref
+name,,file name}’ *note cross ref name: (file name)node ‘@ref{node,cross
+ref name,,,manual}’ *note cross ref name: ()node ‘@ref{node,cross ref
+name,title,file name}’ *note cross ref name: (file name)node
+‘@ref{node,cross ref name,title,,manual}’ *note cross ref name: ()node
+‘@ref{node,cross ref name,title, file name, manual}’ *note cross ref
+name: (file name)node ‘@ref{node,,title,file name}’ *note title: (file
+name)node ‘@ref{node,,title,,manual}’ *note title: ()node
 ‘@ref{chapter,,title, file name, manual}’ *note title: (file
-name)chapter. ‘@ref{node,,title, file name, manual}’ *note title: (file
-name)node. ‘@ref{node,,,file name,manual}’ *note (file name)node::
-‘@ref{,cross ref name,title,}’ *note cross ref name: . ‘@ref{,cross ref
-name,,file name}’ *note cross ref name: (file name)Top. ‘@ref{,cross ref
-name,,,manual}’ *note cross ref name: ()Top. ‘@ref{,cross ref
-name,title,file name}’ *note cross ref name: (file name)Top.
-‘@ref{,cross ref name,title,,manual}’ *note cross ref name: ()Top.
-‘@ref{,cross ref name,title, file name, manual}’ *note cross ref name:
-(file name)Top. ‘@ref{,,title,file name}’ *note title: (file name)Top.
-‘@ref{,,title,,manual}’ *note title: ()Top. ‘@ref{,,title, file name,
-manual}’ *note title: (file name)Top. ‘@ref{,,,file name,manual}’ *note
+name)chapter ‘@ref{node,,title, file name, manual}’ *note title: (file
+name)node ‘@ref{node,,,file name,manual}’ *note (file name)node::
+‘@ref{,cross ref name,title,}’ *note cross ref name: ‘@ref{,cross ref
+name,,file name}’ *note cross ref name: (file name)Top ‘@ref{,cross ref
+name,,,manual}’ *note cross ref name: ()Top ‘@ref{,cross ref
+name,title,file name}’ *note cross ref name: (file name)Top ‘@ref{,cross
+ref name,title,,manual}’ *note cross ref name: ()Top ‘@ref{,cross ref
+name,title, file name, manual}’ *note cross ref name: (file name)Top
+‘@ref{,,title,file name}’ *note title: (file name)Top
+‘@ref{,,title,,manual}’ *note title: ()Top ‘@ref{,,title, file name,
+manual}’ *note title: (file name)Top ‘@ref{,,,file name,manual}’ *note
 (file name)Top::
 
-   ‘@inforef{,cross ref name }’ *note cross ref name: . ‘@inforef{,,file
+   ‘@inforef{,cross ref name }’ *note cross ref name: ‘@inforef{,,file
 name}’ *note (file name)Top:: ‘@inforef{,cross ref name, file name}’
-*note cross ref name: (file name)Top. ‘@inforef{}’ *note ::
+*note cross ref name: (file name)Top ‘@inforef{}’ *note ::
 
    Normal text
 
@@ -1150,10 +1150,10 @@ s-mallformat
    ‘@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@,
 ma---nual@@}’ *Note cross r--ef name@: (file n---ame@)c---hapter@.
 ‘@ref{chapter, cross ref name, title, file name, manual}’ *note cross
-ref name: (file name)chapter. ‘@pxref{chapter, cross ref name, title,
-file name, manual}’ *note cross ref name: (file name)chapter.
+ref name: (file name)chapter ‘@pxref{chapter, cross ref name, title,
+file name, manual}’ *note cross ref name: (file name)chapter
 ‘@inforef{chapter, cross ref name, file name}’ *note cross ref name:
-(file name)chapter.
+(file name)chapter
 
    ‘@ref{chapter}’ *note chapter:: ‘@xref{chapter}’ *Note chapter::.
 ‘@pxref{chapter}’ *note chapter:: ‘@ref{s--ect@comma{}ion}’ *note
@@ -1161,61 +1161,61 @@ s--ect,ion::
 
    ‘@ref{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{} in
 title, a comma@comma{} in file, a @comma{} in manual name }’ *note a ,
-in cross ref: (a comma, in file)s--ect,ion.
+in cross ref: (a comma, in file)s--ect,ion
 
-   ‘@ref{chapter,cross ref name}’ *note cross ref name: chapter.
-‘@ref{chapter,,title}’ *note title: chapter. ‘@ref{chapter,,,file name}’
+   ‘@ref{chapter,cross ref name}’ *note cross ref name: chapter
+‘@ref{chapter,,title}’ *note title: chapter ‘@ref{chapter,,,file name}’
 *note (file name)chapter:: ‘@ref{chapter,,,,manual}’ *note ()chapter::
-‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter.
+‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter
 ‘@ref{chapter,cross ref name,,file name}’ *note cross ref name: (file
-name)chapter. ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
-name: ()chapter. ‘@ref{chapter,cross ref name,title,file name}’ *note
-cross ref name: (file name)chapter. ‘@ref{chapter,cross ref
-name,title,,manual}’ *note cross ref name: ()chapter.
-‘@ref{chapter,cross ref name,title, file name, manual}’ *note cross ref
-name: (file name)chapter. ‘@ref{chapter,,title,file name}’ *note title:
-(file name)chapter. ‘@ref{chapter,,title,,manual}’ *note title:
-()chapter. ‘@ref{chapter,,title, file name, manual}’ *note title: (file
-name)chapter. ‘@ref{chapter,,,file name,manual}’ *note (file
+name)chapter ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
+name: ()chapter ‘@ref{chapter,cross ref name,title,file name}’ *note
+cross ref name: (file name)chapter ‘@ref{chapter,cross ref
+name,title,,manual}’ *note cross ref name: ()chapter ‘@ref{chapter,cross
+ref name,title, file name, manual}’ *note cross ref name: (file
+name)chapter ‘@ref{chapter,,title,file name}’ *note title: (file
+name)chapter ‘@ref{chapter,,title,,manual}’ *note title: ()chapter
+‘@ref{chapter,,title, file name, manual}’ *note title: (file
+name)chapter ‘@ref{chapter,,,file name,manual}’ *note (file
 name)chapter::
 
-   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode.
-‘@ref{(pman)anode,,title}’ *note title: (pman)anode.
+   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode
+‘@ref{(pman)anode,,title}’ *note title: (pman)anode
 ‘@ref{(pman)anode,,,file name}’ *note (file name)(pman)anode::
 ‘@ref{(pman)anode,,,,manual}’ *note ()(pman)anode::
 ‘@ref{(pman)anode,cross ref name,title,}’ *note cross ref name:
-(pman)anode. ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
-ref name: (file name)(pman)anode. ‘@ref{(pman)anode,cross ref
-name,,,manual}’ *note cross ref name: ()(pman)anode.
+(pman)anode ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
+ref name: (file name)(pman)anode ‘@ref{(pman)anode,cross ref
+name,,,manual}’ *note cross ref name: ()(pman)anode
 ‘@ref{(pman)anode,cross ref name,title,file name}’ *note cross ref name:
-(file name)(pman)anode. ‘@ref{(pman)anode,cross ref name,title,,manual}’
-*note cross ref name: ()(pman)anode. ‘@ref{(pman)anode,cross ref
+(file name)(pman)anode ‘@ref{(pman)anode,cross ref name,title,,manual}’
+*note cross ref name: ()(pman)anode ‘@ref{(pman)anode,cross ref
 name,title, file name, manual}’ *note cross ref name: (file
-name)(pman)anode. ‘@ref{(pman)anode,,title,file name}’ *note title:
-(file name)(pman)anode. ‘@ref{(pman)anode,,title,,manual}’ *note title:
-()(pman)anode. ‘@ref{(pman)anode,,title, file name, manual}’ *note
-title: (file name)(pman)anode. ‘@ref{(pman)anode,,,file name,manual}’
-*note (file name)(pman)anode::
+name)(pman)anode ‘@ref{(pman)anode,,title,file name}’ *note title: (file
+name)(pman)anode ‘@ref{(pman)anode,,title,,manual}’ *note title:
+()(pman)anode ‘@ref{(pman)anode,,title, file name, manual}’ *note title:
+(file name)(pman)anode ‘@ref{(pman)anode,,,file name,manual}’ *note
+(file name)(pman)anode::
 
    ‘@inforef{chapter, cross ref name, file name}’ *note cross ref name:
-(file name)chapter. ‘@inforef{chapter}’ *note chapter::
-‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter.
+(file name)chapter ‘@inforef{chapter}’ *note chapter::
+‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter
 ‘@inforef{chapter,,file name}’ *note (file name)chapter::
 ‘@inforef{node, cross ref name, file name}’ *note cross ref name: (file
-name)node. ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref
-name}’ *note cross ref name: node. ‘@inforef{node,,file name}’ *note
-(file name)node:: ‘@inforef{chapter, cross ref name, file name, spurious
-arg}’ *note cross ref name: (file name, spurious arg)chapter.
+name)node ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref name}’
+*note cross ref name: node ‘@inforef{node,,file name}’ *note (file
+name)node:: ‘@inforef{chapter, cross ref name, file name, spurious arg}’
+*note cross ref name: (file name, spurious arg)chapter
 
    ‘@inforef{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{}
-in file}’ *note a , in cross ref: (a comma, in file)s--ect,ion.
+in file}’ *note a , in cross ref: (a comma, in file)s--ect,ion
 
    ‘*note chapter::’.
 
    *note cross ref with uref uref1 (href://http/myhost.com/index.html):
-(info file with uref3 uref3 (href://http/myhost.com/index3.html))ext.
+(info file with uref3 uref3 (href://http/myhost.com/index3.html))ext
 *note cross ref with uref uref1 (href://http/myhost.com/index.html):
-chapter.
+chapter
 
 *a-strong*
      l-ine
@@ -1377,36 +1377,36 @@ b
 
    ‘@ref{node}’ *note node::
 
-   ‘@ref{,cross ref name}’ *note cross ref name: . ‘@ref{,,title}’ *note
-title: . ‘@ref{,,,file name}’ *note (file name)Top:: ‘@ref{,,,,manual}’
-*note ()Top:: ‘@ref{node,cross ref name}’ *note cross ref name: node.
-‘@ref{node,,title}’ *note title: node. ‘@ref{node,,,file name}’ *note
+   ‘@ref{,cross ref name}’ *note cross ref name: ‘@ref{,,title}’ *note
+title: ‘@ref{,,,file name}’ *note (file name)Top:: ‘@ref{,,,,manual}’
+*note ()Top:: ‘@ref{node,cross ref name}’ *note cross ref name: node
+‘@ref{node,,title}’ *note title: node ‘@ref{node,,,file name}’ *note
 (file name)node:: ‘@ref{node,,,,manual}’ *note ()node:: ‘@ref{node,cross
-ref name,title,}’ *note cross ref name: node. ‘@ref{node,cross ref
-name,,file name}’ *note cross ref name: (file name)node.
-‘@ref{node,cross ref name,,,manual}’ *note cross ref name: ()node.
-‘@ref{node,cross ref name,title,file name}’ *note cross ref name: (file
-name)node. ‘@ref{node,cross ref name,title,,manual}’ *note cross ref
-name: ()node. ‘@ref{node,cross ref name,title, file name, manual}’ *note
-cross ref name: (file name)node. ‘@ref{node,,title,file name}’ *note
-title: (file name)node. ‘@ref{node,,title,,manual}’ *note title: ()node.
+ref name,title,}’ *note cross ref name: node ‘@ref{node,cross ref
+name,,file name}’ *note cross ref name: (file name)node ‘@ref{node,cross
+ref name,,,manual}’ *note cross ref name: ()node ‘@ref{node,cross ref
+name,title,file name}’ *note cross ref name: (file name)node
+‘@ref{node,cross ref name,title,,manual}’ *note cross ref name: ()node
+‘@ref{node,cross ref name,title, file name, manual}’ *note cross ref
+name: (file name)node ‘@ref{node,,title,file name}’ *note title: (file
+name)node ‘@ref{node,,title,,manual}’ *note title: ()node
 ‘@ref{chapter,,title, file name, manual}’ *note title: (file
-name)chapter. ‘@ref{node,,title, file name, manual}’ *note title: (file
-name)node. ‘@ref{node,,,file name,manual}’ *note (file name)node::
-‘@ref{,cross ref name,title,}’ *note cross ref name: . ‘@ref{,cross ref
-name,,file name}’ *note cross ref name: (file name)Top. ‘@ref{,cross ref
-name,,,manual}’ *note cross ref name: ()Top. ‘@ref{,cross ref
-name,title,file name}’ *note cross ref name: (file name)Top.
-‘@ref{,cross ref name,title,,manual}’ *note cross ref name: ()Top.
-‘@ref{,cross ref name,title, file name, manual}’ *note cross ref name:
-(file name)Top. ‘@ref{,,title,file name}’ *note title: (file name)Top.
-‘@ref{,,title,,manual}’ *note title: ()Top. ‘@ref{,,title, file name,
-manual}’ *note title: (file name)Top. ‘@ref{,,,file name,manual}’ *note
+name)chapter ‘@ref{node,,title, file name, manual}’ *note title: (file
+name)node ‘@ref{node,,,file name,manual}’ *note (file name)node::
+‘@ref{,cross ref name,title,}’ *note cross ref name: ‘@ref{,cross ref
+name,,file name}’ *note cross ref name: (file name)Top ‘@ref{,cross ref
+name,,,manual}’ *note cross ref name: ()Top ‘@ref{,cross ref
+name,title,file name}’ *note cross ref name: (file name)Top ‘@ref{,cross
+ref name,title,,manual}’ *note cross ref name: ()Top ‘@ref{,cross ref
+name,title, file name, manual}’ *note cross ref name: (file name)Top
+‘@ref{,,title,file name}’ *note title: (file name)Top
+‘@ref{,,title,,manual}’ *note title: ()Top ‘@ref{,,title, file name,
+manual}’ *note title: (file name)Top ‘@ref{,,,file name,manual}’ *note
 (file name)Top::
 
-   ‘@inforef{,cross ref name }’ *note cross ref name: . ‘@inforef{,,file
+   ‘@inforef{,cross ref name }’ *note cross ref name: ‘@inforef{,,file
 name}’ *note (file name)Top:: ‘@inforef{,cross ref name, file name}’
-*note cross ref name: (file name)Top. ‘@inforef{}’ *note ::
+*note cross ref name: (file name)Top ‘@inforef{}’ *note ::
 
    In example.
 
@@ -1984,9 +1984,9 @@ name}’ *note (file name)Top:: ‘@inforef{,cross ref name, file name}’
 
 
      @xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@} *Note cross r---ef name@: (file n---ame@)c---hapter@.
-     @ref{chapter, cross ref name, title, file name, manual} *note cross ref name: (file name)chapter.
-     @pxref{chapter, cross ref name, title, file name, manual} *note cross ref name: (file name)chapter.
-     @inforef{chapter, cross ref name, file name} *note cross ref name: (file name)chapter.
+     @ref{chapter, cross ref name, title, file name, manual} *note cross ref name: (file name)chapter
+     @pxref{chapter, cross ref name, title, file name, manual} *note cross ref name: (file name)chapter
+     @inforef{chapter, cross ref name, file name} *note cross ref name: (file name)chapter
 
      @ref{chapter} *note chapter::
      @xref{chapter} *Note chapter::.
@@ -1996,59 +1996,59 @@ name}’ *note (file name)Top:: ‘@inforef{,cross ref name, file name}’
      @ref{s--ect@comma{}ion, a @comma{} in cross
      ref, a comma@comma{} in title, a comma@comma{} in file, a @comma{} in manual name }
      *note a , in cross
-     ref: (a comma, in file)s--ect,ion.
+     ref: (a comma, in file)s--ect,ion
 
-     @ref{chapter,cross ref name} *note cross ref name: chapter.
-     @ref{chapter,,title} *note title: chapter.
+     @ref{chapter,cross ref name} *note cross ref name: chapter
+     @ref{chapter,,title} *note title: chapter
      @ref{chapter,,,file name} *note (file name)chapter::
      @ref{chapter,,,,manual} *note ()chapter::
-     @ref{chapter,cross ref name,title,} *note cross ref name: chapter.
-     @ref{chapter,cross ref name,,file name} *note cross ref name: (file name)chapter.
-     @ref{chapter,cross ref name,,,manual} *note cross ref name: ()chapter.
-     @ref{chapter,cross ref name,title,file name} *note cross ref name: (file name)chapter.
-     @ref{chapter,cross ref name,title,,manual} *note cross ref name: ()chapter.
-     @ref{chapter,cross ref name,title, file name, manual} *note cross ref name: (file name)chapter.
-     @ref{chapter,,title,file name} *note title: (file name)chapter.
-     @ref{chapter,,title,,manual} *note title: ()chapter.
-     @ref{chapter,,title, file name, manual} *note title: (file name)chapter.
+     @ref{chapter,cross ref name,title,} *note cross ref name: chapter
+     @ref{chapter,cross ref name,,file name} *note cross ref name: (file name)chapter
+     @ref{chapter,cross ref name,,,manual} *note cross ref name: ()chapter
+     @ref{chapter,cross ref name,title,file name} *note cross ref name: (file name)chapter
+     @ref{chapter,cross ref name,title,,manual} *note cross ref name: ()chapter
+     @ref{chapter,cross ref name,title, file name, manual} *note cross ref name: (file name)chapter
+     @ref{chapter,,title,file name} *note title: (file name)chapter
+     @ref{chapter,,title,,manual} *note title: ()chapter
+     @ref{chapter,,title, file name, manual} *note title: (file name)chapter
      @ref{chapter,,,file name,manual} *note (file name)chapter::
 
 
-     @ref{(pman)anode,cross ref name} *note cross ref name: (pman)anode.
-     @ref{(pman)anode,,title} *note title: (pman)anode.
+     @ref{(pman)anode,cross ref name} *note cross ref name: (pman)anode
+     @ref{(pman)anode,,title} *note title: (pman)anode
      @ref{(pman)anode,,,file name} *note (file name)(pman)anode::
      @ref{(pman)anode,,,,manual} *note ()(pman)anode::
-     @ref{(pman)anode,cross ref name,title,} *note cross ref name: (pman)anode.
-     @ref{(pman)anode,cross ref name,,file name} *note cross ref name: (file name)(pman)anode.
-     @ref{(pman)anode,cross ref name,,,manual} *note cross ref name: ()(pman)anode.
-     @ref{(pman)anode,cross ref name,title,file name} *note cross ref name: (file name)(pman)anode.
-     @ref{(pman)anode,cross ref name,title,,manual} *note cross ref name: ()(pman)anode.
-     @ref{(pman)anode,cross ref name,title, file name, manual} *note cross ref name: (file name)(pman)anode.
-     @ref{(pman)anode,,title,file name} *note title: (file name)(pman)anode.
-     @ref{(pman)anode,,title,,manual} *note title: ()(pman)anode.
-     @ref{(pman)anode,,title, file name, manual} *note title: (file name)(pman)anode.
+     @ref{(pman)anode,cross ref name,title,} *note cross ref name: (pman)anode
+     @ref{(pman)anode,cross ref name,,file name} *note cross ref name: (file name)(pman)anode
+     @ref{(pman)anode,cross ref name,,,manual} *note cross ref name: ()(pman)anode
+     @ref{(pman)anode,cross ref name,title,file name} *note cross ref name: (file name)(pman)anode
+     @ref{(pman)anode,cross ref name,title,,manual} *note cross ref name: ()(pman)anode
+     @ref{(pman)anode,cross ref name,title, file name, manual} *note cross ref name: (file name)(pman)anode
+     @ref{(pman)anode,,title,file name} *note title: (file name)(pman)anode
+     @ref{(pman)anode,,title,,manual} *note title: ()(pman)anode
+     @ref{(pman)anode,,title, file name, manual} *note title: (file name)(pman)anode
      @ref{(pman)anode,,,file name,manual} *note (file name)(pman)anode::
 
 
-     @inforef{chapter, cross ref name, file name} *note cross ref name: (file name)chapter.
+     @inforef{chapter, cross ref name, file name} *note cross ref name: (file name)chapter
      @inforef{chapter} *note chapter::
-     @inforef{chapter, cross ref name} *note cross ref name: chapter.
+     @inforef{chapter, cross ref name} *note cross ref name: chapter
      @inforef{chapter,,file name} *note (file name)chapter::
-     @inforef{node, cross ref name, file name} *note cross ref name: (file name)node.
+     @inforef{node, cross ref name, file name} *note cross ref name: (file name)node
      @inforef{node} *note node::
-     @inforef{node, cross ref name} *note cross ref name: node.
+     @inforef{node, cross ref name} *note cross ref name: node
      @inforef{node,,file name} *note (file name)node::
-     @inforef{chapter, cross ref name, file name, spurious arg} *note cross ref name: (file name, spurious arg)chapter.
+     @inforef{chapter, cross ref name, file name, spurious arg} *note cross ref name: (file name, spurious arg)chapter
 
      @inforef{s--ect@comma{}ion, a @comma{} in cross
      ref, a comma@comma{} in file}
      *note a , in cross
-     ref: (a comma, in file)s--ect,ion.
+     ref: (a comma, in file)s--ect,ion
 
      ‘*note chapter::’.
 
-     *note cross ref with uref uref1 (href://http/myhost.com/index.html): (info file with uref3 uref3 (href://http/myhost.com/index3.html))ext.
-     *note cross ref with uref uref1 (href://http/myhost.com/index.html): chapter.
+     *note cross ref with uref uref1 (href://http/myhost.com/index.html): (info file with uref3 uref3 (href://http/myhost.com/index3.html))ext
+     *note cross ref with uref uref1 (href://http/myhost.com/index.html): chapter
 
      *a-strong*
           l--ine
@@ -2243,39 +2243,39 @@ aaa
 
      @ref{node} *note node::
 
-     @ref{,cross ref name} *note cross ref name: .
-     @ref{,,title} *note title: .
+     @ref{,cross ref name} *note cross ref name:
+     @ref{,,title} *note title:
      @ref{,,,file name} *note (file name)Top::
      @ref{,,,,manual} *note ()Top::
-     @ref{node,cross ref name} *note cross ref name: node.
-     @ref{node,,title} *note title: node.
+     @ref{node,cross ref name} *note cross ref name: node
+     @ref{node,,title} *note title: node
      @ref{node,,,file name} *note (file name)node::
      @ref{node,,,,manual} *note ()node::
-     @ref{node,cross ref name,title,} *note cross ref name: node.
-     @ref{node,cross ref name,,file name} *note cross ref name: (file name)node.
-     @ref{node,cross ref name,,,manual} *note cross ref name: ()node.
-     @ref{node,cross ref name,title,file name} *note cross ref name: (file name)node.
-     @ref{node,cross ref name,title,,manual} *note cross ref name: ()node.
-     @ref{node,cross ref name,title, file name, manual} *note cross ref name: (file name)node.
-     @ref{node,,title,file name} *note title: (file name)node.
-     @ref{node,,title,,manual} *note title: ()node.
-     @ref{chapter,,title, file name, manual} *note title: (file name)chapter.
-     @ref{node,,title, file name, manual} *note title: (file name)node.
+     @ref{node,cross ref name,title,} *note cross ref name: node
+     @ref{node,cross ref name,,file name} *note cross ref name: (file name)node
+     @ref{node,cross ref name,,,manual} *note cross ref name: ()node
+     @ref{node,cross ref name,title,file name} *note cross ref name: (file name)node
+     @ref{node,cross ref name,title,,manual} *note cross ref name: ()node
+     @ref{node,cross ref name,title, file name, manual} *note cross ref name: (file name)node
+     @ref{node,,title,file name} *note title: (file name)node
+     @ref{node,,title,,manual} *note title: ()node
+     @ref{chapter,,title, file name, manual} *note title: (file name)chapter
+     @ref{node,,title, file name, manual} *note title: (file name)node
      @ref{node,,,file name,manual} *note (file name)node::
-     @ref{,cross ref name,title,} *note cross ref name: .
-     @ref{,cross ref name,,file name} *note cross ref name: (file name)Top.
-     @ref{,cross ref name,,,manual} *note cross ref name: ()Top.
-     @ref{,cross ref name,title,file name} *note cross ref name: (file name)Top.
-     @ref{,cross ref name,title,,manual} *note cross ref name: ()Top.
-     @ref{,cross ref name,title, file name, manual} *note cross ref name: (file name)Top.
-     @ref{,,title,file name} *note title: (file name)Top.
-     @ref{,,title,,manual} *note title: ()Top.
-     @ref{,,title, file name, manual} *note title: (file name)Top.
+     @ref{,cross ref name,title,} *note cross ref name:
+     @ref{,cross ref name,,file name} *note cross ref name: (file name)Top
+     @ref{,cross ref name,,,manual} *note cross ref name: ()Top
+     @ref{,cross ref name,title,file name} *note cross ref name: (file name)Top
+     @ref{,cross ref name,title,,manual} *note cross ref name: ()Top
+     @ref{,cross ref name,title, file name, manual} *note cross ref name: (file name)Top
+     @ref{,,title,file name} *note title: (file name)Top
+     @ref{,,title,,manual} *note title: ()Top
+     @ref{,,title, file name, manual} *note title: (file name)Top
      @ref{,,,file name,manual} *note (file name)Top::
 
-     @inforef{,cross ref name } *note cross ref name: .
+     @inforef{,cross ref name } *note cross ref name:
      @inforef{,,file name} *note (file name)Top::
-     @inforef{,cross ref name, file name} *note cross ref name: (file name)Top.
+     @inforef{,cross ref name, file name} *note cross ref name: (file name)Top
      @inforef{} *note ::
 
 

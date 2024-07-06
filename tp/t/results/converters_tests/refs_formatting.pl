@@ -3030,43 +3030,43 @@ $result_floats{'refs_formatting'} = {};
 $result_converted{'plaintext'}->{'refs_formatting'} = '1 chapter
 *********
 
-‘@ref{chapter,cross ref name}’ *note cross ref name: chapter.
-‘@ref{chapter,,title}’ *note title: chapter. ‘@ref{chapter,,,file name}’
+‘@ref{chapter,cross ref name}’ *note cross ref name: chapter
+‘@ref{chapter,,title}’ *note title: chapter ‘@ref{chapter,,,file name}’
 *note (file name)chapter:: ‘@ref{chapter,,,,manual}’ *note ()chapter::
-‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter.
+‘@ref{chapter,cross ref name,title,}’ *note cross ref name: chapter
 ‘@ref{chapter,cross ref name,,file name}’ *note cross ref name: (file
-name)chapter. ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
-name: ()chapter. ‘@ref{chapter,cross ref name,title,file name}’ *note
-cross ref name: (file name)chapter. ‘@ref{chapter,cross ref
-name,title,,manual}’ *note cross ref name: ()chapter.
-‘@ref{chapter,cross ref name,title, file name, manual}’ *note cross ref
-name: (file name)chapter. ‘@ref{chapter,,title,file name}’ *note title:
-(file name)chapter. ‘@ref{chapter,,title,,manual}’ *note title:
-()chapter. ‘@ref{chapter,,title, file name, manual}’ *note title: (file
-name)chapter. ‘@ref{chapter,,,file name,manual}’ *note (file
+name)chapter ‘@ref{chapter,cross ref name,,,manual}’ *note cross ref
+name: ()chapter ‘@ref{chapter,cross ref name,title,file name}’ *note
+cross ref name: (file name)chapter ‘@ref{chapter,cross ref
+name,title,,manual}’ *note cross ref name: ()chapter ‘@ref{chapter,cross
+ref name,title, file name, manual}’ *note cross ref name: (file
+name)chapter ‘@ref{chapter,,title,file name}’ *note title: (file
+name)chapter ‘@ref{chapter,,title,,manual}’ *note title: ()chapter
+‘@ref{chapter,,title, file name, manual}’ *note title: (file
+name)chapter ‘@ref{chapter,,,file name,manual}’ *note (file
 name)chapter::
 
-   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode.
-‘@ref{(pman)anode,,title}’ *note title: (pman)anode.
+   ‘@ref{(pman)anode,cross ref name}’ *note cross ref name: (pman)anode
+‘@ref{(pman)anode,,title}’ *note title: (pman)anode
 ‘@ref{(pman)anode,,,file name}’ *note (file name)(pman)anode::
 ‘@ref{(pman)anode,,,,manual}’ *note ()(pman)anode::
 ‘@ref{(pman)anode,cross ref name,title,}’ *note cross ref name:
-(pman)anode. ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
-ref name: (file name)(pman)anode. ‘@ref{(pman)anode,cross ref
-name,,,manual}’ *note cross ref name: ()(pman)anode.
+(pman)anode ‘@ref{(pman)anode,cross ref name,,file name}’ *note cross
+ref name: (file name)(pman)anode ‘@ref{(pman)anode,cross ref
+name,,,manual}’ *note cross ref name: ()(pman)anode
 ‘@ref{(pman)anode,cross ref name,title,file name}’ *note cross ref name:
-(file name)(pman)anode. ‘@ref{(pman)anode,cross ref name,title,,manual}’
-*note cross ref name: ()(pman)anode. ‘@ref{(pman)anode,cross ref
+(file name)(pman)anode ‘@ref{(pman)anode,cross ref name,title,,manual}’
+*note cross ref name: ()(pman)anode ‘@ref{(pman)anode,cross ref
 name,title, file name, manual}’ *note cross ref name: (file
-name)(pman)anode. ‘@ref{(pman)anode,,title,file name}’ *note title:
-(file name)(pman)anode. ‘@ref{(pman)anode,,title,,manual}’ *note title:
-()(pman)anode. ‘@ref{(pman)anode,,title, file name, manual}’ *note
-title: (file name)(pman)anode. ‘@ref{(pman)anode,,,file name,manual}’
-*note (file name)(pman)anode::
+name)(pman)anode ‘@ref{(pman)anode,,title,file name}’ *note title: (file
+name)(pman)anode ‘@ref{(pman)anode,,title,,manual}’ *note title:
+()(pman)anode ‘@ref{(pman)anode,,title, file name, manual}’ *note title:
+(file name)(pman)anode ‘@ref{(pman)anode,,,file name,manual}’ *note
+(file name)(pman)anode::
 
    ‘@inforef{chapter, cross ref name, file name}’ *note cross ref name:
-(file name)chapter. ‘@inforef{chapter}’ *note chapter::
-‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter.
+(file name)chapter ‘@inforef{chapter}’ *note chapter::
+‘@inforef{chapter, cross ref name}’ *note cross ref name: chapter
 ‘@inforef{chapter,,file name}’ *note (file name)chapter::
 ';
 

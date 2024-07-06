@@ -419,7 +419,7 @@ $result_converted{'plaintext'}->{'ref_in_center'} = 'top
                               *note Top::
 
                               *note title
-                                : Top.
+                                 : Top
    very long
 ';
 

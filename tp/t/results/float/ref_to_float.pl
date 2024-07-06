@@ -325,9 +325,9 @@ Text 1
 In foat 2.
 
 1
-*note Text 1: Label1.
+*note Text 1: Label1
 
-   *note 1: Label2.
+   *note 1: Label2
 ';
 
 

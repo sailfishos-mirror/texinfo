@@ -2939,39 +2939,39 @@ $result_floats{'ref_error_formatting'} = {};
 
 $result_converted{'plaintext'}->{'ref_error_formatting'} = '‘@ref{node}’ *note node::
 
-   ‘@ref{,cross ref name}’ *note cross ref name: . ‘@ref{,,title}’ *note
-title: . ‘@ref{,,,file name}’ *note (file name)Top:: ‘@ref{,,,,manual}’
-*note ()Top:: ‘@ref{node,cross ref name}’ *note cross ref name: node.
-‘@ref{node,,title}’ *note title: node. ‘@ref{node,,,file name}’ *note
+   ‘@ref{,cross ref name}’ *note cross ref name: ‘@ref{,,title}’ *note
+title: ‘@ref{,,,file name}’ *note (file name)Top:: ‘@ref{,,,,manual}’
+*note ()Top:: ‘@ref{node,cross ref name}’ *note cross ref name: node
+‘@ref{node,,title}’ *note title: node ‘@ref{node,,,file name}’ *note
 (file name)node:: ‘@ref{node,,,,manual}’ *note ()node:: ‘@ref{node,cross
-ref name,title,}’ *note cross ref name: node. ‘@ref{node,cross ref
-name,,file name}’ *note cross ref name: (file name)node.
-‘@ref{node,cross ref name,,,manual}’ *note cross ref name: ()node.
-‘@ref{node,cross ref name,title,file name}’ *note cross ref name: (file
-name)node. ‘@ref{node,cross ref name,title,,manual}’ *note cross ref
-name: ()node. ‘@ref{node,cross ref name,title, file name, manual}’ *note
-cross ref name: (file name)node. ‘@ref{node,,title,file name}’ *note
-title: (file name)node. ‘@ref{node,,title,,manual}’ *note title: ()node.
-‘@ref{node,,title, file name, manual}’ *note title: (file name)node.
+ref name,title,}’ *note cross ref name: node ‘@ref{node,cross ref
+name,,file name}’ *note cross ref name: (file name)node ‘@ref{node,cross
+ref name,,,manual}’ *note cross ref name: ()node ‘@ref{node,cross ref
+name,title,file name}’ *note cross ref name: (file name)node
+‘@ref{node,cross ref name,title,,manual}’ *note cross ref name: ()node
+‘@ref{node,cross ref name,title, file name, manual}’ *note cross ref
+name: (file name)node ‘@ref{node,,title,file name}’ *note title: (file
+name)node ‘@ref{node,,title,,manual}’ *note title: ()node
+‘@ref{node,,title, file name, manual}’ *note title: (file name)node
 ‘@ref{node,,,file name,manual}’ *note (file name)node:: ‘@ref{,cross ref
-name,title,}’ *note cross ref name: . ‘@ref{,cross ref name,,file name}’
-*note cross ref name: (file name)Top. ‘@ref{,cross ref name,,,manual}’
-*note cross ref name: ()Top. ‘@ref{,cross ref name,title,file name}’
-*note cross ref name: (file name)Top. ‘@ref{,cross ref
-name,title,,manual}’ *note cross ref name: ()Top. ‘@ref{,cross ref
-name,title, file name, manual}’ *note cross ref name: (file name)Top.
-‘@ref{,,title,file name}’ *note title: (file name)Top.
-‘@ref{,,title,,manual}’ *note title: ()Top. ‘@ref{,,title, file name,
-manual}’ *note title: (file name)Top. ‘@ref{,,,file name,manual}’ *note
+name,title,}’ *note cross ref name: ‘@ref{,cross ref name,,file name}’
+*note cross ref name: (file name)Top ‘@ref{,cross ref name,,,manual}’
+*note cross ref name: ()Top ‘@ref{,cross ref name,title,file name}’
+*note cross ref name: (file name)Top ‘@ref{,cross ref
+name,title,,manual}’ *note cross ref name: ()Top ‘@ref{,cross ref
+name,title, file name, manual}’ *note cross ref name: (file name)Top
+‘@ref{,,title,file name}’ *note title: (file name)Top
+‘@ref{,,title,,manual}’ *note title: ()Top ‘@ref{,,title, file name,
+manual}’ *note title: (file name)Top ‘@ref{,,,file name,manual}’ *note
 (file name)Top::
 
-   ‘@inforef{,cross ref name }’ *note cross ref name: . ‘@inforef{,,file
+   ‘@inforef{,cross ref name }’ *note cross ref name: ‘@inforef{,,file
 name}’ *note (file name)Top:: ‘@inforef{,cross ref name, file name}’
-*note cross ref name: (file name)Top. ‘@inforef{}’ *note ::
+*note cross ref name: (file name)Top ‘@inforef{}’ *note ::
 
    ‘@inforef{node, cross ref name, file name}’ *note cross ref name:
-(file name)node. ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref
-name}’ *note cross ref name: node. ‘@inforef{node,,file name}’ *note
+(file name)node ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref
+name}’ *note cross ref name: node ‘@inforef{node,,file name}’ *note
 (file name)node::
 ';
 
