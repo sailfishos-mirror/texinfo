@@ -1102,7 +1102,7 @@
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (%parser_document_state_initialization):
-	initialize explicitely 'current_part'.
+	initialize explicitly 'current_part'.
 
 2024-05-18  Patrice Dumas  <pertusus@free.fr>
 
@@ -5777,7 +5777,7 @@
 2024-02-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Indices.pm (sort_indices_by_letter): setup a sort string
-	for letters sorting.  Do not sort explicitely symbols before letters.
+	for letters sorting.  Do not sort explicitly symbols before letters.
 	Remove _collator_sort_string.
 
 2024-02-05  Patrice Dumas  <pertusus@free.fr>
@@ -7671,7 +7671,7 @@
 	$customization_information as a source of that information.  If it is
 	a converter based on Texinfo::Convert::Converter, the information is
 	there, if not, it needs to be added explcitely.  Add the information
-	explicitely setting 'document_descriptor' to
+	explicitly setting 'document_descriptor' to
 	document->document_descriptor() in test_sort.t and test_utils.pl.
 
 	* tp/Texinfo/XS/convert/indices_in_conversion.c
@@ -17022,7 +17022,7 @@
 	PACKAGE* to PACKAGE*_OPTION to avoid clashing with macros with the
 	same name defined in config.h.
 
-	* tp/maintain/regenerate_commands_perl_info.pl: use explicitely
+	* tp/maintain/regenerate_commands_perl_info.pl: use explicitly
 	<STDIN>.
 
 2023-09-12  Patrice Dumas  <pertusus@free.fr>
@@ -18018,7 +18018,7 @@
 	(test), tp/texi2any.pl: do not have nodes_tree return the 'top_node'.
 	Codes needing a top node are better off deciding what a top node means
 	in their context.  Remove unused top_node argument of
-	complete_node_tree_with_menus.  Set top_node explicitely in
+	complete_node_tree_with_menus.  Set top_node explicitly in
 	test_utils.pl and check_nodes_are_referenced.
 
 2023-08-25  Patrice Dumas  <pertusus@free.fr>
@@ -19736,7 +19736,7 @@
 
 2023-08-06  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/Convert/Converter.pm (_command_init): explicitely
+	* tp/Texinfo/Convert/Converter.pm (_command_init): explicitly
 	return undef, otherwise the return value is not well defined.
 
 	* tp/Texinfo/Translations.pm (_substitute_element_array): when
@@ -29496,7 +29496,7 @@
 2022-12-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Plaintext.pm: reindent, cut at 80 columns,
-	use scalar() explicitely.
+	use scalar() explicitly.
 
 2022-12-21  Patrice Dumas  <pertusus@free.fr>
 
@@ -29862,7 +29862,7 @@
 
 2022-12-06  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/ParserNonXS.pm (_merge_text): use explicitely scalar()
+	* tp/Texinfo/ParserNonXS.pm (_merge_text): use explicitly scalar()
 	for clearer code.
 
 	(_isolate_last_space, _end_line_def_line): better debugging output.
@@ -30996,7 +30996,7 @@
 	contents is not set.
 
 	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree):
-	explicitely handle undef $contents argument.
+	explicitly handle undef $contents argument.
 
 2022-11-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
@@ -31099,7 +31099,7 @@
 2022-11-02  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Navigation Panel Customization):
-	describe ACTIVE_ICONS and PASSIVE_ICONS more explicitely.
+	describe ACTIVE_ICONS and PASSIVE_ICONS more explicitly.
 
 2022-11-02  Patrice Dumas  <pertusus@free.fr>
 
