@@ -1294,9 +1294,9 @@ $result_converted{'plaintext'}->{'things_before_setfilename'} = 'top section
 1 Chapter
 *********
 
-Ref to anchor An anchor::
+Ref to anchor An anchor
 
-   Ref to footnote anchor Anchor in footnote::
+   Ref to footnote anchor Anchor in footnote
 
 ';
 

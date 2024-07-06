@@ -1418,9 +1418,9 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = 'top
 
    ‘in kbd after tex’.
 
-   See anchor in html::.
+   See anchor in html.
 
-   anchor in tex::.
+   anchor in tex.
 
    newidx entry
 

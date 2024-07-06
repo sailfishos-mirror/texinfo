@@ -767,11 +767,11 @@ $result_floats{'spaces_in_node_names'} = {};
 
 
 
-$result_converted{'plaintext'}->{'spaces_in_node_names'} = 'chap  ::
+$result_converted{'plaintext'}->{'spaces_in_node_names'} = 'chap  
 
-   b  ::
+   b  
 
-   c ::
+   c 
 ';
 
 

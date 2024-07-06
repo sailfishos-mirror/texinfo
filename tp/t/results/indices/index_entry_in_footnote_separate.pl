@@ -669,7 +669,7 @@ End:
 ';
 
 
-$result_converted{'plaintext'}->{'index_entry_in_footnote_separate'} = 'chap node(1) (see chap-Footnote-1::)
+$result_converted{'plaintext'}->{'index_entry_in_footnote_separate'} = 'chap node(1) (see chap-Footnote-1)
 
    (1) in footnote
 

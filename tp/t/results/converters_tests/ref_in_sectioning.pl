@@ -2164,34 +2164,34 @@ $result_floats{'ref_in_sectioning'} = {};
 
 
 
-$result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example node:: (see node::) (see (file)Top::)
+$result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example node (see node) (see (file)Top)
 1 See title: (file name)node.
-2 node:: just node
-  2.1 for example node:: (see node::) (see (file)Top::)
+2 node just node
+  2.1 for example node (see node) (see (file)Top)
   2.2 cross ref name: node node, crossref arg2
   2.3 ‘title’: node code node, samptitle arg3
-  2.4 (file name)node:: code node, file name
-  2.5 ()node:: node and manual
-  2.6 ()Top:: Top and manual
-  2.7 ():: no node just manual
-  2.8 (file name):: no node just file name
+  2.4 (file name)node code node, file name
+  2.5 ()node node and manual
+  2.6 ()Top Top and manual
+  2.7 () no node just manual
+  2.8 (file name) no node just file name
   2.9 See b: (c)a inforef a b c
-  2.10 (see (file name)Top::) pxref Top file name, spaces
-  2.11 (see (file name)::) pxref file name only, spaces
-  2.12 See (filename)Top::, xref Top filename only, no spaces
-  2.13 See (filename)::. xref filename only, no spaces
+  2.10 (see (file name)Top) pxref Top file name, spaces
+  2.11 (see (file name)) pxref file name only, spaces
+  2.12 See (filename)Top, xref Top filename only, no spaces
+  2.13 See (filename). xref filename only, no spaces
 
-for example node:: (see node::) (see (file)Top::)
-*************************************************
+for example node (see node) (see (file)Top)
+*******************************************
 
 1 See title: (file name)node.
 *****************************
 
-2 node:: just node
-******************
+2 node just node
+****************
 
-2.1 for example node:: (see node::) (see (file)Top::)
-=====================================================
+2.1 for example node (see node) (see (file)Top)
+===============================================
 
 2.2 cross ref name: node node, crossref arg2
 ============================================
@@ -2199,35 +2199,35 @@ for example node:: (see node::) (see (file)Top::)
 2.3 ‘title’: node code node, samptitle arg3
 ===========================================
 
-2.4 (file name)node:: code node, file name
-==========================================
+2.4 (file name)node code node, file name
+========================================
 
-2.5 ()node:: node and manual
-============================
-
-2.6 ()Top:: Top and manual
+2.5 ()node node and manual
 ==========================
 
-2.7 ():: no node just manual
-============================
+2.6 ()Top Top and manual
+========================
 
-2.8 (file name):: no node just file name
-========================================
+2.7 () no node just manual
+==========================
+
+2.8 (file name) no node just file name
+======================================
 
 2.9 See b: (c)a inforef a b c
 =============================
 
-2.10 (see (file name)Top::) pxref Top file name, spaces
-=======================================================
-
-2.11 (see (file name)::) pxref file name only, spaces
+2.10 (see (file name)Top) pxref Top file name, spaces
 =====================================================
 
-2.12 See (filename)Top::, xref Top filename only, no spaces
-===========================================================
+2.11 (see (file name)) pxref file name only, spaces
+===================================================
 
-2.13 See (filename)::. xref filename only, no spaces
-====================================================
+2.12 See (filename)Top, xref Top filename only, no spaces
+=========================================================
+
+2.13 See (filename). xref filename only, no spaces
+==================================================
 
 ';
 

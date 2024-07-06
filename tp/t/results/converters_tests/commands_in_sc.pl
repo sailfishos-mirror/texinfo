@@ -818,8 +818,8 @@ $result_converted{'plaintext'}->{'commands_in_sc'} = 'commands in sc
 1 chap
 ******
 
-A Ñ Å TeX [myimage] chap:: See (f)node:: NAME: (argf)ext inverb ÿ MA+TH (1) <la>
-B (a) LB c E <a@c> AB (D)
+A Ñ Å TeX [myimage] chap See (f)node NAME: (argf)ext inverb ÿ MA+TH (1) <la> B
+(a) LB c E <a@c> AB (D)
 
    ---------- Footnotes ----------
 

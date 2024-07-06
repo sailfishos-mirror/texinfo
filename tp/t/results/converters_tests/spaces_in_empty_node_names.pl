@@ -693,11 +693,11 @@ $result_floats{'spaces_in_empty_node_names'} = {};
 
 
 
-$result_converted{'plaintext'}->{'spaces_in_empty_node_names'} = '  ::
+$result_converted{'plaintext'}->{'spaces_in_empty_node_names'} = '  
 
-     ::
+     
 
-    ::
+    
 ';
 
 

@@ -5,15 +5,15 @@ See the::caption and a word: normal node See the::caption: normal node
    See the::caption and a word: blumpty.fump See the::caption:
 blumpty.fump.mrmrmrmmrmrmr
 
-   See blah:blah::.
+   See blah:blah.
 
-   See secret,node::.
+   See secret,node.
 
-   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA See blah:blah::.)
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA See blah:blah.)
 
-   See (man_ual)x:y::z::.
+   See (man_ual)x:y::z.
 
-   See (man_ual)x.y.z::.
+   See (man_ual)x.y.z.
 
    See label: (man_ual)pp:qq::rr.
 

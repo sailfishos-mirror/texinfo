@@ -464,9 +464,9 @@ $result_converted{'plaintext'}->{'unknown_language'} = 'unknkown language
 1 Chapter
 *********
 
-Unknown language.  See Top::.
+Unknown language.  See Top.
 
-   Another unknown language.  See Top::.
+   Another unknown language.  See Top.
 ';
 
 

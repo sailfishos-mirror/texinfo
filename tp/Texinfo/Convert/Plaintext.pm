@@ -2016,13 +2016,6 @@ sub format_ref($$$$)
     $args[2] = undef;
   }
 
-  if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
-    _convert($self, {'type' => '_stop_upper_case',
-                     'contents' => [{'text' => 'See '}]});
-  } elsif ($cmdname eq 'pxref') {
-    _convert($self, {'type' => '_stop_upper_case',
-                     'contents' => [{'text' => 'see '}]});
-  }
   my $name;
   if (defined($args[1])) {
     $name = $args[1];
@@ -2044,6 +2037,14 @@ sub format_ref($$$$)
     $file = {'text' => '()'};
   }
 
+  if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+    _convert($self, {'type' => '_stop_upper_case',
+                     'contents' => [{'text' => 'See '}]});
+  } elsif ($cmdname eq 'pxref') {
+    _convert($self, {'type' => '_stop_upper_case',
+                     'contents' => [{'text' => 'see '}]});
+  }
+
   if ($name) {
     _convert($self, $name);
     _stream_output($self,
@@ -2062,12 +2063,6 @@ sub format_ref($$$$)
                      {'type' => '_code',
                       'contents' => [$label_element]}]});
   delete $self->{'formatters'}->[-1]->{'suppress_styles'};
-
-  if (!$name) {
-    _stream_output($self,
-      add_next($self->{'formatters'}->[-1]->{'container'}, '::'),
-      $self->{'formatters'}[-1]{'container'});
-  }
 }
 
 sub format_node($$)

@@ -1102,7 +1102,7 @@ Copyright notice 1: The Public Domain notice(1)
 
    (1) The caption copying footnote
 
-   see Copying and floats::.
+   see Copying and floats.
 
 Appendix A Copying and floats
 *****************************
@@ -1135,11 +1135,11 @@ Copyright notice 1: The Public Domain notice(2)
 
    (1) The caption copying footnote
 
-   see Copying and floats::.
+   see Copying and floats.
 
    (2) The caption copying footnote
 
-   see Copying and floats::.
+   see Copying and floats.
 
 ';
 

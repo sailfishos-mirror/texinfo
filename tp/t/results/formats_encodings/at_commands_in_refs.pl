@@ -15680,60 +15680,60 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 27 <http://somewhere_aaa> text (url) ls
 ***************************************
 
-{ }::
+{ }
 
        !
-. . ? @::
+. . ? @
 
-   @ { } \\ #::
+   @ { } \\ #
 
-   LaTeX TeX • , © ... ...::
+   LaTeX TeX • , © ... ...
 
-   ≡ error→ € ¡ ↦ −::
+   ≡ error→ € ¡ ↦ −
 
-   ≥ ≤ →::
+   ≥ ≤ →
 
-   ª º ⋆ £ ⊣ ¿ ®::
+   ª º ⋆ £ ⊣ ¿ ®
 
-   ⇒ ° a b a sunny day å::
+   ⇒ ° a b a sunny day å
 
-   Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
+   Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ
 
-   ä ẽ î â à é ç ē e̊ e̋ ę::
+   ä ẽ î â à é ç ē e̊ e̋ ę
 
-   ė ĕ e̲ ẹ ě ȷ e͡e::
+   ė ĕ e̲ ẹ ě ȷ e͡e
 
-   ı Ḕ Ḉ::
+   ı Ḕ Ḉ
 
-   “ ” ‘ ’ „ ‚::
+   “ ” ‘ ’ „ ‚
 
-   « » « » ‹ ›::
+   « » « » ‹ ›
 
-   `` \'\' --- -- ` \'::
+   `` \'\' --- -- ` \'
 
-   AAA (fff) AAA BBB::
+   AAA (fff) AAA BBB
 
-   CCC (rrr) CCC DDD::
+   CCC (rrr) CCC DDD
 
-   the someone <someone@somewher> <no_explain@there>::
+   the someone <someone@somewher> <no_explain@there>
 
-   [f--ile1] Image description""\\.::
+   [f--ile1] Image description""\\.
 
-    @ {} . ::
+    @ {} . 
 
-   cite asis in @w b in r SC *str* t VAR dfn i::
+   cite asis in @w b in r SC *str* t VAR dfn i
 
-   env code option samp command file C-x <ESC>::
+   env code option samp command file C-x <ESC>
 
-   8.27in::
+   8.27in
 
-   sansserif slanted::
+   sansserif slanted
 
-   indicateurl::
+   indicateurl
 
-   _{g}H 3^{rd}::
+   _{g}H 3^{rd}
 
-   <http://somewhere_aaa> text (url) ls::
+   <http://somewhere_aaa> text (url) ls
 
 ';
 

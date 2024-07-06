@@ -1385,7 +1385,7 @@ aa
 
    ‘middle in code’
 
-   See chap node::
+   See chap node
 
      in example
 
