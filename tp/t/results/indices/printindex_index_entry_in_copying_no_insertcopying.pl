@@ -1030,8 +1030,8 @@ $result_indices_sort_strings{'printindex_index_entry_in_copying_no_insertcopying
 
 $result_converted{'info'}->{'printindex_index_entry_in_copying_no_insertcopying'} = 'This is , produced from .
 
- -- Function: fun arg
- -- Function: xf arg
+ - Function: fun arg
+ - Function: xf arg
      Defun
 
 ftable item
@@ -1057,8 +1057,8 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top109
-Node: chapter196
+Node: Top107
+Node: chapter194
 
 End Tag Table
 

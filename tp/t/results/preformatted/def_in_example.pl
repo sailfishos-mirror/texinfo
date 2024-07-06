@@ -249,7 +249,7 @@ $result_indices_sort_strings{'def_in_example'} = {
 
 
 
-$result_converted{'plaintext'}->{'def_in_example'} = '      -- Function: name arg
+$result_converted{'plaintext'}->{'def_in_example'} = '      - Function: name arg
           in defun
 ';
 

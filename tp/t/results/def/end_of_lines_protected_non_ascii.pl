@@ -364,7 +364,7 @@ $result_indices_sort_strings{'end_of_lines_protected_non_ascii'} = {
 
 
 
-$result_converted{'plaintext'}->{'end_of_lines_protected_non_ascii'} = ' -- catégorie: deffn_nùme àrguments more àrgs with end ôf line within
+$result_converted{'plaintext'}->{'end_of_lines_protected_non_ascii'} = ' - catégorie: deffn_nùme àrguments more àrgs with end ôf line within
           with 3 @ @ one last arg
      deffn
 

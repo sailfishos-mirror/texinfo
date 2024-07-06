@@ -708,8 +708,8 @@ File: ,  Node: chap,  Prev: Top
 
 ‘’
 
- -- Function: 
- -- Function: 
+ - Function: 
+ - Function: 
 
 
 Tag Table:
@@ -727,8 +727,8 @@ End:
 
 $result_converted{'plaintext'}->{'empty_string_index_entry'} = '‘’
 
- -- Function: 
- -- Function: 
+ - Function: 
+ - Function: 
 
 ';
 

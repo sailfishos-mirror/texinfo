@@ -9,33 +9,33 @@ Test nested deffn
 
 Call macro in macro
 
- -- fun: arg arg1
+ - fun: arg arg1
 
- -- fun: arg arg1
+ - fun: arg arg1
      in format_command
 
    Something
- -- fun: arg arg1
+ - fun: arg arg1
 
    Something
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
    Something2
- -- fun: arg arg1
+ - fun: arg arg1
    After
 
    Something2
- -- fun: arg arg1
+ - fun: arg arg1
      in group
    After
 
 
 
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
- -- fun: arg arg1
+ - fun: arg arg1
           A quot--ation
 
 subheading
@@ -59,7 +59,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- -- c--ategory: d--effn_name a--rguments...
+ - c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -73,7 +73,7 @@ f-lushleft
 
                             ce-ntered line
 
- -- fun: arg arg1
+ - fun: arg arg1
      in macro, a format_command containing some other commands.
         • i-tem 1
         • i-tem 2
@@ -91,7 +91,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -106,36 +106,36 @@ f-lushleft
                             ce-ntered line
 
    Call macro in format_command
- -- fun: arg arg1
+ - fun: arg arg1
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -159,7 +159,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -173,7 +173,7 @@ f-lushleft
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -191,7 +191,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -208,33 +208,33 @@ f-lushleft
    Call macro in itemize at the beginning of an item
    a-n itemize line in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -258,7 +258,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -272,7 +272,7 @@ f-lushleft
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -290,7 +290,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -306,33 +306,33 @@ f-lushleft
 
    a-n itemize line item 1 Call macro in itemize in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -356,7 +356,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -370,7 +370,7 @@ f-lushleft
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -388,7 +388,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -403,36 +403,36 @@ f-lushleft
                             ce-ntered line
 
    a-n itemize line item 2 Call macro in itemize in format_command
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro
 
-           -- fun: arg arg1
+           - fun: arg arg1
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in format_command
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
           After
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
           After
 
 
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
-           -- fun: arg arg1
+           - fun: arg arg1
                     A quot--ation
 
           subheading
@@ -456,7 +456,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -470,7 +470,7 @@ f-lushleft
 
                             ce-ntered line
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in macro, a format_command containing some other
                commands.
                   • i-tem 1
@@ -489,7 +489,7 @@ f-lushleft
 
                     s--mallexample
 
-                -- c--ategory: d--effn_name a--rguments...
+                - c-ategory: d--effn_name a--rguments...
                     d-effn
 
                a
@@ -506,33 +506,33 @@ f-lushleft
    Call macro in enumerate at the beginning of enumerate
   1. in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -556,7 +556,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -570,7 +570,7 @@ f-lushleft
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -588,7 +588,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -604,33 +604,33 @@ f-lushleft
 
   2. enumerate Call macro in enumerate in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -654,7 +654,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -668,7 +668,7 @@ f-lushleft
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -686,7 +686,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -701,36 +701,36 @@ f-lushleft
                             ce-ntered line
 
   3. enumerate2 Call macro in enumerate in format_command
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro
 
-           -- fun: arg arg1
+           - fun: arg arg1
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in format_command
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
           After
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
           After
 
 
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
-           -- fun: arg arg1
+           - fun: arg arg1
                     A quot--ation
 
           subheading
@@ -754,7 +754,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -768,7 +768,7 @@ f-lushleft
 
                             ce-ntered line
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in macro, a format_command containing some other
                commands.
                   • i-tem 1
@@ -787,7 +787,7 @@ f-lushleft
 
                     s--mallexample
 
-                -- c--ategory: d--effn_name a--rguments...
+                - c-ategory: d--effn_name a--rguments...
                     d-effn
 
                a
@@ -807,33 +807,33 @@ multitable item                             multitable tab.  And after Call macr
                                             mutitable after item
 in macro
 
- -- fun: arg arg1
+ - fun: arg arg1
 
- -- fun: arg arg1
+ - fun: arg arg1
      in format_command
 
 Something
- -- fun: arg arg1
+ - fun: arg arg1
 
 Something
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
 Something2
- -- fun: arg arg1
+ - fun: arg arg1
 After
 
 Something2
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 After
 
 
 
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
- -- fun: arg arg1
+ - fun: arg arg1
           A quot--ation
 
 subheading
@@ -857,8 +857,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- -- c--ategory: d--effn_name
-          a--rguments...
+ - c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -872,7 +871,7 @@ f-lushleft
 
              ce-ntered line
 
- -- fun: arg arg1
+ - fun: arg arg1
      in macro, a format_command
      containing some other commands.
         • i-tem 1
@@ -891,7 +890,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name
+      - c-ategory: d--effn_name
                a--rguments...
           d-effn
 
@@ -909,33 +908,33 @@ f-lushleft
 multitable item 2                           multitable tab 2 Call macro in mutitable in
                                             macro
                                             
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                             
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                                  in format_command
                                             
                                             Something
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                             
                                             Something
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                                  in group
                                             
                                             Something2
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                             After
                                             
                                             Something2
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                                  in group
                                             After
                                             
                                             
                                             
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                                  in group
                                             
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                                       A quot--ation
                                             
                                             subheading
@@ -959,7 +958,7 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                                  s--mallexample
                                             
-                                             -- c--ategory: d--effn_name a--rguments...
+                                             - c-ategory: d--effn_name a--rguments...
                                                  d-effn
                                             
                                             a
@@ -973,7 +972,7 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                                             ce-ntered line
                                             
-                                             -- fun: arg arg1
+                                             - fun: arg arg1
                                                  in macro, a format_command containing some
                                                  other commands.
                                                     • i-tem 1
@@ -992,7 +991,7 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                                       s--mallexample
                                             
-                                                  -- c--ategory: d--effn_name a--rguments...
+                                                  - c-ategory: d--effn_name a--rguments...
                                                       d-effn
                                             
                                                  a
@@ -1008,36 +1007,36 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
 lone multitable item Call macro in
 mutitable in format_command
- -- fun: arg arg1
+ - fun: arg arg1
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -1061,7 +1060,7 @@ mutitable in format_command
 
           s--mallexample
 
-      -- c--ategory: d--effn_name
+      - c-ategory: d--effn_name
                a--rguments...
           d-effn
 
@@ -1076,7 +1075,7 @@ mutitable in format_command
 
              ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command
           containing some other commands.
              • i-tem 1
@@ -1095,7 +1094,7 @@ mutitable in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name
+           - c-ategory: d--effn_name
                     a--rguments...
                d-effn
 
@@ -1113,34 +1112,34 @@ mutitable in format_command
    call macro at the example beginning
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot---ation
 
      subheading
@@ -1168,7 +1167,7 @@ mutitable in format_command
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -1182,7 +1181,7 @@ mutitable in format_command
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i--tem 1
              • i--tem 2
@@ -1200,7 +1199,7 @@ mutitable in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1219,34 +1218,34 @@ mutitable in format_command
      call macro in example
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot---ation
 
      subheading
@@ -1274,7 +1273,7 @@ mutitable in format_command
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d--effn
 
      a
@@ -1288,7 +1287,7 @@ mutitable in format_command
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i--tem 1
              • i--tem 2
@@ -1306,7 +1305,7 @@ mutitable in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1323,37 +1322,37 @@ mutitable in format_command
 
      more example text
      call macro in example in format_command
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro
 
-           -- fun: arg arg1
+           - fun: arg arg1
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in format_command
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
           After
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
           After
 
 
 
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
-           -- fun: arg arg1
+           - fun: arg arg1
                     A quot---ation
 
           subheading
@@ -1381,7 +1380,7 @@ mutitable in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d--effn
 
           a
@@ -1395,7 +1394,7 @@ mutitable in format_command
 
                             ce-ntered line
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in macro, a format_command containing some other commands.
                   • i--tem 1
                   • i--tem 2
@@ -1413,7 +1412,7 @@ mutitable in format_command
 
                     s--mallexample
 
-                -- c--ategory: d--effn_name a--rguments...
+                - c-ategory: d--effn_name a--rguments...
                     d--effn
 
                a
@@ -1429,36 +1428,36 @@ mutitable in format_command
 
      s--mallexample
 
- -- c--ategory: d--effn_name a--rguments...
+ - c-ategory: d--effn_name a--rguments...
      deffn call macro in deffn in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -1482,7 +1481,7 @@ mutitable in format_command
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1496,7 +1495,7 @@ mutitable in format_command
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -1514,7 +1513,7 @@ mutitable in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -1529,36 +1528,36 @@ mutitable in format_command
                             ce-ntered line
 
      deffn continues call macro in deffn in format_command
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro
 
-           -- fun: arg arg1
+           - fun: arg arg1
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in format_command
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
           After
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
           After
 
 
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
-           -- fun: arg arg1
+           - fun: arg arg1
                     A quot--ation
 
           subheading
@@ -1582,7 +1581,7 @@ mutitable in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -1596,7 +1595,7 @@ mutitable in format_command
 
                             ce-ntered line
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in macro, a format_command containing some other
                commands.
                   • i-tem 1
@@ -1615,7 +1614,7 @@ mutitable in format_command
 
                     s--mallexample
 
-                -- c--ategory: d--effn_name a--rguments...
+                - c-ategory: d--effn_name a--rguments...
                     d-effn
 
                a
@@ -1630,36 +1629,36 @@ mutitable in format_command
                             ce-ntered line
 
    call macro in deffn at the beginning
- -- c--ategory2: d--effn_name2 a--rguments2...
+ - c-ategory2: d--effn_name2 a--rguments2...
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -1683,7 +1682,7 @@ mutitable in format_command
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1697,7 +1696,7 @@ mutitable in format_command
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -1715,7 +1714,7 @@ mutitable in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -1732,33 +1731,33 @@ mutitable in format_command
 a line
      call macro in table in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -1782,7 +1781,7 @@ a line
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1796,7 +1795,7 @@ a line
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -1814,7 +1813,7 @@ a line
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -1832,33 +1831,33 @@ a line
 a line
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -1882,7 +1881,7 @@ a line
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -1896,7 +1895,7 @@ a line
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -1914,7 +1913,7 @@ a line
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -1930,36 +1929,36 @@ a line
 
 a line2
      call macro in table in format_command
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro
 
-           -- fun: arg arg1
+           - fun: arg arg1
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in format_command
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
 
           Something
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
           After
 
           Something2
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
           After
 
 
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in group
 
-           -- fun: arg arg1
+           - fun: arg arg1
                     A quot--ation
 
           subheading
@@ -1983,7 +1982,7 @@ a line2
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -1997,7 +1996,7 @@ a line2
 
                             ce-ntered line
 
-           -- fun: arg arg1
+           - fun: arg arg1
                in macro, a format_command containing some other
                commands.
                   • i-tem 1
@@ -2016,7 +2015,7 @@ a line2
 
                     s--mallexample
 
-                -- c--ategory: d--effn_name a--rguments...
+                - c-ategory: d--effn_name a--rguments...
                     d-effn
 
                a
@@ -2033,33 +2032,33 @@ a line2
    call macro at cartouche begin
    in macro
 
- -- fun: arg arg1
+ - fun: arg arg1
 
- -- fun: arg arg1
+ - fun: arg arg1
      in format_command
 
    Something
- -- fun: arg arg1
+ - fun: arg arg1
 
    Something
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
    Something2
- -- fun: arg arg1
+ - fun: arg arg1
    After
 
    Something2
- -- fun: arg arg1
+ - fun: arg arg1
      in group
    After
 
 
 
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
- -- fun: arg arg1
+ - fun: arg arg1
           A quot--ation
 
 subheading
@@ -2083,7 +2082,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- -- c--ategory: d--effn_name a--rguments...
+ - c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -2097,7 +2096,7 @@ f-lushleft
 
                             ce-ntered line
 
- -- fun: arg arg1
+ - fun: arg arg1
      in macro, a format_command containing some other commands.
         • i-tem 1
         • i-tem 2
@@ -2115,7 +2114,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -2131,33 +2130,33 @@ f-lushleft
 
    cartouche call macro in cartouche in macro
 
- -- fun: arg arg1
+ - fun: arg arg1
 
- -- fun: arg arg1
+ - fun: arg arg1
      in format_command
 
    Something
- -- fun: arg arg1
+ - fun: arg arg1
 
    Something
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
    Something2
- -- fun: arg arg1
+ - fun: arg arg1
    After
 
    Something2
- -- fun: arg arg1
+ - fun: arg arg1
      in group
    After
 
 
 
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
- -- fun: arg arg1
+ - fun: arg arg1
           A quot--ation
 
 subheading
@@ -2181,7 +2180,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- -- c--ategory: d--effn_name a--rguments...
+ - c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -2195,7 +2194,7 @@ f-lushleft
 
                             ce-ntered line
 
- -- fun: arg arg1
+ - fun: arg arg1
      in macro, a format_command containing some other commands.
         • i-tem 1
         • i-tem 2
@@ -2213,7 +2212,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -2228,36 +2227,36 @@ f-lushleft
                             ce-ntered line
 
    call macro in cartouche in format_command
- -- fun: arg arg1
+ - fun: arg arg1
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -2281,7 +2280,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -2295,7 +2294,7 @@ f-lushleft
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -2313,7 +2312,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -2330,33 +2329,33 @@ f-lushleft
 call macro in flushleft
 in macro
 
- -- fun: arg arg1
+ - fun: arg arg1
 
- -- fun: arg arg1
+ - fun: arg arg1
      in format_command
 
 Something
- -- fun: arg arg1
+ - fun: arg arg1
 
 Something
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
 Something2
- -- fun: arg arg1
+ - fun: arg arg1
 After
 
 Something2
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 After
 
 
 
- -- fun: arg arg1
+ - fun: arg arg1
      in group
 
- -- fun: arg arg1
+ - fun: arg arg1
           A quot--ation
 
 subheading
@@ -2380,7 +2379,7 @@ lone mu-ltitable item
 
      s--mallexample
 
- -- c--ategory: d--effn_name a--rguments...
+ - c-ategory: d--effn_name a--rguments...
      d-effn
 
 a
@@ -2394,7 +2393,7 @@ f-lushleft
 
                             ce-ntered line
 
- -- fun: arg arg1
+ - fun: arg arg1
      in macro, a format_command containing some other commands.
         • i-tem 1
         • i-tem 2
@@ -2412,7 +2411,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -2428,36 +2427,36 @@ f-lushleft
 
 flushleft
 call macro in flushleft in format_command
- -- fun: arg arg1
+ - fun: arg arg1
      in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in format_command
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
      Something
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
      After
 
      Something2
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
      After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                A quot--ation
 
      subheading
@@ -2481,7 +2480,7 @@ call macro in flushleft in format_command
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
           d-effn
 
      a
@@ -2495,7 +2494,7 @@ call macro in flushleft in format_command
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
           in macro, a format_command containing some other commands.
              • i-tem 1
              • i-tem 2
@@ -2513,7 +2512,7 @@ call macro in flushleft in format_command
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                d-effn
 
           a
@@ -2529,33 +2528,33 @@ call macro in flushleft in format_command
 
                                                                in macro
 
- -- fun: arg arg1
+ - fun: arg arg1
 
- -- fun: arg arg1
+ - fun: arg arg1
                                                       in format_command
 
                                                               Something
- -- fun: arg arg1
+ - fun: arg arg1
 
                                                               Something
- -- fun: arg arg1
+ - fun: arg arg1
                                                                in group
 
                                                              Something2
- -- fun: arg arg1
+ - fun: arg arg1
                                                                   After
 
                                                              Something2
- -- fun: arg arg1
+ - fun: arg arg1
                                                                in group
                                                                   After
 
 
 
- -- fun: arg arg1
+ - fun: arg arg1
                                                                in group
 
- -- fun: arg arg1
+ - fun: arg arg1
                                                           A quot--ation
 
 subheading
@@ -2579,7 +2578,7 @@ in verbatim
 
      s--mallexample
 
- -- c--ategory: d--effn_name a--rguments...
+ - c-ategory: d--effn_name a--rguments...
                                                                  d-effn
 
 a
@@ -2593,7 +2592,7 @@ f-lushleft
 
                             ce-ntered line
 
- -- fun: arg arg1
+ - fun: arg arg1
              in macro, a format_command containing some other commands.
         •                                                                 i-tem 1
         •                                                                 i-tem 2
@@ -2611,7 +2610,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
                                                                  d-effn
 
      a
@@ -2626,36 +2625,36 @@ f-lushleft
                             ce-ntered line
 
                                                              flushright
- -- fun: arg arg1
+ - fun: arg arg1
                                                                in macro
 
-      -- fun: arg arg1
+      - fun: arg arg1
 
-      -- fun: arg arg1
+      - fun: arg arg1
                                                       in format_command
 
                                                               Something
-      -- fun: arg arg1
+      - fun: arg arg1
 
                                                               Something
-      -- fun: arg arg1
+      - fun: arg arg1
                                                                in group
 
                                                              Something2
-      -- fun: arg arg1
+      - fun: arg arg1
                                                                   After
 
                                                              Something2
-      -- fun: arg arg1
+      - fun: arg arg1
                                                                in group
                                                                   After
 
 
 
-      -- fun: arg arg1
+      - fun: arg arg1
                                                                in group
 
-      -- fun: arg arg1
+      - fun: arg arg1
                                                           A quot--ation
 
      subheading
@@ -2679,7 +2678,7 @@ f-lushleft
 
           s--mallexample
 
-      -- c--ategory: d--effn_name a--rguments...
+      - c-ategory: d--effn_name a--rguments...
                                                                  d-effn
 
      a
@@ -2693,7 +2692,7 @@ f-lushleft
 
                             ce-ntered line
 
-      -- fun: arg arg1
+      - fun: arg arg1
              in macro, a format_command containing some other commands.
              •                                                                 i-tem 1
              •                                                                 i-tem 2
@@ -2711,7 +2710,7 @@ f-lushleft
 
                s--mallexample
 
-           -- c--ategory: d--effn_name a--rguments...
+           - c-ategory: d--effn_name a--rguments...
                                                                  d-effn
 
           a

@@ -9,6 +9,10 @@ See the manual for detailed information.
 
 ------------------------------------------------------------------------------
 
+* texi2any
+ . Info:
+   . Output a single hyphen at the start of a definition line
+
 * texinfo.tex
  . use @ as the escape character in all index files.  this requires
    new enough texi2dvi (Texinfo 6.7, 2019) for index files to be properly

@@ -159,7 +159,7 @@ $result_indices_sort_strings{'protected_brace'} = {
 
 
 
-$result_converted{'plaintext'}->{'protected_brace'} = ' -- c: {
+$result_converted{'plaintext'}->{'protected_brace'} = ' - c: {
 ';
 
 1;

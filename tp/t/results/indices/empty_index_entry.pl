@@ -307,7 +307,7 @@ File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 File: ,  Node: chap,  Prev: Top
 
- -- :
+ - :
 
 
 Tag Table:
@@ -323,7 +323,7 @@ End:
 ';
 
 
-$result_converted{'plaintext'}->{'empty_index_entry'} = ' -- :
+$result_converted{'plaintext'}->{'empty_index_entry'} = ' - :
 
 ';
 

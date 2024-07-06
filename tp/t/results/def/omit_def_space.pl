@@ -475,8 +475,8 @@ $result_indices_sort_strings{'omit_def_space'} = {
 
 
 
-$result_converted{'plaintext'}->{'omit_def_space'} = ' -- Function: function(arg1, arg2)
- -- Function: another(aarg)
+$result_converted{'plaintext'}->{'omit_def_space'} = ' - Function: function(arg1, arg2)
+ - Function: another(aarg)
      explain
 ';
 

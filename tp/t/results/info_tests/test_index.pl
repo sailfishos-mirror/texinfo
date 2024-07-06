@@ -3669,8 +3669,8 @@ Element top
 
    before menu.
 
- -- fset: I a g
- -- truc: machin bidule chose
+ - fset: I a g
+ - truc: machin bidule chose
 
 _a fun_
      Var text
@@ -3913,9 +3913,9 @@ B chapter end
 
 Tag Table:
 Node: Top27
-Node: name330
-Node: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong982
-Ref: a counting anchor3070
+Node: name328
+Node: name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong980
+Ref: a counting anchor3068
 
 End Tag Table
 

@@ -3261,54 +3261,54 @@ $result_converted{'plaintext'}->{'test_deftypefnnewline'} = 'top
 1 chap
 ******
 
- -- Function:
+ - Function:
           data-type
           name arguments...
      aaa
 
- -- c--ategory:
+ - c-ategory:
           t--ype
           d--eftypefn_name
      d-eftypefn no arg
 
- -- c--ategory on c--lass:
+ - c-ategory on c--lass:
           t--ype
           d--eftypeop_name a--rguments...
      d-eftypeop
 
- -- c--ategory on c--lass:
+ - c-ategory on c--lass:
           t--ype
           d--eftypeop_name
      d-eftypeop no arg
 
- -- c--ategory of c--lass: t--ype d--eftypecv_name
+ - c-ategory of c--lass: t--ype d--eftypecv_name
      d-eftypecv
 
- -- c--ategory of c--lass: t--ype d--eftypecv_name a--rguments...
+ - c-ategory of c--lass: t--ype d--eftypecv_name a--rguments...
      d-eftypecv with arguments
 
- -- fun: arg
+ - fun: arg
      fff
 
- -- Function: data-type2 name2 arguments2...
+ - Function: data-type2 name2 arguments2...
      aaa2
 
- -- c--ategory2: t--ype2 d--eftypefn_name2
+ - c-ategory2: t--ype2 d--eftypefn_name2
      d-eftypefn no arg2
 
- -- c--ategory2 on c--lass2: t--ype2 d--eftypeop_name2 a--rguments2...
+ - c-ategory2 on c--lass2: t--ype2 d--eftypeop_name2 a--rguments2...
      d-eftypeop2
 
- -- c--ategory2 on c--lass2: t--ype2 d--eftypeop_name2
+ - c-ategory2 on c--lass2: t--ype2 d--eftypeop_name2
      d-eftypeop no arg2
 
- -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2
+ - c-ategory2 of c--lass2: t--ype2 d--eftypecv_name2
      d-eftypecv2
 
- -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2 a--rguments2...
+ - c-ategory2 of c--lass2: t--ype2 d--eftypecv_name2 a--rguments2...
      d-eftypecv with arguments2
 
- -- fun2: arg2
+ - fun2: arg2
      fff2
 ';
 

@@ -1373,12 +1373,12 @@ $result_converted{'plaintext'}->{'complex_nestings'} = 'top
 *********
 
      deffs
-      -- Function: my def args ARG ...
-      -- Function: other def no args
-           -- type: name and now the args
-                -- Variable: variables variable-name
+      - Function: my def args ARG ...
+      - Function: other def no args
+           - type: name and now the args
+                - Variable: variables variable-name
 
-                -- Variable: variables too other-variable
+                - Variable: variables too other-variable
                     THis is the defvar
 
                     A table within the def

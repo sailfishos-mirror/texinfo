@@ -732,10 +732,10 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
 Text.
 
- -- Command: mmm-mode ARG
+ - Command: mmm-mode ARG
      Toggle the state of MMM Mode.
 
- -- Variable: mmm-mode
+ - Variable: mmm-mode
      This variable represents MMM Mode.
 
  [index ]
@@ -763,10 +763,10 @@ $result_converted{'plaintext'}->{'same_index_entry_merged_indices'} = '1 Chapter
 
 Text.
 
- -- Command: mmm-mode ARG
+ - Command: mmm-mode ARG
      Toggle the state of MMM Mode.
 
- -- Variable: mmm-mode
+ - Variable: mmm-mode
      This variable represents MMM Mode.
 
 * Menu:

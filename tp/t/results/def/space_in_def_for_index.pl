@@ -488,8 +488,8 @@ File: ,  Node: Top,  Next: chap,  Up: (dir)
 
 File: ,  Node: chap,  Prev: Top
 
- -- Category: name argument argument2...
- -- AAA1: AAA2 arg3
+ - Category: name argument argument2...
+ - AAA1: AAA2 arg3
 
  [index ]
 * Menu:

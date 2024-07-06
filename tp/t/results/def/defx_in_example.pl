@@ -372,8 +372,8 @@ $result_indices_sort_strings{'defx_in_example'} = {
 
 
 
-$result_converted{'plaintext'}->{'defx_in_example'} = '      -- fset: I a g
-      -- truc: bidulr machin...
+$result_converted{'plaintext'}->{'defx_in_example'} = '      - fset: I a g
+      - truc: bidulr machin...
 ';
 
 1;

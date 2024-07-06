@@ -2126,7 +2126,16 @@ sub _convert_def_line($$)
     } else {
       $cmdname = $element->{'extra'}->{'def_command'};
     }
-    $name = {'text' => ''} if (!defined($name));
+    my $formatted_name;
+    if (defined($name)) {
+      $formatted_name = {'type' => '_code', 'contents' => [$name]};
+    } else {
+      $formatted_name = {'text' => ''};
+    }
+    my $formatted_arguments;
+    if ($arguments) {
+      $formatted_arguments = {'type' => '_code', 'contents' => [$arguments]};
+    }
 
     my $omit_def_space = $element->{'extra'}->{'omit_def_name_space'};
 
@@ -2140,8 +2149,8 @@ sub _convert_def_line($$)
       if ($arguments) {
         my $strings = {
          'category' => $category,
-         'name' => $name,
-         'arguments' => $arguments};
+         'name' => $formatted_name,
+         'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree = $self->cdt('@tie{}-- {category}: {name}{arguments}',
                              $strings);
@@ -2152,7 +2161,7 @@ sub _convert_def_line($$)
       } else {
         $tree = $self->cdt('@tie{}-- {category}: {name}', {
              'category' => $category,
-             'name' => $name});
+             'name' => $formatted_name});
       }
     } elsif ($cmdname eq 'deftypeline'
              or $cmdname eq 'deftypefn'
@@ -2160,9 +2169,9 @@ sub _convert_def_line($$)
       if ($arguments) {
         my $strings = {
           'category' => $category,
-          'name' => $name,
-          'type' => $type,
-          'arguments' => $arguments};
+          'name' => $formatted_name,
+          'type' => {'type' => '_code', 'contents' => [$type]},
+          'arguments' => $formatted_arguments};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
             and $cmdname eq 'deftypefn') {
@@ -2189,8 +2198,8 @@ sub _convert_def_line($$)
       } else {
         my $strings = {
          'category' => $category,
-         'type' => $type,
-         'name' => $name};
+         'type' => {'type' => '_code', 'contents' => [$type]},
+         'name' => $formatted_name};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on'
             and $cmdname eq 'deftypefn') {
@@ -2207,9 +2216,9 @@ sub _convert_def_line($$)
       if ($arguments) {
         my $strings = {
          'category' => $category,
-         'name' => $name,
-         'class' => $class,
-         'arguments' => $arguments};
+         'name' => $formatted_name,
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
            = $self->cdt('@tie{}-- {category} of {class}: {name}{arguments}',
@@ -2222,8 +2231,8 @@ sub _convert_def_line($$)
       } else {
         $tree = $self->cdt('@tie{}-- {category} of {class}: {name}', {
          'category' => $category,
-         'class' => $class,
-         'name' => $name});
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'name' => $formatted_name});
       }
     } elsif ($cmdname eq 'defop'
              or ($cmdname eq 'deftypeop'
@@ -2231,9 +2240,9 @@ sub _convert_def_line($$)
       if ($arguments) {
         my $strings = {
          'category' => $category,
-         'name' => $name,
-         'class' => $class,
-         'arguments' => $arguments};
+         'name' => $formatted_name,
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
             = $self->cdt('@tie{}-- {category} on {class}: {name}{arguments}',
@@ -2246,17 +2255,17 @@ sub _convert_def_line($$)
       } else {
         $tree = $self->cdt('@tie{}-- {category} on {class}: {name}', {
          'category' => $category,
-         'class' => $class,
-         'name' => $name});
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'name' => $formatted_name});
       }
     } elsif ($cmdname eq 'deftypeop') {
       if ($arguments) {
         my $strings = {
          'category' => $category,
-         'name' => $name,
-         'class' => $class,
-         'type' => $type,
-         'arguments' => $arguments};
+         'name' => $formatted_name,
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'type' => {'type' => '_code', 'contents' => [$type]},
+         'arguments' => $formatted_arguments};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on') {
           if ($omit_def_space) {
@@ -2286,9 +2295,9 @@ sub _convert_def_line($$)
       } else {
         my $strings = {
          'category' => $category,
-         'type' => $type,
-         'class' => $class,
-         'name' => $name};
+         'type' => {'type' => '_code', 'contents' => [$type]},
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'name' => $formatted_name};
         if ($self->get_conf('deftypefnnewline')
             and $self->get_conf('deftypefnnewline') eq 'on') {
           $tree
@@ -2304,10 +2313,10 @@ sub _convert_def_line($$)
       if ($arguments) {
         my $strings = {
          'category' => $category,
-         'name' => $name,
-         'class' => $class,
-         'type' => $type,
-         'arguments' => $arguments};
+         'name' => $formatted_name,
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'type' => {'type' => '_code', 'contents' => [$type]},
+         'arguments' => $formatted_arguments};
         if ($omit_def_space) {
           $tree
             = $self->cdt(
@@ -2322,9 +2331,9 @@ sub _convert_def_line($$)
       } else {
         my $strings = {
          'category' => $category,
-         'type' => $type,
-         'class' => $class,
-         'name' => $name};
+         'type' => {'type' => '_code', 'contents' => [$type]},
+         'class' => {'type' => '_code', 'contents' => [$class]},
+         'name' => $formatted_name};
         $tree
           = $self->cdt('@tie{}-- {category} of {class}: {type} {name}',
                          $strings);
@@ -2342,9 +2351,7 @@ sub _convert_def_line($$)
      });
     push @{$self->{'formatters'}}, $def_paragraph;
 
-    # FIXME the whole line is formatted in code here.  In other formats,
-    # the category is normal text
-    _convert($self, {'type' => '_code', 'contents' => [$tree]});
+    _convert($self, $tree);
     _stream_output($self,
       Texinfo::Convert::Paragraph::end($def_paragraph->{'container'}),
       $def_paragraph->{'container'});

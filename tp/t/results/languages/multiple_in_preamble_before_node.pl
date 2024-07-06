@@ -966,14 +966,14 @@ top section
 1 chap
 ******
 
- -- Instanzvariable of c: BBB CCC
+ - Instanzvariable of c: BBB CCC
      error→
 ';
 
 
 $result_converted{'info'}->{'multiple_in_preamble_before_node'} = 'This is , produced from .
 
- -- Primjerak varijable od copying: a b
+ - Primjerak varijable od copying: a b
      greška→
 
    Text ending the preamble
@@ -994,13 +994,13 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chap
 ******
 
- -- Instanzvariable of c: BBB CCC
+ - Instanzvariable of c: BBB CCC
      error→
 
 
 Tag Table:
-Node: Top110
-Node: chapter207
+Node: Top109
+Node: chapter206
 
 End Tag Table
 

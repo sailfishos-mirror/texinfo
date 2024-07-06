@@ -409,10 +409,10 @@ $result_indices_sort_strings{'empty_def_command'} = {
 
 
 
-$result_converted{'plaintext'}->{'empty_def_command'} = ' -- empty: deffn
+$result_converted{'plaintext'}->{'empty_def_command'} = ' - empty: deffn
 
- -- empty: deffn with deffnx
- -- empty: deffnx
+ - empty: deffn with deffnx
+ - empty: deffnx
 ';
 
 1;

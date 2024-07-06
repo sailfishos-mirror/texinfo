@@ -532,11 +532,11 @@ $result_indices_sort_strings{'def_groupings_args'} = {
 
 
 
-$result_converted{'plaintext'}->{'def_groupings_args'} = ' -- a: baac
+$result_converted{'plaintext'}->{'def_groupings_args'} = ' - a: baac
 
- -- ag1:
+ - ag1:
 
- -- VARc: br s carg)
+ - VARc: br s carg)
 ';
 
 1;

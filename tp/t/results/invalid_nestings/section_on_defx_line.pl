@@ -350,8 +350,8 @@ $result_indices_sort_strings{'section_on_defx_line'} = {
 
 
 
-$result_converted{'plaintext'}->{'section_on_defx_line'} = ' -- h: j k l
- -- a: b
+$result_converted{'plaintext'}->{'section_on_defx_line'} = ' - h: j k l
+ - a: b
 
 1 s
 ===

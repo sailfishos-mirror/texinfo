@@ -4,9 +4,9 @@
 This test demonstrates @anchor and indices in @copying and titlepage,
 and various wrong index entries.
 
- -- truc:
- -- truc:
- -- :
+ - truc:
+ - truc:
+ - :
 
 fun
 

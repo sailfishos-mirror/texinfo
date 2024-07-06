@@ -404,7 +404,7 @@ $result_indices_sort_strings{'simple_documentlanguage'} = {
 
 
 
-$result_converted{'plaintext'}->{'simple_documentlanguage'} = ' -- Variable d\'instance de AAA : BBB CCC
+$result_converted{'plaintext'}->{'simple_documentlanguage'} = ' - Variable d\'instance de AAA : BBB CCC
 ';
 
 1;

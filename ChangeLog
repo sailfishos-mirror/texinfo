@@ -1,5 +1,13 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	Convert definition line parts in plaintext in code style only when needed
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert_def_line), NEWS:
+	explicitly convert definition  name, class and arguments in code
+	style.  Do not convert category nor leading dashes in code style.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm: reindent.  Change FIXMEs to TODO.
 
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
@@ -1439,7 +1447,7 @@
 
 	* tp/Texinfo/ParserNonXS.pm (_expand_macro_arguments): fix condition.
 
-	* tp/Texinfo/Document.pm (new_document): do not initialize explicitely
+	* tp/Texinfo/Document.pm (new_document): do not initialize explicitly
 	'included_files' to give the same output as with XS.
 
 	* tp/Texinfo/XS/main/manipulate_indices.c
@@ -1898,7 +1906,7 @@
 	* tp/Texinfo/Convert/DocBook.pm (%container_ignored_if_empty)
 	(_convert), tp/Texinfo/Convert/LaTeX.pm (%container_ignored_if_empty)
 	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm
-	(%container_ignored_if_empty, _convert): ignore explicitely some
+	(%container_ignored_if_empty, _convert): ignore explicitly some
 	empty containers instead of relying on the tree to be without those
 	empty containers.
 
@@ -2322,7 +2330,7 @@
 	* tp/Texinfo/Common.pm (%all_commands), tp/Texinfo/command_data.txt:
 	as the internal commands also are in another category, they need to
 	have a data field that can be compared to the category.  The internal
-	commands therefore need to be removed explicitely from the %all_commands
+	commands therefore need to be removed explicitly from the %all_commands
 	hash.
 
 	* tp/Texinfo/XS/convert/convert_html.c (convert_to_html_internal):

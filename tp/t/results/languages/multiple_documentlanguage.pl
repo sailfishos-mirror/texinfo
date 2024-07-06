@@ -1285,16 +1285,16 @@ $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top
 1 Chap
 ******
 
- -- Variable d\'instance de fr : BBB CCC
+ - Variable d\'instance de fr : BBB CCC
      erreur→
 
- -- Instanzvariable of copying: a b
+ - Instanzvariable of copying: a b
      error→
 
- -- Primjerak varijable od hr: BBB CCC
+ - Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Primjerak varijable od copying: a b
+ - Primjerak varijable od copying: a b
      greška→
 
 * Menu:
@@ -1308,7 +1308,7 @@ $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top
 
 $result_converted{'info'}->{'multiple_documentlanguage'} = 'This is , produced from .
 
- -- Variable d\'instance de copying : a b
+ - Variable d\'instance de copying : a b
      erreur→
 
 
@@ -1327,16 +1327,16 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 1 Chap
 ******
 
- -- Variable d\'instance de fr : BBB CCC
+ - Variable d\'instance de fr : BBB CCC
      erreur→
 
- -- Instanzvariable of copying: a b
+ - Instanzvariable of copying: a b
      error→
 
- -- Primjerak varijable od hr: BBB CCC
+ - Primjerak varijable od hr: BBB CCC
      greška→
 
- -- Primjerak varijable od copying: a b
+ - Primjerak varijable od copying: a b
      greška→
 
  [index ]
@@ -1348,8 +1348,8 @@ File: ,  Node: chap,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top82
-Node: chap157
+Node: Top81
+Node: chap156
 
 End Tag Table
 

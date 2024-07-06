@@ -2088,26 +2088,26 @@ $result_indices_sort_strings{'def'} = {
 
 
 
-$result_converted{'plaintext'}->{'def'} = ' -- c--ategory: d--effn_name a--rguments...
+$result_converted{'plaintext'}->{'def'} = ' - c-ategory: d--effn_name a--rguments...
      d-effn
 
- -- cate--gory: de--ffn_name ar--guments more args
+ - cate-gory: de--ffn_name ar--guments more args
           even more so
      def-fn
 
- -- fset: I a g
- -- cmde: truc
- -- Command: log trap
- -- Command: log trap1
- -- Command: log trap2
- -- cmde: id ule truc
- -- cmde2: id i ule truc
- -- : machin
- -- : bidule machin
- -- truc: machin
- -- truc: followed by a comment
- -- truc: after a deff item
- -- truc: deffnx before end deffn
+ - fset: I a g
+ - cmde: truc
+ - Command: log trap
+ - Command: log trap1
+ - Command: log trap2
+ - cmde: id ule truc
+ - cmde2: id i ule truc
+ - : machin
+ - : bidule machin
+ - truc: machin
+ - truc: followed by a comment
+ - truc: after a deff item
+ - truc: deffnx before end deffn
      Various deff lines
 ';
 
