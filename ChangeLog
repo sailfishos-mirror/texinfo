@@ -1,5 +1,11 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.h, tp/Texinfo/XS/convert/convert_html.h:
+	move declaration of html_argument_formatting_type_names to
+	convert_html.h.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize, output): move the
 	call of Texinfo::Config::GNUT_get_stage_handlers to
 	converter_initialize.

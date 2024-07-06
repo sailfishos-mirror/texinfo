@@ -117,8 +117,6 @@ extern const enum command_id small_block_associated_command[][2];
 #define HMSF_  0x00020000
  */
 
-extern const char *html_argument_formatting_type_names[];
-
 typedef struct ACCENTS_STACK {
     ELEMENT_STACK stack;
     ELEMENT *argument;

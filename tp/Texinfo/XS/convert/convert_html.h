@@ -24,6 +24,8 @@ extern const char *html_global_unit_direction_names[];
 
 extern const char *html_formatting_reference_names[];
 
+extern const char *html_argument_formatting_type_names[];
+
 extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
