@@ -758,7 +758,7 @@ sub output($$)
       $output .= $self->write_or_return($output_unit_text, $fh);
     }
     # NOTE do not close STDOUT now to avoid a perl warning.
-    # FIXME is it still true that there is such a warning?
+    # TODO is it still true that there is such a warning?
     if ($fh and $outfile_name ne '-') {
       Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_outfile_name);
@@ -1883,17 +1883,17 @@ sub process_printindex($$;$)
     if (!defined($node)) {
       # cache the transformation to text and byte counting, as
       # it is likely that there is more than one such entry
-       if (!$self->{'outside_of_any_node_text'}) {
-          my $tree = $self->cdt('(outside of any node)');
-          my ($node_text, $width)
-            = $self->convert_line_new_context($tree);
-          $self->{'outside_of_any_node_text'} = $node_text;
-          $self->{'outside_of_any_node_text_width'} = $width;
-       }
+      if (!$self->{'outside_of_any_node_text'}) {
+        my $tree = $self->cdt('(outside of any node)');
+        my ($node_text, $width)
+          = $self->convert_line_new_context($tree);
+        $self->{'outside_of_any_node_text'} = $node_text;
+        $self->{'outside_of_any_node_text_width'} = $width;
+      }
       _stream_output($self, $self->{'outside_of_any_node_text'});
       $line_width += $self->{'outside_of_any_node_text_width'};
 
-      # FIXME when outside of sectioning commands this message was already
+      # TODO when outside of sectioning commands this message was already
       # done by the Parser.
       # Warn, only once.
       if (!$self->{'index_entries_no_node'}->{$entry}) {
@@ -2261,21 +2261,25 @@ sub _convert_def_line($$)
             and $self->get_conf('deftypefnnewline') eq 'on') {
           if ($omit_def_space) {
             $tree
-              = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
+              = $self->cdt(
+               '@tie{}-- {category} on {class}:@*{type}@*{name}{arguments}',
                            $strings);
           } else {
             $tree
-              = $self->cdt('@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}',
+              = $self->cdt(
+               '@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}',
                            $strings);
           }
         } else {
           if ($omit_def_space) {
             $tree
-              = $self->cdt('@tie{}-- {category} on {class}: {type} {name}{arguments}',
+              = $self->cdt(
+             '@tie{}-- {category} on {class}: {type} {name}{arguments}',
                            $strings);
           } else {
             $tree
-              = $self->cdt('@tie{}-- {category} on {class}: {type} {name} {arguments}',
+              = $self->cdt(
+              '@tie{}-- {category} on {class}: {type} {name} {arguments}',
                            $strings);
           }
         }
@@ -2306,11 +2310,13 @@ sub _convert_def_line($$)
          'arguments' => $arguments};
         if ($omit_def_space) {
           $tree
-            = $self->cdt('@tie{}-- {category} of {class}: {type} {name}{arguments}',
+            = $self->cdt(
+                 '@tie{}-- {category} of {class}: {type} {name}{arguments}',
                          $strings);
         } else {
           $tree
-            = $self->cdt('@tie{}-- {category} of {class}: {type} {name} {arguments}',
+            = $self->cdt(
+               '@tie{}-- {category} of {class}: {type} {name} {arguments}',
                          $strings);
         }
       } else {

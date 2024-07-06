@@ -1,6 +1,10 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/Convert/Plaintext.pm (_convert): comon if for type
+	* tp/Texinfo/Convert/Plaintext.pm: reindent.  Change FIXMEs to TODO.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): common if for type
 	defined for text elements.  Bug message if in top level and the text
 	element is not normal text (without type).
 
