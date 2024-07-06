@@ -504,6 +504,304 @@ sub format_error_outside_of_any_node($$)
   }
 }
 
+sub format_ref($$$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $element = shift;
+  my $formatter = shift;
+
+  my @args;
+  for my $arg (@{$element->{'args'}}) {
+    if (defined $arg->{'contents'}) {
+      push @args, $arg;
+    } else {
+      push @args, undef;
+    }
+  }
+  $args[0] = {'text' => ''} if (!defined($args[0]));
+
+  my $node_arg = $element->{'args'}->[0];
+
+  # normalize node name, to get a ref with the right formatting
+  # NOTE as a consequence, the line numbers appearing in case of errors
+  # correspond to the node lines numbers, and not the @ref.
+  my $label_element;
+  my $target_element;
+
+  my $identifiers_target;
+  if ($self->{'document'}) {
+    $identifiers_target = $self->{'document'}->labels_information();
+  }
+
+  if ($node_arg and $node_arg->{'extra'}
+      and !$node_arg->{'extra'}->{'manual_content'}
+      and defined($node_arg->{'extra'}->{'normalized'})
+      and $identifiers_target
+      and $identifiers_target->{$node_arg->{'extra'}->{'normalized'}}) {
+    $target_element
+      = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
+    $label_element
+      = Texinfo::Common::get_label_element($target_element);
+    if (defined($label_element) and !$label_element->{'contents'}) {
+      $label_element = undef;
+    }
+  }
+  if (!defined($label_element)) {
+    $label_element = $args[0];
+  }
+
+  # if it a reference to a float with a label, $arg[1] is
+  # set to '$type $number' or '$number' if there is no type.
+  if (! defined($args[1])
+      and $target_element and $target_element->{'cmdname'}
+      and $target_element->{'cmdname'} eq 'float') {
+    my $name = $self->float_type_number($target_element);
+    $args[1] = $name;
+  }
+  if ($cmdname eq 'inforef' and scalar(@args) >= 3) {
+    $args[3] = $args[2];
+    $args[2] = undef;
+  }
+
+  # Treat cross-reference commands in a multitable cell as if they
+  # were surrounded by @w{ ... }, so not to split output across
+  # lines, leading text from other columns appearing to be part of the
+  # cross-reference.
+  my $in_multitable = 0;
+  if ($self->{'document_context'}->[-1]->{'in_multitable'}) {
+    $in_multitable = 1;
+    $formatter->{'w'}++;
+    set_space_protection($formatter->{'container'}, 1, undef)
+      if ($formatter->{'w'} == 1);
+  }
+  # Disallow breaks in runs of Chinese text in node names, because a
+  # break would be normalized to a single space by the Info reader, and
+  # the node wouldn't be found.
+  set_space_protection($formatter->{'container'},
+              undef, undef, undef, undef, 1);
+
+  if ($cmdname eq 'xref') {
+    $self->_convert({'type' => '_stop_upper_case',
+                     'contents' => [{'text' => '*Note '}]});
+  } else {
+    $self->_convert({'type' => '_stop_upper_case',
+                     'contents' => [{'text' => '*note '}]});
+  }
+  my $name;
+  if (defined($args[1])) {
+    $name = $args[1];
+  } elsif (defined($args[2])) {
+    $name = $args[2];
+  }
+  my $file;
+  if (defined($args[3])) {
+    $file = {'contents' => [
+               {'text' => '('},
+               {'type' => '_stop_upper_case',
+                  'contents' => [{'type' => '_code',
+                                   'contents' => [$args[3]]}],},
+               {'text' => ')'},]};
+  } elsif (defined($args[4])) {
+    # add a () such that the node is considered to be external,
+    # even though the manual name is not known.  This should only
+    # happen if a book argument is given, but no manual name.
+    $file = {'text' => '()'};
+  }
+
+  if ($name) {
+    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+    $self->_convert($name);
+    my $name_text = $self->_stream_result();
+    # needed, as last word is added only when : is added below
+    # NB this mixes encoded and unencoded strings but is ok for
+    # checking for : only
+    my $name_text_checked = $name_text
+       .get_pending($self->{'formatters'}->[-1]->{'container'});
+    my $quoting_required = 0;
+    if ($name_text_checked =~ /:/m) {
+      if ($self->{'info_special_chars_warning'}) {
+        $self->plaintext_line_warn($self, sprintf(__(
+           "\@%s cross-reference name should not contain `:'"),
+                                 $cmdname), $element->{'source_info'});
+      }
+      if ($self->{'info_special_chars_quote'}) {
+        $quoting_required = 1;
+      }
+    }
+    my $pre_quote = $quoting_required ? "\x{7f}" : '';
+    my $post_quote = $pre_quote;
+
+    $self->_stream_output(
+             add_text($formatter->{'container'}, "$post_quote: "),
+             $formatter->{'container'});
+    my $result = $self->_stream_result();
+
+    # Note post_quote has to be added first to flush output
+    $result =~ s/^(\s*)/$1$pre_quote/ if $pre_quote;
+
+    my $lines_added = $self->{'count_context'}->[-1]->{'lines'};
+    pop @{$self->{'count_context'}};
+    $self->_stream_output_encoded($result);
+    $self->{'count_context'}->[-1]->{'lines'} += $lines_added;
+  }
+
+  if ($file) {
+    $self->_convert($file);
+  }
+
+  my $node_name;
+
+  # Get the node name to be output.
+  # Due to the paragraph formatter holding pending text, converting
+  # the node name with the current formatter does not yield all the
+  # converted text.  To get the full node name (and no more), we
+  # can convert in a new context, using convert_line_new_context.
+  # However, it is slow to do this for every node.  So in the most
+  # frequent case when the node name is a simple text element, use
+  # that text instead.
+  if ($label_element and $label_element->{'contents'}
+      and scalar(@{$label_element->{'contents'}}) == 1
+      and defined($label_element->{'contents'}->[0]->{'text'})) {
+    $node_name = $label_element->{'contents'}->[0]->{'text'};
+  } else {
+    $self->{'silent'} = 0 if (!defined($self->{'silent'}));
+    $self->{'silent'}++;
+
+    ($node_name, undef) = $self->convert_line_new_context(
+                                  {'type' => '_code',
+                                   'contents' => [$label_element]},
+                                  {'suppress_styles' => 1,
+                                    'no_added_eol' => 1});
+    $self->{'silent'}--;
+  }
+  if (defined($file) and $node_name !~ /\S/) {
+    # Some Info reader versions, at least the Info reader from
+    # Texinfo 6.8 and 7.1 cannot follow a cross-reference
+    # consisting only of a manual name, such as *Note (manual)::.
+    # The Emacs Info reader does not seem to have this problem.
+    # Add a Top node to have a node name.
+    # Should probably be removed about 10-15 years after Info
+    # reader have been fixed.
+    $label_element = {'text' => 'Top'};
+  }
+
+  my $check_chars;
+  if ($name) {
+    $check_chars = quotemeta ",\t.";
+  } else {
+    $check_chars = quotemeta ":";
+  }
+
+  my $quoting_required = 0;
+  if ($node_name =~ /([$check_chars])/m) {
+    if ($self->{'info_special_chars_warning'}) {
+      $self->plaintext_line_warn($self, sprintf(__(
+         "\@%s node name should not contain `%s'"), $cmdname, $1),
+                       $element->{'source_info'});
+    }
+    if ($self->{'info_special_chars_quote'}) {
+      $quoting_required = 1;
+    }
+  }
+
+  my $pre_quote = $quoting_required ? "\x{7f}" : '';
+  my $post_quote = $pre_quote;
+
+  # node name
+  $self->_stream_output(
+    add_next($self->{'formatters'}->[-1]->{'container'}, $pre_quote),
+    $self->{'formatters'}[-1]{'container'})
+         if $pre_quote;
+
+  $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
+  $self->_convert({'type' => '_stop_upper_case',
+                   'contents' => [
+                     {'type' => '_code',
+                      'contents' => [$label_element]}]});
+  delete $self->{'formatters'}->[-1]->{'suppress_styles'};
+
+  $self->_stream_output(
+    add_next($self->{'formatters'}->[-1]->{'container'}, $post_quote),
+    $self->{'formatters'}[-1]{'container'})
+         if $post_quote;
+
+  if (!$name) {
+    $self->_stream_output(
+      add_next($self->{'formatters'}->[-1]->{'container'}, '::'),
+      $self->{'formatters'}[-1]{'container'});
+  }
+
+  # Check if punctuation follows the ref command with a label
+  # argument.  If not, add a full stop.
+  if ($name) {
+    # Find next element
+    my $next;
+    my $current_contents = $element->{'parent'}->{'contents'};
+    my $contents_nr = scalar(@$current_contents);
+    for (my $i = 0; $i < $contents_nr - 1; $i++) {
+      if ($current_contents->[$i] == $element) {
+        $next = $current_contents->[$i+1];
+        last;
+      }
+    }
+
+    if (!($next and $next->{'text'}
+          and $next->{'text'} =~ /^[\.,]/)) {
+      # In the past, it was explicily described in the manual that
+      # some punctuation was automatically added for @pxref only,
+      # while the other commands required a following full stop or
+      # comma.
+      #
+      # It is better if the user manages to find a wording with a
+      # comma or full stop following naturally the ref command.
+      # However, it is not possible in general except for @xref -- and
+      # even for @xref it may be cumbersome.  Therefore we only warn
+      # that a comma or full stop is missing with @xref such that the
+      # user tries to add it in that case, in the other case, we
+      # automatically add a full stop without warning.
+      #
+      # There cannot be a perfect solution, as these issues stem from
+      # the Info language design where it is not possible to
+      # distinguish if punctuation used in cross reference is
+      # part of the text or is added and should be considered as markup.
+      if ($cmdname eq 'xref') {
+        if ($next and defined($next->{'text'})
+            and $next->{'text'} =~ /\S/) {
+          my $text = $next->{'text'};
+          $text =~ s/^\s*//;
+          my $char = substr($text, 0, 1);
+          $self->plaintext_line_warn($self, sprintf(__(
+                      "`.' or `,' must follow \@xref, not %s"),
+                                   $char), $element->{'source_info'});
+        } else {
+          $self->plaintext_line_warn($self,
+                     __("`.' or `,' must follow \@xref"),
+                           $element->{'source_info'});
+        }
+      }
+      my @added = ({'text' => '.'});
+      # The added full stop does not end a sentence.  Info readers will
+      # have a chance of guessing correctly whether the full stop was
+      # added by whether it is followed by 2 spaces (although this
+      # doesn't help at the end of a line nor when a parenthesis
+      # follows the ref command).
+      push @added, {'cmdname' => ':'};
+      for my $added_element (@added) {
+        $self->_convert($added_element);
+      }
+    }
+  }
+
+  if ($in_multitable) {
+    $formatter->{'w'}--;
+    set_space_protection($formatter->{'container'}, 0, undef)
+      if ($formatter->{'w'} == 0);
+  }
+  set_space_protection($formatter->{'container'},
+    undef,undef,undef,undef,0); # double_width_no_break
+}
+
 my @directions = ('Next', 'Prev', 'Up');
 sub format_node($$)
 {
