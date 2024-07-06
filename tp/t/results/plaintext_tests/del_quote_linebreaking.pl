@@ -509,12 +509,12 @@ $result_converted{'plaintext'}->{'del_quote_linebreaking'} = 'first para
    %
 
    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx *Note
-(manual)no:de::
+(manual)no:de::
 
    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx *Note
-(manual)no:de::
+(manual)no:de::
 
-   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx *Note (manual)no:de::
+   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx *Note (manual)no:de::
 
 ';
 

@@ -15751,13 +15751,6 @@ $result_converted_errors{'plaintext'}->{'at_commands_in_refs'} = [
     'line_nr' => 90,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref node name should not contain `:\'
-',
-    'line_nr' => 177,
-    'text' => '@ref node name should not contain `:\'',
-    'type' => 'warning'
   }
 ];
 

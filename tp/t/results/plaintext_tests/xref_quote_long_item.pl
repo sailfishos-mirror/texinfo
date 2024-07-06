@@ -278,10 +278,10 @@ $result_floats{'xref_quote_long_item'} = {};
 
 
 $result_converted{'plaintext'}->{'xref_quote_long_item'} = '‘@verbatiminclude’
-     *Note Texinfo::Convert::Utils::expand_verbatiminclude:
-     (tp_api)Texinfo::Convert::Utils $tree =
+     *Note Texinfo::Convert::Utils::expand_verbatiminclude:
+     (tp_api)Texinfo::Convert::Utils $tree =
      expand_verbatiminclude($registrar, $configuration_information,
-     $verbatiminclude).
+     $verbatiminclude).
 
 ';
 

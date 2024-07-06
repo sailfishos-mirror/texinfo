@@ -231,17 +231,6 @@ $result_converted{'plaintext'}->{'uref_in_ref'} = '*note cross ref with uref ure
 (href://http/myhost.com/index3.html))(file)node
 ';
 
-$result_converted_errors{'plaintext'}->{'uref_in_ref'} = [
-  {
-    'error_line' => 'warning: @ref cross-reference name should not contain `:\'
-',
-    'line_nr' => 1,
-    'text' => '@ref cross-reference name should not contain `:\'',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'html_text'}->{'uref_in_ref'} = '<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="index3.html%20%28uref3%29.html#node">title with uref2 <a class="uref" href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a class="uref" href="href://http/myhost.com/index4.html">uref4</a></cite>
 </p>';

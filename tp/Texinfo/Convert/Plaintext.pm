@@ -2053,27 +2053,11 @@ sub format_ref($$$$)
     # checking for : only
     my $name_text_checked = $name_text
        .get_pending($self->{'formatters'}->[-1]->{'container'});
-    my $quoting_required = 0;
-    if ($name_text_checked =~ /:/m) {
-      if ($self->{'info_special_chars_warning'}) {
-        $self->plaintext_line_warn($self, sprintf(__(
-           "\@%s cross-reference name should not contain `:'"),
-                                 $cmdname), $element->{'source_info'});
-      }
-      if ($self->{'info_special_chars_quote'}) {
-        $quoting_required = 1;
-      }
-    }
-    my $pre_quote = $quoting_required ? "\x{7f}" : '';
-    my $post_quote = $pre_quote;
 
     _stream_output($self,
-             add_text($formatter->{'container'}, "$post_quote: "),
+             add_text($formatter->{'container'}, ": "),
              $formatter->{'container'});
     my $result = _stream_result($self);
-
-    # Note post_quote has to be added first to flush output
-    $result =~ s/^(\s*)/$1$pre_quote/ if $pre_quote;
 
     my $lines_added = $self->{'count_context'}->[-1]->{'lines'};
     pop @{$self->{'count_context'}};
@@ -2085,81 +2069,13 @@ sub format_ref($$$$)
     _convert($self, $file);
   }
 
-  my $node_name;
-
-  # Get the node name to be output.
-  # Due to the paragraph formatter holding pending text, converting
-  # the node name with the current formatter does not yield all the
-  # converted text.  To get the full node name (and no more), we
-  # can convert in a new context, using convert_line_new_context.
-  # However, it is slow to do this for every node.  So in the most
-  # frequent case when the node name is a simple text element, use
-  # that text instead.
-  if ($label_element and $label_element->{'contents'}
-      and scalar(@{$label_element->{'contents'}}) == 1
-      and defined($label_element->{'contents'}->[0]->{'text'})) {
-    $node_name = $label_element->{'contents'}->[0]->{'text'};
-  } else {
-    $self->{'silent'} = 0 if (!defined($self->{'silent'}));
-    $self->{'silent'}++;
-
-    ($node_name, undef) = $self->convert_line_new_context(
-                                  {'type' => '_code',
-                                   'contents' => [$label_element]},
-                                  {'suppress_styles' => 1,
-                                    'no_added_eol' => 1});
-    $self->{'silent'}--;
-  }
-  if (defined($file) and $node_name !~ /\S/) {
-    # Some Info reader versions, at least the Info reader from
-    # Texinfo 6.8 and 7.1 cannot follow a cross-reference
-    # consisting only of a manual name, such as *Note (manual)::.
-    # The Emacs Info reader does not seem to have this problem.
-    # Add a Top node to have a node name.
-    # Should probably be removed about 10-15 years after Info
-    # reader have been fixed.
-    $label_element = {'text' => 'Top'};
-  }
-
-  my $check_chars;
-  if ($name) {
-    $check_chars = quotemeta ",\t.";
-  } else {
-    $check_chars = quotemeta ":";
-  }
-
-  my $quoting_required = 0;
-  if ($node_name =~ /([$check_chars])/m) {
-    if ($self->{'info_special_chars_warning'}) {
-      $self->plaintext_line_warn($self, sprintf(__(
-         "\@%s node name should not contain `%s'"), $cmdname, $1),
-                       $element->{'source_info'});
-    }
-    if ($self->{'info_special_chars_quote'}) {
-      $quoting_required = 1;
-    }
-  }
-
-  my $pre_quote = $quoting_required ? "\x{7f}" : '';
-  my $post_quote = $pre_quote;
-
   # node name
-  _stream_output($self,
-    add_next($self->{'formatters'}->[-1]->{'container'}, $pre_quote),
-    $self->{'formatters'}[-1]{'container'})
-         if $pre_quote;
-
   $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
   _convert($self, {'type' => '_stop_upper_case',
                    'contents' => [
                      {'type' => '_code',
                       'contents' => [$label_element]}]});
   delete $self->{'formatters'}->[-1]->{'suppress_styles'};
-
-  _stream_output($self,
-    add_next($self->{'formatters'}->[-1]->{'container'}, $post_quote),
-    $self->{'formatters'}[-1]{'container'})
-         if $post_quote;
 
   if (!$name) {
     _stream_output($self,

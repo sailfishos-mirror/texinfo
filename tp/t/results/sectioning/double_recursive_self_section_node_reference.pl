@@ -386,17 +386,6 @@ $result_converted{'plaintext'}->{'double_recursive_self_section_node_reference'}
 
 ';
 
-$result_converted_errors{'plaintext'}->{'double_recursive_self_section_node_reference'} = [
-  {
-    'error_line' => 'warning: @ref node name should not contain `:\'
-',
-    'line_nr' => 5,
-    'text' => '@ref node name should not contain `:\'',
-    'type' => 'warning'
-  }
-];
-
-
 
 $result_converted{'html'}->{'double_recursive_self_section_node_reference'} = '<!DOCTYPE html>
 <html>
