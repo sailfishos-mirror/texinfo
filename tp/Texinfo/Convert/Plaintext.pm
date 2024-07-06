@@ -600,7 +600,7 @@ sub convert_tree($$)
      'result' => '' };
   push @{$self->{'count_context'}}, $new_context;
 
-  $self->_convert($root);
+  _convert($self, $root);
   my $result = _stream_result($self);
   pop @{$self->{'count_context'}};
 
@@ -824,7 +824,7 @@ sub output($$)
 my $end_sentence = quotemeta('.?!');
 my $after_punctuation = quotemeta('"\')]');
 
-sub _protect_sentence_ends ($) {
+sub _protect_sentence_ends($) {
   my $text = shift;
   # Avoid suppressing end of sentence, by inserting a control character
   # in front of the full stop.  The choice of BS for this is arbitrary.
@@ -847,7 +847,7 @@ sub _protect_sentence_ends ($) {
   return $text;
 }
 
-sub _process_text_internal {
+sub _process_text_internal($) {
   my ($text) = @_;
 
   $text =~ s/---/\x{1F}/g;
@@ -981,7 +981,7 @@ sub convert_line($$;$)
   my ($self, $converted, $conf) = @_;
   my $formatter = $self->new_formatter('line', $conf);
   push @{$self->{'formatters'}}, $formatter;
-  $self->_convert($converted);
+  _convert($self, $converted);
   _stream_output($self,
                  Texinfo::Convert::Paragraph::end($formatter->{'container'}),
                  $formatter->{'container'});
@@ -999,7 +999,7 @@ sub convert_line_new_context($$;$)
                                      'encoding_disabled' => 1};
   my $formatter = $self->new_formatter('line', $conf);
   push @{$self->{'formatters'}}, $formatter;
-  $self->_convert($converted);
+  _convert($self, $converted);
   _stream_output($self,
                  Texinfo::Convert::Paragraph::end($formatter->{'container'}),
                  $formatter->{'container'});
@@ -1346,7 +1346,7 @@ sub process_footnotes($;$)
 
       my $footnote_element = $footnote_info->{'footnote_element'};
       if ($footnote_element->{'args'}) {
-        $self->_convert($footnote_element->{'args'}->[0]);
+        _convert($self, $footnote_element->{'args'}->[0]);
       }
       _add_newline_if_needed($self);
 
@@ -1496,9 +1496,9 @@ sub _align_environment($$$$)
   my ($self, $result, $max, $align) = @_;
 
   my $counts = pop @{$self->{'count_context'}};
-  $result = $self->_align_lines($result, $max,
+  $result = _align_lines($self, $result, $max,
                       $align, $counts->{'locations'}, $counts->{'images'});
-  $self->_update_locations_counts($counts->{'locations'});
+  _update_locations_counts($self, $counts->{'locations'});
   $self->{'count_context'}->[-1]->{'lines'} += $counts->{'lines'};
   push @{$self->{'count_context'}->[-1]->{'locations'}},
                        @{$counts->{'locations'}};
@@ -1631,7 +1631,7 @@ sub node_name($$)
     my ($result, $width) = $self->convert_line_new_context($node_text,
                                     {'suppress_styles' => 1,
                                      'no_added_eol' => 1,});
-    $result = $self->_stream_encode($result);
+    $result = _stream_encode($self, $result);
     $self->{'node_names_text'}->{$node}
       = {'text' => _normalize_top_node($result),
          'width' => $width };
@@ -1775,8 +1775,8 @@ sub process_printindex($$;$)
     # Convert entry text in a new context in order to capture result.
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
     $self->{'count_context'}->[-1]->{'encoding_disabled'} = 1;
-    $self->_convert($entry_tree);
-    $self->_convert($subentries_tree)
+    _convert($self, $entry_tree);
+    _convert($self, $subentries_tree)
       if (defined($subentries_tree));
     _stream_output($self,
                    Texinfo::Convert::Paragraph::end($formatter->{'container'}),
@@ -1837,7 +1837,7 @@ sub process_printindex($$;$)
         $reference_tree = $self->cdt('See also {see_also_entry}',
                            {'see_also_entry' => $referred_tree});
       }
-      $self->_convert($reference_tree);
+      _convert($self, $reference_tree);
       _stream_output($self,
              Texinfo::Convert::Paragraph::end($formatter->{'container'}),
                      $formatter->{'container'});
@@ -2619,7 +2619,7 @@ sub _convert($$)
                          $formatter->{'container'});
         } else {
           # inlined below for efficiency
-          #$self->_add_newline_if_needed();
+          #_add_newline_if_needed($self);
 
           use bytes;
           if (defined($self->{'count_context'}->[-1]->{'pending_text'})
@@ -3144,7 +3144,7 @@ sub _convert($$)
       } elsif ($cmdname eq 'anchor') {
         _stream_output($self, add_pending_word($formatter->{'container'}),
                        $formatter->{'container'});
-        $self->_anchor($element);
+        _anchor($self, $element);
         return;
       } elsif ($explained_commands{$cmdname}) {
         if ($element->{'args'}
@@ -3211,7 +3211,7 @@ sub _convert($$)
         return;
       } elsif ($cmdname eq 'titlefont') {
         if ($element->{'args'}) {
-          my $result = $self->_text_heading(
+          my $result = _text_heading($self, 
                           {'extra' => {'section_level' => 0},
                            'cmdname' => 'titlefont'},
                             $element->{'args'}->[0],
@@ -3377,7 +3377,7 @@ sub _convert($$)
           $self->{'text_element_context'}->[-1]->{'counter'} += $width;
         }
       } elsif ($menu_commands{$cmdname}) {
-        $self->_menu($element);
+        _menu($self, $element);
       } elsif ($cmdname eq 'multitable') {
         my $columnsize = [];
         if ($element->{'extra'}->{'columnfractions'}) {
@@ -3408,7 +3408,7 @@ sub _convert($$)
         _add_newline_if_needed($self);
         if ($element->{'args'} and scalar(@{$element->{'args'}}) >= 2
             and $element->{'args'}->[1]->{'contents'}) {
-          $self->_anchor($element);
+          _anchor($self, $element);
         }
       } elsif ($cmdname eq 'cartouche') {
         if ($element->{'args'}
@@ -3453,7 +3453,7 @@ sub _convert($$)
         # @* leads to an end of line, underlying appears on the line below
         # over one line
         my $heading_underlined =
-             $self->_text_heading($element, $heading_element,
+             _text_heading($self, $element, $heading_element,
                            $self->get_conf('NUMBER_SECTIONS'),
                            ($self->{'format_context'}->[-1]->{'indent_level'})
                                            * $indent_length);
@@ -3546,7 +3546,7 @@ sub _convert($$)
       _ensure_end_of_line($self);
       my $result = _stream_result($self);
       if ($result ne '') {
-        $result = $self->_align_environment ($result,
+        $result = _align_environment($self, $result,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'center');
         _stream_output_encoded($self, $result);
       } else {
@@ -3565,7 +3565,7 @@ sub _convert($$)
                   * $indent_length});
           $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
           push @{$self->{'formatters'}}, $formatter;
-          $self->_convert($element->{'args'}->[0]);
+          _convert($self, $element->{'args'}->[0]);
           _stream_output($self,
             Texinfo::Convert::Paragraph::end($formatter->{'container'}),
             $formatter->{'container'});
@@ -3608,7 +3608,7 @@ sub _convert($$)
       if ($floats
           and $floats->{$float_type}
           and scalar(@{$floats->{$float_type}})) {
-        $self->_add_newline_if_needed();
+        _add_newline_if_needed($self);
         _stream_output($self, "* Menu:\n\n");
         $lines_count += 2;
         foreach my $float (@{$floats->{$float_type}}) {
@@ -3632,11 +3632,11 @@ sub _convert($$)
           _stream_output($self, add_next($container, '* '), $container);
 
           $float_entry->{'type'} = 'frenchspacing';
-          $self->_convert($float_entry);
+          _convert($self, $float_entry);
 
           _stream_output($self, add_next($container, ': '), $container);
 
-          $self->_convert({'type' => '_code',
+          _convert($self, {'type' => '_code',
                           'contents' => [$float->{'args'}->[1]]});
           _stream_output($self, add_next($container, '.'), $container);
           _stream_output($self,
@@ -3824,7 +3824,7 @@ sub _convert($$)
 
           push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                              'encoding_disabled' => 1};
-          $self->_convert({'type' => '_code',
+          _convert($self, {'type' => '_code',
                           'contents' => [$content]});
 
           _stream_output($self,
@@ -3872,7 +3872,7 @@ sub _convert($$)
 
           push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                              'encoding_disabled' => 1};
-          $self->_convert($content);
+          _convert($self, $content);
           _stream_output($self,
                         Texinfo::Convert::Paragraph::add_pending_word
                           ($formatter->{'container'}, 1),
@@ -4186,7 +4186,7 @@ sub _convert($$)
         $result .= $line;
         $max_lines++;
       }
-      $self->_update_locations_counts(\@row_locations);
+      _update_locations_counts($self, \@row_locations);
       push @{$self->{'count_context'}->[-1]->{'locations'}}, @row_locations;
       $self->{'count_context'}->[-1]->{'lines'} += $max_lines;
       $self->{'format_context'}->[-1]->{'row'} = [];
@@ -4204,7 +4204,7 @@ sub _convert($$)
                $paragraph->{'container'});
     if ($self->{'context'}->[-1] eq 'flushright') {
       my $result = _stream_result($self);
-      $result = $self->_align_environment($result,
+      $result = _align_environment($self, $result,
         $self->{'text_element_context'}->[-1]->{'max'}, 'right');
       _stream_output_encoded($self, $result);
     }
@@ -4218,7 +4218,7 @@ sub _convert($$)
 
     if ($self->{'context'}->[-1] eq 'flushright') {
       my $result = _stream_result($self);
-      $result = $self->_align_environment ($result,
+      $result = _align_environment($self, $result,
                       $self->{'text_element_context'}->[-1]->{'max'}, 'right');
       _stream_output_encoded($self, $result);
     }
@@ -4287,7 +4287,7 @@ sub _convert($$)
          = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                               $identifiers_target, $node);
         if ($menu_node) {
-          $self->_convert($menu_node);
+          _convert($self, $menu_node);
           _add_newline_if_needed($self);
         }
       }

@@ -1,5 +1,14 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/MiscXS.xs (xs_process_text),
+	tp/Texinfo/Convert/Plaintext.pm (_process_text_internal): add
+	prototype.
+
+	* tp/Texinfo/Convert/Plaintext.pm: call internal functions as
+	subroutines, not as object oriented methods.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Info.pm (_convert): add _suppress_styles type
 	that sets suppress_styles.
 

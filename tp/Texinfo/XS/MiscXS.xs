@@ -35,6 +35,7 @@ PROTOTYPES: DISABLE
 SV *
 xs_process_text (text_in)
      SV *text_in
+ PROTOTYPE: $
  PREINIT:
      char *text;
      char *retval;
