@@ -539,15 +539,14 @@ build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack)
 }
 
 void
-build_simpletitle (CONVERTER *converter, HV *converter_hv)
+build_simpletitle (CONVERTER *converter, HV *converter_info_hv)
 {
-
   dTHX;
 
-  hv_store (converter_hv, "simpletitle_tree",
+  hv_store (converter_info_hv, "simpletitle_tree",
             strlen ("simpletitle_tree"),
             newRV_inc ((SV *) converter->simpletitle_tree->hv), 0);
-  hv_store (converter_hv, "simpletitle_command_name",
+  hv_store (converter_info_hv, "simpletitle_command_name",
             strlen ("simpletitle_command_name"),
             newSVpv (builtin_command_name (converter->simpletitle_cmd), 0), 0);
 }

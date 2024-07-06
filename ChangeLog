@@ -1,5 +1,29 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/book.pm (book_unit_file_name),
+	tp/t/init/misc_file_collision.init (test_misc_file_name),
+	tp/t/init/only_toc_out.init (toc_out_element_file_name): access
+	'document_name' through get_info API only.
+
+	* tp/Texinfo/Convert/HTML.pm (_set_non_breaking_space)
+	(conversion_initialization, _prepare_title_titlepage)
+	(_prepare_simpletitle, convert, _prepare_converted_output_info)
+	(output, get_info), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_converted_output_info, html_prepare_title_titlepage),
+	tp/Texinfo/XS/convert/build_html_perl_state.c (build_simpletitle),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_prepare_output_sv): set converter_info information
+	directly, not from the converter hash, as soon as the information is
+	ready.  Do not set the converter_info information in converter hash
+	unless it is directly accessed for speed.  Also do not set
+	converter_info information as a reference on string, always set a
+	string directly.  Remove _reset_info.
+
+	* tp/Texinfo/Convert/HTML.pm: remove $xml_numeric_entity_nbsp, it is
+	unused.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm: call internal functions as
 	subroutines, not as object oriented methods.  Reindent.
 

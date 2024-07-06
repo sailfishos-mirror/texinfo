@@ -480,7 +480,6 @@ sub close_html_lone_element($$) {
   return $html_element .'>';
 }
 
-my $xml_numeric_entity_nbsp = '&#'.hex('00A0').';';
 my $xml_named_entity_nbsp = '&nbsp;';
 
 my $html_default_entity_nbsp = $xml_named_entity_nbsp;
@@ -2442,7 +2441,6 @@ sub current_output_unit($)
 
 # information from converter available 'read-only', set up before
 # really starting the formatting.
-# 'document' is set up in the generic converter
 my %available_converter_info;
 foreach my $converter_info ('copying_comment',
    'destination_directory', 'document', 'document_name',
@@ -2462,11 +2460,7 @@ sub get_info($$)
     confess("BUG: $converter_info not an available converter info");
   }
   if (defined($self->{'converter_info'}->{$converter_info})) {
-    if (ref($self->{'converter_info'}->{$converter_info}) eq 'SCALAR') {
-      return ${$self->{'converter_info'}->{$converter_info}};
-    } else {
-      return $self->{'converter_info'}->{$converter_info};
-    }
+    return $self->{'converter_info'}->{$converter_info};
   }
   return undef;
 }
@@ -8798,7 +8792,9 @@ sub _set_non_breaking_space($$)
 {
   my $self = shift;
   my $non_breaking_space = shift;
+  # used for direct access for speed
   $self->{'non_breaking_space'} = $non_breaking_space;
+  $self->{'converter_info'}->{'non_breaking_space'} = $non_breaking_space;
 }
 
 # transform <hr> to <hr/>
@@ -12193,8 +12189,12 @@ sub conversion_initialization($;$)
   my $self = shift;
   my $document = shift;
 
+  $self->{'converter_info'}
+    = {'expanded_formats' => $self->{'expanded_formats'}};
+
   if ($document) {
     $self->set_document($document);
+    $self->{'converter_info'}->{'document'} = $document;
   }
 
   # duplicate such as not to modify the defaults
@@ -12234,7 +12234,8 @@ sub conversion_initialization($;$)
   } else {
     $self->_set_non_breaking_space($xml_named_entity_nbsp);
   }
-  $self->{'paragraph_symbol'} = $special_characters_set{'paragraph_symbol'};
+  $self->{'converter_info'}->{'paragraph_symbol'}
+    = $special_characters_set{'paragraph_symbol'};
 
   if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
     my $set = $self->set_conf('OPEN_QUOTE_SYMBOL',
@@ -12276,6 +12277,8 @@ sub conversion_initialization($;$)
   } else {
     $self->{'line_break_element'} = '<br>';
   }
+  $self->{'converter_info'}->{'line_break_element'}
+    = $self->{'line_break_element'};
   $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
     = $self->{'line_break_element'};
 
@@ -12462,7 +12465,7 @@ sub _prepare_title_titlepage($$$$)
   }
 
   # title
-  $self->{'title_titlepage'}
+  $self->{'converter_info'}->{'title_titlepage'}
     = &{$self->formatting_function('format_title_titlepage')}($self);
   $self->{'current_filename'} = undef;
 }
@@ -12504,8 +12507,10 @@ sub _prepare_simpletitle($)
           next if (!$command->{'args'} or !$command->{'args'}->[0]
                     or !$command->{'args'}->[0]->{'contents'}
                     or !scalar(@{$command->{'args'}->[0]->{'contents'}}));
-          $self->{'simpletitle_tree'} = $command->{'args'}->[0];
-          $self->{'simpletitle_command_name'} = $simpletitle_command;
+          $self->{'converter_info'}->{'simpletitle_tree'}
+             = $command->{'args'}->[0];
+          $self->{'converter_info'}->{'simpletitle_command_name'}
+             = $simpletitle_command;
           last;
         }
       }
@@ -12531,10 +12536,6 @@ sub convert($$)
                   = grep {Texinfo::Common::valid_customization_option($_)}
                         sort(keys(%contents_command_special_unit_variety));
   $self->set_global_document_commands('last', \@contents_elements_options);
-
-  # call before _prepare_conversion_units.
-  # Some information is not available yet.
-  $self->_reset_info();
 
   # cache, as it is checked for each text element
   if ($self->get_conf('OUTPUT_CHARACTERS')
@@ -12566,15 +12567,10 @@ sub convert($$)
 
   $self->_prepare_simpletitle();
 
-  $self->_reset_info();
-
   # title.  Not often set in the default case, as convert() is only
   # used in the *.t tests, and a title requires both simpletitle_tree
   # and SHOW_TITLE set, with the default formatting function.
   $self->_prepare_title_titlepage('', '', $output_units);
-
-  # complete information should be available.
-  $self->_reset_info();
 
   # main conversion here
   my $result = $self->_html_convert_convert($document, $output_units,
@@ -12757,24 +12753,6 @@ sub run_stage_handlers($$$$)
   return 0;
 }
 
-sub _reset_info()
-{
-  my $self = shift;
-
-  # reset to be sure that there is no stale information
-  $self->{'converter_info'} = {};
-  foreach my $converter_info (keys(%available_converter_info)) {
-    if (exists($self->{$converter_info})) {
-      if (ref($self->{$converter_info}) eq '') {
-        # for scalar, use references in case it may change
-        $self->{'converter_info'}->{$converter_info} = \$self->{$converter_info};
-      } else {
-        $self->{'converter_info'}->{$converter_info} = $self->{$converter_info};
-      }
-    }
-  }
-}
-
 sub _do_js_files($$)
 {
   my $self = shift;
@@ -12875,11 +12853,12 @@ sub _prepare_converted_output_info($)
   }
 
   my $html_title_string;
+  my $title_tree;
   if ($fulltitle_tree) {
-    $self->{'title_tree'} = $fulltitle_tree;
+    $title_tree = $fulltitle_tree;
     $html_title_string
       = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                       'contents' => [$self->{'title_tree'}]},
+                                       'contents' => [$title_tree]},
                                                    'title_string');
     if ($html_title_string !~ /\S/) {
       $html_title_string = undef;
@@ -12887,10 +12866,11 @@ sub _prepare_converted_output_info($)
   }
   if (!defined($html_title_string)) {
     my $default_title = $self->cdt('Untitled Document');
-    $self->{'title_tree'} = $default_title;
-    $self->{'title_string'}
+    $title_tree = $default_title;
+    $self->{'converter_info'}->{'title_tree'} = $title_tree;
+    $self->{'converter_info'}->{'title_string'}
       = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                     'contents' => [$self->{'title_tree'}]},
+                                     'contents' => [$title_tree]},
                                                    'title_string');
 
     my $input_file_name;
@@ -12910,7 +12890,8 @@ sub _prepare_converted_output_info($)
                          "must specify a title with a title command or \@top"));
     }
   } else {
-    $self->{'title_string'} = $html_title_string;
+    $self->{'converter_info'}->{'title_tree'} = $title_tree;
+    $self->{'converter_info'}->{'title_string'} = $html_title_string;
   }
 
   # copying comment
@@ -12919,23 +12900,25 @@ sub _prepare_converted_output_info($)
      {'contents' => $global_commands->{'copying'}->{'contents'}},
      $self->{'convert_text_options'});
     if ($copying_comment ne '') {
-      $self->{'copying_comment'}
+      $self->{'converter_info'}->{'copying_comment'}
        = &{$self->formatting_function('format_comment')}($self, $copying_comment);
     }
   }
 
   # documentdescription
   if (defined($self->get_conf('documentdescription'))) {
-    $self->{'documentdescription_string'}
+    $self->{'converter_info'}->{'documentdescription_string'}
       = $self->get_conf('documentdescription');
   } elsif ($global_commands and $global_commands->{'documentdescription'}) {
     my $tmp = {'contents'
                => $global_commands->{'documentdescription'}->{'contents'}};
-    $self->{'documentdescription_string'}
+    my $documentdescription_string
       = $self->convert_tree_new_formatting_context({'type' => '_string',
                                                     'contents' => [$tmp],},
                                                    'documentdescription');
-    chomp($self->{'documentdescription_string'});
+    chomp($documentdescription_string);
+    $self->{'converter_info'}->{'documentdescription_string'}
+      = $documentdescription_string;
   }
 }
 
@@ -13351,10 +13334,6 @@ sub output($$)
     $self->set_conf('SHOW_TITLE', 1);
   }
 
-  # set information, to have some information for run_stage_handlers.
-  # Some information is not available yet.
-  $self->_reset_info();
-
   # TODO call in converter_initialize
   my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
 
@@ -13390,7 +13369,7 @@ sub output($$)
                         sort(keys(%contents_command_special_unit_variety));
   $self->set_global_document_commands('last', \@contents_elements_options);
 
-  $self->{'jslicenses'} = {};
+  my $jslicenses = {};
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
     # See https://www.gnu.org/licenses/javascript-labels.html
@@ -13398,14 +13377,14 @@ sub output($$)
     my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
     my $mathjax_source = $self->get_conf('MATHJAX_SOURCE');
 
-    $self->{'jslicenses'}->{'mathjax'} = {
+    $jslicenses->{'mathjax'} = {
       $mathjax_script =>
         [ 'Apache License, Version 2.0.',
           'https://www.apache.org/licenses/LICENSE-2.0',
           $mathjax_source ]};
   }
   if ($self->get_conf('INFO_JS_DIR')) {
-    $self->{'jslicenses'}->{'infojs'} = {
+    $jslicenses->{'infojs'} = {
       'js/info.js' =>
          [ 'GNU General Public License 3.0 or later',
            'http://www.gnu.org/licenses/gpl-3.0.html',
@@ -13415,6 +13394,9 @@ sub output($$)
             'http://www.jclark.com/xml/copying.txt',
             'js/modernizr.js' ]};
   }
+
+  $self->{'converter_info'}->{'jslicenses'} = $jslicenses;
+
   $self->_prepare_css();
 
   # this sets OUTFILE, to be used if not split, but also 'output_filename'
@@ -13433,13 +13415,8 @@ sub output($$)
   }
 
   # set for init files
-  $self->{'document_name'} = $document_name;
-  $self->{'destination_directory'} = $destination_directory;
-
-  # set information, to have it available for the conversions
-  # in translate_names
-  # Some information is not available yet.
-  $self->_reset_info();
+  $self->{'converter_info'}->{'document_name'} = $document_name;
+  $self->{'converter_info'}->{'destination_directory'} = $destination_directory;
 
   # cache, as it is checked for each text element
   if ($self->get_conf('OUTPUT_CHARACTERS')
@@ -13463,10 +13440,6 @@ sub output($$)
                 $associated_special_units,
                 $output_file, $destination_directory, $output_filename,
                 $document_name);
-
-  # set information, to have it ready for run_stage_handlers and for titles
-  # formatting.  Some information is not available yet.
-  $self->_reset_info();
 
   my $structure_status = $self->run_stage_handlers($stage_handlers,
                                                    $document, 'structure');
@@ -13492,10 +13465,6 @@ sub output($$)
 
   $self->_prepare_converted_output_info();
 
-  # set information, to have it ready for run_stage_handlers.
-  # Some information is not available yet.
-  $self->_reset_info();
-
   # TODO document that this stage handler is called with end of preamble
   # documentlanguage when it is certain that this will not change ever.
   my $init_status = $self->run_stage_handlers($stage_handlers,
@@ -13519,9 +13488,6 @@ sub output($$)
            or $default_document_language ne $preamble_document_language)) {
     $self->_translate_names();
   }
-
-  # complete information should be available.
-  $self->_reset_info();
 
   # conversion
   my $text_output = $self->_html_convert_output($output_file,

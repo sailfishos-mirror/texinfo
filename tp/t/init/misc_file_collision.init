@@ -17,7 +17,7 @@ sub test_misc_file_name($$$$)
       or ($converter->{'document_units'}->[2]
           and $converter->{'document_units'}->[2] eq $output_unit)) {
     my $extension = $converter->get_conf('EXTENSION');
-    my $prefix = $converter->{'document_name'};
+    my $prefix = $converter->get_info('document_name');
     $filename = "${prefix}_abt"
       . ((defined($extension)) ? ".$extension" : '');
   } else {

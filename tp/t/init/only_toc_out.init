@@ -10,7 +10,7 @@ sub toc_out_element_file_name($$$$$)
     my $target = shift;
     my $filename = shift;
 
-    my $prefix = $converter->{'document_name'};
+    my $prefix = $converter->get_info('document_name');
     my $type = $element->{'special_unit_variety'};
     if ($type and $type ne 'contents')
     {

@@ -456,7 +456,7 @@ sub book_unit_file_name($$$$)
     return ($book_previous_file_name, undef);
   }
 
-  my $prefix = $converter->{'document_name'};
+  my $prefix = $converter->get_info('document_name');
   my $new_file_name;
   my $command;
   if ($output_unit->{'unit_command'}) {
