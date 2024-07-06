@@ -294,11 +294,6 @@ foreach my $type ('postamble_after_end',
   $ignored_types{$type} = 1;
 }
 
-my %ignorable_types = %ignorable_space_types;
-foreach my $ignored_type(keys(%ignored_types)) {
-  $ignorable_types{$ignored_type} = 1;
-}
-
 # All those commands run with the text.
 my %style_map = (
   'strong' => '*',
@@ -2536,7 +2531,7 @@ sub _convert($$)
 
           unless (($following_content->{'type'}
                    and ($following_content->{'type'} eq 'empty_line'
-                        or $ignorable_types{$following_content->{'type'}}))
+                        or $ignorable_space_types{$following_content->{'type'}}))
                   or ($following_content->{'cmdname'}
                       and ($following_content->{'cmdname'} eq 'c'
                            or $following_content->{'cmdname'} eq 'comment'))) {

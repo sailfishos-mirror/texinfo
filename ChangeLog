@@ -1,5 +1,12 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): ignore space types only
+	when checking if an index command is last in node, as the ignored
+	special containers cannot happen in that situation.  Remove
+	%ignorable_types.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert, converter_initialize):
 	use directly %ignored_types and %ignorable_space_types.
 
