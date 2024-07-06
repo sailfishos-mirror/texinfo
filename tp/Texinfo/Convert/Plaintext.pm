@@ -234,8 +234,6 @@ foreach my $non_indented('format', 'smallformat') {
   delete $indented_commands{$non_indented};
 }
 
-# FIXME should keys(%math_brace_commands) be added here?
-# How can this be tested?
 foreach my $format_context_command (keys(%menu_commands), 'verbatim',
  'flushleft', 'flushright', 'multitable', 'float') {
   $default_format_context_commands{$format_context_command} = 1;
