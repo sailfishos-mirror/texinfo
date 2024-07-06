@@ -2018,10 +2018,10 @@ sub format_ref($$$$)
 
   if ($cmdname eq 'xref') {
     _convert($self, {'type' => '_stop_upper_case',
-                     'contents' => [{'text' => '*Note '}]});
+                     'contents' => [{'text' => 'See '}]});
   } else {
     _convert($self, {'type' => '_stop_upper_case',
-                     'contents' => [{'text' => '*note '}]});
+                     'contents' => [{'text' => 'see '}]});
   }
   my $name;
   if (defined($args[1])) {

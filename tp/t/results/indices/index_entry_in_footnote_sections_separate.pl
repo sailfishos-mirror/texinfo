@@ -468,7 +468,7 @@ End:
 $result_converted{'plaintext'}->{'index_entry_in_footnote_sections_separate'} = 'index_entry_in_footnote
 ***********************
 
-Top node(1) (*note Top-Footnote-1::)
+Top node(1) (see Top-Footnote-1::)
 
    (1) in footnote
 

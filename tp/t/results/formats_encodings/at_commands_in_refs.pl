@@ -15680,60 +15680,60 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 27 <http://somewhere_aaa> text (url) ls
 ***************************************
 
-*note { }::
+see { }::
 
-   *note     !
+   see     !
 . . ? @::
 
-   *note @ { } \\ #::
+   see @ { } \\ #::
 
-   *note LaTeX TeX • , © ... ...::
+   see LaTeX TeX • , © ... ...::
 
-   *note ≡ error→ € ¡ ↦ −::
+   see ≡ error→ € ¡ ↦ −::
 
-   *note ≥ ≤ →::
+   see ≥ ≤ →::
 
-   *note ª º ⋆ £ ⊣ ¿ ®::
+   see ª º ⋆ £ ⊣ ¿ ®::
 
-   *note ⇒ ° a b a sunny day å::
+   see ⇒ ° a b a sunny day å::
 
-   *note Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
+   see Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 
-   *note ä ẽ î â à é ç ē e̊ e̋ ę::
+   see ä ẽ î â à é ç ē e̊ e̋ ę::
 
-   *note ė ĕ e̲ ẹ ě ȷ e͡e::
+   see ė ĕ e̲ ẹ ě ȷ e͡e::
 
-   *note ı Ḕ Ḉ::
+   see ı Ḕ Ḉ::
 
-   *note “ ” ‘ ’ „ ‚::
+   see “ ” ‘ ’ „ ‚::
 
-   *note « » « » ‹ ›::
+   see « » « » ‹ ›::
 
-   *note `` \'\' --- -- ` \'::
+   see `` \'\' --- -- ` \'::
 
-   *note AAA (fff) AAA BBB::
+   see AAA (fff) AAA BBB::
 
-   *note CCC (rrr) CCC DDD::
+   see CCC (rrr) CCC DDD::
 
-   *note the someone <someone@somewher> <no_explain@there>::
+   see the someone <someone@somewher> <no_explain@there>::
 
-   *note [f--ile1] Image description""\\.::
+   see [f--ile1] Image description""\\.::
 
-   *note  @ {} . ::
+   see  @ {} . ::
 
-   *note cite asis in @w b in r SC *str* t VAR dfn i::
+   see cite asis in @w b in r SC *str* t VAR dfn i::
 
-   *note env code option samp command file C-x <ESC>::
+   see env code option samp command file C-x <ESC>::
 
-   *note 8.27in::
+   see 8.27in::
 
-   *note sansserif slanted::
+   see sansserif slanted::
 
-   *note indicateurl::
+   see indicateurl::
 
-   *note _{g}H 3^{rd}::
+   see _{g}H 3^{rd}::
 
-   *note <http://somewhere_aaa> text (url) ls::
+   see <http://somewhere_aaa> text (url) ls::
 
 ';
 

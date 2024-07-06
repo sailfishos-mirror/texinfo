@@ -167,8 +167,8 @@ $result_floats{'recursive_self_section_reference'} = {};
 
 
 
-$result_converted{'plaintext'}->{'recursive_self_section_reference'} = '1 *note sharp:: tuple
-*********************
+$result_converted{'plaintext'}->{'recursive_self_section_reference'} = '1 see sharp:: tuple
+*******************
 
 ';
 

@@ -416,9 +416,9 @@ $result_converted{'plaintext'}->{'ref_in_center'} = 'top
 1 Chapter
 *********
 
-                              *note Top::
+                               see Top::
 
-                              *note title
+                               see title
                                  : Top
    very long
 ';

@@ -308,11 +308,11 @@ $result_floats{'double_recursive_self_section_reference'} = {};
 
 
 
-$result_converted{'plaintext'}->{'double_recursive_self_section_reference'} = '1 *note n2::
-************
+$result_converted{'plaintext'}->{'double_recursive_self_section_reference'} = '1 see n2::
+**********
 
-2 *note n1::
-************
+2 see n1::
+**********
 
 ';
 

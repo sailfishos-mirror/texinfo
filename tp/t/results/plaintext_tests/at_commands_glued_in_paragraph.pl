@@ -483,7 +483,7 @@ $result_indices_sort_strings{'at_commands_glued_in_paragraph'} = {
 
 
 $result_converted{'plaintext'}->{'at_commands_glued_in_paragraph'} = 'at@.  TeXTeXTeX. code‘in code’code.  acronymABC (aaa bb cc)acronym.
-acronym2ABCacronym.  emailmali <somebody>email.  ref*note Top::ref.
+acronym2ABCacronym.  emailmali <somebody>email.  refsee Top::ref.
 Foornote(1)after footnote.  accentîaccent.  and star
 star.  noindentafter noindent sp
 

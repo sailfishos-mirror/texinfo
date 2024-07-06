@@ -2937,41 +2937,40 @@ $result_floats{'ref_error_formatting'} = {};
 
 
 
-$result_converted{'plaintext'}->{'ref_error_formatting'} = '‘@ref{node}’ *note node::
+$result_converted{'plaintext'}->{'ref_error_formatting'} = '‘@ref{node}’ see node::
 
-   ‘@ref{,cross ref name}’ *note cross ref name: ‘@ref{,,title}’ *note
-title: ‘@ref{,,,file name}’ *note (file name):: ‘@ref{,,,,manual}’ *note
-():: ‘@ref{node,cross ref name}’ *note cross ref name: node
-‘@ref{node,,title}’ *note title: node ‘@ref{node,,,file name}’ *note
-(file name)node:: ‘@ref{node,,,,manual}’ *note ()node:: ‘@ref{node,cross
-ref name,title,}’ *note cross ref name: node ‘@ref{node,cross ref
-name,,file name}’ *note cross ref name: (file name)node ‘@ref{node,cross
-ref name,,,manual}’ *note cross ref name: ()node ‘@ref{node,cross ref
-name,title,file name}’ *note cross ref name: (file name)node
-‘@ref{node,cross ref name,title,,manual}’ *note cross ref name: ()node
-‘@ref{node,cross ref name,title, file name, manual}’ *note cross ref
-name: (file name)node ‘@ref{node,,title,file name}’ *note title: (file
-name)node ‘@ref{node,,title,,manual}’ *note title: ()node
-‘@ref{node,,title, file name, manual}’ *note title: (file name)node
-‘@ref{node,,,file name,manual}’ *note (file name)node:: ‘@ref{,cross ref
-name,title,}’ *note cross ref name: ‘@ref{,cross ref name,,file name}’
-*note cross ref name: (file name) ‘@ref{,cross ref name,,,manual}’ *note
-cross ref name: () ‘@ref{,cross ref name,title,file name}’ *note cross
-ref name: (file name) ‘@ref{,cross ref name,title,,manual}’ *note cross
-ref name: () ‘@ref{,cross ref name,title, file name, manual}’ *note
-cross ref name: (file name) ‘@ref{,,title,file name}’ *note title: (file
-name) ‘@ref{,,title,,manual}’ *note title: () ‘@ref{,,title, file name,
-manual}’ *note title: (file name) ‘@ref{,,,file name,manual}’ *note
-(file name)::
+   ‘@ref{,cross ref name}’ see cross ref name: ‘@ref{,,title}’ see
+title: ‘@ref{,,,file name}’ see (file name):: ‘@ref{,,,,manual}’ see
+():: ‘@ref{node,cross ref name}’ see cross ref name: node
+‘@ref{node,,title}’ see title: node ‘@ref{node,,,file name}’ see (file
+name)node:: ‘@ref{node,,,,manual}’ see ()node:: ‘@ref{node,cross ref
+name,title,}’ see cross ref name: node ‘@ref{node,cross ref name,,file
+name}’ see cross ref name: (file name)node ‘@ref{node,cross ref
+name,,,manual}’ see cross ref name: ()node ‘@ref{node,cross ref
+name,title,file name}’ see cross ref name: (file name)node
+‘@ref{node,cross ref name,title,,manual}’ see cross ref name: ()node
+‘@ref{node,cross ref name,title, file name, manual}’ see cross ref name:
+(file name)node ‘@ref{node,,title,file name}’ see title: (file name)node
+‘@ref{node,,title,,manual}’ see title: ()node ‘@ref{node,,title, file
+name, manual}’ see title: (file name)node ‘@ref{node,,,file
+name,manual}’ see (file name)node:: ‘@ref{,cross ref name,title,}’ see
+cross ref name: ‘@ref{,cross ref name,,file name}’ see cross ref name:
+(file name) ‘@ref{,cross ref name,,,manual}’ see cross ref name: ()
+‘@ref{,cross ref name,title,file name}’ see cross ref name: (file name)
+‘@ref{,cross ref name,title,,manual}’ see cross ref name: ()
+‘@ref{,cross ref name,title, file name, manual}’ see cross ref name:
+(file name) ‘@ref{,,title,file name}’ see title: (file name)
+‘@ref{,,title,,manual}’ see title: () ‘@ref{,,title, file name, manual}’
+see title: (file name) ‘@ref{,,,file name,manual}’ see (file name)::
 
-   ‘@inforef{,cross ref name }’ *note cross ref name: ‘@inforef{,,file
-name}’ *note (file name):: ‘@inforef{,cross ref name, file name}’ *note
-cross ref name: (file name) ‘@inforef{}’ *note ::
+   ‘@inforef{,cross ref name }’ see cross ref name: ‘@inforef{,,file
+name}’ see (file name):: ‘@inforef{,cross ref name, file name}’ see
+cross ref name: (file name) ‘@inforef{}’ see ::
 
-   ‘@inforef{node, cross ref name, file name}’ *note cross ref name:
-(file name)node ‘@inforef{node}’ *note node:: ‘@inforef{node, cross ref
-name}’ *note cross ref name: node ‘@inforef{node,,file name}’ *note
-(file name)node::
+   ‘@inforef{node, cross ref name, file name}’ see cross ref name: (file
+name)node ‘@inforef{node}’ see node:: ‘@inforef{node, cross ref name}’
+see cross ref name: node ‘@inforef{node,,file name}’ see (file
+name)node::
 ';
 
 

@@ -162,7 +162,7 @@ Chap
 Results
 *******
 
-*Note point::.
+See point::.
 
 subsec
 ------

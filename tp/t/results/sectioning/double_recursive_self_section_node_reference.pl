@@ -381,8 +381,8 @@ $result_floats{'double_recursive_self_section_node_reference'} = {};
 $result_converted{'plaintext'}->{'double_recursive_self_section_node_reference'} = 'top
 ***
 
-1 *note to *note node1::::
-**************************
+1 see to see node1::::
+**********************
 
 ';
 

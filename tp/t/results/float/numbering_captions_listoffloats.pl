@@ -6183,19 +6183,19 @@ Text A.1: C appendix sec float
 list of floats
 **************
 
-See *note Text 1.3: text in section.  And (*note Text 1.1: text in
-chapter).  *Note Text 1: text with a lot of features.
+See see Text 1.3: text in section.  And (see Text 1.1: text in chapter).
+See Text 1: text with a lot of features.
 
-   And now a ref (without manual or printed manual) *note cross ref:
-text with a lot of features.
+   And now a ref (without manual or printed manual) see cross ref: text
+with a lot of features.
 
-   And now a ref (with manual without printed manual) *note cross ref:
+   And now a ref (with manual without printed manual) see cross ref:
 (manual)text with a lot of features.
 
-   And now a ref (without manual with a printed manual) *note cross ref:
+   And now a ref (without manual with a printed manual) see cross ref:
 ()text with a lot of features.
 
-   A ref to float without type *note 1: label but no type.
+   A ref to float without type see 1: label but no type.
 
 * Menu:
 

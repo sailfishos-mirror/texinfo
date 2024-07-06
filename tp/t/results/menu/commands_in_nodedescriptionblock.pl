@@ -1318,8 +1318,8 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
 * Menu:
 
 * node1::
-               *note node2::.  Footnote(1).  Some text to see where the max column could
-               be.  in w.
+               see node2::.  Footnote(1).  Some text to see where the max column could be.
+               in w.
 
 [float_image]
 
@@ -1328,7 +1328,7 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
 
 * node2::
 
-*note in nodescription::, *note tfloat 1.1: f1.
+see in nodescription::, see tfloat 1.1: f1.
 
    ---------- Footnotes ----------
 
@@ -1340,13 +1340,13 @@ $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test com
 2 chap2
 *******
 
-*note in nodescription::, *note tfloat 1.1: f1.
+see in nodescription::, see tfloat 1.1: f1.
 
 * Menu:
 
 * node1::
-               *note node2::.  Footnote(1).  Some text to see where the max column could
-               be.  in w.
+               see node2::.  Footnote(1).  Some text to see where the max column could be.
+               in w.
 
 [float_image]
 

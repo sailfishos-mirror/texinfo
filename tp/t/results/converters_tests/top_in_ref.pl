@@ -3025,40 +3025,38 @@ $result_floats{'top_in_ref'} = {};
 
 
 
-$result_converted{'plaintext'}->{'top_in_ref'} = '‘@ref{Top,cross ref name}’ *note cross ref name: Top ‘@ref{Top,,title}’
-*note title: Top ‘@ref{Top,,,file name}’ *note (file name)Top::
-‘@ref{Top,,,,manual}’ *note ()Top:: ‘@ref{Top,cross ref name,title,}’
-*note cross ref name: Top ‘@ref{Top,cross ref name,,file name}’ *note
-cross ref name: (file name)Top ‘@ref{Top,cross ref name,,,manual}’ *note
-cross ref name: ()Top ‘@ref{Top,cross ref name,title,file name}’ *note
-cross ref name: (file name)Top ‘@ref{Top,cross ref name,title,,manual}’
-*note cross ref name: ()Top ‘@ref{Top,cross ref name,title, file name,
-manual}’ *note cross ref name: (file name)Top ‘@ref{Top,,title,file
-name}’ *note title: (file name)Top ‘@ref{Top,,title,,manual}’ *note
-title: ()Top ‘@ref{Top,,title, file name, manual}’ *note title: (file
-name)Top ‘@ref{Top,,,file name,manual}’ *note (file name)Top::
+$result_converted{'plaintext'}->{'top_in_ref'} = '‘@ref{Top,cross ref name}’ see cross ref name: Top ‘@ref{Top,,title}’
+see title: Top ‘@ref{Top,,,file name}’ see (file name)Top::
+‘@ref{Top,,,,manual}’ see ()Top:: ‘@ref{Top,cross ref name,title,}’ see
+cross ref name: Top ‘@ref{Top,cross ref name,,file name}’ see cross ref
+name: (file name)Top ‘@ref{Top,cross ref name,,,manual}’ see cross ref
+name: ()Top ‘@ref{Top,cross ref name,title,file name}’ see cross ref
+name: (file name)Top ‘@ref{Top,cross ref name,title,,manual}’ see cross
+ref name: ()Top ‘@ref{Top,cross ref name,title, file name, manual}’ see
+cross ref name: (file name)Top ‘@ref{Top,,title,file name}’ see title:
+(file name)Top ‘@ref{Top,,title,,manual}’ see title: ()Top
+‘@ref{Top,,title, file name, manual}’ see title: (file name)Top
+‘@ref{Top,,,file name,manual}’ see (file name)Top::
 
-   ‘@ref{(pman)Top,cross ref name}’ *note cross ref name: (pman)Top
-‘@ref{(pman)Top,,title}’ *note title: (pman)Top ‘@ref{(pman)Top,,,file
-name}’ *note (file name)(pman)Top:: ‘@ref{(pman)Top,,,,manual}’ *note
-()(pman)Top:: ‘@ref{(pman)Top,cross ref name,title,}’ *note cross ref
-name: (pman)Top ‘@ref{(pman)Top,cross ref name,,file name}’ *note cross
+   ‘@ref{(pman)Top,cross ref name}’ see cross ref name: (pman)Top
+‘@ref{(pman)Top,,title}’ see title: (pman)Top ‘@ref{(pman)Top,,,file
+name}’ see (file name)(pman)Top:: ‘@ref{(pman)Top,,,,manual}’ see
+()(pman)Top:: ‘@ref{(pman)Top,cross ref name,title,}’ see cross ref
+name: (pman)Top ‘@ref{(pman)Top,cross ref name,,file name}’ see cross
 ref name: (file name)(pman)Top ‘@ref{(pman)Top,cross ref name,,,manual}’
-*note cross ref name: ()(pman)Top ‘@ref{(pman)Top,cross ref
-name,title,file name}’ *note cross ref name: (file name)(pman)Top
-‘@ref{(pman)Top,cross ref name,title,,manual}’ *note cross ref name:
+see cross ref name: ()(pman)Top ‘@ref{(pman)Top,cross ref
+name,title,file name}’ see cross ref name: (file name)(pman)Top
+‘@ref{(pman)Top,cross ref name,title,,manual}’ see cross ref name:
 ()(pman)Top ‘@ref{(pman)Top,cross ref name,title, file name, manual}’
-*note cross ref name: (file name)(pman)Top ‘@ref{(pman)Top,,title,file
-name}’ *note title: (file name)(pman)Top
-‘@ref{(pman)Top,,title,,manual}’ *note title: ()(pman)Top
-‘@ref{(pman)Top,,title, file name, manual}’ *note title: (file
-name)(pman)Top ‘@ref{(pman)Top,,,file name,manual}’ *note (file
-name)(pman)Top::
+see cross ref name: (file name)(pman)Top ‘@ref{(pman)Top,,title,file
+name}’ see title: (file name)(pman)Top ‘@ref{(pman)Top,,title,,manual}’
+see title: ()(pman)Top ‘@ref{(pman)Top,,title, file name, manual}’ see
+title: (file name)(pman)Top ‘@ref{(pman)Top,,,file name,manual}’ see
+(file name)(pman)Top::
 
-   ‘@inforef{Top, cross ref name, file name}’ *note cross ref name:
-(file name)Top ‘@inforef{Top}’ *note Top:: ‘@inforef{Top, cross ref
-name}’ *note cross ref name: Top ‘@inforef{Top,,file name}’ *note (file
-name)Top::
+   ‘@inforef{Top, cross ref name, file name}’ see cross ref name: (file
+name)Top ‘@inforef{Top}’ see Top:: ‘@inforef{Top, cross ref name}’ see
+cross ref name: Top ‘@inforef{Top,,file name}’ see (file name)Top::
 ';
 
 

@@ -2164,70 +2164,70 @@ $result_floats{'ref_in_sectioning'} = {};
 
 
 
-$result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example *note node:: (*note node::) (*note (file)Top::)
-1 *Note title: (file name)node.
-2 *note node:: just node
-  2.1 for example *note node:: (*note node::) (*note (file)Top::)
-  2.2 *note cross ref name: node node, crossref arg2
-  2.3 *note ‘title’: node code node, samptitle arg3
-  2.4 *note (file name)node:: code node, file name
-  2.5 *note ()node:: node and manual
-  2.6 *note ()Top:: Top and manual
-  2.7 *note ():: no node just manual
-  2.8 *note (file name):: no node just file name
-  2.9 *note b: (c)a inforef a b c
-  2.10 (*note (file name)Top::) pxref Top file name, spaces
-  2.11 (*note (file name)::) pxref file name only, spaces
-  2.12 *Note (filename)Top::, xref Top filename only, no spaces
-  2.13 *Note (filename)::. xref filename only, no spaces
+$result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example see node:: (see node::) (see (file)Top::)
+1 See title: (file name)node.
+2 see node:: just node
+  2.1 for example see node:: (see node::) (see (file)Top::)
+  2.2 see cross ref name: node node, crossref arg2
+  2.3 see ‘title’: node code node, samptitle arg3
+  2.4 see (file name)node:: code node, file name
+  2.5 see ()node:: node and manual
+  2.6 see ()Top:: Top and manual
+  2.7 see ():: no node just manual
+  2.8 see (file name):: no node just file name
+  2.9 see b: (c)a inforef a b c
+  2.10 (see (file name)Top::) pxref Top file name, spaces
+  2.11 (see (file name)::) pxref file name only, spaces
+  2.12 See (filename)Top::, xref Top filename only, no spaces
+  2.13 See (filename)::. xref filename only, no spaces
 
-for example *note node:: (*note node::) (*note (file)Top::)
-***********************************************************
+for example see node:: (see node::) (see (file)Top::)
+*****************************************************
 
-1 *Note title: (file name)node.
-*******************************
+1 See title: (file name)node.
+*****************************
 
-2 *note node:: just node
-************************
+2 see node:: just node
+**********************
 
-2.1 for example *note node:: (*note node::) (*note (file)Top::)
-===============================================================
-
-2.2 *note cross ref name: node node, crossref arg2
-==================================================
-
-2.3 *note ‘title’: node code node, samptitle arg3
-=================================================
-
-2.4 *note (file name)node:: code node, file name
-================================================
-
-2.5 *note ()node:: node and manual
-==================================
-
-2.6 *note ()Top:: Top and manual
-================================
-
-2.7 *note ():: no node just manual
-==================================
-
-2.8 *note (file name):: no node just file name
-==============================================
-
-2.9 *note b: (c)a inforef a b c
-===============================
-
-2.10 (*note (file name)Top::) pxref Top file name, spaces
+2.1 for example see node:: (see node::) (see (file)Top::)
 =========================================================
 
-2.11 (*note (file name)::) pxref file name only, spaces
+2.2 see cross ref name: node node, crossref arg2
+================================================
+
+2.3 see ‘title’: node code node, samptitle arg3
+===============================================
+
+2.4 see (file name)node:: code node, file name
+==============================================
+
+2.5 see ()node:: node and manual
+================================
+
+2.6 see ()Top:: Top and manual
+==============================
+
+2.7 see ():: no node just manual
+================================
+
+2.8 see (file name):: no node just file name
+============================================
+
+2.9 see b: (c)a inforef a b c
+=============================
+
+2.10 (see (file name)Top::) pxref Top file name, spaces
 =======================================================
 
-2.12 *Note (filename)Top::, xref Top filename only, no spaces
-=============================================================
+2.11 (see (file name)::) pxref file name only, spaces
+=====================================================
 
-2.13 *Note (filename)::. xref filename only, no spaces
-======================================================
+2.12 See (filename)Top::, xref Top filename only, no spaces
+===========================================================
+
+2.13 See (filename)::. xref filename only, no spaces
+====================================================
 
 ';
 

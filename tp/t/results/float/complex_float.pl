@@ -3693,7 +3693,7 @@ _truc_
 An itemize.
    − truc line
 
-A ref.  *Note xref Text with features: Top.  A footnote.  (1).
+A ref.  See xref Text with features: Top.  A footnote.  (1).
 
 TeX and _téî<an_url>_ AND it is @verb  a word !@ Æ.
 
@@ -3712,7 +3712,7 @@ An index entry
 An itemize.
    − truc line
 
-A ref.  *Note xref Text with features caption: Top.  A footnote.  (2).
+A ref.  See xref Text with features caption: Top.  A footnote.  (2).
 
 TeX and _téî<an_url>_ AND it is @verb  a word !@ Æ.
 
@@ -3744,12 +3744,11 @@ An index entry 2
 An itemize 2.
    − truc 2 line
 
-A ref 2.  *Note xref Text with features caption: Top.  A footnote 2.
-(1).
+A ref 2.  See xref Text with features caption: Top.  A footnote 2.  (1).
 
 TeX and _téî<an_url>_ AND it is @verb  a word !@ Æ.
 
-*Note Text 1: text with a lot of features.
+See Text 1: text with a lot of features.
 
    ---------- Footnotes ----------
 

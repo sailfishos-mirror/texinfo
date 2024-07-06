@@ -527,7 +527,7 @@ $result_converted{'plaintext'}->{'at_commands_glued_in_example'} = '     at@.
      acronymABC (aaa bb cc)acronym.
      acronym2ABCacronym.
      emailmali <somebody>email.
-     ref*note Top::ref.
+     refsee Top::ref.
      Foornote(1)after footnote.
      accentîaccent.
      and star

@@ -153,7 +153,7 @@ $result_floats{'verb_in_xref'} = {};
 
 
 
-$result_converted{'plaintext'}->{'verb_in_xref'} = '*Note with
+$result_converted{'plaintext'}->{'verb_in_xref'} = 'See with
 verb
 
 ggg : point.
