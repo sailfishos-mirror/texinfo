@@ -2371,43 +2371,46 @@ sub _convert($$)
     # First handle empty lines. This has to be done before the handling
     # of text below to be sure that an empty line is always processed
     # especially
-    if ($type and ($type eq 'empty_line'
-                   or $type eq 'after_menu_description_line')) {
-      delete $self->{'text_element_context'}->[-1]->{'counter'};
-      if ($element->{'text'} =~ /\f/) {
-        my $result = _get_form_feeds($element->{'text'});
-        _stream_output($self, $result);
-      }
-      if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
-        _stream_output($self, add_text($formatter->{'container'}, "\n"),
-                       $formatter->{'container'});
-      } else {
-        # inlined below for efficiency
-        #$self->_add_newline_if_needed();
-
-        use bytes;
-        if (defined($self->{'count_context'}->[-1]->{'pending_text'})
-          and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
-          and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
-                ne "\n\n") {
-          _stream_output($self, "\n");
-          _add_lines_count($self, 1);
+    if ($type) {
+      if ($type eq 'empty_line'
+          or $type eq 'after_menu_description_line') {
+        delete $self->{'text_element_context'}->[-1]->{'counter'};
+        if ($element->{'text'} =~ /\f/) {
+          my $result = _get_form_feeds($element->{'text'});
+          _stream_output($self, $result);
+        }
+        if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
+          _stream_output($self, add_text($formatter->{'container'}, "\n"),
+                         $formatter->{'container'});
         } else {
-          my $result = _stream_result($self);
-          if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
+          # inlined below for efficiency
+          #$self->_add_newline_if_needed();
+
+          use bytes;
+          if (defined($self->{'count_context'}->[-1]->{'pending_text'})
+            and length($self->{'count_context'}->[-1]->{'pending_text'}) >= 2
+            and substr($self->{'count_context'}->[-1]->{'pending_text'}, -2)
+                  ne "\n\n") {
             _stream_output($self, "\n");
             _add_lines_count($self, 1);
+          } else {
+            my $result = _stream_result($self);
+            if ($result ne '' and $result ne "\n" and $result !~ /\n\n\z/) {
+              _stream_output($self, "\n");
+              _add_lines_count($self, 1);
+            }
           }
         }
+        return;
+      # ignoreable spaces
+      } elsif ($ignorable_space_types{$type}) {
+        if ($type eq 'spaces_after_close_brace'
+            and $element->{'text'} =~ /\f/) {
+          my $result = _get_form_feeds($element->{'text'});
+          _stream_output($self, $result);
+        }
+        return;
       }
-      return;
-    } elsif ($type and $ignorable_space_types{$type}) {
-      if ($type eq 'spaces_after_close_brace'
-          and $element->{'text'} =~ /\f/) {
-        my $result = _get_form_feeds($element->{'text'});
-        _stream_output($self, $result);
-      }
-      return;
     }
 
     # process text
@@ -2450,7 +2453,8 @@ sub _convert($$)
         if (defined($formatter->{'container'})) {
           # count number of newlines
           #my $count = $added_text =~ tr/\n//;
-          my $count = Texinfo::Convert::Paragraph::end_line_count($formatter->{'container'});
+          my $count = Texinfo::Convert::Paragraph::end_line_count(
+                                             $formatter->{'container'});
 
           $count_context->{'lines'} += $count;
         }
@@ -2468,15 +2472,23 @@ sub _convert($$)
       # TODO if not asis, output _get_form_feeds($element->{'text'})?
       return;
     # ignore text outside of any format, but warn if ignored text not empty
-    } elsif ($element->{'text'} =~ /\S/) {
-      $self->present_bug_message("ignored text not empty `$element->{'text'}'",
-                                 $element);
-      return;
     } else {
-      # miscellaneous top-level whitespace - possibly after an @image
-      _stream_output($self,
-                     add_text($formatter->{'container'}, $element->{'text'}),
-                     $formatter->{'container'});
+      if ($type) {
+        $self->present_bug_message("unexpected text element type: $type",
+                                   $element);
+      }
+      if ($element->{'text'} =~ /\S/) {
+        $self->present_bug_message(
+                          "ignored text not empty `$element->{'text'}'",
+                                   $element);
+      } else {
+        # miscellaneous normal text top-level whitespace, after a no
+        # paragraph command with spaces after brace not ignored:
+        # @image, @titlefont, @*
+        _stream_output($self,
+                       add_text($formatter->{'container'}, $element->{'text'}),
+                       $formatter->{'container'});
+      }
       return;
     }
   }

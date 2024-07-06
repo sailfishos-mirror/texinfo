@@ -19,6 +19,7 @@ end para' ],
 [ 'two_lines','text l 1
 text l 2
 '],
+# no_paragraph commands with spaces after brace not ignored
 [ 'no_paragraph_commands', '@*
 @titlefont{title font}
 @image{aa,bb,cc,dd,.ee}

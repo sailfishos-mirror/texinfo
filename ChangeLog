@@ -1,5 +1,11 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): comon if for type
+	defined for text elements.  Bug message if in top level and the text
+	element is not normal text (without type).
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): ignore space types only
 	when checking if an index command is last in node, as the ignored
 	special containers cannot happen in that situation.  Remove
