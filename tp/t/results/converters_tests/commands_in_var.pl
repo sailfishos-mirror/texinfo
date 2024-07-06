@@ -818,7 +818,7 @@ $result_converted{'plaintext'}->{'commands_in_var'} = 'commands in var
 1 chap
 ******
 
-A Ñ Å TeX [myimage] chap See (f)node NAME: (argf)ext inverb ÿ MA+TH (1) <la> B
+A Ñ Å TeX [myimage] chap SEE (f)node NAME: (argf)ext inverb ÿ MA+TH (1) <la> B
 (a) LB c E <a@c> AB (D)
 
    ---------- Footnotes ----------

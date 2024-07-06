@@ -2171,9 +2171,9 @@ $result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example node (see n
   2.2 cross ref name: node node, crossref arg2
   2.3 ‘title’: node code node, samptitle arg3
   2.4 (file name)node code node, file name
-  2.5 ()node node and manual
-  2.6 ()Top Top and manual
-  2.7 () no node just manual
+  2.5 node in ‘Manual’ node and manual
+  2.6 Top in ‘Manual’ Top and manual
+  2.7 ‘Manual’ no node just manual
   2.8 (file name) no node just file name
   2.9 See b: (c)a inforef a b c
   2.10 (see (file name)Top) pxref Top file name, spaces
@@ -2202,14 +2202,14 @@ for example node (see node) (see (file)Top)
 2.4 (file name)node code node, file name
 ========================================
 
-2.5 ()node node and manual
-==========================
+2.5 node in ‘Manual’ node and manual
+====================================
 
-2.6 ()Top Top and manual
-========================
+2.6 Top in ‘Manual’ Top and manual
+==================================
 
-2.7 () no node just manual
-==========================
+2.7 ‘Manual’ no node just manual
+================================
 
 2.8 (file name) no node just file name
 ======================================

@@ -6192,8 +6192,8 @@ a lot of features.
    And now a ref (with manual without printed manual) cross ref:
 (manual)text with a lot of features.
 
-   And now a ref (without manual with a printed manual) cross ref:
-()text with a lot of features.
+   And now a ref (without manual with a printed manual) cross ref: text
+with a lot of features in ‘printed manual title’.
 
    A ref to float without type 1: label but no type.
 

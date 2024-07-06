@@ -1,5 +1,13 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Info.pm (_convert): add _suppress_styles type
+	that sets suppress_styles.
+
+	* tp/Texinfo/Convert/Info.pm (format_ref): convert @*ref using
+	translations for all the possible cases of arguments of @*ref.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Info.pm (format_ref),
 	tp/Texinfo/Convert/Plaintext.pm (format_ref): double check that a
 	reference is an internal reference before using the normalized

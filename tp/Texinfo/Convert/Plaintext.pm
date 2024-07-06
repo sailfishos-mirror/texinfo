@@ -1971,8 +1971,6 @@ sub format_ref($$$$)
       push @args, undef;
     }
   }
-  $args[0] = {'text' => ''} if (!defined($args[0]));
-
   my $node_arg = $element->{'args'}->[0];
 
   # normalize node name, to get a ref with the right formatting
@@ -2003,7 +2001,7 @@ sub format_ref($$$$)
       $label_element = undef;
     }
   }
-  if (!defined($label_element)) {
+  if (!defined($label_element) and defined($args[0])) {
     $label_element = $args[0];
   }
 
@@ -2027,46 +2025,158 @@ sub format_ref($$$$)
     $name = $args[2];
   }
   my $file;
+  my $book;
   if (defined($args[3])) {
-    $file = {'contents' => [
-               {'text' => '('},
-               {'type' => '_stop_upper_case',
-                  'contents' => [{'type' => '_code',
-                                   'contents' => [$args[3]]}],},
-               {'text' => ')'},]};
+    $file = {'type' => '_stop_upper_case',
+             'contents' => [{'type' => '_code',
+                             'contents' => [$args[3]]}],
+            };
   } elsif (defined($args[4])) {
-    # add a () such that the node is considered to be external,
-    # even though the manual name is not known.  This should only
-    # happen if a book argument is given, but no manual name.
-    $file = {'text' => '()'};
+    $book = $args[4];
   }
 
-  if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
-    _convert($self, {'type' => '_stop_upper_case',
-                     'contents' => [{'text' => 'See '}]});
-  } elsif ($cmdname eq 'pxref') {
-    _convert($self, {'type' => '_stop_upper_case',
-                     'contents' => [{'text' => 'see '}]});
-  }
-
-  if ($name) {
-    _convert($self, $name);
-    _stream_output($self,
-             add_text($formatter->{'container'}, ": "),
-             $formatter->{'container'});
-  }
-
-  if ($file) {
-    _convert($self, $file);
-  }
-
-  # node name
-  $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
-  _convert($self, {'type' => '_stop_upper_case',
+  my $node;
+  if (defined($label_element)) {
+    $node = {'type' => '_stop_upper_case',
                    'contents' => [
                      {'type' => '_code',
-                      'contents' => [$label_element]}]});
-  delete $self->{'formatters'}->[-1]->{'suppress_styles'};
+                      'contents' => [
+                       {'type' => '_suppress_styles',
+                        'contents' => [$label_element]}]}]};
+  }
+
+  my $tree;
+  if ($node) {
+    if ($file) {
+      if ($name) {
+        my $substrings = {'name' => $name, 'file' => $file,
+                          'node' => $node};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {name}: ({file}){node}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {name}: ({file}){node}', $substrings);
+        } else {
+          $tree = $self->cdt('{name}: ({file}){node}', $substrings);
+        }
+      } else {
+        my $substrings = {'file' => $file, 'node' => $node};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See ({file}){node}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see ({file}){node}', $substrings);
+        } else {
+          $tree = $self->cdt('({file}){node}', $substrings);
+        }
+      }
+    } elsif ($book) {
+      if ($name) {
+        my $substrings = {'name' => $name, 'book' => $book,
+                          'node' => $node};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {name}: {node} in @cite{{book}}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {name}: {node} in @cite{{book}}', $substrings);
+        } else {
+          $tree = $self->cdt('{name}: {node} in @cite{{book}}', $substrings);
+        }
+      } else {
+        my $substrings = {'book' => $book, 'node' => $node};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {node} in @cite{{book}}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {node} in @cite{{book}}', $substrings);
+        } else {
+          $tree = $self->cdt('{node} in @cite{{book}}', $substrings);
+        }
+      }
+    } else {
+      if ($name) {
+        my $substrings = {'name' => $name,
+                          'node' => $node};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {name}: {node}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {name}: {node}', $substrings);
+        } else {
+          $tree = $self->cdt('{name}: {node}', $substrings);
+        }
+      } else {
+        my $substrings = {'node' => $node};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {node}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {node}', $substrings);
+        } else {
+          $tree = $self->cdt('{node}', $substrings);
+        }
+      }
+    }
+  } else {
+    if ($file) {
+      if ($name) {
+        my $substrings = {'name' => $name, 'file' => $file};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {name}({file})', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {name}({file})', $substrings);
+        } else {
+          $tree = $self->cdt('{name}({file})', $substrings);
+        }
+      } else {
+        my $substrings = {'file' => $file};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See ({file})', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see ({file})', $substrings);
+        } else {
+          $tree = $self->cdt('({file})', $substrings);
+        }
+      }
+    } elsif ($book) {
+      if ($name) {
+        my $substrings = {'name' => $name, 'book' => $book};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {name} in @cite{{book}}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {name} in @cite{{book}}', $substrings);
+        } else {
+          $tree = $self->cdt('{name} in @cite{{book}}', $substrings);
+        }
+      } else {
+        my $substrings = {'book' => $book};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See @cite{{book}}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see @cite{{book}}', $substrings);
+        } else {
+          $tree = $self->cdt('@cite{{book}}', $substrings);
+        }
+      }
+    } else {
+      if ($name) {
+        my $substrings = {'name' => $name};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {name}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {name}', $substrings);
+        } else {
+          $tree = $self->cdt('{name}', $substrings);
+        }
+      } else {
+        # case of a completely empty @*ref.
+        my $substrings = {'node' => {'text' => 'Top'}};
+        if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+          $tree = $self->cdt('See {node}', $substrings);
+        } elsif ($cmdname eq 'pxref') {
+          $tree = $self->cdt('see {node}', $substrings);
+        } else {
+          $tree = $self->cdt('{node}', $substrings);
+        }
+      }
+    }
+  }
+
+  _convert($self, $tree);
 }
 
 sub format_node($$)
@@ -3935,6 +4045,8 @@ sub _convert($$)
       _open_code($formatter);
     } elsif ($type eq '_stop_upper_case') {
       push @{$formatter->{'upper_case_stack'}}, {};
+    } elsif ($type eq '_suppress_styles') {
+      $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
     } elsif ($type eq 'untranslated_def_line_arg') {
       my $tree;
       if ($element->{'extra'}
@@ -3971,6 +4083,8 @@ sub _convert($$)
       _close_code($formatter);
     } elsif ($type eq '_stop_upper_case') {
       pop @{$formatter->{'upper_case_stack'}};
+    } elsif ($type eq '_suppress_styles') {
+      delete $self->{'formatters'}->[-1]->{'suppress_styles'};
     } elsif ($type eq 'row') {
       my @cell_beginnings;
       my @cell_lines;

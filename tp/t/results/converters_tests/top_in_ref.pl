@@ -3026,32 +3026,32 @@ $result_floats{'top_in_ref'} = {};
 
 
 $result_converted{'plaintext'}->{'top_in_ref'} = '‘@ref{Top,cross ref name}’ cross ref name: Top ‘@ref{Top,,title}’ title:
-Top ‘@ref{Top,,,file name}’ (file name)Top ‘@ref{Top,,,,manual}’ ()Top
-‘@ref{Top,cross ref name,title,}’ cross ref name: Top ‘@ref{Top,cross
-ref name,,file name}’ cross ref name: (file name)Top ‘@ref{Top,cross ref
-name,,,manual}’ cross ref name: ()Top ‘@ref{Top,cross ref
-name,title,file name}’ cross ref name: (file name)Top ‘@ref{Top,cross
-ref name,title,,manual}’ cross ref name: ()Top ‘@ref{Top,cross ref
-name,title, file name, manual}’ cross ref name: (file name)Top
-‘@ref{Top,,title,file name}’ title: (file name)Top
-‘@ref{Top,,title,,manual}’ title: ()Top ‘@ref{Top,,title, file name,
-manual}’ title: (file name)Top ‘@ref{Top,,,file name,manual}’ (file
-name)Top
+Top ‘@ref{Top,,,file name}’ (file name)Top ‘@ref{Top,,,,manual}’ Top in
+‘manual’ ‘@ref{Top,cross ref name,title,}’ cross ref name: Top
+‘@ref{Top,cross ref name,,file name}’ cross ref name: (file name)Top
+‘@ref{Top,cross ref name,,,manual}’ cross ref name: Top in ‘manual’
+‘@ref{Top,cross ref name,title,file name}’ cross ref name: (file
+name)Top ‘@ref{Top,cross ref name,title,,manual}’ cross ref name: Top in
+‘manual’ ‘@ref{Top,cross ref name,title, file name, manual}’ cross ref
+name: (file name)Top ‘@ref{Top,,title,file name}’ title: (file name)Top
+‘@ref{Top,,title,,manual}’ title: Top in ‘manual’ ‘@ref{Top,,title, file
+name, manual}’ title: (file name)Top ‘@ref{Top,,,file name,manual}’
+(file name)Top
 
    ‘@ref{(pman)Top,cross ref name}’ cross ref name: (pman)Top
 ‘@ref{(pman)Top,,title}’ title: (pman)Top ‘@ref{(pman)Top,,,file name}’
-(file name)(pman)Top ‘@ref{(pman)Top,,,,manual}’ ()(pman)Top
+(file name)(pman)Top ‘@ref{(pman)Top,,,,manual}’ (pman)Top in ‘manual’
 ‘@ref{(pman)Top,cross ref name,title,}’ cross ref name: (pman)Top
 ‘@ref{(pman)Top,cross ref name,,file name}’ cross ref name: (file
 name)(pman)Top ‘@ref{(pman)Top,cross ref name,,,manual}’ cross ref name:
-()(pman)Top ‘@ref{(pman)Top,cross ref name,title,file name}’ cross ref
-name: (file name)(pman)Top ‘@ref{(pman)Top,cross ref
-name,title,,manual}’ cross ref name: ()(pman)Top ‘@ref{(pman)Top,cross
-ref name,title, file name, manual}’ cross ref name: (file name)(pman)Top
-‘@ref{(pman)Top,,title,file name}’ title: (file name)(pman)Top
-‘@ref{(pman)Top,,title,,manual}’ title: ()(pman)Top
-‘@ref{(pman)Top,,title, file name, manual}’ title: (file name)(pman)Top
-‘@ref{(pman)Top,,,file name,manual}’ (file name)(pman)Top
+(pman)Top in ‘manual’ ‘@ref{(pman)Top,cross ref name,title,file name}’
+cross ref name: (file name)(pman)Top ‘@ref{(pman)Top,cross ref
+name,title,,manual}’ cross ref name: (pman)Top in ‘manual’
+‘@ref{(pman)Top,cross ref name,title, file name, manual}’ cross ref
+name: (file name)(pman)Top ‘@ref{(pman)Top,,title,file name}’ title:
+(file name)(pman)Top ‘@ref{(pman)Top,,title,,manual}’ title: (pman)Top
+in ‘manual’ ‘@ref{(pman)Top,,title, file name, manual}’ title: (file
+name)(pman)Top ‘@ref{(pman)Top,,,file name,manual}’ (file name)(pman)Top
 
    ‘@inforef{Top, cross ref name, file name}’ See cross ref name: (file
 name)Top ‘@inforef{Top}’ See Top ‘@inforef{Top, cross ref name}’ See

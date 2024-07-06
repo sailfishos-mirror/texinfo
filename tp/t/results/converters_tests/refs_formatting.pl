@@ -3032,31 +3032,32 @@ $result_converted{'plaintext'}->{'refs_formatting'} = '1 chapter
 
 ‘@ref{chapter,cross ref name}’ cross ref name: chapter
 ‘@ref{chapter,,title}’ title: chapter ‘@ref{chapter,,,file name}’ (file
-name)chapter ‘@ref{chapter,,,,manual}’ ()chapter ‘@ref{chapter,cross ref
-name,title,}’ cross ref name: chapter ‘@ref{chapter,cross ref name,,file
-name}’ cross ref name: (file name)chapter ‘@ref{chapter,cross ref
-name,,,manual}’ cross ref name: ()chapter ‘@ref{chapter,cross ref
-name,title,file name}’ cross ref name: (file name)chapter
-‘@ref{chapter,cross ref name,title,,manual}’ cross ref name: ()chapter
+name)chapter ‘@ref{chapter,,,,manual}’ chapter in ‘manual’
+‘@ref{chapter,cross ref name,title,}’ cross ref name: chapter
+‘@ref{chapter,cross ref name,,file name}’ cross ref name: (file
+name)chapter ‘@ref{chapter,cross ref name,,,manual}’ cross ref name:
+chapter in ‘manual’ ‘@ref{chapter,cross ref name,title,file name}’ cross
+ref name: (file name)chapter ‘@ref{chapter,cross ref
+name,title,,manual}’ cross ref name: chapter in ‘manual’
 ‘@ref{chapter,cross ref name,title, file name, manual}’ cross ref name:
 (file name)chapter ‘@ref{chapter,,title,file name}’ title: (file
-name)chapter ‘@ref{chapter,,title,,manual}’ title: ()chapter
+name)chapter ‘@ref{chapter,,title,,manual}’ title: chapter in ‘manual’
 ‘@ref{chapter,,title, file name, manual}’ title: (file name)chapter
 ‘@ref{chapter,,,file name,manual}’ (file name)chapter
 
    ‘@ref{(pman)anode,cross ref name}’ cross ref name: (pman)anode
 ‘@ref{(pman)anode,,title}’ title: (pman)anode ‘@ref{(pman)anode,,,file
-name}’ (file name)(pman)anode ‘@ref{(pman)anode,,,,manual}’
-()(pman)anode ‘@ref{(pman)anode,cross ref name,title,}’ cross ref name:
+name}’ (file name)(pman)anode ‘@ref{(pman)anode,,,,manual}’ (pman)anode
+in ‘manual’ ‘@ref{(pman)anode,cross ref name,title,}’ cross ref name:
 (pman)anode ‘@ref{(pman)anode,cross ref name,,file name}’ cross ref
 name: (file name)(pman)anode ‘@ref{(pman)anode,cross ref name,,,manual}’
-cross ref name: ()(pman)anode ‘@ref{(pman)anode,cross ref
+cross ref name: (pman)anode in ‘manual’ ‘@ref{(pman)anode,cross ref
 name,title,file name}’ cross ref name: (file name)(pman)anode
 ‘@ref{(pman)anode,cross ref name,title,,manual}’ cross ref name:
-()(pman)anode ‘@ref{(pman)anode,cross ref name,title, file name,
-manual}’ cross ref name: (file name)(pman)anode
+(pman)anode in ‘manual’ ‘@ref{(pman)anode,cross ref name,title, file
+name, manual}’ cross ref name: (file name)(pman)anode
 ‘@ref{(pman)anode,,title,file name}’ title: (file name)(pman)anode
-‘@ref{(pman)anode,,title,,manual}’ title: ()(pman)anode
+‘@ref{(pman)anode,,title,,manual}’ title: (pman)anode in ‘manual’
 ‘@ref{(pman)anode,,title, file name, manual}’ title: (file
 name)(pman)anode ‘@ref{(pman)anode,,,file name,manual}’ (file
 name)(pman)anode
