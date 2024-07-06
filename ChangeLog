@@ -1,5 +1,9 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (format_ref): no see for @ref.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (format_ref): use see and See
 	instead of *note and *Note.
 

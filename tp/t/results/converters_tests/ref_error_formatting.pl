@@ -2937,39 +2937,38 @@ $result_floats{'ref_error_formatting'} = {};
 
 
 
-$result_converted{'plaintext'}->{'ref_error_formatting'} = '‘@ref{node}’ see node::
+$result_converted{'plaintext'}->{'ref_error_formatting'} = '‘@ref{node}’ node::
 
-   ‘@ref{,cross ref name}’ see cross ref name: ‘@ref{,,title}’ see
-title: ‘@ref{,,,file name}’ see (file name):: ‘@ref{,,,,manual}’ see
-():: ‘@ref{node,cross ref name}’ see cross ref name: node
-‘@ref{node,,title}’ see title: node ‘@ref{node,,,file name}’ see (file
-name)node:: ‘@ref{node,,,,manual}’ see ()node:: ‘@ref{node,cross ref
-name,title,}’ see cross ref name: node ‘@ref{node,cross ref name,,file
-name}’ see cross ref name: (file name)node ‘@ref{node,cross ref
-name,,,manual}’ see cross ref name: ()node ‘@ref{node,cross ref
-name,title,file name}’ see cross ref name: (file name)node
-‘@ref{node,cross ref name,title,,manual}’ see cross ref name: ()node
-‘@ref{node,cross ref name,title, file name, manual}’ see cross ref name:
-(file name)node ‘@ref{node,,title,file name}’ see title: (file name)node
-‘@ref{node,,title,,manual}’ see title: ()node ‘@ref{node,,title, file
-name, manual}’ see title: (file name)node ‘@ref{node,,,file
-name,manual}’ see (file name)node:: ‘@ref{,cross ref name,title,}’ see
-cross ref name: ‘@ref{,cross ref name,,file name}’ see cross ref name:
-(file name) ‘@ref{,cross ref name,,,manual}’ see cross ref name: ()
-‘@ref{,cross ref name,title,file name}’ see cross ref name: (file name)
-‘@ref{,cross ref name,title,,manual}’ see cross ref name: ()
-‘@ref{,cross ref name,title, file name, manual}’ see cross ref name:
-(file name) ‘@ref{,,title,file name}’ see title: (file name)
-‘@ref{,,title,,manual}’ see title: () ‘@ref{,,title, file name, manual}’
-see title: (file name) ‘@ref{,,,file name,manual}’ see (file name)::
+   ‘@ref{,cross ref name}’ cross ref name: ‘@ref{,,title}’ title:
+‘@ref{,,,file name}’ (file name):: ‘@ref{,,,,manual}’ ()::
+‘@ref{node,cross ref name}’ cross ref name: node ‘@ref{node,,title}’
+title: node ‘@ref{node,,,file name}’ (file name)node::
+‘@ref{node,,,,manual}’ ()node:: ‘@ref{node,cross ref name,title,}’ cross
+ref name: node ‘@ref{node,cross ref name,,file name}’ cross ref name:
+(file name)node ‘@ref{node,cross ref name,,,manual}’ cross ref name:
+()node ‘@ref{node,cross ref name,title,file name}’ cross ref name: (file
+name)node ‘@ref{node,cross ref name,title,,manual}’ cross ref name:
+()node ‘@ref{node,cross ref name,title, file name, manual}’ cross ref
+name: (file name)node ‘@ref{node,,title,file name}’ title: (file
+name)node ‘@ref{node,,title,,manual}’ title: ()node ‘@ref{node,,title,
+file name, manual}’ title: (file name)node ‘@ref{node,,,file
+name,manual}’ (file name)node:: ‘@ref{,cross ref name,title,}’ cross ref
+name: ‘@ref{,cross ref name,,file name}’ cross ref name: (file name)
+‘@ref{,cross ref name,,,manual}’ cross ref name: () ‘@ref{,cross ref
+name,title,file name}’ cross ref name: (file name) ‘@ref{,cross ref
+name,title,,manual}’ cross ref name: () ‘@ref{,cross ref name,title,
+file name, manual}’ cross ref name: (file name) ‘@ref{,,title,file
+name}’ title: (file name) ‘@ref{,,title,,manual}’ title: ()
+‘@ref{,,title, file name, manual}’ title: (file name) ‘@ref{,,,file
+name,manual}’ (file name)::
 
-   ‘@inforef{,cross ref name }’ see cross ref name: ‘@inforef{,,file
-name}’ see (file name):: ‘@inforef{,cross ref name, file name}’ see
-cross ref name: (file name) ‘@inforef{}’ see ::
+   ‘@inforef{,cross ref name }’ See cross ref name: ‘@inforef{,,file
+name}’ See (file name):: ‘@inforef{,cross ref name, file name}’ See
+cross ref name: (file name) ‘@inforef{}’ See ::
 
-   ‘@inforef{node, cross ref name, file name}’ see cross ref name: (file
-name)node ‘@inforef{node}’ see node:: ‘@inforef{node, cross ref name}’
-see cross ref name: node ‘@inforef{node,,file name}’ see (file
+   ‘@inforef{node, cross ref name, file name}’ See cross ref name: (file
+name)node ‘@inforef{node}’ See node:: ‘@inforef{node, cross ref name}’
+See cross ref name: node ‘@inforef{node,,file name}’ See (file
 name)node::
 ';
 

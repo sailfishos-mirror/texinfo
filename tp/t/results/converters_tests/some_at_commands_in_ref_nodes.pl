@@ -1492,8 +1492,8 @@ $result_converted{'plaintext'}->{'some_at_commands_in_ref_nodes'} = 'Top
 1 A SC node ï ï Ḕ ł Ḉ ¡
 ***********************
 
-see see (manual)a *strong* ref with SC, a i trema ï, a dotless i trema ï
-Ḕ and exclamdown ¡::.
+see (manual)a *strong* ref with SC, a i trema ï, a dotless i trema ï Ḕ
+and exclamdown ¡::.
 
    See A SC Ñ Å TeX node ï ï Ḕ ł Ḉ ¡::.
 ';

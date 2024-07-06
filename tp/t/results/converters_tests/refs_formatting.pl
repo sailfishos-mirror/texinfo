@@ -3030,43 +3030,41 @@ $result_floats{'refs_formatting'} = {};
 $result_converted{'plaintext'}->{'refs_formatting'} = '1 chapter
 *********
 
-‘@ref{chapter,cross ref name}’ see cross ref name: chapter
-‘@ref{chapter,,title}’ see title: chapter ‘@ref{chapter,,,file name}’
-see (file name)chapter:: ‘@ref{chapter,,,,manual}’ see ()chapter::
-‘@ref{chapter,cross ref name,title,}’ see cross ref name: chapter
-‘@ref{chapter,cross ref name,,file name}’ see cross ref name: (file
-name)chapter ‘@ref{chapter,cross ref name,,,manual}’ see cross ref name:
-()chapter ‘@ref{chapter,cross ref name,title,file name}’ see cross ref
-name: (file name)chapter ‘@ref{chapter,cross ref name,title,,manual}’
-see cross ref name: ()chapter ‘@ref{chapter,cross ref name,title, file
-name, manual}’ see cross ref name: (file name)chapter
-‘@ref{chapter,,title,file name}’ see title: (file name)chapter
-‘@ref{chapter,,title,,manual}’ see title: ()chapter
-‘@ref{chapter,,title, file name, manual}’ see title: (file name)chapter
-‘@ref{chapter,,,file name,manual}’ see (file name)chapter::
+‘@ref{chapter,cross ref name}’ cross ref name: chapter
+‘@ref{chapter,,title}’ title: chapter ‘@ref{chapter,,,file name}’ (file
+name)chapter:: ‘@ref{chapter,,,,manual}’ ()chapter:: ‘@ref{chapter,cross
+ref name,title,}’ cross ref name: chapter ‘@ref{chapter,cross ref
+name,,file name}’ cross ref name: (file name)chapter ‘@ref{chapter,cross
+ref name,,,manual}’ cross ref name: ()chapter ‘@ref{chapter,cross ref
+name,title,file name}’ cross ref name: (file name)chapter
+‘@ref{chapter,cross ref name,title,,manual}’ cross ref name: ()chapter
+‘@ref{chapter,cross ref name,title, file name, manual}’ cross ref name:
+(file name)chapter ‘@ref{chapter,,title,file name}’ title: (file
+name)chapter ‘@ref{chapter,,title,,manual}’ title: ()chapter
+‘@ref{chapter,,title, file name, manual}’ title: (file name)chapter
+‘@ref{chapter,,,file name,manual}’ (file name)chapter::
 
-   ‘@ref{(pman)anode,cross ref name}’ see cross ref name: (pman)anode
-‘@ref{(pman)anode,,title}’ see title: (pman)anode
-‘@ref{(pman)anode,,,file name}’ see (file name)(pman)anode::
-‘@ref{(pman)anode,,,,manual}’ see ()(pman)anode::
-‘@ref{(pman)anode,cross ref name,title,}’ see cross ref name:
-(pman)anode ‘@ref{(pman)anode,cross ref name,,file name}’ see cross ref
-name: (file name)(pman)anode ‘@ref{(pman)anode,cross ref name,,,manual}’
-see cross ref name: ()(pman)anode ‘@ref{(pman)anode,cross ref
-name,title,file name}’ see cross ref name: (file name)(pman)anode
-‘@ref{(pman)anode,cross ref name,title,,manual}’ see cross ref name:
+   ‘@ref{(pman)anode,cross ref name}’ cross ref name: (pman)anode
+‘@ref{(pman)anode,,title}’ title: (pman)anode ‘@ref{(pman)anode,,,file
+name}’ (file name)(pman)anode:: ‘@ref{(pman)anode,,,,manual}’
+()(pman)anode:: ‘@ref{(pman)anode,cross ref name,title,}’ cross ref
+name: (pman)anode ‘@ref{(pman)anode,cross ref name,,file name}’ cross
+ref name: (file name)(pman)anode ‘@ref{(pman)anode,cross ref
+name,,,manual}’ cross ref name: ()(pman)anode ‘@ref{(pman)anode,cross
+ref name,title,file name}’ cross ref name: (file name)(pman)anode
+‘@ref{(pman)anode,cross ref name,title,,manual}’ cross ref name:
 ()(pman)anode ‘@ref{(pman)anode,cross ref name,title, file name,
-manual}’ see cross ref name: (file name)(pman)anode
-‘@ref{(pman)anode,,title,file name}’ see title: (file name)(pman)anode
-‘@ref{(pman)anode,,title,,manual}’ see title: ()(pman)anode
-‘@ref{(pman)anode,,title, file name, manual}’ see title: (file
-name)(pman)anode ‘@ref{(pman)anode,,,file name,manual}’ see (file
+manual}’ cross ref name: (file name)(pman)anode
+‘@ref{(pman)anode,,title,file name}’ title: (file name)(pman)anode
+‘@ref{(pman)anode,,title,,manual}’ title: ()(pman)anode
+‘@ref{(pman)anode,,title, file name, manual}’ title: (file
+name)(pman)anode ‘@ref{(pman)anode,,,file name,manual}’ (file
 name)(pman)anode::
 
-   ‘@inforef{chapter, cross ref name, file name}’ see cross ref name:
-(file name)chapter ‘@inforef{chapter}’ see chapter:: ‘@inforef{chapter,
-cross ref name}’ see cross ref name: chapter ‘@inforef{chapter,,file
-name}’ see (file name)chapter::
+   ‘@inforef{chapter, cross ref name, file name}’ See cross ref name:
+(file name)chapter ‘@inforef{chapter}’ See chapter:: ‘@inforef{chapter,
+cross ref name}’ See cross ref name: chapter ‘@inforef{chapter,,file
+name}’ See (file name)chapter::
 ';
 
 

@@ -886,7 +886,7 @@ $result_converted{'plaintext'}->{'contain_plain_text_nestings'} = 'top
 
 Text ‘code in w’ text.  <‘code in key’ text>
 
-   Text see cross in w: Top text.  <see cross in key: Top text>
+   Text cross in w: Top text.  <cross in key: Top text>
 
 * Menu:
 

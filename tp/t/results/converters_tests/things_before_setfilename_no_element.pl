@@ -1042,9 +1042,9 @@ $result_indices_sort_strings{'things_before_setfilename_no_element'} = {
 
 
 
-$result_converted{'plaintext'}->{'things_before_setfilename_no_element'} = 'Ref to anchor see An anchor::
+$result_converted{'plaintext'}->{'things_before_setfilename_no_element'} = 'Ref to anchor An anchor::
 
-   Ref to footnote anchor see Anchor in footnote::
+   Ref to footnote anchor Anchor in footnote::
 
 ';
 

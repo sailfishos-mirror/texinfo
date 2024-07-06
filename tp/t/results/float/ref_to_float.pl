@@ -325,9 +325,9 @@ Text 1
 In foat 2.
 
 1
-see Text 1: Label1
+Text 1: Label1
 
-   see 1: Label2
+   1: Label2
 ';
 
 

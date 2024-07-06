@@ -2016,10 +2016,10 @@ sub format_ref($$$$)
     $args[2] = undef;
   }
 
-  if ($cmdname eq 'xref') {
+  if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
     _convert($self, {'type' => '_stop_upper_case',
                      'contents' => [{'text' => 'See '}]});
-  } else {
+  } elsif ($cmdname eq 'pxref') {
     _convert($self, {'type' => '_stop_upper_case',
                      'contents' => [{'text' => 'see '}]});
   }

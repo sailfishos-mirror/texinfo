@@ -1420,7 +1420,7 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = 'top
 
    See anchor in html::.
 
-   see anchor in tex::.
+   anchor in tex::.
 
    newidx entry
 

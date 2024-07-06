@@ -3025,38 +3025,37 @@ $result_floats{'top_in_ref'} = {};
 
 
 
-$result_converted{'plaintext'}->{'top_in_ref'} = '‘@ref{Top,cross ref name}’ see cross ref name: Top ‘@ref{Top,,title}’
-see title: Top ‘@ref{Top,,,file name}’ see (file name)Top::
-‘@ref{Top,,,,manual}’ see ()Top:: ‘@ref{Top,cross ref name,title,}’ see
-cross ref name: Top ‘@ref{Top,cross ref name,,file name}’ see cross ref
-name: (file name)Top ‘@ref{Top,cross ref name,,,manual}’ see cross ref
-name: ()Top ‘@ref{Top,cross ref name,title,file name}’ see cross ref
-name: (file name)Top ‘@ref{Top,cross ref name,title,,manual}’ see cross
-ref name: ()Top ‘@ref{Top,cross ref name,title, file name, manual}’ see
-cross ref name: (file name)Top ‘@ref{Top,,title,file name}’ see title:
-(file name)Top ‘@ref{Top,,title,,manual}’ see title: ()Top
-‘@ref{Top,,title, file name, manual}’ see title: (file name)Top
-‘@ref{Top,,,file name,manual}’ see (file name)Top::
+$result_converted{'plaintext'}->{'top_in_ref'} = '‘@ref{Top,cross ref name}’ cross ref name: Top ‘@ref{Top,,title}’ title:
+Top ‘@ref{Top,,,file name}’ (file name)Top:: ‘@ref{Top,,,,manual}’
+()Top:: ‘@ref{Top,cross ref name,title,}’ cross ref name: Top
+‘@ref{Top,cross ref name,,file name}’ cross ref name: (file name)Top
+‘@ref{Top,cross ref name,,,manual}’ cross ref name: ()Top
+‘@ref{Top,cross ref name,title,file name}’ cross ref name: (file
+name)Top ‘@ref{Top,cross ref name,title,,manual}’ cross ref name: ()Top
+‘@ref{Top,cross ref name,title, file name, manual}’ cross ref name:
+(file name)Top ‘@ref{Top,,title,file name}’ title: (file name)Top
+‘@ref{Top,,title,,manual}’ title: ()Top ‘@ref{Top,,title, file name,
+manual}’ title: (file name)Top ‘@ref{Top,,,file name,manual}’ (file
+name)Top::
 
-   ‘@ref{(pman)Top,cross ref name}’ see cross ref name: (pman)Top
-‘@ref{(pman)Top,,title}’ see title: (pman)Top ‘@ref{(pman)Top,,,file
-name}’ see (file name)(pman)Top:: ‘@ref{(pman)Top,,,,manual}’ see
-()(pman)Top:: ‘@ref{(pman)Top,cross ref name,title,}’ see cross ref
-name: (pman)Top ‘@ref{(pman)Top,cross ref name,,file name}’ see cross
-ref name: (file name)(pman)Top ‘@ref{(pman)Top,cross ref name,,,manual}’
-see cross ref name: ()(pman)Top ‘@ref{(pman)Top,cross ref
-name,title,file name}’ see cross ref name: (file name)(pman)Top
-‘@ref{(pman)Top,cross ref name,title,,manual}’ see cross ref name:
-()(pman)Top ‘@ref{(pman)Top,cross ref name,title, file name, manual}’
-see cross ref name: (file name)(pman)Top ‘@ref{(pman)Top,,title,file
-name}’ see title: (file name)(pman)Top ‘@ref{(pman)Top,,title,,manual}’
-see title: ()(pman)Top ‘@ref{(pman)Top,,title, file name, manual}’ see
-title: (file name)(pman)Top ‘@ref{(pman)Top,,,file name,manual}’ see
-(file name)(pman)Top::
+   ‘@ref{(pman)Top,cross ref name}’ cross ref name: (pman)Top
+‘@ref{(pman)Top,,title}’ title: (pman)Top ‘@ref{(pman)Top,,,file name}’
+(file name)(pman)Top:: ‘@ref{(pman)Top,,,,manual}’ ()(pman)Top::
+‘@ref{(pman)Top,cross ref name,title,}’ cross ref name: (pman)Top
+‘@ref{(pman)Top,cross ref name,,file name}’ cross ref name: (file
+name)(pman)Top ‘@ref{(pman)Top,cross ref name,,,manual}’ cross ref name:
+()(pman)Top ‘@ref{(pman)Top,cross ref name,title,file name}’ cross ref
+name: (file name)(pman)Top ‘@ref{(pman)Top,cross ref
+name,title,,manual}’ cross ref name: ()(pman)Top ‘@ref{(pman)Top,cross
+ref name,title, file name, manual}’ cross ref name: (file name)(pman)Top
+‘@ref{(pman)Top,,title,file name}’ title: (file name)(pman)Top
+‘@ref{(pman)Top,,title,,manual}’ title: ()(pman)Top
+‘@ref{(pman)Top,,title, file name, manual}’ title: (file name)(pman)Top
+‘@ref{(pman)Top,,,file name,manual}’ (file name)(pman)Top::
 
-   ‘@inforef{Top, cross ref name, file name}’ see cross ref name: (file
-name)Top ‘@inforef{Top}’ see Top:: ‘@inforef{Top, cross ref name}’ see
-cross ref name: Top ‘@inforef{Top,,file name}’ see (file name)Top::
+   ‘@inforef{Top, cross ref name, file name}’ See cross ref name: (file
+name)Top ‘@inforef{Top}’ See Top:: ‘@inforef{Top, cross ref name}’ See
+cross ref name: Top ‘@inforef{Top,,file name}’ See (file name)Top::
 ';
 
 

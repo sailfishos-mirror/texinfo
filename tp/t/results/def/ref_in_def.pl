@@ -711,10 +711,8 @@ $result_indices_sort_strings{'ref_in_def'} = {
 
 
 
-$result_converted{'plaintext'}->{'ref_in_def'} = ' - see myanchor::: see myanchor:: see myanchor:: see myanchor:: see
-          myanchor::
- - see myanchor::: see myanchor:: see myanchor:: see myanchor:: see
-          myanchor::
+$result_converted{'plaintext'}->{'ref_in_def'} = ' - myanchor::: myanchor:: see myanchor:: see myanchor:: see myanchor::
+ - myanchor::: myanchor:: see myanchor:: see myanchor:: see myanchor::
      T
 
 ';

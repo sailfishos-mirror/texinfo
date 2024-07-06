@@ -15680,60 +15680,60 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 27 <http://somewhere_aaa> text (url) ls
 ***************************************
 
-see { }::
+{ }::
 
-   see     !
+       !
 . . ? @::
 
-   see @ { } \\ #::
+   @ { } \\ #::
 
-   see LaTeX TeX • , © ... ...::
+   LaTeX TeX • , © ... ...::
 
-   see ≡ error→ € ¡ ↦ −::
+   ≡ error→ € ¡ ↦ −::
 
-   see ≥ ≤ →::
+   ≥ ≤ →::
 
-   see ª º ⋆ £ ⊣ ¿ ®::
+   ª º ⋆ £ ⊣ ¿ ®::
 
-   see ⇒ ° a b a sunny day å::
+   ⇒ ° a b a sunny day å::
 
-   see Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
+   Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 
-   see ä ẽ î â à é ç ē e̊ e̋ ę::
+   ä ẽ î â à é ç ē e̊ e̋ ę::
 
-   see ė ĕ e̲ ẹ ě ȷ e͡e::
+   ė ĕ e̲ ẹ ě ȷ e͡e::
 
-   see ı Ḕ Ḉ::
+   ı Ḕ Ḉ::
 
-   see “ ” ‘ ’ „ ‚::
+   “ ” ‘ ’ „ ‚::
 
-   see « » « » ‹ ›::
+   « » « » ‹ ›::
 
-   see `` \'\' --- -- ` \'::
+   `` \'\' --- -- ` \'::
 
-   see AAA (fff) AAA BBB::
+   AAA (fff) AAA BBB::
 
-   see CCC (rrr) CCC DDD::
+   CCC (rrr) CCC DDD::
 
-   see the someone <someone@somewher> <no_explain@there>::
+   the someone <someone@somewher> <no_explain@there>::
 
-   see [f--ile1] Image description""\\.::
+   [f--ile1] Image description""\\.::
 
-   see  @ {} . ::
+    @ {} . ::
 
-   see cite asis in @w b in r SC *str* t VAR dfn i::
+   cite asis in @w b in r SC *str* t VAR dfn i::
 
-   see env code option samp command file C-x <ESC>::
+   env code option samp command file C-x <ESC>::
 
-   see 8.27in::
+   8.27in::
 
-   see sansserif slanted::
+   sansserif slanted::
 
-   see indicateurl::
+   indicateurl::
 
-   see _{g}H 3^{rd}::
+   _{g}H 3^{rd}::
 
-   see <http://somewhere_aaa> text (url) ls::
+   <http://somewhere_aaa> text (url) ls::
 
 ';
 
