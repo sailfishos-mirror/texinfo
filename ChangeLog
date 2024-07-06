@@ -1,5 +1,11 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/MiscXS.xs (xs_process_text, xs_unicode_text)
+	(xs_entity_text, xs_default_format_protect_text): use SvPVutf8_nolen
+	to get SV argument and convert to text more simply.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/MiscXS.xs (xs_process_text),
 	tp/Texinfo/Convert/Plaintext.pm (_process_text_internal): add
 	prototype.

@@ -33,19 +33,12 @@ MODULE = Texinfo::MiscXS  PACKAGE = Texinfo::MiscXS  PREFIX = xs_
 PROTOTYPES: DISABLE
 
 SV *
-xs_process_text (text_in)
-     SV *text_in
+xs_process_text (text)
+     char *text = (char *)SvPVutf8_nolen ($arg);
  PROTOTYPE: $
  PREINIT:
-     char *text;
      char *retval;
  CODE:
-     /* Make sure the input is in UTF8. */
-     if (!SvUTF8 (text_in))
-       sv_utf8_upgrade (text_in);
-
-     text = SvPV_nolen (text_in);
-
      retval = xs_process_text (text);
 
      RETVAL = newSVpv (retval, 0);
@@ -54,11 +47,10 @@ xs_process_text (text_in)
      RETVAL
 
 SV *
-xs_unicode_text (text_in, ...)
-     SV *text_in
+xs_unicode_text (text, ...)
+     char *text = (char *)SvPVutf8_nolen ($arg);
  PREINIT:
      int in_code = 0;
-     char *text;
      char *retval;
  CODE:
      items--;
@@ -67,12 +59,6 @@ xs_unicode_text (text_in, ...)
          if (SvOK(ST(1)))
            in_code = (int) SvIV(ST(1));
        }
-     /* Make sure the input is in UTF-8. */
-     if (!SvUTF8 (text_in))
-       sv_utf8_upgrade (text_in);
-
-     text = SvPV_nolen (text_in);
-
      retval = xs_unicode_text (text, in_code);
 
      RETVAL = newSVpv (retval, 0);
@@ -82,18 +68,11 @@ xs_unicode_text (text_in, ...)
      RETVAL
 
 SV *
-xs_entity_text (text_in)
-     SV *text_in
+xs_entity_text (text)
+     char *text = (char *)SvPVutf8_nolen ($arg);
  PREINIT:
-     char *text;
      char *retval;
  CODE:
-     /* Make sure the input is in UTF-8. */
-     if (!SvUTF8 (text_in))
-       sv_utf8_upgrade (text_in);
-
-     text = SvPV_nolen (text_in);
-
      retval = xs_entity_text (text);
 
      RETVAL = newSVpv (retval, 0);
@@ -162,19 +141,12 @@ xs_parse_texi_regex (text)
      SvUTF8_on(ST(7));
 
 SV *
-xs_default_format_protect_text (self, text_in)
+xs_default_format_protect_text (self, text)
      SV *self
-     SV *text_in
+     char *text = (char *)SvPVutf8_nolen ($arg);
  PREINIT:
-     char *text;
      char *retval;
  CODE:
-     /* Make sure the input is in UTF-8. */
-     if (!SvUTF8 (text_in))
-       sv_utf8_upgrade (text_in);
-
-     text = SvPV_nolen (text_in);
-
      retval = xs_default_format_protect_text (text);
 
      RETVAL = newSVpv (retval, 0);
