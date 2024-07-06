@@ -9002,9 +9002,7 @@ sub _load_htmlxref_files {
 #   Set through the shared_conversion_state API (among others):
 #  explained_commands         # used only in an @-command conversion function
 #
-#     API exists
-#  current_filename
-#  current_output_unit
+#     API converter_info get_info
 #  document_name
 #  destination_directory
 #  paragraph_symbol
@@ -9016,9 +9014,16 @@ sub _load_htmlxref_files {
 #  title_tree
 #  documentdescription_string
 #  copying_comment
+#  jslicenses
+#
+#     API exists
+#  current_filename
+#  current_output_unit
 #  index_entries
 #  index_entries_by_letter
-#  jslicenses
+#
+#    API exists in Texinfo::Config for setting, not for getting
+#  stage_handlers
 #
 #    API exists
 #  css_element_class_styles
@@ -9360,6 +9365,8 @@ sub converter_initialize($)
     $self->{'special_unit_body'}->{$special_unit_variety}
       = $customized_special_unit_body->{$special_unit_variety};
   }
+
+  $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
 
   # NOTE we reset silently if the split specification is not one known.
   # The main program warns if the specific command line option value is
@@ -13334,9 +13341,7 @@ sub output($$)
     $self->set_conf('SHOW_TITLE', 1);
   }
 
-  # TODO call in converter_initialize
-  my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
-
+  my $stage_handlers = $self->{'stage_handlers'};
   my $setup_status = $self->run_stage_handlers($stage_handlers,
                                                $document, 'setup');
   unless ($setup_status < $handler_fatal_error_level

@@ -1,5 +1,11 @@
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize, output): move the
+	call of Texinfo::Config::GNUT_get_stage_handlers to
+	converter_initialize.
+
+2024-07-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/init/book.pm (book_unit_file_name),
 	tp/t/init/misc_file_collision.init (test_misc_file_name),
 	tp/t/init/only_toc_out.init (toc_out_element_file_name): access
