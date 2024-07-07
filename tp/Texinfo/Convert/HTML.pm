@@ -13358,25 +13358,6 @@ sub _init_output($)
   # pass to XS.
   _XS_reset_output_init_conf($self);
 
-  return 1;
-}
-
-# Main function for outputting a manual in HTML.
-# $SELF is the output converter object of class Texinfo::Convert::HTML (this
-# module), and $DOCUMENT is the parsed document from the parser and structuring
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
-
-  $self->conversion_initialization($document);
-
-  my $success_status = _init_output($self);
-  unless ($success_status) {
-    $self->conversion_finalization();
-    return undef;
-  }
-
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $structure_preamble_document_language = $self->get_conf('documentlanguage');
@@ -13421,6 +13402,25 @@ sub output($$)
   }
 
   $self->{'converter_info'}->{'jslicenses'} = $jslicenses;
+
+  return 1;
+}
+
+# Main function for outputting a manual in HTML.
+# $SELF is the output converter object of class Texinfo::Convert::HTML (this
+# module), and $DOCUMENT is the parsed document from the parser and structuring
+sub output($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  $self->conversion_initialization($document);
+
+  my $success_status = _init_output($self);
+  unless ($success_status) {
+    $self->conversion_finalization();
+    return undef;
+  }
 
   $self->_prepare_css();
 

@@ -8,6 +8,21 @@
 
 2024-07-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_simpletitle):
+	call build_simpletitle with converter_info.
+
+	* tp/Texinfo/Convert/HTML.pm (_init_output, output),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_init_output),
+	tp/Texinfo/XS/convert/build_html_perl_state.c (pass_jslicenses),
+	tp/Texinfo/XS/convert/convert_html.c (contents_elements_options)
+	(conf_for_documentlanguage, fill_jslicense_file_info)
+	(html_init_output): move BODY_ELEMENT_ATTRIBUTES setting and
+	some set_global_document_commands calls to init_output.  Move
+	jslicences data setting to init_output, add to XS interface and add
+	pass_jslicenses to build jslicense data from C to Perl.
+
+2024-07-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (html_free_direction_icons): reset number
 	and list to 0 as the icon list structure may be reused.
 

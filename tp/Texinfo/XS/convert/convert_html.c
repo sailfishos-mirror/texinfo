@@ -1794,13 +1794,14 @@ add_special_target (CONVERTER *self, enum special_target_type type,
 }
 
 
-/*
 static const enum command_id contents_elements_options[]
              = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
- */
 
 static const enum command_id conf_for_special_units[]
                           = {CM_footnotestyle, 0};
+
+static const enum command_id conf_for_documentlanguage[]
+                          = {CM_documentlanguage, 0};
 
 void
 html_prepare_conversion_units (CONVERTER *self)
@@ -17632,11 +17633,24 @@ html_conversion_finalization (CONVERTER *self)
 
 }
 
+static void
+fill_jslicense_file_info (JSLICENSE_FILE_INFO *jslicense_file_info,
+                          const char *filename, const char *license,
+                          const char *url, const char *source)
+{
+  jslicense_file_info->filename = strdup (filename);
+  jslicense_file_info->license = strdup (license);
+  jslicense_file_info->url = strdup (url);
+  jslicense_file_info->source = strdup (source);
+}
+
 int
 html_init_output (CONVERTER *self)
 {
   int handler_fatal_error_level;
   int setup_status;
+  int js_categories_list_nr = 0;
+  const char *structure_preamble_document_language;
 
   if (self->conf->OUTFILE.o.string)
     {
@@ -17736,6 +17750,68 @@ html_init_output (CONVERTER *self)
     return 0;
 
   copy_options (self->init_conf, self->conf);
+
+  set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
+
+  structure_preamble_document_language
+    = self->conf->documentlanguage.o.string;
+
+  if (structure_preamble_document_language
+      && strlen (structure_preamble_document_language))
+    {
+      char *body_element_attributes;
+      xasprintf (&body_element_attributes, "lang=\"%s\"",
+                 structure_preamble_document_language);
+      set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
+                0, body_element_attributes);
+      free (body_element_attributes);
+    }
+  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
+
+  /* the presence of contents elements in the document is used in diverse
+     places, set it once for all here */
+  set_global_document_commands (self, CL_last, contents_elements_options);
+
+  if (self->conf->HTML_MATH.o.string
+      && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))
+    js_categories_list_nr++;
+
+  if (self->conf->INFO_JS_DIR.o.string)
+    js_categories_list_nr++;
+
+  if (js_categories_list_nr > 0)
+    {
+      int i = 0;
+      initialize_js_categories_list (&self->jslicenses, js_categories_list_nr);
+      if (self->conf->HTML_MATH.o.string
+          && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))
+        {
+          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+            = &self->jslicenses.list[i];
+          initialize_jslicense_files (jslicences_files_info, "mathjax", 1);
+          fill_jslicense_file_info (&jslicences_files_info->list[0],
+                                    self->conf->MATHJAX_SCRIPT.o.string,
+                                    "Apache License, Version 2.0.",
+                                "https://www.apache.org/licenses/LICENSE-2.0",
+                                    self->conf->MATHJAX_SOURCE.o.string);
+          i++;
+        }
+      if (self->conf->INFO_JS_DIR.o.string)
+        {
+          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+            = &self->jslicenses.list[i];
+          initialize_jslicense_files (jslicences_files_info, "infojs", 2);
+          fill_jslicense_file_info (&jslicences_files_info->list[0],
+                                    "js/info.js",
+                                    "GNU General Public License 3.0 or later",
+                                    "http://www.gnu.org/licenses/gpl-3.0.html",
+                                    "js/info.js");
+          fill_jslicense_file_info (&jslicences_files_info->list[1],
+                                    "js/modernizr.js", "Expat",
+                                    "http://www.jclark.com/xml/copying.txt",
+                                    "js/modernizr.js");
+        }
+    }
 
   return 1;
 }

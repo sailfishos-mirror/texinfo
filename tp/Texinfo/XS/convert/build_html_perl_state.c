@@ -552,3 +552,42 @@ build_simpletitle (CONVERTER *converter, HV *converter_info_hv)
             newSVpv (builtin_command_name (converter->simpletitle_cmd), 0), 0);
 }
 
+void
+pass_jslicenses (JSLICENSE_CATEGORY_LIST *jslicenses, HV *converter_info_hv)
+{
+  HV *jslicenses_hv;
+  size_t i;
+
+  dTHX;
+
+  jslicenses_hv = newHV ();
+
+  for (i = 0; i < jslicenses->number; i++)
+    {
+      size_t j;
+      JSLICENSE_FILE_INFO_LIST *jslicences_files_info = &jslicenses->list[i];
+      SV *category_sv = newSVpv_utf8 (jslicences_files_info->category, 0);
+      HV *jslicences_files_info_hv = newHV ();
+      hv_store_ent (jslicenses_hv, category_sv,
+                    newRV_noinc ((SV *)jslicences_files_info_hv), 0);
+      for (j = 0; j < jslicences_files_info->number; j++)
+        {
+          JSLICENSE_FILE_INFO *jslicense_file_info
+            = &jslicences_files_info->list[j];
+          SV *filename_sv = newSVpv_utf8 (jslicense_file_info->filename, 0);
+          AV *jslicence_file_info_av = newAV ();
+          hv_store_ent (jslicences_files_info_hv, filename_sv,
+                        newRV_noinc ((SV *)jslicence_file_info_av), 0);
+          av_push (jslicence_file_info_av,
+                   newSVpv_utf8 (jslicense_file_info->license, 0));
+          av_push (jslicence_file_info_av,
+                   newSVpv_utf8 (jslicense_file_info->url, 0));
+          av_push (jslicence_file_info_av,
+                   newSVpv_utf8 (jslicense_file_info->source, 0));
+        }
+    }
+
+  hv_store (converter_info_hv, "jslicenses", strlen ("jslicenses"),
+            newRV_noinc ((SV *) jslicenses_hv), 0);
+}
+

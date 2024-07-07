@@ -566,6 +566,12 @@ html_init_output (SV *converter_in)
          self = get_sv_converter (converter_in, "html_init_output");
          if (self)
            {
+             HV *converter_hv = (HV *) SvRV (converter_in);
+             SV **converter_info_sv
+                 = hv_fetch (converter_hv, "converter_info",
+                             strlen ("converter_info"), 0);
+             HV *converter_info_hv = (HV *) SvRV (*converter_info_sv);
+
              status = html_init_output (self);
 
              /* internal links code is in Perl */
@@ -575,16 +581,15 @@ html_init_output (SV *converter_in)
              if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
                self->external_references_number++;
 
-             if (self->external_references_number
-                 && self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
                {
-                 HV *converter_hv = (HV *) SvRV (converter_in);
                  HV *options_latex_math_hv =
-                   latex_build_options_for_convert_to_latex_math (self);
+                 latex_build_options_for_convert_to_latex_math (self);
                  hv_store (converter_hv, "options_latex_math",
                            strlen ("options_latex_math"),
                            newRV_noinc ((SV *)options_latex_math_hv), 0);
                }
+             pass_jslicenses (&self->jslicenses, converter_info_hv);
            }
          RETVAL = status;
     OUTPUT:
@@ -2170,7 +2175,12 @@ html_prepare_simpletitle (SV *converter_in)
              if (self->simpletitle_tree)
                {
                  HV *converter_hv = (HV *) SvRV (converter_in);
-                 build_simpletitle (self, converter_hv);
+                 SV **converter_info_sv
+                    = hv_fetch (converter_hv, "converter_info",
+                                strlen ("converter_info"), 0);
+                 HV *converter_info_hv = (HV *) SvRV (*converter_info_sv);
+
+                 build_simpletitle (self, converter_info_hv);
                }
            }
 
