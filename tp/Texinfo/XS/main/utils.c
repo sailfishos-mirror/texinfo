@@ -1051,7 +1051,8 @@ destroy_strings_list (STRING_LIST *strings)
 
 
 
-void
+/* FIXME does something similar as set_conf in converter.c */
+static void
 set_conf_string (OPTION *option, const char *value)
 {
   if (option->type != GOT_char && option->type != GOT_bytes)
@@ -1609,6 +1610,8 @@ html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
 
   html_clear_direction_icons (direction_icons);
   free (direction_icons->list);
+  direction_icons->number = 0;
+  direction_icons->list = 0;
 }
 
 
@@ -1721,6 +1724,134 @@ initialize_option (OPTION *option, enum global_option_type type)
 
       default:
         break;
+    }
+}
+
+void
+copy_option (OPTION *destination, const OPTION *source)
+{
+  switch (source->type)
+    {
+      case GOT_integer:
+        destination->o.integer = source->o.integer;
+        break;
+
+      case GOT_char:
+      case GOT_bytes:
+        free (destination->o.string);
+        if (!source->o.string)
+          destination->o.string = 0;
+        else
+          destination->o.string = strdup (source->o.string);
+        break;
+
+      case GOT_bytes_string_list:
+      case GOT_file_string_list:
+      case GOT_char_string_list:
+        clear_strings_list (destination->o.strlist);
+        copy_strings (destination->o.strlist, source->o.strlist);
+        break;
+
+      case GOT_icons:
+        {
+          DIRECTION_ICON_LIST *dest_icons = destination->o.icons;
+          DIRECTION_ICON_LIST *source_icons = source->o.icons;
+          html_free_direction_icons (dest_icons);
+          if (source_icons)
+            {
+              dest_icons->number = source_icons->number;
+              if (dest_icons->number)
+                {
+                  size_t i;
+                  dest_icons->list = (char **) malloc
+                               (dest_icons->number * sizeof (char *));
+                  for (i = 0; i < dest_icons->number; i++)
+                    {
+                      if (!source_icons->list[i])
+                        dest_icons->list[i] = 0;
+                      else
+                        dest_icons->list[i] = strdup (source_icons->list[i]);
+                    }
+                }
+            }
+        }
+        break;
+
+      case GOT_buttons:
+        { /* Note that the caller should adjust BIT_user_function_number
+             of the options holding the buttons */
+          html_free_button_specification_list (destination->o.buttons);
+          if (source->o.buttons)
+            {
+              size_t i;
+              BUTTON_SPECIFICATION_LIST *result;
+              BUTTON_SPECIFICATION_LIST *s_buttons = source->o.buttons;
+              result = (BUTTON_SPECIFICATION_LIST *)
+                malloc (sizeof (BUTTON_SPECIFICATION_LIST));
+
+              result->BIT_user_function_number
+                = s_buttons->BIT_user_function_number;
+              result->number = s_buttons->number;
+              result->list = (BUTTON_SPECIFICATION *)
+                     malloc (result->number * sizeof (BUTTON_SPECIFICATION));
+              /* TODO seems like we could simply memcpy the whole list
+                 as we only copy, there is no reallocation at all */
+              memset (result->list, 0,
+                      result->number * sizeof (BUTTON_SPECIFICATION));
+              for (i = 0; i < result->number; i++)
+                {
+                  BUTTON_SPECIFICATION *button = &result->list[i];
+                  BUTTON_SPECIFICATION *s_button = &s_buttons->list[i];
+
+                  button->sv = s_button->sv;
+                  /* need to increase the counter, as it is decreased upon
+                     destroying the button */
+                  register_perl_button (button);
+                  button->type = s_button->type;
+                  if (button->type == BST_function)
+                    button->b.sv_reference = s_button->b.sv_reference;
+                  else if (button->type == BST_string)
+                    button->b.sv_string = s_button->b.sv_string;
+                  else if (button->type == BST_direction)
+                    button->b.direction = s_button->b.direction;
+                  else if (button->type == BST_direction_info)
+                    {
+                      BUTTON_SPECIFICATION_INFO *s_button_spec
+                        = s_button->b.button_info;
+                      BUTTON_SPECIFICATION_INFO *button_spec
+                        = (BUTTON_SPECIFICATION_INFO *)
+                         malloc (sizeof (BUTTON_SPECIFICATION_INFO));
+                      memset (button_spec, 0,
+                              sizeof (BUTTON_SPECIFICATION_INFO));
+                      button->b.button_info = button_spec;
+                      button_spec->type = s_button_spec->type;
+                      button_spec->direction = s_button_spec->direction;
+                      if (button_spec->type == BIT_function)
+                        {
+                          button_spec->bi.button_function.type
+                            = s_button_spec->bi.button_function.type;
+                          button_spec->bi.button_function.sv_reference
+                            = s_button_spec->bi.button_function.sv_reference;
+                        }
+                      else if (button_spec->type == BIT_string)
+                        button_spec->bi.sv_string
+                          = s_button_spec->bi.sv_string;
+                      else /* BIT_selected_direction_information_type
+                            and BIT_href_direction_information_type */
+                        button_spec->bi.direction_information_type
+                          = s_button_spec->bi.direction_information_type;
+                    }
+                }
+              destination->o.buttons = result;
+            }
+          else
+            destination->o.buttons = 0;
+        }
+        break;
+
+      default:
+        fprintf (stderr, "BUG: copy_option type not handled: %d\n",
+                source->type);
     }
 }
 

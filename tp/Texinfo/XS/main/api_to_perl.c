@@ -61,6 +61,14 @@ unregister_perl_button (BUTTON_SPECIFICATION *button)
   SvREFCNT_dec (button->sv);
 }
 
+void
+register_perl_button (BUTTON_SPECIFICATION *button)
+{
+  dTHX;
+
+  SvREFCNT_inc (button->sv);
+}
+
 char *
 get_perl_scalar_reference_value (const void *sv_string)
 {

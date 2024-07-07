@@ -69,52 +69,6 @@ get_sv_converter (SV *sv_in, const char *warn_string)
 }
 
 void
-converter_set_document (SV *converter_in, SV *document_in)
-{
-  CONVERTER *converter;
-  DOCUMENT *document;
-
-  dTHX;
-
-  converter = get_sv_converter (converter_in, "converter_set_document");
-  document = get_sv_document_document (document_in, 0);
-
-   /*
-  if (document)
-    {
-      fprintf (stderr, "XS|CONVERTER %d: Document %d\n",
-           converter->converter_descriptor, document->descriptor);
-    }
-    */
-
-  converter->document = document;
-
-  set_output_encoding (converter->conf, converter->document);
-
-  converter->convert_text_options
-    = copy_converter_options_for_convert_text (converter);
-}
-
-/* reset output_init_conf.  Can be called after it has been modified */
-void
-reset_output_init_conf (SV *sv_in)
-{
-  CONVERTER *converter;
-
-  dTHX;
-
-  converter = get_sv_converter (sv_in, "reset_output_init_conf");
-
-  if (converter)
-    {
-      HV *hv_in = (HV *)SvRV (sv_in);
-
-      copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
-                             "output_init_conf", 1);
-    }
-}
-
-void
 set_translated_commands (CONVERTER *converter, HV *hv_in)
 {
   SV **translated_commands_sv;
@@ -196,70 +150,6 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
             }
         }
     }
-}
-
-/* Texinfo::Convert::Converter generic initialization for all the converters */
-/* Called early, in particuliar before any format specific code has been
-   called */
-int
-converter_initialize (SV *converter_sv)
-{
-  HV *hv_in;
-  SV **configured_sv;
-  SV **output_format_sv;
-  int converter_descriptor = 0;
-  CONVERTER *converter;
-
-  dTHX;
-
-  converter_descriptor = new_converter ();
-  converter = retrieve_converter (converter_descriptor);
-
-  hv_in = (HV *)SvRV (converter_sv);
-
-#define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen (#key), 0);
-  FETCH(output_format)
-
-  if (output_format_sv && SvOK (*output_format_sv))
-    {
-      converter->output_format
-         = non_perl_strdup (SvPVutf8_nolen (*output_format_sv));
-    }
-
-   /*
-  fprintf (stderr, "XS|CONVERTER Init: %d; doc %d; %s\n", converter_descriptor,
-                   converter->document->descriptor, converter->output_format);
-    */
-
-  converter->conf = new_options ();
-  /* force is not set, but at this point, the configured field should not
-     be set, so it would not have an effect anyway */
-  copy_converter_conf_sv (hv_in, converter, &converter->conf, "conf", 0);
-
-  converter->init_conf = new_options ();
-  copy_converter_conf_sv (hv_in, converter, &converter->init_conf,
-                                              "converter_init_conf", 1);
-
-  FETCH(configured);
-
-  if (configured_sv && SvOK (*configured_sv))
-    {
-      get_sv_configured_options (*configured_sv, converter->conf);
-    }
-
-#undef FETCH
-  set_translated_commands (converter, hv_in);
-
-  get_expanded_formats (hv_in, &converter->expanded_formats);
-
-  converter->hv = hv_in;
-
-  /* store converter_descriptor in perl converter */
-  hv_store (hv_in, "converter_descriptor",
-            strlen ("converter_descriptor"),
-            newSViv (converter_descriptor), 0);
-
-  return converter_descriptor;
 }
 
 /* output format specific */

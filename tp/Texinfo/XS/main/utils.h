@@ -203,6 +203,8 @@ void free_indices_info (INDEX_LIST *indices_info);
 void initialize_options (OPTIONS *options);
 void clear_options (OPTIONS *options);
 void free_options (OPTIONS *options);
+void copy_options (OPTIONS *destination, const OPTIONS *source);
+
 
 OPTIONS *new_options (void);
 void set_output_encoding (OPTIONS *customization_information,
@@ -257,6 +259,7 @@ void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void initialize_option (OPTION *option, enum global_option_type type);
 void clear_option (OPTION *option);
 void free_option (OPTION *option);
+void copy_option (OPTION *destination, const OPTION *source);
 
 TARGET_FILENAME *new_target_filename (void);
 TARGET_CONTENTS_FILENAME *new_target_contents_filename (void);

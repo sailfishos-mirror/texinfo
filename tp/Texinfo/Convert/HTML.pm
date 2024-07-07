@@ -13341,12 +13341,24 @@ sub _init_output($)
   my $setup_status = $self->run_stage_handlers($self->{'stage_handlers'},
                                                $self->{'document'}, 'setup');
 
-  if ($setup_status < $handler_fatal_error_level
+  if ($setup_status <  $handler_fatal_error_level
       and $setup_status > -$handler_fatal_error_level) {
-    return 1;
   } else {
     return 0;
   }
+
+  # the configuration has potentially been modified for
+  # this output file especially.  Set a corresponding initial
+  # configuration.
+  # FIXME in C there is a full copy, except for Perl objects.
+  # It cannot be completly equivalent, but here a good equivalent
+  # would be deep copy of data and shallow copy of code references.
+  # The Clone module does that, but it is not a core module.
+  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
+  # pass to XS.
+  _XS_reset_output_init_conf($self);
+
+  return 1;
 }
 
 # Main function for outputting a manual in HTML.
@@ -13364,13 +13376,6 @@ sub output($$)
     $self->conversion_finalization();
     return undef;
   }
-
-  # the configuration has potentially been modified for
-  # this output file especially.  Set a corresponding initial
-  # configuration.
-  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
-  # pass to XS.
-  _XS_reset_output_init_conf($self);
 
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);

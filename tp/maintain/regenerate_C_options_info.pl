@@ -174,6 +174,17 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 print CODE "}\n\n";
 
+print CODE "void\ncopy_options (OPTIONS *destination, const OPTIONS *source)\n{\n";
+print CODE "  destination->BIT_user_function_number = source->BIT_user_function_number;\n";
+foreach my $category (sort(keys(%option_categories))) {
+  print CODE "\n/* ${category} */\n\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    print CODE "  copy_option (&destination->$option, &source->$option);\n";
+  }
+}
+print CODE "}\n\n";
+
 # set configured based on the name
 print CODE 'void
 set_option_key_configured (OPTIONS *options, const char *key, int configured)

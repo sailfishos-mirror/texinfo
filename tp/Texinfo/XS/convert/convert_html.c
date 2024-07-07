@@ -17731,9 +17731,13 @@ html_init_output (CONVERTER *self)
 
   if (setup_status < handler_fatal_error_level
       && setup_status > -handler_fatal_error_level)
-    return 1;
+    {}
   else
     return 0;
+
+  copy_options (self->init_conf, self->conf);
+
+  return 1;
 }
 
 void

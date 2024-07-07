@@ -155,7 +155,7 @@ set_conf_internal (OPTION *option, int int_value, const char *char_value)
 void
 set_conf (OPTION *option, int int_value, const char *char_value)
 {
-  if (option->configured)
+  if (option->configured > 0)
     return;
   set_conf_internal (option, int_value, char_value);
 }
@@ -164,30 +164,6 @@ void
 force_conf (OPTION *option, int int_value, const char *char_value)
 {
   set_conf_internal (option, int_value, char_value);
-}
-
-static void
-copy_option (OPTION *destination, OPTION *source)
-{
-  switch (source->type)
-    {
-      case GOT_integer:
-        destination->o.integer = source->o.integer;
-        break;
-
-      case GOT_char:
-      case GOT_bytes:
-        free (destination->o.string);
-        if (!source->o.string)
-          destination->o.string = 0;
-        else
-          destination->o.string = strdup (source->o.string);
-        break;
-
-      default:
-        fprintf (stderr, "BUG: copy_option type not handled: %d\n",
-                source->type);
-    }
 }
 
 /* freed by caller */
