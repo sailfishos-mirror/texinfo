@@ -50,6 +50,21 @@
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
 
+/* FIXME not sure if __CYGWIN__ is correctly handled here, like a UNIX. */
+const char *null_device_names[] = {
+#ifdef __MSDOS__
+# ifdef __DJGPP__
+ "NUL", "/dev/null",
+# else
+ "NUL",
+# endif
+#elif _WIN32
+ "NUL",
+#else
+ "/dev/null",
+#endif
+ 0};
+
 const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
@@ -1637,7 +1652,7 @@ clear_option (OPTION *option)
         option->o.integer = -1;
 
       default:
-	break;
+        break;
     }
 }
 
@@ -1669,7 +1684,7 @@ free_option (OPTION *option)
 
       case GOT_integer:
       default:
-	break;
+        break;
     }
 }
 
@@ -1705,7 +1720,7 @@ initialize_option (OPTION *option, enum global_option_type type)
         break;
 
       default:
-	break;
+        break;
     }
 }
 

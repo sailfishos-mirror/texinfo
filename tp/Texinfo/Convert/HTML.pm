@@ -107,6 +107,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
   "Texinfo::Convert::HTML::_initialize_output_state"
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
+  "Texinfo::Convert::HTML::_init_output"
+   => "Texinfo::Convert::ConvertXS::html_init_output",
   "Texinfo::Convert::HTML::conversion_finalization"
    => "Texinfo::Convert::ConvertXS::html_conversion_finalization",
   "Texinfo::Convert::HTML::_XS_reset_output_init_conf"
@@ -13249,18 +13251,10 @@ sub _node_redirections($$$$)
   return $redirection_files_done;
 }
 
-# Main function for outputting a manual in HTML.
-# $SELF is the output converter object of class Texinfo::Convert::HTML (this
-# module), and $DOCUMENT is the parsed document from the parser and structuring
-sub output($$)
+sub _init_output($)
 {
   my $self = shift;
-  my $document = shift;
 
-  $self->conversion_initialization($document);
-
-  # set here early even though actual values are only set later on.  It is
-  # therefore set in converter_info early too (using the reference).
   $self->{'current_filename'} = undef;
 
   # no splitting when writing to the null device or to stdout or returning
@@ -13283,8 +13277,11 @@ sub output($$)
 
   my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
   if (!defined($handler_fatal_error_level)) {
-    $handler_fatal_error_level
- = $Texinfo::Options::converter_customization_options{'HANDLER_FATAL_ERROR_LEVEL'};
+    $handler_fatal_error_level =
+      $Texinfo::Options::converter_customization_options{
+                                           'HANDLER_FATAL_ERROR_LEVEL'};
+    $self->force_conf('HANDLER_FATAL_ERROR_LEVEL',
+                      $handler_fatal_error_level);
   }
 
   if ($self->get_conf('HTML_MATH')
@@ -13341,11 +13338,29 @@ sub output($$)
     $self->set_conf('SHOW_TITLE', 1);
   }
 
-  my $stage_handlers = $self->{'stage_handlers'};
-  my $setup_status = $self->run_stage_handlers($stage_handlers,
-                                               $document, 'setup');
-  unless ($setup_status < $handler_fatal_error_level
-          and $setup_status > -$handler_fatal_error_level) {
+  my $setup_status = $self->run_stage_handlers($self->{'stage_handlers'},
+                                               $self->{'document'}, 'setup');
+
+  if ($setup_status < $handler_fatal_error_level
+      and $setup_status > -$handler_fatal_error_level) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+# Main function for outputting a manual in HTML.
+# $SELF is the output converter object of class Texinfo::Convert::HTML (this
+# module), and $DOCUMENT is the parsed document from the parser and structuring
+sub output($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  $self->conversion_initialization($document);
+
+  my $success_status = _init_output($self);
+  unless ($success_status) {
     $self->conversion_finalization();
     return undef;
   }
@@ -13446,8 +13461,12 @@ sub output($$)
                 $output_file, $destination_directory, $output_filename,
                 $document_name);
 
+  my $stage_handlers = $self->{'stage_handlers'};
+
   my $structure_status = $self->run_stage_handlers($stage_handlers,
                                                    $document, 'structure');
+  my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
+
   unless ($structure_status < $handler_fatal_error_level
           and $structure_status > -$handler_fatal_error_level) {
     $self->conversion_finalization();

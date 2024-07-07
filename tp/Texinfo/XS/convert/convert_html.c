@@ -5024,7 +5024,6 @@ prepare_index_entries_targets (CONVERTER *self)
         {
           int j;
           const INDEX *idx = self->sorted_index_names.list[i];
-          self->shared_conversion_state.formatted_index_entries[i] = 0;
           /* no need to test for idx->entries_number > 0 as indices without
              entries are not kept in sorted_index_names. */
           self->shared_conversion_state.formatted_index_entries[i]
@@ -17633,6 +17632,94 @@ html_conversion_finalization (CONVERTER *self)
 
 }
 
+int
+html_init_output (CONVERTER *self)
+{
+  int handler_fatal_error_level;
+  int setup_status;
+
+  if (self->conf->OUTFILE.o.string)
+    {
+      int i;
+      int need_unsplit = 0;
+      const char *outfile = self->conf->OUTFILE.o.string;
+      if (!strlen(outfile) || !strcmp (outfile, "-"))
+        need_unsplit = 1;
+      else
+        {
+          for (i = 0; null_device_names[i]; i++)
+            {
+              if (!strcmp (null_device_names[i], outfile))
+                {
+                  need_unsplit = 1;
+                  break;
+                }
+            }
+        }
+      if (need_unsplit)
+        {
+          force_conf (&self->conf->SPLIT, 0, "");
+          force_conf (&self->conf->MONOLITHIC, 1, 0);
+        }
+    }
+
+  if (self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))
+    set_conf (&self->conf->NODE_FILES, 1, 0);
+
+  set_conf (&self->conf->EXTERNAL_CROSSREF_SPLIT, 0,
+            self->conf->SPLIT.o.string);
+
+  if (self->conf->NODE_NAME_IN_INDEX.o.integer < 0)
+    set_conf (&self->conf->NODE_NAME_IN_INDEX,
+              self->conf->USE_NODES.o.integer, 0);
+
+  handler_fatal_error_level = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
+  if (handler_fatal_error_level < 0)
+    {
+      handler_fatal_error_level = 100;
+      /* see options_data.txt. TODO automate? */
+      force_conf (&self->conf->HANDLER_FATAL_ERROR_LEVEL,
+                  handler_fatal_error_level, 0);
+    }
+
+  if (self->conf->HTML_MATH.o.string
+      && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))
+    {
+     /*
+     See https://www.gnu.org/licenses/javascript-labels.html
+
+     The link to the source for mathjax does not strictly follow the advice
+     there: instead we link to instructions for obtaining the full source in
+     its preferred form of modification.
+      */
+       if (!self->conf->MATHJAX_SCRIPT.o.string)
+         set_conf (&self->conf->MATHJAX_SCRIPT, 0,
+            "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js");
+
+       if (!self->conf->MATHJAX_SOURCE.o.string)
+         set_conf (&self->conf->MATHJAX_SOURCE, 0,
+ "http://docs.mathjax.org/en/latest/web/hosting.html#getting-mathjax-via-git");
+    }
+
+  if (self->conf->HTML_MATH.o.string
+      && self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer < 0)
+    {
+      set_conf (&self->conf->CONVERT_TO_LATEX_IN_MATH, 1, 0);
+    }
+
+  if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0
+      && self->conf->SHOW_TITLE.o.integer < 0)
+    set_conf (&self->conf->SHOW_TITLE, 1, 0);
+
+  setup_status = run_stage_handlers (self, HSHT_type_setup);
+
+  if (setup_status < handler_fatal_error_level
+      && setup_status > -handler_fatal_error_level)
+    return 1;
+  else
+    return 0;
+}
+
 void
 html_reset_converter (CONVERTER *self)
 {
@@ -17661,7 +17748,10 @@ html_reset_converter (CONVERTER *self)
   free (self->shared_conversion_state.formatted_listoffloats_nr);
   self->shared_conversion_state.formatted_listoffloats_nr = 0;
 
-  if (self->document->indices_info.number)
+  /* formatted_index_entries may not be initialized if there was an error
+     early and prepare_conversion_units_targets was never called */
+  if (self->document->indices_info.number
+      && self->shared_conversion_state.formatted_index_entries)
     {
       for (i = 0; i < self->sorted_index_names.number; i++)
         {

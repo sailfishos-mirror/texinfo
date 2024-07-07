@@ -93,6 +93,8 @@ SV *html_build_direction_icons (const CONVERTER *converter,
                             const DIRECTION_ICON_LIST *direction_icons);
 SV *get_conf (const CONVERTER *converter, const char *option_name);
 
+HV *latex_build_options_for_convert_to_latex_math (const CONVERTER *converter);
+
 void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 
 #endif

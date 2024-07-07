@@ -92,7 +92,7 @@ set_conf (SV *converter_in, conf, SV *value)
          /* Calling code checks 'converter_descriptor' is set */
          self = get_sv_converter (converter_in, 0);
          if (self)
-           set_conf (self, conf, value);
+           set_sv_conf (self, conf, value);
 
 void
 force_conf (SV *converter_in, conf, SV *value)
@@ -103,7 +103,7 @@ force_conf (SV *converter_in, conf, SV *value)
          /* Calling code checks 'converter_descriptor' is set */
          self = get_sv_converter (converter_in, 0);
          if (self)
-           force_conf (self, conf, value);
+           force_sv_conf (self, conf, value);
 
 SV *
 get_conf (SV *converter_in, conf)
@@ -286,7 +286,7 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                 SV *index_entries_by_index_sv
                  = get_language_document_hv_sorted_indices (document_hv,
                                     "sorted_indices_by_index", language,
-                                  &language_document_sorted_indices_hv); 
+                                  &language_document_sorted_indices_hv);
                 if (index_entries_by_index_sv)
                   RETVAL = SvREFCNT_inc (index_entries_by_index_sv);
               }
@@ -359,7 +359,7 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
                 SV *index_entries_by_index_sv
                  = get_language_document_hv_sorted_indices (document_hv,
                                     "sorted_indices_by_letter", language,
-                                  &language_document_sorted_indices_hv); 
+                                  &language_document_sorted_indices_hv);
                 if (index_entries_by_index_sv)
                   RETVAL = SvREFCNT_inc (index_entries_by_index_sv);
               }
@@ -556,6 +556,39 @@ html_initialize_output_state (SV *converter_in, char *context)
              html_conversion_initialization_sv (converter_in, self);
              html_initialize_output_state (self, context);
            }
+
+int
+html_init_output (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+         int status = 0;
+      CODE:
+         self = get_sv_converter (converter_in, "html_init_output");
+         if (self)
+           {
+             status = html_init_output (self);
+
+             /* internal links code is in Perl */
+             if (self->conf->INTERNAL_LINKS.o.string)
+               self->external_references_number++;
+             /* Conversion to LaTeX is in Perl */
+             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+               self->external_references_number++;
+
+             if (self->external_references_number
+                 && self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+               {
+                 HV *converter_hv = (HV *) SvRV (converter_in);
+                 HV *options_latex_math_hv =
+                   latex_build_options_for_convert_to_latex_math (self);
+                 hv_store (converter_hv, "options_latex_math",
+                           strlen ("options_latex_math"),
+                           newRV_noinc ((SV *)options_latex_math_hv), 0);
+               }
+           }
+         RETVAL = status;
+    OUTPUT:
+         RETVAL
 
 void
 html_conversion_finalization (SV *converter_in)
@@ -1987,13 +2020,6 @@ html_prepare_conversion_units (SV *converter_in, ...)
          html_prepare_conversion_units (self);
          converter_hv = (HV *) SvRV (converter_in);
 
-         /* internal links code is in Perl */
-         if (self->conf->INTERNAL_LINKS.o.string)
-           self->external_references_number++;
-         /* Conversion to LaTeX is in Perl */
-         if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-           self->external_references_number++;
-
          if (self->external_references_number > 0)
            {
          /* need to setup the Perl tree before rebuilding the output units as
@@ -2031,7 +2057,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          hv_store (converter_hv, "document_units", strlen ("document_units"),
                    newRV_inc ((SV *) output_units_hv), 0);
 
-         /* calls perl customization functions, so need to be done after
+         /* calls Perl customization functions, so need to be done after
             build_output_units_list calls to be able to retrieve Perl
             output units references */
          html_prepare_conversion_units_targets (self, document_name);

@@ -2957,3 +2957,28 @@ build_tree_to_build (ELEMENT_LIST *tree_to_build)
     }
 }
 
+static const char *latex_math_options[] = {
+  "DEBUG", "OUTPUT_CHARACTERS", "OUTPUT_ENCODING_NAME", "TEST", 0
+};
+
+HV *
+latex_build_options_for_convert_to_latex_math (const CONVERTER *converter)
+{
+  HV *options_latex_math_hv;
+  int i;
+
+  dTHX;
+
+  options_latex_math_hv = newHV ();
+
+  for (i = 0; latex_math_options[i]; i++)
+    {
+      const char *option_name = latex_math_options[i];
+      SV *option_sv = get_conf (converter, option_name);
+      SvREFCNT_inc (option_sv);
+      hv_store (options_latex_math_hv, option_name,
+                strlen (option_name), option_sv, 0);
+    }
+
+  return options_latex_math_hv;
+}

@@ -2415,9 +2415,10 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
     }
   else
     {
+      /* NOTE this case should never happen.  If it does, we could set the
+         options here dynamically */
       options_latex_math = newSV (0);
     }
-
 
   ENTER;
   SAVETMPS;

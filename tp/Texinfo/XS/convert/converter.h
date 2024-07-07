@@ -77,6 +77,9 @@ CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);
 
+void set_conf (OPTION *option, int int_value, const char *char_value);
+void force_conf (OPTION *option, int int_value, const char *char_value);
+
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,
                                   const enum command_id *cmd_list);

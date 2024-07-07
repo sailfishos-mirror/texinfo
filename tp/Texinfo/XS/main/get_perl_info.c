@@ -719,7 +719,7 @@ get_sv_index_entries_sorted_by_letter (INDEX_LIST *indices_info,
 }
 
 void
-set_conf (CONVERTER *converter, const char *conf, SV *value)
+set_sv_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
     get_sv_option (converter->conf, conf, value, 0, converter);
@@ -730,7 +730,7 @@ set_conf (CONVERTER *converter, const char *conf, SV *value)
 }
 
 void
-force_conf (CONVERTER *converter, const char *conf, SV *value)
+force_sv_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
     get_sv_option (converter->conf, conf, value, 1, converter);

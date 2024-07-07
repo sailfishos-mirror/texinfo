@@ -40,8 +40,8 @@ OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force);
 void get_sv_configured_options (SV *configured_sv_in, OPTIONS *options);
 void copy_converter_conf_sv (HV *hv, CONVERTER *converter,
                              OPTIONS **conf, const char *conf_key, int force);
-void set_conf (CONVERTER *converter, const char *conf, SV *value);
-void force_conf (CONVERTER *converter, const char *conf, SV *value);
+void set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
+void force_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 
 INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
                      INDEX_LIST *indices_info,

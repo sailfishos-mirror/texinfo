@@ -30,6 +30,8 @@
 #include "document_types.h"
 #include "converter_types.h"
 
+extern const char *null_device_names[];
+
 extern const char *whitespace_chars;
 extern const char *digit_chars;
 extern enum command_id level_to_structuring_command[][5];

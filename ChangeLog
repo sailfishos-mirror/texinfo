@@ -1,3 +1,30 @@
+2024-07-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/converter.c (set_conf, force_conf)
+	(set_conf_internal), tp/Texinfo/XS/main/get_perl_info.c (set_sv_conf)
+	(force_sv_conf): add set_conf and force_conf in converter.c.  rename
+	set_conf as set_sv_conf and force_conf as force_sv_conf in
+	get_perl_info.c.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_reset_converter): free
+	shared_conversion_state.formatted_index_entries only if it was set.
+
+	* tp/Texinfo/XS/main/utils.c (null_device_names): add.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides, _init_output)
+	(output), tp/Texinfo/XS/convert/ConvertXS.xs (html_init_output)
+	(html_prepare_conversion_units), tp/Texinfo/XS/convert/convert_html.c
+	(html_init_output), tp/Texinfo/XS/main/build_perl_info.c
+	(latex_build_options_for_convert_to_latex_math): split the beginning
+	of output in _init_output.  Add an implemenation in C of init_output
+	and an XS interface.  Add
+	latex_build_options_for_convert_to_latex_math for the XS interface.
+	Increase external_references_number based on INTERNAL_LINKS and
+	CONVERT_TO_LATEX_IN_MATH in html_init_output instead of
+	html_prepare_conversion_units.
+
+	* tp/Texinfo/XS/convert/converter.c (copy_option): reindent.
+
 2024-07-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
