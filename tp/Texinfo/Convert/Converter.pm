@@ -665,6 +665,8 @@ sub determine_files_and_directory($$)
     } else {
       $input_file_name = $input_file_name_bytes;
     }
+    # FIXME $input_file_name is already the base file name.  Not clear how
+    # this is useful.
     my ($directories, $suffix);
     ($input_basefile, $directories, $suffix) = fileparse($input_file_name);
   } else {
@@ -702,14 +704,15 @@ sub determine_files_and_directory($$)
   my $output_file;
   if (!defined($self->get_conf('OUTFILE'))) {
     if (defined($setfilename_for_outfile)) {
-      $output_file = $setfilename_for_outfile;
       $document_path = $setfilename_for_outfile;
       $document_path =~ s/\.[^\.]*$//;
       if (!$self->get_conf('USE_SETFILENAME_EXTENSION')) {
-        $output_file =~ s/\.[^\.]*$//;
+        $output_file = $document_path;
         $output_file .= '.'.$self->get_conf('EXTENSION')
           if (defined($self->get_conf('EXTENSION'))
               and $self->get_conf('EXTENSION') ne '');
+      } else {
+        $output_file = $setfilename_for_outfile;
       }
     } elsif ($input_basename_for_outfile ne '') {
       $output_file = $input_basename_for_outfile;
