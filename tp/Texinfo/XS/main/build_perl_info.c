@@ -145,8 +145,11 @@ init (int texinfo_uninstalled, char *builddir)
 #endif
 
   /* do that before any other call to get_encoding_conversion with
-     &output_conversions. */
+     &output_conversions, otherwise the utf-8 conversion will never
+     be initialized.  Same for &input_conversions.
+    */
   get_encoding_conversion ("utf-8", &output_conversions);
+  get_encoding_conversion ("utf-8", &input_conversions);
 
   return 1;
 }

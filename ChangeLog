@@ -1,5 +1,11 @@
 2024-07-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (init): set encoding conversion
+	for input_conversions to utf-8 before anything else, to be sure that
+	the conversion to utf-8 gets initialized.
+
+2024-07-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory):
 	reuse document_path for output_file instead of removing the extension
 	again.
