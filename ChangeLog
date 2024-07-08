@@ -1,5 +1,24 @@
 2024-07-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (remove_extension, canonpath)
+	(STRING_AND_LEN, texinfo_extensions, determine_files_and_directory)
+	(create_destination_directory): implement
+	determine_files_and_directory and create_destination_directory in C.
+
+	* tp/Texinfo/Convert/HTML.pm (_init_output, output),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_init_output), 
+	tp/Texinfo/XS/convert/convert_html.c (html_init_output)
+	(html_reset_converter), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): add determine_files_and_directory,
+	create_destination_directory and destination_directory and
+	document_name registering to _init_output instead of output
+	and implement in C/XS.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_process_css_file): remove
+	a useless strdup.
+
+2024-07-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (parse_file_path),
 	tp/Texinfo/XS/parsetexi/api.c: move parse_file_path to utils.c.
 

@@ -13344,7 +13344,7 @@ sub _init_output($)
   if ($setup_status <  $handler_fatal_error_level
       and $setup_status > -$handler_fatal_error_level) {
   } else {
-    return 0;
+    return undef;
   }
 
   # the configuration has potentially been modified for
@@ -13405,7 +13405,27 @@ sub _init_output($)
 
   $self->_prepare_css();
 
-  return 1;
+  # this sets output_file (based on OUTFILE), to be used if not split,
+  # but also the corresponding 'output_filename' that is useful in
+  # particular when output_file is '', 'destination_directory' that
+  # is mainly useful when split and 'document_name' that is generally useful.
+  my ($output_file, $destination_directory, $output_filename, $document_name)
+        = $self->determine_files_and_directory($self->{'output_format'});
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_output_file_name($destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
+  unless ($succeeded) {
+    return undef;
+  }
+
+  # set for init files
+  $self->{'converter_info'}->{'document_name'} = $document_name;
+  $self->{'converter_info'}->{'destination_directory'} = $destination_directory;
+
+  return [$output_file, $destination_directory, $output_filename,
+          $document_name];
 }
 
 # Main function for outputting a manual in HTML.
@@ -13418,30 +13438,13 @@ sub output($$)
 
   $self->conversion_initialization($document);
 
-  my $success_status = _init_output($self);
-  unless ($success_status) {
+  my $paths = _init_output($self);
+  if (!defined($paths)) {
     $self->conversion_finalization();
     return undef;
   }
-
-  # this sets OUTFILE, to be used if not split, but also 'output_filename'
-  # that is useful when split, 'destination_directory' that is mainly useful
-  # when split and 'document_name' that is generally useful.
   my ($output_file, $destination_directory, $output_filename, $document_name)
-        = $self->determine_files_and_directory($self->{'output_format'});
-  my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_output_file_name($destination_directory);
-  my $succeeded
-    = $self->create_destination_directory($encoded_destination_directory,
-                                          $destination_directory);
-  unless ($succeeded) {
-    $self->conversion_finalization();
-    return undef;
-  }
-
-  # set for init files
-  $self->{'converter_info'}->{'document_name'} = $document_name;
-  $self->{'converter_info'}->{'destination_directory'} = $destination_directory;
+    = @$paths;
 
   # cache, as it is checked for each text element
   if ($self->get_conf('OUTPUT_CHARACTERS')

@@ -557,22 +557,45 @@ html_initialize_output_state (SV *converter_in, char *context)
              html_initialize_output_state (self, context);
            }
 
-int
+SV *
 html_init_output (SV *converter_in)
       PREINIT:
          CONVERTER *self;
          int status = 0;
       CODE:
          self = get_sv_converter (converter_in, "html_init_output");
+         RETVAL = newSV (0);
          if (self)
            {
+             char *paths[5];
              HV *converter_hv = (HV *) SvRV (converter_in);
              SV **converter_info_sv
                  = hv_fetch (converter_hv, "converter_info",
                              strlen ("converter_info"), 0);
              HV *converter_info_hv = (HV *) SvRV (*converter_info_sv);
 
-             status = html_init_output (self);
+             status = html_init_output (self, paths);
+             if (status)
+               {
+                 AV *result_av = newAV ();
+                 int i;
+
+                 for (i = 0; i < 4; i++)
+                   {
+                     SV *sv = newSVpv_utf8 (paths[i], 0);
+                     av_push (result_av, sv);
+                     free (paths[i]);
+                   }
+                 free (paths[4]);
+                 RETVAL = newRV_noinc ((SV *) result_av);
+
+                 hv_store (converter_info_hv, "document_name",
+                           strlen ("document_name"),
+                           newSVpv_utf8 (self->document_name, 0), 0);
+                 hv_store (converter_info_hv, "destination_directory",
+                           strlen ("destination_directory"),
+                           newSVpv_utf8 (self->destination_directory, 0), 0);
+               }
 
              /* internal links code is in Perl */
              if (self->conf->INTERNAL_LINKS.o.string)
@@ -591,7 +614,6 @@ html_init_output (SV *converter_in)
                }
              pass_jslicenses (&self->jslicenses, converter_info_hv);
            }
-         RETVAL = status;
     OUTPUT:
          RETVAL
 
@@ -625,7 +647,8 @@ html_register_id (SV *converter_in, id)
            html_register_id (self, id);
 
 
-int html_id_is_registered (SV *converter_in, id)
+int
+html_id_is_registered (SV *converter_in, id)
          const char *id = (char *)SvPVutf8_nolen($arg);
       PREINIT:
          CONVERTER *self;

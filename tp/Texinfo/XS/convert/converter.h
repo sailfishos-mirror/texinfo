@@ -80,6 +80,12 @@ void unregister_converter_descriptor (int converter_descriptor);
 void set_conf (OPTION *option, int int_value, const char *char_value);
 void force_conf (OPTION *option, int int_value, const char *char_value);
 
+void determine_files_and_directory (CONVERTER *self, const char *output_format,
+                                    char **result);
+int create_destination_directory (CONVERTER *self,
+                                  const char *destination_directory_path,
+                                  const char *destination_directory_name);
+
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,
                                   const enum command_id *cmd_list);

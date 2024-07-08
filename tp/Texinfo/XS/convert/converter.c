@@ -23,6 +23,12 @@
 #include <inttypes.h>
 #include <unistr.h>
 #include <unictype.h>
+/* for opendir */
+#include <dirent.h>
+#include <errno.h>
+/* mkdir */
+#include <sys/stat.h>
+#include <sys/types.h>
 
 #include "text.h"
 #include "command_ids.h"
@@ -129,6 +135,8 @@ unregister_converter_descriptor (int converter_descriptor)
     }
 }
 
+
+
 static void
 set_conf_internal (OPTION *option, int int_value, const char *char_value)
 {
@@ -165,6 +173,331 @@ force_conf (OPTION *option, int int_value, const char *char_value)
 {
   set_conf_internal (option, int_value, char_value);
 }
+
+
+
+/* result to be freed */
+static char *
+remove_extension (const char *input_string)
+{
+  char *result;
+  const char *p = strchr (input_string, '.');
+  if (p)
+    {
+      while (1)
+        {
+          const char *q = strchr (p + 1, '.');
+          if (q)
+            p = q;
+          else
+            break;
+        }
+      result = strndup (input_string, p - input_string);
+    }
+  else result = strdup (input_string);
+
+  return result;
+}
+
+/* try to do at least part of what File::Spec->canonpath does to have
+   tests passing */
+static char *
+canonpath (const char *input_file)
+{
+  TEXT result;
+  const char *p = strchr (input_file, '/');
+
+  if (p)
+    {
+      text_init (&result);
+      text_append_n (&result, input_file, p - input_file);
+      while (1)
+        {
+          const char *q;
+          p++;
+          while (*p == '/')
+            p++;
+          /* omit a / at the end of the path */
+          if (!*p)
+            return (result.text);
+          text_append_n (&result, "/", 1);
+          q = strchr (p, '/');
+          if (q)
+            {
+              text_append_n (&result, p, q - p);
+              p = q;
+            }
+          else
+            {
+              text_append (&result, p);
+              return (result.text);
+            }
+        }
+    }
+  else
+    return strdup (input_file);
+}
+
+typedef struct STRING_AND_LEN {
+    const char *string;
+    int len;
+} STRING_AND_LEN;
+
+/* in perl there is also .tx matched, but it is incorrect */
+static const STRING_AND_LEN texinfo_extensions[5] = {
+  {".texi", 5},
+  {".texinfo", 8},
+  {".txinfo", 7},
+  {".txi", 4},
+  {".tex", 4}
+};
+
+/* RESULT should be a char * array of dimension 5 */
+/* results to be freed by the caller */
+void
+determine_files_and_directory (CONVERTER *self, const char *output_format,
+                               char **result)
+{
+  char *input_basename = 0;
+  char *input_basefile;
+  GLOBAL_INFO *document_info = 0;
+  GLOBAL_COMMANDS *global_commands = 0;
+  const char *setfilename = 0;
+  const char *setfilename_for_outfile = 0;
+  const char *input_basename_for_outfile;
+  /* the document path, in general the outfile without
+     extension and can be set from setfilename if outfile is not set */
+  char *document_path;
+  char *output_file;
+  const char *output_filepath;
+  char *document_name_and_directory[2];
+  char *output_filename_and_directory[2];
+  char *document_name;
+  char *output_filename;
+  char *destination_directory;
+
+  if (self->document)
+    {
+      document_info = &self->document->global_info;
+      global_commands = &self->document->global_commands;
+    }
+
+  if (document_info && document_info->input_file_name)
+    {
+    /* 'input_file_name' is not decoded, as it is derived from input
+       file which is not decoded either.  We want to return only
+       decoded (utf-8) character strings such that they can easily be mixed
+       with other character strings, so we decode here. */
+      const char *encoding = self->conf->COMMAND_LINE_ENCODING.o.string;
+      char *input_file_name;
+      char *input_file_name_and_directory[2];
+
+      if (encoding)
+        {
+          int status;
+          input_file_name = decode_string (document_info->input_file_name,
+                                           encoding, &status, 0);
+        }
+      else
+        input_file_name = strdup (document_info->input_file_name);
+
+  /* FIXME $input_file_name is already the base file name.  Not clear how
+     this is useful. */
+      parse_file_path (input_file_name, input_file_name_and_directory);
+      input_basefile = input_file_name_and_directory[0];
+      free (input_file_name_and_directory[1]);
+    }
+  else /* This could happen if called on a piece of texinfo */
+    input_basefile = strdup ("");
+
+  if (!strcmp (input_basefile, "-"))
+    input_basename = strdup ("stdin");
+  else
+    {
+      int i;
+      int basefile_len = strlen (input_basefile);
+      for (i = 0; i < 5; i++)
+        {
+          int len = texinfo_extensions[i].len;
+          if (basefile_len >= len
+              && !memcmp (input_basefile + basefile_len - len,
+                          texinfo_extensions[i].string, len))
+            {
+              input_basename = strndup (input_basefile,
+                                        basefile_len - len);
+              break;
+            }
+        }
+      if (!input_basename)
+        input_basename = strdup (input_basefile);
+    }
+
+  if (self->conf->setfilename.o.string)
+    setfilename = self->conf->setfilename.o.string;
+  else if (global_commands && global_commands->setfilename)
+    setfilename = informative_command_value (global_commands->setfilename);
+
+  input_basename_for_outfile = input_basename;
+  setfilename_for_outfile = setfilename;
+  /* PREFIX overrides both setfilename and the input file base name */
+  if (self->conf->PREFIX.o.string)
+    {
+      setfilename_for_outfile = 0;
+      input_basename_for_outfile = self->conf->PREFIX.o.string;
+    }
+
+  /* determine output file and output file name */
+  if (!self->conf->OUTFILE.o.string)
+    {
+      if (setfilename_for_outfile)
+        {
+          document_path = remove_extension (setfilename_for_outfile);
+
+          if (self->conf->USE_SETFILENAME_EXTENSION.o.integer <= 0)
+            {
+              if (self->conf->EXTENSION.o.string
+                  && strlen (self->conf->EXTENSION.o.string))
+                {
+                  xasprintf (&output_file, "%s.%s", document_path,
+                             self->conf->EXTENSION.o.string);
+                }
+              else
+                output_file = strdup (document_path);
+            }
+          else
+            output_file = strdup (setfilename_for_outfile);
+        }
+      else if (strlen (input_basename_for_outfile))
+        {
+          document_path = strdup (input_basename_for_outfile);
+          if (self->conf->EXTENSION.o.string
+              && strlen (self->conf->EXTENSION.o.string))
+            {
+              xasprintf (&output_file, "%s.%s", input_basename_for_outfile,
+                         self->conf->EXTENSION.o.string);
+            }
+          else
+            output_file = strdup (input_basename_for_outfile);
+        }
+      else
+        {
+          output_file = strdup ("");
+          document_path = strdup ("");
+        }
+      if (self->conf->SUBDIR.o.string && strlen (output_file))
+        {
+          char *new_output_file;
+          char *dir = canonpath (self->conf->SUBDIR.o.string);
+          xasprintf (&new_output_file, "%s/%s", dir, output_file);
+          free (dir);
+          free (output_file);
+          output_file = new_output_file;
+        }
+    }
+  else
+    {
+      document_path = remove_extension (self->conf->OUTFILE.o.string);
+      output_file = strdup (self->conf->OUTFILE.o.string);
+    }
+
+  /* the output file path, output_filepath is in general the same as
+     the outfile but can be set from setfilename if outfile is not set. */
+  if (!strlen (output_file) && setfilename_for_outfile)
+    {
+    /* in this case one wants to get the result in a string and there
+       is a setfilename.  The setfilename is used to get something.
+       This happens in the test suite. */
+
+      output_filepath = setfilename_for_outfile;
+      free (document_path);
+      document_path = remove_extension (setfilename_for_outfile);
+    }
+  else
+    output_filepath = output_file;
+
+  /* $document_name is the name of the document, which is the output
+     file basename, $output_filename, without extension. */
+
+  parse_file_path (document_path, document_name_and_directory);
+  document_name = document_name_and_directory[0];
+  free (document_name_and_directory[1]);
+  parse_file_path (output_filepath, output_filename_and_directory);
+  output_filename = output_filename_and_directory[0];
+  free (output_filename_and_directory[1]);
+
+  if (self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))
+    {
+      if (self->conf->OUTFILE.o.string)
+        destination_directory = strdup (self->conf->OUTFILE.o.string);
+      else if (self->conf->SUBDIR.o.string)
+        destination_directory = strdup (self->conf->SUBDIR.o.string);
+      else
+        {
+          if (output_format && strlen (output_format))
+            xasprintf (&destination_directory, "%s_%s", document_name,
+                                               output_format);
+          else
+            destination_directory = strdup (document_name);
+        }
+    }
+  else
+    {
+      char *output_file_filename_and_directory[2];
+     /* the filename is not used, but $output_filename should be
+        the same as long as $output_file is the same as $output_filepath
+        which is the case except if $output_file is ''. */
+      parse_file_path (output_file, output_file_filename_and_directory);
+      destination_directory = output_file_filename_and_directory[1];
+      /* Perl returns . or ./ if there is no directory */
+      if (!destination_directory)
+        destination_directory = strdup (".");
+      free (output_file_filename_and_directory[0]);
+    }
+
+  if (strlen (destination_directory))
+    {
+      char *new_destination_directory = canonpath (destination_directory);
+      free (destination_directory);
+      destination_directory = new_destination_directory;
+    }
+
+  result[0] = output_file;
+  result[1] = destination_directory;
+  result[2] = output_filename;
+  result[3] = document_name;
+  result[4] = input_basefile;
+}
+
+int
+create_destination_directory (CONVERTER *self,
+                              const char *destination_directory_path,
+                              const char *destination_directory_name)
+{
+  if (destination_directory_path)
+    {
+      DIR *dir = opendir (destination_directory_path);
+      if (dir)
+        {
+          closedir (dir);
+        }
+      else if (errno == ENOENT)
+        {
+          int status = mkdir (destination_directory_path, S_IRWXU
+                             | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+          if (status)
+            {
+              message_list_document_error (&self->error_messages,
+                                           self->conf, 0,
+                                  "could not create directory `%s': %s",
+                            destination_directory_name, strerror (errno));
+              return 0;
+            }
+        }
+    }
+  return 1;
+}
+
+
 
 /* freed by caller */
 static OPTION *
@@ -269,6 +602,8 @@ set_global_document_commands (CONVERTER *converter,
     }
 }
 
+
+
 static void
 id_to_filename (CONVERTER *self, char **id_ref)
 {
@@ -336,6 +671,8 @@ node_information_filename (CONVERTER *self, const char *normalized,
   id_to_filename (self, &filename);
   return filename;
 }
+
+
 
 ELEMENT *
 float_type_number (CONVERTER *self, const ELEMENT *float_e)
@@ -451,6 +788,8 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
   return result;
 }
 
+
+
 TREE_ADDED_ELEMENTS *
 new_tree_added_elements (enum tree_added_elements_status status)
 {
@@ -540,6 +879,8 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
   add_to_element_list (&added_elements->added, new);
   return new;
 }
+
+
 
 TREE_ADDED_ELEMENTS *
 table_item_content_tree (CONVERTER *self, const ELEMENT *element)
@@ -798,6 +1139,8 @@ top_node_filename (const CONVERTER *self, const char *document_name)
   return 0;
 }
 
+
+
 void
 initialize_output_units_files (CONVERTER *self)
 {
@@ -1002,6 +1345,8 @@ free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
   free (output_unit_files->list);
 }
 
+
+
 void
 free_generic_converter (CONVERTER *self)
 {
@@ -1034,6 +1379,7 @@ free_generic_converter (CONVERTER *self)
   free_strings_list (&self->small_strings);
 }
 
+
 
 /* XML conversion functions */
 

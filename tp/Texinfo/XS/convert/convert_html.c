@@ -17647,7 +17647,7 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
      the Content-Type: HTTP header but it is not relevant here.
      https://developer.mozilla.org/en-US/docs/Web/CSS/@charset
    */
-  char *input_encoding = strdup ("utf-8");
+  const char *input_encoding = "utf-8";
   ENCODING_CONVERSION *conversion
     = get_encoding_conversion (input_encoding, &input_conversions);
 
@@ -18058,12 +18058,16 @@ fill_jslicense_file_info (JSLICENSE_FILE_INFO *jslicense_file_info,
 }
 
 int
-html_init_output (CONVERTER *self)
+html_init_output (CONVERTER *self, char **paths)
 {
   int handler_fatal_error_level;
   int setup_status;
   int js_categories_list_nr = 0;
   const char *structure_preamble_document_language;
+  char *destination_directory;
+  char *encoded_destination_directory;
+  char *dir_encoding;
+  int succeeded;
 
   if (self->conf->OUTFILE.o.string)
     {
@@ -18228,6 +18232,30 @@ html_init_output (CONVERTER *self)
 
   html_prepare_css (self);
 
+  /* ($output_file, $destination_directory, $output_filename, $document_name) */
+  determine_files_and_directory (self, self->output_format, paths);
+
+  destination_directory = paths[1];
+
+  encoded_destination_directory = encoded_output_file_name (self->conf,
+                                            &self->document->global_info,
+                                                   destination_directory,
+                                                       &dir_encoding, 0);
+
+  free (dir_encoding);
+
+  succeeded = create_destination_directory (self,
+                                     encoded_destination_directory,
+                                           destination_directory);
+
+  free (encoded_destination_directory);
+
+  if (!succeeded)
+    return 0;
+
+  self->document_name = strdup (paths[3]);
+  self->destination_directory = strdup (destination_directory);
+
   return 1;
 }
 
@@ -18290,6 +18318,10 @@ html_reset_converter (CONVERTER *self)
   self->copying_comment = 0;
   free (self->date_in_header);
   self->date_in_header = 0;
+  free (self->destination_directory);
+  self->destination_directory = 0;
+  free (self->document_name);
+  self->document_name = 0;
 
   if (self->added_title_tree)
     {

@@ -844,6 +844,7 @@ typedef struct CONVERTER {
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */
+    /* in converter_info in Perl */
     char *title_titlepage;
     ELEMENT *simpletitle_tree;
     enum command_id simpletitle_cmd;
@@ -851,6 +852,8 @@ typedef struct CONVERTER {
     char *title_string;
     char *documentdescription_string;
     char *copying_comment;
+    char *destination_directory;
+    char *document_name;
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */
