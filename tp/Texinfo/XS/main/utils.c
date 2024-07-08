@@ -936,7 +936,7 @@ add_string (const char *string, STRING_LIST *strings_list)
 void
 merge_strings (STRING_LIST *strings_list, const STRING_LIST *merged_strings)
 {
-  int i;
+  size_t i;
   if (strings_list->number + merged_strings->number > strings_list->space)
     {
       strings_list->space = strings_list->number + merged_strings->number +5;
@@ -953,7 +953,7 @@ merge_strings (STRING_LIST *strings_list, const STRING_LIST *merged_strings)
 void
 copy_strings (STRING_LIST *dest_list, const STRING_LIST *source_list)
 {
-  int i;
+  size_t i;
   if (dest_list->number + source_list->number > dest_list->space)
     {
       dest_list->space = dest_list->number + source_list->number +5;

@@ -13403,6 +13403,8 @@ sub _init_output($)
 
   $self->{'converter_info'}->{'jslicenses'} = $jslicenses;
 
+  $self->_prepare_css();
+
   return 1;
 }
 
@@ -13421,8 +13423,6 @@ sub output($$)
     $self->conversion_finalization();
     return undef;
   }
-
-  $self->_prepare_css();
 
   # this sets OUTFILE, to be used if not split, but also 'output_filename'
   # that is useful when split, 'destination_directory' that is mainly useful
