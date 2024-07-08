@@ -182,6 +182,7 @@ int section_level (const ELEMENT *section);
 enum command_id section_level_adjusted_command_name (const ELEMENT *element);
 char *collapse_spaces (const char *text);
 char *parse_line_directive (const char *line, int *retval, int *out_line_no);
+void parse_file_path (const char *input_file_path, char **result);
 int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
 
 STRING_LIST *new_string_list (void);

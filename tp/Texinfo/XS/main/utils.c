@@ -869,6 +869,36 @@ normalize_encoding_name (const char *text, int *possible_encoding)
   return normalized_text;
 }
 
+/* RESULT should be an array of size two.  Upon return, it holds
+   the file name in the first position and directory, if any, in
+   the second position.  The file name and directory should be
+   freed.
+ */
+void
+parse_file_path (const char *input_file_path, char **result)
+{
+  /* Strip off a leading directory path, by looking for the last
+     '/' in input_file_path. */
+  const char *p = 0;
+  const char *q = strchr (input_file_path, '/');
+  while (q)
+    {
+      p = q;
+      q = strchr (q + 1, '/');
+    }
+
+  if (p)
+    {
+      result[0] = strdup (p + 1);
+      result[1] = strndup (input_file_path, (p - input_file_path) + 1);
+    }
+  else
+    {
+      result[0] = strdup (input_file_path);
+      result[1] = 0;
+    }
+}
+
 
 /* index related functions used in diverse situations, not only in parser */
 void
