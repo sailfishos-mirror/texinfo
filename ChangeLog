@@ -1,6 +1,12 @@
 2024-07-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%default_no_arg_commands_formatting):
+	for css_string preset explicitly @tie and @* values, and use
+	nobrace_symbol_text preferentially to preformatted/normal values.
+
+2024-07-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%default_no_arg_commands_formatting):
 	reset explicitly & value.
 
 	* tp/t/html_tests.t ($itemize_arguments_text): add @& and
