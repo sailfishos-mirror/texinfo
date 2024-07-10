@@ -1,3 +1,26 @@
+2024-07-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%text_brace_no_arg_commands): reorder.
+
+	* tp/Texinfo/Convert/Converter.pm (%xml_text_entity_no_arg_commands)
+	(%xml_text_entity_no_arg_commands_formatting): add
+	%xml_text_entity_no_arg_commands with specific commands previously set
+	in %xml_text_entity_no_arg_commands_formatting, and &.  Reorder.
+	Comment out commands that are the same as in
+	%Texinfo::Common::text_brace_no_arg_commands.  Complete
+	%xml_text_entity_no_arg_commands_formatting with
+	Texinfo::Common::text_brace_no_arg_commands and
+	Texinfo::Common::nobrace_symbol_text for commands not already set.
+
+	* tp/Texinfo/Common.pm (%text_brace_no_arg_commands)
+	(%xml_text_entity_no_arg_commands): remove today.
+	* tp/Texinfo/Convert/HTML.pm (%css_no_arg_commands),
+	tp/Texinfo/Convert/NodeNameNormalization.pm
+	(%normalize_node_nobrace_symbol_text): add today.
+
+	* tp/Texinfo/Convert/HTML.pm (_translate_names): remove a useless
+	possibility in a condition.
+
 2024-07-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%default_no_arg_commands_formatting):

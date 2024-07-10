@@ -71,6 +71,7 @@ foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no
 my %normalize_node_nobrace_symbol_text
   = %Texinfo::Common::nobrace_symbol_text;
 $normalize_node_nobrace_symbol_text{'*'} = ' ';
+$normalize_node_nobrace_symbol_text{'today'} = '';
 
 my %accent_commands = %Texinfo::Commands::accent_commands;
 

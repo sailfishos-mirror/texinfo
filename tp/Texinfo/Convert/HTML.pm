@@ -2968,7 +2968,7 @@ sub _translate_names($)
           $translated_tree
             = Texinfo::Convert::Utils::translated_command_tree($self, $command);
         }
-        if (defined($translated_tree) and $translated_tree ne '') {
+        if (defined($translated_tree)) {
           $self->{'no_arg_commands_formatting'}->{$command}
             ->{$context}->{'translated_tree'} = $translated_tree;
           $translated_commands{$command} = 1;
@@ -3288,6 +3288,7 @@ my %css_no_arg_commands = (
   # not in unicode maps and we want to avoid &nbsp; from other possibilities
   'tie' => ' ',
   '*' => '\A ',
+  'today' => '',
 );
 
 foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
