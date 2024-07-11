@@ -1,3 +1,10 @@
+2024-07-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%css_no_arg_commands): add error as
+	undef and do not set if %css_no_arg_commands command value is undef.
+	Use Texinfo::Common::text_brace_no_arg_commands instead of other
+	values of default_no_arg_commands_formatting.
+
 2024-07-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%text_brace_no_arg_commands): reorder.

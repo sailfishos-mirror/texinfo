@@ -3286,15 +3286,19 @@ $default_no_arg_commands_formatting{'preformatted'}->{'*'} = {'text' => "\n"};
 # for the commands without a good representation in the other maps
 my %css_no_arg_commands = (
   # not in unicode maps and we want to avoid &nbsp; from other possibilities
-  'tie' => ' ',
   '*' => '\A ',
+  # do not set to force using only translations (as the command
+  # is in the default converter translated commands)
+  'error' => undef,
+  'tie' => ' ',
   'today' => '',
 );
 
 foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   if (exists($css_no_arg_commands{$command})) {
     $default_no_arg_commands_formatting{'css_string'}->{$command}
-      = {'text' => $css_no_arg_commands{$command}};
+      = {'text' => $css_no_arg_commands{$command}}
+        if (defined($css_no_arg_commands{$command}));
   } elsif (defined($Texinfo::Convert::Unicode::unicode_map{$command})
       and $Texinfo::Convert::Unicode::unicode_map{$command} ne '') {
     my $char_nr = hex($Texinfo::Convert::Unicode::unicode_map{$command});
@@ -3309,24 +3313,16 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   } elsif (exists($nobrace_symbol_text{$command})) {
     $default_no_arg_commands_formatting{'css_string'}->{$command}
       = {'text' => $nobrace_symbol_text{$command}};
-  } elsif ($default_no_arg_commands_formatting{'preformatted'}->{$command}) {
-    # avoid text with HTML element.  For @enddots
-    $default_no_arg_commands_formatting{'css_string'}->{$command}
-     = {'text'
-        => $default_no_arg_commands_formatting{'preformatted'}->{$command}->{'text'}};
-  } elsif ($default_no_arg_commands_formatting{'normal'}->{$command}->{'text'}) {
-    # complete the commands not in unicode maps: TeX, error, LaTeX
+  } elsif (exists($Texinfo::Common::text_brace_no_arg_commands{$command})) {
+    # complete the commands not in unicode maps: TeX, enddots, LaTeX
     # (and tie would have been used too if it was not explicitly set).
     $default_no_arg_commands_formatting{'css_string'}->{$command}
-     = {'text' => $default_no_arg_commands_formatting{'normal'}->{$command}->{'text'}};
+     = {'text' => $Texinfo::Common::text_brace_no_arg_commands{$command}};
   } else {
     warn "BUG: $command: no css_string\n";
   }
 }
 
-# remove to force using only translations (as the command
-# is in the default converter translated commands)
-delete $default_no_arg_commands_formatting{'css_string'}->{'error'};
 
 
 # w not in css_string, set the corresponding css_element_class_styles
