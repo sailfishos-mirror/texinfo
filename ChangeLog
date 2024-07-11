@@ -1,5 +1,11 @@
 2024-07-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_no_arg_commands): remove tie, as
+	the Texinfo::Common::text_brace_no_arg_commands value is ok, and
+	remove 'today' as it is useless.
+
+2024-07-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Unicode.pm (%unicode_map, %extra_unicode_map):
 	remove commands associated with empty string.  Add all the commands in
 	comment to simplify visual comparison with other similar maps.

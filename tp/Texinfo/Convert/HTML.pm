@@ -3285,13 +3285,11 @@ $default_no_arg_commands_formatting{'preformatted'}->{'*'} = {'text' => "\n"};
 
 # for the commands without a good representation in the other maps
 my %css_no_arg_commands = (
-  # not in unicode maps and we want to avoid &nbsp; from other possibilities
+  # we want to set explicitly
   '*' => '\A ',
   # do not set to force using only translations (as the command
   # is in the default converter translated commands)
   'error' => undef,
-  'tie' => ' ',
-  'today' => '',
 );
 
 foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -3314,8 +3312,7 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     $default_no_arg_commands_formatting{'css_string'}->{$command}
       = {'text' => $nobrace_symbol_text{$command}};
   } elsif (exists($Texinfo::Common::text_brace_no_arg_commands{$command})) {
-    # complete the commands not in unicode maps: TeX, enddots, LaTeX
-    # (and tie would have been used too if it was not explicitly set).
+    # complete the commands not in unicode maps: TeX, enddots, LaTeX, tie
     $default_no_arg_commands_formatting{'css_string'}->{$command}
      = {'text' => $Texinfo::Common::text_brace_no_arg_commands{$command}};
   } else {
