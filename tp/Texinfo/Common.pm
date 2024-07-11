@@ -393,7 +393,7 @@ our %text_brace_no_arg_commands = (
                'lbracechar'    => '{',
                'rbracechar'    => '}',
 
-               # symbols
+               # symbols (22)
                'arrow'              => '->',
                'bullet'             => '*',
                'copyright'          => '(C)',
