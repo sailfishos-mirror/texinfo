@@ -217,6 +217,8 @@ test_files = \
  t/input_files/character_and_spaces_in_refs_text.texi \
  t/input_files/chinese_mixed_with_en.texi \
  t/input_files/chinese_mixed_with_en_EUC_CN.texi \
+ t/input_files/command_non_break_spaces_koi8.texi \
+ t/input_files/command_non_break_spaces_utf8.texi \
  t/input_files/complex_sectioning_case.texi \
  t/input_files/cond.texi \
  t/input_files/contents_at_document_begin.texi \

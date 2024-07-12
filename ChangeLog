@@ -1,3 +1,15 @@
+2024-07-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.am (test_files),
+	tp/t/input_files/command_non_break_spaces_koi8.texi,
+	tp/t/input_files/command_non_break_spaces_utf8.texi,
+	tests/many_input_files/for_nbspaces_different_encodings.sh,
+	tp/tests/many_input_files/Makefile.am (TESTS, tests_dirs): add test of
+	expansion of non-breaking space in HTML with OUTPUT_CHARACTERS=1 and a
+	file with a non-breaking space in the character set followed by
+	another with the character set, to check that for the second an
+	entity is output for the non-breaking space.
+
 2024-07-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%css_no_arg_commands): remove tie, as

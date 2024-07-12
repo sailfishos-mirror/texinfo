@@ -255,6 +255,7 @@ tp/tests/built_input
 
 tp/tests/many_input_files/different_encodings
 tp/tests/many_input_files/different_languages_gen_master_menu
+tp/tests/many_input_files/for_nbspaces_different_encodings
 tp/tests/many_input_files/input_dir_non_ascii
 tp/tests/many_input_files/output_dir_non_ascii
 tp/tests/many_input_files/output_dir_file_non_ascii

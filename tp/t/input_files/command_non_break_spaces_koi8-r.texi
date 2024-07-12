@@ -1,0 +1,6 @@
+
+@documentencoding koi8-r
+
+@top top
+
+Text @  and more.
