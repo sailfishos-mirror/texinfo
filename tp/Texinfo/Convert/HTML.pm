@@ -9034,6 +9034,7 @@ sub _load_htmlxref_files {
 #  types_open
 #
 #    API exists for setting, not for getting and used in commands_conversion
+#  customized_no_arg_commands_formatting
 #  no_arg_commands_formatting
 #  style_commands_formatting
 #
@@ -9266,6 +9267,22 @@ sub converter_initialize($)
     }
   }
   #print STDERR Data::Dumper->Dump([$self->{'accent_entities'}]);
+
+  # get customization only at that point, as the defaults may be changed
+  # with the encoding
+  $self->{'customized_no_arg_commands_formatting'} = {};
+  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+    $self->{'customized_no_arg_commands_formatting'}->{$command} = {};
+    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
+      my $no_arg_command_customized_formatting
+        = Texinfo::Config::GNUT_get_no_arg_command_formatting($command,
+                                                              $context);
+      if (defined($no_arg_command_customized_formatting)) {
+        $self->{'customized_no_arg_commands_formatting'}->{$command}->{$context}
+           = $no_arg_command_customized_formatting;
+      }
+    }
+  }
 
   $self->{'file_id_setting'} = {};
   my $customized_file_id_setting_references
@@ -12329,8 +12346,8 @@ sub conversion_initialization($;$)
     $self->{'no_arg_commands_formatting'}->{$command} = {};
     foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
       my $no_arg_command_customized_formatting
-        = Texinfo::Config::GNUT_get_no_arg_command_formatting($command,
-                                                              $context);
+        = $self->{'customized_no_arg_commands_formatting'}
+                                             ->{$command}->{$context};
       if (defined($no_arg_command_customized_formatting)) {
         $self->{'no_arg_commands_formatting'}->{$command}->{$context}
            = $no_arg_command_customized_formatting;
