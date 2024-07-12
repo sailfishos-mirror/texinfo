@@ -3297,8 +3297,7 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     $default_no_arg_commands_formatting{'css_string'}->{$command}
       = {'text' => $css_no_arg_commands{$command}}
         if (defined($css_no_arg_commands{$command}));
-  } elsif (defined($Texinfo::Convert::Unicode::unicode_map{$command})
-      and $Texinfo::Convert::Unicode::unicode_map{$command} ne '') {
+  } elsif (defined($Texinfo::Convert::Unicode::unicode_map{$command})) {
     my $char_nr = hex($Texinfo::Convert::Unicode::unicode_map{$command});
     my $css_string;
     if ($char_nr < 128) { # 7bit ascii

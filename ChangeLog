@@ -1,5 +1,10 @@
 2024-07-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/Unicode.pm: no more
+	empty strings in %unicode_map values.
+
+2024-07-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
 	(conversion_initialization): get customization from
 	GNUT_get_direction_string_info in converter_initialize, set
