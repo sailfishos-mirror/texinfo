@@ -1,5 +1,13 @@
 2024-07-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/input_files/command_non_break_spaces_koi8.texi,
+	tp/t/input_files/command_non_break_spaces_utf8.texi, tp/Makefile.am
+	(test_files), tp/t/init/t2h_buttons.pm,
+	tp/tests/many_input_files/for_nbspaces_different_encodings.sh: add
+	buttons with non-breaking spaces to the test.
+
+2024-07-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files),
 	tp/t/input_files/command_non_break_spaces_koi8.texi,
 	tp/t/input_files/command_non_break_spaces_utf8.texi,

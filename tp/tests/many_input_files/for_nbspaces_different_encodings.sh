@@ -41,7 +41,7 @@ raw_outdir=$raw_output_dir/$basename
 mkdir $basename
 : > $basename/$stdout_file
 set -x
-cmd="$prepended_command $PERL -I $srcdir/../.. -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../init --out $basename/ $srcdir/../../t/input_files/command_non_break_spaces_utf8.texi $srcdir/../../t/input_files/command_non_break_spaces_koi8-r.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $PERL -I $srcdir/../.. -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../init --conf-dir $srcdir/../../t/init --init-file t2h_buttons.pm --out $basename/ $srcdir/../../t/input_files/command_non_break_spaces_utf8.texi $srcdir/../../t/input_files/command_non_break_spaces_koi8-r.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 
