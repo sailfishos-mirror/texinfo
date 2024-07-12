@@ -9362,6 +9362,41 @@ sub converter_initialize($)
       = $customized_special_unit_body->{$special_unit_variety};
   }
 
+  # Fill the translated direction strings information, corresponding to:
+  #   - strings already converted
+  #   - strings not already converted
+  # Each of those types of translated strings are translated later on
+  # and the translated values are put in $self->{'direction_strings'}.
+  my $customized_direction_strings
+      = Texinfo::Config::GNUT_get_direction_string_info();
+  $self->{'translated_direction_strings'} = {};
+  foreach my $string_type (keys(%default_translated_directions_strings)) {
+    $self->{'translated_direction_strings'}->{$string_type} = {};
+    foreach my $direction
+           (keys(%{$default_translated_directions_strings{$string_type}})) {
+      if ($customized_direction_strings->{$string_type}
+            and $customized_direction_strings->{$string_type}->{$direction}) {
+        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+          = $customized_direction_strings->{$string_type}->{$direction};
+      } else {
+        if ($default_translated_directions_strings{$string_type}->{$direction}
+                                                              ->{'converted'}) {
+          $self->{'translated_direction_strings'}->{$string_type}
+                  ->{$direction} = {'converted' => {}};
+          foreach my $context ('normal', 'string') {
+            $self->{'translated_direction_strings'}->{$string_type}
+                     ->{$direction}->{'converted'}->{$context}
+               = $default_translated_directions_strings{$string_type}
+                                                 ->{$direction}->{'converted'};
+          }
+        } else {
+          $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+            = $default_translated_directions_strings{$string_type}->{$direction};
+        }
+      }
+    }
+  }
+
   $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
 
   # NOTE we reset silently if the split specification is not one known.
@@ -12355,6 +12390,7 @@ sub conversion_initialization($;$)
   #   - strings not already converted
   $self->{'directions_strings'} = {};
 
+  # The strings not translated, already converted are
   # initialized here and not with the converter because
   # substitute_html_non_breaking_space is used and it depends on the document.
   my $customized_direction_strings
@@ -12391,34 +12427,6 @@ sub conversion_initialization($;$)
         } else {
           $self->{'directions_strings'}->{$string_type}
                                      ->{$direction}->{$context} = undef;
-        }
-      }
-    }
-  }
-
-  $self->{'translated_direction_strings'} = {};
-  foreach my $string_type (keys(%default_translated_directions_strings)) {
-    $self->{'translated_direction_strings'}->{$string_type} = {};
-    foreach my $direction
-           (keys(%{$default_translated_directions_strings{$string_type}})) {
-      if ($customized_direction_strings->{$string_type}
-            and $customized_direction_strings->{$string_type}->{$direction}) {
-        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
-          = $customized_direction_strings->{$string_type}->{$direction};
-      } else {
-        if ($default_translated_directions_strings{$string_type}->{$direction}
-                                                              ->{'converted'}) {
-          $self->{'translated_direction_strings'}->{$string_type}
-                  ->{$direction} = {'converted' => {}};
-          foreach my $context ('normal', 'string') {
-            $self->{'translated_direction_strings'}->{$string_type}
-                     ->{$direction}->{'converted'}->{$context}
-               = $default_translated_directions_strings{$string_type}
-                                                 ->{$direction}->{'converted'};
-          }
-        } else {
-          $self->{'translated_direction_strings'}->{$string_type}->{$direction}
-            = $default_translated_directions_strings{$string_type}->{$direction};
         }
       }
     }
