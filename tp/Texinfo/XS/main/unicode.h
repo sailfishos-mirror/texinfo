@@ -9,21 +9,21 @@
 #include "tree_types.h"
 
 typedef struct ENCODING_CODEPOINTS {
-    char *encoding;
+    const char *encoding;
     size_t number;
-    char *codepoints[96]; /* A0 to FF 16*6 */
+    const char *codepoints[96]; /* A0 to FF 16*6 */
 } ENCODING_CODEPOINTS;
 
 typedef struct COMMAND_UNICODE {
-    char *codepoint;
-    char *text; /* UTF-8 encoded */
+    const char *codepoint;
+    const char *text; /* UTF-8 encoded */
     int is_extra;
 } COMMAND_UNICODE;
 
 typedef struct DIACRITIC_UNICODE {
-    char *text; /* UTF-8 encoded */
-    char *codepoint; /* numeric */
-    char *hex_codepoint; /* hexadecimal */
+    const char *text; /* UTF-8 encoded */
+    const char *codepoint; /* numeric */
+    const char *hex_codepoint; /* hexadecimal */
 } DIACRITIC_UNICODE;
 
 /* can be inlined in text parsing codes */
@@ -77,8 +77,8 @@ typedef struct DIACRITIC_UNICODE {
           break;
 
 
-extern DIACRITIC_UNICODE unicode_diacritics[];
-extern COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
+extern const DIACRITIC_UNICODE unicode_diacritics[];
+extern const COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
 
 uint8_t *utf8_from_string (const char *text);
 char *string_from_utf8 (const uint8_t *encoded_u8);
@@ -95,6 +95,7 @@ char *encoded_accents (CONVERTER *self, const char *text,
   char *(*format_accent)(CONVERTER *self, const char *text,
                          const ELEMENT *element, int set_case),
   int set_case);
-char *unicode_brace_no_arg_command (enum command_id cmd, const char *encoding);
+const char *unicode_brace_no_arg_command (enum command_id cmd,
+                                          const char *encoding);
 
 #endif

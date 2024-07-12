@@ -252,10 +252,10 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
           if (first_char <= 0xFFFF)
             {
               xasprintf (&codepoint, "%04lX", first_char);
-              char *found = (char *)bsearch (&codepoint,
+              const char *found = (const char *)bsearch (&codepoint,
                              unicode_to_eight_bit[encoding_index].codepoints,
                              unicode_to_eight_bit[encoding_index].number,
-                             sizeof (char *), compare_strings);
+                             sizeof (const char *), compare_strings);
               if (found)
                 new_eight_bit = strdup (found);
 
@@ -468,7 +468,7 @@ int unicode_point_decoded_in_encoding (const char *encoding,
   return 0;
 }
 
-char *
+const char *
 unicode_brace_no_arg_command (enum command_id cmd, const char *encoding)
 {
   if (unicode_character_brace_no_arg_commands[cmd].text

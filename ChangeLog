@@ -1,5 +1,16 @@
 2024-07-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_to_text.c, tp/Texinfo/XS/main/unicode.c,
+	tp/Texinfo/XS/main/unicode.h (ENCODING_CODEPOINTS, COMMAND_UNICODE)
+	(DIACRITIC_UNICODE), tp/Texinfo/XS/main/utils.h,
+	tp/maintain/setup_accent_tables.pl,
+	tp/maintain/setup_converters_code_tables.pl: add const.
+
+	* tp/maintain/setup_converters_code_tables.pl: simplify code for
+	unicode now that there are no empty strings anymore.
+
+2024-07-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/Unicode.pm: no more
 	empty strings in %unicode_map values.
 

@@ -148,13 +148,12 @@ open(UNIC, '>', $unicode_file) or die "Open $unicode_file: $!\n";
 print UNIC "/* Automatically generated from $program_name */\n\n";
 
 print UNIC '#include "unicode.h"'."\n\n";
-print UNIC "DIACRITIC_UNICODE unicode_diacritics[] = {\n";
+print UNIC "const DIACRITIC_UNICODE unicode_diacritics[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
     $command = $name_commands{$command_name};
   }
-  #print UNIC "$command; ";
 
   if (defined($unicode_diacritics{$command_name})) {
     my $numeric_codepoint = hex($unicode_diacritics{$command_name});
@@ -168,7 +167,7 @@ foreach my $command_name (@commands_order) {
 }
 print UNIC "};\n\n";
 
-print UNIC "COMMAND_UNICODE unicode_character_brace_no_arg_commands[] = {\n";
+print UNIC "const COMMAND_UNICODE unicode_character_brace_no_arg_commands[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -176,18 +175,10 @@ foreach my $command_name (@commands_order) {
   }
   #print UNIC "$command; ";
 
-  if (defined($unicode_map{$command_name})
-      or defined($unicode_character_brace_no_arg_commands{$command_name})) {
-    my $result = 0;
-    my $protected = 0;
-    if (defined($unicode_character_brace_no_arg_commands{$command_name})) {
-      $result = $unicode_character_brace_no_arg_commands{$command_name};
-      $protected = '"'.join ('', map {_protect_char($_)} split ('', $result)).'"';
-    }
-    my $codepoint = 0;
-    if (defined($unicode_map{$command_name})) {
-      $codepoint = '"'.$unicode_map{$command_name}.'"';
-    }
+  if (defined($unicode_map{$command_name})) {
+    my $result = $unicode_character_brace_no_arg_commands{$command_name};
+    my $protected = '"'.join ('', map {_protect_char($_)} split ('', $result)).'"';
+    my $codepoint = '"'.$unicode_map{$command_name}.'"';
     my $is_extra = 0;
     if (defined($extra_unicode_map{$command_name})) {
       $is_extra = 1;
@@ -210,7 +201,7 @@ open(STRUC, '>', $structuring_file) or die "Open $structuring_file: $!\n";
 print STRUC "/* Automatically generated from $program_name */\n\n";
 
 print STRUC "#include \"command_ids.h\"\n\n";
-print STRUC "int command_structuring_level[] = {\n";
+print STRUC "int const command_structuring_level[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -224,7 +215,7 @@ foreach my $command_name (@commands_order) {
 }
 print STRUC "};\n\n";
 
-print STRUC "enum command_id level_to_structuring_command[][5] = {\n";
+print STRUC "enum command_id const level_to_structuring_command[][5] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -251,7 +242,7 @@ open(SYMB, '>', $symbol_file) or die "Open $symbol_file: $!\n";
 
 print SYMB "/* Automatically generated from $program_name */\n\n";
 
-print SYMB "char *nobrace_symbol_text[] = {\n";
+print SYMB "const char *nobrace_symbol_text[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -273,7 +264,7 @@ open(TEXT, '>', $text_file) or die "Open $text_file: $!\n";
 
 print TEXT "/* Automatically generated from $program_name */\n\n";
 
-print TEXT "char *text_brace_no_arg_commands[] = {\n";
+print TEXT "const char *text_brace_no_arg_commands[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -289,7 +280,7 @@ foreach my $command_name (@commands_order) {
 }
 print TEXT "};\n\n";
 
-print TEXT "char *sort_brace_no_arg_commands[] = {\n";
+print TEXT "const char *sort_brace_no_arg_commands[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -311,7 +302,7 @@ open(NORM, '>', $normalization_file) or die "Open $normalization_file: $!\n";
 
 print NORM "/* Automatically generated from $program_name */\n\n";
 
-print NORM "char * command_normalization_text[] = {\n";
+print NORM "const char * command_normalization_text[] = {\n";
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {

@@ -34,8 +34,8 @@ extern const char *null_device_names[];
 
 extern const char *whitespace_chars;
 extern const char *digit_chars;
-extern enum command_id level_to_structuring_command[][5];
-extern int command_structuring_level[];
+extern enum command_id const level_to_structuring_command[][5];
+extern int const command_structuring_level[];
 
 extern const char *direction_names[];
 extern const char *direction_texts[];
