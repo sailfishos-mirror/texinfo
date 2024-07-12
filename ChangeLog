@@ -2,9 +2,17 @@
 
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
 	(conversion_initialization): get customization from
+	GNUT_get_direction_string_info in converter_initialize, set
+	$self->{'customized_direction_strings'} and use it in
+	conversion_initialization.
+
+2024-07-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
+	(conversion_initialization): get customization from
 	GNUT_get_no_arg_command_formatting in converter_initialize, set
 	$self->{'customized_no_arg_commands_formatting'} and use
-	customized_no_arg_commands_formatting in conversion_initialization.
+	it in conversion_initialization.
 
 2024-07-12  Patrice Dumas  <pertusus@free.fr>
 

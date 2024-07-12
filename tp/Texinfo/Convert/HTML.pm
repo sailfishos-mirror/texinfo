@@ -9065,7 +9065,8 @@ sub _load_htmlxref_files {
 #  special_targets
 #  global_units_directions
 #
-#    API exists
+#    API exists for setting, not getting
+#  customized_direction_strings
 #  directions_strings
 #  translated_direction_strings
 #
@@ -9413,6 +9414,11 @@ sub converter_initialize($)
       }
     }
   }
+
+  # the customization information are not used further here, as
+  # substitute_html_non_breaking_space is used and it depends on the document
+  $self->{'customized_direction_strings'}
+      = Texinfo::Config::GNUT_get_direction_string_info();
 
   $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
 
@@ -12410,20 +12416,19 @@ sub conversion_initialization($;$)
   # The strings not translated, already converted are
   # initialized here and not with the converter because
   # substitute_html_non_breaking_space is used and it depends on the document.
-  my $customized_direction_strings
-      = Texinfo::Config::GNUT_get_direction_string_info();
   foreach my $string_type (keys(%default_converted_directions_strings)) {
     $self->{'directions_strings'}->{$string_type} = {};
     foreach my $direction
             (keys(%{$default_converted_directions_strings{$string_type}})) {
       $self->{'directions_strings'}->{$string_type}->{$direction} = {};
       my $string_contexts;
-      if ($customized_direction_strings->{$string_type}
-          and $customized_direction_strings->{$string_type}->{$direction}) {
-        if (defined($customized_direction_strings->{$string_type}
+      if ($self->{'customized_direction_strings'}->{$string_type}
+          and $self->{'customized_direction_strings'}->{$string_type}
+                                                           ->{$direction}) {
+        if (defined($self->{'customized_direction_strings'}->{$string_type}
                                               ->{$direction}->{'converted'})) {
           $string_contexts
-            = $customized_direction_strings->{$string_type}
+            = $self->{'customized_direction_strings'}->{$string_type}
                                           ->{$direction}->{'converted'};
         } else {
           $string_contexts = {'normal' => undef };
