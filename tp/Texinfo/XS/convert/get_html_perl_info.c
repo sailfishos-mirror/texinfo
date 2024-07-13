@@ -161,14 +161,19 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **code_types_sv;
   SV **upper_case_commands_sv;
   SV **pre_class_types_sv;
+  SV **translated_direction_strings_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
   HV *commands_conversion_hv;
   HV *types_open_hv;
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
+  HV *translated_direction_strings_hv;
   CONVERTER *converter;
   int nr_accent_cmd = 0;
+  int nr_string_directions;
+  enum direction_string_type DS_type;
+  int nr_dir_str_contexts = TDS_context_string +1;
 
   dTHX;
 
@@ -792,6 +797,96 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
+  FETCH(translated_direction_strings)
+
+  if (translated_direction_strings_sv)
+    translated_direction_strings_hv
+        = (HV *) SvRV (*translated_direction_strings_sv);
+
+  nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                     + converter->special_unit_varieties.number;
+
+  for (DS_type = 0; DS_type < TDS_TRANSLATED_MAX_NR; DS_type++)
+    {
+      converter->translated_direction_strings[DS_type]
+        = new_directions_strings_translated_type (nr_string_directions);
+
+      if (translated_direction_strings_sv)
+        {
+          const char *type_name = direction_string_type_names[DS_type];
+          SV **direction_sv = hv_fetch (translated_direction_strings_hv,
+                                        type_name, strlen (type_name), 0);
+
+          if (direction_sv)
+            {
+              int i;
+              HV *direction_hv = (HV *) SvRV (*direction_sv);
+
+              for (i = 0; i < nr_string_directions; i++)
+                {
+                  const char *direction_name;
+                  SV **spec_sv;
+
+                  if (i < FIRSTINFILE_MIN_IDX)
+                    direction_name = html_button_direction_names[i];
+                  else
+                    direction_name
+                      = converter->special_unit_info[SUI_type_direction]
+                                       [i - FIRSTINFILE_MIN_IDX];
+
+                  spec_sv = hv_fetch (direction_hv, direction_name,
+                                              strlen (direction_name), 0);
+
+                  if (spec_sv)
+                    {
+                      HV *spec_hv = (HV *) SvRV (*spec_sv);
+
+                      SV **to_convert_sv = hv_fetch (spec_hv, "to_convert",
+                                                     strlen ("to_convert"), 0);
+                      /* can be undef if set through Config */
+                      if (to_convert_sv && SvOK (*to_convert_sv))
+                        {
+                          const char *to_convert
+                            = (char *) SvPVutf8_nolen (*to_convert_sv);
+                          converter
+                           ->translated_direction_strings[DS_type][i].to_convert
+                            = non_perl_strdup (to_convert);
+                        }
+                      else
+                        {
+                          SV **context_sv = hv_fetch (spec_hv, "converted",
+                                                     strlen ("converted"), 0);
+                          if (context_sv)
+                            {
+                              HV *context_hv = (HV *) SvRV (*context_sv);
+                              int j;
+
+                              for (j = 0; j < nr_dir_str_contexts; j++)
+                                {
+                                  const char *context_name
+                                    = direction_string_context_names[j];
+
+                                  SV **value_sv
+                                    = hv_fetch (context_hv, context_name,
+                                                  strlen (context_name), 0);
+
+                                  if (value_sv)
+                                    {
+                                      const char *value
+                                        = (char *) SvPVutf8_nolen (*value_sv);
+                                      converter
+                     ->translated_direction_strings[DS_type][i].converted[j]
+                               = non_perl_strdup (value);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
   FETCH(stage_handlers)
 
   if (stage_handlers_sv)
@@ -899,9 +994,7 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
   HV *converter_hv;
   SV **no_arg_commands_formatting_sv;
   SV **directions_strings_sv;
-  SV **translated_direction_strings_sv;
   SV **css_element_class_styles_sv;
-  HV *translated_direction_strings_hv;
   HV *directions_strings_hv;
   enum direction_string_type DS_type;
   int nr_string_directions;
@@ -1089,93 +1182,6 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
                               = (char *) SvPVutf8_nolen (*value_sv);
                            converter->directions_strings[DS_type][i][j]
                              = non_perl_strdup (value);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-  FETCH(translated_direction_strings)
-
-  if (translated_direction_strings_sv)
-    translated_direction_strings_hv
-        = (HV *) SvRV (*translated_direction_strings_sv);
-
-  for (DS_type = 0; DS_type < TDS_TRANSLATED_MAX_NR; DS_type++)
-    {
-      converter->translated_direction_strings[DS_type]
-        = new_directions_strings_translated_type (nr_string_directions);
-
-      if (translated_direction_strings_sv)
-        {
-          const char *type_name = direction_string_type_names[DS_type];
-          SV **direction_sv = hv_fetch (translated_direction_strings_hv,
-                                        type_name, strlen (type_name), 0);
-
-          if (direction_sv)
-            {
-              int i;
-              HV *direction_hv = (HV *) SvRV (*direction_sv);
-
-              for (i = 0; i < nr_string_directions; i++)
-                {
-                  const char *direction_name;
-                  SV **spec_sv;
-
-                  if (i < FIRSTINFILE_MIN_IDX)
-                    direction_name = html_button_direction_names[i];
-                  else
-                    direction_name
-                      = converter->special_unit_info[SUI_type_direction]
-                                       [i - FIRSTINFILE_MIN_IDX];
-
-                  spec_sv = hv_fetch (direction_hv, direction_name,
-                                              strlen (direction_name), 0);
-
-                  if (spec_sv)
-                    {
-                      HV *spec_hv = (HV *) SvRV (*spec_sv);
-
-                      SV **to_convert_sv = hv_fetch (spec_hv, "to_convert",
-                                                     strlen ("to_convert"), 0);
-                      /* can be undef if set through Config */
-                      if (to_convert_sv && SvOK (*to_convert_sv))
-                        {
-                          const char *to_convert
-                            = (char *) SvPVutf8_nolen (*to_convert_sv);
-                          converter
-                           ->translated_direction_strings[DS_type][i].to_convert
-                            = non_perl_strdup (to_convert);
-                        }
-                      else
-                        {
-                          SV **context_sv = hv_fetch (spec_hv, "converted",
-                                                     strlen ("converted"), 0);
-                          if (context_sv)
-                            {
-                              HV *context_hv = (HV *) SvRV (*context_sv);
-                              int j;
-
-                              for (j = 0; j < nr_dir_str_contexts; j++)
-                                {
-                                  const char *context_name
-                                    = direction_string_context_names[j];
-
-                                  SV **value_sv
-                                    = hv_fetch (context_hv, context_name,
-                                                  strlen (context_name), 0);
-
-                                  if (value_sv)
-                                    {
-                                      const char *value
-                                        = (char *) SvPVutf8_nolen (*value_sv);
-                                      converter
-                     ->translated_direction_strings[DS_type][i].converted[j]
-                               = non_perl_strdup (value);
-                                    }
-                                }
-                            }
                         }
                     }
                 }
