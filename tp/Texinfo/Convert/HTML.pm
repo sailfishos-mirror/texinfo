@@ -101,8 +101,8 @@ my %XS_overrides = (
 );
 
 my %XS_conversion_overrides = (
-  "Texinfo::Convert::HTML::_XS_format_init"
-   => "Texinfo::Convert::ConvertXS::html_format_init",
+  "Texinfo::Convert::HTML::_XS_format_setup"
+   => "Texinfo::Convert::ConvertXS::html_format_setup",
   "Texinfo::Convert::HTML::_XS_html_converter_initialize"
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
   "Texinfo::Convert::HTML::_initialize_output_state"
@@ -292,7 +292,7 @@ my %XS_conversion_overrides = (
 );
 
 # XS initialization independent of customization
-sub _XS_format_init()
+sub _XS_format_setup()
 {
 }
 
@@ -307,7 +307,7 @@ sub import {
       foreach my $sub (keys %XS_conversion_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_conversion_overrides{$sub});
       }
-      _XS_format_init();
+      _XS_format_setup();
     }
     $module_loaded = 1;
   }

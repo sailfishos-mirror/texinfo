@@ -146,6 +146,7 @@ libtexinfo_la_SOURCES= \
 		      main/command_stack.c \
 		      main/command_stack.h \
 		      main/cmd_structuring.c \
+		      main/cmd_text.c \
 		      main/parser_conf.c \
 		      main/parser_conf.h \
 		      main/targets.c \
@@ -213,7 +214,6 @@ EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
 EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
-EXTRA_DIST += main/cmd_symbol.c
 EXTRA_DIST += main/cmd_text.c
 EXTRA_DIST += main/global_multi_commands_case.c
 EXTRA_DIST += main/global_unique_commands_case.c
@@ -224,22 +224,22 @@ libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
-              main/cmd_normalization.c \
-              main/cmd_unicode.c \
-              main/cmd_structuring.c \
-              main/cmd_symbol.c \
-              main/cmd_text.c \
-              main/command_data.c \
-              main/command_ids.h \
-              main/element_types.c \
-              main/element_types.h \
-              main/global_commands_types.h \
-              main/global_multi_commands_case.c \
-              main/global_unique_commands_case.c \
-              main/options_init_free.c \
-              main/options_get_perl.c \
-              main/options_types.h
+BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
+                convert/cmd_converter.c \
+                main/cmd_normalization.c \
+                main/cmd_structuring.c \
+                main/cmd_text.c \
+                main/cmd_unicode.c \
+                main/command_data.c \
+                main/command_ids.h \
+                main/element_types.c \
+                main/element_types.h \
+                main/global_commands_types.h \
+                main/global_multi_commands_case.c \
+                main/global_unique_commands_case.c \
+                main/options_init_free.c \
+                main/options_get_perl.c \
+                main/options_types.h
 
 # Need to be distributed
 EXTRA_DIST+=main/element_types.txt main/element_types.awk \
@@ -270,14 +270,14 @@ $(srcdir)/../Commands.pm: ../command_data.txt $(srcdir)/../../maintain/regenerat
 $(srcdir)/../Options.pm: $(srcdir)/../options_data.txt $(srcdir)/../../maintain/regenerate_perl_options_info.pl
 	$(PERL) $(srcdir)/../../maintain/regenerate_perl_options_info.pl $(srcdir)/../Options.pm < $(srcdir)/../options_data.txt
 
-$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_symbol.c $(srcdir)/main/cmd_text.c: main/command_data.c ../Commands.pm ../Options.pm $(srcdir)/../../maintain/setup_converters_code_tables.pl
+$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_text.c $(srcdir)/convert/cmd_converter.c: main/command_data.c ../Commands.pm ../Options.pm $(srcdir)/../../maintain/setup_converters_code_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
 	      $(srcdir)/main/cmd_normalization.c \
 	      $(srcdir)/main/cmd_unicode.c \
 	      $(srcdir)/main/cmd_structuring.c \
-	      $(srcdir)/main/cmd_symbol.c \
-	      $(srcdir)/main/cmd_text.c
+	      $(srcdir)/main/cmd_text.c \
+	      $(srcdir)/convert/cmd_converter.c
 
 MAINTAINERCLEANFILES += main/cmd_normalization.c main/cmd_unicode.c \
                 main/cmd_structuring.c main/cmd_symbol.c main/cmd_text.c
@@ -448,10 +448,14 @@ CLEANFILES += convert/ConvertXS.c
 ConvertXS_la_SOURCES = \
                        convert/get_html_perl_info.c \
                        convert/get_html_perl_info.h \
-                       convert/get_converter_perl_info.c \
-                       convert/get_converter_perl_info.h
+                       convert/converter.h \
+                       convert/converter.c \
+                       convert/cmd_converter.c \
+                       convert/convert_html.h \
+                       convert/convert_html.c
 
 EXTRA_DIST += convert/ConvertXS.xs
+EXTRA_DIST += convert/cmd_converter.c
 
 # To locate include files under out-of-source builds.
 ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/convert $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)

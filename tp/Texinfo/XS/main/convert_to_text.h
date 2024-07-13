@@ -33,6 +33,11 @@ typedef struct TEXT_OPTIONS {
     size_t document_descriptor;
 } TEXT_OPTIONS;
 
+/* in cmd_text.c */
+extern const char *nobrace_symbol_text[];
+extern const char *text_brace_no_arg_commands[];
+extern const char *sort_brace_no_arg_commands[];
+
 char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);
 TEXT_OPTIONS *new_text_options (void);
 void destroy_text_options (TEXT_OPTIONS *text_options);

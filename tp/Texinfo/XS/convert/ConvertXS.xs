@@ -72,6 +72,7 @@ int
 init (...)
       CODE:
         set_element_type_name_info ();
+        converter_setup ();
         RETVAL = 1;
     OUTPUT:
         RETVAL
@@ -540,7 +541,7 @@ text_convert_tree (SV *options_in, SV *tree_in)
 # HTML
 
 void
-html_format_init ()
+html_format_setup ()
 
 void
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_no_arg_commands_formatting, SV *default_special_unit_body)

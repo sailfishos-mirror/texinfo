@@ -427,7 +427,7 @@ html_converter_initialize_sv (SV *converter_sv,
     }
 
   /* gather no_arg_formatted_cmd commands.  The formatting is gathered later
-     as it depends on the document encoding */
+     as it depends on the document encoding
   if (SvOK (default_no_arg_commands_formatting))
     {
       I32 hv_number;
@@ -458,6 +458,7 @@ html_converter_initialize_sv (SV *converter_sv,
       qsort (converter->no_arg_formatted_cmd.list, hv_number,
              sizeof (enum command_id), compare_ints);
     }
+   */
 
   FETCH(sorted_special_unit_varieties)
 

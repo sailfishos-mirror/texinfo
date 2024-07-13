@@ -1777,7 +1777,7 @@ sub xml_protect_text($$)
 }
 
 # 'today' is not set here.
-my %xml_text_entity_no_arg_commands = (
+our %xml_text_entity_no_arg_commands = (
                # nobrace_symbol_text
                '&'             => '&amp;',
 

@@ -208,6 +208,8 @@ CMD_VARIETY command_special_unit_variety[] = {
                                 {0, 0},
 };
 
+static HTML_COMMAND_CONVERSION default_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+
 /* used to set flags to non-zero with a flag that does nothing */
 #define F_AFT_none              0x0001
 
@@ -16609,12 +16611,16 @@ reset_translated_special_unit_info_tree (CONVERTER *self)
 static COMMAND_STACK preformatted_cmd_list;
 static COMMAND_STACK def_cmd_list;
 
+
+static COMMAND_ID_LIST no_arg_formatted_cmd;
+
 /* set information that is independent of customization, only called once */
 void
-html_format_init (void)
+html_format_setup (void)
 {
   int i;
-  int nr_default_commands_args
+  int no_arg_formatted_cmd_nr = 0;
+  int default_commands_args_nr
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
 
@@ -16622,7 +16628,7 @@ html_format_init (void)
     CM_example, CM_display, CM_lisp, 0
   };
 
-  for (i = 0; i < nr_default_commands_args; i++)
+  for (i = 0; i < default_commands_args_nr; i++)
     {
       /* we file the status for specified commands, to distinguish them
          but it is not actually used in the code, as we default to
@@ -16659,8 +16665,13 @@ html_format_init (void)
       html_commands_data[cmd].upper_case_cmd = upper_case_cmd;
     }
 
+  /* set flags */
+  /* also count the number of no_arg_formatted_cmd commands */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
     {
+      if (xml_text_entity_no_arg_commands_formatting[i])
+        no_arg_formatted_cmd_nr++;
+
       if ((builtin_command_data[i].flags & CF_block
            && builtin_command_data[i].data != BLOCK_format_raw)
           || builtin_command_data[i].flags & CF_root)
@@ -16700,6 +16711,39 @@ html_format_init (void)
     }
 
   html_commands_data[CM_float].flags |= HF_composition_context;
+
+  initialize_cmd_list (&no_arg_formatted_cmd, no_arg_formatted_cmd_nr,
+                       no_arg_formatted_cmd_nr);
+
+  no_arg_formatted_cmd_nr = 0;
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      if (xml_text_entity_no_arg_commands_formatting[i])
+        {
+          /* need to cast to drop const */
+          default_no_arg_commands_formatting[i][HCC_type_normal].text
+             = (char *)xml_text_entity_no_arg_commands_formatting[i];
+
+          no_arg_formatted_cmd.list[no_arg_formatted_cmd_nr] = i;
+          no_arg_formatted_cmd_nr++;
+        }
+    }
+  default_no_arg_commands_formatting[CM_SPACE][HCC_type_normal].text = "&nbsp;";
+  default_no_arg_commands_formatting[CM_TAB][HCC_type_normal].text = "&nbsp;";
+  default_no_arg_commands_formatting[CM_NEWLINE][HCC_type_normal].text = "&nbsp;";
+
+  default_no_arg_commands_formatting[CM_enddots][HCC_type_normal].text = "...";
+  default_no_arg_commands_formatting[CM_enddots][HCC_type_normal].element
+     = "small";
+
+  default_no_arg_commands_formatting[CM_dots][HCC_type_preformatted].text
+       = "...";
+  default_no_arg_commands_formatting[CM_enddots][HCC_type_preformatted].text
+       = "...";
+
+  default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_normal].text = "<br>";
+  default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_preformatted].text
+    = "\n";
 }
 
 static int
@@ -16985,12 +17029,12 @@ html_converter_initialize (CONVERTER *self)
   /* note that we allocate the same size as no_arg_formatted_cmd
      even though in general there are much less translated commands,
      for simplicity */
-  if (self->no_arg_formatted_cmd.number)
+  if (no_arg_formatted_cmd.number)
     {
       self->no_arg_formatted_cmd_translated.list = (enum command_id *)
-       malloc (self->no_arg_formatted_cmd.number * sizeof (enum command_id));
+       malloc (no_arg_formatted_cmd.number * sizeof (enum command_id));
       memset (self->no_arg_formatted_cmd_translated.list, 0,
-              self->no_arg_formatted_cmd.number * sizeof (enum command_id));
+              no_arg_formatted_cmd.number * sizeof (enum command_id));
     }
 
   for (i = 0; command_special_unit_variety[i].cmd; i++)
@@ -17146,29 +17190,26 @@ html_converter_initialize (CONVERTER *self)
     }
 
   /* all the no arg formatted commands are implemented in C */
-  if (self->no_arg_formatted_cmd.number)
+  for (i = 0; i < no_arg_formatted_cmd.number; i++)
     {
-      for (i = 0; i < self->no_arg_formatted_cmd.number; i++)
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
+      COMMAND_CONVERSION_FUNCTION *command_conversion
+           = &self->command_conversion_function[cmd];
+      COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
+           = &self->css_string_command_conversion_function[cmd];
+      if (command_conversion->status == FRS_status_default_set)
         {
-          enum command_id cmd = self->no_arg_formatted_cmd.list[i];
-          COMMAND_CONVERSION_FUNCTION *command_conversion
-               = &self->command_conversion_function[cmd];
-          COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
-               = &self->css_string_command_conversion_function[cmd];
-          if (command_conversion->status == FRS_status_default_set)
-            {
-              command_conversion->formatting_reference = 0;
-              command_conversion->status = FRS_status_internal;
-              command_conversion->command_conversion
-                = &convert_no_arg_command;
-              external_command_conversion_function--;
-            }
-
-          css_string_command_conversion->formatting_reference = 0;
-          css_string_command_conversion->status = FRS_status_internal;
-          css_string_command_conversion->command_conversion
-            = &css_string_convert_no_arg_command;
+          command_conversion->formatting_reference = 0;
+          command_conversion->status = FRS_status_internal;
+          command_conversion->command_conversion
+            = &convert_no_arg_command;
+          external_command_conversion_function--;
         }
+
+      css_string_command_conversion->formatting_reference = 0;
+      css_string_command_conversion->status = FRS_status_internal;
+      css_string_command_conversion->command_conversion
+        = &css_string_convert_no_arg_command;
     }
 
   /* accents commands implemented in C */
@@ -18499,9 +18540,9 @@ html_free_converter (CONVERTER *self)
   free_strings_list (&self->css_rule_lines);
   free_strings_list (&self->css_import_lines);
 
-  for (i = 0; i < self->no_arg_formatted_cmd.number; i++)
+  for (i = 0; i < no_arg_formatted_cmd.number; i++)
     {
-      enum command_id cmd = self->no_arg_formatted_cmd.list[i];
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
       enum conversion_context cctx;
       for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
         {
@@ -18588,7 +18629,9 @@ html_free_converter (CONVERTER *self)
     }
   free (self->htmlxref.list);
 
-  free (self->no_arg_formatted_cmd.list);
+  /* should be freed on exit.
+  free (no_arg_formatted_cmd.list);
+   */
 
   free (self->accent_cmd.list);
 
@@ -18802,7 +18845,6 @@ html_translate_names (CONVERTER *self)
   /* self->no_arg_formatted_cmd_translated is used here to hold the translated
      commands, and the information is kept if it is also used to pass
      translated commands results to Perl */
-  if (self->no_arg_formatted_cmd.number)
     {
       int translated_nr = 0;
       COMMAND_ID_LIST *translated_cmds
@@ -18815,9 +18857,9 @@ html_translate_names (CONVERTER *self)
                 * sizeof (enum command_id));
         }
 
-      for (j = 0; j < self->no_arg_formatted_cmd.number; j++)
+      for (j = 0; j < no_arg_formatted_cmd.number; j++)
         {
-          enum command_id cmd = self->no_arg_formatted_cmd.list[j];
+          enum command_id cmd = no_arg_formatted_cmd.list[j];
           enum conversion_context cctx;
           int add_cmd = 0;
           for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)

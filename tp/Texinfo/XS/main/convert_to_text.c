@@ -47,10 +47,6 @@
 #include "translations.h"
 #include "convert_to_text.h"
 
-#include "cmd_symbol.c"
-#include "cmd_text.c"
-
-
 TEXT_OPTIONS *
 new_text_options (void)
 {

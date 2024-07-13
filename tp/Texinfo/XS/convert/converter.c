@@ -43,6 +43,7 @@
 #include "utils.h"
 #include "errors.h"
 #include "builtin_commands.h"
+/* also for cmd_text data */
 #include "convert_to_text.h"
 #include "node_name_normalization.h"
 /* cdt_tree ... */
@@ -72,6 +73,25 @@ enum command_id no_brace_command_accent_upper_case[][2] = {
 static CONVERTER **converter_list;
 static size_t converter_number;
 static size_t converter_space;
+
+const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
+
+void
+converter_setup (void)
+{
+  int i;
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      if (xml_text_entity_no_arg_commands[i])
+        xml_text_entity_no_arg_commands_formatting[i]
+          = xml_text_entity_no_arg_commands[i];
+      else if (nobrace_symbol_text[i])
+        xml_text_entity_no_arg_commands_formatting[i] = nobrace_symbol_text[i];
+      else if (text_brace_no_arg_commands[i])
+        xml_text_entity_no_arg_commands_formatting[i]
+          = text_brace_no_arg_commands[i];
+    }
+}
 
 CONVERTER *
 retrieve_converter (int converter_descriptor)

@@ -73,6 +73,14 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
 
 extern enum command_id no_brace_command_accent_upper_case[][2];
 
+/* in generated cmd_converter.c */
+extern const char * xml_text_entity_no_arg_commands[];
+
+/* in converter.c */
+extern const char *xml_text_entity_no_arg_commands_formatting[];
+
+void converter_setup (void);
+
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);
