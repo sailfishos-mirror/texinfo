@@ -19,7 +19,6 @@ void html_converter_initialize_sv (SV *converter_sv,
                                   SV *default_types_conversion,
                                   SV *default_css_string_types_conversion,
                                   SV *default_output_units_conversion,
-                                  SV *default_no_arg_commands_formatting,
                                   SV *default_special_unit_body);
 
 void html_conversion_initialization_sv (SV *converter_sv,

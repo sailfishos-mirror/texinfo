@@ -6,6 +6,15 @@
 
 2024-07-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_XS_html_converter_initialize)
+	(converter_initialize), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): remove
+	default_no_arg_commands_formatting argument.
+
+2024-07-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES, EXTRA_DIST)
 	(BUILT_SOURCES), tp/Texinfo/XS/main/convert_to_text.c,
 	tp/maintain/setup_converters_code_tables.pl: merge cmd_symbol.c in

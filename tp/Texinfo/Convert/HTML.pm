@@ -9105,7 +9105,7 @@ my %special_characters = (
   'non_breaking_space' => [undef, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$)
 {
 }
 
@@ -9494,7 +9494,6 @@ sub converter_initialize($)
                              \%default_types_conversion,
                              \%default_css_string_types_conversion,
                              \%default_output_units_conversion,
-                             $default_no_arg_commands_formatting{'normal'},
                              \%defaults_format_special_unit_body_contents);
     delete $self->{'sorted_special_unit_varieties'};
     delete $self->{'simplified_special_unit_info'};

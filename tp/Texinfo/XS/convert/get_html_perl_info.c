@@ -133,7 +133,6 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_types_conversion,
                               SV *default_css_string_types_conversion,
                               SV *default_output_units_conversion,
-                              SV *default_no_arg_commands_formatting,
                               SV *default_special_unit_body)
 {
   int i;
@@ -425,40 +424,6 @@ html_converter_initialize_sv (SV *converter_sv,
         default_output_units_conversion_hv,
         output_units_conversion_hv);
     }
-
-  /* gather no_arg_formatted_cmd commands.  The formatting is gathered later
-     as it depends on the document encoding
-  if (SvOK (default_no_arg_commands_formatting))
-    {
-      I32 hv_number;
-      I32 i;
-
-      HV *default_no_arg_commands_formatting_hv
-        = (HV*) SvRV (default_no_arg_commands_formatting);
-
-      hv_number = hv_iterinit (default_no_arg_commands_formatting_hv);
-      initialize_cmd_list (&converter->no_arg_formatted_cmd, hv_number, 0);
-
-      for (i = 0; i < hv_number; i++)
-        {
-          I32 retlen;
-          HE *convert_he = hv_iternext (default_no_arg_commands_formatting_hv);
-          char *cmdname = hv_iterkey (convert_he, &retlen);
-          enum command_id cmd = lookup_builtin_command (cmdname);
-
-          if (!cmd)
-            fprintf (stderr, "ERROR: %s: no arg command not found\n", cmdname);
-          else
-            {
-              converter->no_arg_formatted_cmd.list[
-                           converter->no_arg_formatted_cmd.number] = cmd;
-              converter->no_arg_formatted_cmd.number++;
-            }
-        }
-      qsort (converter->no_arg_formatted_cmd.list, hv_number,
-             sizeof (enum command_id), compare_ints);
-    }
-   */
 
   FETCH(sorted_special_unit_varieties)
 
