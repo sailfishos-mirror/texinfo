@@ -2627,8 +2627,7 @@ build_output_files_information (SV *converter_sv,
                                      output_files_information);
 }
 
-/* not used for now */
-SV *
+HV *
 build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
 {
   int i;
@@ -2646,7 +2645,7 @@ build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
                     newSViv (1), 0);
         }
     }
-  return newRV_noinc ((SV *)expanded_hv);
+  return expanded_hv;
 }
 
 SV *

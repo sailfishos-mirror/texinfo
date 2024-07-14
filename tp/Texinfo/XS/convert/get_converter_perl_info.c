@@ -232,7 +232,9 @@ converter_initialize (SV *converter_sv)
 #undef FETCH
   set_translated_commands (converter, hv_in);
 
-  get_expanded_formats (hv_in, &converter->expanded_formats);
+  converter->expanded_formats = new_expanded_formats ();
+  set_expanded_formats_from_options (converter->expanded_formats,
+                                     converter->conf);
 
   converter->hv = hv_in;
 

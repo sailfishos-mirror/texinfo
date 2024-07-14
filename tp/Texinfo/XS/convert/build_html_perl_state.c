@@ -87,6 +87,66 @@ build_html_target (const HTML_TARGET *html_target)
   return html_target_hv;
 }
 
+#define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
+#define STORE_INFO(key, sv) hv_store (converter_info_hv, key, strlen (key), sv, 0)
+void
+html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
+{
+  HV *converter_hv;
+  SV **converter_info_sv;
+  HV *converter_info_hv;
+  const char *non_breaking_space;
+  const char *paragraph_symbol;
+  const char *line_break_element;
+  SV *non_breaking_space_sv;
+  SV *paragraph_symbol_sv;
+  SV *line_break_element_sv;
+  SV **expanded_formats_sv;
+
+  dTHX;
+
+  converter_hv = (HV *) SvRV (converter_sv);
+  converter_info_sv = hv_fetch (converter_hv, "converter_info",
+                             strlen ("converter_info"), 0);
+  converter_info_hv = (HV *) SvRV (*converter_info_sv);
+
+  non_breaking_space
+           = converter->special_character[SC_non_breaking_space].string;
+  line_break_element = converter->line_break_element.string;
+  paragraph_symbol
+          = converter->special_character[SC_paragraph_symbol].string;
+
+  non_breaking_space_sv = newSVpv_utf8 (non_breaking_space, 0);
+
+  STORE("non_breaking_space", non_breaking_space_sv);
+  SvREFCNT_inc (non_breaking_space_sv);
+  STORE_INFO("non_breaking_space", non_breaking_space_sv);
+
+  paragraph_symbol_sv = newSVpv_utf8 (paragraph_symbol, 0);
+
+  STORE_INFO("paragraph_symbol", paragraph_symbol_sv);
+
+  line_break_element_sv = newSVpv_utf8 (line_break_element, 0);
+
+  STORE("line_break_element", line_break_element_sv);
+  SvREFCNT_inc (line_break_element_sv);
+  STORE_INFO("line_break_element", line_break_element_sv);
+
+  /* add expanded_formats to converter_info */
+  expanded_formats_sv
+    = hv_fetch (converter_hv, "expanded_formats",
+                strlen ("expanded_formats"), 0);
+
+  if (expanded_formats_sv && SvOK (*expanded_formats_sv))
+    {
+      SvREFCNT_inc (*expanded_formats_sv);
+      STORE_INFO("expanded_formats", *expanded_formats_sv);
+    }
+
+#undef STORE
+#undef STORE_INFO
+}
+
 /* Currently unused */
 SV *
 build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)

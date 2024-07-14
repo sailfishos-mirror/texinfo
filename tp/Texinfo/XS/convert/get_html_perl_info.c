@@ -133,7 +133,8 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_types_conversion,
                               SV *default_css_string_types_conversion,
                               SV *default_output_units_conversion,
-                              SV *default_special_unit_body)
+                              SV *default_special_unit_body,
+                              SV *default_css_element_class_styles)
 {
   int i;
   HV *converter_hv;
@@ -185,6 +186,36 @@ html_converter_initialize_sv (SV *converter_sv,
     = (HV *)SvRV (default_formatting_references);
   default_css_string_formatting_references_hv
     = (HV *)SvRV (default_css_string_formatting_references);
+
+  /* Should always be true */
+  if (default_css_element_class_styles
+      && SvOK (default_css_element_class_styles))
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *css_element_class_styles_hv
+        = (HV *)SvRV (default_css_element_class_styles);
+
+      hv_number = hv_iterinit (css_element_class_styles_hv);
+
+      initialize_css_selector_style_list (&converter->css_element_class_styles,
+                                          hv_number);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          HE *next = hv_iternext (css_element_class_styles_hv);
+          SV *selector_sv = hv_iterkeysv (next);
+          char *selector = (char *) SvPVutf8_nolen (selector_sv);
+          SV *style_sv = HeVAL(next);
+          char *style = (char *) SvPVutf8_nolen (style_sv);
+
+          CSS_SELECTOR_STYLE *selector_style
+            = &converter->css_element_class_styles.list[i];
+          selector_style->selector = non_perl_strdup (selector);
+          selector_style->style = non_perl_strdup (style);
+        }
+    }
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(htmlxref)
@@ -994,7 +1025,6 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
   HV *converter_hv;
   SV **no_arg_commands_formatting_sv;
   SV **directions_strings_sv;
-  SV **css_element_class_styles_sv;
   HV *directions_strings_hv;
   enum direction_string_type DS_type;
   int nr_string_directions;
@@ -1116,6 +1146,8 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
             }
         }
     }
+  else
+    fprintf (stderr, "BUG: NO no_arg_commands_formatting\n");
 
   /* The corresponding direction without FirstInFile are used instead
      of FirstInFile*, so the directions_strings are not set */
@@ -1189,35 +1221,6 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
         }
     }
 
-  FETCH(css_element_class_styles)
-
-  if (css_element_class_styles_sv)
-    {
-      I32 hv_number;
-      I32 i;
-
-      HV *css_element_class_styles_hv
-        = (HV *)SvRV (*css_element_class_styles_sv);
-
-      hv_number = hv_iterinit (css_element_class_styles_hv);
-
-      initialize_css_selector_style_list (&converter->css_element_class_styles,
-                                          hv_number);
-
-      for (i = 0; i < hv_number; i++)
-        {
-          HE *next = hv_iternext (css_element_class_styles_hv);
-          SV *selector_sv = hv_iterkeysv (next);
-          char *selector = (char *) SvPVutf8_nolen (selector_sv);
-          SV *style_sv = HeVAL(next);
-          char *style = (char *) SvPVutf8_nolen (style_sv);
-
-          CSS_SELECTOR_STYLE *selector_style
-            = &converter->css_element_class_styles.list[i];
-          selector_style->selector = non_perl_strdup (selector);
-          selector_style->style = non_perl_strdup (style);
-        }
-    }
 }
 
 void

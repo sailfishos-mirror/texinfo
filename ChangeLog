@@ -1,8 +1,54 @@
-2024-09-29  Patrice Dumas  <pertusus@free.fr>
+2024-07-14  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES)
-	(nodist_IndicesXS_la_SOURCES, ConvertXS_la_SOURCES): put converter C
-	files in libtexinfo_convert_la_SOURCES.
+	* tp/Texinfo/Convert/HTML.pm (%special_characters)
+	(conversion_initialization): remove _set_non_breaking_space.  Add
+	$xml_named_entity_nbsp as entity of non_breaking_space.  Simplify code
+	setting conf_default_no_arg_commands_formatting_normal too
+	non_breaking_space for space commands.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_expanded_formats):
+	return an HV, not an SV.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_is_format_expanded): add an
+	XS override for is_format_expanded.
+
+	* tp/Texinfo/Convert/Converter.pm (_internal_converter_initialize)
+	(converter), tp/Texinfo/XS/convert/ConvertXS.xs
+	(converter_initialize, html_converter_initialize_sv),
+	tp/Texinfo/XS/main/get_perl_info.c (converter_initialize): rename
+	_XS_converter_initialize as _internal_converter_initialize.  Add code
+	in _internal_converter_initialize for initialization either in generic
+	XS converter or in Perl.  Build expanded_formats in XS in
+	converter_initialize.  Use _internal_converter_initialize for code
+	setting $converter->{'expanded_formats'} in Perl.
+
+	* tp/Texinfo/Convert/HTML.pm (%default_css_element_class_styles):
+	rename  %css_element_class_styles as
+	%default_css_element_class_styles.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/Convert/HTML.pm (conversion_initialization),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv, html_conversion_initialization_sv):
+	pass default_css_element_class_styles to html_converter_initialize_sv.
+	Use css_set_selector_style call instead of modifying directly
+	$self->{'css_element_class_styles'}.
+
+	* tp/Texinfo/XS/convert/convert_html.c (spaces_cmd)
+	(html_initialize_output_state): preliminary code setting
+	output_no_arg_commands_formatting in C based on
+	default_no_arg_commands_formatting and non-breaking spaces.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_initialize_output_state),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_output_state): pass non-breaking space,
+	paragraph_symbol, line_break element and expanded_formats in
+	converter_info in XS.  For now this is redundant with Perl, but this
+	should change.
+
+	* tp/Texinfo/Convert/HTML.pm (conversion_initialization): reorder
+	code.
 
 2024-07-13  Patrice Dumas  <pertusus@free.fr>
 
@@ -19,6 +65,12 @@
 	tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv): remove
 	default_no_arg_commands_formatting argument.
+
+2024-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES)
+	(nodist_IndicesXS_la_SOURCES, ConvertXS_la_SOURCES): put converter C
+	files in libtexinfo_convert_la_SOURCES.
 
 2024-07-13  Patrice Dumas  <pertusus@free.fr>
 

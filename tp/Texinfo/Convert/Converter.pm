@@ -71,7 +71,7 @@ our $module_loaded = 0;
 
 my %XS_overrides = (
   # XS only called if there is an associated XS converter
-  "Texinfo::Convert::Converter::_XS_converter_initialize",
+  "Texinfo::Convert::Converter::_internal_converter_initialize",
    => "Texinfo::Convert::ConvertXS::converter_initialize",
   "Texinfo::Convert::Converter::_XS_set_conf"
    => "Texinfo::Convert::ConvertXS::set_conf",
@@ -229,11 +229,6 @@ sub conversion_finalization($)
   #my $converter = shift;
 }
 
-# initialize generic XS converter
-sub _XS_converter_initialize($)
-{
-}
-
 sub output_internal_links($)
 {
   my $self = shift;
@@ -259,6 +254,21 @@ sub set_document($$)
 
   $converter->{'convert_text_options'}
    = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
+}
+
+# initialization either in generic XS converter or in Perl
+sub _internal_converter_initialize($)
+{
+  my $converter = shift;
+
+  # turn the array to a hash.
+  my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
+  $converter->{'expanded_formats'} = {};
+  if (defined($expanded_formats)) {
+    foreach my $expanded_format (@$expanded_formats) {
+      $converter->{'expanded_formats'}->{$expanded_format} = 1;
+    }
+  }
 }
 
 # this function is designed so as to be used in specific Converters
@@ -304,29 +314,20 @@ sub converter($;$)
   # the customization passed as argument.
   $converter->{'converter_init_conf'} = { %{$converter->{'conf'}} };
 
-  # turn the array to a hash.
-  my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
-  $converter->{'expanded_formats'} = {};
-  if (defined($expanded_formats)) {
-    foreach my $expanded_format (@$expanded_formats) {
-      $converter->{'expanded_formats'}->{$expanded_format} = 1;
-    }
-  }
-
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()
   $converter->{'output_files'} = Texinfo::Common::output_files_initialize();
 
   $converter->{'error_warning_messages'} = [];
 
-  # XS converter initialization.
+  # if with XS, XS converter initialization.
   # NOTE get_conf should not be used before that point, such that the conf is
   # initialized before it is called for the first time.
   # NOTE format specific information is not available at this point, such that
   # some options may not be obtained.  This is the case for HTML for instance.
   # In particular the special units information need to be known before buttons
   # information can be passed to C.
-  _XS_converter_initialize($converter);
+  _internal_converter_initialize($converter);
 
   $converter->converter_initialize();
 

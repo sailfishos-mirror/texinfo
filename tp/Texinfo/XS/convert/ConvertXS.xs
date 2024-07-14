@@ -79,6 +79,20 @@ init (...)
 
 void
 converter_initialize (SV *converter_in)
+      PREINIT:
+         size_t converter_descriptor;
+      CODE:
+         converter_descriptor = converter_initialize (converter_in);
+         if (converter_descriptor)
+           {
+             const CONVERTER *self = retrieve_converter (converter_descriptor);
+             HV *converter_hv = (HV *)SvRV (converter_in);
+             HV *expanded_formats_hv
+               = build_expanded_formats (self->expanded_formats);
+             hv_store (converter_hv, "expanded_formats",
+                       strlen ("expanded_formats"),
+                       newRV_inc ((SV *) expanded_formats_hv), 0);
+           }
 
 void
 converter_set_document (SV *converter_in, SV *document_in)
@@ -544,7 +558,7 @@ void
 html_format_setup ()
 
 void
-html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body)
+html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *default_css_element_class_styles)
 
 void
 html_initialize_output_state (SV *converter_in, char *context)
@@ -556,6 +570,9 @@ html_initialize_output_state (SV *converter_in, char *context)
            {
              html_conversion_initialization_sv (converter_in, self);
              html_initialize_output_state (self, context);
+
+             /* TODO do later and only if self->external_references_number */
+             html_pass_converter_output_state (converter_in, self);
            }
 
 SV *
@@ -1101,6 +1118,24 @@ html_count_elements_in_filename (SV *converter_in, const char *spec, filename)
     OUTPUT:
          RETVAL
 
+SV *
+html_is_format_expanded (SV *converter_in, format)
+         char *format = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_is_format_expanded");
+         if (self)
+           {
+             int expanded = format_expanded_p (self->expanded_formats, format);
+             RETVAL = newSViv ((IV)expanded);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 void
 html_register_file_information (SV *converter_in, key, int value)
          char *key = (char *)SvPVutf8_nolen($arg);
@@ -1145,7 +1180,7 @@ html_get_file_information (SV *converter_in, key, ...)
          if (found)
            result_sv = newSViv ((IV)result);
          else
-           result_sv = newSV(0);
+           result_sv = newSV (0);
 
          EXTEND(SP, 2);
          PUSHs(sv_2mortal(found_sv));
@@ -1723,7 +1758,7 @@ html_css_set_selector_style (SV *converter_in, css_info, SV *css_style_sv)
                                   "html_css_set_selector_style");
          if (self)
            {
-             char *css_style = 0;
+             const char *css_style = 0;
              if (SvOK (css_style_sv))
                css_style = (char *)SvPVutf8_nolen (css_style_sv);
 

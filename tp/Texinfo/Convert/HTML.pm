@@ -226,6 +226,8 @@ my %XS_conversion_overrides = (
 
   "Texinfo::Convert::HTML::count_elements_in_filename"
    => "Texinfo::Convert::ConvertXS::html_count_elements_in_filename",
+  "Texinfo::Convert::HTML::is_format_expanded",
+   => "Texinfo::Convert::ConvertXS::html_is_format_expanded",
   "Texinfo::Convert::HTML::register_file_information"
    => "Texinfo::Convert::ConvertXS::html_register_file_information",
   "Texinfo::Convert::HTML::get_file_information",
@@ -3043,7 +3045,7 @@ sub converter_defaults($$)
   return %defaults;
 }
 
-my %css_element_class_styles = (
+my %default_css_element_class_styles = (
      %css_rules_not_collected,
 
      'ul.toc-numbered-mark'   => 'list-style: none',
@@ -3111,8 +3113,8 @@ my %css_element_class_styles = (
      'span:hover a.copiable-link'         => 'visibility: visible',
 );
 
-$css_element_class_styles{'pre.format-preformatted'}
-  = $css_element_class_styles{'pre.display-preformatted'};
+$default_css_element_class_styles{'pre.format-preformatted'}
+  = $default_css_element_class_styles{'pre.display-preformatted'};
 
 my %preformatted_commands_context = %preformatted_commands;
 $preformatted_commands_context{'verbatim'} = 1;
@@ -3137,9 +3139,11 @@ foreach my $indented_format ('example', 'display', 'lisp') {
   $indented_preformatted_commands{$indented_format} = 1;
   $indented_preformatted_commands{"small$indented_format"} = 1;
 
-  $css_element_class_styles{"div.$indented_format"} = 'margin-left: 3.2em';
+  $default_css_element_class_styles{"div.$indented_format"}
+    = 'margin-left: 3.2em';
 }
-delete $css_element_class_styles{"div.lisp"}; # output as div.example instead
+# output as div.example instead
+delete $default_css_element_class_styles{"div.lisp"};
 
 # types that are in code style in the default case.  '_code' is not
 # a type that can appear in the tree built from Texinfo code, it is used
@@ -3321,11 +3325,11 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
 
 
 
-# w not in css_string, set the corresponding css_element_class_styles
+# w not in css_string, set the corresponding default_css_element_class_styles
 # especially, which also has none and not w in the class
-$css_element_class_styles{'ul.mark-none'} = 'list-style-type: none';
+$default_css_element_class_styles{'ul.mark-none'} = 'list-style-type: none';
 
-# setup css_element_class_styles for mark commands based on css strings
+# setup default_css_element_class_styles for mark commands based on css strings
 foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string'}})) {
   if (defined($brace_commands{$mark_command})) {
     my $css_string;
@@ -3345,7 +3349,7 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
       $css_string = '"'.$css_string.'"';
     }
     if (defined($css_string)) {
-      $css_element_class_styles{"ul.mark-$mark_command"}
+      $default_css_element_class_styles{"ul.mark-$mark_command"}
                                = "list-style-type: $css_string";
     }
   }
@@ -3355,9 +3359,9 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
 sub builtin_default_css_text()
 {
   my $css_text = '';
-  foreach my $css_rule (sort(keys(%css_element_class_styles))) {
-    if ($css_element_class_styles{$css_rule} ne '') {
-      $css_text .= "$css_rule {$css_element_class_styles{$css_rule}}\n";
+  foreach my $css_rule (sort(keys(%default_css_element_class_styles))) {
+    if ($default_css_element_class_styles{$css_rule} ne '') {
+      $css_text .= "$css_rule {$default_css_element_class_styles{$css_rule}}\n";
     }
   }
   return $css_text;
@@ -8783,15 +8787,6 @@ sub _complete_no_arg_commands_formatting($$;$)
                                    'css_string', 'string', $translate);
 }
 
-sub _set_non_breaking_space($$)
-{
-  my $self = shift;
-  my $non_breaking_space = shift;
-  # used for direct access for speed
-  $self->{'non_breaking_space'} = $non_breaking_space;
-  $self->{'converter_info'}->{'non_breaking_space'} = $non_breaking_space;
-}
-
 # transform <hr> to <hr/>
 sub _xhtml_re_close_lone_element($)
 {
@@ -9102,10 +9097,10 @@ my %special_characters = (
   'left_quote' => ['&lsquo;', '2018'],
   'right_quote' => ['&rsquo;', '2019'],
   'bullet' => ['&bull;', '2022'],
-  'non_breaking_space' => [undef, '00A0'],
+  'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$)
 {
 }
 
@@ -9494,7 +9489,8 @@ sub converter_initialize($)
                              \%default_types_conversion,
                              \%default_css_string_types_conversion,
                              \%default_output_units_conversion,
-                             \%defaults_format_special_unit_body_contents);
+                             \%defaults_format_special_unit_body_contents,
+                             \%default_css_element_class_styles);
     delete $self->{'sorted_special_unit_varieties'};
     delete $self->{'simplified_special_unit_info'};
   }
@@ -12237,6 +12233,9 @@ sub _initialize_output_state($$)
   $self->{'check_htmlxref_already_warned'} = {}
     if ($self->get_conf('CHECK_HTMLXREF'));
 
+  $self->{'converter_info'}->{'expanded_formats'}
+    = $self->{'expanded_formats'};
+
   $self->_new_document_context($context);
 }
 
@@ -12248,17 +12247,12 @@ sub conversion_initialization($;$)
   my $self = shift;
   my $document = shift;
 
-  $self->{'converter_info'}
-    = {'expanded_formats' => $self->{'expanded_formats'}};
+  $self->{'converter_info'} = {};
 
   if ($document) {
     $self->set_document($document);
     $self->{'converter_info'}->{'document'} = $document;
   }
-
-  # duplicate such as not to modify the defaults
-  my $conf_default_no_arg_commands_formatting_normal
-    = Storable::dclone($default_no_arg_commands_formatting{'normal'});
 
   my %special_characters_set;
 
@@ -12280,19 +12274,11 @@ sub conversion_initialization($;$)
     }
   }
 
-  if (defined($special_characters_set{'non_breaking_space'})) {
-    my $non_breaking_space = $special_characters_set{'non_breaking_space'};
-    $self->_set_non_breaking_space($non_breaking_space);
-    foreach my $space_command (' ', "\t", "\n") {
-      $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
-        = $self->{'non_breaking_space'};
-    }
-    $conf_default_no_arg_commands_formatting_normal->{'tie'}->{'text'}
-      = $self->substitute_html_non_breaking_space(
-           $default_no_arg_commands_formatting{'normal'}->{'tie'}->{'text'});
-  } else {
-    $self->_set_non_breaking_space($xml_named_entity_nbsp);
-  }
+  # used for direct access for speed
+  $self->{'non_breaking_space'} = $special_characters_set{'non_breaking_space'};
+  $self->{'converter_info'}->{'non_breaking_space'}
+    = $special_characters_set{'non_breaking_space'};
+
   $self->{'converter_info'}->{'paragraph_symbol'}
     = $special_characters_set{'paragraph_symbol'};
 
@@ -12315,13 +12301,6 @@ sub conversion_initialization($;$)
     $self->force_conf('MENU_SYMBOL', '') if (!$set);
   }
 
-  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
-      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
-       = $Texinfo::Convert::Unicode::unicode_entities{$command};
-    }
-  }
-
   if ($self->get_conf('USE_XML_SYNTAX')) {
     foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
       my $variable_value = $self->get_conf($customization_variable);
@@ -12338,10 +12317,33 @@ sub conversion_initialization($;$)
   }
   $self->{'converter_info'}->{'line_break_element'}
     = $self->{'line_break_element'};
+
+  $self->{'shared_conversion_state'} = {};
+
+  # duplicate such as not to modify the defaults
+  my $conf_default_no_arg_commands_formatting_normal
+    = Storable::dclone($default_no_arg_commands_formatting{'normal'});
+
+  my $non_breaking_space = $self->{'non_breaking_space'};
+
+  if ($non_breaking_space ne $xml_named_entity_nbsp) {
+    foreach my $space_command (' ', "\t", "\n", 'tie') {
+      $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
+        = $non_breaking_space;
+    }
+  }
+
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
+      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
+       = $Texinfo::Convert::Unicode::unicode_entities{$command};
+    }
+  }
+
   $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
     = $self->{'line_break_element'};
 
-  %{$self->{'css_element_class_styles'}} = %css_element_class_styles;
+  %{$self->{'css_element_class_styles'}} = %default_css_element_class_styles;
 
   # initialized here and not with the converter because it may depend on
   # the document encoding.
@@ -12379,8 +12381,9 @@ sub conversion_initialization($;$)
                 = $self->{'no_arg_commands_formatting'}
                                     ->{$command}->{$context}->{'text'};
               $css_string = '"'.$css_string.'"';
-              $self->{'css_element_class_styles'}->{"ul.mark-$command"}
-                = "list-style-type: $css_string";
+
+              css_set_selector_style($self, "ul.mark-$command",
+                                     "list-style-type: $css_string");
             }
           } else {
             $self->{'no_arg_commands_formatting'}->{$command}->{$context}
@@ -12452,11 +12455,9 @@ sub conversion_initialization($;$)
     }
   }
 
-  $self->{'shared_conversion_state'} = {};
+  $self->{'multiple_pass'} = [];
 
   $self->_initialize_output_state('_convert');
-
-  $self->{'multiple_pass'} = [];
 
   # direction strings
   foreach my $string_type (keys(%default_translated_directions_strings)) {

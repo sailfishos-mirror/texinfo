@@ -17450,6 +17450,8 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
     }
 }
 
+const enum command_id spaces_cmd[] = {CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie};
+
 /* called very early in conversion functions, before updating
    customization, before calling user-defined functions...  */
 void
@@ -17463,6 +17465,11 @@ html_initialize_output_state (CONVERTER *self, const char *context)
     {
       fprintf (stderr, "REMARK: html_initialize_output_state: no document");
     }
+
+  HTML_COMMAND_CONVERSION
+   output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+  memcpy (output_no_arg_commands_formatting, default_no_arg_commands_formatting,
+          sizeof (default_no_arg_commands_formatting));
 
   output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
 
@@ -17485,6 +17492,18 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
       self->special_character[i].string = special_character_string;
       self->special_character[i].len = strlen (special_character_string);
+    }
+
+  /* if not the textual entity */
+  if (strcmp(self->special_character[SC_non_breaking_space].string,
+             special_characters_formatting[SC_non_breaking_space][0]))
+    {
+      for (i = 0; i < sizeof (spaces_cmd) / sizeof (spaces_cmd[0]); i++)
+        {
+          enum command_id cmd = spaces_cmd[i];
+          output_no_arg_commands_formatting[cmd][HCC_type_normal].text
+            = self->special_character[SC_non_breaking_space].string;
+        }
     }
 
   if (self->conf->USE_XML_SYNTAX.o.integer > 0)
