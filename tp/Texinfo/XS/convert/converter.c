@@ -284,7 +284,7 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
   GLOBAL_COMMANDS *global_commands = 0;
   const char *setfilename = 0;
   const char *setfilename_for_outfile = 0;
-  const char *input_basename_for_outfile;
+  char *input_basename_for_outfile;
   /* the document path, in general the outfile without
      extension and can be set from setfilename if outfile is not set */
   char *document_path;
@@ -326,6 +326,7 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
       parse_file_path (input_file_name, input_file_name_and_directory);
       input_basefile = input_file_name_and_directory[0];
       free (input_file_name_and_directory[1]);
+      free (input_file_name);
     }
   else /* This could happen if called on a piece of texinfo */
     input_basefile = strdup ("");
@@ -357,13 +358,17 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
   else if (global_commands && global_commands->setfilename)
     setfilename = informative_command_value (global_commands->setfilename);
 
-  input_basename_for_outfile = input_basename;
-  setfilename_for_outfile = setfilename;
   /* PREFIX overrides both setfilename and the input file base name */
   if (self->conf->PREFIX.o.string)
     {
       setfilename_for_outfile = 0;
-      input_basename_for_outfile = self->conf->PREFIX.o.string;
+      free (input_basename);
+      input_basename_for_outfile = strdup (self->conf->PREFIX.o.string);
+    }
+  else
+    {
+      input_basename_for_outfile = input_basename;
+      setfilename_for_outfile = setfilename;
     }
 
   /* determine output file and output file name */
@@ -420,6 +425,8 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
       output_file = strdup (self->conf->OUTFILE.o.string);
     }
 
+  free (input_basename_for_outfile);
+
   /* the output file path, output_filepath is in general the same as
      the outfile but can be set from setfilename if outfile is not set. */
   if (!strlen (output_file) && setfilename_for_outfile)
@@ -439,6 +446,7 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
      file basename, $output_filename, without extension. */
 
   parse_file_path (document_path, document_name_and_directory);
+  free (document_path);
   document_name = document_name_and_directory[0];
   free (document_name_and_directory[1]);
   parse_file_path (output_filepath, output_filename_and_directory);
