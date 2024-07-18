@@ -293,7 +293,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_node_redirections",
 );
 
-# XS initialization independent of customization
+# XS initialization independent of customization and of Perl
+# variables setup.
 sub _XS_format_setup()
 {
 }
@@ -9100,7 +9101,7 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$$)
 {
 }
 
@@ -9479,6 +9480,7 @@ sub converter_initialize($)
       $self->{'sorted_special_unit_varieties'}
         = [sort(keys(%all_special_unit_varieties))];
     }
+
     _XS_html_converter_initialize($self,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
@@ -9490,7 +9492,9 @@ sub converter_initialize($)
                              \%default_css_string_types_conversion,
                              \%default_output_units_conversion,
                              \%defaults_format_special_unit_body_contents,
-                             \%default_css_element_class_styles);
+                             \%default_css_element_class_styles,
+                             \%default_converted_directions_strings
+                            );
     delete $self->{'sorted_special_unit_varieties'};
     delete $self->{'simplified_special_unit_info'};
   }

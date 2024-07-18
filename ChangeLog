@@ -1,5 +1,23 @@
 2024-07-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_prepare_css): initialize
+	css_import_lines and css_rule_lines only if there are css files, from
+	valgrind.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): initialize stage handlers only if
+	there is at least one.
+
+	* tp/Texinfo/Convert/HTML.pm (_XS_html_converter_initialize)
+	(converter_initialize), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_converter_initialize_sv), tp/Texinfo/XS/convert/convert_html.c
+	(html_free_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): pass default_converted_directions_strings to perl, to
+	default_converted_directions_strings in converter.
+
+2024-07-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (determine_files_and_directory):
 	free input_file_name, input_basename_for_outfile and document_path,
 	found with valgrind.

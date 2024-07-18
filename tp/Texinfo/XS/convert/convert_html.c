@@ -17986,13 +17986,13 @@ html_prepare_css (CONVERTER *self)
   if (self->conf->NO_CSS.o.integer > 0)
     return;
 
-  css_import_lines = new_string_list ();
-  css_rule_lines = new_string_list ();
-
   css_files = self->conf->CSS_FILES.o.strlist;
 
   if (!css_files || css_files->number <= 0)
     return;
+
+  css_import_lines = new_string_list ();
+  css_rule_lines = new_string_list ();
 
   for (i = 0; i < css_files->number; i++)
     {
@@ -18597,16 +18597,6 @@ html_free_converter (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < SUI_type_heading+1; i++)
-    {
-      int k;
-      for (k = 0; k < self->special_unit_varieties.number; k++)
-        {
-          free (self->special_unit_info[i][k]);
-        }
-      free (self->special_unit_info[i]);
-    }
-
   for (i = 0; i < TDS_TYPE_MAX_NR; i++)
     {
       int j;
@@ -18647,6 +18637,27 @@ html_free_converter (CONVERTER *self)
         }
     }
   free (self->htmlxref.list);
+
+  for (i = 0; i < (TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR); i++)
+    {
+      int j;
+
+      for (j = 0; j < nr_string_directions; j++)
+        {
+          free (self->default_converted_directions_strings[i][j]);
+        }
+      free (self->default_converted_directions_strings[i]);
+    }
+
+  for (i = 0; i < SUI_type_heading+1; i++)
+    {
+      int k;
+      for (k = 0; k < self->special_unit_varieties.number; k++)
+        {
+          free (self->special_unit_info[i][k]);
+        }
+      free (self->special_unit_info[i]);
+    }
 
   /* should be freed on exit.
   free (no_arg_formatted_cmd.list);

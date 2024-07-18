@@ -134,7 +134,9 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_css_string_types_conversion,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
-                              SV *default_css_element_class_styles)
+                              SV *default_css_element_class_styles,
+                              SV *default_converted_directions_strings
+                             )
 {
   int i;
   HV *converter_hv;
@@ -218,6 +220,129 @@ html_converter_initialize_sv (SV *converter_sv,
     }
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
+  FETCH(sorted_special_unit_varieties)
+
+  if (sorted_special_unit_varieties_sv)
+    {
+      int i;
+      enum special_unit_info_type j;
+      SV **simplified_special_unit_info_sv;
+      HV *special_unit_info_hv;
+
+      STRING_LIST *special_unit_varieties = &converter->special_unit_varieties;
+      if (sorted_special_unit_varieties_sv)
+        add_svav_to_string_list (*sorted_special_unit_varieties_sv,
+                                 special_unit_varieties, svt_char);
+
+      FETCH(simplified_special_unit_info);
+
+      special_unit_info_hv = (HV *) SvRV(*simplified_special_unit_info_sv);
+
+      for (j = 0; j < SUI_type_heading+1; j++)
+        {
+          SV **special_unit_info_type_sv;
+          const char *sui_type = special_unit_info_type_names[j];
+          special_unit_info_type_sv = hv_fetch (special_unit_info_hv,
+                                                sui_type, strlen (sui_type), 0);
+          if (special_unit_info_type_sv)
+            {
+              int k;
+              HV *special_unit_info_type_hv;
+
+              if (!SvOK (*special_unit_info_type_sv))
+                {
+                  fprintf (stderr, "BUG: special_unit_info: %s: undef\n",
+                                   sui_type);
+                }
+
+              special_unit_info_type_hv
+                   = (HV *) SvRV(*special_unit_info_type_sv);
+
+              converter->special_unit_info[j]
+                = new_special_unit_info_type (special_unit_varieties->number);
+
+              for (k = 0; k < special_unit_varieties->number; k++)
+                {
+                  char *variety_name = special_unit_varieties->list[k];
+                  SV **info_type_variety_sv
+                   = hv_fetch (special_unit_info_type_hv, variety_name,
+                               strlen (variety_name), 0);
+                  if (info_type_variety_sv)
+                    {
+                      /* can be undef if set undef in user init file */
+                      if (SvOK (*info_type_variety_sv))
+                        {
+                          const char *value
+                            = (char *) SvPVutf8_nolen (*info_type_variety_sv);
+                          converter->special_unit_info[j][k]
+                             = non_perl_strdup (value);
+                        }
+                      else
+                        converter->special_unit_info[j][k] = 0;
+                    }
+                    /*
+                  else
+                    fprintf (stderr, "Missing %d:%s %d:%s\n", j, sui_type, k, variety_name);
+                     */
+                }
+            }
+        }
+    }
+
+  /* Should always be true */
+  if (default_converted_directions_strings
+      && SvOK (default_converted_directions_strings))
+    {
+      HV *default_converted_directions_strings_hv
+         = (HV *) SvRV (default_converted_directions_strings);
+      nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                            + converter->special_unit_varieties.number;
+      int non_translated_directions_strings_nr
+          = (TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR);
+      for (DS_type = 0; DS_type < non_translated_directions_strings_nr;
+           DS_type++)
+        {
+          const char *type_name
+             = direction_string_type_names[TDS_TRANSLATED_MAX_NR + DS_type];
+          SV **direction_sv
+             = hv_fetch (default_converted_directions_strings_hv,
+                                        type_name, strlen (type_name), 0);
+
+          converter->default_converted_directions_strings[DS_type]
+            = (char **) malloc (nr_string_directions * sizeof (char *));
+          memset (converter->default_converted_directions_strings[DS_type],
+                  0, nr_string_directions * sizeof (char *));
+
+          if (direction_sv)
+            {
+              int i;
+              HV *direction_hv = (HV *) SvRV (*direction_sv);
+
+              for (i = 0; i < nr_string_directions; i++)
+                {
+                  const char *direction_name;
+                  SV **spec_sv;
+
+                  if (i < FIRSTINFILE_MIN_IDX)
+                    direction_name = html_button_direction_names[i];
+                  else
+                    direction_name
+                      = converter->special_unit_info[SUI_type_direction]
+                                       [i - FIRSTINFILE_MIN_IDX];
+
+                  spec_sv = hv_fetch (direction_hv, direction_name,
+                                          strlen (direction_name), 0);
+
+                  if (spec_sv && SvOK (*spec_sv))
+                    {
+                      converter->default_converted_directions_strings[DS_type][i]
+                        = strdup (SvPVutf8_nolen (*spec_sv));
+                    }
+                }
+            }
+        }
+    }
+
   FETCH(htmlxref)
 
   if (htmlxref_sv)
@@ -461,76 +586,12 @@ html_converter_initialize_sv (SV *converter_sv,
         output_units_conversion_hv);
     }
 
-  FETCH(sorted_special_unit_varieties)
-
   if (sorted_special_unit_varieties_sv)
     {
-      int i;
-      enum special_unit_info_type j;
-      SV **simplified_special_unit_info_sv;
-      HV *special_unit_info_hv;
       SV **special_unit_body_sv;
       HV *special_unit_body_hv;
       HV *default_special_unit_body_hv;
-
       STRING_LIST *special_unit_varieties = &converter->special_unit_varieties;
-      if (sorted_special_unit_varieties_sv)
-        add_svav_to_string_list (*sorted_special_unit_varieties_sv,
-                                 special_unit_varieties, svt_char);
-
-      FETCH(simplified_special_unit_info);
-
-      special_unit_info_hv = (HV *) SvRV(*simplified_special_unit_info_sv);
-
-      for (j = 0; j < SUI_type_heading+1; j++)
-        {
-          SV **special_unit_info_type_sv;
-          const char *sui_type = special_unit_info_type_names[j];
-          special_unit_info_type_sv = hv_fetch (special_unit_info_hv,
-                                                sui_type, strlen (sui_type), 0);
-          if (special_unit_info_type_sv)
-            {
-              int k;
-              HV *special_unit_info_type_hv;
-
-              if (!SvOK (*special_unit_info_type_sv))
-                {
-                  fprintf (stderr, "BUG: special_unit_info: %s: undef\n",
-                                   sui_type);
-                }
-
-              special_unit_info_type_hv
-                   = (HV *) SvRV(*special_unit_info_type_sv);
-
-              converter->special_unit_info[j]
-                = new_special_unit_info_type (special_unit_varieties->number);
-
-              for (k = 0; k < special_unit_varieties->number; k++)
-                {
-                  char *variety_name = special_unit_varieties->list[k];
-                  SV **info_type_variety_sv
-                   = hv_fetch (special_unit_info_type_hv, variety_name,
-                               strlen (variety_name), 0);
-                  if (info_type_variety_sv)
-                    {
-                      /* can be undef if set undef in user init file */
-                      if (SvOK (*info_type_variety_sv))
-                        {
-                          const char *value
-                            = (char *) SvPVutf8_nolen (*info_type_variety_sv);
-                          converter->special_unit_info[j][k]
-                             = non_perl_strdup (value);
-                        }
-                      else
-                        converter->special_unit_info[j][k] = 0;
-                    }
-                    /*
-                  else
-                    fprintf (stderr, "Missing %d:%s %d:%s\n", j, sui_type, k, variety_name);
-                     */
-                }
-            }
-        }
 
       converter->special_unit_body
        = new_special_unit_formatting_references
@@ -960,6 +1021,9 @@ html_converter_initialize_sv (SV *converter_sv,
               HTML_STAGE_HANDLER_INFO_LIST *stage_handler_list
                 = &converter->html_stage_handlers[stage];
               SSize_t stage_handlers_info_nr = av_top_index (stage_av) +1;
+
+              if (stage_handlers_info_nr == 0)
+                continue;
 
               stage_handler_list->number = stage_handlers_info_nr;
               stage_handler_list->list = (HTML_STAGE_HANDLER_INFO *)
