@@ -1019,6 +1019,7 @@ substitute_html_non_breaking_space (CONVERTER *self, const char *text)
 {
   TEXT result;
   text_init (&result);
+  text_append (&result, "");
 
   const char *p = text;
 
@@ -17502,7 +17503,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
         {
           enum command_id cmd = spaces_cmd[i];
           output_no_arg_commands_formatting[cmd][HCC_type_normal].text
-            = self->special_character[SC_non_breaking_space].string;
+            = strdup (self->special_character[SC_non_breaking_space].string);
         }
     }
 

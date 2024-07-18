@@ -53,6 +53,8 @@ void html_converter_prepare_output (CONVERTER* self);
 void initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size,
                           size_t number);
 
+char *substitute_html_non_breaking_space (CONVERTER *self, const char *text);
+
 HTMLXREF_MANUAL *new_htmlxref_manual_list (size_t size);
 void initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
                                    size_t size);

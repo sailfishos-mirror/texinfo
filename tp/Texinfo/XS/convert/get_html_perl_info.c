@@ -224,7 +224,6 @@ html_converter_initialize_sv (SV *converter_sv,
 
   if (sorted_special_unit_varieties_sv)
     {
-      int i;
       enum special_unit_info_type j;
       SV **simplified_special_unit_info_sv;
       HV *special_unit_info_hv;
@@ -1088,8 +1087,12 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
 {
   HV *converter_hv;
   SV **no_arg_commands_formatting_sv;
+  /*
   SV **directions_strings_sv;
   HV *directions_strings_hv;
+   */
+  SV **customized_direction_strings_sv;
+  HV *customized_direction_strings_hv = 0;
   enum direction_string_type DS_type;
   int nr_string_directions;
   int nr_dir_str_contexts = TDS_context_string +1;
@@ -1218,6 +1221,107 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
   nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
                      + converter->special_unit_varieties.number;
 
+  FETCH(customized_direction_strings)
+  if (customized_direction_strings_sv)
+    customized_direction_strings_hv
+      = (HV *) SvRV (*customized_direction_strings_sv);
+
+  for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
+    {
+      int i;
+      const char *type_name;
+      HV *direction_hv = 0;
+      char **default_converted_dir_str;
+
+      converter->directions_strings[DS_type]
+        = new_directions_strings_type (nr_string_directions,
+                                       nr_dir_str_contexts);
+
+      /* those will be determined from translatable strings */
+      if (DS_type < TDS_TRANSLATED_MAX_NR)
+        continue;
+
+      type_name = direction_string_type_names[DS_type];
+      default_converted_dir_str =
+       converter->default_converted_directions_strings[
+                                       DS_type - (TDS_TRANSLATED_MAX_NR)];
+      if (customized_direction_strings_sv && customized_direction_strings_hv)
+        {
+          SV **direction_sv = hv_fetch (customized_direction_strings_hv, type_name,
+                                   strlen (type_name), 0);
+          if (direction_sv && SvOK (*direction_sv))
+            direction_hv = (HV *) SvRV (*direction_sv);
+        }
+
+      for (i = 0; i < nr_string_directions; i++)
+        {
+          const char *direction_name;
+          if (direction_hv)
+            {
+              SV **context_sv;
+
+              if (i < FIRSTINFILE_MIN_IDX)
+                direction_name = html_button_direction_names[i];
+              else
+                direction_name
+                  = converter->special_unit_info[SUI_type_direction]
+                                   [i - FIRSTINFILE_MIN_IDX];
+
+              context_sv = hv_fetch (direction_hv, direction_name,
+                                          strlen (direction_name), 0);
+              if (context_sv)
+                {
+                  if (SvOK (*context_sv))
+                    {
+                      HV *context_hv = (HV *) SvRV (*context_sv);
+                      SV **converted_sv = hv_fetch (context_hv, "converted",
+                                                    strlen ("converted"), 0);
+                      if (converted_sv && SvOK (*converted_sv))
+                        {
+                          int j;
+
+                          for (j = 0; j < nr_dir_str_contexts; j++)
+                            {
+                              const char *context_name
+                                = direction_string_context_names[j];
+
+                              SV **value_sv
+                                 = hv_fetch (context_hv, context_name,
+                                             strlen (context_name), 0);
+
+                              if (value_sv && SvOK (*value_sv))
+                                {
+                                   const char *value
+                                      = (char *) SvPVutf8_nolen (*value_sv);
+                                   converter->directions_strings[DS_type][i][j]
+                                     = substitute_html_non_breaking_space (
+                                                             converter, value);
+                                }
+                            }
+                        }
+                    }
+                  goto add_string_context_if_needed;
+                }
+            }
+          if (default_converted_dir_str[i])
+            {
+              converter->directions_strings[DS_type][i][TDS_context_normal]
+                = substitute_html_non_breaking_space (converter,
+                                            default_converted_dir_str[i]);
+            }
+
+        add_string_context_if_needed:
+          if (converter->directions_strings[DS_type][i][TDS_context_normal]
+              && !converter->directions_strings[DS_type][i][TDS_context_string])
+            {
+              converter->directions_strings[DS_type][i][TDS_context_string]
+                 = non_perl_strdup (
+               converter->directions_strings[DS_type][i][TDS_context_normal]);
+            }
+        }
+    }
+
+  /* To get converter->directions_strings from $self->{'directions_strings'}
   FETCH(directions_strings)
 
   if (directions_strings_sv)
@@ -1284,6 +1388,7 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
             }
         }
     }
+  */
 
 }
 
