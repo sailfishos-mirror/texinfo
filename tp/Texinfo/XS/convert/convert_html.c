@@ -3014,10 +3014,14 @@ clear_direction_string_type (const CONVERTER *self, char ***type_directions_stri
     {
       char **direction_strings = type_directions_strings[i];
       int j;
-      for (j = 0; j < nr_dir_str_contexts; j++)
+      /* NULL only happens for customized_directions_strings */
+      if (direction_strings != NULL)
         {
-          free (direction_strings[j]);
-          direction_strings[j] = 0;
+          for (j = 0; j < nr_dir_str_contexts; j++)
+            {
+              free (direction_strings[j]);
+              direction_strings[j] = 0;
+            }
         }
     }
 }
@@ -17513,6 +17517,12 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 {
   int i;
   const char *output_encoding;
+  /* The corresponding direction without FirstInFile are used instead
+     of FirstInFile*, so the directions_strings are not set */
+  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                     + self->special_unit_varieties.number;
+  int nr_dir_str_contexts = TDS_context_string + 1;
+  enum direction_string_type DS_type;
   const char *line_break_element;
 
   if (!self->document && self->conf->DEBUG.o.integer > 0)
@@ -17585,8 +17595,59 @@ html_initialize_output_state (CONVERTER *self, const char *context)
         }
     }
 
+  /* cast to discard const */
   output_no_arg_commands_formatting[CM_NEWLINE][HCC_type_normal].text
-    = self->line_break_element.string;
+    = (char *)self->line_break_element.string;
+
+
+  for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
+    {
+      int i;
+      char **default_converted_dir_str;
+      char ***customized_type_dir_strings;
+
+      self->directions_strings[DS_type]
+        = new_directions_strings_type (nr_string_directions,
+                                       nr_dir_str_contexts);
+
+      /* those will be determined from translatable strings */
+      if (DS_type < TDS_TRANSLATED_MAX_NR)
+        continue;
+
+      default_converted_dir_str =
+       self->default_converted_directions_strings[
+                                       DS_type - (TDS_TRANSLATED_MAX_NR)];
+      customized_type_dir_strings = self->customized_directions_strings[
+                                       DS_type - (TDS_TRANSLATED_MAX_NR)];
+      for (i = 0; i < nr_string_directions; i++)
+        {
+          if (customized_type_dir_strings[i])
+            {
+              int j;
+              for (j = 0; j < nr_dir_str_contexts; j++)
+                {
+                  if (customized_type_dir_strings[i][j])
+                    self->directions_strings[DS_type][i][j]
+                      = substitute_html_non_breaking_space (self,
+                                     customized_type_dir_strings[i][j]);
+                }
+            }
+          else if (default_converted_dir_str[i])
+            {
+              self->directions_strings[DS_type][i][TDS_context_normal]
+                = substitute_html_non_breaking_space (self,
+                                            default_converted_dir_str[i]);
+            }
+
+          if (self->directions_strings[DS_type][i][TDS_context_normal]
+              && !self->directions_strings[DS_type][i][TDS_context_string])
+            {
+              self->directions_strings[DS_type][i][TDS_context_string]
+                 = strdup (
+               self->directions_strings[DS_type][i][TDS_context_normal]);
+            }
+        }
+    }
 
   sort_css_element_class_styles (self);
 
@@ -18678,6 +18739,19 @@ html_free_converter (CONVERTER *self)
           free (type_dir_strings[j]);
         }
       free (type_dir_strings);
+    }
+
+  for (i = 0; i < (TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR); i++)
+    {
+      int j;
+      char ***customized_type_dir_strings
+        = self->customized_directions_strings[i];
+      clear_direction_string_type (self, customized_type_dir_strings);
+      for (j = 0; j < nr_string_directions; j++)
+        {
+          free (customized_type_dir_strings[j]);
+        }
+      free (customized_type_dir_strings);
     }
 
   for (i = 0; i < TDS_TRANSLATED_MAX_NR; i++)
