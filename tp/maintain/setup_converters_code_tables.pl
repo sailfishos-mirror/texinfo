@@ -180,13 +180,16 @@ foreach my $command_name (@commands_order) {
     my $result = $unicode_character_brace_no_arg_commands{$command_name};
     my $protected = '"'.join ('', map {_protect_char($_)} split ('', $result)).'"';
     my $codepoint = '"'.$unicode_map{$command_name}.'"';
+    # note that this is not used for ASCII characters and some specific
+    # characters
+    my $css_string = '"\\\\'.$unicode_map{$command_name}.' "';
     my $is_extra = 0;
     if (defined($extra_unicode_map{$command_name})) {
       $is_extra = 1;
     }
-    print UNIC "{$codepoint, $protected, $is_extra},   /* $command */\n";
+    print UNIC "{$codepoint, $protected, $css_string, $is_extra},   /* $command */\n";
   } else {
-    print UNIC "{0, 0, -1},\n";
+    print UNIC "{0, 0, 0, -1},\n";
   }
 }
 print UNIC "};\n\n";

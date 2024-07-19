@@ -17,6 +17,7 @@ typedef struct ENCODING_CODEPOINTS {
 typedef struct COMMAND_UNICODE {
     const char *codepoint;
     const char *text; /* UTF-8 encoded */
+    const char *css_string;
     int is_extra;
 } COMMAND_UNICODE;
 

@@ -16615,6 +16615,8 @@ static COMMAND_STACK def_cmd_list;
 
 static COMMAND_ID_LIST no_arg_formatted_cmd;
 
+static char *unicode_entities[BUILTIN_CMD_NUMBER];
+
 /* set information that is independent of customization, only called once */
 void
 html_format_setup (void)
@@ -16721,7 +16723,8 @@ html_format_setup (void)
     {
       if (xml_text_entity_no_arg_commands_formatting[i])
         {
-          /* need to cast to drop const */
+          /* the value is never modified but the struct field type is not const
+             so need to cast to drop const */
           default_no_arg_commands_formatting[i][HCC_type_normal].text
              = (char *)xml_text_entity_no_arg_commands_formatting[i];
 
@@ -16745,6 +16748,56 @@ html_format_setup (void)
   default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_normal].text = "<br>";
   default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_preformatted].text
     = "\n";
+
+  for (i = 0; i < no_arg_formatted_cmd_nr; i++)
+    {
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
+      /* prepare unicode numeric entities.  Freed at exit */
+      if (unicode_character_brace_no_arg_commands[cmd].codepoint)
+        {
+          unsigned long point_nr
+           = strtoul (unicode_character_brace_no_arg_commands[cmd].codepoint,
+                      NULL, 16);
+          char *entity;
+          xasprintf (&entity, "&#%lu;", point_nr);
+          unicode_entities[cmd] = entity;
+        }
+
+      /* css_strings */
+      if (cmd == CM_NEWLINE)
+        default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+          = "\\A ";
+      else if (cmd == CM_error)
+        default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+          = 0;
+      else if (unicode_character_brace_no_arg_commands[cmd].css_string)
+        {
+          unsigned long point_nr
+           = strtoul (unicode_character_brace_no_arg_commands[cmd].codepoint,
+                      NULL, 16);
+          if (point_nr < 128) /* 7bit ascii */
+            default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+              = (char *)point_nr;
+          else
+          /* the value is never modified but the struct field type is not const
+             so need to cast to drop const */
+            default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+              = (char *)unicode_character_brace_no_arg_commands[cmd].css_string;
+        }
+      else if (nobrace_symbol_text[cmd])
+        default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+          /* the value is never modified but the struct field type is not const
+             so need to cast to drop const */
+          = (char *)nobrace_symbol_text[cmd];
+      else if (text_brace_no_arg_commands[cmd])
+          /* the value is never modified but the struct field type is not const
+             so need to cast to drop const */
+        default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+          = (char *)text_brace_no_arg_commands[cmd];
+      else
+        fprintf (stderr, "BUG: %s: no css_string\n",
+                         builtin_command_data[cmd].cmdname);
+    }
 }
 
 static int
@@ -17467,10 +17520,9 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       fprintf (stderr, "REMARK: html_initialize_output_state: no document");
     }
 
+  /* corresponds with $self->{'no_arg_commands_formatting'} */
   HTML_COMMAND_CONVERSION
    output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
-  memcpy (output_no_arg_commands_formatting, default_no_arg_commands_formatting,
-          sizeof (default_no_arg_commands_formatting));
 
   output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
 
@@ -17495,18 +17547,6 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       self->special_character[i].len = strlen (special_character_string);
     }
 
-  /* if not the textual entity */
-  if (strcmp(self->special_character[SC_non_breaking_space].string,
-             special_characters_formatting[SC_non_breaking_space][0]))
-    {
-      for (i = 0; i < sizeof (spaces_cmd) / sizeof (spaces_cmd[0]); i++)
-        {
-          enum command_id cmd = spaces_cmd[i];
-          output_no_arg_commands_formatting[cmd][HCC_type_normal].text
-            = strdup (self->special_character[SC_non_breaking_space].string);
-        }
-    }
-
   if (self->conf->USE_XML_SYNTAX.o.integer > 0)
     {
       /* here in perl something for rules but we already get that from perl */
@@ -17517,6 +17557,36 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
   self->line_break_element.string = line_break_element;
   self->line_break_element.len = strlen (line_break_element);
+
+  memcpy (output_no_arg_commands_formatting, default_no_arg_commands_formatting,
+          sizeof (default_no_arg_commands_formatting));
+
+  /* if not the textual entity */
+  if (strcmp(self->special_character[SC_non_breaking_space].string,
+             special_characters_formatting[SC_non_breaking_space][0]))
+    {
+      for (i = 0; i < sizeof (spaces_cmd) / sizeof (spaces_cmd[0]); i++)
+        {
+          enum command_id cmd = spaces_cmd[i];
+          /* cast to drop const */
+          output_no_arg_commands_formatting[cmd][HCC_type_normal].text
+            = (char *)self->special_character[SC_non_breaking_space].string;
+        }
+    }
+
+  if (self->conf->USE_NUMERIC_ENTITY.o.integer > 0)
+    {
+      for (i = 0; i < no_arg_formatted_cmd.number; i++)
+        {
+          enum command_id cmd = no_arg_formatted_cmd.list[i];
+          if (unicode_entities[cmd])
+            output_no_arg_commands_formatting[cmd][HCC_type_normal].text
+              = unicode_entities[cmd];
+        }
+    }
+
+  output_no_arg_commands_formatting[CM_NEWLINE][HCC_type_normal].text
+    = self->line_break_element.string;
 
   sort_css_element_class_styles (self);
 

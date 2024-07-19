@@ -1,3 +1,20 @@
+2024-07-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (unicode_entities)
+	(html_format_setup): setup unicode_entities.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_format_setup),
+	tp/Texinfo/XS/main/unicode.h (ENCODING_CODEPOINTS),
+	tp/maintain/setup_converters_code_tables.pl: add
+	unicode_character_brace_no_arg_commands css_string field.  Set it up
+	with Perl code.  Set default_no_arg_commands_formatting css_string
+	based on unicode_character_brace_no_arg_commands css_string and on
+	othere existing @-commands formatting tables to text.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_initialize_output_state):
+	use unicode_entities and line_break_element to setup
+	output_no_arg_commands_formatting
+
 2024-07-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_initialize_output_state):
@@ -33,7 +50,7 @@
 	(html_converter_initialize_sv), tp/Texinfo/XS/convert/convert_html.c
 	(html_free_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
-	(CONVERTER): pass default_converted_directions_strings to perl, to
+	(CONVERTER): pass default_converted_directions_strings from Perl to
 	default_converted_directions_strings in converter.
 
 2024-07-18  Patrice Dumas  <pertusus@free.fr>
@@ -47,7 +64,7 @@
 	* tp/Texinfo/Convert/HTML.pm (%special_characters)
 	(conversion_initialization): remove _set_non_breaking_space.  Add
 	$xml_named_entity_nbsp as entity of non_breaking_space.  Simplify code
-	setting conf_default_no_arg_commands_formatting_normal too
+	setting conf_default_no_arg_commands_formatting_normal to
 	non_breaking_space for space commands.
 
 	* tp/Texinfo/XS/main/build_perl_info.c (build_expanded_formats):
