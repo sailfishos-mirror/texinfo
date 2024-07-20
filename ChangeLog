@@ -1,3 +1,31 @@
+2024-07-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER), tp/Texinfo/XS/convert/convert_html.c
+	(free_html_command_conversion, html_free_converter): get
+	customized_no_arg_commands_formatting from Perl.  Add
+	free_html_command_conversion based on html_free_converter code.
+	Free customized_no_arg_commands_formatting in html_free_converter.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(reset_unset_no_arg_commands_formatting_context)
+	(complete_no_arg_commands_formatting): move code above.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_initialize_output_state),
+	tp/Texinfo/XS/convert/convert_html.c (set_no_arg_commands_formatting)
+	(html_format_setup, copy_html_command_conversion)
+	(html_initialize_output_state): set unset in
+	default_no_arg_commands_formatting for preformatted and string context
+	when needed, fix * command formatting, use
+	unicode_character_brace_no_arg_commands[cmd].text for ASCII
+	characters.  Set self->html_command_conversion for no arg commands
+	based on self->customized_no_arg_commands_formatting,
+	output_no_arg_commands_formatting, and possibly unicode characters.
+	Reset ul.mark-* css_strings if needed.  Do not call
+	html_conversion_initialization_sv in html_initialize_output_state as
+	Perl information is not needed anymore there.
+
 2024-07-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (clear_direction_string_type)

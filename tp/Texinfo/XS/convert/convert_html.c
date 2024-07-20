@@ -16621,6 +16621,13 @@ static COMMAND_ID_LIST no_arg_formatted_cmd;
 
 static char *unicode_entities[BUILTIN_CMD_NUMBER];
 
+static void
+set_no_arg_commands_formatting (HTML_COMMAND_CONVERSION *spec, char *text)
+{
+  spec->text = text;
+  spec->unset = 0;
+}
+
 /* set information that is independent of customization, only called once */
 void
 html_format_setup (void)
@@ -16722,6 +16729,14 @@ html_format_setup (void)
   initialize_cmd_list (&no_arg_formatted_cmd, no_arg_formatted_cmd_nr,
                        no_arg_formatted_cmd_nr);
 
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      enum conversion_context cctx;
+      /* set unset for string and preformatted contexts */
+      for (cctx = 1; cctx < HCC_type_css_string; cctx++)
+        default_no_arg_commands_formatting[i][cctx].unset = 1;
+    }
+
   no_arg_formatted_cmd_nr = 0;
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
@@ -16744,14 +16759,14 @@ html_format_setup (void)
   default_no_arg_commands_formatting[CM_enddots][HCC_type_normal].element
      = "small";
 
-  default_no_arg_commands_formatting[CM_dots][HCC_type_preformatted].text
-       = "...";
-  default_no_arg_commands_formatting[CM_enddots][HCC_type_preformatted].text
-       = "...";
+  set_no_arg_commands_formatting (
+   &default_no_arg_commands_formatting[CM_dots][HCC_type_preformatted], "...");
+  set_no_arg_commands_formatting (
+   &default_no_arg_commands_formatting[CM_enddots][HCC_type_preformatted], "...");
 
   default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_normal].text = "<br>";
-  default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_preformatted].text
-    = "\n";
+  set_no_arg_commands_formatting (
+   &default_no_arg_commands_formatting[CM_ASTERISK][HCC_type_preformatted], "\n");
 
   for (i = 0; i < no_arg_formatted_cmd_nr; i++)
     {
@@ -16768,12 +16783,16 @@ html_format_setup (void)
         }
 
       /* css_strings */
-      if (cmd == CM_NEWLINE)
+      if (cmd == CM_ASTERISK)
         default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
           = "\\A ";
       else if (cmd == CM_error)
-        default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
-          = 0;
+        {
+          default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+            = 0;
+          default_no_arg_commands_formatting[cmd][HCC_type_css_string].unset
+            = 1;
+        }
       else if (unicode_character_brace_no_arg_commands[cmd].css_string)
         {
           unsigned long point_nr
@@ -16781,7 +16800,7 @@ html_format_setup (void)
                       NULL, 16);
           if (point_nr < 128) /* 7bit ascii */
             default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
-              = (char *)point_nr;
+              = (char *)unicode_character_brace_no_arg_commands[cmd].text;
           else
           /* the value is never modified but the struct field type is not const
              so need to cast to drop const */
@@ -17508,6 +17527,136 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
     }
 }
 
+static void
+reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
+               enum command_id cmd, enum conversion_context reset_context,
+               enum conversion_context ref_context, int translate)
+{
+  HTML_COMMAND_CONVERSION *no_arg_command_context;
+  HTML_COMMAND_CONVERSION *conversion_contexts
+    = self->html_command_conversion[cmd];
+  no_arg_command_context = &conversion_contexts[reset_context];
+  if (ref_context >= 0)
+    {
+      if (no_arg_command_context->unset)
+        {
+          HTML_COMMAND_CONVERSION *no_arg_ref
+            = &conversion_contexts[ref_context];
+
+          if (no_arg_ref->text)
+            {
+              free (no_arg_command_context->text);
+              no_arg_command_context->text = strdup (no_arg_ref->text);
+            }
+          if (no_arg_ref->translated_tree)
+            no_arg_command_context->translated_tree
+              = no_arg_ref->translated_tree;
+          if (no_arg_ref->translated_converted)
+            {
+              free (no_arg_command_context->translated_converted);
+              no_arg_command_context->translated_converted
+                = strdup (no_arg_ref->translated_converted);
+            }
+          if (no_arg_ref->translated_to_convert)
+            {
+              free (no_arg_command_context->translated_to_convert);
+              no_arg_command_context->translated_to_convert
+                = strdup (no_arg_ref->translated_to_convert);
+            }
+        }
+    }
+
+  if (translate
+      && no_arg_command_context->translated_tree
+      && !no_arg_command_context->translated_converted)
+    {
+      char *translation_result = 0;
+      char *explanation;
+      char *context;
+      ELEMENT *tree_built = 0;
+      ELEMENT *translated_tree = no_arg_command_context->translated_tree;
+      if (self->external_references_number > 0 && !translated_tree->hv)
+        {
+          add_to_element_list (&self->tree_to_build, translated_tree);
+          tree_built = translated_tree;
+        }
+      xasprintf (&explanation, "Translated NO ARG @%s ctx %s",
+                 builtin_command_data[cmd].cmdname,
+                 html_conversion_context_type_names[reset_context]);
+      xasprintf (&context, "Tr %s ctx %s",
+                 builtin_command_data[cmd].cmdname,
+                 html_conversion_context_type_names[reset_context]);
+      if (reset_context == HCC_type_normal)
+        {
+          translation_result = html_convert_tree (self, translated_tree,
+                                                  explanation);
+        }
+      else if (reset_context == HCC_type_preformatted)
+        {
+          enum command_id preformatted_cmd = CM_example;
+          /* there does not seems to be anything simpler... */
+          html_new_document_context (self, context, 0, 0);
+          html_open_command_update_context (self, preformatted_cmd);
+          translation_result = html_convert_tree (self, translated_tree,
+                                                  explanation);
+          html_convert_command_update_context (self, preformatted_cmd);
+          html_pop_document_context (self);
+        }
+      else if (reset_context == HCC_type_string)
+        {
+          html_new_document_context (self, context, 0, 0);
+          html_set_string_context (self);
+
+          translation_result = html_convert_tree (self, translated_tree,
+                                                  explanation);
+          html_pop_document_context (self);
+        }
+      else if (reset_context == HCC_type_css_string)
+        {
+          translation_result = html_convert_css_string (self, translated_tree,
+                                                        context);
+        }
+      free (explanation);
+      free (context);
+      if (no_arg_command_context->text)
+        free (no_arg_command_context->text);
+      no_arg_command_context->text = translation_result;
+      if (tree_built)
+        remove_element_from_list (&self->tree_to_build, tree_built);
+    }
+}
+
+static void
+complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
+                                     int translate)
+{
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_normal,
+                                                  -1, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd,
+                                                  HCC_type_preformatted,
+                                                  HCC_type_normal, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_string,
+                                                  HCC_type_preformatted, translate);
+  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_css_string,
+                                                  HCC_type_string, translate);
+}
+
+static void
+copy_html_command_conversion (HTML_COMMAND_CONVERSION *to,
+                              HTML_COMMAND_CONVERSION *from)
+{
+  if (from->element)
+    to->element = strdup (from->element);
+  to->quote = from->quote;
+  to->unset = from->unset;
+  if (from->text)
+    to->text = strdup (from->text);
+  if (from->translated_converted)
+    to->translated_converted = strdup (from->translated_converted);
+  if (from->translated_to_convert)
+    to->translated_to_convert = strdup (from->translated_to_convert);
+}
+
 const enum command_id spaces_cmd[] = {CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie};
 
 /* called very early in conversion functions, before updating
@@ -17596,9 +17745,96 @@ html_initialize_output_state (CONVERTER *self, const char *context)
     }
 
   /* cast to discard const */
-  output_no_arg_commands_formatting[CM_NEWLINE][HCC_type_normal].text
+  output_no_arg_commands_formatting[CM_ASTERISK][HCC_type_normal].text
     = (char *)self->line_break_element.string;
 
+  for (i = 0; i < no_arg_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
+      enum conversion_context cctx;
+      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+        {
+          HTML_COMMAND_CONVERSION *customized_no_arg_cmd
+            = self->customized_no_arg_commands_formatting[cmd][cctx];
+          HTML_COMMAND_CONVERSION *result
+            = &self->html_command_conversion[cmd][cctx];
+          if (customized_no_arg_cmd)
+            {
+              copy_html_command_conversion (result, customized_no_arg_cmd);
+            }
+          else if (!output_no_arg_commands_formatting[cmd][cctx].unset)
+            {
+              const char *unicode_brace_no_arg_formatting = 0;
+              if (self->conf->OUTPUT_CHARACTERS.o.integer > 0)
+                {
+                  unicode_brace_no_arg_formatting
+                    = unicode_brace_no_arg_command (cmd,
+                         self->conf->OUTPUT_ENCODING_NAME.o.string);
+                }
+              if (unicode_brace_no_arg_formatting)
+                {
+                  memset (result, 0, sizeof (HTML_COMMAND_CONVERSION));
+                  result->text
+                    = strdup (unicode_brace_no_arg_formatting);
+
+                  /* reset CSS for itemize command arguments */
+                  if (cctx == HCC_type_css_string
+                      && builtin_command_data[cmd].flags & CF_brace
+                      && cmd != CM_bullet && cmd != CM_w)
+                    {
+                      int s;
+                      int special_list_mark_command = 0;
+                      for (s = 0;
+                    special_list_mark_css_string_no_arg_command[s].cmd > 0;
+                           s++)
+                        {
+                          if (special_list_mark_css_string_no_arg_command[s].cmd
+                               == cmd)
+                            {
+                              special_list_mark_command = 1;
+                              break;
+                            }
+                        }
+                      if (!special_list_mark_command)
+                        {
+                           char *selector;
+                           char *style;
+                           xasprintf (&selector, "ul.mark-%s",
+                                      builtin_command_name (cmd));
+                           xasprintf (&style, "list-style-type: \"%s\"",
+                                      result->text);
+                           html_css_set_selector_style (self,
+                                                        selector, style);
+                           free (selector);
+                           free (style);
+                        }
+                    }
+                }
+              else
+                {
+                  copy_html_command_conversion (result,
+                     &output_no_arg_commands_formatting[cmd][cctx]);
+                }
+            }
+          else
+            {
+              copy_html_command_conversion (result,
+                &output_no_arg_commands_formatting[cmd][cctx]);
+            }
+        }
+    }
+
+  for (i = 0; i < no_arg_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
+      COMMAND_CONVERSION_FUNCTION *command_conversion
+        = &self->command_conversion_function[cmd];
+      if (command_conversion->status == FRS_status_default_set
+          || command_conversion->status == FRS_status_internal)
+        {
+          complete_no_arg_commands_formatting (self, cmd, 0);
+        }
+    }
 
   for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
     {
@@ -18623,6 +18859,17 @@ html_check_transfer_state_finalization (CONVERTER *self)
     }
 }
 
+void free_html_command_conversion (HTML_COMMAND_CONVERSION *format_spec,
+                                   enum conversion_context cctx)
+{
+  if (cctx == HCC_type_normal && format_spec->translated_tree)
+    destroy_element_and_children (format_spec->translated_tree);
+  free (format_spec->element);
+  free (format_spec->text);
+  free (format_spec->translated_converted);
+  free (format_spec->translated_to_convert);
+}
+
 void
 html_free_converter (CONVERTER *self)
 {
@@ -18699,12 +18946,23 @@ html_free_converter (CONVERTER *self)
         {
           HTML_COMMAND_CONVERSION *format_spec
                 = &self->html_command_conversion[cmd][cctx];
-          if (cctx == HCC_type_normal && format_spec->translated_tree)
-            destroy_element_and_children (format_spec->translated_tree);
-          free (format_spec->element);
-          free (format_spec->text);
-          free (format_spec->translated_converted);
-          free (format_spec->translated_to_convert);
+          free_html_command_conversion (format_spec, cctx);
+        }
+    }
+
+  for (i = 0; i < no_arg_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
+      enum conversion_context cctx;
+      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+        {
+          HTML_COMMAND_CONVERSION *format_spec
+            = self->customized_no_arg_commands_formatting[cmd][cctx];
+          if (format_spec)
+            {
+              free_html_command_conversion (format_spec, cctx);
+              free (format_spec);
+            }
         }
     }
 
@@ -18839,120 +19097,6 @@ html_free_converter (CONVERTER *self)
   free (type_explanations->list);
 
   free_strings_list (&self->special_unit_varieties);
-}
-
-static void
-reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
-               enum command_id cmd, enum conversion_context reset_context,
-               enum conversion_context ref_context, int translate)
-{
-  HTML_COMMAND_CONVERSION *no_arg_command_context;
-  HTML_COMMAND_CONVERSION *conversion_contexts
-    = self->html_command_conversion[cmd];
-  no_arg_command_context = &conversion_contexts[reset_context];
-  if (ref_context >= 0)
-    {
-      if (no_arg_command_context->unset)
-        {
-          HTML_COMMAND_CONVERSION *no_arg_ref
-            = &conversion_contexts[ref_context];
-
-          if (no_arg_ref->text)
-            {
-              free (no_arg_command_context->text);
-              no_arg_command_context->text = strdup (no_arg_ref->text);
-            }
-          if (no_arg_ref->translated_tree)
-            no_arg_command_context->translated_tree
-              = no_arg_ref->translated_tree;
-          if (no_arg_ref->translated_converted)
-            {
-              free (no_arg_command_context->translated_converted);
-              no_arg_command_context->translated_converted
-                = strdup (no_arg_ref->translated_converted);
-            }
-          if (no_arg_ref->translated_to_convert)
-            {
-              free (no_arg_command_context->translated_to_convert);
-              no_arg_command_context->translated_to_convert
-                = strdup (no_arg_ref->translated_to_convert);
-            }
-        }
-    }
-
-  if (translate
-      && no_arg_command_context->translated_tree
-      && !no_arg_command_context->translated_converted)
-    {
-      char *translation_result = 0;
-      char *explanation;
-      char *context;
-      ELEMENT *tree_built = 0;
-      ELEMENT *translated_tree = no_arg_command_context->translated_tree;
-      if (self->external_references_number > 0 && !translated_tree->hv)
-        {
-          add_to_element_list (&self->tree_to_build, translated_tree);
-          tree_built = translated_tree;
-        }
-      xasprintf (&explanation, "Translated NO ARG @%s ctx %s",
-                 builtin_command_data[cmd].cmdname,
-                 html_conversion_context_type_names[reset_context]);
-      xasprintf (&context, "Tr %s ctx %s",
-                 builtin_command_data[cmd].cmdname,
-                 html_conversion_context_type_names[reset_context]);
-      if (reset_context == HCC_type_normal)
-        {
-          translation_result = html_convert_tree (self, translated_tree,
-                                                  explanation);
-        }
-      else if (reset_context == HCC_type_preformatted)
-        {
-          enum command_id preformatted_cmd = CM_example;
-          /* there does not seems to be anything simpler... */
-          html_new_document_context (self, context, 0, 0);
-          html_open_command_update_context (self, preformatted_cmd);
-          translation_result = html_convert_tree (self, translated_tree,
-                                                  explanation);
-          html_convert_command_update_context (self, preformatted_cmd);
-          html_pop_document_context (self);
-        }
-      else if (reset_context == HCC_type_string)
-        {
-          html_new_document_context (self, context, 0, 0);
-          html_set_string_context (self);
-
-          translation_result = html_convert_tree (self, translated_tree,
-                                                  explanation);
-          html_pop_document_context (self);
-        }
-      else if (reset_context == HCC_type_css_string)
-        {
-          translation_result = html_convert_css_string (self, translated_tree,
-                                                        context);
-        }
-      free (explanation);
-      free (context);
-      if (no_arg_command_context->text)
-        free (no_arg_command_context->text);
-      no_arg_command_context->text = translation_result;
-      if (tree_built)
-        remove_element_from_list (&self->tree_to_build, tree_built);
-    }
-}
-
-static void
-complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
-                                     int translate)
-{
-  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_normal,
-                                                  -1, translate);
-  reset_unset_no_arg_commands_formatting_context (self, cmd,
-                                                  HCC_type_preformatted,
-                                                  HCC_type_normal, translate);
-  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_string,
-                                                  HCC_type_preformatted, translate);
-  reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_css_string,
-                                                  HCC_type_string, translate);
 }
 
 void

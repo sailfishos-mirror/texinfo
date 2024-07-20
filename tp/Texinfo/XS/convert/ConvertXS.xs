@@ -569,8 +569,9 @@ html_initialize_output_state (SV *converter_in, char *context)
          if (self)
            {
              html_initialize_output_state (self, context);
+             /*
              html_conversion_initialization_sv (converter_in, self);
-
+              */
              /* TODO do later and only if self->external_references_number */
              html_pass_converter_output_state (converter_in, self);
            }
