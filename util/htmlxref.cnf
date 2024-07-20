@@ -1,6 +1,6 @@
 # htmlxref.cnf - reference file for free Texinfo manuals on the web.
 
-htmlxrefversion=2024-07-20.11; # UTC
+htmlxrefversion=2024-07-20.12; # UTC
 
 # Copyright 2010-2024 Free Software Foundation, Inc.
 # 
@@ -299,6 +299,9 @@ emacs		node	${EMACS}/html_node/emacs/
  #
  url		mono	${EMACS}/html_mono/url.html
  url		node	${EMACS}/html_node/url/
+ #
+ use-package   mono    ${EMACS}/html_mono/use-package.html
+ use-package   node    ${EMACS}/html_node/use-package/
  #
  vhdl-mode	mono	${EMACS}/html_mono/vhdl-mode.html
  vhdl-mode	node	${EMACS}/html_node/vhdl-mode/

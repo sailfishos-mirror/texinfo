@@ -1,5 +1,11 @@
 2024-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.cnf: Add use-package.
+
+	From Jacob Ilsø Christensen <jacobilsoe@gmail.com>
+
+2024-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.cnf: Change cran.r-project.org to CRAN.R-project.org.
 
 	From Sebastian Meyer <seb.meyer@fau.de>.
