@@ -18925,6 +18925,24 @@ html_free_converter (CONVERTER *self)
       free (self->pre_class_types[i]);
     }
 
+  for (i = 0; i < HSHT_type_finish +1; i++)
+    {
+      HTML_STAGE_HANDLER_INFO_LIST *stage_handler_list
+        = &self->html_stage_handlers[i];
+
+      if (stage_handler_list->number > 0)
+        {
+          size_t k;
+          for (k = 0; k < stage_handler_list->number; k++)
+            {
+              HTML_STAGE_HANDLER_INFO *handler_info
+                        = &stage_handler_list->list[k];
+              free (handler_info->priority);
+            }
+          free (stage_handler_list->list);
+        }
+    }
+
   for (i = 0; i < self->css_element_class_styles.number; i++)
     {
       CSS_SELECTOR_STYLE *selector_style

@@ -1,5 +1,10 @@
 2024-07-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter): free
+	self->html_stage_handlers lists and handlers priority information.
+
+2024-07-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
 	(CONVERTER), tp/Texinfo/XS/convert/convert_html.c
