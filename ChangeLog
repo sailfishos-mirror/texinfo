@@ -1,6 +1,20 @@
 2024-07-20  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/Convert/HTML.p (_xhtml_re_close_lone_element): do not
+	* tp/Texinfo/XS/convert/convert_html.c (no_arg_formatted_cmd),
+	tp/Texinfo/XS/convert/convert_html.h (no_arg_formatted_cmd): make
+	extern.
+
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
+	(conversion_initialization),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_no_arg_commands_formatting, html_pass_converter_output_state):
+	build no_arg_commands_formatting from XS.  Move Perl code related
+	to setting up no_arg_commands_formatting from
+	conversion_initialization to _initialize_output_state.
+
+2024-07-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_xhtml_re_close_lone_element): do not
 	close again an already closed lone element.  Do not match < to find
 	the closing >.
 

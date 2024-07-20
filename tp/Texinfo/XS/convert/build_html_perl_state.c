@@ -87,6 +87,59 @@ build_html_target (const HTML_TARGET *html_target)
   return html_target_hv;
 }
 
+SV *
+build_no_arg_commands_formatting (const CONVERTER *converter)
+{
+  HV *no_arg_commands_formatting_hv;
+  int i;
+
+  dTHX;
+
+  no_arg_commands_formatting_hv = newHV ();
+
+  for (i = 0; i < no_arg_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
+      enum conversion_context cctx;
+      const char *command_name = builtin_command_name (cmd);
+
+      HV *context_hv = newHV ();
+      hv_store (no_arg_commands_formatting_hv, command_name,
+                strlen (command_name), newRV_noinc ((SV *) context_hv), 0);
+
+      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+        {
+          const HTML_COMMAND_CONVERSION *no_arg_format
+            = &converter->html_command_conversion[cmd][cctx];
+          const char *context_name = html_conversion_context_type_names[cctx];
+
+          HV *spec_hv = newHV ();
+
+          hv_store (context_hv, context_name, strlen (context_name),
+                    newRV_noinc ((SV *) spec_hv), 0);
+
+#define STORE(key, sv) hv_store (spec_hv, key, strlen (key), sv, 0)
+#define STORE_FIELD(field) \
+          if (no_arg_format->field) \
+            STORE(#field, newSVpv_utf8 (no_arg_format->field, 0));
+
+          STORE_FIELD(element)
+
+          if (no_arg_format->unset)
+            STORE("unset", newSViv (1));
+
+          STORE_FIELD(text)
+          STORE_FIELD(translated_converted)
+          STORE_FIELD(translated_to_convert)
+
+#undef STORE_FIELD
+#undef STORE
+        }
+    }
+  return newRV_noinc ((SV *) no_arg_commands_formatting_hv);
+}
+
+
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
 #define STORE_INFO(key, sv) hv_store (converter_info_hv, key, strlen (key), sv, 0)
 void
@@ -102,6 +155,7 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
   SV *paragraph_symbol_sv;
   SV *line_break_element_sv;
   SV **expanded_formats_sv;
+  SV *no_arg_commands_formatting_sv;
 
   dTHX;
 
@@ -142,6 +196,9 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
       SvREFCNT_inc (*expanded_formats_sv);
       STORE_INFO("expanded_formats", *expanded_formats_sv);
     }
+
+  no_arg_commands_formatting_sv = build_no_arg_commands_formatting (converter);
+  STORE("no_arg_commands_formatting", no_arg_commands_formatting_sv);
 
 #undef STORE
 #undef STORE_INFO

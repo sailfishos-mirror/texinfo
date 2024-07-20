@@ -12234,6 +12234,94 @@ sub _initialize_output_state($$)
   $self->{'css_rule_lines'} = [];
   $self->{'css_import_lines'} = [];
 
+  # duplicate such as not to modify the defaults
+  my $conf_default_no_arg_commands_formatting_normal
+    = Storable::dclone($default_no_arg_commands_formatting{'normal'});
+
+  my $non_breaking_space = $self->{'non_breaking_space'};
+
+  if ($non_breaking_space ne $xml_named_entity_nbsp) {
+    foreach my $space_command (' ', "\t", "\n", 'tie') {
+      $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
+        = $non_breaking_space;
+    }
+  }
+
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
+      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
+       = $Texinfo::Convert::Unicode::unicode_entities{$command};
+    }
+  }
+
+  $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
+    = $self->{'line_break_element'};
+
+  # NOTE need to be before the call to css_set_selector_style just below
+  %{$self->{'css_element_class_styles'}} = %default_css_element_class_styles;
+
+  # initialized here and not with the converter because it may depend on
+  # the document encoding.
+  $self->{'no_arg_commands_formatting'} = {};
+  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+    $self->{'no_arg_commands_formatting'}->{$command} = {};
+    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
+      my $no_arg_command_customized_formatting
+        = $self->{'customized_no_arg_commands_formatting'}
+                                             ->{$command}->{$context};
+      if (defined($no_arg_command_customized_formatting)) {
+        $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+           = $no_arg_command_customized_formatting;
+      } else {
+        my $context_default_default_no_arg_commands_formatting
+          = $default_no_arg_commands_formatting{$context};
+        if ($context eq 'normal') {
+          $context_default_default_no_arg_commands_formatting
+           = $conf_default_no_arg_commands_formatting_normal;
+        }
+        if (defined($context_default_default_no_arg_commands_formatting
+                                                              ->{$command})) {
+          if ($self->get_conf('OUTPUT_CHARACTERS')
+              and Texinfo::Convert::Unicode::brace_no_arg_command(
+                         $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
+            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+              = { 'text' => Texinfo::Convert::Unicode::brace_no_arg_command(
+                           $command, $self->get_conf('OUTPUT_ENCODING_NAME'))};
+            # reset CSS for itemize command arguments
+            if ($context eq 'css_string'
+                and exists($brace_commands{$command})
+                and $command ne 'bullet' and $command ne 'w'
+                and not $special_list_mark_css_string_no_arg_command{$command}) {
+              my $css_string
+                = $self->{'no_arg_commands_formatting'}
+                                    ->{$command}->{$context}->{'text'};
+              $css_string = '"'.$css_string.'"';
+
+              css_set_selector_style($self, "ul.mark-$command",
+                                     "list-style-type: $css_string");
+            }
+          } else {
+            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+              = $context_default_default_no_arg_commands_formatting->{$command};
+          }
+        } else {
+          $self->{'no_arg_commands_formatting'}->{$command}->{$context}
+            = {'unset' => 1};
+        }
+      }
+    }
+  }
+
+  # set sane defaults in case there is none and the default formatting
+  # function is used
+  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+    if ($self->{'commands_conversion'}->{$command}
+        and $self->{'commands_conversion'}->{$command}
+            eq $default_commands_conversion{$command}) {
+      $self->_complete_no_arg_commands_formatting($command);
+    }
+  }
+
   # to avoid infinite recursions when a section refers to itself, possibly
   # indirectly
   $self->{'referred_command_stack'} = [];
@@ -12327,93 +12415,6 @@ sub conversion_initialization($;$)
     = $self->{'line_break_element'};
 
   $self->{'shared_conversion_state'} = {};
-
-  # duplicate such as not to modify the defaults
-  my $conf_default_no_arg_commands_formatting_normal
-    = Storable::dclone($default_no_arg_commands_formatting{'normal'});
-
-  my $non_breaking_space = $self->{'non_breaking_space'};
-
-  if ($non_breaking_space ne $xml_named_entity_nbsp) {
-    foreach my $space_command (' ', "\t", "\n", 'tie') {
-      $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
-        = $non_breaking_space;
-    }
-  }
-
-  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
-      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
-       = $Texinfo::Convert::Unicode::unicode_entities{$command};
-    }
-  }
-
-  $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
-    = $self->{'line_break_element'};
-
-  %{$self->{'css_element_class_styles'}} = %default_css_element_class_styles;
-
-  # initialized here and not with the converter because it may depend on
-  # the document encoding.
-  $self->{'no_arg_commands_formatting'} = {};
-  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-    $self->{'no_arg_commands_formatting'}->{$command} = {};
-    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
-      my $no_arg_command_customized_formatting
-        = $self->{'customized_no_arg_commands_formatting'}
-                                             ->{$command}->{$context};
-      if (defined($no_arg_command_customized_formatting)) {
-        $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-           = $no_arg_command_customized_formatting;
-      } else {
-        my $context_default_default_no_arg_commands_formatting
-          = $default_no_arg_commands_formatting{$context};
-        if ($context eq 'normal') {
-          $context_default_default_no_arg_commands_formatting
-           = $conf_default_no_arg_commands_formatting_normal;
-        }
-        if (defined($context_default_default_no_arg_commands_formatting
-                                                              ->{$command})) {
-          if ($self->get_conf('OUTPUT_CHARACTERS')
-              and Texinfo::Convert::Unicode::brace_no_arg_command(
-                         $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
-            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-              = { 'text' => Texinfo::Convert::Unicode::brace_no_arg_command(
-                           $command, $self->get_conf('OUTPUT_ENCODING_NAME'))};
-            # reset CSS for itemize command arguments
-            if ($context eq 'css_string'
-                and exists($brace_commands{$command})
-                and $command ne 'bullet' and $command ne 'w'
-                and not $special_list_mark_css_string_no_arg_command{$command}) {
-              my $css_string
-                = $self->{'no_arg_commands_formatting'}
-                                    ->{$command}->{$context}->{'text'};
-              $css_string = '"'.$css_string.'"';
-
-              css_set_selector_style($self, "ul.mark-$command",
-                                     "list-style-type: $css_string");
-            }
-          } else {
-            $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-              = $context_default_default_no_arg_commands_formatting->{$command};
-          }
-        } else {
-          $self->{'no_arg_commands_formatting'}->{$command}->{$context}
-            = {'unset' => 1};
-        }
-      }
-    }
-  }
-
-  # set sane defaults in case there is none and the default formatting
-  # function is used
-  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-    if ($self->{'commands_conversion'}->{$command}
-        and $self->{'commands_conversion'}->{$command}
-            eq $default_commands_conversion{$command}) {
-      $self->_complete_no_arg_commands_formatting($command);
-    }
-  }
 
   # three types of direction strings:
   # * strings not translated, already converted

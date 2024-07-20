@@ -16616,8 +16616,7 @@ reset_translated_special_unit_info_tree (CONVERTER *self)
 static COMMAND_STACK preformatted_cmd_list;
 static COMMAND_STACK def_cmd_list;
 
-
-static COMMAND_ID_LIST no_arg_formatted_cmd;
+COMMAND_ID_LIST no_arg_formatted_cmd;
 
 static char *unicode_entities[BUILTIN_CMD_NUMBER];
 
@@ -17734,7 +17733,8 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       fprintf (stderr, "REMARK: html_initialize_output_state: no document");
     }
 
-  /* corresponds with $self->{'no_arg_commands_formatting'} */
+  /* corresponds with default_no_arg_commands_formatting
+     + conf_default_no_arg_commands_formatting_normal in Perl */
   HTML_COMMAND_CONVERSION
    output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
