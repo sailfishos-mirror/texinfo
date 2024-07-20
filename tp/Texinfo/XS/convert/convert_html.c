@@ -17641,6 +17641,61 @@ complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
                                                   HCC_type_string, translate);
 }
 
+/* transform <hr> to <hr/>
+   main effect is s/^(<[a-zA-Z]+[^<>]*)>$/$1\/>/ */
+static char *
+xhtml_re_close_lone_element (const char *input)
+{
+  size_t len = strlen (input);
+  size_t n;
+  const char *p;
+  char *result;
+  if (len < 3 || input[len -1] != '>' || input[0] != '<'
+      || !isascii_alpha (input[1]))
+    return strdup (input);
+
+  /* before > */
+  p = input + len - 2;
+  while (p > input +1)
+    {
+      if (*p == '/')
+        /* already a closed lone element */
+        return strdup (input);
+      if (strchr (whitespace_chars, *p))
+        p--;
+      else
+        break;
+    }
+
+  p = input + 2;
+  n = strcspn (p, "<>");
+  if (n +2 != len -1)
+    return strdup (input);
+
+  result = (char *) malloc ((len +1 +1) * sizeof (char));
+  memcpy (result, input, (len -1) * sizeof (char));
+  result[len -1] = '/';
+  result[len] = '>';
+  result[len+1] = '\0';
+
+  return result;
+}
+
+static void
+close_lone_conf_element (OPTION *option)
+{
+  const char *variable_value = option->o.string;
+  if (variable_value)
+    {
+      char *closed_lone_element = xhtml_re_close_lone_element (variable_value);
+      if (strcmp (closed_lone_element, variable_value))
+        {
+          force_conf (option, 0, closed_lone_element);
+        }
+      free (closed_lone_element);
+    }
+}
+
 static void
 copy_html_command_conversion (HTML_COMMAND_CONVERSION *to,
                               HTML_COMMAND_CONVERSION *from)
@@ -17706,9 +17761,35 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       self->special_character[i].len = strlen (special_character_string);
     }
 
+  if (!self->conf->OPEN_QUOTE_SYMBOL.o.string)
+    {
+      int set = set_conf (&self->conf->OPEN_QUOTE_SYMBOL, 0,
+                          self->special_character[SC_left_quote].string);
+      /* override undef set in init file/command line */
+      if (!set)
+        force_conf (&self->conf->OPEN_QUOTE_SYMBOL, 0, "");
+    }
+  if (!self->conf->CLOSE_QUOTE_SYMBOL.o.string)
+    {
+      int set = set_conf (&self->conf->CLOSE_QUOTE_SYMBOL, 0,
+                          self->special_character[SC_right_quote].string);
+      /* override undef set in init file/command line */
+      if (!set)
+        force_conf (&self->conf->CLOSE_QUOTE_SYMBOL, 0, "");
+    }
+  if (!self->conf->MENU_SYMBOL.o.string)
+    {
+      int set = set_conf (&self->conf->MENU_SYMBOL, 0,
+                          self->special_character[SC_bullet].string);
+      /* override undef set in init file/command line */
+      if (!set)
+        force_conf (&self->conf->MENU_SYMBOL, 0, "");
+    }
+
   if (self->conf->USE_XML_SYNTAX.o.integer > 0)
     {
-      /* here in perl something for rules but we already get that from perl */
+      close_lone_conf_element (&self->conf->BIG_RULE);
+      close_lone_conf_element (&self->conf->DEFAULT_RULE);
       line_break_element = "<br/>";
     }
   else

@@ -180,12 +180,13 @@ set_conf_internal (OPTION *option, int int_value, const char *char_value)
     }
 }
 
-void
+int
 set_conf (OPTION *option, int int_value, const char *char_value)
 {
   if (option->configured > 0)
-    return;
+    return 0;
   set_conf_internal (option, int_value, char_value);
+  return 1;
 }
 
 void

@@ -8792,7 +8792,11 @@ sub _complete_no_arg_commands_formatting($$;$)
 sub _xhtml_re_close_lone_element($)
 {
   my $element = shift;
-  $element =~ s/^(<[a-zA-Z]+[^>]*)>$/$1\/>/;
+  if ($element =~ /\/\s*>$/) {
+    # already a closed lone element
+    return $element;
+  }
+  $element =~ s/^(<[a-zA-Z][^<>]*)>$/$1\/>/;
   return $element;
 }
 

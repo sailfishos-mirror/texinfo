@@ -1,5 +1,22 @@
 2024-07-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.p (_xhtml_re_close_lone_element): do not
+	close again an already closed lone element.  Do not match < to find
+	the closing >.
+
+	* tp/Texinfo/XS/convert/convert_html.c (xhtml_re_close_lone_element):
+	implement in C.
+
+	* tp/Texinfo/XS/convert/converter.c (set_conf): return a status.
+
+	* tp/Texinfo/XS/convert/convert_html.c (close_lone_conf_element)
+	(html_initialize_output_state): do all the initializations as in Perl.
+
+	* tp/Makefile.tres, tp/t/html_tests.t
+	(xhtml_rule_element_already_closed): new test.
+
+2024-07-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter): free
 	self->html_stage_handlers lists and handlers priority information.
 

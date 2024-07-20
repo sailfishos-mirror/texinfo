@@ -85,7 +85,7 @@ CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);
 
-void set_conf (OPTION *option, int int_value, const char *char_value);
+int set_conf (OPTION *option, int int_value, const char *char_value);
 void force_conf (OPTION *option, int int_value, const char *char_value);
 
 void determine_files_and_directory (CONVERTER *self, const char *output_format,

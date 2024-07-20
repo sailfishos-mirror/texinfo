@@ -842,6 +842,16 @@ ccc|}
 ', {'init_files' => ['spaces_in_line_breaks.init'],
     'skip' => $XS_convert ? 'Direct perl data change test' : undef,},
 ],
+['xhtml_rule_element_already_closed',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter
+', {},
+# BIG_RULE is actually used
+ {'DEFAULT_RULE' => '<hr/>', 'BIG_RULE' => '<hr/>',
+  'USE_XML_SYNTAX' => 1,}],
 );
 
 my $test_accents_sc_no_brace_commands_quotes = '@u{--a}
