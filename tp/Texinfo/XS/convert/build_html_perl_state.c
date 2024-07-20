@@ -139,6 +139,68 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
   return newRV_noinc ((SV *) no_arg_commands_formatting_hv);
 }
 
+SV *
+build_directions_strings (const CONVERTER *converter)
+{
+  HV *directions_strings_hv;
+  enum direction_string_type DS_type;
+  int nr_string_directions;
+  int nr_dir_str_contexts = TDS_context_string +1;
+
+  dTHX;
+
+  nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                     + converter->special_unit_varieties.number;
+
+  directions_strings_hv = newHV ();
+
+  for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
+    {
+      int i;
+      const char *type_name = direction_string_type_names[DS_type];
+
+      HV *direction_hv = newHV ();
+
+      hv_store (directions_strings_hv, type_name,
+                strlen (type_name), newRV_noinc ((SV *) direction_hv), 0);
+
+      /* those will be determined from translatable strings */
+      if (DS_type < TDS_TRANSLATED_MAX_NR)
+        continue;
+
+      for (i = 0; i < nr_string_directions; i++)
+        {
+          int j;
+          const char *direction_name;
+          HV *context_hv = newHV ();
+
+          if (i < FIRSTINFILE_MIN_IDX)
+            direction_name = html_button_direction_names[i];
+          else
+            direction_name
+              = converter->special_unit_info[SUI_type_direction]
+                                   [i - FIRSTINFILE_MIN_IDX];
+
+          hv_store (direction_hv, direction_name, strlen (direction_name),
+                    newRV_noinc ((SV *) context_hv), 0);
+
+          for (j = 0; j < nr_dir_str_contexts; j++)
+            {
+              const char *context_name
+                = direction_string_context_names[j];
+              if (converter->directions_strings[DS_type][i][j])
+                {
+                  hv_store (context_hv, context_name, strlen (context_name),
+                           newSVpv_utf8 (
+                          converter->directions_strings[DS_type][i][j], 0), 0);
+                }
+            }
+        }
+    }
+
+  return newRV_noinc ((SV *) directions_strings_hv);
+}
+
 
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
 #define STORE_INFO(key, sv) hv_store (converter_info_hv, key, strlen (key), sv, 0)
@@ -156,6 +218,7 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
   SV *line_break_element_sv;
   SV **expanded_formats_sv;
   SV *no_arg_commands_formatting_sv;
+  SV *directions_strings_sv;
 
   dTHX;
 
@@ -199,6 +262,9 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
 
   no_arg_commands_formatting_sv = build_no_arg_commands_formatting (converter);
   STORE("no_arg_commands_formatting", no_arg_commands_formatting_sv);
+
+  directions_strings_sv = build_directions_strings (converter);
+  STORE("directions_strings", directions_strings_sv);
 
 #undef STORE
 #undef STORE_INFO

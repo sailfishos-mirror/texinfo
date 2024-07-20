@@ -12322,6 +12322,60 @@ sub _initialize_output_state($$)
     }
   }
 
+  # three types of direction strings:
+  # * strings not translated, already converted
+  # * strings translated
+  #   - strings already converted
+  #   - strings not already converted
+  $self->{'directions_strings'} = {};
+
+  # The strings not translated, already converted are
+  # initialized here and not with the converter because
+  # substitute_html_non_breaking_space is used and it depends on the document.
+  foreach my $string_type (keys(%default_converted_directions_strings)) {
+    $self->{'directions_strings'}->{$string_type} = {};
+    foreach my $direction
+            (keys(%{$default_converted_directions_strings{$string_type}})) {
+      $self->{'directions_strings'}->{$string_type}->{$direction} = {};
+      my $string_contexts;
+      if ($self->{'customized_direction_strings'}->{$string_type}
+          and $self->{'customized_direction_strings'}->{$string_type}
+                                                           ->{$direction}) {
+        if (defined($self->{'customized_direction_strings'}->{$string_type}
+                                              ->{$direction}->{'converted'})) {
+          $string_contexts
+            = $self->{'customized_direction_strings'}->{$string_type}
+                                          ->{$direction}->{'converted'};
+        } else {
+          $string_contexts = {'normal' => undef };
+        }
+      } else {
+        my $string
+          = $default_converted_directions_strings{$string_type}->{$direction};
+        $string_contexts = {'normal' => $string};
+      }
+      $string_contexts->{'string'} = $string_contexts->{'normal'}
+        if (not defined($string_contexts->{'string'}));
+      foreach my $context (keys(%$string_contexts)) {
+        if (defined($string_contexts->{$context})) {
+          $self->{'directions_strings'}->{$string_type}
+                                     ->{$direction}->{$context}
+            = $self->substitute_html_non_breaking_space(
+                                             $string_contexts->{$context});
+        } else {
+          $self->{'directions_strings'}->{$string_type}
+                                     ->{$direction}->{$context} = undef;
+        }
+      }
+    }
+  }
+
+  # direction strings
+  foreach my $string_type (keys(%default_translated_directions_strings)) {
+    # those will be determined from translatable strings
+    $self->{'directions_strings'}->{$string_type} = {};
+  };
+
   # to avoid infinite recursions when a section refers to itself, possibly
   # indirectly
   $self->{'referred_command_stack'} = [];
@@ -12416,65 +12470,9 @@ sub conversion_initialization($;$)
 
   $self->{'shared_conversion_state'} = {};
 
-  # three types of direction strings:
-  # * strings not translated, already converted
-  # * strings translated
-  #   - strings already converted
-  #   - strings not already converted
-  $self->{'directions_strings'} = {};
-
-  # The strings not translated, already converted are
-  # initialized here and not with the converter because
-  # substitute_html_non_breaking_space is used and it depends on the document.
-  foreach my $string_type (keys(%default_converted_directions_strings)) {
-    $self->{'directions_strings'}->{$string_type} = {};
-    foreach my $direction
-            (keys(%{$default_converted_directions_strings{$string_type}})) {
-      $self->{'directions_strings'}->{$string_type}->{$direction} = {};
-      my $string_contexts;
-      if ($self->{'customized_direction_strings'}->{$string_type}
-          and $self->{'customized_direction_strings'}->{$string_type}
-                                                           ->{$direction}) {
-        if (defined($self->{'customized_direction_strings'}->{$string_type}
-                                              ->{$direction}->{'converted'})) {
-          $string_contexts
-            = $self->{'customized_direction_strings'}->{$string_type}
-                                          ->{$direction}->{'converted'};
-        } else {
-          $string_contexts = {'normal' => undef };
-        }
-      } else {
-        my $string
-          = $default_converted_directions_strings{$string_type}->{$direction};
-        $string_contexts = {'normal' => $string};
-      }
-      $string_contexts->{'string'} = $string_contexts->{'normal'}
-        if (not defined($string_contexts->{'string'}));
-      foreach my $context (keys(%$string_contexts)) {
-        if (defined($string_contexts->{$context})) {
-          $self->{'directions_strings'}->{$string_type}
-                                     ->{$direction}->{$context}
-            = $self->substitute_html_non_breaking_space(
-                                             $string_contexts->{$context});
-        } else {
-          $self->{'directions_strings'}->{$string_type}
-                                     ->{$direction}->{$context} = undef;
-        }
-      }
-    }
-  }
-
   $self->{'multiple_pass'} = [];
 
   $self->_initialize_output_state('_convert');
-
-  # direction strings
-  foreach my $string_type (keys(%default_translated_directions_strings)) {
-    # those will be determined from translatable strings
-    $self->{'directions_strings'}->{$string_type} = {};
-  };
-
-  # directions
 
   # for global directions always set, and for directions to special elements,
   # only filled if special elements are actually used.
