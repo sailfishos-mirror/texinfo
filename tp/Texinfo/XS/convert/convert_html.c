@@ -245,7 +245,7 @@ static HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
 char *special_characters_formatting[SC_non_breaking_space+1][4] = {
   {"&para;", "\xC2\xB6", "00B6", "&#182;"},
   {"&lsquo;", "\xE2\x80\x98", "2018", "&#8216;"},
-  {"&rsquo;", "\xE2\x80\x99", "2019", "&#8216;"},
+  {"&rsquo;", "\xE2\x80\x99", "2019", "&#8217;"},
   {"&bull;", "\xE2\x80\xA2", "2022", "&#8226;"},
   {"&nbsp;", "\xC2\xA0", "00A0", "&#160;"},
 };

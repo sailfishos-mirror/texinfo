@@ -12234,6 +12234,70 @@ sub _initialize_output_state($$)
   $self->{'css_rule_lines'} = [];
   $self->{'css_import_lines'} = [];
 
+  my %special_characters_set;
+
+  my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+
+  foreach my $special_character (keys(%special_characters)) {
+    my ($default_entity, $unicode_point)
+           = @{$special_characters{$special_character}};
+    if ($self->get_conf('OUTPUT_CHARACTERS')
+        and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
+                                         $output_encoding, $unicode_point)) {
+      $special_characters_set{$special_character}
+                                    = charnames::vianame("U+$unicode_point");
+    } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
+      $special_characters_set{$special_character}
+                     = '&#'.hex($unicode_point).';';
+    } else {
+      $special_characters_set{$special_character} = $default_entity;
+    }
+  }
+
+  # used for direct access for speed
+  $self->{'non_breaking_space'} = $special_characters_set{'non_breaking_space'};
+  $self->{'converter_info'}->{'non_breaking_space'}
+    = $special_characters_set{'non_breaking_space'};
+
+  $self->{'converter_info'}->{'paragraph_symbol'}
+    = $special_characters_set{'paragraph_symbol'};
+
+  if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
+    my $set = $self->set_conf('OPEN_QUOTE_SYMBOL',
+                      $special_characters_set{'left_quote'});
+    # override undef set in init file/command line
+    $self->force_conf('OPEN_QUOTE_SYMBOL', '') if (!$set);
+  }
+  if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
+    my $set = $self->set_conf('CLOSE_QUOTE_SYMBOL',
+                        $special_characters_set{'right_quote'});
+    # override undef set in init file/command line
+    $self->force_conf('CLOSE_QUOTE_SYMBOL', '') if (!$set);
+  }
+  if (not defined($self->get_conf('MENU_SYMBOL'))) {
+    my $set = $self->set_conf('MENU_SYMBOL',
+                              $special_characters_set{'bullet'});
+    # override undef set in init file/command line
+    $self->force_conf('MENU_SYMBOL', '') if (!$set);
+  }
+
+  if ($self->get_conf('USE_XML_SYNTAX')) {
+    foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
+      my $variable_value = $self->get_conf($customization_variable);
+      if (defined($variable_value)) {
+        my $closed_lone_element = _xhtml_re_close_lone_element($variable_value);
+        if ($closed_lone_element ne $variable_value) {
+          $self->force_conf($customization_variable, $closed_lone_element);
+        }
+      }
+    }
+    $self->{'line_break_element'} = '<br/>';
+  } else {
+    $self->{'line_break_element'} = '<br>';
+  }
+  $self->{'converter_info'}->{'line_break_element'}
+    = $self->{'line_break_element'};
+
   # duplicate such as not to modify the defaults
   my $conf_default_no_arg_commands_formatting_normal
     = Storable::dclone($default_no_arg_commands_formatting{'normal'});
@@ -12403,70 +12467,6 @@ sub conversion_initialization($;$)
     $self->set_document($document);
     $self->{'converter_info'}->{'document'} = $document;
   }
-
-  my %special_characters_set;
-
-  my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
-
-  foreach my $special_character (keys(%special_characters)) {
-    my ($default_entity, $unicode_point)
-           = @{$special_characters{$special_character}};
-    if ($self->get_conf('OUTPUT_CHARACTERS')
-        and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
-                                         $output_encoding, $unicode_point)) {
-      $special_characters_set{$special_character}
-                                    = charnames::vianame("U+$unicode_point");
-    } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
-      $special_characters_set{$special_character}
-                     = '&#'.hex($unicode_point).';';
-    } else {
-      $special_characters_set{$special_character} = $default_entity;
-    }
-  }
-
-  # used for direct access for speed
-  $self->{'non_breaking_space'} = $special_characters_set{'non_breaking_space'};
-  $self->{'converter_info'}->{'non_breaking_space'}
-    = $special_characters_set{'non_breaking_space'};
-
-  $self->{'converter_info'}->{'paragraph_symbol'}
-    = $special_characters_set{'paragraph_symbol'};
-
-  if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
-    my $set = $self->set_conf('OPEN_QUOTE_SYMBOL',
-                      $special_characters_set{'left_quote'});
-    # override undef set in init file/command line
-    $self->force_conf('OPEN_QUOTE_SYMBOL', '') if (!$set);
-  }
-  if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
-    my $set = $self->set_conf('CLOSE_QUOTE_SYMBOL',
-                        $special_characters_set{'right_quote'});
-    # override undef set in init file/command line
-    $self->force_conf('CLOSE_QUOTE_SYMBOL', '') if (!$set);
-  }
-  if (not defined($self->get_conf('MENU_SYMBOL'))) {
-    my $set = $self->set_conf('MENU_SYMBOL',
-                              $special_characters_set{'bullet'});
-    # override undef set in init file/command line
-    $self->force_conf('MENU_SYMBOL', '') if (!$set);
-  }
-
-  if ($self->get_conf('USE_XML_SYNTAX')) {
-    foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
-      my $variable_value = $self->get_conf($customization_variable);
-      if (defined($variable_value)) {
-        my $closed_lone_element = _xhtml_re_close_lone_element($variable_value);
-        if ($closed_lone_element ne $variable_value) {
-          $self->force_conf($customization_variable, $closed_lone_element);
-        }
-      }
-    }
-    $self->{'line_break_element'} = '<br/>';
-  } else {
-    $self->{'line_break_element'} = '<br>';
-  }
-  $self->{'converter_info'}->{'line_break_element'}
-    = $self->{'line_break_element'};
 
   $self->{'shared_conversion_state'} = {};
 

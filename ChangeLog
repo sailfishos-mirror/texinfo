@@ -5,6 +5,17 @@
 
 2024-07-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(special_characters_formatting): fix right quote numerical entity.
+
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
+	(conversion_initialization): move Perl code related to setting up
+	non_breaking_space, paragraph_symbol, resetting some configuration
+	based on special characters and line_break_element from
+	conversion_initialization to _initialize_output_state.
+
+2024-07-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
 	(conversion_initialization),
 	tp/Texinfo/XS/convert/build_html_perl_state.c
