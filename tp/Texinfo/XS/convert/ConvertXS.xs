@@ -848,14 +848,21 @@ html_unset_raw_context (SV *converter_in)
            html_unset_raw_context (self);
 
 void
-html_set_multiple_conversions (SV *converter_in)
+html_set_multiple_conversions (SV *converter_in, SV *multiple_pass_sv)
      PREINIT:
          CONVERTER *self;
      CODE:
          self = get_sv_converter (converter_in,
                                   "html_set_multiple_conversions");
          if (self)
-           self->multiple_conversions++;
+           {
+             char *multiple_pass;
+             if (SvOK (multiple_pass_sv))
+               multiple_pass = SvPVutf8_nolen (multiple_pass_sv);
+             else
+               multiple_pass = 0;
+             html_set_multiple_conversions (self, multiple_pass);
+           }
 
 void
 html_unset_multiple_conversions (SV *converter_in)
@@ -865,7 +872,26 @@ html_unset_multiple_conversions (SV *converter_in)
          self = get_sv_converter (converter_in,
                                   "html_unset_multiple_conversions");
          if (self)
-           self->multiple_conversions--;
+           html_unset_multiple_conversions (self);
+
+SV *
+html_in_multi_expanded (SV *converter_in)
+     PREINIT:
+         CONVERTER *self;
+         const char *multi_expanded = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_in_multi_expanded");
+         if (self)
+           multi_expanded = html_in_multi_expanded (self);
+
+         if (multi_expanded)
+           RETVAL = newSVpv_utf8 (multi_expanded, 0);
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 
 SV *
 html_debug_print_html_contexts (SV *converter_in)

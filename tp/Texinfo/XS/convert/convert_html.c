@@ -2954,6 +2954,20 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree,
   return result.text;
 }
 
+void
+html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass)
+{
+  self->multiple_conversions++;
+  push_string_stack_string (&self->multiple_pass, multiple_pass);
+}
+
+void
+html_unset_multiple_conversions (CONVERTER *self)
+{
+  self->multiple_conversions--;
+  pop_string_stack (&self->multiple_pass);
+}
+
 /* Call convert_tree out of the main conversion flow.
  */
 char *
@@ -2974,8 +2988,7 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 
   if (multiple_pass)
     {
-      self->multiple_conversions++;
-      push_string_stack_string (&self->multiple_pass, multiple_pass);
+      html_set_multiple_conversions (self, multiple_pass);
       self->modified_state |= HMSF_multiple_pass;
       multiple_pass_str = "|M";
     }
@@ -2991,8 +3004,7 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 
   if (multiple_pass)
     {
-      self->multiple_conversions--;
-      pop_string_stack (&self->multiple_pass);
+      html_unset_multiple_conversions (self);
       self->modified_state |= HMSF_multiple_pass;
     }
 
@@ -4159,14 +4171,15 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           else
             tree_root = selected_tree;
 
-          self->multiple_conversions++;
+          html_set_multiple_conversions (self, 0);
           push_element_reference_stack_element (&self->referred_command_stack,
                                                 command, command->hv);
           target_info->command_text[type]
             = html_convert_tree (self, tree_root, explanation);
           free (explanation);
           pop_element_reference_stack (&self->referred_command_stack);
-          self->multiple_conversions--;
+
+          html_unset_multiple_conversions (self);
 
           html_pop_document_context (self);
 

@@ -138,7 +138,10 @@ push_string_stack_string (STRING_STACK *stack, const char *string)
                    (stack->space += 5) * sizeof (char *));
     }
 
-  stack->stack[stack->top] = strdup (string);
+  if (string)
+    stack->stack[stack->top] = strdup (string);
+  else
+    stack->stack[stack->top] = 0;
 
   stack->top++;
 }

@@ -6,6 +6,28 @@
 
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/command_stack.c (push_string_stack_string):
+	handle pushing NULL on a string_stack.
+
+	* tp/Texinfo/Convert/HTML.pm (_internal_command_text)
+	(convert_tree_new_formatting_context, _set_multiple_conversions)
+	(_unset_multiple_conversions), tp/Texinfo/XS/convert/convert_html.c
+	(html_set_multiple_conversions, html_unset_multiple_conversions)
+	(convert_tree_new_formatting_context, html_internal_command_text): 
+	add multiple pass string argument to set_multiple_conversions,
+	push on multiple_pass stack in the function and pop in
+	unset_multiple_conversions.  Add html_set_multiple_conversions and
+	html_unset_multiple_conversions to C.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	(_initialize_output_state, conversion_initialization),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_set_multiple_conversions)
+	(html_unset_multiple_conversions, html_in_multi_expanded): add XS
+	override for in_multi_expanded, update XS overrides for the changes in
+	html_unset_multiple_conversions and html_set_multiple_conversions.
+
+2024-07-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state),
 	(conversion_initialization), tp/Texinfo/XS/convert/ConvertXS.xs
 	(html_prepare_units_directions_files)

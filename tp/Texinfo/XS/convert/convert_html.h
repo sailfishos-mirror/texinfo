@@ -93,6 +93,8 @@ void html_set_string_context (CONVERTER *self);
 void html_unset_string_context (CONVERTER *self);
 void html_set_raw_context (CONVERTER *self);
 void html_unset_raw_context (CONVERTER *self);
+void html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass);
+void html_unset_multiple_conversions (CONVERTER *self);
 
 int html_in_math (const CONVERTER *self);
 int html_in_preformatted_context (const CONVERTER *self);
@@ -110,6 +112,7 @@ enum command_id html_top_block_command (const CONVERTER *self);
 const COMMAND_OR_TYPE_STACK *html_preformatted_classes_stack
                                     (const CONVERTER *self);
 enum command_id html_in_align (const CONVERTER *self);
+const char *html_in_multi_expanded (CONVERTER *self);
 
 char *debug_print_html_contexts (const CONVERTER *self);
 

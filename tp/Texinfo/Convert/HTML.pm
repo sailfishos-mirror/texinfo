@@ -221,6 +221,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_preformatted_classes_stack",
   "Texinfo::Convert::HTML::in_align"
    => "Texinfo::Convert::ConvertXS::html_in_align",
+  "Texinfo::Convert::HTML::in_multi_expanded"
+   => "Texinfo::Convert::ConvertXS::html_in_multi_expanded",
   "Texinfo::Convert::HTML::current_filename"
    => "Texinfo::Convert::ConvertXS::html_current_filename",
   "Texinfo::Convert::HTML::current_output_unit"
@@ -1412,12 +1414,12 @@ sub _internal_command_text($$$)
       $tree_root = $selected_tree;
     }
 
-    $self->_set_multiple_conversions();
+    _set_multiple_conversions($self, undef);
 
     _push_referred_command_stack_command($self, $command);
     $target->{$type} = $self->_convert($tree_root, $explanation);
     _pop_referred_command_stack($self);
-    $self->_unset_multiple_conversions;
+    _unset_multiple_conversions($self);
 
     $self->_pop_document_context();
     return $target->{$type};
@@ -2488,9 +2490,8 @@ sub convert_tree_new_formatting_context($$$;$$$)
   my $multiple_pass_str = '';
 
   if ($multiple_pass) {
-    $self->_set_multiple_conversions();
-    push @{$self->{'multiple_pass'}}, $multiple_pass;
-    $multiple_pass_str = '|M'
+    _set_multiple_conversions($self, $multiple_pass);
+    $multiple_pass_str = '|M';
   }
 
   print STDERR "new_fmt_ctx ${context_string_str}${multiple_pass_str}\n"
@@ -2498,8 +2499,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
   my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
 
   if ($multiple_pass) {
-    $self->_unset_multiple_conversions();
-    pop @{$self->{'multiple_pass'}};
+    _unset_multiple_conversions($self);
   }
 
   $self->_pop_document_context();
@@ -8649,16 +8649,20 @@ sub _unset_raw_context($)
   $self->{'document_context'}->[-1]->{'raw'}--;
 }
 
-sub _set_multiple_conversions($)
+sub _set_multiple_conversions($$)
 {
   my $self = shift;
+  my $multiple_pass = shift;
+
   $self->{'multiple_conversions'}++;
+  push @{$self->{'multiple_pass'}}, $multiple_pass;
 }
 
 sub _unset_multiple_conversions($)
 {
   my $self = shift;
   $self->{'multiple_conversions'}--;
+  pop @{$self->{'multiple_pass'}};
 }
 
 # can be set through Texinfo::Config::texinfo_register_file_id_setting_function
@@ -12447,6 +12451,8 @@ sub _initialize_output_state($$)
   $self->{'converter_info'}->{'expanded_formats'}
     = $self->{'expanded_formats'};
 
+  $self->{'multiple_pass'} = [];
+
   # for global directions always set, and for directions to special elements,
   # only filled if special elements are actually used.
   $self->{'global_units_directions'} = {};
@@ -12470,8 +12476,6 @@ sub conversion_initialization($;$)
   }
 
   $self->{'shared_conversion_state'} = {};
-
-  $self->{'multiple_pass'} = [];
 
   $self->_initialize_output_state('_convert');
 }
