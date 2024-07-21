@@ -85,6 +85,8 @@ CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);
 
+void converter_set_document (CONVERTER *converter, DOCUMENT *document);
+
 int set_conf (OPTION *option, int int_value, const char *char_value);
 void force_conf (OPTION *option, int int_value, const char *char_value);
 

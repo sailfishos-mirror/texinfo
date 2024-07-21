@@ -155,6 +155,25 @@ unregister_converter_descriptor (int converter_descriptor)
     }
 }
 
+void
+converter_set_document (CONVERTER *converter, DOCUMENT *document)
+{
+   /*
+  if (document)
+    {
+      fprintf (stderr, "XS|CONVERTER %d: Document %d\n",
+           converter->converter_descriptor, document->descriptor);
+    }
+    */
+
+  converter->document = document;
+
+  set_output_encoding (converter->conf, converter->document);
+
+  converter->convert_text_options
+    = copy_converter_options_for_convert_text (converter);
+}
+
 
 
 static void

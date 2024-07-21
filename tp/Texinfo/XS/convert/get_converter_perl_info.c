@@ -69,7 +69,7 @@ get_sv_converter (SV *sv_in, const char *warn_string)
 }
 
 void
-converter_set_document (SV *converter_in, SV *document_in)
+converter_set_document_from_sv (SV *converter_in, SV *document_in)
 {
   CONVERTER *converter;
   DOCUMENT *document;
@@ -79,20 +79,7 @@ converter_set_document (SV *converter_in, SV *document_in)
   converter = get_sv_converter (converter_in, "converter_set_document");
   document = get_sv_document_document (document_in, 0);
 
-   /*
-  if (document)
-    {
-      fprintf (stderr, "XS|CONVERTER %d: Document %d\n",
-           converter->converter_descriptor, document->descriptor);
-    }
-    */
-
-  converter->document = document;
-
-  set_output_encoding (converter->conf, converter->document);
-
-  converter->convert_text_options
-    = copy_converter_options_for_convert_text (converter);
+  converter_set_document (converter, document);
 }
 
 void

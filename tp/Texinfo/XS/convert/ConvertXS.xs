@@ -95,7 +95,7 @@ converter_initialize (SV *converter_in)
            }
 
 void
-converter_set_document (SV *converter_in, SV *document_in)
+converter_set_document_from_sv (SV *converter_in, SV *document_in)
 
 
 void
