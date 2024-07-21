@@ -12,6 +12,9 @@
 #include "document_types.h"
 #include "converter_types.h"
 
+/* to avoid a dependency on "convert_to_text.h" */
+struct TEXT_OPTIONS;
+
 void perl_only_free (void *ptr);
 void *perl_only_malloc (size_t size);
 char *perl_only_strdup (const char *s);
@@ -94,6 +97,8 @@ SV *html_build_direction_icons (const CONVERTER *converter,
 SV *get_conf (const CONVERTER *converter, const char *option_name);
 
 HV *build_expanded_formats (const EXPANDED_FORMAT *expanded_formats);
+
+SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 
 HV *latex_build_options_for_convert_to_latex_math (const CONVERTER *converter);
 

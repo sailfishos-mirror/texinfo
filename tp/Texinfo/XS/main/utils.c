@@ -1096,7 +1096,7 @@ set_conf_string (OPTION *option, const char *value)
 }
 
 /* In perl, OUTPUT_PERL_ENCODING is set too.  Note that if the perl
-   version is called later on, the OUTPUT_PERL_ENCODING value will be re-set */
+   version is called later on, the OUTPUT_ENCODING_NAME value will be re-set */
 void
 set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 {

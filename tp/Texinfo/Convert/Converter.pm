@@ -71,8 +71,6 @@ our $module_loaded = 0;
 
 my %XS_overrides = (
   # XS only called if there is an associated XS converter
-  "Texinfo::Convert::Converter::_internal_converter_initialize",
-   => "Texinfo::Convert::ConvertXS::converter_initialize",
   "Texinfo::Convert::Converter::_XS_set_conf"
    => "Texinfo::Convert::ConvertXS::set_conf",
   "Texinfo::Convert::Converter::_XS_force_conf"
@@ -83,6 +81,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::converter_set_document",
 
   # fully overriden for all the converters
+  "Texinfo::Convert::Converter::_internal_converter_initialize",
+   => "Texinfo::Convert::ConvertXS::converter_initialize",
   "Texinfo::Convert::Converter::get_converter_errors"
    => "Texinfo::Convert::ConvertXS::get_converter_errors",
   "Texinfo::Convert::Converter::converter_line_error"
@@ -244,16 +244,16 @@ sub set_document($$)
   my $converter = shift;
   my $document = shift;
 
-  if ($converter->{'converter_descriptor'} and $XS_convert) {
+  if ($converter->{'converter_descriptor'}) {
     _XS_set_document($converter, $document);
+  } else {
+    $converter->{'document'} = $document;
+
+    Texinfo::Common::set_output_encoding($converter, $document);
+
+    $converter->{'convert_text_options'}
+     = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
   }
-
-  $converter->{'document'} = $document;
-
-  Texinfo::Common::set_output_encoding($converter, $document);
-
-  $converter->{'convert_text_options'}
-   = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
 
   # In general, OUTPUT_PERL_ENCODING set below is needed for the output()
   # entry point through Texinfo::Common::output_files_open_out.  It is

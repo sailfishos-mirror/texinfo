@@ -68,7 +68,7 @@ get_sv_converter (SV *sv_in, const char *warn_string)
   return converter;
 }
 
-void
+CONVERTER *
 converter_set_document_from_sv (SV *converter_in, SV *document_in)
 {
   CONVERTER *converter;
@@ -80,6 +80,8 @@ converter_set_document_from_sv (SV *converter_in, SV *document_in)
   document = get_sv_document_document (document_in, 0);
 
   converter_set_document (converter, document);
+
+  return converter;
 }
 
 void

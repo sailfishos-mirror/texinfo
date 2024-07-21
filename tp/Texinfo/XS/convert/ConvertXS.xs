@@ -81,22 +81,40 @@ void
 converter_initialize (SV *converter_in)
       PREINIT:
          size_t converter_descriptor;
+         const CONVERTER *self;
+         HV *converter_hv;
+         HV *expanded_formats_hv;
       CODE:
          converter_descriptor = converter_initialize (converter_in);
-         if (converter_descriptor)
-           {
-             const CONVERTER *self = retrieve_converter (converter_descriptor);
-             HV *converter_hv = (HV *)SvRV (converter_in);
-             HV *expanded_formats_hv
-               = build_expanded_formats (self->expanded_formats);
-             hv_store (converter_hv, "expanded_formats",
-                       strlen ("expanded_formats"),
-                       newRV_inc ((SV *) expanded_formats_hv), 0);
-           }
+         self = retrieve_converter (converter_descriptor);
+         converter_hv = (HV *)SvRV (converter_in);
+         expanded_formats_hv
+           = build_expanded_formats (self->expanded_formats);
+         hv_store (converter_hv, "expanded_formats",
+                   strlen ("expanded_formats"),
+                   newRV_inc ((SV *) expanded_formats_hv), 0);
 
 void
-converter_set_document_from_sv (SV *converter_in, SV *document_in)
-
+converter_set_document (SV *converter_in, SV *document_in)
+      PREINIT:
+        CONVERTER *self;
+        HV *converter_hv;
+      CODE:
+        /* if a converter is properly initialized, the XS converter should
+           always be found when XS is used */
+        self = converter_set_document_from_sv (converter_in, document_in);
+        converter_hv = (HV *)SvRV (converter_in);
+        SvREFCNT_inc (document_in);
+        hv_store (converter_hv, "document", strlen ("document"),
+                  document_in, 0);
+        if (self && self->convert_text_options)
+          {
+            SV *text_options_sv
+             = build_convert_text_options (self->convert_text_options);
+            hv_store (converter_hv,
+                      "convert_text_options", strlen("convert_text_options"),
+                      text_options_sv, 0);
+          }
 
 void
 set_conf (SV *converter_in, conf, SV *value)

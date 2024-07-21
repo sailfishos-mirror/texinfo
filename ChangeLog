@@ -1,5 +1,23 @@
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_document): remove a redundant
+	condition on $XS_convert.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (converter_initialize):
+	converter_descriptor is necessarily set.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (converter_set_document_from_sv):
+	return the converter.
+
+	* tp/Texinfo/Convert/Converter.pm (set_document),
+	tp/Texinfo/XS/convert/ConvertXS.xs (converter_set_document),
+	tp/Texinfo/XS/main/build_perl_info.c (build_convert_text_options): add
+	build_convert_text_options.  Setup more Perl structures in
+	converter_set_document in ConvertXS.xs, renaming
+	converter_set_document_from_sv to converter_set_document.
+
+2024-07-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (converter_set_document_from_sv),
 	tp/Texinfo/XS/convert/converter.c (converter_set_document),
 	tp/Texinfo/XS/main/get_perl_info.c (converter_set_document_from_sv):

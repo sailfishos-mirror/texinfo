@@ -58,6 +58,8 @@
 #include "convert_to_texinfo.h"
 #include "document.h"
 #include "output_unit.h"
+/* for TEXT_OPTIONS */
+#include "convert_to_text.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
@@ -2646,6 +2648,57 @@ build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
         }
     }
   return expanded_hv;
+}
+
+SV *
+build_convert_text_options (TEXT_OPTIONS *text_options)
+{
+  HV *text_options_hv;
+  HV *expanded_formats_hv;
+
+  dTHX;
+
+  text_options_hv = newHV ();
+
+#define STORE(key, sv) hv_store (text_options_hv, key, strlen (key), sv, 0)
+
+  if (text_options->ASCII_GLYPH)
+    STORE("ASCII_GLYPH", newSViv (1));
+
+  if (text_options->NUMBER_SECTIONS)
+    STORE("NUMBER_SECTIONS", newSViv (1));
+
+  if (text_options->TEST)
+    STORE("TEST", newSViv (1));
+
+  if (text_options->sort_string)
+    STORE("sort_string", newSViv (1));
+
+  if (text_options->encoding)
+    STORE("enabled_encoding", newSVpv_utf8 (text_options->encoding, 0));
+
+  if (text_options->set_case)
+    STORE("set_case", newSViv (text_options->set_case));
+
+  if (text_options->code_state)
+    STORE("_code_state", newSViv (text_options->code_state));
+
+  expanded_formats_hv = build_expanded_formats (text_options->expanded_formats);
+  STORE("expanded_formats", newRV_noinc ((SV *)expanded_formats_hv));
+
+  if (text_options->include_directories.number > 0)
+    {
+      AV *av = build_string_list (&text_options->include_directories, svt_byte);
+      STORE("INCLUDE_DIRECTORIES", newRV_noinc ((SV *) av));
+    }
+
+  if (text_options->converter && text_options->converter->hv)
+    {
+      STORE("converter", newRV_inc ((SV *) text_options->converter->hv));
+    }
+#undef STORE
+
+  return newRV_noinc ((SV *)text_options_hv);
 }
 
 SV *
