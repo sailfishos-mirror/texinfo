@@ -221,6 +221,9 @@ FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
           const char *output_filename, const char *document_name);
 
 void html_prepare_output_units_global_targets (CONVERTER *self);
+void html_setup_global_units_direction_names (CONVERTER *self);
+const OUTPUT_UNIT *html_find_direction_name_global_unit (const CONVERTER *self,
+                                                   const char *direction_name);
 
 void html_translate_names (CONVERTER *self);
 

@@ -1580,6 +1580,28 @@ html_command_description (SV *converter_in, SV *element_sv, const char *type=0)
     OUTPUT:
          RETVAL
 
+SV *
+html_global_direction_unit (SV *converter_in, direction_name)
+         const char *direction_name = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+         CONVERTER *self;
+         const OUTPUT_UNIT *output_unit = 0;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_global_direction_unit");
+         if (self)
+           {
+             output_unit
+               = html_find_direction_name_global_unit (self, direction_name);
+           }
+         if (output_unit && output_unit->hv)
+           RETVAL = newRV_inc ((SV *) output_unit->hv);
+         /* should not happen */
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 void
 html_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
          const char *cmdname = (char *)SvPVutf8_nolen($arg);
@@ -2187,6 +2209,8 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
              pass_html_global_units_directions (converter_in,
                                             self->global_units_directions,
                                             self->special_units_direction_name);
+             html_setup_global_units_direction_names (self);
+
              pass_html_elements_in_file_count (converter_in,
                                                &self->output_unit_files);
 
@@ -2220,6 +2244,8 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
              pass_html_global_units_directions (converter_in,
                                             self->global_units_directions,
                                             self->special_units_direction_name);
+
+             html_setup_global_units_direction_names (self);
            }
 
 

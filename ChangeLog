@@ -6,6 +6,27 @@
 
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
+	XS override for HTML::global_direction_unit
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_global_direction_unit)
+	(html_prepare_units_directions_files)
+	(html_prepare_output_units_global_targets),
+	tp/Texinfo/XS/convert/convert_html.c
+	(compare_global_units_direction_name)
+	(html_setup_global_units_direction_names)
+	(html_find_direction_name_global_unit, html_reset_converter),
+	tp/Texinfo/XS/main/converter_types.h (SPECIAL_UNIT_DIRECTION_LIST)
+	(CONVERTER): setup a sorted list of SPECIAL_UNIT_DIRECTION with
+	direction name and output unit for global directions, including
+	of special output units with html_setup_global_units_direction_names,
+	called from html_prepare_units_directions_files and
+	html_prepare_output_units_global_targets.  Add an XS override for
+	global_direction_unit that uses a bsearch to find the output unit
+	and the associated Perl object.
+
+2024-07-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_document): remove a redundant
 	condition on $XS_convert.
 

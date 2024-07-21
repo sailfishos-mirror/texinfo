@@ -5491,6 +5491,87 @@ html_prepare_output_units_global_targets (CONVERTER *self)
     }
 }
 
+static int
+compare_global_units_direction_name (const void *a, const void *b)
+{
+  const SPECIAL_UNIT_DIRECTION *gudn_a = (const SPECIAL_UNIT_DIRECTION *) a;
+  const SPECIAL_UNIT_DIRECTION *gudn_b = (const SPECIAL_UNIT_DIRECTION *) b;
+
+  return strcmp (gudn_a->direction, gudn_b->direction);
+}
+
+/* To find more easily a global output unit based on a direction name, for an
+   XS interface, associate global output units to names and sort according
+   to names */
+void
+html_setup_global_units_direction_names (CONVERTER *self)
+{
+  SPECIAL_UNIT_DIRECTION *global_units_direction_names;
+  int i;
+  int global_directions_nr = 0;
+  int global_units_direction_idx = 0;
+  const SPECIAL_UNIT_DIRECTION *special_units_direction_name
+    = self->special_units_direction_name;
+
+  for (i = 0; i < D_Last+1; i++)
+    if (self->global_units_directions[i])
+      global_directions_nr++;
+
+  for (i = 0; special_units_direction_name[i].output_unit; i++)
+    global_directions_nr++;
+
+  global_units_direction_names = (SPECIAL_UNIT_DIRECTION *)
+   malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (global_directions_nr));
+
+  for (i = 0; i < D_Last+1; i++)
+    {
+      if (self->global_units_directions[i])
+        {
+          global_units_direction_names[global_units_direction_idx].direction
+            = html_global_unit_direction_names[i];
+          global_units_direction_names[global_units_direction_idx].output_unit
+            = self->global_units_directions[i];
+          global_units_direction_idx++;
+        }
+    }
+
+  for (i = 0; special_units_direction_name[i].output_unit; i++)
+    {
+      global_units_direction_names[global_units_direction_idx].direction
+        = special_units_direction_name[i].direction;
+      global_units_direction_names[global_units_direction_idx].output_unit
+        = special_units_direction_name[i].output_unit;
+      global_units_direction_idx++;
+    }
+
+  qsort (global_units_direction_names,
+         global_directions_nr,
+         sizeof (SPECIAL_UNIT_DIRECTION), compare_global_units_direction_name);
+
+  self->global_units_direction_name.list = global_units_direction_names;
+  self->global_units_direction_name.number = global_directions_nr;
+}
+
+/* Used from Perl through an XS override, in similar C codes the
+   direction indices are used instead of the direction names */
+const OUTPUT_UNIT *
+html_find_direction_name_global_unit (const CONVERTER *self,
+                                      const char *direction_name)
+{
+  SPECIAL_UNIT_DIRECTION *result = 0;
+  static SPECIAL_UNIT_DIRECTION searched_direction;
+
+  searched_direction.direction = direction_name;
+  result = (SPECIAL_UNIT_DIRECTION *) bsearch (&searched_direction,
+                self->global_units_direction_name.list,
+                self->global_units_direction_name.number,
+                sizeof (SPECIAL_UNIT_DIRECTION),
+                compare_global_units_direction_name);
+  if (!result)
+    return 0;
+  return result->output_unit;
+}
+
 static void
 set_file_source_info (FILE_SOURCE_INFO *file_source_info,
                           const char *file_info_type, const char *file_info_name,
@@ -18810,6 +18891,10 @@ html_reset_converter (CONVERTER *self)
 
   free (self->sorted_index_names.list);
   memset (&self->sorted_index_names, 0, sizeof (INDEX_LIST));
+
+  free (self->global_units_direction_name.list);
+  self->global_units_direction_name.list = 0;
+  self->global_units_direction_name.number = 0;
 
   free (self->special_units_direction_name);
   self->special_units_direction_name = 0;

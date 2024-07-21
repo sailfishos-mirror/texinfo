@@ -806,6 +806,11 @@ PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
 for file in t/*.t ; do bfile=`basename $file .t`; valgrind -q --leak-check=full --keep-debuginfo=yes perl -w $file -d 1 2>t/check_debug_differences/XS_$bfile.err ; done
 
+Check of XS interface to Perl
+export TEXINFO_XS_CONVERT=1
+export TEXINFO_XS_EXTERNAL_FORMATTING=1
+export TEXINFO_XS_EXTERNAL_CONVERSION=1
+
 
 Analysing memory use:
 valgrinf massif useful-heap approximate distribution in 2024 (obsolete)

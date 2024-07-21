@@ -470,6 +470,11 @@ typedef struct SPECIAL_UNIT_DIRECTION {
     const char *direction;
 } SPECIAL_UNIT_DIRECTION;
 
+typedef struct SPECIAL_UNIT_DIRECTION_LIST {
+    size_t number;
+    SPECIAL_UNIT_DIRECTION *list;
+} SPECIAL_UNIT_DIRECTION_LIST;
+
 typedef struct FORMATTING_REFERENCE {
 /* perl references. This should be SV *sv_*,
    but we don't want to include the Perl headers everywhere; */
@@ -827,6 +832,9 @@ typedef struct CONVERTER {
     enum htmlxref_split_type document_htmlxref_split_type;
     const OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;
+    /* both for global units associated to normal output units and
+       for special output units, sorted according to direction name */
+    SPECIAL_UNIT_DIRECTION_LIST global_units_direction_name;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
     union {
