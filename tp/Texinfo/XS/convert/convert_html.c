@@ -2989,7 +2989,6 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   if (multiple_pass)
     {
       html_set_multiple_conversions (self, multiple_pass);
-      self->modified_state |= HMSF_multiple_pass;
       multiple_pass_str = "|M";
     }
 
@@ -3003,10 +3002,7 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   free (explanation);
 
   if (multiple_pass)
-    {
-      html_unset_multiple_conversions (self);
-      self->modified_state |= HMSF_multiple_pass;
-    }
+    html_unset_multiple_conversions (self);
 
   free (context_string_str);
   html_pop_document_context (self);

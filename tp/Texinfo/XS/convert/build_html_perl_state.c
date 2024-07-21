@@ -547,7 +547,6 @@ void
 build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 {
   HV *hv;
-  int i;
 
   dTHX;
 
@@ -559,7 +558,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   hv = converter->hv;
 
-#define FETCH(key) key##_sv = hv_fetch (hv, #key, strlen (#key), 0);
 #define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
 
   if (flags & HMSF_current_root)
@@ -578,31 +576,6 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
       else
         STORE("current_node",
            newRV_inc ((SV *) converter->current_node->hv));
-    }
-
-  if (flags & HMSF_multiple_pass)
-    {
-      SV **multiple_pass_sv;
-      AV *multiple_pass_av;
-
-      FETCH(multiple_pass);
-
-      if (!multiple_pass_sv)
-        {
-          multiple_pass_av = newAV ();
-          STORE("multiple_pass", newRV_noinc ((SV *) multiple_pass_av));
-        }
-      else
-        {
-          multiple_pass_av = (AV *) SvRV (*multiple_pass_sv);
-          av_clear (multiple_pass_av);
-        }
-
-      for (i = 0; i < converter->multiple_pass.top; i++)
-        {
-          const char *multiple_pass_str = converter->multiple_pass.stack[i];
-          av_push (multiple_pass_av, newSVpv_utf8(multiple_pass_str, 0));
-        }
     }
 
 #undef STORE
