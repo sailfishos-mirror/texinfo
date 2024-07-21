@@ -1,5 +1,14 @@
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_text)
+	(_initialize_output_state), tp/t/init/spaces_in_line_breaks.init
+	_texi2any_tests_set_line_break_element),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_output_state): access 'line_break_element'
+	through get_info only.
+
+2024-07-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (substitute_html_non_breaking_space)
 	(_initialize_output_state),
 	tp/Texinfo/XS/convert/build_html_perl_state.c

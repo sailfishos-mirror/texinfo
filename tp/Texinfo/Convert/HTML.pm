@@ -7525,14 +7525,12 @@ sub _convert_text($$$)
     $text =~ s/ +/$non_breaking_space/g;
   } elsif (in_space_protected($self)) {
     if (chomp($text)) {
-      # API info: API code conforming would be:
-      # $self->get_info('line_break_element')
-      my $line_break_element = $self->{'line_break_element'};
+      my $line_break_element = $self->get_info('line_break_element');
       # protect spaces in line_break_element formatting.
       # Note that this case is theoretical right now, as it is not possible
-      # to redefine $self->{'line_break_element'} and there are no spaces
-      # in the possible values.  However this is a deficiency of the API,
-      # it would be better to be able to redefine $self->{'line_break_element'}
+      # to redefine the line_break_element and there are no spaces
+      # in the possible values.  However this could be a deficiency of the API,
+      # it could be better to be able to redefine line_break_element
       $line_break_element =~ s/ /\x{1F}/g;
       $text .= $line_break_element;
     }
@@ -12278,6 +12276,7 @@ sub _initialize_output_state($$)
     $self->force_conf('MENU_SYMBOL', '') if (!$set);
   }
 
+  my $line_break_element;
   if ($self->get_conf('USE_XML_SYNTAX')) {
     foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
       my $variable_value = $self->get_conf($customization_variable);
@@ -12288,12 +12287,11 @@ sub _initialize_output_state($$)
         }
       }
     }
-    $self->{'line_break_element'} = '<br/>';
+    $line_break_element = '<br/>';
   } else {
-    $self->{'line_break_element'} = '<br>';
+    $line_break_element = '<br>';
   }
-  $self->{'converter_info'}->{'line_break_element'}
-    = $self->{'line_break_element'};
+  $self->{'converter_info'}->{'line_break_element'} = $line_break_element;
 
   # duplicate such as not to modify the defaults
   my $conf_default_no_arg_commands_formatting_normal
@@ -12316,7 +12314,7 @@ sub _initialize_output_state($$)
   }
 
   $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
-    = $self->{'line_break_element'};
+    = $self->get_info('line_break_element');
 
   # NOTE need to be before the call to css_set_selector_style just below
   %{$self->{'css_element_class_styles'}} = %default_css_element_class_styles;

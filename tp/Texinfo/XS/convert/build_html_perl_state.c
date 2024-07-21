@@ -243,8 +243,6 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
 
   line_break_element_sv = newSVpv_utf8 (line_break_element, 0);
 
-  STORE("line_break_element", line_break_element_sv);
-  SvREFCNT_inc (line_break_element_sv);
   STORE_INFO("line_break_element", line_break_element_sv);
 
   /* add expanded_formats to converter_info */
