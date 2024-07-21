@@ -235,8 +235,6 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
 
   non_breaking_space_sv = newSVpv_utf8 (non_breaking_space, 0);
 
-  STORE("non_breaking_space", non_breaking_space_sv);
-  SvREFCNT_inc (non_breaking_space_sv);
   STORE_INFO("non_breaking_space", non_breaking_space_sv);
 
   paragraph_symbol_sv = newSVpv_utf8 (paragraph_symbol, 0);

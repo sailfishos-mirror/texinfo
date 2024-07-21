@@ -1,7 +1,10 @@
-2024-09-30  Patrice Dumas  <pertusus@free.fr>
+2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/Makefile.am (ConvertXS_la_SOURCES): remove
-	convert_html.c to only use shared data in libtexinfo-convert.
+	* tp/Texinfo/Convert/HTML.pm (substitute_html_non_breaking_space)
+	(_initialize_output_state),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_output_state): access 'non_breaking_space'
+	through get_info only.
 
 2024-07-20  Patrice Dumas  <pertusus@free.fr>
 
@@ -23,6 +26,11 @@
 	directions_strings from XS.  Move Perl code related to setting up
 	directions_strings from conversion_initialization to
 	_initialize_output_state.
+
+2024-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (ConvertXS_la_SOURCES): remove
+	convert_html.c to only use shared data in libtexinfo-convert.
 
 2024-07-20  Patrice Dumas  <pertusus@free.fr>
 

@@ -494,8 +494,7 @@ sub substitute_html_non_breaking_space($$)
   my $self = shift;
   my $text = shift;
 
-  # do not use get_info() as it may not be set yet
-  my $non_breaking_space = $self->{'non_breaking_space'};
+  my $non_breaking_space = $self->get_info('non_breaking_space');
   # using \Q \E on the substitution leads to spurious \
   $text =~ s/\Q$html_default_entity_nbsp\E/$non_breaking_space/g;
   return $text;
@@ -12254,8 +12253,6 @@ sub _initialize_output_state($$)
     }
   }
 
-  # used for direct access for speed
-  $self->{'non_breaking_space'} = $special_characters_set{'non_breaking_space'};
   $self->{'converter_info'}->{'non_breaking_space'}
     = $special_characters_set{'non_breaking_space'};
 
@@ -12302,7 +12299,7 @@ sub _initialize_output_state($$)
   my $conf_default_no_arg_commands_formatting_normal
     = Storable::dclone($default_no_arg_commands_formatting{'normal'});
 
-  my $non_breaking_space = $self->{'non_breaking_space'};
+  my $non_breaking_space = $self->get_info('non_breaking_space');
 
   if ($non_breaking_space ne $xml_named_entity_nbsp) {
     foreach my $space_command (' ', "\t", "\n", 'tie') {
