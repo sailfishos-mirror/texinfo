@@ -1485,7 +1485,7 @@ sub remove_from_array($$)
   return undef;
 }
 
-sub set_output_encodings($$)
+sub set_output_encoding($$)
 {
   my $customization_information = shift;
   my $document = shift;
@@ -1498,6 +1498,12 @@ sub set_output_encodings($$)
                $document_information->{'input_encoding_name'})
      if ($document_information
          and $document_information->{'input_encoding_name'});
+}
+
+sub set_output_perl_encoding($)
+{
+  my $customization_information = shift;
+
   if (not defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))
       and defined($customization_information->get_conf('OUTPUT_ENCODING_NAME'))) {
     my $conversion_encoding
@@ -1697,6 +1703,9 @@ sub normalize_top_node_name($)
 my $Encode_encoding_object;
 my $last_encoding;
 
+# Only used in the unmaintained IXIN converter, but could be useful in
+# other converters, so it is better to keep it to get an idea of the type of
+# code that needs the output perl encoding information.
 sub count_bytes($$;$)
 {
   my $self = shift;
@@ -2480,14 +2489,18 @@ a command that sets some information, such as C<@documentlanguage>,
 C<@contents> or C<@footnotestyle> for example.  Return true if the command
 argument was found and the customization variable was set.
 
-=item set_output_encodings($customization_information, $document)
-X<C<set_output_encodings>>
+=item set_output_encoding($customization_information, $document)
+X<C<set_output_encoding>>
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file
-encoding.  Also set C<OUTPUT_PERL_ENCODING> accordingly which is used
-to output in the correct encoding.  In general, C<OUTPUT_PERL_ENCODING>
-should not be set directly by user-defined code such that it corresponds
-to C<OUTPUT_ENCODING_NAME>.
+encoding.
+
+=item set_output_perl_encoding($customization_information)
+X<C<set_output_perl_encoding>>
+
+Set C<OUTPUT_PERL_ENCODING> based on C<OUTPUT_ENCODING_NAME>.  In general,
+C<OUTPUT_PERL_ENCODING> should not be set directly by user-defined code such
+that it corresponds to C<OUTPUT_ENCODING_NAME>.
 
 =item $split_contents = split_custom_heading_command_contents($element)
 X<C<split_custom_heading_command_contents>>

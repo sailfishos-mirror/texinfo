@@ -162,7 +162,7 @@ sub _initialize_options_encoding($$)
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
 # based on the converter information.
 # This is relevant for file names, for instance.
-# $OPTIONS_IN can be used to pass additional options.
+# $OPTIONS_IN can be used to pass additional options, for now 'sort_string'.
 sub copy_options_for_convert_text($;$)
 {
   my $self = shift;
@@ -890,7 +890,7 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
-  Texinfo::Common::set_output_encodings($self, $document);
+  Texinfo::Common::set_output_encoding($self, $document);
   # Cf comment in output() on using $self for options.
   _initialize_options_encoding($self, $self);
 
@@ -920,7 +920,9 @@ sub output($$)
     $document_info = $document->global_information();
   }
 
-  Texinfo::Common::set_output_encodings($self, $document);
+  Texinfo::Common::set_output_encoding($self, $document);
+  # sets OUTPUT_PERL_ENCODING needed for output_files_open_out below
+  Texinfo::Common::set_output_perl_encoding($self);
 
   # Text options and converter are of different nature.
   # It could have been possible to set up the options by calling
@@ -1057,7 +1059,7 @@ sub get_conf($$)
   return $self->{$key};
 }
 
-# used in Texinfo::Common::set_output_encodings
+# used in Texinfo::Common::set_output_encoding
 sub set_conf($$$)
 {
   my $self = shift;

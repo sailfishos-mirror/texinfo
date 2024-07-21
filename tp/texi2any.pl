@@ -1740,8 +1740,9 @@ while(@input_files) {
   # Structuring/Transformations methods needing access to configuration
   # information.
   #
-  # OUTPUT_ENCODING_NAME is set and accessed in set_output_encodings.
-  # OUTPUT_PERL_ENCODING is set and accessed in set_output_encodings and
+  # OUTPUT_ENCODING_NAME is set in set_output_encoding and accessed
+  # in set_output_perl_encoding.
+  # OUTPUT_PERL_ENCODING is set in set_output_perl_encoding and
   # accessed in output_files_open_out for the MACRO_EXPAND file name.
   # The following variables are used in Structuring/Transformations:
   # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
@@ -1752,7 +1753,8 @@ while(@input_files) {
 
   # encoding is needed for output files
   # documentlanguage is needed for gdt() in regenerate_master_menu
-  Texinfo::Common::set_output_encodings($main_configuration, $document);
+  Texinfo::Common::set_output_encoding($main_configuration, $document);
+  Texinfo::Common::set_output_perl_encoding($main_configuration);
   if (not defined($main_configuration->get_conf('documentlanguage'))
       and defined ($document_information->{'documentlanguage'})) {
     $main_configuration->set_conf('documentlanguage',

@@ -1103,8 +1103,8 @@ sub test($$)
 
   my $test_customization = Texinfo::MainConfig::new();
 
-  Texinfo::Common::set_output_encodings($test_customization,
-                                        $document);
+  Texinfo::Common::set_output_encoding($test_customization,
+                                       $document);
 
   if ($document_information->{'novalidate'}) {
     $test_customization->set_conf('novalidate', 1);
@@ -1316,7 +1316,7 @@ sub test($$)
             warn "ERROR: open $outfile: $!\n";
           } else {
             # output() or convert() called in convert_to_* calls set_document,
-            # which calls Texinfo::Common::set_output_encodings, so
+            # which calls Texinfo::Common::set_output_perl_encodings, so
             # OUTPUT_PERL_ENCODING should be set in all the formats converters.
             my $output_file_encoding
                       = $converter->get_conf('OUTPUT_PERL_ENCODING');
