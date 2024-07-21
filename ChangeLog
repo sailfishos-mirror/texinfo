@@ -6,6 +6,18 @@
 
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state),
+	(conversion_initialization), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files)
+	(html_prepare_output_units_global_targets): initialize
+	global_units_directions in _initialize_output_state and remove call of
+	pass_html_global_units_directions from
+	html_prepare_units_directions_files and
+	html_prepare_output_units_global_targets as the hash is not accessed
+	at all from Perl with XS with the global_direction_unit override.
+
+2024-07-21  Patrice Dumas  <pertusus@free.fr>
+
 	XS override for HTML::global_direction_unit
 
 	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),

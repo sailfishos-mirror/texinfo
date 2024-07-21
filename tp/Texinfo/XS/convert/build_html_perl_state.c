@@ -313,6 +313,7 @@ build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
   return newRV_noinc ((SV *) hv);
 }
 
+/* currently unused */
 static HV *
 build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
                      const SPECIAL_UNIT_DIRECTION *special_units_direction_name)
@@ -354,6 +355,7 @@ build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
   return hv;
 }
 
+/* currently unused */
 void
 pass_html_global_units_directions (SV *converter_sv,
                        const OUTPUT_UNIT **global_units_directions,

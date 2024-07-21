@@ -2206,9 +2206,6 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
                                         associated_special_units_in,
                 self->output_units_descriptors[OUDT_associated_special_units]);
 
-             pass_html_global_units_directions (converter_in,
-                                            self->global_units_directions,
-                                            self->special_units_direction_name);
              html_setup_global_units_direction_names (self);
 
              pass_html_elements_in_file_count (converter_in,
@@ -2240,10 +2237,6 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
              rebuild_output_units_list (self->document,
                                         associated_special_units_in,
                self->output_units_descriptors[OUDT_associated_special_units]);
-
-             pass_html_global_units_directions (converter_in,
-                                            self->global_units_directions,
-                                            self->special_units_direction_name);
 
              html_setup_global_units_direction_names (self);
            }

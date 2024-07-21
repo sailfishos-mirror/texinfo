@@ -12447,6 +12447,10 @@ sub _initialize_output_state($$)
   $self->{'converter_info'}->{'expanded_formats'}
     = $self->{'expanded_formats'};
 
+  # for global directions always set, and for directions to special elements,
+  # only filled if special elements are actually used.
+  $self->{'global_units_directions'} = {};
+
   $self->_new_document_context($context);
 }
 
@@ -12470,10 +12474,6 @@ sub conversion_initialization($;$)
   $self->{'multiple_pass'} = [];
 
   $self->_initialize_output_state('_convert');
-
-  # for global directions always set, and for directions to special elements,
-  # only filled if special elements are actually used.
-  $self->{'global_units_directions'} = {};
 }
 
 sub conversion_finalization($)
