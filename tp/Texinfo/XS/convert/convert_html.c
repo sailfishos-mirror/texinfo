@@ -1840,12 +1840,15 @@ void
 set_special_units_targets_files (CONVERTER *self, const char *document_name)
 {
   int i;
+  TEXT text_name;
   OUTPUT_UNIT_LIST *special_units = retrieve_output_units
     (self->document, self->output_units_descriptors[OUDT_special_units]);
 
   char *extension = "";
   if (self->conf->EXTENSION.o.string)
     extension = self->conf->EXTENSION.o.string;
+
+  text_init (&text_name);
 
   for (i = 0; i < special_units->number; i++)
     {
@@ -1867,11 +1870,10 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
     /* in general document_name not defined means called through convert */
           && document_name)
         {
-          TEXT text_name;
           const char *special_unit_file_string
             = special_unit_info (self, SUI_type_file_string,
                                  special_unit_variety);
-          text_init (&text_name);
+          text_reset (&text_name);
           if (!special_unit_file_string)
             special_unit_file_string = "";
           text_append (&text_name, document_name);
@@ -1881,7 +1883,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
               text_append (&text_name, ".");
               text_append (&text_name, extension);
             }
-          default_filename = text_name.text;
+          default_filename = strdup (text_name.text);
         }
       target_filename = call_file_id_setting_special_unit_target_file_name (
                                self, special_unit, target, default_filename);
@@ -1896,7 +1898,6 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
             }
           else
             filename = default_filename;
-
         }
       else
         filename = default_filename;
@@ -1924,6 +1925,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
           free (target_filename);
         }
     }
+  free (text_name.text);
 }
 
 static void
