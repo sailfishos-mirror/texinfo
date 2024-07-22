@@ -608,44 +608,6 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
                 }
             }
 
-
-void
-html_initialize_output_state (SV *converter_in, const char *context)
-      PREINIT:
-         CONVERTER *self;
-      CODE:
-         self = get_sv_converter (converter_in, "html_initialize_output_state");
-         if (self)
-           {
-             HV *converter_hv = (HV *) SvRV (converter_in);
-
-             html_initialize_output_state (self, context);
-             /* could be useful if something from Perl is needed
-             html_conversion_initialization_sv (converter_in, self);
-              */
-
-             /* internal links code is in Perl */
-             if (self->conf->INTERNAL_LINKS.o.string)
-               self->external_references_number++;
-             /* Conversion to LaTeX is in Perl */
-             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-               self->external_references_number++;
-
-             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-               {
-                 HV *options_latex_math_hv =
-                 latex_build_options_for_convert_to_latex_math (self);
-                 hv_store (converter_hv, "options_latex_math",
-                           strlen ("options_latex_math"),
-                           newRV_noinc ((SV *)options_latex_math_hv), 0);
-               }
-
-             if (self->external_references_number > 0)
-               {
-                 html_pass_converter_output_state (self, converter_in, 0);
-               }
-           }
-
 SV *
 html_init_output (SV *converter_in)
       PREINIT:

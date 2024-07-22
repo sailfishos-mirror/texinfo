@@ -107,8 +107,6 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
   "Texinfo::Convert::HTML::conversion_initialization"
    => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
-  "Texinfo::Convert::HTML::_initialize_output_state"
-   => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
   "Texinfo::Convert::HTML::_init_output"
    => "Texinfo::Convert::ConvertXS::html_init_output",
   "Texinfo::Convert::HTML::conversion_finalization"
@@ -12194,11 +12192,24 @@ sub _has_contents_or_shortcontents($)
 # needs to be called from a converter which would have had this function
 # called already.
 
-# This function initializes states that are initialized either in XS or in perl
-sub _initialize_output_state($$)
+# This function initializes states that are initialized either in XS
+# or in Perl.  Called as early as possible in the conversion functions.
+# $CONTEXT is the first conversion context name.
+# $DOCUMENT is the converted Texinfo parsed document.
+sub conversion_initialization($$;$)
 {
   my $self = shift;
   my $context = shift;
+  my $document = shift;
+
+  $self->{'converter_info'} = {};
+
+  if ($document) {
+    $self->set_document($document);
+    $self->{'converter_info'}->{'document'} = $document;
+  }
+
+  $self->{'shared_conversion_state'} = {};
 
   $self->{'document_context'} = [];
 
@@ -12477,27 +12488,6 @@ sub _initialize_output_state($$)
   }
 
   $self->_new_document_context($context);
-}
-
-# This function initializes states that are initialized both in XS and
-# in perl.  Called as early as possible in the conversion functions.
-# $DOCUMENT is the converted Texinfo parsed document.
-sub conversion_initialization($$;$)
-{
-  my $self = shift;
-  my $context = shift;
-  my $document = shift;
-
-  $self->{'converter_info'} = {};
-
-  if ($document) {
-    $self->set_document($document);
-    $self->{'converter_info'}->{'document'} = $document;
-  }
-
-  $self->{'shared_conversion_state'} = {};
-
-  $self->_initialize_output_state($context);
 }
 
 sub conversion_finalization($)
