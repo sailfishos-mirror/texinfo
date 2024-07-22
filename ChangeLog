@@ -4,6 +4,13 @@
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_init_output)
+	(html_prepare_simpletitle, html_prepare_converted_output_info)
+	(html_prepare_title_titlepage): remove code setting converter_info
+	Perl data, as it is now done in pass_sv_converter_info on demand.
+
+2024-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(set_special_units_targets_files): reuse a TEXT for all the file
 	names.
@@ -25,7 +32,8 @@
 	tp/Texinfo/XS/convert/ConvertXS.xs (html_get_info),
 	tp/Texinfo/XS/convert/build_html_perl_state.c
 	(pass_sv_converter_info): XS override for get_info, with caching in
-	$self->{'converter_info'} as in Perl.
+	$self->{'converter_info'}.  Note that either Perl code or XS code is
+	used, so this is for consistency not really for interoperability.
 
 	* tp/Makefile.am (test_files), tp/Makefile.tres,
 	tp/t/init_files_tests.t (access_document_name_in_handler): add a test

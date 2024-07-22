@@ -620,12 +620,6 @@ html_init_output (SV *converter_in)
          if (self)
            {
              char *paths[5];
-             /* TODO remove the next 5 lines when _do_js_files is overriden */
-             HV *converter_hv = (HV *) SvRV (converter_in);
-             SV **converter_info_sv
-                 = hv_fetch (converter_hv, "converter_info",
-                             strlen ("converter_info"), 0);
-             HV *converter_info_hv = (HV *) SvRV (*converter_info_sv);
 
              status = html_init_output (self, paths);
              if (status)
@@ -640,39 +634,11 @@ html_init_output (SV *converter_in)
                    }
                  RETVAL = newRV_noinc ((SV *) result_av);
 
-
                  for (i = 0; i < 5; i++)
                    {
                      free (paths[i]);
                    }
                }
-
-             if (self->external_references_number > 0)
-               {
-                 HV *converter_hv = (HV *) SvRV (converter_in);
-                 SV **converter_info_sv
-                     = hv_fetch (converter_hv, "converter_info",
-                                 strlen ("converter_info"), 0);
-                 HV *converter_info_hv = (HV *) SvRV (*converter_info_sv);
-
-                 if (status)
-                   {
-                     hv_store (converter_info_hv, "document_name",
-                               strlen ("document_name"),
-                               newSVpv_utf8 (self->document_name, 0), 0);
-                     hv_store (converter_info_hv, "destination_directory",
-                               strlen ("destination_directory"),
-                               newSVpv_utf8 (self->destination_directory, 0), 0);
-                   }
-
-                 /*
-                 pass_jslicenses (&self->jslicenses, converter_info_hv);
-                  */
-               }
-             /* TODO when _do_js_files is overriden, remove and uncomment
-                     above */
-             pass_jslicenses (&self->jslicenses, converter_info_hv);
-
            }
     OUTPUT:
          RETVAL
@@ -2333,16 +2299,6 @@ html_prepare_simpletitle (SV *converter_in)
          if (self)
            {
              html_prepare_simpletitle (self);
-             if (self->simpletitle_tree && self->external_references_number > 0)
-               {
-                 HV *converter_hv = (HV *) SvRV (converter_in);
-                 SV **converter_info_sv
-                    = hv_fetch (converter_hv, "converter_info",
-                                strlen ("converter_info"), 0);
-                 HV *converter_info_hv = (HV *) SvRV (*converter_info_sv);
-
-                 build_simpletitle (self, converter_info_hv);
-               }
            }
 
 void
@@ -2357,46 +2313,6 @@ html_prepare_converted_output_info (SV *converter_in)
              HV *converter_hv = (HV *) SvRV (converter_in);
 
              html_prepare_converted_output_info (self);
-
-             if (self->external_references_number > 0)
-               {
-                 HV *converter_info_hv;
-                 SV **converter_info_sv
-                    = hv_fetch (converter_hv, "converter_info",
-                                strlen ("converter_info"), 0);
-
-                 if (!converter_info_sv)
-                   fatal ("html_prepare_converted_output_info: "
-                          "no converter_info found in converter Perl hash");
-
-                 if (!SvOK (*converter_info_sv))
-                   fatal ("html_prepare_converted_output_info: "
-                          "converter_info undef in converter Perl hash");
-
-                 converter_info_hv = (HV *) SvRV (*converter_info_sv);
-
-                 if (self->added_title_tree)
-                   build_texinfo_tree (self->title_tree, 1);
-
-                 if (self->simpletitle_tree)
-                   build_simpletitle (self, converter_info_hv);
-
-                 hv_store (converter_info_hv, "title_tree",
-                           strlen ("title_tree"),
-                           newRV_inc ((SV *) self->title_tree->hv), 0);
-                 hv_store (converter_info_hv, "title_string",
-                           strlen ("title_string"),
-                           newSVpv_utf8 (self->title_string, 0), 0);
-
-                 if (self->copying_comment)
-                   hv_store (converter_info_hv, "copying_comment",
-                             strlen ("copying_comment"),
-                             newSVpv_utf8 (self->copying_comment, 0), 0);
-                 if (self->documentdescription_string)
-                   hv_store (converter_info_hv, "documentdescription_string",
-                             strlen ("documentdescription_string"),
-                      newSVpv_utf8 (self->documentdescription_string, 0), 0);
-               }
            }
 
 # $output_units
@@ -2418,33 +2334,6 @@ html_prepare_title_titlepage (SV *converter_in, output_file, output_filename, ..
                {
                  build_html_formatting_state (self, self->modified_state);
                  self->modified_state = 0;
-               }
-             if (self->external_references_number > 0)
-               {
- /* should always happen as a string is always returned, possibly empty */
-                 if (self->title_titlepage)
-                   {
-                     HV *converter_hv = (HV *) SvRV (converter_in);
-                     HV *converter_info_hv;
-                     SV **converter_info_sv
-                        = hv_fetch (converter_hv, "converter_info",
-                                    strlen ("converter_info"), 0);
-                     SV *title_titlepage_sv
-                         = newSVpv_utf8 (self->title_titlepage, 0);
-
-                     if (!converter_info_sv)
-                       fatal ("html_prepare_title_titlepage: "
-                          "no converter_info found in converter Perl hash");
-
-                     if (!SvOK (*converter_info_sv))
-                       fatal ("html_prepare_title_titlepage: "
-                          "converter_info undef in converter Perl hash");
-
-                     converter_info_hv = (HV *) SvRV (*converter_info_sv);
-
-                     hv_store (converter_info_hv, "title_titlepage",
-                           strlen ("title_titlepage"), title_titlepage_sv, 0);
-                   }
                }
            }
 
