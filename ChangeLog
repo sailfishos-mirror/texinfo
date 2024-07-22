@@ -4,6 +4,16 @@
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(pass_sv_converter_info): replace redundant non_breaking_space by
+	missing line_break_element.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_output_state): remove code setting converter_info
+	Perl data, as it is now done in pass_sv_converter_info on demand.
+
+2024-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_init_output)
 	(html_prepare_simpletitle, html_prepare_converted_output_info)
 	(html_prepare_title_titlepage): remove code setting converter_info

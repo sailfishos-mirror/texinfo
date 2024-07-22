@@ -203,23 +203,12 @@ build_directions_strings (const CONVERTER *converter)
 
 
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
-#define STORE_INFO(key, sv) hv_store (converter_info_hv, key, strlen (key), sv, 0)
 void
 html_pass_converter_output_state (const CONVERTER *converter,
                                   SV *converter_sv, SV *document_in)
 {
   HV *converter_hv;
-  /*
-  SV **converter_info_sv;
-   */
   HV *converter_info_hv;
-  const char *non_breaking_space;
-  const char *paragraph_symbol;
-  const char *line_break_element;
-  SV *non_breaking_space_sv;
-  SV *paragraph_symbol_sv;
-  SV *line_break_element_sv;
-  SV **expanded_formats_sv;
   SV *no_arg_commands_formatting_sv;
   SV *directions_strings_sv;
   HV *shared_conversion_state_hv;
@@ -227,42 +216,9 @@ html_pass_converter_output_state (const CONVERTER *converter,
   dTHX;
 
   converter_hv = (HV *) SvRV (converter_sv);
-  /*
-  converter_info_sv = hv_fetch (converter_hv, "converter_info",
-                             strlen ("converter_info"), 0);
-  converter_info_hv = (HV *) SvRV (*converter_info_sv);
-   */
+
   converter_info_hv = newHV ();
   STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
-
-  non_breaking_space
-           = converter->special_character[SC_non_breaking_space].string;
-  line_break_element = converter->line_break_element.string;
-  paragraph_symbol
-          = converter->special_character[SC_paragraph_symbol].string;
-
-  non_breaking_space_sv = newSVpv_utf8 (non_breaking_space, 0);
-
-  STORE_INFO("non_breaking_space", non_breaking_space_sv);
-
-  paragraph_symbol_sv = newSVpv_utf8 (paragraph_symbol, 0);
-
-  STORE_INFO("paragraph_symbol", paragraph_symbol_sv);
-
-  line_break_element_sv = newSVpv_utf8 (line_break_element, 0);
-
-  STORE_INFO("line_break_element", line_break_element_sv);
-
-  /* add expanded_formats to converter_info */
-  expanded_formats_sv
-    = hv_fetch (converter_hv, "expanded_formats",
-                strlen ("expanded_formats"), 0);
-
-  if (expanded_formats_sv && SvOK (*expanded_formats_sv))
-    {
-      SvREFCNT_inc (*expanded_formats_sv);
-      STORE_INFO("expanded_formats", *expanded_formats_sv);
-    }
 
   no_arg_commands_formatting_sv = build_no_arg_commands_formatting (converter);
   STORE("no_arg_commands_formatting", no_arg_commands_formatting_sv);
@@ -277,14 +233,7 @@ html_pass_converter_output_state (const CONVERTER *converter,
   STORE("shared_conversion_state",
         newRV_noinc ((SV *)shared_conversion_state_hv));
 
-  if (document_in && SvOK (document_in))
-    {
-      SvREFCNT_inc (document_in);
-      STORE_INFO("document", document_in);
-    }
-
 #undef STORE
-#undef STORE_INFO
 }
 
 /* Currently unused */
@@ -805,9 +754,9 @@ pass_sv_converter_info (const CONVERTER *converter,
   else if (!strcmp (converter_info, "paragraph_symbol"))
     new_sv
    = newSVpv_utf8 (converter->special_character[SC_paragraph_symbol].string, 0);
-  else if (!strcmp (converter_info, "non_breaking_space"))
+  else if (!strcmp (converter_info, "line_break_element"))
     new_sv
-   = newSVpv_utf8 (converter->special_character[SC_non_breaking_space].string, 0);
+   = newSVpv_utf8 (converter->line_break_element.string, 0);
   else if (!strcmp (converter_info, "document"))
     {
       SV **document_sv = hv_fetch (converter_hv, "document",
