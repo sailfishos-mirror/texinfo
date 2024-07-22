@@ -246,6 +246,14 @@ In quotation
 ',
 {'init_files' => ['footnote_mark_in_inline_content.pm']},
 ],
+['access_document_name_in_handler',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+', {'init_files' => ['access_document_name_in_handler.pm']},
+],
 );
 
 foreach my $test (@test_cases) {

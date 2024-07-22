@@ -574,6 +574,9 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
         self = converter_set_document_from_sv (converter_in, document_in);
+        /* always set the document in the converter, as it is the only
+           way to find it back, it is not stored in C data */
+        pass_document_to_converter_sv (self, converter_in, document_in);
         if (self)
           {
             HV *converter_hv = (HV *) SvRV (converter_in);
@@ -601,8 +604,6 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
 
               if (self->external_references_number > 0)
                 {
-                  pass_document_to_converter_sv (self, converter_in,
-                                                 document_in);
                   html_pass_converter_output_state (self, converter_in,
                                                     document_in);
                 }
@@ -930,6 +931,17 @@ html_debug_print_html_contexts (SV *converter_in)
            }
          else
            RETVAL = newSVpv_utf8 ("", 0);
+    OUTPUT:
+         RETVAL
+
+SV *
+html_get_info (SV *converter_in, const char *converter_info)
+     PREINIT:
+         const CONVERTER *self;
+     CODE:
+         self = get_sv_converter (converter_in,
+                                  "html_get_info");
+         RETVAL = pass_sv_converter_info (self, converter_info, converter_in);
     OUTPUT:
          RETVAL
 

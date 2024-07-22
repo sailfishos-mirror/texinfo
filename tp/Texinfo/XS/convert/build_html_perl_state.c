@@ -715,7 +715,7 @@ build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack)
 }
 
 void
-build_simpletitle (CONVERTER *converter, HV *converter_info_hv)
+build_simpletitle (const CONVERTER *converter, HV *converter_info_hv)
 {
   dTHX;
 
@@ -728,7 +728,8 @@ build_simpletitle (CONVERTER *converter, HV *converter_info_hv)
 }
 
 void
-pass_jslicenses (JSLICENSE_CATEGORY_LIST *jslicenses, HV *converter_info_hv)
+pass_jslicenses (const JSLICENSE_CATEGORY_LIST *jslicenses,
+                 HV *converter_info_hv)
 {
   HV *jslicenses_hv;
   size_t i;
@@ -766,3 +767,137 @@ pass_jslicenses (JSLICENSE_CATEGORY_LIST *jslicenses, HV *converter_info_hv)
             newRV_noinc ((SV *) jslicenses_hv), 0);
 }
 
+SV *
+pass_sv_converter_info (const CONVERTER *converter,
+                        const char *converter_info, SV *converter_sv)
+{
+  HV *converter_hv;
+  SV **converter_info_sv;
+  HV *converter_info_hv;
+  SV **info_sv;
+  SV *new_sv = 0;
+
+  dTHX;
+
+  converter_hv = (HV *) SvRV (converter_sv);
+  converter_info_sv = hv_fetch (converter_hv, "converter_info",
+                             strlen ("converter_info"), 0);
+  converter_info_hv = (HV *) SvRV (*converter_info_sv);
+
+  info_sv = hv_fetch (converter_info_hv, converter_info,
+                      strlen (converter_info), 0);
+
+  if (info_sv && SvOK (*info_sv))
+    {
+      SvREFCNT_inc (*info_sv);
+      return *info_sv;
+    }
+
+  /* the linear search is not very efficient, but done only once for
+     each defined information */
+  if (!strcmp (converter_info, "non_breaking_space"))
+    new_sv
+   = newSVpv_utf8 (converter->special_character[SC_non_breaking_space].string, 0);
+  else if (!strcmp (converter_info, "paragraph_symbol"))
+    new_sv
+   = newSVpv_utf8 (converter->special_character[SC_paragraph_symbol].string, 0);
+  else if (!strcmp (converter_info, "non_breaking_space"))
+    new_sv
+   = newSVpv_utf8 (converter->special_character[SC_non_breaking_space].string, 0);
+  else if (!strcmp (converter_info, "document"))
+    {
+      SV **document_sv = hv_fetch (converter_hv, "document",
+                                   strlen ("document"), 0);
+      if (document_sv && SvOK (*document_sv))
+        {
+          SvREFCNT_inc (*document_sv);
+          new_sv = *document_sv;
+        }
+    }
+  else if (!strcmp (converter_info, "document_name"))
+    {
+      if (converter->document_name)
+        new_sv = newSVpv_utf8 (converter->document_name, 0);
+    }
+  else if (!strcmp (converter_info, "destination_directory"))
+    {
+      if (converter->destination_directory)
+        new_sv = newSVpv_utf8 (converter->destination_directory, 0);
+    }
+  else if (!strcmp (converter_info, "expanded_formats"))
+    {
+      /* add expanded_formats to converter_info */
+      SV **expanded_formats_sv
+        = hv_fetch (converter_hv, "expanded_formats",
+                    strlen ("expanded_formats"), 0);
+
+      if (expanded_formats_sv && SvOK (*expanded_formats_sv))
+        {
+          SvREFCNT_inc (*expanded_formats_sv);
+          new_sv = *expanded_formats_sv;
+        }
+    }
+  else if (!strcmp (converter_info, "jslicenses"))
+    {
+      pass_jslicenses (&converter->jslicenses, converter_info_hv);
+      info_sv = hv_fetch (converter_info_hv, converter_info,
+                          strlen (converter_info), 0);
+      /* probably always true */
+      if (info_sv && SvOK (*info_sv))
+        {
+          SvREFCNT_inc (*info_sv);
+          return *info_sv;
+        }
+    }
+  else if (!strcmp (converter_info, "copying_comment"))
+    {
+      if (converter->copying_comment)
+        new_sv = newSVpv_utf8 (converter->copying_comment, 0);
+    }
+  else if (!strcmp (converter_info, "documentdescription_string"))
+    {
+      if (converter->documentdescription_string)
+        new_sv = newSVpv_utf8 (converter->documentdescription_string, 0);
+    }
+  else if (!strcmp (converter_info, "title_titlepage"))
+    {
+      if (converter->title_titlepage)
+        new_sv = newSVpv_utf8 (converter->title_titlepage, 0);
+    }
+  else if (!strcmp (converter_info, "title_string"))
+    {
+      new_sv = newSVpv_utf8 (converter->title_string, 0);
+    }
+  else if (!strcmp (converter_info, "title_tree"))
+    {
+      if (converter->added_title_tree)
+        build_texinfo_tree (converter->title_tree, 1);
+      new_sv = newRV_inc ((SV *) converter->title_tree->hv);
+    }
+  else if (!strcmp (converter_info, "simpletitle_tree")
+           || !strcmp (converter_info, "simpletitle_command_name"))
+    {
+      if (converter->simpletitle_tree)
+        {
+          build_simpletitle (converter, converter_info_hv);
+
+          info_sv = hv_fetch (converter_info_hv, converter_info,
+                             strlen (converter_info), 0);
+          /* probably always true */
+          if (info_sv && SvOK (*info_sv))
+            {
+              SvREFCNT_inc (*info_sv);
+              return *info_sv;
+            }
+        }
+    }
+
+  if (new_sv)
+    {
+      hv_store (converter_info_hv, converter_info,
+                strlen (converter_info), new_sv, 0);
+      return new_sv;
+    }
+
+  return newSV (0);
+}

@@ -32,7 +32,10 @@ SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
 void build_pending_footnotes (AV *av, HTML_PENDING_FOOTNOTE_STACK *stack);
 
-void build_simpletitle (CONVERTER *converter, HV *converter_info_hv);
-void pass_jslicenses (JSLICENSE_CATEGORY_LIST *jslicenses, HV *converter_info_hv);
+void build_simpletitle (const CONVERTER *converter, HV *converter_info_hv);
+void pass_jslicenses (const JSLICENSE_CATEGORY_LIST *jslicenses,
+                      HV *converter_info_hv);
 
+SV *pass_sv_converter_info (const CONVERTER *converter,
+                            const char *converter_info, SV *converter_sv);
 #endif

@@ -155,6 +155,9 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_XS_get_shared_conversion_state"
    => "Texinfo::Convert::ConvertXS::html_get_shared_conversion_state",
 
+  "Texinfo::Convert::HTML::get_info"
+   => "Texinfo::Convert::ConvertXS::html_get_info",
+
   "Texinfo::Convert::HTML::_open_command_update_context"
    => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
   "Texinfo::Convert::HTML::_convert_command_update_context",
