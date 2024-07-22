@@ -2309,11 +2309,7 @@ html_prepare_converted_output_info (SV *converter_in)
          self = get_sv_converter (converter_in,
                                   "html_prepare_converted_output_info");
          if (self)
-           {
-             HV *converter_hv = (HV *) SvRV (converter_in);
-
-             html_prepare_converted_output_info (self);
-           }
+           html_prepare_converted_output_info (self);
 
 # $output_units
 void

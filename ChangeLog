@@ -4,6 +4,14 @@
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_converted_output_info): remove unused variable.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(pass_sv_converter_info): call bug if the converter_info is not known.
+
+2024-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_state.c
 	(pass_sv_converter_info): replace redundant non_breaking_space by
 	missing line_break_element.

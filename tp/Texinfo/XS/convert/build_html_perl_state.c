@@ -844,6 +844,14 @@ pass_sv_converter_info (const CONVERTER *converter,
             }
         }
     }
+  else
+    {
+      char *bug_msg;
+      xasprintf (&bug_msg, "%s not an available converter info",
+                 converter_info);
+      bug (bug_msg);
+      free (bug_msg);
+    }
 
   if (new_sv)
     {
