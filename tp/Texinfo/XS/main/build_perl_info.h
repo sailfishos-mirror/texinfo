@@ -20,7 +20,8 @@ void *perl_only_malloc (size_t size);
 char *perl_only_strdup (const char *s);
 char *perl_only_strndup (const char *s, size_t n);
 
-int init (int texinfo_uninstalled, const char *tp_builddir);
+int init (int texinfo_uninstalled, const char *tp_builddir,
+          const char *pkgdatadir, const char *top_srcdir);
 
 /* in options_get_perl.c */
 SV *build_sv_option (const OPTIONS *options, const char *key,

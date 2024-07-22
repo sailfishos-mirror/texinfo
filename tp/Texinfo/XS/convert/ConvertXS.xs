@@ -65,11 +65,12 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 PROTOTYPES: ENABLE
 
 # Called from Texinfo::XSLoader.pm.
-#        int texinfo_uninstalled
-# File path, can be in any encoding
-#        const char *tp_builddir = (const char *)SvPVbyte_nolen($arg);
+# File paths can be in any encoding
 int
-init (...)
+init (int texinfo_uninstalled, tp_builddir, pkgdatadir, top_srcdir)
+     const char *tp_builddir = (const char *)SvPVbyte_nolen ($arg);
+     const char *pkgdatadir = (const char *)SvPVbyte_nolen ($arg);
+     const char *top_srcdir = (const char *)SvPVbyte_nolen ($arg);
       CODE:
         set_element_type_name_info ();
         converter_setup ();
