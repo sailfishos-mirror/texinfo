@@ -94,6 +94,10 @@ HV *build_sorted_indices_by_index (
 
 SV *html_build_direction_icons (const CONVERTER *converter,
                             const DIRECTION_ICON_LIST *direction_icons);
+
+void pass_document_to_converter_sv (const CONVERTER *converter,
+                                    SV *converter_sv, SV *document_in);
+
 SV *get_conf (const CONVERTER *converter, const char *option_name);
 
 HV *build_expanded_formats (const EXPANDED_FORMAT *expanded_formats);

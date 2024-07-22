@@ -105,6 +105,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_format_setup",
   "Texinfo::Convert::HTML::_XS_html_converter_initialize"
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
+  "Texinfo::Convert::HTML::conversion_initialization"
+   => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
   "Texinfo::Convert::HTML::_initialize_output_state"
    => "Texinfo::Convert::ConvertXS::html_initialize_output_state",
   "Texinfo::Convert::HTML::_init_output"
@@ -12480,9 +12482,10 @@ sub _initialize_output_state($$)
 # This function initializes states that are initialized both in XS and
 # in perl.  Called as early as possible in the conversion functions.
 # $DOCUMENT is the converted Texinfo parsed document.
-sub conversion_initialization($;$)
+sub conversion_initialization($$;$)
 {
   my $self = shift;
+  my $context = shift;
   my $document = shift;
 
   $self->{'converter_info'} = {};
@@ -12494,7 +12497,7 @@ sub conversion_initialization($;$)
 
   $self->{'shared_conversion_state'} = {};
 
-  $self->_initialize_output_state('_convert');
+  $self->_initialize_output_state($context);
 }
 
 sub conversion_finalization($)
@@ -12601,7 +12604,8 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
-  $self->conversion_initialization($document);
+  $self->conversion_initialization('_convert', $document);
+  Texinfo::Common::set_output_perl_encoding($self);
 
   _init_conversion_after_setup_handler($self);
 
@@ -13458,7 +13462,12 @@ sub output($$)
   my $self = shift;
   my $document = shift;
 
-  $self->conversion_initialization($document);
+  $self->conversion_initialization('_output', $document);
+  Texinfo::Common::set_output_perl_encoding($self);
+
+  # TODO workaround for simpler code in XS needed while _do_js_files
+  # is not overriden.  Remove when _do_js_files is overriden
+  $self->{'converter_info'} = {} if (!$self->{'converter_info'});
 
   my $paths = _init_output($self);
   if (!defined($paths)) {

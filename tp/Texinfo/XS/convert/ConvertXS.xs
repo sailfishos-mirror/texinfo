@@ -98,23 +98,11 @@ void
 converter_set_document (SV *converter_in, SV *document_in)
       PREINIT:
         CONVERTER *self;
-        HV *converter_hv;
       CODE:
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
         self = converter_set_document_from_sv (converter_in, document_in);
-        converter_hv = (HV *)SvRV (converter_in);
-        SvREFCNT_inc (document_in);
-        hv_store (converter_hv, "document", strlen ("document"),
-                  document_in, 0);
-        if (self && self->convert_text_options)
-          {
-            SV *text_options_sv
-             = build_convert_text_options (self->convert_text_options);
-            hv_store (converter_hv,
-                      "convert_text_options", strlen("convert_text_options"),
-                      text_options_sv, 0);
-          }
+        pass_document_to_converter_sv (self, converter_in, document_in);
 
 void
 set_conf (SV *converter_in, conf, SV *value)
@@ -579,6 +567,49 @@ void
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *default_css_element_class_styles, SV *default_converted_directions_strings)
 
 void
+html_conversion_initialization (SV *converter_in, const char *context, SV *document_in=0)
+      PREINIT:
+        CONVERTER *self;
+      CODE:
+        /* if a converter is properly initialized, the XS converter should
+           always be found when XS is used */
+        self = converter_set_document_from_sv (converter_in, document_in);
+        if (self)
+          {
+            HV *converter_hv = (HV *) SvRV (converter_in);
+
+            html_initialize_output_state (self, context);
+            /* could be useful if something from Perl is needed
+            html_conversion_initialization_sv (converter_in, self);
+             */
+
+            /* internal links code is in Perl */
+            if (self->conf->INTERNAL_LINKS.o.string)
+              self->external_references_number++;
+            /* Conversion to LaTeX is in Perl */
+            if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+              self->external_references_number++;
+
+            if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+              {
+                HV *options_latex_math_hv =
+                latex_build_options_for_convert_to_latex_math (self);
+                hv_store (converter_hv, "options_latex_math",
+                          strlen ("options_latex_math"),
+                          newRV_noinc ((SV *)options_latex_math_hv), 0);
+              }
+
+              if (self->external_references_number > 0)
+                {
+                  pass_document_to_converter_sv (self, converter_in,
+                                                 document_in);
+                  html_pass_converter_output_state (self, converter_in,
+                                                    document_in);
+                }
+            }
+
+
+void
 html_initialize_output_state (SV *converter_in, const char *context)
       PREINIT:
          CONVERTER *self;
@@ -609,12 +640,9 @@ html_initialize_output_state (SV *converter_in, const char *context)
                            newRV_noinc ((SV *)options_latex_math_hv), 0);
                }
 
-             if (self->external_references_number)
+             if (self->external_references_number > 0)
                {
-                 html_pass_converter_output_state (converter_in, self);
-                 if (self->use_unicode_text)
-                   hv_store (converter_hv, "use_unicode_text",
-                             strlen ("use_unicode_text"), newSViv (1), 0);
+                 html_pass_converter_output_state (self, converter_in, 0);
                }
            }
 
@@ -629,6 +657,7 @@ html_init_output (SV *converter_in)
          if (self)
            {
              char *paths[5];
+             /* TODO remove the next 5 lines when _do_js_files is overriden */
              HV *converter_hv = (HV *) SvRV (converter_in);
              SV **converter_info_sv
                  = hv_fetch (converter_hv, "converter_info",
@@ -645,20 +674,42 @@ html_init_output (SV *converter_in)
                    {
                      SV *sv = newSVpv_utf8 (paths[i], 0);
                      av_push (result_av, sv);
-                     free (paths[i]);
                    }
-                 free (paths[4]);
                  RETVAL = newRV_noinc ((SV *) result_av);
 
-                 hv_store (converter_info_hv, "document_name",
-                           strlen ("document_name"),
-                           newSVpv_utf8 (self->document_name, 0), 0);
-                 hv_store (converter_info_hv, "destination_directory",
-                           strlen ("destination_directory"),
-                           newSVpv_utf8 (self->destination_directory, 0), 0);
+
+                 for (i = 0; i < 5; i++)
+                   {
+                     free (paths[i]);
+                   }
                }
 
+             if (self->external_references_number > 0)
+               {
+                 HV *converter_hv = (HV *) SvRV (converter_in);
+                 SV **converter_info_sv
+                     = hv_fetch (converter_hv, "converter_info",
+                                 strlen ("converter_info"), 0);
+                 HV *converter_info_hv = (HV *) SvRV (*converter_info_sv);
+
+                 if (status)
+                   {
+                     hv_store (converter_info_hv, "document_name",
+                               strlen ("document_name"),
+                               newSVpv_utf8 (self->document_name, 0), 0);
+                     hv_store (converter_info_hv, "destination_directory",
+                               strlen ("destination_directory"),
+                               newSVpv_utf8 (self->destination_directory, 0), 0);
+                   }
+
+                 /*
+                 pass_jslicenses (&self->jslicenses, converter_info_hv);
+                  */
+               }
+             /* TODO when _do_js_files is overriden, remove and uncomment
+                     above */
              pass_jslicenses (&self->jslicenses, converter_info_hv);
+
            }
     OUTPUT:
          RETVAL
@@ -2308,7 +2359,7 @@ html_prepare_simpletitle (SV *converter_in)
          if (self)
            {
              html_prepare_simpletitle (self);
-             if (self->simpletitle_tree)
+             if (self->simpletitle_tree && self->external_references_number > 0)
                {
                  HV *converter_hv = (HV *) SvRV (converter_in);
                  SV **converter_info_sv

@@ -53,7 +53,7 @@
 
 /* Following is HTML specific */
 static SV **
-register_formatting_reference_default (char *type_string,
+register_formatting_reference_default (const char *type_string,
                 FORMATTING_REFERENCE *formatting_reference,
                 const char *ref_name, HV *default_hv)
 {
@@ -80,7 +80,7 @@ register_formatting_reference_default (char *type_string,
 }
 
 static void
-register_formatting_reference_with_default (char *type_string,
+register_formatting_reference_with_default (const char *type_string,
                 FORMATTING_REFERENCE *formatting_reference,
                 const char *ref_name, HV *default_hv, HV *customized_hv)
 {

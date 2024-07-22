@@ -205,10 +205,13 @@ build_directions_strings (const CONVERTER *converter)
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
 #define STORE_INFO(key, sv) hv_store (converter_info_hv, key, strlen (key), sv, 0)
 void
-html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
+html_pass_converter_output_state (const CONVERTER *converter,
+                                  SV *converter_sv, SV *document_in)
 {
   HV *converter_hv;
+  /*
   SV **converter_info_sv;
+   */
   HV *converter_info_hv;
   const char *non_breaking_space;
   const char *paragraph_symbol;
@@ -219,13 +222,18 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
   SV **expanded_formats_sv;
   SV *no_arg_commands_formatting_sv;
   SV *directions_strings_sv;
+  HV *shared_conversion_state_hv;
 
   dTHX;
 
   converter_hv = (HV *) SvRV (converter_sv);
+  /*
   converter_info_sv = hv_fetch (converter_hv, "converter_info",
                              strlen ("converter_info"), 0);
   converter_info_hv = (HV *) SvRV (*converter_info_sv);
+   */
+  converter_info_hv = newHV ();
+  STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
 
   non_breaking_space
            = converter->special_character[SC_non_breaking_space].string;
@@ -261,6 +269,19 @@ html_pass_converter_output_state (SV *converter_sv, const CONVERTER *converter)
 
   directions_strings_sv = build_directions_strings (converter);
   STORE("directions_strings", directions_strings_sv);
+
+  if (converter->use_unicode_text)
+    STORE("use_unicode_text", newSViv (1));
+
+  shared_conversion_state_hv = newHV ();
+  STORE("shared_conversion_state",
+        newRV_noinc ((SV *)shared_conversion_state_hv));
+
+  if (document_in && SvOK (document_in))
+    {
+      SvREFCNT_inc (document_in);
+      STORE_INFO("document", document_in);
+    }
 
 #undef STORE
 #undef STORE_INFO

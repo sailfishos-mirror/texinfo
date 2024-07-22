@@ -2362,6 +2362,32 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
 
 
 
+void
+pass_document_to_converter_sv (const CONVERTER *converter,
+                               SV *converter_sv, SV *document_in)
+{
+  HV *converter_hv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  if (document_in && SvOK (document_in))
+    {
+      SvREFCNT_inc (document_in);
+      hv_store (converter_hv, "document", strlen ("document"),
+                document_in, 0);
+    }
+  if (converter && converter->convert_text_options)
+    {
+      SV *text_options_sv
+       = build_convert_text_options (converter->convert_text_options);
+      hv_store (converter_hv,
+                "convert_text_options", strlen("convert_text_options"),
+                text_options_sv, 0);
+    }
+}
+
 SV *
 get_conf (const CONVERTER *converter, const char *option_name)
 {

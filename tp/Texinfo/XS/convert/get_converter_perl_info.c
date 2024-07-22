@@ -72,12 +72,13 @@ CONVERTER *
 converter_set_document_from_sv (SV *converter_in, SV *document_in)
 {
   CONVERTER *converter;
-  DOCUMENT *document;
+  DOCUMENT *document = 0;
 
   dTHX;
 
   converter = get_sv_converter (converter_in, "converter_set_document");
-  document = get_sv_document_document (document_in, 0);
+  if (document_in)
+    document = get_sv_document_document (document_in, 0);
 
   converter_set_document (converter, document);
 
