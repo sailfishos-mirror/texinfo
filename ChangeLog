@@ -4,6 +4,10 @@
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files): fix file name.
+
+2024-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (init),
 	tp/Texinfo/XS/parsetexi/Parsetexi.xs (init): add const for path.  Use
 	the same names for path everywhere.
