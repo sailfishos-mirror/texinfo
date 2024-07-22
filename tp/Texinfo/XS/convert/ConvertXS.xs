@@ -72,6 +72,8 @@ init (int texinfo_uninstalled, tp_builddir, pkgdatadir, top_srcdir)
      const char *pkgdatadir = (const char *)SvPVbyte_nolen ($arg);
      const char *top_srcdir = (const char *)SvPVbyte_nolen ($arg);
       CODE:
+        setup_converter_paths_information (texinfo_uninstalled,
+                             tp_builddir, pkgdatadir, top_srcdir);
         set_element_type_name_info ();
         converter_setup ();
         RETVAL = 1;

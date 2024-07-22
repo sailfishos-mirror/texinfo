@@ -71,6 +71,13 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     ELEMENT *prepended;
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 
+typedef struct PATHS_INFORMATION {
+    int texinfo_uninstalled;
+    const char *tp_builddir;
+    const char *pkgdatadir;
+    const char *top_srcdir;
+} PATHS_INFORMATION;
+
 extern enum command_id no_brace_command_accent_upper_case[][2];
 
 /* in generated cmd_converter.c */
@@ -79,7 +86,12 @@ extern const char * xml_text_entity_no_arg_commands[];
 /* in converter.c */
 extern const char *xml_text_entity_no_arg_commands_formatting[];
 
+extern PATHS_INFORMATION conversion_paths_information;
+
 void converter_setup (void);
+void setup_converter_paths_information (int texinfo_uninstalled,
+                                        const char *tp_builddir,
+                             const char *pkgdatadir, const char *top_srcdir);
 
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);

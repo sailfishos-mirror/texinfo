@@ -74,6 +74,8 @@ static CONVERTER **converter_list;
 static size_t converter_number;
 static size_t converter_space;
 
+PATHS_INFORMATION conversion_paths_information;
+
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
 void
@@ -91,6 +93,17 @@ converter_setup (void)
         xml_text_entity_no_arg_commands_formatting[i]
           = text_brace_no_arg_commands[i];
     }
+}
+
+void
+setup_converter_paths_information (int texinfo_uninstalled,
+                                   const char *tp_builddir,
+                             const char *pkgdatadir, const char *top_srcdir)
+{
+  conversion_paths_information.texinfo_uninstalled = texinfo_uninstalled;
+  conversion_paths_information.tp_builddir = strdup (tp_builddir);
+  conversion_paths_information.pkgdatadir = strdup (pkgdatadir);
+  conversion_paths_information.top_srcdir = strdup (top_srcdir);
 }
 
 CONVERTER *
