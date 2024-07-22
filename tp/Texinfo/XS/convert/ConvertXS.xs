@@ -579,19 +579,40 @@ void
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *default_css_element_class_styles, SV *default_converted_directions_strings)
 
 void
-html_initialize_output_state (SV *converter_in, char *context)
+html_initialize_output_state (SV *converter_in, const char *context)
       PREINIT:
          CONVERTER *self;
       CODE:
          self = get_sv_converter (converter_in, "html_initialize_output_state");
          if (self)
            {
+             HV *converter_hv = (HV *) SvRV (converter_in);
+
              html_initialize_output_state (self, context);
              /*
              html_conversion_initialization_sv (converter_in, self);
               */
-             /* TODO do later and only if self->external_references_number */
+             /* TODO do only if self->external_references_number */
              html_pass_converter_output_state (converter_in, self);
+
+             /* internal links code is in Perl */
+             if (self->conf->INTERNAL_LINKS.o.string)
+               self->external_references_number++;
+             /* Conversion to LaTeX is in Perl */
+             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+               self->external_references_number++;
+
+             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+               {
+                 HV *options_latex_math_hv =
+                 latex_build_options_for_convert_to_latex_math (self);
+                 hv_store (converter_hv, "options_latex_math",
+                           strlen ("options_latex_math"),
+                           newRV_noinc ((SV *)options_latex_math_hv), 0);
+               }
+             if (self->use_unicode_text)
+               hv_store (converter_hv, "use_unicode_text",
+                         strlen ("use_unicode_text"), newSViv (1), 0);
            }
 
 SV *
@@ -634,21 +655,6 @@ html_init_output (SV *converter_in)
                            newSVpv_utf8 (self->destination_directory, 0), 0);
                }
 
-             /* internal links code is in Perl */
-             if (self->conf->INTERNAL_LINKS.o.string)
-               self->external_references_number++;
-             /* Conversion to LaTeX is in Perl */
-             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-               self->external_references_number++;
-
-             if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-               {
-                 HV *options_latex_math_hv =
-                 latex_build_options_for_convert_to_latex_math (self);
-                 hv_store (converter_hv, "options_latex_math",
-                           strlen ("options_latex_math"),
-                           newRV_noinc ((SV *)options_latex_math_hv), 0);
-               }
              pass_jslicenses (&self->jslicenses, converter_info_hv);
            }
     OUTPUT:
@@ -2142,14 +2148,17 @@ html_prepare_conversion_units (SV *converter_in, ...)
          self = get_sv_converter (converter_in,
                                   "html_prepare_conversion_units");
 
-         if (self->conf->OUTPUT_CHARACTERS.o.integer > 0
-             && self->conf->OUTPUT_ENCODING_NAME.o.string
-             /* not sure if strcasecmp is needed or not */
-             && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
-           self->use_unicode_text = 1;
+         converter_hv = (HV *) SvRV (converter_in);
+
+         /* FIXME already done in C for output(), but not for convert()
+            need to remove the redundant call for output() and/or
+            call in C for convert() too */
+         init_conversion_after_setup_handler (self);
+         if (self->use_unicode_text)
+           hv_store (converter_hv, "use_unicode_text",
+                     strlen ("use_unicode_text"), newSViv (1), 0);
 
          html_prepare_conversion_units (self);
-         converter_hv = (HV *) SvRV (converter_in);
 
          if (self->external_references_number > 0)
            {

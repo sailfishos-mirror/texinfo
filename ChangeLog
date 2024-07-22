@@ -1,8 +1,25 @@
-2024-09-30  Patrice Dumas  <pertusus@free.fr>
+2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/get_converter_perl_info.h: move back
-	get_converter_perl_info.c functions declarations to
-	get_converter_perl_info.h.
+	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state)
+	(_init_output), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_initialize_output_state), tp/Texinfo/XS/convert/convert_html.c
+	(html_initialize_output_state, html_init_output): move code completing
+	configuration from _init_output to _initialize_output_state such that
+	it is set for convert() too.
+
+	* tp/Texinfo/Convert/HTML.pm (_init_conversion_after_setup_handler)
+	(_init_output, convert), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_initialize_output_state, html_init_output)
+	(html_prepare_conversion_units), tp/Texinfo/XS/convert/convert_html.c
+	(init_conversion_after_setup_handler): add
+	init_conversion_after_setup_handler for code common to output and
+	convert, that is better run, in output(), after the first stage
+	handler.
+
+	* tp/Texinfo/Convert/HTML.pm (_init_output),
+	tp/Texinfo/XS/convert/convert_html.c (html_init_output): move code
+	around to register output_init_conf late after setting more
+	customization variables, including based on document.
 
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 
@@ -65,6 +82,12 @@
 	html_prepare_output_units_global_targets.  Add an XS override for
 	global_direction_unit that uses a bsearch to find the output unit
 	and the associated Perl object.
+
+2024-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.h: move back
+	get_converter_perl_info.c functions declarations to
+	get_converter_perl_info.h.
 
 2024-07-21  Patrice Dumas  <pertusus@free.fr>
 

@@ -12457,6 +12457,25 @@ sub _initialize_output_state($$)
   # only filled if special elements are actually used.
   $self->{'global_units_directions'} = {};
 
+  if (not defined($self->get_conf('NODE_NAME_IN_INDEX'))) {
+    $self->set_conf('NODE_NAME_IN_INDEX', $self->get_conf('USE_NODES'));
+  }
+
+  if ($self->get_conf('HTML_MATH')
+      and not defined($self->get_conf('CONVERT_TO_LATEX_IN_MATH'))) {
+    $self->set_conf('CONVERT_TO_LATEX_IN_MATH', 1);
+  }
+
+  if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH')) {
+    $self->{'options_latex_math'}
+     = { Texinfo::Convert::LaTeX::copy_options_for_convert_to_latex_math($self) };
+  }
+
+  if ($self->get_conf('NO_TOP_NODE_OUTPUT')
+      and not defined($self->get_conf('SHOW_TITLE'))) {
+    $self->set_conf('SHOW_TITLE', 1);
+  }
+
   $self->_new_document_context($context);
 }
 
@@ -12558,18 +12577,9 @@ sub _prepare_simpletitle($)
   }
 }
 
-# Conversion to a string, mostly used in tests.
-# $SELF is the output converter object of class Texinfo::Convert::HTML (this
-# module), and $DOCUMENT is the parsed document from the parser and structuring
-sub convert($$)
+sub _init_conversion_after_setup_handler($)
 {
   my $self = shift;
-  my $document = shift;
-
-  $self->conversion_initialization($document);
-
-  my $converter_info;
-
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
   my @contents_elements_options
@@ -12583,6 +12593,19 @@ sub convert($$)
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     $self->{'use_unicode_text'} = 1;
   }
+}
+
+# Conversion to a string, mostly used in tests.
+# $SELF is the output converter object of class Texinfo::Convert::HTML (this
+# module), and $DOCUMENT is the parsed document from the parser and structuring
+sub convert($$)
+{
+  my $self = shift;
+  my $document = shift;
+
+  $self->conversion_initialization($document);
+
+  _init_conversion_after_setup_handler($self);
 
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($document, undef);
@@ -13302,10 +13325,6 @@ sub _init_output($)
   }
   $self->set_conf('EXTERNAL_CROSSREF_SPLIT', $self->get_conf('SPLIT'));
 
-  if (not defined($self->get_conf('NODE_NAME_IN_INDEX'))) {
-    $self->set_conf('NODE_NAME_IN_INDEX', $self->get_conf('USE_NODES'));
-  }
-
   my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
   if (!defined($handler_fatal_error_level)) {
     $handler_fatal_error_level =
@@ -13354,21 +13373,6 @@ sub _init_output($)
     }
   }
 
-  if ($self->get_conf('HTML_MATH')
-      and not defined($self->get_conf('CONVERT_TO_LATEX_IN_MATH'))) {
-    $self->set_conf('CONVERT_TO_LATEX_IN_MATH', 1);
-  }
-
-  if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH')) {
-    $self->{'options_latex_math'}
-     = { Texinfo::Convert::LaTeX::copy_options_for_convert_to_latex_math($self) };
-  }
-
-  if ($self->get_conf('NO_TOP_NODE_OUTPUT')
-      and not defined($self->get_conf('SHOW_TITLE'))) {
-    $self->set_conf('SHOW_TITLE', 1);
-  }
-
   my $setup_status = $self->run_stage_handlers($self->{'stage_handlers'},
                                                $self->{'document'}, 'setup');
 
@@ -13377,17 +13381,6 @@ sub _init_output($)
   } else {
     return undef;
   }
-
-  # the configuration has potentially been modified for
-  # this output file especially.  Set a corresponding initial
-  # configuration.
-  # FIXME in C there is a full copy, except for Perl objects.
-  # It cannot be completly equivalent, but here a good equivalent
-  # would be deep copy of data and shallow copy of code references.
-  # The Clone module does that, but it is not a core module.
-  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
-  # pass to XS.
-  _XS_reset_output_init_conf($self);
 
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);
@@ -13399,12 +13392,18 @@ sub _init_output($)
   }
   $self->set_global_document_commands('before', ['documentlanguage']);
 
-  # the presence of contents elements in the document is used in diverse
-  # places, set it once for all here
-  my @contents_elements_options
-                  = grep {Texinfo::Common::valid_customization_option($_)}
-                        sort(keys(%contents_command_special_unit_variety));
-  $self->set_global_document_commands('last', \@contents_elements_options);
+  _init_conversion_after_setup_handler($self);
+
+  # the configuration has potentially been modified for
+  # this output file especially.  Set a corresponding initial
+  # configuration.
+  # FIXME in C there is a full copy, except for Perl objects.
+  # It cannot be completly equivalent, but here a good equivalent
+  # would be deep copy of data and shallow copy of code references.
+  # The Clone module does that, but it is not a core module.
+  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
+  # pass to XS.
+  _XS_reset_output_init_conf($self);
 
   my $jslicenses = {};
   if ($self->get_conf('HTML_MATH')
@@ -13476,13 +13475,6 @@ sub output($$)
   }
   my ($output_file, $destination_directory, $output_filename, $document_name)
     = @$paths;
-
-  # cache, as it is checked for each text element
-  if ($self->get_conf('OUTPUT_CHARACTERS')
-      and $self->get_conf('OUTPUT_ENCODING_NAME')
-      and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
-    $self->{'use_unicode_text'} = 1;
-  }
 
   # Get the list of output units to be processed.
   # Customization information in $self->{'conf'} is passed to XS code too.

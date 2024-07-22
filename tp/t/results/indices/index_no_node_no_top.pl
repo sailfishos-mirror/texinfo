@@ -2134,6 +2134,122 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 </div>
 ';
 
+$result_converted_errors{'html_text'}->{'index_no_node_no_top'} = [
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 41,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 45,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 35,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 37,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 19,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 20,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 21,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 22,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 23,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 24,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 29,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 3,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 11,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any node
+',
+    'file_name' => 'index_no_node_no_top.texi',
+    'line_nr' => 13,
+    'text' => 'entry for index `cp\' for @printindex cp outside of any node',
+    'type' => 'warning'
+  }
+];
+
+
 
 $result_converted{'xml'}->{'index_no_node_no_top'} = '<preamblebeforebeginning>\\input texinfo @c -*-texinfo-*-
 

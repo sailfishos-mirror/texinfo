@@ -17616,6 +17616,20 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
     }
 }
 
+void
+init_conversion_after_setup_handler (CONVERTER *self)
+{
+  /* the presence of contents elements in the document is used in diverse
+     places, set it once for all here */
+  set_global_document_commands (self, CL_last, contents_elements_options);
+
+  if (self->conf->OUTPUT_CHARACTERS.o.integer > 0
+      && self->conf->OUTPUT_ENCODING_NAME.o.string
+      /* not sure if strcasecmp is needed or not */
+      && !strcasecmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
+    self->use_unicode_text = 1;
+}
+
 static void
 reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                enum command_id cmd, enum conversion_context reset_context,
@@ -18078,6 +18092,20 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   /* directions */
   memset (self->global_units_directions, 0,
     (D_Last + self->special_unit_varieties.number+1) * sizeof (OUTPUT_UNIT));
+
+  if (self->conf->NODE_NAME_IN_INDEX.o.integer < 0)
+    set_conf (&self->conf->NODE_NAME_IN_INDEX,
+              self->conf->USE_NODES.o.integer, 0);
+
+  if (self->conf->HTML_MATH.o.string
+      && self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer < 0)
+    {
+      set_conf (&self->conf->CONVERT_TO_LATEX_IN_MATH, 1, 0);
+    }
+
+  if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0
+      && self->conf->SHOW_TITLE.o.integer < 0)
+    set_conf (&self->conf->SHOW_TITLE, 1, 0);
 
 
   self->current_formatting_references = &self->formatting_references[0];
@@ -18699,10 +18727,6 @@ html_init_output (CONVERTER *self, char **paths)
   set_conf (&self->conf->EXTERNAL_CROSSREF_SPLIT, 0,
             self->conf->SPLIT.o.string);
 
-  if (self->conf->NODE_NAME_IN_INDEX.o.integer < 0)
-    set_conf (&self->conf->NODE_NAME_IN_INDEX,
-              self->conf->USE_NODES.o.integer, 0);
-
   handler_fatal_error_level = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
   if (handler_fatal_error_level < 0)
     {
@@ -18747,16 +18771,6 @@ html_init_output (CONVERTER *self, char **paths)
  "  },");
     }
 
-  if (self->conf->HTML_MATH.o.string
-      && self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer < 0)
-    {
-      set_conf (&self->conf->CONVERT_TO_LATEX_IN_MATH, 1, 0);
-    }
-
-  if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0
-      && self->conf->SHOW_TITLE.o.integer < 0)
-    set_conf (&self->conf->SHOW_TITLE, 1, 0);
-
   setup_status = run_stage_handlers (self, HSHT_type_setup);
 
   if (setup_status < handler_fatal_error_level
@@ -18764,8 +18778,6 @@ html_init_output (CONVERTER *self, char **paths)
     {}
   else
     return 0;
-
-  copy_options (self->init_conf, self->conf);
 
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
@@ -18784,9 +18796,9 @@ html_init_output (CONVERTER *self, char **paths)
     }
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 
-  /* the presence of contents elements in the document is used in diverse
-     places, set it once for all here */
-  set_global_document_commands (self, CL_last, contents_elements_options);
+  init_conversion_after_setup_handler (self);
+
+  copy_options (self->init_conf, self->conf);
 
   if (self->conf->HTML_MATH.o.string
       && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))
