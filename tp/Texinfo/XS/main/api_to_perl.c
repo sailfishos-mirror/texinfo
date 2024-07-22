@@ -72,11 +72,22 @@ register_perl_button (BUTTON_SPECIFICATION *button)
 char *
 get_perl_scalar_reference_value (const void *sv_string)
 {
+  const SV *string_ref_sv;
+
   dTHX;
 
-  const char *value_tmp = (char *) SvPVutf8_nolen (SvRV ((SV *) sv_string));
-  char *value = non_perl_strdup (value_tmp);
-  return value;
+  string_ref_sv = (SV *) sv_string;
+  if (SvOK (string_ref_sv) && SvROK (string_ref_sv))
+    {
+      SV *string_sv = SvRV (string_ref_sv);
+      if (SvOK (string_sv))
+        {
+          const char *value_tmp = (char *) SvPVutf8_nolen (string_sv);
+          char *value = non_perl_strdup (value_tmp);
+          return value;
+        }
+    }
+  return 0;
 }
 
 void
