@@ -235,6 +235,7 @@ converter_initialize (SV *converter_sv)
   return converter_descriptor;
 }
 
+/* currently unused */
 /* reset output_init_conf.  Can be called after it has been modified */
 void
 reset_output_init_conf (SV *sv_in)

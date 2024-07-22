@@ -111,8 +111,6 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_init_output",
   "Texinfo::Convert::HTML::conversion_finalization"
    => "Texinfo::Convert::ConvertXS::html_conversion_finalization",
-  "Texinfo::Convert::HTML::_XS_reset_output_init_conf"
-   => "Texinfo::Convert::ConvertXS::reset_output_init_conf",
   "Texinfo::Convert::HTML::_prepare_simpletitle"
    => "Texinfo::Convert::ConvertXS::html_prepare_simpletitle",
   "Texinfo::Convert::HTML::_prepare_converted_output_info"
@@ -13114,10 +13112,6 @@ sub _html_convert_output($$$$$$$$)
   return $text_output;
 }
 
-sub _XS_reset_output_init_conf($)
-{
-}
-
 # as a function for XS override
 sub _prepare_node_redirection_page($$$)
 {
@@ -13402,8 +13396,6 @@ sub _init_output($)
   # would be deep copy of data and shallow copy of code references.
   # The Clone module does that, but it is not a core module.
   $self->{'output_init_conf'} = { %{$self->{'conf'}} };
-  # pass to XS.
-  _XS_reset_output_init_conf($self);
 
   my $jslicenses = {};
   if ($self->get_conf('HTML_MATH')
