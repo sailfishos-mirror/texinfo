@@ -589,11 +589,9 @@ html_initialize_output_state (SV *converter_in, const char *context)
              HV *converter_hv = (HV *) SvRV (converter_in);
 
              html_initialize_output_state (self, context);
-             /*
+             /* could be useful if something from Perl is needed
              html_conversion_initialization_sv (converter_in, self);
               */
-             /* TODO do only if self->external_references_number */
-             html_pass_converter_output_state (converter_in, self);
 
              /* internal links code is in Perl */
              if (self->conf->INTERNAL_LINKS.o.string)
@@ -610,9 +608,14 @@ html_initialize_output_state (SV *converter_in, const char *context)
                            strlen ("options_latex_math"),
                            newRV_noinc ((SV *)options_latex_math_hv), 0);
                }
-             if (self->use_unicode_text)
-               hv_store (converter_hv, "use_unicode_text",
-                         strlen ("use_unicode_text"), newSViv (1), 0);
+
+             if (self->external_references_number)
+               {
+                 html_pass_converter_output_state (converter_in, self);
+                 if (self->use_unicode_text)
+                   hv_store (converter_hv, "use_unicode_text",
+                             strlen ("use_unicode_text"), newSViv (1), 0);
+               }
            }
 
 SV *

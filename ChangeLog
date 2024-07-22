@@ -4,6 +4,11 @@
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_initialize_output_state):
+	pass information to Perl only if Perl code will be called from C.
+
+2024-07-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides, _init_output):
 	remove call to _XS_reset_output_init_conf, the function and the
 	override.  The whole _init_output function is already overriden.
