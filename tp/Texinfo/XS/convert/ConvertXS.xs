@@ -64,10 +64,10 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
-# Called from Texinfo::XSLoader.pm.  The arguments are not actually used.
-# file path, can be in any encoding
+# Called from Texinfo::XSLoader.pm.
 #        int texinfo_uninstalled
-#        char *builddir = (char *)SvPVbyte_nolen($arg);
+# File path, can be in any encoding
+#        const char *tp_builddir = (const char *)SvPVbyte_nolen($arg);
 int
 init (...)
       CODE:

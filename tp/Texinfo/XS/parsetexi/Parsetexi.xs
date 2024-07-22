@@ -59,7 +59,7 @@ PROTOTYPES: ENABLE
 int
 init (texinfo_uninstalled, tp_builddir)
      int texinfo_uninstalled
-     char *tp_builddir = (char *)SvPVbyte_nolen ($arg);
+     const char *tp_builddir = (const char *)SvPVbyte_nolen ($arg);
 
 void
 reset_parser (int debug_output)

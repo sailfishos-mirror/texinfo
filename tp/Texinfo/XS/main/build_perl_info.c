@@ -131,7 +131,7 @@ perl_only_strndup (const char *s, size_t n)
 }
 
 int
-init (int texinfo_uninstalled, char *builddir)
+init (int texinfo_uninstalled, const char *builddir)
 {
 #ifdef ENABLE_NLS
 
