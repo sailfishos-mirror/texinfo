@@ -367,15 +367,20 @@ a command that sets some information, such as @code{@@documentlanguage},
 @code{@@contents} or @code{@@footnotestyle} for example.  Return true if the command
 argument was found and the customization variable was set.
 
-@item set_output_encodings($customization_information, $document)
-@anchor{Texinfo@asis{::}Common set_output_encodings($customization_information@comma{} $document)}
-@cindex @code{set_output_encodings}
+@item set_output_encoding($customization_information, $document)
+@anchor{Texinfo@asis{::}Common set_output_encoding($customization_information@comma{} $document)}
+@cindex @code{set_output_encoding}
 
 If not already set, set @code{OUTPUT_ENCODING_NAME} based on input file
-encoding.  Also set @code{OUTPUT_PERL_ENCODING} accordingly which is used
-to output in the correct encoding.  In general, @code{OUTPUT_PERL_ENCODING}
-should not be set directly by user-defined code such that it corresponds
-to @code{OUTPUT_ENCODING_NAME}.
+encoding.
+
+@item set_output_perl_encoding($customization_information)
+@anchor{Texinfo@asis{::}Common set_output_perl_encoding($customization_information)}
+@cindex @code{set_output_perl_encoding}
+
+Set @code{OUTPUT_PERL_ENCODING} based on @code{OUTPUT_ENCODING_NAME}.  In general,
+@code{OUTPUT_PERL_ENCODING} should not be set directly by user-defined code such
+that it corresponds to @code{OUTPUT_ENCODING_NAME}.
 
 @item $split_contents = split_custom_heading_command_contents($element)
 @anchor{Texinfo@asis{::}Common $split_contents = split_custom_heading_command_contents($element)}
