@@ -781,7 +781,7 @@ pass_sv_converter_info (const CONVERTER *converter,
 
   converter_hv = (HV *) SvRV (converter_sv);
   converter_info_sv = hv_fetch (converter_hv, "converter_info",
-                             strlen ("converter_info"), 0);
+                                strlen ("converter_info"), 0);
   converter_info_hv = (HV *) SvRV (*converter_info_sv);
 
   info_sv = hv_fetch (converter_info_hv, converter_info,
@@ -894,6 +894,7 @@ pass_sv_converter_info (const CONVERTER *converter,
 
   if (new_sv)
     {
+      SvREFCNT_inc (new_sv);
       hv_store (converter_info_hv, converter_info,
                 strlen (converter_info), new_sv, 0);
       return new_sv;
