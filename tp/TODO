@@ -814,8 +814,9 @@ export TEXINFO_XS_EXTERNAL_CONVERSION=1
 
 Analysing memory use:
 valgrinf massif useful-heap approximate distribution in 2024 (obsolete)
-valgrind --tool=massif --massif-out-file=massif_info.out perl -w texi2any.pl ../doc/texinfo.texi
-ms_print massif_info.out > ms_print_info.out
+mkdir -p massif
+valgrind --tool=massif --massif-out-file=massif/massif_info.out perl -w texi2any.pl ../doc/texinfo.texi
+ms_print massif/massif_info.out > massif/ms_print_info.out
 16M Perl
 36M C tree
 50M Perl tree (visible in detailed use, but difficult to do the
@@ -826,8 +827,9 @@ ms_print massif_info.out > ms_print_info.out
 
 With full XS (7.2 64M, with text separate 58.5M, without info_info 56M
               with integer extra keys 54M, with source marks as pointers 52.3M)
-valgrind --tool=massif --massif-out-file=massif_html.out perl -w texi2any.pl --html ../doc/texinfo.texi
-ms_print massif_html.out > ms_print_html.out
+mkdir -p massif
+valgrind --tool=massif --massif-out-file=massif/massif_html.out perl -w texi2any.pl --html ../doc/texinfo.texi
+ms_print massif/massif_html.out > massif/ms_print_html.out
 useful-heap
 25M = 13.1 + 5.8 + 2.9 + 2.5 + 0.7 Perl
 17.8M Tree
