@@ -12598,7 +12598,6 @@ sub convert($$)
   my $document = shift;
 
   $self->conversion_initialization('_convert', $document);
-  Texinfo::Common::set_output_perl_encoding($self);
 
   _init_conversion_after_setup_handler($self);
 
@@ -12855,11 +12854,12 @@ sub _do_js_files($$)
             $self->converter_document_error(
               sprintf(__("error on creating empty %s: %s"),
                       $filename, $!));
-          }
-          if (!close(FH)) {
-            $self->converter_document_error(
-              sprintf(__("error on closing empty %s: %s"),
-                      $filename, $!));
+          } else {
+            if (!close(FH)) {
+              $self->converter_document_error(
+                sprintf(__("error on closing empty %s: %s"),
+                        $filename, $!));
+            }
           }
         }
       }
@@ -13452,11 +13452,6 @@ sub output($$)
   my $document = shift;
 
   $self->conversion_initialization('_output', $document);
-  Texinfo::Common::set_output_perl_encoding($self);
-
-  # TODO workaround for simpler code in XS needed while _do_js_files
-  # is not overriden.  Remove when _do_js_files is overriden
-  $self->{'converter_info'} = {} if (!$self->{'converter_info'});
 
   my $paths = _init_output($self);
   if (!defined($paths)) {

@@ -7,6 +7,16 @@
 
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (output_files_open_out),
+	tp/Texinfo/Convert/HTML.pm (convert, output): do not call
+	set_output_perl_encoding in convert nor output, but in
+	output_files_open_out just before it is needed.
+
+	* tp/Texinfo/Convert/HTML.pm (_do_js_files): close FH only if it was
+	opened.
+
+2024-07-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_conversion_initialization),
 	tp/Texinfo/XS/convert/build_html_perl_state.c
 	(html_pass_converter_output_state): always set converter_info in Perl
