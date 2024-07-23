@@ -71,11 +71,21 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     ELEMENT *prepended;
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 
+typedef struct INSTALLED_PATHS {
+    const char *pkgdatadir;
+} INSTALLED_PATHS;
+
+typedef struct UNINSTALLED_PATHS {
+    const char *tp_builddir;
+    const char *top_srcdir;
+} UNINSTALLED_PATHS;
+
 typedef struct PATHS_INFORMATION {
     int texinfo_uninstalled;
-    const char *tp_builddir;
-    const char *pkgdatadir;
-    const char *top_srcdir;
+    union paths {
+      INSTALLED_PATHS installed;
+      UNINSTALLED_PATHS uninstalled;
+    } paths;
 } PATHS_INFORMATION;
 
 extern enum command_id no_brace_command_accent_upper_case[][2];

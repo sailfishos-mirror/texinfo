@@ -1,7 +1,18 @@
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/TestXS.xs (PREFIX, xstest_init): use xstest_ as
-	prefix.  Update xstest_init call.
+	* tp/Texinfo/XS/convert/ConvertXS.xs (init),
+	tp/Texinfo/XS/convert/converter.c (setup_converter_paths_information),
+	tp/Texinfo/XS/convert/converter.h (INSTALLED_PATHS, UNINSTALLED_PATHS)
+	(PATHS_INFORMATION), tp/Texinfo/XS/main/build_perl_info.c (init),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs (init), tp/Texinfo/XSLoader.pm
+	(init): exchange second and third paths argument of init called from
+	XSLoader.pm and setup_converter_paths_information for more logical
+	groupings.  Consider paths in XS init functions as SV * as some are
+	necessarily undef.  In ConvertXS.xs init, convert only some SV * path
+	to char based on texinfo_uninstalled, other remain NULL.  Modify
+	PATHS_INFORMATION struct to ba a union of INSTALLED_PATHS and
+	UNINSTALLED_PATHS.  Setup conversion_paths_information accordingly in
+	setup_converter_paths_information.
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
@@ -11,6 +22,11 @@
 	(PATHS_INFORMATION): add the PATHS_INFORMATION structure and a global
 	variable conversion_paths_information.  Fill the paths with
 	setup_converter_paths_information called from ConvertXS.xs init.
+
+2024-07-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/TestXS.xs (PREFIX, xstest_init): use xstest_ as
+	prefix.  Update xstest_init call.
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 

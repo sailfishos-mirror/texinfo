@@ -55,12 +55,9 @@ PROTOTYPES: ENABLE
 # and passed as byte strings.
 
 # Called from Texinfo::XSLoader.pm.  The arguments are not actually used.
-# file path, can be in any encoding
+# File paths are byte strings and can be in any encoding.
 int
-init (int texinfo_uninstalled, tp_builddir, pkgdatadir, top_srcdir)
-     const char *tp_builddir = (const char *)SvPVbyte_nolen ($arg);
-     const char *pkgdatadir = (const char *)SvPVbyte_nolen ($arg);
-     const char *top_srcdir = (const char *)SvPVbyte_nolen ($arg);
+init (int texinfo_uninstalled, SV *pkgdatadir, SV *tp_builddir, SV *top_srcdir)
 
 void
 reset_parser (int debug_output)

@@ -215,8 +215,8 @@ sub init {
 
   if (defined &{"${module}::init"}
       and !&{"${module}::init"} ($Texinfo::ModulePath::texinfo_uninstalled,
-                                 $Texinfo::ModulePath::tp_builddir,
                                  $Texinfo::ModulePath::pkgdatadir,
+                                 $Texinfo::ModulePath::tp_builddir,
                                  $Texinfo::ModulePath::top_srcdir)) {
     _fatal "$module_name: error initializing";
     goto FALLBACK;

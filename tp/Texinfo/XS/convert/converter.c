@@ -100,10 +100,20 @@ setup_converter_paths_information (int texinfo_uninstalled,
                                    const char *tp_builddir,
                              const char *pkgdatadir, const char *top_srcdir)
 {
+  memset (&conversion_paths_information, 0, sizeof (PATHS_INFORMATION));
   conversion_paths_information.texinfo_uninstalled = texinfo_uninstalled;
-  conversion_paths_information.tp_builddir = strdup (tp_builddir);
-  conversion_paths_information.pkgdatadir = strdup (pkgdatadir);
-  conversion_paths_information.top_srcdir = strdup (top_srcdir);
+  if (texinfo_uninstalled)
+    {
+      if (tp_builddir)
+        conversion_paths_information.paths.uninstalled.tp_builddir
+          = strdup (tp_builddir);
+      if (top_srcdir)
+        conversion_paths_information.paths.uninstalled.top_srcdir
+          = strdup (top_srcdir);
+    }
+  else
+    conversion_paths_information.paths.installed.pkgdatadir
+      = strdup (pkgdatadir);
 }
 
 CONVERTER *
