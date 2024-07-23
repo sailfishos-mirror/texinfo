@@ -12107,6 +12107,12 @@ sub _do_jslicenses_file {
   return if (!$setting or $setting ne 'generate' or !defined($path)
              or $path eq '');
 
+  if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/) {
+    $self->converter_document_warn(sprintf(
+ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
+    return;
+  }
+
   my $doctype = $self->get_conf('DOCTYPE');
   $doctype = '' if (!defined($doctype));
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
@@ -12133,11 +12139,6 @@ sub _do_jslicenses_file {
 
   $a .= "</table>\n</body></html>\n";
 
-  if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/) {
-    $self->converter_document_warn(sprintf(
- __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
-    return;
-  }
   my $license_file;
   if ($destination_directory ne '') {
     $license_file = File::Spec->catdir($destination_directory, $path);

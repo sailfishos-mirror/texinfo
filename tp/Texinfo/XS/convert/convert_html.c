@@ -25,6 +25,8 @@
 #include <unistr.h>
 #include <unictype.h>
 
+#include "copy-file_but_owner.h"
+
 #include "text.h"
 #include "element_types.h"
 #include "tree_types.h"
@@ -20536,6 +20538,7 @@ convert_output_output_unit_internal (CONVERTER *self,
           message_list_document_error (&self->error_messages, self->conf, 0,
                              "could not open %s for writing: %s",
                              out_filepath, open_error_message);
+          free (open_error_message);
           free (encoded_out_filepath);
           return 0;
         }
@@ -20629,6 +20632,383 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
 
   self->title_titlepage = format_title_titlepage (self);
   memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
+}
+
+static int
+file_error_or_write_close (CONVERTER *self, const char *out_filepath,
+                           const char *encoded_out_filepath,
+                           FILE *file_fh,
+                           const ENCODING_CONVERSION *conversion,
+                           char *page,
+                           const char *open_error_message)
+{
+  if (!file_fh)
+    {
+      message_list_document_error (&self->error_messages,
+                self->conf, 0,
+                "could not open %s for writing: %s",
+                 out_filepath, open_error_message);
+    }
+  else
+    {
+      char *result;
+      size_t res_len;
+      size_t write_len;
+
+      if (conversion)
+        {
+          result = encode_with_iconv (conversion->iconv,
+                                      page, 0);
+          res_len = strlen (result);
+        }
+      else
+        {
+          result = page;
+          res_len = strlen (page);
+        }
+      write_len = fwrite (result, sizeof (char),
+                          res_len, file_fh);
+      if (conversion)
+        free (result);
+      if (write_len != res_len)
+        { /* register error message instead? */
+          fprintf (stderr,
+                   "ERROR: write to %s failed (%zu/%zu)\n",
+                   encoded_out_filepath, write_len, res_len);
+          return -1;
+        }
+      output_files_register_closed
+                         (&self->output_files_information,
+                          encoded_out_filepath);
+      if (fclose (file_fh))
+        {
+          message_list_document_error (
+             &self->error_messages, self->conf, 0,
+             "error on closing %s: %s",
+             out_filepath, strerror (errno));
+          return -1;
+        }
+    }
+  return 0;
+}
+
+static void
+do_jslicenses_file (CONVERTER *self)
+{
+  const char *destination_directory = self->destination_directory;
+  const char *setting = self->conf->JS_WEBLABELS.o.string;
+  const char *path = self->conf->JS_WEBLABELS_FILE.o.string;
+  TEXT result;
+  char *root_html_element_attributes;
+  size_t i;
+  int path_not_ok = 0;
+  char *license_file;
+  char *path_encoding;
+  char *open_error_message;
+  int overwritten_file;
+  char *encoded_out_filepath;
+  FILE *file_fh;
+  const ENCODING_CONVERSION *conversion = 0;
+
+  /* Possible settings:
+    'generate' - create file at JS_WEBLABELS_FILE
+    'reference' - reference file at JS_WEBLABELS_FILE but do not create it
+    'omit' - do nothing */
+  if (!setting || strcmp (setting, "generate") || !path || !strlen (path))
+    return;
+
+  if (!memcmp (path, "/", 1))
+    path_not_ok = 1;
+  else
+    {
+      const char *p = path;
+      while (isascii_alpha (*p))
+        p++;
+      if (*p == ':')
+        path_not_ok = 1;
+    }
+
+  if (path_not_ok)
+    {
+      message_list_document_warn (&self->error_messages, self->conf, 0,
+   "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file",
+                                  path);
+      return;
+    }
+
+  text_init (&result);
+  if (self->conf->DOCTYPE.o.string)
+    text_append (&result, self->conf->DOCTYPE.o.string);
+  text_append_n (&result, "\n", 1);
+  root_html_element_attributes
+    = root_html_element_attributes_string (self);
+  if (!root_html_element_attributes)
+    root_html_element_attributes = strdup ("");
+  text_printf (&result, "<html%s>\n", root_html_element_attributes);
+  free (root_html_element_attributes);
+  text_append (&result, "<head><title>jslicense labels</title></head>\n"
+ "<body>\n"
+ "<table id=\"jslicense-labels1\">\n");
+
+  for (i = 0; i < self->jslicenses.number; i++)
+    {
+      size_t j;
+      JSLICENSE_FILE_INFO_LIST *jlicense_file_info_list
+        = &self->jslicenses.list[i];
+
+      for (j = 0; j < jlicense_file_info_list->number; j++)
+        {
+          JSLICENSE_FILE_INFO *jlicense_file_info
+            = &jlicense_file_info_list->list[j];
+          char *p_file
+            = url_protect_url_text (self, jlicense_file_info->filename);
+          char *p_url
+            = url_protect_url_text (self, jlicense_file_info->url);
+          char *p_source
+            = url_protect_url_text (self, jlicense_file_info->source);
+          text_append_n (&result, "<tr>\n", 5);
+          text_append_n (&result, "<td><a href=\"", 13);
+          text_append (&result, p_file);
+          text_append_n (&result, "\">", 2);
+          text_append (&result, jlicense_file_info->filename);
+          text_append_n (&result, "</a></td>\n", 10);
+          text_append_n (&result, "<td><a href=\"", 13);
+          text_append (&result, p_url);
+          text_append_n (&result, "\">", 2);
+          text_append (&result, jlicense_file_info->license);
+          text_append_n (&result, "</a></td>\n", 10);
+          text_append_n (&result, "<td><a href=\"", 13);
+          text_append (&result, p_source);
+          text_append_n (&result, "\">", 2);
+          text_append (&result, jlicense_file_info->source);
+          text_append_n (&result, "</a></td>\n", 10);
+          text_append_n (&result, "</tr>\n", 6);
+          free (p_file);
+          free (p_url);
+          free (p_source);
+        }
+    }
+  text_append_n (&result, "</table>\n</body></html>\n", 24);
+
+  if (destination_directory && strlen (destination_directory))
+    xasprintf (&license_file, "%s/%s", destination_directory, path);
+  else
+    license_file = strdup (path);
+
+  encoded_out_filepath = encoded_output_file_name (self->conf,
+                            &self->document->global_info, license_file,
+                                                       &path_encoding, 0);
+  file_fh = output_files_open_out (&self->output_files_information,
+                               encoded_out_filepath, &open_error_message,
+                               &overwritten_file, 0);
+  free (path_encoding);
+  if (overwritten_file)
+    {
+      message_list_document_warn (&self->error_messages, self->conf, 0,
+                           "overwritting output file with js licences: %s",
+                                  license_file);
+    }
+
+  if (file_fh)
+    {
+      if (self->conf->OUTPUT_ENCODING_NAME.o.string
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
+        {
+          conversion
+             = get_encoding_conversion (
+                              self->conf->OUTPUT_ENCODING_NAME.o.string,
+                                              &output_conversions);
+        }
+    }
+
+  file_error_or_write_close (self, license_file,
+                             encoded_out_filepath, file_fh,
+                             conversion, result.text,
+                             open_error_message);
+  free (open_error_message);
+  free (encoded_out_filepath);
+  free (license_file);
+  free (result.text);
+}
+
+static const char *js_files[4] = {"info.js", "modernizr.js", "info.css", 0};
+
+void
+do_js_files (CONVERTER *self)
+{
+  const char *destination_directory = self->destination_directory;
+
+  if (self->conf->INFO_JS_DIR.o.string)
+    {
+      const char *info_js_dir = self->conf->INFO_JS_DIR.o.string;
+      char *jsdir;
+      char *dir_encoding;
+      int succeeded;
+      char *encoded_jsdir;
+
+      if (destination_directory && strlen (destination_directory))
+        {
+          xasprintf (&jsdir, "%s/%s", destination_directory, info_js_dir);
+        }
+      else
+        jsdir = strdup (info_js_dir);
+
+      encoded_jsdir = encoded_output_file_name (self->conf,
+                                            &self->document->global_info,
+                                                jsdir, &dir_encoding, 0);
+
+      free (dir_encoding);
+
+      succeeded = create_destination_directory (self, encoded_jsdir, jsdir);
+
+      if (succeeded)
+        {
+          int i;
+          if (self->conf->TEST.o.integer <= 0)
+            {
+              /* conversion_paths_info paths are byte strings */
+              char *jssrcdir;
+              if (!conversion_paths_info.texinfo_uninstalled)
+                {
+                  xasprintf (&jssrcdir, "%s/%s",
+                             conversion_paths_info.p.installed.pkgdatadir,
+                             "js");
+                }
+              else
+                {
+                  if (conversion_paths_info.p.uninstalled.top_srcdir)
+                    xasprintf (&jssrcdir, "%s/%s",
+                               conversion_paths_info.p.uninstalled.top_srcdir,
+                               "js");
+                  else
+                    jssrcdir = strdup ("js");
+                }
+              for (i = 0; js_files[i]; i++)
+                {
+                  char *from;
+                  char *to;
+                  int status;
+
+                  xasprintf (&from, "%s/%s", jssrcdir, js_files[i]);
+                  xasprintf (&to, "%s/%s", encoded_jsdir, js_files[i]);
+                  status = qcopy_file_preserving_but_owner (from, to);
+
+                  if (status != 0)
+                    {
+                      char *to_file_name;
+                      char *from_file_name;
+
+                      xasprintf (&to_file_name, "%s/%s", jsdir, js_files[i]);
+                      xasprintf (&from_file_name, "%s/%s", jsdir, js_files[i]);
+
+                      switch (status)
+                        {
+                          case GL_COPY_ERR_OPEN_READ:
+                            message_list_document_error (&self->error_messages,
+                                self->conf, 0,
+                                "error while opening %s for reading: %s",
+                                from_file_name, strerror (errno));
+                            break;
+
+                          case GL_COPY_ERR_OPEN_BACKUP_WRITE:
+                            message_list_document_error (&self->error_messages,
+                                self->conf, 0,
+                                "cannot open %s for writing: %s",
+                                to_file_name, strerror (errno));
+                            break;
+
+                          case GL_COPY_ERR_READ:
+                            message_list_document_error (&self->error_messages,
+                                self->conf, 0,
+                                "error reading %s: %s",
+                                from_file_name, strerror (errno));
+                            break;
+
+                          case GL_COPY_ERR_WRITE:
+                            message_list_document_error (&self->error_messages,
+                                self->conf, 0,
+                                "error writing %s: %s",
+                                to_file_name, strerror (errno));
+                            break;
+
+                          case GL_COPY_ERR_AFTER_READ:
+                            message_list_document_error (&self->error_messages,
+                                self->conf, 0,
+                                "error after reading %s: %s",
+                                from_file_name, strerror (errno));
+                            break;
+
+                          case GL_COPY_ERR_GET_ACL:
+                            message_list_document_warn (&self->error_messages,
+                                self->conf, 0,
+                                "%s: %s",
+                                from_file_name, strerror (errno));
+                            break;
+
+                          case GL_COPY_ERR_SET_ACL:
+                            message_list_document_warn (&self->error_messages,
+                                self->conf, 0,
+                                "preserving permissions for %s: %s",
+                                to_file_name, strerror (errno));
+                            break;
+
+                          default:
+                            message_list_document_warn (&self->error_messages,
+                                self->conf, 0,
+                                "unexpected error on copying %s into %s",
+                                from_file_name, to_file_name);
+                            break;
+                        }
+                      free (to_file_name);
+                      free (from_file_name);
+                    }
+                  free (to);
+                  free (from);
+                }
+              free (jssrcdir);
+            }
+          else
+            {
+              /* create empty files for tests to keep results stable. */
+              for (i = 0; js_files[i]; i++)
+                {
+                  char *to;
+                  FILE *FH;
+
+                  xasprintf (&to, "%s/%s", encoded_jsdir, js_files[i]);
+                  FH = fopen (to, "w");
+                  if (!FH)
+                    {
+                      char *to_file_name;
+                      xasprintf (&to_file_name, "%s/%s", jsdir, js_files[i]);
+                      message_list_document_error (&self->error_messages,
+                                  self->conf, 0,
+                                  "error on creating empty %s: %s",
+                                  to_file_name, strerror (errno));
+                      free (to_file_name);
+                    }
+                  else
+                    {
+                      if (fclose (FH) == EOF)
+                        {
+                          char *to_file_name;
+                          xasprintf (&to_file_name, "%s/%s", jsdir, js_files[i]);
+                          message_list_document_error (&self->error_messages,
+                                  self->conf, 0,
+                                  "error on closing empty %s: %s",
+                                  to_file_name, strerror (errno));
+                          free (to_file_name);
+                        }
+                    }
+                  free (to);
+                }
+            }
+        }
+      free (encoded_jsdir);
+    }
+
+  if (self->jslicenses.number > 0)
+    do_jslicenses_file (self);
 }
 
 char *
@@ -20955,6 +21335,7 @@ html_node_redirections (CONVERTER *self,
                   char *path_encoding;
                   char *open_error_message;
                   int overwritten_file;
+                  int status;
 
                   add_to_files_source_info (files_source_info,
                                  redirection_filename, "redirection", 0,
@@ -20981,59 +21362,21 @@ html_node_redirections (CONVERTER *self,
                                encoded_out_filepath, &open_error_message,
                                &overwritten_file, 0);
                   free (path_encoding);
-                  if (!file_fh)
-                    {
-                      message_list_document_error (&self->error_messages,
-                                self->conf, 0,
-                                "could not open %s for writing: %s",
-                                 out_filepath, open_error_message);
-                    }
-                  else
-                    {
-                      char *result;
-                      size_t res_len;
-                      size_t write_len;
 
-                      if (conversion)
-                        {
-                          result = encode_with_iconv (conversion->iconv,
-                                                      redirection_page, 0);
-                          res_len = strlen (result);
-                        }
-                      else
-                        {
-                          result = redirection_page;
-                          res_len = strlen (redirection_page);
-                        }
-                      write_len = fwrite (result, sizeof (char),
-                                          res_len, file_fh);
-                      if (conversion)
-                        free (result);
-                      if (write_len != res_len)
-                        { /* register error message instead? */
-                          fprintf (stderr,
-                                   "ERROR: write to %s failed (%zu/%zu)\n",
-                                   encoded_out_filepath, write_len, res_len);
-                          free (encoded_out_filepath);
-                          return -1;
-                        }
-                      output_files_register_closed
-                                         (&self->output_files_information,
-                                          encoded_out_filepath);
-                      if (fclose (file_fh))
-                        {
-                          message_list_document_error (
-                             &self->error_messages, self->conf, 0,
-                             "error on closing %s: %s",
-                             out_filepath, strerror (errno));
-                          free (encoded_out_filepath);
-                          return -1;
-                        }
-                      redirection_files_done++;
-                    }
+                  status
+                    = file_error_or_write_close (self, out_filepath,
+                                         encoded_out_filepath, file_fh,
+                                         conversion, redirection_page,
+                                         open_error_message);
+
                   free (encoded_out_filepath);
                   free (out_filepath);
                   free (redirection_page);
+                  free (open_error_message);
+                  if (status < 0)
+                    return -1;
+                  else
+                    redirection_files_done++;
                 }
             }
         }
