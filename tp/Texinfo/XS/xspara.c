@@ -142,12 +142,6 @@ xspara__print_escaped_spaces (char *string, size_t len)
   return t.text;
 }
 
-int
-xspara_init (int unused, char *unused2)
-{
-  return 1;
-}
-
 /* Array for storing paragraph states which aren't in use. */
 static PARAGRAPH *state_array;
 static int state_array_size;

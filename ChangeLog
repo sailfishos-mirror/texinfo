@@ -1,6 +1,7 @@
-2024-09-30  Patrice Dumas  <pertusus@free.fr>
+2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
-	Update test results
+	* tp/Texinfo/XS/XSParagraph.xs, tp/Texinfo/XS/xspara.c: remove
+	xspara_init, as it does nothing.
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 
@@ -130,6 +131,10 @@
 	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides, _init_output):
 	remove call to _XS_reset_output_init_conf, the function and the
 	override.  The whole _init_output function is already overriden.
+
+2024-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	Update test results
 
 2024-07-22  Patrice Dumas  <pertusus@free.fr>
 

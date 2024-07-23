@@ -37,11 +37,6 @@ MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFI
 
 PROTOTYPES: ENABLE
 
-int
-xspara_init (unused, unused2)
-     int unused
-     char *unused2
-
 void
 xspara_set_state (state)
      SV * state
