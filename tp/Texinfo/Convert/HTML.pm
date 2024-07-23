@@ -12824,16 +12824,12 @@ sub _do_js_files($$)
     } else {
       $jsdir = $info_js_dir;
     }
-    if (!-d $jsdir) {
-      if (-f $jsdir) {
-        $self->converter_document_error(
-          sprintf(__("%s already exists but is not a directory"), $jsdir));
-      } else {
-        mkdir $jsdir;
-      }
-    }
+    my ($encoded_jsdir, $dir_encoding)
+      = $self->encoded_output_file_name($jsdir);
+    my $succeeded
+      = $self->create_destination_directory($encoded_jsdir, $jsdir);
     # Copy JS files.
-    if (-d $jsdir) {
+    if ($succeeded) {
       if (!$self->get_conf('TEST')) {
         my $jssrcdir;
         if (!$Texinfo::ModulePath::texinfo_uninstalled) {
