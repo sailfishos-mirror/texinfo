@@ -7,12 +7,12 @@
 
 
 
-MODULE = TestXS PACKAGE = TestXS PREFIX = xspara_
+MODULE = TestXS PACKAGE = TestXS PREFIX = xstest_
 
 PROTOTYPES: ENABLE
 
 int
-xspara_init (int, char *)
+xstest_init (int, SV *, SV *, SV *)
     CODE:
         puts ("message from XS module\n");
         RETVAL = 1;
