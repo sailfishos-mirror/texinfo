@@ -369,6 +369,7 @@ tp/Texinfo/XS/parsetexi/*.la
 tp/Texinfo/XS/parsetexi/*.lo
 
 tp/Texinfo/XS/convert/ConvertXS.c
+tp/Texinfo/XS/convert/cmd_converter.c
 
 tp/Texinfo/XS/convert/.libs
 tp/Texinfo/XS/convert/*.la

@@ -134,7 +134,7 @@ print CODE "/* Automatically generated from $program_name */\n\n";
 
 print CODE '#include <config.h>'."\n\n";
 
-print CODE '#include <stdlib.h>'."\n\n";
+print CODE '#include <stdlib.h>'."\n";
 print CODE '#include <string.h>'."\n\n";
 
 print CODE '#include "options_types.h"'."\n";

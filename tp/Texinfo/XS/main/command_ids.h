@@ -421,5 +421,7 @@ CM_hex_7c,
 CM_hex_7d,
 CM_hex_7e,
 };
+
 #define BUILTIN_CMD_NUMBER 389
+
 #endif
