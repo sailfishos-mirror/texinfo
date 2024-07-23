@@ -7,6 +7,13 @@
 
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_conversion_initialization),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_output_state): always set converter_info in Perl
+	converter for calls to get_info in Perl, which can happen anywhere.
+
+2024-07-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_do_js_files): encode $jsdir before
 	creating the directory.  Create the directory by calling
 	create_destination_directory().

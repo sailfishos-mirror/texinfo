@@ -583,6 +583,8 @@ void
 html_conversion_initialization (SV *converter_in, const char *context, SV *document_in=0)
       PREINIT:
         CONVERTER *self;
+        HV *converter_info_hv;
+        HV *converter_hv;
       CODE:
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
@@ -590,9 +592,15 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
         /* always set the document in the converter, as it is the only
            way to find it back, it is not stored in C data */
         pass_document_to_converter_sv (self, converter_in, document_in);
+
+        /* always set "converter_info" for calls to get_info in Perl. */
+        converter_hv = (HV *) SvRV (converter_in);
+        converter_info_hv = newHV ();
+        hv_store (converter_hv, "converter_info", strlen ("converter_info"),
+                  newRV_noinc ((SV *)converter_info_hv), 0);
+
         if (self)
           {
-            HV *converter_hv = (HV *) SvRV (converter_in);
 
             html_initialize_output_state (self, context);
             /* could be useful if something from Perl is needed

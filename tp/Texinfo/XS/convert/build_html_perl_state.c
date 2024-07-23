@@ -208,7 +208,6 @@ html_pass_converter_output_state (const CONVERTER *converter,
                                   SV *converter_sv, SV *document_in)
 {
   HV *converter_hv;
-  HV *converter_info_hv;
   SV *no_arg_commands_formatting_sv;
   SV *directions_strings_sv;
   HV *shared_conversion_state_hv;
@@ -216,9 +215,6 @@ html_pass_converter_output_state (const CONVERTER *converter,
   dTHX;
 
   converter_hv = (HV *) SvRV (converter_sv);
-
-  converter_info_hv = newHV ();
-  STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
 
   no_arg_commands_formatting_sv = build_no_arg_commands_formatting (converter);
   STORE("no_arg_commands_formatting", no_arg_commands_formatting_sv);
