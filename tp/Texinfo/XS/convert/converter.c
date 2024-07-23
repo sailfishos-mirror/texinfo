@@ -74,7 +74,7 @@ static CONVERTER **converter_list;
 static size_t converter_number;
 static size_t converter_space;
 
-PATHS_INFORMATION conversion_paths_information;
+PATHS_INFORMATION conversion_paths_info;
 
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
@@ -100,19 +100,19 @@ setup_converter_paths_information (int texinfo_uninstalled,
                                    const char *tp_builddir,
                              const char *pkgdatadir, const char *top_srcdir)
 {
-  memset (&conversion_paths_information, 0, sizeof (PATHS_INFORMATION));
-  conversion_paths_information.texinfo_uninstalled = texinfo_uninstalled;
+  memset (&conversion_paths_info, 0, sizeof (PATHS_INFORMATION));
+  conversion_paths_info.texinfo_uninstalled = texinfo_uninstalled;
   if (texinfo_uninstalled)
     {
       if (tp_builddir)
-        conversion_paths_information.paths.uninstalled.tp_builddir
+        conversion_paths_info.p.uninstalled.tp_builddir
           = strdup (tp_builddir);
       if (top_srcdir)
-        conversion_paths_information.paths.uninstalled.top_srcdir
+        conversion_paths_info.p.uninstalled.top_srcdir
           = strdup (top_srcdir);
     }
   else
-    conversion_paths_information.paths.installed.pkgdatadir
+    conversion_paths_info.p.installed.pkgdatadir
       = strdup (pkgdatadir);
 }
 

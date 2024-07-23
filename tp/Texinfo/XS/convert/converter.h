@@ -82,10 +82,10 @@ typedef struct UNINSTALLED_PATHS {
 
 typedef struct PATHS_INFORMATION {
     int texinfo_uninstalled;
-    union paths {
+    union {
       INSTALLED_PATHS installed;
       UNINSTALLED_PATHS uninstalled;
-    } paths;
+    } p;
 } PATHS_INFORMATION;
 
 extern enum command_id no_brace_command_accent_upper_case[][2];
@@ -96,7 +96,7 @@ extern const char * xml_text_entity_no_arg_commands[];
 /* in converter.c */
 extern const char *xml_text_entity_no_arg_commands_formatting[];
 
-extern PATHS_INFORMATION conversion_paths_information;
+extern PATHS_INFORMATION conversion_paths_info;
 
 void converter_setup (void);
 void setup_converter_paths_information (int texinfo_uninstalled,

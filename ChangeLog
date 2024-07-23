@@ -1,5 +1,12 @@
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.h (PATHS_INFORMATION)
+	(conversion_paths_info), tp/Texinfo/XS/convert/converter.c: rename
+	conversion_paths_information as conversion_paths_info and
+	PATHS_INFORMATION union paths as p.
+
+2024-07-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/command_data.awk (BEGIN, END),
 	tp/maintain/regenerate_C_options_info.pl: add/remove newlines and add
 	a comment in generated C files.
