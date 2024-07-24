@@ -7,6 +7,11 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/03coverage_braces.t (nested_in_sc): do not set docbook as
+	test_formats in the test specification, as docbook is already output.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): call explicitely
 	Texinfo::Common::set_output_perl_encoding for HTML for outputting
 	result files, as OUTPUT_PERL_ENCODING is not set if with XS and
