@@ -787,6 +787,89 @@ html_output (SV *converter_in, SV *document_in)
         RETVAL
 
 
+SV *
+html_convert (SV *converter_in, SV *document_in)
+      PREINIT:
+        CONVERTER *self;
+        char *result;
+        SV *output_units_sv;
+        SV *special_units_sv;
+        SV *associated_special_units_sv;
+      CODE:
+        /* html_conversion_initialization */
+        self = converter_set_document_from_sv (converter_in, document_in);
+
+        html_initialize_output_state (self, "_convert");
+        /* could be useful if something from Perl is needed
+        html_conversion_initialization_sv (converter_in, self);
+         */
+
+        html_pass_conversion_initialization (self, converter_in, document_in);
+
+        /* html_setup_convert */
+        html_setup_convert (self);
+        html_pass_converter_setup_state (self, converter_in);
+
+        /* html_prepare_conversion_units */
+        html_prepare_conversion_units (self);
+
+        html_pass_conversion_output_units (self, converter_in,
+                                     &output_units_sv, &special_units_sv,
+                                     &associated_special_units_sv);
+
+        /* calls Perl customization functions, so need to be done after
+           build_output_units_list calls to be able to retrieve Perl
+           output units references */
+        html_prepare_conversion_units_targets (self, self->document_name);
+
+        /* html_prepare_output_units_global_targets */
+        /* setup global targets.  It is not clearly relevant to have those
+           global targets when called as convert, but the Top global
+           unit directions is often referred to in code, so at least this
+           global target needs to be setup.
+           Since the relative directions are not set, this leads to lone
+           global direction buttons such as [Contents] or [Index] appearing
+           in otherwise empty navigation headings if those global directions
+           are set and present in the buttons, as is the case in the default
+           buttons.  For example in converters_tests/ref_in_sectioning
+           or converters_tests/sections_and_printindex.
+           Output units lists are rebuilt in the XS code.
+         */
+        html_prepare_output_units_global_targets (self);
+
+        html_pass_output_units_global_targets (self, output_units_sv,
+                               special_units_sv, associated_special_units_sv);
+
+        /* html_translate_names */
+        /* setup untranslated strings */
+        html_translate_names (self);
+        build_html_formatting_state (self);
+
+        /* html_prepare_simpletitle */
+        html_prepare_simpletitle (self);
+
+        /* html_prepare_title_titlepage */
+        /* title.  Not often set in the default case, as convert() is only
+           used in the *.t tests, and a title requires both simpletitle_tree
+           and SHOW_TITLE set, with the default formatting function.
+         */
+        html_prepare_title_titlepage (self, "", "");
+
+        /* html_convert_convert */
+        /* main conversion here */
+        result = html_convert_convert (self, self->document->tree);
+        build_html_formatting_state (self);
+
+        /* html_conversion_finalization */
+        html_conversion_finalization (self);
+
+        html_check_transfer_state_finalization (self);
+
+        RETVAL = newSVpv_utf8 (result, 0);
+        free (result);
+    OUTPUT:
+        RETVAL
+
 void
 html_register_id (SV *converter_in, id)
          const char *id = (char *)SvPVutf8_nolen($arg);

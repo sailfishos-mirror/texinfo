@@ -103,6 +103,8 @@ my %XS_overrides = (
 my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::output"
    => "Texinfo::Convert::ConvertXS::html_output",
+  "Texinfo::Convert::HTML::convert"
+   => "Texinfo::Convert::ConvertXS::html_convert",
 
   # following are not called when output and convert are overriden
   "Texinfo::Convert::HTML::_XS_format_setup"

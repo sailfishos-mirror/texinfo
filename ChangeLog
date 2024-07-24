@@ -7,6 +7,14 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	XS override for HTML::convert
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_convert): add an XS override
+	for convert.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs
 	(html_prepare_output_units_global_targets),
 	tp/Texinfo/XS/convert/build_html_perl_state.c
