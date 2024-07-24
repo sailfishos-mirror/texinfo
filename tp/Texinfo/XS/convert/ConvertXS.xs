@@ -1553,8 +1553,6 @@ html_internal_command_text (SV *converter_in, SV *element_sv, const char *type)
                }
              text
                = html_internal_command_text (self, element, text_type);
-
-             build_html_formatting_state (self);
            }
 
          if (text)

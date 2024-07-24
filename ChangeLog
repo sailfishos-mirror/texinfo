@@ -7,6 +7,12 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_internal_command_text):
+	do not call build_html_formatting_state, there is nothing set in C
+	that needs to be passed.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_state.c
 	(build_html_formatting_state): check and reset flags in
 	build_html_formatting_state.  Update callers.
