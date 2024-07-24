@@ -1,5 +1,12 @@
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_initialization_state): rename
+	html_pass_converter_output_state as
+	html_pass_converter_initialization_state.  Update caller.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units):
 	use C converter document name instead of document name coming from
 	Perl.

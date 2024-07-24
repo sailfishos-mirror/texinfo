@@ -204,8 +204,8 @@ build_directions_strings (const CONVERTER *converter)
 
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
 void
-html_pass_converter_output_state (const CONVERTER *converter,
-                                  SV *converter_sv, SV *document_in)
+html_pass_converter_initialization_state (const CONVERTER *converter,
+                                       SV *converter_sv, SV *document_in)
 {
   HV *converter_hv;
   SV *no_arg_commands_formatting_sv;

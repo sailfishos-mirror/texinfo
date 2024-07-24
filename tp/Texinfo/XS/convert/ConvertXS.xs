@@ -624,8 +624,8 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
 
               if (self->external_references_number > 0)
                 {
-                  html_pass_converter_output_state (self, converter_in,
-                                                    document_in);
+                  html_pass_converter_initialization_state (self, converter_in,
+                                                            document_in);
                 }
             }
 
