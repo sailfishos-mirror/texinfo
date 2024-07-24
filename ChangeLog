@@ -1,9 +1,30 @@
-2024-09-30  Patrice Dumas  <pertusus@free.fr>
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/convert_html.c (do_js_files): use
-	copy_file_to.
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units):
+	use C converter document name instead of document name coming from
+	Perl.
 
-2024-07-23  Patrice Dumas  <pertusus@free.fr>
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides, _setup_output)
+	(output), tp/Texinfo/XS/convert/ConvertXS.xs (html_setup_output):
+	rename _init_output as _setup_output.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_setup_convert, convert), tp/Texinfo/XS/convert/convert_html.c
+	(html_setup_convert), tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_output_state, html_pass_converter_setup_state),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_setup_output)
+	(html_setup_convert, html_prepare_conversion_units): add
+	_setup_convert call at the beginning of convert, that calls
+	_init_conversion_after_setup_handler.  Add an XS override for
+	_setup_convert.  Add html_pass_converter_setup_state to pass to Perl
+	the information set in _setup_output or _setup_convert.  Move setting
+	use_unicode_text for Perl from html_pass_converter_output_state to
+	html_pass_converter_setup_state.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_setup_output): rename
+	setup_status as setup_handler_status.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (file_error_or_write_close):
 	return -2 if the file stream is 0.
@@ -11,6 +32,11 @@
 	* tp/Texinfo/XS/convert/convert_html.c (html_node_redirections): do
 	not return an error immediately from the function in case of open
 	error, as in Perl.
+
+2024-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c (do_js_files): use
+	copy_file_to.
 
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 

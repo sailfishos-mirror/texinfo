@@ -48,7 +48,8 @@ void html_initialize_output_state (CONVERTER *self, const char *context);
 void init_conversion_after_setup_handler (CONVERTER *self);
 void html_conversion_finalization (CONVERTER *self);
 
-int html_init_output (CONVERTER *self, char **paths);
+int html_setup_output (CONVERTER *self, char **paths);
+void html_setup_convert (CONVERTER *self);
 
 void html_converter_prepare_output (CONVERTER* self);
 

@@ -16,6 +16,9 @@ void build_html_translated_names (HV *hv, CONVERTER *converter);
 void html_pass_converter_output_state (const CONVERTER *converter,
                                        SV *converter_sv, SV *document_in);
 
+void html_pass_converter_setup_state (const CONVERTER *converter,
+                                      SV *converter_sv);
+
 SV *build_html_files_source_info
                           (const FILE_SOURCE_INFO_LIST *files_source_info);
 void pass_html_global_units_directions (SV *converter_sv,

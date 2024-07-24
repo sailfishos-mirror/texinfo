@@ -222,13 +222,24 @@ html_pass_converter_output_state (const CONVERTER *converter,
   directions_strings_sv = build_directions_strings (converter);
   STORE("directions_strings", directions_strings_sv);
 
-  if (converter->use_unicode_text)
-    STORE("use_unicode_text", newSViv (1));
-
   shared_conversion_state_hv = newHV ();
   STORE("shared_conversion_state",
         newRV_noinc ((SV *)shared_conversion_state_hv));
+}
 
+
+void
+html_pass_converter_setup_state (const CONVERTER *converter,
+                                 SV *converter_sv)
+{
+  HV *converter_hv;
+
+  dTHX;
+
+  converter_hv = (HV *) SvRV (converter_sv);
+
+  if (converter->use_unicode_text)
+    STORE("use_unicode_text", newSViv (1));
 #undef STORE
 }
 

@@ -1838,6 +1838,7 @@ html_prepare_conversion_units (CONVERTER *self)
   set_global_document_commands (self, CL_before, conf_for_special_units);
 }
 
+/* calls customization function requiring output units */
 void
 set_special_units_targets_files (CONVERTER *self, const char *document_name)
 {
@@ -1930,6 +1931,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
   free (text_name.text);
 }
 
+/* calls customization function requiring output units */
 static void
 prepare_associated_special_units_targets (CONVERTER *self)
 {
@@ -2009,6 +2011,7 @@ normalized_to_id (const char *id)
   return strdup (id);
 }
 
+/* calls customization function requiring elements */
 static TARGET_FILENAME *
 normalized_label_id_file (CONVERTER *self, const char *normalized,
                           const ELEMENT* label_element)
@@ -2076,6 +2079,7 @@ unique_target (CONVERTER *self, const char *target_base)
     }
 }
 
+/* calls customization function requiring elements */
 static void
 new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
 {
@@ -2182,6 +2186,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
     element_target->shortcontents_target = strdup ("");
 }
 
+/* calls customization function requiring elements */
 /*
  This set with two different codes
   * the target information, id and normalized filename of 'identifiers_target',
@@ -5238,6 +5243,7 @@ static const enum command_id heading_commands_list[] = {
   0,
 };
 
+/* inirectly calls customization function requiring elements */
 void
 set_heading_commands_targets (CONVERTER *self)
 {
@@ -5338,6 +5344,8 @@ sort_cmd_targets (CONVERTER *self)
     }
 }
 
+/* indirectly calls all the functions calling customization function
+   requiring elements and output units except for external nodes formatting */
 /* for conversion units except for associated special units that require
    files for document units to be set */
 void
@@ -5678,6 +5686,7 @@ add_to_unit_file_name_paths (char **unit_file_name_paths,
   return unit_file_name_paths[output_unit->index];
 }
 
+/* calls customization function requiring output units */
 static FILE_SOURCE_INFO_LIST *
 html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                       const OUTPUT_UNIT_LIST *special_units,
@@ -18688,11 +18697,12 @@ fill_jslicense_file_info (JSLICENSE_FILE_INFO *jslicense_file_info,
   jslicense_file_info->source = strdup (source);
 }
 
+/* first function to call a stage handler */
 int
-html_init_output (CONVERTER *self, char **paths)
+html_setup_output (CONVERTER *self, char **paths)
 {
   int handler_fatal_error_level;
-  int setup_status;
+  int setup_handler_status;
   int js_categories_list_nr = 0;
   const char *structure_preamble_document_language;
   char *destination_directory;
@@ -18775,10 +18785,10 @@ html_init_output (CONVERTER *self, char **paths)
  "  },");
     }
 
-  setup_status = run_stage_handlers (self, HSHT_type_setup);
+  setup_handler_status = run_stage_handlers (self, HSHT_type_setup);
 
-  if (setup_status < handler_fatal_error_level
-      && setup_status > -handler_fatal_error_level)
+  if (setup_handler_status < handler_fatal_error_level
+      && setup_handler_status > -handler_fatal_error_level)
     {}
   else
     return 0;
@@ -18872,6 +18882,12 @@ html_init_output (CONVERTER *self, char **paths)
   self->destination_directory = strdup (destination_directory);
 
   return 1;
+}
+
+void
+html_setup_convert (CONVERTER *self)
+{
+  init_conversion_after_setup_handler (self);
 }
 
 void

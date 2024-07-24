@@ -107,8 +107,10 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
   "Texinfo::Convert::HTML::conversion_initialization"
    => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
-  "Texinfo::Convert::HTML::_init_output"
-   => "Texinfo::Convert::ConvertXS::html_init_output",
+  "Texinfo::Convert::HTML::_setup_convert"
+   => "Texinfo::Convert::ConvertXS::html_setup_convert",
+  "Texinfo::Convert::HTML::_setup_output"
+   => "Texinfo::Convert::ConvertXS::html_setup_output",
   "Texinfo::Convert::HTML::conversion_finalization"
    => "Texinfo::Convert::ConvertXS::html_conversion_finalization",
   "Texinfo::Convert::HTML::_prepare_simpletitle"
@@ -12590,6 +12592,13 @@ sub _init_conversion_after_setup_handler($)
   }
 }
 
+sub _setup_convert($)
+{
+  my $self = shift;
+
+  _init_conversion_after_setup_handler($self);
+}
+
 # Conversion to a string, mostly used in tests.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
 # module), and $DOCUMENT is the parsed document from the parser and structuring
@@ -12600,7 +12609,7 @@ sub convert($$)
 
   $self->conversion_initialization('_convert', $document);
 
-  _init_conversion_after_setup_handler($self);
+  _setup_convert($self);
 
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($document, undef);
@@ -13294,7 +13303,7 @@ sub _node_redirections($$$$)
   return $redirection_files_done;
 }
 
-sub _init_output($)
+sub _setup_output($)
 {
   my $self = shift;
 
@@ -13455,7 +13464,7 @@ sub output($$)
 
   $self->conversion_initialization('_output', $document);
 
-  my $paths = _init_output($self);
+  my $paths = _setup_output($self);
   if (!defined($paths)) {
     $self->conversion_finalization();
     return undef;

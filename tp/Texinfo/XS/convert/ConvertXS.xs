@@ -601,7 +601,6 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
 
         if (self)
           {
-
             html_initialize_output_state (self, context);
             /* could be useful if something from Perl is needed
             html_conversion_initialization_sv (converter_in, self);
@@ -631,18 +630,18 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
             }
 
 SV *
-html_init_output (SV *converter_in)
+html_setup_output (SV *converter_in)
       PREINIT:
          CONVERTER *self;
          int status = 0;
       CODE:
-         self = get_sv_converter (converter_in, "html_init_output");
+         self = get_sv_converter (converter_in, "html_setup_output");
          RETVAL = newSV (0);
          if (self)
            {
              char *paths[5];
 
-             status = html_init_output (self, paths);
+             status = html_setup_output (self, paths);
              if (status)
                {
                  AV *result_av = newAV ();
@@ -660,9 +659,24 @@ html_init_output (SV *converter_in)
                      free (paths[i]);
                    }
                }
+
+             html_pass_converter_setup_state (self, converter_in);
            }
     OUTPUT:
          RETVAL
+
+void
+html_setup_convert (SV *converter_in)
+      PREINIT:
+         CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in, "html_setup_convert");
+
+         if (self)
+           {
+             html_setup_convert (self);
+             html_pass_converter_setup_state (self, converter_in);
+           }
 
 void
 html_conversion_finalization (SV *converter_in)
@@ -681,6 +695,10 @@ html_conversion_finalization (SV *converter_in)
                }
              html_check_transfer_state_finalization (self);
            }
+
+#void
+#html_output (SV *converter_in, SV *document_id)
+
 
 void
 html_register_id (SV *converter_in, id)
@@ -2151,28 +2169,16 @@ html_prepare_conversion_units (SV *converter_in, ...)
       PROTOTYPE: $$$
       PREINIT:
          HV *converter_hv;
-         const char *document_name = 0;
          CONVERTER *self;
          SV *output_units_sv;
          SV *special_units_sv;
          SV *associated_special_units_sv;
          HV *output_units_hv;
       PPCODE:
-         if (items > 2 && SvOK(ST(2)))
-           document_name = SvPVutf8_nolen (ST(2));
-
          self = get_sv_converter (converter_in,
                                   "html_prepare_conversion_units");
 
          converter_hv = (HV *) SvRV (converter_in);
-
-         /* FIXME already done in C for output(), but not for convert()
-            need to remove the redundant call for output() and/or
-            call in C for convert() too */
-         init_conversion_after_setup_handler (self);
-         if (self->use_unicode_text)
-           hv_store (converter_hv, "use_unicode_text",
-                     strlen ("use_unicode_text"), newSViv (1), 0);
 
          html_prepare_conversion_units (self);
 
@@ -2216,7 +2222,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
          /* calls Perl customization functions, so need to be done after
             build_output_units_list calls to be able to retrieve Perl
             output units references */
-         html_prepare_conversion_units_targets (self, document_name);
+         html_prepare_conversion_units_targets (self, self->document_name);
 
          EXTEND(SP, 3);
          PUSHs(sv_2mortal(output_units_sv));
