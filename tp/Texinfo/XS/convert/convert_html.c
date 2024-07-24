@@ -16724,7 +16724,12 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       && init_handler_status > -handler_fatal_error_level)
     {}
   else
-    return 0;
+    {
+      free (default_document_language);
+      free (preamble_document_language);
+
+      return 0;
+    }
 
   html_prepare_title_titlepage (self, output_file, output_filename);
 
@@ -16734,6 +16739,9 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       && (!default_document_language || !preamble_document_language
           || strcmp (default_document_language, preamble_document_language)))
     html_translate_names (self);
+
+  free (default_document_language);
+  free (preamble_document_language);
 
   return 1;
 }
@@ -21064,6 +21072,7 @@ html_do_js_files (CONVERTER *self)
             }
         }
       free (encoded_jsdir);
+      free (jsdir);
     }
 
   if (self->jslicenses.number > 0)
