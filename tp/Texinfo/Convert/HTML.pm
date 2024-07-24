@@ -13271,7 +13271,7 @@ sub _node_redirections($$$$)
                              $self->output_files_information(), $self,
                              $encoded_out_filepath);
         if (!$file_fh) {
-         $self->converter_document_error(sprintf(__(
+          $self->converter_document_error(sprintf(__(
                                     "could not open %s for writing: %s"),
                                     $out_filepath, $error_message));
         } else {
@@ -13287,6 +13287,7 @@ sub _node_redirections($$$$)
           }
           $redirection_files_done++;
         }
+        # NOTE failure to open a file does not stop the processing
       }
     }
   }

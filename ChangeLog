@@ -5,6 +5,15 @@
 
 2024-07-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (file_error_or_write_close):
+	return -2 if the file stream is 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_node_redirections): do
+	not return an error immediately from the function in case of open
+	error, as in Perl.
+
+2024-07-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_do_jslicenses_file): check path before
 	gathering the output.
 

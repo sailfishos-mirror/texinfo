@@ -20634,6 +20634,8 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
   memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
 }
 
+/* return 0 on success, -1 on write or close error, -2 if file_fh is 0,
+   which should mean a failure to open */
 static int
 file_error_or_write_close (CONVERTER *self, const char *out_filepath,
                            const char *encoded_out_filepath,
@@ -20648,6 +20650,7 @@ file_error_or_write_close (CONVERTER *self, const char *out_filepath,
                 self->conf, 0,
                 "could not open %s for writing: %s",
                  out_filepath, open_error_message);
+      return -2;
     }
   else
     {
@@ -21373,9 +21376,11 @@ html_node_redirections (CONVERTER *self,
                   free (out_filepath);
                   free (redirection_page);
                   free (open_error_message);
-                  if (status < 0)
+
+             /* NOTE failure to open a file does not stop the processing */
+                  if (status == -1)
                     return -1;
-                  else
+                  else if (status >= 0)
                     redirection_files_done++;
                 }
             }
