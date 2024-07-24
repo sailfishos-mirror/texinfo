@@ -2309,19 +2309,8 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
                                   "html_prepare_output_units_global_targets");
          html_prepare_output_units_global_targets (self);
 
-         if (self->external_references_number > 0)
-           {
-             rebuild_output_units_list (self->document, output_units_in,
-                                self->output_units_descriptors[OUDT_units]);
-             rebuild_output_units_list (self->document, special_units_in,
-                        self->output_units_descriptors[OUDT_special_units]);
-             rebuild_output_units_list (self->document,
-                                        associated_special_units_in,
-               self->output_units_descriptors[OUDT_associated_special_units]);
-
-             html_setup_global_units_direction_names (self);
-           }
-
+         html_pass_output_units_global_targets (self, output_units_in,
+                               special_units_in, associated_special_units_in);
 
 void
 html_translate_names (SV *converter_in)

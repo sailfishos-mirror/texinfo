@@ -533,6 +533,24 @@ html_pass_units_directions_files (CONVERTER *converter,
 }
 
 void
+html_pass_output_units_global_targets (CONVERTER *self, SV *output_units_sv,
+                        SV *special_units_sv, SV *associated_special_units_sv)
+{
+  if (self->external_references_number > 0)
+    {
+      rebuild_output_units_list (self->document, output_units_sv,
+                         self->output_units_descriptors[OUDT_units]);
+      rebuild_output_units_list (self->document, special_units_sv,
+                 self->output_units_descriptors[OUDT_special_units]);
+      rebuild_output_units_list (self->document,
+                                 associated_special_units_sv,
+        self->output_units_descriptors[OUDT_associated_special_units]);
+
+      html_setup_global_units_direction_names (self);
+    }
+}
+
+void
 build_html_translated_names (HV *hv, CONVERTER *converter)
 {
   int j;
