@@ -231,7 +231,9 @@ const OUTPUT_UNIT *html_find_direction_name_global_unit (const CONVERTER *self,
 void html_translate_names (CONVERTER *self);
 
 void html_prepare_simpletitle (CONVERTER *self);
-void html_prepare_converted_output_info (CONVERTER *self);
+int html_prepare_converted_output_info (CONVERTER *self,
+                                        const char *output_file,
+                                        const char *output_filename);
 void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                                    const char *output_filename);
 

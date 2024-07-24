@@ -16556,12 +16556,32 @@ const static enum command_id fulltitle_cmds[] =
  {CM_settitle, CM_title, CM_shorttitlepage, CM_top, 0};
 
 
-void
-html_prepare_converted_output_info (CONVERTER *self)
+int
+html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
+                                    const char *output_filename)
 {
   int i;
   ELEMENT *fulltitle_tree = 0;
   char *html_title_string = 0;
+  char *default_document_language = 0;
+  char *preamble_document_language = 0;
+  int init_handler_status;
+  int handler_fatal_error_level
+     = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
+
+  if (self->conf->documentlanguage.o.string)
+    default_document_language = strdup (self->conf->documentlanguage.o.string);
+
+  set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
+
+  if (self->conf->documentlanguage.o.string)
+    preamble_document_language = strdup (self->conf->documentlanguage.o.string);
+
+  if (! (!default_document_language && !preamble_document_language)
+      && (!default_document_language || !preamble_document_language
+          || strcmp (default_document_language, preamble_document_language)))
+    html_translate_names (self);
+
   /*
    prepare title.  fulltitle uses more possibility than simpletitle for
    title, including @-commands found in @titlepage only.  Therefore
@@ -16689,6 +16709,25 @@ html_prepare_converted_output_info (CONVERTER *self)
 
       self->documentdescription_string = documentdescription_string;
     }
+
+  init_handler_status = run_stage_handlers (self, HSHT_type_init);
+
+  if (init_handler_status < handler_fatal_error_level
+      && init_handler_status > -handler_fatal_error_level)
+    {}
+  else
+    return 0;
+
+  html_prepare_title_titlepage (self, output_file, output_filename);
+
+  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
+
+  if (! (!default_document_language && !preamble_document_language)
+      && (!default_document_language || !preamble_document_language
+          || strcmp (default_document_language, preamble_document_language)))
+    html_translate_names (self);
+
+  return 1;
 }
 
 void

@@ -12882,9 +12882,27 @@ sub _do_js_files($$)
   }
 }
 
-sub _prepare_converted_output_info($)
+sub _prepare_converted_output_info($$$$)
 {
   my $self = shift;
+  my $output_file = shift;
+  my $output_filename = shift;
+  my $output_units = shift;
+
+  my $default_document_language = $self->get_conf('documentlanguage');
+
+  $self->set_global_document_commands('preamble', ['documentlanguage']);
+
+  my $preamble_document_language = $self->get_conf('documentlanguage');
+
+  if (not (!defined($default_document_language)
+           and !defined($preamble_document_language))
+      and (!defined($default_document_language)
+           or !defined($preamble_document_language)
+           or $default_document_language ne $preamble_document_language)) {
+    $self->_translate_names();
+  }
+
   # prepare title.  fulltitle uses more possibility than simpletitle for
   # title, including @-commands found in @titlepage only.  Therefore
   # simpletitle is more in line with what makeinfo in C did.
@@ -12984,6 +13002,31 @@ sub _prepare_converted_output_info($)
     $self->{'converter_info'}->{'documentdescription_string'}
       = $documentdescription_string;
   }
+
+  # TODO document that this stage handler is called with end of preamble
+  # documentlanguage when it is certain that this will not change ever.
+  my $init_status = $self->run_stage_handlers($self->{'stage_handlers'},
+                                              $self->{'document'}, 'init');
+  my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
+  unless ($init_status < $handler_fatal_error_level
+          and $init_status > -$handler_fatal_error_level) {
+    return 0;
+  }
+
+  $self->_prepare_title_titlepage($output_file, $output_filename,
+                                  $output_units);
+
+  $self->set_global_document_commands('before', ['documentlanguage']);
+
+  if (not (!defined($default_document_language)
+           and !defined($preamble_document_language))
+      and (!defined($default_document_language)
+           or !defined($preamble_document_language)
+           or $default_document_language ne $preamble_document_language)) {
+    $self->_translate_names();
+  }
+
+  return 1;
 }
 
 # units or root conversion
@@ -13497,43 +13540,11 @@ sub output($$)
     return undef;
   }
 
-  my $default_document_language = $self->get_conf('documentlanguage');
-
-  $self->set_global_document_commands('preamble', ['documentlanguage']);
-
-  my $preamble_document_language = $self->get_conf('documentlanguage');
-
-  if (not (!defined($default_document_language)
-           and !defined($preamble_document_language))
-      and (!defined($default_document_language)
-           or !defined($preamble_document_language)
-           or $default_document_language ne $preamble_document_language)) {
-    $self->_translate_names();
-  }
-
-  $self->_prepare_converted_output_info();
-
-  # TODO document that this stage handler is called with end of preamble
-  # documentlanguage when it is certain that this will not change ever.
-  my $init_status = $self->run_stage_handlers($stage_handlers,
-                                              $document, 'init');
-  unless ($init_status < $handler_fatal_error_level
-          and $init_status > -$handler_fatal_error_level) {
+  my $succeeded = _prepare_converted_output_info($self, $output_file,
+                                      $output_filename, $output_units);
+  if (!$succeeded) {
     $self->conversion_finalization();
     return undef;
-  }
-
-  $self->_prepare_title_titlepage($output_file, $output_filename,
-                                  $output_units);
-
-  $self->set_global_document_commands('before', ['documentlanguage']);
-
-  if (not (!defined($default_document_language)
-           and !defined($preamble_document_language))
-      and (!defined($default_document_language)
-           or !defined($preamble_document_language)
-           or $default_document_language ne $preamble_document_language)) {
-    $self->_translate_names();
   }
 
   # conversion

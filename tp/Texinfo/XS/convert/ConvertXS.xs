@@ -2279,15 +2279,24 @@ html_prepare_simpletitle (SV *converter_in)
              html_prepare_simpletitle (self);
            }
 
-void
-html_prepare_converted_output_info (SV *converter_in)
+int
+html_prepare_converted_output_info (SV *converter_in, output_file, output_filename, ...)
+         const char *output_file = (char *)SvPVutf8_nolen($arg);
+         const char *output_filename = (char *)SvPVutf8_nolen($arg);
+  PROTOTYPE: $$$$
   PREINIT:
          CONVERTER *self = 0;
+         int status = 0;
     CODE:
          self = get_sv_converter (converter_in,
                                   "html_prepare_converted_output_info");
          if (self)
-           html_prepare_converted_output_info (self);
+           status = html_prepare_converted_output_info (self, output_file,
+                                                        output_filename);
+         RETVAL = status;
+    OUTPUT:
+        RETVAL
+
 
 # $output_units
 void

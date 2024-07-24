@@ -7,6 +7,18 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info)
+	(output), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_converted_output_info),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_prepare_converted_output_info): move code from output, before
+	and after _prepare_converted_output_info to
+	_prepare_converted_output_info, including call of
+	prepare_title_titlepage.  Add arguments for prepare_title_titlepage.
+	Update XS override and C code.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_conversion_finalization)
 	(html_prepare_title_titlepage): remove calls of
 	build_html_formatting_state, the functions do not set anything passed
