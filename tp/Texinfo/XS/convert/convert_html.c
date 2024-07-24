@@ -16569,6 +16569,14 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   int handler_fatal_error_level
      = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
 
+  int structure_handler_status = run_stage_handlers (self, HSHT_type_structure);
+
+  if (structure_handler_status < handler_fatal_error_level
+      && structure_handler_status > -handler_fatal_error_level)
+    {}
+  else
+    return 0;
+
   if (self->conf->documentlanguage.o.string)
     default_document_language = strdup (self->conf->documentlanguage.o.string);
 

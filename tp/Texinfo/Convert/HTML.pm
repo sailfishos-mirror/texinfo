@@ -12889,6 +12889,18 @@ sub _prepare_converted_output_info($$$$)
   my $output_filename = shift;
   my $output_units = shift;
 
+  my $stage_handlers = $self->{'stage_handlers'};
+  my $document = $self->{'document'};
+
+  my $structure_status = $self->run_stage_handlers($stage_handlers,
+                                                   $document, 'structure');
+  my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
+
+  unless ($structure_status < $handler_fatal_error_level
+          and $structure_status > -$handler_fatal_error_level) {
+    return 0;
+  }
+
   my $default_document_language = $self->get_conf('documentlanguage');
 
   $self->set_global_document_commands('preamble', ['documentlanguage']);
@@ -13005,9 +13017,8 @@ sub _prepare_converted_output_info($$$$)
 
   # TODO document that this stage handler is called with end of preamble
   # documentlanguage when it is certain that this will not change ever.
-  my $init_status = $self->run_stage_handlers($self->{'stage_handlers'},
-                                              $self->{'document'}, 'init');
-  my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
+  my $init_status = $self->run_stage_handlers($stage_handlers,
+                                              $document, 'init');
   unless ($init_status < $handler_fatal_error_level
           and $init_status > -$handler_fatal_error_level) {
     return 0;
@@ -13497,6 +13508,36 @@ sub _setup_output($)
           $document_name];
 }
 
+sub _finish_output($$$$)
+{
+  my $self = shift;
+  my $output_file = shift;
+  my $destination_directory = shift;
+  my $files_source_info = shift;
+
+  _do_js_files($self, $destination_directory);
+
+  my $stage_handlers = $self->{'stage_handlers'};
+  my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
+  my $finish_status = $self->run_stage_handlers($stage_handlers,
+                                                $self->{'document'}, 'finish');
+  unless ($finish_status < $handler_fatal_error_level
+          and $finish_status > -$handler_fatal_error_level) {
+    return 0;
+  }
+
+  # undef status means an error occured, we should return immediately after
+  # calling $self->conversion_finalization() in that case.
+  my $node_redirections_status = _node_redirections($self, $output_file,
+                               $destination_directory, $files_source_info);
+
+  if (!defined($node_redirections_status)) {
+    return 0;
+  }
+
+  return 1;
+}
+
 # Main function for outputting a manual in HTML.
 # $SELF is the output converter object of class Texinfo::Convert::HTML (this
 # module), and $DOCUMENT is the parsed document from the parser and structuring
@@ -13528,18 +13569,6 @@ sub output($$)
                 $output_file, $destination_directory, $output_filename,
                 $document_name);
 
-  my $stage_handlers = $self->{'stage_handlers'};
-
-  my $structure_status = $self->run_stage_handlers($stage_handlers,
-                                                   $document, 'structure');
-  my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
-
-  unless ($structure_status < $handler_fatal_error_level
-          and $structure_status > -$handler_fatal_error_level) {
-    $self->conversion_finalization();
-    return undef;
-  }
-
   my $succeeded = _prepare_converted_output_info($self, $output_file,
                                       $output_filename, $output_units);
   if (!$succeeded) {
@@ -13568,20 +13597,14 @@ sub output($$)
     return $text_output;
   }
 
-  $self->_do_js_files($destination_directory);
+  my $finish_succeeded = _finish_output($self, $output_file,
+                                  $destination_directory, $files_source_info);
 
-  my $finish_status = $self->run_stage_handlers($stage_handlers,
-                                                $document, 'finish');
-  unless ($finish_status < $handler_fatal_error_level
-          and $finish_status > -$handler_fatal_error_level) {
+  if (!$finish_succeeded) {
     $self->conversion_finalization();
     return undef;
   }
 
-  # undef status means an error occured, we should return immediately after
-  # calling $self->conversion_finalization() in that case.
-  my $node_redirections_status = _node_redirections($self, $output_file,
-                               $destination_directory, $files_source_info);
   $self->conversion_finalization();
   return undef;
 }
