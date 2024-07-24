@@ -1071,14 +1071,6 @@ sub output_files_open_out($$$;$$)
   } elsif (defined(
              $customization_information->get_conf('OUTPUT_PERL_ENCODING'))) {
     $encoding = $customization_information->get_conf('OUTPUT_PERL_ENCODING');
-  } else {
-    # if XS is used, OUTPUT_PERL_ENCODING is not set when initializing the
-    # conversion, try to set it here
-    set_output_perl_encoding($customization_information);
-    if (defined(
-          $customization_information->get_conf('OUTPUT_PERL_ENCODING'))) {
-      $encoding = $customization_information->get_conf('OUTPUT_PERL_ENCODING');
-    }
   }
 
   if ($file_path eq '-') {

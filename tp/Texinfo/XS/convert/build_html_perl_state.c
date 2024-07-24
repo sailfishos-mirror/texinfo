@@ -41,6 +41,8 @@
 #include "convert_to_texinfo.h"
 #include "output_unit.h"
 #include "command_stack.h"
+/* for call_common_set_output_perl_encoding */
+#include "call_perl_function.h"
 /* also for perl_only_* wrappers */
 #include "build_perl_info.h"
 /* for NAMED_STRING_ELEMENT_LIST */
@@ -267,6 +269,8 @@ html_pass_conversion_initialization (CONVERTER *converter,
         {
           html_pass_converter_initialization_state (converter, converter_hv,
                                                     document_in);
+
+          call_common_set_output_perl_encoding (converter);
         }
     }
 }

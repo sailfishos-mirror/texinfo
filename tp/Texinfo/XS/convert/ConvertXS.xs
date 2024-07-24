@@ -833,7 +833,6 @@ html_convert (SV *converter_in, SV *document_in)
            are set and present in the buttons, as is the case in the default
            buttons.  For example in converters_tests/ref_in_sectioning
            or converters_tests/sections_and_printindex.
-           Output units lists are rebuilt in the XS code.
          */
         html_prepare_output_units_global_targets (self);
 

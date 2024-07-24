@@ -6,6 +6,8 @@
 #include "document_types.h"
 #include "converter_types.h"
 
+void call_common_set_output_perl_encoding (const CONVERTER *self);
+
 char *call_nodenamenormalization_unicode_to_transliterate (const char *text);
 
 const void *call_setup_collator (int use_unicode_collation,

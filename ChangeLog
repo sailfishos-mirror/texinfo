@@ -7,6 +7,21 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/call_perl_function.c
+	(call_common_set_output_perl_encoding): add a call to
+	Texinfo::Common::set_output_perl_encoding to be able to set
+	OUTPUT_PERL_ENCODING from C.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_conversion_initialization): call
+	call_common_set_output_perl_encoding if
+	converter->external_references_number > 0.
+
+	* tp/Texinfo/Common.pm (output_files_open_out): remove call to
+	set_output_perl_encoding.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(html_prepare_converted_output_info, html_do_js_files): free
 	default_document_language and preamble_document_language.  Free jsdir.

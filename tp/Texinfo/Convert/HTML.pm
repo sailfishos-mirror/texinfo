@@ -12580,6 +12580,7 @@ sub _prepare_simpletitle($)
   }
 }
 
+# Common to output and convert, run after the first handler in output.
 sub _init_conversion_after_setup_handler($)
 {
   my $self = shift;
@@ -12630,7 +12631,6 @@ sub convert($$)
   # are set and present in the buttons, as is the case in the default
   # buttons.  For example in converters_tests/ref_in_sectioning
   # or converters_tests/sections_and_printindex.
-  # Output units lists are rebuilt in the XS code.
   $self->_prepare_output_units_global_targets($output_units,
                                               $special_units,
                                               $associated_special_units);
@@ -13514,6 +13514,7 @@ sub _setup_output($)
           $document_name];
 }
 
+# return 0 on failure, 1 on success.
 sub _finish_output($$$$)
 {
   my $self = shift;
