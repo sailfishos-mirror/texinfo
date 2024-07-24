@@ -13,8 +13,10 @@
 HV *build_html_target (const HTML_TARGET *html_target);
 void build_html_translated_names (HV *hv, CONVERTER *converter);
 
+void html_pass_conversion_initialization (CONVERTER *converter,
+                                     SV *converter_sv, SV *document_in);
 void html_pass_converter_initialization_state (const CONVERTER *converter,
-                                          SV *converter_sv, SV *document_in);
+                                          HV *converter_hv, SV *document_in);
 
 void html_pass_converter_setup_state (const CONVERTER *converter,
                                       SV *converter_sv);

@@ -1,6 +1,17 @@
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_converter_initialization_state): pass converter HV, not SV.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_conversion_initialization),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_conversion_initialization): move code passing information
+	to Perl to html_pass_conversion_initialization from
+	html_conversion_initialization.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
 	(html_pass_converter_initialization_state): rename
 	html_pass_converter_output_state as
 	html_pass_converter_initialization_state.  Update caller.

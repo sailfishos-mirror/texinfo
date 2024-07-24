@@ -205,16 +205,13 @@ build_directions_strings (const CONVERTER *converter)
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
 void
 html_pass_converter_initialization_state (const CONVERTER *converter,
-                                       SV *converter_sv, SV *document_in)
+                                       HV *converter_hv, SV *document_in)
 {
-  HV *converter_hv;
   SV *no_arg_commands_formatting_sv;
   SV *directions_strings_sv;
   HV *shared_conversion_state_hv;
 
   dTHX;
-
-  converter_hv = (HV *) SvRV (converter_sv);
 
   no_arg_commands_formatting_sv = build_no_arg_commands_formatting (converter);
   STORE("no_arg_commands_formatting", no_arg_commands_formatting_sv);
@@ -227,6 +224,52 @@ html_pass_converter_initialization_state (const CONVERTER *converter,
         newRV_noinc ((SV *)shared_conversion_state_hv));
 }
 
+void
+html_pass_conversion_initialization (CONVERTER *converter,
+                                     SV *converter_sv, SV *document_in)
+{
+  HV *converter_hv;
+  HV *converter_info_hv;
+
+  dTHX;
+
+  converter_hv = (HV *) SvRV (converter_sv);
+
+  /* always set the document in the converter, as it is the only
+     way to find it back, it is not stored in C data */
+
+  pass_document_to_converter_sv (converter, converter_sv, document_in);
+
+  /* always set "converter_info" for calls to get_info in Perl. */
+  converter_info_hv = newHV ();
+
+  STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
+
+  if (converter)
+    {
+    /* internal links code is in Perl */
+      if (converter->conf->INTERNAL_LINKS.o.string)
+        converter->external_references_number++;
+    /* Conversion to LaTeX is in Perl */
+      if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+        converter->external_references_number++;
+
+      if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+        {
+          HV *options_latex_math_hv =
+          latex_build_options_for_convert_to_latex_math (converter);
+          hv_store (converter_hv, "options_latex_math",
+                    strlen ("options_latex_math"),
+                    newRV_noinc ((SV *)options_latex_math_hv), 0);
+        }
+
+      if (converter->external_references_number > 0)
+        {
+          html_pass_converter_initialization_state (converter, converter_hv,
+                                                    document_in);
+        }
+    }
+}
 
 void
 html_pass_converter_setup_state (const CONVERTER *converter,

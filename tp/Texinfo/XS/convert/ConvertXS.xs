@@ -589,45 +589,15 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
         self = converter_set_document_from_sv (converter_in, document_in);
-        /* always set the document in the converter, as it is the only
-           way to find it back, it is not stored in C data */
-        pass_document_to_converter_sv (self, converter_in, document_in);
-
-        /* always set "converter_info" for calls to get_info in Perl. */
-        converter_hv = (HV *) SvRV (converter_in);
-        converter_info_hv = newHV ();
-        hv_store (converter_hv, "converter_info", strlen ("converter_info"),
-                  newRV_noinc ((SV *)converter_info_hv), 0);
-
         if (self)
           {
             html_initialize_output_state (self, context);
             /* could be useful if something from Perl is needed
             html_conversion_initialization_sv (converter_in, self);
              */
+          }
 
-            /* internal links code is in Perl */
-            if (self->conf->INTERNAL_LINKS.o.string)
-              self->external_references_number++;
-            /* Conversion to LaTeX is in Perl */
-            if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-              self->external_references_number++;
-
-            if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-              {
-                HV *options_latex_math_hv =
-                latex_build_options_for_convert_to_latex_math (self);
-                hv_store (converter_hv, "options_latex_math",
-                          strlen ("options_latex_math"),
-                          newRV_noinc ((SV *)options_latex_math_hv), 0);
-              }
-
-              if (self->external_references_number > 0)
-                {
-                  html_pass_converter_initialization_state (self, converter_in,
-                                                            document_in);
-                }
-            }
+        html_pass_conversion_initialization (self, converter_in, document_in);
 
 SV *
 html_setup_output (SV *converter_in)
@@ -2307,9 +2277,6 @@ html_translate_names (SV *converter_in)
          self = get_sv_converter (converter_in, "html_translate_names");
 
          html_translate_names (self);
-         /*
-         build_html_translated_names ((HV *)SvRV (converter_in), self);
-          */
          if (self->modified_state)
            {
              build_html_formatting_state (self, self->modified_state);
