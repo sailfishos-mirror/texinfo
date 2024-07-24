@@ -852,6 +852,8 @@ valgrind --tool=callgrind perl -w texi2any.pl ../doc/texinfo.texi --html
 valgrind --tool=callgrind --separate-callers=3 --separate-recs=10 perl -w texi2any.pl ../doc/texinfo.texi --html
 kcachegrind callgrind.out.XXXXXX
 
+This is obsolete with output overriding, although the distribution changed
+very little after reattributing the shares.
 For the Texinfo manual with full XS, in 2024, Perl uses 22% of the time
 (for html), now only for code hopefully called once.  The switch to
 global locales for setlocale calling that is needed for Perl takes also 4%.

@@ -659,8 +659,132 @@ html_conversion_finalization (SV *converter_in)
              html_check_transfer_state_finalization (self);
            }
 
-#void
-#html_output (SV *converter_in, SV *document_id)
+SV *
+html_output (SV *converter_in, SV *document_in)
+      PREINIT:
+        CONVERTER *self;
+        char *paths[5];
+        int status;
+        char *result = 0;
+        int i;
+        const char *output_file;
+        const char *destination_directory;
+        const char *output_filename;
+        const char *document_name;
+        SV *output_units_sv;
+        SV *special_units_sv;
+        SV *associated_special_units_sv;
+      CODE:
+        /* html_conversion_initialization */
+        self = converter_set_document_from_sv (converter_in, document_in);
+
+        html_initialize_output_state (self, "_output");
+        /* could be useful if something from Perl is needed
+        html_conversion_initialization_sv (converter_in, self);
+         */
+
+        html_pass_conversion_initialization (self, converter_in, document_in);
+
+        /* html_setup_output */
+        status = html_setup_output (self, paths);
+        if (!status)
+          {
+            memset (paths, 0, 5 * sizeof (char *));
+            goto finalization;
+          }
+
+        html_pass_converter_setup_state (self, converter_in);
+
+        output_file = paths[0];
+        destination_directory = paths[1];
+        output_filename = paths[2];
+        document_name = paths[3];
+
+        /* html_prepare_conversion_units */
+        html_prepare_conversion_units (self);
+
+        html_pass_conversion_output_units (self, converter_in,
+                                     &output_units_sv, &special_units_sv,
+                                     &associated_special_units_sv);
+
+        /* calls Perl customization functions, so need to be done after
+            build_output_units_list calls to be able to retrieve Perl
+            output units references */
+        html_prepare_conversion_units_targets (self, self->document_name);
+
+        /* html_translate_names */
+        html_translate_names (self);
+        build_html_formatting_state (self);
+
+        /* html_prepare_units_directions_files */
+        html_prepare_units_directions_files (self,
+                   output_file, destination_directory, output_filename,
+                                document_name);
+
+        html_pass_units_directions_files (self, converter_in, output_units_sv,
+                                          special_units_sv,
+                                          associated_special_units_sv);
+
+        /* html_prepare_converted_output_info */
+        status = html_prepare_converted_output_info (self, output_file,
+                                                     output_filename);
+
+        if (!status)
+          goto finalization;
+
+        /* html_convert_output */
+        if (self->document)
+          {
+            result = html_convert_output (self, self->document->tree,
+                        output_file, destination_directory, output_filename,
+                        document_name);
+
+            build_html_formatting_state (self);
+
+            build_output_files_information (converter_in,
+                                            &self->output_files_information);
+          }
+
+        if (!result)
+          goto finalization;
+
+        if (strlen (result) && !strlen (output_file))
+          {
+            if (self->conf->TEST.o.integer <= 0 )
+              {
+    /* This case is unlikely to happen, as there is no output file
+       only if formatting is called as convert, which only happens in tests.
+     */
+                html_do_js_files (self);
+              }
+            goto finalization;
+          }
+
+        /* output to a file only */
+        free (result);
+        result = 0;
+
+        status = html_finish_output (self, output_file, destination_directory);
+
+      finalization:
+        for (i = 0; i < 5; i++)
+          {
+            free (paths[i]);
+          }
+        /* html_conversion_finalization */
+        html_conversion_finalization (self);
+
+        html_check_transfer_state_finalization (self);
+
+        if (result)
+          {
+            RETVAL = newSVpv_utf8 (result, 0);
+            free (result);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
 
 
 void

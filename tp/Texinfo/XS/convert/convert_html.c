@@ -20803,7 +20803,7 @@ do_jslicenses_file (CONVERTER *self)
     = root_html_element_attributes_string (self);
   if (!root_html_element_attributes)
     root_html_element_attributes = strdup ("");
-  text_printf (&result, "<html%s>\n", root_html_element_attributes);
+  text_printf (&result, "<html%s>", root_html_element_attributes);
   free (root_html_element_attributes);
   text_append (&result, "<head><title>jslicense labels</title></head>\n"
  "<body>\n"
@@ -20893,7 +20893,7 @@ do_jslicenses_file (CONVERTER *self)
 static const char *js_files[4] = {"info.js", "modernizr.js", "info.css", 0};
 
 void
-do_js_files (CONVERTER *self)
+html_do_js_files (CONVERTER *self)
 {
   const char *destination_directory = self->destination_directory;
 
@@ -21444,4 +21444,31 @@ html_node_redirections (CONVERTER *self,
     }
 
   return redirection_files_done;
+}
+
+int
+html_finish_output (CONVERTER *self, const char *output_file,
+                    const char *destination_directory)
+{
+  int finish_handler_status;
+  int handler_fatal_error_level
+     = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
+  int node_redirections_status;
+
+  html_do_js_files (self);
+
+  finish_handler_status = run_stage_handlers (self, HSHT_type_finish);
+
+  if (finish_handler_status < handler_fatal_error_level
+      && finish_handler_status > -handler_fatal_error_level)
+    {}
+  else
+    return 0;
+
+  node_redirections_status = html_node_redirections (self, output_file,
+                                                     destination_directory);
+  if (node_redirections_status < 0)
+    return 0;
+
+  return 1;
 }

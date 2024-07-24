@@ -101,6 +101,10 @@ my %XS_overrides = (
 );
 
 my %XS_conversion_overrides = (
+  "Texinfo::Convert::HTML::output"
+   => "Texinfo::Convert::ConvertXS::html_output",
+
+  # following are not called when output and convert are overriden
   "Texinfo::Convert::HTML::_XS_format_setup"
    => "Texinfo::Convert::ConvertXS::html_format_setup",
   "Texinfo::Convert::HTML::_XS_html_converter_initialize"
@@ -13526,8 +13530,7 @@ sub _finish_output($$$$)
     return 0;
   }
 
-  # undef status means an error occured, we should return immediately after
-  # calling $self->conversion_finalization() in that case.
+  # undef status means an error occured
   my $node_redirections_status = _node_redirections($self, $output_file,
                                $destination_directory, $files_source_info);
 

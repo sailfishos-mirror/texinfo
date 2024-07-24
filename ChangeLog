@@ -7,6 +7,22 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	XS override for HTML::output
+
+	* tp/Texinfo/XS/convert/convert_html.c (do_jslicenses_file): remove a
+	spurious end of line.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_do_js_files): rename
+	do_js_files as html_do_js_files.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_finish_output): add.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_output): add an XS override
+	for output.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
 	tp/Texinfo/XS/convert/build_html_perl_state.c
 	(html_pass_conversion_output_units): move code setting Perl data from
