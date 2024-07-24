@@ -1501,9 +1501,16 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
             }
         }
     }
+#undef FETCH
 }
 
 /* get jslicenses from Perl */
+/* currently unused, as jslicenses are setup in C.  Could be called like:
+  SV **jslicenses_sv = hv_fetch (converter_info_hv, "jslicenses",
+                                 strlen ("jslicenses"), 0);
+  if (jslicenses_sv)
+    html_get_jslicenses_sv (*jslicenses_sv, converter);
+ */
 void
 html_get_jslicenses_sv (SV *jslicenses_sv, CONVERTER *converter)
 {
@@ -1589,33 +1596,6 @@ html_get_jslicenses_sv (SV *jslicenses_sv, CONVERTER *converter)
         }
     }
 }
-
-void
-html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
-{
-  HV *converter_hv;
-  SV **converter_info_sv;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-  FETCH(converter_info);
-
-  if (converter_info_sv)
-    {
-      HV *converter_info_hv = (HV *)SvRV (*converter_info_sv);
-      SV **jslicenses_sv = hv_fetch (converter_info_hv, "jslicenses",
-                                     strlen ("jslicenses"), 0);
-      if (jslicenses_sv)
-        {
-          html_get_jslicenses_sv (*jslicenses_sv, converter);
-        }
-    }
-  html_converter_prepare_output (converter);
-}
-
-#undef FETCH
 
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen (#key), 0);
 

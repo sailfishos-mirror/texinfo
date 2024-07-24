@@ -17576,13 +17576,6 @@ html_converter_initialize (CONVERTER *self)
     */
 }
 
-/* called in the end of html_converter_prepare_output_sv, just before
-   html_prepare_title_titlepage and just before the start of conversion */
-void
-html_converter_prepare_output (CONVERTER* self)
-{
-}
-
 void
 reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
 {

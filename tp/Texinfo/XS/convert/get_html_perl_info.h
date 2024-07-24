@@ -27,8 +27,6 @@ void html_converter_initialize_sv (SV *converter_sv,
 void html_conversion_initialization_sv (SV *converter_sv,
                                         CONVERTER *converter);
 
-void html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter);
-
 const ELEMENT *html_find_element_from_sv (CONVERTER *converter,
                                     const SV *element_sv,
                                     int output_units_descriptor);

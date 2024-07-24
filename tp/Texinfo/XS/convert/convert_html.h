@@ -51,8 +51,6 @@ void html_conversion_finalization (CONVERTER *self);
 int html_setup_output (CONVERTER *self, char **paths);
 void html_setup_convert (CONVERTER *self);
 
-void html_converter_prepare_output (CONVERTER* self);
-
 void initialize_cmd_list (COMMAND_ID_LIST *cmd_list, size_t size,
                           size_t number);
 

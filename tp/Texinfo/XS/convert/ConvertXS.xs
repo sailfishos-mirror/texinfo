@@ -2303,8 +2303,6 @@ html_prepare_title_titlepage (SV *converter_in, output_file, output_filename, ..
          self = get_sv_converter (converter_in, "html_prepare_title_titlepage");
          if (self)
            {
-             html_converter_prepare_output_sv (converter_in, self);
-
              html_prepare_title_titlepage (self, output_file, output_filename);
              build_html_formatting_state (self);
            }

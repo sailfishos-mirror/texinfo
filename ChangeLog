@@ -7,6 +7,15 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_title_titlepage),
+	tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/get_html_perl_info.c: remove
+	html_converter_prepare_output, which does nothing.  Do not get
+	jslicenses from Perl as they are setup in C.  Remove
+	html_converter_prepare_output_sv, which now does nothing.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c (html_get_jslicenses_sv)
 	(html_converter_prepare_output_sv): split html_get_jslicenses_sv out
 	of html_converter_prepare_output_sv.
