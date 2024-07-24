@@ -13552,8 +13552,6 @@ sub output($$)
                        $destination_directory, $output_filename, $document_name,
                        $document, $output_units, $special_units);
 
-  $self->get_output_files_XS_unclosed_streams();
-
   if (!defined($text_output)) {
     $self->conversion_finalization();
     return undef;

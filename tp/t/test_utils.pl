@@ -429,9 +429,22 @@ sub close_files($)
   if ($converter_unclosed_files) {
     my $close_error_nr = 0;
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
-      if (!close($converter_unclosed_files->{$unclosed_file})) {
+      my $fh = $converter_unclosed_files->{$unclosed_file};
+      # undefined file handle means that the path comes from XS (normally
+      # through build_output_files_unclosed_files) but is not associated
+      # with a file handle yet, as a file handle can't be directly associated
+      # with a stream in C code, but the stream can be returned through
+      # an XS interface, here
+      # Texinfo::Convert::ConvertXS::get_unclosed_stream.
+      if (!defined($fh)) {
+        $fh = $converter->XS_get_unclosed_stream($unclosed_file);
+        if (!defined($fh)) {
+          next;
+        }
+      }
+      if (!close($fh)) {
         warn(sprintf("tp_utils.pl: error on closing %s: %s\n",
-                    $converter_unclosed_files->{$unclosed_file}, $!));
+                     $unclosed_file, $!));
         $close_error_nr++;
       }
     }

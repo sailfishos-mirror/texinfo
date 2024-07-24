@@ -1526,7 +1526,7 @@ if (get_conf('TREE_TRANSFORMATIONS')) {
 # not the case, the converted format is set here.  For example, for
 # the epub3 format, the converted format is html.  The converted format
 # should be the format actually used for conversion, in practice
-# this means that the module associated to the converted format in
+# this means that the module associated with the converted format in
 # $format_table will be used to find the converter methods.
 my $converted_format = $format;
 if ($formats_table{$format}->{'converted_format'}) {
@@ -1987,7 +1987,20 @@ while(@input_files) {
         $main_unclosed_files{$unclosed_file}
           = $converter_unclosed_files->{$unclosed_file};
       } else {
-        if (!close($converter_unclosed_files->{$unclosed_file})) {
+        my $fh = $converter_unclosed_files->{$unclosed_file};
+        # undefined file handle means that the path comes from XS (normally
+        # through build_output_files_unclosed_files) but is not associated
+        # with a file handle yet, as a file handle can't be directly associated
+        # with a stream in C code, but the stream can be returned through
+        # an XS interface, here
+        # Texinfo::Convert::ConvertXS::get_unclosed_stream.
+        if (!defined($fh)) {
+          $fh = $converter->XS_get_unclosed_stream($unclosed_file);
+          if (!defined($fh)) {
+            next;
+          }
+        }
+        if (!close($fh)) {
           warn(sprintf(__("%s: error on closing %s: %s\n"),
                            $real_command_name, $unclosed_file, $!));
           $error_count++;

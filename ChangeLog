@@ -7,6 +7,19 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (XS_get_unclosed_stream): rename
+	_XS_get_unclosed_stream as XS_get_unclosed_stream.
+	
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm
+	(output), tp/t/test_utils.pl (close_files), tp/texi2any.pl: handle
+	undef converter_unclosed_files in texi2any.pl and test_utils.pl
+	when processing the output of
+	Texinfo::Common::output_files_unclosed_files by calling
+	XS_get_unclosed_stream.  Remove get_output_files_XS_unclosed_streams,
+	now unneeded.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info)
 	(output), tp/Texinfo/XS/convert/ConvertXS.xs
 	(html_prepare_converted_output_info),
