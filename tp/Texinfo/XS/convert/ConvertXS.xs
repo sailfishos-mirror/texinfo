@@ -583,8 +583,6 @@ void
 html_conversion_initialization (SV *converter_in, const char *context, SV *document_in=0)
       PREINIT:
         CONVERTER *self;
-        HV *converter_info_hv;
-        HV *converter_hv;
       CODE:
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
@@ -658,11 +656,8 @@ html_conversion_finalization (SV *converter_in)
            {
              html_conversion_finalization (self);
 
-             if (self->modified_state)
-               {
-                 build_html_formatting_state (self, self->modified_state);
-                 self->modified_state = 0;
-               }
+             build_html_formatting_state (self);
+
              html_check_transfer_state_finalization (self);
            }
 
@@ -1558,11 +1553,8 @@ html_internal_command_text (SV *converter_in, SV *element_sv, const char *type)
                }
              text
                = html_internal_command_text (self, element, text_type);
-             if (self->modified_state)
-               {
-                 build_html_formatting_state (self, self->modified_state);
-                 self->modified_state = 0;
-               }
+
+             build_html_formatting_state (self);
            }
 
          if (text)
@@ -2277,12 +2269,7 @@ html_translate_names (SV *converter_in)
          self = get_sv_converter (converter_in, "html_translate_names");
 
          html_translate_names (self);
-         if (self->modified_state)
-           {
-             build_html_formatting_state (self, self->modified_state);
-             self->modified_state = 0;
-           }
-
+         build_html_formatting_state (self);
 
 void
 html_prepare_simpletitle (SV *converter_in)
@@ -2320,11 +2307,7 @@ html_prepare_title_titlepage (SV *converter_in, output_file, output_filename, ..
              html_converter_prepare_output_sv (converter_in, self);
 
              html_prepare_title_titlepage (self, output_file, output_filename);
-             if (self->modified_state)
-               {
-                 build_html_formatting_state (self, self->modified_state);
-                 self->modified_state = 0;
-               }
+             build_html_formatting_state (self);
            }
 
 # $document, $output_units, $special_units
@@ -2339,11 +2322,7 @@ html_convert_convert (SV *converter_in, ...)
          /* there could be strange results if the document and the converter document
             do not match.  There is no reason why it would happen, though */
          result = html_convert_convert (self, self->document->tree);
-         if (self->modified_state)
-           {
-             build_html_formatting_state (self, self->modified_state);
-             self->modified_state = 0;
-           }
+         build_html_formatting_state (self);
          RETVAL = newSVpv_utf8 (result, 0);
          free (result);
     OUTPUT:
@@ -2397,11 +2376,7 @@ html_convert_output (SV *converter_in, output_file, destination_directory, outpu
                         output_file, destination_directory, output_filename,
                         document_name);
 
-             if (self->modified_state)
-               {
-                 build_html_formatting_state (self, self->modified_state);
-                 self->modified_state = 0;
-               }
+             build_html_formatting_state (self);
 
              if (result)
                {

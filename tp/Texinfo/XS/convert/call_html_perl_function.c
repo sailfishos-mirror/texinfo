@@ -556,11 +556,7 @@ call_formatting_function_format_comment (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -609,11 +605,7 @@ call_formatting_function_format_program_string (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -661,11 +653,7 @@ call_formatting_function_format_titlepage (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -713,11 +701,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -766,11 +750,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -819,11 +799,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -931,11 +907,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -984,11 +956,7 @@ call_formatting_function_format_css_lines (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -1039,11 +1007,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   if (output_unit)
     output_unit_sv = newRV_inc (output_unit->hv);
@@ -1101,11 +1065,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   if (output_unit)
     output_unit_sv = newRV_inc (output_unit->hv);
@@ -1162,11 +1122,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -1224,11 +1180,7 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1287,11 +1239,7 @@ call_formatting_function_format_button (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1368,11 +1316,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1429,11 +1373,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1493,11 +1433,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1577,11 +1513,7 @@ call_formatting_function_format_contents (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1640,11 +1572,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1698,11 +1626,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1758,11 +1682,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1819,11 +1739,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
 
@@ -1881,11 +1797,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   if (!element->hv)
     {
@@ -1948,11 +1860,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
 
   formatting_reference_sv = self->types_open[type].sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -2016,11 +1924,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
 
   formatting_reference_sv = formatting_reference->sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   args_formatted_sv = build_html_command_formatted_args (args_formatted);
 
@@ -2086,11 +1990,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
    */
   command_name = element_command_name (element);
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -2145,11 +2045,7 @@ call_output_units_conversion (CONVERTER *self,
   formatting_reference_sv
      = self->output_units_conversion[unit_type].sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -2209,11 +2105,7 @@ call_special_unit_body_formatting (CONVERTER *self,
   formatting_reference_sv
      = self->special_unit_body[special_unit_number -1].sv_reference;
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   dSP;
 
@@ -2265,11 +2157,7 @@ call_button_simple_function (CONVERTER *self,
 
   build_tree_to_build (&self->tree_to_build);
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   result = new_formatted_button_info ();
 
@@ -2328,11 +2216,7 @@ call_button_direction_function (CONVERTER *self,
 
   build_tree_to_build (&self->tree_to_build);
 
-  if (self->modified_state)
-    {
-      build_html_formatting_state (self, self->modified_state);
-      self->modified_state = 0;
-    }
+  build_html_formatting_state (self);
 
   result = new_formatted_button_info ();
 

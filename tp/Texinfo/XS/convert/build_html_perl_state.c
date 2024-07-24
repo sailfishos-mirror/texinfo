@@ -564,17 +564,24 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
 }
 
 void
-build_html_formatting_state (CONVERTER *converter, unsigned long flags)
+build_html_formatting_state (CONVERTER *converter)
 {
   HV *hv;
+  unsigned long flags;
 
   dTHX;
 
-  if (!converter->hv)
+  flags = converter->modified_state;
+
+  if (!flags)
     return;
 
-  if (converter->external_references_number <= 0)
-    return;
+  if (converter->external_references_number <= 0 || !converter->hv)
+    {
+      converter->modified_state = 0;
+      return;
+    }
+
 
   hv = converter->hv;
 
@@ -602,6 +609,8 @@ build_html_formatting_state (CONVERTER *converter, unsigned long flags)
 
   if (flags & HMSF_translations)
     build_html_translated_names (hv, converter);
+
+  converter->modified_state = 0;
 }
 
 SV *
