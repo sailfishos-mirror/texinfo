@@ -7,6 +7,21 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_conversion_units),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_conversion_output_units): move code setting Perl data from
+	html_prepare_conversion_units to a new function,
+	html_pass_conversion_output_units.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_units_directions_files): move code setting Perl data from
+	html_prepare_units_directions_files to a new function,
+	html_pass_units_directions_files.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_prepare_converted_output_info)
 	(output), tp/Texinfo/XS/convert/convert_html.c
 	(html_prepare_converted_output_info): move call of structure handler

@@ -2123,56 +2123,19 @@ void
 html_prepare_conversion_units (SV *converter_in, ...)
       PROTOTYPE: $$$
       PREINIT:
-         HV *converter_hv;
          CONVERTER *self;
          SV *output_units_sv;
          SV *special_units_sv;
          SV *associated_special_units_sv;
-         HV *output_units_hv;
       PPCODE:
          self = get_sv_converter (converter_in,
                                   "html_prepare_conversion_units");
 
-         converter_hv = (HV *) SvRV (converter_in);
-
          html_prepare_conversion_units (self);
 
-         if (self->external_references_number > 0)
-           {
-         /* need to setup the Perl tree before rebuilding the output units as
-            they refer to Perl root command elements */
-             SV **document_sv
-               = hv_fetch (converter_hv, "document", strlen ("document"), 0);
-             if (document_sv)
-               {
-                 HV *document_hv = (HV *) SvRV (*document_sv);
-                 store_texinfo_tree (self->document, document_hv);
-               }
-
-             output_units_sv = build_output_units_list
-               (self->document, self->output_units_descriptors[OUDT_units]);
-             special_units_sv = build_output_units_list
-               (self->document,
-                self->output_units_descriptors[OUDT_special_units]);
-             associated_special_units_sv = build_output_units_list
-               (self->document,
-                self->output_units_descriptors[OUDT_associated_special_units]);
-           }
-         else
-           {
-             output_units_sv = setup_output_units_handler
-               (self->document, self->output_units_descriptors[OUDT_units]);
-             special_units_sv = setup_output_units_handler
-               (self->document,
-                self->output_units_descriptors[OUDT_special_units]);
-             associated_special_units_sv = setup_output_units_handler
-               (self->document,
-                self->output_units_descriptors[OUDT_associated_special_units]);
-           }
-
-         output_units_hv = (HV *) SvRV (output_units_sv);
-         hv_store (converter_hv, "document_units", strlen ("document_units"),
-                   newRV_inc ((SV *) output_units_hv), 0);
+         html_pass_conversion_output_units (self, converter_in,
+                                      &output_units_sv, &special_units_sv,
+                                      &associated_special_units_sv);
 
          /* calls Perl customization functions, so need to be done after
             build_output_units_list calls to be able to retrieve Perl
@@ -2202,31 +2165,9 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
                     output_file, destination_directory, output_filename,
                                  document_name);
 
-         if (self->external_references_number > 0)
-           {
-             /* build external_nodes_units before rebuilding the other
-                output units as the external_nodes_units have never been built,
-                while other units were already built without directions
-                information in html_prepare_conversion_units */
-             output_units_list_to_perl_hash (self->document,
-                   self->output_units_descriptors[OUDT_external_nodes_units]);
-
-             rebuild_output_units_list (self->document, output_units_in,
-                           self->output_units_descriptors[OUDT_units]);
-             rebuild_output_units_list (self->document, special_units_in,
-                      self->output_units_descriptors[OUDT_special_units]);
-             rebuild_output_units_list (self->document,
-                                        associated_special_units_in,
-                self->output_units_descriptors[OUDT_associated_special_units]);
-
-             html_setup_global_units_direction_names (self);
-
-             pass_html_elements_in_file_count (converter_in,
-                                               &self->output_unit_files);
-
-             /* file names API */
-             pass_output_unit_files (converter_in, &self->output_unit_files);
-           }
+         html_pass_units_directions_files (self, converter_in, output_units_in,
+                                           special_units_in,
+                                           associated_special_units_in);
 
          RETVAL = newSV (0);
     OUTPUT:
