@@ -13473,15 +13473,12 @@ sub output($$)
     = @$paths;
 
   # Get the list of output units to be processed.
-  # Customization information in $self->{'conf'} is passed to XS code too.
   my ($output_units, $special_units, $associated_special_units)
     = $self->_prepare_conversion_units($document, $document_name);
 
   # setup untranslated strings
   $self->_translate_names();
 
-  # Output units lists are rebuilt in the XS code so there is no need to call
-  # rebuild_output_units.
   my $files_source_info
     = $self->_prepare_units_directions_files($output_units, $special_units,
                 $associated_special_units,
@@ -13526,7 +13523,6 @@ sub output($$)
     return undef;
   }
 
-  # information settable by customization files is passed to XS too
   $self->_prepare_title_titlepage($output_file, $output_filename,
                                   $output_units);
 

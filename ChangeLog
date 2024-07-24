@@ -7,6 +7,12 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c (html_get_jslicenses_sv)
+	(html_converter_prepare_output_sv): split html_get_jslicenses_sv out
+	of html_converter_prepare_output_sv.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_internal_command_text):
 	do not call build_html_formatting_state, there is nothing set in C
 	that needs to be passed.

@@ -1501,7 +1501,93 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
             }
         }
     }
+}
 
+/* get jslicenses from Perl */
+void
+html_get_jslicenses_sv (SV *jslicenses_sv, CONVERTER *converter)
+{
+  I32 hv_number;
+  I32 i;
+  HV *jslicenses_hv;
+
+  dTHX;
+
+  jslicenses_hv = (HV *)SvRV (jslicenses_sv);
+
+  hv_number = hv_iterinit (jslicenses_hv);
+
+  if (hv_number > 0)
+    {
+      initialize_js_categories_list (&converter->jslicenses, hv_number);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          I32 hv_files_number;
+          I32 j;
+          HE *next = hv_iternext (jslicenses_hv);
+          SV *category_sv = hv_iterkeysv (next);
+          const char *category = (char *) SvPVutf8_nolen (category_sv);
+          SV *files_info_sv = HeVAL(next);
+          HV *files_info_hv = (HV *)SvRV (files_info_sv);
+
+          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+            = &converter->jslicenses.list[i];
+
+          hv_files_number = hv_iterinit (files_info_hv);
+
+          initialize_jslicense_files (jslicences_files_info, category,
+                                      hv_files_number);
+
+          for (j = 0; j < hv_files_number; j++)
+            {
+              HE *next_file = hv_iternext (files_info_hv);
+              SV *filename_sv = hv_iterkeysv (next);
+              char *filename = (char *) SvPVutf8_nolen (filename_sv);
+              SV *file_info_sv = HeVAL(next_file);
+              AV *file_info_av = (AV *)SvRV (file_info_sv);
+              SSize_t file_info_nr;
+              SV **license_sv;
+              SV **url_sv;
+              SV **source_sv;
+
+              JSLICENSE_FILE_INFO *jslicense_file_info
+                = &jslicences_files_info->list[j];
+              jslicense_file_info->filename = non_perl_strdup (filename);
+
+              file_info_nr = av_top_index (file_info_av) +1;
+              if (file_info_nr != 3)
+                {
+                  fprintf (stderr,
+                           "BUG: %s: %s: jslicence file needs 3 item: %zu\n",
+                           category, filename, file_info_nr);
+                  continue;
+                }
+              license_sv = av_fetch (file_info_av, 0, 0);
+              if (license_sv && SvOK (*license_sv))
+                {
+                  const char *license
+                    = (char *) SvPVutf8_nolen (*license_sv);
+                  jslicense_file_info->license
+                    = non_perl_strdup (license);
+                }
+              url_sv = av_fetch (file_info_av, 1, 0);
+              if (url_sv && SvOK (*url_sv))
+                {
+                  const char *url = (char *) SvPVutf8_nolen (*url_sv);
+                  jslicense_file_info->url = non_perl_strdup (url);
+                }
+              source_sv = av_fetch (file_info_av, 2, 0);
+              if (source_sv && SvOK (*source_sv))
+                {
+                  const char *source
+                    = (char *) SvPVutf8_nolen (*source_sv);
+                  jslicense_file_info->source
+                    = non_perl_strdup (source);
+                }
+            }
+        }
+    }
 }
 
 void
@@ -1521,87 +1607,9 @@ html_converter_prepare_output_sv (SV *converter_sv, CONVERTER *converter)
       HV *converter_info_hv = (HV *)SvRV (*converter_info_sv);
       SV **jslicenses_sv = hv_fetch (converter_info_hv, "jslicenses",
                                      strlen ("jslicenses"), 0);
-
       if (jslicenses_sv)
         {
-          I32 hv_number;
-          I32 i;
-
-          HV *jslicenses_hv = (HV *)SvRV (*jslicenses_sv);
-
-          hv_number = hv_iterinit (jslicenses_hv);
-
-          if (hv_number > 0)
-            {
-              initialize_js_categories_list (&converter->jslicenses, hv_number);
-
-              for (i = 0; i < hv_number; i++)
-                {
-                  I32 hv_files_number;
-                  I32 j;
-                  HE *next = hv_iternext (jslicenses_hv);
-                  SV *category_sv = hv_iterkeysv (next);
-                  const char *category = (char *) SvPVutf8_nolen (category_sv);
-                  SV *files_info_sv = HeVAL(next);
-                  HV *files_info_hv = (HV *)SvRV (files_info_sv);
-
-                  JSLICENSE_FILE_INFO_LIST *jslicences_files_info
-                    = &converter->jslicenses.list[i];
-
-                  hv_files_number = hv_iterinit (files_info_hv);
-
-                  initialize_jslicense_files (jslicences_files_info, category,
-                                              hv_files_number);
-
-                  for (j = 0; j < hv_files_number; j++)
-                    {
-                      HE *next_file = hv_iternext (files_info_hv);
-                      SV *filename_sv = hv_iterkeysv (next);
-                      char *filename = (char *) SvPVutf8_nolen (filename_sv);
-                      SV *file_info_sv = HeVAL(next_file);
-                      AV *file_info_av = (AV *)SvRV (file_info_sv);
-                      SSize_t file_info_nr;
-                      SV **license_sv;
-                      SV **url_sv;
-                      SV **source_sv;
-
-                      JSLICENSE_FILE_INFO *jslicense_file_info
-                        = &jslicences_files_info->list[j];
-                      jslicense_file_info->filename = non_perl_strdup (filename);
-
-                      file_info_nr = av_top_index (file_info_av) +1;
-                      if (file_info_nr != 3)
-                        {
-                          fprintf (stderr,
-                                   "BUG: %s: %s: jslicence file needs 3 item: %zu\n",
-                                   category, filename, file_info_nr);
-                          continue;
-                        }
-                      license_sv = av_fetch (file_info_av, 0, 0);
-                      if (license_sv && SvOK (*license_sv))
-                        {
-                          const char *license
-                            = (char *) SvPVutf8_nolen (*license_sv);
-                          jslicense_file_info->license
-                            = non_perl_strdup (license);
-                        }
-                      url_sv = av_fetch (file_info_av, 1, 0);
-                      if (url_sv && SvOK (*url_sv))
-                        {
-                          const char *url = (char *) SvPVutf8_nolen (*url_sv);
-                          jslicense_file_info->url = non_perl_strdup (url);
-                        }
-                      source_sv = av_fetch (file_info_av, 2, 0);
-                      if (source_sv && SvOK (*source_sv))
-                        {
-                          const char *source
-                            = (char *) SvPVutf8_nolen (*source_sv);
-                          jslicense_file_info->source
-                            = non_perl_strdup (source);
-                        }
-                    }
-                }
-            }
+          html_get_jslicenses_sv (*jslicenses_sv, converter);
         }
     }
   html_converter_prepare_output (converter);
