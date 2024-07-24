@@ -656,8 +656,6 @@ html_conversion_finalization (SV *converter_in)
            {
              html_conversion_finalization (self);
 
-             build_html_formatting_state (self);
-
              html_check_transfer_state_finalization (self);
            }
 
@@ -2304,7 +2302,6 @@ html_prepare_title_titlepage (SV *converter_in, output_file, output_filename, ..
          if (self)
            {
              html_prepare_title_titlepage (self, output_file, output_filename);
-             build_html_formatting_state (self);
            }
 
 # $document, $output_units, $special_units

@@ -19047,7 +19047,7 @@ html_check_transfer_state_finalization (CONVERTER *self)
   /* could change to 0 in releases? */
   if (1)
     {
-      /* check that all the state change have been transmitted */
+      /* check that all the state changes have been transmitted */
       /*
       if (self->tree_to_build.number > 0)
         fprintf (stderr, "BUG: tree_to_build: %zu\n",

@@ -7,6 +7,13 @@
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_conversion_finalization)
+	(html_prepare_title_titlepage): remove calls of
+	build_html_formatting_state, the functions do not set anything passed
+	in build_html_formatting_state.
+
+2024-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_prepare_title_titlepage),
 	tp/Texinfo/XS/convert/convert_html.c,
 	tp/Texinfo/XS/convert/get_html_perl_info.c: remove
