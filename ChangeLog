@@ -1,6 +1,14 @@
 2024-07-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)
+	(encode_file_name): add filename_encoding_conversion to cache the
+	encoding conversion like reverse_iconv did previously.  Reset in
+	set_input_encoding.  Call directly encode_with_iconv instead of
+	encode_string.
+
+2024-07-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)
 	(encode_file_name): use encode_string to encode the file name.  Remove
 	reverse_iconv.
 

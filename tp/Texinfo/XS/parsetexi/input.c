@@ -57,6 +57,9 @@ static char *input_pushback_string;
 
 static ENCODING_CONVERSION *current_encoding_conversion = 0;
 
+/* used in encode_file_name */
+static ENCODING_CONVERSION *filename_encoding_conversion = 0;
+
 /* ENCODING should always be lower cased */
 /* WARNING: it is very important for the first call to
    set_input_encoding to be for "utf-8" as the codes assume
@@ -65,6 +68,8 @@ int
 set_input_encoding (const char *encoding)
 {
   int encoding_set = 0;
+
+  filename_encoding_conversion = 0;
 
   current_encoding_conversion
     = get_encoding_conversion (encoding, &input_conversions);
@@ -170,25 +175,33 @@ convert_to_utf8 (char *s)
 char *
 encode_file_name (char *filename)
 {
-  int status;
-  const char *encoding = 0;
 
-  if (global_parser_conf.input_file_name_encoding)
-    encoding = global_parser_conf.input_file_name_encoding;
-  else if (global_parser_conf.doc_encoding_for_input_file_name)
+  if (!filename_encoding_conversion)
     {
-      if (current_encoding_conversion
-          && strcmp (parsed_document->global_info.input_encoding_name,
-                     "utf-8"))
-        encoding = current_encoding_conversion->encoding_name;
+      const char *encoding = 0;
+
+      if (global_parser_conf.input_file_name_encoding)
+        encoding = global_parser_conf.input_file_name_encoding;
+      else if (global_parser_conf.doc_encoding_for_input_file_name)
+        {
+          if (current_encoding_conversion
+              && strcmp (parsed_document->global_info.input_encoding_name,
+                         "utf-8"))
+            encoding = current_encoding_conversion->encoding_name;
+        }
+      else if (global_parser_conf.locale_encoding)
+        encoding = global_parser_conf.locale_encoding;
+
+      if (encoding)
+        filename_encoding_conversion = get_encoding_conversion (encoding,
+                                                    &output_conversions);
     }
-  else if (global_parser_conf.locale_encoding)
-    encoding = global_parser_conf.locale_encoding;
 
-  if (encoding)
+  if (filename_encoding_conversion)
     {
-      char *result = encode_string (filename, encoding, &status,
-                                    &current_source_info);
+      char *result
+        = encode_with_iconv (filename_encoding_conversion->iconv,
+                             filename, &current_source_info);
       char *saved_string = save_string (result);
       free (result);
       return saved_string;
@@ -509,10 +522,8 @@ save_string (const char *string)
 void
 parser_reset_encoding_list (void)
 {
-  /* could be named global_encoding_conversion and reset in wipe_global_info,
-     but we prefer to keep it static as long as it is only used in one
-     file */
   current_encoding_conversion = 0;
+  filename_encoding_conversion = 0;
 }
 
 int
