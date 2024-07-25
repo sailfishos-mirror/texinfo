@@ -59,6 +59,8 @@ sub run_test($$$$)
   # rebuild tree
   $tree_as_text = $document->tree();
 
+  # rebuild_tree calls build_document, therefore a new document is used instead
+  # of the one set during parsing.
   if ($XS_structuring) {
     $tree_as_line = Texinfo::Document::rebuild_tree($tree_as_line);
   }

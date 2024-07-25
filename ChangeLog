@@ -1,9 +1,31 @@
-2024-09-30  Patrice Dumas  <pertusus@free.fr>
+2024-07-25  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/ConvertXS.xs (html_command_description),
-	tp/Texinfo/XS/convert/call_html_perl_function.c
-	(call_formatting_function_format_single_footnote): check and reset
-	flags in build_html_formatting_state.
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(html_pass_conversion_initialization),
+	tp/Texinfo/XS/convert/convert_html.c (html_free_converter),
+	tp/Texinfo/XS/main/api_to_perl.c (unregister_html_converter_perl_hv),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): register the
+	converter_info_hv in pl_info_hv field in converter to get a stable
+	caching from C in Perl data, even if the Perl data changes.
+
+	* tp/Texinfo/XS/main/api_to_perl.c (unregister_document_hv),
+	tp/Texinfo/XS/main/build_perl_info.c (get_document, fill_document_hv),
+	tp/Texinfo/XS/main/document_types.h (DOCUMENT): register the document
+	HV in document to get a stable caching from C in Perl data, even if
+	the Perl data changes.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(get_converter_indices_sorted_by_index)
+	(get_converter_indices_sorted_by_letter),
+	tp/Texinfo/XS/main/build_perl_info.c (BUILD_PERL_DOCUMENT_ITEM)
+	(BUILD_PERL_DOCUMENT_LIST, document_global_information): use the
+	C document hv field to cache Perl data instead of the passde document,
+	in case it changed.  A changed document happens for DOcBook in tests
+	as a copy of the document is made, with the same document descriptor
+	and another object.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(pass_sv_converter_info): use the Perl object in C to cache.
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 
@@ -149,6 +171,13 @@
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_internal_command_text):
 	do not call build_html_formatting_state, there is nothing set in C
 	that needs to be passed.
+
+2024-09-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_command_description),
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_single_footnote): check and reset
+	flags in build_html_formatting_state.
 
 2024-07-24  Patrice Dumas  <pertusus@free.fr>
 

@@ -19165,6 +19165,8 @@ html_free_converter (CONVERTER *self)
   self->registered_ids = 0;
 #endif
 
+  unregister_html_converter_perl_hv (self);
+
   html_free_files_source_info (&self->files_source_info);
 
   free_strings_list (&self->check_htmlxref_already_warned);

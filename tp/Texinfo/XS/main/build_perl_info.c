@@ -1693,6 +1693,18 @@ get_document (size_t document_descriptor)
             strlen ("tree_document_descriptor"),
             newSViv (document_descriptor), 0);
 
+  if (!document->hv)
+    {
+      document->hv = (void *) hv;
+      SvREFCNT_inc ((SV *)hv);
+    }
+  else
+    {
+      if (document->options && document->options->DEBUG.o.integer > 0)
+        fprintf (stderr,
+          "get_document: %zu: already %p and new %p document hv\n",
+                 document_descriptor, document->hv, hv);
+    }
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   sv = newRV_noinc ((SV *) hv);
   sv_bless (sv, hv_stash);
@@ -1803,10 +1815,23 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
                 strlen ("tree_document_descriptor"),
                 newSViv (document_descriptor), 0);
 
+      if (!document->hv)
+        {
+          document->hv = (void *) hv;
+          SvREFCNT_inc ((SV *)hv);
+        }
+      else if ((HV *)document->hv != hv)
+        {/* this happens if called through rebuild_tree as build_document
+            is called in that case, the document HV is not reused */
+          if (document->options && document->options->DEBUG.o.integer > 0)
+            fprintf (stderr,
+              "fill_document_hv: %zu: %p and new %p document hv differ\n",
+                     document_descriptor, document->hv, hv);
+        }
     }
 }
 
-/* Return Texinfo::Document perl object corresponding to the
+/* Return a new Texinfo::Document perl object corresponding to the
    C document structure corresponding to DOCUMENT_DESCRIPTOR.
    If NO_STORE is set, destroy the C document.
  */
@@ -1900,14 +1925,14 @@ funcname (SV *document_in) \
         {\
           HVAV *result_av_hv = buildname (document->fieldname);\
           result_sv = newRV_inc ((SV *) result_av_hv);\
-          hv_store (document_hv, key, strlen (key), result_sv, 0);\
+          hv_store (document->hv, key, strlen (key), result_sv, 0);\
           document->modified_information &= ~flagname;\
         }\
     }\
 \
   if (!result_sv)\
     {\
-      SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);\
+      SV **sv_reference = hv_fetch (document->hv, key, strlen (key), 0);\
       if (sv_reference && SvOK (*sv_reference))\
         result_sv = *sv_reference;\
     }\
@@ -1954,14 +1979,14 @@ funcname (SV *document_in) \
         {\
           HVAV *result_av_hv = buildname (&document->fieldname);\
           result_sv = newRV_inc ((SV *) result_av_hv);\
-          hv_store (document_hv, key, strlen (key), result_sv, 0);\
+          hv_store (document->hv, key, strlen (key), result_sv, 0);\
           document->modified_information &= ~flagname;\
         }\
     }\
 \
   if (!result_sv)\
     {\
-      SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);\
+      SV **sv_reference = hv_fetch (document->hv, key, strlen (key), 0);\
       if (sv_reference && SvOK (*sv_reference))\
         result_sv = *sv_reference;\
     }\
@@ -1997,13 +2022,10 @@ BUILD_PERL_DOCUMENT_LIST(document_global_commands_information,global_commands,"c
 SV *
 document_global_information (SV *document_in)
 {
-  HV *document_hv;
   SV *result_sv = 0;
   const char *key = "global_info";
 
   dTHX;
-
-  document_hv = (HV *) SvRV (document_in);
 
   DOCUMENT *document = get_sv_document_document (document_in,
                                      "document_global_information");
@@ -2014,14 +2036,14 @@ document_global_information (SV *document_in)
           HV *result_hv = build_global_info (&document->global_info,
                                              &document->global_commands);
           result_sv = newRV_inc ((SV *) result_hv);
-          hv_store (document_hv, key, strlen (key), result_sv, 0);
+          hv_store (document->hv, key, strlen (key), result_sv, 0);
           document->modified_information &= ~F_DOCM_global_info;
         }
     }
 
   if (!result_sv)
     {
-      SV **sv_reference = hv_fetch (document_hv, key, strlen (key), 0);
+      SV **sv_reference = hv_fetch (document->hv, key, strlen (key), 0);
       if (sv_reference && SvOK (*sv_reference))
         result_sv = *sv_reference;
     }

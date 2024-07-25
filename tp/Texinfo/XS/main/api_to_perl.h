@@ -8,6 +8,9 @@
 void unregister_perl_tree_element (ELEMENT *e);
 void unregister_perl_button (BUTTON_SPECIFICATION *button);
 void register_perl_button (BUTTON_SPECIFICATION *button);
+void unregister_document_hv (DOCUMENT *document);
+/* HTML specific */
+void unregister_html_converter_perl_hv (CONVERTER *converter);
 
 void call_switch_to_global_locale (void);
 void call_sync_locale (void);

@@ -33,6 +33,7 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
+#include "document_types.h"
 /* non_perl_* */
 #include "utils.h"
 
@@ -116,4 +117,29 @@ void
 croak_message (char *message)
 {
   croak ("%s\n", message);
+}
+
+/* HTML specific */
+void
+unregister_html_converter_perl_hv (CONVERTER *converter)
+{
+  dTHX;
+
+  if (converter->pl_info_hv)
+    {
+      SvREFCNT_dec ((SV *)converter->pl_info_hv);
+      converter->pl_info_hv = 0;
+    }
+}
+
+void
+unregister_document_hv (DOCUMENT *document)
+{
+  dTHX;
+
+  if (document->hv)
+    {
+      SvREFCNT_dec ((SV *)document->hv);
+      document->hv = 0;
+    }
 }

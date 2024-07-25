@@ -238,14 +238,22 @@ html_pass_conversion_initialization (CONVERTER *converter,
   converter_hv = (HV *) SvRV (converter_sv);
 
   /* always set the document in the converter, as it is the only
-     way to find it back, it is not stored in C data */
-
+     way to find it back, it is not stored in C data.
+     TODO it is not foolproof, in case a document with the same descriptor
+     associate with another hash is passed.  There is/was a practical case,
+     in tests, a workaround for DocBook for tree modifications
+     with a copy of document hash.
+   */
   pass_document_to_converter_sv (converter, converter_sv, document_in);
 
   /* always set "converter_info" for calls to get_info in Perl. */
   converter_info_hv = newHV ();
 
   STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
+  /* store in C to be sure that the caching is in the same Perl object
+     even if the Perl data changes */
+  converter->pl_info_hv = converter_info_hv;
+  SvREFCNT_inc (converter_info_hv);
 
   if (converter)
     {
@@ -885,7 +893,6 @@ pass_sv_converter_info (const CONVERTER *converter,
                         const char *converter_info, SV *converter_sv)
 {
   HV *converter_hv;
-  SV **converter_info_sv;
   HV *converter_info_hv;
   SV **info_sv;
   SV *new_sv = 0;
@@ -893,9 +900,9 @@ pass_sv_converter_info (const CONVERTER *converter,
   dTHX;
 
   converter_hv = (HV *) SvRV (converter_sv);
-  converter_info_sv = hv_fetch (converter_hv, "converter_info",
-                                strlen ("converter_info"), 0);
-  converter_info_hv = (HV *) SvRV (*converter_info_sv);
+  /* do not find the cache in Perl data but in C to be more robust to
+     changes in Perl objects */
+  converter_info_hv = converter->pl_info_hv;
 
   /* The information is cached in the same place as in Perl code.
      Either Perl code or XS code is used, so this is for consistency

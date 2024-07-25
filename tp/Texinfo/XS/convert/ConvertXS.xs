@@ -302,9 +302,10 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
         document_sv = hv_fetch (converter_hv, "document",
                                 strlen ("document"), 0);
         RETVAL = 0;
-        if (document_sv)
+        if (document_sv && self->document->hv)
           {
-            /* The sorted indices are cached in the same place as in Perl code.
+            /* The sorted indices are cached in the same place as in Perl code
+               gathered at document initialization.
                Either Perl code or XS code is used, so this is for consistency
                not really for interoperability */
             /* set to document "sorted_indices_by_index" */
@@ -316,7 +317,7 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                not found */
             if (language)
               {
-                HV *document_hv = (HV *) SvRV (*document_sv);
+                HV *document_hv = (HV *) self->document->hv;
                 SV *index_entries_by_index_sv
                  = get_language_document_hv_sorted_indices (document_hv,
                                     "sorted_indices_by_index", language,
@@ -375,9 +376,10 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
         document_sv = hv_fetch (converter_hv, "document",
                                 strlen ("document"), 0);
         RETVAL = 0;
-        if (document_sv)
+        if (document_sv && self->document->hv)
           {
-            /* The sorted indices are cached in the same place as in Perl code.
+            /* The sorted indices are cached in the same place as in Perl code
+               gathered at document initialization.
                Either Perl code or XS code is used, so this is for consistency
                not really for interoperability */
             /* set to document "sorted_indices_by_letter" */
@@ -389,7 +391,7 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
                not found */
             if (language)
               {
-                HV *document_hv = (HV *) SvRV (*document_sv);
+                HV *document_hv = (HV *) self->document->hv;
                 SV *index_entries_by_index_sv
                  = get_language_document_hv_sorted_indices (document_hv,
                                     "sorted_indices_by_letter", language,

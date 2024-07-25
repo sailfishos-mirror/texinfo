@@ -900,6 +900,13 @@ typedef struct CONVERTER {
     FILE_ASSOCIATED_INFO_LIST html_files_information;
     /* state common with perl converter, not transmitted to perl */
     int use_unicode_text;
+
+    /* used to cache information passed to Perl, corresponding to
+       document and converter_info.  Actually reference to the corresponding
+       Perl objects as setup at initialization, kept here to be sure that
+       they do not change even if later on another object is passed.
+     */
+    void *pl_info_hv; /* converter->{'converter_info'} */
 } CONVERTER;
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {
