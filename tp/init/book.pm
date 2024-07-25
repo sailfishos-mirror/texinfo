@@ -369,7 +369,15 @@ sub book_convert_heading_command($$$$$)
   # if set, the id is associated to the heading text
   my $heading_id;
   if ($opening_section) {
-    my $level = $opening_section->{'extra'}->{'section_level'};
+    my $level;
+    if ($opening_section->{'extra'}
+        and defined($opening_section->{'extra'}->{'section_level'})) {
+      $level = $opening_section->{'extra'}->{'section_level'};
+    } else {
+      # if Structuring sectioning_structure was not called on the
+      # document (cannot happen in main program or test_utils.pl tests)
+      $level = Texinfo::Common::section_level($opening_section);
+    }
     my $closed_strings = $self->close_registered_sections_level($level);
     $result .= join('', @{$closed_strings});
     $self->register_opened_section_level($level, "</div>\n");
