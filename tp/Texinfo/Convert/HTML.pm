@@ -4964,7 +4964,7 @@ sub _convert_heading_command($$$$$)
     $sections_list = $document->sections_list();
   }
 
-  my $tables_of_contents = '';
+  my $toc_or_mini_toc_or_auto_menu = '';
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
       and $cmdname eq 'top'
       and $sections_list
@@ -4974,17 +4974,16 @@ sub _convert_heading_command($$$$$)
         my $contents_text
           = $self->_contents_inline_element($content_command_name, undef);
         if ($contents_text ne '') {
-          $tables_of_contents .= $contents_text;
+          $toc_or_mini_toc_or_auto_menu .= $contents_text;
         }
       }
     }
   }
 
-  my $mini_toc_or_auto_menu = '';
-  if ($tables_of_contents eq ''
+  if ($toc_or_mini_toc_or_auto_menu eq ''
       and $sectioning_heading_commands{$cmdname}) {
     if ($self->get_conf('FORMAT_MENU') eq 'sectiontoc') {
-      $mini_toc_or_auto_menu = _mini_toc($self, $element);
+      $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $element);
     } elsif ($self->get_conf('FORMAT_MENU') eq 'menu') {
       my $node = $element->{'extra'}->{'associated_node'}
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'});
@@ -4998,7 +4997,6 @@ sub _convert_heading_command($$$$$)
         if ($node->{'extra'}
             and not $node->{'extra'}->{'menus'}
             and $automatic_directions) {
-          my $document = $self->get_info('document');
           my $identifiers_target;
           if ($document) {
             $identifiers_target = $document->labels_information();
@@ -5007,7 +5005,7 @@ sub _convert_heading_command($$$$$)
             = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                                  $identifiers_target, $node);
           if ($menu_node) {
-            $mini_toc_or_auto_menu = $self->convert_tree($menu_node,
+            $toc_or_mini_toc_or_auto_menu = $self->convert_tree($menu_node,
                                                          'master menu');
           }
         }
@@ -5025,8 +5023,7 @@ sub _convert_heading_command($$$$$)
       $result .= &{$self->formatting_function('format_separate_anchor')}($self,
                                                         $element_id, $id_class);
       $result .= $element_header;
-      $result .= $tables_of_contents;
-      $result .= $mini_toc_or_auto_menu;
+      $result .= $toc_or_mini_toc_or_auto_menu;
       return $result;
     }
   }
@@ -5193,8 +5190,7 @@ sub _convert_heading_command($$$$$)
 
   $result .= $content if (defined($content));
 
-  $result .= $tables_of_contents;
-  $result .= $mini_toc_or_auto_menu;
+  $result .= $toc_or_mini_toc_or_auto_menu;
 
   return $result;
 }

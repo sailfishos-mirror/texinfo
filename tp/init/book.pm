@@ -218,7 +218,7 @@ sub book_convert_heading_command($$$$$)
     $sections_list = $document->sections_list();
   }
 
-  my $tables_of_contents = '';
+  my $toc_or_mini_toc_or_auto_menu = '';
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
       and $cmdname eq 'top'
       and $sections_list
@@ -228,24 +228,25 @@ sub book_convert_heading_command($$$$$)
         my $contents_text
           = $self->_contents_inline_element($content_command_name, undef);
         if ($contents_text ne '') {
-          $tables_of_contents .= $contents_text;
+          $toc_or_mini_toc_or_auto_menu .= $contents_text;
         }
       }
     }
   }
 
-  my $sub_toc = '';
-  if ($tables_of_contents eq ''
+  if ($toc_or_mini_toc_or_auto_menu eq ''
+      and $element->{'extra'}
       and $element->{'extra'}->{'section_childs'}
       and scalar(@{$element->{'extra'}->{'section_childs'}})
       # avoid a double of contents if already after title
       and ($cmdname ne 'top'
            or $self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'after_title')
       and $Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
-    $sub_toc .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
-    $sub_toc .= book_print_sub_toc($self, $element,
+    $toc_or_mini_toc_or_auto_menu
+      .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
+    $toc_or_mini_toc_or_auto_menu .= book_print_sub_toc($self, $element,
                                  $element->{'extra'}->{'section_childs'}->[0]);
-    $sub_toc .= "</ul>\n";
+    $toc_or_mini_toc_or_auto_menu .= "</ul>\n";
   }
 
   if ($self->get_conf('NO_TOP_NODE_OUTPUT')
@@ -258,8 +259,7 @@ sub book_convert_heading_command($$$$$)
       $result .= &{$self->formatting_function('format_separate_anchor')}($self,
                                                         $element_id, $id_class);
       $result .= $element_header;
-      $result .= $tables_of_contents;
-      $result .= $sub_toc;
+      $result .= $toc_or_mini_toc_or_auto_menu;
       return $result;
     }
   }
@@ -424,8 +424,7 @@ sub book_convert_heading_command($$$$$)
                                                        $heading_id, $cmdname);
   }
 
-  $result .= $tables_of_contents;
-  $result .= $sub_toc;
+  $result .= $toc_or_mini_toc_or_auto_menu;
 
   $result .= $content if (defined($content));
 

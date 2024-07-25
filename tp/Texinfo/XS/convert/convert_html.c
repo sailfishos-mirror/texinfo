@@ -10525,9 +10525,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   const char *element_id;
   const OUTPUT_UNIT *output_unit = 0;
   TEXT element_header;
-  /* could use only one, but this is more similar to perl code */
-  TEXT tables_of_contents;
-  TEXT mini_toc_or_auto_menu;
+  TEXT toc_or_mini_toc_or_auto_menu;
   enum command_id level_corrected_cmd;
   int status;
   char *heading;
@@ -10577,8 +10575,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
     format_element_header (self, element_command_name (element), element,
                            output_unit, &element_header);
 
-  text_init (&tables_of_contents);
-  text_append (&tables_of_contents, "");
+  text_init (&toc_or_mini_toc_or_auto_menu);
+  text_append (&toc_or_mini_toc_or_auto_menu, "");
   if (element->e.c->cmd == CM_top
       && self->conf->CONTENTS_OUTPUT_LOCATION.o.string
       && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "after_top")
@@ -10601,22 +10599,20 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                 = contents_inline_element (self, cmd, 0);
               if (contents_text)
                 {
-                  text_append (&tables_of_contents, contents_text);
+                  text_append (&toc_or_mini_toc_or_auto_menu, contents_text);
                   free (contents_text);
                 }
             }
         }
     }
 
-  text_init (&mini_toc_or_auto_menu);
-  text_append (&mini_toc_or_auto_menu, "");
-  if (tables_of_contents.end <= 0
+  if (toc_or_mini_toc_or_auto_menu.end <= 0
       && (flags & CF_sectioning_heading)
       && self->conf->FORMAT_MENU.o.string)
     {
       if (!strcmp (self->conf->FORMAT_MENU.o.string, "sectiontoc"))
         {
-          mini_toc_internal (self, element, &mini_toc_or_auto_menu);
+          mini_toc_internal (self, element, &toc_or_mini_toc_or_auto_menu);
         }
       else if (!strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
         {
@@ -10637,7 +10633,7 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                     {
                       add_tree_to_build (self, menu_node);
                       convert_to_html_internal (self, menu_node,
-                                                &mini_toc_or_auto_menu,
+                                                &toc_or_mini_toc_or_auto_menu,
                                                 "master menu");
                       remove_tree_to_build (self, menu_node);
                       /* there are only new or copied elements in the menu */
@@ -10660,10 +10656,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
                                   builtin_command_name (cmd), result);
           text_append (result, element_header.text);
           free (element_header.text);
-          text_append (result, tables_of_contents.text);
-          free (tables_of_contents.text);
-          text_append (result, mini_toc_or_auto_menu.text);
-          free (mini_toc_or_auto_menu.text);
+          text_append (result, toc_or_mini_toc_or_auto_menu.text);
+          free (toc_or_mini_toc_or_auto_menu.text);
           return;
         }
     }
@@ -10918,10 +10912,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
   if (content)
     text_append (result, content);
 
-  text_append (result, tables_of_contents.text);
-  free (tables_of_contents.text);
-  text_append (result, mini_toc_or_auto_menu.text);
-  free (mini_toc_or_auto_menu.text);
+  text_append (result, toc_or_mini_toc_or_auto_menu.text);
+  free (toc_or_mini_toc_or_auto_menu.text);
 }
 
 void
