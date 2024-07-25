@@ -1,5 +1,13 @@
 2024-07-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)
+	(parser_reset_encoding_list): use the general input_conversions from
+	utils.c in the parser.  Remove parser_input_conversions.  Do not call
+	reset_encoding_list in parser_reset_encoding_list such that conversion
+	code can reuse the converter setup for the parsing.
+
+2024-07-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c (remove_document_descriptor): call
 	unregister_document_hv.
 

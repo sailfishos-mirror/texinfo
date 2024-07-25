@@ -86,9 +86,6 @@ initialize_parsing (enum context root_ct)
   current_part = 0;
   source_marks_reset_counters ();
 
-  /* it is not totally obvious that is it better to reset the
-     list to avoid memory leaks rather than reuse the iconv
-     opened handlers */
   parser_reset_encoding_list ();
   set_input_encoding ("utf-8");
 
