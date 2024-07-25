@@ -32,6 +32,7 @@
 #include "manipulate_indices.h"
 #include "convert_to_text.h"
 #include "output_unit.h"
+#include "api_to_perl.h"
 #include "document.h"
 
 static DOCUMENT **document_list;
@@ -473,6 +474,8 @@ remove_document_descriptor (size_t document_descriptor)
     }
   if (document->small_strings)
     destroy_strings_list (document->small_strings);
+
+  unregister_document_hv (document);
 
   /*
   fprintf (stderr, "REMOVE %zu %p\n", document_descriptor, document);

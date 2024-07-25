@@ -1,5 +1,10 @@
 2024-07-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document.c (remove_document_descriptor): call
+	unregister_document_hv.
+
+2024-07-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/build_html_perl_state.c
 	(html_pass_conversion_initialization),
 	tp/Texinfo/XS/convert/convert_html.c (html_free_converter),
