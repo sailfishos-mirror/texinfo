@@ -1,6 +1,12 @@
 2024-07-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)
+	(encode_file_name): use encode_string to encode the file name.  Remove
+	reverse_iconv.
+
+2024-07-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)
 	(parser_reset_encoding_list): use the general input_conversions from
 	utils.c in the parser.  Remove parser_input_conversions.  Do not call
 	reset_encoding_list in parser_reset_encoding_list such that conversion

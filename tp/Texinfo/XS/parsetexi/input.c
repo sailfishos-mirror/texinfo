@@ -55,8 +55,6 @@ typedef struct {
 
 static char *input_pushback_string;
 
-static iconv_t reverse_iconv; /* used in encode_file_name */
-
 static ENCODING_CONVERSION *current_encoding_conversion = 0;
 
 /* ENCODING should always be lower cased */
@@ -67,12 +65,6 @@ int
 set_input_encoding (const char *encoding)
 {
   int encoding_set = 0;
-
-  if (reverse_iconv)
-    {
-      iconv_close (reverse_iconv);
-      reverse_iconv = (iconv_t) 0;
-    }
 
   current_encoding_conversion
     = get_encoding_conversion (encoding, &input_conversions);
@@ -178,36 +170,28 @@ convert_to_utf8 (char *s)
 char *
 encode_file_name (char *filename)
 {
-  if (!reverse_iconv)
+  int status;
+  const char *encoding = 0;
+
+  if (global_parser_conf.input_file_name_encoding)
+    encoding = global_parser_conf.input_file_name_encoding;
+  else if (global_parser_conf.doc_encoding_for_input_file_name)
     {
-      if (global_parser_conf.input_file_name_encoding)
-        {
-          reverse_iconv
-            = iconv_open (global_parser_conf.input_file_name_encoding, "UTF-8");
-        }
-      else if (global_parser_conf.doc_encoding_for_input_file_name)
-        {
-          if (current_encoding_conversion
-              && strcmp (parsed_document->global_info.input_encoding_name,
-                         "utf-8"))
-            {
-              char *conversion_encoding
-                = current_encoding_conversion->encoding_name;
-              reverse_iconv = iconv_open (conversion_encoding, "UTF-8");
-            }
-        }
-      else if (global_parser_conf.locale_encoding)
-        {
-          reverse_iconv = iconv_open (global_parser_conf.locale_encoding, "UTF-8");
-        }
+      if (current_encoding_conversion
+          && strcmp (parsed_document->global_info.input_encoding_name,
+                     "utf-8"))
+        encoding = current_encoding_conversion->encoding_name;
     }
-  if (reverse_iconv && reverse_iconv != (iconv_t) -1)
+  else if (global_parser_conf.locale_encoding)
+    encoding = global_parser_conf.locale_encoding;
+
+  if (encoding)
     {
-      char *s, *conv;
-      conv = encode_with_iconv (reverse_iconv, filename, &current_source_info);
-      s = save_string (conv);
-      free (conv);
-      return s;
+      char *result = encode_string (filename, encoding, &status,
+                                    &current_source_info);
+      char *saved_string = save_string (result);
+      free (result);
+      return saved_string;
     }
   else
     {
