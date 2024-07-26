@@ -1,3 +1,12 @@
+2024-07-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/tp_api/Makefile.am (DISTCLEANFILES, dist-info): do not
+	distribute Info files.
+
+	* doc/tp_api/Makefile.am (maintainerclean-local)
+	(MAINTAINERCLEANFILES): remove generated Texinfo file with
+	maintainerclean.
+
 2023-10-22  Patrice Dumas  <pertusus@free.fr>
 
 	* man/Makefile.am (generated_mans, MAINTAINERCLEANFILES): distinguish
