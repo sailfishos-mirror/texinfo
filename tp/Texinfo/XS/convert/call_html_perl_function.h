@@ -52,6 +52,11 @@ char *call_formatting_function_format_protect_text (CONVERTER *self,
                                               const char *text);
 char *call_formatting_function_format_footnotes_segment (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference);
+char *call_formatting_function_format_single_footnote (CONVERTER *self,
+                                                       const char *footid,
+                         const char *footnote_location_href, const char *mark,
+                         const char *footnote_text,
+                         const FORMATTING_REFERENCE *formatting_reference);
 char *call_formatting_function_format_footnotes_sequence (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference);
 char *call_formatting_function_format_css_lines (CONVERTER *self,

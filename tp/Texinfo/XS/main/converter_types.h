@@ -153,6 +153,7 @@ enum html_file_id_setting {
   html_fr_reference(format_end_file) \
   html_fr_reference(format_footnotes_segment) \
   html_fr_reference(format_footnotes_sequence) \
+  html_fr_reference(format_single_footnote) \
   html_fr_reference(format_heading_text) \
   html_fr_reference(format_navigation_header) \
   html_fr_reference(format_navigation_panel) \

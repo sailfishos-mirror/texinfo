@@ -8478,6 +8478,7 @@ foreach my $customized_reference ('external_target_split_name',
      'format_end_file' => \&_default_format_end_file,
      'format_footnotes_segment' => \&_default_format_footnotes_segment,
      'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
+     'format_single_footnote' => \&_default_format_single_footnote,
      'format_heading_text' => \&_default_format_heading_text,
      'format_navigation_header' => \&_default_format_navigation_header,
      'format_navigation_panel' => \&_default_format_navigation_panel,
@@ -11466,6 +11467,14 @@ $after_body_open
   return $result;
 }
 
+sub _default_format_single_footnote($$$$$)
+{
+  my $self = shift;
+  my ($id, $href, $mark, $text) = @_;
+  return $self->html_attribute_class('h5', ['footnote-body-heading']) . '>'.
+     "<a id=\"$id\" href=\"$href\">($mark)</a></h5>\n" . $text;
+}
+
 sub _default_format_footnotes_sequence($)
 {
   my $self = shift;
@@ -11502,9 +11511,9 @@ sub _default_format_footnotes_sequence($)
       $footnote_mark = '' if (!defined($footnote_mark));
     }
 
-    $result .= $self->html_attribute_class('h5', ['footnote-body-heading']) . '>'.
-     "<a id=\"$footid\" href=\"$footnote_location_href\">($footnote_mark)</a></h5>\n"
-     . $footnote_text;
+    $result .= &{$self->formatting_function('format_single_footnote')}($self,
+                            $footid, $footnote_location_href, $footnote_mark,
+                                                              $footnote_text);
   }
   return $result;
 }

@@ -855,6 +855,65 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
 }
 
 char *
+call_formatting_function_format_single_footnote (CONVERTER *self,
+                                                 const char *footid,
+                        const char *footnote_location_href, const char *mark,
+                        const char *footnote_text,
+                        const FORMATTING_REFERENCE *formatting_reference)
+{
+  int count;
+  char *result;
+  const char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV *formatting_reference_sv;
+
+  dTHX;
+
+  formatting_reference_sv = formatting_reference->sv_reference;
+
+  if (self->modified_state)
+    {
+      build_html_formatting_state (self, self->modified_state);
+      self->modified_state = 0;
+    }
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 1);
+
+  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (footid, 0)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (footnote_location_href, 0)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (mark, 0)));
+  PUSHs(sv_2mortal (newSVpv_utf8 (footnote_text, 0)));
+  PUTBACK;
+
+  count = call_sv (formatting_reference_sv,
+                   G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("format_single_footnote should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = non_perl_strndup (result_ret, len);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
+
+char *
 call_formatting_function_format_footnotes_sequence (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference)
 {

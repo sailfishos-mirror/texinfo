@@ -6412,6 +6412,49 @@ static const STRING_LIST foot_body_heading_classes
    = {foot_body_heading_array, 1, 1};
 
 void
+html_default_format_single_footnote (CONVERTER *self, const char *footid,
+                    const char *footnote_location_href, const char *mark,
+                    const char *footnote_text, TEXT *result)
+{
+  char *attribute_class;
+
+  attribute_class = html_attribute_class (self, "h5",
+                    &foot_body_heading_classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+
+  text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
+               footid, footnote_location_href, mark);
+
+  text_append (result, footnote_text);
+}
+
+void
+format_single_footnote (CONVERTER *self, const char *footid,
+                        const char *footnote_location_href, const char *mark,
+                        const char *footnote_text, TEXT *result)
+{
+  const FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_single_footnote];
+  if (formatting_reference->status == FRS_status_default_set)
+    {
+      html_default_format_single_footnote (self, footid,
+                                   footnote_location_href, mark,
+                                   footnote_text, result);
+    }
+  else
+    {
+      char *footnote
+        = call_formatting_function_format_single_footnote (self, footid,
+                                           footnote_location_href, mark,
+                                                footnote_text,
+                                                formatting_reference);
+      text_append (result, footnote);
+      free (footnote);
+    }
+}
+
+void
 html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
   size_t i;
@@ -6431,7 +6474,6 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           char *footnote_text;
           char *context_str;
           char *footnote_text_with_eol;
-          char *attribute_class;
           char *footnote_mark;
           char *footnote_location_href
            = html_footnote_location_href (self, command, 0,
@@ -6474,19 +6516,9 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           else
             footnote_mark = strdup ("");
 
-          attribute_class = html_attribute_class (self, "h5",
-                            &foot_body_heading_classes);
-          text_append (result, attribute_class);
-          free (attribute_class);
-
-          text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
-                       footid, footnote_location_href, footnote_mark);
-
-          free (footnote_mark);
-          free (footnote_location_href);
-
-          text_append (result, footnote_text_with_eol);
-          free (footnote_text_with_eol);
+          format_single_footnote (self, footid, footnote_location_href,
+                                  footnote_mark, footnote_text_with_eol,
+                                  result);
         }
     }
   destroy_pending_footnotes (pending_footnotes);

@@ -4163,7 +4163,22 @@ The formatting of footnotes content is done by the
 Formats and returns the footnotes that need to be formatted.  This function
 normally calls @code{get_pending_footnotes}.  The default function also calls
 @code{footnote_location_href} to link to the location in the document where
-the footnote appeared.
+the footnote appeared, and the @code{format_single_footnote} formatting
+function to format a single footnote.
+@end deftypefn
+
+The formatting of one footnote is done by the @code{format_single_footnote}
+formatting reference:
+
+@deftypefn {Function Reference} @var{$footnote} format_single_footnote @
+  (@var{$converter}, @var{$footnote_id}, @var{$footnote_location_href}, @
+   @var{$footnote_mark}, @var{$footnote_text})
+Formats and returns a single footnote.
+@var{$footnote_id} is the
+identifier for the location where the footnote arguments are expanded.
+@var{$footnote_location_href} is the href that links to the footnote location
+in the main document.  @var{$footnote_mark} is the footnote number or mark.
+Lastly, @var{$footnote_text} is the formatted footnote argument.
 @end deftypefn
 
 If footnotes are in a separate output unit (@pxref{Output Units}), the
