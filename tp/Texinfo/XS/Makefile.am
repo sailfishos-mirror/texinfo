@@ -14,6 +14,8 @@ AUTOMAKE_OPTIONS=foreign subdir-objects
 
 EXTRA_DIST=
 
+MAINTAINERCLEANFILES =
+
 ######################## Gnulib ################################
 
 AM_CPPFLAGS =                \
@@ -175,7 +177,11 @@ $(srcdir)/$(p)/element_types.c $(srcdir)/$(p)/element_types.h: $(p)/element_type
 	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/element_types.awk \
 	     $(srcdir)/$(p)/element_types.txt
 
+MAINTAINERCLEANFILES += $(p)/element_types.c $(p)/element_types.h
+
 $(srcdir)/$(p)/command_data.c $(srcdir)/$(p)/command_ids.h: ../command_data.txt $(p)/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/command_data.awk \
 	     $(srcdir)/../command_data.txt
+
+MAINTAINERCLEANFILES += $(p)/command_data.c $(p)/command_ids.h
 
