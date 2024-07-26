@@ -16,6 +16,8 @@ EXTRA_DIST=
 
 CLEANFILES =
 
+MAINTAINERCLEANFILES =
+
 ######################## Gnulib ################################
 
 AM_CPPFLAGS = -I$(srcdir)
@@ -239,11 +241,18 @@ $(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_type
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
 	     $(srcdir)/main/element_types.txt
 
+MAINTAINERCLEANFILES += main/element_types.c main/element_types.h
+
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
 $(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global_multi_commands_case.c $(srcdir)/main/global_unique_commands_case.c $(srcdir)/main/global_commands_types.h: ../command_data.txt main/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
 	     $(srcdir)/../command_data.txt
+
+MAINTAINERCLEANFILES += main/command_data.c main/command_ids.h
+MAINTAINERCLEANFILES += main/global_multi_commands_case.c \
+                        main/global_unique_commands_case.c
+MAINTAINERCLEANFILES += main/global_commands_types.h
 
 # NOTE duplicate of a rule in ../../Makefile.am
 $(srcdir)/../Commands.pm: ../command_data.txt
@@ -262,9 +271,14 @@ $(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/c
 	      $(srcdir)/main/cmd_symbol.c \
 	      $(srcdir)/main/cmd_text.c
 
+MAINTAINERCLEANFILES += main/cmd_normalization.c main/cmd_unicode.c \
+                main/cmd_structuring.c main/cmd_symbol.c main/cmd_text.c
+
 $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../../maintain/setup_accent_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
+
+MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
 $(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: ../options_data.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
@@ -274,6 +288,8 @@ $(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main
 	              $(srcdir)/main/options_types.h \
 	              $(srcdir)/main/options_get_perl.c
 
+MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
+                        main/options_get_perl.c
 
 ########################## shared perl XS library for texinfo XS codes
 # it is separate from libtexinfo because of different dependencies

@@ -97,6 +97,8 @@ install-tex:
 # Do not create info files for distribution.
 dist-info:
 
+MAINTAINERCLEANFILES = pod2texi.texi html_default_commands_args.texi
+
 # Rules for updating the online web pages for the documentation
 # using the gendocs.sh script; see
 # http://www.gnu.org/prep/maintain/html_node/Invoking-gendocs_002esh.html
