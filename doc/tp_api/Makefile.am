@@ -38,6 +38,10 @@ TEXINFO_TEX = ../texinfo.tex
 # Most dependencies are in api_includes/ directory but we do not want
 # to list them explicitly
 texi2any_internals_TEXINFOS = texi2any_internals_indices.texi
+DISTCLEANFILES = texi2any_internals.info*
+
+# Do not create info files for distribution.
+dist-info:
 
 # texi2any_internals_preamble.texi is not included but passed on the
 # standard input when building texi2any_internals.texi.
@@ -80,3 +84,8 @@ texi2any_internals.texi: $(texi2any_internals_dependencies) texi2any_internals_i
 	fi ; rm -f $@.tmp
 
 endif
+
+maintainerclean-local:
+	rm -rf api_includes
+
+MAINTAINERCLEANFILES = texi2any_internals.texi
