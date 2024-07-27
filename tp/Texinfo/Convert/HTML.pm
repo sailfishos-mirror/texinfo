@@ -11467,12 +11467,18 @@ $after_body_open
   return $result;
 }
 
-sub _default_format_single_footnote($$$$$)
+sub _default_format_single_footnote($$$$$$)
 {
   my $self = shift;
-  my ($id, $href, $mark, $text) = @_;
+  my ($command, $footid, $number_in_doc, $href, $mark) = @_;
+  my $footnote_text
+      = $self->convert_tree_new_formatting_context($command->{'args'}->[0],
+                            "$command->{'cmdname'} $number_in_doc $footid");
+  chomp ($footnote_text);
+  $footnote_text .= "\n";
+
   return $self->html_attribute_class('h5', ['footnote-body-heading']) . '>'.
-     "<a id=\"$id\" href=\"$href\">($mark)</a></h5>\n" . $text;
+     "<a id=\"$footid\" href=\"$href\">($mark)</a></h5>\n" . $footnote_text;
 }
 
 sub _default_format_footnotes_sequence($)
@@ -11487,6 +11493,15 @@ sub _default_format_footnotes_sequence($)
           = @$pending_footnote_info_array;
     my $footnote_location_href = $self->footnote_location_href($command, undef,
                                            $docid, $footnote_location_filename);
+
+    my $footnote_mark;
+    if ($self->get_conf('NUMBER_FOOTNOTES')) {
+      $footnote_mark = $number_in_doc;
+    } else {
+      $footnote_mark = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
+      $footnote_mark = '' if (!defined($footnote_mark));
+    }
+
     # NOTE the @-commands in @footnote that are formatted differently depending
     # on in_multi_expanded($self) cannot know that the original context
     # of the @footnote in the main document was $multi_expanded_region.
@@ -11497,23 +11512,10 @@ sub _default_format_footnotes_sequence($)
     # with those @-commands in @footnote in multi expanded
     # region do not justify this additional code and complexity.  The consequences
     # should only be redundant anchors HTML elements.
-    my $footnote_text
-        = $self->convert_tree_new_formatting_context($command->{'args'}->[0],
-                              "$command->{'cmdname'} $number_in_doc $footid");
-    chomp ($footnote_text);
-    $footnote_text .= "\n";
-
-    my $footnote_mark;
-    if ($self->get_conf('NUMBER_FOOTNOTES')) {
-      $footnote_mark = $number_in_doc;
-    } else {
-      $footnote_mark = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
-      $footnote_mark = '' if (!defined($footnote_mark));
-    }
 
     $result .= &{$self->formatting_function('format_single_footnote')}($self,
-                            $footid, $footnote_location_href, $footnote_mark,
-                                                              $footnote_text);
+                                           $command, $footid, $number_in_doc,
+                                     $footnote_location_href, $footnote_mark);
   }
   return $result;
 }

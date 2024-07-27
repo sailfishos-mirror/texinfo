@@ -1,3 +1,17 @@
+2024-07-27  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.tex (Customizing Footnotes),
+	tp/Texinfo/Convert/HTML.pm (_default_format_single_footnote)
+	(_default_format_footnotes_sequence),
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_single_footnote),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_single_footnote, format_single_footnote)
+	(html_default_format_footnotes_sequence): format the footnote text in
+	format_single_footnote.  Remove footnote_text argument of
+	default_format_single_footnote, add the footnote element and
+	number_in_doc.
+
 2024-07-26  Patrice Dumas  <pertusus@free.fr>
 
 	Add format_single_footnote formatting reference for a single footnote

@@ -1083,7 +1083,7 @@ special_unit_info (const CONVERTER *self, enum special_unit_info_type type,
 
 void
 html_register_footnote (CONVERTER *self, const ELEMENT *command,
-     const char *footid, const char *docid, const int number_in_doc,
+     const char *footid, const char *docid, int number_in_doc,
      const char *footnote_location_filename, const char *multi_expanded_region)
 {
   HTML_PENDING_FOOTNOTE_STACK *stack;
@@ -6412,11 +6412,33 @@ static const STRING_LIST foot_body_heading_classes
    = {foot_body_heading_array, 1, 1};
 
 void
-html_default_format_single_footnote (CONVERTER *self, const char *footid,
+html_default_format_single_footnote (CONVERTER *self, const ELEMENT *element,
+                    const char *footid, int number_in_doc,
                     const char *footnote_location_href, const char *mark,
-                    const char *footnote_text, TEXT *result)
+                    TEXT *result)
 {
   char *attribute_class;
+  size_t footnote_text_len;
+  char *footnote_text;
+  char *context_str;
+  char *footnote_text_with_eol;
+
+  xasprintf (&context_str, "%s %d %s", element_command_name (element),
+                           number_in_doc, footid);
+  footnote_text
+    = convert_tree_new_formatting_context (self, element->args.list[0],
+                                                 context_str, 0, 0, 0);
+  free (context_str);
+
+  footnote_text_len = strlen (footnote_text);
+  if (footnote_text_len <= 0
+      || footnote_text[footnote_text_len -1] != '\n')
+    {
+      xasprintf (&footnote_text_with_eol, "%s\n", footnote_text);
+      free (footnote_text);
+    }
+  else
+    footnote_text_with_eol = footnote_text;
 
   attribute_class = html_attribute_class (self, "h5",
                     &foot_body_heading_classes);
@@ -6426,29 +6448,32 @@ html_default_format_single_footnote (CONVERTER *self, const char *footid,
   text_printf (result, "><a id=\"%s\" href=\"%s\">(%s)</a></h5>\n",
                footid, footnote_location_href, mark);
 
-  text_append (result, footnote_text);
+  text_append (result, footnote_text_with_eol);
+  free (footnote_text_with_eol);
 }
 
 void
-format_single_footnote (CONVERTER *self, const char *footid,
+format_single_footnote (CONVERTER *self, const ELEMENT *element,
+                        const char *footid, int number_in_doc,
                         const char *footnote_location_href, const char *mark,
-                        const char *footnote_text, TEXT *result)
+                        TEXT *result)
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_single_footnote];
   if (formatting_reference->status == FRS_status_default_set)
     {
-      html_default_format_single_footnote (self, footid,
-                                   footnote_location_href, mark,
-                                   footnote_text, result);
+      html_default_format_single_footnote (self, element, footid,
+                                   number_in_doc, footnote_location_href,
+                                   mark, result);
     }
   else
     {
       char *footnote
-        = call_formatting_function_format_single_footnote (self, footid,
-                                           footnote_location_href, mark,
-                                                footnote_text,
-                                                formatting_reference);
+        = call_formatting_function_format_single_footnote (self,
+                                   formatting_reference, element, footid,
+                                   number_in_doc, footnote_location_href, 
+                                   mark);
+
       text_append (result, footnote);
       free (footnote);
     }
@@ -6470,10 +6495,6 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           const ELEMENT *command = pending_footnote_info->command;
           const char *footid = pending_footnote_info->footid;
           int number_in_doc = pending_footnote_info->number_in_doc;
-          size_t footnote_text_len;
-          char *footnote_text;
-          char *context_str;
-          char *footnote_text_with_eol;
           char *footnote_mark;
           char *footnote_location_href
            = html_footnote_location_href (self, command, 0,
@@ -6491,23 +6512,6 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
       region do not justify this additional code and complexity.  The consequences
       should only be redundant anchors HTML elements.
     */
-          xasprintf (&context_str, "%s %d %s", element_command_name (command),
-                                   number_in_doc, footid);
-          footnote_text
-            = convert_tree_new_formatting_context (self, command->args.list[0],
-                                                         context_str, 0, 0, 0);
-          free (context_str);
-
-          footnote_text_len = strlen (footnote_text);
-          if (footnote_text_len <= 0
-              || footnote_text[footnote_text_len -1] != '\n')
-            {
-              xasprintf (&footnote_text_with_eol, "%s\n", footnote_text);
-              free (footnote_text);
-            }
-          else
-            footnote_text_with_eol = footnote_text;
-
           if (self->conf->NUMBER_FOOTNOTES.o.integer > 0)
             xasprintf (&footnote_mark, "%d", number_in_doc);
           else if (self->conf->NO_NUMBER_FOOTNOTE_SYMBOL.o.string)
@@ -6516,9 +6520,11 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
           else
             footnote_mark = strdup ("");
 
-          format_single_footnote (self, footid, footnote_location_href,
-                                  footnote_mark, footnote_text_with_eol,
+          format_single_footnote (self, command, footid, number_in_doc,
+                                  footnote_location_href, footnote_mark,
                                   result);
+
+          free (footnote_mark);
         }
     }
   destroy_pending_footnotes (pending_footnotes);

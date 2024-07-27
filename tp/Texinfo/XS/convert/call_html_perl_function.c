@@ -856,10 +856,10 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
 
 char *
 call_formatting_function_format_single_footnote (CONVERTER *self,
-                                                 const char *footid,
-                        const char *footnote_location_href, const char *mark,
-                        const char *footnote_text,
-                        const FORMATTING_REFERENCE *formatting_reference)
+                        const FORMATTING_REFERENCE *formatting_reference,
+                        const ELEMENT *element, const char *footid,
+                        int number_in_doc,
+                        const char *footnote_location_href, const char *mark)
 {
   int count;
   char *result;
@@ -887,10 +887,11 @@ call_formatting_function_format_single_footnote (CONVERTER *self,
   EXTEND(SP, 1);
 
   PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (footid, 0)));
+  PUSHs(sv_2mortal (newSViv ((IV) number_in_doc)));
   PUSHs(sv_2mortal (newSVpv_utf8 (footnote_location_href, 0)));
   PUSHs(sv_2mortal (newSVpv_utf8 (mark, 0)));
-  PUSHs(sv_2mortal (newSVpv_utf8 (footnote_text, 0)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,

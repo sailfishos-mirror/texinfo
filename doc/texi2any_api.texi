@@ -4132,7 +4132,7 @@ functions formatting their argument elsewhere, two functions are available:
 
 @defun @var{$converter}->register_footnote (\%element, $footnote_id, @
   $foot_in_doc_id, $number_in_doc, $footnote_location_filename, $multi_expanded_region)
-@var{\%element} is the footnote texinfo tree element. @var{$footnote_id} is the
+@var{\%element} is the footnote Texinfo tree element. @var{$footnote_id} is the
 identifier for the location where the footnote arguments are expanded.
 @var{$foot_in_doc_id} is the identifier for the location where the footnote
 appears in the document.  @var{$number_in_doc} is the number of the footnote
@@ -4171,14 +4171,15 @@ The formatting of one footnote is done by the @code{format_single_footnote}
 formatting reference:
 
 @deftypefn {Function Reference} @var{$footnote} format_single_footnote @
-  (@var{$converter}, @var{$footnote_id}, @var{$footnote_location_href}, @
-   @var{$footnote_mark}, @var{$footnote_text})
+  (@var{$converter}, @var{\%element}, @var{$footnote_id}, @var{$number_in_doc}, @
+   @var{$footnote_location_href}, @var{$footnote_mark})
 Formats and returns a single footnote.
-@var{$footnote_id} is the
+@var{\%element} is the footnote Texinfo tree element. @var{$footnote_id} is the
 identifier for the location where the footnote arguments are expanded.
+@var{$number_in_doc} is the number of the footnote
+in the document.
 @var{$footnote_location_href} is the href that links to the footnote location
 in the main document.  @var{$footnote_mark} is the footnote number or mark.
-Lastly, @var{$footnote_text} is the formatted footnote argument.
 @end deftypefn
 
 If footnotes are in a separate output unit (@pxref{Output Units}), the
