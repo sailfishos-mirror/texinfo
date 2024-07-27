@@ -10,6 +10,7 @@
 tp/ext/epub3.pm
 tp/init/html32.pm
 tp/Texinfo/Common.pm
+tp/Texinfo/Data.pm
 tp/Texinfo/Structuring.pm
 tp/Texinfo/Translations.pm
 tp/Texinfo/Convert/Converter.pm
