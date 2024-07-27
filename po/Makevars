@@ -15,7 +15,6 @@ XGETTEXT_OPTIONS = \
  --from-code=UTF-8\
  --keyword=_\
  --keyword=N_\
- --keyword=__\
  -k__\
  -k\$$__\
  -k%__\
