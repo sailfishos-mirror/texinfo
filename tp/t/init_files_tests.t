@@ -217,6 +217,35 @@ $direction_strings_test_text,
 $direction_strings_test_text,
 {'init_files' => ['redefined_buttons.pm']},
 ],
+['test_format_single_footnote_in_inline_content',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+a@footnote{In the footnote}.
+
+b@footnote{@c an example in the footnote
+
+@example
+in    example
+@end example
+}
+
+c@footnote{
+@*
+}
+
+d@footnote{
+@quotation qtitle
+@author Me
+In quotation
+@end quotation
+}
+',
+{'init_files' => ['footnote_mark_in_inline_content.pm']},
+],
 );
 
 foreach my $test (@test_cases) {

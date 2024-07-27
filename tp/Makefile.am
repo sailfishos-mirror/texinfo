@@ -182,6 +182,7 @@ test_files = \
  t/init/css_in_node_redirection_page.pm \
  t/init/cvs.init \
  t/init/directions_string_undef.pm \
+ t/init/footnote_mark_in_inline_content.pm \
  t/init/icons.init \
  t/init/ignore_and_comments_output.init \
  t/init/l2h.init \
