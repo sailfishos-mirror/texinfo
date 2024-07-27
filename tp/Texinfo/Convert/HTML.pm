@@ -458,21 +458,15 @@ sub html_attribute_class($$;$)
   return "<$element class=\"$class_str\"$style";
 }
 
-# for rules that cannot be collected during document output since they
-# are not associated with a class attribute element setting
-my %css_rules_not_collected = (
-);
-
 # returns an array of CSS element.class seen in the $FILENAME
 sub html_get_css_elements_classes($;$)
 {
   my $self = shift;
   my $filename = shift;
 
-  my %css_elements_classes = %css_rules_not_collected;
+  my %css_elements_classes;
   if ($self->{'document_global_context_css'}) {
-    %css_elements_classes = ( %css_elements_classes,
-                              %{$self->{'document_global_context_css'}} );
+    %css_elements_classes = ( %{$self->{'document_global_context_css'}} );
   }
 
   if (defined($filename) and $self->{'page_css'}
@@ -3057,8 +3051,6 @@ sub converter_defaults($$)
 }
 
 my %default_css_element_class_styles = (
-     %css_rules_not_collected,
-
      'ul.toc-numbered-mark'   => 'list-style: none',
      'pre.menu-comment-preformatted' => 'font-family: serif',
      # using display: inline is an attempt to avoid a line break when in
