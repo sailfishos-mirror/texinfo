@@ -10,7 +10,12 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-free stage_handlers structure in html converter in C
+HTML data
+%defaults
+
+to check
+%quoted_style_commands
+%default_upper_case_commands
 
 Bugs
 ====

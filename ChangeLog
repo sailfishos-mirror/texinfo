@@ -5,6 +5,25 @@
 
 2024-07-27  Patrice Dumas  <pertusus@free.fr>
 
+	Use CSV files to store data relevant for Perl and C
+
+	* tp/Texinfo/Data/default_css_element_class_styles.csv,
+	tp/Texinfo/Data/default_direction_strings.csv,
+	tp/Texinfo/Data/default_special_unit_info.csv,
+	tp/Texinfo/Data/html_style_commands_element.csv,
+	tp/maintain/generate_convert_data_perl_code.pl, tp/Makefile.am
+	(dist_modules_DATA, dist_noinst_DATA, maintenance_files)
+	(Texinfo/Data.pm), tp/Texinfo/Convert/HTML.pm: move
+	%default_special_unit_info, %default_translated_special_unit_info,
+	%default_converted_directions_strings,
+	%default_translated_directions_strings,
+	%default_css_element_class_styles and %style_commands_element to CSV
+	files separated by | in tp/Texinfo/Data/.  Add
+	maintain/generate_convert_data_perl_code.pl to generate Perl data
+	in Texinfo/Data.pm based on the CSV files data.
+
+2024-07-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (html_get_css_elements_classes)
 	(%default_css_element_class_styles): remove unused %css_rules_not_collected.
 

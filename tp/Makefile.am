@@ -70,6 +70,7 @@ dist_modules_DATA = \
  Texinfo/Common.pm \
  Texinfo/Commands.pod \
  Texinfo/Commands.pm \
+ Texinfo/Data.pm \
  Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
  Texinfo/DocumentXS.pm \
@@ -91,7 +92,11 @@ dist_modules_DATA = \
  Texinfo/XSLoader.pm
 
 dist_noinst_DATA = \
- Texinfo/ModulePath.pm.in
+ Texinfo/ModulePath.pm.in \
+ Texinfo/Data/default_css_element_class_styles.csv \
+ Texinfo/Data/default_direction_strings.csv \
+ Texinfo/Data/default_special_unit_info.csv \
+ Texinfo/Data/html_style_commands_element.csv
 
 modules_DATA = \
  Texinfo/ModulePath.pm
@@ -324,6 +329,7 @@ maintenance_files = \
   maintain/change_perl_modules_version.sh \
   maintain/copy_change_file_name_encoding.pl \
   maintain/language-subtag-registry \
+  maintain/generate_convert_data_perl_code.pl \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \
   maintain/regenerate_docstr.sh \
@@ -378,6 +384,9 @@ $(srcdir)/Texinfo/Commands.pm: Texinfo/command_data.txt $(srcdir)/maintain/regen
 
 $(srcdir)/Texinfo/Options.pm: Texinfo/options_data.txt $(srcdir)/maintain/regenerate_perl_options_info.pl
 	$(srcdir)/maintain/regenerate_perl_options_info.pl $(srcdir)/Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
+
+$(srcdir)/Texinfo/Data.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_convert_data_perl_code.pl
+	$(srcdir)/maintain/generate_convert_data_perl_code.pl $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv $(srcdir)/Texinfo/Data/default_direction_strings.csv $(srcdir)/Texinfo/Data/default_special_unit_info.csv $(srcdir)/Texinfo/Data/html_style_commands_element.csv $@
 
 libsrcdir = $(srcdir)/maintain/lib
 
