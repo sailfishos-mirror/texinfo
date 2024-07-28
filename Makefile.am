@@ -65,8 +65,8 @@ if HOST_IS_WINDOWS
   SUBDIRS += info
 endif
 endif
-  SUBDIRS += install-info po po_document tp Pod-Simple-Texinfo texindex util \
-             doc man
+  SUBDIRS += gnulib/po install-info po po_document tp Pod-Simple-Texinfo \
+             texindex util doc man
   SUBDIRS += js
 endif
 

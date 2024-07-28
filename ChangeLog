@@ -1,9 +1,14 @@
-2024-10-01  Gavin Smith <gavinsmith0123@gmail.com>
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
-	* doc/texinfo.texi (HTML Xref Configuration): edit description
-	of splitting search order.
+	Setup separate po files directory for base directory gnulib
 
-2024-07-27  Patrice Dumas  <pertusus@free.fr>
+	run
+	  gnulib/gnulib-tool --add-import --po-base=gnulib/po --po-domain=texinfo
+
+	* Makefile.am (SUBDIRS), configure.ac (AC_CONFIG_FILES): update for
+	gnulib/po/.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter.c (default_upper_case_commands):
 	add, with @sc.
@@ -43,6 +48,11 @@
 	files separated by | in tp/Texinfo/Data/.  Add
 	maintain/generate_convert_data_perl_code.pl to generate Perl data
 	in Texinfo/Data.pm based on the CSV files data.
+
+2024-10-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (HTML Xref Configuration): edit description
+	of splitting search order.
 
 2024-07-27  Patrice Dumas  <pertusus@free.fr>
 

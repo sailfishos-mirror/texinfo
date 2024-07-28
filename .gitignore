@@ -93,6 +93,12 @@ gnulib/lib/unicase.h
 gnulib/lib/unictype.h
 gnulib/lib/uninorm.h
 
+gnulib/po/*.gmo
+gnulib/po/POTFILES
+gnulib/po/remove-potcdate.sed
+gnulib/po/stamp-po
+gnulib/po/texinfo-gnulib.pot
+
 tp/Texinfo/XS/gnulib/lib/float.h
 tp/Texinfo/XS/gnulib/lib/locale.h
 tp/Texinfo/XS/gnulib/lib/iconv.h
