@@ -13,29 +13,24 @@ top_builddir = ..
 XGETTEXT_OPTIONS = \
  -cTRANSLATORS\
  --from-code=UTF-8\
+ -k  \
  --keyword=_\
  --keyword=N_\
  -k__\
- -k\$$__\
- -k%__\
- -k__x\
- -k__n:1,2\
- -k__nx:1,2\
- -k__xn:1,2\
  -k__p:1c,2\
  -kN__\
- -kline_error:1 \
- -kline_warn:1 \
  -kcommand_error:2 \
+ -kcommand_warn:2 \
+ -kline_error:1 \
+ -kline_error_ext:3 \
+ -kline_warn:1 \
  -kmessage_list_command_error:4 \
  -kmessage_list_document_error:4 \
- -kcommand_warn:2 \
  -kmessage_list_command_warn:5 \
  -kpmessage_list_command_warn:5c,6 \
- -knoticed_line_warn:3 \
  -kmessage_list_document_warn:4 \
- -kline_error_ext:3 \
  -kmessage_list_line_error_ext:6 \
+ -kngettext:1,2 \
  -kpgettext:1c,2 \
  --flag=error:1:c-format\
  --flag=warning:1:c-format\
