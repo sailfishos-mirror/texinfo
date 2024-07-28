@@ -98,6 +98,13 @@ converter_setup (void)
         xml_text_entity_no_arg_commands_formatting[i]
           = text_brace_no_arg_commands[i];
     }
+
+  /* For translation of in document string. */
+  if (0)
+    {
+      /* TRANSLATORS: expansion of @error{} as Texinfo code */
+      (void) gdt_noop("error@arrow{}");
+    }
 }
 
 void

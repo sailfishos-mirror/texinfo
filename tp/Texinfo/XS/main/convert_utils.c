@@ -43,9 +43,10 @@
 #include "convert_utils.h"
 
 char *convert_utils_month_name[12] = {
-       "January", "February", "March", "April", "May",
-     "June", "July", "August", "September", "October",
-     "November", "December"
+  gdt_noop("January"), gdt_noop("February"), gdt_noop("March"),
+  gdt_noop("April"), gdt_noop("May"), gdt_noop("June"), gdt_noop("July"),
+  gdt_noop("August"), gdt_noop("September"), gdt_noop("October"),
+  gdt_noop("November"), gdt_noop("December")
 };
 
 /* in Texinfo::Common */

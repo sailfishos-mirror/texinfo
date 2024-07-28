@@ -1,5 +1,19 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/Makevars (XGETTEXT_OPTIONS): add cdt_tree and
+	translate_convert_to_html_internal keywords.
+
+	* Makefile.am (po_document-check): match
+	translate_convert_to_html_internal.
+
+	* tp/Texinfo/XS/convert/converter.c: mark @error translation as
+	Texinfo code as a translated string with gdt_noop.
+
+	* tp/Texinfo/XS/main/convert_utils.c (convert_utils_month_name): mark
+	months for translation with gdt_noop.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/Makevars (XGETTEXT_OPTIONS), tp/Texinfo/XS/main/utils.h
 	(gdt_noop, pgdt_context_noop), tp/Texinfo/XS/main/utils.c
 	(def_aliases), po_document/POTFILES.in: add gdt_noop and

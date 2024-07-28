@@ -13,8 +13,10 @@ top_builddir = ..
 XGETTEXT_OPTIONS = -cTRANSLATORS --from-code=UTF-8 --keyword  \
   --keyword=gdt --keyword=gdt_string --keyword=pgdt:1c,2 \
   --keyword=cdt --keyword=cdt_string --keyword=pcdt:1c,2 \
-  --keyword=pgdt_context:1c,2 --keyword=html_cdt_tree:1 \
-  --keyword=gdt_tree:1 --keyword=gdt_noop:1 --keyword=pgdt_context_noop:1c,2
+  --keyword=pgdt_context:1c,2 --keyword=cdt_tree:1 \
+  --keyword=gdt_tree:1 --keyword=html_cdt_tree:1 \
+  --keyword=gdt_noop:1 --keyword=pgdt_context_noop:1c,2 \
+  --keyword=translate_convert_to_html_internal:1
 
 # This is the copyright holder that gets inserted into the header of the
 # $(DOMAIN).pot file.  Set this to the copyright holder of the surrounding
