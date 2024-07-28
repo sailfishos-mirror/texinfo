@@ -101,6 +101,10 @@ update-po:
 # Verify that all source files using _() are listed in po/POTFILES.in.
 # Run this before making pretests, as well as official releases, so that
 # translators will see changed strings.  See README-hacking.
+# Note that pgettext is not matched to avoid a false positive in
+# tp/Texinfo/Translations.pm, but it is not problematic as it appears
+# only in errors.c, which matches other function names.
+# copy-file_but_owner.c is a false positive as _() are commented out.
 po-check:
 	@if test -f po/POTFILES.in; then				\
 	  grep -E -v '^(#|$$)' po/POTFILES.in				\
@@ -116,12 +120,13 @@ po-check:
 	      texinfo-*/*) continue;;					\
               tp/maintain/* ) continue;;				\
               tp/t/results* ) continue;;				\
-	      tp/Texinfo/XS/gnulib/lib/*) continue;;					\
+	      tp/Texinfo/XS/copy-file_but_owner.c) continue;;		\
+	      tp/Texinfo/XS/gnulib/lib/*) continue;;			\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
 	  grep -E -l							\
-	    '\b(N?__?p?|gettext|line_error|line_error_ext|line_warn|command_error|command_warn|message_list_document_warn|message_list_document_error|message_list_command_warn|message_list_command_error) *\([^)"]*("|$$)'	\
+	    '\b(N?__?p?|ngettext|line_error|line_error_ext|line_warn|command_error|command_warn|message_list_document_warn|message_list_document_error|p?message_list_command_warn|message_list_command_error|message_list_line_error_ext) *\([^)"]*("|$$)'	\
 	    $$files | sort -u > $@-2;					\
 	  diff -u $@-1 $@-2 || exit 1;					\
 	  rm -f $@-1 $@-2;						\

@@ -1,5 +1,12 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* po/Makevars (XGETTEXT_OPTIONS): add pass-perl-format flag for __p.
+
+	* Makefile.am (po-check): add missing keywords.  Add an exception for
+	copy-file_but_owner.c false positive where _() are commented out.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS): add c-format flag for
 	line_error_ext.
 
