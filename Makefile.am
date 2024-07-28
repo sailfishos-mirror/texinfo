@@ -112,6 +112,7 @@ po-check:
 	    case $$file in						\
 	      contrib/* ) continue;;					\
 	      djgpp/* | man/* ) continue;;	\
+	      gnulib/lib/*) continue;;					\
 	      texinfo-*/*) continue;;					\
               tp/maintain/* ) continue;;				\
               tp/t/results* ) continue;;				\

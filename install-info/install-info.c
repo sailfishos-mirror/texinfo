@@ -1975,6 +1975,9 @@ main (int argc, char *argv[])
   bindtextdomain (PACKAGE, LOCALEDIR);
   textdomain (PACKAGE);
 
+  /* set the gnulib text message domain. */
+  bindtextdomain (PACKAGE "-gnulib", LOCALEDIR);
+
   /* Make sure standard input can be freopened at will.  Otherwise,
      when stdin starts off closed, bad things could happen if a plain fopen
      returns stdin before open_possibly_compressed_file freopens it.  */

@@ -6,10 +6,6 @@
 #  
 # List of source files containing translatable strings.
 
-gnulib/lib/error.c
-gnulib/lib/getopt.c
-gnulib/lib/regcomp.c
-gnulib/lib/xalloc-die.c
 info/echo-area.c
 info/filesys.c
 info/footnotes.c

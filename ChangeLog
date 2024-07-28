@@ -1,5 +1,16 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	Use separate po files for gnulib in info and install-info
+	
+	* info/info.c (main), install-info/install-info.c (main): call
+	bindtextdomain for the PACKAGE "-gnulib" separate domain.
+
+	* po/POTFILES.in: remove gnulib/lib files.
+
+	* Makefile.am (po-check): ignore gnulib/lib/*.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	Setup separate po files directory for base directory gnulib
 
 	run
