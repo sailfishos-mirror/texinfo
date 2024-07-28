@@ -26,6 +26,7 @@
 #  --lib=libgnu \
 #  --source-base=gnulib/lib \
 #  --m4-base=gnulib/m4 \
+#  --po-base=gnulib/po \
 #  --doc-base=doc \
 #  --tests-base=tests \
 #  --aux-dir=build-aux \
@@ -33,6 +34,7 @@
 #  --libtool \
 #  --macro-prefix=gl \
 #  copy-file \
+#  --po-domain=texinfo_tp \
 #  getline \
 #  iconv \
 #  libunistring \
@@ -107,6 +109,8 @@ libgnu_la_LDFLAGS += $(LTLIBUNISTRING)
 libgnu_la_LDFLAGS += $(MBRTOWC_LIB)
 libgnu_la_LDFLAGS += $(QCOPY_ACL_LIB)
 libgnu_la_LDFLAGS += $(SETLOCALE_NULL_LIB)
+
+AM_CPPFLAGS += -DDEFAULT_TEXT_DOMAIN=\"texinfo_tp-gnulib\"
 
 ## begin gnulib module absolute-header
 

@@ -220,5 +220,5 @@ AC_DEFINE_UNQUOTED([PACKAGE_URL_CONFIG], ["$PACKAGE_URL"],
 AC_DEFINE_UNQUOTED([PACKAGE_VERSION_CONFIG], ["$PACKAGE_VERSION"],
                    [autoconf PACKAGE_VERSION value])
 
-AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
+AC_CONFIG_FILES([Makefile gnulib/lib/Makefile gnulib/po/Makefile.in])
 AC_OUTPUT

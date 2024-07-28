@@ -31,6 +31,7 @@
 #  --lib=libgnu \
 #  --source-base=gnulib/lib \
 #  --m4-base=gnulib/m4 \
+#  --po-base=gnulib/po \
 #  --doc-base=doc \
 #  --tests-base=tests \
 #  --aux-dir=build-aux \
@@ -38,6 +39,7 @@
 #  --libtool \
 #  --macro-prefix=gl \
 #  copy-file \
+#  --po-domain=texinfo_tp \
 #  getline \
 #  iconv \
 #  libunistring \
@@ -115,12 +117,12 @@ gl_MODULES([
 gl_AVOID([])
 gl_SOURCE_BASE([gnulib/lib])
 gl_M4_BASE([gnulib/m4])
-gl_PO_BASE([])
+gl_PO_BASE([gnulib/po])
 gl_DOC_BASE([doc])
 gl_TESTS_BASE([tests])
 gl_LIB([libgnu])
 gl_MAKEFILE_NAME([])
 gl_LIBTOOL
 gl_MACRO_PREFIX([gl])
-gl_PO_DOMAIN([])
+gl_PO_DOMAIN([texinfo_tp])
 gl_WITNESS_C_MACRO([])
