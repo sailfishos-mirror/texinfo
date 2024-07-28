@@ -51,9 +51,12 @@ tp/ext/highlight_syntax.pm
 tp/ext/latex2html.pm
 tp/ext/tex4ht.pm
 tp/texi2any.pl
+tp/Texinfo/XS/convert/converter.c
+tp/Texinfo/XS/convert/convert_html.c
 tp/Texinfo/XS/main/errors.c
 tp/Texinfo/XS/main/errors.h
 tp/Texinfo/XS/main/manipulate_indices.c
+tp/Texinfo/XS/main/convert_utils.c
 tp/Texinfo/XS/main/targets.c
 tp/Texinfo/XS/parsetexi/api.c
 tp/Texinfo/XS/parsetexi/close.c
@@ -71,5 +74,3 @@ tp/Texinfo/XS/parsetexi/parser.c
 tp/Texinfo/XS/parsetexi/separator.c
 tp/Texinfo/XS/structuring_transfo/structuring.c
 tp/Texinfo/XS/structuring_transfo/transformations.c
-tp/Texinfo/XS/main/convert_utils.c
-tp/Texinfo/XS/convert/convert_html.c
