@@ -116,6 +116,7 @@ po-check:
 	      texinfo-*/*) continue;;					\
               tp/maintain/* ) continue;;				\
               tp/t/results* ) continue;;				\
+	      tp/Texinfo/XS/gnulib/lib/*) continue;;					\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\

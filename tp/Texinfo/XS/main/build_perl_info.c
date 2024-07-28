@@ -143,6 +143,9 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *builddir_sv,
   bindtextdomain (PACKAGE_CONFIG, LOCALEDIR);
 
   textdomain (PACKAGE_CONFIG);
+
+  /* set the tp gnulib text message domain. */
+  bindtextdomain (PACKAGE_CONFIG "_tp-gnulib", LOCALEDIR);
 #else
 
 #endif
