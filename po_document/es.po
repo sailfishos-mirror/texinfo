@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document-7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 15:44+0200\n"
+"POT-Creation-Date: 2024-07-28 16:17+0200\n"
 "PO-Revision-Date: 2023-09-25 08:19+0200\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -29,60 +29,60 @@ msgstr "Índice general"
 msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
 
-#: tp/Texinfo/Common.pm:478
+#: tp/Texinfo/Common.pm:478 tp/Texinfo/XS/main/utils.c:73
 msgctxt "category of functions for @defun"
 msgid "Function"
 msgstr "Función"
 
 #. TRANSLATORS: category of macros for @defmac
-#: tp/Texinfo/Common.pm:480
+#: tp/Texinfo/Common.pm:480 tp/Texinfo/XS/main/utils.c:75
 msgid "Macro"
 msgstr "Macro"
 
 #. TRANSLATORS: category of special forms for @defspec
-#: tp/Texinfo/Common.pm:482
+#: tp/Texinfo/Common.pm:482 tp/Texinfo/XS/main/utils.c:77
 msgid "Special Form"
 msgstr "Forma especial"
 
-#: tp/Texinfo/Common.pm:485
+#: tp/Texinfo/Common.pm:485 tp/Texinfo/XS/main/utils.c:79
 msgctxt "category of variables for @defvar"
 msgid "Variable"
 msgstr "Variable"
 
 #. TRANSLATORS: category of user-modifiable options for @defopt
-#: tp/Texinfo/Common.pm:487
+#: tp/Texinfo/Common.pm:487 tp/Texinfo/XS/main/utils.c:81
 msgid "User Option"
 msgstr "Opción del usuario"
 
-#: tp/Texinfo/Common.pm:490
+#: tp/Texinfo/Common.pm:490 tp/Texinfo/XS/main/utils.c:83
 msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr "Función"
 
-#: tp/Texinfo/Common.pm:493
+#: tp/Texinfo/Common.pm:493 tp/Texinfo/XS/main/utils.c:86
 msgctxt "category of variables in typed languages for @deftypevar"
 msgid "Variable"
 msgstr "Variable"
 
-#: tp/Texinfo/Common.pm:496
+#: tp/Texinfo/Common.pm:496 tp/Texinfo/XS/main/utils.c:89
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
 msgid "Instance Variable"
 msgstr "Variable de instancia"
 
-#: tp/Texinfo/Common.pm:499
+#: tp/Texinfo/Common.pm:499 tp/Texinfo/XS/main/utils.c:92
 msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
 msgid "Instance Variable"
 msgstr "Variable de instancia"
 
-#: tp/Texinfo/Common.pm:502
+#: tp/Texinfo/Common.pm:502 tp/Texinfo/XS/main/utils.c:95
 msgctxt "category of methods in object-oriented programming for @defmethod"
 msgid "Method"
 msgstr "Método"
 
-#: tp/Texinfo/Common.pm:505
+#: tp/Texinfo/Common.pm:505 tp/Texinfo/XS/main/utils.c:98
 msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"

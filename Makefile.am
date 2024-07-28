@@ -152,7 +152,7 @@ po_document-check:
 	    files="$$files $$file";					\
 	  done;								\
 	  grep -E -l							\
-	    '\b((html_)?p?[cg]dt(_string|_tree)?) *\([^)$$]*("|'"'"'|$$)'	\
+	    '\b((html_)?p?[cg]dt(_string|_tree|_noop)?|pgdt_context_noop) *\([^)$$]*("|'"'"'|$$)'	\
 	    $$files | sort -u > $@-2;					\
 	  diff -u $@-1 $@-2 || exit 1;					\
 	  rm -f $@-1 $@-2;						\

@@ -27,5 +27,6 @@ tp/Texinfo/XS/main/convert_utils.h
 tp/Texinfo/XS/main/parser_conf.c
 tp/Texinfo/XS/main/translations.c
 tp/Texinfo/XS/main/translations.h
+tp/Texinfo/XS/main/utils.c
 tp/Texinfo/XS/parsetexi/indices.c
 tp/Texinfo/XS/structuring_transfo/structuring.c

@@ -30,6 +30,11 @@
 #include "document_types.h"
 #include "converter_types.h"
 
+#define gdt_noop(String) String
+/* only used for def_aliases.  Inverse the arguments to match with the
+   C structure */
+#define pgdt_context_noop(Context,String) String, Context
+
 extern const char *null_device_names[];
 
 extern const char *whitespace_chars;

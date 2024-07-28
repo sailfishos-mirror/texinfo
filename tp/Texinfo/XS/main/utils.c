@@ -69,17 +69,33 @@ const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
 DEF_ALIAS def_aliases[] = {
-  CM_defun, CM_deffn, "Function", "category of functions for @defun",
-  CM_defmac, CM_deffn, "Macro", 0,
-  CM_defspec, CM_deffn, "Special Form", 0,
-  CM_defvar, CM_defvr, "Variable", "category of variables for @defvar",
-  CM_defopt, CM_defvr, "User Option", 0,
-  CM_deftypefun, CM_deftypefn, "Function", "category of functions for @deftypefun",
-  CM_deftypevar, CM_deftypevr, "Variable", "category of variables in typed languages for @deftypevar",
-  CM_defivar, CM_defcv, "Instance Variable", "category of instance variables in object-oriented programming for @defivar",
-  CM_deftypeivar, CM_deftypecv, "Instance Variable", "category of instance variables with data type in object-oriented programming for @deftypeivar",
-  CM_defmethod, CM_defop, "Method", "category of methods in object-oriented programming for @defmethod",
-  CM_deftypemethod, CM_deftypeop, "Method", "category of methods with data type in object-oriented programming for @deftypemethod",
+  CM_defun, CM_deffn, pgdt_context_noop("category of functions for @defun",
+                                        "Function"),
+  /* TRANSLATORS: category of macros for @defmac */
+  CM_defmac, CM_deffn, gdt_noop("Macro"), 0,
+  /* TRANSLATORS: category of special forms for @defspec */
+  CM_defspec, CM_deffn, gdt_noop("Special Form"), 0,
+  CM_defvar, CM_defvr, pgdt_context_noop("category of variables for @defvar",
+                                         "Variable"),
+  /* TRANSLATORS: category of user-modifiable options for @defopt */
+  CM_defopt, CM_defvr, gdt_noop("User Option"), 0,
+  CM_deftypefun, CM_deftypefn,
+       pgdt_context_noop("category of functions for @deftypefun", "Function"), 
+  CM_deftypevar, CM_deftypevr,
+   pgdt_context_noop("category of variables in typed languages for @deftypevar",
+                     "Variable"), 
+  CM_defivar, CM_defcv, 
+   pgdt_context_noop("category of instance variables in object-oriented programming for @defivar",
+                     "Instance Variable"), 
+  CM_deftypeivar, CM_deftypecv,
+   pgdt_context_noop("category of instance variables with data type in object-oriented programming for @deftypeivar",
+                     "Instance Variable"), 
+  CM_defmethod, CM_defop,
+   pgdt_context_noop("category of methods in object-oriented programming for @defmethod",
+                     "Method"), 
+  CM_deftypemethod, CM_deftypeop,
+   pgdt_context_noop("category of methods with data type in object-oriented programming for @deftypemethod",
+                     "Method"), 
 
   /* the following aliases are not used in the XS parser */
   CM_defunx, CM_deffnx, "Function", "category of functions for @defun",

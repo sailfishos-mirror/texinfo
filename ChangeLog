@@ -1,5 +1,16 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/Makevars (XGETTEXT_OPTIONS), tp/Texinfo/XS/main/utils.h
+	(gdt_noop, pgdt_context_noop), tp/Texinfo/XS/main/utils.c
+	(def_aliases), po_document/POTFILES.in: add gdt_noop and
+	pgdt_context_noop cpp macros to mark strings for translation.  Use in
+	utils.c for def_aliases.  Add to XGETTEXT_OPTIONS, and add
+	main/utils.c to po_document/POTFILES.in.
+
+	* Makefile.am (po_document-check): match gdt_noop and pgdt_context_noop.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* Makefile.am (po_document-check), po_document/POTFILES.in: add an
 	exception for main/DocumentXS.c in po_document-check, remove from
 	POTFILES.in.
