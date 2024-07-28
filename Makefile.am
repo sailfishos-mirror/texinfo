@@ -132,6 +132,8 @@ po-check:
 	  rm -f $@-1 $@-2;						\
 	fi
 
+# false positive in tp/Texinfo/XS/main/DocumentXS.c with function definition
+# but no translated strings
 po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
 	  grep -E -v '^(#|$$)' po_document/POTFILES.in | sort > $@-1;	\
@@ -145,6 +147,7 @@ po_document-check:
 	      texinfo-*/*) continue;;					\
 	      tp/maintain/*) continue;;					\
 	      tp/init/documentation_examples.pm) continue;;		\
+	      tp/Texinfo/XS/main/DocumentXS.c) continue;;		\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
