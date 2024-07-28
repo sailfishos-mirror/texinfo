@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:46+0200\n"
+"POT-Creation-Date: 2024-07-28 14:49+0200\n"
 "PO-Revision-Date: 2021-06-22 12:11+0300\n"
 "Last-Translator: Mehmet Kececi <mkececi@mehmetkececi.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -4535,6 +4535,7 @@ msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions yalnızca bir @multitable satırında anlamlıdır"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1818
+#, c-format
 msgid "@part should not be associated with @top"
 msgstr "@part @top ile ilintili olmamalı"
 

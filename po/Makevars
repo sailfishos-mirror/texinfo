@@ -37,6 +37,7 @@ XGETTEXT_OPTIONS = \
  --flag=fatal:1:c-format\
  --flag=line_error:1:c-format\
  --flag=line_warn:1:c-format\
+ --flag=line_error_ext:4:c-format\
  --flag=syntax_error:3:c-format\
  --flag=info_error:1:c-format\
  --flag=window_message_in_echo_area:1:c-format\

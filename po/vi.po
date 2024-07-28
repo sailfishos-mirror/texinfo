@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:46+0200\n"
+"POT-Creation-Date: 2024-07-28 14:49+0200\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -4572,7 +4572,7 @@ msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@%s chỉ có nghĩa khi ở dòng @multitable"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1818
-#, fuzzy
+#, fuzzy, c-format
 #| msgid "@%s should not be associated with @top"
 msgid "@part should not be associated with @top"
 msgstr "@%s không được tổ hợp cùng với @top"

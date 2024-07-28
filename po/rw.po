@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.94\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:46+0200\n"
+"POT-Creation-Date: 2024-07-28 14:49+0200\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -4377,7 +4377,7 @@ msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@%sOYA Hanze"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1818
-#, fuzzy
+#, fuzzy, c-format
 msgid "@part should not be associated with @top"
 msgstr "%s:OYA Gufungura IDOSIYE"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.x\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:46+0200\n"
+"POT-Creation-Date: 2024-07-28 14:49+0200\n"
 "PO-Revision-Date: 2006-02-18 16:00+0100\n"
 "Last-Translator: Máté LABÁDI <labadimate@freemail.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -4664,6 +4664,7 @@ msgid "@columnfractions only meaningful on a @multitable line"
 msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1818
+#, c-format
 msgid "@part should not be associated with @top"
 msgstr ""
 

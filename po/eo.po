@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:46+0200\n"
+"POT-Creation-Date: 2024-07-28 14:49+0200\n"
 "PO-Revision-Date: 2021-03-17 15:12-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -4501,6 +4501,7 @@ msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions nur sencas en linio @multitable"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1818
+#, c-format
 msgid "@part should not be associated with @top"
 msgstr "'@part' ne devus esti rilatita al '@top'"
 

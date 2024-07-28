@@ -1,6 +1,11 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
-	* po/Makevars (XGETTEXT_OPTIONS): fix line_error_ext arguent number.
+	* po/Makevars (XGETTEXT_OPTIONS): add c-format flag for
+	line_error_ext.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
+	* po/Makevars (XGETTEXT_OPTIONS): fix line_error_ext argument number.
 
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:46+0200\n"
+"POT-Creation-Date: 2024-07-28 14:49+0200\n"
 "PO-Revision-Date: 2014-11-07 08:03+0000\n"
 "Last-Translator: Yasuaki Taniguchi <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -4565,6 +4565,7 @@ msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "`@titlepage' 環境の外側では @%s は意味がありません"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1818
+#, c-format
 msgid "@part should not be associated with @top"
 msgstr ""
 
