@@ -90,6 +90,8 @@ typedef struct PATHS_INFORMATION {
 
 extern enum command_id no_brace_command_accent_upper_case[][2];
 
+extern enum command_id default_upper_case_commands[];
+
 /* in generated cmd_converter.c */
 extern const char * xml_text_entity_no_arg_commands[];
 

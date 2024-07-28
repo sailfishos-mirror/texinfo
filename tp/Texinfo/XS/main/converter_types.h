@@ -418,6 +418,11 @@ typedef struct TRANSLATED_COMMAND {
     char *translation;
 } TRANSLATED_COMMAND;
 
+typedef struct COMMAND_INTEGER_INFORMATION {
+    enum command_id cmd;
+    int integer;
+} COMMAND_INTEGER_INFORMATION;
+
 typedef struct FILE_NAME_PATH_COUNTER {
     char *filename;
     char *normalized_filename;
@@ -764,6 +769,8 @@ typedef struct CONVERTER {
     struct TEXT_OPTIONS *convert_text_options;
     struct TEXT_OPTIONS *convert_index_text_options;
 
+    int upper_case[BUILTIN_CMD_NUMBER];
+
   /* output unit files API */
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;
 
@@ -780,8 +787,8 @@ typedef struct CONVERTER {
     COMMAND_ID_LIST style_formatted_cmd;
     COMMAND_ID_LIST accent_cmd;
     int code_types[TXI_TREE_TYPES_NUMBER];
+    COMMAND_INTEGER_INFORMATION *html_customized_upper_case_commands;
     char *pre_class_types[TXI_TREE_TYPES_NUMBER];
-    int upper_case[BUILTIN_CMD_NUMBER];
     ACCENT_ENTITY_INFO accent_entities[BUILTIN_CMD_NUMBER];
     FIXED_STRING_WITH_LEN special_character[SC_non_breaking_space+1];
     FIXED_STRING_WITH_LEN line_break_element;

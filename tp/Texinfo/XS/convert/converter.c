@@ -70,6 +70,11 @@ enum command_id no_brace_command_accent_upper_case[][2] = {
   {0, 0},
 };
 
+/* can be used in converters */
+enum command_id default_upper_case_commands[] = {
+  CM_sc, 0,
+};
+
 static CONVERTER **converter_list;
 static size_t converter_number;
 static size_t converter_space;

@@ -17219,7 +17219,21 @@ html_converter_initialize (CONVERTER *self)
   self->registered_ids = new_string_list ();
 #endif
 
+  /* for @sc */
+  for (i = 0; default_upper_case_commands[i]; i++)
+    self->upper_case[default_upper_case_commands[i]] = 1;
+
   /* initialization needing some information from perl */
+
+  if (self->html_customized_upper_case_commands)
+    {
+      for (i = 0; self->html_customized_upper_case_commands[i].cmd; i++)
+        {
+          COMMAND_INTEGER_INFORMATION *customized_upper
+            = &self->html_customized_upper_case_commands[i];
+          self->upper_case[customized_upper->cmd] = customized_upper->integer;
+        }
+    }
 
   nr_special_units = self->special_unit_varieties.number;
 
@@ -19328,6 +19342,9 @@ html_free_converter (CONVERTER *self)
         }
       free (self->special_unit_info[i]);
     }
+
+  free (self->html_customized_upper_case_commands);
+  self->html_customized_upper_case_commands = 0;
 
   /* should be freed on exit.
   free (no_arg_formatted_cmd.list);

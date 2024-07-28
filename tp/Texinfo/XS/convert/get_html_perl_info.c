@@ -134,6 +134,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_css_string_types_conversion,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
+                              SV *customized_upper_case_commands,
                               SV *default_css_element_class_styles,
                               SV *default_converted_directions_strings
                              )
@@ -163,7 +164,6 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **output_units_conversion_sv;
   SV **file_id_setting_sv;
   SV **code_types_sv;
-  SV **upper_case_commands_sv;
   SV **pre_class_types_sv;
   SV **translated_direction_strings_sv;
   SV **customized_direction_strings_sv;
@@ -712,16 +712,21 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-  FETCH(upper_case_commands)
-
-  if (upper_case_commands_sv)
+  if (customized_upper_case_commands && SvOK (customized_upper_case_commands))
     {
       I32 hv_number;
       I32 i;
+      int cmd_index = 0;
 
-      HV *upper_case_commands_hv = (HV *)SvRV (*upper_case_commands_sv);
+      HV *upper_case_commands_hv = (HV *)SvRV (customized_upper_case_commands);
 
       hv_number = hv_iterinit (upper_case_commands_hv);
+
+      converter->html_customized_upper_case_commands
+        = (COMMAND_INTEGER_INFORMATION *) malloc ((hv_number + 1)
+                                  * sizeof (COMMAND_INTEGER_INFORMATION));
+      memset (converter->html_customized_upper_case_commands, 0,
+              (hv_number + 1) * sizeof (COMMAND_INTEGER_INFORMATION));
 
       for (i = 0; i < hv_number; i++)
         {
@@ -736,7 +741,13 @@ html_converter_initialize_sv (SV *converter_sv,
               if (!cmd)
                 fprintf (stderr, "ERROR: %s: no upper-case command\n", cmdname);
               else
-                converter->upper_case[cmd] = upper_case_value;
+                {
+                  COMMAND_INTEGER_INFORMATION *customized_upper
+                    = &converter->html_customized_upper_case_commands[cmd_index];
+                  customized_upper->cmd = cmd;
+                  customized_upper->integer = upper_case_value;
+                  cmd_index++;
+                }
            }
        }
    }
