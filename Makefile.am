@@ -136,7 +136,8 @@ po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
 	  grep -E -v '^(#|$$)' po_document/POTFILES.in | sort > $@-1;	\
 	  files=;							\
-	  for file in `find [a-z]* -name '*.p[lm]'`; do 		\
+	  for file in `find [a-z]* -name '*.[ch]' \
+	                           -o -name '*.p[lm]'`; do 		\
 	    # don't look at sources from some subdirs.			\
 	    case $$file in						\
 	      contrib/* ) continue;;					\
@@ -148,7 +149,7 @@ po_document-check:
 	    files="$$files $$file";					\
 	  done;								\
 	  grep -E -l							\
-	    '\b(p?[cg]dt(_string)?) *\([^)$$]*("|'"'"'|$$)'	\
+	    '\b((html_)?p?[cg]dt(_string|_tree)?) *\([^)$$]*("|'"'"'|$$)'	\
 	    $$files | sort -u > $@-2;					\
 	  diff -u $@-1 $@-2 || exit 1;					\
 	  rm -f $@-1 $@-2;						\

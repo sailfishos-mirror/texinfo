@@ -584,11 +584,9 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
                                                 "class", class_copy);
       if (options)
         {
-          /*
-          TRANSLATORS: association of a method or operation name with a class
-          in descriptions of object-oriented programming methods or operations.
-           */
-
+    /*
+     TRANSLATORS: association of a method or operation name with a class
+     in descriptions of object-oriented programming methods or operations. */
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              options->documentlanguage.o.string, substrings,
                              options->DEBUG.o.integer, 0);
@@ -623,11 +621,10 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
                                                 "class", class_copy);
       if (options)
         {
-          /*
-          TRANSLATORS: association of a method or operation name with a class
-          in descriptions of object-oriented programming methods or operations.
-           */
-
+    /*
+      TRANSLATORS: association of a variable or instance variable with
+      a class in descriptions of object-oriented programming variables
+      or instance variable. */
           result = gdt_tree ("{category} of @code{{class}}", 0,
                              options->documentlanguage.o.string, substrings,
                              options->DEBUG.o.integer, 0);

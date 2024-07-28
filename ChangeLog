@@ -1,5 +1,18 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/convert_utils.c (definition_category_tree):
+	remove empty lines between TRANSLATORS comment and function call.
+
+	* Makefile.am (po_document-check): consider C files, update matching
+	to get functions used in C.
+
+	* po_document/Makevars (XGETTEXT_OPTIONS): add C only keywords
+	html_cdt_tree and gdt_tree.
+
+	* po_document/POTFILES.in: add converter C files.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS): add pass-perl-format flag for __p.
 
 	* Makefile.am (po-check): add missing keywords.  Add an exception for
