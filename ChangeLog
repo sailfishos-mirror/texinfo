@@ -1,5 +1,9 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/Makevars (XGETTEXT_OPTIONS): disable default keywords.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS): disable default keywords.  Add
 	ngettext.  Reorder.  Remove unused keywords.
 
