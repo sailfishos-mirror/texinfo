@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:44+0200\n"
+"POT-Creation-Date: 2024-07-28 14:46+0200\n"
 "PO-Revision-Date: 2023-03-26 22:05+0200\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -2233,11 +2233,13 @@ msgid "%s: unknown special element information type %s\n"
 msgstr "%s: okänt formateringskontext %s\n"
 
 #: tp/Texinfo/Document.pm:402 tp/Texinfo/XS/main/targets.c:171
+#: tp/Texinfo/XS/parsetexi/labels.c:152
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s ”%s” är redan definierat"
 
 #: tp/Texinfo/Document.pm:408 tp/Texinfo/XS/main/targets.c:176
+#: tp/Texinfo/XS/parsetexi/labels.c:158
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "här är den tidigare definitionen av @%s"
@@ -2850,6 +2852,7 @@ msgid "unhandled encoding name `%s'"
 msgstr "okänt kodningsnamn ”%s”"
 
 #: tp/Texinfo/ParserNonXS.pm:3880 tp/Texinfo/ParserNonXS.pm:6464
+#: tp/Texinfo/XS/parsetexi/end_line.c:1610
 #: tp/Texinfo/XS/parsetexi/separator.c:322
 #, c-format, perl-format
 msgid "empty argument in @%s"
@@ -2928,8 +2931,8 @@ msgstr "accentkommando ”@%s” inte tillåtet som @%s-argument"
 msgid "syntax for an external node used for `%s'"
 msgstr "syntax för en extern nod använd för ”%s”"
 
-#: tp/Texinfo/ParserNonXS.pm:4844
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/labels.c:91
+#, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "tomt nodnamn efter expansion ”%s”"
 
@@ -3209,18 +3212,18 @@ msgstr "förväntade @end %s"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s ska bara uppträda vid böjran på en rad"
 
-#: tp/Texinfo/ParserNonXS.pm:6914
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6914 tp/Texinfo/XS/parsetexi/parser.c:1559
+#, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "makrot ”%s” är redan definierat"
 
-#: tp/Texinfo/ParserNonXS.pm:6917
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6917 tp/Texinfo/XS/parsetexi/parser.c:1562
+#, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "här är den tidigare definitionen av ”%s”"
 
-#: tp/Texinfo/ParserNonXS.pm:6924
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6924 tp/Texinfo/XS/parsetexi/parser.c:1569
+#, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "omdefinierar Texinfo-språkkommando: @%s"
 
@@ -4590,6 +4593,10 @@ msgstr "@setfilename efter första elementet"
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions är inte meningsfullt utanför @multitabell-rad"
 
+#: tp/Texinfo/XS/parsetexi/end_line.c:1818
+msgid "@part should not be associated with @top"
+msgstr "@part borde inte associeras med @top"
+
 #: tp/Texinfo/XS/parsetexi/end_line.c:1832
 #, c-format
 msgid "@node precedes @part, but parts may not be associated with nodes"
@@ -4807,9 +4814,6 @@ msgstr "felaktigt eller tomt @%s formellt argument: "
 #~ msgstr ""
 #~ "insert_nodes_for_sectioning_commans-transformering returnerade inget "
 #~ "resultat. Inget avsnitt?"
-
-#~ msgid "@part should not be associated with @top"
-#~ msgstr "@part borde inte associeras med @top"
 
 #, perl-format
 #~ msgid "%c%s requires a name"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:44+0200\n"
+"POT-Creation-Date: 2024-07-28 14:46+0200\n"
 "PO-Revision-Date: 2021-07-01 15:36+0200\n"
 "Last-Translator: Johnny A. Solbu <johnny@solbu.net>\n"
 "Language-Team: Norwegian Bokmaal <l10n-no@lister.huftis.org>\n"
@@ -2165,11 +2165,13 @@ msgid "%s: unknown special element information type %s\n"
 msgstr "Ukjent tre-transformasjon «%s»"
 
 #: tp/Texinfo/Document.pm:402 tp/Texinfo/XS/main/targets.c:171
+#: tp/Texinfo/XS/parsetexi/labels.c:152
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s «%s» er tidligere definert"
 
 #: tp/Texinfo/Document.pm:408 tp/Texinfo/XS/main/targets.c:176
+#: tp/Texinfo/XS/parsetexi/labels.c:158
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "her er den tidligere definisjonen av @%s"
@@ -2766,6 +2768,7 @@ msgid "unhandled encoding name `%s'"
 msgstr "ugjenkjennelig kodingsnavn «%s»"
 
 #: tp/Texinfo/ParserNonXS.pm:3880 tp/Texinfo/ParserNonXS.pm:6464
+#: tp/Texinfo/XS/parsetexi/end_line.c:1610
 #: tp/Texinfo/XS/parsetexi/separator.c:322
 #, c-format, perl-format
 msgid "empty argument in @%s"
@@ -2842,8 +2845,8 @@ msgstr "dialekt-kommando «@%s» ikke tillatt som @%s-argument"
 msgid "syntax for an external node used for `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4844
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/labels.c:91
+#, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr ""
 
@@ -3116,18 +3119,18 @@ msgstr "Forventet @end %s"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s bør bare forekomme ved begynnelsen av en linje"
 
-#: tp/Texinfo/ParserNonXS.pm:6914
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6914 tp/Texinfo/XS/parsetexi/parser.c:1559
+#, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "makroen «%s» er tidligere definert"
 
-#: tp/Texinfo/ParserNonXS.pm:6917
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6917 tp/Texinfo/XS/parsetexi/parser.c:1562
+#, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "her er den tidligere definisjonen av «%s»"
 
-#: tp/Texinfo/ParserNonXS.pm:6924
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6924 tp/Texinfo/XS/parsetexi/parser.c:1569
+#, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr ""
 
@@ -4436,6 +4439,10 @@ msgstr ""
 #, c-format
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions er kun meningsfull i en @multitable-linje"
+
+#: tp/Texinfo/XS/parsetexi/end_line.c:1818
+msgid "@part should not be associated with @top"
+msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1832
 #, c-format

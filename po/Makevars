@@ -22,7 +22,7 @@ XGETTEXT_OPTIONS = \
  -kcommand_error:2 \
  -kcommand_warn:2 \
  -kline_error:1 \
- -kline_error_ext:3 \
+ -kline_error_ext:4 \
  -kline_warn:1 \
  -kmessage_list_command_error:4 \
  -kmessage_list_document_error:4 \

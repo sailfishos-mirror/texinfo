@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:44+0200\n"
+"POT-Creation-Date: 2024-07-28 14:46+0200\n"
 "PO-Revision-Date: 2023-05-19 12:55+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -2172,11 +2172,13 @@ msgid "%s: unknown special element information type %s\n"
 msgstr "%s: непознат контекст форматирања „%s“\n"
 
 #: tp/Texinfo/Document.pm:402 tp/Texinfo/XS/main/targets.c:171
+#: tp/Texinfo/XS/parsetexi/labels.c:152
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "„@%s“ „%s“ је претходно дефинисано"
 
 #: tp/Texinfo/Document.pm:408 tp/Texinfo/XS/main/targets.c:176
+#: tp/Texinfo/XS/parsetexi/labels.c:158
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "ово је место претходне дефиниције као „@%s“"
@@ -2770,6 +2772,7 @@ msgid "unhandled encoding name `%s'"
 msgstr "непознат назив кодирања „%s“"
 
 #: tp/Texinfo/ParserNonXS.pm:3880 tp/Texinfo/ParserNonXS.pm:6464
+#: tp/Texinfo/XS/parsetexi/end_line.c:1610
 #: tp/Texinfo/XS/parsetexi/separator.c:322
 #, c-format, perl-format
 msgid "empty argument in @%s"
@@ -2848,8 +2851,8 @@ msgstr "наредба акцента „@%sније дозвољена као �
 msgid "syntax for an external node used for `%s'"
 msgstr "синтакса за спољни чвор коришћен за „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:4844
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/labels.c:91
+#, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "празан назив чвора након ширења „%s“"
 
@@ -3129,18 +3132,18 @@ msgstr "очекивах „@end %s“"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "„@крај %s“ треба да се појави само на почетку реда"
 
-#: tp/Texinfo/ParserNonXS.pm:6914
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6914 tp/Texinfo/XS/parsetexi/parser.c:1559
+#, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "макро „%s“ је претходно дефинисан"
 
-#: tp/Texinfo/ParserNonXS.pm:6917
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6917 tp/Texinfo/XS/parsetexi/parser.c:1562
+#, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "ово је место претходне дефиниције за „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:6924
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6924 tp/Texinfo/XS/parsetexi/parser.c:1569
+#, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "поново дефинишем наредбу „Texinfo“ језика: @%s"
 
@@ -4523,6 +4526,10 @@ msgstr "„@setfilename“ након првог елемента"
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "„@columnfractions“ има смисла само у „@multitable“ реду"
 
+#: tp/Texinfo/XS/parsetexi/end_line.c:1818
+msgid "@part should not be associated with @top"
+msgstr "„@део“ не треба да буде придружено „@врху“"
+
 #: tp/Texinfo/XS/parsetexi/end_line.c:1832
 #, c-format
 msgid "@node precedes @part, but parts may not be associated with nodes"
@@ -4741,9 +4748,6 @@ msgstr "лош или празан „@%s“ формални аргумент: 
 #~ msgstr ""
 #~ "„insert_nodes_for_sectioning_commands“ преображај није дао резултат. Нема "
 #~ "одељка?"
-
-#~ msgid "@part should not be associated with @top"
-#~ msgstr "„@део“ не треба да буде придружено „@врху“"
 
 #, perl-format
 #~ msgid "%c%s requires a name"

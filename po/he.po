@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:44+0200\n"
+"POT-Creation-Date: 2024-07-28 14:46+0200\n"
 "PO-Revision-Date: 2002-04-03 12:31+0300\n"
 "Last-Translator: Eli Zaretskii <eliz@gnu.org>\n"
 "Language-Team: Hebrew <eliz@gnu.org>\n"
@@ -2233,12 +2233,14 @@ msgid "%s: unknown special element information type %s\n"
 msgstr ""
 
 #: tp/Texinfo/Document.pm:402 tp/Texinfo/XS/main/targets.c:171
+#: tp/Texinfo/XS/parsetexi/labels.c:152
 #, fuzzy, c-format, perl-format
 #| msgid "macro `%s' previously defined"
 msgid "@%s `%s' previously defined"
 msgstr "םדןק רדגוה רבכ `%s' ורקאמ"
 
 #: tp/Texinfo/Document.pm:408 tp/Texinfo/XS/main/targets.c:176
+#: tp/Texinfo/XS/parsetexi/labels.c:158
 #, fuzzy, c-format, perl-format
 #| msgid "here is the previous definition of `%s'"
 msgid "here is the previous definition as @%s"
@@ -2870,6 +2872,7 @@ msgid "unhandled encoding name `%s'"
 msgstr "`%s' רכומ-יתלב דודיק םש"
 
 #: tp/Texinfo/ParserNonXS.pm:3880 tp/Texinfo/ParserNonXS.pm:6464
+#: tp/Texinfo/XS/parsetexi/end_line.c:1610
 #: tp/Texinfo/XS/parsetexi/separator.c:322
 #, fuzzy, c-format, perl-format
 #| msgid "Bad argument to %c%s"
@@ -2952,8 +2955,8 @@ msgstr "%s תינכת רובע טנמוגרא לבקמ וניא `--%s' ןייפאמ\n"
 msgid "syntax for an external node used for `%s'"
 msgstr ""
 
-#: tp/Texinfo/ParserNonXS.pm:4844
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/labels.c:91
+#, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr ""
 
@@ -3235,18 +3238,18 @@ msgstr "`%s' יופצ היה ןאכ"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "הרוש תליחת דע קחמ"
 
-#: tp/Texinfo/ParserNonXS.pm:6914
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6914 tp/Texinfo/XS/parsetexi/parser.c:1559
+#, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "םדןק רדגוה רבכ `%s' ורקאמ"
 
-#: tp/Texinfo/ParserNonXS.pm:6917
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6917 tp/Texinfo/XS/parsetexi/parser.c:1562
+#, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "הנושארל רדגוה `%s' ןאכ"
 
-#: tp/Texinfo/ParserNonXS.pm:6924
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6924 tp/Texinfo/XS/parsetexi/parser.c:1569
+#, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr ""
 
@@ -4607,6 +4610,10 @@ msgstr ""
 #: tp/Texinfo/XS/parsetexi/end_line.c:1782
 #, c-format
 msgid "@columnfractions only meaningful on a @multitable line"
+msgstr ""
+
+#: tp/Texinfo/XS/parsetexi/end_line.c:1818
+msgid "@part should not be associated with @top"
 msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1832

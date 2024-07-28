@@ -1,5 +1,9 @@
 2024-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	* po/Makevars (XGETTEXT_OPTIONS): fix line_error_ext arguent number.
+
+2024-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS): set pass-perl-format for __.  Add
 	c-format and perl-format for functions involved in error reporting.
 

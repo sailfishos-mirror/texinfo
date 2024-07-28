@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:44+0200\n"
+"POT-Creation-Date: 2024-07-28 14:46+0200\n"
 "PO-Revision-Date: 2021-07-02 05:53+0100\n"
 "Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese <translation-team-pt@lists.sourceforge.net>\n"
@@ -2191,11 +2191,13 @@ msgid "%s: unknown special element information type %s\n"
 msgstr "transformação de árvore %s desconhecida"
 
 #: tp/Texinfo/Document.pm:402 tp/Texinfo/XS/main/targets.c:171
+#: tp/Texinfo/XS/parsetexi/labels.c:152
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s \"%s\" anteriormente definido"
 
 #: tp/Texinfo/Document.pm:408 tp/Texinfo/XS/main/targets.c:176
+#: tp/Texinfo/XS/parsetexi/labels.c:158
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "eis a definição anterior como @%s"
@@ -2795,6 +2797,7 @@ msgid "unhandled encoding name `%s'"
 msgstr "nome de codificação \"%s\" não reconhecido"
 
 #: tp/Texinfo/ParserNonXS.pm:3880 tp/Texinfo/ParserNonXS.pm:6464
+#: tp/Texinfo/XS/parsetexi/end_line.c:1610
 #: tp/Texinfo/XS/parsetexi/separator.c:322
 #, c-format, perl-format
 msgid "empty argument in @%s"
@@ -2872,8 +2875,8 @@ msgstr "comando acento \"@%s\" não permitido como argumento de @%s"
 msgid "syntax for an external node used for `%s'"
 msgstr "sintaxe para um nó externo usado para \"%s\""
 
-#: tp/Texinfo/ParserNonXS.pm:4844
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/labels.c:91
+#, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "nome de nó vazio após expansão \"%s\""
 
@@ -3153,18 +3156,18 @@ msgstr "esperado @end %s"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s só devia aparecer num início de linha"
 
-#: tp/Texinfo/ParserNonXS.pm:6914
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6914 tp/Texinfo/XS/parsetexi/parser.c:1559
+#, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "macro \"%s\" anteriormente definida"
 
-#: tp/Texinfo/ParserNonXS.pm:6917
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6917 tp/Texinfo/XS/parsetexi/parser.c:1562
+#, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "eis a definição anterior de \"%s\""
 
-#: tp/Texinfo/ParserNonXS.pm:6924
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6924 tp/Texinfo/XS/parsetexi/parser.c:1569
+#, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "redefinir comando de linguagem Texinfo: @%s"
 
@@ -4560,6 +4563,10 @@ msgstr "@setfilename após o primeiro elemento"
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions só tem significado numa linha @multitable"
 
+#: tp/Texinfo/XS/parsetexi/end_line.c:1818
+msgid "@part should not be associated with @top"
+msgstr "@part não devia estar associado com @top"
+
 #: tp/Texinfo/XS/parsetexi/end_line.c:1832
 #, c-format
 msgid "@node precedes @part, but parts may not be associated with nodes"
@@ -4769,9 +4776,6 @@ msgstr "argumento formal @%s errado ou vazio: "
 #~ msgstr ""
 #~ "transformação insert_nodes_for_sectioning_commands sem resultados. Não há "
 #~ "secção?"
-
-#~ msgid "@part should not be associated with @top"
-#~ msgstr "@part não devia estar associado com @top"
 
 #~ msgid "  -O, --show-options, --usage  go to command-line options node"
 #~ msgstr ""

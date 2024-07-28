@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:44+0200\n"
+"POT-Creation-Date: 2024-07-28 14:46+0200\n"
 "PO-Revision-Date: 2023-01-19 22:03+0100\n"
 "Last-Translator: Marek Felšöci <marek@felsoci.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -2169,11 +2169,13 @@ msgid "%s: unknown special element information type %s\n"
 msgstr "%s: neznáme okolnosti formátovania %s\n"
 
 #: tp/Texinfo/Document.pm:402 tp/Texinfo/XS/main/targets.c:171
+#: tp/Texinfo/XS/parsetexi/labels.c:152
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s „%s“ už bolo zadané"
 
 #: tp/Texinfo/Document.pm:408 tp/Texinfo/XS/main/targets.c:176
+#: tp/Texinfo/XS/parsetexi/labels.c:158
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "tu je predchádzajúce zadanie ako @%s"
@@ -2767,6 +2769,7 @@ msgid "unhandled encoding name `%s'"
 msgstr "nerozpoznaný názov kódovanie „%s“"
 
 #: tp/Texinfo/ParserNonXS.pm:3880 tp/Texinfo/ParserNonXS.pm:6464
+#: tp/Texinfo/XS/parsetexi/end_line.c:1610
 #: tp/Texinfo/XS/parsetexi/separator.c:322
 #, c-format, perl-format
 msgid "empty argument in @%s"
@@ -2845,8 +2848,8 @@ msgstr "diakritický príkaz „@%s“ nie je povoleným parametrom pre @%s"
 msgid "syntax for an external node used for `%s'"
 msgstr "pre „%s“ bola použitá skladba pre vonkajšie uzly"
 
-#: tp/Texinfo/ParserNonXS.pm:4844
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/labels.c:91
+#, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "prázdny názov uzla po rozšírení „%s“"
 
@@ -3126,18 +3129,18 @@ msgstr "očakával sa @end %s"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s by sa mal objavovať len na začiatku riadku"
 
-#: tp/Texinfo/ParserNonXS.pm:6914
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6914 tp/Texinfo/XS/parsetexi/parser.c:1559
+#, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "macro „%s“ už bolo zadané"
 
-#: tp/Texinfo/ParserNonXS.pm:6917
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6917 tp/Texinfo/XS/parsetexi/parser.c:1562
+#, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "tu je predošlé zadanie „%s“"
 
-#: tp/Texinfo/ParserNonXS.pm:6924
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6924 tp/Texinfo/XS/parsetexi/parser.c:1569
+#, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "prepísanie príkazu jazyka Texinfo: @%s"
 
@@ -4517,6 +4520,10 @@ msgstr "@setfilename po prvej položke"
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions dáva zmysel len na riadku s @multitable"
 
+#: tp/Texinfo/XS/parsetexi/end_line.c:1818
+msgid "@part should not be associated with @top"
+msgstr "@part by nemal súvisieť s @top"
+
 #: tp/Texinfo/XS/parsetexi/end_line.c:1832
 #, c-format
 msgid "@node precedes @part, but parts may not be associated with nodes"
@@ -4724,9 +4731,6 @@ msgstr "nesprávny alebo prázdny formálny parameter @%s: "
 #~ msgstr ""
 #~ "premena insert_nodes_for_sectioning_commands vrátila prázdny výsledok. "
 #~ "Žiadny oddiel?"
-
-#~ msgid "@part should not be associated with @top"
-#~ msgstr "@part by nemal súvisieť s @top"
 
 #, perl-format
 #~ msgid "%c%s requires a name"

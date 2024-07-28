@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-07-28 14:44+0200\n"
+"POT-Creation-Date: 2024-07-28 14:46+0200\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -2160,11 +2160,13 @@ msgid "%s: unknown special element information type %s\n"
 msgstr "không hiểu sự biến đổi cây %s"
 
 #: tp/Texinfo/Document.pm:402 tp/Texinfo/XS/main/targets.c:171
+#: tp/Texinfo/XS/parsetexi/labels.c:152
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s “%s” đã định nghĩa từ trước"
 
 #: tp/Texinfo/Document.pm:408 tp/Texinfo/XS/main/targets.c:176
+#: tp/Texinfo/XS/parsetexi/labels.c:158
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
 msgstr "ở đây có định nghĩa trước như là @%s"
@@ -2768,6 +2770,7 @@ msgid "unhandled encoding name `%s'"
 msgstr "không nhận ra tên bảng mã “%s”"
 
 #: tp/Texinfo/ParserNonXS.pm:3880 tp/Texinfo/ParserNonXS.pm:6464
+#: tp/Texinfo/XS/parsetexi/end_line.c:1610
 #: tp/Texinfo/XS/parsetexi/separator.c:322
 #, c-format, perl-format
 msgid "empty argument in @%s"
@@ -2846,8 +2849,8 @@ msgstr "lệnh nhấn mạnh accen “@%s” không cho phép đối số @%s"
 msgid "syntax for an external node used for `%s'"
 msgstr "cú pháp cho nút mở rộng được dùng cho “%s”"
 
-#: tp/Texinfo/ParserNonXS.pm:4844
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:4844 tp/Texinfo/XS/parsetexi/labels.c:91
+#, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "tên nút trống rỗng sau phần mở rộng “%s”"
 
@@ -3133,18 +3136,18 @@ msgstr "cần @end %s"
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s chỉ nên xuất hiện ở đầu một dòng"
 
-#: tp/Texinfo/ParserNonXS.pm:6914
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6914 tp/Texinfo/XS/parsetexi/parser.c:1559
+#, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "vĩ lệnh “%s” được định nghĩa trước"
 
-#: tp/Texinfo/ParserNonXS.pm:6917
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6917 tp/Texinfo/XS/parsetexi/parser.c:1562
+#, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "đây là lời định nghĩa trước của “%s”"
 
-#: tp/Texinfo/ParserNonXS.pm:6924
-#, perl-format
+#: tp/Texinfo/ParserNonXS.pm:6924 tp/Texinfo/XS/parsetexi/parser.c:1569
+#, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "định nghĩa lại lệnh ngôn ngữ Texinfo: @%s"
 
@@ -4568,6 +4571,12 @@ msgstr "@%s sau phần tử thứ nhất"
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@%s chỉ có nghĩa khi ở dòng @multitable"
 
+#: tp/Texinfo/XS/parsetexi/end_line.c:1818
+#, fuzzy
+#| msgid "@%s should not be associated with @top"
+msgid "@part should not be associated with @top"
+msgstr "@%s không được tổ hợp cùng với @top"
+
 #: tp/Texinfo/XS/parsetexi/end_line.c:1832
 #, fuzzy, c-format
 #| msgid "@node precedes @%s, but parts may not be associated with nodes"
@@ -4793,11 +4802,6 @@ msgstr "đối số có dạng thức sai hoặc trống rỗng @%s: %s"
 #~ msgstr ""
 #~ "sự biến đổi insert_nodes_for_sectioning_commands không trả về kết quả. "
 #~ "Không có chương nào à?"
-
-#, fuzzy
-#~| msgid "@%s should not be associated with @top"
-#~ msgid "@part should not be associated with @top"
-#~ msgstr "@%s không được tổ hợp cùng với @top"
 
 #~ msgid "  -O, --show-options, --usage  go to command-line options node"
 #~ msgstr "  -O, --show-options, --usage  đi đến nút tùy chọn dòng-lệnh"
