@@ -1,3 +1,7 @@
+2024-07-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl: get file handle from XS for - too.
+
 2024-10-01  Patrice Dumas  <pertusus@free.fr>
 
 	* Makefile.am, ChangeLog: remove spurious references to

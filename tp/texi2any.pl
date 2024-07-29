@@ -1983,23 +1983,22 @@ while(@input_files) {
                                $converter->output_files_information());
   if ($converter_unclosed_files) {
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
-      if ($unclosed_file eq '-') {
-        $main_unclosed_files{$unclosed_file}
-          = $converter_unclosed_files->{$unclosed_file};
-      } else {
-        my $fh = $converter_unclosed_files->{$unclosed_file};
-        # undefined file handle means that the path comes from XS (normally
-        # through build_output_files_unclosed_files) but is not associated
-        # with a file handle yet, as a file handle can't be directly associated
-        # with a stream in C code, but the stream can be returned through
-        # an XS interface, here
-        # Texinfo::Convert::ConvertXS::get_unclosed_stream.
+      my $fh = $converter_unclosed_files->{$unclosed_file};
+      # undefined file handle means that the path comes from XS (normally
+      # through build_output_files_unclosed_files) but is not associated
+      # with a file handle yet, as a file handle can't be directly associated
+      # with a stream in C code, but the stream can be returned through
+      # an XS interface, here
+      # Texinfo::Convert::ConvertXS::get_unclosed_stream.
+      if (!defined($fh)) {
+        $fh = $converter->XS_get_unclosed_stream($unclosed_file);
         if (!defined($fh)) {
-          $fh = $converter->XS_get_unclosed_stream($unclosed_file);
-          if (!defined($fh)) {
-            next;
-          }
+          next;
         }
+      }
+      if ($unclosed_file eq '-') {
+        $main_unclosed_files{$unclosed_file} = $fh;
+      } else {
         if (!close($fh)) {
           warn(sprintf(__("%s: error on closing %s: %s\n"),
                            $real_command_name, $unclosed_file, $!));
