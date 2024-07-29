@@ -116,6 +116,12 @@ tp/Texinfo/XS/gnulib/lib/wctype.h
 
 tp/Texinfo/XS/gnulib/lib/uniconv/*.lo
 
+tp/Texinfo/XS/gnulib/m4/libtool.m4
+tp/Texinfo/XS/gnulib/m4/ltoptions.m4
+tp/Texinfo/XS/gnulib/m4/ltsugar.m4
+tp/Texinfo/XS/gnulib/m4/ltversion.m4
+tp/Texinfo/XS/gnulib/m4/lt~obsolete.m4
+
 tp/Texinfo/XS/gnulib/po/*.gmo
 tp/Texinfo/XS/gnulib/po/POTFILES
 tp/Texinfo/XS/gnulib/po/remove-potcdate.sed
