@@ -213,7 +213,6 @@ converter_initialize (SV *converter_sv)
 
   FETCH(configured);
 
-
   if (configured_sv && SvOK (*configured_sv))
     {
       get_sv_configured_options (*configured_sv, converter->conf);

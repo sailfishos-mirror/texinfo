@@ -1004,15 +1004,6 @@ Previous section output unit at the same level.
 @item Up
 Up section.
 
-@item SectionNext
-Next output unit in section reading order.
-
-@item SectionPrev
-Previous output unit in section reading order.
-
-@item SectionUp
-Up in section reading order.
-
 @item NodeNext
 Next node output unit.
 

@@ -113,15 +113,15 @@ enum special_target_type {
   tds_type(example) \
   tds_type(rel)
 
+#define TDS_TRANSLATED_MAX_NR TDS_type_text +1
+#define TDS_TYPE_MAX_NR TDS_type_rel +1
+
 enum direction_string_type {
   #define tds_type(name) TDS_type_ ## name,
    TDS_TRANSLATED_TYPES_LIST
    TDS_NON_TRANSLATED_TYPES_LIST
   #undef tds_type
 };
-
-#define TDS_TRANSLATED_MAX_NR TDS_type_text +1
-#define TDS_TYPE_MAX_NR TDS_type_rel +1
 
 enum direction_string_context {
   TDS_context_normal,

@@ -188,9 +188,6 @@ enum global_unit_direction {
    rud_type(Next) \
    rud_type(Prev) \
    rud_type(Up) \
-   rud_type(SectionNext) \
-   rud_type(SectionPrev) \
-   rud_type(SectionUp) \
    rud_type(NodeNext) \
    rud_type(NodePrev) \
    rud_type(NodeUp) \

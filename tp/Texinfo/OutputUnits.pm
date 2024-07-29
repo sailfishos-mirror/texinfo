@@ -655,8 +655,8 @@ sub output_unit_texi($)
 # Should be in the same order as relative_unit_direction_name
 # in main/output_unit.c
 my @relative_directions_order = ('This', 'Forward', 'Back', 'FastForward',
- 'FastBack', 'Next', 'Prev', 'Up', 'SectionNext', 'SectionPrev',
- 'SectionUp', 'NodeNext', 'NodePrev', 'NodeUp', 'NodeForward', 'NodeBack');
+ 'FastBack', 'Next', 'Prev', 'Up', 'NodeNext', 'NodePrev', 'NodeUp',
+ 'NodeForward', 'NodeBack');
 my @file_directions_order = ('PrevFile', 'NextFile');
 my @all_directions_order
     = (@relative_directions_order, @file_directions_order,

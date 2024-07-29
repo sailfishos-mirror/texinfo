@@ -339,6 +339,13 @@ html_converter_initialize_sv (SV *converter_sv,
                       converter->default_converted_directions_strings[DS_type][i]
                         = strdup (SvPVutf8_nolen (*spec_sv));
                     }
+                    /*
+                       No direction strings for Footnotes
+                  else
+                    {
+                      fprintf (stderr, "NNN no string: %s\n", direction_name);
+                    }
+                     */
                 }
             }
         }

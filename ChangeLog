@@ -1,5 +1,17 @@
 2024-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Directions), tp/Texinfo/OutputUnits.pm
+	(@relative_directions_order), tp/Texinfo/XS/main/tree_types.h
+	(RUD_DIRECTIONS_TYPES_LIST): remove SectionNext, SectionPrev and
+	SectionUp, they have no associated strings and have not be set for a
+	long time.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h,
+	tp/Texinfo/XS/main/option_types.h: add comment, move code around.
+
+2024-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/generate_convert_data_perl_code.pl: process special
 	units before directions.  Change in spacing.
 

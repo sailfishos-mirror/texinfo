@@ -51,10 +51,14 @@ enum direction_unit_direction {
   #undef rud_type
 };
 
+/* TODO next two very dangerous */
 #define FIRSTINFILE_MIN_IDX D_direction_FirstInFileThis
 #define FIRSTINFILE_MAX_IDX D_direction_FirstInFileNodeBack
+
 #define FIRSTINFILE_OFFSET (D_direction_This - D_direction_FirstInFileThis)
 #define FIRSTINFILE_NR (FIRSTINFILE_MAX_IDX - FIRSTINFILE_MIN_IDX +1)
+/* used for the three directions like D_direction_Next to retrieve the
+   node direction (independentely) if USE_NODE_DIRECTIONS is set */
 #define NODE_DIRECTIONS_OFFSET (D_direction_NodeNext - D_direction_Next)
 
 #define NON_SPECIAL_DIRECTIONS_NR (FIRSTINFILE_MAX_IDX +1)
