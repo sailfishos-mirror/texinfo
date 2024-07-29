@@ -13,8 +13,8 @@ Next|next|n|1.2.4||Next direction string|Next||Next direction description|Next s
 Prev|prev|p|1.2.2||Prev direction string|Prev||Prev direction description|Previous section on same level||Prev direction button label|Prev|
 Up|up|u|1.2||Up direction string| Up ||Up direction description|Up section||Up direction button label|Up|
 NodeNext|next|n|1.2.4||NodeNext direction string|Next||NodeNext direction description|Next node||NodeNext direction button label|NodeNext|
-NodeUp|up|u|1.2||NodeUp direction string|Up||NodeUp direction description|Up node||NodeUp direction button label|NodeUp|
 NodePrev|prev|p|1.2.2||NodePrev direction string|Previous||NodePrev direction description|Previous node||NodePrev direction button label|NodePrev|
+NodeUp|up|u|1.2||NodeUp direction string|Up||NodeUp direction description|Up node||NodeUp direction button label|NodeUp|
 NodeForward|||1.2.4||NodeForward direction string|Forward node||NodeForward direction description|Next node in node reading order||NodeForward direction button label|NodeForward|
 NodeBack|||1.2.2||NodeBack direction string|Back node||NodeBack direction description|Previous node in node reading order||NodeBack direction button label|NodeBack|
 PrevFile|prev|| $html_default_entity_nbsp ||PrevFile direction string|Previous file||PrevFile direction description|Back section in previous file||PrevFile direction button label|PrevFile|

@@ -41,6 +41,7 @@ use Texinfo::XSLoader;
 
 use Texinfo::Commands;
 use Texinfo::Common;
+use Texinfo::Data;
 use Texinfo::ManipulateTree;
 
 require Exporter;
@@ -652,12 +653,10 @@ sub output_unit_texi($)
                                                           $unit_command);
 }
 
-# Should be in the same order as relative_unit_direction_name
-# in main/output_unit.c
-my @relative_directions_order = ('This', 'Forward', 'Back', 'FastForward',
- 'FastBack', 'Next', 'Prev', 'Up', 'NodeNext', 'NodePrev', 'NodeUp',
- 'NodeForward', 'NodeBack');
-my @file_directions_order = ('PrevFile', 'NextFile');
+my $direction_orders = Texinfo::Data::get_directions_order();
+# 'global', 'relative', 'file'
+my @relative_directions_order = @{$direction_orders->[1]};
+my @file_directions_order = @{$direction_orders->[2]};
 my @all_directions_order
     = (@relative_directions_order, @file_directions_order,
        map {'FirstInFile'.$_} @relative_directions_order);

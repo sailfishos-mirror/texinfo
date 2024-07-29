@@ -2611,10 +2611,12 @@ my %default_special_unit_info
 %default_translated_special_unit_info
   = %{ Texinfo::Data::get_default_translated_special_unit_info() };
 
-# to be kept in the same order as C code HTML_GLOBAL_DIRECTIONS_LIST.
-my @global_directions = ('First', 'Top', 'Index', 'Last');
+my $direction_orders = Texinfo::Data::get_directions_order();
+# 'global', 'relative', 'file'
+# include space direction
+my @global_directions_order = @{$direction_orders->[0]};
 my %global_and_special_directions;
-foreach my $global_direction (@global_directions) {
+foreach my $global_direction (@global_directions_order) {
   $global_and_special_directions{$global_direction} = 1;
 }
 foreach my $special_direction (values(
@@ -10485,7 +10487,7 @@ sub _prepare_output_units_global_targets($$$$)
 
   if ($self->get_conf('DEBUG')) {
     print STDERR "GLOBAL DIRECTIONS:\n";
-    foreach my $global_direction (@global_directions) {
+    foreach my $global_direction (@global_directions_order) {
       if (defined($self->global_direction_unit($global_direction))) {
         my $global_unit = $self->global_direction_unit($global_direction);
         print STDERR " $global_direction"

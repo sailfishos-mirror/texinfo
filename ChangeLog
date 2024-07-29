@@ -1,5 +1,15 @@
 2024-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Data/default_direction_strings.csv: fix order.
+
+	* tp/maintain/generate_convert_data_perl_code.pl,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/OutputUnits.pm: gather
+	directions orders from one place only, in
+	generate_convert_data_perl_code.pl, setup get_directions_order in
+	Texingo::Data.
+
+2024-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Directions), tp/Texinfo/OutputUnits.pm
 	(@relative_directions_order), tp/Texinfo/XS/main/tree_types.h
 	(RUD_DIRECTIONS_TYPES_LIST): remove SectionNext, SectionPrev and

@@ -127,6 +127,13 @@ sub get_default_translated_special_unit_info() {
   return \%default_translated_special_unit_info;
 }
 
+sub get_directions_order() {
+return [['First', 'Top', 'Index', 'Last', ' '],
+['This', 'Forward', 'Back', 'FastForward', 'FastBack', 'Next', 'Prev', 'Up', 'NodeNext', 'NodePrev', 'NodeUp', 'NodeForward', 'NodeBack'],
+['PrevFile', 'NextFile'],
+];
+}
+
 my %default_converted_directions_strings = (
 
   'rel' => {
@@ -144,8 +151,8 @@ my %default_converted_directions_strings = (
     'Prev' => 'prev',
     'Up' => 'up',
     'NodeNext' => 'next',
-    'NodeUp' => 'up',
     'NodePrev' => 'prev',
+    'NodeUp' => 'up',
     'NodeForward' => '',
     'NodeBack' => '',
     'PrevFile' => 'prev',
@@ -170,8 +177,8 @@ my %default_converted_directions_strings = (
     'Prev' => 'p',
     'Up' => 'u',
     'NodeNext' => 'n',
-    'NodeUp' => 'u',
     'NodePrev' => 'p',
+    'NodeUp' => 'u',
     'NodeForward' => '',
     'NodeBack' => '',
     'PrevFile' => '',
@@ -196,8 +203,8 @@ my %default_converted_directions_strings = (
     'Prev' => '1.2.2',
     'Up' => '1.2',
     'NodeNext' => '1.2.4',
-    'NodeUp' => '1.2',
     'NodePrev' => '1.2.2',
+    'NodeUp' => '1.2',
     'NodeForward' => '1.2.4',
     'NodeBack' => '1.2.2',
     'PrevFile' => ' &nbsp; ',
@@ -229,8 +236,8 @@ my %default_translated_directions_strings = (
     'Prev' => {'to_convert' => Texinfo::Common::pgdt('Prev direction string', 'Prev')},
     'Up' => {'to_convert' => Texinfo::Common::pgdt('Up direction string', ' Up ')},
     'NodeNext' => {'to_convert' => Texinfo::Common::pgdt('NodeNext direction string', 'Next')},
-    'NodeUp' => {'to_convert' => Texinfo::Common::pgdt('NodeUp direction string', 'Up')},
     'NodePrev' => {'to_convert' => Texinfo::Common::pgdt('NodePrev direction string', 'Previous')},
+    'NodeUp' => {'to_convert' => Texinfo::Common::pgdt('NodeUp direction string', 'Up')},
     'NodeForward' => {'to_convert' => Texinfo::Common::pgdt('NodeForward direction string', 'Forward node')},
     'NodeBack' => {'to_convert' => Texinfo::Common::pgdt('NodeBack direction string', 'Back node')},
     'PrevFile' => {'to_convert' => Texinfo::Common::pgdt('PrevFile direction string', 'Previous file')},
@@ -254,8 +261,8 @@ my %default_translated_directions_strings = (
     'Prev' => {'to_convert' => Texinfo::Common::pgdt('Prev direction description', 'Previous section on same level')},
     'Up' => {'to_convert' => Texinfo::Common::pgdt('Up direction description', 'Up section')},
     'NodeNext' => {'to_convert' => Texinfo::Common::pgdt('NodeNext direction description', 'Next node')},
-    'NodeUp' => {'to_convert' => Texinfo::Common::pgdt('NodeUp direction description', 'Up node')},
     'NodePrev' => {'to_convert' => Texinfo::Common::pgdt('NodePrev direction description', 'Previous node')},
+    'NodeUp' => {'to_convert' => Texinfo::Common::pgdt('NodeUp direction description', 'Up node')},
     'NodeForward' => {'to_convert' => Texinfo::Common::pgdt('NodeForward direction description', 'Next node in node reading order')},
     'NodeBack' => {'to_convert' => Texinfo::Common::pgdt('NodeBack direction description', 'Previous node in node reading order')},
     'PrevFile' => {'to_convert' => Texinfo::Common::pgdt('PrevFile direction description', 'Back section in previous file')},
@@ -280,8 +287,8 @@ my %default_translated_directions_strings = (
     'Prev' => {'to_convert' => Texinfo::Common::pgdt('Prev direction button label', 'Prev')},
     'Up' => {'to_convert' => Texinfo::Common::pgdt('Up direction button label', 'Up')},
     'NodeNext' => {'to_convert' => Texinfo::Common::pgdt('NodeNext direction button label', 'NodeNext')},
-    'NodeUp' => {'to_convert' => Texinfo::Common::pgdt('NodeUp direction button label', 'NodeUp')},
     'NodePrev' => {'to_convert' => Texinfo::Common::pgdt('NodePrev direction button label', 'NodePrev')},
+    'NodeUp' => {'to_convert' => Texinfo::Common::pgdt('NodeUp direction button label', 'NodeUp')},
     'NodeForward' => {'to_convert' => Texinfo::Common::pgdt('NodeForward direction button label', 'NodeForward')},
     'NodeBack' => {'to_convert' => Texinfo::Common::pgdt('NodeBack direction button label', 'NodeBack')},
     'PrevFile' => {'to_convert' => Texinfo::Common::pgdt('PrevFile direction button label', 'PrevFile')},

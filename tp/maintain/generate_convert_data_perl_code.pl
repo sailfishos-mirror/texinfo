@@ -150,6 +150,8 @@ my %su_hash_lines;
 foreach my $type (@su_ordered_untranslated_hashes, @su_ordered_translated_hashes) {
   $su_hash_lines{$type} = '';
 }
+# gather for direction structures below
+my %su_directions;
 my @su_ordered;
 while (<DSUI>) {
   chomp;
@@ -161,6 +163,9 @@ while (<DSUI>) {
     my $value = '';
     if (defined($data[$index])) {
       $value = $data[$index];
+      if ($untranslated_type eq 'direction') {
+        $su_directions{$value} = 1;
+      }
     }
     $su_hash_lines{$untranslated_type} .= "    '$special_unit' => '$value',\n";
   }
@@ -206,6 +211,21 @@ print OUT 'sub get_default_translated_special_unit_info() {
   return \%default_translated_special_unit_info;
 }'."\n\n";
 
+
+my @global_directions = ('First', 'Top', 'Index', 'Last');
+# add space 'direction'
+my @ordered_global_directions = (@global_directions, ' ');
+my %ordered_global_directions_hash;
+foreach my $global_direction (@ordered_global_directions) {
+  $ordered_global_directions_hash{$global_direction} = 1;
+}
+
+my %direction_orders = (
+  'global' => \@ordered_global_directions,
+  'relative' => [],
+  'file' => []
+);
+my @orders_order = ('global', 'relative', 'file');
 
 my @d_ordered_untranslated_hashes;
 my @d_ordered_translated_hashes;
@@ -258,12 +278,20 @@ my %hash_lines;
 foreach my $type (@d_ordered_untranslated_hashes, @d_ordered_translated_hashes) {
   $hash_lines{$type} = '';
 }
-my @d_ordered;
+my @relative_directions_order;
+my @file_directions_order;
 while (<DDS>) {
   chomp;
   my @data = split (/\|/);
   my $direction = $data[0];
-  push @d_ordered, $direction;
+  if (!$ordered_global_directions_hash{$direction}
+      and !$su_directions{$direction}) {
+    if ($direction =~ /File/) {
+      push @{$direction_orders{'file'}}, $direction;
+    } else {
+      push @{$direction_orders{'relative'}}, $direction;
+    }
+  }
   foreach my $untranslated_type (@d_ordered_untranslated_hashes) {
     my $index = $d_header_indices{$untranslated_type};
     my $value = '';
@@ -295,6 +323,14 @@ while (<DDS>) {
     }
   }
 }
+
+print OUT 'sub get_directions_order() {'."\n"
+  . 'return [';
+foreach my $order (@orders_order) {
+  print OUT '['.join(', ', map{"'$_'"} @{$direction_orders{$order}})."],\n";
+}
+print OUT "];\n}\n\n";
+
 
 print OUT "my %default_converted_directions_strings = (\n";
 
