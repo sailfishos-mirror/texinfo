@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# ./maintain/generate_convert_html_perl_code.pl Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv Texinfo/Data.pm
+# ./maintain/generate_convert_data_perl_code.pl Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv Texinfo/Data.pm
 
 use strict;
 
@@ -31,11 +31,11 @@ my $program_name = basename($0);
 
 my $base_default_css_element_class_styles_file = $ARGV[0];
 
-open (BDCSS, "<$base_default_css_element_class_styles_file") 
+open (BDCSS, "<$base_default_css_element_class_styles_file")
   or die "open $base_default_css_element_class_styles_file failed: $!";
 
 my $default_direction_strings_file = $ARGV[1];
-open (DDS, "<$default_direction_strings_file") 
+open (DDS, "<$default_direction_strings_file")
   or die "open $default_direction_strings_file failed: $!";
 
 my $default_special_unit_info_file = $ARGV[2];
@@ -110,122 +110,6 @@ print OUT 'sub get_base_default_css_info() {
 }'."\n\n";
 
 
-my @d_ordered_untranslated_hashes;
-my @d_ordered_translated_hashes;
-
-my $d_header_line = <DDS>;
-chomp($d_header_line);
-#print STDERR "$d_header_line\n";
-my @d_header = split(/\|/, $d_header_line);
-my $direction_header = shift @d_header;
-
-my $d_header_index = 1;
-my $type;
-my %d_header_indices;
-foreach my $header (@d_header) {
-  if ($header =~ /^([^ ]+) converted$/) {
-    $type = $1;
-    push @d_ordered_translated_hashes, $type;
-    $d_header_indices{$type} = {'converted' => $d_header_index};
-  } elsif ($header =~ /^([^ ]+) to_convert ([^ ]+)$/) {
-    if ($1 ne $type) {
-      die "Non matching type $1 ne $type\n";
-    }
-    my $spec = $2;
-    if ($spec ne 'context' and $spec ne 'string') {
-      die "Unknown to_convert spec $spec\n";
-    }
-    if (!defined($d_header_indices{$type}->{'to_convert'})) {
-      $d_header_indices{$type}->{'to_convert'} = {};
-    }
-    $d_header_indices{$type}->{'to_convert'}->{$spec} = $d_header_index;
-  } elsif ($header eq '') {
-    continue;
-  } else {
-    push @d_ordered_untranslated_hashes, $header;
-    $type = undef;
-    $d_header_indices{$header} = $d_header_index;
-  }
-  $d_header_index++;
-}
-
-sub substitute_direction_value
-{
-  my $input = shift;
-  $input =~ s/\$html_default_entity_nbsp/&nbsp;/;
-  $input =~ s/\$\{bar\}/\|/;
-  return $input;
-}
-
-my %hash_lines;
-foreach my $type (@d_ordered_untranslated_hashes, @d_ordered_translated_hashes) {
-  $hash_lines{$type} = '';
-}
-my @d_ordered;
-while (<DDS>) {
-  chomp;
-  my @data = split (/\|/);
-  my $direction = $data[0];
-  push @d_ordered, $direction;
-  foreach my $untranslated_type (@d_ordered_untranslated_hashes) {
-    my $index = $d_header_indices{$untranslated_type};
-    my $value = '';
-    if (defined($data[$index])) {
-      $value = substitute_direction_value($data[$index]);
-    }
-    $hash_lines{$untranslated_type} .= "    '$direction' => '$value',\n";
-  }
-  foreach my $translated_type (@d_ordered_translated_hashes) {
-    my $converted_value = $data[$d_header_indices{$translated_type}->{'converted'}];
-    if (defined($converted_value) and $converted_value ne '') {
-      $hash_lines{$translated_type} 
-        .= "    '$direction' => {'converted' => '"
-                   .substitute_direction_value($converted_value)."'},\n";
-    } else {
-      my $context = $data[$d_header_indices{$translated_type}->{'to_convert'}->{'context'}];
-      my $string = $data[$d_header_indices{$translated_type}->{'to_convert'}->{'string'}];
-      if (defined($string) and $string ne '') {
-        if (!defined($context) or $context eq '') {
-          print STDERR "ERROR: '$direction': '$string' but no context\n";
-        } else {
-          $hash_lines{$translated_type}
-           .= "    '$direction' => {'to_convert' => Texinfo::Common::pgdt('$context', '"
-             . substitute_direction_value($string)."')},\n";
-        }
-      } else {
-        print STDERR "REMARK: '$direction': no $translated_type\n";
-      }
-    }
-  }
-}
-
-print OUT "my %default_converted_directions_strings = (\n";
-
-foreach my $type (@d_ordered_untranslated_hashes) {
-  print OUT "\n  '$type' => {\n";
-  print OUT $hash_lines{$type};
-  print OUT "  },\n";
-}
-
-print OUT ");\n\n";
-
-print OUT 'sub get_default_converted_directions_strings() {
-  return \%default_converted_directions_strings;
-}'."\n\n";
-
-print OUT "my %default_translated_directions_strings = (\n";
-foreach my $type (@d_ordered_translated_hashes) {
-  print OUT "\n  '$type' => {\n";
-  print OUT $hash_lines{$type};
-  print OUT "  },\n";
-}
-print OUT ");\n\n";
-
-print OUT 'sub get_default_translated_directions_strings() {
-  return \%default_translated_directions_strings;
-}'."\n\n";
-
-
 my @su_ordered_untranslated_hashes;
 my @su_ordered_translated_hashes;
 
@@ -247,7 +131,7 @@ foreach my $header (@su_header) {
     if ($spec eq 'context') {
       $su_type = $1;
       push @su_ordered_translated_hashes, $su_type;
-      $su_header_indices{$su_type} = {}; 
+      $su_header_indices{$su_type} = {};
     } elsif ($1 ne $su_type) {
       die "Non matching type $1 ne $su_type\n";
     }
@@ -323,22 +207,138 @@ print OUT 'sub get_default_translated_special_unit_info() {
 }'."\n\n";
 
 
+my @d_ordered_untranslated_hashes;
+my @d_ordered_translated_hashes;
+
+my $d_header_line = <DDS>;
+chomp($d_header_line);
+#print STDERR "$d_header_line\n";
+my @d_header = split(/\|/, $d_header_line);
+my $direction_header = shift @d_header;
+
+my $d_header_index = 1;
+my $type;
+my %d_header_indices;
+foreach my $header (@d_header) {
+  if ($header =~ /^([^ ]+) converted$/) {
+    $type = $1;
+    push @d_ordered_translated_hashes, $type;
+    $d_header_indices{$type} = {'converted' => $d_header_index};
+  } elsif ($header =~ /^([^ ]+) to_convert ([^ ]+)$/) {
+    if ($1 ne $type) {
+      die "Non matching type $1 ne $type\n";
+    }
+    my $spec = $2;
+    if ($spec ne 'context' and $spec ne 'string') {
+      die "Unknown to_convert spec $spec\n";
+    }
+    if (!defined($d_header_indices{$type}->{'to_convert'})) {
+      $d_header_indices{$type}->{'to_convert'} = {};
+    }
+    $d_header_indices{$type}->{'to_convert'}->{$spec} = $d_header_index;
+  } elsif ($header eq '') {
+    continue;
+  } else {
+    push @d_ordered_untranslated_hashes, $header;
+    $type = undef;
+    $d_header_indices{$header} = $d_header_index;
+  }
+  $d_header_index++;
+}
+
+sub substitute_direction_value
+{
+  my $input = shift;
+  $input =~ s/\$html_default_entity_nbsp/&nbsp;/;
+  $input =~ s/\$\{bar\}/\|/;
+  return $input;
+}
+
+my %hash_lines;
+foreach my $type (@d_ordered_untranslated_hashes, @d_ordered_translated_hashes) {
+  $hash_lines{$type} = '';
+}
+my @d_ordered;
+while (<DDS>) {
+  chomp;
+  my @data = split (/\|/);
+  my $direction = $data[0];
+  push @d_ordered, $direction;
+  foreach my $untranslated_type (@d_ordered_untranslated_hashes) {
+    my $index = $d_header_indices{$untranslated_type};
+    my $value = '';
+    if (defined($data[$index])) {
+      $value = substitute_direction_value($data[$index]);
+    }
+    $hash_lines{$untranslated_type} .= "    '$direction' => '$value',\n";
+  }
+  foreach my $translated_type (@d_ordered_translated_hashes) {
+    my $converted_value = $data[$d_header_indices{$translated_type}->{'converted'}];
+    if (defined($converted_value) and $converted_value ne '') {
+      $hash_lines{$translated_type}
+        .= "    '$direction' => {'converted' => '"
+                   .substitute_direction_value($converted_value)."'},\n";
+    } else {
+      my $context = $data[$d_header_indices{$translated_type}->{'to_convert'}->{'context'}];
+      my $string = $data[$d_header_indices{$translated_type}->{'to_convert'}->{'string'}];
+      if (defined($string) and $string ne '') {
+        if (!defined($context) or $context eq '') {
+          print STDERR "ERROR: '$direction': '$string' but no context\n";
+        } else {
+          $hash_lines{$translated_type}
+           .= "    '$direction' => {'to_convert' => Texinfo::Common::pgdt('$context', '"
+             . substitute_direction_value($string)."')},\n";
+        }
+      } else {
+        print STDERR "REMARK: '$direction': no $translated_type\n";
+      }
+    }
+  }
+}
+
+print OUT "my %default_converted_directions_strings = (\n";
+
+foreach my $type (@d_ordered_untranslated_hashes) {
+  print OUT "\n  '$type' => {\n";
+  print OUT $hash_lines{$type};
+  print OUT "  },\n";
+}
+
+print OUT ");\n\n";
+
+print OUT 'sub get_default_converted_directions_strings() {
+  return \%default_converted_directions_strings;
+}'."\n\n";
+
+print OUT "my %default_translated_directions_strings = (\n";
+foreach my $type (@d_ordered_translated_hashes) {
+  print OUT "\n  '$type' => {\n";
+  print OUT $hash_lines{$type};
+  print OUT "  },\n";
+}
+print OUT ");\n\n";
+
+print OUT 'sub get_default_translated_directions_strings() {
+  return \%default_translated_directions_strings;
+}'."\n\n";
+
+
 my $sce_header_line = <SCE>;
 chomp($sce_header_line);
 #print STDERR "$sce_header_line\n";
 my @sce_header = split(/\|/, $sce_header_line);
 my ($sce_command_index, $sce_html_element_index, $sce_notes_index);
-my $sce_header_index = 0; 
+my $sce_header_index = 0;
 foreach my $header (@sce_header) {
   if ($header eq 'command') {
     $sce_command_index = $sce_header_index;
   } elsif ($header eq 'html_element') {
     $sce_html_element_index = $sce_header_index;
-  } elsif ($header eq 'notes') { 
+  } elsif ($header eq 'notes') {
     $sce_notes_index = $sce_header_index;
-  } 
+  }
   $sce_header_index++;
-} 
+}
 if (!defined($sce_command_index) or !defined($sce_html_element_index)
     or !defined($notes_index)) {
   die "missing header column ($sce_command_index, "
@@ -351,7 +351,7 @@ my $line_nr = 1;
 while (<SCE>) {
   $line_nr++;
   chomp;
-  my @data = split (/\|/); 
+  my @data = split (/\|/);
   my $notes = $data[$sce_notes_index];
   if (defined($notes) and $notes ne '') {
     my $lines = wrap($initial_notes_tab, $subsequent_notes_tab, ($notes));
@@ -360,16 +360,16 @@ while (<SCE>) {
   my $sce_command = $data[$sce_command_index];
   if (!defined($sce_command) or $sce_command eq '') {
     die "$style_commands_element_file: $line_nr: Bad command\n";
-  } 
+  }
   my $sce_html_element = $data[$sce_html_element_index];
   if (!defined($sce_html_element) or $sce_html_element eq '') {
     die "$style_commands_element_file: $line_nr: Bad html_element\n";
-  }   
+  }
   print OUT "    '$sce_command'    => '$sce_html_element',\n";
-}   
-    
+}
+
 print OUT ");\n\n";
-    
+
 print OUT 'sub get_html_style_commands_element() {
   return \%html_style_commands_element;
 }'."\n\n";

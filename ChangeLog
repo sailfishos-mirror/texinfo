@@ -1,5 +1,15 @@
 2024-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/generate_convert_data_perl_code.pl: process special
+	units before directions.  Change in spacing.
+
+	* tp/Texinfo/Data/default_direction_strings.csv: change order to match
+	better order in C enum.
+
+	* tp/Texinfo/XS/main/utils.c: change in spacing.
+
+2024-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: get file handle from XS for - too.
 
 2024-10-01  Patrice Dumas  <pertusus@free.fr>
