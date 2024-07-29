@@ -29,6 +29,7 @@
 #include "uniwidth.h"
 #include <unictype.h>
 
+#include "conversion_data.h"
 /* also for xvasprintf */
 #include "text.h"
 #include "command_ids.h"

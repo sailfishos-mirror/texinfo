@@ -31,6 +31,7 @@
 
 #undef context
 
+#include "conversion_data.h"
 #include "command_ids.h"
 #include "converter_types.h"
 #include "types_data.h"

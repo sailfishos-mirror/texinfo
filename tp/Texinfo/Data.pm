@@ -278,7 +278,7 @@ my %default_translated_directions_strings = (
     'Index' => {'to_convert' => Texinfo::Common::pgdt('Index direction button label', 'Index')},
     'Last' => {'to_convert' => Texinfo::Common::pgdt('Last direction button label', 'Last')},
     ' ' => {'converted' => ' '},
-    'This' => {'to_convert' => Texinfo::Common::pgdt('This direction button label', 'This')},
+    'This' => {'to_convert' => Texinfo::Common::pgdt('This (current section) direction button label', 'This')},
     'Forward' => {'to_convert' => Texinfo::Common::pgdt('Forward direction button label', 'Forward')},
     'Back' => {'to_convert' => Texinfo::Common::pgdt('Back direction button label', 'Back')},
     'FastForward' => {'to_convert' => Texinfo::Common::pgdt('FastForward direction button label', 'FastForward')},

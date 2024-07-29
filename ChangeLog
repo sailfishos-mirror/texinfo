@@ -1,5 +1,29 @@
 2024-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Data/default_direction_strings.csv,
+	tp/Texinfo/Data/default_special_unit_info.csv,
+	tp/maintain/generate_code_convert_data.pl: determine translation
+	context automatically.  Remove columns from data files.
+
+	* tp/Makefile.am (maintenance_files, Texinfo/Data.pm),
+	tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES, EXTRA_DIST)
+	(BUILT_SOURCES, main/conversion_data.c, MAINTAINERCLEANFILES),
+	tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/main/converter_types.h,
+	tp/Texinfo/XS/main/option_types.h, tp/Texinfo/XS/main/tree_types.h,
+	tp/maintain/generate_code_convert_data.pl: generate automatically C
+	code files based on tp/Texinfo/Data/*.csv in
+	generate_code_convert_data.pl in parallel with Perl code generation.
+	Replace from manually set enum, arrays and macros
+	special_unit_info_type_names, translated_special_unit_info,
+	direction_type_translation_context, enum special_unit_info_type, enum
+	special_unit_info_tree, TDS_TRANSLATED_TYPES_LIST,
+	TDS_NON_TRANSLATED_TYPES_LIST, TDS_TYPE_MAX_NR, FIRSTINFILE_MIN_IDX,
+	FIRSTINFILE_MAX_IDX, HTML_GLOBAL_DIRECTIONS_LIST,
+	RUD_DIRECTIONS_TYPES_LIST and RUD_FILE_DIRECTIONS_TYPES.
+
+2024-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Data/default_direction_strings.csv: fix order.
 
 	* tp/maintain/generate_convert_data_perl_code.pl,

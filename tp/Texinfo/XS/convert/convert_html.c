@@ -27,6 +27,7 @@
 
 #include "copy-file.h"
 
+#include "conversion_data.h"
 #include "text.h"
 #include "element_types.h"
 #include "tree_types.h"
@@ -158,13 +159,6 @@ const char *html_stage_handler_stage_type_names[] = {
   #undef html_hsht_type
 };
 
-const char *special_unit_info_type_names[SUI_type_heading + 1] =
-{
-  #define sui_type(name) #name,
-   SUI_TYPES_LIST
-  #undef sui_type
-};
-
 const char *direction_string_type_names[] =
 {
   #define tds_type(name) #name,
@@ -193,13 +187,6 @@ const enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1]
  { htmlxref_split_type_node, htmlxref_split_type_section, htmlxref_split_type_chapter, htmlxref_split_type_mono },
  { htmlxref_split_type_section, htmlxref_split_type_chapter, htmlxref_split_type_node, htmlxref_split_type_mono },
  { htmlxref_split_type_chapter, htmlxref_split_type_section, htmlxref_split_type_node, htmlxref_split_type_mono },
-};
-
-
-const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
-  {SUIT_type_heading, SUI_type_heading},
-  /* these special types end the list */
-  {SUIT_type_none, SUI_type_none},
 };
 
 CMD_VARIETY command_special_unit_variety[] = {
@@ -3042,11 +3029,6 @@ clear_direction_string_type (const CONVERTER *self, char ***type_directions_stri
         }
     }
 }
-
-static const char *direction_type_translation_context[] =
-{
-  "button label", "description", "string"
-};
 
 const char *
 direction_string (CONVERTER *self, int direction,

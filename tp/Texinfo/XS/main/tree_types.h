@@ -19,6 +19,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "conversion_data.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "text.h"
@@ -165,11 +166,6 @@ enum ai_key_name {
    special_unit_info and put later on in
    special_units_direction_name
  */
-#define HTML_GLOBAL_DIRECTIONS_LIST \
-   hgdt_name(First) \
-   hgdt_name(Top) \
-   hgdt_name(Index) \
-   hgdt_name(Last)
 
 enum global_unit_direction {
   #define hgdt_name(name) D_ ## name,
@@ -177,27 +173,6 @@ enum global_unit_direction {
   #undef hgdt_name
    D_Space,
 };
-
-/* relative output unit directions */
-#define RUD_DIRECTIONS_TYPES_LIST \
-   rud_type(This) \
-   rud_type(Forward) \
-   rud_type(Back) \
-   rud_type(FastForward) \
-   rud_type(FastBack) \
-   rud_type(Next) \
-   rud_type(Prev) \
-   rud_type(Up) \
-   rud_type(NodeNext) \
-   rud_type(NodePrev) \
-   rud_type(NodeUp) \
-   rud_type(NodeForward) \
-   rud_type(NodeBack)
-
-/* relative output unit file directions */
-#define RUD_FILE_DIRECTIONS_TYPES \
-   rud_type(PrevFile) \
-   rud_type(NextFile)
 
 enum relative_unit_direction_type {
   #define rud_type(name) RUD_type_## name,

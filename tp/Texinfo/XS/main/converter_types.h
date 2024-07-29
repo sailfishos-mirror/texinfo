@@ -21,6 +21,7 @@
 /* for FILE */
 #include <stdio.h>
 
+#include "conversion_data.h"
 #include "element_types.h"
 #include "command_ids.h"
 #include "tree_types.h"
@@ -77,44 +78,9 @@ enum conversion_context {
   #undef cctx_type
 };
 
-#define SUI_TYPES_LIST \
-  sui_type(class) \
-  sui_type(direction) \
-  sui_type(order) \
-  sui_type(file_string) \
-  sui_type(target) \
-  sui_type(heading)
-
-enum special_unit_info_type {
-   SUI_type_none = -1,
-  #define sui_type(name) SUI_type_ ## name,
-   SUI_TYPES_LIST
-  #undef sui_type
-};
-
-/* translated from corresponding SUI_type* */
-enum special_unit_info_tree {
-   SUIT_type_none = -1,
-
-   SUIT_type_heading,
-};
-
 enum special_target_type {
    ST_footnote_location,
 };
-
-#define TDS_TRANSLATED_TYPES_LIST \
-  tds_type(button) \
-  tds_type(description) \
-  tds_type(text)
-
-#define TDS_NON_TRANSLATED_TYPES_LIST \
-  tds_type(accesskey) \
-  tds_type(example) \
-  tds_type(rel)
-
-#define TDS_TRANSLATED_MAX_NR TDS_type_text +1
-#define TDS_TYPE_MAX_NR TDS_type_rel +1
 
 enum direction_string_type {
   #define tds_type(name) TDS_type_ ## name,

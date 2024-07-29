@@ -19,6 +19,7 @@
 
 #include <stddef.h>
 
+#include "conversion_data.h"
 #include "tree_types.h"
 
 enum global_option_type {
@@ -50,10 +51,6 @@ enum direction_unit_direction {
    RUD_DIRECTIONS_TYPES_LIST
   #undef rud_type
 };
-
-/* TODO next two very dangerous */
-#define FIRSTINFILE_MIN_IDX D_direction_FirstInFileThis
-#define FIRSTINFILE_MAX_IDX D_direction_FirstInFileNodeBack
 
 #define FIRSTINFILE_OFFSET (D_direction_This - D_direction_FirstInFileThis)
 #define FIRSTINFILE_NR (FIRSTINFILE_MAX_IDX - FIRSTINFILE_MIN_IDX +1)

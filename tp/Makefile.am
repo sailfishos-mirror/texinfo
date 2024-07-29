@@ -329,7 +329,7 @@ maintenance_files = \
   maintain/change_perl_modules_version.sh \
   maintain/copy_change_file_name_encoding.pl \
   maintain/language-subtag-registry \
-  maintain/generate_convert_data_perl_code.pl \
+  maintain/generate_code_convert_data.pl \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \
   maintain/regenerate_docstr.sh \
@@ -385,8 +385,8 @@ $(srcdir)/Texinfo/Commands.pm: Texinfo/command_data.txt $(srcdir)/maintain/regen
 $(srcdir)/Texinfo/Options.pm: Texinfo/options_data.txt $(srcdir)/maintain/regenerate_perl_options_info.pl
 	$(srcdir)/maintain/regenerate_perl_options_info.pl $(srcdir)/Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
 
-$(srcdir)/Texinfo/Data.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_convert_data_perl_code.pl
-	$(srcdir)/maintain/generate_convert_data_perl_code.pl $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv $(srcdir)/Texinfo/Data/default_direction_strings.csv $(srcdir)/Texinfo/Data/default_special_unit_info.csv $(srcdir)/Texinfo/Data/html_style_commands_element.csv $@
+$(srcdir)/Texinfo/Data.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_code_convert_data.pl
+	$(srcdir)/maintain/generate_code_convert_data.pl $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv $(srcdir)/Texinfo/Data/default_direction_strings.csv $(srcdir)/Texinfo/Data/default_special_unit_info.csv $(srcdir)/Texinfo/Data/html_style_commands_element.csv perl $@
 
 libsrcdir = $(srcdir)/maintain/lib
 
