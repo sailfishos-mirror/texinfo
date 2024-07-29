@@ -1,5 +1,14 @@
 2024-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (main/conversion_data.c),
+	maintain/generate_code_convert_data.pl: read C commands data on STDIN.
+	Generate default_translated_directions_strings and
+	html_style_commands_element C data.
+
+	* tp/Makefile.am (Texinfo/Data.pm): reformat.
+
+2024-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Data/default_direction_strings.csv,
 	tp/Texinfo/Data/default_special_unit_info.csv,
 	tp/maintain/generate_code_convert_data.pl: determine translation

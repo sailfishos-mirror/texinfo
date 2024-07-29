@@ -162,6 +162,11 @@ if ($perl_format) {
   print HDR "/* Automatically generated from $program_name */\n\n";
   print HDR "#ifndef $C_header_string\n"
          ."#define $C_header_string\n\n";
+  print HDR 'typedef struct HTML_DEFAULT_DIRECTION_STRING_TRANSLATED {'."\n"
+   .'    const char *converted;'."\n"
+   .'    const char *to_convert;'."\n"
+   .'} HTML_DEFAULT_DIRECTION_STRING_TRANSLATED;'."\n\n";
+
 }
 
 
@@ -235,6 +240,7 @@ if ($C_format) {
 
 # gather for direction structures below
 my %su_directions;
+my @ordered_su_directions;
 my @su_ordered;
 while (<DSUI>) {
   chomp;
@@ -248,6 +254,7 @@ while (<DSUI>) {
       $value = $data[$index];
       if ($untranslated_type eq 'direction') {
         $su_directions{$value} = 1;
+        push @ordered_su_directions, $value;
       }
     }
     if ($perl_format) {
@@ -428,13 +435,11 @@ if ($C_format) {
 
   print OUT "const char *direction_type_translation_context[] = {\n";
   foreach my $type (@d_ordered_translated_hashes) {
-    print OUT '"'.$type_contexts_map{$type}.'", '."\n";
+    print OUT '"'.$type_contexts_map{$type}.'", '."/* $type */\n";
   }
   print OUT "};\n\n";
 }
 
-my @relative_directions_order;
-my @file_directions_order;
 while (<DDS>) {
   chomp;
   my @data = split (/\|/);
@@ -457,7 +462,7 @@ while (<DDS>) {
       $hash_lines{$untranslated_type} .= "    '$direction' => '$value',\n";
     } else {
       if ($value ne '') {
-        $hash_values{$untranslated_type}->{$direction} = {'untranslated' => $value};
+        $hash_values{$untranslated_type}->{$direction} = $value;
       }
     }
   }
@@ -497,6 +502,9 @@ while (<DDS>) {
     }
   }
 }
+
+my @ordered_directions = (@{$direction_orders{'global'}}, @{$direction_orders{'relative'}},
+                          @{$direction_orders{'file'}}, @ordered_su_directions);
 
 if ($perl_format) {
   print OUT 'sub get_directions_order() {'."\n"
@@ -561,6 +569,50 @@ if ($perl_format) {
      .$direction_orders{'relative'}[0]."\n";
   print HDR "#define FIRSTINFILE_MAX_IDX D_direction_FirstInFile"
      .$direction_orders{'relative'}[-1]."\n\n";
+
+  my $nr_string_directions = scalar(@ordered_directions);
+  print OUT "const char * const default_converted_directions_strings[]["
+                            ."$nr_string_directions] = {\n";
+  foreach my $type (@d_ordered_untranslated_hashes) {
+    print OUT "  { /* $type */\n";
+    foreach my $direction (@ordered_directions) {
+       print OUT '    ';
+      if ($hash_values{$type} and $hash_values{$type}->{$direction}) {
+        print OUT '"'.$hash_values{$type}->{$direction}.'",';
+      } else {
+        print OUT '0,';
+      }
+      print OUT " /* $direction */\n";
+    }
+    print OUT "  },\n";
+  }
+  print OUT "};\n\n";
+
+  print OUT "const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED "
+     ."default_translated_directions_strings[][$nr_string_directions] = {\n";
+  foreach my $type (@d_ordered_translated_hashes) {
+    print OUT "  { /* $type */\n";
+    foreach my $direction (@ordered_directions) {
+      if ($hash_values{$type} and $hash_values{$type}->{$direction}) {
+        print OUT '    {';
+        if (defined($hash_values{$type}->{$direction}->{'converted'})) {
+          print OUT '"'.$hash_values{$type}->{$direction}->{'converted'}.'", 0';
+        } else {
+          my $to_convert = $hash_values{$type}->{$direction};
+          my $context = $to_convert->{'context'};
+          my $string = $to_convert->{'string'};
+          my $value = "pgdt_noop(\"$context\", \"$string\")";
+          print OUT "0, $value";
+        }
+        print OUT '},';
+      } else {
+        print OUT '    {0, 0},';
+      }
+      print OUT " /* $direction */\n";
+    }
+    print OUT "  },\n";
+  }
+  print OUT "};\n\n";
 }
 
 my $sce_header_line = <SCE>;
@@ -589,6 +641,7 @@ if ($perl_format) {
   print OUT "my %html_style_commands_element = (\n";
 }
 
+my %command_element;
 my $line_nr = 1;
 while (<SCE>) {
   $line_nr++;
@@ -612,6 +665,8 @@ while (<SCE>) {
   }
   if ($perl_format) {
     print OUT "    '$sce_command'    => '$sce_html_element',\n";
+  } else {
+    $command_element{$sce_command} = $sce_html_element;
   }
 }
 
@@ -624,6 +679,54 @@ if ($perl_format) {
 
   print OUT "1;\n";
 } else {
+  print HDR "extern const char *html_style_commands_element[];\n\n";
+
   print HDR "#endif\n";
+
+  my @commands_order = ('');
+
+  my %commands_map = (
+   '\\t' => "\t",
+   '\\n' => "\n",
+   '\\x20' => ' ',
+    '\"' => '"',
+    '\\\\' => '\\',
+  );
+
+  my %name_commands;
+  while (<STDIN>) {
+    my $command;
+    if (/^"([^"]+?)", /) {
+      $command = $1;
+    } elsif (/^"\\"", /) {
+      $command = '\"';
+    }
+    next if (!defined($command));
+    my $command_name = $command;
+    if (exists $commands_map{$command}) {
+      $command_name = $commands_map{$command};
+      $name_commands{$command_name} = $command;
+    }
+    push @commands_order, $command_name;
+    print STDERR "$command\n";
+  }
+
+  if ($C_format) {
+    print OUT "const char *html_style_commands_element[] = {\n";
+    foreach my $command_name (@commands_order) {
+      my $command = $command_name;
+      if (exists($name_commands{$command_name})) {
+        $command = $name_commands{$command_name};
+      }
+
+      if (exists($command_element{$command})) {
+        print OUT "\"$command_element{$command}\",  /* $command */\n";
+      } else {
+        print OUT "0,\n";
+      }
+    }
+    print OUT "};\n\n";
+  }
 }
 
+close(OUT);

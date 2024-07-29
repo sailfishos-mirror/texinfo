@@ -386,7 +386,12 @@ $(srcdir)/Texinfo/Options.pm: Texinfo/options_data.txt $(srcdir)/maintain/regene
 	$(srcdir)/maintain/regenerate_perl_options_info.pl $(srcdir)/Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
 
 $(srcdir)/Texinfo/Data.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_code_convert_data.pl
-	$(srcdir)/maintain/generate_code_convert_data.pl $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv $(srcdir)/Texinfo/Data/default_direction_strings.csv $(srcdir)/Texinfo/Data/default_special_unit_info.csv $(srcdir)/Texinfo/Data/html_style_commands_element.csv perl $@
+	$(srcdir)/maintain/generate_code_convert_data.pl \
+	      $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv \
+	      $(srcdir)/Texinfo/Data/default_direction_strings.csv \
+	      $(srcdir)/Texinfo/Data/default_special_unit_info.csv \
+	      $(srcdir)/Texinfo/Data/html_style_commands_element.csv \
+	      perl $@
 
 libsrcdir = $(srcdir)/maintain/lib
 

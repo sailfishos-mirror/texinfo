@@ -306,14 +306,15 @@ $(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main
 MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
                         main/options_get_perl.c
 
-$(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
+$(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_data.c $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
 	$(PERL) $(srcdir)/../../maintain/generate_code_convert_data.pl \
-	        $(srcdir)/../Data/default_css_element_class_styles.csv \
-	        $(srcdir)/../Data/default_direction_strings.csv \
-	        $(srcdir)/../Data/default_special_unit_info.csv \
-	        $(srcdir)/../Data/html_style_commands_element.csv \
-	        C $(srcdir)/main/conversion_data.c \
-	        $(srcdir)/main/conversion_data.h
+	        < $(srcdir)/main/command_data.c \
+	            $(srcdir)/../Data/default_css_element_class_styles.csv \
+	            $(srcdir)/../Data/default_direction_strings.csv \
+	            $(srcdir)/../Data/default_special_unit_info.csv \
+	            $(srcdir)/../Data/html_style_commands_element.csv \
+	            C $(srcdir)/main/conversion_data.c \
+	            $(srcdir)/main/conversion_data.h
 
 MAINTAINERCLEANFILES += main/conversion_data.c main/conversion_data.h
 
