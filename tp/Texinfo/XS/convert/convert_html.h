@@ -186,7 +186,9 @@ STRING_LIST *html_get_css_elements_classes (CONVERTER *self,
 void html_css_add_info (CONVERTER *self, enum css_info_type type,
                         const char *css_info);
 const STRING_LIST *html_css_get_info (CONVERTER *self, enum css_info_type type);
-void html_css_set_selector_style (CONVERTER* self, const char *css_info,
+void html_css_set_selector_style (
+                       CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
+                                  const char *css_info,
                                   const char *css_style);
 const char *html_css_get_selector_style (CONVERTER* self, const char *css_info);
 

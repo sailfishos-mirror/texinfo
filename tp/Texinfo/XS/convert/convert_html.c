@@ -125,6 +125,9 @@ typedef struct SPECIAL_UNIT_BODY_INTERNAL_CONVERSION {
                                TEXT *result);
 } SPECIAL_UNIT_BODY_INTERNAL_CONVERSION;
 
+/* in main/conversion_data.c */
+extern const CSS_SELECTOR_STYLE base_default_css_element_class_styles[];
+
 const char *count_elements_in_filename_type_names[] = {
  "total", "remaining", "current"};
 
@@ -4528,10 +4531,11 @@ compare_selector_style (const void *a, const void *b)
 }
 
 static void
-sort_css_element_class_styles (CONVERTER* self)
+sort_css_element_class_styles (
+       CSS_SELECTOR_STYLE_LIST *css_element_class_styles)
 {
-  qsort (self->css_element_class_styles.list,
-         self->css_element_class_styles.number,
+  qsort (css_element_class_styles->list,
+         css_element_class_styles->number,
          sizeof (CSS_SELECTOR_STYLE), compare_selector_style);
 }
 
@@ -4555,11 +4559,12 @@ find_css_selector_style
 }
 
 void
-html_css_set_selector_style (CONVERTER* self, const char *css_info,
+html_css_set_selector_style (CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
+                             const char *css_info,
                              const char *css_style)
 {
   CSS_SELECTOR_STYLE *selector_style
-   = find_css_selector_style (&self->css_element_class_styles, css_info);
+   = find_css_selector_style (css_element_class_styles, css_info);
 
   if (selector_style)
     {
@@ -4571,7 +4576,7 @@ html_css_set_selector_style (CONVERTER* self, const char *css_info,
   else
     {
       CSS_SELECTOR_STYLE_LIST *elt_class_styles
-        = &self->css_element_class_styles;
+        = css_element_class_styles;
       if (elt_class_styles->space <= elt_class_styles->number)
         {
           elt_class_styles->list = realloc (elt_class_styles->list,
@@ -4588,7 +4593,7 @@ html_css_set_selector_style (CONVERTER* self, const char *css_info,
 
       elt_class_styles->number++;
 
-      sort_css_element_class_styles (self);
+      sort_css_element_class_styles (css_element_class_styles);
     }
 }
 
@@ -4940,7 +4945,7 @@ html_attribute_class (CONVERTER *self, const char *element,
             = find_css_selector_style (&self->css_element_class_styles,
                                        selector);
           free (selector);
-          if (selector_style)
+          if (selector_style && selector_style->style)
             {
               if (style_nr)
                  text_printf (&inline_styles, ";%s", selector_style->style);
@@ -12146,7 +12151,7 @@ convert_itemize_command (CONVERTER *self, const enum command_id cmd,
       selector_style = find_css_selector_style (&self->css_element_class_styles,
                                                 ul_mark_selector);
       free (ul_mark_selector);
-      if (selector_style)
+      if (selector_style && selector_style->style)
         {
           add_string (mark_class, classes);
         }
@@ -16752,6 +16757,25 @@ COMMAND_ID_LIST no_arg_formatted_cmd;
 
 static char *unicode_entities[BUILTIN_CMD_NUMBER];
 
+static CSS_SELECTOR_STYLE_LIST default_css_element_class_styles;
+
+static char *
+get_special_list_mark_css_string_no_arg_command (enum command_id cmd)
+{
+  int s;
+  for (s = 0;
+       special_list_mark_css_string_no_arg_command[s].cmd > 0;
+       s++)
+    {
+       if (special_list_mark_css_string_no_arg_command[s].cmd == cmd)
+        {
+           return special_list_mark_css_string_no_arg_command[s].string;
+           break;
+        }
+    }
+  return 0;
+}
+
 static void
 set_no_arg_commands_formatting (HTML_COMMAND_CONVERSION *spec, char *text)
 {
@@ -16768,10 +16792,32 @@ html_format_setup (void)
   int default_commands_args_nr
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
+  CSS_SELECTOR_STYLE *css_selector_style;
+  TEXT css_string_text;
 
   enum command_id indented_format[] = {
     CM_example, CM_display, CM_lisp, 0
   };
+
+  initialize_css_selector_style_list (&default_css_element_class_styles,
+                                      BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR);
+  for (i = 0; i < BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR; i++)
+    {
+      CSS_SELECTOR_STYLE *selector_style
+        = &default_css_element_class_styles.list[i];
+      selector_style->selector
+        = base_default_css_element_class_styles[i].selector;
+      selector_style->style
+        = base_default_css_element_class_styles[i].style;
+    }
+  sort_css_element_class_styles (&default_css_element_class_styles);
+
+  css_selector_style
+    = find_css_selector_style (&default_css_element_class_styles,
+                               "pre.display-preformatted");
+  html_css_set_selector_style (&default_css_element_class_styles,
+                               "pre.format-preformatted",
+                               css_selector_style->style);
 
   for (i = 0; i < default_commands_args_nr; i++)
     {
@@ -16786,9 +16832,19 @@ html_format_setup (void)
 
   for (i = 0; indented_format[i]; i++)
     {
+      char *css_selector;
       enum command_id cmd = indented_format[i];
       html_commands_data[cmd].flags |= HF_indented_preformatted;
+
+      xasprintf (&css_selector, "div.%s", builtin_command_name (cmd));
+      html_css_set_selector_style (&default_css_element_class_styles,
+                                  css_selector,
+                                  "margin-left: 3.2em");
+      free (css_selector);
     }
+  /* output as div.example instead */
+  html_css_set_selector_style (&default_css_element_class_styles,
+                               "div.lisp", 0);
 
   for (i = 0; small_block_associated_command[i][0]; i++)
     {
@@ -16952,6 +17008,54 @@ html_format_setup (void)
         fprintf (stderr, "BUG: %s: no css_string\n",
                          builtin_command_data[cmd].cmdname);
     }
+
+  /* w not in css_string, set the corresponding default_css_element_class_styles
+     especially, which also has none and not w in the class */
+  html_css_set_selector_style (&default_css_element_class_styles,
+                               "ul.mark-none", "list-style-type: none");
+
+  text_init (&css_string_text);
+  /* setup default_css_element_class_styles for mark commands based on css strings */
+  for (i = 0; i < no_arg_formatted_cmd_nr; i++)
+    {
+      enum command_id cmd = no_arg_formatted_cmd.list[i];
+      if (default_no_arg_commands_formatting[cmd][HCC_type_css_string].text
+          && builtin_command_data[cmd].flags & CF_brace)
+        {
+          char *selector;
+          text_append_n (&css_string_text, "list-style-type: ", 17);
+          if (cmd == CM_bullet)
+            text_append_n (&css_string_text, "disc", 4);
+          else
+            {
+              char *css_string;
+              const char *p;
+              char *special_list_mark_command
+                = get_special_list_mark_css_string_no_arg_command (cmd);
+              if (special_list_mark_command)
+                css_string = special_list_mark_command;
+              else
+                css_string
+        = default_no_arg_commands_formatting[cmd][HCC_type_css_string].text;
+              p = after_escaped_characters (css_string);
+              text_append_n (&css_string_text, "\"", 1);
+              if (p && !*p)
+                {
+                  text_append_n (&css_string_text, css_string,
+                                 p - css_string - 1);
+                }
+              else
+                text_append (&css_string_text, css_string);
+              text_append_n (&css_string_text, "\"", 1);
+            }
+          xasprintf (&selector, "ul.mark-%s", builtin_command_name (cmd));
+          html_css_set_selector_style (&default_css_element_class_styles,
+                                       selector, css_string_text.text);
+          free (selector);
+          text_reset (&css_string_text);
+        }
+    }
+  free (css_string_text.text);
 }
 
 static int
@@ -17880,6 +17984,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   int nr_dir_str_contexts = TDS_context_string + 1;
   enum direction_string_type DS_type;
   const char *line_break_element;
+  int css_style_idx = 0;
 
   if (!self->document && self->conf->DEBUG.o.integer > 0)
     {
@@ -17982,6 +18087,24 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   output_no_arg_commands_formatting[CM_ASTERISK][HCC_type_normal].text
     = (char *)self->line_break_element.string;
 
+  initialize_css_selector_style_list (&self->css_element_class_styles,
+                                      default_css_element_class_styles.number);
+  for (i = 0; i < default_css_element_class_styles.number; i++)
+    {
+      CSS_SELECTOR_STYLE *default_selector_style
+        = &default_css_element_class_styles.list[i];
+      if (default_selector_style->style)
+        {
+          CSS_SELECTOR_STYLE *selector_style
+            = &self->css_element_class_styles.list[css_style_idx];
+          selector_style->selector = strdup (default_selector_style->selector);
+          selector_style->style = strdup (default_selector_style->style);
+          css_style_idx++;
+        }
+      else
+        self->css_element_class_styles.number--;
+    }
+
   for (i = 0; i < no_arg_formatted_cmd.number; i++)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[i];
@@ -18016,19 +18139,9 @@ html_initialize_output_state (CONVERTER *self, const char *context)
                       && builtin_command_data[cmd].flags & CF_brace
                       && cmd != CM_bullet && cmd != CM_w)
                     {
-                      int s;
-                      int special_list_mark_command = 0;
-                      for (s = 0;
-                    special_list_mark_css_string_no_arg_command[s].cmd > 0;
-                           s++)
-                        {
-                          if (special_list_mark_css_string_no_arg_command[s].cmd
-                               == cmd)
-                            {
-                              special_list_mark_command = 1;
-                              break;
-                            }
-                        }
+                      const char *special_list_mark_command
+                       = get_special_list_mark_css_string_no_arg_command (cmd);
+
                       if (!special_list_mark_command)
                         {
                            char *selector;
@@ -18037,7 +18150,8 @@ html_initialize_output_state (CONVERTER *self, const char *context)
                                       builtin_command_name (cmd));
                            xasprintf (&style, "list-style-type: \"%s\"",
                                       result->text);
-                           html_css_set_selector_style (self,
+                           html_css_set_selector_style (
+                                         &self->css_element_class_styles,
                                                         selector, style);
                            free (selector);
                            free (style);
@@ -18119,7 +18233,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
         }
     }
 
-  sort_css_element_class_styles (self);
+  sort_css_element_class_styles (&self->css_element_class_styles);
 
   /* set the htmlxref type split of the document */
   self->document_htmlxref_split_type = htmlxref_split_type_mono;

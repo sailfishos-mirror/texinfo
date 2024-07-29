@@ -54,6 +54,7 @@ const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {
    changing vertical spacing. */
     {"a.copiable-link", "visibility: hidden; text-decoration: none; line-height: 0em"},
     {"span:hover a.copiable-link", "visibility: visible"},
+    {0, 0}
 };
 
 const char *special_unit_info_type_names[] = {

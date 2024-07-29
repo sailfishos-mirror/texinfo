@@ -136,7 +136,6 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
                               SV *customized_upper_case_commands,
-                              SV *default_css_element_class_styles,
                               SV *default_converted_directions_strings
                              )
 {
@@ -180,6 +179,8 @@ html_converter_initialize_sv (SV *converter_sv,
   int nr_string_directions;
   enum direction_string_type DS_type;
   int nr_dir_str_contexts = TDS_context_string +1;
+  /* need to be passed as argument to get from Perl */
+  SV *default_css_element_class_styles = 0;
 
   dTHX;
 
@@ -192,7 +193,9 @@ html_converter_initialize_sv (SV *converter_sv,
   default_css_string_formatting_references_hv
     = (HV *)SvRV (default_css_string_formatting_references);
 
-  /* Should always be true */
+  /* to get default_css_element_class_styles from Perl.
+     This code is never run as default_css_element_class_styles is always 0
+     as it is not passed from Perl but determined fully in C */
   if (default_css_element_class_styles
       && SvOK (default_css_element_class_styles))
     {

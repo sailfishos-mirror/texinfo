@@ -118,6 +118,7 @@ if ($perl_format) {
   print OUT "const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {\n";
 }
 
+my $css_element_class_style_nr = 0;
 while (<BDCSS>) {
   chomp;
   my @data = split (/\|/);
@@ -140,6 +141,7 @@ while (<BDCSS>) {
   if (!defined($style) or $style eq '') {
     die "$base_default_css_element_class_styles_file: Bad style\n";
   }
+  $css_element_class_style_nr++;
   if ($perl_format) {
     print OUT "    '$selector'    => '$style',\n";
   } else {
@@ -157,6 +159,7 @@ if ($perl_format) {
   ."}\n\n";
 } else {
 
+  print OUT "    {0, 0}\n";
   print OUT "};\n\n";
 
   print HDR "/* Automatically generated from $program_name */\n\n";
@@ -167,6 +170,8 @@ if ($perl_format) {
    .'    const char *to_convert;'."\n"
    .'} HTML_DEFAULT_DIRECTION_STRING_TRANSLATED;'."\n\n";
 
+  print HDR "#define BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR "
+               ."$css_element_class_style_nr\n\n";
 }
 
 
@@ -708,7 +713,7 @@ if ($perl_format) {
       $name_commands{$command_name} = $command;
     }
     push @commands_order, $command_name;
-    print STDERR "$command\n";
+    #print STDERR "$command\n";
   }
 
   if ($C_format) {
