@@ -3044,8 +3044,15 @@ direction_string (CONVERTER *self, int direction,
   if (direction < 0)
     return 0;
 
+  /* To debug:
+  fprintf (stderr, "DS: %d %s %s %s\n", direction,
+                              direction_string_type_names[string_type],
+                                  direction_string_context_names[context],
+                              self->direction_unit_direction_name[direction]);
+   */
   if (direction >= FIRSTINFILE_MIN_IDX && direction <= FIRSTINFILE_MAX_IDX)
     {
+      /* in general the offset is negative */
       direction += FIRSTINFILE_OFFSET;
       direction_unit_direction_idx = direction;
     }
@@ -17313,6 +17320,58 @@ new_special_unit_info_type (int special_units_varieties_nr)
   return special_unit_info;
 }
 
+void
+html_converter_init_special_unit (CONVERTER *self)
+{
+  int nr_special_units;
+
+  /* NOTE if the special units can be customized, then
+     self->special_unit_varieties should be used directly instead.
+     Also default special units and special units indices should be
+     mapped instead of assuming that they are the same when setting
+     self->special_unit_info */
+  copy_strings (&self->special_unit_varieties, &default_special_unit_varieties);
+
+  nr_special_units = self->special_unit_varieties.number;
+
+  /* special units info */
+  /* set to defaults */
+  if (nr_special_units > 0)
+    {
+      int i;
+      enum special_unit_info_type j;
+      for (j = 0; j < SPECIAL_UNIT_INFO_TYPE_NR; j++)
+        {
+          int k;
+
+          self->special_unit_info[j]
+            = new_special_unit_info_type (nr_special_units);
+          for (k = 0; k < nr_special_units; k++)
+            {
+              if (default_special_unit_info[j][k])
+                self->special_unit_info[j][k]
+                  = strdup (default_special_unit_info[j][k]);
+            }
+        }
+      /* apply customization */
+      for (i = 0; i < self->customized_special_unit_info.number; i++)
+        {
+          SPECIAL_UNIT_INFO *special_unit_info
+            = &self->customized_special_unit_info.list[i];
+          size_t variety_idx = special_unit_info->variety_nr -1;
+          enum special_unit_info_type type = special_unit_info->type;
+
+          free (self->special_unit_info[type][variety_idx]);
+
+          if (special_unit_info->value)
+            self->special_unit_info[type][variety_idx]
+              = strdup (special_unit_info->value);
+          else
+            self->special_unit_info[type][variety_idx] = 0;
+        }
+    }
+}
+
 /* most of the initialization is done by html_converter_initialize_sv
    in get_perl_info, the initialization that do not require information
    directly from perl data is done here.  This is called after information
@@ -17354,51 +17413,7 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
-  /* NOTE if the special units can be customized, then
-     self->special_unit_varieties should be used directly instead.
-     Also default special units and special units indices should be
-     mapped instead of assuming that they are the same when setting
-     self->special_unit_info */
-  copy_strings (&self->special_unit_varieties, &default_special_unit_varieties);
-
   nr_special_units = self->special_unit_varieties.number;
-
-  /* special units info */
-  /* set to defaults */
-  if (nr_special_units > 0)
-    {
-      enum special_unit_info_type j;
-      for (j = 0; j < SPECIAL_UNIT_INFO_TYPE_NR; j++)
-        {
-          int k;
-
-          self->special_unit_info[j]
-            = new_special_unit_info_type (nr_special_units);
-          for (k = 0; k < nr_special_units; k++)
-            {
-              if (default_special_unit_info[j][k])
-                self->special_unit_info[j][k]
-                  = strdup (default_special_unit_info[j][k]);
-            }
-        }
-      /* apply customization */
-      for (i = 0; i < self->customized_special_unit_info.number; i++)
-        {
-          SPECIAL_UNIT_INFO *special_unit_info
-            = &self->customized_special_unit_info.list[i];
-          size_t variety_idx = special_unit_info->variety_nr -1;
-          enum special_unit_info_type type = special_unit_info->type;
-
-          free (self->special_unit_info[type][variety_idx]);
-
-          if (special_unit_info->value)
-            self->special_unit_info[type][variety_idx]
-              = strdup (special_unit_info->value);
-          else
-            self->special_unit_info[type][variety_idx] = 0;
-        }
-    }
-
 
   self->direction_unit_direction_name = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));

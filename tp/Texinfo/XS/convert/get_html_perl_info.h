@@ -9,6 +9,8 @@
 
 int get_output_units_descriptor_converter_sv (SV *converter_in);
 
+void html_converter_init_special_unit_sv (SV *converter_sv,
+                              SV *customized_special_unit_info);
 void html_converter_initialize_sv (SV *converter_sv,
                                   SV *default_formatting_references,
                                   SV *default_css_string_formatting_references,
@@ -21,7 +23,6 @@ void html_converter_initialize_sv (SV *converter_sv,
                                   SV *default_output_units_conversion,
                                   SV *default_special_unit_body,
                                   SV *customized_upper_case_commands,
-                                  SV *customized_special_unit_info,
                                   SV *default_converted_directions_strings
                                   );
 

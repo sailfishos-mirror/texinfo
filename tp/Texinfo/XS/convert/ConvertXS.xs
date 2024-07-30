@@ -580,6 +580,33 @@ html_format_setup ()
 
 void
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_special_unit_info, SV *default_converted_directions_strings)
+      PREINIT:
+        CONVERTER *self;
+      CODE:
+         self = get_sv_converter (converter_in, "html_converter_initialize_sv");
+
+         /* initialize first the special unit info, as the special unit
+            directions are needed for the remainder of initialization.
+            Therefore special unit Perl customization needs to be read
+            and splecial unit initialization in C code needs to be run
+            too before doing the remaining */
+         html_converter_init_special_unit_sv (converter_in,
+                                              customized_special_unit_info);
+         html_converter_init_special_unit (self);
+         html_converter_initialize_sv (converter_in,
+                          default_formatting_references,
+                          default_css_string_formatting_references,
+                          default_commands_open,
+                          default_commands_conversion,
+                          default_css_string_commands_conversion,
+                          default_types_open,
+                          default_types_conversion,
+                          default_css_string_types_conversion,
+                          default_output_units_conversion,
+                          default_special_unit_body,
+                          customized_upper_case_commands,
+                          default_converted_directions_strings);
+
 
 void
 html_conversion_initialization (SV *converter_in, const char *context, SV *document_in=0)

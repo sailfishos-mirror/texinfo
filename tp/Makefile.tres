@@ -1102,6 +1102,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/info_tests/xref_test.pl \
   t/results/init_files_tests/access_document_name_in_handler.pl \
   t/results/init_files_tests/access_document_name_in_handler/res_html \
+  t/results/init_files_tests/button_replacement_and_direction_customization.pl \
+  t/results/init_files_tests/button_replacement_and_direction_customization/res_html \
   t/results/init_files_tests/button_replacement_for_special_unit_direction.pl \
   t/results/init_files_tests/button_replacement_for_special_unit_direction/res_html \
   t/results/init_files_tests/customize_special_element.pl \

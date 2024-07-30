@@ -130,69 +130,16 @@ compare_ints (const void *a, const void *b)
 }
 
 void
-html_converter_initialize_sv (SV *converter_sv,
-                              SV *default_formatting_references,
-                              SV *default_css_string_formatting_references,
-                              SV *default_commands_open,
-                              SV *default_commands_conversion,
-                              SV *default_css_string_commands_conversion,
-                              SV *default_types_open,
-                              SV *default_types_conversion,
-                              SV *default_css_string_types_conversion,
-                              SV *default_output_units_conversion,
-                              SV *default_special_unit_body,
-                              SV *customized_upper_case_commands,
-                              SV *customized_special_unit_info,
-                              SV *default_converted_directions_strings
-                             )
+html_converter_init_special_unit_sv (SV *converter_sv,
+                              SV *customized_special_unit_info)
 {
-  int i;
-  HV *converter_hv;
-  HV *default_formatting_references_hv;
-  HV *default_css_string_formatting_references_hv;
-  HV *default_commands_open_hv;
-  HV *default_commands_conversion_hv;
-  HV *default_css_string_commands_conversion_hv;
-  HV *default_types_open_hv;
-  HV *default_types_conversion_hv;
-  HV *default_css_string_types_conversion_hv;
-  HV *default_output_units_conversion_hv;
-  SV **htmlxref_sv;
-  SV **formatting_function_sv;
-  SV **accent_entities_sv;
-  SV **style_commands_formatting_sv;
-  SV **stage_handlers_sv;
-  SV **special_unit_body_sv;
-  SV **types_open_sv;
-  SV **types_conversion_sv;
-  SV **commands_open_sv;
-  SV **commands_conversion_sv;
-  SV **customized_no_arg_commands_formatting_sv;
-  SV **output_units_conversion_sv;
-  SV **file_id_setting_sv;
-  SV **code_types_sv;
-  SV **pre_class_types_sv;
-  SV **translated_direction_strings_sv;
-  SV **customized_direction_strings_sv;
-  HV *formatting_function_hv;
-  HV *commands_open_hv;
-  HV *commands_conversion_hv;
-  HV *types_open_hv;
-  HV *types_conversion_hv;
-  HV *output_units_conversion_hv;
-  HV *translated_direction_strings_hv;
   CONVERTER *converter;
-  int nr_accent_cmd = 0;
-  int nr_string_directions;
-  enum direction_string_type DS_type;
-  int nr_dir_str_contexts = TDS_context_string +1;
-  /* need to be passed as argument to get from Perl */
-  SV *default_css_element_class_styles = 0;
   const STRING_LIST *special_unit_varieties;
 
   dTHX;
 
-  converter = get_sv_converter (converter_sv, "html_converter_initialize_sv");
+  converter = get_sv_converter (converter_sv,
+                                "html_converter_init_special_unit_sv");
 
   /* NOTE if the special units can be customized, then the
      converter->special_unit_varieties should be set and used instead */
@@ -200,44 +147,6 @@ html_converter_initialize_sv (SV *converter_sv,
   /*
   special_unit_varieties = &converter->special_unit_varieties;
    */
-  converter_hv = (HV *)SvRV (converter_sv);
-
-  default_formatting_references_hv
-    = (HV *)SvRV (default_formatting_references);
-  default_css_string_formatting_references_hv
-    = (HV *)SvRV (default_css_string_formatting_references);
-
-  /* to get default_css_element_class_styles from Perl.
-     This code is never run as default_css_element_class_styles is always 0
-     as it is not passed from Perl but determined fully in C */
-  if (default_css_element_class_styles
-      && SvOK (default_css_element_class_styles))
-    {
-      I32 hv_number;
-      I32 i;
-
-      HV *css_element_class_styles_hv
-        = (HV *)SvRV (default_css_element_class_styles);
-
-      hv_number = hv_iterinit (css_element_class_styles_hv);
-
-      initialize_css_selector_style_list (&converter->css_element_class_styles,
-                                          hv_number);
-
-      for (i = 0; i < hv_number; i++)
-        {
-          HE *next = hv_iternext (css_element_class_styles_hv);
-          SV *selector_sv = hv_iterkeysv (next);
-          char *selector = (char *) SvPVutf8_nolen (selector_sv);
-          SV *style_sv = HeVAL(next);
-          char *style = (char *) SvPVutf8_nolen (style_sv);
-
-          CSS_SELECTOR_STYLE *selector_style
-            = &converter->css_element_class_styles.list[i];
-          selector_style->selector = non_perl_strdup (selector);
-          selector_style->style = non_perl_strdup (style);
-        }
-    }
 
   if (customized_special_unit_info && SvOK (customized_special_unit_info))
     {
@@ -302,6 +211,112 @@ html_converter_initialize_sv (SV *converter_sv,
             }
         }
     }
+}
+
+void
+html_converter_initialize_sv (SV *converter_sv,
+                              SV *default_formatting_references,
+                              SV *default_css_string_formatting_references,
+                              SV *default_commands_open,
+                              SV *default_commands_conversion,
+                              SV *default_css_string_commands_conversion,
+                              SV *default_types_open,
+                              SV *default_types_conversion,
+                              SV *default_css_string_types_conversion,
+                              SV *default_output_units_conversion,
+                              SV *default_special_unit_body,
+                              SV *customized_upper_case_commands,
+                              SV *default_converted_directions_strings
+                             )
+{
+  int i;
+  HV *converter_hv;
+  HV *default_formatting_references_hv;
+  HV *default_css_string_formatting_references_hv;
+  HV *default_commands_open_hv;
+  HV *default_commands_conversion_hv;
+  HV *default_css_string_commands_conversion_hv;
+  HV *default_types_open_hv;
+  HV *default_types_conversion_hv;
+  HV *default_css_string_types_conversion_hv;
+  HV *default_output_units_conversion_hv;
+  SV **htmlxref_sv;
+  SV **formatting_function_sv;
+  SV **accent_entities_sv;
+  SV **style_commands_formatting_sv;
+  SV **stage_handlers_sv;
+  SV **special_unit_body_sv;
+  SV **types_open_sv;
+  SV **types_conversion_sv;
+  SV **commands_open_sv;
+  SV **commands_conversion_sv;
+  SV **customized_no_arg_commands_formatting_sv;
+  SV **output_units_conversion_sv;
+  SV **file_id_setting_sv;
+  SV **code_types_sv;
+  SV **pre_class_types_sv;
+  SV **translated_direction_strings_sv;
+  SV **customized_direction_strings_sv;
+  HV *formatting_function_hv;
+  HV *commands_open_hv;
+  HV *commands_conversion_hv;
+  HV *types_open_hv;
+  HV *types_conversion_hv;
+  HV *output_units_conversion_hv;
+  HV *translated_direction_strings_hv;
+  CONVERTER *converter;
+  int nr_accent_cmd = 0;
+  int nr_string_directions;
+  enum direction_string_type DS_type;
+  int nr_dir_str_contexts = TDS_context_string +1;
+  /* need to be passed as argument to get from Perl */
+  SV *default_css_element_class_styles = 0;
+  const STRING_LIST *special_unit_varieties;
+
+  dTHX;
+
+  converter = get_sv_converter (converter_sv, "html_converter_initialize_sv");
+
+  special_unit_varieties = &converter->special_unit_varieties;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  default_formatting_references_hv
+    = (HV *)SvRV (default_formatting_references);
+  default_css_string_formatting_references_hv
+    = (HV *)SvRV (default_css_string_formatting_references);
+
+  /* to get default_css_element_class_styles from Perl.
+     This code is never run as default_css_element_class_styles is always 0
+     as it is not passed from Perl but determined fully in C */
+  if (default_css_element_class_styles
+      && SvOK (default_css_element_class_styles))
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *css_element_class_styles_hv
+        = (HV *)SvRV (default_css_element_class_styles);
+
+      hv_number = hv_iterinit (css_element_class_styles_hv);
+
+      initialize_css_selector_style_list (&converter->css_element_class_styles,
+                                          hv_number);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          HE *next = hv_iternext (css_element_class_styles_hv);
+          SV *selector_sv = hv_iterkeysv (next);
+          char *selector = (char *) SvPVutf8_nolen (selector_sv);
+          SV *style_sv = HeVAL(next);
+          char *style = (char *) SvPVutf8_nolen (style_sv);
+
+          CSS_SELECTOR_STYLE *selector_style
+            = &converter->css_element_class_styles.list[i];
+          selector_style->selector = non_perl_strdup (selector);
+          selector_style->style = non_perl_strdup (style);
+        }
+    }
 
   /* Should always be true */
   if (default_converted_directions_strings
@@ -340,9 +355,8 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (i < FIRSTINFILE_MIN_IDX)
                     direction_name = html_button_direction_names[i];
                   else
-                    /* FIXME if special units are dynamic this is incorrect */
                     direction_name
-                      = default_special_unit_info[SUI_type_direction]
+                      = converter->special_unit_info[SUI_type_direction]
                                        [i - FIRSTINFILE_MIN_IDX];
 
                   spec_sv = hv_fetch (direction_hv, direction_name,
@@ -957,9 +971,8 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (i < FIRSTINFILE_MIN_IDX)
                     direction_name = html_button_direction_names[i];
                   else
-                    /* FIXME if special units are dynamic this is incorrect */
                     direction_name
-                      = default_special_unit_info[SUI_type_direction]
+                      = converter->special_unit_info[SUI_type_direction]
                                        [i - FIRSTINFILE_MIN_IDX];
 
                   spec_sv = hv_fetch (direction_hv, direction_name,
@@ -1169,9 +1182,8 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (i < FIRSTINFILE_MIN_IDX)
                     direction_name = html_button_direction_names[i];
                   else
-                    /* FIXME if special units are dynamic this is incorrect */
                     direction_name
-                      = default_special_unit_info[SUI_type_direction]
+                      = converter->special_unit_info[SUI_type_direction]
                                        [i - FIRSTINFILE_MIN_IDX];
 
                   context_sv = hv_fetch (direction_hv, direction_name,
@@ -1218,6 +1230,14 @@ html_converter_initialize_sv (SV *converter_sv,
                           continue;
                         }
                     }
+                    /* this happens if the direction strings are undef
+                  else
+                    {
+                      fprintf (stderr,
+                      "customized_direction_strings: %s: %s not found\n",
+                         type_name, direction_name);
+                    }
+                     */
                 }
             }
         }

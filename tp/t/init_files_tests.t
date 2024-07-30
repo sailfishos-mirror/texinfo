@@ -276,6 +276,12 @@ $special_unit_direction_customization_text,
 $special_unit_direction_customization_text,
 {'init_files' => ['button_replacement_for_special_unit_direction.pm']},
 ],
+['button_replacement_and_direction_customization',
+$special_unit_direction_customization_text,
+{'init_files' => ['special_unit_direction_customization.pm',
+                  'button_replacement_for_special_unit_direction.pm']},
+],
+
 );
 
 foreach my $test (@test_cases) {

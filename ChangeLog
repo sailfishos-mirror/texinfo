@@ -6,6 +6,31 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_converter_init_special_unit, html_converter_initialize),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_init_special_unit_sv, html_converter_initialize_sv):
+	split html_converter_init_special_unit out of
+	html_converter_initialize and html_converter_init_special_unit_sv out
+	of html_converter_initialize_sv and modify
+	html_converter_initialize_sv in ConvertXS.xs to setup first the the
+	special unit info, as the special unit directions are needed for the
+	remainder of initialization.  Therefore special unit Perl
+	customization needs to be read and special unit initialization in C
+	code needs to be run too before doing the remaining.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): do not use the default special unit
+	info, but the customized special units info.
+
+	* tp/Makefile.tres, tp/t/init_files_tests.t
+	(button_replacement_and_direction_customization): test both special
+	unit direction customization an replacement of button in buttons
+	specifications.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/Makefile.tres,
 	tp/t/init_files_tests.t (ref_for_special_unit_direction)
 	(button_replacement_for_special_unit_direction),
