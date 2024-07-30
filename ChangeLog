@@ -6,6 +6,31 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(determine_non_default_special_unit_directions)
+	(html_initialize_output_state): add a function that returns an array
+	indicating special units directions different from default spacial
+	units directions names.  Indeed, if the customized special unit
+	direction name is not the same as the defaults, the default direction
+	info should not be used as they are not for the customized special
+	unit direction.  Code taken from html_initialize_output_state for
+	special units direction strings.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize)
+	(html_free_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): add customized_translated_direction_strings field in
+	converter and get the customized translated_direction_strings in
+	html_converter_initialize_sv in the same code where customized
+	untranslated direction_strings are determined.  Set converter
+	translated_direction_strings in html_converter_initialize based on
+	defaults from main/conversion_data.c and
+	customized_translated_direction_strings.  Do not set
+	translated_direction_strings from Perl data in
+	html_converter_initialize_sv.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv): merge conditions on spec_sv for
 	customized_direction_strings.

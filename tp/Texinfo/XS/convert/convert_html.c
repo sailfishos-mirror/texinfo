@@ -17372,6 +17372,33 @@ html_converter_init_special_unit (CONVERTER *self)
     }
 }
 
+static int *
+determine_non_default_special_unit_directions (const CONVERTER *self)
+{
+  int i;
+  int nr_special_units = self->special_unit_varieties.number;
+  int *non_default_special_unit_directions = 0;
+  /* determine the special units directions that are not the same as
+     the default units directions.  If not the same as the defaults,
+     the default direction info should not be used as they are not for
+     the customized special unit direction */
+  if (nr_special_units > 0)
+    {
+      non_default_special_unit_directions = (int *)
+                      malloc (nr_special_units * sizeof (int));
+      memset (non_default_special_unit_directions, 0,
+              nr_special_units * sizeof (int));
+
+      for (i = 0; i < nr_special_units; i++)
+        {
+          if (strcmp (self->special_unit_info[SUI_type_direction][i],
+                  default_special_unit_info[SUI_type_direction][i]))
+            non_default_special_unit_directions[i] = 1;
+        }
+    }
+  return non_default_special_unit_directions;
+}
+
 /* most of the initialization is done by html_converter_initialize_sv
    in get_perl_info, the initialization that do not require information
    directly from perl data is done here.  This is called after information
@@ -17380,7 +17407,15 @@ void
 html_converter_initialize (CONVERTER *self)
 {
   int i;
-  int nr_special_units;
+  enum direction_string_type DS_type;
+  int nr_special_units = self->special_unit_varieties.number;
+  /* The corresponding direction without FirstInFile are used instead
+     of FirstInFile*, so the directions_strings are not set */
+  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                             + nr_special_units;
+  int nr_dir_str_contexts = TDS_context_string +1;
+  int *non_default_special_unit_directions =
+     determine_non_default_special_unit_directions (self);
 
   /* counters of external formatting functions */
   int external_special_unit_body_formatting_function = 0;
@@ -17413,8 +17448,6 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
-  nr_special_units = self->special_unit_varieties.number;
-
   self->direction_unit_direction_name = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
   memcpy (self->direction_unit_direction_name, html_button_direction_names,
@@ -17429,6 +17462,62 @@ html_converter_initialize (CONVERTER *self)
     fprintf (stderr, "DEBUG: direction unit names: %d '%s'\n", i,
              self->direction_unit_direction_name[i]);
    */
+
+
+
+  /* setup translated_direction_strings */
+  for (DS_type = 0; DS_type < TDS_TRANSLATED_MAX_NR; DS_type++)
+    {
+      self->translated_direction_strings[DS_type]
+        = new_directions_strings_translated_type (nr_string_directions);
+      for (i = 0; i < nr_string_directions; i++)
+        {
+          HTML_DIRECTION_STRING_TRANSLATED *dir_string_translated
+            = &self->translated_direction_strings[DS_type][i];
+          if (self->customized_translated_direction_strings[DS_type]
+              && self->customized_translated_direction_strings[DS_type][i])
+            {
+              HTML_DIRECTION_STRING_TRANSLATED *custom_dir_translated
+                = self->customized_translated_direction_strings[DS_type][i];
+              if (custom_dir_translated->to_convert)
+                dir_string_translated->to_convert
+                  = strdup (custom_dir_translated->to_convert);
+              else
+                {
+                  int j;
+
+                  for (j = 0; j < nr_dir_str_contexts; j++)
+                    if (custom_dir_translated->converted[j])
+                      dir_string_translated->converted[j]
+                        = strdup (custom_dir_translated->converted[j]);
+                }
+            }
+          else if (i < NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                  || !non_default_special_unit_directions[
+                       i - (NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR)])
+            {
+              const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED *default_dir_translated
+                = &default_translated_directions_strings[DS_type][i];
+              if (default_dir_translated->to_convert)
+                dir_string_translated->to_convert
+                  = strdup (default_dir_translated->to_convert);
+              else
+                {
+                  if (default_dir_translated->converted)
+                    {
+                      int j;
+
+                      for (j = 0; j < nr_dir_str_contexts; j++)
+                          dir_string_translated->converted[j]
+                            = strdup (default_dir_translated->converted);
+                    }
+                }
+            }
+        }
+    }
+
+  free (non_default_special_unit_directions);
+
 
   /* allocate space for translated tree types, they will be created
      on-demand during the conversion */
@@ -18097,7 +18186,8 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   enum direction_string_type DS_type;
   const char *line_break_element;
   int css_style_idx = 0;
-  int *non_default_special_unit_directions = 0;
+  int *non_default_special_unit_directions =
+     determine_non_default_special_unit_directions (self);
 
   if (!self->document && self->conf->DEBUG.o.integer > 0)
     {
@@ -18294,25 +18384,6 @@ html_initialize_output_state (CONVERTER *self, const char *context)
           || command_conversion->status == FRS_status_internal)
         {
           complete_no_arg_commands_formatting (self, cmd, 0);
-        }
-    }
-
-  /* determine the special units directions that are not the same as
-     the default units directions.  If not the same as the defaults,
-     the default direction info should not be used as they are not for
-     the customized special unit direction */
-  if (nr_special_units > 0)
-    {
-      non_default_special_unit_directions = (int *)
-                      malloc (nr_special_units * sizeof (int));
-      memset (non_default_special_unit_directions, 0,
-              nr_special_units * sizeof (int));
-
-      for (i = 0; i < nr_special_units; i++)
-        {
-          if (strcmp (self->special_unit_info[SUI_type_direction][i],
-                  default_special_unit_info[SUI_type_direction][i]))
-            non_default_special_unit_directions[i] = 1;
         }
     }
 
@@ -19530,6 +19601,30 @@ html_free_converter (CONVERTER *self)
           free (customized_type_dir_strings[j]);
         }
       free (customized_type_dir_strings);
+    }
+
+  for (i = 0; i < TDS_TRANSLATED_MAX_NR; i++)
+    {
+      int j;
+      if (self->customized_translated_direction_strings[i])
+        {
+          HTML_DIRECTION_STRING_TRANSLATED **customized_translated
+            = self->customized_translated_direction_strings[i];
+          for (j = 0; j < nr_string_directions; j++)
+            {
+              if (customized_translated[j])
+                {
+                  int k;
+                  free (customized_translated[j]->to_convert);
+                  for (k = 0; k < nr_dir_str_contexts; k++)
+                    {
+                      free (customized_translated[j]->converted[k]);
+                    }
+                }
+              free (customized_translated[j]);
+            }
+          free (customized_translated);
+        }
     }
 
   for (i = 0; i < TDS_TRANSLATED_MAX_NR; i++)

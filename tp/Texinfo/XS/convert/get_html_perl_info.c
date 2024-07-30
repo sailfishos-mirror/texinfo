@@ -255,14 +255,12 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **file_id_setting_sv;
   SV **code_types_sv;
   SV **pre_class_types_sv;
-  SV **translated_direction_strings_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
   HV *commands_conversion_hv;
   HV *types_open_hv;
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
-  HV *translated_direction_strings_hv;
   CONVERTER *converter;
   int nr_accent_cmd = 0;
   int nr_string_directions;
@@ -874,98 +872,6 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-  FETCH(translated_direction_strings)
-
-  if (translated_direction_strings_sv)
-    translated_direction_strings_hv
-        = (HV *) SvRV (*translated_direction_strings_sv);
-
-  /* The corresponding direction without FirstInFile are used instead
-     of FirstInFile*, so the directions_strings are not set */
-  nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + special_unit_varieties->number;
-
-  for (DS_type = 0; DS_type < TDS_TRANSLATED_MAX_NR; DS_type++)
-    {
-      converter->translated_direction_strings[DS_type]
-        = new_directions_strings_translated_type (nr_string_directions);
-
-      if (translated_direction_strings_sv)
-        {
-          const char *type_name = direction_string_type_names[DS_type];
-          SV **direction_sv = hv_fetch (translated_direction_strings_hv,
-                                        type_name, strlen (type_name), 0);
-
-          if (direction_sv)
-            {
-              int i;
-              HV *direction_hv = (HV *) SvRV (*direction_sv);
-
-              for (i = 0; i < nr_string_directions; i++)
-                {
-                  const char *direction_name;
-                  SV **spec_sv;
-
-                  if (i < FIRSTINFILE_MIN_IDX)
-                    direction_name = html_button_direction_names[i];
-                  else
-                    direction_name
-                      = converter->special_unit_info[SUI_type_direction]
-                                       [i - FIRSTINFILE_MIN_IDX];
-
-                  spec_sv = hv_fetch (direction_hv, direction_name,
-                                              strlen (direction_name), 0);
-
-                  if (spec_sv && SvOK (*spec_sv))
-                    {
-                      HV *spec_hv = (HV *) SvRV (*spec_sv);
-
-                      SV **to_convert_sv = hv_fetch (spec_hv, "to_convert",
-                                                     strlen ("to_convert"), 0);
-                      /* can be undef if set through Config */
-                      if (to_convert_sv && SvOK (*to_convert_sv))
-                        {
-                          const char *to_convert
-                            = (char *) SvPVutf8_nolen (*to_convert_sv);
-                          converter
-                           ->translated_direction_strings[DS_type][i].to_convert
-                            = non_perl_strdup (to_convert);
-                        }
-                      else
-                        {
-                          SV **context_sv = hv_fetch (spec_hv, "converted",
-                                                     strlen ("converted"), 0);
-                          if (context_sv)
-                            {
-                              HV *context_hv = (HV *) SvRV (*context_sv);
-                              int j;
-
-                              for (j = 0; j < nr_dir_str_contexts; j++)
-                                {
-                                  const char *context_name
-                                    = direction_string_context_names[j];
-
-                                  SV **value_sv
-                                    = hv_fetch (context_hv, context_name,
-                                                  strlen (context_name), 0);
-
-                                  if (value_sv)
-                                    {
-                                      const char *value
-                                        = (char *) SvPVutf8_nolen (*value_sv);
-                                      converter
-                     ->translated_direction_strings[DS_type][i].converted[j]
-                               = non_perl_strdup (value);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
   FETCH(customized_no_arg_commands_formatting)
   if (customized_no_arg_commands_formatting_sv)
     {
@@ -1081,18 +987,24 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
+  /* The corresponding direction without FirstInFile are used instead
+     of FirstInFile*, so the directions_strings are not set */
+  nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                     + special_unit_varieties->number;
+
   if (customized_direction_strings && SvOK (customized_direction_strings))
     {
       HV *customized_direction_strings_hv
         = (HV *) SvRV (customized_direction_strings);
 
-      for (DS_type = TDS_TRANSLATED_MAX_NR;
-           DS_type < TDS_TYPE_MAX_NR; DS_type++)
+      for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
         {
           int i;
           const char *type_name;
           HV *direction_hv = 0;
           SV **direction_sv;
+          size_t customized_type = DS_type;
+          int translated = 0;
 
           type_name = direction_string_type_names[DS_type];
 
@@ -1101,15 +1013,29 @@ html_converter_initialize_sv (SV *converter_sv,
           if (direction_sv && SvOK (*direction_sv))
             direction_hv = (HV *) SvRV (*direction_sv);
 
-          size_t customized_type = DS_type - (TDS_TRANSLATED_MAX_NR);
+          if (DS_type < TDS_TRANSLATED_MAX_NR)
+            {
+              translated = 1;
+              converter->customized_translated_direction_strings[DS_type]
+                = (HTML_DIRECTION_STRING_TRANSLATED **) malloc
+                   (nr_string_directions
+                     * sizeof (HTML_DIRECTION_STRING_TRANSLATED *));
+              memset (converter
+                       ->customized_translated_direction_strings[DS_type], 0,
+                      nr_string_directions
+                     * sizeof (HTML_DIRECTION_STRING_TRANSLATED *));
+            }
+          else
+            {
+              customized_type = DS_type - (TDS_TRANSLATED_MAX_NR);
 
           /* do not use new_directions_strings_type as a 0 for a direction array
              is allowed here, it means that there is a customized value undef */
-          converter->customized_directions_strings[customized_type]
-            = (char ***) malloc (nr_string_directions * sizeof (char **));
-          memset (converter->customized_directions_strings[customized_type], 0,
-               nr_string_directions * sizeof (char **));
-
+              converter->customized_directions_strings[customized_type]
+                = (char ***) malloc (nr_string_directions * sizeof (char **));
+              memset (converter->customized_directions_strings[customized_type],
+                      0, nr_string_directions * sizeof (char **));
+            }
 
           for (i = 0; i < nr_string_directions; i++)
             {
@@ -1130,17 +1056,45 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (spec_sv && SvOK (*spec_sv))
                     {
                       HV *spec_hv = (HV *) SvRV (*spec_sv);
+                      HTML_DIRECTION_STRING_TRANSLATED
+                        *dir_string_translated = 0;
+                      if (translated)
+                        {
+                          SV **to_convert_sv = hv_fetch (spec_hv, "to_convert",
+                                                     strlen ("to_convert"), 0);
+
+                          dir_string_translated
+                           = (HTML_DIRECTION_STRING_TRANSLATED *) malloc
+                              (sizeof (HTML_DIRECTION_STRING_TRANSLATED));
+                          memset (dir_string_translated, 0,
+                                  sizeof (HTML_DIRECTION_STRING_TRANSLATED));
+                          converter
+                           ->customized_translated_direction_strings[DS_type][i]
+                            = dir_string_translated;
+
+                          /* can be undef if set through Config */
+                          if (to_convert_sv && SvOK (*to_convert_sv))
+                            {
+                              const char *to_convert
+                                = (char *) SvPVutf8_nolen (*to_convert_sv);
+                              dir_string_translated->to_convert
+                                = non_perl_strdup (to_convert);
+                              continue;
+                            }
+                        }
+                      else
+                       {
+                          converter->
+                           customized_directions_strings[customized_type][i]
+                            = (char **)
+                           malloc (nr_dir_str_contexts * sizeof (char *));
+                          memset (converter->
+                             customized_directions_strings[customized_type][i],
+                             0, nr_dir_str_contexts * sizeof (char *));
+                       }
+
                       SV **context_sv = hv_fetch (spec_hv, "converted",
                                                     strlen ("converted"), 0);
-
-                      converter->
-                       customized_directions_strings[customized_type][i]
-                        = (char **)
-                           malloc (nr_dir_str_contexts * sizeof (char *));
-                      memset (converter->
-                         customized_directions_strings[customized_type][i],
-                         0, nr_dir_str_contexts * sizeof (char *));
-
                       if (context_sv && SvOK (*context_sv))
                         {
                           int j;
@@ -1158,9 +1112,13 @@ html_converter_initialize_sv (SV *converter_sv,
                                 {
                                    const char *value
                                       = (char *) SvPVutf8_nolen (*value_sv);
-                          converter->customized_directions_strings
-                                                   [customized_type][i][j]
-                                      = strdup (value);
+                                   if (translated)
+                                     dir_string_translated->converted[j]
+                                         = non_perl_strdup (value);
+                                   else
+                            converter->customized_directions_strings
+                                                     [customized_type][i][j]
+                                         = non_perl_strdup (value);
                                 }
              /* in general no string value, it is completed later on
                 in C code
@@ -1176,7 +1134,7 @@ html_converter_initialize_sv (SV *converter_sv,
                         }
                       continue;
                     }
-                    /* for debug, case of directions not customized
+                    /* for debug, case of direction not customized
                   else
                     {
                       fprintf (stderr,
