@@ -6,6 +6,26 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm b/tp/Texinfo/Convert/HTML.pm
+	(@all_directions_except_special_units, converter_initialize)
+	(conversion_initialization): do not use default directions trings
+	directions to apply customized direction strings, merge the directions
+	that never change, global relative and file, and the special units
+	directions that may be customized.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): fix code getting context values of
+	customized_direction_strings.
+
+	* tp/Makefile.am (test_files), tp/Makefile.tres,
+	tp/t/init/special_unit_direction_string_info_customization.pm,
+	tp/t/init_files_tests.t
+	(button_replacement_direction_strings_customization): test irection
+	customization and button direction replacement and direction strings
+	customization for the modified special unit direction.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
 	tp/Texinfo/XS/convert/convert_html.c
 	(html_converter_init_special_unit, html_converter_initialize),

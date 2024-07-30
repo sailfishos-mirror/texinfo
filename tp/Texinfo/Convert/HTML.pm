@@ -2615,14 +2615,12 @@ my $direction_orders = Texinfo::Data::get_directions_order();
 # 'global', 'relative', 'file'
 # include space direction
 my @global_directions_order = @{$direction_orders->[0]};
-my %global_and_special_directions;
-foreach my $global_direction (@global_directions_order) {
-  $global_and_special_directions{$global_direction} = 1;
+my @all_directions_except_special_units;
+foreach my $direction_order (@$direction_orders) {
+  push @all_directions_except_special_units, @$direction_order;
 }
-foreach my $special_direction (values(
-                   %{$default_special_unit_info{'direction'}})) {
-  $global_and_special_directions{$special_direction} = 1;
-}
+
+#print STDERR join('|', @all_directions_except_special_units)."\n";
 
 # for rel, see http://www.w3.org/TR/REC-html40/types.html#type-links
 my %default_converted_directions_strings
@@ -9014,6 +9012,15 @@ sub converter_initialize($)
       = $customized_special_unit_body->{$special_unit_variety};
   }
 
+  my @all_directions = @all_directions_except_special_units;
+  foreach my $variety (keys(%{$self->{'special_unit_info'}->{'direction'}})) {
+    my $direction = $self->{'special_unit_info'}->{'direction'}->{$variety};
+    if (defined($direction)) {
+      push @all_directions, $direction;
+    }
+  }
+  #print STDERR join('|', @all_directions)."\n";
+
   # Fill the translated direction strings information, corresponding to:
   #   - strings already converted
   #   - strings not already converted
@@ -9024,8 +9031,7 @@ sub converter_initialize($)
   $self->{'translated_direction_strings'} = {};
   foreach my $string_type (keys(%default_translated_directions_strings)) {
     $self->{'translated_direction_strings'}->{$string_type} = {};
-    foreach my $direction
-           (keys(%{$default_translated_directions_strings{$string_type}})) {
+    foreach my $direction (@all_directions) {
       if ($customized_direction_strings->{$string_type}
             and $customized_direction_strings->{$string_type}->{$direction}) {
         $self->{'translated_direction_strings'}->{$string_type}->{$direction}
@@ -12034,6 +12040,13 @@ sub conversion_initialization($$;$)
     }
   }
 
+  my @all_directions = @all_directions_except_special_units;
+  foreach my $variety (keys(%{$self->{'special_unit_info'}->{'direction'}})) {
+    my $direction = $self->{'special_unit_info'}->{'direction'}->{$variety};
+    if (defined($direction)) {
+      push @all_directions, $direction;
+    }
+  }
   # three types of direction strings:
   # * strings not translated, already converted
   # * strings translated
@@ -12046,8 +12059,7 @@ sub conversion_initialization($$;$)
   # substitute_html_non_breaking_space is used and it depends on the document.
   foreach my $string_type (keys(%default_converted_directions_strings)) {
     $self->{'directions_strings'}->{$string_type} = {};
-    foreach my $direction
-            (keys(%{$default_converted_directions_strings{$string_type}})) {
+    foreach my $direction (@all_directions) {
       $self->{'directions_strings'}->{$string_type}->{$direction} = {};
       my $string_contexts;
       if ($self->{'customized_direction_strings'}->{$string_type}

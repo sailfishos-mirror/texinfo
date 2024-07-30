@@ -1177,7 +1177,7 @@ html_converter_initialize_sv (SV *converter_sv,
               const char *direction_name;
               if (direction_hv)
                 {
-                  SV **context_sv;
+                  SV **spec_sv;
 
                   if (i < FIRSTINFILE_MIN_IDX)
                     direction_name = html_button_direction_names[i];
@@ -1186,14 +1186,14 @@ html_converter_initialize_sv (SV *converter_sv,
                       = converter->special_unit_info[SUI_type_direction]
                                        [i - FIRSTINFILE_MIN_IDX];
 
-                  context_sv = hv_fetch (direction_hv, direction_name,
+                  spec_sv = hv_fetch (direction_hv, direction_name,
                                           strlen (direction_name), 0);
-                  if (context_sv)
+                  if (spec_sv)
                     {
-                      if (SvOK (*context_sv))
+                      if (SvOK (*spec_sv))
                         {
-                          HV *context_hv = (HV *) SvRV (*context_sv);
-                          SV **converted_sv = hv_fetch (context_hv, "converted",
+                          HV *spec_hv = (HV *) SvRV (*spec_sv);
+                          SV **context_sv = hv_fetch (spec_hv, "converted",
                                                         strlen ("converted"), 0);
 
                           converter->
@@ -1204,10 +1204,10 @@ html_converter_initialize_sv (SV *converter_sv,
                              customized_directions_strings[customized_type][i], 0,
                              nr_dir_str_contexts * sizeof (char *));
 
-                          if (converted_sv && SvOK (*converted_sv))
+                          if (context_sv && SvOK (*context_sv))
                             {
                               int j;
-
+                              HV *context_hv = (HV *) SvRV (*context_sv);
                               for (j = 0; j < nr_dir_str_contexts; j++)
                                 {
                                   const char *context_name
@@ -1225,12 +1225,31 @@ html_converter_initialize_sv (SV *converter_sv,
                                                        [customized_type][i][j]
                                           = strdup (value);
                                     }
+                 /* in general no string value, it is completed later on
+                    in C code
+                                  else
+                                    {
+                                      fprintf (stderr,
+                "customized_direction_strings: %s: %s: %s: no value\n",
+                                               type_name, direction_name,
+                                               context_name);
+                                    }
+                  */
                                 }
                             }
+                           /* case of customized string undef
+                          else
+                            {
+                              fprintf (stderr,
+    "customized_direction_strings: %s: %s: spec SvTYPE %d no converted\n",
+                                       type_name, direction_name,
+                                       SvTYPE (SvRV (*spec_sv)));
+                            }
+                           */
                           continue;
                         }
                     }
-                    /* this happens if the direction strings are undef
+                    /* for debug, case of directions not customized
                   else
                     {
                       fprintf (stderr,
