@@ -6,6 +6,16 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files), tp/Makefile.tres,
+	tp/t/init_files_tests.t (ref_for_special_unit_direction)
+	(button_replacement_for_special_unit_direction),
+	tp/t/init/button_replacement_for_special_unit_direction.pm: add a
+	reference without init file use for special element direction test.
+	Add an init file to replace the button directions with the customized
+	special unit direction.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (direction_string)
 	(from_element_direction): return 0 if the direction is negative, which
 	should mean a Perl direction not found in C.

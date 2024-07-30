@@ -265,9 +265,16 @@ In quotation
 ],
 # a series of tests with special unit direction customization showing the
 # effect of adding customization information needed by the change.
+['ref_for_special_unit_direction',
+$special_unit_direction_customization_text,
+],
 ['special_unit_direction_customization',
 $special_unit_direction_customization_text,
 {'init_files' => ['special_unit_direction_customization.pm']},
+],
+['button_replacement_for_special_unit_direction',
+$special_unit_direction_customization_text,
+{'init_files' => ['button_replacement_for_special_unit_direction.pm']},
 ],
 );
 
