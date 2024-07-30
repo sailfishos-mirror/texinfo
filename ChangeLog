@@ -6,6 +6,12 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize): remove the code
+	setting sorted_special_unit_varieties and simplified_special_unit_info
+	as they are not used anymore.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize): call
 	GNUT_get_direction_string_info only once.
 
