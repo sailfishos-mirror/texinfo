@@ -9038,7 +9038,8 @@ sub converter_initialize($)
           = $customized_direction_strings->{$string_type}->{$direction};
       } else {
         if ($default_translated_directions_strings{$string_type}->{$direction}
-                                                              ->{'converted'}) {
+            and $default_translated_directions_strings{$string_type}
+                                           ->{$direction}->{'converted'}) {
           $self->{'translated_direction_strings'}->{$string_type}
                   ->{$direction} = {'converted' => {}};
           foreach my $context ('normal', 'string') {

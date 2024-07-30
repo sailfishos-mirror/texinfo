@@ -18088,14 +18088,16 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 {
   int i;
   const char *output_encoding;
+  int nr_special_units = self->special_unit_varieties.number;
   /* The corresponding direction without FirstInFile are used instead
      of FirstInFile*, so the directions_strings are not set */
   int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + self->special_unit_varieties.number;
+                     + nr_special_units;
   int nr_dir_str_contexts = TDS_context_string + 1;
   enum direction_string_type DS_type;
   const char *line_break_element;
   int css_style_idx = 0;
+  int *non_default_special_unit_directions = 0;
 
   if (!self->document && self->conf->DEBUG.o.integer > 0)
     {
@@ -18295,10 +18297,29 @@ html_initialize_output_state (CONVERTER *self, const char *context)
         }
     }
 
+  /* determine the special units directions that are not the same as
+     the default units directions.  If not the same as the defaults,
+     the default direction info should not be used as they are not for
+     the customized special unit direction */
+  if (nr_special_units > 0)
+    {
+      non_default_special_unit_directions = (int *)
+                      malloc (nr_special_units * sizeof (int));
+      memset (non_default_special_unit_directions, 0,
+              nr_special_units * sizeof (int));
+
+      for (i = 0; i < nr_special_units; i++)
+        {
+          if (strcmp (self->special_unit_info[SUI_type_direction][i],
+                  default_special_unit_info[SUI_type_direction][i]))
+            non_default_special_unit_directions[i] = 1;
+        }
+    }
+
   for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
     {
       int i;
-      char **default_converted_dir_str;
+      const char * const*default_converted_dir_str;
       char ***customized_type_dir_strings;
 
       self->directions_strings[DS_type]
@@ -18310,7 +18331,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
         continue;
 
       default_converted_dir_str =
-       self->default_converted_directions_strings[
+        default_converted_directions_strings[
                                        DS_type - (TDS_TRANSLATED_MAX_NR)];
       customized_type_dir_strings = self->customized_directions_strings[
                                        DS_type - (TDS_TRANSLATED_MAX_NR)];
@@ -18329,8 +18350,11 @@ html_initialize_output_state (CONVERTER *self, const char *context)
             }
           else if (default_converted_dir_str[i])
             {
-              self->directions_strings[DS_type][i][TDS_context_normal]
-                = substitute_html_non_breaking_space (self,
+              if (i < NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                  || !non_default_special_unit_directions[
+                       i - (NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR)])
+                self->directions_strings[DS_type][i][TDS_context_normal]
+                  = substitute_html_non_breaking_space (self,
                                             default_converted_dir_str[i]);
             }
 
@@ -18343,6 +18367,8 @@ html_initialize_output_state (CONVERTER *self, const char *context)
             }
         }
     }
+
+  free (non_default_special_unit_directions);
 
   sort_css_element_class_styles (&self->css_element_class_styles);
 

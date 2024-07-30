@@ -578,6 +578,10 @@ if ($perl_format) {
      .$direction_orders{'relative'}[-1]."\n\n";
 
   my $nr_string_directions = scalar(@ordered_directions);
+
+  print HDR "extern const char * const default_converted_directions_strings[]["
+                            ."$nr_string_directions];\n\n";
+
   print OUT "const char * const default_converted_directions_strings[]["
                             ."$nr_string_directions] = {\n";
   foreach my $type (@d_ordered_untranslated_hashes) {
@@ -594,6 +598,9 @@ if ($perl_format) {
     print OUT "  },\n";
   }
   print OUT "};\n\n";
+
+  print HDR "extern const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED "
+     ."default_translated_directions_strings[][$nr_string_directions];\n\n";
 
   print OUT "const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED "
      ."default_translated_directions_strings[][$nr_string_directions] = {\n";

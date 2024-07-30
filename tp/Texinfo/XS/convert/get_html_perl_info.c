@@ -978,7 +978,7 @@ html_converter_initialize_sv (SV *converter_sv,
                   spec_sv = hv_fetch (direction_hv, direction_name,
                                               strlen (direction_name), 0);
 
-                  if (spec_sv)
+                  if (spec_sv && SvOK (*spec_sv))
                     {
                       HV *spec_hv = (HV *) SvRV (*spec_sv);
 
@@ -1200,8 +1200,8 @@ html_converter_initialize_sv (SV *converter_sv,
                             = (char **)
                                malloc (nr_dir_str_contexts * sizeof (char *));
                           memset (converter->
-                             customized_directions_strings[customized_type][i], 0,
-                             nr_dir_str_contexts * sizeof (char *));
+                             customized_directions_strings[customized_type][i],
+                             0, nr_dir_str_contexts * sizeof (char *));
 
                           if (context_sv && SvOK (*context_sv))
                             {
@@ -1247,6 +1247,14 @@ html_converter_initialize_sv (SV *converter_sv,
                            */
                           continue;
                         }
+                  /* not clear that it can happen
+                      else
+                        {
+                          fprintf (stderr,
+                  "customized_direction_strings: %s: %s: spec undef\n",
+                                    type_name, direction_name);
+                        }
+                   */
                     }
                     /* for debug, case of directions not customized
                   else

@@ -83,6 +83,10 @@ extern const char *direction_type_translation_context[];
 #define FIRSTINFILE_MIN_IDX D_direction_FirstInFileThis
 #define FIRSTINFILE_MAX_IDX D_direction_FirstInFileNodeBack
 
+extern const char * const default_converted_directions_strings[][24];
+
+extern const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED default_translated_directions_strings[][24];
+
 extern const char *html_style_commands_element[];
 
 #endif

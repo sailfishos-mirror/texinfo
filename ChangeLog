@@ -6,6 +6,27 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize): avoid spurious
+	autovivification for translated_direction_strings.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): handle undef spec hv in
+	translated_direction_strings.
+
+	* tp/maintain/generate_code_convert_data.pl: declare
+	default_converted_directions_strings and
+	default_translated_directions_strings.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_initialize_output_state):
+	use default_converted_directions_strings from main/conversion_data.c
+	instead of the information coming from Perl.  Determine the special
+	units directions that are not the same as the default units
+	directions.  If not the same as the defaults, the default direction
+	info should not be used as they are not for the customized special
+	unit direction.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize): remove the code
 	setting sorted_special_unit_varieties and simplified_special_unit_info
 	as they are not used anymore.
