@@ -8738,7 +8738,7 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$$$$)
 {
 }
 
@@ -9057,8 +9057,7 @@ sub converter_initialize($)
 
   # the customization information are not used further here, as
   # substitute_html_non_breaking_space is used and it depends on the document
-  $self->{'customized_direction_strings'}
-      = Texinfo::Config::GNUT_get_direction_string_info();
+  $self->{'customized_direction_strings'} = $customized_direction_strings;
 
   $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
 
@@ -9139,6 +9138,7 @@ sub converter_initialize($)
                              \%defaults_format_special_unit_body_contents,
                              $customized_upper_case_commands,
                              $customized_special_unit_info,
+                             $customized_direction_strings,
                              \%default_converted_directions_strings
                             );
     delete $self->{'sorted_special_unit_varieties'};

@@ -6,6 +6,18 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize): call
+	GNUT_get_direction_string_info only once.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): get customized_direction_strings
+	through the call of html_converter_initialize_sv, not from the
+	Perl converter state.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm b/tp/Texinfo/Convert/HTML.pm
 	(@all_directions_except_special_units, converter_initialize)
 	(conversion_initialization): do not use default directions trings

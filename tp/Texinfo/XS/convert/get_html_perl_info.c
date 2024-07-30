@@ -226,6 +226,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
                               SV *customized_upper_case_commands,
+                              SV *customized_direction_strings,
                               SV *default_converted_directions_strings
                              )
 {
@@ -256,7 +257,6 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **code_types_sv;
   SV **pre_class_types_sv;
   SV **translated_direction_strings_sv;
-  SV **customized_direction_strings_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
   HV *commands_conversion_hv;
@@ -1143,11 +1143,10 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-  FETCH(customized_direction_strings)
-  if (customized_direction_strings_sv)
+  if (customized_direction_strings && SvOK (customized_direction_strings))
     {
       HV *customized_direction_strings_hv
-        = (HV *) SvRV (*customized_direction_strings_sv);
+        = (HV *) SvRV (customized_direction_strings);
 
       for (DS_type = TDS_TRANSLATED_MAX_NR;
            DS_type < TDS_TYPE_MAX_NR; DS_type++)

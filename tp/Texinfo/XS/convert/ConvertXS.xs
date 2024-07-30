@@ -579,7 +579,7 @@ void
 html_format_setup ()
 
 void
-html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_special_unit_info, SV *default_converted_directions_strings)
+html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_special_unit_info, SV *customized_direction_strings, SV *default_converted_directions_strings)
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -588,7 +588,7 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
          /* initialize first the special unit info, as the special unit
             directions are needed for the remainder of initialization.
             Therefore special unit Perl customization needs to be read
-            and splecial unit initialization in C code needs to be run
+            and special unit initialization in C code needs to be run
             too before doing the remaining */
          html_converter_init_special_unit_sv (converter_in,
                                               customized_special_unit_info);
@@ -605,6 +605,7 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
                           default_output_units_conversion,
                           default_special_unit_body,
                           customized_upper_case_commands,
+                          customized_direction_strings,
                           default_converted_directions_strings);
 
 
