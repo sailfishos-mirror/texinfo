@@ -226,8 +226,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
                               SV *customized_upper_case_commands,
-                              SV *customized_direction_strings,
-                              SV *default_converted_directions_strings
+                              SV *customized_direction_strings
                              )
 {
   int i;
@@ -315,67 +314,6 @@ html_converter_initialize_sv (SV *converter_sv,
             = &converter->css_element_class_styles.list[i];
           selector_style->selector = non_perl_strdup (selector);
           selector_style->style = non_perl_strdup (style);
-        }
-    }
-
-  /* Should always be true */
-  if (default_converted_directions_strings
-      && SvOK (default_converted_directions_strings))
-    {
-      HV *default_converted_directions_strings_hv
-         = (HV *) SvRV (default_converted_directions_strings);
-      nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                            + special_unit_varieties->number;
-      int non_translated_directions_strings_nr
-          = (TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR);
-      for (DS_type = 0; DS_type < non_translated_directions_strings_nr;
-           DS_type++)
-        {
-          const char *type_name
-             = direction_string_type_names[TDS_TRANSLATED_MAX_NR + DS_type];
-          SV **direction_sv
-             = hv_fetch (default_converted_directions_strings_hv,
-                                        type_name, strlen (type_name), 0);
-
-          converter->default_converted_directions_strings[DS_type]
-            = (char **) malloc (nr_string_directions * sizeof (char *));
-          memset (converter->default_converted_directions_strings[DS_type],
-                  0, nr_string_directions * sizeof (char *));
-
-          if (direction_sv)
-            {
-              int i;
-              HV *direction_hv = (HV *) SvRV (*direction_sv);
-
-              for (i = 0; i < nr_string_directions; i++)
-                {
-                  const char *direction_name;
-                  SV **spec_sv;
-
-                  if (i < FIRSTINFILE_MIN_IDX)
-                    direction_name = html_button_direction_names[i];
-                  else
-                    direction_name
-                      = converter->special_unit_info[SUI_type_direction]
-                                       [i - FIRSTINFILE_MIN_IDX];
-
-                  spec_sv = hv_fetch (direction_hv, direction_name,
-                                          strlen (direction_name), 0);
-
-                  if (spec_sv && SvOK (*spec_sv))
-                    {
-                      converter->default_converted_directions_strings[DS_type][i]
-                        = strdup (SvPVutf8_nolen (*spec_sv));
-                    }
-                    /*
-                       No direction strings for Footnotes
-                  else
-                    {
-                      fprintf (stderr, "NNN no string: %s\n", direction_name);
-                    }
-                     */
-                }
-            }
         }
     }
 

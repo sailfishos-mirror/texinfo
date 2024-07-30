@@ -6,6 +6,20 @@
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/convert_html.c (html_free_converter),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): do not set
+	converter->default_converted_directions_strings anymore from Perl, as
+	the C defaults are now used.  Remove the
+	default_converted_directions_strings argument of
+	html_converter_initialize_sv.  Remove the
+	default_converted_directions_strings CONVERTER field.
+
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize): avoid spurious
 	autovivification for translated_direction_strings.
 

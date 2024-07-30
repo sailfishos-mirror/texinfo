@@ -811,7 +811,6 @@ typedef struct CONVERTER {
     HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
     char ***customized_directions_strings[(TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR)];
     char ***directions_strings[TDS_TYPE_MAX_NR];
-    char **default_converted_directions_strings[TDS_TYPE_MAX_NR];
     const char **direction_unit_direction_name;
 
     /* set for a document */

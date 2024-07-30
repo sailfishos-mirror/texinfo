@@ -19561,17 +19561,6 @@ html_free_converter (CONVERTER *self)
     }
   free (self->htmlxref.list);
 
-  for (i = 0; i < (TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR); i++)
-    {
-      int j;
-
-      for (j = 0; j < nr_string_directions; j++)
-        {
-          free (self->default_converted_directions_strings[i][j]);
-        }
-      free (self->default_converted_directions_strings[i]);
-    }
-
   for (i = 0; i < SUI_type_heading+1; i++)
     {
       int k;
