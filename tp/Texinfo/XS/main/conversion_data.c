@@ -93,13 +93,13 @@ static char *default_special_unit_varieties_array[] = {
 const STRING_LIST default_special_unit_varieties = {default_special_unit_varieties_array, 4, 4};
 
 #define pgdt_noop(Context,String) String
-const char * const defaul_special_unit_info[SUI_type_heading+1][4] = {
-  {"contents", "shortcontents", "footnotes", "about", },
-  {"Contents", "Overview", "Footnotes", "About", },
-  {"30", "20", "10", "40", },
-  {"_toc", "_ovr", "_fot", "_abt", },
-  {"SEC_Contents", "SEC_Shortcontents", "SEC_Footnotes", "SEC_About", },
-  {pgdt_noop("contents section heading", "Table of Contents"), pgdt_noop("shortcontents section heading", "Short Table of Contents"), pgdt_noop("footnotes section heading", "Footnotes"), pgdt_noop("about section heading", "About This Document"), },
+const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][4] = {
+  {"contents", "shortcontents", "footnotes", "about", }, /* class */
+  {"Contents", "Overview", "Footnotes", "About", }, /* direction */
+  {"30", "20", "10", "40", }, /* order */
+  {"_toc", "_ovr", "_fot", "_abt", }, /* file_string */
+  {"SEC_Contents", "SEC_Shortcontents", "SEC_Footnotes", "SEC_About", }, /* target */
+  {pgdt_noop("contents section heading", "Table of Contents"), pgdt_noop("shortcontents section heading", "Short Table of Contents"), pgdt_noop("footnotes section heading", "Footnotes"), pgdt_noop("about section heading", "About This Document"), }, /* heading */
 };
 
 const char *direction_type_translation_context[] = {

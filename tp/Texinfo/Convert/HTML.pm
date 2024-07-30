@@ -8740,7 +8740,7 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$$$)
 {
 }
 
@@ -9132,6 +9132,7 @@ sub converter_initialize($)
                              \%default_output_units_conversion,
                              \%defaults_format_special_unit_body_contents,
                              $customized_upper_case_commands,
+                             $customized_special_unit_info,
                              \%default_converted_directions_strings
                             );
     delete $self->{'sorted_special_unit_varieties'};

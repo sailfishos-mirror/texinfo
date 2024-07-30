@@ -3123,6 +3123,29 @@ direction_string (CONVERTER *self, int direction,
   return self->directions_strings[string_type][direction][context];
 }
 
+SPECIAL_UNIT_INFO *
+html_add_special_unit_info (SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
+                            int type, size_t variety_nr, const char *value)
+{
+  SPECIAL_UNIT_INFO *special_unit_info;
+
+  if (special_unit_info_list->number == special_unit_info_list->space)
+    {
+      special_unit_info_list->list = realloc (special_unit_info_list->list,
+            sizeof (SPECIAL_UNIT_INFO) * (special_unit_info_list->space += 5));
+    }
+  special_unit_info
+    = &special_unit_info_list->list[special_unit_info_list->number];
+  memset (special_unit_info, 0, sizeof (SPECIAL_UNIT_INFO));
+  special_unit_info->type = type;
+  special_unit_info->variety_nr = variety_nr;
+  if (value)
+    special_unit_info->value = strdup (value);
+
+  special_unit_info_list->number++;
+  return special_unit_info;
+}
+
 /* note that the returned pointer may be invalidated if the targets list
    is reallocated.  Callers should make sure that the html target is
    used before a reallocation is possible */
@@ -6942,6 +6965,7 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
                                   result);
 
           free (footnote_mark);
+          free (footnote_location_href);
         }
     }
   destroy_pending_footnotes (pending_footnotes);
@@ -17321,7 +17345,51 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
+  /* NOTE if the special units can be customized, then
+     self->special_unit_varieties should be used directly instead.
+     Also default special units and special units indices should be
+     mapped instead of assuming that they are the same when setting
+     self->special_unit_info */
+  copy_strings (&self->special_unit_varieties, &default_special_unit_varieties);
+
   nr_special_units = self->special_unit_varieties.number;
+
+  /* special units info */
+  /* set to defaults */
+  if (nr_special_units > 0)
+    {
+      enum special_unit_info_type j;
+      for (j = 0; j < SPECIAL_UNIT_INFO_TYPE_NR; j++)
+        {
+          int k;
+
+          self->special_unit_info[j]
+            = new_special_unit_info_type (nr_special_units);
+          for (k = 0; k < nr_special_units; k++)
+            {
+              if (default_special_unit_info[j][k])
+                self->special_unit_info[j][k]
+                  = strdup (default_special_unit_info[j][k]);
+            }
+        }
+      /* apply customization */
+      for (i = 0; i < self->customized_special_unit_info.number; i++)
+        {
+          SPECIAL_UNIT_INFO *special_unit_info
+            = &self->customized_special_unit_info.list[i];
+          size_t variety_idx = special_unit_info->variety_nr -1;
+          enum special_unit_info_type type = special_unit_info->type;
+
+          free (self->special_unit_info[type][variety_idx]);
+
+          if (special_unit_info->value)
+            self->special_unit_info[type][variety_idx]
+              = strdup (special_unit_info->value);
+          else
+            self->special_unit_info[type][variety_idx] = 0;
+        }
+    }
+
 
   self->direction_unit_direction_name = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
@@ -17721,6 +17789,25 @@ html_converter_initialize (CONVERTER *self)
            external_type_open_function,
            external_formatting_function);
     */
+}
+
+void
+reset_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
+{
+  size_t i;
+  for (i = 0; i < special_unit_info_list->number; i++)
+    {
+      SPECIAL_UNIT_INFO *special_unit_info = &special_unit_info_list->list[i];
+      free (special_unit_info->value);
+    }
+  special_unit_info_list->number = 0;
+}
+
+void
+free_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
+{
+  reset_special_unit_info_list (special_unit_info_list);
+  free (special_unit_info_list->list);
 }
 
 void
@@ -19063,6 +19150,8 @@ html_reset_converter (CONVERTER *self)
     }
   self->html_target_cmds.top = 0;
 
+  reset_special_unit_info_list (&self->customized_special_unit_info);
+
   free (self->shared_conversion_state.footnote_id_numbers);
 
   free (self->shared_conversion_state.formatted_listoffloats_nr);
@@ -19250,6 +19339,10 @@ html_free_converter (CONVERTER *self)
     }
 
   free_generic_converter (self);
+
+  free_special_unit_info_list (&self->customized_special_unit_info);
+
+  free_strings_list (&self->customized_special_unit_varieties);
 
   free (self->direction_unit_direction_name);
 

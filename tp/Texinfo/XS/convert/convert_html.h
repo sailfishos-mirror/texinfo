@@ -19,6 +19,10 @@ enum css_info_type {
    CI_css_info_rules,
 };
 
+/* in main/conversion_data.c */
+extern const STRING_LIST default_special_unit_varieties;
+
+
 extern const char *html_conversion_context_type_names[];
 extern const char *html_global_unit_direction_names[];
 
@@ -72,6 +76,10 @@ char ***new_directions_strings_type (int nr_string_directions,
 FORMATTING_REFERENCE *new_special_unit_formatting_references
                                       (int special_units_varieties_nr);
 char **new_special_unit_info_type (int special_units_varieties_nr);
+
+SPECIAL_UNIT_INFO *html_add_special_unit_info (
+                            SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
+                            int type, size_t variety_nr, const char *value);
 
 int html_id_is_registered (CONVERTER *self, const char *string);
 void html_register_id (CONVERTER *self, const char *string);

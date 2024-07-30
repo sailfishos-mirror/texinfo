@@ -714,6 +714,18 @@ typedef struct HTML_STAGE_HANDLER_INFO_LIST {
     HTML_STAGE_HANDLER_INFO *list;
 } HTML_STAGE_HANDLER_INFO_LIST;
 
+typedef struct SPECIAL_UNIT_INFO {
+    int type;
+    size_t variety_nr;
+    char *value;
+} SPECIAL_UNIT_INFO;
+
+typedef struct SPECIAL_UNIT_INFO_LIST {
+    size_t number;
+    size_t space;
+    SPECIAL_UNIT_INFO *list;
+} SPECIAL_UNIT_INFO_LIST;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -780,7 +792,9 @@ typedef struct CONVERTER {
     FORMATTING_REFERENCE output_units_conversion[OU_special_unit+1];
     FORMATTING_REFERENCE *special_unit_body;
     STRING_LIST special_unit_varieties;
-    char **special_unit_info[SUI_type_heading+1];
+    STRING_LIST customized_special_unit_varieties;
+    SPECIAL_UNIT_INFO_LIST customized_special_unit_info;
+    char **special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR];
     HTMLXREF_MANUAL_LIST htmlxref;
     TYPE_CONVERSION_FUNCTION type_conversion_function[TXI_TREE_TYPES_NUMBER];
     TYPE_CONVERSION_FUNCTION css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];

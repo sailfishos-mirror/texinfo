@@ -58,9 +58,12 @@ register_formatting_reference_default (const char *type_string,
                 FORMATTING_REFERENCE *formatting_reference,
                 const char *ref_name, HV *default_hv)
 {
-  SV **default_formatting_reference_sv;
+  SV **default_formatting_reference_sv = 0;
 
   dTHX;
+
+  if (!default_hv)
+    return 0;
 
   default_formatting_reference_sv
    = hv_fetch (default_hv, ref_name, strlen (ref_name), 0);
@@ -92,6 +95,9 @@ register_formatting_reference_with_default (const char *type_string,
 
   default_formatting_reference_sv = register_formatting_reference_default (
                  type_string, formatting_reference, ref_name, default_hv);
+
+  if (!customized_hv)
+    return;
 
   formatting_reference_sv
     = hv_fetch (customized_hv, ref_name, strlen (ref_name), 0);
@@ -136,6 +142,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
                               SV *customized_upper_case_commands,
+                              SV *customized_special_unit_info,
                               SV *default_converted_directions_strings
                              )
 {
@@ -152,10 +159,10 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *default_output_units_conversion_hv;
   SV **htmlxref_sv;
   SV **formatting_function_sv;
-  SV **sorted_special_unit_varieties_sv;
   SV **accent_entities_sv;
   SV **style_commands_formatting_sv;
   SV **stage_handlers_sv;
+  SV **special_unit_body_sv;
   SV **types_open_sv;
   SV **types_conversion_sv;
   SV **commands_open_sv;
@@ -181,11 +188,18 @@ html_converter_initialize_sv (SV *converter_sv,
   int nr_dir_str_contexts = TDS_context_string +1;
   /* need to be passed as argument to get from Perl */
   SV *default_css_element_class_styles = 0;
+  const STRING_LIST *special_unit_varieties;
 
   dTHX;
 
   converter = get_sv_converter (converter_sv, "html_converter_initialize_sv");
 
+  /* NOTE if the special units can be customized, then the
+     converter->special_unit_varieties should be set and used instead */
+  special_unit_varieties = &default_special_unit_varieties;
+  /*
+  special_unit_varieties = &converter->special_unit_varieties;
+   */
   converter_hv = (HV *)SvRV (converter_sv);
 
   default_formatting_references_hv
@@ -225,70 +239,65 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-  FETCH(sorted_special_unit_varieties)
-
-  if (sorted_special_unit_varieties_sv)
+  if (customized_special_unit_info && SvOK (customized_special_unit_info))
     {
       enum special_unit_info_type j;
-      SV **simplified_special_unit_info_sv;
       HV *special_unit_info_hv;
 
-      STRING_LIST *special_unit_varieties = &converter->special_unit_varieties;
-      if (sorted_special_unit_varieties_sv)
-        add_svav_to_string_list (*sorted_special_unit_varieties_sv,
-                                 special_unit_varieties, svt_char);
+      STRING_LIST *customized_special_unit_varieties
+        = &converter->customized_special_unit_varieties;
+      clear_strings_list (customized_special_unit_varieties);
 
-      FETCH(simplified_special_unit_info);
+      special_unit_info_hv = (HV *) SvRV(customized_special_unit_info);
 
-      special_unit_info_hv = (HV *) SvRV(*simplified_special_unit_info_sv);
-
-      for (j = 0; j < SUI_type_heading+1; j++)
+      for (j = 0; j < SPECIAL_UNIT_INFO_TYPE_NR; j++)
         {
           SV **special_unit_info_type_sv;
           const char *sui_type = special_unit_info_type_names[j];
           special_unit_info_type_sv = hv_fetch (special_unit_info_hv,
                                                 sui_type, strlen (sui_type), 0);
-          if (special_unit_info_type_sv)
+          if (special_unit_info_type_sv && SvOK (*special_unit_info_type_sv))
             {
-              int k;
+              I32 hv_number;
+              I32 i;
               HV *special_unit_info_type_hv;
-
-              if (!SvOK (*special_unit_info_type_sv))
-                {
-                  fprintf (stderr, "BUG: special_unit_info: %s: undef\n",
-                                   sui_type);
-                }
 
               special_unit_info_type_hv
                    = (HV *) SvRV(*special_unit_info_type_sv);
 
-              converter->special_unit_info[j]
-                = new_special_unit_info_type (special_unit_varieties->number);
+              hv_number = hv_iterinit (special_unit_info_type_hv);
 
-              for (k = 0; k < special_unit_varieties->number; k++)
+              for (i = 0; i < hv_number; i++)
                 {
-                  char *variety_name = special_unit_varieties->list[k];
-                  SV **info_type_variety_sv
-                   = hv_fetch (special_unit_info_type_hv, variety_name,
-                               strlen (variety_name), 0);
-                  if (info_type_variety_sv)
+                  HE *next = hv_iternext (special_unit_info_type_hv);
+                  SV *variety_sv = hv_iterkeysv (next);
+                  char *variety = (char *) SvPVutf8_nolen (variety_sv);
+                  SV *value_sv = HeVAL(next);
+                  char *value = 0;
+                  /* the customized_special_unit_varieties are not used
+                     further but is filled to retain the information on
+                     the variety customized, even if they are ignored */
+                  size_t customized_variety_nr = find_string (
+                                         customized_special_unit_varieties,
+                                                   variety);
+                  size_t variety_nr = find_string (special_unit_varieties,
+                                                   variety);
+
+                  if (!customized_variety_nr)
                     {
-                      /* can be undef if set undef in user init file */
-                      if (SvOK (*info_type_variety_sv))
-                        {
-                          const char *value
-                            = (char *) SvPVutf8_nolen (*info_type_variety_sv);
-                          converter->special_unit_info[j][k]
-                             = non_perl_strdup (value);
-                        }
-                      else
-                        converter->special_unit_info[j][k] = 0;
+                      add_string (variety, customized_special_unit_varieties);
                     }
-                    /*
-                  else
-                    fprintf (stderr, "Missing %d:%s %d:%s\n", j, sui_type, k, variety_name);
-                     */
+
+                  if (variety_nr)
+                    {
+
+                      if (SvOK (value_sv))
+                        value = (char *) SvPVutf8_nolen (value_sv);
+
+                      html_add_special_unit_info (
+                          &converter->customized_special_unit_info, j,
+                          variety_nr, value);
+                    }
                 }
             }
         }
@@ -301,7 +310,7 @@ html_converter_initialize_sv (SV *converter_sv,
       HV *default_converted_directions_strings_hv
          = (HV *) SvRV (default_converted_directions_strings);
       nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                            + converter->special_unit_varieties.number;
+                            + special_unit_varieties->number;
       int non_translated_directions_strings_nr
           = (TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR);
       for (DS_type = 0; DS_type < non_translated_directions_strings_nr;
@@ -331,8 +340,9 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (i < FIRSTINFILE_MIN_IDX)
                     direction_name = html_button_direction_names[i];
                   else
+                    /* FIXME if special units are dynamic this is incorrect */
                     direction_name
-                      = converter->special_unit_info[SUI_type_direction]
+                      = default_special_unit_info[SUI_type_direction]
                                        [i - FIRSTINFILE_MIN_IDX];
 
                   spec_sv = hv_fetch (direction_hv, direction_name,
@@ -355,6 +365,7 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(htmlxref)
 
   if (htmlxref_sv)
@@ -598,19 +609,18 @@ html_converter_initialize_sv (SV *converter_sv,
         output_units_conversion_hv);
     }
 
-  if (sorted_special_unit_varieties_sv)
+  if (special_unit_varieties->number > 0)
     {
-      SV **special_unit_body_sv;
-      HV *special_unit_body_hv;
+      HV *special_unit_body_hv = 0;
       HV *default_special_unit_body_hv;
-      STRING_LIST *special_unit_varieties = &converter->special_unit_varieties;
 
       converter->special_unit_body
-       = new_special_unit_formatting_references
-                      (special_unit_varieties->number);
+        = new_special_unit_formatting_references
+                         (special_unit_varieties->number);
 
       FETCH(special_unit_body)
-      special_unit_body_hv = (HV *)SvRV (*special_unit_body_sv);
+      if (special_unit_body_sv)
+        special_unit_body_hv = (HV *)SvRV (*special_unit_body_sv);
       default_special_unit_body_hv = (HV *)SvRV (default_special_unit_body);
 
       for (i = 0; i < special_unit_varieties->number; i++)
@@ -921,7 +931,7 @@ html_converter_initialize_sv (SV *converter_sv,
   /* The corresponding direction without FirstInFile are used instead
      of FirstInFile*, so the directions_strings are not set */
   nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + converter->special_unit_varieties.number;
+                     + special_unit_varieties->number;
 
   for (DS_type = 0; DS_type < TDS_TRANSLATED_MAX_NR; DS_type++)
     {
@@ -947,8 +957,9 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (i < FIRSTINFILE_MIN_IDX)
                     direction_name = html_button_direction_names[i];
                   else
+                    /* FIXME if special units are dynamic this is incorrect */
                     direction_name
-                      = converter->special_unit_info[SUI_type_direction]
+                      = default_special_unit_info[SUI_type_direction]
                                        [i - FIRSTINFILE_MIN_IDX];
 
                   spec_sv = hv_fetch (direction_hv, direction_name,
@@ -1134,7 +1145,7 @@ html_converter_initialize_sv (SV *converter_sv,
           SV **direction_sv;
           size_t customized_type = DS_type - (TDS_TRANSLATED_MAX_NR);
 
-          /* do not use new_directions_strings_type as a 0 for a directions
+          /* do not use new_directions_strings_type as a 0 for a direction array
              is allowed here, it means that there is a customized value undef */
           converter->customized_directions_strings[customized_type]
             = (char ***) malloc (nr_string_directions * sizeof (char **));
@@ -1158,8 +1169,9 @@ html_converter_initialize_sv (SV *converter_sv,
                   if (i < FIRSTINFILE_MIN_IDX)
                     direction_name = html_button_direction_names[i];
                   else
+                    /* FIXME if special units are dynamic this is incorrect */
                     direction_name
-                      = converter->special_unit_info[SUI_type_direction]
+                      = default_special_unit_info[SUI_type_direction]
                                        [i - FIRSTINFILE_MIN_IDX];
 
                   context_sv = hv_fetch (direction_hv, direction_name,

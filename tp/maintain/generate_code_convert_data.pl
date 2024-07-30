@@ -226,6 +226,10 @@ if ($C_format) {
   print OUT "};\n\n";
   print HDR "};\n\n";
 
+  print HDR "#define SPECIAL_UNIT_INFO_TYPE_NR "
+    .(scalar(@su_ordered_untranslated_hashes)
+      + scalar(@su_ordered_translated_hashes))."\n\n";
+
   print HDR "/* translated from corresponding SUI_type* */\n";
   print HDR "enum special_unit_info_tree {\n"
          ."   SUIT_type_none = -1,\n\n";
@@ -323,8 +327,6 @@ if ($perl_format) {
 } else {
 
 
-  my $last_type = "SUI_type_".$su_ordered_translated_hashes[-1];
-
   print OUT "static char *default_special_unit_varieties_array[] = {\n";
   foreach my $special_units (@su_ordered) {
     print OUT "  \"$special_units\",\n";
@@ -333,16 +335,16 @@ if ($perl_format) {
 
   print OUT "const STRING_LIST default_special_unit_varieties = {default_special_unit_varieties_array, $special_units_nr, $special_units_nr};\n\n";
 
-
-  # FIXME somwhere else?
+  # FIXME somewhere else?
   print OUT "#define pgdt_noop(Context,String) String\n";
 
-  print OUT "const char * const defaul_special_unit_info[$last_type+1][$special_units_nr] = {\n";
+  print OUT "const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][$special_units_nr] = {\n";
   foreach my $type (@su_ordered_untranslated_hashes, @su_ordered_translated_hashes) {
-    print OUT "  {".$su_hash_lines{$type}."},\n";
+    print OUT "  {".$su_hash_lines{$type}."}, /* $type */\n";
   }
   print OUT "};\n\n";
 
+  print HDR "extern const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][$special_units_nr];\n\n";
 }
 
 my @global_directions = ('First', 'Top', 'Index', 'Last');
@@ -418,7 +420,7 @@ my %type_contexts_map = (
 );
 
 if ($C_format) {
-  print HDR "extern const char *direction_type_translation_context[];\n";
+  print HDR "extern const char *direction_type_translation_context[];\n\n";
 
   # we define preprocessor macros
   print HDR "#define TDS_TRANSLATED_TYPES_LIST \\\n";

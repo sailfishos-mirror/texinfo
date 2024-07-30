@@ -20,6 +20,8 @@ enum special_unit_info_type {
    SUI_type_heading,
 };
 
+#define SPECIAL_UNIT_INFO_TYPE_NR 6
+
 /* translated from corresponding SUI_type* */
 enum special_unit_info_tree {
    SUIT_type_none = -1,
@@ -27,7 +29,10 @@ enum special_unit_info_tree {
    SUIT_type_heading,
 };
 
+extern const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][4];
+
 extern const char *direction_type_translation_context[];
+
 #define TDS_TRANSLATED_TYPES_LIST \
   tds_type(text) \
   tds_type(description) \

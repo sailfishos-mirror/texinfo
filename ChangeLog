@@ -1,3 +1,32 @@
+2024-07-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_footnotes_sequence): free footnote_location_href.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(register_formatting_reference_default)
+	(register_formatting_reference_with_default): handle HV set to 0 in
+	argument.
+
+	* tp/maintain/generate_code_convert_data.pl: add
+	SPECIAL_UNIT_INFO_TYPE_NR and default_special_unit_info declarations.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/convert_html.c (html_add_special_unit_info)
+	(html_converter_initialize, reset_special_unit_info_list)
+	(html_reset_converter, html_free_converter),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(SPECIAL_UNIT_INFO, SPECIAL_UNIT_INFO_LIST, CONVERTER): get
+	customized_special_unit_info in argument of
+	html_converter_initialize_sv, put it in SPECIAL_UNIT_INFO_LIST new
+	type in customized_special_unit_info field of converter.  Also get the
+	customized_special_unit_varieties in converter, although this
+	information is not used for now.  Set special_unit_varieties based on
+	defaults in conversion_data.c and set special_unit_info default in
+	html_converter_initialize before applying customization.
+
 2024-07-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/maintain/generate_code_convert_data.pl: add
