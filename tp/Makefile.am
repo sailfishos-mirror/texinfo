@@ -204,6 +204,7 @@ test_files = \
  t/init/redirection_file_collision_with_user_def.init \
  t/init/set_unit_file_name_filepath.pm \
  t/init/special_element_customization.pm \
+ t/init/special_unit_direction_customization.pm \
  t/init/t2h_buttons.pm \
  t/init/t2h_singular.init \
  t/init/test_css_info_functions.pm \

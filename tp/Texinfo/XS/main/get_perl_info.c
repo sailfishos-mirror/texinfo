@@ -736,6 +736,9 @@ force_sv_conf (CONVERTER *converter, const char *conf, SV *value)
     get_sv_option (converter->conf, conf, value, 1, converter);
 }
 
+/* output format specific */
+
+/* return -2 if there are info and not found. */
 static int
 html_get_direction_index (const CONVERTER *converter, const char *direction)
 {
@@ -747,6 +750,7 @@ html_get_direction_index (const CONVERTER *converter, const char *direction)
           if (!strcmp (direction, converter->direction_unit_direction_name[i]))
             return i;
         }
+      return -2;
     }
   return -1;
 }
@@ -792,6 +796,10 @@ html_get_button_specification_list (const CONVERTER *converter,
 
   result->BIT_user_function_number = 0;
   result->number = (size_t) buttons_nr;
+
+  if (result->number == 0)
+    return 0;
+
   result->list = (BUTTON_SPECIFICATION *)
     malloc (result->number * sizeof (BUTTON_SPECIFICATION));
   memset (result->list, 0, result->number * sizeof (BUTTON_SPECIFICATION));
@@ -800,6 +808,11 @@ html_get_button_specification_list (const CONVERTER *converter,
     {
       SV **button_sv = av_fetch (buttons_av, i, 0);
       BUTTON_SPECIFICATION *button = &result->list[i];
+
+      if (!button_sv || !SvOK (*button_sv))
+        {
+          fprintf (stderr, "ERROR: missing button %zu\n", i);
+        }
 
       button->sv = *button_sv;
       SvREFCNT_inc (button->sv);
@@ -811,12 +824,13 @@ html_get_button_specification_list (const CONVERTER *converter,
               button->type = BST_function;
               button->b.sv_reference = *button_sv;
             }
-          else if (SvTYPE (SvRV(*button_sv)) == SVt_PVAV)
+          else if (SvTYPE (SvRV(*button_sv)) == SVt_PVAV) /* ARRAY */
             {
               AV *button_spec_info_av = (AV *) SvRV(*button_sv);
               SV **direction_sv = av_fetch (button_spec_info_av, 0, 0);
               SV **button_spec_info_type
                  = av_fetch (button_spec_info_av, 1, 0);
+              const char *direction_name;
 
               BUTTON_SPECIFICATION_INFO *button_spec
                 = (BUTTON_SPECIFICATION_INFO *)
@@ -826,9 +840,32 @@ html_get_button_specification_list (const CONVERTER *converter,
               button->type = BST_direction_info;
               button->b.button_info = button_spec;
 
+              if (!direction_sv || !SvOK (*direction_sv))
+                {
+                  fprintf (stderr,
+                           "ERROR: missing direction in button %zu array\n",
+                           i);
+                  continue;
+                }
+              if (!button_spec_info_type || !SvOK (*button_spec_info_type))
+                {
+                  fprintf (stderr,
+                           "ERROR: missing specification in button %zu array\n",
+                           i);
+                  continue;
+                }
+
+              direction_name = SvPVutf8_nolen (*direction_sv);
               button_spec->direction
-                = html_get_direction_index (converter,
-                                            SvPVutf8_nolen (*direction_sv));
+                = html_get_direction_index (converter, direction_name);
+               /* to debug
+              if (button_spec->direction == -2)
+                {
+                  fprintf (stderr,
+                           "REMARK: unknown button %zu array direction: %s\n",
+                           i, direction_name);
+                }
+                */
 
               if (SvROK (*button_spec_info_type))
                 {
@@ -904,9 +941,15 @@ html_get_button_specification_list (const CONVERTER *converter,
         }
       else
         {
+          const char *direction_name = SvPVutf8_nolen (*button_sv);
           button->type = BST_direction;
           button->b.direction = html_get_direction_index (converter,
-                                              SvPVutf8_nolen (*button_sv));
+                                                          direction_name);
+           /* To debug
+          if (button->b.direction == -2)
+            fprintf (stderr, "REMARK: unknown button %zu string direction: %s\n",
+                             i, direction_name);
+            */
         }
     }
 

@@ -3039,6 +3039,11 @@ direction_string (CONVERTER *self, int direction,
                   enum direction_string_context context)
 {
   int direction_unit_direction_idx = direction;
+
+  /* Perl direction not found in C */
+  if (direction < 0)
+    return 0;
+
   if (direction >= FIRSTINFILE_MIN_IDX && direction <= FIRSTINFILE_MAX_IDX)
     {
       direction += FIRSTINFILE_OFFSET;
@@ -4413,6 +4418,10 @@ from_element_direction (CONVERTER *self, int direction,
   const OUTPUT_UNIT *target_unit = 0;
   const ELEMENT *command = 0;
 
+  /* this means that the direction given in Perl was not found in C */
+  if (direction < 0)
+    return 0;
+
   if (!source_unit)
     source_unit = self->current_output_unit;
 
@@ -4422,7 +4431,7 @@ from_element_direction (CONVERTER *self, int direction,
     filename_from = self->current_filename.filename;
 
   /* To debug:
-  fprintf (stderr, "%s %s\n", html_command_text_type_name[type],
+  fprintf (stderr, "FED: %s %s\n", html_command_text_type_name[type],
                               self->direction_unit_direction_name[direction]);
    */
 
