@@ -21,6 +21,7 @@ tp/Texinfo/Convert/HTML.pm
 tp/Texinfo/Convert/Utils.pm
 tp/Texinfo/XS/convert/converter.c
 tp/Texinfo/XS/convert/convert_html.c
+tp/Texinfo/XS/main/conversion_data.c
 tp/Texinfo/XS/main/convert_to_text.c
 tp/Texinfo/XS/main/convert_utils.c
 tp/Texinfo/XS/main/convert_utils.h
