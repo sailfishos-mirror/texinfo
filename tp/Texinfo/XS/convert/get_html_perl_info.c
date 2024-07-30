@@ -1093,6 +1093,14 @@ html_converter_initialize_sv (SV *converter_sv,
           const char *type_name;
           HV *direction_hv = 0;
           SV **direction_sv;
+
+          type_name = direction_string_type_names[DS_type];
+
+          direction_sv = hv_fetch (customized_direction_strings_hv, type_name,
+                                   strlen (type_name), 0);
+          if (direction_sv && SvOK (*direction_sv))
+            direction_hv = (HV *) SvRV (*direction_sv);
+
           size_t customized_type = DS_type - (TDS_TRANSLATED_MAX_NR);
 
           /* do not use new_directions_strings_type as a 0 for a direction array
@@ -1102,12 +1110,6 @@ html_converter_initialize_sv (SV *converter_sv,
           memset (converter->customized_directions_strings[customized_type], 0,
                nr_string_directions * sizeof (char **));
 
-          type_name = direction_string_type_names[DS_type];
-
-          direction_sv = hv_fetch (customized_direction_strings_hv, type_name,
-                                   strlen (type_name), 0);
-          if (direction_sv && SvOK (*direction_sv))
-            direction_hv = (HV *) SvRV (*direction_sv);
 
           for (i = 0; i < nr_string_directions; i++)
             {
@@ -1125,74 +1127,54 @@ html_converter_initialize_sv (SV *converter_sv,
 
                   spec_sv = hv_fetch (direction_hv, direction_name,
                                           strlen (direction_name), 0);
-                  if (spec_sv)
+                  if (spec_sv && SvOK (*spec_sv))
                     {
-                      if (SvOK (*spec_sv))
+                      HV *spec_hv = (HV *) SvRV (*spec_sv);
+                      SV **context_sv = hv_fetch (spec_hv, "converted",
+                                                    strlen ("converted"), 0);
+
+                      converter->
+                       customized_directions_strings[customized_type][i]
+                        = (char **)
+                           malloc (nr_dir_str_contexts * sizeof (char *));
+                      memset (converter->
+                         customized_directions_strings[customized_type][i],
+                         0, nr_dir_str_contexts * sizeof (char *));
+
+                      if (context_sv && SvOK (*context_sv))
                         {
-                          HV *spec_hv = (HV *) SvRV (*spec_sv);
-                          SV **context_sv = hv_fetch (spec_hv, "converted",
-                                                        strlen ("converted"), 0);
-
-                          converter->
-                           customized_directions_strings[customized_type][i]
-                            = (char **)
-                               malloc (nr_dir_str_contexts * sizeof (char *));
-                          memset (converter->
-                             customized_directions_strings[customized_type][i],
-                             0, nr_dir_str_contexts * sizeof (char *));
-
-                          if (context_sv && SvOK (*context_sv))
+                          int j;
+                          HV *context_hv = (HV *) SvRV (*context_sv);
+                          for (j = 0; j < nr_dir_str_contexts; j++)
                             {
-                              int j;
-                              HV *context_hv = (HV *) SvRV (*context_sv);
-                              for (j = 0; j < nr_dir_str_contexts; j++)
+                              const char *context_name
+                                = direction_string_context_names[j];
+
+                              SV **value_sv
+                                 = hv_fetch (context_hv, context_name,
+                                             strlen (context_name), 0);
+
+                              if (value_sv && SvOK (*value_sv))
                                 {
-                                  const char *context_name
-                                    = direction_string_context_names[j];
-
-                                  SV **value_sv
-                                     = hv_fetch (context_hv, context_name,
-                                                 strlen (context_name), 0);
-
-                                  if (value_sv && SvOK (*value_sv))
-                                    {
-                                       const char *value
-                                          = (char *) SvPVutf8_nolen (*value_sv);
+                                   const char *value
+                                      = (char *) SvPVutf8_nolen (*value_sv);
                           converter->customized_directions_strings
-                                                       [customized_type][i][j]
-                                          = strdup (value);
-                                    }
-                 /* in general no string value, it is completed later on
-                    in C code
-                                  else
-                                    {
-                                      fprintf (stderr,
-                "customized_direction_strings: %s: %s: %s: no value\n",
-                                               type_name, direction_name,
-                                               context_name);
-                                    }
-                  */
+                                                   [customized_type][i][j]
+                                      = strdup (value);
                                 }
+             /* in general no string value, it is completed later on
+                in C code
+                              else
+                                {
+                                  fprintf (stderr,
+            "customized_direction_strings: %s: %s: %s: no value\n",
+                                           type_name, direction_name,
+                                           context_name);
+                                }
+              */
                             }
-                           /* case of customized string undef
-                          else
-                            {
-                              fprintf (stderr,
-    "customized_direction_strings: %s: %s: spec SvTYPE %d no converted\n",
-                                       type_name, direction_name,
-                                       SvTYPE (SvRV (*spec_sv)));
-                            }
-                           */
-                          continue;
                         }
-                  /* not clear that it can happen
-                      else
-                        {
-                          fprintf (stderr,
-                  "customized_direction_strings: %s: %s: spec undef\n",
-                                    type_name, direction_name);
-                        }
-                   */
+                      continue;
                     }
                     /* for debug, case of directions not customized
                   else
