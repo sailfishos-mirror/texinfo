@@ -1,5 +1,36 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (convert_style_command)
+	(html_free_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(HTML_STYLE_COMMAND_CONVERSION, CONVERTER): add
+	html_style_command_conversion field to CONVERTER with type
+	HTML_STYLE_COMMAND_CONVERSION for style commands conversion, instead of
+	using the same array as brace no arg commands.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_no_arg_commands_formatting, build_html_translated_names),
+	tp/Texinfo/XS/convert/convert_html.c
+	(default_no_arg_commands_formatting, text_element_conversion)
+	(convert_no_arg_command, css_string_convert_no_arg_command)
+	(html_convert_css_string_for_list_mark)
+	(set_no_arg_commands_formatting)
+	(reset_unset_no_arg_commands_formatting_context)
+	(copy_html_no_arg_command_conversion, html_initialize_output_state)
+	(free_html_no_arg_command_conversion, html_free_converter)
+	(html_translate_names), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv, html_conversion_initialization_sv),
+	tp/Texinfo/XS/main/converter_types.h (HTML_NO_ARG_COMMAND_CONVERSION):
+	(CONVERTER): remove style field from HTML_COMMAND_CONVERSION and
+	rename as HTML_NO_ARG_COMMAND_CONVERSION.  Rename
+	html_command_conversion converter field as
+	html_no_arg_command_conversion now that it contains onlt no args
+	commands.  Rename copy_html_command_conversion as
+	copy_html_no_arg_command_conversion, rename
+	free_html_command_conversion as free_html_no_arg_command_conversion.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_register_style_command_formatting):
 	correct 'quote'.
 

@@ -200,7 +200,7 @@ CMD_VARIETY command_special_unit_variety[] = {
                                 {0, 0},
 };
 
-static HTML_COMMAND_CONVERSION default_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+static HTML_NO_ARG_COMMAND_CONVERSION default_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
 /* used to set flags to non-zero with a flag that does nothing */
 #define F_AFT_none              0x0001
@@ -9000,7 +9000,7 @@ html_prepare_node_redirection_page (CONVERTER *self, const ELEMENT *element,
 
 static void
 text_element_conversion (CONVERTER *self,
-                         const HTML_COMMAND_CONVERSION *specification,
+                         const HTML_NO_ARG_COMMAND_CONVERSION *specification,
                          const enum command_id cmd,
                          TEXT *result)
 {
@@ -9036,7 +9036,7 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
 {
   enum command_id formatted_cmd = cmd;
   enum conversion_context context;
-  const HTML_COMMAND_CONVERSION *specification;
+  const HTML_NO_ARG_COMMAND_CONVERSION *specification;
 
   if (html_in_preformatted_context (self) || html_in_math (self))
     context = HCC_type_preformatted;
@@ -9056,8 +9056,8 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
         }
       if (click_cmd)
         {
-          const HTML_COMMAND_CONVERSION *conv_context
-            = self->html_command_conversion[click_cmd];
+          const HTML_NO_ARG_COMMAND_CONVERSION *conv_context
+            = self->html_no_arg_command_conversion[click_cmd];
           if (conv_context[context].text || conv_context[context].element)
             {
               formatted_cmd = click_cmd;
@@ -9072,7 +9072,7 @@ convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
     }
 
   specification
-    = &self->html_command_conversion[formatted_cmd][context];
+    = &self->html_no_arg_command_conversion[formatted_cmd][context];
 
   text_element_conversion (self, specification, formatted_cmd, result);
 }
@@ -9107,7 +9107,8 @@ css_string_convert_no_arg_command (CONVERTER *self,
     }
 
   text_append (result,
-    self->html_command_conversion[formatted_cmd][HCC_type_css_string].text);
+    self->html_no_arg_command_conversion[formatted_cmd]
+                                            [HCC_type_css_string].text);
 }
 
 void
@@ -9133,7 +9134,7 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
                     const char *content, TEXT *result)
 {
   enum command_id style_cmd = cmd;
-  const HTML_COMMAND_CONVERSION *formatting_spec;
+  const HTML_STYLE_COMMAND_CONVERSION *formatting_spec;
 
   /* happens with bogus @-commands without argument, like @strong something */
   if (!args_formatted || args_formatted->number <= 0
@@ -9155,10 +9156,10 @@ convert_style_command (CONVERTER *self, const enum command_id cmd,
 
   if (html_in_preformatted_context (self))
     formatting_spec
-      = &self->html_command_conversion[style_cmd][HCC_type_preformatted];
+      = &self->html_style_command_conversion[style_cmd][HCC_type_preformatted];
   else
     formatting_spec
-      = &self->html_command_conversion[style_cmd][HCC_type_normal];
+      = &self->html_style_command_conversion[style_cmd][HCC_type_normal];
 
   if (formatting_spec->element)
     {
@@ -12122,8 +12123,8 @@ html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
     {
       enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
       special_list_mark_css_string_no_arg_command[i].saved
-        = self->html_command_conversion[cmd][HCC_type_css_string].text;
-      self->html_command_conversion[cmd][HCC_type_css_string].text
+        = self->html_no_arg_command_conversion[cmd][HCC_type_css_string].text;
+      self->html_no_arg_command_conversion[cmd][HCC_type_css_string].text
         = special_list_mark_css_string_no_arg_command[i].string;
     }
 
@@ -12132,7 +12133,7 @@ html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
   for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
     {
       enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
-      self->html_command_conversion[cmd][HCC_type_css_string].text
+      self->html_no_arg_command_conversion[cmd][HCC_type_css_string].text
         = special_list_mark_css_string_no_arg_command[i].saved;
       special_list_mark_css_string_no_arg_command[i].saved = 0;
     }
@@ -16817,7 +16818,8 @@ get_special_list_mark_css_string_no_arg_command (enum command_id cmd)
 }
 
 static void
-set_no_arg_commands_formatting (HTML_COMMAND_CONVERSION *spec, char *text)
+set_no_arg_commands_formatting (HTML_NO_ARG_COMMAND_CONVERSION *spec,
+                                char *text)
 {
   spec->text = text;
   spec->unset = 0;
@@ -17988,15 +17990,15 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                enum command_id cmd, enum conversion_context reset_context,
                enum conversion_context ref_context, int translate)
 {
-  HTML_COMMAND_CONVERSION *no_arg_command_context;
-  HTML_COMMAND_CONVERSION *conversion_contexts
-    = self->html_command_conversion[cmd];
+  HTML_NO_ARG_COMMAND_CONVERSION *no_arg_command_context;
+  HTML_NO_ARG_COMMAND_CONVERSION *conversion_contexts
+    = self->html_no_arg_command_conversion[cmd];
   no_arg_command_context = &conversion_contexts[reset_context];
   if (ref_context >= 0)
     {
       if (no_arg_command_context->unset)
         {
-          HTML_COMMAND_CONVERSION *no_arg_ref
+          HTML_NO_ARG_COMMAND_CONVERSION *no_arg_ref
             = &conversion_contexts[ref_context];
 
           if (no_arg_ref->text)
@@ -18153,12 +18155,11 @@ close_lone_conf_element (OPTION *option)
 }
 
 static void
-copy_html_command_conversion (HTML_COMMAND_CONVERSION *to,
-                              HTML_COMMAND_CONVERSION *from)
+copy_html_no_arg_command_conversion (HTML_NO_ARG_COMMAND_CONVERSION *to,
+                                     HTML_NO_ARG_COMMAND_CONVERSION *from)
 {
   if (from->element)
     to->element = strdup (from->element);
-  to->quote = from->quote;
   to->unset = from->unset;
   if (from->text)
     to->text = strdup (from->text);
@@ -18196,7 +18197,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
   /* corresponds with default_no_arg_commands_formatting
      + conf_default_no_arg_commands_formatting_normal in Perl */
-  HTML_COMMAND_CONVERSION
+  HTML_NO_ARG_COMMAND_CONVERSION
    output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
 
   output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
@@ -18314,13 +18315,14 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       enum conversion_context cctx;
       for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
         {
-          HTML_COMMAND_CONVERSION *customized_no_arg_cmd
+          HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_cmd
             = self->customized_no_arg_commands_formatting[cmd][cctx];
-          HTML_COMMAND_CONVERSION *result
-            = &self->html_command_conversion[cmd][cctx];
+          HTML_NO_ARG_COMMAND_CONVERSION *result
+            = &self->html_no_arg_command_conversion[cmd][cctx];
           if (customized_no_arg_cmd)
             {
-              copy_html_command_conversion (result, customized_no_arg_cmd);
+              copy_html_no_arg_command_conversion (result,
+                                                   customized_no_arg_cmd);
             }
           else if (!output_no_arg_commands_formatting[cmd][cctx].unset)
             {
@@ -18333,7 +18335,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
                 }
               if (unicode_brace_no_arg_formatting)
                 {
-                  memset (result, 0, sizeof (HTML_COMMAND_CONVERSION));
+                  memset (result, 0, sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
                   result->text
                     = strdup (unicode_brace_no_arg_formatting);
 
@@ -18363,13 +18365,13 @@ html_initialize_output_state (CONVERTER *self, const char *context)
                 }
               else
                 {
-                  copy_html_command_conversion (result,
+                  copy_html_no_arg_command_conversion (result,
                      &output_no_arg_commands_formatting[cmd][cctx]);
                 }
             }
           else
             {
-              copy_html_command_conversion (result,
+              copy_html_no_arg_command_conversion (result,
                 &output_no_arg_commands_formatting[cmd][cctx]);
             }
         }
@@ -19426,7 +19428,8 @@ html_check_transfer_state_finalization (CONVERTER *self)
     }
 }
 
-void free_html_command_conversion (HTML_COMMAND_CONVERSION *format_spec,
+void free_html_no_arg_command_conversion (
+                             HTML_NO_ARG_COMMAND_CONVERSION *format_spec,
                                    enum conversion_context cctx)
 {
   if (cctx == HCC_type_normal && format_spec->translated_tree)
@@ -19535,9 +19538,9 @@ html_free_converter (CONVERTER *self)
       enum conversion_context cctx;
       for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
         {
-          HTML_COMMAND_CONVERSION *format_spec
-                = &self->html_command_conversion[cmd][cctx];
-          free_html_command_conversion (format_spec, cctx);
+          HTML_NO_ARG_COMMAND_CONVERSION *format_spec
+                = &self->html_no_arg_command_conversion[cmd][cctx];
+          free_html_no_arg_command_conversion (format_spec, cctx);
         }
     }
 
@@ -19547,11 +19550,11 @@ html_free_converter (CONVERTER *self)
       enum conversion_context cctx;
       for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
         {
-          HTML_COMMAND_CONVERSION *format_spec
+          HTML_NO_ARG_COMMAND_CONVERSION *format_spec
             = self->customized_no_arg_commands_formatting[cmd][cctx];
           if (format_spec)
             {
-              free_html_command_conversion (format_spec, cctx);
+              free_html_no_arg_command_conversion (format_spec, cctx);
               free (format_spec);
             }
         }
@@ -19572,8 +19575,8 @@ html_free_converter (CONVERTER *self)
       enum conversion_context cctx;
       for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
         {
-          HTML_COMMAND_CONVERSION *format_spec
-                = &self->html_command_conversion[cmd][cctx];
+          HTML_STYLE_COMMAND_CONVERSION *format_spec
+                = &self->html_style_command_conversion[cmd][cctx];
           free (format_spec->element);
         }
     }
@@ -19790,8 +19793,8 @@ html_translate_names (CONVERTER *self)
           int add_cmd = 0;
           for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
             {
-              HTML_COMMAND_CONVERSION *format_spec
-                = &self->html_command_conversion[cmd][cctx];
+              HTML_NO_ARG_COMMAND_CONVERSION *format_spec
+                = &self->html_no_arg_command_conversion[cmd][cctx];
               if (format_spec->translated_converted
                   && !format_spec->unset)
                 {

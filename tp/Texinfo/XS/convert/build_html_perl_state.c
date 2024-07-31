@@ -112,8 +112,8 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
 
       for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
         {
-          const HTML_COMMAND_CONVERSION *no_arg_format
-            = &converter->html_command_conversion[cmd][cctx];
+          const HTML_NO_ARG_COMMAND_CONVERSION *no_arg_format
+            = &converter->html_no_arg_command_conversion[cmd][cctx];
           const char *context_name = html_conversion_context_type_names[cctx];
 
           HV *spec_hv = newHV ();
@@ -619,8 +619,6 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
           int k;
           enum command_id cmd
             = converter->no_arg_formatted_cmd_translated.list[j];
-          HTML_COMMAND_CONVERSION *conversion_contexts
-                = converter->html_command_conversion[cmd];
           const char *cmdname = builtin_command_data[cmd].cmdname;
           SV **no_arg_command_sv
              = hv_fetch (no_arg_commands_formatting_hv,
@@ -628,8 +626,8 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
           HV *no_arg_command_hv = (HV *) SvRV (*no_arg_command_sv);
           for (k = 0; k < max_context; k++)
             {
-              HTML_COMMAND_CONVERSION *no_arg_cmd_context
-                  = &conversion_contexts[k];
+              HTML_NO_ARG_COMMAND_CONVERSION *no_arg_cmd_context
+                  = &converter->html_no_arg_command_conversion[cmd][k];
 
               const char *context_name = html_conversion_context_type_names[k];
               SV **context_sv = hv_fetch (no_arg_command_hv,

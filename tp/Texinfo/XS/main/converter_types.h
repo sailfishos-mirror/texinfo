@@ -323,16 +323,19 @@ typedef struct HTML_SHARED_CONVERSION_STATE {
     /* formatted_nodedescriptions */
 } HTML_SHARED_CONVERSION_STATE;
 
-typedef struct HTML_COMMAND_CONVERSION {
+typedef struct HTML_NO_ARG_COMMAND_CONVERSION {
     char *element;
-    int quote; /* for style commands formatting only */
-    /* following is only for no arg command formatting */
     int unset;
     char *text;
     ELEMENT *translated_tree;
     char *translated_converted;
     char *translated_to_convert;
-} HTML_COMMAND_CONVERSION;
+} HTML_NO_ARG_COMMAND_CONVERSION;
+
+typedef struct HTML_STYLE_COMMAND_CONVERSION {
+    char *element;
+    int quote;
+} HTML_STYLE_COMMAND_CONVERSION;
 
 typedef struct HTML_DIRECTION_STRING_TRANSLATED {
     char *to_convert;
@@ -807,13 +810,13 @@ typedef struct CONVERTER {
     HTML_DIRECTION_STRING_TRANSLATED *translated_direction_strings[TDS_TRANSLATED_MAX_NR];
     HTML_DIRECTION_STRING_TRANSLATED **customized_translated_direction_strings[TDS_TRANSLATED_MAX_NR];
     HTML_STAGE_HANDLER_INFO_LIST html_stage_handlers[HSHT_type_finish +1];
-    HTML_COMMAND_CONVERSION *customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
-    /* set for a converter, modified in a document */
-    /* for both no args commands and style commands.
-        Only normal and preformatted HCC_type are actually used for
-        style commands */
-    HTML_COMMAND_CONVERSION html_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+    HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
     char ***customized_directions_strings[(TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR)];
+    /* set for a converter, modified in a document */
+       /* Only normal and preformatted HCC_type are actually used for
+        style commands */
+    HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+    HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
     char ***directions_strings[TDS_TYPE_MAX_NR];
     const char **direction_unit_direction_name;
 

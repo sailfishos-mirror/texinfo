@@ -837,13 +837,13 @@ html_converter_initialize_sv (SV *converter_sv,
                         {
                           I32 spec_number;
                           I32 s;
-                          HTML_COMMAND_CONVERSION *format_spec;
+                          HTML_STYLE_COMMAND_CONVERSION *format_spec;
 
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
                           format_spec
                             = &converter
-                               ->html_command_conversion[cmd][context_idx];
+                             ->html_style_command_conversion[cmd][context_idx];
 
                           spec_number = hv_iterinit (format_spec_hv);
                           for (s = 0; s < spec_number; s++)
@@ -931,14 +931,14 @@ html_converter_initialize_sv (SV *converter_sv,
                         {
                           I32 spec_number;
                           I32 s;
-                          HTML_COMMAND_CONVERSION *format_spec;
+                          HTML_NO_ARG_COMMAND_CONVERSION *format_spec;
 
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
-                          format_spec = (HTML_COMMAND_CONVERSION *)
-                            malloc (sizeof (HTML_COMMAND_CONVERSION));
+                          format_spec = (HTML_NO_ARG_COMMAND_CONVERSION *)
+                            malloc (sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
                           memset (format_spec, 0,
-                                  sizeof (HTML_COMMAND_CONVERSION));
+                                  sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
                           converter->customized_no_arg_commands_formatting
                                               [cmd][context_idx] = format_spec;
 
@@ -1275,7 +1275,7 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
 
   converter_hv = (HV *)SvRV (converter_sv);
 
-  /* To get converter->html_command_conversion for no brace at commands
+  /* To get converter->html_no_arg_command_conversion for no brace at commands
      from $self->{'no_arg_commands_formatting'} */
   FETCH(no_arg_commands_formatting)
 
@@ -1337,13 +1337,13 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
                         {
                           I32 spec_number;
                           I32 s;
-                          HTML_COMMAND_CONVERSION *format_spec;
+                          HTML_NO_ARG_COMMAND_CONVERSION *format_spec;
 
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
                           format_spec
                             = &converter
-                               ->html_command_conversion[cmd][context_idx];
+                           ->html_no_arg_command_conversion[cmd][context_idx];
 
                           spec_number = hv_iterinit (format_spec_hv);
                           for (s = 0; s < spec_number; s++)
