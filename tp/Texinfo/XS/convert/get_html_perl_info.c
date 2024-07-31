@@ -315,296 +315,47 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-  FETCH(htmlxref)
-
-  if (htmlxref_sv)
+  if (customized_upper_case_commands && SvOK (customized_upper_case_commands))
     {
       I32 hv_number;
       I32 i;
-      HV *htmlxref_hv = (HV *) SvRV (*htmlxref_sv);
+      int cmd_index = 0;
 
-      hv_number = hv_iterinit (htmlxref_hv);
+      HV *upper_case_commands_hv = (HV *)SvRV (customized_upper_case_commands);
 
-      converter->htmlxref.number = hv_number;
+      hv_number = hv_iterinit (upper_case_commands_hv);
 
-      if (hv_number > 0)
+      converter->html_customized_upper_case_commands
+        = (COMMAND_INTEGER_INFORMATION *) malloc ((hv_number + 1)
+                                  * sizeof (COMMAND_INTEGER_INFORMATION));
+      memset (converter->html_customized_upper_case_commands, 0,
+              (hv_number + 1) * sizeof (COMMAND_INTEGER_INFORMATION));
+
+      for (i = 0; i < hv_number; i++)
         {
-          converter->htmlxref.list = new_htmlxref_manual_list (hv_number);
-
-          for (i = 0; i < hv_number; i++)
+          I32 retlen;
+          char *cmdname;
+          SV *upper_case_sv = hv_iternextsv (upper_case_commands_hv,
+                                             &cmdname, &retlen);
+          if (SvOK (upper_case_sv))
             {
-              int j;
-              HTMLXREF_MANUAL *htmlxref_manual = &converter->htmlxref.list[i];
-              HE *next = hv_iternext (htmlxref_hv);
-              SV *selector_sv = hv_iterkeysv (next);
-              const char *selector = (char *) SvPVutf8_nolen (selector_sv);
-              SV *split_type_sv = HeVAL(next);
-              HV *split_type_hv = (HV *) SvRV (split_type_sv);
-
-              htmlxref_manual->manual = non_perl_strdup (selector);
-
-              for (j = 0; j < htmlxref_split_type_chapter +1; j++)
+              int upper_case_value = SvIV (upper_case_sv);
+              enum command_id cmd = lookup_builtin_command (cmdname);
+              if (!cmd)
+                fprintf (stderr, "ERROR: %s: no upper-case command\n", cmdname);
+              else
                 {
-                  const char *split_type_name = htmlxref_split_type_names[j];
-                  SV **urlprefix_sv = hv_fetch (split_type_hv, split_type_name,
-                                                strlen (split_type_name), 0);
-                  if (urlprefix_sv && SvOK (*urlprefix_sv))
-                    {
-                      const char *urlprefix = SvPVutf8_nolen (*urlprefix_sv);
-                      htmlxref_manual->urlprefix[j]
-                        = non_perl_strdup (urlprefix);
-                    }
+                  COMMAND_INTEGER_INFORMATION *customized_upper
+                    = &converter->html_customized_upper_case_commands[cmd_index];
+                  customized_upper->cmd = cmd;
+                  customized_upper->integer = upper_case_value;
+                  cmd_index++;
                 }
             }
         }
     }
 
-  FETCH(formatting_function);
-
-  /* no need to check if it exists */
-  formatting_function_hv = (HV *)SvRV (*formatting_function_sv);
-
-  for (i = 0; i < FR_format_translate_message+1; i++)
-    {
-      const char *ref_name = html_formatting_reference_names[i];
-      FORMATTING_REFERENCE *formatting_reference
-        = &converter->formatting_references[i];
-      SV **default_formatting_reference_sv
-        = hv_fetch (default_formatting_references_hv, ref_name,
-                    strlen (ref_name), 0);
-      SV **formatting_reference_sv
-        = hv_fetch (formatting_function_hv, ref_name, strlen (ref_name), 0);
-      /* no check for existence, all should exist */
-      if (SvOK (*default_formatting_reference_sv))
-        {
-          formatting_reference->sv_default = *default_formatting_reference_sv;
-          formatting_reference->status = FRS_status_default_set;
-        }
-      if (formatting_reference_sv)
-        {
-          if SvOK (*formatting_reference_sv)
-            {
-              formatting_reference->sv_reference = *formatting_reference_sv;
-              if (formatting_reference->status != FRS_status_default_set
-                  || SvRV (*formatting_reference_sv)
-                       != SvRV (*default_formatting_reference_sv))
-                formatting_reference->status = FRS_status_customization_set;
-            }
-        }
-      else
-        fprintf (stderr, "BUG: formatting reference %s not found\n",
-                         ref_name);
-    }
-
-  /* copy the normal formatting references and replace the css strings
-     specific references */
-  memcpy (&converter->css_string_formatting_references,
-          &converter->formatting_references,
-      (FR_format_translate_message+1) * sizeof (FORMATTING_REFERENCE));
-
-  for (i = 0; i < FR_format_translate_message+1; i++)
-    {
-      const char *ref_name = html_formatting_reference_names[i];
-      SV **default_formatting_reference_sv
-        = hv_fetch (default_css_string_formatting_references_hv, ref_name,
-                    strlen (ref_name), 0);
-
-      /* no customization, current is the default */
-      if (default_formatting_reference_sv
-          && SvOK (*default_formatting_reference_sv))
-        {
-          FORMATTING_REFERENCE *formatting_reference
-            = &converter->css_string_formatting_references[i];
-          formatting_reference->sv_default = *default_formatting_reference_sv;
-          formatting_reference->sv_reference = *default_formatting_reference_sv;
-          formatting_reference->status = FRS_status_default_set;
-        }
-    }
-
-  FETCH(commands_open)
-  commands_open_hv = (HV *)SvRV (*commands_open_sv);
-  default_commands_open_hv = (HV *)SvRV (default_commands_open);
-
-  FETCH(commands_conversion)
-  commands_conversion_hv = (HV *)SvRV (*commands_conversion_sv);
-  default_commands_conversion_hv = (HV *)SvRV (default_commands_conversion);
-
-  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
-    {
-      const char *ref_name;
-      if (i == 0)
-        ref_name = "";
-      else
-        ref_name = builtin_command_data[i].cmdname;
-      FORMATTING_REFERENCE *open_formatting_reference
-       = &converter->commands_open[i];
-      FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->commands_conversion[i];
-
-      register_formatting_reference_with_default ("command_open",
-        open_formatting_reference, ref_name, default_commands_open_hv,
-        commands_open_hv);
-      register_formatting_reference_with_default ("command_conversion",
-        conversion_formatting_reference, ref_name,
-        default_commands_conversion_hv,
-        commands_conversion_hv);
-
-  /* NOTE use the loop to collect the number of accent commands too */
-      if (builtin_command_data[i].flags & CF_accent)
-        nr_accent_cmd++;
-    }
-
-  initialize_cmd_list (&converter->accent_cmd, nr_accent_cmd, 0);
-
-  default_css_string_commands_conversion_hv
-    = (HV *)SvRV (default_css_string_commands_conversion);
-  /* copy the normal formatting references and replace the css strings
-     specific references */
-  memcpy (&converter->css_string_commands_conversion,
-          &converter->commands_conversion,
-      (BUILTIN_CMD_NUMBER) * sizeof (FORMATTING_REFERENCE));
-
-  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
-    {
-      const char *ref_name;
-      if (i == 0)
-        ref_name = "";
-      else
-        ref_name = builtin_command_data[i].cmdname;
-
-     FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->css_string_commands_conversion[i];
-
-     register_formatting_reference_default ("css_command_conversion",
-        conversion_formatting_reference, ref_name,
-        default_css_string_commands_conversion_hv);
-
-  /* NOTE we use the loop to collect the accent commands too */
-     if (builtin_command_data[i].flags & CF_accent)
-       {
-         converter->accent_cmd.list[converter->accent_cmd.number] = i;
-         converter->accent_cmd.number++;
-       }
-    }
-
-
-  FETCH(types_open)
-  types_open_hv = (HV *)SvRV (*types_open_sv);
-  default_types_open_hv = (HV *)SvRV (default_types_open);
-
-  FETCH(types_conversion)
-  types_conversion_hv = (HV *)SvRV (*types_conversion_sv);
-  default_types_conversion_hv = (HV *)SvRV (default_types_conversion);
-
-  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
-    {
-      const char *ref_name;
-      if (i == 0)
-        ref_name = "";
-      else
-        ref_name = type_data[i].name;
-      FORMATTING_REFERENCE *open_formatting_reference
-       = &converter->types_open[i];
-      FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->types_conversion[i];
-
-      register_formatting_reference_with_default ("type_open",
-        open_formatting_reference, ref_name, default_types_open_hv,
-        types_open_hv);
-      register_formatting_reference_with_default ("type_conversion",
-        conversion_formatting_reference, ref_name,
-        default_types_conversion_hv,
-        types_conversion_hv);
-    }
-
-  default_css_string_types_conversion_hv
-     = (HV *)SvRV (default_css_string_types_conversion);
-  /* copy the normal formatting references and replace the css strings
-     specific references */
-  memcpy (&converter->css_string_types_conversion,
-          &converter->types_conversion,
-      (TXI_TREE_TYPES_NUMBER) * sizeof (FORMATTING_REFERENCE));
-
-  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
-    {
-      char *ref_name;
-      if (i == 0)
-        ref_name = "";
-      else
-        ref_name = type_data[i].name;
-      FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->css_string_types_conversion[i];
-
-      register_formatting_reference_default ("css_type_conversion",
-        conversion_formatting_reference, ref_name,
-        default_css_string_types_conversion_hv);
-    }
-
-
-  FETCH(output_units_conversion)
-  output_units_conversion_hv = (HV *)SvRV (*output_units_conversion_sv);
-  default_output_units_conversion_hv
-    = (HV *)SvRV (default_output_units_conversion);
-
-  for (i = 0; i < OU_special_unit+1; i++)
-    {
-      const char *ref_name = output_unit_type_names[i];
-      FORMATTING_REFERENCE *conversion_formatting_reference
-       = &converter->output_units_conversion[i];
-
-      register_formatting_reference_with_default ("output_unit_conversion",
-        conversion_formatting_reference, ref_name,
-        default_output_units_conversion_hv,
-        output_units_conversion_hv);
-    }
-
-  if (special_unit_varieties->number > 0)
-    {
-      HV *special_unit_body_hv = 0;
-      HV *default_special_unit_body_hv;
-
-      converter->special_unit_body
-        = new_special_unit_formatting_references
-                         (special_unit_varieties->number);
-
-      FETCH(special_unit_body)
-      if (special_unit_body_sv)
-        special_unit_body_hv = (HV *)SvRV (*special_unit_body_sv);
-      default_special_unit_body_hv = (HV *)SvRV (default_special_unit_body);
-
-      for (i = 0; i < special_unit_varieties->number; i++)
-        {
-          char *variety_name = special_unit_varieties->list[i];
-          FORMATTING_REFERENCE *special_unit_body_formatting_reference
-            = &converter->special_unit_body[i];
-          register_formatting_reference_with_default ("special_unit_body",
-            special_unit_body_formatting_reference, variety_name,
-            default_special_unit_body_hv,
-            special_unit_body_hv);
-        }
-    }
-
-  FETCH(file_id_setting)
-
-  if (file_id_setting_sv)
-    {
-      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
-      #define html_file_id_setting_name(name) \
-      {\
-        SV **name##_sv = hv_fetch (file_id_setting_hv, #name, \
-                                   strlen (#name), 0);\
-        if (name##_sv)\
-          {\
-            converter->file_id_setting_refs[FIS_##name]\
-              = (const void *) (* name##_sv);\
-            converter->file_id_setting_ref_number++; \
-          }\
-      }
-       HTML_FILE_ID_SETTING_NAMES_LIST
-      #undef html_file_id_setting_name
-    }
-
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(code_types)
 
   if (code_types_sv)
@@ -682,46 +433,6 @@ html_converter_initialize_sv (SV *converter_sv,
             }
         }
     }
-
-  if (customized_upper_case_commands && SvOK (customized_upper_case_commands))
-    {
-      I32 hv_number;
-      I32 i;
-      int cmd_index = 0;
-
-      HV *upper_case_commands_hv = (HV *)SvRV (customized_upper_case_commands);
-
-      hv_number = hv_iterinit (upper_case_commands_hv);
-
-      converter->html_customized_upper_case_commands
-        = (COMMAND_INTEGER_INFORMATION *) malloc ((hv_number + 1)
-                                  * sizeof (COMMAND_INTEGER_INFORMATION));
-      memset (converter->html_customized_upper_case_commands, 0,
-              (hv_number + 1) * sizeof (COMMAND_INTEGER_INFORMATION));
-
-      for (i = 0; i < hv_number; i++)
-        {
-          I32 retlen;
-          char *cmdname;
-          SV *upper_case_sv = hv_iternextsv (upper_case_commands_hv,
-                                             &cmdname, &retlen);
-          if (SvOK (upper_case_sv))
-            {
-              int upper_case_value = SvIV (upper_case_sv);
-              enum command_id cmd = lookup_builtin_command (cmdname);
-              if (!cmd)
-                fprintf (stderr, "ERROR: %s: no upper-case command\n", cmdname);
-              else
-                {
-                  COMMAND_INTEGER_INFORMATION *customized_upper
-                    = &converter->html_customized_upper_case_commands[cmd_index];
-                  customized_upper->cmd = cmd;
-                  customized_upper->integer = upper_case_value;
-                  cmd_index++;
-                }
-           }
-       }
-   }
 
   FETCH(accent_entities)
 
@@ -1143,6 +854,295 @@ html_converter_initialize_sv (SV *converter_sv,
                 }
             }
         }
+    }
+
+  FETCH(htmlxref)
+
+  if (htmlxref_sv)
+    {
+      I32 hv_number;
+      I32 i;
+      HV *htmlxref_hv = (HV *) SvRV (*htmlxref_sv);
+
+      hv_number = hv_iterinit (htmlxref_hv);
+
+      converter->htmlxref.number = hv_number;
+
+      if (hv_number > 0)
+        {
+          converter->htmlxref.list = new_htmlxref_manual_list (hv_number);
+
+          for (i = 0; i < hv_number; i++)
+            {
+              int j;
+              HTMLXREF_MANUAL *htmlxref_manual = &converter->htmlxref.list[i];
+              HE *next = hv_iternext (htmlxref_hv);
+              SV *selector_sv = hv_iterkeysv (next);
+              const char *selector = (char *) SvPVutf8_nolen (selector_sv);
+              SV *split_type_sv = HeVAL(next);
+              HV *split_type_hv = (HV *) SvRV (split_type_sv);
+
+              htmlxref_manual->manual = non_perl_strdup (selector);
+
+              for (j = 0; j < htmlxref_split_type_chapter +1; j++)
+                {
+                  const char *split_type_name = htmlxref_split_type_names[j];
+                  SV **urlprefix_sv = hv_fetch (split_type_hv, split_type_name,
+                                                strlen (split_type_name), 0);
+                  if (urlprefix_sv && SvOK (*urlprefix_sv))
+                    {
+                      const char *urlprefix = SvPVutf8_nolen (*urlprefix_sv);
+                      htmlxref_manual->urlprefix[j]
+                        = non_perl_strdup (urlprefix);
+                    }
+                }
+            }
+        }
+    }
+
+  FETCH(formatting_function);
+
+  /* no need to check if it exists */
+  formatting_function_hv = (HV *)SvRV (*formatting_function_sv);
+
+  for (i = 0; i < FR_format_translate_message+1; i++)
+    {
+      const char *ref_name = html_formatting_reference_names[i];
+      FORMATTING_REFERENCE *formatting_reference
+        = &converter->formatting_references[i];
+      SV **default_formatting_reference_sv
+        = hv_fetch (default_formatting_references_hv, ref_name,
+                    strlen (ref_name), 0);
+      SV **formatting_reference_sv
+        = hv_fetch (formatting_function_hv, ref_name, strlen (ref_name), 0);
+      /* no check for existence, all should exist */
+      if (SvOK (*default_formatting_reference_sv))
+        {
+          formatting_reference->sv_default = *default_formatting_reference_sv;
+          formatting_reference->status = FRS_status_default_set;
+        }
+      if (formatting_reference_sv)
+        {
+          if SvOK (*formatting_reference_sv)
+            {
+              formatting_reference->sv_reference = *formatting_reference_sv;
+              if (formatting_reference->status != FRS_status_default_set
+                  || SvRV (*formatting_reference_sv)
+                       != SvRV (*default_formatting_reference_sv))
+                formatting_reference->status = FRS_status_customization_set;
+            }
+        }
+      else
+        fprintf (stderr, "BUG: formatting reference %s not found\n",
+                         ref_name);
+    }
+
+  /* copy the normal formatting references and replace the css strings
+     specific references */
+  memcpy (&converter->css_string_formatting_references,
+          &converter->formatting_references,
+      (FR_format_translate_message+1) * sizeof (FORMATTING_REFERENCE));
+
+  for (i = 0; i < FR_format_translate_message+1; i++)
+    {
+      const char *ref_name = html_formatting_reference_names[i];
+      SV **default_formatting_reference_sv
+        = hv_fetch (default_css_string_formatting_references_hv, ref_name,
+                    strlen (ref_name), 0);
+
+      /* no customization, current is the default */
+      if (default_formatting_reference_sv
+          && SvOK (*default_formatting_reference_sv))
+        {
+          FORMATTING_REFERENCE *formatting_reference
+            = &converter->css_string_formatting_references[i];
+          formatting_reference->sv_default = *default_formatting_reference_sv;
+          formatting_reference->sv_reference = *default_formatting_reference_sv;
+          formatting_reference->status = FRS_status_default_set;
+        }
+    }
+
+  FETCH(commands_open)
+  commands_open_hv = (HV *)SvRV (*commands_open_sv);
+  default_commands_open_hv = (HV *)SvRV (default_commands_open);
+
+  FETCH(commands_conversion)
+  commands_conversion_hv = (HV *)SvRV (*commands_conversion_sv);
+  default_commands_conversion_hv = (HV *)SvRV (default_commands_conversion);
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      const char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = builtin_command_data[i].cmdname;
+      FORMATTING_REFERENCE *open_formatting_reference
+       = &converter->commands_open[i];
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->commands_conversion[i];
+
+      register_formatting_reference_with_default ("command_open",
+        open_formatting_reference, ref_name, default_commands_open_hv,
+        commands_open_hv);
+      register_formatting_reference_with_default ("command_conversion",
+        conversion_formatting_reference, ref_name,
+        default_commands_conversion_hv,
+        commands_conversion_hv);
+
+  /* NOTE use the loop to collect the number of accent commands too */
+      if (builtin_command_data[i].flags & CF_accent)
+        nr_accent_cmd++;
+    }
+
+  initialize_cmd_list (&converter->accent_cmd, nr_accent_cmd, 0);
+
+  default_css_string_commands_conversion_hv
+    = (HV *)SvRV (default_css_string_commands_conversion);
+  /* copy the normal formatting references and replace the css strings
+     specific references */
+  memcpy (&converter->css_string_commands_conversion,
+          &converter->commands_conversion,
+      (BUILTIN_CMD_NUMBER) * sizeof (FORMATTING_REFERENCE));
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      const char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = builtin_command_data[i].cmdname;
+
+     FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->css_string_commands_conversion[i];
+
+     register_formatting_reference_default ("css_command_conversion",
+        conversion_formatting_reference, ref_name,
+        default_css_string_commands_conversion_hv);
+
+  /* NOTE we use the loop to collect the accent commands too */
+     if (builtin_command_data[i].flags & CF_accent)
+       {
+         converter->accent_cmd.list[converter->accent_cmd.number] = i;
+         converter->accent_cmd.number++;
+       }
+    }
+
+
+  FETCH(types_open)
+  types_open_hv = (HV *)SvRV (*types_open_sv);
+  default_types_open_hv = (HV *)SvRV (default_types_open);
+
+  FETCH(types_conversion)
+  types_conversion_hv = (HV *)SvRV (*types_conversion_sv);
+  default_types_conversion_hv = (HV *)SvRV (default_types_conversion);
+
+  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
+    {
+      const char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = type_data[i].name;
+      FORMATTING_REFERENCE *open_formatting_reference
+       = &converter->types_open[i];
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->types_conversion[i];
+
+      register_formatting_reference_with_default ("type_open",
+        open_formatting_reference, ref_name, default_types_open_hv,
+        types_open_hv);
+      register_formatting_reference_with_default ("type_conversion",
+        conversion_formatting_reference, ref_name,
+        default_types_conversion_hv,
+        types_conversion_hv);
+    }
+
+  default_css_string_types_conversion_hv
+     = (HV *)SvRV (default_css_string_types_conversion);
+  /* copy the normal formatting references and replace the css strings
+     specific references */
+  memcpy (&converter->css_string_types_conversion,
+          &converter->types_conversion,
+      (TXI_TREE_TYPES_NUMBER) * sizeof (FORMATTING_REFERENCE));
+
+  for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
+    {
+      char *ref_name;
+      if (i == 0)
+        ref_name = "";
+      else
+        ref_name = type_data[i].name;
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->css_string_types_conversion[i];
+
+      register_formatting_reference_default ("css_type_conversion",
+        conversion_formatting_reference, ref_name,
+        default_css_string_types_conversion_hv);
+    }
+
+
+  FETCH(output_units_conversion)
+  output_units_conversion_hv = (HV *)SvRV (*output_units_conversion_sv);
+  default_output_units_conversion_hv
+    = (HV *)SvRV (default_output_units_conversion);
+
+  for (i = 0; i < OU_special_unit+1; i++)
+    {
+      const char *ref_name = output_unit_type_names[i];
+      FORMATTING_REFERENCE *conversion_formatting_reference
+       = &converter->output_units_conversion[i];
+
+      register_formatting_reference_with_default ("output_unit_conversion",
+        conversion_formatting_reference, ref_name,
+        default_output_units_conversion_hv,
+        output_units_conversion_hv);
+    }
+
+  if (special_unit_varieties->number > 0)
+    {
+      HV *special_unit_body_hv = 0;
+      HV *default_special_unit_body_hv;
+
+      converter->special_unit_body
+        = new_special_unit_formatting_references
+                         (special_unit_varieties->number);
+
+      FETCH(special_unit_body)
+      if (special_unit_body_sv)
+        special_unit_body_hv = (HV *)SvRV (*special_unit_body_sv);
+      default_special_unit_body_hv = (HV *)SvRV (default_special_unit_body);
+
+      for (i = 0; i < special_unit_varieties->number; i++)
+        {
+          char *variety_name = special_unit_varieties->list[i];
+          FORMATTING_REFERENCE *special_unit_body_formatting_reference
+            = &converter->special_unit_body[i];
+          register_formatting_reference_with_default ("special_unit_body",
+            special_unit_body_formatting_reference, variety_name,
+            default_special_unit_body_hv,
+            special_unit_body_hv);
+        }
+    }
+
+  FETCH(file_id_setting)
+
+  if (file_id_setting_sv)
+    {
+      HV *file_id_setting_hv = (HV *)SvRV(*file_id_setting_sv);
+      #define html_file_id_setting_name(name) \
+      {\
+        SV **name##_sv = hv_fetch (file_id_setting_hv, #name, \
+                                   strlen (#name), 0);\
+        if (name##_sv)\
+          {\
+            converter->file_id_setting_refs[FIS_##name]\
+              = (const void *) (* name##_sv);\
+            converter->file_id_setting_ref_number++; \
+          }\
+      }
+       HTML_FILE_ID_SETTING_NAMES_LIST
+      #undef html_file_id_setting_name
     }
 
   FETCH(stage_handlers)

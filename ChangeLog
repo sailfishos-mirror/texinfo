@@ -1,5 +1,11 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): move up code which should have
+	defaults in C and customization from Perl.  No change.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_format_setup): preset
 	unset default_no_arg_commands_formatting for string and preformatted
 	context for no arg commands only.
