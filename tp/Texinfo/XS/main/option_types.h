@@ -64,11 +64,13 @@ enum button_specification_type {
    BST_direction,
    BST_function,
    BST_string,
+   BST_external_string,
    BST_direction_info,
 };
 
 enum button_information_type {
    BIT_string,
+   BIT_external_string,
    BIT_function,
    BIT_selected_direction_information_type,
    BIT_href_direction_information_type,
@@ -102,10 +104,11 @@ typedef struct BUTTON_SPECIFICATION_INFO {
       BUTTON_FUNCTION button_function; /* BIT_function */
   /* perl references. This should be SV *sv_*,
      but we don't want to include the Perl headers everywhere; */
-      void *sv_string; /* BIT_string */
-     /* both global and relative directions index */
-      int direction_information_type; /* BIT_direction_information_type
-            text string in perl, element direction information type */
+      void *sv_string; /* BIT_external_string */
+      char *string; /* BIT_string */
+     /* BIT_direction_information_type
+        text string in perl, element direction information type */
+      enum html_text_type direction_information_type;
     } bi;
 } BUTTON_SPECIFICATION_INFO;
 
@@ -120,7 +123,8 @@ typedef struct BUTTON_SPECIFICATION {
   /* perl references. This should be SV *sv_*,
      but we don't want to include the Perl headers everywhere; */
       void *sv_reference; /* BST_function */
-      void *sv_string; /* BST_string scalar reference */
+      void *sv_string; /* BST_external_string scalar reference */
+      char *string; /* BST_string */
       BUTTON_SPECIFICATION_INFO *button_info; /* BST_direction_info
                                               array reference of length 2 */
     } b;

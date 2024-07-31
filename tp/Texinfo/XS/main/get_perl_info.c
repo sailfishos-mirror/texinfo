@@ -738,23 +738,6 @@ force_sv_conf (CONVERTER *converter, const char *conf, SV *value)
 
 /* output format specific */
 
-/* return -2 if there are info and not found. */
-static int
-html_get_direction_index (const CONVERTER *converter, const char *direction)
-{
-  int i;
-  if (converter && converter->direction_unit_direction_name)
-    {
-      for (i = 0; converter->direction_unit_direction_name[i]; i++)
-        {
-          if (!strcmp (direction, converter->direction_unit_direction_name[i]))
-            return i;
-        }
-      return -2;
-    }
-  return -1;
-}
-
 /* should be consistent with enum button_function_type */
 static const char *button_function_type_string[] = {
   0,
@@ -897,7 +880,7 @@ html_get_button_specification_list (const CONVERTER *converter,
                     }
                   else
                     {
-                      button_spec->type = BIT_string;
+                      button_spec->type = BIT_external_string;
                       button_spec->bi.sv_string = *button_spec_info_type;
                     }
                 }
@@ -935,7 +918,7 @@ html_get_button_specification_list (const CONVERTER *converter,
             }
           else
             {
-              button->type = BST_string;
+              button->type = BST_external_string;
               button->b.sv_string = *button_sv;
             }
         }

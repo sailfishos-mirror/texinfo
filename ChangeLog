@@ -1,5 +1,34 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (html_get_direction_index),
+	tp/Texinfo/XS/main/get_perl_info.c: move html_get_direction_index from
+	get_perl_info.c to converter.c.
+
+	* tp/Texinfo/XS/main/tree_types.h (enum html_text_type),
+	tp/Texinfo/XS/main/converter_types.h: move enum html_text_type from
+	converter_types.h to tree_types.h.
+
+	* tp/Texinfo/XS/main/option_types.h (BUTTON_SPECIFICATION_INFO): use
+	enum html_text_type for direction_information_type type instead of
+	int.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list),
+	tp/Texinfo/XS/main/option_types.h (enum button_specification_type)
+	(enum button_information_type, BUTTON_SPECIFICATION_INFO)
+	(BUTTON_SPECIFICATION), tp/Texinfo/XS/main/utils.c
+	(html_free_button_specification_list, copy_option): rename BST_string
+	as BST_external_string and BIT_string as BIT_external_string.  Readd
+	BST_string and BIT_string associated to a regular char *string.
+
+	* tp/Texinfo/XS/convert/convert_html.c (new_button_specification)
+	(new_button_specification_list, new_basic_buttons, new_link_buttons)
+	(new_section_buttons, new_section_footer_buttons): add button
+	specification, button list and default button specification lists
+	creation functions.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize):
 	move default setting before customization up.
 

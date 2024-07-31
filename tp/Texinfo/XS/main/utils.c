@@ -1625,7 +1625,13 @@ html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
         {
           BUTTON_SPECIFICATION *button = &buttons->list[i];
           if (button->type == BST_direction_info)
-            free (button->b.button_info);
+            {
+              if (button->b.button_info->type == BIT_string)
+                free (button->b.button_info->bi.string);
+              free (button->b.button_info);
+            }
+          else if (button->type == BST_string)
+            free (button->b.string);
           unregister_perl_button (button);
         }
     }
@@ -1841,8 +1847,6 @@ copy_option (OPTION *destination, const OPTION *source)
               result->number = s_buttons->number;
               result->list = (BUTTON_SPECIFICATION *)
                      malloc (result->number * sizeof (BUTTON_SPECIFICATION));
-              /* TODO seems like we could simply memcpy the whole list
-                 as we only copy, there is no reallocation at all */
               memset (result->list, 0,
                       result->number * sizeof (BUTTON_SPECIFICATION));
               for (i = 0; i < result->number; i++)
@@ -1857,8 +1861,10 @@ copy_option (OPTION *destination, const OPTION *source)
                   button->type = s_button->type;
                   if (button->type == BST_function)
                     button->b.sv_reference = s_button->b.sv_reference;
-                  else if (button->type == BST_string)
+                  else if (button->type == BST_external_string)
                     button->b.sv_string = s_button->b.sv_string;
+                  else if (button->type == BST_string)
+                    button->b.string = strdup (s_button->b.string);
                   else if (button->type == BST_direction)
                     button->b.direction = s_button->b.direction;
                   else if (button->type == BST_direction_info)
@@ -1880,9 +1886,12 @@ copy_option (OPTION *destination, const OPTION *source)
                           button_spec->bi.button_function.sv_reference
                             = s_button_spec->bi.button_function.sv_reference;
                         }
-                      else if (button_spec->type == BIT_string)
+                      else if (button_spec->type == BIT_external_string)
                         button_spec->bi.sv_string
                           = s_button_spec->bi.sv_string;
+                      else if (button_spec->type == BIT_string)
+                        button_spec->bi.string
+                          = strdup (s_button_spec->bi.string);
                       else /* BIT_selected_direction_information_type
                             and BIT_href_direction_information_type */
                         button_spec->bi.direction_information_type
