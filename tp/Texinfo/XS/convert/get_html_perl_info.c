@@ -228,6 +228,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *customized_upper_case_commands,
                               SV *customized_type_formatting,
                               SV *customized_accent_entities,
+                              SV *customized_style_commands,
                               SV *customized_direction_strings
                              )
 {
@@ -244,7 +245,6 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *default_output_units_conversion_hv;
   SV **htmlxref_sv;
   SV **formatting_function_sv;
-  SV **style_commands_formatting_sv;
   SV **stage_handlers_sv;
   SV **special_unit_body_sv;
   SV **types_open_sv;
@@ -261,7 +261,6 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *types_conversion_hv;
   HV *output_units_conversion_hv;
   CONVERTER *converter;
-  int nr_accent_cmd = 0;
   int nr_string_directions;
   enum direction_string_type DS_type;
   int nr_dir_str_contexts = TDS_context_string +1;
@@ -438,9 +437,9 @@ html_converter_initialize_sv (SV *converter_sv,
 
   if (customized_accent_entities && SvOK (customized_accent_entities))
     {
+      int cmd_idx = 0;
       I32 hv_number;
       I32 i;
-      int cmd_idx = 0;
 
       HV *accent_entities_hv
         = (HV *)SvRV (customized_accent_entities);
@@ -496,20 +495,22 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-  FETCH(style_commands_formatting)
-
-  if (style_commands_formatting_sv)
+  if (customized_style_commands && SvOK (customized_style_commands))
     {
+      int cmd_idx = 0;
       I32 hv_number;
       I32 i;
 
       HV *style_commands_formatting_hv
-        = (HV *)SvRV (*style_commands_formatting_sv);
+        = (HV *)SvRV (customized_style_commands);
 
       hv_number = hv_iterinit (style_commands_formatting_hv);
-      initialize_cmd_list (&converter->style_formatted_cmd, hv_number, 0);
+
+      converter->html_customized_style_commands
+        = (COMMAND_HTML_STYLE_COMMAND_CONVERSION *) malloc ((hv_number + 1)
+                        * sizeof (COMMAND_HTML_STYLE_COMMAND_CONVERSION));
+      memset (converter->html_customized_style_commands, 0,
+         (hv_number + 1) * sizeof (COMMAND_HTML_STYLE_COMMAND_CONVERSION));
 
       for (i = 0; i < hv_number; i++)
         {
@@ -528,9 +529,9 @@ html_converter_initialize_sv (SV *converter_sv,
                   I32 context_nr;
                   I32 j;
 
-                  converter->style_formatted_cmd.list[
-                                 converter->style_formatted_cmd.number] = cmd;
-                  converter->style_formatted_cmd.number++;
+                  COMMAND_HTML_STYLE_COMMAND_CONVERSION *custom_style_command
+                    = &converter->html_customized_style_commands[cmd_idx];
+                  custom_style_command->cmd = cmd;
 
                   context_nr = hv_iterinit (context_hv);
                   for (j = 0; j < context_nr; j++)
@@ -561,13 +562,17 @@ html_converter_initialize_sv (SV *converter_sv,
                         {
                           I32 spec_number;
                           I32 s;
-                          HTML_STYLE_COMMAND_CONVERSION *format_spec;
+                          HTML_STYLE_COMMAND_CONVERSION *format_spec
+                           = (HTML_STYLE_COMMAND_CONVERSION *)
+                            malloc (sizeof (HTML_STYLE_COMMAND_CONVERSION));
 
                           HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
 
-                          format_spec
-                            = &converter
-                             ->html_style_command_conversion[cmd][context_idx];
+                          memset (format_spec, 0,
+                                  sizeof (HTML_STYLE_COMMAND_CONVERSION));
+
+                          custom_style_command->conversion[context_idx]
+                            = format_spec;
 
                           spec_number = hv_iterinit (format_spec_hv);
                           for (s = 0; s < spec_number; s++)
@@ -591,11 +596,13 @@ html_converter_initialize_sv (SV *converter_sv,
                              */
                         }
                     }
+                  cmd_idx++;
                 }
             }
         }
     }
 
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(customized_no_arg_commands_formatting)
   if (customized_no_arg_commands_formatting_sv)
     {
@@ -1003,13 +1010,7 @@ html_converter_initialize_sv (SV *converter_sv,
         conversion_formatting_reference, ref_name,
         default_commands_conversion_hv,
         commands_conversion_hv);
-
-  /* NOTE use the loop to collect the number of accent commands too */
-      if (builtin_command_data[i].flags & CF_accent)
-        nr_accent_cmd++;
     }
-
-  initialize_cmd_list (&converter->accent_cmd, nr_accent_cmd, 0);
 
   default_css_string_commands_conversion_hv
     = (HV *)SvRV (default_css_string_commands_conversion);
@@ -1033,13 +1034,6 @@ html_converter_initialize_sv (SV *converter_sv,
      register_formatting_reference_default ("css_command_conversion",
         conversion_formatting_reference, ref_name,
         default_css_string_commands_conversion_hv);
-
-  /* NOTE we use the loop to collect the accent commands too */
-     if (builtin_command_data[i].flags & CF_accent)
-       {
-         converter->accent_cmd.list[converter->accent_cmd.number] = i;
-         converter->accent_cmd.number++;
-       }
     }
 
 

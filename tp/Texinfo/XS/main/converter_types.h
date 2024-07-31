@@ -340,6 +340,11 @@ typedef struct HTML_STYLE_COMMAND_CONVERSION {
     int quote;
 } HTML_STYLE_COMMAND_CONVERSION;
 
+typedef struct COMMAND_HTML_STYLE_COMMAND_CONVERSION {
+    enum command_id cmd;
+    HTML_STYLE_COMMAND_CONVERSION *conversion[STYLE_COMMAND_CONTEXT_NR];
+} COMMAND_HTML_STYLE_COMMAND_CONVERSION;
+
 typedef struct HTML_DIRECTION_STRING_TRANSLATED {
     char *to_convert;
     char *converted[TDS_context_string +1];
@@ -783,8 +788,6 @@ typedef struct CONVERTER {
     /* set for a converter */
     int external_references_number; /* total number of external references
                                        that could be called */
-    COMMAND_ID_LIST style_formatted_cmd;
-    COMMAND_ID_LIST accent_cmd;
     int code_types[TXI_TREE_TYPES_NUMBER];
     COMMAND_INTEGER_INFORMATION *html_customized_upper_case_commands;
     TYPE_INTEGER_INFORMATION *html_customized_code_types;
@@ -834,6 +837,7 @@ typedef struct CONVERTER {
     PRE_CLASS_TYPE_INFO *html_customized_pre_class_types;
     COMMAND_ACCENT_ENTITY_INFO *html_customized_accent_entity_info;
     HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
+    COMMAND_HTML_STYLE_COMMAND_CONVERSION *html_customized_style_commands;
     /* set for a converter, modified in a document */
     HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***directions_strings[TDS_TYPE_MAX_NR];

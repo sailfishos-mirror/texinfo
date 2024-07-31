@@ -1,5 +1,47 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (accent_cmd, html_format_setup)
+	(html_converter_initialize, html_free_converter),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): collect accent commands in accent_cmd in convert_html.c,
+	not in converter.  Remove accent_cmd converter field.
+
+	* tp/Texinfo/XS/convert/convert_html.c (style_formatted_cmd)
+	(html_format_setup, html_converter_initialize, html_free_converter),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): collect style brace commands in style_formatted_cmd in
+	convert_html.c, not in converter.  Remove style_formatted_cmd
+	converter field.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(COMMAND_HTML_STYLE_COMMAND_CONVERSION, CONVERTER),
+	tp/Texinfo/XS/convert/convert_html.c (html_free_converter): add
+	html_customized_style_commands field to converter with type
+	COMMAND_HTML_STYLE_COMMAND_CONVERSION.  Pass
+	style_commands_customized_formatting_info from Perl to C through
+	html_converter_initialize_sv.
+
+	* tp/Texinfo/XS/convert/convert_html.c (quoted_style_commands)
+	(default_style_commands_formatting, html_format_setup): add
+	quoted_style_commands. set default_style_commands_formatting based on
+	quoted_style_commands and html_style_commands_element from
+	conversion_data.c.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv): set
+	self->html_style_command_conversion based on
+	default_style_commands_formatting and on
+	self->html_customized_style_commands in C.  Do not get
+	style_commands_formatting from Perl.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize): setup
 	%customized_accent_entities with all the customized commands before
 	filling accent_entities.

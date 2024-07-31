@@ -8745,7 +8745,7 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$$$$$$)
 {
 }
 
@@ -9148,6 +9148,7 @@ sub converter_initialize($)
                              $customized_upper_case_commands,
                              $customized_type_formatting,
                              \%customized_accent_entities,
+                     \%style_commands_customized_formatting_info,
                              $customized_special_unit_info,
                              $customized_direction_strings
                             );

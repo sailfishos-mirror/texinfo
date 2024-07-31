@@ -140,6 +140,10 @@ const PRE_CLASS_TYPE_INFO default_pre_class_types[] = {
   {0, 0}
 };
 
+static enum command_id quoted_style_commands[] = {
+  CM_samp, 0
+};
+
 const char *count_elements_in_filename_type_names[] = {
  "total", "remaining", "current"};
 
@@ -215,6 +219,9 @@ CMD_VARIETY command_special_unit_variety[] = {
 static HTML_NO_ARG_COMMAND_CONVERSION default_no_arg_commands_formatting
                               [BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
 
+static HTML_STYLE_COMMAND_CONVERSION default_style_commands_formatting
+                               [BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
+
 /* used to set flags to non-zero with a flag that does nothing */
 #define F_AFT_none              0x0001
 
@@ -236,6 +243,7 @@ static HTML_NO_ARG_COMMAND_CONVERSION default_no_arg_commands_formatting
 #define HF_HTML_align           0x0020
 #define HF_special_variety      0x0040
 #define HF_indented_preformatted 0x0080
+#define HF_style_command         0x0100
 
 typedef struct HTML_COMMAND_STRUCT {
     unsigned long flags;
@@ -14365,7 +14373,7 @@ static const COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = 
   {CM_math, &convert_math_command},
   {CM_titlefont, &convert_titlefont_command},
   {CM_U, &convert_U_command},
-  /* note that if indicateurl had been in self->style_formatted_cmd this
+  /* note that if indicateurl had been in style_formatted_cmd this
      would have prevented indicateurl to be associated to
      convert_style_command */
   {CM_indicateurl, &convert_indicateurl_command},
@@ -16808,6 +16816,8 @@ static COMMAND_STACK preformatted_cmd_list;
 static COMMAND_STACK def_cmd_list;
 
 COMMAND_ID_LIST no_arg_formatted_cmd;
+COMMAND_ID_LIST style_formatted_cmd;
+COMMAND_ID_LIST accent_cmd;
 
 static char *unicode_entities[BUILTIN_CMD_NUMBER];
 
@@ -16844,6 +16854,8 @@ html_format_setup (void)
 {
   int i;
   int no_arg_formatted_cmd_nr = 0;
+  int accent_cmd_nr = 0;
+  int style_formatted_cmd_nr = 0;
   int no_arg_formatted_cmd_idx;
   int default_commands_args_nr
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
@@ -16923,11 +16935,25 @@ html_format_setup (void)
     }
 
   /* set flags */
-  /* also count the number of no_arg_formatted_cmd commands */
+  /* also count the number of no_arg_formatted_cmd, style_formatted_cmd and
+     accent_cmd commands */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
     {
       if (xml_text_entity_no_arg_commands_formatting[i])
         no_arg_formatted_cmd_nr++;
+
+      if (html_style_commands_element[i]
+          || (builtin_command_data[i].flags & CF_brace
+              && (builtin_command_data[i].data == BRACE_style_other
+                  || builtin_command_data[i].data == BRACE_style_code
+                  || builtin_command_data[i].data == BRACE_style_no_code)))
+        {
+          html_commands_data[i].flags |= HF_style_command;
+          style_formatted_cmd_nr++;
+        }
+
+      if (builtin_command_data[i].flags & CF_accent)
+        accent_cmd_nr++;
 
       if ((builtin_command_data[i].flags & CF_block
            && builtin_command_data[i].data != BLOCK_format_raw)
@@ -16961,6 +16987,10 @@ html_format_setup (void)
   for (i = 0; additional_format_context_cmd[i]; i++)
     register_format_context_command (additional_format_context_cmd[i]);
 
+  /* do not consider indicateurl to be a style command, it has a different
+     formatting function */
+  html_commands_data[CM_indicateurl].flags &= ~HF_style_command;
+
   for (i = 0; HTML_align_cmd[i]; i++)
     {
       enum command_id cmd = HTML_align_cmd[i];
@@ -16971,10 +17001,46 @@ html_format_setup (void)
 
   initialize_cmd_list (&no_arg_formatted_cmd, no_arg_formatted_cmd_nr,
                        no_arg_formatted_cmd_nr);
+  initialize_cmd_list (&accent_cmd, accent_cmd_nr, 0);
+  initialize_cmd_list (&style_formatted_cmd, style_formatted_cmd_nr, 0);
+
+  for (i = 0; quoted_style_commands[i]; i++)
+    {
+      enum command_id cmd = quoted_style_commands[i];
+      enum conversion_context cctx;
+      for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
+        {
+          default_style_commands_formatting[cmd][cctx].quote = 1;
+        }
+    }
 
   no_arg_formatted_cmd_idx = 0;
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
+      if (builtin_command_data[i].flags & CF_accent)
+        {
+          accent_cmd.list[accent_cmd.number] = i;
+          accent_cmd.number++;
+        }
+
+      if (html_commands_data[i].flags & HF_style_command)
+        {
+          style_formatted_cmd.list[style_formatted_cmd.number] = i;
+          style_formatted_cmd.number++;
+
+          if (html_style_commands_element[i])
+            {
+              enum conversion_context cctx;
+              for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
+                {
+       /* the default_style_commands_formatting contains const char only
+          but the type is not const, so drop the const with a cast */
+                  default_style_commands_formatting[i][cctx].element
+                    = (char *) html_style_commands_element[i];
+                }
+            }
+        }
+
       if (xml_text_entity_no_arg_commands_formatting[i])
         {
           /* the value is never modified but the struct field type is not const
@@ -16992,6 +17058,10 @@ html_format_setup (void)
           default_no_arg_commands_formatting[i][HCC_type_preformatted].unset = 1;
         }
     }
+
+  default_style_commands_formatting[CM_sc][HCC_type_preformatted].element
+      = "span";
+
   /* modify normal context values and add other contexts values, removing
      unset.  Should only be for commands with normal context already set.
    */
@@ -17454,6 +17524,16 @@ html_converter_initialize (CONVERTER *self)
   for (i = 0; default_upper_case_commands[i]; i++)
     self->upper_case[default_upper_case_commands[i]] = 1;
 
+  for (i = 0; default_code_types[i]; i++)
+    self->code_types[default_code_types[i]] = 1;
+
+  for (i = 0; default_pre_class_types[i].type; i++)
+    {
+      const PRE_CLASS_TYPE_INFO *pre_class_type = &default_pre_class_types[i];
+      self->pre_class_types[pre_class_type->type]
+        = strdup (pre_class_type->pre_class);
+    }
+
   /* initialization needing some information from perl */
 
   if (self->html_customized_upper_case_commands)
@@ -17466,9 +17546,6 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
-  for (i = 0; default_code_types[i]; i++)
-    self->code_types[default_code_types[i]] = 1;
-
   if (self->html_customized_code_types)
     {
       for (i = 0; self->html_customized_code_types[i].type; i++)
@@ -17477,13 +17554,6 @@ html_converter_initialize (CONVERTER *self)
             = &self->html_customized_code_types[i];
           self->code_types[customized_code->type] = customized_code->integer;
         }
-    }
-
-  for (i = 0; default_pre_class_types[i].type; i++)
-    {
-      const PRE_CLASS_TYPE_INFO *pre_class_type = &default_pre_class_types[i];
-      self->pre_class_types[pre_class_type->type]
-        = strdup (pre_class_type->pre_class);
     }
 
   if (self->html_customized_pre_class_types)
@@ -17531,6 +17601,43 @@ html_converter_initialize (CONVERTER *self)
             {
               free (accent_info->characters);
               accent_info->characters = strdup (custom_accent_info->characters);
+            }
+        }
+    }
+
+  for (i = 0; i < style_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = style_formatted_cmd.list[i];
+      enum conversion_context cctx;
+      for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
+        {
+          HTML_STYLE_COMMAND_CONVERSION *format_spec
+            = &self->html_style_command_conversion[cmd][cctx];
+          HTML_STYLE_COMMAND_CONVERSION *default_spec
+            = &default_style_commands_formatting[cmd][cctx];
+
+          if (default_spec->element)
+            format_spec->element = strdup (default_spec->element);
+          format_spec->quote = default_spec->quote;
+        }
+    }
+
+  for (i = 0; self->html_customized_style_commands[i].cmd; i++)
+    {
+      enum conversion_context cctx;
+      enum command_id cmd = self->html_customized_style_commands[i].cmd;
+      for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
+        {
+          if (self->html_customized_style_commands[i].conversion[cctx])
+            {
+              HTML_STYLE_COMMAND_CONVERSION *format_spec
+                = &self->html_style_command_conversion[cmd][cctx];
+              HTML_STYLE_COMMAND_CONVERSION *custom_spec
+                = self->html_customized_style_commands[i].conversion[cctx];
+
+              if (custom_spec->element)
+                format_spec->element = strdup (custom_spec->element);
+              format_spec->quote = custom_spec->quote;
             }
         }
     }
@@ -17807,11 +17914,11 @@ html_converter_initialize (CONVERTER *self)
     }
 
   /* accents commands implemented in C */
-  if (self->accent_cmd.number)
+  if (accent_cmd.number)
     {
-      for (i = 0; i < self->accent_cmd.number; i++)
+      for (i = 0; i < accent_cmd.number; i++)
         {
-          enum command_id cmd = self->accent_cmd.list[i];
+          enum command_id cmd = accent_cmd.list[i];
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self->command_conversion_function[cmd];
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
@@ -17834,11 +17941,11 @@ html_converter_initialize (CONVERTER *self)
   /* all the commands in style_formatted_cmd are implemented in C.
      It is not only the style commands, some others too.  indicateurl
      is not in style_formatted_cmd for now either */
-  if (self->style_formatted_cmd.number)
+  if (style_formatted_cmd.number)
     {
-      for (i = 0; i < self->style_formatted_cmd.number; i++)
+      for (i = 0; i < style_formatted_cmd.number; i++)
         {
-          enum command_id cmd = self->style_formatted_cmd.list[i];
+          enum command_id cmd = style_formatted_cmd.list[i];
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self->command_conversion_function[cmd];
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
@@ -19646,18 +19753,18 @@ html_free_converter (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < self->accent_cmd.number; i++)
+  for (i = 0; i < accent_cmd.number; i++)
     {
-      enum command_id cmd = self->accent_cmd.list[i];
+      enum command_id cmd = accent_cmd.list[i];
       ACCENT_ENTITY_INFO *accent_info
           = &self->accent_entities[cmd];
       free (accent_info->entity);
       free (accent_info->characters);
     }
 
-  for (i = 0; i < self->style_formatted_cmd.number; i++)
+  for (i = 0; i < style_formatted_cmd.number; i++)
     {
-      enum command_id cmd = self->style_formatted_cmd.list[i];
+      enum command_id cmd = style_formatted_cmd.list[i];
       enum conversion_context cctx;
       for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
         {
@@ -19782,18 +19889,36 @@ html_free_converter (CONVERTER *self)
       self->html_customized_accent_entity_info = 0;
     }
 
+  if (self->html_customized_style_commands)
+    {
+      for (i = 0; self->html_customized_style_commands[i].cmd; i++)
+        {
+          int cctx;
+          for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
+            {
+              if (self->html_customized_style_commands[i].conversion[cctx])
+                {
+                  HTML_STYLE_COMMAND_CONVERSION *format_spec
+                    = self->html_customized_style_commands[i].conversion[cctx];
+                  free (format_spec->element);
+                  free (format_spec);
+                }
+            }
+        }
+      free (self->html_customized_style_commands);
+      self->html_customized_style_commands = 0;
+    }
+
   /* should be freed on exit.
   free (no_arg_formatted_cmd.list);
-   */
 
-  free (self->accent_cmd.list);
+  free (accent_cmd.list);
 
-/* should be freed on exit.
   free (preformatted_cmd_list.stack);
   free (def_cmd_list.stack);
- */
 
-  free (self->style_formatted_cmd.list);
+  free (style_formatted_cmd.list);
+ */
 
   for (i = 0; i < self->pending_closes.number; i++)
     {
