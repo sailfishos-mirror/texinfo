@@ -85,7 +85,8 @@ BEGIN {
     print "#define CM_hex_0a CM_NEWLINE"          > CI
     print "#define CM_hex_20 CM_SPACE"            > CI
     print "#define CM_hex_21 CM_EXCLAMATION_MARK" > CI
-    print "#define CM_hex_22 CM_POUND_SIGN"       > CI
+    print "#define CM_hex_22 CM_DOUBLE_QUOTE"     > CI
+    print "#define CM_hex_26 CM_AMPERSAND"        > CI
     print "#define CM_hex_27 CM_APOSTROPHE"       > CI
     print "#define CM_hex_2a CM_ASTERISK"         > CI
     print "#define CM_hex_2c CM_COMMA"            > CI

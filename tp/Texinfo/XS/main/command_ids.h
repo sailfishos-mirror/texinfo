@@ -7,7 +7,8 @@
 #define CM_hex_0a CM_NEWLINE
 #define CM_hex_20 CM_SPACE
 #define CM_hex_21 CM_EXCLAMATION_MARK
-#define CM_hex_22 CM_POUND_SIGN
+#define CM_hex_22 CM_DOUBLE_QUOTE
+#define CM_hex_26 CM_AMPERSAND
 #define CM_hex_27 CM_APOSTROPHE
 #define CM_hex_2a CM_ASTERISK
 #define CM_hex_2c CM_COMMA
