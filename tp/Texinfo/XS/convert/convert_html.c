@@ -17534,7 +17534,37 @@ html_converter_initialize (CONVERTER *self)
         = strdup (pre_class_type->pre_class);
     }
 
-  /* initialization needing some information from perl */
+  for (i = 0; xml_accent_text_entities[i].cmd; i++)
+    {
+      enum command_id cmd = xml_accent_text_entities[i].cmd;
+      const ACCENT_ENTITY_INFO *xml_accent_info
+        = &xml_accent_text_entities[i].accent_entity_info;
+      ACCENT_ENTITY_INFO *accent_info = &self->accent_entities[cmd];
+
+      if (xml_accent_info->entity)
+        accent_info->entity = strdup (xml_accent_info->entity);
+      if (xml_accent_info->characters)
+        accent_info->characters = strdup (xml_accent_info->characters);
+    }
+
+  for (i = 0; i < style_formatted_cmd.number; i++)
+    {
+      enum command_id cmd = style_formatted_cmd.list[i];
+      enum conversion_context cctx;
+      for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
+        {
+          HTML_STYLE_COMMAND_CONVERSION *format_spec
+            = &self->html_style_command_conversion[cmd][cctx];
+          HTML_STYLE_COMMAND_CONVERSION *default_spec
+            = &default_style_commands_formatting[cmd][cctx];
+
+          if (default_spec->element)
+            format_spec->element = strdup (default_spec->element);
+          format_spec->quote = default_spec->quote;
+        }
+    }
+
+  /* apply customization (from Perl) */
 
   if (self->html_customized_upper_case_commands)
     {
@@ -17562,22 +17592,12 @@ html_converter_initialize (CONVERTER *self)
         {
           PRE_CLASS_TYPE_INFO *customized_pre_class
             = &self->html_customized_pre_class_types[i];
-          self->pre_class_types[customized_pre_class->type]
+          enum element_type type = customized_pre_class->type;
+
+          free (self->pre_class_types[type]);
+          self->pre_class_types[type]
              = strdup (customized_pre_class->pre_class);
         }
-    }
-
-  for (i = 0; xml_accent_text_entities[i].cmd; i++)
-    {
-      enum command_id cmd = xml_accent_text_entities[i].cmd;
-      const ACCENT_ENTITY_INFO *xml_accent_info
-        = &xml_accent_text_entities[i].accent_entity_info;
-      ACCENT_ENTITY_INFO *accent_info = &self->accent_entities[cmd];
-
-      if (xml_accent_info->entity)
-        accent_info->entity = strdup (xml_accent_info->entity);
-      if (xml_accent_info->characters)
-        accent_info->characters = strdup (xml_accent_info->characters);
     }
 
   if (self->html_customized_accent_entity_info)
@@ -17605,27 +17625,16 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < style_formatted_cmd.number; i++)
-    {
-      enum command_id cmd = style_formatted_cmd.list[i];
-      enum conversion_context cctx;
-      for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
-        {
-          HTML_STYLE_COMMAND_CONVERSION *format_spec
-            = &self->html_style_command_conversion[cmd][cctx];
-          HTML_STYLE_COMMAND_CONVERSION *default_spec
-            = &default_style_commands_formatting[cmd][cctx];
-
-          if (default_spec->element)
-            format_spec->element = strdup (default_spec->element);
-          format_spec->quote = default_spec->quote;
-        }
-    }
-
   for (i = 0; self->html_customized_style_commands[i].cmd; i++)
     {
       enum conversion_context cctx;
       enum command_id cmd = self->html_customized_style_commands[i].cmd;
+      /* should not happen thans to checks in perl
+      if (!(html_commands_data[cmd].flags & HF_style_command))
+        fprintf (stderr, "ERROR: %s: customized as style command\n",
+                 builtin_command_name (cmd));
+       */
+
       for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
         {
           if (self->html_customized_style_commands[i].conversion[cctx])
@@ -17635,12 +17644,20 @@ html_converter_initialize (CONVERTER *self)
               HTML_STYLE_COMMAND_CONVERSION *custom_spec
                 = self->html_customized_style_commands[i].conversion[cctx];
 
+              free (format_spec->element);
+
               if (custom_spec->element)
                 format_spec->element = strdup (custom_spec->element);
+              else
+                format_spec->element = 0;
               format_spec->quote = custom_spec->quote;
             }
         }
     }
+
+  /* initialization needing some information not available before.  Besides
+     customized information, mainly nr_special_units, which we
+     pretend could be customize (even though it cannot for now) */
 
   self->direction_unit_direction_name = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
