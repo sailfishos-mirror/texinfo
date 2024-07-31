@@ -579,7 +579,7 @@ void
 html_format_setup ()
 
 void
-html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_special_unit_info, SV *customized_direction_strings)
+html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_type_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -605,6 +605,7 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
                           default_output_units_conversion,
                           default_special_unit_body,
                           customized_upper_case_commands,
+                          customized_type_formatting,
                           customized_direction_strings);
 
 

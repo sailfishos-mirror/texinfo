@@ -395,6 +395,11 @@ typedef struct COMMAND_INTEGER_INFORMATION {
     int integer;
 } COMMAND_INTEGER_INFORMATION;
 
+typedef struct TYPE_INTEGER_INFORMATION {
+    enum element_type type;
+    int integer;
+} TYPE_INTEGER_INFORMATION;
+
 typedef struct FILE_NAME_PATH_COUNTER {
     char *filename;
     char *normalized_filename;
@@ -732,6 +737,11 @@ typedef struct SPECIAL_UNIT_INFO_LIST {
     SPECIAL_UNIT_INFO *list;
 } SPECIAL_UNIT_INFO_LIST;
 
+typedef struct PRE_CLASS_TYPE_INFO {
+    enum element_type type;
+    char *pre_class;
+} PRE_CLASS_TYPE_INFO;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -772,6 +782,7 @@ typedef struct CONVERTER {
     COMMAND_ID_LIST accent_cmd;
     int code_types[TXI_TREE_TYPES_NUMBER];
     COMMAND_INTEGER_INFORMATION *html_customized_upper_case_commands;
+    TYPE_INTEGER_INFORMATION *html_customized_code_types;
     char *pre_class_types[TXI_TREE_TYPES_NUMBER];
     ACCENT_ENTITY_INFO accent_entities[BUILTIN_CMD_NUMBER];
     FIXED_STRING_WITH_LEN special_character[SC_non_breaking_space+1];
@@ -815,6 +826,7 @@ typedef struct CONVERTER {
     HTML_STAGE_HANDLER_INFO_LIST html_stage_handlers[HSHT_type_finish +1];
     HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***customized_directions_strings[(TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR)];
+    PRE_CLASS_TYPE_INFO *html_customized_pre_class_types;
     HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
     /* set for a converter, modified in a document */
     HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];

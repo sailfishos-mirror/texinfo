@@ -128,6 +128,18 @@ typedef struct SPECIAL_UNIT_BODY_INTERNAL_CONVERSION {
 /* in main/conversion_data.c */
 extern const CSS_SELECTOR_STYLE base_default_css_element_class_styles[];
 
+/* types that are in code style in the default case.  '_code' is not
+   a type that can appear in the tree built from Texinfo code, it is used
+   to format a tree fragment as if it was in a @code @-command.  */
+static enum element_type default_code_types[] = {
+  ET__code, 0,
+};
+
+const PRE_CLASS_TYPE_INFO default_pre_class_types[] = {
+  {ET_menu_comment, "menu-comment"},
+  {0, 0}
+};
+
 const char *count_elements_in_filename_type_names[] = {
  "total", "remaining", "current"};
 
@@ -17454,6 +17466,37 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
+  for (i = 0; default_code_types[i]; i++)
+    self->code_types[default_code_types[i]] = 1;
+
+  if (self->html_customized_code_types)
+    {
+      for (i = 0; self->html_customized_code_types[i].type; i++)
+        {
+          TYPE_INTEGER_INFORMATION *customized_code
+            = &self->html_customized_code_types[i];
+          self->code_types[customized_code->type] = customized_code->integer;
+        }
+    }
+
+  for (i = 0; default_pre_class_types[i].type; i++)
+    {
+      const PRE_CLASS_TYPE_INFO *pre_class_type = &default_pre_class_types[i];
+      self->pre_class_types[pre_class_type->type]
+        = strdup (pre_class_type->pre_class);
+    }
+
+  if (self->html_customized_pre_class_types)
+    {
+      for (i = 0; self->html_customized_pre_class_types[i].type; i++)
+        {
+          PRE_CLASS_TYPE_INFO *customized_pre_class
+            = &self->html_customized_pre_class_types[i];
+          self->pre_class_types[customized_pre_class->type]
+             = strdup (customized_pre_class->pre_class);
+        }
+    }
+
   self->direction_unit_direction_name = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
   memcpy (self->direction_unit_direction_name, html_button_direction_names,
@@ -19676,6 +19719,17 @@ html_free_converter (CONVERTER *self)
 
   free (self->html_customized_upper_case_commands);
   self->html_customized_upper_case_commands = 0;
+
+  free (self->html_customized_code_types);
+  self->html_customized_code_types = 0;
+
+  if (self->html_customized_pre_class_types)
+    {
+      for (i = 0; self->html_customized_pre_class_types[i].type; i++)
+        free (self->html_customized_pre_class_types[i].pre_class);
+      free (self->html_customized_pre_class_types);
+      self->html_customized_pre_class_types = 0;
+    }
 
   /* should be freed on exit.
   free (no_arg_formatted_cmd.list);

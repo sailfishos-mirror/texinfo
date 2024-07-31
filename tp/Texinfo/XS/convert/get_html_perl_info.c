@@ -226,6 +226,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
                               SV *customized_upper_case_commands,
+                              SV *customized_type_formatting,
                               SV *customized_direction_strings
                              )
 {
@@ -253,8 +254,6 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **customized_no_arg_commands_formatting_sv;
   SV **output_units_conversion_sv;
   SV **file_id_setting_sv;
-  SV **code_types_sv;
-  SV **pre_class_types_sv;
   HV *formatting_function_hv;
   HV *commands_open_hv;
   HV *commands_conversion_hv;
@@ -355,85 +354,89 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-  FETCH(code_types)
-
-  if (code_types_sv)
+  if (customized_type_formatting && SvOK (customized_type_formatting))
     {
       I32 hv_number;
       I32 i;
+      int code_type_idx = 0;
+      int pre_class_idx = 0;
+      HV *customized_type_formatting_hv
+        = (HV *)SvRV (customized_type_formatting);
 
-      HV *code_types_hv = (HV *)SvRV (*code_types_sv);
+      hv_number = hv_iterinit (customized_type_formatting_hv);
 
-      hv_number = hv_iterinit (code_types_hv);
+      converter->html_customized_code_types
+        = (TYPE_INTEGER_INFORMATION *) malloc ((hv_number + 1)
+                                  * sizeof (TYPE_INTEGER_INFORMATION));
+      memset (converter->html_customized_code_types, 0,
+              (hv_number + 1) * sizeof (TYPE_INTEGER_INFORMATION));
+
+      converter->html_customized_pre_class_types
+        = (PRE_CLASS_TYPE_INFO *) malloc ((hv_number + 1)
+                                  * sizeof (PRE_CLASS_TYPE_INFO));
+      memset (converter->html_customized_pre_class_types, 0,
+              (hv_number + 1) * sizeof (PRE_CLASS_TYPE_INFO));
 
       for (i = 0; i < hv_number; i++)
         {
-          int j;
           enum element_type type = ET_NONE;
           I32 retlen;
           char *type_name;
-          SV *code_sv = hv_iternextsv (code_types_hv,
+          SV *spec_sv = hv_iternextsv (customized_type_formatting_hv,
                                        &type_name, &retlen);
-          if (SvOK (code_sv))
+          if (SvOK (spec_sv))
             {
-              int code_value = SvIV (code_sv);
-          /* this is not very efficient, but should be done only once
-             in the default case.  If this is needed more, a qsort/bfind
-             could be used, but the overhead could probably only be
-             justified if finding the type index happens more often */
-              for (j = 1; j < TXI_TREE_TYPES_NUMBER; j++)
-                {
-                  if (!strcmp (type_data[j].name, type_name))
-                    {
-                      type = j;
-                      break;
-                    }
-                }
+              type = find_element_type (type_name);
+
               if (type == ET_NONE)
                 {
-                  fprintf (stderr, "ERROR: %s: code type not found\n",
+                  fprintf (stderr, "ERROR: %s: customized type not found\n",
                                    type_name);
                 }
               else
-                converter->code_types[type] = code_value;
-           }
-       }
-   }
-
-  FETCH(pre_class_types)
-
-  if (pre_class_types_sv)
-    {
-      I32 hv_number;
-      I32 i;
-
-      HV *pre_class_types_hv = (HV *)SvRV (*pre_class_types_sv);
-
-      hv_number = hv_iterinit (pre_class_types_hv);
-
-      for (i = 0; i < hv_number; i++)
-        {
-          I32 retlen;
-          char *type_name;
-          SV *pre_class_sv = hv_iternextsv (pre_class_types_hv,
-                                            &type_name, &retlen);
-          if (SvOK (pre_class_sv))
-            {
-              const char *pre_class = SvPV_nolen (pre_class_sv);
-              enum element_type type = find_element_type (type_name);
-
-              if (type == ET_NONE)
                 {
-                  fprintf (stderr, "ERROR: %s: pre class type not found\n",
-                           type_name);
+                  HV *spec_hv = (HV *)SvRV (spec_sv);
+                  SV **code_sv = hv_fetch (spec_hv, "code",
+                                           strlen("code"), 0);
+                  SV **pre_class_sv = hv_fetch (spec_hv, "pre_class",
+                                                strlen("pre_class"), 0);
+
+                  if (code_sv)
+                    {
+                      TYPE_INTEGER_INFORMATION *customized_code
+                        = &converter->html_customized_code_types[code_type_idx];
+                      int code_value = 0;
+
+                      if (SvOK (*code_sv))
+                        code_value = SvIV (*code_sv);
+
+                      customized_code->type = type;
+                      customized_code->integer = code_value;
+                      code_type_idx++;
+                    }
+                  if (pre_class_sv)
+                    {
+                      PRE_CLASS_TYPE_INFO *customized_pre_class
+                        = &converter->html_customized_pre_class_types
+                                                           [pre_class_idx];
+                      char *pre_class_value = 0;
+
+                      if (SvOK (*pre_class_sv))
+                        {
+                          const char *pre_class_string
+                             = SvPV_nolen (*pre_class_sv);
+                          pre_class_value = non_perl_strdup (pre_class_string);
+                        }
+                      customized_pre_class->type = type;
+                      customized_pre_class->pre_class = pre_class_value;
+                      pre_class_idx++;
+                    }
                 }
-              else
-                converter->pre_class_types[type] = non_perl_strdup (pre_class);
             }
         }
     }
 
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(accent_entities)
 
   if (accent_entities_sv)

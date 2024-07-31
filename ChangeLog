@@ -1,5 +1,21 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/convert_html.c (default_code_types)
+	(default_pre_class_types, html_converter_initialize)
+	(html_free_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(TYPE_INTEGER_INFORMATION, PRE_CLASS_TYPE_INFO, CONVERTER): set
+	default_code_types and default_pre_class_types.  Add
+	html_customized_code_types field to CONVERTER with type
+	TYPE_INTEGER_INFORMATION and html_customized_pre_class_types field
+	with type PRE_CLASS_TYPE_INFO.  Pass customized_type_formatting from
+	Perl to those converter fields.  Do not get code_types nor
+	pre_class_types from Perl.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_html_perl_info.c
 	(html_converter_initialize_sv): move up code which should have
 	defaults in C and customization from Perl.  No change.
