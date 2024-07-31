@@ -28,6 +28,8 @@ my %option_categories;
 
 my %commands_options;
 
+my %options;
+
 while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     if (/^([^ ]+) +([^ ]+) +([^ ]+) +(.+)$/) {
@@ -44,6 +46,7 @@ while (<STDIN>) {
       if ($category eq 'multiple_at_command' or $category eq 'unique_at_command') {
         $commands_options{$option} = [$category, $value, $type];
       }
+      $options{$option} = [$category, $value, $type];
     } else {
       warn "ERROR: unexpected line: $_";
     }
@@ -84,13 +87,56 @@ while (<ORDER>) {
   #print STDERR "$command\n";
 }
 
-my $code_file = $ARGV[1];
+my $converter_defaults_file = $ARGV[1];
+die "Need converter defaults file\n" if (!defined($converter_defaults_file));
+
+open(CDEF, $converter_defaults_file)
+  or die "open $converter_defaults_file: $!";
+
+my %converter_defaults;
+my $format;
+my $line = 1;
+while (<CDEF>) {
+  if (not (/^ *#/ or /^ *$/)) {
+    if (/^ *- *(\S+)/) {
+      $format = $1;
+      if (!defined($converter_defaults{$format})) {
+        $converter_defaults{$format} = [];
+      }
+    } elsif (defined($format)) {
+      if (/^ *([A-Za-z][A-Za-z0-9_]*)( +(.*))?$/) {
+        my $option = $1;
+        my $value = $3;
+        if (!defined($value) or $value =~ / +/) {
+          $value = '';
+        }
+        #print STDERR "$format|$variable|'$value'\n";
+        if (!defined($options{$option})) {
+          print STDERR "$converter_defaults_file: $line: unknown option $option\n";
+        } else {
+          push @{$converter_defaults{$format}}, [$option, $value];
+        }
+      }
+    }
+  }
+  $line++;
+}
+
+my $code_file = $ARGV[2];
 die "Need a code file\n" if (!defined($code_file));
 
-my $header_file = $ARGV[2];
+my $header_file = $ARGV[3];
 die "Need a header file\n" if (!defined($header_file));
 
-my $get_file = $ARGV[3];
+my $converter_defaults_code_file = $ARGV[4];
+die "Need a converter code defaults file\n"
+   if (!defined($converter_defaults_code_file));
+
+my $converter_defaults_header_file = $ARGV[5];
+die "Need a converter header defaults file\n"
+   if (!defined($converter_defaults_header_file));
+
+my $get_file = $ARGV[6];
 die "Need an XS code file\n" if (!defined($get_file));
 
 my $program_name = basename($0);
@@ -239,6 +285,27 @@ print CODE "
 # table of defaults for options corresponding to commands
 print CODE "COMMAND_OPTION_DEFAULT command_option_default_table[] = {\n";
 
+sub get_value($$)
+{
+  my $type = shift;
+  my $value = shift;
+
+  my $char_value = 0;
+  my $int_value = '-2';
+  if ($type eq 'integer') {
+    $int_value = -1;
+  }
+  if ($value ne 'undef') {
+    if ($type eq 'integer') {
+      $int_value = $value;
+    } else {
+      $char_value = '"'.$value.'"';
+    }
+  }
+
+  return $int_value, $char_value;
+}
+
 foreach my $command_name (@commands_order) {
   my $command = $command_name;
   if (exists($name_commands{$command_name})) {
@@ -247,18 +314,7 @@ foreach my $command_name (@commands_order) {
   if ($commands_options{$command}) {
     my ($category, $value, $type) = @{$commands_options{$command}};
     #print STDERR "$command $category, $value, $type\n";
-    my $char_value = 0;
-    my $int_value = '-2';
-    if ($type eq 'integer') {
-      $int_value = -1;
-    }
-    if ($value ne 'undef') {
-      if ($type eq 'integer') {
-        $int_value = $value;
-      } else {
-        $char_value = '"'.$value.'"';
-      }
-    }
+    my ($int_value, $char_value) = get_value($type, $value);
     print CODE "{GOT_$type, $int_value, $char_value},   /* $command ($category) */\n";
   } else {
     print CODE "{GOT_NONE, -2, 0},\n";
@@ -268,6 +324,56 @@ foreach my $command_name (@commands_order) {
 print CODE "};\n\n";
 
 close(CODE);
+
+open(OCDEF, ">$converter_defaults_code_file")
+ or die "Open $converter_defaults_code_file: $!\n";
+
+print OCDEF "/* Automatically generated from $0 */\n\n";
+
+print OCDEF '#include <config.h>'."\n\n";
+
+print OCDEF '#include "options_types.h"'."\n";
+print OCDEF '#include "converter.h"'."\n";
+print OCDEF '#include "converters_defaults.h"'."\n\n";
+
+open(OHDEF, ">$converter_defaults_header_file")
+ or die "Open $converter_defaults_header_file: $!\n";
+
+print OHDEF "#ifndef CONVERTERS_DEFAULTS_H\n#define CONVERTERS_DEFAULTS_H\n\n";
+
+print OHDEF "#include \"main/option_types.h\"\n\n";
+
+print OHDEF "/* Undefine values set from autoconf as we use these as\n";
+print OHDEF "   customization variable names.  The original values are\n";
+print OHDEF "   available with a _CONFIG suffix, e.g. PACKAGE_CONFIG for\n";
+print OHDEF "   PACKAGE. */\n";
+print OHDEF "#undef PACKAGE\n";
+print OHDEF "#undef PACKAGE_NAME\n";
+print OHDEF "#undef PACKAGE_URL\n";
+print OHDEF "#undef PACKAGE_VERSION\n\n";
+
+my @sorted_formats = sort(keys(%converter_defaults));
+
+foreach my $format (@sorted_formats) {
+  my $fun = "void set_${format}_regular_options_defaults (OPTIONS *options)";
+
+  print OHDEF "$fun;\n\n";
+
+  print OCDEF "$fun\n{\n";
+  foreach my $option_spec (@{$converter_defaults{$format}}) {
+    my ($option, $value) = @$option_spec;
+    my $option_info = $options{$option};
+    my ($option_unused, $main_default, $type) = @$option_info;
+    my ($int_value, $char_value) = get_value($type, $value);
+    print OCDEF "  set_conf (&options->${option}, $int_value, $char_value);\n";
+  }
+  print OCDEF "}\n\n";
+}
+
+close(OCDEF);
+
+print OHDEF "#endif\n";
+close(OHDEF);
 
 
 open(GET, ">$get_file") or die "Open $get_file: $!\n";

@@ -1,5 +1,17 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (EXTRA_DIST),
+	tp/Texinfo/Convert/converters_defaults.txt, tp/Texinfo/XS/Makefile.am
+	(BUILT_SOURCES, MAINTAINERCLEANFILES, regenerate_C_options_info.pl)
+	(ConvertXS_la_SOURCES, EXTRA_DIST),
+	tp/maintain/regenerate_C_options_info.pl: generate with
+	regenerate_C_options_info.pl C functions in
+	convert/converters_defaults.c based on a textual description in
+	tp/Texinfo/Convert/converters_defaults.txt that sets converters default
+	string and integer options.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_default_format_button):
 	fix handling of BST_string, BST_external_string, BIT_string and
 	BIT_external_string based on their new significations.

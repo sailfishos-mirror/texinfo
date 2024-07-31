@@ -230,6 +230,8 @@ libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(
 
 BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 convert/cmd_converter.c \
+                convert/converters_defaults.c \
+                convert/converters_defaults.h \
                 main/cmd_normalization.c \
                 main/cmd_structuring.c \
                 main/cmd_text.c \
@@ -251,6 +253,8 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
 EXTRA_DIST+=main/element_types.txt main/element_types.awk \
 	   main/command_data.awk
 EXTRA_DIST += convert/cmd_converter.c
+EXTRA_DIST += convert/converters_defaults.c
+EXTRA_DIST += convert/converters_defaults.h
 
 $(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
@@ -295,16 +299,20 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../../maintain/setup_a
 
 MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c: ../options_data.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c $(srcdir)/convert/converters_defaults.c $(srcdir)/convert/converters_defaults.h: ../options_data.txt ../Convert/converters_defaults.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
 	        < $(srcdir)/../options_data.txt \
 	              $(srcdir)/main/command_data.c \
+	              $(srcdir)/../Convert/converters_defaults.txt \
 	              $(srcdir)/main/options_init_free.c \
 	              $(srcdir)/main/options_types.h \
+	              $(srcdir)/convert/converters_defaults.c \
+	              $(srcdir)/convert/converters_defaults.h \
 	              $(srcdir)/main/options_get_perl.c
 
 MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
-                        main/options_get_perl.c
+                        main/options_get_perl.c convert/converters_defaults.c \
+                        convert/converters_defaults.h
 
 $(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_data.c $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
 	$(PERL) $(srcdir)/../../maintain/generate_code_convert_data.pl \
@@ -361,6 +369,8 @@ libtexinfo_convert_la_SOURCES= \
                        convert/cmd_converter.c \
                        convert/convert_html.h \
                        convert/convert_html.c \
+                       convert/converters_defaults.c \
+                       convert/converters_defaults.h \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \

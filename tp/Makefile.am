@@ -357,7 +357,8 @@ EXTRA_DIST = \
   $(maintenance_files) \
   maintain/lib \
   Texinfo/command_data.txt \
-  Texinfo/options_data.txt
+  Texinfo/options_data.txt \
+  Texinfo/Convert/converters_defaults.txt
 
 # template.pod is the basis for the .pm documentation, and the script
 # invoked here updates them; to be run when template.pod changes.
