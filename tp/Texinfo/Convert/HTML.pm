@@ -8745,7 +8745,7 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$$$$$)
 {
 }
 
@@ -8897,12 +8897,30 @@ sub converter_initialize($)
     }
   }
 
+  my %customized_accent_entities;
+
+  foreach my $accent_command
+     (keys(%Texinfo::Convert::Converter::xml_accent_entities)) {
+    my ($accent_command_entity, $accent_command_text_with_entities)
+      = Texinfo::Config::GNUT_get_accent_command_formatting($accent_command);
+    if (defined($accent_command_entity)
+        or defined($accent_command_text_with_entities)) {
+      $customized_accent_entities{$accent_command} = [$accent_command_entity,
+                                           $accent_command_text_with_entities];
+    }
+  }
+
   $self->{'accent_entities'} = {};
   foreach my $accent_command
      (keys(%Texinfo::Convert::Converter::xml_accent_entities)) {
     $self->{'accent_entities'}->{$accent_command} = [];
-    my ($accent_command_entity, $accent_command_text_with_entities)
-      = Texinfo::Config::GNUT_get_accent_command_formatting($accent_command);
+
+    my ($accent_command_entity, $accent_command_text_with_entities);
+    if ($customized_accent_entities{$accent_command}) {
+      ($accent_command_entity, $accent_command_text_with_entities)
+        = @{$customized_accent_entities{$accent_command}};
+    }
+
     if (not defined($accent_command_entity)
         and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
                                                               $accent_command})) {
@@ -9129,6 +9147,7 @@ sub converter_initialize($)
                              \%defaults_format_special_unit_body_contents,
                              $customized_upper_case_commands,
                              $customized_type_formatting,
+                             \%customized_accent_entities,
                              $customized_special_unit_info,
                              $customized_direction_strings
                             );

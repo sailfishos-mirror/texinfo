@@ -227,6 +227,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *default_special_unit_body,
                               SV *customized_upper_case_commands,
                               SV *customized_type_formatting,
+                              SV *customized_accent_entities,
                               SV *customized_direction_strings
                              )
 {
@@ -243,7 +244,6 @@ html_converter_initialize_sv (SV *converter_sv,
   HV *default_output_units_conversion_hv;
   SV **htmlxref_sv;
   SV **formatting_function_sv;
-  SV **accent_entities_sv;
   SV **style_commands_formatting_sv;
   SV **stage_handlers_sv;
   SV **special_unit_body_sv;
@@ -436,18 +436,22 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-  FETCH(accent_entities)
-
-  if (accent_entities_sv)
+  if (customized_accent_entities && SvOK (customized_accent_entities))
     {
       I32 hv_number;
       I32 i;
+      int cmd_idx = 0;
 
       HV *accent_entities_hv
-        = (HV *)SvRV (*accent_entities_sv);
+        = (HV *)SvRV (customized_accent_entities);
 
       hv_number = hv_iterinit (accent_entities_hv);
+
+      converter->html_customized_accent_entity_info
+        = (COMMAND_ACCENT_ENTITY_INFO *) malloc ((hv_number + 1)
+                                  * sizeof (COMMAND_ACCENT_ENTITY_INFO));
+      memset (converter->html_customized_accent_entity_info, 0,
+              (hv_number + 1) * sizeof (COMMAND_ACCENT_ENTITY_INFO));
 
       for (i = 0; i < hv_number; i++)
         {
@@ -462,11 +466,16 @@ html_converter_initialize_sv (SV *converter_sv,
                 fprintf (stderr, "ERROR: %s: no accent command\n", cmdname);
               else
                 {
+                  COMMAND_ACCENT_ENTITY_INFO *cmd_accent_info
+                    = &converter->html_customized_accent_entity_info[cmd_idx];
                   ACCENT_ENTITY_INFO *accent_info
-                    = &converter->accent_entities[cmd];
+                    = &cmd_accent_info->accent_entity_info;
+
                   AV *spec_av = (AV *)SvRV (spec_sv);
                   SV **entity_sv = av_fetch (spec_av, 0, 0);
                   SV **characters_sv = av_fetch (spec_av, 1, 0);
+
+                  cmd_accent_info->cmd = cmd;
 
                   if (entity_sv)
                     {
@@ -481,12 +490,14 @@ html_converter_initialize_sv (SV *converter_sv,
                       if (strlen (characters))
                         accent_info->characters = non_perl_strdup (characters);
                     }
+                  cmd_idx++;
                 }
             }
         }
     }
 
 
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(style_commands_formatting)
 
   if (style_commands_formatting_sv)

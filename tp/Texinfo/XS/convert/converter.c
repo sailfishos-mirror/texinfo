@@ -75,6 +75,25 @@ enum command_id default_upper_case_commands[] = {
   CM_sc, 0,
 };
 
+/* In sync with Convert/Converter.pm %xml_accent_entities and
+   %xml_accent_text_with_entities */
+COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[] = {
+  {CM_DOUBLE_QUOTE,  {"uml",   "aeiouyAEIOU"}},
+  {CM_TILDE,         {"tilde", "nNaoAO"}},
+  {CM_CIRCUMFLEX,    {"circ",  "aeiouAEIOU"}},
+  {CM_BACKQUOTE,     {"grave", "aeiouAEIOU"}},
+  {CM_APOSTROPHE,    {"acute", "aeiouyAEIOUY"}},
+  {CM_COMMA,         {"cedil", "cC"}},
+  {CM_ringaccent,    {"ring",  "aA"}},
+/* according to http://www2.lib.virginia.edu/small/vhp/download/ISO.txt
+   however this doesn't seems to work in firefox
+   ogonek:  "aeiuAEIU"
+ */
+  {CM_ogonek,        {"ogon",  0}},
+  {CM_dotless,       {"nodot", "i"}},
+  {0,                {0,       0}}
+};
+
 static CONVERTER **converter_list;
 static size_t converter_number;
 static size_t converter_space;

@@ -560,6 +560,11 @@ typedef struct ACCENT_ENTITY_INFO {
     char *characters;
 } ACCENT_ENTITY_INFO;
 
+typedef struct COMMAND_ACCENT_ENTITY_INFO {
+    enum command_id cmd;
+    ACCENT_ENTITY_INFO accent_entity_info;
+} COMMAND_ACCENT_ENTITY_INFO;
+
 typedef struct COMMAND_CONVERSION_FUNCTION {
     enum formatting_reference_status status;
     /* points to the perl formatting reference if it is used for
@@ -827,6 +832,7 @@ typedef struct CONVERTER {
     HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***customized_directions_strings[(TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR)];
     PRE_CLASS_TYPE_INFO *html_customized_pre_class_types;
+    COMMAND_ACCENT_ENTITY_INFO *html_customized_accent_entity_info;
     HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
     /* set for a converter, modified in a document */
     HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];

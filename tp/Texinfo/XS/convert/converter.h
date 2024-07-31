@@ -98,6 +98,8 @@ extern const char * xml_text_entity_no_arg_commands[];
 /* in converter.c */
 extern const char *xml_text_entity_no_arg_commands_formatting[];
 
+extern COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[];
+
 extern PATHS_INFORMATION conversion_paths_info;
 
 void converter_setup (void);

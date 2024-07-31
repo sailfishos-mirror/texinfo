@@ -24,6 +24,7 @@ void html_converter_initialize_sv (SV *converter_sv,
                                   SV *default_special_unit_body,
                                   SV *customized_upper_case_commands,
                                   SV *customized_type_formatting,
+                                  SV *customized_accent_entities,
                                   SV *customized_direction_strings
                                   );
 

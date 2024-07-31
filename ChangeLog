@@ -1,5 +1,28 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize): setup
+	%customized_accent_entities with all the customized commands before
+	filling accent_entities.
+
+	* tp/Texinfo/XS/convert/converter.c (xml_accent_text_entities),
+	tp/Texinfo/XS/main/converter_types.h (COMMAND_ACCENT_ENTITY_INFO):
+	setup xml_accent_text_entities defaults.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/convert/convert_html.c (html_converter_initialize)
+	(html_free_converter), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER): add html_customized_accent_entity_info field to
+	CONVERTER, with type COMMAND_ACCENT_ENTITY_INFO.  Pass
+	customized_accent_entities from Perl to C through
+	html_converter_initialize_sv.  Set self->accent_entities in
+	html_converter_initialize based on xml_accent_text_entities, with
+	customized values added.  Do not get accent_entities from Perl
+	anymore.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/command_data.awk: rename CM_POUND_SIGN as
 	CM_DOUBLE_QUOTE.  Add CM_AMPERSAND.
 

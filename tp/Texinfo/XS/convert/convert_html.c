@@ -17497,6 +17497,44 @@ html_converter_initialize (CONVERTER *self)
         }
     }
 
+  for (i = 0; xml_accent_text_entities[i].cmd; i++)
+    {
+      enum command_id cmd = xml_accent_text_entities[i].cmd;
+      const ACCENT_ENTITY_INFO *xml_accent_info
+        = &xml_accent_text_entities[i].accent_entity_info;
+      ACCENT_ENTITY_INFO *accent_info = &self->accent_entities[cmd];
+
+      if (xml_accent_info->entity)
+        accent_info->entity = strdup (xml_accent_info->entity);
+      if (xml_accent_info->characters)
+        accent_info->characters = strdup (xml_accent_info->characters);
+    }
+
+  if (self->html_customized_accent_entity_info)
+    {
+      for (i = 0; self->html_customized_accent_entity_info[i].cmd; i++)
+        {
+          enum command_id cmd = self->html_customized_accent_entity_info[i].cmd;
+          const ACCENT_ENTITY_INFO *custom_accent_info
+            = &self->html_customized_accent_entity_info[i].accent_entity_info;
+          ACCENT_ENTITY_INFO *accent_info = &self->accent_entities[cmd];
+
+          if (custom_accent_info->entity)
+            {
+              free (accent_info->entity);
+              if (strlen (custom_accent_info->entity))
+                accent_info->entity = strdup (custom_accent_info->entity);
+              else
+                accent_info->entity = 0;
+            }
+          if (custom_accent_info->characters)
+            {
+              free (accent_info->characters);
+              accent_info->characters = strdup (custom_accent_info->characters);
+            }
+        }
+    }
+
   self->direction_unit_direction_name = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
   memcpy (self->direction_unit_direction_name, html_button_direction_names,
@@ -19729,6 +19767,19 @@ html_free_converter (CONVERTER *self)
         free (self->html_customized_pre_class_types[i].pre_class);
       free (self->html_customized_pre_class_types);
       self->html_customized_pre_class_types = 0;
+    }
+
+  if (self->html_customized_accent_entity_info)
+    {
+      for (i = 0; self->html_customized_accent_entity_info[i].cmd; i++)
+        {
+          ACCENT_ENTITY_INFO *accent_info
+            = &self->html_customized_accent_entity_info[i].accent_entity_info;
+          free (accent_info->entity);
+          free (accent_info->characters);
+        }
+      free (self->html_customized_accent_entity_info);
+      self->html_customized_accent_entity_info = 0;
     }
 
   /* should be freed on exit.
