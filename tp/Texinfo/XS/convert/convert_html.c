@@ -8049,7 +8049,7 @@ html_default_format_button (CONVERTER *self,
         malloc (sizeof (FORMATTED_BUTTON_INFO));
       memset (formatted_button, 0, sizeof (FORMATTED_BUTTON_INFO));
 
-      if (button->type == BST_string)
+      if (button->type == BST_external_string)
         {
           formatted_button->active
             = get_perl_scalar_reference_value (button->b.sv_string);
@@ -8058,11 +8058,17 @@ html_default_format_button (CONVERTER *self,
       else if (button->type == BST_direction_info)
         {
           int direction = button->b.button_info->direction;
-          if (button->b.button_info->type == BIT_string)
+          if (button->b.button_info->type == BIT_external_string
+              || button->b.button_info->type == BIT_string)
             {
               /* use given text */
-              char *text = get_perl_scalar_reference_value
+              char *text;
+              if (button->b.button_info->type == BIT_external_string)
+                text = get_perl_scalar_reference_value
                                       (button->b.button_info->bi.sv_string);
+              else
+                 text = strdup (button->b.button_info->bi.string);
+
               if (text)
                 {
                   char *href = from_element_direction (self, direction,
@@ -8114,6 +8120,11 @@ html_default_format_button (CONVERTER *self,
                 }
               free (href);
             }
+          formatted_button->need_delimiter = 1;
+        }
+      else if (button->type == BST_string)
+        {
+          formatted_button->active = strdup (button->b.string);
           formatted_button->need_delimiter = 1;
         }
       /* for the next cases, button->type == BST_direction */

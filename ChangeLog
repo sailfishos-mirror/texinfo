@@ -1,5 +1,11 @@
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_default_format_button):
+	fix handling of BST_string, BST_external_string, BIT_string and
+	BIT_external_string based on their new significations.
+
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (html_get_direction_index),
 	tp/Texinfo/XS/main/get_perl_info.c: move html_get_direction_index from
 	get_perl_info.c to converter.c.
