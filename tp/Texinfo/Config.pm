@@ -599,12 +599,16 @@ sub _GNUT_initialize_no_arg_commands_formatting_strings()
   }
 }
 
+my @all_style_commands_formatting_context = ($default_formatting_context,
+                                             'preformatted');
+
 _GNUT_initialize_no_arg_commands_formatting_strings();
 
 sub _GNUT_initialize_style_commands_formatting_info()
 {
   $GNUT_style_commands_formatting_info = {};
-  foreach my $possible_formatting_context (@all_possible_formatting_context) {
+  foreach my $possible_formatting_context
+                            (@all_style_commands_formatting_context) {
     $GNUT_style_commands_formatting_info->{$possible_formatting_context} = {};
   }
 }
@@ -673,7 +677,7 @@ sub GNUT_get_no_arg_command_formatting($;$)
 
   if (!defined($context)) {
     $context = $default_formatting_context;
-  } elsif (not defined($GNUT_style_commands_formatting_info->{$context})) {
+  } elsif (not defined($GNUT_no_arg_commands_formatting_strings->{$context})) {
     _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
                         'GNUT_get_no_arg_command_formatting', $context));
     return undef;
@@ -702,7 +706,7 @@ sub texinfo_register_style_command_formatting($$;$$)
   }
   my $specification = {};
   if ($in_quotes) {
-    $specification->{'quotes'} = $in_quotes;
+    $specification->{'quote'} = $in_quotes;
   }
   if (defined($html_element)) {
     $specification->{'element'} = $html_element;

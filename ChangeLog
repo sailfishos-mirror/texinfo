@@ -1,8 +1,27 @@
-2024-10-02  Patrice Dumas  <pertusus@free.fr>
+2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/get_converter_perl_info.c
-	(converter_initialize): readd converter_initialize that was mistakenly
-	removed.
+	* tp/Texinfo/Config.pm (texinfo_register_style_command_formatting):
+	correct 'quote'.
+
+	* tp/Texinfo/Config.pm (GNUT_get_no_arg_command_formatting): use
+	GNUT_no_arg_commands_formatting_strings for context check.
+
+	* tp/Texinfo/Convert/HTML.pm (%default_style_commands_formatting):
+	rename %style_commands_formatting as
+	%default_style_commands_formatting.
+
+	* doc/texi2any_api.texi (Simple Output Customization for Simple
+	Commands with Braces), tp/Texinfo/Config.pm
+	(@all_style_commands_formatting_context)
+	(_GNUT_initialize_style_commands_formatting_info),
+	tp/Texinfo/Convert/HTML.pm (@style_commands_contexts)
+	(@no_args_commands_contexts), tp/init/documentation_examples.pm,
+	tp/init/sc_formatting_with_css.pm: do not set string context for style
+	commands.  Use variables for the list of contexts.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize): get all the
+	style commands formatting customization in
+	%style_commands_customized_formatting_info before applying it.
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 
@@ -148,6 +167,12 @@
 	reference without init file use for special element direction test.
 	Add an init file to replace the button directions with the customized
 	special unit direction.
+
+2024-10-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(converter_initialize): readd converter_initialize that was mistakenly
+	removed.
 
 2024-07-30  Patrice Dumas  <pertusus@free.fr>
 

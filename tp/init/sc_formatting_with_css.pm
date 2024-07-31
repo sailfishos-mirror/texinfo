@@ -2,7 +2,7 @@ use strict;
 
 texinfo_register_upper_case_command('sc', 0);
 
-foreach my $context ('normal', 'preformatted', 'string') {
+foreach my $context ('normal', 'preformatted') {
   texinfo_register_style_command_formatting ('sc', 'span',
                                              undef, $context);
 }

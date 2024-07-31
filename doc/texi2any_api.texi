@@ -686,39 +686,37 @@ arguments (e.g., @code{@@asis}, @code{@@clicksequence}, @code{@@sup},
 @defun texinfo_register_style_command_formatting ($command_name, @
                                      $html_element, $in_quotes, $context)
 @var{$command_name} is the @@-command name, without the leading @@.
-@var{$context} is @samp{normal}, @samp{preformatted} or @samp{string}.
+@var{$context} is @samp{normal} or @samp{preformatted}.
 There is no separate math context, @samp{preformatted} should be used
-for math context. @xref{Init File Expansion Contexts}.  If @var{$context}
+for math context. @xref{Init File Expansion Contexts}.  There is no string
+context either, as in string context simple formatting without the need
+for per command information should be sufficient.  If @var{$context}
 is @code{undef}, the @samp{normal} context is assumed.
 
 If @var{$html_element} is set, the argument is enclosed between the
 @var{$html_element} element opening and the element closing.
-@var{$html_element} is always ignored in @samp{string} context.  If @var{$in_quotes}
-is true, the result is enclosed in quotes
-associated with customization variables @code{OPEN_QUOTE_SYMBOL} and
-@code{CLOSE_QUOTE_SYMBOL} (@pxref{Customization of HTML Code Inserted,,,
-texinfo, Texinfo}).
+If @var{$in_quotes} is true, the result is enclosed in quotes associated with
+customization variables @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL}
+(@pxref{Customization of HTML Code Inserted,,, texinfo, Texinfo}).
 
-If @var{$html_element} is undefined and @var{$in_quotes} is not set, the formatted
-argument is output as is.
+If @var{$html_element} is undefined and @var{$in_quotes} is not set,
+the formatted argument is output as is.
 @end defun
 
 For example, to set @code{@@sansserif@{argument@}} to be formatted as
 @code{<code>@var{argument}</code>} in normal and preformatted context,
-and as a quoted string in string context, use:
+with quotes in preformatted context, use:
 
 @example
 texinfo_register_style_command_formatting('sansserif', 'code', 0,
                                           'normal');
-texinfo_register_style_command_formatting('sansserif', 'code', 0,
+texinfo_register_style_command_formatting('sansserif', 'code', 1,
                                           'preformatted');
-texinfo_register_style_command_formatting('sansserif', undef, 1,
-                                          'string');
 @end example
 
 To output the formatted argument of @code{@@t} as is:
 @example
-foreach my $context ('normal', 'preformatted', 'string') @{
+foreach my $context ('normal', 'preformatted') @{
   texinfo_register_style_command_formatting ('t', undef,
                                              undef, $context);
 @}

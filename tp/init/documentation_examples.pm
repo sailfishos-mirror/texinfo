@@ -54,9 +54,7 @@ $translations{'fr'}->{'is the @strong{same} as'}
     = {'' => 'est la @strong{m@^eme} que',};
 
 texinfo_register_style_command_formatting('sansserif', 'code', 0, 'normal');
-texinfo_register_style_command_formatting('sansserif', 'code', 0, 'preformatted');
-texinfo_register_style_command_formatting('sansserif', undef, 1, 'string');
-
+texinfo_register_style_command_formatting('sansserif', 'code', 1, 'preformatted');
 texinfo_register_upper_case_command('sc', 0);
 texinfo_register_upper_case_command('var', 1);
 

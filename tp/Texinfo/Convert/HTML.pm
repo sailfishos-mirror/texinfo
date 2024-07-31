@@ -2633,6 +2633,10 @@ my %default_converted_directions_strings
 my %default_translated_directions_strings
    = %{ Texinfo::Data::get_default_translated_directions_strings() };
 
+my @style_commands_contexts = ('normal', 'preformatted');
+my @no_args_commands_contexts
+    = ('normal', 'preformatted', 'string', 'css_string');
+
 sub _translate_names($)
 {
   my $self = shift;
@@ -2679,7 +2683,7 @@ sub _translate_names($)
   }
   my %translated_commands;
   foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}})) {
-    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
+    foreach my $context (@no_args_commands_contexts) {
       if (defined($self->{'no_arg_commands_formatting'}
                          ->{$command}->{$context}->{'translated_converted'})
           and not $self->{'no_arg_commands_formatting'}
@@ -3149,7 +3153,7 @@ my %default_upper_case_commands = ( 'sc' => 1 );
 my %style_commands_element
    = %{ Texinfo::Data::get_html_style_commands_element() };
 
-my %style_commands_formatting;
+my %default_style_commands_formatting;
 
 my %style_brace_types = map {$_ => 1} ('style_other', 'style_code',
                                        'style_no_code');
@@ -3163,30 +3167,33 @@ my @all_style_commands = keys %{{ map { $_ => 1 }
     ((grep {$style_brace_types{$brace_commands{$_}}} keys(%brace_commands)),
       keys(%style_commands_element), keys(%quoted_style_commands)) }};
 
+# NOTE only normal and preformatted contexts are used.  css strings
+# are formatted in string context, and in string context the argument
+# is returned as is.
 foreach my $command (@all_style_commands) {
   # indicateurl is formatted with a specific function
   next if ($command eq 'indicateurl');
-  $style_commands_formatting{$command} = {};
+  $default_style_commands_formatting{$command} = {};
   # default is no element.
-  foreach my $context ('normal', 'string', 'preformatted') {
-    $style_commands_formatting{$command}->{$context} = {}
+  foreach my $context (@style_commands_contexts) {
+    $default_style_commands_formatting{$command}->{$context} = {}
   }
   if (exists($style_commands_element{$command})) {
     my $html_element = $style_commands_element{$command};
-    foreach my $context ('normal', 'preformatted') {
-      $style_commands_formatting{$command}->{$context}
+    foreach my $context (@style_commands_contexts) {
+      $default_style_commands_formatting{$command}->{$context}
                            = {'element' => $html_element};
     }
   }
   if ($quoted_style_commands{$command}) {
-    foreach my $context ('normal', 'string', 'preformatted') {
-      $style_commands_formatting{$command}->{$context}->{'quote'} = 1;
+    foreach my $context (@style_commands_contexts) {
+      $default_style_commands_formatting{$command}->{$context}->{'quote'} = 1;
     }
   }
   $default_commands_conversion{$command} = \&_convert_style_command;
 }
 
-$style_commands_formatting{'sc'}->{'preformatted'}->{'element'} = 'span';
+$default_style_commands_formatting{'sc'}->{'preformatted'}->{'element'} = 'span';
 
 # currently unused, could be re-used if there is a need to have attributes
 # specified in %style_commands_element
@@ -8859,18 +8866,33 @@ sub converter_initialize($)
     }
   }
 
-  $self->{'style_commands_formatting'} = {};
-  foreach my $command (keys(%style_commands_formatting)) {
-    $self->{'style_commands_formatting'}->{$command} = {};
-    foreach my $context (keys(%{$style_commands_formatting{$command}})) {
+  # get all the customization
+  my %style_commands_customized_formatting_info = ();
+  foreach my $command (keys(%default_style_commands_formatting)) {
+    foreach my $context (@style_commands_contexts) {
       my $style_commands_formatting_info
         = Texinfo::Config::GNUT_get_style_command_formatting($command, $context);
       if (defined($style_commands_formatting_info)) {
+        if (!$style_commands_customized_formatting_info{$command}) {
+          $style_commands_customized_formatting_info{$command} = {};
+        }
+        $style_commands_customized_formatting_info{$command}->{$context}
+          = $style_commands_formatting_info;
+      }
+    }
+  }
+
+  $self->{'style_commands_formatting'} = {};
+  foreach my $command (keys(%default_style_commands_formatting)) {
+    $self->{'style_commands_formatting'}->{$command} = {};
+    foreach my $context (@style_commands_contexts) {
+      if ($style_commands_customized_formatting_info{$command}
+          and $style_commands_customized_formatting_info{$command}->{$context}) {
         $self->{'style_commands_formatting'}->{$command}->{$context}
-           = $style_commands_formatting_info;
-      } elsif (exists($style_commands_formatting{$command}->{$context})) {
+          = $style_commands_customized_formatting_info{$command}->{$context};
+      } elsif (exists($default_style_commands_formatting{$command}->{$context})) {
         $self->{'style_commands_formatting'}->{$command}->{$context}
-           = $style_commands_formatting{$command}->{$context};
+          = $default_style_commands_formatting{$command}->{$context};
       }
     }
   }
@@ -8906,7 +8928,7 @@ sub converter_initialize($)
   $self->{'customized_no_arg_commands_formatting'} = {};
   foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     $self->{'customized_no_arg_commands_formatting'}->{$command} = {};
-    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
+    foreach my $context (@no_args_commands_contexts) {
       my $no_arg_command_customized_formatting
         = Texinfo::Config::GNUT_get_no_arg_command_formatting($command,
                                                               $context);
@@ -11949,7 +11971,7 @@ sub conversion_initialization($$;$)
   $self->{'no_arg_commands_formatting'} = {};
   foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     $self->{'no_arg_commands_formatting'}->{$command} = {};
-    foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
+    foreach my $context (@no_args_commands_contexts) {
       my $no_arg_command_customized_formatting
         = $self->{'customized_no_arg_commands_formatting'}
                                              ->{$command}->{$context};
