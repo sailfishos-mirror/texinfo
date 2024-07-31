@@ -8745,7 +8745,7 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$$$$$$)
+sub _XS_html_converter_initialize($$$$$$$$$$$$$$$$$$)
 {
 }
 
@@ -8943,19 +8943,22 @@ sub converter_initialize($)
 
   # get customization only at that point, as the defaults may be changed
   # with the encoding
-  $self->{'customized_no_arg_commands_formatting'} = {};
+  my $customized_no_arg_commands_formatting = {};
   foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-    $self->{'customized_no_arg_commands_formatting'}->{$command} = {};
+    $customized_no_arg_commands_formatting->{$command} = {};
     foreach my $context (@no_args_commands_contexts) {
       my $no_arg_command_customized_formatting
         = Texinfo::Config::GNUT_get_no_arg_command_formatting($command,
                                                               $context);
       if (defined($no_arg_command_customized_formatting)) {
-        $self->{'customized_no_arg_commands_formatting'}->{$command}->{$context}
+        $customized_no_arg_commands_formatting->{$command}->{$context}
            = $no_arg_command_customized_formatting;
       }
     }
   }
+
+  $self->{'customized_no_arg_commands_formatting'}
+    = $customized_no_arg_commands_formatting;
 
   $self->{'file_id_setting'} = {};
   my $customized_file_id_setting_references
@@ -9148,7 +9151,8 @@ sub converter_initialize($)
                              $customized_upper_case_commands,
                              $customized_type_formatting,
                              \%customized_accent_entities,
-                     \%style_commands_customized_formatting_info,
+                             \%style_commands_customized_formatting_info,
+                             $customized_no_arg_commands_formatting,
                              $customized_special_unit_info,
                              $customized_direction_strings
                             );

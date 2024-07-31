@@ -229,6 +229,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *customized_type_formatting,
                               SV *customized_accent_entities,
                               SV *customized_style_commands,
+                              SV *customized_no_arg_commands_formatting,
                               SV *customized_direction_strings
                              )
 {
@@ -251,7 +252,6 @@ html_converter_initialize_sv (SV *converter_sv,
   SV **types_conversion_sv;
   SV **commands_open_sv;
   SV **commands_conversion_sv;
-  SV **customized_no_arg_commands_formatting_sv;
   SV **output_units_conversion_sv;
   SV **file_id_setting_sv;
   HV *formatting_function_hv;
@@ -602,14 +602,13 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-  FETCH(customized_no_arg_commands_formatting)
-  if (customized_no_arg_commands_formatting_sv)
+  if (customized_no_arg_commands_formatting
+      && SvOK (customized_no_arg_commands_formatting))
     {
       I32 hv_number;
       I32 i;
       HV *customized_no_arg_commands_formatting_hv
-        = (HV *) SvRV (*customized_no_arg_commands_formatting_sv);
+        = (HV *) SvRV (customized_no_arg_commands_formatting);
 
       hv_number = hv_iterinit (customized_no_arg_commands_formatting_hv);
 
@@ -877,6 +876,7 @@ html_converter_initialize_sv (SV *converter_sv,
         }
     }
 
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
   FETCH(htmlxref)
 
   if (htmlxref_sv)
@@ -1246,15 +1246,6 @@ html_converter_initialize_sv (SV *converter_sv,
             }
         }
     }
-
-  html_converter_initialize (converter);
-
-  /* at that point, the format specific informations, in particular the number
-     of special elements is available, such that all the options can be
-     passed to C.  It is important to set the force argument to 1 to get
-     all the configuration, even if the configured field is set */
-  copy_converter_conf_sv (converter_hv, converter,
-                          &converter->conf, "conf", 1);
 }
 
 /* not used, the initialization is done in C, with customization taken

@@ -579,36 +579,49 @@ void
 html_format_setup ()
 
 void
-html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_type_formatting, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_special_unit_info, SV *customized_direction_strings)
+html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_type_formatting, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
       PREINIT:
         CONVERTER *self;
+        HV *converter_hv;
       CODE:
-         self = get_sv_converter (converter_in, "html_converter_initialize_sv");
+        self = get_sv_converter (converter_in, "html_converter_initialize_sv");
 
-         /* initialize first the special unit info, as the special unit
-            directions are needed for the remainder of initialization.
-            Therefore special unit Perl customization needs to be read
-            and special unit initialization in C code needs to be run
-            too before doing the remaining */
-         html_converter_init_special_unit_sv (converter_in,
-                                              customized_special_unit_info);
-         html_converter_init_special_unit (self);
-         html_converter_initialize_sv (converter_in,
-                          default_formatting_references,
-                          default_css_string_formatting_references,
-                          default_commands_open,
-                          default_commands_conversion,
-                          default_css_string_commands_conversion,
-                          default_types_open,
-                          default_types_conversion,
-                          default_css_string_types_conversion,
-                          default_output_units_conversion,
-                          default_special_unit_body,
-                          customized_upper_case_commands,
-                          customized_type_formatting,
-                          customized_accent_entities,
-                          customized_style_commands,
-                          customized_direction_strings);
+        converter_hv = (HV *)SvRV (converter_in);
+
+        /* initialize first the special unit info, as the special unit
+           directions are needed for the remainder of initialization.
+           Therefore special unit Perl customization needs to be read
+           and special unit initialization in C code needs to be run
+           too before doing the remaining */
+        html_converter_init_special_unit_sv (converter_in,
+                                             customized_special_unit_info);
+        html_converter_init_special_unit (self);
+        html_converter_initialize_sv (converter_in,
+                         default_formatting_references,
+                         default_css_string_formatting_references,
+                         default_commands_open,
+                         default_commands_conversion,
+                         default_css_string_commands_conversion,
+                         default_types_open,
+                         default_types_conversion,
+                         default_css_string_types_conversion,
+                         default_output_units_conversion,
+                         default_special_unit_body,
+                         customized_upper_case_commands,
+                         customized_type_formatting,
+                         customized_accent_entities,
+                         customized_style_commands,
+                         customized_no_arg_commands_formatting,
+                         customized_direction_strings);
+
+        html_converter_initialize (self);
+
+   /* at that point, the format specific informations, in particular the number
+      of special elements is available, such that all the options can be
+      passed to C.  It is important to set the force argument to 1 to get
+      all the configuration, even if the configured field is set */
+        copy_converter_conf_sv (converter_hv, self,
+                                &self->conf, "conf", 1);
 
 
 void

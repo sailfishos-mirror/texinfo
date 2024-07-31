@@ -26,6 +26,7 @@ void html_converter_initialize_sv (SV *converter_sv,
                                   SV *customized_type_formatting,
                                   SV *customized_accent_entities,
                                   SV *customized_style_commands,
+                                  SV *customized_no_arg_commands_formatting,
                                   SV *customized_direction_strings
                                   );
 
