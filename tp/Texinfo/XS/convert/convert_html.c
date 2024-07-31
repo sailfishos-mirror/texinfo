@@ -200,7 +200,8 @@ CMD_VARIETY command_special_unit_variety[] = {
                                 {0, 0},
 };
 
-static HTML_NO_ARG_COMMAND_CONVERSION default_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+static HTML_NO_ARG_COMMAND_CONVERSION default_no_arg_commands_formatting
+                              [BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
 
 /* used to set flags to non-zero with a flag that does nothing */
 #define F_AFT_none              0x0001
@@ -16831,6 +16832,7 @@ html_format_setup (void)
 {
   int i;
   int no_arg_formatted_cmd_nr = 0;
+  int no_arg_formatted_cmd_idx;
   int default_commands_args_nr
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
@@ -16958,15 +16960,7 @@ html_format_setup (void)
   initialize_cmd_list (&no_arg_formatted_cmd, no_arg_formatted_cmd_nr,
                        no_arg_formatted_cmd_nr);
 
-  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
-    {
-      enum conversion_context cctx;
-      /* set unset for string and preformatted contexts */
-      for (cctx = 1; cctx < HCC_type_css_string; cctx++)
-        default_no_arg_commands_formatting[i][cctx].unset = 1;
-    }
-
-  no_arg_formatted_cmd_nr = 0;
+  no_arg_formatted_cmd_idx = 0;
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
       if (xml_text_entity_no_arg_commands_formatting[i])
@@ -16976,10 +16970,19 @@ html_format_setup (void)
           default_no_arg_commands_formatting[i][HCC_type_normal].text
              = (char *)xml_text_entity_no_arg_commands_formatting[i];
 
-          no_arg_formatted_cmd.list[no_arg_formatted_cmd_nr] = i;
-          no_arg_formatted_cmd_nr++;
+          no_arg_formatted_cmd.list[no_arg_formatted_cmd_idx] = i;
+          no_arg_formatted_cmd_idx++;
+
+          /* preset unset for string and preformatted contexts */
+          /* css_string coverage is checked when setting css string context
+             values below and unset is set explicitely if needed */
+          default_no_arg_commands_formatting[i][HCC_type_string].unset = 1;
+          default_no_arg_commands_formatting[i][HCC_type_preformatted].unset = 1;
         }
     }
+  /* modify normal context values and add other contexts values, removing
+     unset.  Should only be for commands with normal context already set.
+   */
   default_no_arg_commands_formatting[CM_SPACE][HCC_type_normal].text = "&nbsp;";
   default_no_arg_commands_formatting[CM_TAB][HCC_type_normal].text = "&nbsp;";
   default_no_arg_commands_formatting[CM_NEWLINE][HCC_type_normal].text = "&nbsp;";
@@ -17057,7 +17060,8 @@ html_format_setup (void)
                                "ul.mark-none", "list-style-type: none");
 
   text_init (&css_string_text);
-  /* setup default_css_element_class_styles for mark commands based on css strings */
+  /* setup default_css_element_class_styles for mark commands based on
+     css strings */
   for (i = 0; i < no_arg_formatted_cmd_nr; i++)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[i];
@@ -18198,7 +18202,8 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   /* corresponds with default_no_arg_commands_formatting
      + conf_default_no_arg_commands_formatting_normal in Perl */
   HTML_NO_ARG_COMMAND_CONVERSION
-   output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+   output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER]
+                                              [NO_ARG_COMMAND_CONTEXT_NR];
 
   output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
 
@@ -18313,7 +18318,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[i];
       enum conversion_context cctx;
-      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+      for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_cmd
             = self->customized_no_arg_commands_formatting[cmd][cctx];
@@ -19536,7 +19541,7 @@ html_free_converter (CONVERTER *self)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[i];
       enum conversion_context cctx;
-      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+      for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           HTML_NO_ARG_COMMAND_CONVERSION *format_spec
                 = &self->html_no_arg_command_conversion[cmd][cctx];
@@ -19548,7 +19553,7 @@ html_free_converter (CONVERTER *self)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[i];
       enum conversion_context cctx;
-      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+      for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           HTML_NO_ARG_COMMAND_CONVERSION *format_spec
             = self->customized_no_arg_commands_formatting[cmd][cctx];
@@ -19573,7 +19578,7 @@ html_free_converter (CONVERTER *self)
     {
       enum command_id cmd = self->style_formatted_cmd.list[i];
       enum conversion_context cctx;
-      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+      for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
         {
           HTML_STYLE_COMMAND_CONVERSION *format_spec
                 = &self->html_style_command_conversion[cmd][cctx];
@@ -19791,7 +19796,7 @@ html_translate_names (CONVERTER *self)
           enum command_id cmd = no_arg_formatted_cmd.list[j];
           enum conversion_context cctx;
           int add_cmd = 0;
-          for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+          for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
             {
               HTML_NO_ARG_COMMAND_CONVERSION *format_spec
                 = &self->html_no_arg_command_conversion[cmd][cctx];

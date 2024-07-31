@@ -777,7 +777,6 @@ html_converter_initialize_sv (SV *converter_sv,
 
   if (style_commands_formatting_sv)
     {
-      int max_context = HCC_type_string;
       I32 hv_number;
       I32 i;
 
@@ -817,7 +816,7 @@ html_converter_initialize_sv (SV *converter_sv,
                       int context_idx = -1;
                       SV *format_spec_sv = hv_iternextsv (context_hv,
                                                  &context_name, &retlen);
-                      for (k = 0; k < max_context +1; k++)
+                      for (k = 0; k < STYLE_COMMAND_CONTEXT_NR; k++)
                         {
                           if (!strcmp (context_name,
                                 html_conversion_context_type_names[k]))
@@ -875,7 +874,6 @@ html_converter_initialize_sv (SV *converter_sv,
   FETCH(customized_no_arg_commands_formatting)
   if (customized_no_arg_commands_formatting_sv)
     {
-      int max_context = HCC_type_css_string;
       I32 hv_number;
       I32 i;
       HV *customized_no_arg_commands_formatting_hv
@@ -911,7 +909,7 @@ html_converter_initialize_sv (SV *converter_sv,
                       int context_idx = -1;
                       SV *format_spec_sv = hv_iternextsv (context_hv,
                                                  &context_name, &retlen);
-                      for (k = 0; k < max_context +1; k++)
+                      for (k = 0; k < NO_ARG_COMMAND_CONTEXT_NR; k++)
                         {
                           if (!strcmp (context_name,
                                 html_conversion_context_type_names[k]))
@@ -1281,7 +1279,6 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
 
   if (no_arg_commands_formatting_sv)
     {
-      int max_context = HCC_type_css_string;
       I32 hv_number;
       I32 i;
 
@@ -1317,7 +1314,7 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
                       int context_idx = -1;
                       SV *format_spec_sv = hv_iternextsv (context_hv,
                                                  &context_name, &retlen);
-                      for (k = 0; k < max_context +1; k++)
+                      for (k = 0; k < NO_ARG_COMMAND_CONTEXT_NR; k++)
                         {
                           if (!strcmp (context_name,
                                 html_conversion_context_type_names[k]))

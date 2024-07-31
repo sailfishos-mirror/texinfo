@@ -110,7 +110,7 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
       hv_store (no_arg_commands_formatting_hv, command_name,
                 strlen (command_name), newRV_noinc ((SV *) context_hv), 0);
 
-      for (cctx = 0; cctx < HCC_type_css_string+1; cctx++)
+      for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           const HTML_NO_ARG_COMMAND_CONVERSION *no_arg_format
             = &converter->html_no_arg_command_conversion[cmd][cctx];
@@ -608,7 +608,6 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)
     {
-      int max_context = HCC_type_css_string +1;
       int j;
       HV *no_arg_commands_formatting_hv;
       FETCH(no_arg_commands_formatting);
@@ -624,7 +623,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
              = hv_fetch (no_arg_commands_formatting_hv,
                          cmdname, strlen (cmdname), 0);
           HV *no_arg_command_hv = (HV *) SvRV (*no_arg_command_sv);
-          for (k = 0; k < max_context; k++)
+          for (k = 0; k < NO_ARG_COMMAND_CONTEXT_NR; k++)
             {
               HTML_NO_ARG_COMMAND_CONVERSION *no_arg_cmd_context
                   = &converter->html_no_arg_command_conversion[cmd][k];

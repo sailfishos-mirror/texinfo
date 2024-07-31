@@ -78,6 +78,9 @@ enum conversion_context {
   #undef cctx_type
 };
 
+#define STYLE_COMMAND_CONTEXT_NR HCC_type_preformatted +1
+#define NO_ARG_COMMAND_CONTEXT_NR HCC_type_css_string +1
+
 enum special_target_type {
    ST_footnote_location,
 };
@@ -810,13 +813,11 @@ typedef struct CONVERTER {
     HTML_DIRECTION_STRING_TRANSLATED *translated_direction_strings[TDS_TRANSLATED_MAX_NR];
     HTML_DIRECTION_STRING_TRANSLATED **customized_translated_direction_strings[TDS_TRANSLATED_MAX_NR];
     HTML_STAGE_HANDLER_INFO_LIST html_stage_handlers[HSHT_type_finish +1];
-    HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+    HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***customized_directions_strings[(TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR)];
+    HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
     /* set for a converter, modified in a document */
-       /* Only normal and preformatted HCC_type are actually used for
-        style commands */
-    HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
-    HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][HCC_type_css_string+1];
+    HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
     char ***directions_strings[TDS_TYPE_MAX_NR];
     const char **direction_unit_direction_name;
 
