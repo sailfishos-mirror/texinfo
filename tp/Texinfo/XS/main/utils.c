@@ -1612,6 +1612,9 @@ enumerate_item_representation (char *specification, int number)
   return result.text;
 }
 
+
+/* html options */
+
 void
 html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
 {
@@ -1665,6 +1668,25 @@ html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
   free (direction_icons->list);
   direction_icons->number = 0;
   direction_icons->list = 0;
+}
+
+/* here because it is used in main/get_perl_info.c */
+
+/* return -2 if there are info and not found. */
+int
+html_get_direction_index (const CONVERTER *converter, const char *direction)
+{
+  int i;
+  if (converter && converter->direction_unit_direction_name)
+    {
+      for (i = 0; converter->direction_unit_direction_name[i]; i++)
+        {
+          if (!strcmp (direction, converter->direction_unit_direction_name[i]))
+            return i;
+        }
+      return -2;
+    }
+  return -1;
 }
 
 

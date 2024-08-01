@@ -261,6 +261,8 @@ const ELEMENT *get_cmd_global_uniq_command (
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
 void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
+int html_get_direction_index (const CONVERTER *converter,
+                              const char *direction);
 
 void initialize_option (OPTION *option, enum global_option_type type);
 void clear_option (OPTION *option);

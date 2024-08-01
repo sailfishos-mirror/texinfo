@@ -1482,26 +1482,6 @@ free_generic_converter (CONVERTER *self)
 }
 
 
-/* here because it is used in main/get_perl_info.c */
-
-/* return -2 if there are info and not found. */
-int
-html_get_direction_index (const CONVERTER *converter, const char *direction)
-{
-  int i;
-  if (converter && converter->direction_unit_direction_name)
-    {
-      for (i = 0; converter->direction_unit_direction_name[i]; i++)
-        {
-          if (!strcmp (direction, converter->direction_unit_direction_name[i]))
-            return i;
-        }
-      return -2;
-    }
-  return -1;
-}
-
-
 
 /* XML conversion functions */
 
