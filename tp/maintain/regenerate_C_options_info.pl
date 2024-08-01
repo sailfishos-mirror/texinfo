@@ -301,7 +301,9 @@ sub get_value($$)
     if ($type eq 'integer') {
       $int_value = $value;
     } else {
-      $char_value = '"'.$value.'"';
+      my $protected = $value;
+      $protected =~ s/\"/\\\"/g;
+      $char_value = '"'.$protected.'"';
     }
   }
 

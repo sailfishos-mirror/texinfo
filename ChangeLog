@@ -7,6 +7,15 @@
 
 2024-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl: protect " in generated C
+	strings.
+
+	* tp/Texinfo/Convert/HTML.pm (_set_variables_texi2html),
+	tp/Texinfo/Convert/converters_defaults.txt (texi2html): add texi2html
+	regular options to Texinfo/Convert/converters_defaults.txt.
+
+2024-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Utils.pm (output_files_initialize)
 	(output_files_disable_output_encoding, output_files_open_out)
 	(output_files_register_closed, output_files_opened_files)

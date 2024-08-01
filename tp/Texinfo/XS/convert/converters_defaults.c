@@ -75,3 +75,30 @@ void set_html_regular_options_defaults (OPTIONS *options)
   set_conf (&options->xrefautomaticsectiontitle, -2, "on");
 }
 
+void set_texi2html_regular_options_defaults (OPTIONS *options)
+{
+  set_conf (&options->FORMAT_MENU, -2, "menu");
+  set_conf (&options->USE_SETFILENAME_EXTENSION, 0, 0);
+  set_conf (&options->footnotestyle, -2, "separate");
+  set_conf (&options->CONTENTS_OUTPUT_LOCATION, -2, "separate_element");
+  set_conf (&options->FORCE, 1, 0);
+  set_conf (&options->USE_ACCESSKEY, 0, 0);
+  set_conf (&options->NODE_NAME_IN_MENU, 0, 0);
+  set_conf (&options->SHORT_TOC_LINK_TO_TOC, 0, 0);
+  set_conf (&options->SHOW_TITLE, 1, 0);
+  set_conf (&options->USE_REL_REV, 0, 0);
+  set_conf (&options->USE_LINKS, 0, 0);
+  set_conf (&options->USE_NODES, 0, 0);
+  set_conf (&options->SPLIT, -2, "");
+  set_conf (&options->PROGRAM_NAME_IN_FOOTER, 1, 0);
+  set_conf (&options->PROGRAM_NAME_IN_ABOUT, 1, 0);
+  set_conf (&options->HEADER_IN_TABLE, 1, 0);
+  set_conf (&options->MENU_ENTRY_COLON, -2, "");
+  set_conf (&options->INDEX_ENTRY_COLON, -2, "");
+  set_conf (&options->DO_ABOUT, -1, 0);
+  set_conf (&options->CHAPTER_HEADER_LEVEL, 1, 0);
+  set_conf (&options->BIG_RULE, -2, "<hr style=\"height: 6px;\">");
+  set_conf (&options->FOOTNOTE_END_HEADER_LEVEL, 3, 0);
+  set_conf (&options->FOOTNOTE_SEPARATE_HEADER_LEVEL, 1, 0);
+}
+

@@ -24,6 +24,7 @@ use strict;
 
 use warnings;
 
+# in Perl core standard modules
 use File::Basename;
 use Text::Wrap;
 

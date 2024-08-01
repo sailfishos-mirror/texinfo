@@ -22,7 +22,7 @@ use warnings;
 use File::Basename;
 
 use List::Util qw(first);
-# not in core perl
+# not in Perl core standard modules
 use Text::CSV;
 
 my $dir = 'maintain';

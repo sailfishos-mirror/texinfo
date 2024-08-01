@@ -18,4 +18,6 @@ void set_converter_regular_options_defaults (OPTIONS *options);
 
 void set_html_regular_options_defaults (OPTIONS *options);
 
+void set_texi2html_regular_options_defaults (OPTIONS *options);
+
 #endif

@@ -13732,32 +13732,6 @@ sub _set_variables_texi2html($)
 {
   my $options = shift;
   my @texi2html_options = (
-  # added hopefully temporarily to be able to validate with W3C validator
-  #['DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">'],
-  #['DOCTYPE', '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">'],
-  ['FORMAT_MENU', 'menu'],
-  ['USE_SETFILENAME_EXTENSION', 0],
-  ['footnotestyle', 'separate'],
-  ['CONTENTS_OUTPUT_LOCATION', 'separate_element'],
-  ['FORCE', 1],
-  ['USE_ACCESSKEY', 0],
-  ['NODE_NAME_IN_MENU', 0],
-  ['SHORT_TOC_LINK_TO_TOC', 0],
-  ['SHOW_TITLE', 1],
-  ['USE_REL_REV', 0],
-  ['USE_LINKS', 0],
-  ['USE_NODES', 0],
-  ['SPLIT', ''],
-  ['PROGRAM_NAME_IN_FOOTER', 1],
-  ['PROGRAM_NAME_IN_ABOUT', 1],
-  ['HEADER_IN_TABLE', 1],
-  ['MENU_ENTRY_COLON', ''],
-  ['INDEX_ENTRY_COLON', ''],
-  ['DO_ABOUT', undef],
-  ['CHAPTER_HEADER_LEVEL', 1],
-  ['BIG_RULE', '<hr style="height: 6px;">'],
-  ['FOOTNOTE_END_HEADER_LEVEL', 3],
-  ['FOOTNOTE_SEPARATE_HEADER_LEVEL', 1],
   ['SECTION_BUTTONS', ['FastBack', 'Back', 'Up', 'Forward', 'FastForward',
                              ' ', ' ', ' ', ' ',
                              'Top', 'Contents', 'Index', 'About' ]],
@@ -13780,6 +13754,11 @@ sub _set_variables_texi2html($)
                              ' ', ' ', ' ', ' ',
                              'Top', 'Contents', 'Index', 'About' ]],
   );
+  my $regular_texi2html_options
+    = Texinfo::Options::get_converter_regular_options('texi2html');
+  foreach my $option (keys(%$regular_texi2html_options)) {
+    $options->{$option} = $regular_texi2html_options->{$option};
+  }
   foreach my $option (@texi2html_options) {
     $options->{$option->[0]} = $option->[1];
   }
