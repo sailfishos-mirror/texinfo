@@ -1,3 +1,15 @@
+2024-08-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/maintain/regenerate_C_options_info.pl: fix parsing of converter
+	defaults options with space.
+
+	* tp/Makefile.am (Texinfo/Options.pm), tp/Texinfo/XS/Makefile.am
+	(Options.pm), tp/maintain/regenerate_perl_options_info.pl: generate
+	Perl data based on Texinfo/Convert/converters_defaults.txt.
+
+	* tp/Texinfo/Convert/HTML.pm (%defaults): get options set from
+	Texinfo/Convert/converters_defaults.txt.
+
 2024-07-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.am (EXTRA_DIST),

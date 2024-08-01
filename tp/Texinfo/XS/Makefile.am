@@ -275,11 +275,16 @@ MAINTAINERCLEANFILES += main/global_commands_types.h
 
 # NOTE duplicate of a rule in ../../Makefile.am
 $(srcdir)/../Commands.pm: ../command_data.txt $(srcdir)/../../maintain/regenerate_commands_perl_info.pl
-	$(PERL) $(srcdir)/../../maintain/regenerate_commands_perl_info.pl $(srcdir)/../Commands.pm < $(srcdir)/../command_data.txt
+	$(PERL) $(srcdir)/../../maintain/regenerate_commands_perl_info.pl \
+	  $(srcdir)/../Commands.pm \
+	    < $(srcdir)/../command_data.txt
 
 # NOTE duplicate of a rule in ../../Makefile.am
-$(srcdir)/../Options.pm: $(srcdir)/../options_data.txt $(srcdir)/../../maintain/regenerate_perl_options_info.pl
-	$(PERL) $(srcdir)/../../maintain/regenerate_perl_options_info.pl $(srcdir)/../Options.pm < $(srcdir)/../options_data.txt
+$(srcdir)/../Options.pm: ../Convert/converters_defaults.txt ../options_data.txt $(srcdir)/../../maintain/regenerate_perl_options_info.pl
+	$(PERL) $(srcdir)/../../maintain/regenerate_perl_options_info.pl \
+	  $(srcdir)/../Convert/converters_defaults.txt \
+	  $(srcdir)/../Options.pm \
+	    < $(srcdir)/../options_data.txt
 
 $(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_text.c $(srcdir)/convert/cmd_converter.c: main/command_data.c ../Commands.pm ../Options.pm $(srcdir)/../../maintain/setup_converters_code_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../../maintain/setup_converters_code_tables.pl \

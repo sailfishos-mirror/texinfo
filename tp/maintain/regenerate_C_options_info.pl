@@ -107,7 +107,7 @@ while (<CDEF>) {
       if (/^ *([A-Za-z][A-Za-z0-9_]*)( +(.*))?$/) {
         my $option = $1;
         my $value = $3;
-        if (!defined($value) or $value =~ / +/) {
+        if (!defined($value) or $value =~ /^ +$/) {
           $value = '';
         }
         #print STDERR "$format|$variable|'$value'\n";
@@ -121,6 +121,8 @@ while (<CDEF>) {
   }
   $line++;
 }
+
+close(CDEF);
 
 my $code_file = $ARGV[2];
 die "Need a code file\n" if (!defined($code_file));

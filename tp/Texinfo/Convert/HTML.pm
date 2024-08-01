@@ -64,6 +64,7 @@ use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
 
 use Texinfo::Commands;
+use Texinfo::Options;
 use Texinfo::Common;
 use Texinfo::Data;
 use Texinfo::Config;
@@ -2511,65 +2512,16 @@ sub convert_tree_new_formatting_context($$$;$$$)
   return $result;
 }
 
+# values for integer and string options in code generated from
+# Texinfo/Convert/converters_defaults.txt
+my $regular_defaults = Texinfo::Options::get_converter_regular_options('html');
+
 my %defaults = (
   # Not a customization option variable
   'converted_format'   => 'html',
 
   # Customization option variables
-  'BIG_RULE'              => '<hr>',
-  'BODY_ELEMENT_ATTRIBUTES' => undef,
-  'CHAPTER_HEADER_LEVEL'  => 2,
-  'CLOSE_QUOTE_SYMBOL'    => undef,
-  'CONTENTS_OUTPUT_LOCATION' => 'after_top',
-  'CONVERT_TO_LATEX_IN_MATH' => undef,
-  'INDENTED_BLOCK_COMMANDS_IN_TABLE' => 0,
-  'COPIABLE_LINKS'        => 1,
-  'DATE_IN_HEADER'        => 0,
-  'DEFAULT_RULE'          => '<hr>',
-  'documentlanguage'      => 'en',
-  'DOCTYPE'               => '<!DOCTYPE html>',
-  'DO_ABOUT'              => 0,
-  'OUTPUT_CHARACTERS'     => 0,
-  'EXTENSION'             => 'html',
-  'EXTERNAL_CROSSREF_EXTENSION' => undef, # based on EXTENSION
-  'FOOTNOTE_END_HEADER_LEVEL' => 4,
-  'FOOTNOTE_SEPARATE_HEADER_LEVEL' => 4,
-  'FORMAT_MENU'           => 'sectiontoc',
-  'HEADERS'               => 1,
-  'INDEX_ENTRY_COLON'     => '',
-# if set style is added in attribute.
-  'INLINE_CSS_STYLE'      => 0,
-  'JS_WEBLABELS'          => 'generate',
-  'JS_WEBLABELS_FILE'     => 'js_licenses.html', # no clash with node name
-  'MAX_HEADER_LEVEL'      => 4,
-  'MENU_ENTRY_COLON'      => ':',
-  'MENU_SYMBOL'           => undef,
-  'MONOLITHIC'            => 1,
-  'NO_CUSTOM_HTML_ATTRIBUTE' => 0,
-# if set, no css is used.
-  'NO_CSS'                => 0,
-  'NO_NUMBER_FOOTNOTE_SYMBOL' => '*',
-  'NODE_NAME_IN_MENU'     => 1,
-  'OPEN_QUOTE_SYMBOL'     => undef,
-  'OUTPUT_ENCODING_NAME'  => 'utf-8',
-  'SECTION_NAME_IN_TITLE' => 0,
-  'SHORT_TOC_LINK_TO_TOC' => 1,
-  'SHOW_TITLE'            => undef,
-  'SPLIT'                 => 'node',
-  'TOP_FILE'              => 'index.html', # ignores EXTENSION
-  'TOP_NODE_FILE_TARGET'  => 'index.html', # ignores EXTENSION
-  'USE_ACCESSKEY'         => 1,
-  'USE_NEXT_HEADING_FOR_LONE_NODE' => 1,
-  'USE_ISO'               => 1,
-  'USE_LINKS'             => 1,
-  'USE_NODES'             => 1,
-  'USE_NODE_DIRECTIONS'   => undef,
-  'USE_REL_REV'           => 1,
-  'USE_TITLEPAGE_FOR_TITLE' => 1,
-  'WORDS_IN_PAGE'         => 300,
-  'XREF_USE_NODE_NAME_ARG' => undef, # for internal cross references
-  'XREF_USE_FLOAT_LABEL'   => 0,
-  'xrefautomaticsectiontitle' => 'on',
+  %{$regular_defaults},
 
   # Non-string customization variables
   # _default_panel_button_dynamic_direction use nodes direction based on USE_NODE_DIRECTIONS

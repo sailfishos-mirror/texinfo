@@ -28,6 +28,8 @@ my $program_name = basename($0);
 
 my %option_categories;
 
+my %options;
+
 while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     if (/^([^ ]+) +([^ ]+) +([^ ]+) +(.+)$/) {
@@ -45,13 +47,58 @@ while (<STDIN>) {
       }
       push @{$option_categories{$category}}, [$option, $value, $type];
       #print STDERR "$option, $category, $value, $type\n";
+      $options{$option} = [$category, $value, $type];
     } else {
       warn "ERROR: unexpected line: $_";
     }
   }
 }
 
-my $out_file = $ARGV[0];
+my $converter_defaults_file = $ARGV[0];
+die "Need converter defaults file\n" if (!defined($converter_defaults_file));
+
+open(CDEF, $converter_defaults_file)
+  or die "open $converter_defaults_file: $!";
+
+my %converter_defaults;
+my $format;
+my $line = 1;
+while (<CDEF>) {
+  if (not (/^ *#/ or /^ *$/)) {
+    if (/^ *- *(\S+)/) {
+      $format = $1;
+      if (!defined($converter_defaults{$format})) {
+        $converter_defaults{$format} = [];
+      }
+    } elsif (defined($format)) {
+      if (/^ *([A-Za-z][A-Za-z0-9_]*)( +(.*))?$/) {
+        my $option = $1;
+        my $value = $3;
+        if (!defined($value) or $value =~ /^ +$/) {
+          $value = '';
+        }
+        #print STDERR "$format|$variable|'$value'\n";
+        if (!defined($options{$option})) {
+          print STDERR "$converter_defaults_file: $line: unknown option $option\n";
+        } else {
+          my $option_info = $options{$option};
+          my ($option_unused, $main_default, $type) = @$option_info;
+
+          if (($type eq 'char' or $type eq 'bytes') and $value ne 'undef') {
+            $value = "'".$value."'";
+          }
+          push @{$converter_defaults{$format}}, [$option, $value];
+        }
+      }
+    }
+  }
+  $line++;
+}
+
+close(CDEF);
+
+
+my $out_file = $ARGV[1];
 die "Need an output file\n" if (!defined($out_file));
 
 open (OUT, ">$out_file") or die "Open $out_file: $!\n";
@@ -68,6 +115,26 @@ foreach my $category (sort(keys(%option_categories))) {
   }
   print OUT ");\n\n";
 }
+
+my @sorted_formats = sort(keys(%converter_defaults));
+
+my $function_lines = '';
+foreach my $format (@sorted_formats) {
+  my $hash = "%converter_${format}_regular_options_defaults";
+  print OUT "my $hash = (\n";
+  foreach my $option_spec (@{$converter_defaults{$format}}) {
+    my ($option, $value) = @$option_spec;
+    print OUT '  '.sprintf('%-34s', '"'.$option.'"')." => $value,\n";
+  }
+  print OUT ");\n\n";
+  $function_lines .= "  elsif (\$input eq '$format') \n   {return \\$hash;}\n"
+}
+
+print OUT "sub get_converter_regular_options {\n";
+print OUT "  my \$input = shift;\n";
+print OUT "  if (0) {}\n";
+print OUT $function_lines;
+print OUT "}\n\n";
 
 print OUT "1;\n";
 

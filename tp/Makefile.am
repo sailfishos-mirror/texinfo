@@ -384,10 +384,13 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 
 # FIXME duplicated in Texinfo/XS/Makefile.am. Remove from here?
 $(srcdir)/Texinfo/Commands.pm: Texinfo/command_data.txt $(srcdir)/maintain/regenerate_commands_perl_info.pl
-	$(srcdir)/maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/Texinfo/command_data.txt
+	$(PERL) $(srcdir)/maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/Texinfo/command_data.txt
 
-$(srcdir)/Texinfo/Options.pm: Texinfo/options_data.txt $(srcdir)/maintain/regenerate_perl_options_info.pl
-	$(srcdir)/maintain/regenerate_perl_options_info.pl $(srcdir)/Texinfo/Options.pm < $(srcdir)/Texinfo/options_data.txt
+$(srcdir)/Texinfo/Options.pm: Texinfo/Convert/converters_defaults.txt Texinfo/options_data.txt $(srcdir)/maintain/regenerate_perl_options_info.pl
+	$(PERL) $(srcdir)/maintain/regenerate_perl_options_info.pl \
+	    $(srcdir)/Texinfo/Convert/converters_defaults.txt \
+	    $(srcdir)/Texinfo/Options.pm \
+	       < $(srcdir)/Texinfo/options_data.txt
 
 $(srcdir)/Texinfo/Data.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/maintain/generate_code_convert_data.pl
 	$(srcdir)/maintain/generate_code_convert_data.pl \

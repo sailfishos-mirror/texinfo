@@ -19,7 +19,7 @@ void set_html_regular_options_defaults (OPTIONS *options)
   set_conf (&options->DATE_IN_HEADER, 0, 0);
   set_conf (&options->DEFAULT_RULE, -2, "<hr>");
   set_conf (&options->documentlanguage, -2, "en");
-  set_conf (&options->DOCTYPE, -2, "");
+  set_conf (&options->DOCTYPE, -2, "<!DOCTYPE html>");
   set_conf (&options->DO_ABOUT, 0, 0);
   set_conf (&options->OUTPUT_CHARACTERS, 0, 0);
   set_conf (&options->EXTENSION, -2, "html");
