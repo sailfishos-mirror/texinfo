@@ -424,7 +424,7 @@ sub close_files($)
 {
   my $converter = shift;
   my $converter_unclosed_files
-       = Texinfo::Common::output_files_unclosed_files(
+       = Texinfo::Convert::Utils::output_files_unclosed_files(
                                $converter->output_files_information());
   if ($converter_unclosed_files) {
     my $close_error_nr = 0;

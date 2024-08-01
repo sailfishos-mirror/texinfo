@@ -1495,6 +1495,8 @@ require Texinfo::Structuring;
 Texinfo::Structuring->import();
 require Texinfo::Transformations;
 Texinfo::Transformations->import();
+require Texinfo::Convert::Utils;
+Texinfo::Convert::Utils->import();
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::tp_builddir,
@@ -1788,17 +1790,17 @@ while(@input_files) {
     my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
     my $macro_expand_file_name = _decode_input($encoded_macro_expand_file_name);
     my $macro_expand_files_information
-          = Texinfo::Common::output_files_initialize();
+          = Texinfo::Convert::Utils::output_files_initialize();
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
     my ($macro_expand_fh, $error_message)
-          = Texinfo::Common::output_files_open_out(
+          = Texinfo::Convert::Utils::output_files_open_out(
                           $macro_expand_files_information, $document,
                           $encoded_macro_expand_file_name);
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
-      Texinfo::Common::output_files_register_closed(
+      Texinfo::Convert::Utils::output_files_register_closed(
                              $macro_expand_files_information,
                              $encoded_macro_expand_file_name);
       if (!close($macro_expand_fh)) {
@@ -1812,7 +1814,7 @@ while(@input_files) {
       $error_macro_expand_file = 1;
     }
     my $macro_expand_opened_file =
-      Texinfo::Common::output_files_opened_files(
+      Texinfo::Convert::Utils::output_files_opened_files(
                            $macro_expand_files_information);
     $error_macro_expand_file
          = merge_opened_files($error_macro_expand_file, \%opened_files,
@@ -1973,13 +1975,13 @@ while(@input_files) {
   }
 
   my $converter_opened_files
-    = Texinfo::Common::output_files_opened_files(
+    = Texinfo::Convert::Utils::output_files_opened_files(
                     $converter->output_files_information());
   $error_count = merge_opened_files($error_count, \%opened_files,
                                     $converter_opened_files);
   handle_errors($converter_registrar->errors(), $error_count, \%opened_files);
   my $converter_unclosed_files
-       = Texinfo::Common::output_files_unclosed_files(
+       = Texinfo::Convert::Utils::output_files_unclosed_files(
                                $converter->output_files_information());
   if ($converter_unclosed_files) {
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
@@ -2019,11 +2021,11 @@ while(@input_files) {
     my $internal_links_file_name
         = _decode_input($encoded_internal_links_file_name);
     my $internal_links_files_information
-         = Texinfo::Common::output_files_initialize();
+         = Texinfo::Convert::Utils::output_files_initialize();
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
     my ($internal_links_fh, $error_message)
-            = Texinfo::Common::output_files_open_out(
+            = Texinfo::Convert::Utils::output_files_open_out(
                               $internal_links_files_information, $converter,
                               $encoded_internal_links_file_name);
     my $error_internal_links_file;
@@ -2035,7 +2037,7 @@ while(@input_files) {
                       $real_command_name, $internal_links_file_name, $!));
         $error_internal_links_file = 1;
       }
-      Texinfo::Common::output_files_register_closed(
+      Texinfo::Convert::Utils::output_files_register_closed(
                                      $internal_links_files_information,
                                      $encoded_internal_links_file_name);
     } else {
@@ -2046,7 +2048,7 @@ while(@input_files) {
     }
 
     my $internal_links_opened_file
-        = Texinfo::Common::output_files_opened_files(
+        = Texinfo::Convert::Utils::output_files_opened_files(
                               $internal_links_files_information);
     $error_internal_links_file
            = merge_opened_files($error_internal_links_file,
@@ -2102,11 +2104,11 @@ while(@input_files) {
        = $converter_element_count->encoded_output_file_name(
                                              $sort_element_count_file_name);
     my $sort_elem_files_information
-          = Texinfo::Common::output_files_initialize();
+          = Texinfo::Convert::Utils::output_files_initialize();
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
     my ($sort_element_count_fh, $error_message)
-                = Texinfo::Common::output_files_open_out(
+                = Texinfo::Convert::Utils::output_files_open_out(
                        $sort_elem_files_information, $converter_element_count,
                                         $encoded_sort_element_count_file_name);
     my $error_sort_element_count_file;
@@ -2118,7 +2120,7 @@ while(@input_files) {
                       $real_command_name, $sort_element_count_file_name, $!));
         $error_sort_element_count_file = 1;
       }
-      Texinfo::Common::output_files_register_closed(
+      Texinfo::Convert::Utils::output_files_register_closed(
                                         $sort_elem_files_information,
                                         $encoded_sort_element_count_file_name);
     } else {
@@ -2128,7 +2130,7 @@ while(@input_files) {
     }
 
     my $sort_element_count_file_opened_file
-      = Texinfo::Common::output_files_opened_files(
+      = Texinfo::Convert::Utils::output_files_opened_files(
                                 $sort_elem_files_information);
     $error_sort_element_count_file
            = merge_opened_files($error_sort_element_count_file,

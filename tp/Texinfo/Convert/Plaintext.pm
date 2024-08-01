@@ -448,7 +448,7 @@ sub conversion_initialization($;$)
 
   %{$self->{'style_map'}} = %style_map;
 
-  Texinfo::Common::output_files_disable_output_encoding
+  Texinfo::Convert::Utils::output_files_disable_output_encoding
     ($self->{'output_files'}, 1);
 
   if ($self->get_conf('ENABLE_ENCODING')
@@ -738,7 +738,7 @@ sub output($$)
       my $error_message;
       # the third return information, set if the file has already been used
       # in this files_information is not checked as this cannot happen.
-      ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+      ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                     $self->output_files_information(), $self,
                     $encoded_outfile_name);
       if (!$fh) {
@@ -760,7 +760,7 @@ sub output($$)
     # NOTE do not close STDOUT now to avoid a perl warning.
     # TODO is it still true that there is such a warning?
     if ($fh and $outfile_name ne '-') {
-      Texinfo::Common::output_files_register_closed(
+      Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $encoded_outfile_name);
       if (!close($fh)) {
         $self->converter_document_error(
@@ -785,7 +785,7 @@ sub output($$)
       # open the file and output the elements
       if (!exists($files_filehandle{$output_unit_filename})) {
         my $error_message;
-        ($file_fh, $error_message) = Texinfo::Common::output_files_open_out(
+        ($file_fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(), $self,
                              $out_filepath);
         if (!$file_fh) {
@@ -805,7 +805,7 @@ sub output($$)
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
         # NOTE do not close STDOUT here to avoid a perl warning
         if ($out_filepath ne '-') {
-          Texinfo::Common::output_files_register_closed(
+          Texinfo::Convert::Utils::output_files_register_closed(
             $self->output_files_information(), $out_filepath);
           if (!close($file_fh)) {
             $self->converter_document_error(

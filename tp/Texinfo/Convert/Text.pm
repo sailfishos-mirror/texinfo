@@ -1007,7 +1007,7 @@ sub output($$)
     }
   }
   my $fh;
-  $self->{'output_files'} = Texinfo::Common::output_files_initialize();
+  $self->{'output_files'} = Texinfo::Convert::Utils::output_files_initialize();
   my ($encoded_outfile, $outfile_encoding);
   if (defined($outfile)) {
     ($encoded_outfile, $outfile_encoding)
@@ -1015,7 +1015,7 @@ sub output($$)
     my $error_message;
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
-    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+    ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                              $self->{'output_files'}, $self,
                              $encoded_outfile);
     if (!$fh) {
@@ -1038,7 +1038,7 @@ sub output($$)
 
   if ($fh) {
     print $fh $result;
-    Texinfo::Common::output_files_register_closed(
+    Texinfo::Convert::Utils::output_files_register_closed(
                   $self->{'output_files'}, $encoded_outfile);
     return undef if (!close($fh));
     $result = '';

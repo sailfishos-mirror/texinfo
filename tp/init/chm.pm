@@ -217,7 +217,8 @@ sub chm_init($)
   my $hhk_file_path_name = File::Spec->catfile($outdir, $hhk_filename);
   my ($encoded_hhk_file_path_name, $hhk_path_encoding)
     = $self->encoded_output_file_name($hhk_file_path_name);
-  my ($hhk_fh, $hhk_error_message) = Texinfo::Common::output_files_open_out(
+  my ($hhk_fh, $hhk_error_message)
+     = Texinfo::Convert::Utils::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhk_file_path_name);
   if (!defined($hhk_fh)) {
@@ -285,7 +286,7 @@ sub chm_init($)
     }
   }
   print $hhk_fh "</BODY>\n</HTML>\n";
-  Texinfo::Common::output_files_register_closed(
+  Texinfo::Convert::Utils::output_files_register_closed(
     $self->output_files_information(), $encoded_hhk_file_path_name);
   if (!close ($hhk_fh)) {
     $self->converter_document_error(
@@ -298,7 +299,8 @@ sub chm_init($)
   my $hhc_file_path_name = File::Spec->catfile($outdir, $hhc_filename);
   my ($encoded_hhc_file_path_name, $hhc_path_encoding)
     = $self->encoded_output_file_name($hhc_file_path_name);
-  my ($hhc_fh, $hhc_error_message) = Texinfo::Common::output_files_open_out(
+  my ($hhc_fh, $hhc_error_message)
+       = Texinfo::Convert::Utils::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhc_file_path_name);
   if (!defined($hhc_fh)) {
@@ -366,7 +368,7 @@ sub chm_init($)
     }
   }
   print $hhc_fh "</HTML>\n</BODY>\n";
-  Texinfo::Common::output_files_register_closed(
+  Texinfo::Convert::Utils::output_files_register_closed(
     $self->output_files_information(), $encoded_hhc_file_path_name);
   if (!close ($hhc_fh)) {
     $self->converter_document_error(
@@ -379,7 +381,8 @@ sub chm_init($)
   my $hhp_file_path_name = File::Spec->catfile($outdir, $hhp_filename);
   my ($encoded_hhp_file_path_name, $hhp_path_encoding)
     = $self->encoded_output_file_name($hhp_file_path_name);
-  my ($hhp_fh, $hhp_error_message) = Texinfo::Common::output_files_open_out(
+  my ($hhp_fh, $hhp_error_message)
+       = Texinfo::Convert::Utils::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhp_file_path_name);
   if (!defined($hhp_fh)) {
@@ -432,7 +435,7 @@ EOT
     }
   }
 
-  Texinfo::Common::output_files_register_closed(
+  Texinfo::Convert::Utils::output_files_register_closed(
     $self->output_files_information(), $encoded_hhp_file_path_name);
   if (!close ($hhp_fh)) {
     $self->converter_document_error(

@@ -622,7 +622,7 @@ sub epub_finish($$)
   my ($encoded_container_file_path_name, $container_path_encoding)
     = $self->encoded_output_file_name($container_file_path_name);
   my ($container_fh, $error_message_container)
-            = Texinfo::Common::output_files_open_out(
+            = Texinfo::Convert::Utils::output_files_open_out(
                           $self->output_files_information(), $self,
                           $encoded_container_file_path_name, undef, 'utf-8');
   if (!defined($container_fh)) {
@@ -648,7 +648,7 @@ sub epub_finish($$)
 </container>
 EOT
 
-  Texinfo::Common::output_files_register_closed(
+  Texinfo::Convert::Utils::output_files_register_closed(
     $self->output_files_information(), $encoded_container_file_path_name);
   if (!close ($container_fh)) {
     $self->converter_document_error(
@@ -663,7 +663,7 @@ EOT
   my ($encoded_mimetype_file_path_name, $mimetype_path_encoding)
     = $self->encoded_output_file_name($mimetype_file_path_name);
   my ($mimetype_fh, $error_message_mimetype)
-               = Texinfo::Common::output_files_open_out(
+               = Texinfo::Convert::Utils::output_files_open_out(
                         $self->output_files_information(), $self,
                         $encoded_mimetype_file_path_name, undef, 'utf-8');
   if (!defined($mimetype_fh)) {
@@ -676,7 +676,7 @@ EOT
   # example files demonstrate clearly that there should not be end of lines.
   print $mimetype_fh 'application/epub+zip';
 
-  Texinfo::Common::output_files_register_closed(
+  Texinfo::Convert::Utils::output_files_register_closed(
     $self->output_files_information(), $encoded_mimetype_file_path_name);
   if (!close ($mimetype_fh)) {
     $self->converter_document_error(
@@ -699,7 +699,7 @@ EOT
     my ($encoded_nav_file_path_name, $nav_path_encoding)
       = $self->encoded_output_file_name($nav_file_path_name);
     my ($nav_fh, $error_message_nav)
-           = Texinfo::Common::output_files_open_out(
+           = Texinfo::Convert::Utils::output_files_open_out(
                        $self->output_files_information(), $self,
                        $encoded_nav_file_path_name, undef, 'utf-8');
     if (!defined($nav_fh)) {
@@ -788,7 +788,7 @@ EOT
     # TODO add landmarks?
     print $nav_fh '</body>'."\n".'</html>'."\n";
 
-    Texinfo::Common::output_files_register_closed(
+    Texinfo::Convert::Utils::output_files_register_closed(
       $self->output_files_information(), $encoded_nav_file_path_name);
     if (!close ($nav_fh)) {
       $self->converter_document_error(
@@ -831,7 +831,7 @@ EOT
   my ($encoded_opf_file_path_name, $opf_path_encoding)
     = $self->encoded_output_file_name($opf_file_path_name);
   my ($opf_fh, $error_message_opf)
-            = Texinfo::Common::output_files_open_out(
+            = Texinfo::Convert::Utils::output_files_open_out(
                    $self->output_files_information(), $self,
                    $encoded_opf_file_path_name, undef, 'utf-8');
   if (!defined($opf_fh)) {
@@ -985,7 +985,7 @@ EOT
 </package>
 EOT
 
-  Texinfo::Common::output_files_register_closed(
+  Texinfo::Convert::Utils::output_files_register_closed(
     $self->output_files_information(), $encoded_opf_file_path_name);
   if (!close ($opf_fh)) {
     $self->converter_document_error(

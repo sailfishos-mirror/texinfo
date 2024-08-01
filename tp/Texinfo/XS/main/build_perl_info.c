@@ -2608,7 +2608,7 @@ build_output_files_unclosed_files (HV *hv,
 }
 
 /* input hv should be an output_files hv, in general setup by
- $converter->{'output_files'} = Texinfo::Common::output_files_initialize(); */
+ $converter->{'output_files'} = Texinfo::Convert::Utils::output_files_initialize(); */
 void
 build_output_files_opened_files (HV *hv,
                     const OUTPUT_FILES_INFORMATION *output_files_information)

@@ -347,7 +347,7 @@ sub output_ixin($$)
     my $error_message;
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
-    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+    ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_output_file);
     if (!$fh) {
@@ -1016,7 +1016,7 @@ sub output_ixin($$)
   $output .= $self->write_or_return($blobs, $fh);
 
   if ($fh and $output_file ne '-') {
-    Texinfo::Common::output_files_register_closed(
+    Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
       $self->converter_document_error(

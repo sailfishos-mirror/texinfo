@@ -257,7 +257,7 @@ sub set_document($$)
   }
 
   # In general, OUTPUT_PERL_ENCODING set below is needed for the output()
-  # entry point through Texinfo::Common::output_files_open_out.  It is
+  # entry point through Texinfo::Convert::Utils::output_files_open_out.  It is
   # also sometime needed for the converter itself.  If not, in general it
   # is not needed for the convert() entry point, so the call could also be
   # done more finely in converters, but it is not really important.
@@ -277,6 +277,8 @@ sub _internal_converter_initialize($)
       $converter->{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
+
+  $converter->{'error_warning_messages'} = [];
 }
 
 # this function is designed so as to be used in specific Converters
@@ -324,9 +326,7 @@ sub converter($;$)
 
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()
-  $converter->{'output_files'} = Texinfo::Common::output_files_initialize();
-
-  $converter->{'error_warning_messages'} = [];
+  $converter->{'output_files'} = Texinfo::Convert::Utils::output_files_initialize();
 
   # if with XS, XS converter initialization.
   # NOTE get_conf should not be used before that point, such that the conf is
@@ -401,7 +401,7 @@ sub output_tree($$)
     my $error_message;
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
-    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+    ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                               $self->output_files_information(), $self,
                               $encoded_output_file);
     if (!$fh) {
@@ -425,7 +425,7 @@ sub output_tree($$)
   $result .= $self->write_or_return($output_end, $fh);
 
   if ($fh and $output_file ne '-') {
-    Texinfo::Common::output_files_register_closed(
+    Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
       $self->converter_document_error(

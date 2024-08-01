@@ -370,7 +370,7 @@ sub output($$)
   return $result;
 }
 
-# Wrapper around Texinfo::Common::output_files_open_out.  Open the file
+# Wrapper around Texinfo::Convert::Utils::output_files_open_out.  Open the file
 # with any CR-LF conversion disabled.  We need this for tag tables to
 # be correct under MS-Windows.   Return filehandle or undef on failure.
 sub _open_info_file($$)
@@ -383,7 +383,7 @@ sub _open_info_file($$)
 
   # the third return information, set if the file has already been used
   # in this files_information is not checked as this cannot happen.
-  my ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+  my ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                                $self->output_files_information(), $self,
                                $encoded_filename, 'use_binmode');
 
@@ -404,7 +404,7 @@ sub _register_closed_info_file($$)
   my ($encoded_filename, $path_encoding)
       = $self->encoded_output_file_name($filename);
 
-  Texinfo::Common::output_files_register_closed(
+  Texinfo::Convert::Utils::output_files_register_closed(
              $self->output_files_information(), $encoded_filename)
 }
 

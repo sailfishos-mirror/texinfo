@@ -11752,7 +11752,7 @@ sub _do_jslicenses_file {
   my ($licence_file_path, $path_encoding)
      = $self->encoded_output_file_name($license_file);
   my ($fh, $error_message_licence_file, $overwritten_file)
-         = Texinfo::Common::output_files_open_out(
+         = Texinfo::Convert::Utils::output_files_open_out(
                          $self->output_files_information(), $self,
                          $licence_file_path);
   if ($overwritten_file) {
@@ -11762,7 +11762,7 @@ sub _do_jslicenses_file {
   }
   if (defined($fh)) {
     print $fh $a;
-    Texinfo::Common::output_files_register_closed(
+    Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $licence_file_path);
     if (!close ($fh)) {
       $self->converter_document_error(
@@ -12739,7 +12739,7 @@ sub _html_convert_output($$$$$$$$)
         # the third return information, set if the file has already been used
         # in this files_information is not checked as this cannot happen.
         my ($file_fh, $error_message)
-                = Texinfo::Common::output_files_open_out(
+                = Texinfo::Convert::Utils::output_files_open_out(
                          $self->output_files_information(), $self,
                          $encoded_out_filepath);
         if (!$file_fh) {
@@ -12760,7 +12760,7 @@ sub _html_convert_output($$$$$$$$)
 
         # NOTE do not close STDOUT here to avoid a perl warning
         if ($out_filepath ne '-') {
-          Texinfo::Common::output_files_register_closed(
+          Texinfo::Convert::Utils::output_files_register_closed(
              $self->output_files_information(), $encoded_out_filepath);
           if (!close($file_fh)) {
             $self->converter_document_error(
@@ -12937,7 +12937,7 @@ sub _node_redirections($$$$)
         # the third return information, set if the file has already been used
         # in this files_information is not checked as this cannot happen.
         my ($file_fh, $error_message)
-               = Texinfo::Common::output_files_open_out(
+               = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_out_filepath);
         if (!$file_fh) {
@@ -12946,7 +12946,7 @@ sub _node_redirections($$$$)
                                     $out_filepath, $error_message));
         } else {
           print $file_fh $redirection_page;
-          Texinfo::Common::output_files_register_closed(
+          Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $encoded_out_filepath);
           if (!close ($file_fh)) {
             $self->converter_document_error(sprintf(__(
