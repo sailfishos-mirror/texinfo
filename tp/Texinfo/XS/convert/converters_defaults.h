@@ -12,6 +12,10 @@
 #undef PACKAGE_URL
 #undef PACKAGE_VERSION
 
+void set_common_regular_options_defaults (OPTIONS *options);
+
+void set_converter_regular_options_defaults (OPTIONS *options);
+
 void set_html_regular_options_defaults (OPTIONS *options);
 
 #endif

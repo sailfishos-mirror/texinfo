@@ -18,6 +18,24 @@
 # this information is used to setup converter options for both C and
 # Perl.
 
+# for Texinfo::Convert::Converter
+- converter
+
+documentlanguage undef
+
+# in Texinfo::Convert::Converter, common to all the converters
+- common
+
+# This is the default, mainly for tests; the caller should set them.  These
+# values are what is used in tests of the Converters.  These variables are
+# customization options, set in the main program when a converter is
+# called from the main program.
+PACKAGE_AND_VERSION   texinfo
+PACKAGE_VERSION       
+PACKAGE_URL           http://www.gnu.org/software/texinfo/
+PROGRAM               
+
+
 - html
 
 BIG_RULE               <hr>

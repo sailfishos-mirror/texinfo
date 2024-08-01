@@ -116,6 +116,8 @@ foreach my $category (sort(keys(%option_categories))) {
   print OUT ");\n\n";
 }
 
+print OUT "\n\n#################################################\n\n";
+
 my @sorted_formats = sort(keys(%converter_defaults));
 
 my $function_lines = '';

@@ -6,6 +6,19 @@
 #include "converter.h"
 #include "converters_defaults.h"
 
+void set_common_regular_options_defaults (OPTIONS *options)
+{
+  set_conf (&options->PACKAGE_AND_VERSION, -2, "texinfo");
+  set_conf (&options->PACKAGE_VERSION, -2, "");
+  set_conf (&options->PACKAGE_URL, -2, "http://www.gnu.org/software/texinfo/");
+  set_conf (&options->PROGRAM, -2, "");
+}
+
+void set_converter_regular_options_defaults (OPTIONS *options)
+{
+  set_conf (&options->documentlanguage, -2, 0);
+}
+
 void set_html_regular_options_defaults (OPTIONS *options)
 {
   set_conf (&options->BIG_RULE, -2, "<hr>");

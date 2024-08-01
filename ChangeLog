@@ -1,5 +1,11 @@
 2024-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm,
+	tp/Texinfo/Convert/converters_defaults.txt: add converter and common
+	'formats' options to use in Texinfo/Convert/Converter.pm.
+
+2024-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_C_options_info.pl: fix parsing of converter
 	defaults options with space.
 

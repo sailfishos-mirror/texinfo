@@ -124,9 +124,16 @@ sub import {
   goto &Exporter::import;
 }
 
-my %defaults = (
-  'documentlanguage'     => undef,
-);
+# values for integer and string options in code generated from
+# Texinfo/Convert/converters_defaults.txt
+my $regular_defaults
+  = Texinfo::Options::get_converter_regular_options('converter');
+
+my %defaults = %$regular_defaults;
+
+# values for integer and string options in code generated from
+# Texinfo/Convert/converters_defaults.txt
+my $common_defaults = Texinfo::Options::get_converter_regular_options('common');
 
 # defaults for all converters that are not defined elsewhere.
 # undef values in general marks information passed by the caller that
@@ -150,14 +157,8 @@ my %common_converters_defaults = (
   # Not set in the main program
   'translated_commands'  => {'error' => 'error@arrow{}',},
 
-# This is the default, mainly for tests; the caller should set them.  These
-# values are what is used in tests of the Converters.  These variables are
-# customization options, set in the main program when a converter is
-# called from the main program.
-  'PACKAGE_AND_VERSION'  => 'texinfo',
-  'PACKAGE_VERSION'      => '',
-  'PACKAGE_URL'          => 'http://www.gnu.org/software/texinfo/',
-  'PROGRAM'              => '',
+# integer and string customization variables common for all the converters
+  %$common_defaults
 );
 
 my %all_converters_defaults
