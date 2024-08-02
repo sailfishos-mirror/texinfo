@@ -40,6 +40,13 @@
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
 
+/* for debugging */
+int
+get_refcount (void *sv)
+{
+  return SvREFCNT ((SV *) sv);
+}
+
 /* to be called when a tree element is destroyed, to remove the reference
    of the association with the C tree */
 void
@@ -55,11 +62,30 @@ unregister_perl_tree_element (ELEMENT *e)
 }
 
 void
+unregister_perl_buttons_list (BUTTON_SPECIFICATION_LIST *buttons_list)
+{
+  dTHX;
+
+  if (buttons_list->av)
+    SvREFCNT_dec (buttons_list->av);
+}
+
+void
+register_perl_buttons_list (BUTTON_SPECIFICATION_LIST *buttons_list)
+{
+  dTHX;
+
+  if (buttons_list->av)
+    SvREFCNT_inc (buttons_list->av);
+}
+
+void
 unregister_perl_button (BUTTON_SPECIFICATION *button)
 {
   dTHX;
 
-  SvREFCNT_dec (button->sv);
+  if (button->sv)
+    SvREFCNT_dec (button->sv);
 }
 
 void
@@ -67,7 +93,17 @@ register_perl_button (BUTTON_SPECIFICATION *button)
 {
   dTHX;
 
-  SvREFCNT_inc (button->sv);
+  if (button->sv)
+    SvREFCNT_inc (button->sv);
+}
+
+void
+unregister_perl_direction_icons (DIRECTION_ICON_LIST *direction_icons)
+{
+  dTHX;
+
+  if (direction_icons->sv)
+    SvREFCNT_dec (direction_icons->sv);
 }
 
 char *

@@ -265,36 +265,19 @@ sub set_document($$)
 }
 
 # initialization either in generic XS converter or in Perl
-sub _internal_converter_initialize($)
+sub _internal_converter_initialize($$$;$)
 {
   my $converter = shift;
-
-  # turn the array to a hash.
-  my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
-  $converter->{'expanded_formats'} = {};
-  if (defined($expanded_formats)) {
-    foreach my $expanded_format (@$expanded_formats) {
-      $converter->{'expanded_formats'}->{$expanded_format} = 1;
-    }
-  }
-
-  $converter->{'error_warning_messages'} = [];
-}
-
-# this function is designed so as to be used in specific Converters
-sub converter($;$)
-{
   my $class = shift;
+  my $format_defaults = shift;
   my $conf = shift;
 
-  my $converter = { 'configured' => {} };
+  my %defaults = %all_converters_defaults;
 
-  bless $converter, $class;
-
-  my %defaults = $converter->converter_defaults($conf);
-  foreach my $key (keys(%all_converters_defaults)) {
-    $defaults{$key} = $all_converters_defaults{$key}
-                          if (!exists($defaults{$key}));
+  if ($format_defaults) {
+    foreach my $key (keys(%$format_defaults)) {
+      $defaults{$key} = $format_defaults->{$key};
+    }
   }
   $converter->{'conf'} = {};
   foreach my $key (keys(%defaults)) {
@@ -304,6 +287,8 @@ sub converter($;$)
       $converter->{$key} = $defaults{$key};
     }
   }
+
+  $converter->{'configured'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (Texinfo::Common::valid_customization_option($key)) {
@@ -328,6 +313,30 @@ sub converter($;$)
   # and not closed files.  Accessed through output_files_information()
   $converter->{'output_files'} = Texinfo::Convert::Utils::output_files_initialize();
 
+  # turn the array to a hash.
+  my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
+  $converter->{'expanded_formats'} = {};
+  if (defined($expanded_formats)) {
+    foreach my $expanded_format (@$expanded_formats) {
+      $converter->{'expanded_formats'}->{$expanded_format} = 1;
+    }
+  }
+
+  $converter->{'error_warning_messages'} = [];
+}
+
+# this function is designed so as to be used in specific Converters
+sub converter($;$)
+{
+  my $class = shift;
+  my $conf = shift;
+
+  my $converter = {};
+
+  bless $converter, $class;
+
+  my %format_defaults = $converter->converter_defaults($conf);
+
   # if with XS, XS converter initialization.
   # NOTE get_conf should not be used before that point, such that the conf is
   # initialized before it is called for the first time.
@@ -335,7 +344,7 @@ sub converter($;$)
   # some options may not be obtained.  This is the case for HTML for instance.
   # In particular the special units information need to be known before buttons
   # information can be passed to C.
-  _internal_converter_initialize($converter);
+  _internal_converter_initialize($converter, $class, \%format_defaults, $conf);
 
   $converter->converter_initialize();
 
@@ -589,11 +598,14 @@ sub set_conf($$$)
   if ($self->{'configured'}->{$conf}) {
     return 0;
   } else {
+    my $set = 1;
     if ($self->{'converter_descriptor'} and $XS_convert) {
-      _XS_set_conf($self, $conf, $value);
+      $set = _XS_set_conf($self, $conf, $value);
     }
-    $self->{'conf'}->{$conf} = $value;
-    return 1;
+    if ($set) {
+      $self->{'conf'}->{$conf} = $value;
+    }
+    return $set;
   }
 }
 

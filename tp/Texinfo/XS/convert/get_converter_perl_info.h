@@ -10,7 +10,8 @@
 struct TEXT_OPTIONS;
 
 CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
-int converter_initialize (SV *converter_sv);
+void converter_initialize_sv (SV *converter_sv, CONVERTER *converter,
+                              SV *format_defaults, SV *conf);
 void reset_output_init_conf (SV *sv_in);
 CONVERTER *converter_set_document_from_sv (SV *converter_in, SV *document_in);
 

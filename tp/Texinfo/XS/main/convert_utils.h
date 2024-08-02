@@ -53,7 +53,6 @@ ELEMENT *cdt_tree (const char * string, CONVERTER *self,
                    const char *translation_context);
 
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
-void destroy_translated_commands (TRANSLATED_COMMAND *translated_commands);
 
 char *encoded_input_file_name (const OPTIONS *options,
                          const GLOBAL_INFO *global_information,

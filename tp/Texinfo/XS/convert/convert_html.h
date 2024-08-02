@@ -19,9 +19,6 @@ enum css_info_type {
    CI_css_info_rules,
 };
 
-/* in main/conversion_data.c */
-extern const STRING_LIST default_special_unit_varieties;
-
 
 extern const char *html_conversion_context_type_names[];
 extern const char *html_global_unit_direction_names[];

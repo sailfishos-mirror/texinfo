@@ -681,18 +681,6 @@ translated_command_tree (CONVERTER *self, enum command_id cmd)
   return 0;
 }
 
-void
-destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
-{
-  TRANSLATED_COMMAND *translated_command;
-
-  for (translated_command = translated_commands;
-       translated_command->translation; translated_command++)
-    {
-      free (translated_command->translation);
-    }
-  free (translated_commands);
-}
 
 /*
   API to open, set encoding and register files.

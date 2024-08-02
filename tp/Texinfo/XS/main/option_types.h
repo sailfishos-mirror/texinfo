@@ -147,6 +147,9 @@ typedef struct FORMATTED_BUTTON_INFO {
 } FORMATTED_BUTTON_INFO;
 
 typedef struct DIRECTION_ICON_LIST {
+  /* perl reference. This should be SV *sv,
+     but we don't want to include the Perl headers everywhere; */
+    void *sv;
     size_t number;
     char **list;
 } DIRECTION_ICON_LIST;

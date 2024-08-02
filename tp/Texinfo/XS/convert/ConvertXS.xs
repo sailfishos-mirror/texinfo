@@ -91,21 +91,17 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
         RETVAL
 
 void
-converter_initialize (SV *converter_in)
+converter_initialize (SV *converter_in, const char *class, SV *format_defaults, SV *conf=0)
       PREINIT:
          size_t converter_descriptor;
-         const CONVERTER *self;
-         HV *converter_hv;
-         HV *expanded_formats_hv;
+         CONVERTER *self;
       CODE:
-         converter_descriptor = converter_initialize (converter_in);
+         converter_descriptor = new_converter ();
          self = retrieve_converter (converter_descriptor);
-         converter_hv = (HV *)SvRV (converter_in);
-         expanded_formats_hv
-           = build_expanded_formats (self->expanded_formats);
-         hv_store (converter_hv, "expanded_formats",
-                   strlen ("expanded_formats"),
-                   newRV_inc ((SV *) expanded_formats_hv), 0);
+
+         converter_initialize_sv (converter_in, self, format_defaults, conf);
+
+         pass_generic_converter_to_converter_sv (converter_in, self);
 
 void
 converter_set_document (SV *converter_in, SV *document_in)
@@ -117,18 +113,22 @@ converter_set_document (SV *converter_in, SV *document_in)
         self = converter_set_document_from_sv (converter_in, document_in);
         pass_document_to_converter_sv (self, converter_in, document_in);
 
-void
+int
 set_conf (SV *converter_in, conf, SV *value)
          const char *conf = (char *)SvPVbyte_nolen($arg);
       PREINIT:
          CONVERTER *self;
+         int status = 0;
       CODE:
          /* Calling code checks 'converter_descriptor' is set */
          self = get_sv_converter (converter_in, 0);
          if (self)
-           set_sv_conf (self, conf, value);
+           status = set_sv_conf (self, conf, value);
+         RETVAL = status;
+    OUTPUT:
+         RETVAL
 
-void
+int
 force_conf (SV *converter_in, conf, SV *value)
          const char *conf = (char *)SvPVbyte_nolen($arg);
       PREINIT:
@@ -138,6 +138,9 @@ force_conf (SV *converter_in, conf, SV *value)
          self = get_sv_converter (converter_in, 0);
          if (self)
            force_sv_conf (self, conf, value);
+         RETVAL = 1;
+    OUTPUT:
+         RETVAL
 
 SV *
 get_conf (SV *converter_in, conf)
@@ -147,7 +150,7 @@ get_conf (SV *converter_in, conf)
       CODE:
          self = get_sv_converter (converter_in, 0);
          if (self)
-           RETVAL = get_conf (self, conf);
+           RETVAL = get_sv_conf (self, conf);
          else
            RETVAL = newSV (0);
     OUTPUT:
@@ -582,11 +585,8 @@ void
 html_converter_initialize_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_type_formatting, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
       PREINIT:
         CONVERTER *self;
-        HV *converter_hv;
       CODE:
         self = get_sv_converter (converter_in, "html_converter_initialize_sv");
-
-        converter_hv = (HV *)SvRV (converter_in);
 
         /* initialize first the special unit info, as the special unit
            directions are needed for the remainder of initialization.
@@ -616,12 +616,10 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
 
         html_converter_initialize (self);
 
-   /* at that point, the format specific informations, in particular the number
-      of special elements is available, such that all the options can be
-      passed to C.  It is important to set the force argument to 1 to get
-      all the configuration, even if the configured field is set */
-        copy_converter_conf_sv (converter_hv, self,
-                                &self->conf, "conf", 1);
+   /* at that point, the format specific informations, in particular the
+      direction names is available, such that the directions can be set
+      in customization variables needing them (icons, buttons). */
+     html_fill_options (self->conf, self);
 
 
 void

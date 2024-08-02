@@ -750,6 +750,7 @@ typedef struct CONVERTER {
     OPTIONS *conf;
     OPTIONS *init_conf;
     char *output_format;
+    char *converted_format;
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND *translated_commands;
 

@@ -30,12 +30,14 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#include "conversion_data.h"
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
 #include "option_types.h"
 #include "options_types.h"
+#include "converters_defaults.h"
 #include "tree.h"
 #include "extra.h"
 /* for COMMAND_OPTION_DEFAULT ACCENTS_STACK
@@ -102,6 +104,7 @@ PATHS_INFORMATION conversion_paths_info;
 
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
+/* called only once */
 void
 converter_setup (void)
 {
@@ -156,6 +159,42 @@ retrieve_converter (int converter_descriptor)
   return 0;
 }
 
+/* initialize the converter */
+static void
+init_generic_converter (CONVERTER *self)
+{
+  self->conf = new_options ();
+
+  set_converter_cmdline_regular_defaults (self->conf);
+  set_converter_customization_regular_defaults (self->conf);
+  set_unique_at_command_regular_defaults (self->conf);
+  set_multiple_at_command_regular_defaults (self->conf);
+  set_common_regular_options_defaults (self->conf);
+
+  self->init_conf = new_options ();
+
+  self->expanded_formats = new_expanded_formats ();
+
+  /* set 'translated_commands'  => {'error' => 'error@arrow{}',}, */
+
+  self->translated_commands = (TRANSLATED_COMMAND *)
+        malloc ((1 +1) * sizeof (TRANSLATED_COMMAND));
+  memset (self->translated_commands, 0,
+              (1 +1) * sizeof (TRANSLATED_COMMAND));
+
+  self->translated_commands[0].cmd = CM_error;
+  self->translated_commands[0].translation = strdup ("error@arrow{}");
+
+  /* NOTE if the special units can be customized, then
+     the self->special_unit_varieties should be set early (where?) and used
+     directly instead.
+     Also default special units and special units indices should be
+     mapped instead of assuming that they are the same when setting
+     self->special_unit_info
+  copy_strings (&self->special_unit_varieties, &default_special_unit_varieties);
+   */
+}
+
 /* descriptor starts at 1, 0 is not found or an error */
 size_t
 new_converter (void)
@@ -187,6 +226,8 @@ new_converter (void)
     }
   registered_converter = (CONVERTER *) malloc (sizeof (CONVERTER));
   memset (registered_converter, 0, sizeof (CONVERTER));
+
+  init_generic_converter (registered_converter);
 
   converter_list[converter_index] = registered_converter;
   registered_converter->converter_descriptor = converter_index +1;
@@ -1450,6 +1491,19 @@ free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 
 
 void
+destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
+{
+  TRANSLATED_COMMAND *translated_command;
+
+  for (translated_command = translated_commands;
+       translated_command->translation; translated_command++)
+    {
+      free (translated_command->translation);
+    }
+  free (translated_commands);
+}
+
+void
 free_generic_converter (CONVERTER *self)
 {
   if (self->translated_commands)
@@ -1458,6 +1512,7 @@ free_generic_converter (CONVERTER *self)
     }
 
   free (self->output_format);
+  free (self->converted_format);
   free (self->expanded_formats);
 
   if (self->init_conf)

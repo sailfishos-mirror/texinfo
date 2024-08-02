@@ -356,6 +356,21 @@ print OHDEF "#undef PACKAGE_NAME\n";
 print OHDEF "#undef PACKAGE_URL\n";
 print OHDEF "#undef PACKAGE_VERSION\n\n";
 
+foreach my $category (sort(keys(%option_categories))) {
+  print OCDEF "\n/* ${category} */\n\n";
+  my $fun = "void set_${category}_regular_defaults (OPTIONS *options)";
+
+  print OHDEF "$fun;\n\n";
+
+  print OCDEF "$fun\n{\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    my ($int_value, $char_value) = get_value($type, $value);
+    print OCDEF "  set_conf (&options->${option}, $int_value, $char_value);\n";
+  }
+  print OCDEF "}\n\n";
+}
+
 my @sorted_formats = sort(keys(%converter_defaults));
 
 foreach my $format (@sorted_formats) {
@@ -410,7 +425,7 @@ print GET '#include "utils.h"'."\n";
 print GET '#include "get_perl_info.h"'."\n";
 print GET '#include "build_perl_info.h"'."\n\n";
 
-print GET 'void
+print GET 'int
 get_sv_option (OPTIONS *options, const char *key, SV *value, int force, const CONVERTER *converter)
 {
   dTHX;
@@ -425,7 +440,7 @@ foreach my $category (sort(keys(%option_categories))) {
     print GET "  else if (!strcmp (key, \"$option\"))
     {
       if (force <= 0 && options->$option.configured > 0)
-        return;\n\n";
+        return -1;\n\n";
     if ($type eq 'char' or $type eq 'bytes') {
       my $SV_function_type = 'utf8';
       if ($type eq 'bytes') {
@@ -450,6 +465,7 @@ foreach my $category (sort(keys(%option_categories))) {
               fprintf (stderr, \"BUG: %s: not an integer: %s\\n\",
                        \"$option\", SvPVutf8_nolen (value));
               options->$option.o.integer = -1;
+              return -3;
             }
         }
       else
@@ -481,14 +497,40 @@ foreach my $category (sort(keys(%option_categories))) {
       html_get_direction_icons_sv (converter, options->$option.o.icons, value);
     }\n";
     } else {
+      print STDERR "BUG: unknown type: $type\n";
       print GET "    {}\n";
     }
   }
 }
 
+print GET '  else
+    return -2; /* unknown */
+
+  return 0;
+}
+
+';
+
+print GET 'void
+html_fill_options (OPTIONS *options, const CONVERTER *converter)
+{
+';
+foreach my $category (sort(keys(%option_categories))) {
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    if ($type eq 'buttons') {
+      print GET "  if (options->$option.o.buttons)\n"
+                ."    html_fill_button_specification_list (converter, options->$option.o.buttons);\n\n";
+    } elsif ($type eq 'icons') {
+      print GET "  if (options->$option.o.icons)\n"
+                ."    html_fill_direction_icons (converter, options->$option.o.icons);\n\n";
+    }
+  }
+}
 print GET '}
 
 ';
+
 
 print GET 'SV *
 build_sv_option (const OPTIONS *options, const char *key,

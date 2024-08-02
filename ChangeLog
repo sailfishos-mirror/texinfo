@@ -1,5 +1,90 @@
 2024-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (get_sv_conf): rename get_conf
+	as get_sv_conf.  Update callers.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_translated_commands):
+	add.
+
+	* tp/Texinfo/XS/convert/converter.h (default_special_unit_varieties),
+	tp/Texinfo/XS/convert/convert_html.h: move
+	default_special_unit_varieties declaration to converter.h.
+
+	* tp/Texinfo/XS/convert/converter.c (destroy_translated_commands),
+	tp/Texinfo/XS/main/convert_utils.c: move destroy_translated_commands
+	to converter.c.
+
+	* tp/maintain/regenerate_C_options_info.pl: generate C functions to
+	set converter generic options.
+
+	* tp/Texinfo/Convert/Converter.pm (set_conf),
+	tp/Texinfo/XS/convert/ConvertXS.xs (set_conf, force_conf),
+	tp/Texinfo/XS/main/get_perl_info.c (set_sv_conf),
+	tp/maintain/regenerate_C_options_info.pl: add return values to the
+	get_sv_option generate function to determine if setting a
+	customization variable failed and why.  Add a status return value to
+	set_sv_conf and to the set_conf and force_conf XS overrides.  Take
+	into account _XS_set_conf return value to determine if the
+	customization option was set.
+
+	* tp/Texinfo/XS/main/api_to_perl.c (get_refcount): add an unused
+	function, for debugging.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_options): call
+	get_sv_option even for options with undef values.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (set_translated_commands): free
+	previous translated_commands before getting new ones.
+
+	* tp/Texinfo/XS/main/api_to_perl.c (unregister_perl_buttons_list)
+	(register_perl_buttons_list, unregister_perl_direction_icons),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_fill_button_specification_list)
+	(html_get_button_specification_list, html_fill_direction_icons)
+	(html_get_direction_icons_sv), tp/Texinfo/XS/main/utils.c
+	(html_free_button_specification_list, html_free_direction_icons)
+	(copy_option), tp/maintain/regenerate_C_options_info.pl: add icons SV
+	to the direction icons lists.  Add html_fill_button_specification_list
+	and html_fill_direction_icons to fill the directions information in
+	buttons or icons based on the Perl references.  Own all the Perl
+	objects in C by increasing refcount when registering and decreasing
+	refcount when destroying the object they are registered into.
+	Generate html_fill_options function in regenerate_C_options_info.pl
+	that calls html_fill_button_specification_list and
+	html_fill_direction_icons for all the relevant options.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (converter_initialize_sv): rename
+	converter_initialize as converter_initialize_sv.
+
+	* tp/Texinfo/Convert/Converter.pm (_internal_converter_initialize)
+	(converter), tp/Texinfo/XS/main/build_perl_info.c
+	(pass_generic_converter_to_converter_sv),
+	tp/Texinfo/XS/convert/ConvertXS.xs (converter_initialize)
+	(html_converter_initialize_sv), tp/Texinfo/XS/convert/converter.c
+	(init_generic_converter, new_converter),
+	tp/Texinfo/XS/main/build_perl_info.c
+	(pass_generic_converter_to_converter_sv),
+	tp/Texinfo/XS/main/get_perl_info.c (converter_initialize_sv):
+	initialize default generic data and customizations options of generic
+	converter in C, in the new init_generic_converter function.  Setup
+	explicitely %format_defaults in Perl converter and pass to XS,
+	together with the customization options hash.  Move converter() Perl
+	code now initialized in C to _internal_converter_initialize.  Add
+	pass_generic_converter_to_converter_sv to pass information from C to
+	the Perl converter, based on ConvertXS.xs converter_initialize code,
+	expanded to pass translated_commands and initialize output_files.
+	Setup Perl customization variables, translated_commands and
+	output_format in XS/C in converter_initialize_sv.  Do not set C
+	customization data based on Perl data anymore.  Call html_fill_options
+	in html_converter_initialize_sv.
+
+	* tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/convert/converter.c (free_generic_converter),
+	tp/Texinfo/XS/main/get_perl_info.c (converter_initialize_sv): add
+	converted_format field to converter and set it.
+
+2024-08-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (html_attribute_class, _convert_text),
 	tp/Texinfo/Convert/Plaintext.pm (new_formatter): always access
 	configuration through get_conf() in case it is in C data only.

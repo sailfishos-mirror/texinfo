@@ -95,6 +95,9 @@ extern enum command_id default_upper_case_commands[];
 /* in generated cmd_converter.c */
 extern const char * xml_text_entity_no_arg_commands[];
 
+/* in main/conversion_data.c */
+extern const STRING_LIST default_special_unit_varieties;
+
 /* in converter.c */
 extern const char *xml_text_entity_no_arg_commands_formatting[];
 
@@ -179,6 +182,7 @@ void set_file_path (CONVERTER *self, const char *filename, const char *filepath,
 void clear_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 void free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
+void destroy_translated_commands (TRANSLATED_COMMAND *translated_commands);
 void free_generic_converter (CONVERTER *self);
 
 void xml_format_text_with_numeric_entities (const char *text, TEXT *result);

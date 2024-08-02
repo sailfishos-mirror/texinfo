@@ -105,6 +105,9 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
 
       hv_number = hv_iterinit (translated_commands_hv);
 
+      if (converter->translated_commands)
+        destroy_translated_commands (converter->translated_commands);
+
       converter->translated_commands = (TRANSLATED_COMMAND *)
         malloc ((hv_number +1) * sizeof (TRANSLATED_COMMAND));
       memset (converter->translated_commands, 0,

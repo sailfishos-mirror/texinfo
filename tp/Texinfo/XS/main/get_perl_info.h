@@ -13,12 +13,23 @@
 #include "convert_to_text.h"
 
 /* in options_get_perl.c */
-void get_sv_option (OPTIONS *options, const char *key, SV *value,
-                    int force, const CONVERTER *converter);
+/* return values:
+  0: success
+  -1: already set (only if !force)
+  -2: unknown
+  -3: type error
+ */
+int get_sv_option (OPTIONS *options, const char *key, SV *value,
+                   int force, const CONVERTER *converter);
+void html_fill_options (OPTIONS *options, const CONVERTER *converter);
+
 /* in options_init_free.c */
 void set_option_key_configured (OPTIONS *options, const char *key,
                                 int configured);
 
+void get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
+                     int force);
+void set_translated_commands (CONVERTER *converter, HV *hv_in);
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
@@ -40,7 +51,7 @@ OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force);
 void get_sv_configured_options (SV *configured_sv_in, OPTIONS *options);
 void copy_converter_conf_sv (HV *hv, CONVERTER *converter,
                              OPTIONS **conf, const char *conf_key, int force);
-void set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
+int set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 
 INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
@@ -55,9 +66,13 @@ TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
 BUTTON_SPECIFICATION_LIST *html_get_button_specification_list
                                 (const CONVERTER *converter, const SV *buttons_sv);
+void html_fill_button_specification_list (const CONVERTER *converter,
+                                          BUTTON_SPECIFICATION_LIST *result);
+void html_fill_direction_icons (const CONVERTER *converter,
+                                DIRECTION_ICON_LIST *direction_icons);
 void html_get_direction_icons_sv (const CONVERTER *converter,
                              DIRECTION_ICON_LIST *direction_icons,
-                             const SV *icons_sv);
+                             SV *icons_sv);
 
 const ELEMENT *find_element_from_sv (const CONVERTER *converter,
                                      const DOCUMENT *document_in,

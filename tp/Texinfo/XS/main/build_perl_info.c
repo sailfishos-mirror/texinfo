@@ -2415,12 +2415,15 @@ pass_document_to_converter_sv (const CONVERTER *converter,
 }
 
 SV *
-get_conf (const CONVERTER *converter, const char *option_name)
+get_sv_conf (const CONVERTER *converter, const char *option_name)
 {
   dTHX;
 
   if (converter->conf)
-    return build_sv_option (converter->conf, option_name, converter);
+    {
+      SV *result = build_sv_option (converter->conf, option_name, converter);
+      return result;
+    }
   return newSV (0);
 }
 
@@ -2697,6 +2700,69 @@ build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
         }
     }
   return expanded_hv;
+}
+
+HV *
+build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
+{
+  int i;
+  HV *translated_hv;
+
+  dTHX;
+
+  translated_hv = newHV ();
+  for (i = 0; translated_commands[i].cmd; i++)
+    {
+      enum command_id cmd = translated_commands[i].cmd;
+      const char *translation = translated_commands[i].translation;
+      const char *command_name = builtin_command_name (cmd);
+      hv_store (translated_hv, command_name, strlen (command_name),
+                newSVpv_utf8 (translation, 0), 0);
+    }
+  return translated_hv;
+}
+
+void
+pass_generic_converter_to_converter_sv (SV *converter_sv,
+                                        const CONVERTER *converter)
+{
+  HV *converter_hv;
+  HV *expanded_formats_hv;
+  HV *translated_commands_hv;
+  HV *output_files_hv;
+  HV *unclosed_files_hv;
+  HV *opened_files_hv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+#define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0);
+  /* $converter->{'output_files'}
+        = Texinfo::Convert::Utils::output_files_initialize(); */
+  output_files_hv = newHV ();
+  STORE("output_files", newRV_noinc ((SV *) output_files_hv));
+
+  unclosed_files_hv = newHV ();
+  opened_files_hv = newHV ();
+  hv_store (output_files_hv, "unclosed_files", strlen ("unclosed_files"),
+            newRV_noinc ((SV *) unclosed_files_hv), 0);
+  hv_store (output_files_hv, "opened_files_hv",
+            strlen ("opened_files_hv"),
+            newRV_noinc ((SV *) opened_files_hv), 0);
+
+  expanded_formats_hv
+    = build_expanded_formats (converter->expanded_formats);
+  STORE("expanded_formats", newRV_noinc ((SV *) expanded_formats_hv));
+
+  translated_commands_hv
+    = build_translated_commands (converter->translated_commands);
+  STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
+
+  /* store converter_descriptor in perl converter */
+  STORE("converter_descriptor", newSViv ((IV)converter->converter_descriptor));
+
+#undef STORE
 }
 
 SV *
@@ -3078,7 +3144,7 @@ latex_build_options_for_convert_to_latex_math (const CONVERTER *converter)
   for (i = 0; latex_math_options[i]; i++)
     {
       const char *option_name = latex_math_options[i];
-      SV *option_sv = get_conf (converter, option_name);
+      SV *option_sv = get_sv_conf (converter, option_name);
       SvREFCNT_inc (option_sv);
       hv_store (options_latex_math_hv, option_name,
                 strlen (option_name), option_sv, 0);

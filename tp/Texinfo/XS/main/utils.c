@@ -1639,6 +1639,7 @@ html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
         }
     }
   free (buttons->list);
+  unregister_perl_buttons_list (buttons);
   free (buttons);
 }
 
@@ -1668,6 +1669,7 @@ html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
   free (direction_icons->list);
   direction_icons->number = 0;
   direction_icons->list = 0;
+  unregister_perl_direction_icons (direction_icons);
 }
 
 /* here because it is used in main/get_perl_info.c */
@@ -1856,6 +1858,7 @@ copy_option (OPTION *destination, const OPTION *source)
         { /* Note that the caller should adjust BIT_user_function_number
              of the options holding the buttons */
           html_free_button_specification_list (destination->o.buttons);
+          destination->o.buttons = 0;
           if (source->o.buttons)
             {
               size_t i;
@@ -1867,10 +1870,14 @@ copy_option (OPTION *destination, const OPTION *source)
               result->BIT_user_function_number
                 = s_buttons->BIT_user_function_number;
               result->number = s_buttons->number;
+
+              result->av = s_buttons->av;
+              register_perl_buttons_list (result);
+
               result->list = (BUTTON_SPECIFICATION *)
-                     malloc (result->number * sizeof (BUTTON_SPECIFICATION));
+                 malloc (result->number * sizeof (BUTTON_SPECIFICATION));
               memset (result->list, 0,
-                      result->number * sizeof (BUTTON_SPECIFICATION));
+                  result->number * sizeof (BUTTON_SPECIFICATION));
               for (i = 0; i < result->number; i++)
                 {
                   BUTTON_SPECIFICATION *button = &result->list[i];
@@ -1922,8 +1929,6 @@ copy_option (OPTION *destination, const OPTION *source)
                 }
               destination->o.buttons = result;
             }
-          else
-            destination->o.buttons = 0;
         }
         break;
 

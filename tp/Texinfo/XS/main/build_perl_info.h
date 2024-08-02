@@ -99,9 +99,13 @@ SV *html_build_direction_icons (const CONVERTER *converter,
 void pass_document_to_converter_sv (const CONVERTER *converter,
                                     SV *converter_sv, SV *document_in);
 
-SV *get_conf (const CONVERTER *converter, const char *option_name);
+SV *get_sv_conf (const CONVERTER *converter, const char *option_name);
 
 HV *build_expanded_formats (const EXPANDED_FORMAT *expanded_formats);
+HV *build_translated_commands (const TRANSLATED_COMMAND *translated_commands);
+
+void pass_generic_converter_to_converter_sv (SV *converter_sv,
+                                             const CONVERTER *converter);
 
 SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 

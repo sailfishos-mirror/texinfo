@@ -5,9 +5,14 @@
 #include "tree_types.h"
 #include "converter_types.h"
 
+int get_refcount (void *sv);
+
 void unregister_perl_tree_element (ELEMENT *e);
+void unregister_perl_buttons_list (BUTTON_SPECIFICATION_LIST *buttons_list);
+void register_perl_buttons_list (BUTTON_SPECIFICATION_LIST *buttons_list);
 void unregister_perl_button (BUTTON_SPECIFICATION *button);
 void register_perl_button (BUTTON_SPECIFICATION *button);
+void unregister_perl_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void unregister_document_hv (DOCUMENT *document);
 /* HTML specific */
 void unregister_html_converter_perl_hv (CONVERTER *converter);
