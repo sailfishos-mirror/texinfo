@@ -876,9 +876,7 @@ sub new_formatter($$;$)
       = $indent_length*($self->{'format_context'}->[-1]->{'indent_level'});
   }
 
-  my $frenchspacing_conf = $self->{'conf'}->{'frenchspacing'};
-  #my $frenchspacing_conf = $self->get_conf('frenchspacing');
-  # access 'conf' hash directly for efficiency
+  my $frenchspacing_conf = $self->get_conf('frenchspacing');
 
   $container_conf->{'frenchspacing'} = 1
     if ($frenchspacing_conf eq 'on');

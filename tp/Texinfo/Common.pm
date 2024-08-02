@@ -1226,7 +1226,8 @@ sub set_informative_command_value($$)
   my $value = informative_command_value($element);
 
   if (defined($value)) {
-    return $self->set_conf($cmdname, $value);
+    my $set = $self->set_conf($cmdname, $value);
+    return $set;
   }
   return 0;
 }

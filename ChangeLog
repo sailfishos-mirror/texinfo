@@ -1,9 +1,10 @@
 2024-10-02  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/maintain/regenerate_C_options_info.pl: use basename of generating
-	program in comments.
-	
-	Add TODO item from Bruno CI.
+	* tp/Texinfo/Convert/HTML.pm (html_attribute_class, _convert_text),
+	tp/Texinfo/Convert/Plaintext.pm (new_formatter): always access
+	configuration through get_conf() in case it is in C data only.
+
+	* tp/Texinfo/XS/convert/convert_html.c: change in comments.
 
 2024-08-01  Patrice Dumas  <pertusus@free.fr>
 
@@ -30,6 +31,13 @@
 	* tp/Texinfo/XS/main/utils.c (html_get_direction_index),
 	tp/Texinfo/XS/convert/converter.c: move html_get_direction_index
 	from converter.c to utils.c.
+
+2024-10-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/maintain/regenerate_C_options_info.pl: use basename of generating
+	program in comments.
+	
+	Add TODO item from Bruno CI.
 
 2024-08-01  Patrice Dumas  <pertusus@free.fr>
 

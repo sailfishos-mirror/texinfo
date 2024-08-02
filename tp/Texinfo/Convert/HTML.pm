@@ -419,9 +419,7 @@ sub html_attribute_class($$;$)
     confess("html_attribute_class: $classes not an array ref (for $element)");
   }
   if (!defined($classes) or scalar(@$classes) == 0
-      # API info: get_conf() API code conforming would be:
-      #  or $self->get_conf('NO_CSS')) {
-        or $self->{'conf'}->{'NO_CSS'}) {
+      or $self->get_conf('NO_CSS')) {
     if ($element eq 'span') {
       return '';
     } else {
@@ -431,9 +429,7 @@ sub html_attribute_class($$;$)
 
   my $style = '';
 
-  # API info: get_conf() API code conforming would be:
-  #  if ($self->get_conf('INLINE_CSS_STYLE')) {
-  if ($self->{'conf'}->{'INLINE_CSS_STYLE'}) {
+  if ($self->get_conf('INLINE_CSS_STYLE')) {
     my @styles = ();
     foreach my $style_class (@$classes) {
       if (not defined($style_class)) {
@@ -7091,13 +7087,9 @@ sub _convert_text($$$)
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         (in_code($self) or in_math($self)));
   } elsif (!in_code($self) and !in_math($self)) {
-    # API info: get_conf() API code conforming would be:
-    #if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
+    if ($self->get_conf('USE_NUMERIC_ENTITY')) {
       $text = $self->xml_format_text_with_numeric_entities($text);
-    # API info: get_conf() API code conforming would be:
-    #} elsif ($self->get_conf('USE_ISO')) {
-    } elsif ($self->{'conf'}->{'USE_ISO'}) {
+    } elsif ($self->get_conf('USE_ISO')) {
       $text = _entity_text($text);
     } else {
       $text =~ s/``/&quot;/g;
