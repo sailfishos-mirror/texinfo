@@ -749,6 +749,8 @@ typedef struct CONVERTER {
 
     OPTIONS *conf;
     OPTIONS *init_conf;
+    /* an array containing the fields of conf ordered by name */
+    OPTION **sorted_options;
     char *output_format;
     char *converted_format;
     EXPANDED_FORMAT *expanded_formats;

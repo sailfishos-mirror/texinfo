@@ -190,6 +190,7 @@ static void
 init_generic_converter (CONVERTER *self)
 {
   self->conf = new_options ();
+  self->sorted_options = setup_sorted_options (self->conf);
 
   set_converter_cmdline_regular_defaults (self->conf);
   set_converter_customization_regular_defaults (self->conf);
@@ -1536,6 +1537,9 @@ free_generic_converter (CONVERTER *self)
   if (self->init_conf)
     free_options (self->init_conf);
   free (self->init_conf);
+
+  if (self->sorted_options)
+    free (self->sorted_options);
 
   if (self->conf)
     free_options (self->conf);

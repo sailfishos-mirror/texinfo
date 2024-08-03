@@ -30,6 +30,8 @@ my %commands_options;
 
 my %options;
 
+my $options_nr = 0;
+
 while (<STDIN>) {
   if (not (/^#/ or /^ *$/)) {
     if (/^([^ ]+) +([^ ]+) +([^ ]+) +(.+)$/) {
@@ -47,6 +49,7 @@ while (<STDIN>) {
         $commands_options{$option} = [$category, $value, $type];
       }
       $options{$option} = [$category, $value, $type];
+      $options_nr++;
     } else {
       warn "ERROR: unexpected line: $_";
     }
@@ -160,6 +163,8 @@ print HEADER "#undef PACKAGE_NAME\n";
 print HEADER "#undef PACKAGE_URL\n";
 print HEADER "#undef PACKAGE_VERSION\n\n";
 
+print HEADER "#define TXI_OPTIONS_NR $options_nr\n\n";
+
 print HEADER "typedef struct OPTIONS {\n";
 print HEADER "    size_t BIT_user_function_number;\n";
 
@@ -185,6 +190,7 @@ print CODE '#include <config.h>'."\n\n";
 print CODE '#include <stdlib.h>'."\n";
 print CODE '#include <string.h>'."\n\n";
 
+print CODE '#include "option_types.h"'."\n";
 print CODE '#include "options_types.h"'."\n";
 print CODE '#include "converter_types.h"'."\n";
 print CODE '#include "utils.h"'."\n\n";
@@ -196,10 +202,27 @@ foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    print CODE "  initialize_option (&options->$option, GOT_$type);\n";
+    print CODE "  initialize_option (&options->$option, GOT_$type, \"$option\");\n";
   }
 }
+
 print CODE "}\n\n";
+
+print CODE "OPTION **\nsetup_sortable_options (OPTIONS *options)\n{\n";
+print CODE "  OPTION **result = (OPTION **)\n"
+           ."    malloc (sizeof (OPTION *) * TXI_OPTIONS_NR);\n\n";
+my $index = 0;
+foreach my $category (sort(keys(%option_categories))) {
+  print CODE "\n/* ${category} */\n\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    print CODE "  result[$index] = &options->$option;\n";
+    $index++;
+  }
+}
+
+print CODE "\n  return result;\n"
+."}\n\n";
 
 print CODE "void\nfree_options (OPTIONS *options)\n{\n";
 foreach my $category (sort(keys(%option_categories))) {

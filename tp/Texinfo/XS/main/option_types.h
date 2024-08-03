@@ -157,6 +157,9 @@ typedef struct DIRECTION_ICON_LIST {
 typedef struct OPTION {
     enum global_option_type type;
     const char *name;
+    /* index in sorted options array */
+    /* starts at 1 to use 0 for unset */
+    size_t number;
     int configured;
     union {
       int integer;

@@ -1,5 +1,24 @@
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (compare_option_str, initialize_option),
+	tp/maintain/regenerate_C_options_info.pl: add option name in
+	initialize_option and in generated initialize_options.
+
+	* tp/maintain/regenerate_C_options_info.pl: generate TXI_OPTIONS_NR.
+	Generate setup_sortable_options that sets up an array of OPTIONS
+	OPTION fields.
+
+	* p/Texinfo/XS/convert/converter.c (init_generic_converter)
+	(free_generic_converter), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER), tp/Texinfo/XS/main/utils.c (setup_sorted_options),
+	tp/Texinfo/XS/main/option_types.h (OPTION): setup sorted_options field
+	in converter with the sorted options of conf.
+
+	* tp/Texinfo/XS/main/utils.c (find_option_string): add a function to
+	use bsearch to find an option by name in a sorted options array.
+
+2024-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (enum conversion_output_format)
 	(CONVERSION_FORMAT_NR, CONVERSION_FORMAT_DATA, conversion_format):
 	setup preliminary data table to describe a converted format to be able

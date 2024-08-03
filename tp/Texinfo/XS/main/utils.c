@@ -1702,6 +1702,45 @@ new_options (void)
   return options;
 }
 
+static int
+compare_option_str (const void *a, const void *b)
+{
+  const OPTION **opt_a = (const OPTION **) a;
+  const OPTION **opt_b = (const OPTION **) b;
+
+  return strcmp ((*opt_a)->name, (*opt_b)->name);
+}
+
+/* sort options and set the index in the option structure to the index in
+   the sorted array */
+OPTION **
+setup_sorted_options (OPTIONS *options)
+{
+  size_t i;
+  OPTION **sorted_options = setup_sortable_options (options);
+  qsort (sorted_options, TXI_OPTIONS_NR, sizeof (OPTION *), compare_option_str);
+
+  for (i = 0; i < TXI_OPTIONS_NR; i++)
+    {
+      sorted_options[i]->number = i + 1;
+    }
+
+  return sorted_options;
+}
+
+OPTION *
+find_option_string (OPTION **sorted_options, const char *name)
+{
+  static OPTION option_key;
+  OPTION *option_ref = &option_key;
+  OPTION **result;
+
+  option_key.name = name;
+  result = (OPTION **)bsearch (&option_ref, sorted_options, TXI_OPTIONS_NR,
+                               sizeof (OPTION *), compare_option_str);
+  return *result;
+}
+
 void
 clear_option (OPTION *option)
 {
@@ -1769,9 +1808,12 @@ free_option (OPTION *option)
 }
 
 void
-initialize_option (OPTION *option, enum global_option_type type)
+initialize_option (OPTION *option, enum global_option_type type,
+                   const char *name)
 {
   option->type = type;
+  option->name = name;
+  option->number = 0;
   switch (type)
     {
       case GOT_integer:

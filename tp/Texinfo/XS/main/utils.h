@@ -207,12 +207,15 @@ void free_indices_info (INDEX_LIST *indices_info);
 
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);
+OPTION **setup_sortable_options (OPTIONS *options);
 void clear_options (OPTIONS *options);
 void free_options (OPTIONS *options);
 void copy_options (OPTIONS *destination, const OPTIONS *source);
 
 
 OPTIONS *new_options (void);
+OPTION **setup_sorted_options (OPTIONS *options);
+OPTION *find_option_string (OPTION **sorted_options, const char *name);
 void set_output_encoding (OPTIONS *customization_information,
                           DOCUMENT *document);
 OPTION *get_command_option (OPTIONS *options, enum command_id cmd);
@@ -264,7 +267,8 @@ void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 int html_get_direction_index (const CONVERTER *converter,
                               const char *direction);
 
-void initialize_option (OPTION *option, enum global_option_type type);
+void initialize_option (OPTION *option, enum global_option_type type,
+                        const char *name);
 void clear_option (OPTION *option);
 void free_option (OPTION *option);
 void copy_option (OPTION *destination, const OPTION *source);
