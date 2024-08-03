@@ -158,6 +158,7 @@ my %common_converters_defaults = (
   'translated_commands'  => {'error' => 'error@arrow{}',},
 
 # integer and string customization variables common for all the converters
+# with values different from main program values
   %$common_defaults
 );
 

@@ -1,4 +1,10 @@
-2024-10-02  Patrice Dumas  <pertusus@free.fr>
+2024-08-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),
+	tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files), tp/texi2any.pl:
+	rename language_config_dirs as texinfo_language_config_dirs.
+
+2024-08-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c
 	(reset_output_init_conf), tp/Texinfo/XS/main/get_perl_info.c: move
