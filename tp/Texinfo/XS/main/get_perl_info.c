@@ -402,8 +402,9 @@ get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
     }
 }
 
+/* Unused */
 void
-get_sv_configured_options (SV *configured_sv_in, OPTIONS *options)
+get_sv_configured_options (SV *configured_sv_in, OPTION **sorted_options)
 {
   I32 hv_number;
   I32 i;
@@ -422,7 +423,7 @@ get_sv_configured_options (SV *configured_sv_in, OPTIONS *options)
       if (value && SvOK (value))
         {
           int configured = SvIV (value);
-          set_option_key_configured (options, key, configured);
+          set_sorted_option_key_configured (sorted_options, key, configured);
         }
     }
 }
@@ -518,7 +519,8 @@ converter_initialize_sv (SV *converter_sv, CONVERTER *converter,
            */
           if (!status)
             {
-              set_option_key_configured (converter->conf, key, 1);
+              set_sorted_option_key_configured (converter->sorted_options,
+                                                key, 1);
             }
          /* TODO in defaults here means in format_defaults or
             non customization variable

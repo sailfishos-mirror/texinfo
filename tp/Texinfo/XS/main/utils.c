@@ -1738,7 +1738,10 @@ find_option_string (OPTION **sorted_options, const char *name)
   option_key.name = name;
   result = (OPTION **)bsearch (&option_ref, sorted_options, TXI_OPTIONS_NR,
                                sizeof (OPTION *), compare_option_str);
-  return *result;
+  if (result)
+    return *result;
+  else
+    return 0;
 }
 
 void
@@ -1977,6 +1980,20 @@ copy_option (OPTION *destination, const OPTION *source)
       default:
         fprintf (stderr, "BUG: copy_option type not handled: %d\n",
                 source->type);
+    }
+}
+
+void
+set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
+                                  int configured)
+{
+
+  if (configured > 0)
+    {
+      OPTION *option = find_option_string (sorted_options, key);
+
+      if (option)
+        option->configured = configured;
     }
 }
 

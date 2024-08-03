@@ -216,6 +216,9 @@ void copy_options (OPTIONS *destination, const OPTIONS *source);
 OPTIONS *new_options (void);
 OPTION **setup_sorted_options (OPTIONS *options);
 OPTION *find_option_string (OPTION **sorted_options, const char *name);
+void set_sorted_option_key_configured (OPTION **sorted_options,
+                                       const char *key, int configured);
+
 void set_output_encoding (OPTIONS *customization_information,
                           DOCUMENT *document);
 OPTION *get_command_option (OPTIONS *options, enum command_id cmd);

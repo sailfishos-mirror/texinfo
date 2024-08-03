@@ -48,7 +48,6 @@ SOURCE_INFO *get_source_info (SV *source_info_sv);
 void get_line_message (CONVERTER *self, enum error_type type, int continuation,
                        SV *error_location_info, const char *message);
 OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force);
-void get_sv_configured_options (SV *configured_sv_in, OPTIONS *options);
 void copy_converter_conf_sv (HV *hv, CONVERTER *converter,
                              OPTIONS **conf, const char *conf_key, int force);
 int set_sv_conf (CONVERTER *converter, const char *conf, SV *value);

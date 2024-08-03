@@ -1,5 +1,16 @@
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (find_option_string): return 0 if not
+	found.
+
+	* tp/Texinfo/XS/main/utils.c (set_sorted_option_key_configured): set
+	configured on an OPTION found by name using find_option_string.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_configured_options)
+	(converter_initialize_sv): use set_sorted_option_key_configured.
+
+2024-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (compare_option_str, initialize_option),
 	tp/maintain/regenerate_C_options_info.pl: add option name in
 	initialize_option and in generated initialize_options.
