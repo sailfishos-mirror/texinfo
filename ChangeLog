@@ -1,3 +1,32 @@
+2024-08-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs,
+	tp/Texinfo/XS/main/get_perl_info.c: remove reset_output_init_conf and
+	copy_converter_conf_sv.
+
+	* tp/maintain/regenerate_C_options_info.pl: rename generated
+	get_sv_option as get_options_key_sv_option.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_option)
+	(get_sorted_options_key_sv_option): add get_sv_option function
+	that sets an OPTION based on a Perl SV, for all the types of options.
+	Add get_sorted_options_key_sv_option that finds an option using sorted
+	options and then sets it with Perl SV.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_options)
+	(init_copy_sv_options): add a sorted_options argument to
+	get_sv_options and use get_sorted_options_key_sv_option.  Change
+	init_copy_sv_options to set sorted options too and optionally get them
+	back.  Update callers.
+
+	* tp/Texinfo/XS/main/DocumentXS.xs (register_document_options),
+	tp/Texinfo/XS/main/document.c (register_document_options),
+	tp/Texinfo/XS/main/document.h (DOCUMENT): add and set sorted_options
+	field in DOCUMENT;
+
+	* tp/Texinfo/XS/main/utils.c (free_option, initialize_option): always
+	the same order with integer then char.
+
 2024-10-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c: remove
