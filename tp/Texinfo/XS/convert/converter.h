@@ -105,10 +105,8 @@ extern COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[];
 
 extern PATHS_INFORMATION conversion_paths_info;
 
-void converter_setup (void);
-void setup_converter_paths_information (int texinfo_uninstalled,
-                                        const char *tp_builddir,
-                             const char *pkgdatadir, const char *top_srcdir);
+void converter_setup (int texinfo_uninstalled, const char *tp_builddir,
+                      const char *pkgdatadir, const char *top_srcdir);
 
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);

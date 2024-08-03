@@ -82,10 +82,9 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
           }
         else
           pkgdatadir = SvPVbyte_nolen (pkgdatadir_sv);
-        setup_converter_paths_information (texinfo_uninstalled,
-                             pkgdatadir, tp_builddir, top_srcdir);
-        set_element_type_name_info ();
-        converter_setup ();
+
+        converter_setup (texinfo_uninstalled, pkgdatadir, tp_builddir,
+                         top_srcdir);
         RETVAL = 1;
     OUTPUT:
         RETVAL

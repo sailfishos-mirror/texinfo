@@ -104,32 +104,7 @@ PATHS_INFORMATION conversion_paths_info;
 
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
-/* called only once */
-void
-converter_setup (void)
-{
-  int i;
-  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
-    {
-      if (xml_text_entity_no_arg_commands[i])
-        xml_text_entity_no_arg_commands_formatting[i]
-          = xml_text_entity_no_arg_commands[i];
-      else if (nobrace_symbol_text[i])
-        xml_text_entity_no_arg_commands_formatting[i] = nobrace_symbol_text[i];
-      else if (text_brace_no_arg_commands[i])
-        xml_text_entity_no_arg_commands_formatting[i]
-          = text_brace_no_arg_commands[i];
-    }
-
-  /* For translation of in document string. */
-  if (0)
-    {
-      /* TRANSLATORS: expansion of @error{} as Texinfo code */
-      (void) gdt_noop("error@arrow{}");
-    }
-}
-
-void
+static void
 setup_converter_paths_information (int texinfo_uninstalled,
                                    const char *tp_builddir,
                              const char *pkgdatadir, const char *top_srcdir)
@@ -149,6 +124,40 @@ setup_converter_paths_information (int texinfo_uninstalled,
     conversion_paths_info.p.installed.pkgdatadir
       = strdup (pkgdatadir);
 }
+
+/* called only once */
+void
+converter_setup (int texinfo_uninstalled, const char *tp_builddir,
+                 const char *pkgdatadir, const char *top_srcdir)
+{
+  int i;
+
+  setup_converter_paths_information (texinfo_uninstalled,
+                             pkgdatadir, tp_builddir, top_srcdir);
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      if (xml_text_entity_no_arg_commands[i])
+        xml_text_entity_no_arg_commands_formatting[i]
+          = xml_text_entity_no_arg_commands[i];
+      else if (nobrace_symbol_text[i])
+        xml_text_entity_no_arg_commands_formatting[i] = nobrace_symbol_text[i];
+      else if (text_brace_no_arg_commands[i])
+        xml_text_entity_no_arg_commands_formatting[i]
+          = text_brace_no_arg_commands[i];
+    }
+
+  set_element_type_name_info ();
+
+  /* For translation of in document string. */
+  if (0)
+    {
+      /* TRANSLATORS: expansion of @error{} as Texinfo code */
+      (void) gdt_noop("error@arrow{}");
+    }
+}
+
+
 
 CONVERTER *
 retrieve_converter (int converter_descriptor)

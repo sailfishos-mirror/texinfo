@@ -1,5 +1,13 @@
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (init),
+	tp/Texinfo/XS/convert/converter.c (converter_setup): add directories
+	as converter_setup arguments.  Call setup_converter_paths_information
+	and set_element_type_name_info in converter_setup, not in ConvertXS.xs
+	init.
+
+2024-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),
 	tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files), tp/texi2any.pl:
 	rename language_config_dirs as texinfo_language_config_dirs.
