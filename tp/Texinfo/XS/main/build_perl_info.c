@@ -2415,14 +2415,74 @@ pass_document_to_converter_sv (const CONVERTER *converter,
 }
 
 SV *
+build_sv_option (const OPTION *option, const CONVERTER *converter)
+{
+  dTHX;
+
+  switch (option->type)
+    {
+      case GOT_integer:
+        if (option->o.integer == -1)
+          return newSV (0);
+        return newSViv (option->o.integer);
+        break;
+
+      case GOT_char:
+        if (!option->o.string)
+          return newSV (0);
+        return newSVpv_utf8 (option->o.string, 0);
+        break;
+
+      case GOT_bytes:
+        if (!option->o.string)
+          return newSV (0);
+        return newSVpv_byte (option->o.string, 0);
+        break;
+
+      case GOT_bytes_string_list:
+        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
+                            svt_byte));
+        break;
+
+      case GOT_file_string_list:
+        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
+                            svt_dir));
+        break;
+
+      case GOT_char_string_list:
+        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
+                            svt_char));
+        break;
+
+      case GOT_buttons:
+        if (!option->o.buttons) return newSV (0);
+        return newRV_inc ((SV *) option->o.buttons->av);
+        break;
+
+      case GOT_icons:
+        return html_build_direction_icons (converter, option->o.icons);
+        break;
+
+      default:
+        return newSV (0);
+        break;
+    }
+}
+
+SV *
 get_sv_conf (const CONVERTER *converter, const char *option_name)
 {
   dTHX;
 
   if (converter->conf)
     {
-      SV *result = build_sv_option (converter->conf, option_name, converter);
-      return result;
+      const OPTION *option
+        = find_option_string (converter->sorted_options, option_name);
+      if (option)
+        {
+          SV *result = build_sv_option (option, converter);
+          return result;
+       }
     }
   return newSV (0);
 }

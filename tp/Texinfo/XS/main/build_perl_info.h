@@ -23,9 +23,7 @@ char *perl_only_strndup (const char *s, size_t n);
 int init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *builddir_sv,
           SV *top_srcdir_sv);
 
-/* in options_get_perl.c */
-SV *build_sv_option (const OPTIONS *options, const char *key,
-                     const CONVERTER *converter);
+SV *build_sv_option (const OPTION *option, const CONVERTER *converter);
 
 /* in call_perl_function.c, but declared here to avoid pulling in Perl
    headers in call_perl_function.h */

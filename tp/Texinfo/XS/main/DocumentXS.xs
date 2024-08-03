@@ -172,8 +172,15 @@ document_get_conf (SV *document_in, conf)
      CODE:
         document = get_sv_document_document (document_in,
                                              "document_get_conf");
-        if (document && document->options)
-           RETVAL = build_sv_option (document->options, conf, 0);
+        if (document && document->sorted_options)
+           {
+             OPTION *option
+               = find_option_string (document->sorted_options, conf);
+             if (option)
+               RETVAL = build_sv_option (option, 0);
+             else
+               RETVAL = newSV (0);
+           }
         else
            RETVAL = newSV (0);
     OUTPUT:

@@ -1,5 +1,19 @@
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl: rename generated
+	build_sv_option as build_sv_option_key.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_sv_option): add
+	build_sv_option that gets a Perl SV based on an OPTION, for all the
+	types of options.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (get_sv_conf),
+	tp/Texinfo/XS/main/DocumentXS.xs (document_get_conf): find option
+	using sorted options with a call to find_option_string.  Call
+	build_sv_option to get the Perl SV.
+
+2024-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs,
 	tp/Texinfo/XS/main/get_perl_info.c: remove reset_output_init_conf and
 	copy_converter_conf_sv.
