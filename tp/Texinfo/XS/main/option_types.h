@@ -156,6 +156,7 @@ typedef struct DIRECTION_ICON_LIST {
 
 typedef struct OPTION {
     enum global_option_type type;
+    const char *name;
     int configured;
     union {
       int integer;

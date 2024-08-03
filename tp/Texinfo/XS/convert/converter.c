@@ -59,6 +59,23 @@
 #include "call_perl_function.h"
 #include "converter.h"
 
+enum conversion_output_format {
+   COF_none = -1,
+   COF_html,
+};
+
+#define CONVERSION_FORMAT_NR (COF_html +1)
+
+typedef struct CONVERSION_FORMAT_DATA {
+    const char *output_format;
+    const char *perl_converter_class;
+} CONVERSION_FORMAT_DATA;
+
+
+CONVERSION_FORMAT_DATA conversion_format[] = {
+  {"html", "Texinfo::Convert::HTML", },
+};
+
 /* associate lower case no brace accent command to the upper case
    corresponding commands */
 enum command_id no_brace_command_accent_upper_case[][2] = {
@@ -194,14 +211,6 @@ init_generic_converter (CONVERTER *self)
   self->translated_commands[0].cmd = CM_error;
   self->translated_commands[0].translation = strdup ("error@arrow{}");
 
-  /* NOTE if the special units can be customized, then
-     the self->special_unit_varieties should be set early (where?) and used
-     directly instead.
-     Also default special units and special units indices should be
-     mapped instead of assuming that they are the same when setting
-     self->special_unit_info
-  copy_strings (&self->special_unit_varieties, &default_special_unit_varieties);
-   */
 }
 
 /* descriptor starts at 1, 0 is not found or an error */

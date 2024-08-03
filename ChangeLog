@@ -1,5 +1,12 @@
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (enum conversion_output_format)
+	(CONVERSION_FORMAT_NR, CONVERSION_FORMAT_DATA, conversion_format):
+	setup preliminary data table to describe a converted format to be able
+	to associate strings and functions.
+
+2024-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs (init),
 	tp/Texinfo/XS/convert/converter.c (converter_setup): add directories
 	as converter_setup arguments.  Call setup_converter_paths_information
