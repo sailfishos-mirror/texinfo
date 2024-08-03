@@ -19,16 +19,16 @@
   -2: unknown
   -3: type error
  */
-int get_sv_option (OPTIONS *options, const char *key, SV *value,
-                   int force, const CONVERTER *converter);
+int get_options_key_sv_option (OPTIONS *options, const char *key, SV *value,
+                               int force, const CONVERTER *converter);
 void html_fill_options (OPTIONS *options, const CONVERTER *converter);
 
 /* in options_init_free.c */
 void set_option_key_configured (OPTIONS *options, const char *key,
                                 int configured);
 
-void get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
-                     int force);
+void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
+                     CONVERTER *converter, int force);
 void set_translated_commands (CONVERTER *converter, HV *hv_in);
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
@@ -47,9 +47,8 @@ void add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
 SOURCE_INFO *get_source_info (SV *source_info_sv);
 void get_line_message (CONVERTER *self, enum error_type type, int continuation,
                        SV *error_location_info, const char *message);
-OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force);
-void copy_converter_conf_sv (HV *hv, CONVERTER *converter,
-                             OPTIONS **conf, const char *conf_key, int force);
+OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
+                               OPTION ***sorted_options_out);
 int set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 

@@ -20,6 +20,7 @@
 #include <stddef.h>
 
 #include "tree_types.h"
+#include "option_types.h"
 #include "global_commands_types.h"
 /*
 #include "options_types.h"
@@ -217,6 +218,7 @@ typedef struct DOCUMENT {
     CONST_ELEMENT_LIST *nodes_list;
     CONST_ELEMENT_LIST *sections_list;
     struct OPTIONS *options; /* for options used in structuring */
+    OPTION **sorted_options;
     struct TEXT_OPTIONS *convert_index_text_options; /* for index
                                        sorting without converter */
     INDICES_SORT_STRINGS *indices_sort_strings;

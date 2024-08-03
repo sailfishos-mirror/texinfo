@@ -2362,10 +2362,6 @@ html_check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_in
     OUTPUT:
          RETVAL
 
-# currently unused
-void
-reset_output_init_conf (SV *sv_in)
-
 #  my ($output_units, $special_units, $associated_special_units)
 #    = $self->_prepare_conversion_units($document, $document_name);
 void

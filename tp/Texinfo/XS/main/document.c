@@ -115,9 +115,11 @@ register_document_sections_list (DOCUMENT *document,
 }
 
 void
-register_document_options (DOCUMENT *document, OPTIONS *options)
+register_document_options (DOCUMENT *document, OPTIONS *options,
+                           OPTION **sorted_options)
 {
   document->options = options;
+  document->sorted_options = sorted_options;
 }
 
 const MERGED_INDICES *

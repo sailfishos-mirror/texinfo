@@ -219,7 +219,8 @@ converter_initialize_sv (SV *converter_sv, CONVERTER *converter,
       SV **converted_format_sv;
       HV *format_defaults_hv = (HV *)SvRV (format_defaults);
 
-      get_sv_options (format_defaults, converter->conf, converter, 0);
+      get_sv_options (format_defaults, converter->conf,
+                      converter->sorted_options, converter, 0);
 
 #define FETCH(key) key##_sv = hv_fetch (format_defaults_hv, #key, strlen (#key), 0);
       FETCH(output_format)
@@ -250,8 +251,8 @@ converter_initialize_sv (SV *converter_sv, CONVERTER *converter,
           char *key;
           I32 retlen;
           SV *value = hv_iternextsv (conf_hv, &key, &retlen);
-          int status
-            = get_sv_option (converter->conf, key, value, 0, converter);
+          int status = get_sorted_options_key_sv_option (converter->conf,
+                        converter->sorted_options, key, value, 0, converter);
 
           /*
           fprintf (stderr, "CONF: format %s: set %s: %d\n",

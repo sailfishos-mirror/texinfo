@@ -449,8 +449,9 @@ print GET '#include "utils.h"'."\n";
 print GET '#include "get_perl_info.h"'."\n";
 print GET '#include "build_perl_info.h"'."\n\n";
 
+# unused
 print GET 'int
-get_sv_option (OPTIONS *options, const char *key, SV *value, int force, const CONVERTER *converter)
+get_options_key_sv_option (OPTIONS *options, const char *key, SV *value, int force, const CONVERTER *converter)
 {
   dTHX;
 

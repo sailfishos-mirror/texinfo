@@ -18,7 +18,8 @@ void register_document_nodes_list (DOCUMENT *document,
                                    CONST_ELEMENT_LIST *nodes_list);
 void register_document_sections_list (DOCUMENT *document,
                                       CONST_ELEMENT_LIST *sections_list);
-void register_document_options (DOCUMENT *document, OPTIONS *options);
+void register_document_options (DOCUMENT *document, OPTIONS *options,
+                                OPTION **sorted_options);
 void register_document_convert_index_text_options (DOCUMENT *document,
                                          struct TEXT_OPTIONS *text_options);
 

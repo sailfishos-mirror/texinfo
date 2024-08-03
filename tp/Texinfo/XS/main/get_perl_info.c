@@ -379,9 +379,108 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
   non_perl_free (source_info);
 }
 
+static int
+get_sv_option (OPTION *option, SV *value, int force,
+               OPTIONS *options, const CONVERTER *converter)
+{
+  dTHX;
+
+  if (force <= 0 && option->configured > 0)
+    return -1;
+
+  switch (option->type)
+    {
+      case GOT_integer:
+        if (SvOK (value))
+          {
+            if (looks_like_number (value))
+            option->o.integer = SvIV (value);
+        else
+          {
+            fprintf (stderr, "BUG: %s: not an integer: %s\n",
+                     option->name, SvPVutf8_nolen (value));
+              option->o.integer = -1;
+              return -3;
+            }
+          }
+        else
+          option->o.integer = -1;
+
+        break;
+
+      case GOT_char:
+        non_perl_free (option->o.string);
+        if (SvOK (value))
+          option->o.string = non_perl_strdup (SvPVutf8_nolen (value));
+        else
+          option->o.string = 0;
+        break;
+
+      case GOT_bytes:
+        non_perl_free (option->o.string);
+        if (SvOK (value))
+          option->o.string = non_perl_strdup (SvPVbyte_nolen (value));
+        else
+          option->o.string = 0;
+        break;
+
+      case GOT_bytes_string_list:
+        clear_strings_list (option->o.strlist);
+        add_svav_to_string_list (value, option->o.strlist, svt_byte);
+        break;
+
+      case GOT_file_string_list:
+        clear_strings_list (option->o.strlist);
+        add_svav_to_string_list (value, option->o.strlist, svt_dir);
+        break;
+
+      case GOT_char_string_list:
+        clear_strings_list (option->o.strlist);
+        add_svav_to_string_list (value, option->o.strlist, svt_char);
+        break;
+
+      case GOT_buttons:
+        if (option->o.buttons)
+          {
+            options->BIT_user_function_number
+               -= option->o.buttons->BIT_user_function_number;
+            html_free_button_specification_list (option->o.buttons);
+          }
+
+        option->o.buttons
+           = html_get_button_specification_list (converter, value);
+        if (option->o.buttons)
+          options->BIT_user_function_number
+            += option->o.buttons->BIT_user_function_number;
+        break;
+
+      case GOT_icons:
+        html_free_direction_icons (option->o.icons);
+        html_get_direction_icons_sv (converter, option->o.icons, value);
+
+        break;
+
+      default:
+        break;
+    }
+
+  return 0;
+}
+
+
+int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
+                                      const char *key, SV *value,
+                                      int force, const CONVERTER *converter)
+{
+  OPTION *option = find_option_string (sorted_options, key);
+  if (option)
+    return get_sv_option (option, value, force, options, converter);
+  return -2;
+}
+
 void
-get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
-                int force)
+get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
+                CONVERTER *converter, int force)
 {
   I32 hv_number;
   I32 i;
@@ -398,37 +497,23 @@ get_sv_options (SV *sv, OPTIONS *options, CONVERTER *converter,
       I32 retlen;
       SV *value = hv_iternextsv (hv, &key, &retlen);
 
-      get_sv_option (options, key, value, force, converter);
+      get_sorted_options_key_sv_option (options, sorted_options, key,
+                                        value, force, converter);
     }
 }
 
 OPTIONS *
-init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force)
+init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
+                      OPTION ***sorted_options_out)
 {
   OPTIONS *options = new_options ();
-  get_sv_options (sv_in, options, converter, force);
+  OPTION **sorted_options = setup_sorted_options (options);
+  get_sv_options (sv_in, options, sorted_options, converter, force);
+  if (sorted_options_out)
+    *sorted_options_out = sorted_options;
+  else
+    free (sorted_options);
   return options;
-}
-
-void
-copy_converter_conf_sv (HV *hv, CONVERTER *converter,
-                        OPTIONS **conf, const char *conf_key, int force)
-{
-  SV **conf_sv;
-
-  dTHX;
-
-  conf_sv = hv_fetch (hv, conf_key, strlen (conf_key), 0);
-
-  if (conf_sv && SvOK(*conf_sv))
-    {
-      if (*conf)
-        clear_options (*conf);
-      else
-        *conf = new_options ();
-
-      get_sv_options (*conf_sv, *conf, converter, force);
-    }
 }
 
 INDEX_ENTRY *
@@ -695,7 +780,8 @@ set_sv_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
     {
-      int status = get_sv_option (converter->conf, conf, value, 0, converter);
+      int status = get_sorted_options_key_sv_option (converter->conf,
+                       converter->sorted_options, conf, value, 0, converter);
       if (status == 0)
         return 1;
     }
@@ -710,7 +796,8 @@ void
 force_sv_conf (CONVERTER *converter, const char *conf, SV *value)
 {
   if (converter->conf)
-    get_sv_option (converter->conf, conf, value, 1, converter);
+    get_sorted_options_key_sv_option (converter->conf,
+                       converter->sorted_options, conf, value, 1, converter);
 }
 
 /* output format specific */

@@ -1784,6 +1784,9 @@ free_option (OPTION *option)
 {
   switch (option->type)
     {
+      case GOT_integer:
+        break;
+
       case GOT_char:
       case GOT_bytes:
         free (option->o.string);
@@ -1804,7 +1807,6 @@ free_option (OPTION *option)
         free (option->o.icons);
         break;
 
-      case GOT_integer:
       default:
         break;
     }
@@ -1823,15 +1825,15 @@ initialize_option (OPTION *option, enum global_option_type type,
         option->o.integer = -1;
         break;
 
+      case GOT_char:
+      case GOT_bytes:
+        option->o.string = 0;
+        break;
+
       case GOT_bytes_string_list:
       case GOT_file_string_list:
       case GOT_char_string_list:
         option->o.strlist = new_string_list ();
-        break;
-
-      case GOT_char:
-      case GOT_bytes:
-        option->o.string = 0;
         break;
 
       case GOT_buttons:
@@ -1987,7 +1989,6 @@ void
 set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
                                   int configured)
 {
-
   if (configured > 0)
     {
       OPTION *option = find_option_string (sorted_options, key);
