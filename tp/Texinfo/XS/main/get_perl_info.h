@@ -13,19 +13,7 @@
 #include "convert_to_text.h"
 
 /* in options_get_perl.c */
-/* return values:
-  0: success
-  -1: already set (only if !force)
-  -2: unknown
-  -3: type error
- */
-int get_options_key_sv_option (OPTIONS *options, const char *key, SV *value,
-                               int force, const CONVERTER *converter);
 void html_fill_options (OPTIONS *options, const CONVERTER *converter);
-
-/* in options_init_free.c */
-void set_option_key_configured (OPTIONS *options, const char *key,
-                                int configured);
 
 void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                      CONVERTER *converter, int force);

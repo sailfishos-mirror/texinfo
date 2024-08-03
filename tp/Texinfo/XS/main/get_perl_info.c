@@ -379,6 +379,11 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
   non_perl_free (source_info);
 }
 
+/* return values:
+  0: success
+  -1: already set (only if !force)
+  -3: type error
+ */
 static int
 get_sv_option (OPTION *option, SV *value, int force,
                OPTIONS *options, const CONVERTER *converter)
@@ -468,6 +473,12 @@ get_sv_option (OPTION *option, SV *value, int force,
 }
 
 
+/* return values:
+  0: success
+  -1: already set (only if !force)
+  -2: unknown
+  -3: type error
+ */
 int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
                                       const char *key, SV *value,
                                       int force, const CONVERTER *converter)
