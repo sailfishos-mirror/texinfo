@@ -514,6 +514,7 @@ get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
     }
 }
 
+/* pass sorted options to SORTED_OPTIONS_OUT, if set */
 OPTIONS *
 init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
                       OPTION ***sorted_options_out)

@@ -1,5 +1,13 @@
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/api_to_perl.c (register_perl_data): add
+	register_perl_data and call it or unregister_perl_data, inlining
+	register_perl_buttons_list, unregister_perl_buttons_list,
+	unregister_perl_button, register_perl_button,
+	unregister_perl_direction_icons.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c
 	(destroy_converter_initialization_info): rename
 	free_converter_initialization_info as

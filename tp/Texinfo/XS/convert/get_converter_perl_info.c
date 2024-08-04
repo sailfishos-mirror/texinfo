@@ -227,6 +227,8 @@ get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
   return 0;
 }
 
+/* add to converter hash the INIT_INFO_SV key values that are
+   not customization variables, listed in NO_VALID_CUSTOMIZATION */
 static void
 set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
                           STRING_LIST *non_valid_customization)
@@ -276,6 +278,7 @@ converter_get_info_from_sv (SV *converter_sv, CONVERTER *converter,
   has_conf = get_converter_info_from_sv (conf_sv, converter,
                                converter->sorted_options, conf);
 
+  /* set directly Perl converter keys with non 'valid' customization info */
   set_non_customization_sv (converter_hv, format_defaults_sv,
                             &format_defaults->non_valid_customization);
 

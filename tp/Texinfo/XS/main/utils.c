@@ -1635,11 +1635,13 @@ html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
             }
           else if (button->type == BST_string)
             free (button->b.string);
-          unregister_perl_button (button);
+          if (button->sv)
+            unregister_perl_data (button->sv);
         }
     }
   free (buttons->list);
-  unregister_perl_buttons_list (buttons);
+  if (buttons->av)
+    unregister_perl_data (buttons->av);
   free (buttons);
 }
 
@@ -1669,7 +1671,8 @@ html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
   free (direction_icons->list);
   direction_icons->number = 0;
   direction_icons->list = 0;
-  unregister_perl_direction_icons (direction_icons);
+  if (direction_icons->sv)
+    unregister_perl_data (direction_icons->sv);
 }
 
 /* here because it is used in main/get_perl_info.c */
@@ -1921,7 +1924,8 @@ copy_option (OPTION *destination, const OPTION *source)
               result->number = s_buttons->number;
 
               result->av = s_buttons->av;
-              register_perl_buttons_list (result);
+              if (result->av)
+                register_perl_data (result->av);
 
               result->list = (BUTTON_SPECIFICATION *)
                  malloc (result->number * sizeof (BUTTON_SPECIFICATION));
@@ -1935,7 +1939,8 @@ copy_option (OPTION *destination, const OPTION *source)
                   button->sv = s_button->sv;
                   /* need to increase the counter, as it is decreased upon
                      destroying the button */
-                  register_perl_button (button);
+                  if (button->sv)
+                    register_perl_data (button->sv);
                   button->type = s_button->type;
                   if (button->type == BST_function)
                     button->b.sv_reference = s_button->b.sv_reference;

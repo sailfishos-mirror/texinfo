@@ -62,53 +62,18 @@ unregister_perl_tree_element (ELEMENT *e)
 }
 
 void
-unregister_perl_buttons_list (BUTTON_SPECIFICATION_LIST *buttons_list)
+unregister_perl_data (void *sv)
 {
   dTHX;
 
-  if (buttons_list->av)
-    SvREFCNT_dec (buttons_list->av);
-}
-
-void
-register_perl_buttons_list (BUTTON_SPECIFICATION_LIST *buttons_list)
-{
-  dTHX;
-
-  if (buttons_list->av)
-    SvREFCNT_inc (buttons_list->av);
-}
-
-void
-unregister_perl_button (BUTTON_SPECIFICATION *button)
-{
-  dTHX;
-
-  if (button->sv)
-    SvREFCNT_dec (button->sv);
-}
-
-void
-register_perl_button (BUTTON_SPECIFICATION *button)
-{
-  dTHX;
-
-  if (button->sv)
-    SvREFCNT_inc (button->sv);
-}
-
-void
-unregister_perl_direction_icons (DIRECTION_ICON_LIST *direction_icons)
-{
-  dTHX;
-
-  if (direction_icons->sv)
-    SvREFCNT_dec (direction_icons->sv);
+  SvREFCNT_dec (sv);
 }
 
 void
 register_perl_data (void *sv)
 {
+  dTHX;
+
   SvREFCNT_inc (sv);
 }
 
@@ -161,6 +126,18 @@ croak_message (char *message)
   croak ("%s\n", message);
 }
 
+void
+unregister_document_hv (DOCUMENT *document)
+{
+  dTHX;
+
+  if (document->hv)
+    {
+      SvREFCNT_dec ((SV *)document->hv);
+      document->hv = 0;
+    }
+}
+
 /* HTML specific */
 void
 unregister_html_converter_perl_hv (CONVERTER *converter)
@@ -174,14 +151,3 @@ unregister_html_converter_perl_hv (CONVERTER *converter)
     }
 }
 
-void
-unregister_document_hv (DOCUMENT *document)
-{
-  dTHX;
-
-  if (document->hv)
-    {
-      SvREFCNT_dec ((SV *)document->hv);
-      document->hv = 0;
-    }
-}
