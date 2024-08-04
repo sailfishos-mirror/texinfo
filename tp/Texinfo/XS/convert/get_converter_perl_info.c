@@ -158,36 +158,10 @@ get_option_from_sv (OPTION *option, SV *option_sv, CONVERTER *converter,
   return status;
 }
 
-static void
-set_non_customization_sv (HV *converter_hv, SV *defaults_sv,
-                          STRING_LIST *non_valid_customization)
-{
-  dTHX;
-
-  if (non_valid_customization->number > 0)
-    {
-      HV *defaults_hv = (HV *) SvRV (defaults_sv);
-      size_t i;
-      for (i = 0; i < non_valid_customization->number; i++)
-        {
-          const char *key
-               = non_valid_customization->list[i];
-          /* not a customization variable, set in converter */
-          SV **value = hv_fetch (defaults_hv, key, strlen (key), 0);
-          if (*value)
-            {
-              if (SvOK (*value))
-                SvREFCNT_inc (*value);
-              hv_store (converter_hv, key, strlen (key), *value, 0);
-            }
-        }
-    }
-}
-
 static int
-get_converter_defaults_from_sv (SV *conf_sv, CONVERTER *converter,
-                                OPTION **sorted_options,
-                                CONVERTER_DEFAULTS_INFO *defaults_info)
+get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
+                            OPTION **sorted_options,
+                            CONVERTER_INITIALIZATION_INFO *defaults_info)
 {
   dTHX;
 
@@ -251,6 +225,70 @@ get_converter_defaults_from_sv (SV *conf_sv, CONVERTER *converter,
   return 0;
 }
 
+static void
+set_non_customization_sv (HV *converter_hv, SV *defaults_sv,
+                          STRING_LIST *non_valid_customization)
+{
+  dTHX;
+
+  if (non_valid_customization->number > 0)
+    {
+      HV *defaults_hv = (HV *) SvRV (defaults_sv);
+      size_t i;
+      for (i = 0; i < non_valid_customization->number; i++)
+        {
+          const char *key
+               = non_valid_customization->list[i];
+          /* not a customization variable, set in converter */
+          SV **value = hv_fetch (defaults_hv, key, strlen (key), 0);
+          if (*value)
+            {
+              if (SvOK (*value))
+                SvREFCNT_inc (*value);
+              hv_store (converter_hv, key, strlen (key), *value, 0);
+            }
+        }
+    }
+}
+
+int
+converter_get_info_from_sv (SV *converter_sv, CONVERTER *converter,
+                            SV *format_defaults_sv, SV *conf_sv,
+                            CONVERTER_INITIALIZATION_INFO *format_defaults,
+                            CONVERTER_INITIALIZATION_INFO *conf)
+{
+  HV *converter_hv;
+  int has_format_defaults;
+  int has_conf;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  converter->hv = converter_hv;
+
+  has_format_defaults
+    = get_converter_info_from_sv (format_defaults_sv, converter,
+                              converter->sorted_options, format_defaults);
+
+  has_conf = get_converter_info_from_sv (conf_sv, converter,
+                               converter->sorted_options, conf);
+
+  set_non_customization_sv (converter_hv, format_defaults_sv,
+                            &format_defaults->non_valid_customization);
+
+  set_non_customization_sv (converter_hv, conf_sv,
+                            &conf->non_valid_customization);
+
+   /*
+  fprintf (stderr, "XS|CONVERTER Init from SV: %d; %d %d\n",
+                   converter->converter_descriptor, has_format_defaults,
+                   has_conf);
+    */
+
+  return has_format_defaults + has_conf;
+}
+
 void
 get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
 {
@@ -283,47 +321,6 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
             }
         }
     }
-}
-
-/* Texinfo::Convert::Converter generic initialization for all the converters */
-/* Called early, in particuliar before any format specific code has been
-   called */
-int
-converter_get_defaults_sv (SV *converter_sv, CONVERTER *converter,
-                         SV *format_defaults_sv, SV *conf_sv,
-                         CONVERTER_DEFAULTS_INFO *format_defaults,
-                         CONVERTER_DEFAULTS_INFO *conf)
-{
-  HV *converter_hv;
-  int has_format_defaults;
-  int has_conf;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-  converter->hv = converter_hv;
-
-  has_format_defaults
-    = get_converter_defaults_from_sv (format_defaults_sv, converter,
-                              converter->sorted_options, format_defaults);
-
-  has_conf = get_converter_defaults_from_sv (conf_sv, converter,
-                               converter->sorted_options, conf);
-
-  set_non_customization_sv (converter_hv, format_defaults_sv,
-                            &format_defaults->non_valid_customization);
-
-  set_non_customization_sv (converter_hv, conf_sv,
-                            &conf->non_valid_customization);
-
-   /*
-  fprintf (stderr, "XS|CONVERTER Init from SV: %d; %d %d\n",
-                   converter->converter_descriptor, has_format_defaults,
-                   has_conf);
-    */
-
-  return has_format_defaults + has_conf;
 }
 
 /* Unused */

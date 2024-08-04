@@ -112,12 +112,13 @@ CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);
 
-void fill_converter_conf (CONVERTER *converter,
-                          CONVERTER_DEFAULTS_INFO *format_defaults,
-                          CONVERTER_DEFAULTS_INFO *user_conf);
+void set_converter_init_information (CONVERTER *converter,
+                          CONVERTER_INITIALIZATION_INFO *format_defaults,
+                          CONVERTER_INITIALIZATION_INFO *user_conf);
 
-CONVERTER_DEFAULTS_INFO *new_converter_defaults_info (void);
-void free_converter_defaults_info (CONVERTER_DEFAULTS_INFO *defaults);
+CONVERTER_INITIALIZATION_INFO *new_converter_initialization_info (void);
+void free_converter_initialization_info (
+                            CONVERTER_INITIALIZATION_INFO *defaults);
 
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
 

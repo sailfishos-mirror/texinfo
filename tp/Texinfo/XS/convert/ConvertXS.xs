@@ -94,22 +94,22 @@ converter_initialize (SV *converter_in, const char *class, SV *format_defaults_s
       PREINIT:
          size_t converter_descriptor;
          CONVERTER *self;
-         CONVERTER_DEFAULTS_INFO *format_defaults;
-         CONVERTER_DEFAULTS_INFO *conf;
+         CONVERTER_INITIALIZATION_INFO *format_defaults;
+         CONVERTER_INITIALIZATION_INFO *conf;
       CODE:
          converter_descriptor = new_converter ();
          self = retrieve_converter (converter_descriptor);
 
-         format_defaults = new_converter_defaults_info ();
-         conf = new_converter_defaults_info ();
+         format_defaults = new_converter_initialization_info ();
+         conf = new_converter_initialization_info ();
 
-         converter_get_defaults_sv (converter_in, self, format_defaults_sv,
-                                    conf_sv, format_defaults, conf);
+         converter_get_info_from_sv (converter_in, self, format_defaults_sv,
+                                     conf_sv, format_defaults, conf);
 
-         fill_converter_conf (self, format_defaults, conf);
+         set_converter_init_information (self, format_defaults, conf);
 
-         free_converter_defaults_info (format_defaults);
-         free_converter_defaults_info (conf);
+         free_converter_initialization_info (format_defaults);
+         free_converter_initialization_info (conf);
 
          pass_generic_converter_to_converter_sv (converter_in, self);
 

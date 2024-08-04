@@ -13,6 +13,22 @@
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs,
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER_INITIALIZATION_INFO),
+	tp/Texinfo/XS/convert/converter.c (apply_converter_info)
+	(set_converter_init_information, new_converter_initialization_info),
+	tp/Texinfo/XS/main/get_perl_info.c (get_converter_info_from_sv)
+	(converter_get_info_from_sv): rename CONVERTER_DEFAULTS_INFO as
+	CONVERTER_INITIALIZATION_INFO.  Rename apply_converter_defaults as
+	apply_converter_info, fill_converter_conf as
+	set_converter_init_information, new_converter_defaults_info as
+	new_converter_initialization_info, free_converter_defaults_info as
+	free_converter_initialization_info, get_converter_defaults_from_sv as
+	get_converter_info_from_sv and converter_get_defaults_sv as
+	converter_get_info_from_sv.  Update users/callers.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/api_to_perl.c (register_perl_data),
 	tp/Texinfo/XS/main/utils.c (copy_option): copy icon sv.
 

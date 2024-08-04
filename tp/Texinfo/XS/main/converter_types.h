@@ -918,16 +918,16 @@ typedef struct CONVERTER {
     void *pl_info_hv; /* converter->{'converter_info'} */
 } CONVERTER;
 
-/* information on converter defaults from a source of configuration
+/* information on converter configuration from a source of configuration
    (either output format or user customization) */
-typedef struct CONVERTER_DEFAULTS_INFO {
+typedef struct CONVERTER_INITIALIZATION_INFO {
     char *converted_format;
     char *output_format;
     TRANSLATED_COMMAND *translated_commands;
     OPTIONS_LIST conf;
     /* gather strings that are not customization options */
     STRING_LIST non_valid_customization;
-} CONVERTER_DEFAULTS_INFO;
+} CONVERTER_INITIALIZATION_INFO;
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {
     enum special_unit_info_tree tree_type;

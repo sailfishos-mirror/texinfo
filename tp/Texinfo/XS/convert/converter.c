@@ -258,8 +258,8 @@ new_converter (void)
 }
 
 static void
-apply_converter_defaults (CONVERTER *converter,
-                        CONVERTER_DEFAULTS_INFO *defaults, int set_configured)
+apply_converter_info (CONVERTER *converter,
+                  CONVERTER_INITIALIZATION_INFO *defaults, int set_configured)
 {
   copy_options_list_options (converter->conf, converter->sorted_options,
                              &defaults->conf, set_configured);
@@ -284,13 +284,13 @@ apply_converter_defaults (CONVERTER *converter,
 }
 
 void
-fill_converter_conf (CONVERTER *converter,
-                     CONVERTER_DEFAULTS_INFO *format_defaults,
-                     CONVERTER_DEFAULTS_INFO *user_conf)
+set_converter_init_information (CONVERTER *converter,
+                            CONVERTER_INITIALIZATION_INFO *format_defaults,
+                            CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  apply_converter_defaults (converter, format_defaults, 0);
+  apply_converter_info (converter, format_defaults, 0);
 
-  apply_converter_defaults (converter, user_conf, 1);
+  apply_converter_info (converter, user_conf, 1);
 
   /* in Perl sets converter_init_conf, but in C we use only one
      structure for converter_init_conf and output_init_conf, which
@@ -311,17 +311,17 @@ fill_converter_conf (CONVERTER *converter,
 
 }
 
-CONVERTER_DEFAULTS_INFO *
-new_converter_defaults_info (void)
+CONVERTER_INITIALIZATION_INFO *
+new_converter_initialization_info (void)
 {
-  CONVERTER_DEFAULTS_INFO *result = (CONVERTER_DEFAULTS_INFO *)
-     malloc (sizeof (CONVERTER_DEFAULTS_INFO));
-  memset (result, 0, sizeof (CONVERTER_DEFAULTS_INFO));
+  CONVERTER_INITIALIZATION_INFO *result = (CONVERTER_INITIALIZATION_INFO *)
+     malloc (sizeof (CONVERTER_INITIALIZATION_INFO));
+  memset (result, 0, sizeof (CONVERTER_INITIALIZATION_INFO));
   return result;
 }
 
 void
-free_converter_defaults_info (CONVERTER_DEFAULTS_INFO *defaults)
+free_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *defaults)
 {
   if (defaults->translated_commands)
     destroy_translated_commands (defaults->translated_commands);
