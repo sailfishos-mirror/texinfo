@@ -1,3 +1,15 @@
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
+	tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/converter_options.c (new_button_specification)
+	(new_button_specification_list, new_basic_buttons, new_link_buttons)
+	(new_section_buttons, new_section_footer_buttons),
+	tp/Texinfo/XS/convert/converter_options.h: add a new file
+	converter_options.c for converters initialization code needed for
+	converters other than generic converter code.  Move buttons creation
+	in C functions from convert_html.c to converter_options.c.
+
 2024-10-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES): remove files that
