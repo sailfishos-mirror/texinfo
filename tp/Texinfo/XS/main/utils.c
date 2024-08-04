@@ -1350,10 +1350,11 @@ get_global_document_command (const GLOBAL_COMMANDS *global_commands,
     fprintf (stderr, "BUG: get_global_document_command: unknown CL: %d\n",
                      command_location);
 
-  const ELEMENT_LIST *command_list
-     = get_cmd_global_multi_command (global_commands, cmd);
   if (builtin_command_data[cmd].flags & CF_global)
     {
+      const ELEMENT_LIST *command_list
+        = get_cmd_global_multi_command (global_commands, cmd);
+
       if (command_list->number)
         {
           if (command_location == CL_last)

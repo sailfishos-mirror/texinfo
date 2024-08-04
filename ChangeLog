@@ -6,6 +6,11 @@
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (get_global_document_command): set
+	command_list for multi commands in the if multi.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_perl_options_info.pl: use more simple quotes.
 	set a hash for conversion options and use it to retrieve the
 	information in generated get_converter_regular_options.
