@@ -259,27 +259,27 @@ new_converter (void)
 
 static void
 apply_converter_info (CONVERTER *converter,
-                  CONVERTER_INITIALIZATION_INFO *defaults, int set_configured)
+              CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
 {
   copy_options_list_options (converter->conf, converter->sorted_options,
-                             &defaults->conf, set_configured);
+                             &init_info->conf, set_configured);
 
-  if (defaults->output_format)
+  if (init_info->output_format)
     {
       free (converter->output_format);
-      converter->output_format = strdup (defaults->output_format);
+      converter->output_format = strdup (init_info->output_format);
     }
-  if (defaults->converted_format)
+  if (init_info->converted_format)
     {
       free (converter->converted_format);
-      converter->converted_format = strdup (defaults->converted_format);
+      converter->converted_format = strdup (init_info->converted_format);
     }
 
-  if (defaults->translated_commands)
+  if (init_info->translated_commands)
     {
       destroy_translated_commands (converter->translated_commands);
-      converter->translated_commands = defaults->translated_commands;
-      defaults->translated_commands = 0;
+      converter->translated_commands = init_info->translated_commands;
+      init_info->translated_commands = 0;
     }
 }
 
@@ -321,17 +321,17 @@ new_converter_initialization_info (void)
 }
 
 void
-free_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *defaults)
+free_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 {
-  if (defaults->translated_commands)
-    destroy_translated_commands (defaults->translated_commands);
+  if (init_info->translated_commands)
+    destroy_translated_commands (init_info->translated_commands);
 
-  free (defaults->converted_format);
-  free (defaults->output_format);
+  free (init_info->converted_format);
+  free (init_info->output_format);
 
-  free_options_list (&defaults->conf);
+  free_options_list (&init_info->conf);
 
-  free_strings_list (&defaults->non_valid_customization);
+  free_strings_list (&init_info->non_valid_customization);
 }
 
 void

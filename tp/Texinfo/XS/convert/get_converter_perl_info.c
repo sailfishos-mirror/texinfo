@@ -161,7 +161,7 @@ get_option_from_sv (OPTION *option, SV *option_sv, CONVERTER *converter,
 static int
 get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
                             OPTION **sorted_options,
-                            CONVERTER_INITIALIZATION_INFO *defaults_info)
+                            CONVERTER_INITIALIZATION_INFO *initialization_info)
 {
   dTHX;
 
@@ -177,13 +177,14 @@ get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
       if (!hv_number)
         return 0;
 
-      defaults_info->conf.list
+      initialization_info->conf.list
         = (OPTION *) malloc (sizeof (OPTION) * hv_number);
-      memset (defaults_info->conf.list, 0, sizeof (OPTION) * hv_number);
+      memset (initialization_info->conf.list, 0, sizeof (OPTION) * hv_number);
 
       for (i = 0; i < hv_number; i++)
         {
-          OPTION *option = &defaults_info->conf.list[defaults_info->conf.number];
+          OPTION *option
+            = &initialization_info->conf.list[initialization_info->conf.number];
           char *key;
           I32 retlen;
           SV *value = hv_iternextsv (conf_hv, &key, &retlen);
@@ -191,23 +192,24 @@ get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
                                            sorted_options, key);
           if (!status)
             {
-              defaults_info->conf.number++;
+              initialization_info->conf.number++;
             }
           else
             {
               memset (option, 0, sizeof (OPTION));
               if (status == -2)
                 {
-                  add_string (key, &defaults_info->non_valid_customization);
+                  add_string (key,
+                        &initialization_info->non_valid_customization);
 
                   if (!strcmp (key, "translated_commands"))
-                    defaults_info->translated_commands
+                    initialization_info->translated_commands
                       = set_translated_commands (value, converter);
                   else if (!strcmp (key, "output_format"))
-                    defaults_info->output_format
+                    initialization_info->output_format
                       = non_perl_strdup (SvPVutf8_nolen (value));
                   else if (!strcmp (key, "converted_format"))
-                    defaults_info->converted_format
+                    initialization_info->converted_format
                       = non_perl_strdup (SvPVutf8_nolen (value));
          /* TODO in defaults here means in format_defaults or
             non customization variable
@@ -226,21 +228,21 @@ get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
 }
 
 static void
-set_non_customization_sv (HV *converter_hv, SV *defaults_sv,
+set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
                           STRING_LIST *non_valid_customization)
 {
   dTHX;
 
   if (non_valid_customization->number > 0)
     {
-      HV *defaults_hv = (HV *) SvRV (defaults_sv);
+      HV *init_info_hv = (HV *) SvRV (init_info_sv);
       size_t i;
       for (i = 0; i < non_valid_customization->number; i++)
         {
           const char *key
                = non_valid_customization->list[i];
           /* not a customization variable, set in converter */
-          SV **value = hv_fetch (defaults_hv, key, strlen (key), 0);
+          SV **value = hv_fetch (init_info_hv, key, strlen (key), 0);
           if (*value)
             {
               if (SvOK (*value))
