@@ -6,6 +6,27 @@
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (CONVERTER_FORMAT_DATA)
+	(converter_format_data): rename CONVERSION_FORMAT_DATA as
+	CONVERTER_FORMAT_DATA, conversion_format as converter_format_data,
+	enum conversion_output_format as enum converter_format and
+	CONVERSION_FORMAT_NR as TXI_CONVERSION_FORMAT_NR.
+
+	* tp/Texinfo/XS/convert/converter.h (enum converter_format)
+	(TXI_CONVERSION_FORMAT_NR, CONVERTER_FORMAT_DATA),
+	tp/Texinfo/XS/convert/converter.c: move declarations to converter.h.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (generic_converter_init),
+	tp/Texinfo/XS/convert/converter.c (set_converter_init_information),
+	tp/Texinfo/XS/main/get_perl_info.c (converter_get_info_from_sv):
+	determine enum converter format in converter_get_info_from_sv, pass it
+	as return value.  Pass status in an integer reference.
+
+	* tp/Texinfo/XS/convert/converter.c (set_global_document_commands):
+	allow converter document to be NULL.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
 	(ConvertXS_la_SOURCES): put generic converter source files in
 	libtexinfo_la_SOURCES instead of ConvertXS_la_SOURCES as all the code

@@ -89,7 +89,7 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
     OUTPUT:
         RETVAL
 
-# NOTE not sure what the scope of class is.  In a test, valgrind did not
+# NOTE not sure what the scope of class is.  When tested, valgrind did not
 # complain.
 void
 generic_converter_init (SV *converter_in, const char *class, SV *format_defaults_sv, SV *conf_sv=0)
@@ -98,6 +98,7 @@ generic_converter_init (SV *converter_in, const char *class, SV *format_defaults
          CONVERTER *self;
          CONVERTER_INITIALIZATION_INFO *format_defaults;
          CONVERTER_INITIALIZATION_INFO *conf;
+         enum converter_format converter_format;
       CODE:
          converter_descriptor = new_converter ();
          self = retrieve_converter (converter_descriptor);
@@ -105,11 +106,13 @@ generic_converter_init (SV *converter_in, const char *class, SV *format_defaults
          format_defaults = new_converter_initialization_info ();
          conf = new_converter_initialization_info ();
 
-         converter_get_info_from_sv (converter_in, class, self,
-                                     format_defaults_sv,
-                                     conf_sv, format_defaults, conf);
+         converter_format
+           = converter_get_info_from_sv (converter_in, class, self,
+                                         format_defaults_sv,
+                                         conf_sv, format_defaults, conf, 0);
 
-         set_converter_init_information (self, format_defaults, conf);
+         set_converter_init_information (self, converter_format,
+                                         format_defaults, conf);
 
          destroy_converter_initialization_info (format_defaults);
          destroy_converter_initialization_info (conf);

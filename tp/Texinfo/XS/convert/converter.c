@@ -59,20 +59,7 @@
 #include "call_perl_function.h"
 #include "converter.h"
 
-enum conversion_output_format {
-   COF_none = -1,
-   COF_html,
-};
-
-#define CONVERSION_FORMAT_NR (COF_html +1)
-
-typedef struct CONVERSION_FORMAT_DATA {
-    const char *output_format;
-    const char *perl_converter_class;
-} CONVERSION_FORMAT_DATA;
-
-
-CONVERSION_FORMAT_DATA conversion_format[] = {
+CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", },
 };
 
@@ -285,6 +272,7 @@ apply_converter_info (CONVERTER *converter,
 
 void
 set_converter_init_information (CONVERTER *converter,
+                            enum converter_format converter_format,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf)
 {
@@ -812,7 +800,7 @@ set_global_document_commands (CONVERTER *converter,
       int i;
       for (i = 0; cmd_list[i] > 0; i++)
         {
-          const ELEMENT *element;
+          const ELEMENT *element = 0;
           enum command_id cmd = cmd_list[i];
           if (converter->conf->DEBUG.o.integer > 0)
             {
@@ -820,10 +808,14 @@ set_global_document_commands (CONVERTER *converter,
                        command_location_names[location],
                        builtin_command_data[cmd].cmdname);
             }
-          element
-          = set_global_document_command (&converter->document->global_commands,
+          if (converter->document)
+            {
+              element
+                = set_global_document_command (
+                                     &converter->document->global_commands,
                                          converter->conf,
                                          cmd, location);
+            }
           if (!element)
             {
               OPTION *option_value = command_init (cmd,

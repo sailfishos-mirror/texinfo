@@ -66,6 +66,13 @@
             } \
           break;
 
+enum converter_format {
+   COF_none = -1,
+   COF_html,
+};
+
+#define TXI_CONVERSION_FORMAT_NR (COF_html +1)
+
 typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     const ELEMENT *caption;
     ELEMENT *prepended;
@@ -88,6 +95,11 @@ typedef struct PATHS_INFORMATION {
     } p;
 } PATHS_INFORMATION;
 
+typedef struct CONVERTER_FORMAT_DATA {
+    const char *output_format;
+    const char *perl_converter_class;
+} CONVERTER_FORMAT_DATA;
+
 extern enum command_id no_brace_command_accent_upper_case[][2];
 
 extern enum command_id default_upper_case_commands[];
@@ -105,6 +117,8 @@ extern COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[];
 
 extern PATHS_INFORMATION conversion_paths_info;
 
+extern CONVERTER_FORMAT_DATA converter_format_data[];
+
 void converter_setup (int texinfo_uninstalled, const char *tp_builddir,
                       const char *pkgdatadir, const char *top_srcdir);
 
@@ -113,8 +127,9 @@ size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);
 
 void set_converter_init_information (CONVERTER *converter,
-                          CONVERTER_INITIALIZATION_INFO *format_defaults,
-                          CONVERTER_INITIALIZATION_INFO *user_conf);
+                            enum converter_format converter_format,
+                            CONVERTER_INITIALIZATION_INFO *format_defaults,
+                            CONVERTER_INITIALIZATION_INFO *user_conf);
 
 CONVERTER_INITIALIZATION_INFO *new_converter_initialization_info (void);
 void destroy_converter_initialization_info (
