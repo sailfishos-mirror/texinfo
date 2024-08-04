@@ -89,6 +89,8 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
     OUTPUT:
         RETVAL
 
+# NOTE not sure what the scope of class is.  In a test, valgrind did not
+# complain.
 void
 generic_converter_init (SV *converter_in, const char *class, SV *format_defaults_sv, SV *conf_sv=0)
       PREINIT:
@@ -103,7 +105,8 @@ generic_converter_init (SV *converter_in, const char *class, SV *format_defaults
          format_defaults = new_converter_initialization_info ();
          conf = new_converter_initialization_info ();
 
-         converter_get_info_from_sv (converter_in, self, format_defaults_sv,
+         converter_get_info_from_sv (converter_in, class, self,
+                                     format_defaults_sv,
                                      conf_sv, format_defaults, conf);
 
          set_converter_init_information (self, format_defaults, conf);

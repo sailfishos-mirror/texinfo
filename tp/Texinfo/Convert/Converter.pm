@@ -295,7 +295,7 @@ sub _generic_converter_init($$$;$)
       if (Texinfo::Common::valid_customization_option($key)) {
         $converter->{'conf'}->{$key} = $conf->{$key};
       } elsif (!exists($defaults{$key})) {
-        warn "$key not a possible configuration in $class\n";
+        warn "$class: $key not a possible configuration\n";
       } else {
         $converter->{$key} = $conf->{$key};
       }

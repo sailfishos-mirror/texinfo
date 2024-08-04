@@ -158,8 +158,10 @@ get_option_from_sv (OPTION *option, SV *option_sv, CONVERTER *converter,
   return status;
 }
 
+/* class is Perl converter class for warning message */
 static int
-get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
+get_converter_info_from_sv (SV *conf_sv, const char *class,
+                            CONVERTER *converter,
                             OPTION **sorted_options,
                             CONVERTER_INITIALIZATION_INFO *initialization_info)
 {
@@ -211,12 +213,16 @@ get_converter_info_from_sv (SV *conf_sv, CONVERTER *converter,
                   else if (!strcmp (key, "converted_format"))
                     initialization_info->converted_format
                       = non_perl_strdup (SvPVutf8_nolen (value));
-         /* TODO in defaults here means in format_defaults or
-            non customization variable
-            in Texinfo::Convert::Converter::common_converters_defaults
-      } elsif (!exists($defaults{$key})) {
-        warn "$key not a possible configuration in $class\n";
-          */
+                  else if (!strcmp (key, "texinfo_language_config_dirs"))
+                    {
+                      /* TODO add to converter and set.  Only used for
+                         htmlxref, so should wait for that to implement */
+                    }
+                  else
+                    {
+                      fprintf (stderr, "%s: %s not a possible configuration\n",
+                                       class, key);
+                    }
                 }
               else
                 fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
@@ -255,8 +261,11 @@ set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
     }
 }
 
+/* CLASS is the perl converter class.  It could also be taken from
+   the object and is only used for a warning */
 int
-converter_get_info_from_sv (SV *converter_sv, CONVERTER *converter,
+converter_get_info_from_sv (SV *converter_sv, const char *class,
+                            CONVERTER *converter,
                             SV *format_defaults_sv, SV *conf_sv,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *conf)
@@ -272,10 +281,10 @@ converter_get_info_from_sv (SV *converter_sv, CONVERTER *converter,
   converter->hv = converter_hv;
 
   has_format_defaults
-    = get_converter_info_from_sv (format_defaults_sv, converter,
+    = get_converter_info_from_sv (format_defaults_sv, class, converter,
                               converter->sorted_options, format_defaults);
 
-  has_conf = get_converter_info_from_sv (conf_sv, converter,
+  has_conf = get_converter_info_from_sv (conf_sv, class, converter,
                                converter->sorted_options, conf);
 
   /* set directly Perl converter keys with non 'valid' customization info */

@@ -1,5 +1,16 @@
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (_generic_converter_init): update
+	warning message.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (generic_converter_init),
+	tp/Texinfo/XS/main/get_perl_info.c (get_converter_info_from_sv)
+	(converter_get_info_from_sv): pass Perl class down to
+	get_converter_info_from_sv.  Issue a message for an unknown
+	customization option.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (_generic_converter_init),
 	tp/Texinfo/XS/convert/ConvertXS.xs (generic_converter_init): rename
 	_internal_converter_initialize as _generic_converter_init, and XS

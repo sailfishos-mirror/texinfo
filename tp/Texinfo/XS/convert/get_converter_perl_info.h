@@ -12,7 +12,8 @@ struct TEXT_OPTIONS;
 CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
 CONVERTER *converter_set_document_from_sv (SV *converter_in, SV *document_in);
 
-int converter_get_info_from_sv (SV *converter_sv, CONVERTER *converter,
+int converter_get_info_from_sv (SV *converter_sv, const char *class,
+                                CONVERTER *converter,
                                 SV *format_defaults_sv, SV *conf_sv,
                                 CONVERTER_INITIALIZATION_INFO *format_defaults,
                                 CONVERTER_INITIALIZATION_INFO *conf);
