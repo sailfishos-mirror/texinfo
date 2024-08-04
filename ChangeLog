@@ -6,6 +6,12 @@
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_perl_options_info.pl: use more simple quotes.
+	set a hash for conversion options and use it to retrieve the
+	information in generated get_converter_regular_options.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Managing Customization Variables): put the
 	'Adding Customization Variables' node in an ignore block.  Indeed,
 	adding customization variables is currently only possible in Perl, not
