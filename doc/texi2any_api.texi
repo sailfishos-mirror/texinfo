@@ -332,7 +332,7 @@ the names of the customization options.}.
 @cindex Customization variables, setting and getting
 
 The basic operations on customization variables are to set and
-retrieve their values.  You can also add new variables.
+retrieve their values.  @c You can also add new variables.
 
 The customization variables also valid in the main program out of the HTML
 converter are handled differently if their associated values are strings or
@@ -470,6 +470,8 @@ if (texinfo_get_conf('footnotestyle') eq 'separate') @{ ... @}
 @end example
 
 
+@ignore
+@c problematic for XS, need a type, to add dynamically...
 @node Adding Customization Variables
 @subsection Adding Customization Variables
 
@@ -486,7 +488,7 @@ variable, call @code{texinfo_add_valid_customization_option}:
 
 The variable value, if set, should also be available in the converters and therefore
 in the init file functions registered and called from the converters.
-
+@end ignore
 
 @node Init File Loading Error Reporting
 @section Init File Loading Error Reporting

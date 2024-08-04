@@ -259,6 +259,8 @@ sub valid_customization_option($)
 
 # not documented on purpose, should not be directly called in user-defined
 # codes
+# FIXME not implementable in XS, would need a type, dynamically added
+# customization variables...
 sub add_valid_customization_option($)
 {
   my $option = shift;

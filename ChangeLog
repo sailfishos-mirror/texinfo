@@ -6,6 +6,17 @@
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Managing Customization Variables): put the
+	'Adding Customization Variables' node in an ignore block.  Indeed,
+	adding customization variables is currently only possible in Perl, not
+	with XS/C, and it is unlikely to change, as to be available in C too
+	it would need to specify a type (integer, byte or char) and add
+	dynamically options, which would involve important changes, so it is
+	not certain that it is worth keeping this possibility, especially
+	since it is not used anwhere in Texinfo currently.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (_generic_converter_init): update
 	warning message.
 
