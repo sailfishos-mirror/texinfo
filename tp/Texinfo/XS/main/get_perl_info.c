@@ -44,8 +44,6 @@
 #include "parser_conf.h"
 #include "document.h"
 #include "output_unit.h"
-#include "convert_to_text.h"
-#include "converter.h"
 #include "get_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to

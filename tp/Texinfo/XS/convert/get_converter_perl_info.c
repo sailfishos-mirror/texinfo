@@ -30,12 +30,18 @@
 
 #undef context
 
+#include "command_ids.h"
+#include "option_types.h"
+#include "options_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
 #include "utils.h"
-#include "converter.h"
+#include "builtin_commands.h"
+#include "convert_to_text.h"
 #include "get_perl_info.h"
+#include "converter.h"
 #include "get_converter_perl_info.h"
+
 
 CONVERTER *
 get_sv_converter (SV *sv_in, const char *warn_string)
@@ -85,8 +91,36 @@ converter_set_document_from_sv (SV *converter_in, SV *document_in)
   return converter;
 }
 
+/* add to converter hash the INIT_INFO_SV key values that are
+   not customization variables, listed in NO_VALID_CUSTOMIZATION */
+static void
+set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
+                          STRING_LIST *non_valid_customization)
+{
+  dTHX;
+
+  if (non_valid_customization->number > 0)
+    {
+      HV *init_info_hv = (HV *) SvRV (init_info_sv);
+      size_t i;
+      for (i = 0; i < non_valid_customization->number; i++)
+        {
+          const char *key
+               = non_valid_customization->list[i];
+          /* not a customization variable, set in converter */
+          SV **value = hv_fetch (init_info_hv, key, strlen (key), 0);
+          if (*value)
+            {
+              if (SvOK (*value))
+                SvREFCNT_inc (*value);
+              hv_store (converter_hv, key, strlen (key), *value, 0);
+            }
+        }
+    }
+}
+
 TRANSLATED_COMMAND *
-set_translated_commands (SV *translated_commands_sv, CONVERTER *converter)
+set_translated_commands (SV *translated_commands_sv)
 {
   TRANSLATED_COMMAND *translated_commands = 0;
 
@@ -129,7 +163,7 @@ set_translated_commands (SV *translated_commands_sv, CONVERTER *converter)
                 {
                   char *tmp_spec = (char *) SvPVutf8_nolen (translation_sv);
                   TRANSLATED_COMMAND *translated_command
-                    = &converter->translated_commands[i];
+                    = &translated_commands[i];
                   translated_command->translation = non_perl_strdup (tmp_spec);
                   translated_command->cmd = cmd;
                 }
@@ -179,6 +213,7 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
       if (!hv_number)
         return 0;
 
+      /* FIXME move to Pure C */
       initialization_info->conf.list
         = (OPTION *) malloc (sizeof (OPTION) * hv_number);
       memset (initialization_info->conf.list, 0, sizeof (OPTION) * hv_number);
@@ -206,7 +241,7 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
 
                   if (!strcmp (key, "translated_commands"))
                     initialization_info->translated_commands
-                      = set_translated_commands (value, converter);
+                      = set_translated_commands (value);
                   /* FIXME get deprecated_config_directories if needed */
                   else if (!strcmp (key, "deprecated_config_directories"))
                     {}
@@ -234,34 +269,6 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
       return 1;
     }
   return 0;
-}
-
-/* add to converter hash the INIT_INFO_SV key values that are
-   not customization variables, listed in NO_VALID_CUSTOMIZATION */
-static void
-set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
-                          STRING_LIST *non_valid_customization)
-{
-  dTHX;
-
-  if (non_valid_customization->number > 0)
-    {
-      HV *init_info_hv = (HV *) SvRV (init_info_sv);
-      size_t i;
-      for (i = 0; i < non_valid_customization->number; i++)
-        {
-          const char *key
-               = non_valid_customization->list[i];
-          /* not a customization variable, set in converter */
-          SV **value = hv_fetch (init_info_hv, key, strlen (key), 0);
-          if (*value)
-            {
-              if (SvOK (*value))
-                SvREFCNT_inc (*value);
-              hv_store (converter_hv, key, strlen (key), *value, 0);
-            }
-        }
-    }
 }
 
 /* CLASS is the perl converter class.  It could also be taken from
@@ -354,34 +361,6 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
         }
     }
 }
-
-/* Unused */
-void
-get_sv_configured_options (SV *configured_sv_in, OPTION **sorted_options)
-{
-  I32 hv_number;
-  I32 i;
-  HV *configured_hv;
-
-  dTHX;
-
-  configured_hv = (HV *)SvRV (configured_sv_in);
-
-  hv_number = hv_iterinit (configured_hv);
-  for (i = 0; i < hv_number; i++)
-    {
-      char *key;
-      I32 retlen;
-      SV *value = hv_iternextsv (configured_hv, &key, &retlen);
-      if (value && SvOK (value))
-        {
-          int configured = SvIV (value);
-          set_sorted_option_key_configured (sorted_options, key, configured);
-        }
-    }
-}
-
-/* output format specific */
 
 /* map hash reference of Convert::Text options to TEXT_OPTIONS */
 /* _raw_state is not fetched, as it is not documented as an option,

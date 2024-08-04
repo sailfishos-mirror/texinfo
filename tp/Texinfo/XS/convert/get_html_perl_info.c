@@ -44,6 +44,7 @@
 #include "converter.h"
 #include "convert_html.h"
 #include "get_perl_info.h"
+#include "get_converter_perl_info.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
 #include "get_converter_perl_info.h"

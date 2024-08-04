@@ -17,6 +17,7 @@ void html_fill_options (OPTIONS *options, const CONVERTER *converter);
 
 int get_sv_option (OPTION *option, SV *value, int force,
                    OPTIONS *options, const CONVERTER *converter);
+
 void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                      CONVERTER *converter, int force);
 int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
@@ -51,8 +52,6 @@ INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
 
 INDEX_SORTED_BY_LETTER *get_sv_index_entries_sorted_by_letter
                  (INDEX_LIST *indices_info, SV *index_entries_sorted_by_letter);
-
-TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
 BUTTON_SPECIFICATION_LIST *html_get_button_specification_list
                                 (const CONVERTER *converter, const SV *buttons_sv);

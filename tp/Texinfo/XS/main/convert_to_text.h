@@ -51,7 +51,7 @@ void text_set_options_encoding_if_not_ascii (CONVERTER *self,
 void text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding);
 void text_reset_options_encoding (TEXT_OPTIONS *text_options);
 
-/* used in converters in perl */
+/* used in converters in Perl */
 char *text_accents (const ELEMENT *accent, char *encoding, int set_case);
 char *text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options);
 

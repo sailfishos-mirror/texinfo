@@ -50,6 +50,7 @@
 #include "converter.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
+#include "get_converter_perl_info.h"
 #include "build_html_perl_state.h"
 #include "convert_html.h"
 #include "get_converter_perl_info.h"
