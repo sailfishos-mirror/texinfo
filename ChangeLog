@@ -6,6 +6,13 @@
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
+	(ConvertXS_la_SOURCES): put generic converter source files in
+	libtexinfo_la_SOURCES instead of ConvertXS_la_SOURCES as all the code
+	that link against libtexinfoxs requires it through get_perl_info.c.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (get_global_document_command): set
 	command_list for multi commands in the if multi.
 

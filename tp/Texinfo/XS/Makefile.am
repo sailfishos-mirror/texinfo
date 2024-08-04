@@ -113,6 +113,11 @@ endif
 # api_to_perl.c and call_perl_function.c functions are called in other
 # parts of the code and need to be linked against Perl
 libtexinfo_la_SOURCES= \
+                       convert/converter.h \
+                       convert/converter.c \
+                       convert/cmd_converter.c \
+                       convert/converters_defaults.c \
+                       convert/converters_defaults.h \
 		      main/tree_types.h \
 		      main/document_types.h \
 		      main/tree.c \
