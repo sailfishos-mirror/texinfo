@@ -399,11 +399,11 @@ get_sv_option (OPTION *option, SV *value, int force,
         if (SvOK (value))
           {
             if (looks_like_number (value))
-            option->o.integer = SvIV (value);
-        else
-          {
-            fprintf (stderr, "BUG: %s: not an integer: %s\n",
-                     option->name, SvPVutf8_nolen (value));
+              option->o.integer = SvIV (value);
+          else
+            {
+              fprintf (stderr, "BUG: %s: not an integer: %s\n",
+                       option->name, SvPVutf8_nolen (value));
               option->o.integer = -1;
               return -3;
             }
@@ -447,14 +447,15 @@ get_sv_option (OPTION *option, SV *value, int force,
       case GOT_buttons:
         if (option->o.buttons)
           {
-            options->BIT_user_function_number
-               -= option->o.buttons->BIT_user_function_number;
+            if (options)
+              options->BIT_user_function_number
+                -= option->o.buttons->BIT_user_function_number;
             html_free_button_specification_list (option->o.buttons);
           }
 
         option->o.buttons
            = html_get_button_specification_list (converter, value);
-        if (option->o.buttons)
+        if (option->o.buttons && options)
           options->BIT_user_function_number
             += option->o.buttons->BIT_user_function_number;
         break;
@@ -525,6 +526,159 @@ init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
   else
     free (sorted_options);
   return options;
+}
+
+/* OPTION should be already allocated but otherwise set to 0 */
+static int
+get_option_from_sv (OPTION *option, SV *option_sv, CONVERTER *converter,
+                    OPTION **sorted_options, const char *option_name)
+{
+  int status;
+
+  const OPTION *ref_option = find_option_string (sorted_options, option_name);
+  if (!ref_option)
+    return -2;
+
+  initialize_option (option, ref_option->type, ref_option->name);
+  option->number = ref_option->number;
+
+  status = get_sv_option (option, option_sv, 0, 0, converter);
+
+  return status;
+}
+
+static int
+get_converter_defaults_from_sv (SV *conf_sv, CONVERTER *converter,
+                                OPTION **sorted_options,
+                                CONVERTER_DEFAULTS_INFO *defaults_info)
+{
+  dTHX;
+
+  if (conf_sv && SvOK (conf_sv))
+    {
+      I32 hv_number;
+      I32 i;
+
+      HV *conf_hv = (HV *)SvRV (conf_sv);
+
+      hv_number = hv_iterinit (conf_hv);
+
+      if (!hv_number)
+        return 0;
+
+      defaults_info->conf.list
+        = (OPTION *) malloc (sizeof (OPTION) * hv_number);
+      memset (defaults_info->conf.list, 0, sizeof (OPTION) * hv_number);
+
+      for (i = 0; i < hv_number; i++)
+        {
+          OPTION *option = &defaults_info->conf.list[defaults_info->conf.number];
+          char *key;
+          I32 retlen;
+          SV *value = hv_iternextsv (conf_hv, &key, &retlen);
+          int status = get_option_from_sv (option, value, converter,
+                                           sorted_options, key);
+          if (!status)
+            {
+              defaults_info->conf.number++;
+            }
+          else
+            {
+              memset (option, 0, sizeof (OPTION));
+              if (status == -2)
+                {
+                  add_string (key, &defaults_info->non_valid_customization);
+
+                  if (!strcmp (key, "translated_commands"))
+                    defaults_info->translated_commands
+                      = set_translated_commands (value);
+                  else if (!strcmp (key, "output_format"))
+                    defaults_info->output_format
+                      = non_perl_strdup (SvPVutf8_nolen (value));
+                  else if (!strcmp (key, "converted_format"))
+                    defaults_info->converted_format
+                      = non_perl_strdup (SvPVutf8_nolen (value));
+         /* TODO in defaults here means in format_defaults or
+            non customization variable
+            in Texinfo::Convert::Converter::common_converters_defaults
+      } elsif (!exists($defaults{$key})) {
+        warn "$key not a possible configuration in $class\n";
+          */
+                }
+              else
+                fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
+            }
+        }
+      return 1;
+    }
+  return 0;
+}
+
+static void
+set_non_customization_sv (HV *converter_hv, SV *defaults_sv,
+                          STRING_LIST *non_valid_customization)
+{
+  dTHX;
+
+  if (non_valid_customization->number > 0)
+    {
+      HV *defaults_hv = (HV *) SvRV (defaults_sv);
+      size_t i;
+      for (i = 0; i < non_valid_customization->number; i++)
+        {
+          const char *key
+               = non_valid_customization->list[i];
+          /* not a customization variable, set in converter */
+          SV **value = hv_fetch (defaults_hv, key, strlen (key), 0);
+          if (*value)
+            {
+              if (SvOK (*value))
+                SvREFCNT_inc (*value);
+              hv_store (converter_hv, key, strlen (key), *value, 0);
+            }
+        }
+    }
+}
+
+/* Texinfo::Convert::Converter generic initialization for all the converters */
+/* Called early, in particuliar before any format specific code has been
+   called */
+int
+converter_get_defaults_sv (SV *converter_sv, CONVERTER *converter,
+                         SV *format_defaults_sv, SV *conf_sv,
+                         CONVERTER_DEFAULTS_INFO *format_defaults,
+                         CONVERTER_DEFAULTS_INFO *conf)
+{
+  HV *converter_hv;
+  int has_format_defaults;
+  int has_conf;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  converter->hv = converter_hv;
+
+  has_format_defaults
+    = get_converter_defaults_from_sv (format_defaults_sv, converter,
+                              converter->sorted_options, format_defaults);
+
+  has_conf = get_converter_defaults_from_sv (conf_sv, converter,
+                               converter->sorted_options, conf);
+
+  set_non_customization_sv (converter_hv, format_defaults_sv,
+                            &format_defaults->non_valid_customization);
+
+  set_non_customization_sv (converter_hv, conf_sv,
+                            &conf->non_valid_customization);
+
+   /*
+  fprintf (stderr, "XS|CONVERTER Init from SV: %d; %d %d\n",
+                   converter->converter_descriptor, has_format_defaults,
+                   has_conf);
+    */
+
+  return has_format_defaults + has_conf;
 }
 
 INDEX_ENTRY *

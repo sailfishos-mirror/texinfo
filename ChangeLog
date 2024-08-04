@@ -1,3 +1,40 @@
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/api_to_perl.c (register_perl_data),
+	tp/Texinfo/XS/main/utils.c (copy_option): copy icon sv.
+
+	* tp/Texinfo/XS/main/option_types.h (OPTIONS_LIST),
+	tp/Texinfo/XS/main/utils.c (free_options_list)
+	(copy_options_list_options): add OPTIONS_LIST, and associated
+	functions, free_options_list and copy_options_list_options.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_option): handle options
+	unset.  It could happen, for example, if the information gotten is a
+	separate option information not (already) associated to an OPTIONS
+	structure, for example passing through a OPTIONS_LIST.
+
+	* tp/Texinfo/XS/main/converter_types.h (CONVERTER_DEFAULTS_INFO),
+	tp/Texinfo/XS/convert/converter.c (new_converter_defaults_info)
+	(new_converter_defaults_info), tp/Texinfo/XS/main/get_perl_info.c
+	(get_converter_defaults_from_sv): add CONVERTER_DEFAULTS_INFO, a
+	structure holding information that can be passed as information for
+	converter, with options, format names and translated commands.  Add
+	get_converter_defaults_from_sv to set it from Perl data.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (set_translated_commands):
+	pass a SV and returns a newly allocated TRANSLATED_COMMAND.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_option_from_sv): setup an
+	OPTION based on a SV and an option name.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (converter_initialize),
+	tp/Texinfo/XS/convert/converter.c (apply_converter_defaults)
+	(fill_converter_conf), tp/Texinfo/XS/main/get_perl_info.c
+	(set_non_customization_sv, converter_get_defaults_sv): get information
+	on format defaults and user customization in a separate function,
+	converter_get_defaults_sv.  Then set them in the C converter with
+	fill_converter_conf.  Remove converter_initialize_sv.
+
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/get_perl_info.h: remove get_options_key_sv_option

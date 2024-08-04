@@ -90,15 +90,26 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
         RETVAL
 
 void
-converter_initialize (SV *converter_in, const char *class, SV *format_defaults, SV *conf=0)
+converter_initialize (SV *converter_in, const char *class, SV *format_defaults_sv, SV *conf_sv=0)
       PREINIT:
          size_t converter_descriptor;
          CONVERTER *self;
+         CONVERTER_DEFAULTS_INFO *format_defaults;
+         CONVERTER_DEFAULTS_INFO *conf;
       CODE:
          converter_descriptor = new_converter ();
          self = retrieve_converter (converter_descriptor);
 
-         converter_initialize_sv (converter_in, self, format_defaults, conf);
+         format_defaults = new_converter_defaults_info ();
+         conf = new_converter_defaults_info ();
+
+         converter_get_defaults_sv (converter_in, self, format_defaults_sv,
+                                    conf_sv, format_defaults, conf);
+
+         fill_converter_conf (self, format_defaults, conf);
+
+         free_converter_defaults_info (format_defaults);
+         free_converter_defaults_info (conf);
 
          pass_generic_converter_to_converter_sv (converter_in, self);
 

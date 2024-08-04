@@ -85,32 +85,32 @@ converter_set_document_from_sv (SV *converter_in, SV *document_in)
   return converter;
 }
 
-void
-set_translated_commands (CONVERTER *converter, HV *hv_in)
+TRANSLATED_COMMAND *
+set_translated_commands (SV *translated_commands_sv)
 {
-  SV **translated_commands_sv;
+  TRANSLATED_COMMAND *translated_commands = 0;
 
   dTHX;
 
-  translated_commands_sv = hv_fetch (hv_in, "translated_commands",
-                                     strlen ("translated_commands"), 0);
-
   if (translated_commands_sv)
     {
+      HV *translated_commands_hv = 0;
       I32 hv_number;
       I32 i;
 
-      HV *translated_commands_hv
-        = (HV *)SvRV (*translated_commands_sv);
+      if (!SvOK (translated_commands_sv))
+        hv_number = 0;
+      else
+        {
+          HV *translated_commands_hv
+            = (HV *)SvRV (translated_commands_sv);
 
-      hv_number = hv_iterinit (translated_commands_hv);
+          hv_number = hv_iterinit (translated_commands_hv);
+        }
 
-      if (converter->translated_commands)
-        destroy_translated_commands (converter->translated_commands);
-
-      converter->translated_commands = (TRANSLATED_COMMAND *)
+      translated_commands = (TRANSLATED_COMMAND *)
         malloc ((hv_number +1) * sizeof (TRANSLATED_COMMAND));
-      memset (converter->translated_commands, 0,
+      memset (translated_commands, 0,
               (hv_number +1) * sizeof (TRANSLATED_COMMAND));
 
       for (i = 0; i < hv_number; i++)
@@ -136,6 +136,7 @@ set_translated_commands (CONVERTER *converter, HV *hv_in)
             }
         }
     }
+  return translated_commands;
 }
 
 void

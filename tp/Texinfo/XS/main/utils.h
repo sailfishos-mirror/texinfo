@@ -212,6 +212,9 @@ void clear_options (OPTIONS *options);
 void free_options (OPTIONS *options);
 void copy_options (OPTIONS *destination, const OPTIONS *source);
 
+void copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
+                                OPTIONS_LIST *options_list, int set_configured);
+void free_options_list (OPTIONS_LIST *options_list);
 
 OPTIONS *new_options (void);
 OPTION **setup_sorted_options (OPTIONS *options);

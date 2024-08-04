@@ -211,7 +211,6 @@ init_generic_converter (CONVERTER *self)
 
   self->translated_commands[0].cmd = CM_error;
   self->translated_commands[0].translation = strdup ("error@arrow{}");
-
 }
 
 /* descriptor starts at 1, 0 is not found or an error */
@@ -256,6 +255,83 @@ new_converter (void)
                        converter, registered_converter, converter->document);
    */
   return converter_index +1;
+}
+
+static void
+apply_converter_defaults (CONVERTER *converter,
+                        CONVERTER_DEFAULTS_INFO *defaults, int set_configured)
+{
+  copy_options_list_options (converter->conf, converter->sorted_options,
+                             &defaults->conf, set_configured);
+
+  if (defaults->output_format)
+    {
+      free (converter->output_format);
+      converter->output_format = strdup (defaults->output_format);
+    }
+  if (defaults->converted_format)
+    {
+      free (converter->converted_format);
+      converter->converted_format = strdup (defaults->converted_format);
+    }
+
+  if (defaults->translated_commands)
+    {
+      destroy_translated_commands (converter->translated_commands);
+      converter->translated_commands = defaults->translated_commands;
+      defaults->translated_commands = 0;
+    }
+}
+
+void
+fill_converter_conf (CONVERTER *converter,
+                     CONVERTER_DEFAULTS_INFO *format_defaults,
+                     CONVERTER_DEFAULTS_INFO *user_conf)
+{
+  apply_converter_defaults (converter, format_defaults, 0);
+
+  apply_converter_defaults (converter, user_conf, 1);
+
+  /* in Perl sets converter_init_conf, but in C we use only one
+     structure for converter_init_conf and output_init_conf, which
+     is overwritten to set the similar values as output_init_conf
+     in specific converters.
+   */
+  copy_options (converter->init_conf, converter->conf);
+
+  set_expanded_formats_from_options (converter->expanded_formats,
+                                     converter->conf);
+
+  /*
+  fprintf (stderr, "XS|CONVERTER Fill conf: %d; %s, %s\n",
+                   converter->converter_descriptor,
+                   converter->output_format,
+                   converter->converted_format);
+   */
+
+}
+
+CONVERTER_DEFAULTS_INFO *
+new_converter_defaults_info (void)
+{
+  CONVERTER_DEFAULTS_INFO *result = (CONVERTER_DEFAULTS_INFO *)
+     malloc (sizeof (CONVERTER_DEFAULTS_INFO));
+  memset (result, 0, sizeof (CONVERTER_DEFAULTS_INFO));
+  return result;
+}
+
+void
+free_converter_defaults_info (CONVERTER_DEFAULTS_INFO *defaults)
+{
+  if (defaults->translated_commands)
+    destroy_translated_commands (defaults->translated_commands);
+
+  free (defaults->converted_format);
+  free (defaults->output_format);
+
+  free_options_list (&defaults->conf);
+
+  free_strings_list (&defaults->non_valid_customization);
 }
 
 void

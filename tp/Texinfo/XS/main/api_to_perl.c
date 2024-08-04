@@ -106,6 +106,12 @@ unregister_perl_direction_icons (DIRECTION_ICON_LIST *direction_icons)
     SvREFCNT_dec (direction_icons->sv);
 }
 
+void
+register_perl_data (void *sv)
+{
+  SvREFCNT_inc (sv);
+}
+
 char *
 get_perl_scalar_reference_value (const void *sv_string)
 {

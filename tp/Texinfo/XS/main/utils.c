@@ -1884,6 +1884,8 @@ copy_option (OPTION *destination, const OPTION *source)
           if (source_icons)
             {
               dest_icons->number = source_icons->number;
+              dest_icons->sv = source_icons->sv;
+              register_perl_data (dest_icons->sv);
               if (dest_icons->number)
                 {
                   size_t i;
@@ -1996,6 +1998,48 @@ set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
       if (option)
         option->configured = configured;
     }
+}
+
+/* copy OPTIONS_LIST options to an OPTIONS structure, using the sorted options
+   to find the struct fields. */
+void
+copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
+                           OPTIONS_LIST *options_list, int set_configured)
+{
+  size_t i;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      OPTION *src_option = &options_list->list[i];
+      if (src_option->number > 0)
+        {
+          size_t index = src_option->number - 1;
+          OPTION *dst_option = sorted_options[index];
+
+          copy_option (dst_option, src_option);
+
+          if (dst_option->type == GOT_buttons
+              && dst_option->o.buttons && options)
+            options->BIT_user_function_number
+               += dst_option->o.buttons->BIT_user_function_number;
+
+          if (set_configured)
+            dst_option->configured = 1;
+        }
+    }
+}
+
+void
+free_options_list (OPTIONS_LIST *options_list)
+{
+  size_t i;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      free_option (&options_list->list[i]);
+    }
+
+  free (options_list->list);
 }
 
 

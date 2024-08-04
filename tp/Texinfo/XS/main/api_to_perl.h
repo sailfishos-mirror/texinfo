@@ -14,6 +14,7 @@ void unregister_perl_button (BUTTON_SPECIFICATION *button);
 void register_perl_button (BUTTON_SPECIFICATION *button);
 void unregister_perl_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void unregister_document_hv (DOCUMENT *document);
+void register_perl_data (void *sv);
 /* HTML specific */
 void unregister_html_converter_perl_hv (CONVERTER *converter);
 

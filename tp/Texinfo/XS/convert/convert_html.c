@@ -18242,7 +18242,7 @@ html_converter_initialize (CONVERTER *self)
         + external_formatting_function;
 
    /*
-  fprintf (stderr, "TOTAL: %d. conf %d fi %d sbf %d ouc %d cc %d co %d tc %d to %d f %d\n",
+  fprintf (stderr, "TOTAL: %d. conf %zu fi %d sbf %d ouc %d cc %d co %d tc %d to %d f %d\n",
            self->external_references_number,
            self->conf->BIT_user_function_number,
            self->file_id_setting_ref_number,
