@@ -1,3 +1,12 @@
+2024-10-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES): remove files that
+	are in libtexinfo_convert_la_SOURCES.
+
+	* tp/Texinfo/XS/Makefile.am: remove block of definition of
+	libtexinfo_convert that crept in through rebasing and incorrect
+	conflicts resolution.
+
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c

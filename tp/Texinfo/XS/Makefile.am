@@ -113,11 +113,6 @@ endif
 # api_to_perl.c and call_perl_function.c functions are called in other
 # parts of the code and need to be linked against Perl
 libtexinfo_la_SOURCES= \
-                       convert/converter.h \
-                       convert/converter.c \
-                       convert/cmd_converter.c \
-                       convert/converters_defaults.c \
-                       convert/converters_defaults.h \
 		      main/tree_types.h \
 		      main/document_types.h \
 		      main/tree.c \
@@ -337,30 +332,6 @@ $(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_
 MAINTAINERCLEANFILES += main/conversion_data.c main/conversion_data.h
 
 
-########################## shared perl XS library for texinfo XS codes
-# it is separate from libtexinfo because of different dependencies; it
-# does not depend on gnulib.  Both libraries are used by following XS.
-
-if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfoxs.la
-endif
-
-libtexinfoxs_la_SOURCES= \
-		      main/build_perl_info.c \
-		      main/build_perl_info.h \
-		      main/get_perl_info.c \
-		      main/get_perl_info.h \
-		      main/options_get_perl.c
-
-# locate include files under out-of-source builds.
-libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
-libtexinfoxs_la_LIBADD = libtexinfo.la
-# example to trigger errors associated with no undefined
-#libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBINTL)
-libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL)
-
-
 ########################## shared C library for conversion
 # conversion to raw text and to Texinfo code is in the libtexinfo library.
 # Note that having a library and not reusing source files is important to
@@ -390,10 +361,11 @@ libtexinfo_convert_la_SOURCES= \
 
 # locate include files under out-of-source builds.
 # parsetexi will only be needed for texinfo.c
-libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_convert_la_LIBADD = libtexinfo.la libtexinfoxs.la $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+# example to trigger errors associated with no undefined
 #libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
