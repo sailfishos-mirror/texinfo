@@ -1,5 +1,12 @@
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (_generic_converter_init),
+	tp/Texinfo/XS/convert/ConvertXS.xs (generic_converter_init): rename
+	_internal_converter_initialize as _generic_converter_init, and XS
+	generic_converter_init as generic_converter_init.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/api_to_perl.c (register_perl_data): add
 	register_perl_data and call it or unregister_perl_data, inlining
 	register_perl_buttons_list, unregister_perl_buttons_list,

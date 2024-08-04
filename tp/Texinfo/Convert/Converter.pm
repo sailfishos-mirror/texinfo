@@ -81,8 +81,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::converter_set_document",
 
   # fully overriden for all the converters
-  "Texinfo::Convert::Converter::_internal_converter_initialize",
-   => "Texinfo::Convert::ConvertXS::converter_initialize",
+  "Texinfo::Convert::Converter::_generic_converter_init",
+   => "Texinfo::Convert::ConvertXS::generic_converter_init",
   "Texinfo::Convert::Converter::get_converter_errors"
    => "Texinfo::Convert::ConvertXS::get_converter_errors",
   "Texinfo::Convert::Converter::converter_line_error"
@@ -266,7 +266,7 @@ sub set_document($$)
 }
 
 # initialization either in generic XS converter or in Perl
-sub _internal_converter_initialize($$$;$)
+sub _generic_converter_init($$$;$)
 {
   my $converter = shift;
   my $class = shift;
@@ -312,9 +312,10 @@ sub _internal_converter_initialize($$$;$)
 
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()
-  $converter->{'output_files'} = Texinfo::Convert::Utils::output_files_initialize();
+  $converter->{'output_files'}
+    = Texinfo::Convert::Utils::output_files_initialize();
 
-  # turn the array to a hash.
+  # setup expanded formats as a hash.
   my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
   $converter->{'expanded_formats'} = {};
   if (defined($expanded_formats)) {
@@ -339,13 +340,7 @@ sub converter($;$)
   my %format_defaults = $converter->converter_defaults($conf);
 
   # if with XS, XS converter initialization.
-  # NOTE get_conf should not be used before that point, such that the conf is
-  # initialized before it is called for the first time.
-  # NOTE format specific information is not available at this point, such that
-  # some options may not be obtained.  This is the case for HTML for instance.
-  # In particular the special units information need to be known before buttons
-  # information can be passed to C.
-  _internal_converter_initialize($converter, $class, \%format_defaults, $conf);
+  _generic_converter_init($converter, $class, \%format_defaults, $conf);
 
   $converter->converter_initialize();
 
