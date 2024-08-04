@@ -410,6 +410,8 @@ destroy_document_information_except_tree (DOCUMENT *document)
       free_options (document->options);
       free (document->options);
     }
+  if (document->sorted_options)
+    free (document->sorted_options);
   if (document->convert_index_text_options)
     destroy_text_options (document->convert_index_text_options);
 

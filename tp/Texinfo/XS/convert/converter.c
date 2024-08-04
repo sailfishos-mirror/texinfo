@@ -321,7 +321,7 @@ new_converter_initialization_info (void)
 }
 
 void
-free_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
+destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 {
   if (init_info->translated_commands)
     destroy_translated_commands (init_info->translated_commands);
@@ -332,6 +332,7 @@ free_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
   free_options_list (&init_info->conf);
 
   free_strings_list (&init_info->non_valid_customization);
+  free (init_info);
 }
 
 void

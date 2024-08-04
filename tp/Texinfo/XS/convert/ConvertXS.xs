@@ -108,8 +108,8 @@ converter_initialize (SV *converter_in, const char *class, SV *format_defaults_s
 
          set_converter_init_information (self, format_defaults, conf);
 
-         free_converter_initialization_info (format_defaults);
-         free_converter_initialization_info (conf);
+         destroy_converter_initialization_info (format_defaults);
+         destroy_converter_initialization_info (conf);
 
          pass_generic_converter_to_converter_sv (converter_in, self);
 

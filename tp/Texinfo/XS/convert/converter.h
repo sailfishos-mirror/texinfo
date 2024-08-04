@@ -117,7 +117,7 @@ void set_converter_init_information (CONVERTER *converter,
                           CONVERTER_INITIALIZATION_INFO *user_conf);
 
 CONVERTER_INITIALIZATION_INFO *new_converter_initialization_info (void);
-void free_converter_initialization_info (
+void destroy_converter_initialization_info (
                             CONVERTER_INITIALIZATION_INFO *defaults);
 
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
