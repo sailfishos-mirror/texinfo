@@ -1,5 +1,15 @@
 2024-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, set_document),
+	tp/Texinfo/XS/convert/ConvertXS.xs (converter_set_document): call
+	call_common_set_output_perl_encoding in converter_set_document and
+	override the whole set_document Perl function.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_conversion_initialization):
+	call html_initialize_output_state without directly.
+
+2024-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/ConvertXS.xs: reorder XS functions.
 
 2024-08-05  Patrice Dumas  <pertusus@free.fr>

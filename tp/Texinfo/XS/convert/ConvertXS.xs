@@ -46,6 +46,8 @@
 /* for command_location_names non_perl_free new_string_list ... */
 #include "utils.h"
 #include "command_stack.h"
+/* for call_common_set_output_perl_encoding */
+#include "call_perl_function.h"
 #include "document.h"
 #include "converter.h"
 #include "get_perl_info.h"
@@ -120,6 +122,7 @@ generic_converter_init (SV *converter_in, const char *class, SV *format_defaults
 
          pass_generic_converter_to_converter_sv (converter_in, self);
 
+# not called for HTML as the Perl function is called from overriden functions.
 void
 converter_set_document (SV *converter_in, SV *document_in)
       PREINIT:
@@ -129,6 +132,8 @@ converter_set_document (SV *converter_in, SV *document_in)
            always be found when XS is used */
         self = converter_set_document_from_sv (converter_in, document_in);
         pass_document_to_converter_sv (self, converter_in, document_in);
+
+        call_common_set_output_perl_encoding (self);
 
 int
 set_conf (SV *converter_in, conf, SV *value)
@@ -655,7 +660,7 @@ html_converter_defaults (SV *converter_in, SV *conf_sv)
 # allowing to override functions separately.
 # They are not actually called since output and convert are overriden.
 
-# called both in convert and output
+# called first both in convert and output
 void
 html_conversion_initialization (SV *converter_in, const char *context, SV *document_in=0)
       PREINIT:
@@ -664,13 +669,11 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
         self = converter_set_document_from_sv (converter_in, document_in);
-        if (self)
-          {
-            html_initialize_output_state (self, context);
-            /* could be useful if something from Perl is needed
-            html_conversion_initialization_sv (converter_in, self);
-             */
-          }
+
+        html_initialize_output_state (self, context);
+        /* could be useful if something from Perl is needed
+        html_conversion_initialization_sv (converter_in, self);
+        */
 
         html_pass_conversion_initialization (self, converter_in, document_in);
 
