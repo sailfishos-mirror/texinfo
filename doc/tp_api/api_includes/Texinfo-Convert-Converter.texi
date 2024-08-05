@@ -16,7 +16,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   @ISA = qw(Texinfo::Convert::Converter);
 
   sub converter_defaults ($$) {
-    return %myconverter_defaults;
+    return \%myconverter_defaults;
   }
   sub converter_initialize($) {
     my $self = shift;
@@ -224,12 +224,13 @@ To help with these initializations, the modules subclassing @code{Texinfo::Conve
 can define two methods:
 
 @table @asis
-@item %defaults = $converter->converter_defaults($options)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter %defaults = $converter->converter_defaults($options)}
+@item \%defaults = $converter->converter_defaults($options)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter \%defaults = $converter->converter_defaults($options)}
 @cindex @code{converter_defaults}
 
-The module can provide a defaults hash for converter customization options.
-The @emph{$options} hash reference holds options for the converter.
+The module can provide the reference on a hash with defaults for converter
+customization options.  The @emph{$options} hash reference holds options for the
+converter.
 
 @item converter_initialize
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter converter_initialize}
