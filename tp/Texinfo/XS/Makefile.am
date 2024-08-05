@@ -341,11 +341,11 @@ xs_LTLIBRARIES += libtexinfoxs.la
 endif
 
 libtexinfoxs_la_SOURCES= \
-                     main/build_perl_info.c \
-                     main/build_perl_info.h \
-                     main/get_perl_info.c \
-                     main/get_perl_info.h \
-                     main/options_get_perl.c
+		      main/build_perl_info.c \
+		      main/build_perl_info.h \
+		      main/get_perl_info.c \
+		      main/get_perl_info.h \
+		      main/options_get_perl.c
 
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
@@ -376,8 +376,8 @@ libtexinfo_convert_la_SOURCES= \
                        convert/convert_html.c \
                        convert/converters_defaults.c \
                        convert/converters_defaults.h \
-                       convert/converter_options.c \
-                       convert/converter_options.h \
+                       convert/html_converter_init_options.c \
+                       convert/html_converter_init_options.h \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.h \

@@ -1,5 +1,10 @@
 2024-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES): rename
+	convert/converter_options.c as convert/html_converter_init_options.c.
+
+2024-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter), tp/Texinfo/Convert/*.pm
 	(converter_defaults): have converter_defaults return a reference on a
 	hash instead of a hash.

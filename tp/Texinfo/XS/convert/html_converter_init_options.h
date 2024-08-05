@@ -1,6 +1,6 @@
-/* converter_options.h - definitions for converter_options.c */
-#ifndef CONVERTER_OPTIONS_H
-#define CONVERTER_OPTIONS_H
+/* html_converter_init_options.h - for html_converter_init_options.c */
+#ifndef HTML_CONVERTER_INIT_OPTIONS_H
+#define HTML_CONVERTER_INIT_OPTIONS_H
 
 #include "option_types.h"
 #include "converter_types.h"

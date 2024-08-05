@@ -56,7 +56,7 @@
 #include "unicode.h"
 #include "manipulate_indices.h"
 #include "document.h"
-#include "converter_options.h"
+#include "html_converter_init_options.h"
 #include "call_perl_function.h"
 #include "converter.h"
 

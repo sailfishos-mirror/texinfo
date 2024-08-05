@@ -23,7 +23,7 @@
 #include "converter_types.h"
 #include "converters_defaults.h"
 #include "utils.h"
-#include "converter_options.h"
+#include "html_converter_init_options.h"
 
 /* code for converters options setting.  Not with format specific converter
    code, since this code is called from generic converter code. */
