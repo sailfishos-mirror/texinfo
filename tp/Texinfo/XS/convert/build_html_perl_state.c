@@ -435,7 +435,7 @@ html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
       if (document_sv)
         {
           HV *document_hv = (HV *) SvRV (*document_sv);
-          store_texinfo_tree (converter->document, document_hv);
+          store_document_texinfo_tree (converter->document, document_hv);
         }
 
       *output_units_sv = build_output_units_list

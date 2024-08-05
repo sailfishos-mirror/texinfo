@@ -166,8 +166,9 @@ get_conf (SV *converter_in, option_name)
          CONVERTER *self;
       CODE:
          self = get_sv_converter (converter_in, 0);
-         if (self)
-           RETVAL = get_sv_conf (self, option_name);
+         if (self && self->sorted_options)
+           RETVAL = build_sv_option_from_name (self->sorted_options, self,
+                                               option_name);
          else
            RETVAL = newSV (0);
     OUTPUT:

@@ -8437,7 +8437,7 @@ html_default_format_navigation_panel (CONVERTER *self,
 
 void
 format_navigation_panel (CONVERTER *self,
-                         const BUTTON_SPECIFICATION_LIST *buttons,
+                         BUTTON_SPECIFICATION_LIST *buttons,
                          const char *cmdname, const ELEMENT *element,
                          int vertical, TEXT *result)
 {
@@ -8465,7 +8465,7 @@ static const STRING_LIST vertical_navigation_classes
 
 void
 html_default_format_navigation_header (CONVERTER *self,
-                          const BUTTON_SPECIFICATION_LIST *buttons,
+                          BUTTON_SPECIFICATION_LIST *buttons,
                           const char *cmdname,
                           const ELEMENT *element, TEXT *result)
 {
@@ -8503,7 +8503,7 @@ html_default_format_navigation_header (CONVERTER *self,
 
 void
 format_navigation_header (CONVERTER *self,
-                          const BUTTON_SPECIFICATION_LIST *buttons,
+                          BUTTON_SPECIFICATION_LIST *buttons,
                           const char *cmdname,
                           const ELEMENT *element, TEXT *result)
 {
@@ -8713,7 +8713,7 @@ html_default_format_element_footer (CONVERTER *self,
   int next_is_top = 0;
   int next_is_special = 0;
   int end_page = 0;
-  const BUTTON_SPECIFICATION_LIST *buttons = 0;
+  BUTTON_SPECIFICATION_LIST *buttons = 0;
 
   if (output_unit->tree_unit_directions[D_next]
           && unit_is_top_output_unit (self,

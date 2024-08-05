@@ -165,26 +165,20 @@ register_document_options (SV *document_in, SV *sv_options_in)
           }
 
 SV *
-document_get_conf (SV *document_in, conf)
-         const char *conf = (char *)SvPVbyte_nolen($arg);
-    PREINIT:
-        DOCUMENT *document = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "document_get_conf");
-        if (document && document->sorted_options)
-           {
-             OPTION *option
-               = find_option_string (document->sorted_options, conf);
-             if (option)
-               RETVAL = build_sv_option (option, 0);
-             else
-               RETVAL = newSV (0);
-           }
-        else
-           RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
+document_get_conf (SV *document_in, option_name)
+      const char *option_name = (char *)SvPVbyte_nolen($arg);
+ PREINIT:
+      DOCUMENT *document = 0;
+    CODE:
+      document = get_sv_document_document (document_in,
+                                           "document_get_conf");
+      if (document && document->sorted_options)
+        RETVAL = build_sv_option_from_name (document->sorted_options,
+                                            0, option_name);
+      else
+        RETVAL = newSV (0);
+  OUTPUT:
+      RETVAL
 
 void
 set_document_global_info (SV *document_in, char *key, SV *value_sv)
@@ -239,9 +233,7 @@ document_tree (SV *document_in, int handler_only=0)
           {
             DOCUMENT *document = get_sv_document_document (document_in, 0);
             if (document)
-              {
-                result_sv = store_texinfo_tree (document, document_hv);
-              }
+              result_sv = store_document_texinfo_tree (document, document_hv);
           }
 
         if (!result_sv)

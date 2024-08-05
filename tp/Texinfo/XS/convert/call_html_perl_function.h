@@ -83,12 +83,12 @@ FORMATTED_BUTTON_INFO *call_formatting_function_format_button (CONVERTER *self,
                                   const ELEMENT *element);
 char *call_formatting_function_format_navigation_panel (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
-                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname, const ELEMENT *element,
                                   int vertical);
 char *call_formatting_function_format_navigation_header (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
-                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
                                   const ELEMENT *element);
 char *call_formatting_function_format_heading_text (CONVERTER *self,

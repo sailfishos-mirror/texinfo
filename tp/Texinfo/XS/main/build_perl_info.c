@@ -260,7 +260,7 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
 }
 
 /* contents appears in other parts of the tree */
-void
+static void
 build_perl_container (ELEMENT *e, int avoid_recursion)
 {
   SV *sv;
@@ -1027,71 +1027,45 @@ build_texinfo_tree (ELEMENT *root, int avoid_recursion)
   return root->hv;
 }
 
-/* Return array of target elements.  build_texinfo_tree must
-   be called first. */
-AV *
-build_target_elements_list (const LABEL_LIST *labels_list)
+void
+build_tree_to_build (ELEMENT_LIST *tree_to_build)
 {
-  AV *target_array;
-  SV *sv;
-  int i;
-
-  dTHX;
-
-  target_array = newAV ();
-  av_unshift (target_array, labels_list->number);
-
-  for (i = 0; i < labels_list->number; i++)
-    {
-      sv = newRV_inc (labels_list->list[i].element->hv);
-      av_store (target_array, i, sv);
-    }
-
-  return target_array;
-}
-
-HV *
-build_identifiers_target (const LABEL_LIST *identifiers_target)
-{
-  HV* hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (identifiers_target->number > 0)
+  if (tree_to_build->number > 0)
     {
       int i;
-      for (i = 0; i < identifiers_target->number; i++)
+      for (i = 0; i < tree_to_build->number; i++)
         {
-          SV *sv = newRV_inc (identifiers_target->list[i].element->hv);
-          hv_store (hv, identifiers_target->list[i].identifier,
-                    strlen (identifiers_target->list[i].identifier),
-                    sv, 0);
+          build_texinfo_tree (tree_to_build->list[i], 1);
         }
+      tree_to_build->number = 0;
     }
-  return hv;
 }
 
+
+
+/* build often used C data to Perl */
+
 AV *
-build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
+build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
 {
-  AV *list_av;
-  SV *sv;
+  AV *av;
   int i;
 
   dTHX;
 
-  list_av = newAV ();
-  av_unshift (list_av, internal_xref_list->number);
+  av = newAV ();
 
-  for (i = 0; i < internal_xref_list->number; i++)
+  for (i = 0; i < strings_list->number; i++)
     {
-      sv = newRV_inc (internal_xref_list->list[i]->hv);
-      av_store (list_av, i, sv);
+      const char *value = strings_list->list[i];
+      if (!value)
+        av_push (av, newSV (0));
+      else if (type == svt_char)
+        av_push (av, newSVpv_utf8 (value, 0));
+      else
+        av_push (av, newSVpv_byte (value, 0));
     }
-
-  return list_av;
+  return av;
 }
 
 AV *
@@ -1116,8 +1090,98 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
   return list_av;
 }
 
+/* currently unused */
+AV *
+build_integer_stack (const INTEGER_STACK *integer_stack)
+{
+  AV *av;
+  int i;
+
+  dTHX;
+
+  av = newAV ();
+
+  for (i = 0; i < integer_stack->top; i++)
+    {
+      int value = integer_stack->stack[i];
+      av_push (av, newSViv (value));
+    }
+  return av;
+}
+
+
+
+/* Build data registered in Texinfo document to Perl */
+
+/* Return array of target elements.  build_texinfo_tree must
+   be called first. */
+static AV *
+build_target_elements_list (const LABEL_LIST *labels_list)
+{
+  AV *target_array;
+  SV *sv;
+  int i;
+
+  dTHX;
+
+  target_array = newAV ();
+  av_unshift (target_array, labels_list->number);
+
+  for (i = 0; i < labels_list->number; i++)
+    {
+      sv = newRV_inc (labels_list->list[i].element->hv);
+      av_store (target_array, i, sv);
+    }
+
+  return target_array;
+}
+
+static HV *
+build_identifiers_target (const LABEL_LIST *identifiers_target)
+{
+  HV* hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (identifiers_target->number > 0)
+    {
+      int i;
+      for (i = 0; i < identifiers_target->number; i++)
+        {
+          SV *sv = newRV_inc (identifiers_target->list[i].element->hv);
+          hv_store (hv, identifiers_target->list[i].identifier,
+                    strlen (identifiers_target->list[i].identifier),
+                    sv, 0);
+        }
+    }
+  return hv;
+}
+
+static AV *
+build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
+{
+  AV *list_av;
+  SV *sv;
+  int i;
+
+  dTHX;
+
+  list_av = newAV ();
+  av_unshift (list_av, internal_xref_list->number);
+
+  for (i = 0; i < internal_xref_list->number; i++)
+    {
+      sv = newRV_inc (internal_xref_list->list[i]->hv);
+      av_store (list_av, i, sv);
+    }
+
+  return list_av;
+}
+
 /* Return hash for list of @float's that appeared in the file. */
-HV *
+static HV *
 build_float_types_list (const FLOAT_RECORD_LIST *floats)
 {
   HV *float_hash;
@@ -1221,7 +1285,7 @@ build_single_index_data (const INDEX *index)
 /* Return object to be used as $self->{'index_names'} in the perl code.
    build_texinfo_tree must be called before this so all the 'hv' fields
    are set on the elements in the tree. */
-HV *
+static HV *
 build_index_data (const INDEX_LIST *indices_info)
 {
   size_t i;
@@ -1242,34 +1306,9 @@ build_index_data (const INDEX_LIST *indices_info)
   return hv;
 }
 
-
-AV *
-build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
-{
-  AV *av;
-  int i;
-
-  dTHX;
-
-  av = newAV ();
-
-  for (i = 0; i < strings_list->number; i++)
-    {
-      const char *value = strings_list->list[i];
-      if (!value)
-        av_push (av, newSV (0));
-      else if (type == svt_char)
-        av_push (av, newSVpv_utf8 (value, 0));
-      else
-        av_push (av, newSVpv_byte (value, 0));
-    }
-  return av;
-}
-
-
 /* Return object to be used as 'info', retrievable with the
    'global_information' function. */
-HV *
+static HV *
 build_global_info (const GLOBAL_INFO *global_info_ref,
                    const GLOBAL_COMMANDS *global_commands_ref)
 {
@@ -1338,7 +1377,7 @@ build_global_info (const GLOBAL_INFO *global_info_ref,
 
 /* Return object to be used as 'commands_info', which holds references
    to tree elements. */
-HV *
+static HV *
 build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
 {
   HV *hv;
@@ -1432,6 +1471,8 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
 
 
 
+
+/* build error messages data to Perl, for Parser, Document and Converters */
 
 static void
 build_source_info_hash (const SOURCE_INFO source_info, HV *hv)
@@ -1754,7 +1795,8 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   av_internal_xref = build_internal_xref_list (&document->internal_references);
 
-  hv_identifiers_target = build_identifiers_target (&document->identifiers_target);
+  hv_identifiers_target
+   = build_identifiers_target (&document->identifiers_target);
 
   av_labels_list = build_target_elements_list (&document->labels_list);
 
@@ -1884,7 +1926,7 @@ rebuild_document (SV *document_in, int no_store)
 }
 
 SV *
-store_texinfo_tree (DOCUMENT *document, HV *document_hv)
+store_document_texinfo_tree (DOCUMENT *document, HV *document_hv)
 {
   SV *result_sv = 0;
   const char *key = "tree";
@@ -1924,7 +1966,7 @@ funcname (SV *document_in) \
 \
   if (document && document->fieldname)\
     {\
-      store_texinfo_tree (document, document_hv);\
+      store_document_texinfo_tree (document, document_hv);\
       if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (document->fieldname);\
@@ -1978,7 +2020,7 @@ funcname (SV *document_in) \
 \
   if (document)\
     {\
-      store_texinfo_tree (document, document_hv);\
+      store_document_texinfo_tree (document, document_hv);\
       if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (&document->fieldname);\
@@ -2389,641 +2431,9 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
 
 
 
-void
-pass_document_to_converter_sv (const CONVERTER *converter,
-                               SV *converter_sv, SV *document_in)
-{
-  HV *converter_hv;
+/* Build indices information for Perl */
 
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-  if (document_in && SvOK (document_in))
-    {
-      SvREFCNT_inc (document_in);
-      hv_store (converter_hv, "document", strlen ("document"),
-                document_in, 0);
-    }
-  if (converter && converter->convert_text_options)
-    {
-      SV *text_options_sv
-       = build_convert_text_options (converter->convert_text_options);
-      hv_store (converter_hv,
-                "convert_text_options", strlen("convert_text_options"),
-                text_options_sv, 0);
-    }
-}
-
-/* build a Perl button data from pure C button structure.
-   This is a partial implementation.
-   This function can only be called for default buttons for now, so we do
-   not need to handle other types of buttons.  We could handle possibly
-   more: BST_string and BST_direction_info with
-     BIT_string, BIT_selected_direction_information_type and
-     BIT_href_direction_information_type.
-   Other need Perl info */
-SV *
-html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
-                   int *user_function_number)
-{
-  dTHX;
-
-  *user_function_number = 0;
-
-  switch (button->type)
-    {
-      const char *direction_name;
-      case BST_direction:
-        if (button->b.direction < 0)
-          direction_name = button->direction_string;
-        else
-          direction_name
-            = converter->direction_unit_direction_name[button->b.direction];
-        return newSVpv_utf8 (direction_name, 0);
-        break;
-
-      case BST_direction_info:
-        {
-          BUTTON_SPECIFICATION_INFO *button_spec = button->b.button_info;
-          AV *button_spec_info_av;
-
-          if (button_spec->direction < 0)
-            direction_name = button->direction_string;
-          else
-            direction_name
-            = converter->direction_unit_direction_name[button_spec->direction];
-
-          if (button_spec->type == BIT_function)
-            {
-              /* contains a leading :: */
-              const char *sub_name = html_button_function_type_string[
-                                      button_spec->bi.button_function.type];
-              if (sub_name)
-                {
-                  char *cv_name;
-                  CV *button_function_cv;
-
-                  xasprintf (&cv_name, "Texinfo::Convert::HTML%s", sub_name);
-                  button_function_cv = get_cv (cv_name, 0);
-                  if (!button_function_cv)
-                    fprintf (stderr, "BUG: %s: not found\n", cv_name);
-
-                  free (cv_name);
-
-                  button_spec_info_av = newAV ();
-                  av_push (button_spec_info_av,
-                           newSVpv_utf8 (direction_name, 0));
-              /* not sure that the _inc leads to the same number of references
-                 than with Pure perl defined buttons, but it is needed
-                 as tested  */
-                  av_push (button_spec_info_av,
-                           newRV_inc ((SV *) button_function_cv));
-                  return newRV_inc ((SV *) button_spec_info_av);
-                }
-            }
-        }
-        break;
-
-      default:
-        break;
-    }
-  return newSV (0);
-}
-
-SV *
-html_build_buttons_specification (CONVERTER *converter,
-                                  BUTTON_SPECIFICATION_LIST *buttons)
-{
-  AV *buttons_av;
-  size_t i;
-
-  dTHX;
-
-  buttons_av = newAV ();
-
-  buttons->av = buttons_av;
-
-  for (i = 0; i < buttons->number; i++)
-    {
-      int user_function_number;
-      BUTTON_SPECIFICATION *button = &buttons->list[i];
-
-      SV *button_sv = html_build_button (converter, button,
-                                         &user_function_number);
-      buttons->BIT_user_function_number += user_function_number;
-
-      converter->external_references_number += user_function_number;
-
-      button->sv = button_sv;
-
-      /* retain a reference in C */
-      SvREFCNT_inc (button->sv);
-
-      av_push (buttons_av, button_sv);
-    }
-
-  /* add a refcount to retain one in C */
-  return newRV_inc ((SV *)buttons_av);
-}
-
-SV *
-html_build_direction_icons (const CONVERTER *converter,
-                            const DIRECTION_ICON_LIST *direction_icons)
-{
-  HV *icons_hv;
-  int i;
-
-  dTHX;
-
-  if (!direction_icons)
-    return newSV (0);
-
-  if (!converter || !converter->direction_unit_direction_name)
-    return newSV (0);
-
-  icons_hv = newHV ();
-
-  for (i = 0; converter->direction_unit_direction_name[i]; i++)
-    {
-      if (direction_icons->list[i])
-        {
-          const char *direction_name
-            = converter->direction_unit_direction_name[i];
-          hv_store (icons_hv, direction_name, strlen (direction_name),
-                    newSVpv_utf8 (direction_icons->list[i], 0), 0);
-        }
-    }
-  return newRV_noinc ((SV *)icons_hv);
-}
-
-SV *
-build_sv_option (const OPTION *option, CONVERTER *converter)
-{
-  dTHX;
-
-  switch (option->type)
-    {
-      case GOT_integer:
-        if (option->o.integer == -1)
-          return newSV (0);
-        return newSViv (option->o.integer);
-        break;
-
-      case GOT_char:
-        if (!option->o.string)
-          return newSV (0);
-        return newSVpv_utf8 (option->o.string, 0);
-        break;
-
-      case GOT_bytes:
-        if (!option->o.string)
-          return newSV (0);
-        return newSVpv_byte (option->o.string, 0);
-        break;
-
-      case GOT_bytes_string_list:
-        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
-                            svt_byte));
-        break;
-
-      case GOT_file_string_list:
-        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
-                            svt_dir));
-        break;
-
-      case GOT_char_string_list:
-        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
-                            svt_char));
-        break;
-
-      case GOT_buttons:
-        if (option->o.buttons)
-          {
-            if (!option->o.buttons->av)
-              html_build_buttons_specification (converter, option->o.buttons);
-            return newRV_inc ((SV *) option->o.buttons->av);
-          }
-        break;
-
-      case GOT_icons:
-        return html_build_direction_icons (converter, option->o.icons);
-        break;
-
-      default:
-        break;
-    }
-  return newSV (0);
-}
-
-SV *
-get_sv_conf (CONVERTER *converter, const char *option_name)
-{
-  dTHX;
-
-  if (converter->conf)
-    {
-      const OPTION *option
-        = find_option_string (converter->sorted_options, option_name);
-      if (option)
-        {
-          SV *result = build_sv_option (option, converter);
-          return result;
-       }
-    }
-  return newSV (0);
-}
-
-AV *
-build_integer_stack (const INTEGER_STACK *integer_stack)
-{
-  AV *av;
-  int i;
-
-  dTHX;
-
-  av = newAV ();
-
-  for (i = 0; i < integer_stack->top; i++)
-    {
-      int value = integer_stack->stack[i];
-      av_push (av, newSViv (value));
-    }
-  return av;
-}
-
-SV *
-build_filenames (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (output_unit_files)
-    {
-      for (i = 0; i < output_unit_files->number; i++)
-        {
-          const FILE_NAME_PATH_COUNTER *output_unit_file
-            = &output_unit_files->list[i];
-          const char *normalized_filename
-             = output_unit_file->normalized_filename;
-          SV *normalized_filename_sv = newSVpv_utf8 (normalized_filename, 0);
-
-          hv_store_ent (hv, normalized_filename_sv,
-                    newSVpv_utf8 (output_unit_file->filename, 0), 0);
-        }
-    }
-
-  return newRV_noinc ((SV *) hv);
-}
-
-SV *
-build_file_counters (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (output_unit_files)
-    {
-      for (i = 0; i < output_unit_files->number; i++)
-        {
-          const FILE_NAME_PATH_COUNTER *output_unit_file
-            = &output_unit_files->list[i];
-          const char *filename = output_unit_file->filename;
-          SV *filename_sv = newSVpv_utf8 (filename, 0);
-
-          hv_store_ent (hv, filename_sv, newSViv (output_unit_file->counter), 0);
-        }
-    }
-
-  return newRV_noinc ((SV *) hv);
-}
-
-SV *
-build_out_filepaths (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  hv = newHV ();
-
-  if (output_unit_files)
-    {
-      for (i = 0; i < output_unit_files->number; i++)
-        {
-          const FILE_NAME_PATH_COUNTER *output_unit_file
-            = &output_unit_files->list[i];
-          const char *filename = output_unit_file->filename;
-          SV *filename_sv = newSVpv_utf8 (filename, 0);
-
-          hv_store_ent (hv, filename_sv,
-                        newSVpv_utf8 (output_unit_file->filepath, 0), 0);
-        }
-    }
-
-  return newRV_noinc ((SV *) hv);
-}
-
-void
-pass_output_unit_files (SV *converter_sv,
-                        const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  SV *filenames_sv;
-  SV *file_counters_sv;
-  SV *out_filepaths_sv;
-
-  dTHX;
-
-  HV *converter_hv = (HV *) SvRV (converter_sv);
-
-  filenames_sv = build_filenames (output_unit_files);
-  file_counters_sv = build_file_counters (output_unit_files);
-  out_filepaths_sv = build_out_filepaths (output_unit_files);
-
-#define STORE(key) \
-  hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
-  SvREFCNT_inc (key##_sv);
-  STORE(filenames);
-  STORE (file_counters);
-  STORE (out_filepaths);
-#undef STORE
-}
-
-/* Texinfo::Common output_files_information API */
-void
-build_output_files_unclosed_files (HV *hv,
-                 const OUTPUT_FILES_INFORMATION *output_files_information)
-{
-  SV **unclosed_files_sv;
-  HV *unclosed_files_hv;
-
-  const FILE_STREAM_LIST *unclosed_files;
-  int i;
-
-  dTHX;
-
-  unclosed_files_sv = hv_fetch (hv, "unclosed_files",
-                                strlen ("unclosed_files"), 0);
-
-  if (!unclosed_files_sv)
-    {
-      unclosed_files_hv = newHV ();
-      hv_store (hv, "unclosed_files", strlen ("unclosed_files"),
-                newRV_noinc ((SV *) unclosed_files_hv), 0);
-    }
-  else
-    {
-      unclosed_files_hv = (HV *)SvRV (*unclosed_files_sv);
-    }
-
-  unclosed_files = &output_files_information->unclosed_files;
-  if (unclosed_files->number > 0)
-    {
-      for (i = 0; i < unclosed_files->number; i++)
-        {
-          const FILE_STREAM *file_stream = &unclosed_files->list[i];
-          const char *file_path = file_stream->file_path;
-      /* It is not possible to associate the unclosed stream to a SV.
-         It is possible to obtain a PerlIO from a FILE, as described in
-           https://perldoc.perl.org/perlapio
-         with
-           PerlIO *   PerlIO_importFILE  (FILE *stdio, const char *mode)
-         However, it is not possible to create an IO * SV from the PerlIO
-         or associate to an already existing IO *. An IO * SV is created by
-           IO *  newIO()
-         and it is possible to get the associated PerlIO, with
-           PerlIO *IoOFP(IO *io);
-         but not to set it.
-
-         However, it is possible to pass a stream through the XS
-         interface.  Therefore here, the unclosed file name is registered,
-         the stream can then be passed to Perl through a call of
-         the XS interface Texinfo::Convert::ConvertXS::get_unclosed_stream.
-
-         Register that there is an unclosed file from XS by associating
-         with undef; if from Perl, it would be associated with a file handle */
-          SV *file_path_sv = newSVpv_byte (file_path, 0);
-          hv_store_ent (unclosed_files_hv, file_path_sv, newSV (0), 0);
-        }
-    }
-}
-
-/* input hv should be an output_files hv, in general setup by
- $converter->{'output_files'} = Texinfo::Convert::Utils::output_files_initialize(); */
-void
-build_output_files_opened_files (HV *hv,
-                    const OUTPUT_FILES_INFORMATION *output_files_information)
-{
-  SV **opened_files_sv;
-  HV *opened_files_hv;
-
-  const STRING_LIST *opened_files;
-  int i;
-
-  dTHX;
-
-  opened_files_sv = hv_fetch (hv, "opened_files", strlen ("opened_files"), 0);
-
-  if (!opened_files_sv)
-    {
-      opened_files_hv = newHV ();
-      hv_store (hv, "opened_files", strlen ("opened_files"),
-                newRV_noinc ((SV *) opened_files_hv), 0);
-    }
-  else
-    {
-      opened_files_hv = (HV *)SvRV (*opened_files_sv);
-    }
-
-  opened_files = &output_files_information->opened_files;
-  if (opened_files->number > 0)
-    {
-      for (i = 0; i < opened_files->number; i++)
-        {
-          const char *file_path = opened_files->list[i];
-          SV *file_path_sv = newSVpv_byte (file_path, 0);
-          hv_store_ent (opened_files_hv, file_path_sv, newSViv (1), 0);
-        }
-    }
-}
-
-void
-build_output_files_information (SV *converter_sv,
-                   const OUTPUT_FILES_INFORMATION *output_files_information)
-{
-  HV *hv;
-  SV **output_files_sv;
-  HV *output_files_hv;
-
-  dTHX;
-
-  hv = (HV *) SvRV (converter_sv);
-
-  output_files_sv = hv_fetch (hv, "output_files",
-                                strlen ("output_files"), 0);
-
-  if (!output_files_sv)
-    {
-      output_files_hv = newHV ();
-      hv_store (hv, "output_files", strlen ("output_files"),
-                newRV_noinc ((SV *) output_files_hv), 0);
-    }
-  else
-    {
-      output_files_hv = (HV *)SvRV (*output_files_sv);
-    }
-
-  build_output_files_opened_files (output_files_hv,
-                                   output_files_information);
-  build_output_files_unclosed_files (output_files_hv,
-                                     output_files_information);
-}
-
-HV *
-build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
-{
-  int i;
-  HV *expanded_hv;
-
-  dTHX;
-
-  expanded_hv = newHV ();
-  for (i = 0; i < expanded_formats_number (); i++)
-    {
-      if (expanded_formats[i].expandedp)
-        {
-          const char *format = expanded_formats[i].format;
-          hv_store (expanded_hv, format, strlen (format),
-                    newSViv (1), 0);
-        }
-    }
-  return expanded_hv;
-}
-
-HV *
-build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
-{
-  int i;
-  HV *translated_hv;
-
-  dTHX;
-
-  translated_hv = newHV ();
-  for (i = 0; translated_commands[i].cmd; i++)
-    {
-      enum command_id cmd = translated_commands[i].cmd;
-      const char *translation = translated_commands[i].translation;
-      const char *command_name = builtin_command_name (cmd);
-      hv_store (translated_hv, command_name, strlen (command_name),
-                newSVpv_utf8 (translation, 0), 0);
-    }
-  return translated_hv;
-}
-
-void
-pass_generic_converter_to_converter_sv (SV *converter_sv,
-                                        const CONVERTER *converter)
-{
-  HV *converter_hv;
-  HV *expanded_formats_hv;
-  HV *translated_commands_hv;
-  HV *output_files_hv;
-  HV *unclosed_files_hv;
-  HV *opened_files_hv;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-#define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0);
-  /* $converter->{'output_files'}
-        = Texinfo::Convert::Utils::output_files_initialize(); */
-  output_files_hv = newHV ();
-  STORE("output_files", newRV_noinc ((SV *) output_files_hv));
-
-  unclosed_files_hv = newHV ();
-  opened_files_hv = newHV ();
-  hv_store (output_files_hv, "unclosed_files", strlen ("unclosed_files"),
-            newRV_noinc ((SV *) unclosed_files_hv), 0);
-  hv_store (output_files_hv, "opened_files_hv",
-            strlen ("opened_files_hv"),
-            newRV_noinc ((SV *) opened_files_hv), 0);
-
-  expanded_formats_hv
-    = build_expanded_formats (converter->expanded_formats);
-  STORE("expanded_formats", newRV_noinc ((SV *) expanded_formats_hv));
-
-  translated_commands_hv
-    = build_translated_commands (converter->translated_commands);
-  STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
-
-  /* store converter_descriptor in perl converter */
-  STORE("converter_descriptor", newSViv ((IV)converter->converter_descriptor));
-
-#undef STORE
-}
-
-SV *
-build_convert_text_options (TEXT_OPTIONS *text_options)
-{
-  HV *text_options_hv;
-  HV *expanded_formats_hv;
-
-  dTHX;
-
-  text_options_hv = newHV ();
-
-#define STORE(key, sv) hv_store (text_options_hv, key, strlen (key), sv, 0)
-
-  if (text_options->ASCII_GLYPH)
-    STORE("ASCII_GLYPH", newSViv (1));
-
-  if (text_options->NUMBER_SECTIONS)
-    STORE("NUMBER_SECTIONS", newSViv (1));
-
-  if (text_options->TEST)
-    STORE("TEST", newSViv (1));
-
-  if (text_options->sort_string)
-    STORE("sort_string", newSViv (1));
-
-  if (text_options->encoding)
-    STORE("enabled_encoding", newSVpv_utf8 (text_options->encoding, 0));
-
-  if (text_options->set_case)
-    STORE("set_case", newSViv (text_options->set_case));
-
-  if (text_options->code_state)
-    STORE("_code_state", newSViv (text_options->code_state));
-
-  expanded_formats_hv = build_expanded_formats (text_options->expanded_formats);
-  STORE("expanded_formats", newRV_noinc ((SV *)expanded_formats_hv));
-
-  if (text_options->include_directories.number > 0)
-    {
-      AV *av = build_string_list (&text_options->include_directories, svt_byte);
-      STORE("INCLUDE_DIRECTORIES", newRV_noinc ((SV *) av));
-    }
-
-  if (text_options->converter && text_options->converter->hv)
-    {
-      STORE("converter", newRV_inc ((SV *) text_options->converter->hv));
-    }
-#undef STORE
-
-  return newRV_noinc ((SV *)text_options_hv);
-}
-
-SV *
+static SV *
 find_idx_name_entry_number_sv (HV *indices_information_hv,
                                const char* index_name, int entry_number,
                                const char *message)
@@ -3289,19 +2699,636 @@ build_sorted_indices_by_letter (
     }
   return indices_hv;
 }
+
 
 void
-build_tree_to_build (ELEMENT_LIST *tree_to_build)
+pass_document_to_converter_sv (const CONVERTER *converter,
+                               SV *converter_sv, SV *document_in)
 {
-  if (tree_to_build->number > 0)
+  HV *converter_hv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+  if (document_in && SvOK (document_in))
     {
-      int i;
-      for (i = 0; i < tree_to_build->number; i++)
-        {
-          build_texinfo_tree (tree_to_build->list[i], 1);
-        }
-      tree_to_build->number = 0;
+      SvREFCNT_inc (document_in);
+      hv_store (converter_hv, "document", strlen ("document"),
+                document_in, 0);
     }
+  if (converter && converter->convert_text_options)
+    {
+      SV *text_options_sv
+       = build_convert_text_options (converter->convert_text_options);
+      hv_store (converter_hv,
+                "convert_text_options", strlen("convert_text_options"),
+                text_options_sv, 0);
+    }
+}
+
+
+
+/* build customization options to Perl */
+
+/* build a Perl button data from pure C button structure.
+   This is a partial implementation.
+   This function can only be called for default buttons for now, so we do
+   not need to handle other types of buttons.  We could handle possibly
+   more: BST_string and BST_direction_info with
+     BIT_string, BIT_selected_direction_information_type and
+     BIT_href_direction_information_type.
+   Other need Perl info */
+static SV *
+html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
+                   int *user_function_number)
+{
+  dTHX;
+
+  *user_function_number = 0;
+
+  switch (button->type)
+    {
+      const char *direction_name;
+      case BST_direction:
+        if (button->b.direction < 0)
+          direction_name = button->direction_string;
+        else
+          direction_name
+            = converter->direction_unit_direction_name[button->b.direction];
+        return newSVpv_utf8 (direction_name, 0);
+        break;
+
+      case BST_direction_info:
+        {
+          BUTTON_SPECIFICATION_INFO *button_spec = button->b.button_info;
+          AV *button_spec_info_av;
+
+          if (button_spec->direction < 0)
+            direction_name = button->direction_string;
+          else
+            direction_name
+            = converter->direction_unit_direction_name[button_spec->direction];
+
+          if (button_spec->type == BIT_function)
+            {
+              /* contains a leading :: */
+              const char *sub_name = html_button_function_type_string[
+                                      button_spec->bi.button_function.type];
+              if (sub_name)
+                {
+                  char *cv_name;
+                  CV *button_function_cv;
+
+                  xasprintf (&cv_name, "Texinfo::Convert::HTML%s", sub_name);
+                  button_function_cv = get_cv (cv_name, 0);
+                  if (!button_function_cv)
+                    fprintf (stderr, "BUG: %s: not found\n", cv_name);
+
+                  free (cv_name);
+
+                  button_spec_info_av = newAV ();
+                  av_push (button_spec_info_av,
+                           newSVpv_utf8 (direction_name, 0));
+              /* not sure that the _inc leads to the same number of references
+                 than with Pure perl defined buttons, but it is needed
+                 as tested  */
+                  av_push (button_spec_info_av,
+                           newRV_inc ((SV *) button_function_cv));
+                  return newRV_inc ((SV *) button_spec_info_av);
+                }
+            }
+        }
+        break;
+
+      default:
+        break;
+    }
+  return newSV (0);
+}
+
+SV *
+html_build_buttons_specification (CONVERTER *converter,
+                                  BUTTON_SPECIFICATION_LIST *buttons)
+{
+  AV *buttons_av;
+  size_t i;
+
+  dTHX;
+
+  buttons_av = newAV ();
+
+  buttons->av = buttons_av;
+
+  for (i = 0; i < buttons->number; i++)
+    {
+      int user_function_number;
+      BUTTON_SPECIFICATION *button = &buttons->list[i];
+
+      SV *button_sv = html_build_button (converter, button,
+                                         &user_function_number);
+      buttons->BIT_user_function_number += user_function_number;
+
+      converter->external_references_number += user_function_number;
+
+      button->sv = button_sv;
+
+      /* retain a reference in C */
+      SvREFCNT_inc (button->sv);
+
+      av_push (buttons_av, button_sv);
+    }
+
+  /* add a refcount to retain one in C */
+  return newRV_inc ((SV *)buttons_av);
+}
+
+SV *
+html_build_direction_icons (const CONVERTER *converter,
+                            const DIRECTION_ICON_LIST *direction_icons)
+{
+  HV *icons_hv;
+  int i;
+
+  dTHX;
+
+  if (!direction_icons)
+    return newSV (0);
+
+  if (!converter || !converter->direction_unit_direction_name)
+    return newSV (0);
+
+  icons_hv = newHV ();
+
+  for (i = 0; converter->direction_unit_direction_name[i]; i++)
+    {
+      if (direction_icons->list[i])
+        {
+          const char *direction_name
+            = converter->direction_unit_direction_name[i];
+          hv_store (icons_hv, direction_name, strlen (direction_name),
+                    newSVpv_utf8 (direction_icons->list[i], 0), 0);
+        }
+    }
+  return newRV_noinc ((SV *)icons_hv);
+}
+
+static SV *
+build_sv_option (const OPTION *option, CONVERTER *converter)
+{
+  dTHX;
+
+  switch (option->type)
+    {
+      case GOT_integer:
+        if (option->o.integer == -1)
+          return newSV (0);
+        return newSViv (option->o.integer);
+        break;
+
+      case GOT_char:
+        if (!option->o.string)
+          return newSV (0);
+        return newSVpv_utf8 (option->o.string, 0);
+        break;
+
+      case GOT_bytes:
+        if (!option->o.string)
+          return newSV (0);
+        return newSVpv_byte (option->o.string, 0);
+        break;
+
+      case GOT_bytes_string_list:
+        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
+                            svt_byte));
+        break;
+
+      case GOT_file_string_list:
+        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
+                            svt_dir));
+        break;
+
+      case GOT_char_string_list:
+        return newRV_noinc ((SV *) build_string_list(option->o.strlist,
+                            svt_char));
+        break;
+
+      case GOT_buttons:
+        if (option->o.buttons)
+          {
+            if (!option->o.buttons->av)
+              html_build_buttons_specification (converter, option->o.buttons);
+            return newRV_inc ((SV *) option->o.buttons->av);
+          }
+        break;
+
+      case GOT_icons:
+        return html_build_direction_icons (converter, option->o.icons);
+        break;
+
+      default:
+        break;
+    }
+  return newSV (0);
+}
+
+SV *
+build_sv_option_from_name (OPTION **sorted_options, CONVERTER *converter,
+                           const char *option_name)
+{
+  dTHX;
+
+  const OPTION *option
+   = find_option_string (sorted_options, option_name);
+
+  if (option)
+    {
+      SV *result = build_sv_option (option, converter);
+      return result;
+    }
+  return newSV (0);
+}
+
+
+/* API to access output file names associated with output units */ 
+
+static SV *
+build_filenames (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          const FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          const char *normalized_filename
+             = output_unit_file->normalized_filename;
+          SV *normalized_filename_sv = newSVpv_utf8 (normalized_filename, 0);
+
+          hv_store_ent (hv, normalized_filename_sv,
+                    newSVpv_utf8 (output_unit_file->filename, 0), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+static SV *
+build_file_counters (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          const FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          const char *filename = output_unit_file->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
+
+          hv_store_ent (hv, filename_sv, newSViv (output_unit_file->counter), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+SV *
+build_out_filepaths (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  int i;
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (output_unit_files)
+    {
+      for (i = 0; i < output_unit_files->number; i++)
+        {
+          const FILE_NAME_PATH_COUNTER *output_unit_file
+            = &output_unit_files->list[i];
+          const char *filename = output_unit_file->filename;
+          SV *filename_sv = newSVpv_utf8 (filename, 0);
+
+          hv_store_ent (hv, filename_sv,
+                        newSVpv_utf8 (output_unit_file->filepath, 0), 0);
+        }
+    }
+
+  return newRV_noinc ((SV *) hv);
+}
+
+void
+pass_output_unit_files (SV *converter_sv,
+                        const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
+{
+  SV *filenames_sv;
+  SV *file_counters_sv;
+  SV *out_filepaths_sv;
+
+  dTHX;
+
+  HV *converter_hv = (HV *) SvRV (converter_sv);
+
+  filenames_sv = build_filenames (output_unit_files);
+  file_counters_sv = build_file_counters (output_unit_files);
+  out_filepaths_sv = build_out_filepaths (output_unit_files);
+
+#define STORE(key) \
+  hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
+  SvREFCNT_inc (key##_sv);
+  STORE(filenames);
+  STORE (file_counters);
+  STORE (out_filepaths);
+#undef STORE
+}
+
+
+
+/* Texinfo::Common output_files_information API */
+static void
+build_output_files_unclosed_files (HV *hv,
+                 const OUTPUT_FILES_INFORMATION *output_files_information)
+{
+  SV **unclosed_files_sv;
+  HV *unclosed_files_hv;
+
+  const FILE_STREAM_LIST *unclosed_files;
+  int i;
+
+  dTHX;
+
+  unclosed_files_sv = hv_fetch (hv, "unclosed_files",
+                                strlen ("unclosed_files"), 0);
+
+  if (!unclosed_files_sv)
+    {
+      unclosed_files_hv = newHV ();
+      hv_store (hv, "unclosed_files", strlen ("unclosed_files"),
+                newRV_noinc ((SV *) unclosed_files_hv), 0);
+    }
+  else
+    {
+      unclosed_files_hv = (HV *)SvRV (*unclosed_files_sv);
+    }
+
+  unclosed_files = &output_files_information->unclosed_files;
+  if (unclosed_files->number > 0)
+    {
+      for (i = 0; i < unclosed_files->number; i++)
+        {
+          const FILE_STREAM *file_stream = &unclosed_files->list[i];
+          const char *file_path = file_stream->file_path;
+      /* It is not possible to associate the unclosed stream to a SV.
+         It is possible to obtain a PerlIO from a FILE, as described in
+           https://perldoc.perl.org/perlapio
+         with
+           PerlIO *   PerlIO_importFILE  (FILE *stdio, const char *mode)
+         However, it is not possible to create an IO * SV from the PerlIO
+         or associate to an already existing IO *. An IO * SV is created by
+           IO *  newIO()
+         and it is possible to get the associated PerlIO, with
+           PerlIO *IoOFP(IO *io);
+         but not to set it.
+
+         However, it is possible to pass a stream through the XS
+         interface.  Therefore here, the unclosed file name is registered,
+         the stream can then be passed to Perl through a call of
+         the XS interface Texinfo::Convert::ConvertXS::get_unclosed_stream.
+
+         Register that there is an unclosed file from XS by associating
+         with undef; if from Perl, it would be associated with a file handle */
+          SV *file_path_sv = newSVpv_byte (file_path, 0);
+          hv_store_ent (unclosed_files_hv, file_path_sv, newSV (0), 0);
+        }
+    }
+}
+
+/* input hv should be an output_files hv, in general setup by
+ $converter->{'output_files'} = Texinfo::Convert::Utils::output_files_initialize(); */
+static void
+build_output_files_opened_files (HV *hv,
+                    const OUTPUT_FILES_INFORMATION *output_files_information)
+{
+  SV **opened_files_sv;
+  HV *opened_files_hv;
+
+  const STRING_LIST *opened_files;
+  int i;
+
+  dTHX;
+
+  opened_files_sv = hv_fetch (hv, "opened_files", strlen ("opened_files"), 0);
+
+  if (!opened_files_sv)
+    {
+      opened_files_hv = newHV ();
+      hv_store (hv, "opened_files", strlen ("opened_files"),
+                newRV_noinc ((SV *) opened_files_hv), 0);
+    }
+  else
+    {
+      opened_files_hv = (HV *)SvRV (*opened_files_sv);
+    }
+
+  opened_files = &output_files_information->opened_files;
+  if (opened_files->number > 0)
+    {
+      for (i = 0; i < opened_files->number; i++)
+        {
+          const char *file_path = opened_files->list[i];
+          SV *file_path_sv = newSVpv_byte (file_path, 0);
+          hv_store_ent (opened_files_hv, file_path_sv, newSViv (1), 0);
+        }
+    }
+}
+
+void
+build_output_files_information (SV *converter_sv,
+                   const OUTPUT_FILES_INFORMATION *output_files_information)
+{
+  HV *hv;
+  SV **output_files_sv;
+  HV *output_files_hv;
+
+  dTHX;
+
+  hv = (HV *) SvRV (converter_sv);
+
+  output_files_sv = hv_fetch (hv, "output_files",
+                                strlen ("output_files"), 0);
+
+  if (!output_files_sv)
+    {
+      output_files_hv = newHV ();
+      hv_store (hv, "output_files", strlen ("output_files"),
+                newRV_noinc ((SV *) output_files_hv), 0);
+    }
+  else
+    {
+      output_files_hv = (HV *)SvRV (*output_files_sv);
+    }
+
+  build_output_files_opened_files (output_files_hv,
+                                   output_files_information);
+  build_output_files_unclosed_files (output_files_hv,
+                                     output_files_information);
+}
+
+
+
+/* pass generic converter information to Perl */
+
+static HV *
+build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
+{
+  int i;
+  HV *expanded_hv;
+
+  dTHX;
+
+  expanded_hv = newHV ();
+  for (i = 0; i < expanded_formats_number (); i++)
+    {
+      if (expanded_formats[i].expandedp)
+        {
+          const char *format = expanded_formats[i].format;
+          hv_store (expanded_hv, format, strlen (format),
+                    newSViv (1), 0);
+        }
+    }
+  return expanded_hv;
+}
+
+static HV *
+build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
+{
+  int i;
+  HV *translated_hv;
+
+  dTHX;
+
+  translated_hv = newHV ();
+  for (i = 0; translated_commands[i].cmd; i++)
+    {
+      enum command_id cmd = translated_commands[i].cmd;
+      const char *translation = translated_commands[i].translation;
+      const char *command_name = builtin_command_name (cmd);
+      hv_store (translated_hv, command_name, strlen (command_name),
+                newSVpv_utf8 (translation, 0), 0);
+    }
+  return translated_hv;
+}
+
+void
+pass_generic_converter_to_converter_sv (SV *converter_sv,
+                                        const CONVERTER *converter)
+{
+  HV *converter_hv;
+  HV *expanded_formats_hv;
+  HV *translated_commands_hv;
+  HV *output_files_hv;
+  HV *unclosed_files_hv;
+  HV *opened_files_hv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+#define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0);
+  /* $converter->{'output_files'}
+        = Texinfo::Convert::Utils::output_files_initialize(); */
+  output_files_hv = newHV ();
+  STORE("output_files", newRV_noinc ((SV *) output_files_hv));
+
+  unclosed_files_hv = newHV ();
+  opened_files_hv = newHV ();
+  hv_store (output_files_hv, "unclosed_files", strlen ("unclosed_files"),
+            newRV_noinc ((SV *) unclosed_files_hv), 0);
+  hv_store (output_files_hv, "opened_files_hv",
+            strlen ("opened_files_hv"),
+            newRV_noinc ((SV *) opened_files_hv), 0);
+
+  expanded_formats_hv
+    = build_expanded_formats (converter->expanded_formats);
+  STORE("expanded_formats", newRV_noinc ((SV *) expanded_formats_hv));
+
+  translated_commands_hv
+    = build_translated_commands (converter->translated_commands);
+  STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
+
+  /* store converter_descriptor in perl converter */
+  STORE("converter_descriptor", newSViv ((IV)converter->converter_descriptor));
+
+#undef STORE
+}
+
+
+
+SV *
+build_convert_text_options (TEXT_OPTIONS *text_options)
+{
+  HV *text_options_hv;
+  HV *expanded_formats_hv;
+
+  dTHX;
+
+  text_options_hv = newHV ();
+
+#define STORE(key, sv) hv_store (text_options_hv, key, strlen (key), sv, 0)
+
+  if (text_options->ASCII_GLYPH)
+    STORE("ASCII_GLYPH", newSViv (1));
+
+  if (text_options->NUMBER_SECTIONS)
+    STORE("NUMBER_SECTIONS", newSViv (1));
+
+  if (text_options->TEST)
+    STORE("TEST", newSViv (1));
+
+  if (text_options->sort_string)
+    STORE("sort_string", newSViv (1));
+
+  if (text_options->encoding)
+    STORE("enabled_encoding", newSVpv_utf8 (text_options->encoding, 0));
+
+  if (text_options->set_case)
+    STORE("set_case", newSViv (text_options->set_case));
+
+  if (text_options->code_state)
+    STORE("_code_state", newSViv (text_options->code_state));
+
+  expanded_formats_hv = build_expanded_formats (text_options->expanded_formats);
+  STORE("expanded_formats", newRV_noinc ((SV *)expanded_formats_hv));
+
+  if (text_options->include_directories.number > 0)
+    {
+      AV *av = build_string_list (&text_options->include_directories, svt_byte);
+      STORE("INCLUDE_DIRECTORIES", newRV_noinc ((SV *) av));
+    }
+
+  if (text_options->converter && text_options->converter->hv)
+    {
+      STORE("converter", newRV_inc ((SV *) text_options->converter->hv));
+    }
+#undef STORE
+
+  return newRV_noinc ((SV *)text_options_hv);
 }
 
 static const char *latex_math_options[] = {
@@ -3321,7 +3348,8 @@ latex_build_options_for_convert_to_latex_math (CONVERTER *converter)
   for (i = 0; latex_math_options[i]; i++)
     {
       const char *option_name = latex_math_options[i];
-      SV *option_sv = get_sv_conf (converter, option_name);
+      SV *option_sv = build_sv_option_from_name (converter->sorted_options,
+                                                 converter, option_name);
       SvREFCNT_inc (option_sv);
       hv_store (options_latex_math_hv, option_name,
                 strlen (option_name), option_sv, 0);
@@ -3329,3 +3357,4 @@ latex_build_options_for_convert_to_latex_math (CONVERTER *converter)
 
   return options_latex_math_hv;
 }
+

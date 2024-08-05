@@ -1297,7 +1297,7 @@ call_formatting_function_format_button (CONVERTER *self,
 char *
 call_formatting_function_format_navigation_panel (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
-                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname, const ELEMENT *element,
                                   int vertical)
 {
@@ -1357,7 +1357,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 char *
 call_formatting_function_format_navigation_header (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
-                                  const BUTTON_SPECIFICATION_LIST *buttons,
+                                  BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname,
                                   const ELEMENT *element)
 {
