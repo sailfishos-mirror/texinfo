@@ -60,7 +60,7 @@ my %defaults = (
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 # In the main program, the 'converted_format' needs to be 'ixinsxml'

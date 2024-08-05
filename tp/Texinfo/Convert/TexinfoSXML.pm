@@ -48,7 +48,7 @@ my %defaults = (
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 # TODO protect formfeeds, end of lines and other special spaces as in TexinfoXML?

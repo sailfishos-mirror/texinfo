@@ -283,7 +283,7 @@ my %sectioning_commands_done;
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 

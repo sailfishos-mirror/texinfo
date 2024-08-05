@@ -66,7 +66,7 @@ my %defaults = (
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;

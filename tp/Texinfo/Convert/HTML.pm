@@ -2719,11 +2719,11 @@ sub converter_defaults($$)
   my $conf = shift;
   if ($conf and defined($conf->{'TEXI2HTML'})) {
     my $default_ref = { %defaults };
-    my %texi2html_defaults = %$default_ref;
-    _set_variables_texi2html(\%texi2html_defaults);
-    return %texi2html_defaults;
+    my $texi2html_defaults = { %$default_ref };
+    _set_variables_texi2html($texi2html_defaults);
+    return $texi2html_defaults;
   }
-  return %defaults;
+  return \%defaults;
 }
 
 my %default_css_element_class_styles

@@ -1086,7 +1086,7 @@ sub get_converter_errors($)
 
 sub converter_defaults()
 {
-  return ();
+  return undef;
 }
 
 sub output_files_information($)

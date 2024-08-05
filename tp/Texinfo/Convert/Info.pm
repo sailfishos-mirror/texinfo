@@ -44,23 +44,25 @@ our $VERSION = '7.1.90';
 
 my $STDIN_DOCU_NAME = 'stdin';
 
-my %defaults = Texinfo::Convert::Plaintext::converter_defaults(undef, undef);
+my $plaintext_defaults
+  = Texinfo::Convert::Plaintext::converter_defaults(undef, undef);
+my $defaults = { %$plaintext_defaults };
 # Customization option variables
-$defaults{'FORMAT_MENU'} = 'menu';
-$defaults{'EXTENSION'} = 'info';
-$defaults{'USE_SETFILENAME_EXTENSION'} = 1;
-$defaults{'OUTFILE'} = undef;
+$defaults->{'FORMAT_MENU'} = 'menu';
+$defaults->{'EXTENSION'} = 'info';
+$defaults->{'USE_SETFILENAME_EXTENSION'} = 1;
+$defaults->{'OUTFILE'} = undef;
 # in the Emacs Info reader and in old readers, DEL character will appear,
 # but the node names are problematic in those readers, so it is not
 # such an issue to have them marked that way.
-$defaults{'INFO_SPECIAL_CHARS_QUOTE'} = 1;
+$defaults->{'INFO_SPECIAL_CHARS_QUOTE'} = 1;
 # set as default independently of INFO_SPECIAL_CHARS_QUOTE as long
 # as the Emacs Info reader does not support node names quoting.
-$defaults{'INFO_SPECIAL_CHARS_WARNING'} = 1;
+$defaults->{'INFO_SPECIAL_CHARS_WARNING'} = 1;
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return $defaults;
 }
 
 sub output($$)

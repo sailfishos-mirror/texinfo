@@ -800,7 +800,7 @@ my %defaults = (
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 # Converter state keys:

@@ -42,7 +42,7 @@ my %defaults = (
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 sub output($$)

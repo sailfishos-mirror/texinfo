@@ -64,7 +64,7 @@ my %defaults = (
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 sub _convert_tree_with_XS($)

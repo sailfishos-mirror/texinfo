@@ -410,7 +410,7 @@ sub pop_top_formatter($)
 
 sub converter_defaults($$)
 {
-  return %defaults;
+  return \%defaults;
 }
 
 sub conversion_initialization($;$)
