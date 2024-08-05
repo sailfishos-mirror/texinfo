@@ -61,21 +61,6 @@ SV *document_labels_list (SV *document_in);
 
 SV *document_global_information (SV *document_in);
 
-SV *build_output_units_list (const DOCUMENT *document,
-                             size_t output_units_descriptor);
-void rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
-                                size_t output_units_descriptor);
-SV *setup_output_units_handler (const DOCUMENT *document,
-                                size_t output_units_descriptor);
-void output_units_list_to_perl_hash (const DOCUMENT *document,
-                                     size_t output_units_descriptor);
-
-void pass_output_unit_files (SV *converter_sv,
-                       const FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
-
-void build_output_files_information (SV *converter_sv,
-                const OUTPUT_FILES_INFORMATION *output_files_information);
-
 HV *build_indices_sort_strings (
                   const INDICES_SORT_STRINGS *indices_sort_strings,
                             HV *indices_information_hv);
@@ -85,6 +70,17 @@ HV *build_sorted_indices_by_letter (
 HV *build_sorted_indices_by_index (
                       const INDEX_SORTED_BY_INDEX *index_entries_by_index,
                       HV *indices_information_hv);
+
+SV *build_output_units_list (const DOCUMENT *document,
+                             size_t output_units_descriptor);
+void rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
+                                size_t output_units_descriptor);
+SV *setup_output_units_handler (const DOCUMENT *document,
+                                size_t output_units_descriptor);
+void output_units_list_to_perl_hash (const DOCUMENT *document,
+                                     size_t output_units_descriptor);
+
+SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 
 void pass_document_to_converter_sv (const CONVERTER *converter,
                                     SV *converter_sv, SV *document_in);
@@ -98,8 +94,11 @@ SV * build_sv_option_from_name (OPTION **sorted_options, CONVERTER *converter,
 
 void pass_generic_converter_to_converter_sv (SV *converter_sv,
                                              const CONVERTER *converter);
+void pass_output_unit_files (SV *converter_sv,
+                       const FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
-SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
+void build_output_files_information (SV *converter_sv,
+                const OUTPUT_FILES_INFORMATION *output_files_information);
 
 HV *latex_build_options_for_convert_to_latex_math (CONVERTER *converter);
 

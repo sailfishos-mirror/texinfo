@@ -131,6 +131,7 @@ perl_only_strndup (const char *s, size_t n)
   return ret;
 }
 
+/* called once at loading time */
 int
 init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *builddir_sv,
       SV *top_srcdir_sv)
@@ -161,6 +162,8 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *builddir_sv,
   return 1;
 }
 
+
+/* Build Texinfo tree data and Texinfo tree to Perl */
 
 void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 
@@ -1111,7 +1114,236 @@ build_integer_stack (const INTEGER_STACK *integer_stack)
 
 
 
-/* Build data registered in Texinfo document to Perl */
+/* build error messages data to Perl, for Parser, Document and Converters */
+
+static void
+build_source_info_hash (const SOURCE_INFO source_info, HV *hv)
+{
+  dTHX;
+
+  if (source_info.file_name)
+    {
+      hv_store (hv, "file_name", strlen ("file_name"),
+                newSVpv (source_info.file_name, 0), 0);
+    }
+
+  if (source_info.line_nr)
+    {
+      hv_store (hv, "line_nr", strlen ("line_nr"),
+                newSViv (source_info.line_nr), 0);
+    }
+
+  if (source_info.macro)
+    {
+      hv_store (hv, "macro", strlen ("macro"),
+                newSVpv_utf8 (source_info.macro, 0), 0);
+    }
+}
+
+/* build perl already 'formatted' message, same as the output of
+   Texinfo::Report::format*message */
+static SV *
+convert_error (const ERROR_MESSAGE e)
+{
+  HV *hv;
+  SV *msg;
+  SV *err_line;
+
+  dTHX;
+
+  hv = newHV ();
+
+  msg = newSVpv_utf8 (e.message, 0);
+  err_line = newSVpv_utf8 (e.error_line, 0);
+
+  hv_store (hv, "text", strlen ("text"), msg, 0);
+  hv_store (hv, "error_line", strlen ("error_line"), err_line, 0);
+  hv_store (hv, "type", strlen ("type"),
+              (e.type == MSG_error || e.type == MSG_document_error)
+                                  ? newSVpv ("error", strlen ("error"))
+                                  : newSVpv ("warning", strlen ("warning")),
+            0);
+
+  if (e.continuation)
+    hv_store (hv, "continuation", strlen ("continuation"),
+              newSViv (e.continuation), 0);
+
+  if (e.type != MSG_document_error && e.type != MSG_document_warning)
+    build_source_info_hash (e.source_info, hv);
+
+  return newRV_noinc ((SV *) hv);
+}
+
+/* Errors */
+AV *
+build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
+{
+  AV *av;
+  int i;
+
+  dTHX;
+
+  av = newAV ();
+
+  for (i = 0; i < error_number; i++)
+    {
+      SV *sv = convert_error (error_list[i]);
+      av_push (av, sv);
+    }
+
+  return av;
+}
+
+/* add C messages to a Texinfo::Report object, like
+   Texinfo::Report::add_formatted_message does.
+   NOTE probably not useful for converters as errors need to be passed
+   explicitely both from Perl and XS and are added at that point.
+
+   Returns $report->{'errors_warnings'} in ERRORS_WARNINGS_OUT and
+   $report->{'error_nrs'} in ERRORS_NRS_OUT, even if ERROR_MESSAGES is
+   0, to avoid the need to fetch them from report_hv if calling code
+   is interested in those SV.
+ */
+static void
+add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
+                              HV *report_hv, SV **errors_warnings_out,
+                              SV **error_nrs_out)
+{
+  SV **errors_warnings_sv;
+  SV **error_nrs_sv;
+  int i;
+
+  dTHX;
+
+  *errors_warnings_out = 0;
+  *error_nrs_out = 0;
+
+  errors_warnings_sv = hv_fetch (report_hv, "errors_warnings",
+                                 strlen ("errors_warnings"), 0);
+
+  error_nrs_sv = hv_fetch (report_hv, "error_nrs",
+                                      strlen ("error_nrs"), 0);
+
+  if (errors_warnings_sv && SvOK (*errors_warnings_sv))
+    {
+      int error_nrs = 0;
+      if (error_nrs_sv && SvOK (*error_nrs_sv))
+        {
+          error_nrs = SvIV (*error_nrs_sv);
+          *error_nrs_out = *error_nrs_sv;
+        }
+      *errors_warnings_out = *errors_warnings_sv;
+
+      if (!error_messages)
+        {
+          /* See the comment before pass_errors_to_registrar, this probably
+             cannot happen.  We do not warn here, there should already
+             be other warnings as it means that no XS document was found.
+           */
+          return;
+        }
+      else
+        {
+          AV *av = (AV *)SvRV (*errors_warnings_sv);
+
+          for (i = 0; i < error_messages->number; i++)
+            {
+              const ERROR_MESSAGE error_msg = error_messages->list[i];
+              SV *sv = convert_error (error_msg);
+
+              if (error_msg.type == MSG_error && !error_msg.continuation)
+                error_nrs++;
+              av_push (av, sv);
+            }
+
+          if (error_nrs)
+            {
+              if (error_nrs_sv && SvOK (*error_nrs_sv))
+                {
+                  sv_setiv (*error_nrs_sv, error_nrs);
+                }
+              else
+                {
+                  SV *new_error_nrs_sv = newSViv (error_nrs);
+                  hv_store (report_hv, "error_nrs",
+                       strlen ("error_nrs"), new_error_nrs_sv, 0);
+                  *error_nrs_out = new_error_nrs_sv;
+                }
+            }
+        }
+    }
+  else
+    {
+      /* warn if it does not looks like a Texinfo::Report object, as
+         it is likely that the error messages are going to disappear */
+      fprintf (stderr, "BUG? no 'errors_warnings'. Not a Perl Texinfo::Report?\n");
+    }
+}
+
+/* ERROR_MESSAGES could be 0, in that case the function is used to get
+   the perl references but they are not modified.
+   Error messages set to 0, however, cannot happen in practice, as it cannot
+   happen when called through pass_document_parser_errors_to_registrar for
+   parser errors, and for document errors it would mean no XS document found,
+   which cannot happen right now and would probably trigger many warnings.
+ */
+SV *
+pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
+                          SV *object_sv,
+                          SV **errors_warnings_out, SV **error_nrs_out)
+{
+  HV *object_hv;
+  SV **registrar_sv;
+  const char *registrar_key = "registrar";
+
+  dTHX;
+
+  object_hv = (HV *) SvRV (object_sv);
+
+  registrar_sv = hv_fetch (object_hv, registrar_key,
+                           strlen (registrar_key), 0);
+  /* A registrar is systematically added to document by parsers, so the
+     condition should always be true.  errors_warnings_out
+     should always be set and it is a good thing because
+     errors_warnings_out is not supposed to be undef */
+  if (registrar_sv && SvOK (*registrar_sv))
+    {
+      HV *report_hv = (HV *) SvRV (*registrar_sv);
+      add_formatted_error_messages (error_messages, report_hv,
+                                    errors_warnings_out, error_nrs_out);
+      return newRV_inc ((SV *) report_hv);
+    }
+  *errors_warnings_out = 0;
+  *error_nrs_out = 0;
+  return newSV (0);
+}
+
+void
+pass_document_parser_errors_to_registrar (size_t document_descriptor,
+                                          SV *parser_sv)
+{
+  DOCUMENT *document;
+  SV *errors_warnings_sv = 0;
+  SV *error_nrs_sv = 0;
+
+  dTHX;
+
+  document = retrieve_document (document_descriptor);
+
+  /* This cannot happen, the function is called on a document that
+     was just registered
+  if (!document)
+    return;
+   */
+
+  pass_errors_to_registrar (&document->parser_error_messages, parser_sv,
+                            &errors_warnings_sv, &error_nrs_sv);
+  clear_error_message_list (&document->parser_error_messages);
+}
+
+
+
+/* Build data registered in Texinfo Document to Perl and Document */
 
 /* Return array of target elements.  build_texinfo_tree must
    be called first. */
@@ -1469,238 +1701,6 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
   return hv;
 }
 
-
-
-
-/* build error messages data to Perl, for Parser, Document and Converters */
-
-static void
-build_source_info_hash (const SOURCE_INFO source_info, HV *hv)
-{
-  dTHX;
-
-  if (source_info.file_name)
-    {
-      hv_store (hv, "file_name", strlen ("file_name"),
-                newSVpv (source_info.file_name, 0), 0);
-    }
-
-  if (source_info.line_nr)
-    {
-      hv_store (hv, "line_nr", strlen ("line_nr"),
-                newSViv (source_info.line_nr), 0);
-    }
-
-  if (source_info.macro)
-    {
-      hv_store (hv, "macro", strlen ("macro"),
-                newSVpv_utf8 (source_info.macro, 0), 0);
-    }
-}
-
-/* build perl already 'formatted' message, same as the output of
-   Texinfo::Report::format*message */
-static SV *
-convert_error (const ERROR_MESSAGE e)
-{
-  HV *hv;
-  SV *msg;
-  SV *err_line;
-
-  dTHX;
-
-  hv = newHV ();
-
-  msg = newSVpv_utf8 (e.message, 0);
-  err_line = newSVpv_utf8 (e.error_line, 0);
-
-  hv_store (hv, "text", strlen ("text"), msg, 0);
-  hv_store (hv, "error_line", strlen ("error_line"), err_line, 0);
-  hv_store (hv, "type", strlen ("type"),
-              (e.type == MSG_error || e.type == MSG_document_error)
-                                  ? newSVpv ("error", strlen ("error"))
-                                  : newSVpv ("warning", strlen ("warning")),
-            0);
-
-  if (e.continuation)
-    hv_store (hv, "continuation", strlen ("continuation"),
-              newSViv (e.continuation), 0);
-
-  if (e.type != MSG_document_error && e.type != MSG_document_warning)
-    build_source_info_hash (e.source_info, hv);
-
-  return newRV_noinc ((SV *) hv);
-}
-
-/* Errors */
-AV *
-build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
-{
-  AV *av;
-  int i;
-
-  dTHX;
-
-  av = newAV ();
-
-  for (i = 0; i < error_number; i++)
-    {
-      SV *sv = convert_error (error_list[i]);
-      av_push (av, sv);
-    }
-
-  return av;
-}
-
-/* add C messages to a Texinfo::Report object, like
-   Texinfo::Report::add_formatted_message does.
-   NOTE probably not useful for converters as errors need to be passed
-   explicitely both from Perl and XS and are added at that point.
-
-   Returns $report->{'errors_warnings'} in ERRORS_WARNINGS_OUT and
-   $report->{'error_nrs'} in ERRORS_NRS_OUT, even if ERROR_MESSAGES is
-   0, to avoid the need to fetch them from report_hv if calling code
-   is interested in those SV.
- */
-static void
-add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
-                              HV *report_hv, SV **errors_warnings_out,
-                              SV **error_nrs_out)
-{
-  SV **errors_warnings_sv;
-  SV **error_nrs_sv;
-  int i;
-
-  dTHX;
-
-  *errors_warnings_out = 0;
-  *error_nrs_out = 0;
-
-  errors_warnings_sv = hv_fetch (report_hv, "errors_warnings",
-                                 strlen ("errors_warnings"), 0);
-
-  error_nrs_sv = hv_fetch (report_hv, "error_nrs",
-                                      strlen ("error_nrs"), 0);
-
-  if (errors_warnings_sv && SvOK (*errors_warnings_sv))
-    {
-      int error_nrs = 0;
-      if (error_nrs_sv && SvOK (*error_nrs_sv))
-        {
-          error_nrs = SvIV (*error_nrs_sv);
-          *error_nrs_out = *error_nrs_sv;
-        }
-      *errors_warnings_out = *errors_warnings_sv;
-
-      if (!error_messages)
-        {
-          /* See the comment before pass_errors_to_registrar, this probably
-             cannot happen.  We do not warn here, there should already
-             be other warnings as it means that no XS document was found.
-           */
-          return;
-        }
-      else
-        {
-          AV *av = (AV *)SvRV (*errors_warnings_sv);
-
-          for (i = 0; i < error_messages->number; i++)
-            {
-              const ERROR_MESSAGE error_msg = error_messages->list[i];
-              SV *sv = convert_error (error_msg);
-
-              if (error_msg.type == MSG_error && !error_msg.continuation)
-                error_nrs++;
-              av_push (av, sv);
-            }
-
-          if (error_nrs)
-            {
-              if (error_nrs_sv && SvOK (*error_nrs_sv))
-                {
-                  sv_setiv (*error_nrs_sv, error_nrs);
-                }
-              else
-                {
-                  SV *new_error_nrs_sv = newSViv (error_nrs);
-                  hv_store (report_hv, "error_nrs",
-                       strlen ("error_nrs"), new_error_nrs_sv, 0);
-                  *error_nrs_out = new_error_nrs_sv;
-                }
-            }
-        }
-    }
-  else
-    {
-      /* warn if it does not looks like a Texinfo::Report object, as
-         it is likely that the error messages are going to disappear */
-      fprintf (stderr, "BUG? no 'errors_warnings'. Not a Perl Texinfo::Report?\n");
-    }
-}
-
-/* ERROR_MESSAGES could be 0, in that case the function is used to get
-   the perl references but they are not modified.
-   Error messages set to 0, however, cannot happen in practice, as it cannot
-   happen when called through pass_document_parser_errors_to_registrar for
-   parser errors, and for document errors it would mean no XS document found,
-   which cannot happen right now and would probably trigger many warnings.
- */
-SV *
-pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
-                          SV *object_sv,
-                          SV **errors_warnings_out, SV **error_nrs_out)
-{
-  HV *object_hv;
-  SV **registrar_sv;
-  const char *registrar_key = "registrar";
-
-  dTHX;
-
-  object_hv = (HV *) SvRV (object_sv);
-
-  registrar_sv = hv_fetch (object_hv, registrar_key,
-                           strlen (registrar_key), 0);
-  /* A registrar is systematically added to document by parsers, so the
-     condition should always be true.  errors_warnings_out
-     should always be set and it is a good thing because
-     errors_warnings_out is not supposed to be undef */
-  if (registrar_sv && SvOK (*registrar_sv))
-    {
-      HV *report_hv = (HV *) SvRV (*registrar_sv);
-      add_formatted_error_messages (error_messages, report_hv,
-                                    errors_warnings_out, error_nrs_out);
-      return newRV_inc ((SV *) report_hv);
-    }
-  *errors_warnings_out = 0;
-  *error_nrs_out = 0;
-  return newSV (0);
-}
-
-void
-pass_document_parser_errors_to_registrar (size_t document_descriptor,
-                                          SV *parser_sv)
-{
-  DOCUMENT *document;
-  SV *errors_warnings_sv = 0;
-  SV *error_nrs_sv = 0;
-
-  dTHX;
-
-  document = retrieve_document (document_descriptor);
-
-  /* This cannot happen, the function is called on a document that
-     was just registered
-  if (!document)
-    return;
-   */
-
-  pass_errors_to_registrar (&document->parser_error_messages, parser_sv,
-                            &errors_warnings_sv, &error_nrs_sv);
-  clear_error_message_list (&document->parser_error_messages);
-}
-
-
-
 /* build a minimal document, without tree/global commands/indices, only
    with the document descriptor information, errors and information that do
    not refer directly to tree elements */
@@ -1946,6 +1946,8 @@ store_document_texinfo_tree (DOCUMENT *document, HV *document_hv)
   return result_sv;
 }
 
+/* Build Texinfo Document registered data to Perl */
+
 /* there are 2 differences between BUILD_PERL_DOCUMENT_ITEM and
    BUILD_PERL_DOCUMENT_LIST: in BUILD_PERL_DOCUMENT_LIST no check on existing
     and the address of document->fieldname is passed.
@@ -2105,6 +2107,278 @@ document_global_information (SV *document_in)
 }
 
 
+
+/* Build indices information for Perl */
+
+static SV *
+find_idx_name_entry_number_sv (HV *indices_information_hv,
+                               const char* index_name, int entry_number,
+                               const char *message)
+{
+  SV **index_info_sv;
+  SV *index_entry_sv = 0;
+
+  dTHX;
+
+  index_info_sv = hv_fetch (indices_information_hv, index_name,
+                            strlen (index_name), 0);
+  if (!index_info_sv)
+    {
+      fprintf (stderr, "%s index %s not found\n", message, index_name);
+    }
+  else
+    {
+      HV *index_info_hv = (HV *) SvRV (*index_info_sv);
+      SV **index_info_index_entries_sv = hv_fetch (index_info_hv,
+             "index_entries", strlen ("index_entries"), 0);
+
+      if (!index_info_index_entries_sv)
+        {
+          fprintf (stderr, "%s index %s 'index_entries' not found\n",
+                           message, index_name);
+        }
+      else
+        {
+          AV *index_info_entries_av
+              = (AV *) SvRV (*index_info_index_entries_sv);
+
+          SV **index_entry_info_sv = av_fetch (index_info_entries_av,
+                                             entry_number -1, 0);
+
+          if (!index_entry_info_sv)
+            {
+              fprintf (stderr, "%s: %d in %s not found\n", message,
+                       entry_number, index_name);
+            }
+          else
+            index_entry_sv = *index_entry_info_sv;
+        }
+    }
+  return index_entry_sv;
+}
+
+HV *
+build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
+                            HV *indices_information_hv)
+{
+  HV *indices_sort_strings_hv;
+  size_t i;
+
+  dTHX;
+
+  if (!indices_sort_strings)
+    return 0;
+
+  indices_sort_strings_hv = newHV ();
+
+  for (i = 0; i < indices_sort_strings->number; i++)
+    {
+      const INDEX_SORT_STRINGS *index_sort_strings
+         = &indices_sort_strings->indices[i];
+      const char *index_name = index_sort_strings->index->name;
+
+      if (index_sort_strings->entries_number > 0)
+        {
+          size_t j;
+          AV *sort_string_entries_av = newAV ();
+
+          hv_store (indices_sort_strings_hv, index_name, strlen (index_name),
+                    newRV_noinc ((SV *)sort_string_entries_av), 0);
+
+          for (j = 0; j < index_sort_strings->entries_number; j++)
+            {
+              const INDEX_ENTRY_SORT_STRING *index_entry_sort_string
+                = &index_sort_strings->sort_string_entries[j];
+              const INDEX_ENTRY *entry = index_entry_sort_string->entry;
+              const char *entry_index_name = entry->index_name;
+              int entry_number = entry->number;
+              char *message;
+              SV *index_entry_sv;
+              HV *index_entry_sort_string_hv;
+              AV *sort_string_subentries_av;
+              size_t k;
+
+              if (index_entry_sort_string->subentries_number <= 0)
+                {
+                  fprintf (stderr, "BUG: build_indices_sort_strings:"
+                   " %s: entry %zu: no subentries", index_name, j);
+                  continue;
+                }
+
+              xasprintf (&message, "BUG: build_indices_sort_strings:"
+                                   " %s: entry %zu", index_name, j);
+              index_entry_sv
+                = find_idx_name_entry_number_sv (indices_information_hv,
+                                                 entry_index_name, entry_number,
+                                                 message);
+              free (message);
+
+              /* probably not possible, unless there is a bug */
+              if (!index_entry_sv)
+                continue;
+
+              index_entry_sort_string_hv = newHV ();
+              av_push (sort_string_entries_av,
+                       newRV_noinc ((SV *) index_entry_sort_string_hv));
+
+              hv_store (index_entry_sort_string_hv, "index_name",
+                        strlen ("index_name"),
+                        newSVpv_utf8 (entry->index_name, 0), 0);
+              hv_store (index_entry_sort_string_hv, "number",
+                        strlen ("number"), newSViv (entry->number), 0);
+
+              SvREFCNT_inc (index_entry_sv);
+              hv_store (index_entry_sort_string_hv, "entry",
+                        strlen ("entry"), index_entry_sv, 0);
+
+              sort_string_subentries_av = newAV ();
+              hv_store (index_entry_sort_string_hv, "sort_strings",
+                        strlen ("sort_strings"),
+                        newRV_noinc ((SV *) sort_string_subentries_av), 0);
+
+              for (k = 0; k < index_entry_sort_string->subentries_number; k++)
+                {
+                  const INDEX_SUBENTRY_SORT_STRING *subentry_sort_string
+                    = &index_entry_sort_string->sort_string_subentries[k];
+                  HV *subentry_sort_string_hv = newHV ();
+
+                  av_push (sort_string_subentries_av,
+                           newRV_noinc ((SV *) subentry_sort_string_hv));
+
+                  hv_store (subentry_sort_string_hv, "sort_string",
+                            strlen ("sort_string"),
+                     newSVpv_utf8 (subentry_sort_string->sort_string, 0), 0);
+                  hv_store (subentry_sort_string_hv, "alpha",
+                            strlen ("alpha"),
+                            newSViv (subentry_sort_string->alpha), 0);
+                }
+            }
+        }
+    }
+  return indices_sort_strings_hv;
+}
+
+HV *
+build_sorted_indices_by_index (
+                      const INDEX_SORTED_BY_INDEX *index_entries_by_index,
+                      HV *indices_information_hv)
+{
+  HV *indices_hv;
+  const INDEX_SORTED_BY_INDEX *idx;
+
+  dTHX;
+
+  if (!index_entries_by_index)
+    return 0;
+
+  indices_hv = newHV ();
+
+  for (idx = index_entries_by_index; idx->name; idx++)
+    {
+      AV *entries_av = newAV ();
+      size_t j;
+
+      hv_store (indices_hv, idx->name, strlen (idx->name),
+                newRV_noinc ((SV *)entries_av), 0);
+
+      for (j = 0; j < idx->entries_number; j++)
+        {
+          const INDEX_ENTRY *entry = idx->entries[j];
+          const char *index_name = entry->index_name;
+          int entry_number = entry->number;
+          char *message;
+          SV *index_entry_sv;
+
+          xasprintf (&message, "BUG: build_sorted_indices_by_index:"
+                               " %s: entry %zu", idx->name, j);
+          index_entry_sv
+            = find_idx_name_entry_number_sv (indices_information_hv,
+                                             index_name, entry_number,
+                                             message);
+          free (message);
+
+          if (index_entry_sv)
+            {
+              SvREFCNT_inc (index_entry_sv);
+              av_push (entries_av, index_entry_sv);
+            }
+        }
+    }
+  return indices_hv;
+}
+
+HV *
+build_sorted_indices_by_letter (
+                      const INDEX_SORTED_BY_LETTER *index_entries_by_letter,
+                      HV *indices_information_hv)
+{
+  HV *indices_hv;
+  const INDEX_SORTED_BY_LETTER *idx;
+
+  dTHX;
+
+  if (!index_entries_by_letter)
+    return 0;
+
+  indices_hv = newHV ();
+
+  for (idx = index_entries_by_letter; idx->name; idx++)
+    {
+      AV *sorted_letters_av;
+      size_t i;
+
+      if (idx->letter_number <= 0)
+        continue;
+
+      sorted_letters_av = newAV ();
+
+      hv_store (indices_hv, idx->name, strlen (idx->name),
+                newRV_noinc ((SV *)sorted_letters_av), 0);
+
+      for (i = 0; i < idx->letter_number; i++)
+        {
+          size_t j;
+          HV *letter_hv = newHV ();
+          AV *entries_av = newAV ();
+          const LETTER_INDEX_ENTRIES *letter = &idx->letter_entries[i];
+
+          hv_store (letter_hv, "letter", strlen ("letter"),
+                    newSVpv_utf8 (letter->letter, 0), 0);
+
+          hv_store (letter_hv, "entries", strlen ("entries"),
+                    newRV_noinc ((SV *)entries_av), 0);
+
+          av_push (sorted_letters_av, newRV_noinc ((SV *)letter_hv));
+
+          for (j = 0; j < letter->entries_number; j++)
+            {
+              const INDEX_ENTRY *entry = letter->entries[j];
+              const char *index_name = entry->index_name;
+              int entry_number = entry->number;
+              char *message;
+              SV *index_entry_sv;
+              xasprintf (&message, "BUG: build_sorted_indices_by_letter:"
+                                   " %s: %s: entry %zu", idx->name,
+                                   letter->letter, j);
+              index_entry_sv
+                = find_idx_name_entry_number_sv (indices_information_hv,
+                                                 index_name, entry_number,
+                                                 message);
+              free (message);
+
+              if (index_entry_sv)
+                {
+                  SvREFCNT_inc (index_entry_sv);
+                  av_push (entries_av, index_entry_sv);
+                }
+            }
+        }
+    }
+  return indices_hv;
+}
+
+
+/* Build Output unit and output units lists to Perl*/
 
 static void
 output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
@@ -2431,275 +2705,77 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
 
 
 
-/* Build indices information for Perl */
-
-static SV *
-find_idx_name_entry_number_sv (HV *indices_information_hv,
-                               const char* index_name, int entry_number,
-                               const char *message)
+static HV *
+build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
 {
-  SV **index_info_sv;
-  SV *index_entry_sv = 0;
+  int i;
+  HV *expanded_hv;
 
   dTHX;
 
-  index_info_sv = hv_fetch (indices_information_hv, index_name,
-                            strlen (index_name), 0);
-  if (!index_info_sv)
+  expanded_hv = newHV ();
+  for (i = 0; i < expanded_formats_number (); i++)
     {
-      fprintf (stderr, "%s index %s not found\n", message, index_name);
-    }
-  else
-    {
-      HV *index_info_hv = (HV *) SvRV (*index_info_sv);
-      SV **index_info_index_entries_sv = hv_fetch (index_info_hv,
-             "index_entries", strlen ("index_entries"), 0);
-
-      if (!index_info_index_entries_sv)
+      if (expanded_formats[i].expandedp)
         {
-          fprintf (stderr, "%s index %s 'index_entries' not found\n",
-                           message, index_name);
-        }
-      else
-        {
-          AV *index_info_entries_av
-              = (AV *) SvRV (*index_info_index_entries_sv);
-
-          SV **index_entry_info_sv = av_fetch (index_info_entries_av,
-                                             entry_number -1, 0);
-
-          if (!index_entry_info_sv)
-            {
-              fprintf (stderr, "%s: %d in %s not found\n", message,
-                       entry_number, index_name);
-            }
-          else
-            index_entry_sv = *index_entry_info_sv;
+          const char *format = expanded_formats[i].format;
+          hv_store (expanded_hv, format, strlen (format),
+                    newSViv (1), 0);
         }
     }
-  return index_entry_sv;
+  return expanded_hv;
 }
 
-HV *
-build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
-                            HV *indices_information_hv)
+SV *
+build_convert_text_options (TEXT_OPTIONS *text_options)
 {
-  HV *indices_sort_strings_hv;
-  size_t i;
+  HV *text_options_hv;
+  HV *expanded_formats_hv;
 
   dTHX;
 
-  if (!indices_sort_strings)
-    return 0;
+  text_options_hv = newHV ();
 
-  indices_sort_strings_hv = newHV ();
+#define STORE(key, sv) hv_store (text_options_hv, key, strlen (key), sv, 0)
 
-  for (i = 0; i < indices_sort_strings->number; i++)
+  if (text_options->ASCII_GLYPH)
+    STORE("ASCII_GLYPH", newSViv (1));
+
+  if (text_options->NUMBER_SECTIONS)
+    STORE("NUMBER_SECTIONS", newSViv (1));
+
+  if (text_options->TEST)
+    STORE("TEST", newSViv (1));
+
+  if (text_options->sort_string)
+    STORE("sort_string", newSViv (1));
+
+  if (text_options->encoding)
+    STORE("enabled_encoding", newSVpv_utf8 (text_options->encoding, 0));
+
+  if (text_options->set_case)
+    STORE("set_case", newSViv (text_options->set_case));
+
+  if (text_options->code_state)
+    STORE("_code_state", newSViv (text_options->code_state));
+
+  expanded_formats_hv = build_expanded_formats (text_options->expanded_formats);
+  STORE("expanded_formats", newRV_noinc ((SV *)expanded_formats_hv));
+
+  if (text_options->include_directories.number > 0)
     {
-      const INDEX_SORT_STRINGS *index_sort_strings
-         = &indices_sort_strings->indices[i];
-      const char *index_name = index_sort_strings->index->name;
-
-      if (index_sort_strings->entries_number > 0)
-        {
-          size_t j;
-          AV *sort_string_entries_av = newAV ();
-
-          hv_store (indices_sort_strings_hv, index_name, strlen (index_name),
-                    newRV_noinc ((SV *)sort_string_entries_av), 0);
-
-          for (j = 0; j < index_sort_strings->entries_number; j++)
-            {
-              const INDEX_ENTRY_SORT_STRING *index_entry_sort_string
-                = &index_sort_strings->sort_string_entries[j];
-              const INDEX_ENTRY *entry = index_entry_sort_string->entry;
-              const char *entry_index_name = entry->index_name;
-              int entry_number = entry->number;
-              char *message;
-              SV *index_entry_sv;
-              HV *index_entry_sort_string_hv;
-              AV *sort_string_subentries_av;
-              size_t k;
-
-              if (index_entry_sort_string->subentries_number <= 0)
-                {
-                  fprintf (stderr, "BUG: build_indices_sort_strings:"
-                   " %s: entry %zu: no subentries", index_name, j);
-                  continue;
-                }
-
-              xasprintf (&message, "BUG: build_indices_sort_strings:"
-                                   " %s: entry %zu", index_name, j);
-              index_entry_sv
-                = find_idx_name_entry_number_sv (indices_information_hv,
-                                                 entry_index_name, entry_number,
-                                                 message);
-              free (message);
-
-              /* probably not possible, unless there is a bug */
-              if (!index_entry_sv)
-                continue;
-
-              index_entry_sort_string_hv = newHV ();
-              av_push (sort_string_entries_av,
-                       newRV_noinc ((SV *) index_entry_sort_string_hv));
-
-              hv_store (index_entry_sort_string_hv, "index_name",
-                        strlen ("index_name"),
-                        newSVpv_utf8 (entry->index_name, 0), 0);
-              hv_store (index_entry_sort_string_hv, "number",
-                        strlen ("number"), newSViv (entry->number), 0);
-
-              SvREFCNT_inc (index_entry_sv);
-              hv_store (index_entry_sort_string_hv, "entry",
-                        strlen ("entry"), index_entry_sv, 0);
-
-              sort_string_subentries_av = newAV ();
-              hv_store (index_entry_sort_string_hv, "sort_strings",
-                        strlen ("sort_strings"),
-                        newRV_noinc ((SV *) sort_string_subentries_av), 0);
-
-              for (k = 0; k < index_entry_sort_string->subentries_number; k++)
-                {
-                  const INDEX_SUBENTRY_SORT_STRING *subentry_sort_string
-                    = &index_entry_sort_string->sort_string_subentries[k];
-                  HV *subentry_sort_string_hv = newHV ();
-
-                  av_push (sort_string_subentries_av,
-                           newRV_noinc ((SV *) subentry_sort_string_hv));
-
-                  hv_store (subentry_sort_string_hv, "sort_string",
-                            strlen ("sort_string"),
-                     newSVpv_utf8 (subentry_sort_string->sort_string, 0), 0);
-                  hv_store (subentry_sort_string_hv, "alpha",
-                            strlen ("alpha"),
-                            newSViv (subentry_sort_string->alpha), 0);
-                }
-            }
-        }
+      AV *av = build_string_list (&text_options->include_directories, svt_byte);
+      STORE("INCLUDE_DIRECTORIES", newRV_noinc ((SV *) av));
     }
-  return indices_sort_strings_hv;
-}
 
-HV *
-build_sorted_indices_by_index (
-                      const INDEX_SORTED_BY_INDEX *index_entries_by_index,
-                      HV *indices_information_hv)
-{
-  HV *indices_hv;
-  const INDEX_SORTED_BY_INDEX *idx;
-
-  dTHX;
-
-  if (!index_entries_by_index)
-    return 0;
-
-  indices_hv = newHV ();
-
-  for (idx = index_entries_by_index; idx->name; idx++)
+  if (text_options->converter && text_options->converter->hv)
     {
-      AV *entries_av = newAV ();
-      size_t j;
-
-      hv_store (indices_hv, idx->name, strlen (idx->name),
-                newRV_noinc ((SV *)entries_av), 0);
-
-      for (j = 0; j < idx->entries_number; j++)
-        {
-          const INDEX_ENTRY *entry = idx->entries[j];
-          const char *index_name = entry->index_name;
-          int entry_number = entry->number;
-          char *message;
-          SV *index_entry_sv;
-
-          xasprintf (&message, "BUG: build_sorted_indices_by_index:"
-                               " %s: entry %zu", idx->name, j);
-          index_entry_sv
-            = find_idx_name_entry_number_sv (indices_information_hv,
-                                             index_name, entry_number,
-                                             message);
-          free (message);
-
-          if (index_entry_sv)
-            {
-              SvREFCNT_inc (index_entry_sv);
-              av_push (entries_av, index_entry_sv);
-            }
-        }
+      STORE("converter", newRV_inc ((SV *) text_options->converter->hv));
     }
-  return indices_hv;
+#undef STORE
+
+  return newRV_noinc ((SV *)text_options_hv);
 }
-
-HV *
-build_sorted_indices_by_letter (
-                      const INDEX_SORTED_BY_LETTER *index_entries_by_letter,
-                      HV *indices_information_hv)
-{
-  HV *indices_hv;
-  const INDEX_SORTED_BY_LETTER *idx;
-
-  dTHX;
-
-  if (!index_entries_by_letter)
-    return 0;
-
-  indices_hv = newHV ();
-
-  for (idx = index_entries_by_letter; idx->name; idx++)
-    {
-      AV *sorted_letters_av;
-      size_t i;
-
-      if (idx->letter_number <= 0)
-        continue;
-
-      sorted_letters_av = newAV ();
-
-      hv_store (indices_hv, idx->name, strlen (idx->name),
-                newRV_noinc ((SV *)sorted_letters_av), 0);
-
-      for (i = 0; i < idx->letter_number; i++)
-        {
-          size_t j;
-          HV *letter_hv = newHV ();
-          AV *entries_av = newAV ();
-          const LETTER_INDEX_ENTRIES *letter = &idx->letter_entries[i];
-
-          hv_store (letter_hv, "letter", strlen ("letter"),
-                    newSVpv_utf8 (letter->letter, 0), 0);
-
-          hv_store (letter_hv, "entries", strlen ("entries"),
-                    newRV_noinc ((SV *)entries_av), 0);
-
-          av_push (sorted_letters_av, newRV_noinc ((SV *)letter_hv));
-
-          for (j = 0; j < letter->entries_number; j++)
-            {
-              const INDEX_ENTRY *entry = letter->entries[j];
-              const char *index_name = entry->index_name;
-              int entry_number = entry->number;
-              char *message;
-              SV *index_entry_sv;
-              xasprintf (&message, "BUG: build_sorted_indices_by_letter:"
-                                   " %s: %s: entry %zu", idx->name,
-                                   letter->letter, j);
-              index_entry_sv
-                = find_idx_name_entry_number_sv (indices_information_hv,
-                                                 index_name, entry_number,
-                                                 message);
-              free (message);
-
-              if (index_entry_sv)
-                {
-                  SvREFCNT_inc (index_entry_sv);
-                  av_push (entries_av, index_entry_sv);
-                }
-            }
-        }
-    }
-  return indices_hv;
-}
-
 
 void
 pass_document_to_converter_sv (const CONVERTER *converter,
@@ -2950,6 +3026,74 @@ build_sv_option_from_name (OPTION **sorted_options, CONVERTER *converter,
 }
 
 
+
+/* pass generic converter information to Perl */
+
+static HV *
+build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
+{
+  int i;
+  HV *translated_hv;
+
+  dTHX;
+
+  translated_hv = newHV ();
+  for (i = 0; translated_commands[i].cmd; i++)
+    {
+      enum command_id cmd = translated_commands[i].cmd;
+      const char *translation = translated_commands[i].translation;
+      const char *command_name = builtin_command_name (cmd);
+      hv_store (translated_hv, command_name, strlen (command_name),
+                newSVpv_utf8 (translation, 0), 0);
+    }
+  return translated_hv;
+}
+
+void
+pass_generic_converter_to_converter_sv (SV *converter_sv,
+                                        const CONVERTER *converter)
+{
+  HV *converter_hv;
+  HV *expanded_formats_hv;
+  HV *translated_commands_hv;
+  HV *output_files_hv;
+  HV *unclosed_files_hv;
+  HV *opened_files_hv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
+#define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0);
+  /* $converter->{'output_files'}
+        = Texinfo::Convert::Utils::output_files_initialize(); */
+  output_files_hv = newHV ();
+  STORE("output_files", newRV_noinc ((SV *) output_files_hv));
+
+  unclosed_files_hv = newHV ();
+  opened_files_hv = newHV ();
+  hv_store (output_files_hv, "unclosed_files", strlen ("unclosed_files"),
+            newRV_noinc ((SV *) unclosed_files_hv), 0);
+  hv_store (output_files_hv, "opened_files_hv",
+            strlen ("opened_files_hv"),
+            newRV_noinc ((SV *) opened_files_hv), 0);
+
+  expanded_formats_hv
+    = build_expanded_formats (converter->expanded_formats);
+  STORE("expanded_formats", newRV_noinc ((SV *) expanded_formats_hv));
+
+  translated_commands_hv
+    = build_translated_commands (converter->translated_commands);
+  STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
+
+  /* store converter_descriptor in perl converter */
+  STORE("converter_descriptor", newSViv ((IV)converter->converter_descriptor));
+
+#undef STORE
+}
+
+
+
 /* API to access output file names associated with output units */ 
 
 static SV *
@@ -3191,146 +3335,6 @@ build_output_files_information (SV *converter_sv,
 }
 
 
-
-/* pass generic converter information to Perl */
-
-static HV *
-build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
-{
-  int i;
-  HV *expanded_hv;
-
-  dTHX;
-
-  expanded_hv = newHV ();
-  for (i = 0; i < expanded_formats_number (); i++)
-    {
-      if (expanded_formats[i].expandedp)
-        {
-          const char *format = expanded_formats[i].format;
-          hv_store (expanded_hv, format, strlen (format),
-                    newSViv (1), 0);
-        }
-    }
-  return expanded_hv;
-}
-
-static HV *
-build_translated_commands (const TRANSLATED_COMMAND *translated_commands)
-{
-  int i;
-  HV *translated_hv;
-
-  dTHX;
-
-  translated_hv = newHV ();
-  for (i = 0; translated_commands[i].cmd; i++)
-    {
-      enum command_id cmd = translated_commands[i].cmd;
-      const char *translation = translated_commands[i].translation;
-      const char *command_name = builtin_command_name (cmd);
-      hv_store (translated_hv, command_name, strlen (command_name),
-                newSVpv_utf8 (translation, 0), 0);
-    }
-  return translated_hv;
-}
-
-void
-pass_generic_converter_to_converter_sv (SV *converter_sv,
-                                        const CONVERTER *converter)
-{
-  HV *converter_hv;
-  HV *expanded_formats_hv;
-  HV *translated_commands_hv;
-  HV *output_files_hv;
-  HV *unclosed_files_hv;
-  HV *opened_files_hv;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-#define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0);
-  /* $converter->{'output_files'}
-        = Texinfo::Convert::Utils::output_files_initialize(); */
-  output_files_hv = newHV ();
-  STORE("output_files", newRV_noinc ((SV *) output_files_hv));
-
-  unclosed_files_hv = newHV ();
-  opened_files_hv = newHV ();
-  hv_store (output_files_hv, "unclosed_files", strlen ("unclosed_files"),
-            newRV_noinc ((SV *) unclosed_files_hv), 0);
-  hv_store (output_files_hv, "opened_files_hv",
-            strlen ("opened_files_hv"),
-            newRV_noinc ((SV *) opened_files_hv), 0);
-
-  expanded_formats_hv
-    = build_expanded_formats (converter->expanded_formats);
-  STORE("expanded_formats", newRV_noinc ((SV *) expanded_formats_hv));
-
-  translated_commands_hv
-    = build_translated_commands (converter->translated_commands);
-  STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
-
-  /* store converter_descriptor in perl converter */
-  STORE("converter_descriptor", newSViv ((IV)converter->converter_descriptor));
-
-#undef STORE
-}
-
-
-
-SV *
-build_convert_text_options (TEXT_OPTIONS *text_options)
-{
-  HV *text_options_hv;
-  HV *expanded_formats_hv;
-
-  dTHX;
-
-  text_options_hv = newHV ();
-
-#define STORE(key, sv) hv_store (text_options_hv, key, strlen (key), sv, 0)
-
-  if (text_options->ASCII_GLYPH)
-    STORE("ASCII_GLYPH", newSViv (1));
-
-  if (text_options->NUMBER_SECTIONS)
-    STORE("NUMBER_SECTIONS", newSViv (1));
-
-  if (text_options->TEST)
-    STORE("TEST", newSViv (1));
-
-  if (text_options->sort_string)
-    STORE("sort_string", newSViv (1));
-
-  if (text_options->encoding)
-    STORE("enabled_encoding", newSVpv_utf8 (text_options->encoding, 0));
-
-  if (text_options->set_case)
-    STORE("set_case", newSViv (text_options->set_case));
-
-  if (text_options->code_state)
-    STORE("_code_state", newSViv (text_options->code_state));
-
-  expanded_formats_hv = build_expanded_formats (text_options->expanded_formats);
-  STORE("expanded_formats", newRV_noinc ((SV *)expanded_formats_hv));
-
-  if (text_options->include_directories.number > 0)
-    {
-      AV *av = build_string_list (&text_options->include_directories, svt_byte);
-      STORE("INCLUDE_DIRECTORIES", newRV_noinc ((SV *) av));
-    }
-
-  if (text_options->converter && text_options->converter->hv)
-    {
-      STORE("converter", newRV_inc ((SV *) text_options->converter->hv));
-    }
-#undef STORE
-
-  return newRV_noinc ((SV *)text_options_hv);
-}
-
 static const char *latex_math_options[] = {
   "DEBUG", "OUTPUT_CHARACTERS", "OUTPUT_ENCODING_NAME", "TEST", 0
 };
