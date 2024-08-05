@@ -1,3 +1,13 @@
+2024-08-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/converter_options.c
+	(new_special_unit_direction_button, new_basic_buttons)
+	(new_link_buttons, new_directions_list_buttons_specifications): set
+	direction_string only if the direction index is not known.  In the
+	current implementation it is always the case, but if the special unit
+	direction names could not be customized their indices could be known
+	early.
+
 2024-10-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/converter_options.c (DEFAULT_MISC_BUTTONS):
