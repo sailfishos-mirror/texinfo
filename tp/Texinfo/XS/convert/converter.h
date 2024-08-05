@@ -98,6 +98,8 @@ typedef struct PATHS_INFORMATION {
 typedef struct CONVERTER_FORMAT_DATA {
     const char *output_format;
     const char *perl_converter_class;
+    void (* converter_defaults) (CONVERTER *self,
+                               CONVERTER_INITIALIZATION_INFO *conf);
 } CONVERTER_FORMAT_DATA;
 
 extern enum command_id no_brace_command_accent_upper_case[][2];

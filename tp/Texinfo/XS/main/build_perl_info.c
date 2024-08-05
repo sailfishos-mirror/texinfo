@@ -60,6 +60,7 @@
 #include "output_unit.h"
 /* for TEXT_OPTIONS */
 #include "convert_to_text.h"
+/* also button_function_type_string */
 #include "get_perl_info.h"
 #include "build_perl_info.h"
 
@@ -2414,8 +2415,150 @@ pass_document_to_converter_sv (const CONVERTER *converter,
     }
 }
 
+/* build a Perl button data from pure C button structure.
+   This is a partial implementation.
+   This function can only be called for default buttons for now, so we do
+   not need to handle other types of buttons.  We could handle possibly
+   more: BST_string and BST_direction_info with
+     BIT_string, BIT_selected_direction_information_type and
+     BIT_href_direction_information_type.
+   Other need Perl info */
 SV *
-build_sv_option (const OPTION *option, const CONVERTER *converter)
+html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
+                   int *user_function_number)
+{
+  dTHX;
+
+  *user_function_number = 0;
+
+  switch (button->type)
+    {
+      const char *direction_name;
+      case BST_direction:
+        if (button->b.direction < 0)
+          direction_name = button->direction_string;
+        else
+          direction_name
+            = converter->direction_unit_direction_name[button->b.direction];
+        return newSVpv_utf8 (direction_name, 0);
+        break;
+
+      case BST_direction_info:
+        {
+          BUTTON_SPECIFICATION_INFO *button_spec = button->b.button_info;
+          AV *button_spec_info_av;
+
+          if (button_spec->direction < 0)
+            direction_name = button->direction_string;
+          else
+            direction_name
+            = converter->direction_unit_direction_name[button_spec->direction];
+
+          if (button_spec->type == BIT_function)
+            {
+              /* contains a leading :: */
+              const char *sub_name = html_button_function_type_string[
+                                      button_spec->bi.button_function.type];
+              if (sub_name)
+                {
+                  char *cv_name;
+                  CV *button_function_cv;
+
+                  xasprintf (&cv_name, "Texinfo::Convert::HTML%s", sub_name);
+                  button_function_cv = get_cv (cv_name, 0);
+                  if (!button_function_cv)
+                    fprintf (stderr, "BUG: %s: not found\n", cv_name);
+
+                  free (cv_name);
+
+                  button_spec_info_av = newAV ();
+                  av_push (button_spec_info_av,
+                           newSVpv_utf8 (direction_name, 0));
+              /* not sure that the _inc leads to the same number of references
+                 than with Pure perl defined buttons, but it is needed
+                 as tested  */
+                  av_push (button_spec_info_av,
+                           newRV_inc ((SV *) button_function_cv));
+                  return newRV_inc ((SV *) button_spec_info_av);
+                }
+            }
+        }
+        break;
+
+      default:
+        break;
+    }
+  return newSV (0);
+}
+
+SV *
+html_build_buttons_specification (CONVERTER *converter,
+                                  BUTTON_SPECIFICATION_LIST *buttons)
+{
+  AV *buttons_av;
+  size_t i;
+
+  dTHX;
+
+  buttons_av = newAV ();
+
+  buttons->av = buttons_av;
+
+  for (i = 0; i < buttons->number; i++)
+    {
+      int user_function_number;
+      BUTTON_SPECIFICATION *button = &buttons->list[i];
+
+      SV *button_sv = html_build_button (converter, button,
+                                         &user_function_number);
+      buttons->BIT_user_function_number += user_function_number;
+
+      converter->external_references_number += user_function_number;
+
+      button->sv = button_sv;
+
+      /* retain a reference in C */
+      SvREFCNT_inc (button->sv);
+
+      av_push (buttons_av, button_sv);
+    }
+
+  /* add a refcount to retain one in C */
+  return newRV_inc ((SV *)buttons_av);
+}
+
+SV *
+html_build_direction_icons (const CONVERTER *converter,
+                            const DIRECTION_ICON_LIST *direction_icons)
+{
+  HV *icons_hv;
+  int i;
+
+  dTHX;
+
+  if (!direction_icons)
+    return newSV (0);
+
+  if (!converter || !converter->direction_unit_direction_name)
+    return newSV (0);
+
+  icons_hv = newHV ();
+
+  for (i = 0; converter->direction_unit_direction_name[i]; i++)
+    {
+      if (direction_icons->list[i])
+        {
+          const char *direction_name
+            = converter->direction_unit_direction_name[i];
+          hv_store (icons_hv, direction_name, strlen (direction_name),
+                    newSVpv_utf8 (direction_icons->list[i], 0), 0);
+        }
+    }
+  return newRV_noinc ((SV *)icons_hv);
+}
+
+SV *
+build_sv_option (const OPTION *option, CONVERTER *converter)
 {
   dTHX;
 
@@ -2455,8 +2598,12 @@ build_sv_option (const OPTION *option, const CONVERTER *converter)
         break;
 
       case GOT_buttons:
-        if (!option->o.buttons) return newSV (0);
-        return newRV_inc ((SV *) option->o.buttons->av);
+        if (option->o.buttons)
+          {
+            if (!option->o.buttons->av)
+              html_build_buttons_specification (converter, option->o.buttons);
+            return newRV_inc ((SV *) option->o.buttons->av);
+          }
         break;
 
       case GOT_icons:
@@ -2464,13 +2611,13 @@ build_sv_option (const OPTION *option, const CONVERTER *converter)
         break;
 
       default:
-        return newSV (0);
         break;
     }
+  return newSV (0);
 }
 
 SV *
-get_sv_conf (const CONVERTER *converter, const char *option_name)
+get_sv_conf (CONVERTER *converter, const char *option_name)
 {
   dTHX;
 
@@ -3143,36 +3290,6 @@ build_sorted_indices_by_letter (
   return indices_hv;
 }
 
-SV *
-html_build_direction_icons (const CONVERTER *converter,
-                            const DIRECTION_ICON_LIST *direction_icons)
-{
-  HV *icons_hv;
-  int i;
-
-  dTHX;
-
-  if (!direction_icons)
-    return newSV (0);
-
-  if (!converter || !converter->direction_unit_direction_name)
-    return newSV (0);
-
-  icons_hv = newHV ();
-
-  for (i = 0; converter->direction_unit_direction_name[i]; i++)
-    {
-      if (direction_icons->list[i])
-        {
-          const char *direction_name
-            = converter->direction_unit_direction_name[i];
-          hv_store (icons_hv, direction_name, strlen (direction_name),
-                    newSVpv_utf8 (direction_icons->list[i], 0), 0);
-        }
-    }
-  return newRV_noinc ((SV *)icons_hv);
-}
-
 void
 build_tree_to_build (ELEMENT_LIST *tree_to_build)
 {
@@ -3192,7 +3309,7 @@ static const char *latex_math_options[] = {
 };
 
 HV *
-latex_build_options_for_convert_to_latex_math (const CONVERTER *converter)
+latex_build_options_for_convert_to_latex_math (CONVERTER *converter)
 {
   HV *options_latex_math_hv;
   int i;

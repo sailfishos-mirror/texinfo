@@ -116,6 +116,10 @@ typedef struct BUTTON_SPECIFICATION {
     void *sv; /* reference to perl data that can be used instead of
                  the C data */
 
+    /* case of a pure C button, use this information to hold unresolved
+       direction name at option creation time for either buttons
+       specification info direction or button specification direction */
+    const char *direction_string;
     enum button_specification_type type;
     union {
      /* both global and relative directions index */

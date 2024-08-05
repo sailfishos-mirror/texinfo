@@ -56,11 +56,12 @@
 #include "unicode.h"
 #include "manipulate_indices.h"
 #include "document.h"
+#include "converter_options.h"
 #include "call_perl_function.h"
 #include "converter.h"
 
 CONVERTER_FORMAT_DATA converter_format_data[] = {
-  {"html", "Texinfo::Convert::HTML", },
+  {"html", "Texinfo::Convert::HTML", &html_converter_defaults},
 };
 
 /* associate lower case no brace accent command to the upper case
@@ -277,6 +278,15 @@ set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *user_conf)
 {
   apply_converter_info (converter, format_defaults, 0);
+
+  if (converter_format != COF_none
+      && converter_format_data[converter_format].converter_defaults)
+    {
+      void (* converter_defaults) (CONVERTER *self,
+                 CONVERTER_INITIALIZATION_INFO *conf)
+        = converter_format_data[converter_format].converter_defaults;
+      converter_defaults (converter, user_conf);
+    }
 
   apply_converter_info (converter, user_conf, 1);
 

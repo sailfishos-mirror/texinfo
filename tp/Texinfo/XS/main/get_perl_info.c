@@ -814,7 +814,7 @@ force_sv_conf (CONVERTER *converter, const char *conf, SV *value)
 /* output format specific */
 
 /* should be consistent with enum button_function_type */
-static const char *button_function_type_string[] = {
+const char *html_button_function_type_string[] = {
   0,
   "::_default_panel_button_dynamic_direction_section_footer",
   "::_default_panel_button_dynamic_direction_node_footer",
@@ -836,21 +836,28 @@ html_fill_button_specification_list (const CONVERTER *converter,
 
       if (button->type == BST_direction_info)
         {
-          AV *button_spec_info_av = (AV *) SvRV((SV *)button->sv);
-          SV **direction_sv = av_fetch (button_spec_info_av, 0, 0);
-          const char *direction_name;
-
-          if (!direction_sv || !SvOK (*direction_sv))
+          const char *direction_name = 0;
+          if (button->sv)
             {
-              fprintf (stderr,
-                       "ERROR: missing direction in button %zu array\n",
-                       i);
-              continue;
-            }
+              AV *button_spec_info_av = (AV *) SvRV((SV *)button->sv);
+              SV **direction_sv = av_fetch (button_spec_info_av, 0, 0);
 
-          direction_name = SvPVutf8_nolen (*direction_sv);
-          button->b.button_info->direction
-            = html_get_direction_index (converter, direction_name);
+              if (!direction_sv || !SvOK (*direction_sv))
+                {
+                  fprintf (stderr,
+                           "ERROR: missing direction in button %zu array\n",
+                           i);
+                  continue;
+                }
+
+              direction_name = SvPVutf8_nolen (*direction_sv);
+            }
+          else if (button->b.button_info->direction < 0)
+            direction_name = button->direction_string;
+
+          if (direction_name)
+            button->b.button_info->direction
+              = html_get_direction_index (converter, direction_name);
         /* this happens in test with redefined special unit direction
           if (button->b.button_info->direction < 0)
             {
@@ -862,8 +869,17 @@ html_fill_button_specification_list (const CONVERTER *converter,
         }
       else if (button->type == BST_direction)
         {
-          const char *direction_name = SvPVutf8_nolen (button->sv);
-          button->b.direction = html_get_direction_index (converter,
+          const char *direction_name = 0;
+          if (button->sv)
+            {
+              direction_name = SvPVutf8_nolen (button->sv);
+            }
+          else if (button->b.direction < 0)
+            {
+              direction_name = button->direction_string;
+            }
+          if (direction_name)
+            button->b.direction = html_get_direction_index (converter,
                                                           direction_name);
         /* this would happen in test with redefined special unit direction
           if (button->b.direction < 0)
@@ -995,9 +1011,9 @@ html_get_button_specification_list (const CONVERTER *converter,
                       button_fun_name
                        = SvPV_nolen (cv_name ((CV *) SvRV (*button_spec_info_type),
                                               0, 0));
-                      for (j = 1; button_function_type_string[j]; j++)
+                      for (j = 1; html_button_function_type_string[j]; j++)
                         if (strstr (button_fun_name,
-                                    button_function_type_string[j]))
+                                    html_button_function_type_string[j]))
                           {
                             button_fun_type = j;
                             break;

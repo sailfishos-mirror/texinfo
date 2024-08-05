@@ -4,7 +4,7 @@
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-  
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -21,19 +21,24 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
+#include "converters_defaults.h"
 #include "utils.h"
 
+/* code for converters options setting.  Not with format specific converter
+   code, since this code is called from generic converter code. */
 
 /* create button specification */
 void
 new_button_specification (BUTTON_SPECIFICATION *button,
                           enum button_specification_type type,
                           enum button_information_type info_type,
-                          int direction, const char *string,
+                          int direction, const char *direction_string,
+                          const char *string,
                           enum button_function_type function_type,
                           enum html_text_type text_type)
 {
   button->type = type;
+  button->direction_string = direction_string;
 
   if (type == BST_string)
     {
@@ -89,29 +94,41 @@ new_button_specification_list (size_t buttons_nr)
 /* BFT_type_panel_directions */
 BUTTON_SPECIFICATION_LIST *
 new_basic_buttons (const CONVERTER *self,
-                   enum button_function_type function_type)
+                   enum button_function_type function_type,
+                   int with_about)
 {
-  BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
+  BUTTON_SPECIFICATION_LIST *result;
+  int buttons_nr = 6;
+
+  if (with_about)
+    buttons_nr++;
+
+  result = new_button_specification_list (buttons_nr);
+  /* this function is called too early for special units direction
+     indices to be known, therefore we register direction string name
+     for such directions, directions are set afterwards.
   int contents_direction = html_get_direction_index (self, "Contents");
   int about_direction = html_get_direction_index (self, "About");
+   */
 
   new_button_specification (&result->list[0], BST_direction_info,
-                            BIT_function, D_direction_Next, 0,
+                            BIT_function, D_direction_Next, 0, 0,
                             function_type, 0);
   new_button_specification (&result->list[1], BST_direction_info,
-                            BIT_function, D_direction_Prev, 0,
+                            BIT_function, D_direction_Prev, 0, 0,
                             function_type, 0);
   new_button_specification (&result->list[2], BST_direction_info,
-                            BIT_function, D_direction_Up, 0,
+                            BIT_function, D_direction_Up, 0, 0,
                             function_type, 0);
-  new_button_specification (&result->list[3], BST_direction,
-                            0, D_direction_Space, 0, 0, 0);
-  new_button_specification (&result->list[4], BST_direction,
-                            0, contents_direction, 0, 0, 0);
-  new_button_specification (&result->list[5], BST_direction,
-                            0, D_direction_Index, 0, 0, 0);
-  new_button_specification (&result->list[6], BST_direction,
-                            0, about_direction, 0, 0, 0);
+  new_button_specification (&result->list[3], BST_direction, 0,
+                            D_direction_Space, 0, 0, 0, 0);
+  new_button_specification (&result->list[4], BST_direction, 0,
+                            -1, "Contents", 0, 0, 0);
+  new_button_specification (&result->list[5], BST_direction, 0,
+                            D_direction_Index, 0, 0, 0, 0);
+  if (with_about)
+    new_button_specification (&result->list[6], BST_direction,
+                              0, -1, "About", 0, 0, 0);
   return result;
 }
 
@@ -119,40 +136,205 @@ BUTTON_SPECIFICATION_LIST *
 new_link_buttons (const CONVERTER *self)
 {
   BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
+  /* this function is called too early for special units direction
+     indices to be known, therefore we register direction string name
+     for such directions, directions are set afterwards.
   int contents_direction = html_get_direction_index (self, "Contents");
   int about_direction = html_get_direction_index (self, "About");
+   */
   new_button_specification (&result->list[0], BST_direction,
-                            0, D_direction_Top, 0, 0, 0);
+                            0, D_direction_Top, 0, 0, 0, 0);
   new_button_specification (&result->list[1], BST_direction,
-                            0, D_direction_Index, 0, 0, 0);
+                            0, D_direction_Index, 0, 0, 0, 0);
   new_button_specification (&result->list[2], BST_direction,
-                            0, contents_direction, 0, 0, 0);
+                            0, -1, "Contents", 0, 0, 0);
   new_button_specification (&result->list[3], BST_direction,
-                            0, about_direction, 0, 0, 0);
+                            0, -1, "About", 0, 0, 0);
   new_button_specification (&result->list[4], BST_direction,
-                            0, D_direction_NodeUp, 0, 0, 0);
+                            0, D_direction_NodeUp, 0, 0, 0, 0);
   new_button_specification (&result->list[5], BST_direction,
-                            0, D_direction_NodeNext, 0, 0, 0);
+                            0, D_direction_NodeNext, 0, 0, 0, 0);
   new_button_specification (&result->list[6], BST_direction,
-                            0, D_direction_NodePrev, 0, 0, 0);
+                            0, D_direction_NodePrev, 0, 0, 0, 0);
   return result;
 }
 
 BUTTON_SPECIFICATION_LIST *
 new_section_buttons (const CONVERTER *self)
 {
-  return new_basic_buttons (self, BFT_type_panel_directions);
+  return new_basic_buttons (self, BFT_type_panel_directions, 1);
 }
 
 BUTTON_SPECIFICATION_LIST *
 new_section_footer_buttons (const CONVERTER *self)
 {
-  return new_basic_buttons (self, BFT_type_panel_section_footer);
+  return new_basic_buttons (self, BFT_type_panel_section_footer, 0);
 }
 
 
 
-/*
+/* TEXI2HTML buttons */
+enum T2H_special_unit_directions {
+    T2H_D_About = -3,
+    T2H_D_Contents,
+};
+
+static const char *t2h_special_units_names[] = {
+    "Contents",
+    "About",
+};
+
+/* same as NODE_FOOTER_BUTTONS */
+static const int T2H_SECTION_BUTTONS[] = {
+ D_direction_FastBack, D_direction_Back, D_direction_Up, D_direction_Forward,
+ D_direction_FastForward,
+ D_direction_Space, D_direction_Space, D_direction_Space, D_direction_Space,
+ D_direction_Top, T2H_D_Contents, D_direction_Index, T2H_D_About,
+ -1
+};
+
+/* same as TOP_FOOTER_BUTTONS */
+static const int T2H_TOP_BUTTONS[] = {
+ D_direction_Back, D_direction_Forward, D_direction_Space,
+ T2H_D_Contents, D_direction_Index, T2H_D_About,
+ -1
+};
+
+static const int T2H_MISC_BUTTONS[] = {
+ D_direction_Top, T2H_D_Contents, D_direction_Index, T2H_D_About,
+ -1
+};
+
+/* same as CHAPTER_FOOTER_BUTTONS */
+static const int T2H_CHAPTER_BUTTONS[] = {
+ D_direction_FastBack, D_direction_FastForward, D_direction_Space,
+ D_direction_Space, D_direction_Space, D_direction_Space, D_direction_Space,
+ D_direction_Top, T2H_D_Contents, D_direction_Index, T2H_D_About,
+ -1
+};
+
+static const int T2H_SECTION_FOOTER_BUTTONS[] = {
+ D_direction_FastBack, D_direction_FirstInFileBack, D_direction_FirstInFileUp,
+ D_direction_Forward, D_direction_FastForward,
+ -1
+};
+
+
+static BUTTON_SPECIFICATION_LIST *
+new_texi2html_buttons_specifications (CONVERTER *self, const int* directions)
+{
+  int buttons_nr = 0;
+  int i;
+  BUTTON_SPECIFICATION_LIST *result;
+
+  for (buttons_nr = 0; directions[buttons_nr] != -1; buttons_nr++) {};
+
+  result = new_button_specification_list (buttons_nr);
+
+  for (i = 0; i < buttons_nr; i++)
+    {
+      int direction = directions[i];
+      const char *direction_string = 0;
+      if (direction < 0)
+        {
+          int name_idx = -direction - 2;
+          direction_string = t2h_special_units_names[name_idx];
+        }
+      new_button_specification (&result->list[i], BST_direction,
+                        0, direction, direction_string, 0, 0, 0);
+    }
+  return result;
+}
+
+
+
+static void
+set_option_buttons_specification (OPTION *option,
+                                 BUTTON_SPECIFICATION_LIST *buttons)
+{
+  if (option->o.buttons)
+    html_free_button_specification_list (option->o.buttons);
+  option->o.buttons = buttons;
+}
+
+static void
+set_html_default_buttons_specifications (CONVERTER *self)
+{
+  OPTIONS *options = self->conf;
+  set_option_buttons_specification (&options->SECTION_BUTTONS,
+                                    new_section_buttons (self));
+  set_option_buttons_specification (&options->SECTION_FOOTER_BUTTONS,
+                                    new_section_footer_buttons (self));
+  set_option_buttons_specification (&options->LINKS_BUTTONS,
+                                    new_link_buttons (self));
+  set_option_buttons_specification (&options->NODE_FOOTER_BUTTONS,
+                  new_basic_buttons (self, BFT_type_panel_node_footer, 0));
+  set_option_buttons_specification (&options->CHAPTER_BUTTONS,
+                                    new_section_buttons (self));
+  set_option_buttons_specification (&options->MISC_BUTTONS,
+                                    new_section_buttons (self));
+  set_option_buttons_specification (&options->TOP_BUTTONS,
+                                    new_section_buttons (self));
+  set_option_buttons_specification (&options->CHAPTER_FOOTER_BUTTONS,
+                                    new_section_footer_buttons (self));
+  set_option_buttons_specification (&options->TOP_FOOTER_BUTTONS,
+                                    new_section_footer_buttons (self));
+}
+
+static void
+set_texi2html_default_buttons_specifications (CONVERTER *self)
+{
+  OPTIONS *options = self->conf;
+  set_option_buttons_specification (&options->SECTION_BUTTONS,
+        new_texi2html_buttons_specifications (self, T2H_SECTION_BUTTONS));
+
+  set_option_buttons_specification (&options->TOP_BUTTONS,
+        new_texi2html_buttons_specifications (self, T2H_TOP_BUTTONS));
+
+  set_option_buttons_specification (&options->TOP_FOOTER_BUTTONS,
+        new_texi2html_buttons_specifications (self, T2H_TOP_BUTTONS));
+
+  set_option_buttons_specification (&options->MISC_BUTTONS,
+        new_texi2html_buttons_specifications (self, T2H_MISC_BUTTONS));
+
+  set_option_buttons_specification (&options->CHAPTER_BUTTONS,
+        new_texi2html_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
+
+  set_option_buttons_specification (&options->SECTION_FOOTER_BUTTONS,
+    new_texi2html_buttons_specifications (self, T2H_SECTION_FOOTER_BUTTONS));
+
+  set_option_buttons_specification (&options->CHAPTER_FOOTER_BUTTONS,
+        new_texi2html_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
+
+  set_option_buttons_specification (&options->NODE_FOOTER_BUTTONS,
+        new_texi2html_buttons_specifications (self, T2H_SECTION_BUTTONS));
+}
+
 void
-html_converter_defaults (CONVERTER *self
- */
+html_converter_defaults (CONVERTER *self,
+                         CONVERTER_INITIALIZATION_INFO *conf)
+{
+  set_html_regular_options_defaults (self->conf);
+  set_html_default_buttons_specifications (self);
+
+  if (conf)
+    {
+      size_t t2h_conf_number = self->conf->TEXI2HTML.number;
+      size_t i;
+
+      for (i = 0; i < conf->conf.number; i++)
+        {
+          OPTION *option = &conf->conf.list[i];
+          if (option->number == t2h_conf_number)
+            {
+              if (option->o.integer >= 0)
+                {
+                  set_texi2html_regular_options_defaults (self->conf);
+                  set_texi2html_default_buttons_specifications (self);
+                  return;
+                }
+              break;
+            }
+        }
+    }
+}

@@ -9,6 +9,82 @@
 
 2024-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (get_conf): rename conf argument
+	as option_name.
+
+	* tp/Texinfo/XS/main/get_perl_info.c
+	(html_button_function_type_string): rename button_function_type_string
+	as html_button_function_type_string and make it extern.
+
+	* tp/Texinfo/XS/convert/converter_options.c (new_button_specification)
+	(new_basic_buttons, new_link_buttons),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_fill_button_specification_list),
+	tp/Texinfo/XS/main/option_types.h (BUTTON_SPECIFICATION): add
+	direction_string to BUTTON_SPECIFICATION for pure C buttons to hold a
+	directions string if the direction index is not already known when the
+	button specification is setup, for special units direction whose names
+	are not known early.  In html_fill_button_specification_list, use the
+	direction_string is there is no Perl data and the direction index is
+	negative.  Add an argument to new_button_specification and set it in
+	new_basic_buttons and new_link_buttons for Contents and About.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (html_build_button): add to
+	build a Perl button specification from a 'pure' C button structure
+	BUTTON_SPECIFICATION.  This is a partial implementation for
+	BST_direction and BST_direction_info + BIT_function.  This function can
+	only be called for default buttons for now, so we do not need to
+	handle other types of buttons.
+
+	* tp/Texinfo/XS/main/build_perl_info.c
+	(html_build_buttons_specification): add to build a Perl buttons
+	specifications list from a 'pure' C BUTTON_SPECIFICATION_LIST.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_sv_option),
+	tp/Texinfo/XS/convert/call_html_perl_function.c
+	(call_formatting_function_format_navigation_panel)
+	(call_formatting_function_format_navigation_header): call
+	html_build_buttons_specification if there is no Perl data for a
+	buttons specification list.
+
+	* tp/Texinfo/XS/convert/converter_options.c (new_basic_buttons): add
+	an argument to add an about button only if set.  Update callers to set
+	only for headers buttons specifications.
+
+	* tp/Texinfo/XS/convert/converter_options.c
+	(set_option_buttons_specification)
+	(set_html_default_buttons_specifications): add
+	set_html_default_buttons_specifications to set buttons customization
+	options with texi2any default buttons.
+
+	* tp/Texinfo/XS/convert/converter_options.c (t2h_special_units_names)
+	(enum T2H_special_unit_directions, T2H_SECTION_BUTTONS, T2H_TOP_BUTTONS)
+	(T2H_MISC_BUTTONS, T2H_CHAPTER_BUTTONS, T2H_SECTION_FOOTER_BUTTONS)
+	(new_texi2html_buttons_specifications): function and data to setup
+	buttons in the texi2html way.
+
+	* tp/Texinfo/XS/convert/converter_options.c
+	(set_texi2html_default_buttons_specifications): add to set buttons
+	customization options with texi2html buttons.
+
+	* tp/Texinfo/XS/convert/converter.h (CONVERTER_FORMAT_DATA),
+	tp/Texinfo/XS/convert/converter.c (set_converter_init_information):
+	add converter_defaults function pointer to CONVERTER_FORMAT_DATA to
+	call to initialize a converter for a specific format.  Get it and call
+	it in set_converter_init_information, with the user configuration
+	information structure as argument.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_format_data),
+	tp/Texinfo/XS/convert/converter_options.c (html_converter_defaults):
+	add a converter_defaults function for HTML converter format that sets
+	customization options using converters_defaults.c function and
+	buttons, both for default and with TEXI2HTML set.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_defaults): return
+	undef, all the HTML customization default setup is done in C now.
+
+2024-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
 	tp/Texinfo/XS/convert/convert_html.c,
 	tp/Texinfo/XS/convert/converter_options.c (new_button_specification)

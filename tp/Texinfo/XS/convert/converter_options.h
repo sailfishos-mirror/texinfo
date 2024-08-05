@@ -12,4 +12,6 @@ BUTTON_SPECIFICATION_LIST *new_link_buttons (const CONVERTER *self);
 BUTTON_SPECIFICATION_LIST *new_section_buttons (const CONVERTER *self);
 BUTTON_SPECIFICATION_LIST *new_section_footer_buttons (const CONVERTER *self);
 
+void html_converter_defaults (CONVERTER *self,
+                              CONVERTER_INITIALIZATION_INFO *format_defaults);
 #endif

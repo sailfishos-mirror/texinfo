@@ -15,6 +15,8 @@
 /* in options_get_perl.c */
 void html_fill_options (OPTIONS *options, const CONVERTER *converter);
 
+extern const char *html_button_function_type_string[];
+
 int get_sv_option (OPTION *option, SV *value, int force,
                    OPTIONS *options, const CONVERTER *converter);
 

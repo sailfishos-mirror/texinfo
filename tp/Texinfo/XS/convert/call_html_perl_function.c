@@ -1316,6 +1316,9 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
 
   build_tree_to_build (&self->tree_to_build);
 
+  if (!buttons->av)
+    html_build_buttons_specification (self, buttons);
+
   dSP;
 
   ENTER;
@@ -1372,6 +1375,9 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   build_html_formatting_state (self);
 
   build_tree_to_build (&self->tree_to_build);
+
+  if (!buttons->av)
+    html_build_buttons_specification (self, buttons);
 
   dSP;
 

@@ -23,7 +23,7 @@ char *perl_only_strndup (const char *s, size_t n);
 int init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *builddir_sv,
           SV *top_srcdir_sv);
 
-SV *build_sv_option (const OPTION *option, const CONVERTER *converter);
+SV *build_sv_option (const OPTION *option, CONVERTER *converter);
 
 /* in call_perl_function.c, but declared here to avoid pulling in Perl
    headers in call_perl_function.h */
@@ -97,7 +97,7 @@ SV *html_build_direction_icons (const CONVERTER *converter,
 void pass_document_to_converter_sv (const CONVERTER *converter,
                                     SV *converter_sv, SV *document_in);
 
-SV *get_sv_conf (const CONVERTER *converter, const char *option_name);
+SV *get_sv_conf (CONVERTER *converter, const char *option_name);
 
 HV *build_expanded_formats (const EXPANDED_FORMAT *expanded_formats);
 HV *build_translated_commands (const TRANSLATED_COMMAND *translated_commands);
@@ -107,7 +107,7 @@ void pass_generic_converter_to_converter_sv (SV *converter_sv,
 
 SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 
-HV *latex_build_options_for_convert_to_latex_math (const CONVERTER *converter);
+HV *latex_build_options_for_convert_to_latex_math (CONVERTER *converter);
 
 void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 

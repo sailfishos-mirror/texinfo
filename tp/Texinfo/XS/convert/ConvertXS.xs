@@ -160,14 +160,14 @@ force_conf (SV *converter_in, conf, SV *value)
          RETVAL
 
 SV *
-get_conf (SV *converter_in, conf)
-         const char *conf = (char *)SvPVbyte_nolen($arg);
+get_conf (SV *converter_in, option_name)
+         const char *option_name = (char *)SvPVbyte_nolen($arg);
       PREINIT:
          CONVERTER *self;
       CODE:
          self = get_sv_converter (converter_in, 0);
          if (self)
-           RETVAL = get_sv_conf (self, conf);
+           RETVAL = get_sv_conf (self, option_name);
          else
            RETVAL = newSV (0);
     OUTPUT:
@@ -636,8 +636,17 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
    /* at that point, the format specific informations, in particular the
       direction names is available, such that the directions can be set
       in customization variables needing them (icons, buttons). */
-     html_fill_options (self->conf, self);
+        html_fill_options (self->conf, self);
 
+SV *
+html_converter_defaults (SV *converter_in, SV *conf_sv)
+      PREINIT:
+        HV *format_defaults_hv;
+      CODE:
+        format_defaults_hv = newHV ();
+        RETVAL = newRV_noinc ((SV *) format_defaults_hv);
+    OUTPUT:
+        RETVAL
 
 void
 html_conversion_initialization (SV *converter_in, const char *context, SV *document_in=0)
