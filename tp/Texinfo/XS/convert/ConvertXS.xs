@@ -637,7 +637,7 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
                          customized_no_arg_commands_formatting,
                          customized_direction_strings);
 
-        html_converter_initialize (self);
+        html_converter_customize (self);
 
    /* at that point, the format specific informations, in particular the
       direction names is available, such that the directions can be set

@@ -100,6 +100,7 @@ typedef struct CONVERTER_FORMAT_DATA {
     const char *perl_converter_class;
     void (* converter_defaults) (CONVERTER *self,
                                CONVERTER_INITIALIZATION_INFO *conf);
+    void (* converter_initialize) (CONVERTER *self);
 } CONVERTER_FORMAT_DATA;
 
 extern enum command_id no_brace_command_accent_upper_case[][2];

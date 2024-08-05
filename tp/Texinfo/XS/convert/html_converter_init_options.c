@@ -17,16 +17,20 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
+#include <stddef.h>
 
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
 #include "converters_defaults.h"
 #include "utils.h"
+#include "converter.h"
 #include "html_converter_init_options.h"
 
-/* code for converters options setting.  Not with format specific converter
-   code, since this code is called from generic converter code. */
+/* HTML converter options setting and initialization.  Not with format
+   specific converter code, since this code is called from generic
+   converter code. */
 
 /* should be consistent with enum BUTTON_special_unit_directions.  See
    the comment there */
@@ -361,4 +365,43 @@ html_converter_defaults (CONVERTER *self,
             }
         }
     }
+}
+
+/* this code corresponds to the Perl converter_initialize code, only for
+   code to be called before Perl customization setup information is passed */
+void
+html_converter_initialize (CONVERTER *self)
+{
+  const char *split = self->conf->SPLIT.o.string;
+  int max_header_level = self->conf->MAX_HEADER_LEVEL.o.integer;
+
+  if (!self->conf->FORMAT_MENU.o.string)
+    force_conf (&self->conf->FORMAT_MENU, 0, "");
+
+ /* NOTE we reset silently if the split specification is not one known.
+    The main program warns if the specific command line option value is
+    not known.  We could add a warning here to catch mistakes in init
+    files.  Wait for user reports.
+  */
+  if (split && strlen (split) && strcmp (split, "chapter")
+      && strcmp (split, "section") && strcmp (split, "node"))
+    force_conf (&self->conf->SPLIT, 0, "node");
+
+  if (max_header_level < 0)
+    force_conf (&self->conf->MAX_HEADER_LEVEL, 4, 0);
+  else if (max_header_level < 1)
+    force_conf (&self->conf->MAX_HEADER_LEVEL, 1, 0);
+
+  /* For CONTENTS_OUTPUT_LOCATION
+     should lead to contents not output, but if not, it is not an issue,
+     the way to set contents to be output or not should be through the
+     contents and shortcontents @-commands and customization options.
+   */
+
+  if (!self->conf->CONTENTS_OUTPUT_LOCATION.o.string)
+    force_conf (&self->conf->CONTENTS_OUTPUT_LOCATION, 0, "");
+  if (!self->conf->INDEX_ENTRY_COLON.o.string)
+    force_conf (&self->conf->INDEX_ENTRY_COLON, 0, "");
+  if (!self->conf->MENU_ENTRY_COLON.o.string)
+    force_conf (&self->conf->MENU_ENTRY_COLON, 0, "");
 }

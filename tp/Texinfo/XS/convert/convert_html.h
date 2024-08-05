@@ -44,7 +44,7 @@ extern COMMAND_ID_LIST no_arg_formatted_cmd;
 void html_format_setup (void);
 
 void html_converter_init_special_unit (CONVERTER *self);
-void html_converter_initialize (CONVERTER *self);
+void html_converter_customize (CONVERTER *self);
 
 void html_initialize_output_state (CONVERTER *self, const char *context);
 void init_conversion_after_setup_handler (CONVERTER *self);

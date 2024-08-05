@@ -1,5 +1,27 @@
 2024-08-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_customize),
+	tp/Texinfo/XS/convert/convert_html.c (html_converter_customize):
+	rename html_converter_initialize as html_converter_customize.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_format_data)
+	(set_converter_init_information), tp/Texinfo/XS/convert/converter.h
+	(CONVERTER_FORMAT_DATA): add a converter_initialize function reference
+	field in CONVERTER_FORMAT_DATA and call it in
+	set_converter_init_information.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/XS/convert/converter.c (converter_format_data),
+	tp/Texinfo/XS/convert/html_converter_init_options.c
+	(html_converter_initialize): add html_converter_initialize with
+	code in Perl converter_initialize function that does not need
+	customization information from Perl.  set html_converter_initialize in
+	converter_format_data.  Separate code in Perl converter_initialize 
+	that is already called in html_converter_initialize and put it in a
+	conditional at the beginning of the function.
+
+2024-08-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES): rename
 	convert/converter_options.c as convert/html_converter_init_options.c.
 

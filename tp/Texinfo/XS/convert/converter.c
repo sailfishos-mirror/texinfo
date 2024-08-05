@@ -61,7 +61,7 @@
 #include "converter.h"
 
 CONVERTER_FORMAT_DATA converter_format_data[] = {
-  {"html", "Texinfo::Convert::HTML", &html_converter_defaults},
+  {"html", "Texinfo::Convert::HTML", &html_converter_defaults, &html_converter_initialize},
 };
 
 /* associate lower case no brace accent command to the upper case
@@ -245,6 +245,7 @@ new_converter (void)
   return converter_index +1;
 }
 
+/* apply initialization information from one source */
 static void
 apply_converter_info (CONVERTER *converter,
               CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
@@ -271,6 +272,8 @@ apply_converter_info (CONVERTER *converter,
     }
 }
 
+/* apply format_defaults and user_conf initialization information and call
+   format specific options setting and initialization functions */
 void
 set_converter_init_information (CONVERTER *converter,
                             enum converter_format converter_format,
@@ -307,6 +310,13 @@ set_converter_init_information (CONVERTER *converter,
                    converter->converted_format);
    */
 
+  if (converter_format != COF_none
+      && converter_format_data[converter_format].converter_initialize)
+    {
+      void (* converter_initialize) (CONVERTER *self)
+        = converter_format_data[converter_format].converter_initialize;
+      converter_initialize (converter);
+    }
 }
 
 CONVERTER_INITIALIZATION_INFO *

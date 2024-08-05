@@ -17499,12 +17499,13 @@ determine_non_default_special_unit_directions (const CONVERTER *self)
   return non_default_special_unit_directions;
 }
 
-/* most of the initialization is done by html_converter_initialize_sv
-   in get_perl_info, the initialization that do not require information
-   directly from perl data is done here.  This is called after information
-   from perl has been gathered  */
+/* When initializing from Perl, html_converter_initialize_sv is called first
+   to set customization information based on Perl data.  Then this function
+   is called for the remainder of initialization that requires customization
+   information.
+ */
 void
-html_converter_initialize (CONVERTER *self)
+html_converter_customize (CONVERTER *self)
 {
   int i;
   enum direction_string_type DS_type;

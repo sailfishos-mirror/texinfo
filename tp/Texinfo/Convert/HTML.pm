@@ -8699,6 +8699,44 @@ sub converter_initialize($)
 {
   my $self = shift;
 
+  if (!($self->{'converter_descriptor'} and $XS_convert)) {
+    # initializatin done either in Perl or XS
+
+    # used in initialization.  Set if undef
+    if (!defined($self->get_conf('FORMAT_MENU'))) {
+      $self->force_conf('FORMAT_MENU', '');
+    }
+
+    # NOTE we reset silently if the split specification is not one known.
+    # The main program warns if the specific command line option value is
+    # not known.  We could add a warning here to catch mistakes in init
+    # files.  Wait for user reports.
+    my $split = $self->get_conf('SPLIT');
+    if ($split and $split ne 'chapter'
+        and $split ne 'section'
+        and $split ne 'node') {
+      $self->force_conf('SPLIT', 'node');
+    }
+
+    my $max_header_level = $self->get_conf('MAX_HEADER_LEVEL');
+    if (!defined($max_header_level)) {
+      $self->force_conf('MAX_HEADER_LEVEL', $defaults{'MAX_HEADER_LEVEL'});
+    } elsif ($max_header_level < 1) {
+      $self->force_conf('MAX_HEADER_LEVEL', 1);
+    }
+
+    # For CONTENTS_OUTPUT_LOCATION
+    # should lead to contents not output, but if not, it is not an issue,
+    # the way to set contents to be output or not should be through the
+    # contents and shortcontents @-commands and customization options.
+    foreach my $conf ('CONTENTS_OUTPUT_LOCATION', 'INDEX_ENTRY_COLON',
+                      'MENU_ENTRY_COLON') {
+      if (!defined($self->get_conf($conf))) {
+        $self->force_conf($conf, '');
+      }
+    }
+  }
+
   _load_htmlxref_files($self);
 
   $self->{'output_units_conversion'} = {};
@@ -8767,11 +8805,6 @@ sub converter_initialize($)
   foreach my $command (keys(%$customized_upper_case_commands)) {
     $self->{'upper_case_commands'}->{$command}
       = $customized_upper_case_commands->{$command};
-  }
-
-  # used just below.  Set if undef
-  if (!defined($self->get_conf('FORMAT_MENU'))) {
-    $self->force_conf('FORMAT_MENU', '');
   }
 
   $self->{'commands_conversion'} = {};
@@ -9049,34 +9082,6 @@ sub converter_initialize($)
 
   $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
 
-  # NOTE we reset silently if the split specification is not one known.
-  # The main program warns if the specific command line option value is
-  # not known.  We could add a warning here to catch mistakes in init
-  # files.  Wait for user reports.
-  my $split = $self->get_conf('SPLIT');
-  if ($split and $split ne 'chapter'
-      and $split ne 'section'
-      and $split ne 'node') {
-    $self->force_conf('SPLIT', 'node');
-  }
-
-  my $max_header_level = $self->get_conf('MAX_HEADER_LEVEL');
-  if (!defined($max_header_level)) {
-    $self->force_conf('MAX_HEADER_LEVEL', $defaults{'MAX_HEADER_LEVEL'});
-  } elsif ($max_header_level < 1) {
-    $self->force_conf('MAX_HEADER_LEVEL', 1);
-  }
-
-  # For CONTENTS_OUTPUT_LOCATION
-  # should lead to contents not output, but if not, it is not an issue,
-  # the way to set contents to be output or not should be through the
-  # contents and shortcontents @-commands and customization options.
-  foreach my $conf ('CONTENTS_OUTPUT_LOCATION', 'INDEX_ENTRY_COLON',
-                    'MENU_ENTRY_COLON') {
-    if (!defined($self->get_conf($conf))) {
-      $self->force_conf($conf, '');
-    }
-  }
 
   # XS parser initialization
   if ($self->{'converter_descriptor'} and $XS_convert) {

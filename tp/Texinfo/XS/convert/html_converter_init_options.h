@@ -15,4 +15,6 @@ enum BUTTON_special_unit_directions {
 
 void html_converter_defaults (CONVERTER *self,
                               CONVERTER_INITIALIZATION_INFO *format_defaults);
+
+void html_converter_initialize (CONVERTER *self);
 #endif
