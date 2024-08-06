@@ -1,3 +1,8 @@
+2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/configure.ac: elaborate on comment using
+	information from Bruno.
+
 2024-08-06  Bruno Haible  <bruno@clisp.org>
 
 	build: Prepare for use of autopoint.
