@@ -1,5 +1,13 @@
 2024-08-06  Bruno Haible  <bruno@clisp.org>
 
+	Generate doc/tp_api/texi2any_internals.texi in the source directory.
+
+	* doc/tp_api/Makefile.am (texi2any_internals.texi): Move the
+	generated texi2any_internals.texi from the build dir to the
+	source dir.
+
+2024-08-06  Bruno Haible  <bruno@clisp.org>
+
 	* texindex/Makefile.am (texindex.awk): Move the generated
 	texindex.awk from the build dir to the source dir.
 
