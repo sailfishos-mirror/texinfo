@@ -83,7 +83,7 @@ $(top_builddir)/tp/Texinfo/ModulePath.pm:
 	cd $(top_builddir)/tp && $(MAKE) $(AM_MAKEFLAGS) Texinfo/ModulePath.pm
 
 texi2any_internals.texi: $(texi2any_internals_dependencies) texi2any_internals_indices.texi texi2any_internals_preamble.texi $(top_builddir)/tp/Texinfo/ModulePath.pm
-	if $(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --preamble - --subdir=api_includes $(texi2any_internals_dependencies) < $(srcdir)/texi2any_internals_preamble.texi >$@.tmp ; then \
+	if $(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --preamble - --subdir=$(srcdir)/api_includes $(texi2any_internals_dependencies) < $(srcdir)/texi2any_internals_preamble.texi >$@.tmp ; then \
 	  cat $@.tmp  | sed -e 's/^@bye/@__bye/' | sed -e '/^@__bye/r $(srcdir)/texi2any_internals_indices.texi' | sed -e 's/^@__bye//' > $@ ; \
 	fi ; rm -f $@.tmp
 
