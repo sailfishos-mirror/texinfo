@@ -1,3 +1,12 @@
+2024-08-06  Bruno Haible  <bruno@clisp.org>
+
+	build: Prepare for use of autopoint.
+
+	* configure.ac: Add comments about use of autopoint.
+	* tp/Texinfo/XS/configure.ac: Specify the same GNU gettext
+	version as the top-level configure.ac. Add comments about use
+	of autopoint.
+
 2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* Pod-Simple-Texinfo/Makefile.am (pod2texi):

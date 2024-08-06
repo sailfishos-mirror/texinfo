@@ -133,7 +133,17 @@ AC_PROG_CC
 
 gl_EARLY
 
+# i18n support.  Use the same GNU gettext version as the main configure.ac file.
+# To upgrade to a new version of gettext, run:
+#   gettextize -f --po-dir=../../../po --no-changelog
+# To fetch the *.m4 files without upgrading, run:
+#   autopoint -f; rm -rf po
+# and revert the changes of gnulib/m4/*.m4 files that downgrade from a newer
+# serial number (from gnulib) to an older serial number (from gettext).
+# See http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html.
+AM_GNU_GETTEXT_VERSION([0.21])
 AM_GNU_GETTEXT([external])
+
 AM_MISSING_PROG([XSUBPP], [xsubpp])
 AM_MISSING_PROG([GAWK], [gawk])
 
