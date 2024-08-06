@@ -1,5 +1,10 @@
 2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac: adjust a comment so that aclocal does not think
+	that "serial number" refers to a serial number of "number".
+
+2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/configure.ac: adjust a comment so that aclocal
 	does not think that "serial number" refers to a serial number of
 	"number".
