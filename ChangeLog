@@ -1,3 +1,8 @@
+2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/tp_api/Makefile.am (texi2any_internals.texi):
+	Add a comment.
+
 2024-08-06  Bruno Haible  <bruno@clisp.org>
 
 	Generate doc/tp_api/texi2any_internals.texi in the source directory.
