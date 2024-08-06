@@ -479,7 +479,11 @@ remove_document_descriptor (size_t document_descriptor)
   if (document->small_strings)
     destroy_strings_list (document->small_strings);
 
-  unregister_document_hv (document);
+  if (document->hv)
+    {
+      unregister_perl_data (document->hv);
+      document->hv = 0;
+    }
 
   /*
   fprintf (stderr, "REMOVE %zu %p\n", document_descriptor, document);

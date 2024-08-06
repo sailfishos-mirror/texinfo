@@ -47,20 +47,6 @@ get_refcount (void *sv)
   return SvREFCNT ((SV *) sv);
 }
 
-/* to be called when a tree element is destroyed, to remove the reference
-   of the association with the C tree */
-void
-unregister_perl_tree_element (ELEMENT *e)
-{
-  dTHX;
-
-  if (e->hv)
-    {
-      SvREFCNT_dec ((SV *) e->hv);
-      e->hv = 0;
-    }
-}
-
 void
 unregister_perl_data (void *sv)
 {
@@ -124,30 +110,5 @@ void
 croak_message (char *message)
 {
   croak ("%s\n", message);
-}
-
-void
-unregister_document_hv (DOCUMENT *document)
-{
-  dTHX;
-
-  if (document->hv)
-    {
-      SvREFCNT_dec ((SV *)document->hv);
-      document->hv = 0;
-    }
-}
-
-/* HTML specific */
-void
-unregister_html_converter_perl_hv (CONVERTER *converter)
-{
-  dTHX;
-
-  if (converter->pl_info_hv)
-    {
-      SvREFCNT_dec ((SV *)converter->pl_info_hv);
-      converter->pl_info_hv = 0;
-    }
 }
 

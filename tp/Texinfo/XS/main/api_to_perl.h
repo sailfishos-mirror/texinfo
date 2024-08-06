@@ -7,12 +7,8 @@
 
 int get_refcount (void *sv);
 
-void unregister_perl_tree_element (ELEMENT *e);
-void unregister_document_hv (DOCUMENT *document);
 void unregister_perl_data (void *sv);
 void register_perl_data (void *sv);
-/* HTML specific */
-void unregister_html_converter_perl_hv (CONVERTER *converter);
 
 void call_switch_to_global_locale (void);
 void call_sync_locale (void);

@@ -256,7 +256,12 @@ destroy_element_empty_source_mark_list (ELEMENT *e)
 void
 destroy_element (ELEMENT *e)
 {
-  unregister_perl_tree_element (e);
+  /* remove the reference of the association with the C tree */
+  if (e->hv)
+    {
+      unregister_perl_data (e->hv);
+      e->hv = 0;
+    }
 
   if (e->source_mark_list)
     destroy_source_mark_list (e->source_mark_list);

@@ -19710,7 +19710,11 @@ html_free_converter (CONVERTER *self)
   self->registered_ids = 0;
 #endif
 
-  unregister_html_converter_perl_hv (self);
+  if (self->pl_info_hv)
+    {
+      unregister_perl_data (self->pl_info_hv);
+      self->pl_info_hv = 0;
+    }
 
   html_free_files_source_info (&self->files_source_info);
 
