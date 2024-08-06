@@ -1,5 +1,13 @@
 2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* Pod-Simple-Texinfo/Makefile.am (pod2texi):
+	Remove replacement of USE_EXTERNAL_LIBINTL,
+	USE_EXTERNAL_EASTASIANWIDTH and USE_EXTERNAL_UNIDECODE as
+	these no longer occur in pod2texi.pl (since change
+	on 2023-09-24).
+
+2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/tp_api/Makefile.am (texi2any_internals.texi):
 	Add a comment.
 
