@@ -38,7 +38,7 @@
 #include "types_data.h"
 #include "tree_types.h"
 #include "global_commands_types.h"
-/* for GLOBAL_INFO ERROR_MESSAGE */
+/* for GLOBAL_INFO ERROR_MESSAGE CL_* */
 #include "document_types.h"
 /* CONVERTER sv_string_type */
 #include "converter_types.h"

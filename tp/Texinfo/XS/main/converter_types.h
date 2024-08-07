@@ -846,11 +846,9 @@ typedef struct CONVERTER {
     SPECIAL_UNIT_DIRECTION_LIST global_units_direction_name;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
-    union {
-      STRING_LIST *registered_ids;
-      /* actually HV * but we do not want to drag in Perl headers */
-      void *registered_ids_hv;
-    } rid;
+    STRING_LIST *registered_ids;
+    /* actually HV * but we do not want to drag in Perl headers */
+    void *registered_ids_hv;
     /* potentially one target list per command (only for some actually) */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
@@ -940,13 +938,6 @@ typedef struct TARGET_FILENAME {
     char *filename;
 } TARGET_FILENAME;
 
-/* enum needed in converters codes, but not in this file */
-enum command_location {
-   CL_before,
-   CL_last,
-   CL_preamble,
-   CL_preamble_or_first,
-};
 
 #endif
 

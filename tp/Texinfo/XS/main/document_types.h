@@ -255,4 +255,12 @@ typedef struct {
     VALUE *list;
 } VALUE_LIST;
 
+/* enum needed in document and converters codes, but not in this file */
+enum command_location {
+   CL_before,
+   CL_last,
+   CL_preamble,
+   CL_preamble_or_first,
+};
+
 #endif
