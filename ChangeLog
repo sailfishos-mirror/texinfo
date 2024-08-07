@@ -1,3 +1,9 @@
+2024-08-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* Makefile.am (BUILT_SOURCES): Add tp/Texinfo/ModulePath.pm along
+	with rule to generate it.  This helps in running "make dist"
+	without running "make" first.  Report from Bruno.
+
 2024-08-07  Patrice Dumas  <pertusus@free.fr>
 
 	* info/Makefile.am (../gnulib/lib/libgnu.a):
