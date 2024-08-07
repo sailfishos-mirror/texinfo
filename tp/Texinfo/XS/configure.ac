@@ -133,7 +133,10 @@ AC_PROG_CC
 
 gl_EARLY
 
-# i18n support.  Use the same GNU gettext version as the main configure.ac file.
+# i18n support.  We need to use the same GNU gettext version as the main
+# configure.ac file since the version of the gettext.m4 and related files
+# must be in sync with the Makefile.in.in in the shared po/ directory.
+#
 # To upgrade to a new version of gettext, run:
 #   gettextize -f --po-dir=../../../po --no-changelog
 # To fetch the *.m4 files without upgrading, run:
