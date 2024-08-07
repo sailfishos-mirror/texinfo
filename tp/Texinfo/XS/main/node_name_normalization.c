@@ -41,9 +41,6 @@
 /* put in another file? Add an extern declaration in the .h file?*/
 #include "cmd_normalization.c"
 
-int ref_3_args_order[] = {0, 1, 2, -1};
-int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
-
 #define ADD(x) text_append (result, x)
 void
 convert_to_normalized_internal (const ELEMENT *e, TEXT *result)

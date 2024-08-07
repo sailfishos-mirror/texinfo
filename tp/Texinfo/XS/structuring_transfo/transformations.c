@@ -845,10 +845,6 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
   return added_nodes;
 }
 
-/* also in node_name_normalization.c */
-int ref_3_args_order[] = {0, 1, 2, -1};
-int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
-
 /*
  This converts a reference @-command to simple text using one of the
  arguments.  This is used to remove reference @-command from

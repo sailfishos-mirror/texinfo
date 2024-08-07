@@ -29,6 +29,11 @@
 
 #include "command_data.c"
 
+/* order of argument to use to find a non empty argument to use to represent
+   the command content for ref commands with 3 or 5 arguments */
+int ref_3_args_order[] = {0, 1, 2, -1};
+int ref_5_args_order[] = {0, 1, 2, 4, 3, -1};
+
 static int
 compare_command_fn (const void *a, const void *b)
 {
