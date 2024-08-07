@@ -33,6 +33,9 @@ TEXI2DVI = $(TEXI2DVI_ENVIRONMENT) $(top_srcdir)/util/texi2dvi
 # include pod2texi in the main manual
 pod2texi_pl = $(abs_top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl
 
+$(top_builddir)/Pod-Simple-Texinfo/pod2texi:
+	cd $(top_builddir)/Pod-Simple-Texinfo && $(MAKE) $(AM_MAKEFLAGS) pod2texi
+
 if BUILD_PERL_API_TEXI
 # we setup the conversion to Texinfo for inclusion in a document,
 # but we ignore the main document (output to /dev/null) that includes
@@ -40,8 +43,8 @@ if BUILD_PERL_API_TEXI
 # pod2texi.pl), as we include from the Texinfo manual.  The file name
 # for the included section is therefore determined by the information
 # in the Pod file NAME section.
-$(srcdir)/pod2texi.texi: $(pod2texi_pl)
-	$(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections --subdir=$(srcdir) $(pod2texi_pl) > /dev/null
+$(srcdir)/pod2texi.texi: $(pod2texi_pl) $(top_builddir)/Pod-Simple-Texinfo/pod2texi
+	$(MAKEINFO_ENVIRONMENT) $(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ $(top_builddir)/Pod-Simple-Texinfo/pod2texi --base-level=subsubsection --no-section-nodes --headings-as-sections --subdir=$(srcdir) $(pod2texi_pl) > /dev/null
 endif
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;

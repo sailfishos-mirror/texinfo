@@ -1,3 +1,10 @@
+2024-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/Makefile.am (pod2texi.texi): Add dependency on pod2texi
+	and run pod2texi instead of pod2texi.pl.
+	* Pod-Simple-Texinfo/Makefile.am (pod2texi): Add dependency on
+	tp/Texinfo/ModulePath.pm.
+
 2024-08-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* configure.ac: adjust a comment so that aclocal does not think
