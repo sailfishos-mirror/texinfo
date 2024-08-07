@@ -15,7 +15,7 @@ AC_INIT([GNU Texinfo], [7.1.90], [bug-texinfo@gnu.org])
 dnl Must come before AM_INIT_AUTOMAKE.
 AC_CONFIG_AUX_DIR([build-aux])
 dnl tar-ustar because we have long filenames for some test files.
-AM_INIT_AUTOMAKE([1.16.1
+AM_INIT_AUTOMAKE([1.16.1 dist-xz
                  info-in-builddir parallel-tests tar-ustar])
 
 # Where to generate output; srcdir location.
@@ -384,12 +384,8 @@ AC_ARG_WITH([external-Text-Unidecode],
 AC_SUBST([USE_UNICODE])
 AC_SUBST([USE_EXTERNAL_UNIDECODE])
 
-# i18n support.  To upgrade to a new version of gettext, run:
+# i18n support.  To update to a new version of gettext, run:
 #   gettextize -f --po-dir=po --po-dir=po_document
-# To fetch the *.m4 files without upgrading, run:
-#   autopoint -f
-# and then revert any changes of gnulib/m4/*.m4 files that downgrade from a
-# newer serial number (from gnulib) to an older serial number (from gettext).
 # See http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html.
 AM_GNU_GETTEXT_VERSION([0.21])
 AM_GNU_GETTEXT([external])

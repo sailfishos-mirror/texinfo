@@ -133,20 +133,7 @@ AC_PROG_CC
 
 gl_EARLY
 
-# i18n support.  We need to use the same GNU gettext version as the main
-# configure.ac file since the version of the gettext.m4 and related files
-# must be in sync with the Makefile.in.in in the shared po/ directory.
-#
-# To upgrade to a new version of gettext, run:
-#   gettextize -f --po-dir=../../../po --no-changelog
-# To fetch the *.m4 files without upgrading, run:
-#   autopoint -f; rm -rf po
-# and then revert any changes of gnulib/m4/*.m4 files that downgrade from a
-# newer serial number (from gnulib) to an older serial number (from gettext).
-# See http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html.
-AM_GNU_GETTEXT_VERSION([0.21])
 AM_GNU_GETTEXT([external])
-
 AM_MISSING_PROG([XSUBPP], [xsubpp])
 AM_MISSING_PROG([GAWK], [gawk])
 

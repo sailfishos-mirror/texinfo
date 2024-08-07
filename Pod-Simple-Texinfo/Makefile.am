@@ -31,14 +31,13 @@ modulesdir = $(pkgdatadir)/Pod-Simple-Texinfo/Pod/Simple/
 dist_modules_DATA = \
  lib/Pod/Simple/Texinfo.pm
 
-# Needed if make has not run in the "tp" directory yet
-$(top_builddir)/tp/Texinfo/ModulePath.pm:
-	cd $(top_builddir)/tp && $(MAKE) $(AM_MAKEFLAGS) Texinfo/ModulePath.pm
-
-pod2texi: pod2texi.pl Makefile $(top_builddir)/tp/Texinfo/ModulePath.pm
+pod2texi: pod2texi.pl Makefile
 	sed -e 's,[@]datadir[@],$(datadir),g' \
 	-e 's,[@]pkglibdir[@],$(pkglibdir),g' \
 	-e 's,[@]PACKAGE[@],$(PACKAGE),g' \
+	-e 's,[@]USE_EXTERNAL_LIBINTL[@],$(USE_EXTERNAL_LIBINTL),g' \
+	-e 's,[@]USE_EXTERNAL_EASTASIANWIDTH[@],$(USE_EXTERNAL_EASTASIANWIDTH),g' \
+	-e 's,[@]USE_EXTERNAL_UNIDECODE[@],$(USE_EXTERNAL_UNIDECODE),g' \
 	-e '1 s,/usr/bin/env perl,$(PERL),g' \
 	   $(srcdir)/pod2texi.pl >$@
 	chmod a+x $@

@@ -96,10 +96,7 @@ $(srcdir)/makeinfo.1: $(tpdir)/texi2any.pl $(common_mandeps)
 	rm $@.tmp
 
 $(srcdir)/texindex.1: $(top_srcdir)/texindex/ti.twjr $(common_mandeps)
-	@name="sort Texinfo index files" \
-	  && TEXINDEX_SCRIPT=$(top_srcdir)/texindex/texindex.awk \
-	  && export TEXINDEX_SCRIPT \
-	  && $(man_rule_bin)
+	@name="sort Texinfo index files" && $(man_rule_bin)
 
 # 
 # For texi2dvi, do not depend on the current user's settings.
