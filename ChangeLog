@@ -7,6 +7,60 @@
 
 2024-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Add a C demonstration program that converts Texinfo to HTML
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
+	(libtexinfo_convert_la_SOURCES, libtexinfo_convert_la_CPPFLAGS)
+	(ConvertXS_la_SOURCES): move structuring_transfo/transformations.c to
+	libtexinfo and convert_html.c to libtexinfo-convert.  Remove
+	StructuringTransfoXS_la_SOURCES.
+
+	* main/replace_perl_api_call.c,
+	convert/replace_perl_call_html_function.c: add functions to replace
+	Perl functions call API of main/call_perl_function.h,
+	main/api_to_perl.h and convert/call_html_perl_function.h by functions
+	that do not need Perl.  The C implementations are noops, that are not
+	meant to be called, C code equivalent to the Perl code, which can be
+	called.
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(set_root_commands_targets_node_files): initialize called to 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c (convert_output_unit): use
+	output_unit_conversion_function to get the final status of conversion
+	of output units, as should be.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_customize):
+	initialize converter special_unit_body_formatting to 0.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_initialize_output_state)
+	(register_special_unit_body_formatting_function)
+	(html_converter_customize): allow customized_type_dir_strings,
+	special_unit_body and html_customized_style_commands to be unset if
+	there is no Perl customization.
+
+	* tp/Texinfo/XS/convert/convert_html.c (ignored_types)
+	(html_converter_customize): set FRS_status_ignored for ignored types.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_converter_customize): if
+	FORMAT_MENU is not menu, set conversion status to FRS_status_ignored
+	for menu and detailmenu if they are converted in C.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_translate_string)
+	(format_*, html_converter_customize): set conversion functions to C
+	functions if there was no information obtained from Perl, with status
+	remaining FRS_status_none.
+
+	* tp/Texinfo/XS/Makefile.am (noinst_PROGRAMS, teximakehtml_SOURCES)
+	(teximakehtml_CPPFLAGS, teximakehtml_LDFLAGS, teximakehtml_LDADD),
+	tp/Texinfo/XS/teximakehtml.c: add the teximakehtml program
+	demonstrating the use of the parser, structuring and HTML conversion
+	C code to parser and convert Texinfo to HTML.  No customization at
+	all, the intent is to use the program as a demonstrator of how the C
+	code could be used separately from Perl.
+
+2024-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c (initialize_document_options): add
 	C function to initialize and set document options novalidate,
 	documentlanguage based on parser information and call

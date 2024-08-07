@@ -886,7 +886,8 @@ SUM: 98
 
 
 Setting flags
-our_CFLAGS='-g -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces'
+our_CFLAGS='-g -O0 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces'
+our_CFLAGS='-g -O0 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -fstack-protector-all -Wstack-protector -fno-omit-frame-pointer'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 

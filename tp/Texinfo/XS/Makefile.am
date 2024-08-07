@@ -207,6 +207,8 @@ libtexinfo_la_SOURCES= \
 		      parsetexi/source_marks.h \
 		      structuring_transfo/structuring.c \
 		      structuring_transfo/structuring.h \
+		      structuring_transfo/transformations.c \
+		      structuring_transfo/transformations.h \
 		      main/api_to_perl.c \
 		      main/api_to_perl.h \
 		      main/call_perl_function.c \
@@ -442,9 +444,6 @@ nodist_StructuringTransfoXS_la_SOURCES = \
                     structuring_transfo/StructuringTransfoXS.c
 CLEANFILES += \
                     structuring_transfo/StructuringTransfoXS.c
-StructuringTransfoXS_la_SOURCES = \
-                    structuring_transfo/transformations.c \
-                    structuring_transfo/transformations.h
 
 EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
 
@@ -495,5 +494,18 @@ ConvertXS_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(src
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la
 ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBICONV) $(LTLIBUNISTRING)
+
+
+############################################### demonstrator of the API
+
+noinst_PROGRAMS = teximakehtml
+
+teximakehtml_SOURCES = teximakehtml.c \
+                       main/replace_perl_api_call.c \
+                       convert/replace_perl_call_html_function.c
+
+teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+teximakehtml_LDFLAGS = $(XSLIBS_LDFLAGS)
+teximakehtml_LDADD = libtexinfo.la libtexinfo-convert.la $(top_builddir)/gnulib/lib/libgnu.la
 
 

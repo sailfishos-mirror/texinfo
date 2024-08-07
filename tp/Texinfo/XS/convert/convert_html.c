@@ -144,6 +144,17 @@ static enum command_id quoted_style_commands[] = {
   CM_samp, 0
 };
 
+static enum element_type ignored_types[] = {
+    ET_ignorable_spaces_after_command,
+    ET_postamble_after_end,
+    ET_preamble_before_beginning,
+    ET_preamble_before_setfilename,
+    ET_spaces_at_end,
+    ET_spaces_before_paragraph,
+    ET_spaces_after_close_brace, 0
+};
+
+
 const char *count_elements_in_filename_type_names[] = {
  "total", "remaining", "current"};
 
@@ -524,6 +535,7 @@ get_element_root_command_element (CONVERTER *self, const ELEMENT *command)
 
 /* this number should be safe to use even after targets list has been
    reallocated */
+
 size_t
 find_element_target_number_linear (const HTML_TARGET_LIST *targets,
                                    const ELEMENT *element)
@@ -631,6 +643,7 @@ html_translate_string (CONVERTER *self, const char *string,
      it does not hurt to consider it possible */
   if (formatting_reference->status
       && formatting_reference->status != FRS_status_ignored
+      && formatting_reference->status != FRS_status_none
      /* this function may not be defined in Perl, thus this condition */
       && formatting_reference->sv_reference)
     {
@@ -2229,7 +2242,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
       int i;
       for (i = 0; i < label_targets->number; i++)
         {
-          int called;
+          int called = 0;
           char *target;
           char *node_filename;
           char *user_node_filename;
@@ -2687,7 +2700,8 @@ format_protect_text (CONVERTER *self, const char *text, TEXT *result)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_protect_text];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       (*self->current_format_protect_text) (text, result);
     }
@@ -2718,7 +2732,8 @@ format_comment (CONVERTER *self, const char *text)
 {
   FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_comment];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_comment (self, text);
     }
@@ -6424,7 +6439,8 @@ format_separate_anchor (CONVERTER *self, const char *id,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_separate_anchor];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_separate_anchor (self, id, class, result);
     }
@@ -6847,7 +6863,8 @@ format_contents (CONVERTER *self,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_contents];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_contents (self, cmd, element, filename);
     }
@@ -6867,7 +6884,8 @@ format_heading_text (CONVERTER *self, const enum command_id cmd,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_heading_text];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_heading_text (self, cmd, classes, text,
                                         level, id, element, target, result);
@@ -6938,7 +6956,8 @@ format_single_footnote (CONVERTER *self, const ELEMENT *element,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_single_footnote];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_single_footnote (self, element, footid,
                                    number_in_doc, footnote_location_href,
@@ -7014,7 +7033,8 @@ format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_footnotes_sequence];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_footnotes_sequence (self, result);
     }
@@ -7109,7 +7129,8 @@ format_footnotes_segment (CONVERTER *self, TEXT *result)
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_footnotes_segment];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       default_format_footnotes_segment (self, result);
     }
@@ -7172,7 +7193,8 @@ format_program_string (CONVERTER *self, TEXT *result)
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_program_string];
 
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_program_string (self, result);
     }
@@ -7282,7 +7304,8 @@ format_end_file (CONVERTER *self, const char *filename,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_end_file];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_end_file (self, filename, output_unit);
     }
@@ -7429,7 +7452,8 @@ format_css_lines (CONVERTER *self, const char *filename, TEXT *result)
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_css_lines];
 
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_css_lines (self, filename, result);
     }
@@ -7847,7 +7871,8 @@ format_begin_file (CONVERTER *self, const char *filename,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_begin_file];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_begin_file (self, filename, output_unit);
     }
@@ -7912,7 +7937,8 @@ format_button_icon_img (CONVERTER *self,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_button_icon_img];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_button_icon_img (self, button_name,
                                                         icon, name);
@@ -8292,7 +8318,8 @@ format_button (CONVERTER *self,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_button];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_button (self, button, element);
     }
@@ -8443,7 +8470,8 @@ format_navigation_panel (CONVERTER *self,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_navigation_panel];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_navigation_panel (self, buttons, cmdname,
                                             element, vertical, result);
@@ -8509,7 +8537,8 @@ format_navigation_header (CONVERTER *self,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_navigation_header];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_navigation_header (self, buttons, cmdname,
                                              element, result);
@@ -8650,7 +8679,8 @@ format_element_header (CONVERTER *self,
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_element_header];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_element_header (self, cmdname, element,
                                           output_unit, result);
@@ -8871,7 +8901,8 @@ format_element_footer (CONVERTER *self,
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_element_footer];
 
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       html_default_format_element_footer (self, unit_type, output_unit,
                                           content, element, result);
@@ -8995,13 +9026,15 @@ html_default_format_node_redirection_page (CONVERTER *self,
 }
 
 /* return string to be freed by the caller */
-char *format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
-                                   const char *filename)
+char *
+format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
+                              const char *filename)
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_node_redirection_page];
 
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_node_redirection_page (self, element,
                                                              filename);
@@ -16204,7 +16237,8 @@ format_titlepage (CONVERTER *self)
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_titlepage];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_titlepage (self);
     }
@@ -16245,7 +16279,8 @@ format_title_titlepage (CONVERTER *self)
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_title_titlepage];
-  if (formatting_reference->status == FRS_status_default_set)
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
     {
       return html_default_format_title_titlepage (self);
     }
@@ -17295,7 +17330,7 @@ register_special_unit_body_formatting_function
                                    const char *special_unit_variety,
                                    FORMATTING_REFERENCE *formatting_reference)
 {
-  if (formatting_reference->status > 0)
+  if (formatting_reference && formatting_reference->status > 0)
     {
       result->status = formatting_reference->status;
       if (formatting_reference->status != FRS_status_ignored)
@@ -17638,32 +17673,35 @@ html_converter_customize (CONVERTER *self)
         }
     }
 
-  for (i = 0; self->html_customized_style_commands[i].cmd; i++)
+  if (self->html_customized_style_commands)
     {
-      enum conversion_context cctx;
-      enum command_id cmd = self->html_customized_style_commands[i].cmd;
-      /* should not happen thans to checks in perl
-      if (!(html_commands_data[cmd].flags & HF_style_command))
-        fprintf (stderr, "ERROR: %s: customized as style command\n",
-                 builtin_command_name (cmd));
-       */
-
-      for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
+      for (i = 0; self->html_customized_style_commands[i].cmd; i++)
         {
-          if (self->html_customized_style_commands[i].conversion[cctx])
+          enum conversion_context cctx;
+          enum command_id cmd = self->html_customized_style_commands[i].cmd;
+          /* should not happen thanks to checks in perl
+          if (!(html_commands_data[cmd].flags & HF_style_command))
+            fprintf (stderr, "ERROR: %s: customized as style command\n",
+                     builtin_command_name (cmd));
+           */
+
+          for (cctx = 0; cctx < STYLE_COMMAND_CONTEXT_NR; cctx++)
             {
-              HTML_STYLE_COMMAND_CONVERSION *format_spec
-                = &self->html_style_command_conversion[cmd][cctx];
-              HTML_STYLE_COMMAND_CONVERSION *custom_spec
-                = self->html_customized_style_commands[i].conversion[cctx];
+              if (self->html_customized_style_commands[i].conversion[cctx])
+                {
+                  HTML_STYLE_COMMAND_CONVERSION *format_spec
+                    = &self->html_style_command_conversion[cmd][cctx];
+                  HTML_STYLE_COMMAND_CONVERSION *custom_spec
+                    = self->html_customized_style_commands[i].conversion[cctx];
 
-              free (format_spec->element);
+                  free (format_spec->element);
 
-              if (custom_spec->element)
-                format_spec->element = strdup (custom_spec->element);
-              else
-                format_spec->element = 0;
-              format_spec->quote = custom_spec->quote;
+                  if (custom_spec->element)
+                    format_spec->element = strdup (custom_spec->element);
+                  else
+                    format_spec->element = 0;
+                  format_spec->quote = custom_spec->quote;
+                }
             }
         }
     }
@@ -17780,6 +17818,12 @@ html_converter_customize (CONVERTER *self)
       self->command_special_variety_name_index[i].index = number - 1;
     }
 
+  for (i = 0; ignored_types[i]; i++)
+    {
+      enum element_type type = ignored_types[i];
+      self->type_conversion_function[type].status = FRS_status_ignored;
+    }
+
   for (i = 0; i < TXI_TREE_TYPES_NUMBER; i++)
     {
       int status = register_type_conversion_function (
@@ -17822,13 +17866,21 @@ html_converter_customize (CONVERTER *self)
     }
 
   self->special_unit_body_formatting = (SPECIAL_UNIT_BODY_FORMATTING *)
-   malloc (nr_special_units * sizeof (SPECIAL_UNIT_BODY_FORMATTING));
+    malloc (nr_special_units * sizeof (SPECIAL_UNIT_BODY_FORMATTING));
+  memset (self->special_unit_body_formatting, 0,
+          nr_special_units * sizeof (SPECIAL_UNIT_BODY_FORMATTING));
 
   for (i = 0; i < nr_special_units; i++)
     {
-      int status = register_special_unit_body_formatting_function
+      int status;
+      FORMATTING_REFERENCE *formatting_reference = 0;
+      if (self->special_unit_body)
+        {
+          formatting_reference = &self->special_unit_body[i];
+        }
+      status = register_special_unit_body_formatting_function
                                   (&self->special_unit_body_formatting[i],
-          self->special_unit_varieties.list[i], &self->special_unit_body[i]);
+          self->special_unit_varieties.list[i], formatting_reference);
       external_special_unit_body_formatting_function += status;
     }
 
@@ -17867,13 +17919,15 @@ html_converter_customize (CONVERTER *self)
          = &self->type_conversion_function[type];
       TYPE_CONVERSION_FUNCTION *css_string_type_conversion
          = &self->css_string_type_conversion_function[type];
-      if (type_conversion->status == FRS_status_default_set)
+      if (type_conversion->status == FRS_status_default_set
+          || type_conversion->status == FRS_status_none)
         {
           type_conversion->formatting_reference = 0;
           type_conversion->status = FRS_status_internal;
           type_conversion->type_conversion
               = types_internal_conversion_table[i].type_conversion;
-          external_type_conversion_function--;
+          if (type_conversion->status == FRS_status_default_set)
+            external_type_conversion_function--;
         }
       css_string_type_conversion->formatting_reference = 0;
       css_string_type_conversion->status = FRS_status_internal;
@@ -17889,13 +17943,15 @@ html_converter_customize (CONVERTER *self)
     {
       enum element_type type = types_internal_open_table[i].type;
       TYPE_OPEN_FUNCTION *type_open = &self->type_open_function[type];
-      if (type_open->status == FRS_status_default_set)
+      if (type_open->status == FRS_status_default_set
+          || type_open->status == FRS_status_none)
         {
           type_open->formatting_reference = 0;
           type_open->status = FRS_status_internal;
           type_open->type_open
               = types_internal_open_table[i].type_open;
-          external_type_open_function--;
+          if (type_open->status == FRS_status_default_set)
+            external_type_open_function--;
         }
     }
 
@@ -17906,18 +17962,34 @@ html_converter_customize (CONVERTER *self)
                = &self->command_conversion_function[cmd];
       COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
                = &self->css_string_command_conversion_function[cmd];
-      if (command_conversion->status == FRS_status_default_set)
+      if (command_conversion->status == FRS_status_default_set
+          || command_conversion->status == FRS_status_none)
         {
           command_conversion->formatting_reference = 0;
           command_conversion->status = FRS_status_internal;
           command_conversion->command_conversion
               = commands_internal_conversion_table[i].command_conversion;
-          external_command_conversion_function--;
+          if (command_conversion->status == FRS_status_default_set)
+            external_command_conversion_function--;
         }
       css_string_command_conversion->formatting_reference = 0;
       css_string_command_conversion->status = FRS_status_internal;
       css_string_command_conversion->command_conversion
               = commands_internal_conversion_table[i].command_conversion;
+    }
+
+  if (strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
+    {
+      static enum command_id menu_cmd_list[]
+       = {CM_menu, CM_detailmenu, 0};
+      for (i = 0; menu_cmd_list[i]; i++)
+        {
+          enum command_id cmd = menu_cmd_list[i];
+          COMMAND_CONVERSION_FUNCTION *command_conversion
+               = &self->command_conversion_function[cmd];
+          if (command_conversion->status == FRS_status_internal)
+            command_conversion->status = FRS_status_ignored;
+        }
     }
 
   /* all the no arg formatted commands are implemented in C */
@@ -17928,13 +18000,15 @@ html_converter_customize (CONVERTER *self)
            = &self->command_conversion_function[cmd];
       COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
            = &self->css_string_command_conversion_function[cmd];
-      if (command_conversion->status == FRS_status_default_set)
+      if (command_conversion->status == FRS_status_default_set
+          || command_conversion->status == FRS_status_none)
         {
           command_conversion->formatting_reference = 0;
           command_conversion->status = FRS_status_internal;
           command_conversion->command_conversion
             = &convert_no_arg_command;
-          external_command_conversion_function--;
+          if (command_conversion->status == FRS_status_default_set)
+            external_command_conversion_function--;
         }
 
       css_string_command_conversion->formatting_reference = 0;
@@ -17953,13 +18027,15 @@ html_converter_customize (CONVERTER *self)
                = &self->command_conversion_function[cmd];
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
                = &self->css_string_command_conversion_function[cmd];
-          if (command_conversion->status == FRS_status_default_set)
+          if (command_conversion->status == FRS_status_default_set
+              || command_conversion->status == FRS_status_none)
             {
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_accent_command;
-              external_command_conversion_function--;
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
             }
           css_string_command_conversion->formatting_reference = 0;
           css_string_command_conversion->status = FRS_status_internal;
@@ -17981,13 +18057,15 @@ html_converter_customize (CONVERTER *self)
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
                = &self->css_string_command_conversion_function[cmd];
 
-          if (command_conversion->status == FRS_status_default_set)
+          if (command_conversion->status == FRS_status_default_set
+              || command_conversion->status == FRS_status_none)
             {
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_style_command;
-              external_command_conversion_function--;
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -18008,13 +18086,15 @@ html_converter_customize (CONVERTER *self)
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
                = &self->css_string_command_conversion_function[cmd];
 
-          if (command_conversion->status == FRS_status_default_set)
+          if (command_conversion->status == FRS_status_default_set
+              || command_conversion->status == FRS_status_none)
             {
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_preformatted_command;
-              external_command_conversion_function--;
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -18034,13 +18114,15 @@ html_converter_customize (CONVERTER *self)
           COMMAND_CONVERSION_FUNCTION *css_string_command_conversion
                = &self->css_string_command_conversion_function[cmd];
 
-          if (command_conversion->status == FRS_status_default_set)
+          if (command_conversion->status == FRS_status_default_set
+              || command_conversion->status == FRS_status_none)
             {
               command_conversion->formatting_reference = 0;
               command_conversion->status = FRS_status_internal;
               command_conversion->command_conversion
                 = &convert_def_command;
-              external_command_conversion_function--;
+              if (command_conversion->status == FRS_status_default_set)
+                external_command_conversion_function--;
             }
 
           css_string_command_conversion->formatting_reference = 0;
@@ -18054,13 +18136,15 @@ html_converter_customize (CONVERTER *self)
     {
       enum command_id cmd = commands_internal_open_table[i].cmd;
       COMMAND_OPEN_FUNCTION *command_open = &self->command_open_function[cmd];
-      if (command_open->status == FRS_status_default_set)
+      if (command_open->status == FRS_status_default_set
+          || command_open->status == FRS_status_none)
         {
           command_open->formatting_reference = 0;
           command_open->status = FRS_status_internal;
           command_open->command_open
               = commands_internal_open_table[i].command_open;
-          external_command_open_function--;
+          if (command_open->status == FRS_status_default_set)
+            external_command_open_function--;
         }
     }
 
@@ -18071,13 +18155,15 @@ html_converter_customize (CONVERTER *self)
            = output_units_internal_conversion_table[i].type;
       OUTPUT_UNIT_CONVERSION_FUNCTION *output_unit_conversion
          = &self->output_unit_conversion_function[type];
-      if (output_unit_conversion->status == FRS_status_default_set)
+      if (output_unit_conversion->status == FRS_status_default_set
+          || output_unit_conversion->status == FRS_status_none)
         {
           output_unit_conversion->formatting_reference = 0;
           output_unit_conversion->status = FRS_status_internal;
           output_unit_conversion->output_unit_conversion
            = output_units_internal_conversion_table[i].output_unit_conversion;
-          external_output_unit_conversion_function--;
+          if (output_unit_conversion->status == FRS_status_default_set)
+            external_output_unit_conversion_function--;
         }
     }
 
@@ -18094,13 +18180,15 @@ html_converter_customize (CONVERTER *self)
         {
           SPECIAL_UNIT_BODY_FORMATTING *body_formatting
             = &self->special_unit_body_formatting[j];
-          if (body_formatting->status == FRS_status_default_set)
+          if (body_formatting->status == FRS_status_default_set
+              || body_formatting->status == FRS_status_none)
             {
               body_formatting->formatting_reference = 0;
               body_formatting->status = FRS_status_internal;
               body_formatting->special_unit_body_formatting
                 = internal_conversion->special_unit_body_formatting;
-              external_special_unit_body_formatting_function--;
+              if (body_formatting->status == FRS_status_default_set)
+                external_special_unit_body_formatting_function--;
             }
         }
     }
@@ -18636,7 +18724,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
                                        DS_type - (TDS_TRANSLATED_MAX_NR)];
       for (i = 0; i < nr_string_directions; i++)
         {
-          if (customized_type_dir_strings[i])
+          if (customized_type_dir_strings && customized_type_dir_strings[i])
             {
               int j;
               for (j = 0; j < nr_dir_str_contexts; j++)
@@ -21004,7 +21092,8 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
   size_t input_result_end = result->end;
   enum output_unit_type unit_type = output_unit->unit_type;
 
-  if (self->output_units_conversion[unit_type].status == FRS_status_ignored)
+  if (self->output_unit_conversion_function[unit_type].status
+                                                 == FRS_status_ignored)
     {
       if (self->conf->DEBUG.o.integer > 0)
         {
@@ -21044,7 +21133,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
        }
     }
 
-  if (self->output_units_conversion[unit_type].status)
+  if (self->output_unit_conversion_function[unit_type].status)
     {
   (*(self->output_unit_conversion_function[unit_type].output_unit_conversion))
                              (self, unit_type, output_unit,
