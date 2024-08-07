@@ -37,6 +37,8 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "options_types.h"
+#include "document_types.h"
+#include "converter_types.h"
 #include "converters_defaults.h"
 #include "tree.h"
 #include "extra.h"
@@ -126,8 +128,11 @@ setup_converter_paths_information (int texinfo_uninstalled,
           = strdup (top_srcdir);
     }
   else
-    conversion_paths_info.p.installed.pkgdatadir
-      = strdup (pkgdatadir);
+    {
+      if (pkgdatadir)
+        conversion_paths_info.p.installed.pkgdatadir
+          = strdup (pkgdatadir);
+    }
 }
 
 /* called only once */

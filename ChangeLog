@@ -5,6 +5,11 @@
 
 2024-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c
+	(setup_converter_paths_information): allow pkgdatadir to be unset.
+
+2024-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (initialize_options_list),
 	tp/Texinfo/XS/convert/get_converter_perl_info.c
 	(get_converter_info_from_sv): add.  Use in get_converter_info_from_sv.
