@@ -1,5 +1,11 @@
 2024-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* autogen.sh: Do not run autoreconf under tp/Texinfo/XS/, running
+	individual tools instead.  This stops autopoint running and
+	overwriting files with older versions.
+
+2024-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS: add or upgrade gettext files by following
 	new instructions in configure.ac.
 
