@@ -308,6 +308,23 @@ print CODE "
     }
 }\n\n";
 
+print CODE 'void
+html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
+{
+';
+foreach my $category (sort(keys(%option_categories))) {
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    if ($type eq 'buttons') {
+      print CODE "  if (options->$option.o.buttons)\n"
+                ."    html_fill_button_directions_specification_list (converter, options->$option.o.buttons);\n\n";
+    }
+  }
+}
+print CODE '}
+
+';
+
 # table of defaults for options corresponding to commands
 print CODE "COMMAND_OPTION_DEFAULT command_option_default_table[] = {\n";
 
@@ -537,7 +554,7 @@ print GET '  else
 ';
 
 print GET 'void
-html_fill_options (OPTIONS *options, const CONVERTER *converter)
+html_fill_sv_options (OPTIONS *options, const CONVERTER *converter)
 {
 ';
 foreach my $category (sort(keys(%option_categories))) {
@@ -545,7 +562,7 @@ foreach my $category (sort(keys(%option_categories))) {
     my ($option, $value, $type) = @$option_info;
     if ($type eq 'buttons') {
       print GET "  if (options->$option.o.buttons)\n"
-                ."    html_fill_button_specification_list (converter, options->$option.o.buttons);\n\n";
+                ."    html_fill_button_sv_specification_list (converter, options->$option.o.buttons);\n\n";
     } elsif ($type eq 'icons') {
       print GET "  if (options->$option.o.icons)\n"
                 ."    html_fill_direction_icons (converter, options->$option.o.icons);\n\n";

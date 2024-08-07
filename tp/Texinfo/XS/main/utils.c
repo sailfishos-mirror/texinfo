@@ -38,6 +38,8 @@
 #include "global_commands_types.h"
 #include "option_types.h"
 #include "options_types.h"
+/* for CL_* */
+#include "document_types.h"
 #include "converter_types.h"
 #include "types_data.h"
 #include "tree.h"
@@ -2036,6 +2038,14 @@ copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
 }
 
 void
+initialize_options_list (OPTIONS_LIST *options_list, size_t number)
+{
+  options_list->number = number;
+  options_list->list = (OPTION *) malloc (sizeof (OPTION) * number);
+  memset (options_list->list, 0, sizeof (OPTION) * number);
+}
+
+void
 free_options_list (OPTIONS_LIST *options_list)
 {
   size_t i;
@@ -2046,6 +2056,55 @@ free_options_list (OPTIONS_LIST *options_list)
     }
 
   free (options_list->list);
+}
+
+void
+html_fill_button_directions_specification_list (const CONVERTER *converter,
+                                              BUTTON_SPECIFICATION_LIST *result)
+{
+  size_t i;
+
+  for (i = 0; i < result->number; i++)
+    {
+      BUTTON_SPECIFICATION *button = &result->list[i];
+
+      if (button->type == BST_direction_info)
+        {
+          const char *direction_name = 0;
+
+          if (button->b.button_info->direction < 0)
+            direction_name = button->direction_string;
+
+          if (direction_name)
+            button->b.button_info->direction
+              = html_get_direction_index (converter, direction_name);
+        /* this happens in test with redefined special unit direction
+          if (button->b.button_info->direction < 0)
+            {
+              fprintf (stderr,
+                  "BUG: still unknown button %zu array direction: %d: %s\n",
+                     i, button->b.button_info->direction, direction_name);
+            }
+         */
+        }
+      else if (button->type == BST_direction)
+        {
+          const char *direction_name = 0;
+          if (button->b.direction < 0)
+            {
+              direction_name = button->direction_string;
+            }
+          if (direction_name)
+            button->b.direction = html_get_direction_index (converter,
+                                                          direction_name);
+        /* this would happen in test with redefined special unit direction
+          if (button->b.direction < 0)
+            fprintf (stderr,
+                     "BUG: still unknown button %zu string direction: %s\n",
+                     i, direction_name);
+         */
+        }
+    }
 }
 
 

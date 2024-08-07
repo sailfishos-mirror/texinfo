@@ -1,3 +1,25 @@
+2024-08-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/utils.c (initialize_options_list),
+	tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_converter_info_from_sv): add.  Use in get_converter_info_from_sv.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_initialize_sv),
+	tp/Texinfo/XS/main/utils.c
+	(html_fill_button_directions_specification_list),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_fill_button_sv_specification_list),
+	tp/maintain/regenerate_C_options_info.pl: rename html_fill_options as
+	html_fill_sv_options.  Split html_fill_button_specification_list in
+	two, with html_fill_button_sv_specification_list for direction filled
+	with information from Perl data, and
+	html_fill_button_directions_specification_list for directions filled
+	from strings set in buttons generated in C.  Generate automatically
+	html_fill_options_directions to call
+	html_fill_button_directions_specification_list.  Call both
+	html_fill_sv_options and html_fill_options_directions in ConvertXS.xs
+	html_converter_initialize_sv.
+
 2024-08-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter),

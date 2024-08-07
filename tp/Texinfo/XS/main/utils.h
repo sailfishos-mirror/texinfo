@@ -211,10 +211,14 @@ OPTION **setup_sortable_options (OPTIONS *options);
 void clear_options (OPTIONS *options);
 void free_options (OPTIONS *options);
 void copy_options (OPTIONS *destination, const OPTIONS *source);
+void html_fill_options_directions (OPTIONS *options, const CONVERTER *converter);
 
 void copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
                                 OPTIONS_LIST *options_list, int set_configured);
+void initialize_options_list (OPTIONS_LIST *options_list, size_t number);
 void free_options_list (OPTIONS_LIST *options_list);
+void html_fill_button_directions_specification_list (const CONVERTER *converter,
+                                              BUTTON_SPECIFICATION_LIST *buttons);
 
 OPTIONS *new_options (void);
 OPTION **setup_sorted_options (OPTIONS *options);

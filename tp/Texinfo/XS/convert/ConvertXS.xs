@@ -642,7 +642,10 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
    /* at that point, the format specific informations, in particular the
       direction names is available, such that the directions can be set
       in customization variables needing them (icons, buttons). */
-        html_fill_options (self->conf, self);
+   /* fill options using information in associated Perl data */
+        html_fill_sv_options (self->conf, self);
+   /* fill options with C only information not associated with Perl data */
+        html_fill_options_directions (self->conf, self);
 
 # do nothing as everything is already set in C
 SV *

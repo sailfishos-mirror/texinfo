@@ -824,7 +824,7 @@ const char *html_button_function_type_string[] = {
 
 /* set directions.  To be called after direction names have been collected */
 void
-html_fill_button_specification_list (const CONVERTER *converter,
+html_fill_button_sv_specification_list (const CONVERTER *converter,
                                      BUTTON_SPECIFICATION_LIST *result)
 {
   size_t i;
@@ -836,9 +836,9 @@ html_fill_button_specification_list (const CONVERTER *converter,
 
       if (button->type == BST_direction_info)
         {
-          const char *direction_name = 0;
           if (button->sv)
             {
+              const char *direction_name;
               AV *button_spec_info_av = (AV *) SvRV((SV *)button->sv);
               SV **direction_sv = av_fetch (button_spec_info_av, 0, 0);
 
@@ -851,42 +851,21 @@ html_fill_button_specification_list (const CONVERTER *converter,
                 }
 
               direction_name = SvPVutf8_nolen (*direction_sv);
-            }
-          else if (button->b.button_info->direction < 0)
-            direction_name = button->direction_string;
 
-          if (direction_name)
-            button->b.button_info->direction
-              = html_get_direction_index (converter, direction_name);
-        /* this happens in test with redefined special unit direction
-          if (button->b.button_info->direction < 0)
-            {
-              fprintf (stderr,
-                  "BUG: still unknown button %zu array direction: %d: %s\n",
-                     i, button->b.button_info->direction, direction_name);
+              if (direction_name)
+                button->b.button_info->direction
+                 = html_get_direction_index (converter, direction_name);
             }
-         */
         }
       else if (button->type == BST_direction)
         {
-          const char *direction_name = 0;
           if (button->sv)
             {
-              direction_name = SvPVutf8_nolen (button->sv);
+              const char *direction_name = SvPVutf8_nolen (button->sv);
+              if (direction_name)
+                button->b.direction = html_get_direction_index (converter,
+                                                              direction_name);
             }
-          else if (button->b.direction < 0)
-            {
-              direction_name = button->direction_string;
-            }
-          if (direction_name)
-            button->b.direction = html_get_direction_index (converter,
-                                                          direction_name);
-        /* this would happen in test with redefined special unit direction
-          if (button->b.direction < 0)
-            fprintf (stderr,
-                     "BUG: still unknown button %zu string direction: %s\n",
-                     i, direction_name);
-         */
         }
     }
 }

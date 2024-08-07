@@ -213,10 +213,8 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
       if (!hv_number)
         return 0;
 
-      /* FIXME move to Pure C */
-      initialization_info->conf.list
-        = (OPTION *) malloc (sizeof (OPTION) * hv_number);
-      memset (initialization_info->conf.list, 0, sizeof (OPTION) * hv_number);
+      initialize_options_list (&initialization_info->conf, hv_number);
+      initialization_info->conf.number = 0;
 
       for (i = 0; i < hv_number; i++)
         {
