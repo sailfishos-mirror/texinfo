@@ -20,6 +20,7 @@
 #include <string.h>
 #include <stddef.h>
 
+#include "command_ids.h"
 #include "tree_types.h"
 #include "options_types.h"
 #include "document_types.h"
@@ -120,6 +121,32 @@ register_document_options (DOCUMENT *document, OPTIONS *options,
 {
   document->options = options;
   document->sorted_options = sorted_options;
+}
+
+/* not used when document options are set from Perl */
+void
+initialize_document_options (DOCUMENT *document)
+{
+  OPTIONS *options = new_options ();
+  OPTION **sorted_options = setup_sorted_options (options);
+  const ELEMENT *document_language;
+
+  register_document_options (document, options, sorted_options);
+
+  if (document->global_commands.novalidate)
+    document->options->novalidate.o.integer = 1;
+
+  document_language
+    = get_global_document_command (&document->global_commands,
+                                   CM_documentlanguage, CL_preamble);
+  if (document_language)
+    {
+      const char *language = informative_command_value (document_language);
+      /* TODO use set_conf_string? or add set_conf in utils.h */
+      document->options->documentlanguage.o.string
+       = strdup (language);
+    }
+  set_output_encoding (document->options, document);
 }
 
 const MERGED_INDICES *
