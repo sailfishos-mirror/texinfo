@@ -310,15 +310,18 @@ get_sort_key (const INDEX_COLLATOR *collator, const char *sort_string)
           sort_key = (BYTES_STRING *) malloc (sizeof (BYTES_STRING));
           sort_key->len = strxfrm_l (0, sort_string, 0, collator->coll.locale);
           char_sort_key = (char *) malloc (sizeof (char) * sort_key->len);
+          /* there is uninitialized memory without the next line.  Somewhat
+             unclear why it is needed, strxfrm_l could have done it. */
+          memset (char_sort_key, 0, sizeof (char) * sort_key->len);
           check_len = strxfrm_l (char_sort_key, sort_string, sort_key->len,
                                  collator->coll.locale);
+          if (check_len != sort_key->len)
+            fatal ("strxfrm_l returns a different length");
           sort_key->bytes = (unsigned char *)
                      malloc (sizeof (unsigned char) * sort_key->len);
           memcpy (sort_key->bytes, (unsigned char *) char_sort_key,
                   sort_key->len);
           free (char_sort_key);
-          if (check_len != sort_key->len)
-            fatal ("strxfrm_l returns a different length");
         }
         break;
       #endif

@@ -256,11 +256,13 @@ main (int argc, char *argv[])
 }
 */
 
-  /* converter initialization */
+  /* set converter */
 
+  /* create converter and generic converter initializations */
   converter_descriptor = new_converter ();
   converter = retrieve_converter (converter_descriptor);
 
+  /* prepare specific information for the converter */
   format_defaults = new_converter_initialization_info ();
   format_defaults->converted_format = strdup ("html");
   format_defaults->output_format = strdup ("html");
@@ -291,12 +293,12 @@ main (int argc, char *argv[])
   add_option_value (&conf->conf, converter->sorted_options,
                     "DEBUG", 1, 0);
    */
+  free (program_file);
 
+
+  /* pass information to the converter and format specific initialization */
   set_converter_init_information (converter, converter_format,
                                   format_defaults, conf);
-
-  destroy_converter_initialization_info (format_defaults);
-  destroy_converter_initialization_info (conf);
 
   /* next 3 functions are HTML specific */
   html_converter_init_special_unit (converter);
@@ -304,13 +306,14 @@ main (int argc, char *argv[])
 
   html_fill_options_directions (converter->conf, converter);
 
+  destroy_converter_initialization_info (format_defaults);
+  destroy_converter_initialization_info (conf);
+
 
   /* prepare conversion to HTML */
 
   converter_set_document (converter, document);
   
-  free (program_file);
-
   html_initialize_output_state (converter, "_output");
 
   status = html_setup_output (converter, paths);
@@ -364,6 +367,12 @@ main (int argc, char *argv[])
     {
       free (paths[i]);
     }
-  /* html_conversion_finalization */
+
   html_conversion_finalization (converter);
+
+  print_errors (&converter->error_messages);
+  clear_error_message_list (&converter->error_messages);
+
+  /* destroy converter */
+  html_free_converter (converter);
 }

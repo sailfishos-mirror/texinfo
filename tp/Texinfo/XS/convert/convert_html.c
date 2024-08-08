@@ -16865,6 +16865,7 @@ static COMMAND_STACK def_cmd_list;
 COMMAND_ID_LIST no_arg_formatted_cmd;
 COMMAND_ID_LIST style_formatted_cmd;
 COMMAND_ID_LIST accent_cmd;
+COMMAND_ID_LIST format_raw_cmd;
 
 static char *unicode_entities[BUILTIN_CMD_NUMBER];
 
@@ -16903,6 +16904,7 @@ html_format_setup (void)
   int no_arg_formatted_cmd_nr = 0;
   int accent_cmd_nr = 0;
   int style_formatted_cmd_nr = 0;
+  int format_raw_cmd_nr = 0;
   int no_arg_formatted_cmd_idx;
   int default_commands_args_nr
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
@@ -16983,7 +16985,7 @@ html_format_setup (void)
 
   /* set flags */
   /* also count the number of no_arg_formatted_cmd, style_formatted_cmd and
-     accent_cmd commands */
+     accent_cmd commands and other types of commands */
   for (i = 1; i < BUILTIN_CMD_NUMBER; i++)
     {
       if (xml_text_entity_no_arg_commands_formatting[i])
@@ -17016,7 +17018,10 @@ html_format_setup (void)
           if (builtin_command_data[i].data == BLOCK_menu)
             html_commands_data[i].flags |= HF_composition_context;
           else if (builtin_command_data[i].data == BLOCK_format_raw)
-            html_commands_data[i].flags |= HF_format_raw;
+            {
+              html_commands_data[i].flags |= HF_format_raw;
+              format_raw_cmd_nr++;
+            }
         }
 
       if (builtin_command_data[i].flags & CF_preformatted)
@@ -17050,6 +17055,7 @@ html_format_setup (void)
                        no_arg_formatted_cmd_nr);
   initialize_cmd_list (&accent_cmd, accent_cmd_nr, 0);
   initialize_cmd_list (&style_formatted_cmd, style_formatted_cmd_nr, 0);
+  initialize_cmd_list (&format_raw_cmd, format_raw_cmd_nr, 0);
 
   for (i = 0; quoted_style_commands[i]; i++)
     {
@@ -17068,6 +17074,11 @@ html_format_setup (void)
         {
           accent_cmd.list[accent_cmd.number] = i;
           accent_cmd.number++;
+        }
+      else if (html_commands_data[i].flags & HF_format_raw)
+        {
+          format_raw_cmd.list[format_raw_cmd.number] = i;
+          format_raw_cmd.number++;
         }
 
       if (html_commands_data[i].flags & HF_style_command)
@@ -17988,6 +17999,18 @@ html_converter_customize (CONVERTER *self)
           COMMAND_CONVERSION_FUNCTION *command_conversion
                = &self->command_conversion_function[cmd];
           if (command_conversion->status == FRS_status_internal)
+            command_conversion->status = FRS_status_ignored;
+        }
+    }
+  for (i = 0; i < format_raw_cmd.number; i++)
+    {
+      enum command_id cmd = format_raw_cmd.list[i];
+      COMMAND_CONVERSION_FUNCTION *command_conversion
+        = &self->command_conversion_function[cmd];
+      if (command_conversion->status == FRS_status_internal)
+        {
+          const char *format = builtin_command_name (cmd);
+          if (!format_expanded_p (self->expanded_formats, format))
             command_conversion->status = FRS_status_ignored;
         }
     }
@@ -19564,6 +19587,23 @@ html_setup_convert (CONVERTER *self)
   init_conversion_after_setup_handler (self);
 }
 
+static void
+clear_type_explanations (EXPLAINED_COMMAND_TYPE_LIST *type_explanations)
+{
+  if (type_explanations->number > 0)
+    {
+      int i;
+      for (i = 0; i < type_explanations->number; i++)
+        {
+          EXPLAINED_COMMAND_TYPE *type_explanation
+            = &type_explanations->list[i];
+          free (type_explanation->type);
+          free (type_explanation->explanation);
+        }
+      type_explanations->number = 0;
+    }
+}
+
 void
 html_reset_converter (CONVERTER *self)
 {
@@ -19711,17 +19751,7 @@ html_reset_converter (CONVERTER *self)
     }
   free (self->tree_to_build.list);
 
-  if (type_explanations->number > 0)
-    {
-      for (i = 0; i < type_explanations->number; i++)
-        {
-          EXPLAINED_COMMAND_TYPE *type_explanation
-            = &type_explanations->list[i];
-          free (type_explanation->type);
-          free (type_explanation->explanation);
-        }
-      type_explanations->number = 0;
-    }
+  clear_type_explanations (type_explanations);
 }
 
 void
@@ -19764,6 +19794,8 @@ html_free_converter (CONVERTER *self)
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
 
+  /* useful only if html_reset_converter was not called previously */
+  reset_translated_special_unit_info_tree (self);
 
   if (self->error_messages.number)
     {
@@ -19916,12 +19948,15 @@ html_free_converter (CONVERTER *self)
       int j;
       char ***customized_type_dir_strings
         = self->customized_directions_strings[i];
-      clear_direction_string_type (self, customized_type_dir_strings);
-      for (j = 0; j < nr_string_directions; j++)
+      if (customized_type_dir_strings)
         {
-          free (customized_type_dir_strings[j]);
+          clear_direction_string_type (self, customized_type_dir_strings);
+          for (j = 0; j < nr_string_directions; j++)
+            {
+              free (customized_type_dir_strings[j]);
+            }
+          free (customized_type_dir_strings);
         }
-      free (customized_type_dir_strings);
     }
 
   for (i = 0; i < TDS_TRANSLATED_MAX_NR; i++)
@@ -20064,6 +20099,8 @@ html_free_converter (CONVERTER *self)
 
   free (self->html_document_context.stack);
 
+  /* already cleared if html_clear_converter was called */
+  clear_type_explanations (type_explanations);
   free (type_explanations->list);
 
   free_strings_list (&self->special_unit_varieties);
