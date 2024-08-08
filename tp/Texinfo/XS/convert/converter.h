@@ -125,6 +125,8 @@ extern CONVERTER_FORMAT_DATA converter_format_data[];
 void converter_setup (int texinfo_uninstalled, const char *tp_builddir,
                       const char *pkgdatadir, const char *top_srcdir);
 
+enum converter_format find_format_data_index (const char *format);
+
 CONVERTER *retrieve_converter (int converter_descriptor);
 size_t new_converter (void);
 void unregister_converter_descriptor (int converter_descriptor);

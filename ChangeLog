@@ -1,3 +1,48 @@
+2024-08-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/main/translations.c: add const.
+
+	* tp/Texinfo/XS/teximakehtml.c (main, print_errors): move
+	clear_error_message_list call to print_errors.
+
+	* tp/Texinfo/XS/convert/txi_converter_api.c (txi_setup),
+	tp/Texinfo/XS/teximakehtml.c (main): rename
+	setup_html_format_parser as txi_setup and call
+	configure_output_strings_translations in txi_setup.
+
+	* tp/Texinfo/XS/convert/txi_converter_api.c (txi_parser),
+	tp/Texinfo/XS/teximakehtml.c (main): rename parse_texi_file_for_format
+	as txi_parser and do not call parse_file in txi_parser.
+
+	* tp/Texinfo/XS/convert/txi_converter_api.c (txi_complete_document)
+	(txi_converter), tp/Texinfo/XS/teximakehtml.c (main):
+	rename complete_document as txi_complete_document and
+	converter_for_format as txi_converter.
+
+	* tp/Texinfo/XS/convert/txi_converter_api.c (txi_html_output),
+	tp/Texinfo/XS/teximakehtml.c (main): implement HTML output as a
+	function, based on teximakehtml.c and ConvertXS.xs code.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): call
+	remove_document_descriptor in the end.
+
+2024-08-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/converter.c (find_format_data_index): add
+	to find the enum converter_format of a format string.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
+	tp/Texinfo/XS/convert/txi_converter_api.c (setup_html_format_parser)
+	(parse_texi_file_for_format, complete_document, converter_for_format),
+	tp/Texinfo/XS/teximakehtml.c: add txi_converter_api.c implementing a
+	high level API for Texinfo parsing, structure and transformations and
+	converter initialization.  Move add_option_value and
+	initialize_option_value to txi_converter_api.c.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): call setup_html_format_parser,
+	parse_texi_file_for_format, complete_document and
+	converter_for_format.
+
 2024-08-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/manipulate_indices.c (get_sort_key): initialize

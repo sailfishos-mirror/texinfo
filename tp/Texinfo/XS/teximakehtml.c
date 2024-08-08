@@ -27,26 +27,24 @@
 #include <libintl.h>
 #endif
 
-#include "text.h"
 #include "document_types.h"
-#include "api.h"
-#include "conf.h"
+#include "converter_types.h"
 #include "errors.h"
 /* parse_file_path */
 #include "utils.h"
+/*
 #include "convert_to_texinfo.h"
+ */
+/* retrieve_document remove_document_descriptor */
 #include "document.h"
-#include "transformations.h"
-#include "structuring.h"
-#include "translations.h"
-/* enum converter_format */
+#include "txi_converter_api.h"
 #include "converter.h"
 #include "convert_html.h"
 
 #define LOCALEDIR DATADIR "/locale"
 
 static void
-print_errors (const ERROR_MESSAGE_LIST *error_messages)
+print_errors (ERROR_MESSAGE_LIST *error_messages)
 {
   int i;
 
@@ -74,61 +72,24 @@ print_errors (const ERROR_MESSAGE_LIST *error_messages)
       fprintf (stderr, "%s", text.text);
     }
   free (text.text);
+
+  clear_error_message_list (error_messages);
 }
 
-static void
-initialize_option_value (OPTION *option, OPTION **sorted_options,
-                         const char *option_name, int int_value,
-                         const char *char_value)
-{
-  const OPTION *ref_option = find_option_string (sorted_options, option_name);
-  if (!ref_option)
-    return;
-
-  initialize_option (option, ref_option->type, ref_option->name);
-  option->number = ref_option->number;
-
-  set_conf (option, int_value, char_value);
-}
-
-static void
-add_option_value (OPTIONS_LIST *options_list,  OPTION **sorted_options,
-                  const char *option_name, int int_value,
-                  const char *char_value)
-{
-  OPTION *option = &options_list->list[options_list->number];
-  initialize_option_value (option, sorted_options, option_name, int_value,
-                           char_value);
-  options_list->number++;
-}
-
+static const char *expanded_formats[] = {"html", 0};
 
 int     
 main (int argc, char *argv[])
 {
-  int status;
-  int i;
-  char *result = 0;
-  size_t document_descriptor = 0;
   const char *locale_encoding;
-  DOCUMENT *document;
   const char *input_file_path;
-  char *input_file_name_and_directory[2];
-  char *input_directory;
+  int status;
   char *program_file_name_and_directory[2];
   char *program_file;
-  CONST_ELEMENT_LIST *sections_list;
-  CONST_ELEMENT_LIST *nodes_list;
-  CONVERTER_INITIALIZATION_INFO *format_defaults;
-  CONVERTER_INITIALIZATION_INFO *conf;
-  enum converter_format converter_format = COF_html;
-  size_t converter_descriptor;
+  size_t document_descriptor = 0;
+  DOCUMENT *document;
   CONVERTER *converter;
-  char *paths[5];
-  const char *output_file;
-  const char *destination_directory;
-  const char *output_filename;
-  const char *document_name;
+  char *result;
 
   /*
   const char *texinfo_text;
@@ -145,41 +106,30 @@ main (int argc, char *argv[])
   bindtextdomain (PACKAGE_CONFIG "_tp-gnulib", LOCALEDIR);
 #endif
 
-  configure_output_strings_translations (LOCALEDIR, 0);
-
   locale_encoding = nl_langinfo (CODESET);
 
   if (argc <= 1)
     exit (1);
 
-  converter_setup (0, 0, 0, 0);
-  html_format_setup ();
+  txi_setup (LOCALEDIR, 0, 0, 0, 0);
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
   free (program_file_name_and_directory[1]);
 
+/*
+ if ($^O eq 'MSWin32') {
+  $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
+}
+*/
 
   /* Texinfo file parsing */
   input_file_path = argv[1];
 
-  parse_file_path (input_file_path, input_file_name_and_directory);
-  input_directory = input_file_name_and_directory[1];
-  free (input_file_name_and_directory[0]);
+  /* initialize parser */
+  txi_parser (input_file_path, locale_encoding, expanded_formats);
 
-  reset_parser (0);
-  
-  if (strcmp (input_file_path, "."))
-    {
-      parser_conf_clear_INCLUDE_DIRECTORIES ();
-      parser_conf_add_include_directory (input_directory);
-      parser_conf_add_include_directory (".");
-    }
-  free (input_directory);
-
-  parser_conf_set_LOCALE_ENCODING (locale_encoding);
-  parser_conf_add_expanded_format ("html");
-
+  /* Texinfo document tree parsing */
   document_descriptor = parse_file (input_file_path, &status);
   document = retrieve_document (document_descriptor);
 
@@ -187,12 +137,10 @@ main (int argc, char *argv[])
     {
       print_errors (&document->parser_error_messages);
       remove_document_descriptor (document_descriptor);
-      clear_error_message_list (&document->parser_error_messages);
       exit (1);
     }
 
   print_errors (&document->parser_error_messages);
-  clear_error_message_list (&document->parser_error_messages);
 
   /*
   texinfo_text = convert_to_texinfo (document->tree);
@@ -202,177 +150,29 @@ main (int argc, char *argv[])
 
 
   /* structure and transformations */
-  initialize_document_options (document);
-
-  /* TODO do a function in structuring that does that, with arguments
-     maybe flags in C.
-     relate_index_entries_to_table_items
-     move_index_entries_after_items
-     opt insert_nodes_for_sectioning_commands
-     no_warn_non_empty_parts
-
-     opt complete_tree_nodes_menus
-     opt complete_tree_nodes_missing_menu
-     opt regenerate_master_menu
-     nodes_tree
-     floats
-     setup_index_entries_sort_strings
-   */
-  /* if (relate_index_entries_to_table_items) */
-  relate_index_entries_to_table_items_in_tree (document->tree,
-                                           &document->indices_info);
-  /* if (move_index_entries_after_items) */
-  move_index_entries_after_items_in_tree (document->tree);
-  associate_internal_references (document);
-  sections_list = sectioning_structure (document);
-  if (sections_list)
-    register_document_sections_list (document, sections_list);
-  /* if (!no_warn_non_empty_parts) */
-  /* warn_non_empty_parts (document) */
-  /* complete_tree_nodes_menus */
-  /* complete_tree_nodes_missing_menu */
-  /* regenerate_master_menu */
-  /* if (nodes_tree) */
-  nodes_list = nodes_tree (document);
-  register_document_nodes_list (document, nodes_list);
-
-  /* if (format_menus) */
-  /* set_menus_node_directions */
-  /* complete_node_tree_with_menus */
-  /* check_nodes_are_referenced */
-
-  /* if (floats) */ 
-  number_floats (document);
-  /* if (setup_index_entries_sort_strings) */
-  document_indices_sort_strings (document, &document->error_messages,
-                                         document->options);
+  txi_complete_document (document, STTF_relate_index_entries_to_table_items
+                     | STTF_move_index_entries_after_items
+                     | STTF_no_warn_non_empty_parts
+                     | STTF_nodes_tree | STTF_floats
+                     | STTF_setup_index_entries_sort_strings, 0);
 
   print_errors (&document->error_messages);
-  clear_error_message_list (&document->error_messages);
 
-/*
- if ($^O eq 'MSWin32') {
-  $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
-}
-*/
 
-  /* set converter */
+  /* setup converter */
+  converter = txi_converter ("html", locale_encoding, program_file);
 
-  /* create converter and generic converter initializations */
-  converter_descriptor = new_converter ();
-  converter = retrieve_converter (converter_descriptor);
-
-  /* prepare specific information for the converter */
-  format_defaults = new_converter_initialization_info ();
-  format_defaults->converted_format = strdup ("html");
-  format_defaults->output_format = strdup ("html");
-
-  conf = new_converter_initialization_info ();
-  initialize_options_list (&conf->conf, 10);
-  conf->conf.number = 0;
-
-  add_option_value (&conf->conf, converter->sorted_options,
-   /*
-    */
-                    "PROGRAM", 0, program_file);
-  /* comment the line above and uncomment below to compare with
-     texi2any output
-                    "PROGRAM", 0, "texi2any");
-  add_option_value (&conf->conf, converter->sorted_options,
-                    "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
-   */
-  add_option_value (&conf->conf, converter->sorted_options,
-                    "COMMAND_LINE_ENCODING", 0, locale_encoding);
-  add_option_value (&conf->conf, converter->sorted_options,
-                    "MESSAGE_ENCODING", 0, locale_encoding);
-  add_option_value (&conf->conf, converter->sorted_options,
-                    "LOCALE_ENCODING", 0, locale_encoding);
-  add_option_value (&conf->conf, converter->sorted_options,
-                    "XS_STRXFRM_COLLATION_LOCALE", 0, "en_US");
-  /*
-  add_option_value (&conf->conf, converter->sorted_options,
-                    "DEBUG", 1, 0);
-   */
   free (program_file);
 
-
-  /* pass information to the converter and format specific initialization */
-  set_converter_init_information (converter, converter_format,
-                                  format_defaults, conf);
-
-  /* next 3 functions are HTML specific */
-  html_converter_init_special_unit (converter);
-  html_converter_customize (converter);
-
-  html_fill_options_directions (converter->conf, converter);
-
-  destroy_converter_initialization_info (format_defaults);
-  destroy_converter_initialization_info (conf);
-
-
-  /* prepare conversion to HTML */
-
-  converter_set_document (converter, document);
-  
-  html_initialize_output_state (converter, "_output");
-
-  status = html_setup_output (converter, paths);
-
-  if (!status)
-   {
-     memset (paths, 0, 5 * sizeof (char *));
-     goto finalization;
-   }
-
-  output_file = paths[0];
-  destination_directory = paths[1];
-  output_filename = paths[2];
-  document_name = paths[3];
-
-  html_prepare_conversion_units (converter);
-
-  html_prepare_conversion_units_targets (converter, converter->document_name);
-
-  html_translate_names (converter);
-
-  html_prepare_units_directions_files (converter,
-                   output_file, destination_directory, output_filename,
-                                document_name);
-
-  status = html_prepare_converted_output_info (converter, output_file,
-                                                     output_filename);
-
-  if (!status)
-    goto finalization;
-
-  /* conversion */
-  if (converter->document)
-    {
-      result = html_convert_output (converter, converter->document->tree,
-                  output_file, destination_directory, output_filename,
-                        document_name);
-    }
-
-  if (!result)
-    goto finalization;
-
+  /* return value can be NULL in case of errors or an empty string, but
+     not anything else as parse_file is used with a file */
+  result = txi_html_output (converter, document);
   free (result);
-    result = 0;
-
-  status = html_finish_output (converter, output_file, destination_directory);
-
- finalization:
-
-  for (i = 0; i < 5; i++)
-    {
-      free (paths[i]);
-    }
-
-  html_conversion_finalization (converter);
 
   print_errors (&converter->error_messages);
-  clear_error_message_list (&converter->error_messages);
 
   /* destroy converter */
   html_free_converter (converter);
+  /* destroy document */
+  remove_document_descriptor (document_descriptor);
 }

@@ -52,13 +52,13 @@ my $DEFAULT_ENCODING = 'utf-8';
 static char *working_locale = 0;
 static char *locale_command = 0;
 
-static char *strings_textdomain = "texinfo_document";
+static const char *strings_textdomain = "texinfo_document";
 
 void
-configure_output_strings_translations (char *localesdir,
-                                       char *strings_textdomain_in)
+configure_output_strings_translations (const char *localesdir,
+                                       const char *strings_textdomain_in)
 {
-  char *textdomain_directory;
+  const char *textdomain_directory;
   if (strings_textdomain_in)
     strings_textdomain = strings_textdomain_in;
 

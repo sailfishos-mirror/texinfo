@@ -101,10 +101,14 @@ gnulib/po/remove-potcdate.sed
 gnulib/po/stamp-po
 gnulib/po/texinfo-gnulib.pot
 
-tp/Texinfo/XS/gnulib/lib/float.h
+tp/Texinfo/XS/teximakehtml
+
 tp/Texinfo/XS/gnulib/lib/locale.h
 tp/Texinfo/XS/gnulib/lib/iconv.h
 tp/Texinfo/XS/gnulib/lib/inttypes.h
+tp/Texinfo/XS/gnulib/lib/error.h
+tp/Texinfo/XS/gnulib/lib/float.h
+tp/Texinfo/XS/gnulib/lib/fcntl.h
 tp/Texinfo/XS/gnulib/lib/obstack.h
 tp/Texinfo/XS/gnulib/lib/stdckdint.h
 tp/Texinfo/XS/gnulib/lib/stdlib.h

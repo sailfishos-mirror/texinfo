@@ -169,6 +169,18 @@ converter_setup (int texinfo_uninstalled, const char *tp_builddir,
 
 
 
+enum converter_format
+find_format_data_index (const char *format)
+{
+  int i;
+
+  for (i = 0; i < TXI_CONVERSION_FORMAT_NR; i++)
+    if (!strcmp (converter_format_data[i].output_format, format))
+      return i;
+
+  return COF_none;
+}
+
 CONVERTER *
 retrieve_converter (int converter_descriptor)
 {
