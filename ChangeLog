@@ -1,3 +1,8 @@
+2024-08-08  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/tp_api/Makefile.am (texi2aany_internals.texi): Generate
+	in srcdir.  Report from Bruno.
+
 2024-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* man/Makefile.am (MAKEINFO): Remove unused (this also had incorrect
