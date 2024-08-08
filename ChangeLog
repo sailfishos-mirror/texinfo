@@ -1,3 +1,12 @@
+2024-08-08  Bruno Haible  <bruno@clisp.org>
+
+	* texindex/Makefile.am (texindex.awk): Move the generated
+	texindex.awk from the build dir to the source dir.
+
+	* man/Makefile.am (man/Makefile.am): Set environment variable
+	TEXINDEX_SCRIPT, so that the texindex program find its
+	texindex.awk script.
+
 2024-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* Pod-Simple-Texinfo/Makefile.am (pod2texi):
