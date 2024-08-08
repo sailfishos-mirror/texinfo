@@ -47,8 +47,6 @@ MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
                        top_srcdir="$(top_srcdir)" ; export top_srcdir ; \
                        top_builddir="$(top_builddir)" ; export top_builddir ;
 
-MAKEINFO = $(MAKEINFO_ENVIRIONMENT) $(PERL) "$(tpdir)"/texi2any.pl
-#
 mi_env = \
   TEXINFO_DEV_SOURCE=1; export TEXINFO_DEV_SOURCE; ${MAKEINFO_ENVIRONMENT}
 

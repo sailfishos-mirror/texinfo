@@ -1,5 +1,10 @@
 2024-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* man/Makefile.am (MAKEINFO): Remove unused (this also had incorrect
+	spelling of another variable).
+
+2024-08-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* Makefile.am (BUILT_SOURCES): Add tp/Texinfo/ModulePath.pm along
 	with rule to generate it.  This helps in running "make dist"
 	without running "make" first.  Report from Bruno.
