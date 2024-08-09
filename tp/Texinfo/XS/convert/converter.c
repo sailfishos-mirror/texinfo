@@ -1657,7 +1657,8 @@ free_generic_converter (CONVERTER *self)
   free_output_files_information (&self->output_files_information);
   free_output_unit_files (&self->output_unit_files);
 
-  destroy_text_options (self->convert_text_options);
+  if (self->convert_text_options)
+    destroy_text_options (self->convert_text_options);
 
   wipe_error_message_list (&self->error_messages);
 
