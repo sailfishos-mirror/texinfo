@@ -392,46 +392,6 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
 
 
 
-static void
-set_conf_internal (OPTION *option, int int_value, const char *char_value)
-{
-  switch (option->type)
-    {
-      case GOT_integer:
-        option->o.integer = int_value;
-        break;
-      case GOT_char:
-      case GOT_bytes:
-        free (option->o.string);
-        if (!char_value)
-          option->o.string = 0;
-        else
-          option->o.string = strdup (char_value);
-        break;
-
-      default:
-        fprintf (stderr, "BUG: set_conf type not handled: %d\n",
-                 option->type);
-    }
-}
-
-int
-set_conf (OPTION *option, int int_value, const char *char_value)
-{
-  if (option->configured > 0)
-    return 0;
-  set_conf_internal (option, int_value, char_value);
-  return 1;
-}
-
-void
-force_conf (OPTION *option, int int_value, const char *char_value)
-{
-  set_conf_internal (option, int_value, char_value);
-}
-
-
-
 /* result to be freed */
 static char *
 remove_extension (const char *input_string)

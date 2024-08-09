@@ -142,9 +142,6 @@ void destroy_converter_initialization_info (
 
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
 
-int set_conf (OPTION *option, int int_value, const char *char_value);
-void force_conf (OPTION *option, int int_value, const char *char_value);
-
 void determine_files_and_directory (CONVERTER *self, const char *output_format,
                                     char **result);
 int create_destination_directory (CONVERTER *self,

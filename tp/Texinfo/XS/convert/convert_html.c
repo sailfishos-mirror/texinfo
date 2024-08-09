@@ -18484,7 +18484,7 @@ close_lone_conf_element (OPTION *option)
       char *closed_lone_element = xhtml_re_close_lone_element (variable_value);
       if (strcmp (closed_lone_element, variable_value))
         {
-          force_conf (option, 0, closed_lone_element);
+          option_force_conf (option, 0, closed_lone_element);
         }
       free (closed_lone_element);
     }
@@ -18562,27 +18562,27 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
   if (!self->conf->OPEN_QUOTE_SYMBOL.o.string)
     {
-      int set = set_conf (&self->conf->OPEN_QUOTE_SYMBOL, 0,
-                          self->special_character[SC_left_quote].string);
+      int set = option_set_conf (&self->conf->OPEN_QUOTE_SYMBOL, 0,
+                                 self->special_character[SC_left_quote].string);
       /* override undef set in init file/command line */
       if (!set)
-        force_conf (&self->conf->OPEN_QUOTE_SYMBOL, 0, "");
+        option_force_conf (&self->conf->OPEN_QUOTE_SYMBOL, 0, "");
     }
   if (!self->conf->CLOSE_QUOTE_SYMBOL.o.string)
     {
-      int set = set_conf (&self->conf->CLOSE_QUOTE_SYMBOL, 0,
-                          self->special_character[SC_right_quote].string);
+      int set = option_set_conf (&self->conf->CLOSE_QUOTE_SYMBOL, 0,
+                              self->special_character[SC_right_quote].string);
       /* override undef set in init file/command line */
       if (!set)
-        force_conf (&self->conf->CLOSE_QUOTE_SYMBOL, 0, "");
+        option_force_conf (&self->conf->CLOSE_QUOTE_SYMBOL, 0, "");
     }
   if (!self->conf->MENU_SYMBOL.o.string)
     {
-      int set = set_conf (&self->conf->MENU_SYMBOL, 0,
-                          self->special_character[SC_bullet].string);
+      int set = option_set_conf (&self->conf->MENU_SYMBOL, 0,
+                                 self->special_character[SC_bullet].string);
       /* override undef set in init file/command line */
       if (!set)
-        force_conf (&self->conf->MENU_SYMBOL, 0, "");
+        option_force_conf (&self->conf->MENU_SYMBOL, 0, "");
     }
 
   if (self->conf->USE_XML_SYNTAX.o.integer > 0)
@@ -18804,18 +18804,18 @@ html_initialize_output_state (CONVERTER *self, const char *context)
     (D_Last + self->special_unit_varieties.number+1) * sizeof (OUTPUT_UNIT));
 
   if (self->conf->NODE_NAME_IN_INDEX.o.integer < 0)
-    set_conf (&self->conf->NODE_NAME_IN_INDEX,
-              self->conf->USE_NODES.o.integer, 0);
+    option_set_conf (&self->conf->NODE_NAME_IN_INDEX,
+                     self->conf->USE_NODES.o.integer, 0);
 
   if (self->conf->HTML_MATH.o.string
       && self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer < 0)
     {
-      set_conf (&self->conf->CONVERT_TO_LATEX_IN_MATH, 1, 0);
+      option_set_conf (&self->conf->CONVERT_TO_LATEX_IN_MATH, 1, 0);
     }
 
   if (self->conf->NO_TOP_NODE_OUTPUT.o.integer > 0
       && self->conf->SHOW_TITLE.o.integer < 0)
-    set_conf (&self->conf->SHOW_TITLE, 1, 0);
+    option_set_conf (&self->conf->SHOW_TITLE, 1, 0);
 
 
   self->current_formatting_references = &self->formatting_references[0];
@@ -19427,15 +19427,15 @@ html_setup_output (CONVERTER *self, char **paths)
         }
       if (need_unsplit)
         {
-          force_conf (&self->conf->SPLIT, 0, "");
-          force_conf (&self->conf->MONOLITHIC, 1, 0);
+          option_force_conf (&self->conf->SPLIT, 0, "");
+          option_force_conf (&self->conf->MONOLITHIC, 1, 0);
         }
     }
 
   if (self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))
-    set_conf (&self->conf->NODE_FILES, 1, 0);
+    option_set_conf (&self->conf->NODE_FILES, 1, 0);
 
-  set_conf (&self->conf->EXTERNAL_CROSSREF_SPLIT, 0,
+  option_set_conf (&self->conf->EXTERNAL_CROSSREF_SPLIT, 0,
             self->conf->SPLIT.o.string);
 
   handler_fatal_error_level = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
@@ -19443,8 +19443,8 @@ html_setup_output (CONVERTER *self, char **paths)
     {
       handler_fatal_error_level = 100;
       /* see options_data.txt. TODO automate? */
-      force_conf (&self->conf->HANDLER_FATAL_ERROR_LEVEL,
-                  handler_fatal_error_level, 0);
+      option_force_conf (&self->conf->HANDLER_FATAL_ERROR_LEVEL,
+                         handler_fatal_error_level, 0);
     }
 
   if (self->conf->HTML_MATH.o.string
@@ -19458,11 +19458,11 @@ html_setup_output (CONVERTER *self, char **paths)
      its preferred form of modification.
       */
        if (!self->conf->MATHJAX_SCRIPT.o.string)
-         set_conf (&self->conf->MATHJAX_SCRIPT, 0,
+         option_set_conf (&self->conf->MATHJAX_SCRIPT, 0,
             "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js");
 
        if (!self->conf->MATHJAX_SOURCE.o.string)
-         set_conf (&self->conf->MATHJAX_SOURCE, 0,
+         option_set_conf (&self->conf->MATHJAX_SOURCE, 0,
  "http://docs.mathjax.org/en/latest/web/hosting.html#getting-mathjax-via-git");
 
        if (!self->conf->MATHJAX_CONFIGURATION.o.string)
@@ -19501,7 +19501,7 @@ html_setup_output (CONVERTER *self, char **paths)
       char *body_element_attributes;
       xasprintf (&body_element_attributes, "lang=\"%s\"",
                  structure_preamble_document_language);
-      set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
+      option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
                 0, body_element_attributes);
       free (body_element_attributes);
     }

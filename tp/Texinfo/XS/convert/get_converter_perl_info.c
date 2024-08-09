@@ -173,23 +173,25 @@ set_translated_commands (SV *translated_commands_sv)
   return translated_commands;
 }
 
-/* OPTION should be already allocated but otherwise set to 0 */
-static int
-get_option_from_sv (OPTION *option, SV *option_sv, CONVERTER *converter,
-                    OPTION **sorted_options, const char *option_name)
+static OPTION *
+new_option_from_sv (SV *option_sv, CONVERTER *converter,
+                    OPTION **sorted_options, const char *option_name,
+                    int *status)
 {
-  int status;
+  OPTION *option = 0;
 
   const OPTION *ref_option = find_option_string (sorted_options, option_name);
   if (!ref_option)
-    return -2;
+    *status = -2;
+  else
+    {
+      option
+        = new_option (ref_option->type, ref_option->name, ref_option->number);
 
-  initialize_option (option, ref_option->type, ref_option->name);
-  option->number = ref_option->number;
+      *status = get_sv_option (option, option_sv, 0, 0, converter);
+    }
 
-  status = get_sv_option (option, option_sv, 0, 0, converter);
-
-  return status;
+  return option;
 }
 
 /* class is Perl converter class for warning message */
@@ -218,20 +220,21 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
 
       for (i = 0; i < hv_number; i++)
         {
-          OPTION *option
-            = &initialization_info->conf.list[initialization_info->conf.number];
+          int status;
           char *key;
           I32 retlen;
           SV *value = hv_iternextsv (conf_hv, &key, &retlen);
-          int status = get_option_from_sv (option, value, converter,
-                                           sorted_options, key);
+          OPTION *option = new_option_from_sv (value, converter,
+                                               sorted_options, key, &status);
+
           if (!status)
             {
+              initialization_info->conf.list[initialization_info->conf.number]
+                = option;
               initialization_info->conf.number++;
             }
           else
             {
-              memset (option, 0, sizeof (OPTION));
               if (status == -2)
                 {
                   add_string (key,
@@ -261,7 +264,10 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
                     }
                 }
               else
-                fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
+                {
+                  free_option (option);
+                  fprintf (stderr, "ERROR: %s unexpected conf error\n", key);
+                }
             }
         }
       return 1;

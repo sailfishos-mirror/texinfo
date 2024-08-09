@@ -279,9 +279,17 @@ int html_get_direction_index (const CONVERTER *converter,
 
 void initialize_option (OPTION *option, enum global_option_type type,
                         const char *name);
+OPTION *new_option (enum global_option_type type, const char *name,
+                    size_t number);
 void clear_option (OPTION *option);
 void free_option (OPTION *option);
 void copy_option (OPTION *destination, const OPTION *source);
+int option_set_conf (OPTION *option, int int_value, const char *char_value);
+void option_force_conf (OPTION *option, int int_value, const char *char_value);
+OPTION *add_option_string_value (OPTIONS_LIST *options_list,
+                         OPTION **sorted_options,
+                         const char *option_name, int int_value,
+                         const char *char_value);
 
 TARGET_FILENAME *new_target_filename (void);
 TARGET_CONTENTS_FILENAME *new_target_contents_filename (void);

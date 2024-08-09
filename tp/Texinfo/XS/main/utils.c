@@ -1857,6 +1857,45 @@ initialize_option (OPTION *option, enum global_option_type type,
     }
 }
 
+/* only for strings and integers */
+static void
+option_set_conf_internal (OPTION *option, int int_value, const char *char_value)
+{
+  switch (option->type)
+    {
+      case GOT_integer:
+        option->o.integer = int_value;
+        break;
+      case GOT_char:
+      case GOT_bytes:
+        free (option->o.string);
+        if (!char_value)
+          option->o.string = 0;
+        else
+          option->o.string = strdup (char_value);
+        break;
+
+      default:
+        fprintf (stderr, "BUG: set_conf type not handled: %d\n",
+                 option->type);
+    }
+}
+
+int
+option_set_conf (OPTION *option, int int_value, const char *char_value)
+{
+  if (option->configured > 0)
+    return 0;
+  option_set_conf_internal (option, int_value, char_value);
+  return 1;
+}
+
+void
+option_force_conf (OPTION *option, int int_value, const char *char_value)
+{
+  option_set_conf_internal (option, int_value, char_value);
+}
+
 void
 copy_option (OPTION *destination, const OPTION *source)
 {
@@ -2008,6 +2047,20 @@ set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
     }
 }
 
+void
+initialize_options_list (OPTIONS_LIST *options_list, size_t number)
+{
+  options_list->number = 0;
+  options_list->space = number;
+  if (number > 0)
+    {
+      options_list->list = (OPTION **) malloc (sizeof (OPTION *) * number);
+      memset (options_list->list, 0, sizeof (OPTION *) * number);
+    }
+  else
+    options_list->list = 0;
+}
+
 /* copy OPTIONS_LIST options to an OPTIONS structure, using the sorted options
    to find the struct fields. */
 void
@@ -2018,7 +2071,7 @@ copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
 
   for (i = 0; i < options_list->number; i++)
     {
-      OPTION *src_option = &options_list->list[i];
+      OPTION *src_option = options_list->list[i];
       if (src_option->number > 0)
         {
           size_t index = src_option->number - 1;
@@ -2037,12 +2090,56 @@ copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
     }
 }
 
-void
-initialize_options_list (OPTIONS_LIST *options_list, size_t number)
+/* note that the value in union o is not initialized */
+OPTION *
+new_option (enum global_option_type type, const char *name, size_t number)
 {
-  options_list->number = number;
-  options_list->list = (OPTION *) malloc (sizeof (OPTION) * number);
-  memset (options_list->list, 0, sizeof (OPTION) * number);
+  OPTION *option = (OPTION *) malloc (sizeof (OPTION));
+
+  initialize_option (option, type, name);
+  option->number = number;
+  option->configured = 0;
+
+  return option;
+}
+
+static OPTION *
+new_option_string_value (OPTION **sorted_options,
+                         const char *option_name, int int_value,
+                         const char *char_value)
+{
+  OPTION *option;
+  const OPTION *ref_option = find_option_string (sorted_options, option_name);
+  if (!ref_option)
+    return 0;
+
+  option = new_option (ref_option->type, ref_option->name, ref_option->number);
+
+  option_set_conf (option, int_value, char_value);
+
+  return option;
+}
+
+OPTION *
+add_option_string_value (OPTIONS_LIST *options_list,  OPTION **sorted_options,
+                         const char *option_name, int int_value,
+                         const char *char_value)
+{
+  OPTION *option = new_option_string_value (sorted_options, option_name,
+                                            int_value, char_value);
+
+  if (option)
+    {
+      if (options_list->number >= options_list->space)
+        {
+          options_list->list = realloc (options_list->list,
+                  (options_list->space += 5) * sizeof (OPTION *));
+        }
+      options_list->list[options_list->number] = option;
+      options_list->number++;
+    }
+
+  return option;
 }
 
 void
@@ -2052,11 +2149,14 @@ free_options_list (OPTIONS_LIST *options_list)
 
   for (i = 0; i < options_list->number; i++)
     {
-      free_option (&options_list->list[i]);
+      free_option (options_list->list[i]);
+      free (options_list->list[i]);
     }
 
   free (options_list->list);
 }
+
+
 
 void
 html_fill_button_directions_specification_list (const CONVERTER *converter,

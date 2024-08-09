@@ -352,7 +352,7 @@ html_converter_defaults (CONVERTER *self,
 
       for (i = 0; i < conf->conf.number; i++)
         {
-          OPTION *option = &conf->conf.list[i];
+          OPTION *option = conf->conf.list[i];
           if (option->number == t2h_conf_number)
             {
               if (option->o.integer >= 0)
@@ -376,7 +376,7 @@ html_converter_initialize (CONVERTER *self)
   int max_header_level = self->conf->MAX_HEADER_LEVEL.o.integer;
 
   if (!self->conf->FORMAT_MENU.o.string)
-    force_conf (&self->conf->FORMAT_MENU, 0, "");
+    option_force_conf (&self->conf->FORMAT_MENU, 0, "");
 
  /* NOTE we reset silently if the split specification is not one known.
     The main program warns if the specific command line option value is
@@ -385,12 +385,12 @@ html_converter_initialize (CONVERTER *self)
   */
   if (split && strlen (split) && strcmp (split, "chapter")
       && strcmp (split, "section") && strcmp (split, "node"))
-    force_conf (&self->conf->SPLIT, 0, "node");
+    option_force_conf (&self->conf->SPLIT, 0, "node");
 
   if (max_header_level < 0)
-    force_conf (&self->conf->MAX_HEADER_LEVEL, 4, 0);
+    option_force_conf (&self->conf->MAX_HEADER_LEVEL, 4, 0);
   else if (max_header_level < 1)
-    force_conf (&self->conf->MAX_HEADER_LEVEL, 1, 0);
+    option_force_conf (&self->conf->MAX_HEADER_LEVEL, 1, 0);
 
   /* For CONTENTS_OUTPUT_LOCATION
      should lead to contents not output, but if not, it is not an issue,
@@ -399,9 +399,9 @@ html_converter_initialize (CONVERTER *self)
    */
 
   if (!self->conf->CONTENTS_OUTPUT_LOCATION.o.string)
-    force_conf (&self->conf->CONTENTS_OUTPUT_LOCATION, 0, "");
+    option_force_conf (&self->conf->CONTENTS_OUTPUT_LOCATION, 0, "");
   if (!self->conf->INDEX_ENTRY_COLON.o.string)
-    force_conf (&self->conf->INDEX_ENTRY_COLON, 0, "");
+    option_force_conf (&self->conf->INDEX_ENTRY_COLON, 0, "");
   if (!self->conf->MENU_ENTRY_COLON.o.string)
-    force_conf (&self->conf->MENU_ENTRY_COLON, 0, "");
+    option_force_conf (&self->conf->MENU_ENTRY_COLON, 0, "");
 }

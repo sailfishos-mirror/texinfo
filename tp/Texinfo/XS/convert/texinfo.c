@@ -140,32 +140,6 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-static void
-initialize_option_value (OPTION *option, OPTION **sorted_options,
-                         const char *option_name, int int_value,
-                         const char *char_value)
-{
-  const OPTION *ref_option = find_option_string (sorted_options, option_name);
-  if (!ref_option)
-    return;
-  
-  initialize_option (option, ref_option->type, ref_option->name);
-  option->number = ref_option->number;
-  
-  set_conf (option, int_value, char_value);
-} 
-
-static void
-add_option_value (OPTIONS_LIST *options_list,  OPTION **sorted_options,
-                  const char *option_name, int int_value,
-                  const char *char_value)
-{   
-  OPTION *option = &options_list->list[options_list->number];
-  initialize_option_value (option, sorted_options, option_name, int_value,
-                           char_value);
-  options_list->number++;
-} 
-
 /* TODO add other options argument */
 CONVERTER *
 txi_converter (const char *format, const char *locale_encoding,
@@ -191,29 +165,28 @@ txi_converter (const char *format, const char *locale_encoding,
 
   conf = new_converter_initialization_info ();
   initialize_options_list (&conf->conf, 10);
-  conf->conf.number = 0;
 
-  add_option_value (&conf->conf, converter->sorted_options,
+  add_option_string_value (&conf->conf, converter->sorted_options,
    /*
     */
                     "PROGRAM", 0, program_file);
   /* comment the line above and uncomment below to compare with
      texi2any output
                     "PROGRAM", 0, "texi2any");
-  add_option_value (&conf->conf, converter->sorted_options,
+  add_option_string_value (&conf->conf, converter->sorted_options,
                     "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
    */
-  add_option_value (&conf->conf, converter->sorted_options,
+  add_option_string_value (&conf->conf, converter->sorted_options,
                     "COMMAND_LINE_ENCODING", 0, locale_encoding);
   /* this option is not used, it is filled to mimic texi2any */
-  add_option_value (&conf->conf, converter->sorted_options,
+  add_option_string_value (&conf->conf, converter->sorted_options,
                     "MESSAGE_ENCODING", 0, locale_encoding);
-  add_option_value (&conf->conf, converter->sorted_options,
+  add_option_string_value (&conf->conf, converter->sorted_options,
                     "LOCALE_ENCODING", 0, locale_encoding);
-  add_option_value (&conf->conf, converter->sorted_options,
+  add_option_string_value (&conf->conf, converter->sorted_options,
                     "XS_STRXFRM_COLLATION_LOCALE", 0, "en_US");
   /*
-  add_option_value (&conf->conf, converter->sorted_options,
+  add_option_string_value (&conf->conf, converter->sorted_options,
                     "DEBUG", 1, 0);
    */
 

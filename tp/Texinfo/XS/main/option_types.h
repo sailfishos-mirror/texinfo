@@ -176,7 +176,8 @@ typedef struct OPTION {
 
 typedef struct OPTIONS_LIST {
     size_t number;
-    OPTION *list;
+    size_t space;
+    OPTION **list;
 } OPTIONS_LIST;
 
 #endif

@@ -378,7 +378,7 @@ print OCDEF "/* Automatically generated from $program_name */\n\n";
 print OCDEF '#include <config.h>'."\n\n";
 
 print OCDEF '#include "options_types.h"'."\n";
-print OCDEF '#include "converter.h"'."\n";
+print OCDEF '#include "utils.h"'."\n";
 print OCDEF '#include "converters_defaults.h"'."\n\n";
 
 open(OHDEF, ">$converter_defaults_header_file")
@@ -407,7 +407,7 @@ foreach my $category (sort(keys(%option_categories))) {
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print OCDEF "  set_conf (&options->${option}, $int_value, $char_value);\n";
+    print OCDEF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
   }
   print OCDEF "}\n\n";
 }
@@ -425,7 +425,7 @@ foreach my $format (@sorted_formats) {
     my $option_info = $options{$option};
     my ($option_unused, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print OCDEF "  set_conf (&options->${option}, $int_value, $char_value);\n";
+    print OCDEF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
   }
   print OCDEF "}\n\n";
 }
