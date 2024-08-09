@@ -31,7 +31,7 @@
 #include "transformations.h"
 #include "converter.h"
 #include "convert_html.h"
-#include "txi_converter_api.h"
+#include "texinfo.h"
 
 void
 txi_setup (const char *localesdir, int texinfo_uninstalled,
@@ -54,7 +54,6 @@ txi_parser (const char *file_path, const char *locale_encoding,
 {
   char *input_file_name_and_directory[2];
   char *input_directory;
-  size_t document_descriptor = 0;
   int i;
 
   reset_parser (0);
@@ -86,7 +85,7 @@ txi_parser (const char *file_path, const char *locale_encoding,
    No implementation in Perl, as the modules are loaded on demand, which makes
    it impossible
 */
-int
+void
 txi_complete_document (DOCUMENT *document, unsigned long flags,
                        int format_menu)
 {
@@ -174,7 +173,6 @@ txi_converter (const char *format, const char *locale_encoding,
 {
   size_t converter_descriptor;
   CONVERTER *converter;
-  int i;
   enum converter_format converter_format = find_format_data_index (format);
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   CONVERTER_INITIALIZATION_INFO *conf;

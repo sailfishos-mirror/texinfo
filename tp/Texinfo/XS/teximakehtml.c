@@ -37,7 +37,7 @@
  */
 /* retrieve_document remove_document_descriptor */
 #include "document.h"
-#include "txi_converter_api.h"
+#include "texinfo.h"
 #include "converter.h"
 #include "convert_html.h"
 

@@ -386,8 +386,8 @@ C_libtexinfo_convert_sources = \
                        convert/converters_defaults.h \
                        convert/html_converter_init_options.c \
                        convert/html_converter_init_options.h \
-                       convert/txi_converter_api.c \
-                       convert/txi_converter_api.h
+                       convert/texinfo.c \
+                       convert/texinfo.h
 
 XS_libtexinfo_convert_sources = \
                        convert/build_html_perl_state.h \

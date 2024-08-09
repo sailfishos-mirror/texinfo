@@ -1,8 +1,11 @@
-/* txi_html_api.h - API of conversion of Texinfo document to HTML */
-#ifndef TXI_HTML_API_H
-#define TXI_HTML_API_H
+/* texinfo.h - Texinfo API */
+#ifndef TEXINFO_H
+#define TEXINFO_H
+
+#include <stddef.h>
 
 #include "document_types.h"
+#include "converter_types.h"
 
 /* document structuring and transformations selection flags */
 #define STTF_relate_index_entries_to_table_items    0x0001
@@ -31,11 +34,13 @@ void
 txi_parser (const char *file_path, const char *locale_encoding,
             const char **expanded_formats);
 
-int txi_complete_document (DOCUMENT *document, unsigned long flags,
-                          int format_menu);
+void txi_complete_document (DOCUMENT *document, unsigned long flags,
+                            int format_menu);
 
 CONVERTER *txi_converter (const char *format, const char *locale_encoding,
                           const char *program_file);
 
+
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);
+
 #endif
