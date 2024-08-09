@@ -1,3 +1,27 @@
+2024-08-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove VFunction.
+
+	* info/terminal.c, info/terminal.h
+	(terminal_begin_blink_hook, terminal_begin_bold_hook)
+	(terminal_begin_inverse_hook, terminal_begin_standout_hook)
+	(terminal_begin_underline_hook, terminal_clear_screen_hook)
+	(terminal_clear_to_eol_hook, terminal_default_colour_hook)
+	(terminal_down_line_hook, terminal_end_all_modes_hook)
+	(terminal_end_inverse_hook, terminal_end_standout_hook)
+	(terminal_end_underline_hook, terminal_get_screen_size_hook)
+	(terminal_goto_xy_hook, terminal_initialize_terminal_hook)
+	(terminal_new_terminal_hook, terminal_prep_terminal_hook)
+	(terminal_put_text_hook, terminal_ring_bell_hook)
+	(terminal_scroll_terminal_hook, terminal_set_bgcolour_hook,)
+	(terminal_set_colour_hook, terminal_unprep_terminal_hook,)
+	(terminal_up_line_hook, terminal_write_chars_hook):
+	Declare with explicit variable list.
+	(VFunction): Remove.
+
+	C23 does not allow a variable list to be left undefined as ().
+	Report from Jeffrey Cliff <jeffrey.cliff@gmail.com>.
+
 2024-08-08  Bruno Haible  <bruno@clisp.org>
 
 	* texindex/Makefile.am (texindex.awk): Move the generated
