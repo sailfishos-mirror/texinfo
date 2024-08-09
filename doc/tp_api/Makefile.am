@@ -11,7 +11,7 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 # Without menus completed the Index appendix node in
-# texi2any_internals_indices.texi soes not appear in any menu.
+# texi2any_internals_indices.texi does not appear in any menu.
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0 -c TREE_TRANSFORMATIONS=complete_tree_nodes_menus
 
 # Use the programs built in our distribution.
