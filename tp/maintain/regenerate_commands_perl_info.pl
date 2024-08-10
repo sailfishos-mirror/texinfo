@@ -22,6 +22,8 @@ use strict;
 
 use warnings;
 
+use File::Basename;
+
 # need this information to fill in automatically the index commands
 my %index_in_code = (
  'cp' => 0,
@@ -102,7 +104,9 @@ die "Need an output file\n" if (!defined($out_file));
 
 open(OUT, ">$out_file") or die "Open $out_file: $!\n";
 
-print OUT "# Automatically generated from $0\n\n";
+my $program_name = basename($0);
+
+print OUT "# Automatically generated from $program_name\n\n";
 
 print OUT "package Texinfo::Commands;\n\n";
 

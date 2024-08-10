@@ -24,6 +24,8 @@ use File::Spec;
 # for dirname and fileparse
 use File::Basename;
 
+my $program_name = basename($0);
+
 BEGIN
 {
   # NOTE we do not use Texinfo::ModulePath as it may not have been
@@ -56,6 +58,8 @@ die "Need a file\n"
 
 open (UEB, '>', $unicode_to_eight_bit_file_name)
    or die "Open $unicode_to_eight_bit_file_name: $!\n";
+
+print UEB "/* Automatically generated from $program_name */\n\n";
 
 print UEB "struct ENCODING_CODEPOINTS unicode_to_eight_bit[] = {\n";
 

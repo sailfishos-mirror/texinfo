@@ -22,6 +22,10 @@ use strict;
 
 use warnings;
 
+use File::Basename;
+
+my $program_name = basename($0);
+
 my %option_categories;
 
 while (<STDIN>) {
@@ -52,7 +56,7 @@ die "Need an output file\n" if (!defined($out_file));
 
 open (OUT, ">$out_file") or die "Open $out_file: $!\n";
 
-print OUT "# Automatically generated from $0\n\n";
+print OUT "# Automatically generated from $program_name\n\n";
 
 print OUT "package Texinfo::Options;\n\n";
 

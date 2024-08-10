@@ -1,3 +1,19 @@
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/maintain/regenerate_C_options_info.pl,
+	tp/maintain/regenerate_commands_perl_info.pl,
+	tp/maintain/regenerate_documentlanguages-iana.pl,
+	tp/maintain/regenerate_documentlanguages-loc.pl,
+	tp/maintain/regenerate_perl_options_info.pl,
+	tp/maintain/setup_accent_tables.pl,
+	tp/maintain/setup_converters_code_tables.pl: add the information that
+	a generated file is automatically generated if missing.
+	Use the basename to name the script generating the code files such
+	that the file content is the same in in and out of source builds.
+
+	* tp/Texinfo/XS/Makefile.am (Commands.pm, Options.pm): depend on the
+	generating script.
+
 2024-08-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/tp_api/Makefile.am (texi2any_internals.texi):

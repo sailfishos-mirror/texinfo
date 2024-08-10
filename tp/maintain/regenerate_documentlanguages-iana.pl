@@ -18,6 +18,8 @@ use strict;
 
 use warnings;
 
+use File::Basename;
+
 my $dir = 'maintain';
 system ("cd $dir && wget -N http://www.iana.org/assignments/language-subtag-registry");
 
@@ -40,9 +42,11 @@ if (!defined($entry->{'Type'})) {
   die "Type not defined for $entry ".join('|', keys(%$entry))."\n";
 }
 
+my $program_name = basename($0);
+
 open(OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
 
-print OUT "# This file was automatically generated from $0\n\n";
+print OUT "# This file was automatically generated from $program_name\n\n";
 
 print OUT "package Texinfo::Documentlanguages;\n\n";
 

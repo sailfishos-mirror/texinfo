@@ -22,6 +22,8 @@ use strict;
 
 use warnings;
 
+use File::Basename;
+
 my %option_categories;
 
 my %commands_options;
@@ -91,9 +93,11 @@ die "Need a header file\n" if (!defined($header_file));
 my $get_file = $ARGV[3];
 die "Need an XS code file\n" if (!defined($get_file));
 
+my $program_name = basename($0);
+
 open(HEADER, '>', $header_file)
       or die "Open $header_file: $!\n";
-print HEADER "/* Automatically generated from $0 */\n\n";
+print HEADER "/* Automatically generated from $program_name */\n\n";
 
 print HEADER "#ifndef OPTIONS_TYPES_H\n#define OPTIONS_TYPES_H\n\n";
 
@@ -126,7 +130,7 @@ close(HEADER);
 
 
 open(CODE, ">$code_file") or die "Open $code_file: $!\n";
-print CODE "/* Automatically generated from $0 */\n\n";
+print CODE "/* Automatically generated from $program_name */\n\n";
 
 print CODE '#include <config.h>'."\n\n";
 
@@ -256,7 +260,7 @@ close(CODE);
 
 
 open(GET, ">$get_file") or die "Open $get_file: $!\n";
-print GET "/* Automatically generated from $0 */\n\n";
+print GET "/* Automatically generated from $program_name */\n\n";
 
 print GET '
 /* Avoid namespace conflicts. */

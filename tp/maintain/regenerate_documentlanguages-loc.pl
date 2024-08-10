@@ -19,6 +19,8 @@ use strict;
 
 use warnings;
 
+use File::Basename;
+
 use List::Util qw(first);
 # not in core perl
 use Text::CSV;
@@ -63,9 +65,11 @@ while (my $row = $csv->getline ($fh)) {
   }
 }
 
+my $program_name = basename($0);
+
 open(OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
 
-print OUT "# This file was automatically generated from $0\n\n";
+print OUT "# This file was automatically generated from $program_name\n\n";
 
 print OUT "package Texinfo::Documentlanguages;\n\n";
 

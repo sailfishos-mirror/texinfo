@@ -19,7 +19,7 @@ use File::Find;
 use File::Basename;
 use File::Spec;
 
-my ($command, $mydir, $suffix) = fileparse($0);
+my ($program_name, $mydir, $suffix) = fileparse($0);
 my $parent = File::Spec->catdir($mydir, File::Spec->updir());
 chdir($parent) || die "chdir $parent: $!";
 -d "t" || (die "goodbye, no t directory in " . `pwd`);
