@@ -32,7 +32,7 @@ void txi_setup (const char *localesdir, int texinfo_uninstalled,
 
 void
 txi_parser (const char *file_path, const char *locale_encoding,
-            const char **expanded_formats);
+            const char **expanded_formats, const VALUE_LIST *values);
 
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);

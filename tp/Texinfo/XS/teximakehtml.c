@@ -96,6 +96,10 @@ add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
 }
 
 static const char *expanded_formats[] = {"html", 0};
+static VALUE values_array[] = {
+  {"txicommandconditionals", "1"}
+};
+static const VALUE_LIST values = {1, 1, values_array};
 
 int
 main (int argc, char *argv[])
@@ -149,7 +153,7 @@ main (int argc, char *argv[])
   input_file_path = argv[1];
 
   /* initialize parser */
-  txi_parser (input_file_path, locale_encoding, expanded_formats);
+  txi_parser (input_file_path, locale_encoding, expanded_formats, &values);
 
   /* Texinfo document tree parsing */
   document_descriptor = parse_file (input_file_path, &status);

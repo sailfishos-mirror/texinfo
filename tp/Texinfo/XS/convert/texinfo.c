@@ -46,11 +46,11 @@ txi_setup (const char *localesdir, int texinfo_uninstalled,
 }
 
 /* TODO should pass other options, in particular prepended and appended
-   directories, values, expanded formats list, and maybe OPTIONS_LIST
+   directories, and maybe OPTIONS_LIST
    for other options known by the parser */
 void
 txi_parser (const char *file_path, const char *locale_encoding,
-            const char **expanded_formats)
+            const char **expanded_formats, const VALUE_LIST *values)
 {
   char *input_file_name_and_directory[2];
   char *input_directory;
@@ -72,6 +72,16 @@ txi_parser (const char *file_path, const char *locale_encoding,
           parser_conf_add_include_directory (".");
         }
       free (input_directory);
+    }
+
+  if (values)
+    {
+      parser_conf_reset_values ();
+      for (i = 0; i < values->number; i++)
+        {
+          parser_conf_add_value (values->list[i].name,
+                                 values->list[i].value);
+        }
     }
 
   parser_conf_set_LOCALE_ENCODING (locale_encoding);

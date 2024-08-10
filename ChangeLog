@@ -1,3 +1,9 @@
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_parser),
+	tp/Texinfo/XS/teximakehtml.c (values, main): add a VALUE_LIST argument
+	to txi_parser.
+
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
 	Add tp/Texinfo/Commands.pm tp/Texinfo/Options.pm generated files
@@ -15,6 +21,18 @@
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
 	Update po files
+
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter),
+	tp/Texinfo/XS/teximakehtml.c (main): create converter before
+	txi_converter such that it may be used to get sorted options.
+
+	* tp/Texinfo/XS/main/utils.c (options_list_add_option): rename
+	list_add_option as options_list_add_option.
+
+	* tp/Texinfo/XS/teximakehtml.c (main, add_button_option): demonstrate
+	passing button and other options to txi_converter.
 
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
@@ -38,18 +56,6 @@
 	BUTTON_special_unit_directions),
 	tp/Texinfo/XS/convert/html_converter_init_options.h: move enum
 	BUTTON_special_unit_directions to create_buttons.h.
-
-2024-08-10  Patrice Dumas  <pertusus@free.fr>
-
-	* tp/Texinfo/XS/convert/texinfo.c (txi_converter),
-	tp/Texinfo/XS/teximakehtml.c (main): create converter before
-	txi_converter such that it may be used to get sorted options.
-
-	* tp/Texinfo/XS/main/utils.c (options_list_add_option): rename
-	list_add_option as options_list_add_option.
-
-	* tp/Texinfo/XS/teximakehtml.c (main, add_button_option): demonstrate
-	passing button and other options to txi_converter.
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
