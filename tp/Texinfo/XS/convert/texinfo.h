@@ -30,10 +30,9 @@ void txi_setup (const char *localesdir, int texinfo_uninstalled,
                 const char *tp_builddir,
                 const char *pkgdatadir, const char *top_srcdir);
 
-void
-txi_parser (const char *file_path, const char *locale_encoding,
-            const char **expanded_formats, const VALUE_LIST *values,
-            OPTIONS_LIST *options);
+void txi_parser (const char *file_path, const char *locale_encoding,
+                const char **expanded_formats, const VALUE_LIST *values,
+                OPTIONS_LIST *options);
 
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);

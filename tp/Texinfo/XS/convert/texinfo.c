@@ -13,6 +13,12 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+/* Interface similar to the Perl modules interface for Texinfo parsing,
+   Document structure and transformations and conversion */
+
+/* not used in code called from texi2any/Perl, meant to be used exclusively
+   from C code */
+
 #include <config.h>
 
 #include <stdlib.h>
@@ -33,6 +39,7 @@
 #include "convert_html.h"
 #include "texinfo.h"
 
+/* initialization of the library. */
 void
 txi_setup (const char *localesdir, int texinfo_uninstalled,
                  const char *tp_builddir,
@@ -45,6 +52,7 @@ txi_setup (const char *localesdir, int texinfo_uninstalled,
   html_format_setup ();
 }
 
+/* parser initialization, similar to Texinfo::Parser::parser in Perl */
 void
 txi_parser (const char *file_path, const char *locale_encoding,
             const char **expanded_formats, const VALUE_LIST *values,
@@ -259,6 +267,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
+/* converter initialization. Similar to Texinfo::Convert::X::converter */
 void
 txi_converter (CONVERTER *converter,
                const char *format, const char *locale_encoding,
@@ -328,6 +337,11 @@ txi_converter (CONVERTER *converter,
   destroy_converter_initialization_info (conf);
 }
 
+
+
+/* formats conversion */
+
+/* similar to Texinfo::Convert::HTML->output */
 char *
 txi_html_output (CONVERTER *converter, DOCUMENT *document)
 {

@@ -1,5 +1,9 @@
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c: add some comments.
+
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (add_new_option_value): function to add
 	an option with values based on a list, without trying to find the
 	index in sorted options, for cases where options are found with their
