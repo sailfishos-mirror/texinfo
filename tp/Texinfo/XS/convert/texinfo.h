@@ -37,8 +37,9 @@ txi_parser (const char *file_path, const char *locale_encoding,
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
-CONVERTER *txi_converter (const char *format, const char *locale_encoding,
-                     const char *program_file, OPTIONS_LIST *customizations);
+void txi_converter (CONVERTER *converter,
+                    const char *format, const char *locale_encoding,
+                    const char *program_file, OPTIONS_LIST *customizations);
 
 
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);

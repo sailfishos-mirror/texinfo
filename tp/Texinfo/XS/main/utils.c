@@ -2120,8 +2120,8 @@ new_option_string_value (OPTION **sorted_options,
   return option;
 }
 
-static void
-list_add_option (OPTIONS_LIST *options_list, OPTION *option)
+void
+options_list_add_option (OPTIONS_LIST *options_list, OPTION *option)
 {
   if (options_list->number >= options_list->space)
     {
@@ -2141,7 +2141,7 @@ add_option_string_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
                                             int_value, char_value);
 
   if (option)
-    list_add_option (options_list, option);
+    options_list_add_option (options_list, option);
 
   return option;
 }
@@ -2155,7 +2155,7 @@ add_option_copy (OPTIONS_LIST *options_list, OPTION **sorted_options,
 
   copy_option (option, src_option);
 
-  list_add_option (options_list, option);
+  options_list_add_option (options_list, option);
 
   return option;
 }

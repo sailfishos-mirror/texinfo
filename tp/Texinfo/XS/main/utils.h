@@ -290,6 +290,7 @@ OPTION *add_option_string_value (OPTIONS_LIST *options_list,
                          OPTION **sorted_options,
                          const char *option_name, int int_value,
                          const char *char_value);
+void options_list_add_option (OPTIONS_LIST *options_list, OPTION *option);
 
 void copy_options_list (OPTIONS_LIST *options_list,
                    const OPTIONS_LIST *options_src, OPTION **sorted_options);

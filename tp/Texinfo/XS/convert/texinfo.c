@@ -140,22 +140,17 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-CONVERTER *
-txi_converter (const char *format, const char *locale_encoding,
+void
+txi_converter (CONVERTER *converter,
+               const char *format, const char *locale_encoding,
                const char *program_file, OPTIONS_LIST *customizations)
 {
-  size_t converter_descriptor;
-  CONVERTER *converter;
   enum converter_format converter_format = find_format_data_index (format);
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   CONVERTER_INITIALIZATION_INFO *conf;
 
   if (converter_format == COF_none)
-    return 0;
-
-  /* create converter and generic converter initializations */
-  converter_descriptor = new_converter ();
-  converter = retrieve_converter (converter_descriptor);  
+    return;
 
   /* prepare specific information for the converter */
   format_defaults = new_converter_initialization_info ();
@@ -212,8 +207,6 @@ txi_converter (const char *format, const char *locale_encoding,
 
   destroy_converter_initialization_info (format_defaults);
   destroy_converter_initialization_info (conf);
-
-  return converter;
 }
 
 char *

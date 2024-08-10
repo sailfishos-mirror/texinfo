@@ -37,9 +37,10 @@
  */
 /* retrieve_document remove_document_descriptor */
 #include "document.h"
-#include "texinfo.h"
 #include "converter.h"
+#include "create_buttons.h"
 #include "convert_html.h"
+#include "texinfo.h"
 
 #define LOCALEDIR DATADIR "/locale"
 
@@ -76,9 +77,27 @@ print_errors (ERROR_MESSAGE_LIST *error_messages)
   clear_error_message_list (error_messages);
 }
 
+/* this function is quite generic, it could be added to utils.c */
+static void
+add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
+                   const char *option_name,
+                   BUTTON_SPECIFICATION_LIST *buttons)
+{
+  OPTION *option;
+
+  const OPTION *ref_option = find_option_string (sorted_options, option_name);
+  if (!ref_option)
+    return;
+
+  option = new_option (ref_option->type, ref_option->name, ref_option->number);
+  option->o.buttons = buttons;
+
+  options_list_add_option (options_list, option);
+}
+
 static const char *expanded_formats[] = {"html", 0};
 
-int     
+int
 main (int argc, char *argv[])
 {
   const char *locale_encoding;
@@ -88,8 +107,11 @@ main (int argc, char *argv[])
   char *program_file;
   size_t document_descriptor = 0;
   DOCUMENT *document;
+  size_t converter_descriptor;
   CONVERTER *converter;
   char *result;
+  BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
+  OPTIONS_LIST convert_options;
 
   /*
   const char *texinfo_text;
@@ -158,10 +180,27 @@ main (int argc, char *argv[])
 
   print_errors (&document->error_messages);
 
+  /* create converter and generic converter initializations */
+  converter_descriptor = new_converter ();
+  converter = retrieve_converter (converter_descriptor);
+
+  initialize_options_list (&convert_options, 2);
+  /* customize buttons.  This is a bit silly to use link buttons for
+     footer, it is for the demonstration */
+  custom_node_footer_buttons = new_base_links_buttons (0);
+  add_button_option (&convert_options, converter->sorted_options,
+                     "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
+  add_option_string_value (&convert_options, converter->sorted_options,
+                           "PROGRAM_NAME_IN_FOOTER", 1, 0);
+  /* this is set to help with comparison with previous invokations */
+  add_option_string_value (&convert_options, converter->sorted_options,
+                           "TEST", 1, 0);
 
   /* setup converter */
-  converter = txi_converter ("html", locale_encoding, program_file, 0);
+  txi_converter (converter, "html", locale_encoding, program_file,
+                             &convert_options);
 
+  free_options_list (&convert_options);
   free (program_file);
 
   /* return value can be NULL in case of errors or an empty string, but
