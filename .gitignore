@@ -83,6 +83,7 @@ gnulib/lib/unicase.h
 gnulib/lib/unictype.h
 gnulib/lib/uninorm.h
 
+tp/Texinfo/XS/gnulib/lib/float.h
 tp/Texinfo/XS/gnulib/lib/locale.h
 tp/Texinfo/XS/gnulib/lib/iconv.h
 tp/Texinfo/XS/gnulib/lib/inttypes.h

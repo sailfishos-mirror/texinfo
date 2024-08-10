@@ -1,5 +1,9 @@
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	Run gnulib-tool --add-import in tp/Texinfo/XS
+
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	Run gnulib-tool --add-import at top level
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>

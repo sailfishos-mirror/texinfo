@@ -54,6 +54,10 @@ AC_DEFUN([gl_EARLY],
   # Code from module errno:
   # Code from module exitfail:
   # Code from module extensions:
+  # This is actually already done in the pre-early phase.
+  # AC_REQUIRE([gl_USE_SYSTEM_EXTENSIONS])
+  # Code from module extensions-aix:
+  AC_REQUIRE([gl_USE_AIX_EXTENSIONS])
   # Code from module extern-inline:
   # Code from module float:
   # Code from module free-posix:
@@ -196,8 +200,11 @@ AC_DEFUN([gl_INIT],
   gl_FLOAT_H
   gl_CONDITIONAL_HEADER([float.h])
   AC_PROG_MKDIR_P
-  gl_CONDITIONAL([GL_COND_OBJ_FLOAT], [test $REPLACE_FLOAT_LDBL = 1])
+  gl_CONDITIONAL([GL_COND_OBJ_FLOAT],
+                 [test $REPLACE_FLOAT_LDBL = 1 || test $REPLACE_FLOAT_SNAN = 1])
   gl_CONDITIONAL([GL_COND_OBJ_ITOLD], [test $REPLACE_ITOLD = 1])
+  dnl Prerequisites of lib/float.c.
+  AC_REQUIRE([gl_BIGENDIAN])
   gl_FUNC_FREE
   gl_CONDITIONAL([GL_COND_OBJ_FREE], [test $REPLACE_FREE = 1])
   AM_COND_IF([GL_COND_OBJ_FREE], [
@@ -804,6 +811,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/environ.m4
   m4/errno_h.m4
   m4/exponentd.m4
+  m4/extensions-aix.m4
   m4/extensions.m4
   m4/extern-inline.m4
   m4/float_h.m4
@@ -868,7 +876,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/vasprintf.m4
   m4/warn-on-use.m4
   m4/wchar_h.m4
-  m4/wchar_t.m4
   m4/wctype_h.m4
   m4/wint_t.m4
   m4/xsize.m4
