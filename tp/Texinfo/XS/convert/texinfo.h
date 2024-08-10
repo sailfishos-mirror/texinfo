@@ -38,7 +38,7 @@ void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
 CONVERTER *txi_converter (const char *format, const char *locale_encoding,
-                          const char *program_file);
+                     const char *program_file, OPTIONS_LIST *customizations);
 
 
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);

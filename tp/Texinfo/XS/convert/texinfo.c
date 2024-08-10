@@ -140,10 +140,9 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-/* TODO add other options argument */
 CONVERTER *
 txi_converter (const char *format, const char *locale_encoding,
-               const char *program_file)
+               const char *program_file, OPTIONS_LIST *customizations)
 {
   size_t converter_descriptor;
   CONVERTER *converter;
@@ -189,6 +188,11 @@ txi_converter (const char *format, const char *locale_encoding,
   add_option_string_value (&conf->conf, converter->sorted_options,
                     "DEBUG", 1, 0);
    */
+  if (customizations)
+    {
+      copy_options_list (&conf->conf, customizations,
+                         converter->sorted_options);
+    }
 
   /* pass information to the converter and format specific initialization */
   set_converter_init_information (converter, converter_format,

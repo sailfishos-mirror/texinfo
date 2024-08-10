@@ -291,6 +291,9 @@ OPTION *add_option_string_value (OPTIONS_LIST *options_list,
                          const char *option_name, int int_value,
                          const char *char_value);
 
+void copy_options_list (OPTIONS_LIST *options_list,
+                   const OPTIONS_LIST *options_src, OPTION **sorted_options);
+
 TARGET_FILENAME *new_target_filename (void);
 TARGET_CONTENTS_FILENAME *new_target_contents_filename (void);
 FILE_NAME_PATH *new_file_name_path (void);

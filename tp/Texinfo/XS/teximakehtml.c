@@ -160,7 +160,7 @@ main (int argc, char *argv[])
 
 
   /* setup converter */
-  converter = txi_converter ("html", locale_encoding, program_file);
+  converter = txi_converter ("html", locale_encoding, program_file, 0);
 
   free (program_file);
 

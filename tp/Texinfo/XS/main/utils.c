@@ -2120,8 +2120,20 @@ new_option_string_value (OPTION **sorted_options,
   return option;
 }
 
+static void
+list_add_option (OPTIONS_LIST *options_list, OPTION *option)
+{
+  if (options_list->number >= options_list->space)
+    {
+      options_list->list = realloc (options_list->list,
+              (options_list->space += 5) * sizeof (OPTION *));
+    }
+  options_list->list[options_list->number] = option;
+  options_list->number++;
+}
+
 OPTION *
-add_option_string_value (OPTIONS_LIST *options_list,  OPTION **sorted_options,
+add_option_string_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
                          const char *option_name, int int_value,
                          const char *char_value)
 {
@@ -2129,17 +2141,36 @@ add_option_string_value (OPTIONS_LIST *options_list,  OPTION **sorted_options,
                                             int_value, char_value);
 
   if (option)
-    {
-      if (options_list->number >= options_list->space)
-        {
-          options_list->list = realloc (options_list->list,
-                  (options_list->space += 5) * sizeof (OPTION *));
-        }
-      options_list->list[options_list->number] = option;
-      options_list->number++;
-    }
+    list_add_option (options_list, option);
 
   return option;
+}
+
+OPTION *
+add_option_copy (OPTIONS_LIST *options_list, OPTION **sorted_options,
+                 const OPTION *src_option)
+{
+  OPTION *option
+    = new_option (src_option->type, src_option->name, src_option->number);
+
+  copy_option (option, src_option);
+
+  list_add_option (options_list, option);
+
+  return option;
+}
+
+void
+copy_options_list (OPTIONS_LIST *options_list,
+                   const OPTIONS_LIST *options_src, OPTION **sorted_options)
+{
+  size_t i;
+
+  if (options_src > 0)
+    {
+      for (i = 0; i < options_src->number; i++)
+        add_option_copy (options_list, sorted_options, options_src->list[i]);
+    }
 }
 
 void
