@@ -2160,6 +2160,24 @@ add_option_copy (OPTIONS_LIST *options_list, OPTION **sorted_options,
   return option;
 }
 
+/* similar with new_option_string_value but in cases where there is no
+   sorted_options, and options are found with their names, in practice
+   for parser options */
+OPTION *
+add_new_option_value (OPTIONS_LIST *options_list,
+                  enum global_option_type type, const char *name,
+                  int int_value, const char *char_value)
+{
+  OPTION *option = new_option (type, name, 0);
+
+  option_set_conf (option, int_value, char_value);
+
+  options_list_add_option (options_list, option);
+
+  return option;
+}
+
+
 void
 copy_options_list (OPTIONS_LIST *options_list,
                    const OPTIONS_LIST *options_src, OPTION **sorted_options)

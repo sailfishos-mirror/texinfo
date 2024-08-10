@@ -4,7 +4,7 @@
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-  
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -23,7 +23,7 @@
 #include "document_types.h"
 #include "api.h"
 #include "conf.h"
-/* parse_file_path */ 
+/* parse_file_path */
 #include "utils.h"
 #include "document.h"
 #include "translations.h"
@@ -45,34 +45,36 @@ txi_setup (const char *localesdir, int texinfo_uninstalled,
   html_format_setup ();
 }
 
-/* TODO should pass other options, in particular prepended and appended
-   directories, and maybe OPTIONS_LIST
-   for other options known by the parser */
 void
 txi_parser (const char *file_path, const char *locale_encoding,
-            const char **expanded_formats, const VALUE_LIST *values)
+            const char **expanded_formats, const VALUE_LIST *values,
+            OPTIONS_LIST *options)
 {
   char *input_file_name_and_directory[2];
   char *input_directory;
   int i;
+  int debug = 0;
+  int includes_set = 0;
 
-  reset_parser (0);
-
-  if (file_path)
+  /* special case, we need to know if debug is set before calling
+     reset_parser */
+  if (options)
     {
-      parse_file_path (file_path, input_file_name_and_directory);
-      input_directory = input_file_name_and_directory[1];
-      free (input_file_name_and_directory[0]);
-
-
-      if (strcmp (file_path, "."))
+      for (i = 0; i < options->number; i++)
         {
-          parser_conf_clear_INCLUDE_DIRECTORIES ();
-          parser_conf_add_include_directory (input_directory);
-          parser_conf_add_include_directory (".");
+          OPTION *option = options->list[i];
+          if (!strcmp (option->name, "DEBUG"))
+            {
+              if (option->o.integer >= 0)
+                debug = 1;
+              break;
+            }
         }
-      free (input_directory);
     }
+
+  reset_parser (debug);
+
+  parser_conf_set_DEBUG (debug);
 
   if (values)
     {
@@ -84,9 +86,116 @@ txi_parser (const char *file_path, const char *locale_encoding,
         }
     }
 
+  /* set from arguments.  Options override */
   parser_conf_set_LOCALE_ENCODING (locale_encoding);
   for (i = 0; expanded_formats[i]; i++)
     parser_conf_add_expanded_format (expanded_formats[i]);
+
+  if (options)
+    {
+      for (i = 0; i < options->number; i++)
+        {
+          OPTION *option = options->list[i];
+          if (!strcmp (option->name, "INCLUDE_DIRECTORIES"))
+            {
+              includes_set = 1;
+              parser_conf_clear_INCLUDE_DIRECTORIES ();
+              if (option->o.strlist)
+                {
+                  size_t j;
+                  STRING_LIST *directories = option->o.strlist;
+                  for (j = 0; j < directories->number; j++)
+                    if (directories->list[j])
+                      parser_conf_add_include_directory (directories->list[j]);
+                }
+            }
+          else if (!strcmp (option->name, "EXPANDED_FORMATS"))
+            {
+              parser_conf_clear_expanded_formats ();
+              if (option->o.strlist)
+                {
+                  size_t j;
+                  STRING_LIST *expanded_formats = option->o.strlist;
+                  for (j = 0; j < expanded_formats->number; j++)
+                    if (expanded_formats->list[j])
+                      parser_conf_add_expanded_format
+                         (expanded_formats->list[j]);
+                }
+            }
+          else if (!strcmp (option->name, "documentlanguage"))
+            {
+              if (option->o.string)
+                parser_conf_set_documentlanguage (option->o.string);
+            }
+          else if (!strcmp (option->name, "FORMAT_MENU"))
+            {
+              if (option->o.string && !strcmp (option->o.string, "menu"))
+                parser_conf_set_show_menu (1);
+              else
+                parser_conf_set_show_menu (0);
+            }
+          else if (!strcmp (option->name,
+                            "IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME"))
+            parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
+                                                  (option->o.integer);
+          else if (!strcmp (option->name, "CPP_LINE_DIRECTIVES"))
+            parser_conf_set_CPP_LINE_DIRECTIVES (option->o.integer);
+          else if (!strcmp (option->name, "MAX_MACRO_CALL_NESTING"))
+            parser_conf_set_MAX_MACRO_CALL_NESTING (option->o.integer);
+          else if (!strcmp (option->name, "NO_INDEX"))
+            parser_conf_set_NO_INDEX (option->o.integer);
+          else if (!strcmp (option->name, "NO_USER_COMMANDS"))
+            parser_conf_set_NO_USER_COMMANDS (option->o.integer);
+          else if (!strcmp (option->name, "DOC_ENCODING_FOR_INPUT_FILE_NAME"))
+            parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME
+                                               (option->o.integer);
+          else if (!strcmp (option->name, "INPUT_FILE_NAME_ENCODING"))
+            {
+              if (option->o.string)
+                parser_conf_set_INPUT_FILE_NAME_ENCODING (option->o.string);
+            }
+          else if (!strcmp (option->name, "LOCALE_ENCODING"))
+            {
+              if (option->o.string)
+                parser_conf_set_LOCALE_ENCODING (option->o.string);
+            }
+          else if (!strcmp (option->name, "COMMAND_LINE_ENCODING"))
+            {
+              if (option->o.string)
+                parser_conf_set_COMMAND_LINE_ENCODING (option->o.string);
+            }
+          else if (!strcmp (option->name, "accept_internalvalue"))
+            {
+              /* called from gdt, no need to store the parser configuration */
+              if (option->o.integer > 0)
+                parser_conf_set_accept_internalvalue (1);
+              /* $store_conf = 0; */
+            }
+          else if (strcmp (option->name, "DEBUG"))
+            {
+              fprintf (stderr, "ignoring parser configuration value \"%s\"\n",
+                               option->name);
+            }
+        }
+    }
+
+  if (!includes_set)
+    {
+      if (file_path)
+        {
+          parse_file_path (file_path, input_file_name_and_directory);
+          input_directory = input_file_name_and_directory[1];
+          free (input_file_name_and_directory[0]);
+
+          if (strcmp (file_path, "."))
+            {
+              parser_conf_clear_INCLUDE_DIRECTORIES ();
+              parser_conf_add_include_directory (input_directory);
+              parser_conf_add_include_directory (".");
+            }
+          free (input_directory);
+        }
+    }
 }
 
 /* call all the structuring/transformations typically done for a document.
@@ -233,7 +342,7 @@ txi_html_output (CONVERTER *converter, DOCUMENT *document)
 
   /* prepare conversion to HTML */
   converter_set_document (converter, document);
-  
+
   html_initialize_output_state (converter, "_output");
 
   status = html_setup_output (converter, paths);

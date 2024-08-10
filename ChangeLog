@@ -1,5 +1,18 @@
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (add_new_option_value): function to add
+	an option with values based on a list, without trying to find the
+	index in sorted options, for cases where options are found with their
+	names, in practice for parser options.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_parser): pass an OPTIONS_LIST
+	and set parser options based on that list contents.
+
+	* tp/Texinfo/XS/teximakehtml.c (add_new_option_strlist_value)
+	(parser_EXPANDED_FORMATS, main): set parser options.
+
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_parser),
 	tp/Texinfo/XS/teximakehtml.c (values, main): add a VALUE_LIST argument
 	to txi_parser.
@@ -56,6 +69,18 @@
 	BUTTON_special_unit_directions),
 	tp/Texinfo/XS/convert/html_converter_init_options.h: move enum
 	BUTTON_special_unit_directions to create_buttons.h.
+
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter),
+	tp/Texinfo/XS/teximakehtml.c (main): create converter before
+	txi_converter such that it may be used to get sorted options.
+
+	* tp/Texinfo/XS/main/utils.c (options_list_add_option): rename
+	list_add_option as options_list_add_option.
+
+	* tp/Texinfo/XS/teximakehtml.c (main, add_button_option): demonstrate
+	passing button and other options to txi_converter.
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 

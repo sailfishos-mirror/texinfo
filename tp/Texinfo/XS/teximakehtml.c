@@ -95,11 +95,29 @@ add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
   options_list_add_option (options_list, option);
 }
 
+static OPTION *
+add_new_option_strlist_value (OPTIONS_LIST *options_list,
+                  enum global_option_type type, const char *name,
+                  STRING_LIST *strlist)
+{
+  OPTION *option = new_option (type, name, 0);
+
+  option->o.strlist = strlist;
+
+  options_list_add_option (options_list, option);
+
+  return option;
+}
+
 static const char *expanded_formats[] = {"html", 0};
 static VALUE values_array[] = {
   {"txicommandconditionals", "1"}
 };
 static const VALUE_LIST values = {1, 1, values_array};
+
+static char *parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
+static STRING_LIST parser_EXPANDED_FORMATS
+  = {parser_EXPANDED_FORMATS_array, 2, 2};
 
 int
 main (int argc, char *argv[])
@@ -115,6 +133,7 @@ main (int argc, char *argv[])
   CONVERTER *converter;
   char *result;
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
+  OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
 
   /*
@@ -152,8 +171,17 @@ main (int argc, char *argv[])
   /* Texinfo file parsing */
   input_file_path = argv[1];
 
+  initialize_options_list (&parser_options, 2);
+  /*
+  add_new_option_value (&parser_options, GOT_integer,
+                           "DEBUG", 1, 0);
+   */
+  add_new_option_strlist_value (&parser_options, GOT_char_string_list,
+                        "EXPANDED_FORMATS", &parser_EXPANDED_FORMATS);
+
   /* initialize parser */
-  txi_parser (input_file_path, locale_encoding, expanded_formats, &values);
+  txi_parser (input_file_path, locale_encoding, expanded_formats, &values,
+              &parser_options);
 
   /* Texinfo document tree parsing */
   document_descriptor = parse_file (input_file_path, &status);
