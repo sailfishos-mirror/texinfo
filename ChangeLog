@@ -1,5 +1,9 @@
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	Update man/pod2texi.1, po*/*.po and gnulib generated gperf files
+
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	Update po files
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
