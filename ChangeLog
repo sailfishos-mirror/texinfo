@@ -1,5 +1,10 @@
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl: remove generation of
+	unused get_options_key_sv_option and build_sv_option_key functions.
+
+2024-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c: add some comments.
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>
