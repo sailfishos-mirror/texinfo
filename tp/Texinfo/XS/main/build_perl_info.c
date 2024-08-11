@@ -51,6 +51,8 @@
    direction_names expanded_formats_number output_unit_type_names
    informative_command_value get_global_document_command */
 #include "utils.h"
+/* find_option_string */
+#include "customization_options.h"
 /* for debugging */
 #include "debug.h"
 /* for clear_error_message_list */

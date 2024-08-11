@@ -193,7 +193,9 @@ print CODE '#include <string.h>'."\n\n";
 print CODE '#include "option_types.h"'."\n";
 print CODE '#include "options_types.h"'."\n";
 print CODE '#include "converter_types.h"'."\n";
-print CODE '#include "utils.h"'."\n\n";
+# for html_fill_button_directions_specification_list
+print CODE '#include "main/utils.h"'."\n";
+print CODE '#include "customization_options.h"'."\n\n";
 
 print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";
 print CODE "  options->BIT_user_function_number = 0;\n";
@@ -378,7 +380,7 @@ print OCDEF "/* Automatically generated from $program_name */\n\n";
 print OCDEF '#include <config.h>'."\n\n";
 
 print OCDEF '#include "options_types.h"'."\n";
-print OCDEF '#include "utils.h"'."\n";
+print OCDEF '#include "customization_options.h"'."\n";
 print OCDEF '#include "converters_defaults.h"'."\n\n";
 
 open(OHDEF, ">$converter_defaults_header_file")

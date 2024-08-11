@@ -29,6 +29,7 @@
 #include "debug.h"
 /* for delete_global_info and wipe_index */
 #include "utils.h"
+#include "customization_options.h"
 #include "floats.h"
 #include "manipulate_indices.h"
 #include "convert_to_text.h"

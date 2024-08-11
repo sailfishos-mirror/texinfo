@@ -42,6 +42,7 @@
 #include "command_stack.h"
 #include "errors.h"
 #include "utils.h"
+#include "customization_options.h"
 #include "extra.h"
 #include "targets.h"
 #include "debug.h"

@@ -33,6 +33,7 @@
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+#include "customization_options.h"
 #include "utils.h"
 #include "unicode.h"
 /* for PARSED_DEF cdt_tree find_innermost_accent_contents add_heading_number

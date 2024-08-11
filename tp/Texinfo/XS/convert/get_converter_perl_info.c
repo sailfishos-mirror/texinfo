@@ -36,7 +36,7 @@
 #include "converter_types.h"
 #include "builtin_commands.h"
 #include "utils.h"
-#include "builtin_commands.h"
+#include "customization_options.h"
 #include "convert_to_text.h"
 #include "get_perl_info.h"
 #include "converter.h"

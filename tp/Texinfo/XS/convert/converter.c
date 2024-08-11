@@ -45,6 +45,7 @@
 /* for COMMAND_OPTION_DEFAULT ACCENTS_STACK
    fatal xasprintf get_command_option ... */
 #include "utils.h"
+#include "customization_options.h"
 #include "errors.h"
 #include "builtin_commands.h"
 /* also for cmd_text data */

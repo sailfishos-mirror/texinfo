@@ -32,6 +32,7 @@
 #include "errors.h"
 /* parse_file_path */
 #include "utils.h"
+#include "customization_options.h"
 #include "document.h"
 #include "translations.h"
 #include "structuring.h"
@@ -270,7 +271,9 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 
 /* converter creation, similar to the very first part of
    Texinfo::Convert::Converter::converter and generic parts of
-   _generic_converter_init */
+   _generic_converter_init, + some customization options settings
+   that are done in Perl directly in texi2any.pl.
+ */
 CONVERTER *
 txi_converter (enum converter_format format)
 {
@@ -323,11 +326,11 @@ txi_converter_initialize (CONVERTER *converter,
    */
   add_option_string_value (&conf->conf, converter->sorted_options,
                     "COMMAND_LINE_ENCODING", 0, locale_encoding);
-  /* this option is not used, it is filled to mimic texi2any */
   add_option_string_value (&conf->conf, converter->sorted_options,
                     "MESSAGE_ENCODING", 0, locale_encoding);
   add_option_string_value (&conf->conf, converter->sorted_options,
                     "LOCALE_ENCODING", 0, locale_encoding);
+  /* filled here because it is the best we have in C */
   add_option_string_value (&conf->conf, converter->sorted_options,
                     "XS_STRXFRM_COLLATION_LOCALE", 0, "en_US");
   /*

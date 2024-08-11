@@ -39,6 +39,7 @@
 #include "builtin_commands.h"
 #include "debug.h"
 #include "utils.h"
+#include "customization_options.h"
 #include "errors.h"
 #include "targets.h"
 #include "parser_conf.h"

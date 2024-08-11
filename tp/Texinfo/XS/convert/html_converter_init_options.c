@@ -22,8 +22,10 @@
 #include "option_types.h"
 #include "converter_types.h"
 #include "converters_defaults.h"
-/* option_force_conf */
+/* html_get_direction_index html_free_button_specification_list */
 #include "utils.h"
+/* option_force_conf */
+#include "customization_options.h"
 #include "create_buttons.h"
 #include "html_converter_init_options.h"
 

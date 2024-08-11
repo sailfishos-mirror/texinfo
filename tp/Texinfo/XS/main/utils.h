@@ -205,30 +205,11 @@ void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 void wipe_index (INDEX *idx);
 void free_indices_info (INDEX_LIST *indices_info);
 
-/* in options_init_free.c */
-void initialize_options (OPTIONS *options);
-OPTION **setup_sortable_options (OPTIONS *options);
-void clear_options (OPTIONS *options);
-void free_options (OPTIONS *options);
-void copy_options (OPTIONS *destination, const OPTIONS *source);
-void html_fill_options_directions (OPTIONS *options, const CONVERTER *converter);
-
-void copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
-                                OPTIONS_LIST *options_list, int set_configured);
-void initialize_options_list (OPTIONS_LIST *options_list, size_t number);
-void free_options_list (OPTIONS_LIST *options_list);
-void html_fill_button_directions_specification_list (const CONVERTER *converter,
-                                              BUTTON_SPECIFICATION_LIST *buttons);
-
-OPTIONS *new_options (void);
-OPTION **setup_sorted_options (OPTIONS *options);
-OPTION *find_option_string (OPTION **sorted_options, const char *name);
-void set_sorted_option_key_configured (OPTION **sorted_options,
-                                       const char *key, int configured);
-
 void set_output_encoding (OPTIONS *customization_information,
                           DOCUMENT *document);
+/* in options_init_free.c */
 OPTION *get_command_option (OPTIONS *options, enum command_id cmd);
+void html_fill_options_directions (OPTIONS *options, const CONVERTER *converter);
 
 void add_include_directory (const char *filename,
                             STRING_LIST *include_dirs_list);
@@ -271,32 +252,13 @@ const ELEMENT *get_cmd_global_uniq_command (
                                     const GLOBAL_COMMANDS *global_commands_ref,
                                     enum command_id cmd);
 
+void html_fill_button_directions_specification_list (const CONVERTER *converter,
+                                              BUTTON_SPECIFICATION_LIST *buttons);
 void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
 void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 int html_get_direction_index (const CONVERTER *converter,
                               const char *direction);
-
-void initialize_option (OPTION *option, enum global_option_type type,
-                        const char *name);
-OPTION *new_option (enum global_option_type type, const char *name,
-                    size_t number);
-void clear_option (OPTION *option);
-void free_option (OPTION *option);
-void copy_option (OPTION *destination, const OPTION *source);
-int option_set_conf (OPTION *option, int int_value, const char *char_value);
-void option_force_conf (OPTION *option, int int_value, const char *char_value);
-OPTION *add_option_string_value (OPTIONS_LIST *options_list,
-                         OPTION **sorted_options,
-                         const char *option_name, int int_value,
-                         const char *char_value);
-void options_list_add_option (OPTIONS_LIST *options_list, OPTION *option);
-OPTION *add_new_option_value (OPTIONS_LIST *options_list,
-                  enum global_option_type type, const char *name,
-                  int int_value, const char *char_value);
-
-void copy_options_list (OPTIONS_LIST *options_list,
-                   const OPTIONS_LIST *options_src, OPTION **sorted_options);
 
 TARGET_FILENAME *new_target_filename (void);
 TARGET_CONTENTS_FILENAME *new_target_contents_filename (void);

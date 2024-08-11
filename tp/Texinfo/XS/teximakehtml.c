@@ -31,6 +31,7 @@
 #include "converter_types.h"
 /* parse_file_path */
 #include "utils.h"
+#include "customization_options.h"
 /*
 #include "convert_to_texinfo.h"
  */
