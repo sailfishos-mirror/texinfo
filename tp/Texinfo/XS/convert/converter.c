@@ -175,7 +175,7 @@ find_format_data_index (const char *format)
   int i;
 
   for (i = 0; i < TXI_CONVERSION_FORMAT_NR; i++)
-    if (!strcmp (converter_format_data[i].output_format, format))
+    if (!strcmp (converter_format_data[i].default_format, format))
       return i;
 
   return COF_none;
@@ -220,7 +220,7 @@ init_generic_converter (CONVERTER *self)
 
 /* descriptor starts at 1, 0 is not found or an error */
 size_t
-new_converter (void)
+new_converter (enum converter_format format)
 {
   size_t converter_index;
   int slot_found = 0;
@@ -249,6 +249,8 @@ new_converter (void)
     }
   registered_converter = (CONVERTER *) malloc (sizeof (CONVERTER));
   memset (registered_converter, 0, sizeof (CONVERTER));
+
+  registered_converter->format = format;
 
   init_generic_converter (registered_converter);
 

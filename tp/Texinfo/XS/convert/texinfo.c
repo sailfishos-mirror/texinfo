@@ -272,9 +272,9 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
    Texinfo::Convert::Converter::converter and generic parts of
    _generic_converter_init */
 CONVERTER *
-txi_converter (void)
+txi_converter (enum converter_format format)
 {
-  size_t converter_descriptor = new_converter ();
+  size_t converter_descriptor = new_converter (format);
   return retrieve_converter (converter_descriptor);
 }
 
@@ -282,20 +282,31 @@ txi_converter (void)
    _generic_converter_init and $converter->converter_initialize() calls */
 void
 txi_converter_initialize (CONVERTER *converter,
-                          const char *format, const char *locale_encoding,
+                          const char *output_format,
+                          const char *converted_format,
+                          const char *locale_encoding,
                    const char *program_file, OPTIONS_LIST *customizations)
 {
-  enum converter_format converter_format = find_format_data_index (format);
+  enum converter_format converter_format = converter->format;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   CONVERTER_INITIALIZATION_INFO *conf;
+  const char *format;
 
   if (converter_format == COF_none)
     return;
 
+  format = converter_format_data[converter_format].default_format;
+
   /* prepare specific information for the converter */
   format_defaults = new_converter_initialization_info ();
-  format_defaults->converted_format = strdup (format);
-  format_defaults->output_format = strdup (format);
+  if (converted_format)
+    format_defaults->converted_format = strdup (converted_format);
+  else
+    format_defaults->converted_format = strdup (format);
+  if (output_format)
+    format_defaults->output_format = strdup (output_format);
+  else
+    format_defaults->output_format = strdup (format);
 
   conf = new_converter_initialization_info ();
   initialize_options_list (&conf->conf, 10);

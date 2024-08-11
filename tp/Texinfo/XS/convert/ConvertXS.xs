@@ -101,18 +101,28 @@ generic_converter_init (SV *converter_in, const char *class, SV *format_defaults
          CONVERTER *self;
          CONVERTER_INITIALIZATION_INFO *format_defaults;
          CONVERTER_INITIALIZATION_INFO *conf;
-         enum converter_format converter_format;
+         enum converter_format converter_format = COF_none;
+         int i;
       CODE:
-         converter_descriptor = new_converter ();
+         /* determine the converter format, if handled in C */
+         for (i =0; i < TXI_CONVERSION_FORMAT_NR; i++)
+           {
+             if (!strcmp (converter_format_data[i].perl_converter_class, class))
+               {
+                 converter_format = i;
+                 break;
+               }
+           }
+
+         converter_descriptor = new_converter (converter_format);
          self = retrieve_converter (converter_descriptor);
 
          format_defaults = new_converter_initialization_info ();
          conf = new_converter_initialization_info ();
 
-         converter_format
-           = converter_get_info_from_sv (converter_in, class, self,
-                                         format_defaults_sv,
-                                         conf_sv, format_defaults, conf, 0);
+         converter_get_info_from_sv (converter_in, class, self,
+                                    format_defaults_sv,
+                                    conf_sv, format_defaults, conf);
 
          set_converter_init_information (self, converter_format,
                                          format_defaults, conf);

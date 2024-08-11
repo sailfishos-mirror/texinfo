@@ -183,7 +183,7 @@ main (int argc, char *argv[])
   errors_count += errors_nr;
 
   /* create converter and generic converter initializations */
-  converter = txi_converter();
+  converter = txi_converter (COF_html);
 
   initialize_options_list (&convert_options, 2);
   /* customize buttons.  This is a bit silly to use link buttons for
@@ -198,7 +198,7 @@ main (int argc, char *argv[])
                            "TEST", 1, 0);
 
   /* setup converter */
-  txi_converter_initialize (converter, "html", locale_encoding, program_file,
+  txi_converter_initialize (converter, 0, 0, locale_encoding, program_file,
                             &convert_options);
 
   free_options_list (&convert_options);

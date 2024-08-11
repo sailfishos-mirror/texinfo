@@ -194,7 +194,8 @@ new_option_from_sv (SV *option_sv, CONVERTER *converter,
   return option;
 }
 
-/* class is Perl converter class for warning message */
+/* class is Perl converter class for warning message in case the class
+   cannot be found otherwise */
 static int
 get_converter_info_from_sv (SV *conf_sv, const char *class,
                             CONVERTER *converter,
@@ -259,8 +260,15 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
                     }
                   else
                     {
-                      fprintf (stderr, "%s: %s not a possible configuration\n",
-                                       class, key);
+                      const char *class_name;
+                      if (converter->format >= 0)
+                        class_name
+              = converter_format_data[converter->format].perl_converter_class;
+                       else
+                        class_name = class;
+                      fprintf (stderr,
+                               "%s: %s not a possible configuration\n",
+                               class_name, key);
                     }
                 }
               else
@@ -275,37 +283,22 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
   return 0;
 }
 
-/* CLASS is the perl converter class.  It could also be taken from
-   the object */
-enum converter_format
+int
 converter_get_info_from_sv (SV *converter_sv, const char *class,
                             CONVERTER *converter,
                             SV *format_defaults_sv, SV *conf_sv,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
-                            CONVERTER_INITIALIZATION_INFO *conf,
-                            int *status)
+                            CONVERTER_INITIALIZATION_INFO *conf)
 {
   HV *converter_hv;
   int has_format_defaults;
   int has_conf;
-  int i;
-  enum converter_format converter_format = COF_none;
 
   dTHX;
 
   converter_hv = (HV *)SvRV (converter_sv);
 
   converter->hv = converter_hv;
-
-  /* determine the converter format, if handled in C */
-  for (i =0; i < TXI_CONVERSION_FORMAT_NR; i++)
-    {
-      if (!strcmp (converter_format_data[i].perl_converter_class, class))
-        {
-          converter_format = i;
-          break;
-        }
-    }
 
   has_format_defaults
     = get_converter_info_from_sv (format_defaults_sv, class, converter,
@@ -327,9 +320,7 @@ converter_get_info_from_sv (SV *converter_sv, const char *class,
                    has_conf);
     */
 
-  if (status)
-    *status = has_format_defaults + has_conf;
-  return converter_format;
+  return has_format_defaults + has_conf;
 }
 
 void

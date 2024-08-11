@@ -66,11 +66,6 @@
             } \
           break;
 
-enum converter_format {
-   COF_none = -1,
-   COF_html,
-};
-
 #define TXI_CONVERSION_FORMAT_NR (COF_html +1)
 
 typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
@@ -96,7 +91,7 @@ typedef struct PATHS_INFORMATION {
 } PATHS_INFORMATION;
 
 typedef struct CONVERTER_FORMAT_DATA {
-    const char *output_format;
+    const char *default_format;
     const char *perl_converter_class;
     void (* converter_defaults) (CONVERTER *self,
                                CONVERTER_INITIALIZATION_INFO *conf);
@@ -128,7 +123,7 @@ void converter_setup (int texinfo_uninstalled, const char *tp_builddir,
 enum converter_format find_format_data_index (const char *format);
 
 CONVERTER *retrieve_converter (int converter_descriptor);
-size_t new_converter (void);
+size_t new_converter (enum converter_format format);
 void unregister_converter_descriptor (int converter_descriptor);
 
 void set_converter_init_information (CONVERTER *converter,

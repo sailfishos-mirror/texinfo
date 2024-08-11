@@ -32,6 +32,11 @@
 /* for interdependency with convert_to_text.h */
 struct TEXT_OPTIONS;
 
+enum converter_format {
+   COF_none = -1,
+   COF_html,
+};
+
 /* for string information passing to/from perl */
 enum sv_string_type {
    svt_byte,
@@ -748,6 +753,9 @@ typedef struct CONVERTER {
      but we don't want to include the Perl headers everywhere; */
     void *hv;
 
+  /* this is the type of the converter, not of the output.  (Similar to
+     a module name in Perl) */
+    enum converter_format format;
     OPTIONS *conf;
     OPTIONS *init_conf;
     /* an array containing the fields of conf ordered by name */
