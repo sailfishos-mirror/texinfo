@@ -1218,14 +1218,16 @@ html_cancel_pending_formatted_inline_content (CONVERTER *self,
   HTML_INLINE_CONTENT_STACK *stack = &self->pending_inline_content;
   if (stack->top)
     {
-      size_t current_idx = stack->top - 1;
-      while (current_idx >= 0)
+      size_t current_position = stack->top;
+      size_t current_idx;
+      while (current_position > 0)
         {
+          current_idx = current_position - 1;
           if (!strcmp (stack->stack[current_idx].category, category))
             {
               char *inline_content = stack->stack[current_idx].string;
               free (stack->stack[current_idx].category);
-              if (current_idx < stack->top - 1)
+              if (current_position < stack->top)
                 {
                   memmove (&stack->stack[current_idx],
                            &stack->stack[current_idx+1],
@@ -2306,8 +2308,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
         }
     }
 
-  if (self->document->sections_list
-      && self->document->sections_list->number >= 0)
+  if (self->document->sections_list)
     {
       const CONST_ELEMENT_LIST *sections_list = self->document->sections_list;
       int i;
@@ -9571,7 +9572,7 @@ convert_footnote_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  const static char *target_prefix = "t_f";
+  static const char *target_prefix = "t_f";
   char *footnote_mark;
   const char *footnote_id;
   const char *footnote_docid;
@@ -16612,7 +16613,7 @@ special_unit_body_formatting_external (CONVERTER *self,
                                        output_unit, result);
 }
 
-const static enum command_id simpletitle_cmds[] =
+static const enum command_id simpletitle_cmds[] =
  {CM_settitle, CM_shorttitlepage, 0};
 
 void
@@ -16634,7 +16635,7 @@ html_prepare_simpletitle (CONVERTER *self)
     }
 }
 
-const static enum command_id fulltitle_cmds[] =
+static const enum command_id fulltitle_cmds[] =
  {CM_settitle, CM_title, CM_shorttitlepage, CM_top, 0};
 
 

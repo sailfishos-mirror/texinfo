@@ -466,6 +466,19 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                           text_append (text_element->e.text, " of ");
                         }
+             /* should not be possible, still considered for more robust code */
+                      else
+                        {
+                          char *msg;
+                          /* set index_entry to avalue to avoid a compiler warning
+                             on uninitialized value.  Incorrect for the code below, but
+                             we do not care as fatal is called. */
+                          index_entry = 0;
+                          xasprintf (&msg, "BUG: unexpected def command with name"
+                                   "and class: %s", builtin_command_name (def_command));
+                          fatal (msg);
+                          free (msg);
+                        }
                       destroy_named_string_element_list (substrings);
 
                       add_to_element_contents

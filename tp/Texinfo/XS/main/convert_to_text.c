@@ -454,8 +454,8 @@ convert_def_line(const ELEMENT *element, TEXT_OPTIONS *text_options,
       ELEMENT *converted_element = new_element (ET_NONE);
       ELEMENT *text_colon = new_text_element (ET_normal_text);
       ELEMENT *text_eol = new_text_element (ET_normal_text);
-      ELEMENT *type_text_space;
-      ELEMENT *args_text_space;
+      ELEMENT *type_text_space = 0;
+      ELEMENT *args_text_space = 0;
       add_to_contents_as_array (converted_element,
                                 parsed_definition_category);
       text_append (text_colon->e.text, ": ");
@@ -488,11 +488,11 @@ convert_def_line(const ELEMENT *element, TEXT_OPTIONS *text_options,
       destroy_element (text_colon);
       destroy_element_and_children (parsed_definition_category);
       destroy_element (text_eol);
-      if (parsed_def->type)
+      if (type_text_space)
         {
           destroy_element (type_text_space);
         }
-      if (parsed_def->args)
+      if (args_text_space)
         {
           destroy_element (args_text_space);
         }
@@ -865,7 +865,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                || data_cmd == CM_float
                || data_cmd == CM_cartouche)
         {
-          if (element->e.c->args.number >= 0)
+          if (element->e.c->args.number > 0)
             {
               int i;
               TEXT args_line;

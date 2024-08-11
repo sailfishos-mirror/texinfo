@@ -71,6 +71,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
               = get_associated_info_key (new_info, key, k_ref->type);
             k->k.const_element = copy;
           }
+          break;
         case extra_element_oot:
           {
             ELEMENT *f = k_ref->k.element;
@@ -401,8 +402,7 @@ copy_container_contents (const ELEMENT *container)
 {
   ELEMENT *result;
   if (container->e.c->cmd)
-    result = new_command_element (container->e.c->cmd,
-                                  container->type);
+    result = new_command_element (container->type, container->e.c->cmd);
   else
     result = new_element (container->type);
 
@@ -444,10 +444,7 @@ remove_from_source_mark_list (SOURCE_MARK_LIST *list, size_t where)
 {
   SOURCE_MARK *removed;
 
-  if (where < 0)
-    where = list->number + where;
-
-  if (where < 0 || where > list->number)
+  if (where > list->number)
     fatal ("source marks list index out of bounds");
 
   removed = list->list[where];

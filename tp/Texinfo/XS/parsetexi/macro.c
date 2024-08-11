@@ -826,7 +826,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
         {
           if (macro->e.c->cmd == CM_macro)
             macro_call_element = new_element (ET_macro_call);
-          else if (macro->e.c->cmd == CM_rmacro)
+          else /* macro->e.c->cmd == CM_rmacro */
             macro_call_element = new_element (ET_rmacro_call);
           if (p - line > 0)
             {
@@ -850,7 +850,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
 
           if (macro->e.c->cmd == CM_macro)
             macro_call_element = new_element (ET_macro_call);
-          else if (macro->e.c->cmd == CM_rmacro)
+          else /* macro->e.c->cmd == CM_rmacro */
             macro_call_element = new_element (ET_rmacro_call);
         }
       else
@@ -858,7 +858,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
           ELEMENT *arg_elt = new_element (ET_line_arg);
           if (macro->e.c->cmd == CM_macro)
             macro_call_element = new_element (ET_macro_call_line);
-          else if (macro->e.c->cmd == CM_rmacro)
+          else /* macro->e.c->cmd == CM_rmacro */
             macro_call_element = new_element (ET_rmacro_call_line);
           add_to_element_args (macro_call_element, arg_elt);
 

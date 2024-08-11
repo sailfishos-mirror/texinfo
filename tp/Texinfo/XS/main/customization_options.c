@@ -512,7 +512,7 @@ copy_options_list (OPTIONS_LIST *options_list,
 {
   size_t i;
 
-  if (options_src > 0)
+  if (options_src)
     {
       for (i = 0; i < options_src->number; i++)
         add_option_copy (options_list, sorted_options, options_src->list[i]);

@@ -93,7 +93,7 @@ add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 /* Add an extra key that is a reference to elements elsewhere in the tree,
    in general in the contents array of another element (for example,
    'node_content' on a node direction element contents).
-   Similar to extra_contents, but passed to perl as an element with
+   Similar to extra_contents, but passed to Perl as an element with
    contents.
  */
 void

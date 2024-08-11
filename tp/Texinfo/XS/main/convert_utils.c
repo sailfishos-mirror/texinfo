@@ -470,7 +470,8 @@ definition_arguments_content (const ELEMENT *element)
 {
   PARSED_DEF *result = malloc (sizeof (PARSED_DEF));
   memset (result, 0, sizeof (PARSED_DEF));
-  if (element->e.c->args.number >= 0)
+  /* this condition is most probably always true */
+  if (element->e.c->args.number > 0)
     {
       int i;
       const ELEMENT *def_line = element->e.c->args.list[0];
@@ -526,7 +527,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
   ELEMENT *class_copy;
   char *def_command;
 
-  if (current->e.c->args.number >= 0)
+  if (current->e.c->args.number > 0)
     {
       int i;
       const ELEMENT *def_line = current->e.c->args.list[0];
@@ -825,16 +826,16 @@ output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
   if (unclosed_files_nr)
     {
       size_t j;
-      for (j = unclosed_files_nr -1; j >= 0; j--)
+      for (j = unclosed_files_nr; j > 0; j--)
         {
-          FILE_STREAM *file_stream = &self->unclosed_files.list[j];
+          FILE_STREAM *file_stream = &self->unclosed_files.list[j -1];
           if (file_stream->file_path)
             {
               if (!strcmp (file_path, file_stream->file_path))
                 {
                   free (file_stream->file_path);
                   file_stream->file_path = 0;
-                  if (j == unclosed_files_nr -1)
+                  if (j == unclosed_files_nr)
                     {
                       self->unclosed_files.number--;
                     }

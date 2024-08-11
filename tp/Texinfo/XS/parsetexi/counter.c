@@ -140,7 +140,7 @@ counter_reset (COUNTER *c, const char* not_empty_message)
           ELEMENT *e = c->elts[i];
           char *element_string = print_element_debug (e, 0);
            */
-          char *element_string = 0;
+          char *element_string = strdup ("");
           fprintf (stderr, "  %d: %d, %s\n", i, c->values[i],
                                              element_string);
           free (element_string);

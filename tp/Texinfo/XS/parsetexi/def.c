@@ -160,7 +160,7 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
 
 typedef struct {
     enum command_id command;
-    enum command_id *argument_types;
+    enum element_type *argument_types;
 } DEF_MAP;
 
   /*
@@ -171,16 +171,16 @@ typedef struct {
      NAME - name of entity being documented
      ARGUMENTS - arguments to a function or macro                  */
 
-enum command_id defline_types[] = {ET_def_category, ET_def_name, ET_def_arg, 0};
-enum command_id deftypeline_types[] = {ET_def_category, ET_def_type, ET_def_name, ET_def_typearg, 0};
-enum command_id defvr_types[] = {ET_def_category, ET_def_name, 0};
-enum command_id deftypefn_types[] = {ET_def_category, ET_def_type, ET_def_name, ET_def_typearg, 0};
-enum command_id deftypeop_types[] = {ET_def_category, ET_def_class , ET_def_type, ET_def_name, ET_def_typearg, 0};
-enum command_id deftypevr_types[] = {ET_def_category, ET_def_type, ET_def_name, 0};
-enum command_id defcv_types[] = {ET_def_category, ET_def_class , ET_def_name, 0};
-enum command_id deftypecv_types[] = {ET_def_category, ET_def_class , ET_def_type, ET_def_name, 0};
-enum command_id defop_types[] = {ET_def_category, ET_def_class , ET_def_name, ET_def_arg, 0};
-enum command_id deftp_types[] = {ET_def_category, ET_def_name, ET_def_typearg, 0};
+enum element_type defline_types[] = {ET_def_category, ET_def_name, ET_def_arg, 0};
+enum element_type deftypeline_types[] = {ET_def_category, ET_def_type, ET_def_name, ET_def_typearg, 0};
+enum element_type defvr_types[] = {ET_def_category, ET_def_name, 0};
+enum element_type deftypefn_types[] = {ET_def_category, ET_def_type, ET_def_name, ET_def_typearg, 0};
+enum element_type deftypeop_types[] = {ET_def_category, ET_def_class , ET_def_type, ET_def_name, ET_def_typearg, 0};
+enum element_type deftypevr_types[] = {ET_def_category, ET_def_type, ET_def_name, 0};
+enum element_type defcv_types[] = {ET_def_category, ET_def_class , ET_def_name, 0};
+enum element_type deftypecv_types[] = {ET_def_category, ET_def_class , ET_def_type, ET_def_name, 0};
+enum element_type defop_types[] = {ET_def_category, ET_def_class , ET_def_name, ET_def_arg, 0};
+enum element_type deftp_types[] = {ET_def_category, ET_def_name, ET_def_typearg, 0};
 
 DEF_MAP def_maps[] = {
   CM_defline, defline_types,
@@ -211,8 +211,8 @@ split_delimiters (ELEMENT *current, int starting_idx)
       int len;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       uint8_t *u8_text = 0;
-      size_t current_position;
-      uint8_t *u8_p;
+      size_t current_position = 0;
+      uint8_t *u8_p = 0;
       size_t u8_len;
 
       if (e->type == ET_spaces || e->type == ET_bracketed_arg)
@@ -232,8 +232,6 @@ split_delimiters (ELEMENT *current, int starting_idx)
         {
           u8_text = utf8_from_string (p);
           u8_p = u8_text;
-
-          current_position = 0;
         }
 
       while (1)
@@ -300,8 +298,8 @@ split_def_args (ELEMENT *current, int starting_idx)
       int len;
       /* count UTF-8 encoded Unicode characters for source marks locations */
       uint8_t *u8_text = 0;
-      size_t current_position;
-      uint8_t *u8_p;
+      size_t current_position = 0;
+      uint8_t *u8_p = 0;
       size_t u8_len;
 
       if (e->type == ET_bracketed_arg)
@@ -319,8 +317,6 @@ split_def_args (ELEMENT *current, int starting_idx)
         {
           u8_text = utf8_from_string (p);
           u8_p = u8_text;
-
-          current_position = 0;
         }
 
       while (1)
@@ -364,7 +360,7 @@ parse_def (enum command_id command, ELEMENT *current)
   int i, i_def;
   int arg_types_nr;
   ELEMENT *e, *e1;
-  enum command_id *arguments_types_list;
+  enum element_type *arguments_types_list;
   int inserted_category = 0;
 
   split_def_args (current, contents_idx);

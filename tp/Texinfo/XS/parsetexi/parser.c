@@ -2665,7 +2665,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
   ELEMENT *current = current_elt;
   static char *allocated_line;
   const char *line;
-  int status;
+  int status = STILL_MORE_TO_PROCESS;
   DOCUMENT *document = parsed_document;
   enum context top_context;
 
