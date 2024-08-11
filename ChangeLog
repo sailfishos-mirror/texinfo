@@ -1,5 +1,13 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (destroy, reset_converter): use C
+	converter self->format to determine which function to call.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_converter_defaults): ignore
+	the arguments.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (find_format_data_index),
 	tp/Texinfo/XS/convert/converter.h (CONVERTER_FORMAT_DATA),
 	tp/Texinfo/XS/main/converter_types.h (enum converter_format)

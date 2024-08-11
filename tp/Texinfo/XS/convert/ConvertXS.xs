@@ -523,41 +523,28 @@ get_converter_errors (SV *converter_in)
 void
 reset_converter (SV *converter_in)
       PREINIT:
-         CONVERTER *self = 0;
-         HV *stash;
-         const char *name;
+         CONVERTER *self;
       CODE:
-         stash = SvSTASH (SvRV (converter_in));
-         name = HvNAME (stash);
-         if (!strcmp (name, "Texinfo::Convert::HTML"))
+         self = get_sv_converter (converter_in, 0);
+         if (self)
            {
-             self = get_sv_converter (converter_in, "reset html converter");
-             html_reset_converter (self);
+             if (self->format == COF_html)
+               html_reset_converter (self);
            }
 
 void
 destroy (SV *converter_in)
       PREINIT:
-         CONVERTER *self = 0;
-         HV *stash;
-         const char *name;
+         CONVERTER *self;
       CODE:
-         stash = SvSTASH (SvRV (converter_in));
-         name = HvNAME (stash);
-         if (!strcmp (name, "Texinfo::Convert::HTML"))
-           {
-             self = get_sv_converter (converter_in, "destroy html");
-             html_free_converter (self);
-           }
-          /*
-         else if (!strcmp (name, "Texinfo::Convert::Text"))
-           {
-             self = get_sv_converter (converter_in, "destroy text");
-             text_destroy (self);
-           }
-           */
+         self = get_sv_converter (converter_in, 0);
          if (self)
-           unregister_converter_descriptor (self->converter_descriptor);
+           {
+             if (self->format == COF_html)
+               html_free_converter (self);
+
+             unregister_converter_descriptor (self->converter_descriptor);
+           }
 
 SV *
 plain_texinfo_convert_tree (SV *tree_in)
@@ -658,8 +645,10 @@ html_converter_initialize_sv (SV *converter_in, SV *default_formatting_reference
         html_fill_options_directions (self->conf, self);
 
 # do nothing as everything is already set in C
+# $converter, $conf
 SV *
-html_converter_defaults (SV *converter_in, SV *conf_sv)
+html_converter_defaults (...)
+      PROTOTYPE: $$
       PREINIT:
         HV *format_defaults_hv;
       CODE:
