@@ -268,11 +268,22 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-/* converter initialization. Similar to Texinfo::Convert::X::converter */
+/* converter creation, similar to the very first part of
+   Texinfo::Convert::Converter::converter and generic parts of
+   _generic_converter_init */
+CONVERTER *
+txi_converter (void)
+{
+  size_t converter_descriptor = new_converter ();
+  return retrieve_converter (converter_descriptor);
+}
+
+/* converter initialization. Similar to $converter->converter_defaults(),
+   _generic_converter_init and $converter->converter_initialize() calls */
 void
-txi_converter (CONVERTER *converter,
-               const char *format, const char *locale_encoding,
-               const char *program_file, OPTIONS_LIST *customizations)
+txi_converter_initialize (CONVERTER *converter,
+                          const char *format, const char *locale_encoding,
+                   const char *program_file, OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format = find_format_data_index (format);
   CONVERTER_INITIALIZATION_INFO *format_defaults;
@@ -427,7 +438,20 @@ txi_html_output (CONVERTER *converter, DOCUMENT *document)
 
 
 
-/* functions for high level interface hiding some defails of the data */
+/* high level interface hiding some details of the data */
+
+DOCUMENT *
+txi_parse_texi_file (const char *input_file_path, int *status)
+{
+  size_t document_descriptor = parse_file (input_file_path, status);
+  return retrieve_document (document_descriptor);
+}
+
+void
+txi_remove_document (DOCUMENT *document)
+{
+  remove_document_descriptor (document->descriptor);
+}
 
 size_t
 txi_handle_parser_error_messages (DOCUMENT *document, int no_warn,

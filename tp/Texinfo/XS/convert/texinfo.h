@@ -34,13 +34,15 @@ void txi_parser (const char *file_path, const char *locale_encoding,
                 const char **expanded_formats, const VALUE_LIST *values,
                 OPTIONS_LIST *options);
 
+DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
+
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
-void txi_converter (CONVERTER *converter,
-                    const char *format, const char *locale_encoding,
-                    const char *program_file, OPTIONS_LIST *customizations);
-
+CONVERTER *txi_converter (void);
+void txi_converter_initialize (CONVERTER *converter,
+                               const char *format, const char *locale_encoding,
+                       const char *program_file, OPTIONS_LIST *customizations);
 
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);
 
@@ -53,5 +55,7 @@ size_t txi_handle_document_error_messages (DOCUMENT *document, int no_warn,
 size_t txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
                                           int use_filename,
                                           const char *message_encoding);
+
+void txi_remove_document (DOCUMENT *document);
 
 #endif

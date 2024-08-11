@@ -29,15 +29,11 @@
 
 #include "document_types.h"
 #include "converter_types.h"
-#include "errors.h"
 /* parse_file_path */
 #include "utils.h"
 /*
 #include "convert_to_texinfo.h"
  */
-/* retrieve_document remove_document_descriptor */
-#include "document.h"
-#include "converter.h"
 #include "create_buttons.h"
 #include "convert_html.h"
 #include "texinfo.h"
@@ -62,6 +58,7 @@ add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
   options_list_add_option (options_list, option);
 }
 
+/* this function is quite generic, it could be added to utils.c */
 static OPTION *
 add_new_option_strlist_value (OPTIONS_LIST *options_list,
                   enum global_option_type type, const char *name,
@@ -95,9 +92,7 @@ main (int argc, char *argv[])
   int status;
   char *program_file_name_and_directory[2];
   char *program_file;
-  size_t document_descriptor = 0;
   DOCUMENT *document;
-  size_t converter_descriptor;
   CONVERTER *converter;
   char *result;
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
@@ -156,13 +151,12 @@ main (int argc, char *argv[])
   free_options_list (&parser_options);
 
   /* Texinfo document tree parsing */
-  document_descriptor = parse_file (input_file_path, &status);
-  document = retrieve_document (document_descriptor);
+  document = txi_parse_texi_file (input_file_path, &status);
 
   if (status)
     {
       txi_handle_parser_error_messages (document, 0, 1, locale_encoding);
-      remove_document_descriptor (document_descriptor);
+      txi_remove_document (document);
       exit (1);
     }
 
@@ -189,8 +183,7 @@ main (int argc, char *argv[])
   errors_count += errors_nr;
 
   /* create converter and generic converter initializations */
-  converter_descriptor = new_converter ();
-  converter = retrieve_converter (converter_descriptor);
+  converter = txi_converter();
 
   initialize_options_list (&convert_options, 2);
   /* customize buttons.  This is a bit silly to use link buttons for
@@ -205,8 +198,8 @@ main (int argc, char *argv[])
                            "TEST", 1, 0);
 
   /* setup converter */
-  txi_converter (converter, "html", locale_encoding, program_file,
-                             &convert_options);
+  txi_converter_initialize (converter, "html", locale_encoding, program_file,
+                            &convert_options);
 
   free_options_list (&convert_options);
   free (program_file);
@@ -223,7 +216,7 @@ main (int argc, char *argv[])
   /* destroy converter */
   html_free_converter (converter);
   /* destroy document */
-  remove_document_descriptor (document_descriptor);
+  txi_remove_document (document);
 
   if (errors_count > 0)
     exit (1);
