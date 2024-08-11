@@ -19794,21 +19794,10 @@ html_free_converter (CONVERTER *self)
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
 
+  free_generic_converter (self);
+
   /* useful only if html_reset_converter was not called previously */
   reset_translated_special_unit_info_tree (self);
-
-  if (self->error_messages.number)
-    {
-      fprintf (stderr, "BUG: %zu ignored messages in HTML conversion\n",
-                       self->error_messages.number);
-      for (i = 0; i < self->error_messages.number; i++)
-        {
-          const ERROR_MESSAGE *error_message = &self->error_messages.list[i];
-          fprintf (stderr, " %d: %s", i, error_message->error_line);
-        }
-    }
-
-  free_generic_converter (self);
 
   free_special_unit_info_list (&self->customized_special_unit_info);
 

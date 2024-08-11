@@ -1593,6 +1593,25 @@ destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
 void
 free_generic_converter (CONVERTER *self)
 {
+  size_t i;
+
+  if (self->error_messages.number)
+    {
+      const char *converter_name;
+      if (self->format >= 0)
+        converter_name = converter_format_data[self->format].default_format;
+      else
+        converter_name = "generic";
+
+      fprintf (stderr, "BUG: %zu ignored messages in %s converter\n",
+                       self->error_messages.number, converter_name);
+      for (i = 0; i < self->error_messages.number; i++)
+        {
+          const ERROR_MESSAGE *error_message = &self->error_messages.list[i];
+          fprintf (stderr, " %zu: %s", i, error_message->error_line);
+        }
+    }
+
   if (self->translated_commands)
     {
       destroy_translated_commands (self->translated_commands);
