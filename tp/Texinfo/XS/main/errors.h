@@ -2,6 +2,7 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
+#include <stddef.h>
 #include <stdarg.h>
 
 #include "tree_types.h"
@@ -52,4 +53,7 @@ void vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                             const OPTIONS *conf,
                             const ELEMENT *e, const char *format, va_list v);
 
+size_t handle_error_messages (ERROR_MESSAGE_LIST *error_messages,
+                              int no_warn, int use_filename,
+                              const char *message_encoding);
 #endif

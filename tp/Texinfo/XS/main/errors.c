@@ -52,7 +52,11 @@ reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages)
   return error_message;
 }
 
-/* only directly used for messages passed from perl */
+/* only directly used for messages passed from Perl */
+/* Format and register a message.  The file information present in
+   CMD_SOURCE_INFO is not included in the message, because the file name
+   should be in the input encoding while the message is in UTF-8, encoding
+   the message and adding the file information is left for later */
 void
 message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                            enum error_type type, int continuation,
@@ -91,14 +95,21 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                        pgettext ("Texinfo source file error in macro",
                                  "%s (possibly involving @%s)"),
                        error_message->message, error_message->source_info.macro);
+          if (!continuation)
+            error_messages->error_nrs++;
         }
 #else
       if (type == MSG_warning)
         text_printf (&error_line, "warning: %s (possibly involving @%s)",
                      error_message->message, error_message->source_info.macro);
       else
-        text_printf (&error_line, "%s (possibly involving @%s)",
-                     error_message->message, error_message->source_info.macro);
+        {
+          text_printf (&error_line, "%s (possibly involving @%s)",
+                    error_message->message, error_message->source_info.macro);
+
+          if (!continuation)
+            error_messages->error_nrs++;
+        }
 #endif
     }
   else
@@ -115,7 +126,12 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
 #endif
         }
       else
-        text_printf (&error_line, "%s", error_message->message);
+        {
+          text_printf (&error_line, "%s", error_message->message);
+
+          if (!continuation)
+            error_messages->error_nrs++;
+        }
     }
   text_append (&error_line, "\n");
 
@@ -153,6 +169,7 @@ vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
   free (message);
 }
 
+/* Format and register a message. */
 void
 message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                                          const OPTIONS *conf,
@@ -189,6 +206,9 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
         {
           text_printf (&error_line, "%s: %s",
                        conf->PROGRAM.o.string, error_message->message);
+
+          if (!continuation)
+            error_messages->error_nrs++;
         }
     }
   else
@@ -208,6 +228,9 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
       else
         {
           text_append (&error_line, error_message->message);
+
+          if (!continuation)
+            error_messages->error_nrs++;
         }
     }
   text_append (&error_line, "\n");
@@ -338,6 +361,51 @@ message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
                                         format, v);
 }
 
+/* setup error message by adding file information and converting the
+   error line to message encoding */
+/* if USE_FILENAME is set, remove file information directories */
+static void
+error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
+                    ENCODING_CONVERSION *conversion, TEXT *text)
+{
+  if (error_msg->source_info.file_name)
+    {
+      if (use_filename)
+        {
+          char *file_name_and_directory[2];
+          parse_file_path (error_msg->source_info.file_name,
+                           file_name_and_directory);
+
+          text_append (text, file_name_and_directory[0]);
+
+          free (file_name_and_directory[0]);
+          free (file_name_and_directory[1]);
+        }
+      else
+        text_append (text, error_msg->source_info.file_name);
+
+      text_append_n (text, ":", 1);
+    }
+  if (error_msg->source_info.line_nr > 0)
+    {
+      text_printf (text, "%d:", error_msg->source_info.line_nr);
+    }
+
+  if (text->end > 0)
+    text_append_n (text, " ", 1);
+
+  if (conversion)
+    {
+      char *encoded = encode_with_iconv (conversion->iconv,
+                                         error_msg->error_line,
+                                         &error_msg->source_info);
+      text_append (text, encoded);
+      free (encoded);
+    }
+  else
+    text_append (text, error_msg->error_line);
+}
+
 static void
 wipe_error_messages (ERROR_MESSAGE_LIST *error_messages)
 {
@@ -363,3 +431,40 @@ clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
   wipe_error_messages (error_messages);
   error_messages->number = 0;
 }
+
+/* add file information to message and print out.  Similar to texi2any.pl
+   handle_errors.  Used from C only */
+size_t
+handle_error_messages (ERROR_MESSAGE_LIST *error_messages,
+                       int no_warn, int use_filename,
+                       const char *message_encoding)
+{
+  TEXT text;
+  ENCODING_CONVERSION *conversion = 0;
+  size_t i;
+  size_t error_nrs = error_messages->error_nrs;
+
+  if (message_encoding)
+    conversion = get_encoding_conversion (message_encoding,
+                                          &output_conversions);
+
+  text_init (&text);
+
+  for (i = 0; i < error_messages->number; i++)
+    {
+      const ERROR_MESSAGE *error_msg = &error_messages->list[i];
+      if (error_msg->type == MSG_warning && no_warn)
+        continue;
+
+      text_reset (&text);
+      error_message_text (error_msg, use_filename, conversion, &text);
+      fprintf (stderr, "%s", text.text);
+    }
+
+  free (text.text);
+
+  clear_error_message_list (error_messages);
+
+  return error_nrs;
+}
+

@@ -1227,6 +1227,7 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
   if (errors_warnings_sv && SvOK (*errors_warnings_sv))
     {
       int error_nrs = 0;
+      /* initialize number of errors from the existing errors in Perl */
       if (error_nrs_sv && SvOK (*error_nrs_sv))
         {
           error_nrs = SvIV (*error_nrs_sv);
@@ -1244,6 +1245,7 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
         }
       else
         {
+          /* add errors from error_messages */
           AV *av = (AV *)SvRV (*errors_warnings_sv);
 
           for (i = 0; i < error_messages->number; i++)
@@ -1251,10 +1253,10 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
               const ERROR_MESSAGE error_msg = error_messages->list[i];
               SV *sv = convert_error (error_msg);
 
-              if (error_msg.type == MSG_error && !error_msg.continuation)
-                error_nrs++;
               av_push (av, sv);
             }
+
+          error_nrs += error_messages->error_nrs;
 
           if (error_nrs)
             {

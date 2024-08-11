@@ -1,5 +1,18 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (add_formatted_error_messages),
+	tp/Texinfo/XS/main/document_types.h (ERROR_MESSAGE_LIST),
+	tp/Texinfo/XS/main/errors.c (message_list_line_formatted_message)
+	(message_list_document_formatted_message): add error_nrs field in
+	ERROR_MESSAGE_LIST and set it.  Use it in
+	add_formatted_error_messages.
+
+	* tp/Texinfo/XS/main/errors.c (error_message_text)
+	(handle_error_messages): add handle_error_messages that adds file
+	information to error messages and output them.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_parser_registrar.t: use is instead of ok when relevant.
 
 2024-08-10  Patrice Dumas  <pertusus@free.fr>

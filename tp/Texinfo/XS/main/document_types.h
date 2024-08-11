@@ -65,6 +65,8 @@ typedef struct ERROR_MESSAGE_LIST {
     ERROR_MESSAGE *list;
     size_t number;
     size_t space;
+    /* number of messages of type error that are not continuations */
+    size_t error_nrs;
 } ERROR_MESSAGE_LIST;
 
 typedef struct KEY_STRING_PAIR {
