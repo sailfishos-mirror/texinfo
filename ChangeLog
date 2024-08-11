@@ -1,5 +1,13 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item): rename
+	begin as begin_idx, end as end_pos and term_begin as term_begin_idx.
+	Set directly begin_idx, end_pos and term_begin_idx to the value that
+	is to be use if the command corresponding to the variable is not
+	found.  Use size_t instead of int.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/manipulate_tree.c (copy_associated_info)
 	(copy_tree_internal, remove_associated_copy_info, parse_node_manual)
 	(modify_tree, normalized_menu_entry_internal_node, first_menu_node),

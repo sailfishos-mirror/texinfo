@@ -62,8 +62,10 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
 {
   ELEMENT *table_after_terms, *e;
   enum element_type type;
-  int i, contents_count;
-  int begin = -1, end = -1, term_begin = -1;
+  size_t i, contents_count;
+  size_t position;
+  size_t begin_idx = 0;
+  size_t end_pos, term_begin_idx;
 
   if (last_contents_child (current)
       && last_contents_child (current)->type == ET_before_item)
@@ -79,51 +81,49 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   /* Starting from the end, collect everything that is not a ET_item
      or ET_itemx and put it into the ET_table_definition/ET_inter_item. */
   contents_count = current->e.c->contents.number;
-  for (i = contents_count - 1; i >= 0; i--)
+  for (position = contents_count; position > 0; position--)
     {
-      e = contents_child_by_index (current, i);
+      e = contents_child_by_index (current, position -1);
       /* e can be a text element with spaces, mainly empty_line */
       if (e->type == ET_line_command
           && (e->e.c->cmd == CM_item || e->e.c->cmd == CM_itemx))
         {
-          begin = i + 1;
+          begin_idx = position;
           break;
         }
     }
-  if (begin == -1)
-    begin = 0;
+
+  end_pos = contents_count;
 
   /* Find the 'end' */
   if (next_command)
     {
       /* Don't absorb trailing index entries as they may be included with a
          following @item. */
-      for (i = contents_count - 1; i >= begin; i--)
+      for (position = contents_count; position > begin_idx; position--)
         {
-          e = contents_child_by_index (current, i);
+          e = contents_child_by_index (current, position -1);
           if (e->type != ET_index_entry_command)
             {
-              end = i + 1;
+              end_pos = position;
               break;
             }
         }
     }
-  if (end == -1)
-    end = contents_count;
 
   table_after_terms = new_element (type);
 
   /* Move everything from 'begin' to 'end' to be children of
      table_after_terms. */
-  insert_slice_into_contents (table_after_terms, 0, current, begin, end);
+  insert_slice_into_contents (table_after_terms, 0, current, begin_idx, end_pos);
   for (i = 0; i < table_after_terms->e.c->contents.number; i++)
     contents_child_by_index (table_after_terms, i)->parent = table_after_terms;
-  remove_slice_from_contents (current, begin, end);
+  remove_slice_from_contents (current, begin_idx, end_pos);
 
   if (type == ET_table_definition)
     {
       ELEMENT *before_item = 0;
-      int before_item_content_nr = 0;
+      size_t before_item_content_nr = 0;
       ELEMENT *table_entry = new_element (ET_table_entry);
       ELEMENT *table_term = new_element (ET_table_term);
       add_to_element_contents (table_entry, table_term);
@@ -132,14 +132,16 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
          do the same for ET_table_term, starting from the beginning of the
          table_definition going back to the previous table entry or beginning
          of the table. */
+
+      term_begin_idx = 0;
       /* Most of the content is already in a table_entry.  There is always
          an @item/@itemx line command gathered, and also possibly index_entries
          left after the table_entry (see just above), and, in case of @itemx
          the inter_item element, if there is one.  Nothing else should
          end up in the table_term */
-       for (i = begin - 1; i >= 0; i--)
+       for (position = begin_idx; position > 0; position--)
          {
-           e = contents_child_by_index (current, i);
+           e = contents_child_by_index (current, position -1);
            if (e->type == ET_before_item
                || e->type == ET_table_entry)
              {
@@ -150,18 +152,16 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
                    before_item = e;
                    before_item_content_nr = before_item->e.c->contents.number;
                  }
-               term_begin = i + 1;
+               term_begin_idx = position;
                break;
              }
          }
-      if (term_begin == -1)
-        term_begin = 0;
 
       insert_slice_into_contents (table_term, 0, current,
-                                  term_begin, begin);
+                                  term_begin_idx, begin_idx);
       for (i = 0; i < table_term->e.c->contents.number; i++)
         contents_child_by_index (table_term, i)->parent = table_term;
-      remove_slice_from_contents (current, term_begin, begin);
+      remove_slice_from_contents (current, term_begin_idx, begin_idx);
       if (before_item && before_item_content_nr > 0)
         {
           debug ("REPARENT before_item content");
@@ -189,7 +189,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       else
         destroy_element (table_after_terms);
 
-      insert_into_contents (current, table_entry, term_begin);
+      insert_into_contents (current, table_entry, term_begin_idx);
     }
   else /* Gathering ET_inter_item between @item and @itemx */
     {
@@ -199,7 +199,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
         line_error ("@itemx must follow @item");
 
       if (table_after_terms->e.c->contents.number > 0)
-        insert_into_contents (current, table_after_terms, begin);
+        insert_into_contents (current, table_after_terms, begin_idx);
       else
         destroy_element (table_after_terms);
     }
