@@ -1,5 +1,38 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/parser_conf.h (PARSER_CONF): use size_t for the
+	descriptor field.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (build_perl_*)
+	(element_to_perl_hash, build_additional_info, store_source_mark_list)
+	(build_tree_to_build, build_string_list, build_elements_list)
+	(build_errors, add_formatted_error_messages)
+	(build_target_elements_list, build_identifiers_target)
+	(build_internal_xref_list, build_float_types_list)
+	(build_single_index_data, build_global_info, build_global_commands)
+	(output_unit_to_perl_hash, build_filenames, build_file_counters)
+	(build_out_filepaths, build_output_files_unclosed_files)
+	(build_output_files_opened_files),
+	tp/Texinfo/XS/main/convert_to_texinfo.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal), tp/Texinfo/XS/main/convert_to_text.c
+	(convert_to_text_internal), tp/Texinfo/XS/main/convert_utils.c
+	(find_innermost_accent_contents, definition_arguments_content)
+	(definition_category_tree), tp/Texinfo/XS/main/debug.c,
+	tp/Texinfo/XS/main/errors.c (wipe_error_messages),
+	tp/Texinfo/XS/main/extra.c (get_associated_info_key)
+	(lookup_associated_info, lookup_associated_info_by_index),
+	tp/Texinfo/XS/main/get_perl_info.c (apply_sv_parser_conf)
+	(find_index_entry_sv), tp/Texinfo/XS/main/node_name_normalization.c
+	(convert_to_normalized_internal), tp/Texinfo/XS/main/parser_conf.c
+	(retrieve_parser_conf): use size_t instead of int where the variable
+	could reach a value outside of the int range and also when the index
+	is better represented by a size_t.
+	
+	* tp/Texinfo/XS/main/get_perl_info.c (add_svav_to_string_list): use
+	SSize_t instead of size_t for consistency.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item): rename
 	begin as begin_idx, end as end_pos and term_begin as term_begin_idx.
 	Set directly begin_idx, end_pos and term_begin_idx to the value that
@@ -19,7 +52,7 @@
 	tp/Texinfo/XS/structuring_transfo/structuring.c
 	(insert_menu_comment_content, new_complete_node_menu): replace int by
 	size_t in situations where the variable could reach a value outside of
-	the int range and also when the index is better reprensented by a
+	the int range and also when the index is better represented by a
 	size_t.
 
 2024-08-11  Patrice Dumas  <pertusus@free.fr>

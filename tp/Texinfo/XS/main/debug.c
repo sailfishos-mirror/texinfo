@@ -123,7 +123,7 @@ char *
 print_associate_info_debug (const ASSOCIATED_INFO *info)
 {
   TEXT text;
-  int i;
+  size_t i;
 
   text_init (&text);
   text_append (&text, "");
@@ -161,7 +161,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
           }
         case extra_misc_args:
           {
-            int j;
+            size_t j;
             const STRING_LIST *l = k->k.strings_list;
             text_append (&text, "array: ");
             for (j = 0; j < l->number; j++)
@@ -179,7 +179,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
            }
         case extra_contents:
           {
-            int j;
+            size_t j;
             const CONST_ELEMENT_LIST *l = k->k.const_list;
             text_append (&text, "contents: ");
             for (j = 0; j < l->number; j++)
@@ -193,7 +193,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
           }
         case extra_directions:
           {
-            int d;
+            size_t d;
             const ELEMENT * const *l = k->k.directions;
             text_append (&text, "directions: ");
             for (d = 0; d < directions_length; d++)
@@ -211,7 +211,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
           }
         case extra_container:
           {
-            int j;
+            size_t j;
             const ELEMENT *f = k->k.element;
             text_append (&text, "contents: ");
             for (j = 0; j < f->e.c->contents.number; j++)

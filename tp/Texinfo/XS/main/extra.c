@@ -30,7 +30,7 @@ KEY_PAIR *
 get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
                          const enum extra_type type)
 {
-  int i;
+  size_t i;
   for (i = 0; i < a->info_number; i++)
     {
       if (a->info[i].key == key)
@@ -201,7 +201,7 @@ add_extra_integer (ELEMENT *e, enum ai_key_name key, int value)
 KEY_PAIR *
 lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
 {
-  int i;
+  size_t i;
   for (i = 0; i < a->info_number; i++)
     {
       /* We could reuse extra_deleted slots by keeping the extra_deleted
@@ -398,12 +398,9 @@ lookup_extra_index_entry (const ELEMENT *e, enum ai_key_name key)
    for now */
 KEY_PAIR *
 lookup_associated_info_by_index (const ASSOCIATED_INFO *a,
-                                 enum ai_key_name key, int index)
+                                 enum ai_key_name key, size_t index)
 {
-  if (index < 0)
-    index = a->info_number + index;
-
-  if (index < 0 || index >= a->info_number)
+  if (index >= a->info_number)
     return 0;
 
   if (a->info[index].key == key)

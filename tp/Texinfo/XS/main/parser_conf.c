@@ -45,7 +45,7 @@ static size_t parser_conf_space;
 
 
 PARSER_CONF *
-retrieve_parser_conf (int parser_conf_descriptor)
+retrieve_parser_conf (size_t parser_conf_descriptor)
 {
   if (parser_conf_descriptor <= parser_conf_number
       && parser_conf_list[parser_conf_descriptor -1] != 0)

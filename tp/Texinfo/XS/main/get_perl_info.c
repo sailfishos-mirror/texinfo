@@ -246,7 +246,7 @@ apply_sv_parser_conf (SV *parser_sv)
   parser_conf_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
   if (parser_conf_descriptor_sv && SvOK (*parser_conf_descriptor_sv))
     {
-      int parser_conf_descriptor = SvIV (*parser_conf_descriptor_sv);
+      size_t parser_conf_descriptor = (size_t) SvIV (*parser_conf_descriptor_sv);
 
       if (parser_conf_descriptor == global_parser_conf.descriptor)
         {
@@ -280,7 +280,7 @@ void
 add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
                          enum sv_string_type type)
 {
-  size_t i;
+  SSize_t i;
   SSize_t strings_nr;
 
   dTHX;
@@ -536,7 +536,7 @@ find_index_entry_sv (const SV *index_entry_sv, INDEX_LIST *indices_info,
   HV *index_entry_hv;
   SV **index_name_sv;
   SV **entry_number_sv;
-  int entry_idx_in_index;
+  size_t entry_idx_in_index;
   const char *entry_index_name = 0;
   const INDEX *idx;
 
@@ -558,7 +558,7 @@ find_index_entry_sv (const SV *index_entry_sv, INDEX_LIST *indices_info,
       fatal (msg);
     }
   entry_index_name = (const char *) SvPVutf8_nolen (*index_name_sv);
-  *entry_number = SvIV (*entry_number_sv);
+  *entry_number = (size_t) SvIV (*entry_number_sv);
   entry_idx_in_index = *entry_number - 1;
 
   idx = indices_info_index_by_name (indices_info, entry_index_name);

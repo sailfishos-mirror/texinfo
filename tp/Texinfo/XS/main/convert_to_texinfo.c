@@ -84,7 +84,8 @@ expand_cmd_args_to_texi (const ELEMENT *e, TEXT *result)
     }
   else if (e->e.c->args.number > 0)
     {
-      int braces, arg_nr, i;
+      size_t i, arg_nr;
+      int braces;
       int with_commas = 0;
 
       braces = (e->e.c->args.list[0]->type == ET_brace_container
@@ -175,7 +176,7 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
         }
       if (e->e.c->contents.number > 0)
         {
-          int i;
+          size_t i;
           for (i = 0; i < e->e.c->contents.number; i++)
             convert_to_texinfo_internal (e->e.c->contents.list[i], result);
         }

@@ -409,7 +409,7 @@ error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
 static void
 wipe_error_messages (ERROR_MESSAGE_LIST *error_messages)
 {
-  int j;
+  size_t j;
   for (j = 0; j < error_messages->number; j++)
     {
       free (error_messages->list[j].message);

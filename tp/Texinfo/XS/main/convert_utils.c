@@ -129,7 +129,7 @@ find_innermost_accent_contents (const ELEMENT *element)
   while (1)
     {
       const ELEMENT *arg;
-      int i;
+      size_t i;
       enum command_id data_cmd;
       unsigned long flags;
 
@@ -473,7 +473,7 @@ definition_arguments_content (const ELEMENT *element)
   /* this condition is most probably always true */
   if (element->e.c->args.number > 0)
     {
-      int i;
+      size_t i;
       const ELEMENT *def_line = element->e.c->args.list[0];
       if (def_line->e.c->contents.number > 0)
         {
@@ -529,7 +529,7 @@ definition_category_tree (OPTIONS * options, const ELEMENT *current)
 
   if (current->e.c->args.number > 0)
     {
-      int i;
+      size_t i;
       const ELEMENT *def_line = current->e.c->args.list[0];
       for (i = 0; i < def_line->e.c->contents.number; i++)
         {

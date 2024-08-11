@@ -117,19 +117,21 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
         }
       else if (builtin_command_data[e->e.c->cmd].flags & CF_ref)
         {
-          int index = 0;
+          int order_index = 0;
           int *arguments_order = ref_5_args_order;
           if (e->e.c->cmd == CM_inforef || e->e.c->cmd == CM_link)
             arguments_order = ref_3_args_order;
-          while (arguments_order[index] >= 0)
+          while (arguments_order[order_index] >= 0)
             {
-              if (e->e.c->args.number > arguments_order[index])
+              /* no risk with that casting as idx < 5 */
+              size_t idx = (size_t) arguments_order[order_index];
+              if (e->e.c->args.number > idx)
                 {
                   TEXT arg_text;
 
                   text_init (&arg_text);
                   convert_to_normalized_internal (
-                    e->e.c->args.list[arguments_order[index]], &arg_text);
+                    e->e.c->args.list[idx], &arg_text);
                   if (arg_text.end > 0)
                     {
                       char *non_space_char = arg_text.text
@@ -142,7 +144,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                         }
                     }
                 }
-              index++;
+              order_index++;
             }
         }
       else if (e->e.c->args.number > 0
@@ -156,7 +158,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
     }
   if (e->e.c->contents.number > 0)
     {
-      int i;
+      size_t i;
       for (i = 0; i < e->e.c->contents.number; i++)
         convert_to_normalized_internal (e->e.c->contents.list[i], result);
     }

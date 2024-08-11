@@ -813,7 +813,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       else if ((builtin_command_data[data_cmd].flags & CF_brace)
                && builtin_command_data[data_cmd].data == BRACE_inline)
         {
-          int arg_index = 1;
+          size_t arg_index = 1;
           if (data_cmd == CM_inlineraw)
             text_options->raw_state++;
 
@@ -867,7 +867,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         {
           if (element->e.c->args.number > 0)
             {
-              int i;
+              size_t i;
               TEXT args_line;
               text_init (&args_line);
               for (i = 0; i < element->e.c->args.number; i++)
@@ -1048,7 +1048,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
   if (element->e.c->contents.number)
     {
-      int i;
+      size_t i;
       int in_code = 0;
       int in_raw = 0;
       if ((data_cmd

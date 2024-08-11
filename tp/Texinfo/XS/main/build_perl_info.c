@@ -13,6 +13,14 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+/* TODO there are many places where there is a theoretical possibility of overflow
+   if the size of a Perl array is not enough to accomodate the number of Texinfo
+   objects stored.  This is possible if max of SSize_t < max of size_t.  This is
+   only theoretical, though as these are big numbers, and according to internet
+   memory could be exhausted before reaching SSize_t.  It sould be checked
+   if the max of SSize_t was available, but it does not seems to be in Perl
+   documentation. */
+
 #include <config.h>
 #include <stdlib.h>
 #include <string.h>
@@ -182,7 +190,7 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
 {
   SV *sv;
   AV *av;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -215,7 +223,8 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
               element_to_perl_hash (e_l->list[i], avoid_recursion);
             }
         }
-      av_store (av, i, newRV_inc ((SV *) e_l->list[i]->hv));
+      /* NOTE theoretical overflow if max(SSize_t) < i */
+      av_store (av, (SSize_t) i, newRV_inc ((SV *) e_l->list[i]->hv));
     }
   return sv;
 }
@@ -225,7 +234,7 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
 {
   SV *sv;
   AV *av;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -259,7 +268,8 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
               element_to_perl_hash (f, avoid_recursion);
             }
         }
-      av_store (av, i, newRV_inc ((SV *) e_l->list[i]->hv));
+      /* NOTE theoretical overflow if max(SSize_t) < i */
+      av_store (av, (SSize_t) i, newRV_inc ((SV *) e_l->list[i]->hv));
     }
   return sv;
 }
@@ -287,7 +297,7 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
 {
   SV *sv;
   HV *hv;
-  int d;
+  size_t d;
 
   dTHX;
 
@@ -353,7 +363,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
 
   if (a->info_number > 0)
     {
-      int i;
+      size_t i;
 
       for (i = 0; i < a->info_number; i++)
         {
@@ -456,7 +466,7 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
               av_unshift (av, l->number);
 
               STORE(newRV_inc ((SV *)av));
-              /* An array of strings or integers. */
+              /* An small array of strings. */
               for (j = 0; j < l->number; j++)
                 {
                   SV *sv = newSVpv_utf8 (l->list[j],
@@ -522,7 +532,7 @@ store_source_mark_list (const ELEMENT *e)
     {
       AV *av;
       SV *sv;
-      int i;
+      size_t i;
 
       if (e->source_mark_list->number == 0)
         {
@@ -603,6 +613,7 @@ store_source_mark_list (const ELEMENT *e)
                 break;
             }
 
+          /* NOTE theoretical overflow if max(SSize_t) < i */
           av_push (av, newRV_noinc ((SV *)source_mark));
 #undef STORE
         }
@@ -929,7 +940,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   if (e->e.c->contents.number > 0)
     {
       AV *av;
-      int i;
+      size_t i;
 
       av = newAV ();
       sv = newRV_noinc ((SV *) av);
@@ -946,6 +957,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
          released when the element is destroyed, by calling
          unregister_perl_tree_element */
           sv = newRV_inc ((SV *) child->hv);
+         /* NOTE theoretical overflow if max(SSize_t) < i */
           av_store (av, i, sv);
         }
     }
@@ -953,7 +965,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   if (e->e.c->args.number > 0)
     {
       AV *av;
-      int i;
+      size_t i;
 
       av = newAV ();
       sv = newRV_noinc ((SV *) av);
@@ -966,6 +978,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           if (!child->hv || !avoid_recursion)
             element_to_perl_hash (child, avoid_recursion);
           sv = newRV_inc ((SV *) child->hv);
+          /* NOTE theoretical overflow if max(SSize_t) < i */
           av_store (av, i, sv);
         }
     }
@@ -1037,7 +1050,7 @@ build_tree_to_build (ELEMENT_LIST *tree_to_build)
 {
   if (tree_to_build->number > 0)
     {
-      int i;
+      size_t i;
       for (i = 0; i < tree_to_build->number; i++)
         {
           build_texinfo_tree (tree_to_build->list[i], 1);
@@ -1054,7 +1067,7 @@ AV *
 build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
 {
   AV *av;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1063,6 +1076,7 @@ build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
   for (i = 0; i < strings_list->number; i++)
     {
       const char *value = strings_list->list[i];
+      /* NOTE theoretical overflow if max(SSize_t) < i */
       if (!value)
         av_push (av, newSV (0));
       else if (type == svt_char)
@@ -1078,7 +1092,7 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
 {
   AV *list_av;
   SV *sv;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1089,6 +1103,7 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
   for (i = 0; i < list->number; i++)
     {
       sv = newRV_inc (list->list[i]->hv);
+      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (list_av, i, sv);
     }
 
@@ -1100,7 +1115,7 @@ AV *
 build_integer_stack (const INTEGER_STACK *integer_stack)
 {
   AV *av;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1181,7 +1196,7 @@ AV *
 build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
 {
   AV *av;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1190,6 +1205,7 @@ build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
   for (i = 0; i < error_number; i++)
     {
       SV *sv = convert_error (error_list[i]);
+      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_push (av, sv);
     }
 
@@ -1213,7 +1229,7 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
 {
   SV **errors_warnings_sv;
   SV **error_nrs_sv;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1255,6 +1271,7 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
               const ERROR_MESSAGE error_msg = error_messages->list[i];
               SV *sv = convert_error (error_msg);
 
+              /* NOTE theoretical overflow if max(SSize_t) < i */
               av_push (av, sv);
             }
 
@@ -1356,7 +1373,7 @@ build_target_elements_list (const LABEL_LIST *labels_list)
 {
   AV *target_array;
   SV *sv;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1366,6 +1383,7 @@ build_target_elements_list (const LABEL_LIST *labels_list)
   for (i = 0; i < labels_list->number; i++)
     {
       sv = newRV_inc (labels_list->list[i].element->hv);
+      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (target_array, i, sv);
     }
 
@@ -1383,7 +1401,7 @@ build_identifiers_target (const LABEL_LIST *identifiers_target)
 
   if (identifiers_target->number > 0)
     {
-      int i;
+      size_t i;
       for (i = 0; i < identifiers_target->number; i++)
         {
           SV *sv = newRV_inc (identifiers_target->list[i].element->hv);
@@ -1400,7 +1418,7 @@ build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
 {
   AV *list_av;
   SV *sv;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1410,6 +1428,7 @@ build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
   for (i = 0; i < internal_xref_list->number; i++)
     {
       sv = newRV_inc (internal_xref_list->list[i]->hv);
+      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (list_av, i, sv);
     }
 
@@ -1422,7 +1441,7 @@ build_float_types_list (const FLOAT_RECORD_LIST *floats)
 {
   HV *float_hash;
   SV *sv;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1454,6 +1473,7 @@ build_float_types_list (const FLOAT_RECORD_LIST *floats)
                         newRV_noinc ((SV *)av), 0);
         }
       sv = newRV_inc ((SV *)floats->list[i].element->hv);
+      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_push (av, sv);
     }
 
@@ -1469,8 +1489,8 @@ build_single_index_data (const INDEX *index)
 
   HV *hv;
   AV *entries;
-  int j;
-  int entry_number;
+  size_t j;
+  size_t entry_number;
 
   dTHX;
 
@@ -1507,8 +1527,10 @@ build_single_index_data (const INDEX *index)
           if (e->entry_associated_element)
             STORE2("entry_associated_element",
                    newRV_inc ((SV *)e->entry_associated_element->hv));
-          STORE2("entry_number", newSViv (entry_number));
+          /* FIXME if there is some overflow here there is gonna be trouble */
+          STORE2("entry_number", newSViv ((IV) entry_number));
 
+          /* NOTE theoretical overflow if max(SSize_t) < j */
           av_store (entries, j, newRV_noinc ((SV *)entry));
 
           entry_number++;
@@ -1552,7 +1574,7 @@ build_global_info (const GLOBAL_INFO *global_info_ref,
   const GLOBAL_INFO global_info = *global_info_ref;
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
   const ELEMENT *document_language;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -1618,7 +1640,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
 {
   HV *hv;
   AV *av;
-  int i;
+  size_t i;
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
 
   dTHX;
@@ -1649,6 +1671,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.dircategory_direntry.number; i++)
         {
           const ELEMENT *e = global_commands.dircategory_direntry.list[i];
+          /* NOTE theoretical overflow if max(SSize_t) < i */
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
@@ -1664,6 +1687,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.footnotes.number; i++)
         {
           const ELEMENT *e = global_commands.footnotes.list[i];
+          /* NOTE theoretical overflow if max(SSize_t) < i */
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
@@ -1678,6 +1702,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.floats.number; i++)
         {
           const ELEMENT *e = global_commands.floats.list[i];
+          /* NOTE theoretical overflow if max(SSize_t) < i */
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
@@ -1692,6 +1717,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.cmd.number; i++)             \
         {                                                               \
           const ELEMENT *e = global_commands.cmd.list[i];            \
+          /* NOTE theoretical overflow if max(SSize_t) < i */          \
           if (e->hv)                                                    \
             av_push (av, newRV_inc ((SV *) e->hv));                     \
         }                                                               \
@@ -2491,7 +2517,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   if (output_unit->unit_contents.number)
     {
       AV *av;
-      int i;
+      size_t i;
 
       av = newAV ();
       sv = newRV_noinc ((SV *) av);
@@ -2507,6 +2533,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
           sv = newRV_inc ((SV *) element_hv);
 
+          /* NOTE theoretical overflow if max(SSize_t) < i */
           av_push (av, sv);
 
           unit_sv = newRV_inc ((SV *) output_unit->hv);
@@ -2519,8 +2546,8 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
   if (output_unit->tree_unit_directions[0]
       || output_unit->tree_unit_directions[1])
     {
-      int i;
-      int directions_nr = sizeof (output_unit->tree_unit_directions)
+      size_t i;
+      size_t directions_nr = sizeof (output_unit->tree_unit_directions)
                            / sizeof (output_unit->tree_unit_directions[0]);
       HV *hv_tree_unit_directions = newHV ();
       sv = newRV_noinc ((SV *) hv_tree_unit_directions);
@@ -3103,7 +3130,7 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
 static SV *
 build_filenames (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
-  int i;
+  size_t i;
   HV *hv;
 
   dTHX;
@@ -3131,7 +3158,7 @@ build_filenames (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 static SV *
 build_file_counters (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
-  int i;
+  size_t i;
   HV *hv;
 
   dTHX;
@@ -3157,7 +3184,7 @@ build_file_counters (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 SV *
 build_out_filepaths (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
-  int i;
+  size_t i;
   HV *hv;
 
   dTHX;
@@ -3217,7 +3244,7 @@ build_output_files_unclosed_files (HV *hv,
   HV *unclosed_files_hv;
 
   const FILE_STREAM_LIST *unclosed_files;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -3277,7 +3304,7 @@ build_output_files_opened_files (HV *hv,
   HV *opened_files_hv;
 
   const STRING_LIST *opened_files;
-  int i;
+  size_t i;
 
   dTHX;
 
