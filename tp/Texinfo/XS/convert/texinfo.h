@@ -44,4 +44,14 @@ void txi_converter (CONVERTER *converter,
 
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);
 
+size_t txi_handle_parser_error_messages (DOCUMENT *document, int no_warn,
+                                       int use_filename,
+                                       const char *message_encoding);
+size_t txi_handle_document_error_messages (DOCUMENT *document, int no_warn,
+                                         int use_filename,
+                                         const char *message_encoding);
+size_t txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
+                                          int use_filename,
+                                          const char *message_encoding);
+
 #endif

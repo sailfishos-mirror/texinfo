@@ -1,5 +1,20 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/teximakehtml.c (add_new_option_strlist_value): copy
+	strings.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): free parser_options.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_handle_parser_error_messages)
+	(txi_handle_document_error_messages)
+	(txi_handle_converter_error_messages): add wrappers for
+	handle_error_messages to be used directly on document and converter.
+
+	* tp/Texinfo/XS/teximakehtml.c (main): call txi_handle_*error_messages
+	and exit 1 if there were errors.  Remove print_errors.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (add_formatted_error_messages),
 	tp/Texinfo/XS/main/document_types.h (ERROR_MESSAGE_LIST),
 	tp/Texinfo/XS/main/errors.c (message_list_line_formatted_message)

@@ -44,39 +44,6 @@
 
 #define LOCALEDIR DATADIR "/locale"
 
-static void
-print_errors (ERROR_MESSAGE_LIST *error_messages)
-{
-  int i;
-
-  TEXT text;
-  text_init (&text);
-
-  for (i = 0; i < error_messages->number; i++)
-    {
-      const ERROR_MESSAGE *error_msg = &error_messages->list[i];
-      text_reset (&text);
-      if (error_msg->source_info.file_name)
-        {
-          text_append (&text, error_msg->source_info.file_name);
-          text_append_n (&text, ":", 1);
-        }
-      if (error_msg->source_info.line_nr > 0)
-        {
-          text_printf (&text, "%d:", error_msg->source_info.line_nr);
-        }
-
-      if (text.end > 0)
-        text_append_n (&text, " ", 1);
-
-      text_append (&text, error_msg->error_line);
-      fprintf (stderr, "%s", text.text);
-    }
-  free (text.text);
-
-  clear_error_message_list (error_messages);
-}
-
 /* this function is quite generic, it could be added to utils.c */
 static void
 add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
@@ -98,11 +65,11 @@ add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
 static OPTION *
 add_new_option_strlist_value (OPTIONS_LIST *options_list,
                   enum global_option_type type, const char *name,
-                  STRING_LIST *strlist)
+                  const STRING_LIST *strlist)
 {
   OPTION *option = new_option (type, name, 0);
 
-  option->o.strlist = strlist;
+  copy_strings (option->o.strlist, strlist);
 
   options_list_add_option (options_list, option);
 
@@ -118,6 +85,7 @@ static const VALUE_LIST values = {1, 1, values_array};
 static char *parser_EXPANDED_FORMATS_array[] = {"HTML", "tex"};
 static STRING_LIST parser_EXPANDED_FORMATS
   = {parser_EXPANDED_FORMATS_array, 2, 2};
+
 
 int
 main (int argc, char *argv[])
@@ -135,6 +103,8 @@ main (int argc, char *argv[])
   BUTTON_SPECIFICATION_LIST *custom_node_footer_buttons;
   OPTIONS_LIST parser_options;
   OPTIONS_LIST convert_options;
+  size_t errors_count = 0;
+  size_t errors_nr;
 
   /*
   const char *texinfo_text;
@@ -183,18 +153,22 @@ main (int argc, char *argv[])
   txi_parser (input_file_path, locale_encoding, expanded_formats, &values,
               &parser_options);
 
+  free_options_list (&parser_options);
+
   /* Texinfo document tree parsing */
   document_descriptor = parse_file (input_file_path, &status);
   document = retrieve_document (document_descriptor);
 
   if (status)
     {
-      print_errors (&document->parser_error_messages);
+      txi_handle_parser_error_messages (document, 0, 1, locale_encoding);
       remove_document_descriptor (document_descriptor);
       exit (1);
     }
 
-  print_errors (&document->parser_error_messages);
+  errors_nr
+    = txi_handle_parser_error_messages (document, 0, 1, locale_encoding);
+  errors_count += errors_nr;
 
   /*
   texinfo_text = convert_to_texinfo (document->tree);
@@ -210,7 +184,9 @@ main (int argc, char *argv[])
                      | STTF_nodes_tree | STTF_floats
                      | STTF_setup_index_entries_sort_strings, 0);
 
-  print_errors (&document->error_messages);
+  errors_nr
+    += txi_handle_document_error_messages (document, 0, 1, locale_encoding);
+  errors_count += errors_nr;
 
   /* create converter and generic converter initializations */
   converter_descriptor = new_converter ();
@@ -240,10 +216,15 @@ main (int argc, char *argv[])
   result = txi_html_output (converter, document);
   free (result);
 
-  print_errors (&converter->error_messages);
+  errors_nr
+    = txi_handle_converter_error_messages (converter, 0, 1, locale_encoding);
+  errors_count += errors_nr;
 
   /* destroy converter */
   html_free_converter (converter);
   /* destroy document */
   remove_document_descriptor (document_descriptor);
+
+  if (errors_count > 0)
+    exit (1);
 }
