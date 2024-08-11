@@ -41,7 +41,7 @@
 
 #define LOCALEDIR DATADIR "/locale"
 
-/* this function is quite generic, it could be added to utils.c */
+/* this function is generic, it could be added to customization_options.c */
 static void
 add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
                    const char *option_name,
@@ -59,7 +59,7 @@ add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
   options_list_add_option (options_list, option);
 }
 
-/* this function is quite generic, it could be added to utils.c */
+/* this function or a variation could be added to customization_options.c */
 static OPTION *
 add_new_option_strlist_value (OPTIONS_LIST *options_list,
                   enum global_option_type type, const char *name,
@@ -180,7 +180,7 @@ main (int argc, char *argv[])
                      | STTF_setup_index_entries_sort_strings, 0);
 
   errors_nr
-    += txi_handle_document_error_messages (document, 0, 1, locale_encoding);
+    = txi_handle_document_error_messages (document, 0, 1, locale_encoding);
   errors_count += errors_nr;
 
   /* create converter and generic converter initializations */
