@@ -1,5 +1,21 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/manipulate_tree.c (copy_associated_info)
+	(copy_tree_internal, remove_associated_copy_info, parse_node_manual)
+	(modify_tree, normalized_menu_entry_internal_node, first_menu_node),
+	tp/Texinfo/XS/main/tree.c (destroy_associated_info)
+	(destroy_source_mark_list, destroy_element_and_children)
+	(remove_element_from_list, add_element_if_not_in_list)
+	(replace_element_in_list, next_bracketed_or_word_agg)
+	(split_delimiters, split_def_args, parse_def),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(insert_menu_comment_content, new_complete_node_menu): replace int by
+	size_t in situations where the variable could reach a value outside of
+	the int range and also when the index is better reprensented by a
+	size_t.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	Fix compiler warnings
 
 	* tp/Texinfo/XS/convert/convert_html.c: put static before const in

@@ -180,7 +180,7 @@ destroy_const_element_list (CONST_ELEMENT_LIST *list)
 void
 destroy_associated_info (ASSOCIATED_INFO *a)
 {
-  int i;
+  size_t i;
 
   for (i = 0; i < a->info_number; i++)
     {
@@ -229,7 +229,7 @@ destroy_source_mark (SOURCE_MARK *source_mark)
 void
 destroy_source_mark_list (SOURCE_MARK_LIST *source_mark_list)
 {
-  int i;
+  size_t i;
   for (i = 0; i < source_mark_list->number; i++)
     destroy_source_mark (source_mark_list->list[i]);
 
@@ -310,7 +310,7 @@ destroy_element (ELEMENT *e)
 void
 destroy_element_and_children (ELEMENT *e)
 {
-  int i;
+  size_t i;
 
   if (! (type_data[e->type].flags & TF_text))
     {
@@ -557,18 +557,18 @@ remove_from_args (ELEMENT *parent, int where)
 ELEMENT *
 remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e)
 {
-  int i;
-  int index = -1;
+  size_t i;
+  int found = 0;
   for (i = 0; i < list->number; i++)
     {
       if (list->list[i] == e)
         {
-          index = i;
+          found = 1;
           break;
         }
     }
-  if (index >= 0)
-    return remove_from_element_list (list, index);
+  if (found)
+    return remove_from_element_list (list, i);
 
   return 0;
 }
@@ -576,7 +576,7 @@ remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e)
 void
 add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e)
 {
-  int i;
+  size_t i;
   for (i = 0; i < list->number; i++)
     {
       if (list->list[i] == e)
@@ -664,7 +664,7 @@ args_child_by_index (const ELEMENT *e, int index)
 int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
                              ELEMENT *added)
 {
-  int i;
+  size_t i;
 
   if (!list || !list->number)
     return 0;

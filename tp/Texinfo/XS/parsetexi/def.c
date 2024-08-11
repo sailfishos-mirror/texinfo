@@ -102,12 +102,12 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
 /* Starting at I in the contents, return the next non-whitespace element,
    incrementing I.  Return null if no more elements. */
 ELEMENT *
-next_bracketed_or_word_agg (ELEMENT *current, int *i)
+next_bracketed_or_word_agg (ELEMENT *current, size_t *i)
 {
-  int num = 0;
+  size_t num = 0;
   ELEMENT *new;
   ELEMENT *e;
-  int j;
+  size_t j;
   while (1)
     {
       if (*i == current->e.c->contents.number)
@@ -199,9 +199,9 @@ DEF_MAP def_maps[] = {
 /* Split non-space text elements into strings without [ ] ( ) , and single
    character strings with one of them. */
 static void
-split_delimiters (ELEMENT *current, int starting_idx)
+split_delimiters (ELEMENT *current, size_t starting_idx)
 {
-  int i;
+  size_t i;
   static char *chars = "[](),";
   for (i = starting_idx; i < current->e.c->contents.number; i++)
     {
@@ -287,9 +287,9 @@ split_delimiters (ELEMENT *current, int starting_idx)
 /* Divide any text elements into separate elements, separating whitespace
    and non-whitespace. */
 static void
-split_def_args (ELEMENT *current, int starting_idx)
+split_def_args (ELEMENT *current, size_t starting_idx)
 {
-  int i;
+  size_t i;
   for (i = starting_idx; i < current->e.c->contents.number; i++)
     {
       ELEMENT *e = current->e.c->contents.list[i];
@@ -355,9 +355,10 @@ split_def_args (ELEMENT *current, int starting_idx)
 void
 parse_def (enum command_id command, ELEMENT *current)
 {
-  int contents_idx = 0;
+  size_t contents_idx = 0;
   int type, set_type_not_arg;
-  int i, i_def;
+  size_t i;
+  int i_def;
   int arg_types_nr;
   ELEMENT *e, *e1;
   enum element_type *arguments_types_list;

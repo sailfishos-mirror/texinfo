@@ -1790,7 +1790,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
 }
 
 static void
-insert_menu_comment_content (ELEMENT_LIST *element_list, int position,
+insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
                    ELEMENT *inserted_element, int no_leading_empty_line)
 {
   ELEMENT *menu_comment = new_element (ET_menu_comment);
@@ -1862,7 +1862,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
       const char *normalized = lookup_extra_string (node, AI_key_normalized);
       if (normalized && !strcmp (normalized, "Top"))
         {
-          int content_index = 0;
+          size_t content_index = 0;
           int in_appendix = 0;
           for (i = 0; i < node_childs->number; i++)
             {

@@ -886,15 +886,16 @@ SUM: 98
 
 
 Setting flags
+# some features are only enabled at -O2, but sometime -O0 is better
+# for debugging with valgrind
 our_CFLAGS='-g -O0 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces'
 # Without -Wstack-protector there is no message on functions not protected.
 # All these are in gnulib or gettext for now.
 # -fno-omit-frame-pointer is better for debugging with valgrind, but has
 # some speed penalty
-# some features are only enabled at -O2, but sometime -O0 is better
-# for debugging with valgrind
 our_CFLAGS='-g -O2 -D_FORTIFY_SOURCE=2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -fstack-protector-all -Wextra -Wno-sign-compare -fno-omit-frame-pointer'
 our_CFLAGS='-g -O2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -Wextra -Wno-sign-compare'
+our_CFLAGS='-g -O2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -Wextra'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 
