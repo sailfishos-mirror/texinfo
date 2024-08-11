@@ -37,6 +37,15 @@ enum converter_format {
    COF_html,
 };
 
+enum ids_data_type {
+   IDT_perl_hashmap,
+   IDT_string_list,
+};
+
+/* converter low level customization */
+#define CONVF_perl_hashmap        0x0001
+#define CONVF_string_list         0x0002
+
 /* for string information passing to/from perl */
 enum sv_string_type {
    svt_byte,
@@ -787,6 +796,7 @@ typedef struct CONVERTER {
 
   /* HTML specific */
     /* set for a converter */
+    enum ids_data_type ids_data_type;
     int external_references_number; /* total number of external references
                                        that could be called */
     int code_types[TXI_TREE_TYPES_NUMBER];

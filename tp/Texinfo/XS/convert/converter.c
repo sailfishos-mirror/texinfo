@@ -220,8 +220,10 @@ init_generic_converter (CONVERTER *self)
 }
 
 /* descriptor starts at 1, 0 is not found or an error */
+/* flags set low-level implementation choices, currently using Perl hash
+ * map or (slower) string lists */
 size_t
-new_converter (enum converter_format format)
+new_converter (enum converter_format format, unsigned long flags)
 {
   size_t converter_index;
   int slot_found = 0;
@@ -252,6 +254,12 @@ new_converter (enum converter_format format)
   memset (registered_converter, 0, sizeof (CONVERTER));
 
   registered_converter->format = format;
+
+  /* set low level data representations options */
+  if (flags & CONVF_string_list)
+    registered_converter->ids_data_type = IDT_string_list;
+  else
+    registered_converter->ids_data_type = IDT_perl_hashmap;
 
   init_generic_converter (registered_converter);
 

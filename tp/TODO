@@ -894,6 +894,7 @@ our_CFLAGS='-g -O0 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses 
 # some features are only enabled at -O2, but sometime -O0 is better
 # for debugging with valgrind
 our_CFLAGS='-g -O2 -D_FORTIFY_SOURCE=2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -fstack-protector-all -Wextra -Wno-sign-compare -fno-omit-frame-pointer'
+our_CFLAGS='-g -O2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -Wextra -Wno-sign-compare'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 

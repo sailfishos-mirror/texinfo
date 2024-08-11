@@ -277,7 +277,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 CONVERTER *
 txi_converter (enum converter_format format)
 {
-  size_t converter_descriptor = new_converter (format);
+  size_t converter_descriptor = new_converter (format, CONVF_string_list);
   return retrieve_converter (converter_descriptor);
 }
 

@@ -66,11 +66,6 @@
 #include "api_to_perl.h"
 #include "convert_html.h"
 
-/* comment out to use a string list in pure C instead, with linear search.
-   Using a Perl hash map is much faster.
- */
-#define USE_PERL_HASHMAP 1
-
 typedef struct ROOT_AND_UNIT {
     const OUTPUT_UNIT *output_unit;
     const ELEMENT *root;
@@ -324,21 +319,19 @@ static void convert_to_html_internal (CONVERTER *self, const ELEMENT *e,
 int
 html_id_is_registered (CONVERTER *self, const char *string)
 {
-#ifdef USE_PERL_HASHMAP
-  return is_hv_registered_id (self, string);
-#else
-  return find_string (self->registered_ids, string);
-#endif
+  if (self->ids_data_type == IDT_perl_hashmap)
+    return is_hv_registered_id (self, string);
+  else
+    return find_string (self->registered_ids, string);
 }
 
 void
 html_register_id (CONVERTER *self, const char *string)
 {
-#ifdef USE_PERL_HASHMAP
-  hv_register_id (self, string);
-#else
-  add_string (string, self->registered_ids);
-#endif
+  if (self->ids_data_type == IDT_perl_hashmap)
+    hv_register_id (self, string);
+  else
+    add_string (string, self->registered_ids);
 }
 
 /*
@@ -17574,11 +17567,10 @@ html_converter_customize (CONVERTER *self)
   int external_type_open_function = 0;
   int external_formatting_function = 0;
 
-#ifdef USE_PERL_HASHMAP
-  init_registered_ids_hv (self);
-#else
-  self->registered_ids = new_string_list ();
-#endif
+  if (self->ids_data_type == IDT_perl_hashmap)
+    init_registered_ids_hv (self);
+  else
+    self->registered_ids = new_string_list ();
 
   /* for @sc */
   for (i = 0; default_upper_case_commands[i]; i++)
@@ -19615,11 +19607,11 @@ html_reset_converter (CONVERTER *self)
   reset_translated_special_unit_info_tree (self);
   /* targets */
   reset_html_targets (self, self->html_targets);
-#ifdef USE_PERL_HASHMAP
-  clear_registered_ids_hv (self);
-#else
-  clear_strings_list (self->registered_ids);
-#endif
+
+  if (self->ids_data_type == IDT_perl_hashmap)
+    clear_registered_ids_hv (self);
+  else
+    clear_strings_list (self->registered_ids);
   for (i = 0; i < ST_footnote_location+1; i++)
     {
       reset_html_targets_list (self, &self->html_special_targets[i]);
@@ -19813,12 +19805,13 @@ html_free_converter (CONVERTER *self)
 
   free (self->html_target_cmds.stack);
 
-#ifdef USE_PERL_HASHMAP
-  free_registered_ids_hv (self);
-#else
-  destroy_strings_list (self->registered_ids);
-  self->registered_ids = 0;
-#endif
+  if (self->ids_data_type == IDT_perl_hashmap)
+    free_registered_ids_hv (self);
+  else
+    {
+      destroy_strings_list (self->registered_ids);
+      self->registered_ids = 0;
+    }
 
   if (self->pl_info_hv)
     {

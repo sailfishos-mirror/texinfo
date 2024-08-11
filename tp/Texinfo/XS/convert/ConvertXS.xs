@@ -114,7 +114,11 @@ generic_converter_init (SV *converter_in, const char *class, SV *format_defaults
                }
            }
 
-         converter_descriptor = new_converter (converter_format);
+         converter_descriptor = new_converter (converter_format,
+                                               CONVF_perl_hashmap);
+                                               /*
+                                               CONVF_string_list);
+                                                */
          self = retrieve_converter (converter_descriptor);
 
          format_defaults = new_converter_initialization_info ();
