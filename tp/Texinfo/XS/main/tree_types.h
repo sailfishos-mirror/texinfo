@@ -213,7 +213,7 @@ typedef struct CONST_ELEMENT_LIST {
    should outlive the INDEX_ENTRY_LOCATION */
 typedef struct INDEX_ENTRY_LOCATION {
     const char *index_name;
-    int number; /* position in the original index.  May be different in
+    size_t number; /* position in the original index.  May be different in
                    merged index */
 } INDEX_ENTRY_LOCATION;
 

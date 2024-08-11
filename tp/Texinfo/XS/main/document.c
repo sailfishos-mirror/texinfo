@@ -564,7 +564,7 @@ void
 add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
                               const char *key, const char *value)
 {
-  int i;
+  size_t i;
   for (i = 0; i < other_global_info->info_number; i++)
     {
       if (!strcmp (other_global_info->info[i].key, key))

@@ -165,7 +165,7 @@ destroy_indices_sorted_by_letter (
 
   for (index = indices_entries_by_letter; index->name; index++)
     {
-      int i;
+      size_t i;
       free (index->name);
       for (i = 0; i < index->letter_number; i++)
         {
@@ -852,6 +852,7 @@ compare_sortable_index_entry_wrapper (const void *a, const void *b)
   return compare_sortable_index_entry (sie_a, sie_b);
 }
 
+/* the entry is not destroyed here as it is transferred to the sorted indices */
 static void
 destroy_indices_sortable_entries (
              INDICES_SORTABLE_ENTRIES *indices_sortable_entries)
@@ -909,7 +910,7 @@ sort_indices_by_index (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
                        const char *collation_locale)
 {
   size_t i;
-  int index_nr = 0;
+  size_t index_nr = 0;
   INDEX_COLLATOR *collator;
 
   INDICES_SORTABLE_ENTRIES *indices_sortable_entries
@@ -961,7 +962,9 @@ sort_indices_by_index (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
       index_nr++;
     }
 
+  /* add a 0 at the end of the list */
   memset (&sorted_index_entries[index_nr], 0, sizeof (INDEX_SORTED_BY_INDEX));
+  /* shrink the list if there are less sorted indices than sortable indices */
   if (index_nr < indices_sortable_entries->number)
     sorted_index_entries = realloc (sorted_index_entries,
                      (index_nr+1) * sizeof (INDEX_SORTED_BY_INDEX));
@@ -980,7 +983,7 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
                         const char *collation_locale)
 {
   size_t i;
-  int index_nr = 0;
+  size_t index_nr = 0;
   static INDEX_LETTERS_SORTABLE_ENTRIES index_letters_sortable_entries;
   INDEX_COLLATOR *collator;
 
@@ -1212,7 +1215,9 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
       index_nr++;
     }
 
+  /* add a 0 at the end of the list */
   memset (&sorted_index_entries[index_nr], 0, sizeof (INDEX_SORTED_BY_LETTER));
+  /* shrink the list if there are less sorted indices than sortable indices */
   if (index_nr < indices_sortable_entries->number)
     sorted_index_entries = realloc (sorted_index_entries,
                      (index_nr+1) * sizeof (INDEX_SORTED_BY_LETTER));

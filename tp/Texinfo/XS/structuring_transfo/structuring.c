@@ -19,6 +19,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stddef.h>
 
 #include "text.h"
 #include "element_types.h"
@@ -89,7 +90,7 @@ sectioning_structure (DOCUMENT *document)
   int number_top_level = 0;
   CONST_ELEMENT_LIST *sections_list = new_const_element_list ();
   const ELEMENT *section_top = 0;
-  int i;
+  size_t i;
   TEXT section_number;
   text_init (&section_number);
 
@@ -400,7 +401,7 @@ warn_non_empty_parts (DOCUMENT *document)
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
-  int i;
+  size_t i;
 
   for (i = 0; i < global_commands->part.number; i++)
     {
@@ -467,7 +468,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                                             AI_key_section_childs);
       if (section_childs)
         {
-          int i;
+          size_t i;
           for (i = 0; i < section_childs->number; i++)
             {
               const ELEMENT *child = section_childs->list[i];
@@ -497,7 +498,7 @@ get_node_node_childs_from_sectioning (const ELEMENT *node)
                        = lookup_extra_contents (current, AI_key_section_childs);
                       if (section_childs)
                         {
-                          int i;
+                          size_t i;
                           for (i = 0; i < section_childs->number; i++)
                             {
                               const ELEMENT *child = section_childs->list[i];
@@ -616,7 +617,8 @@ check_nodes_are_referenced (DOCUMENT *document)
       int is_target = (node->flags & EF_is_target);
       const ELEMENT * const *node_directions = lookup_extra_directions (node,
                                                    AI_key_node_directions);
-      const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
+      const CONST_ELEMENT_LIST *menus
+        = lookup_extra_contents (node, AI_key_menus);
 
       if (is_target)
         nr_nodes_to_find++;
@@ -624,7 +626,7 @@ check_nodes_are_referenced (DOCUMENT *document)
       /* gather referenced nodes based on node pointers */
       if (node_directions)
         {
-          int d;
+          size_t d;
           for (d = 0; d < directions_length; d++)
             {
               if (node_directions[d])
@@ -637,11 +639,11 @@ check_nodes_are_referenced (DOCUMENT *document)
         }
       if (menus)
         {
-          int j;
+          size_t j;
           for (j = 0; j < menus->number; j++)
             {
               const ELEMENT *menu = menus->list[j];
-              int k;
+              size_t k;
               for (k = 0; k < menu->e.c->contents.number; k++)
                 {
                   const ELEMENT *menu_content = menu->e.c->contents.list[k];
@@ -671,7 +673,7 @@ check_nodes_are_referenced (DOCUMENT *document)
             {
               CONST_ELEMENT_LIST *node_childs
                 = get_node_node_childs_from_sectioning (node);
-              int j;
+              size_t j;
               for (j = 0; j < node_childs->number; j++)
                 {
                   referenced_identifiers =
@@ -688,7 +690,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   /* consider nodes in internal @*ref commands to be referenced */
   if (refs)
     {
-      int i;
+      size_t i;
       for (i = 0; i < refs->number; i++)
         {
           ELEMENT *ref = refs->list[i];
@@ -810,7 +812,7 @@ set_menus_node_directions (DOCUMENT *document)
   OPTIONS *options = document->options;
 
   int check_menu_entries = 1;
-  int i;
+  size_t i;
 
   if (!nodes_list || nodes_list->number <= 0)
     return;
@@ -831,7 +833,7 @@ set_menus_node_directions (DOCUMENT *document)
 
   for (i = 0; i < nodes_list->number; i++)
     {
-      int j;
+      size_t j;
       const ELEMENT *node = nodes_list->list[i];
       const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node, AI_key_menus);
 
@@ -855,14 +857,14 @@ set_menus_node_directions (DOCUMENT *document)
         {
           const ELEMENT *menu = menus->list[j];
           ELEMENT *previous_node = 0;
-          int k;
+          size_t k;
           for (k = 0; k < menu->e.c->contents.number; k++)
             {
               const ELEMENT *menu_content = menu->e.c->contents.list[k];
               if (menu_content->type == ET_menu_entry)
                 {
                   ELEMENT *menu_node = 0;
-                  int l;
+                  size_t l;
                   for (l = 0; l < menu_content->e.c->contents.number; l++)
                     {
                       const ELEMENT *content
@@ -937,17 +939,17 @@ set_menus_node_directions (DOCUMENT *document)
   /* Check @detailmenu */
   if (check_menu_entries && global_commands->detailmenu.number > 0)
     {
-      int i;
+      size_t i;
       for (i = 0; i < global_commands->detailmenu.number; i++)
         {
           const ELEMENT *detailmenu = global_commands->detailmenu.list[i];
-          int k;
+          size_t k;
           for (k = 0; k < detailmenu->e.c->contents.number; k++)
             {
               const ELEMENT *menu_content = detailmenu->e.c->contents.list[k];
               if (menu_content->type == ET_menu_entry)
                 {
-                  int l;
+                  size_t l;
                   for (l = 0; l < menu_content->e.c->contents.number; l++)
                     {
                       const ELEMENT *content = menu_content->e.c->contents.list[l];
@@ -977,7 +979,7 @@ static const ELEMENT *
 section_direction_associated_node (const ELEMENT *section,
                                    enum directions direction)
 {
-  int i;
+  size_t i;
   for (i = 0; i < sizeof (direction_bases) / sizeof (direction_bases[0]);
        i++)
     {
@@ -1011,7 +1013,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
-  int i;
+  size_t i;
   const ELEMENT *top_node = 0;
   const ELEMENT *top_node_next = 0;
 
@@ -1039,7 +1041,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                               AI_key_node_directions);
           if (strcmp (normalized, "Top"))
             {
-              int d;
+              size_t d;
               for (d = 0; d < directions_length; d++)
                 {
                   const ELEMENT *section;
@@ -1166,7 +1168,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
               else
                 {
                   /* use the first non top node as next for Top */
-                  int j;
+                  size_t j;
                   for (j = 0; j < nodes_list->number; j++)
                     {
                       const ELEMENT *first_non_top_node
@@ -1203,7 +1205,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                                       AI_key_node_directions);
           if (node_directions && menu_directions)
             {
-              int d;
+              size_t d;
               for (d = 0; d < directions_length; d++)
                 {
                   if (node_directions[d]
@@ -1266,12 +1268,12 @@ complete_node_tree_with_menus (DOCUMENT *document)
                /* check only if there are menus */
                   && menus)
                 {
-                  int j;
+                  size_t j;
                   int found = 0;
                   for (j = 0; j < menus->number; j++)
                     {
                       const ELEMENT *menu = menus->list[j];
-                      int k;
+                      size_t k;
                       for (k = 0; k < menu->e.c->contents.number; k++)
                         {
                           const ELEMENT *menu_content = menu->e.c->contents.list[k];
@@ -1319,7 +1321,7 @@ nodes_tree (DOCUMENT *document)
   const ELEMENT *top_node_section_child = 0;
   CONST_ELEMENT_LIST *nodes_list = new_const_element_list ();
 
-  int i;
+  size_t i;
 
   for (i = 0; i < root->e.c->contents.number; i++)
     {
@@ -1410,11 +1412,11 @@ nodes_tree (DOCUMENT *document)
           }
       else /* explicit directions */
         {
-          int i;
+          size_t i;
           for (i = 1; i < node->e.c->args.number; i++)
             {
               const ELEMENT *direction_element = node->e.c->args.list[i];
-              int direction = i - 1;
+              int direction = (int) i - 1;
               const ELEMENT *manual_content
                             = lookup_extra_container (direction_element,
                                                     AI_key_manual_content);
@@ -1499,7 +1501,7 @@ associate_internal_references (DOCUMENT *document)
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
 
-  int i;
+  size_t i;
 
   if (!refs || !refs->number)
     return;
@@ -1682,7 +1684,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   ELEMENT *description_text;
   ELEMENT *menu_entry_leading_text;
   NODE_SPEC_EXTRA *parsed_entry_node;
-  int i;
+  size_t i;
   int is_target = (node->flags & EF_is_target);
   if (is_target)
     node_name_element = node->e.c->args.list[0];
@@ -1692,7 +1694,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
 
   if (use_sections)
     {
-      int i;
+      size_t i;
       ELEMENT *name_element;
       const ELEMENT *associated_section
         = lookup_extra_element (node, AI_key_associated_section);
@@ -1798,7 +1800,7 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
   ELEMENT *empty_line_first_after = new_text_element (ET_empty_line);
   ELEMENT *empty_line_second_after = new_text_element (ET_empty_line);
   int index_in_preformatted = 0;
-  int i;
+  size_t i;
 
   add_to_element_contents (menu_comment, preformatted);
 
@@ -1833,7 +1835,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
     = get_node_node_childs_from_sectioning (node);
   const ELEMENT *section;
   ELEMENT *new_menu;
-  int i;
+  size_t i;
 
   if (node_childs->number <= 0)
     {
@@ -1949,7 +1951,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
   CONST_ELEMENT_LIST *node_menus = lookup_extra_contents (node, AI_key_menus);
   ELEMENT_LIST *node_children;
   ELEMENT *new_current_menu = 0;
-  int i;
+  size_t i;
 
   if (node_menus && node_menus->number > 0)
     menus = node_menus;
@@ -1972,7 +1974,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
   for (i = 0; i < menus->number; i++)
     {
       const ELEMENT *menu = menus->list[i];
-      int j;
+      size_t j;
       for (j = 0; j < menu->e.c->contents.number; j++)
         {
           ELEMENT *entry = menu->e.c->contents.list[j];
@@ -2031,12 +2033,12 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
           ELEMENT_LIST *child_menu_content;
           const char *normalized_child
             = lookup_extra_string (child, AI_key_normalized);
-          size_t i;
+          size_t j;
           int up_node_in_menu = 0;
 
-          for (i = 0; i < up_nodes->top; i++)
+          for (j = 0; j < up_nodes->top; j++)
             {
-              const ELEMENT *up_node = up_nodes->stack[i];
+              const ELEMENT *up_node = up_nodes->stack[j];
               const char *normalized_up_node
                 = lookup_extra_string (up_node, AI_key_normalized);
               if (!strcmp (normalized_child, normalized_up_node))
@@ -2094,11 +2096,11 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
 
   if (menus && menus->number > 0)
     {
-      int i;
+      size_t i;
       for (i = 0; i < menus->number; i++)
         {
           const ELEMENT *menu = menus->list[i];
-          int j;
+          size_t j;
           for (j = 0; j < menu->e.c->contents.number; j++)
             {
               const ELEMENT *entry = menu->e.c->contents.list[j];
@@ -2114,7 +2116,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                                           identifiers_target, use_sections);
                       if (down_menus)
                         {
-                          int k;
+                          size_t k;
                           for (k = 0; k < down_menus->number; k++)
                             down_menus->list[k]->parent = new_detailmenu_e;
                           insert_list_slice_into_contents (new_detailmenu_e,
@@ -2129,7 +2131,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
     }
   if (new_detailmenu_e->e.c->contents.number > 0)
     {
-      int i;
+      size_t i;
       ELEMENT *new_line = new_text_element (ET_normal_text);
     /* There is a menu comment with a preformatted added in front of each
        detailed menu section with the node section name */

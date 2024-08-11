@@ -1,5 +1,31 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(fill_gaps_in_sectioning, move_index_entries_after_items)
+	(reassociate_to_node): use number of elements and size_t in a first
+	step before setting the indices.
+
+	* tp/Texinfo/XS/main/document.c (add_other_global_info_string),
+	tp/Texinfo/XS/main/manipulate_indices.c
+	(destroy_indices_sorted_by_letter, destroy_indices_sortable_entries)
+	(sort_indices_by_letter),
+	tp/Texinfo/XS/structuring_transfo/structuring.c (sectioning_structure)
+	(warn_non_empty_parts, get_node_node_childs_from_sectioning)
+	(check_nodes_are_referenced, set_menus_node_directions)
+	(section_direction_associated_node, complete_node_tree_with_menus)
+	(nodes_tree, associate_internal_references, new_node_menu_entry)
+	(insert_menu_comment_content, new_complete_node_menu)
+	(print_down_menus, new_detailmenu),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(lookup_index_entry, relate_index_entries_to_table_items_in)
+	(move_index_entries_after_items, insert_nodes_for_sectioning_commands)
+	(reference_to_arg_internal, complete_node_menu)
+	(complete_tree_nodes_missing_menu, regenerate_master_menu): use size_t
+	instead of int where the variable could reach a value outside of the
+	int range and also when the index is better represented by a size_t.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (get_encoding_conversion): use a separate
 	variable for utf8_missing case.  Use size_t encoding_nr to find he
 	number of the encoding, using 0 for not found.  Also use size_t for
