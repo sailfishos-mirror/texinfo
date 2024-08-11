@@ -55,7 +55,7 @@ COUNTER argument_brace_groups;
 MACRO *
 lookup_macro (enum command_id cmd)
 {
-  int i;
+  size_t i;
 
   for (i = 0; i < macro_number; i++)
     {
@@ -274,29 +274,29 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
 
 /* Macro use. */
 
-/* Return index into given arguments to look for the value of NAME.
-   Return -1 if not found. */
+/* Return index +1 into given arguments to look for the value of NAME.
+   Return 0 if not found. */
 
-static int
+static size_t
 lookup_macro_parameter (const char *name, const ELEMENT *macro)
 {
-  int i, pos;
+  size_t i, idx;
   /* the args_list pointer is const not the ELEMENT */
   ELEMENT *const *args_list;
 
   /* Find 'arg' in MACRO parameters. */
   args_list = macro->e.c->args.list;
-  pos = 0;
+  idx = 0;
   for (i = 0; i < macro->e.c->args.number; i++)
     {
       if (args_list[i]->type == ET_macro_arg)
         {
           if (!strcmp (args_list[i]->e.text->text, name))
-            return pos;
-          pos++;
+            return idx +1;
+          idx++;
         }
     }
-  return -1;
+  return 0;
 }
 
 /* LINE points the opening brace in a macro invocation.  CMD is the command
@@ -310,7 +310,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   const char *pline = line;
   TEXT *arg;
   int braces_level = 1;
-  int args_total;
+  size_t args_total;
   int whitespaces_len;
   ELEMENT *argument = new_element (ET_brace_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
@@ -319,6 +319,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
   add_to_element_contents (argument, argument_content);
   arg = argument_content->e.text;
 
+  /* -1 because of the macro name */
   args_total = macro->e.c->args.number - 1;
 
   /* *pline is '{', advance past the open brace, start at braces_level = 1 */
@@ -452,9 +453,9 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   const char *pline = line;
   TEXT *arg;
   int braces_level = 0;
-  int args_total;
+  size_t args_total;
   int spaces_nr;
-  int i;
+  size_t i;
   ELEMENT *argument = new_element (ET_line_arg);
   ELEMENT *argument_content = new_text_element (ET_other_text);
 
@@ -474,6 +475,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
       pline += spaces_nr;
     }
 
+  /* -1 because of the macro name */
   args_total = macro->e.c->args.number - 1;
 
   while (1)
@@ -642,7 +644,7 @@ static void
 expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
                    TEXT *expanded)
 {
-  int pos; /* Index into arguments. */
+  size_t pos; /* Position, Index +1 into arguments. */
   const ELEMENT *macro;
   const char *macrobody;
   const char *ptext;
@@ -686,7 +688,7 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
 
           name = strndup (ptext, bs - ptext);
           pos = lookup_macro_parameter (name, macro);
-          if (pos == -1)
+          if (pos == 0)
             {
               line_error ("\\ in @%s expansion followed `%s' instead of "
                           "parameter name or \\",
@@ -696,14 +698,15 @@ expand_macro_body (const MACRO *macro_record, const ELEMENT *arguments,
             }
           else
             {
-              if (arguments && pos < arguments->e.c->args.number)
+              size_t index = pos -1;
+              if (arguments && index < arguments->e.c->args.number)
                 {
                   const ELEMENT *argument
-                    = args_child_by_index (arguments, pos);
+                    = args_child_by_index (arguments, index);
                   if (argument->e.c->contents.number > 0)
                     text_append (expanded,
                       last_contents_child (
-                        args_child_by_index (arguments, pos))->e.text->text);
+                        args_child_by_index (arguments, index))->e.text->text);
                 }
             }
           free (name);
@@ -748,7 +751,7 @@ delete_macro (const char *name)
 void
 wipe_macros (void)
 {
-  int i;
+  size_t i;
 
   for (i = 0; i < macro_number; i++)
     {
@@ -770,7 +773,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
   const ELEMENT *macro;
   TEXT expanded;
   char *expanded_macro_text;
-  int args_number;
+  size_t args_number;
   SOURCE_MARK *macro_source_mark;
   ELEMENT *macro_call_element;
   int error = 0;
@@ -1003,7 +1006,7 @@ init_values (void)
 void
 store_value (VALUE_LIST *values, const char *name, const char *value)
 {
-  int i;
+  size_t i;
   VALUE *v = 0;
   int len;
 
@@ -1063,7 +1066,7 @@ store_parser_value (const char *name, const char *value)
 void
 clear_value (const char *name)
 {
-  int i;
+  size_t i;
   VALUE_LIST *values = &parser_values;
   for (i = 0; i < values->number; i++)
     {
@@ -1095,7 +1098,7 @@ clear_value (const char *name)
 char *
 fetch_value (const char *name)
 {
-  int i;
+  size_t i;
   VALUE_LIST *values = &parser_values;
   for (i = 0; i < values->number; i++)
     {
@@ -1115,7 +1118,7 @@ static size_t infoencl_space;
 INFO_ENCLOSE *
 lookup_infoenclose (enum command_id cmd)
 {
-  int i;
+  size_t i;
   for (i = 0; i < infoencl_number; i++)
     {
       if (infoencl_list[i].cmd == cmd)
@@ -1127,7 +1130,7 @@ lookup_infoenclose (enum command_id cmd)
 void
 add_infoenclose (enum command_id cmd, const char *begin, const char *end)
 {
-  int i;
+  size_t i;
   INFO_ENCLOSE *ie = 0;
 
   /* Check if already defined. */

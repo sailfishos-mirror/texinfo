@@ -384,7 +384,7 @@ encoded_accents (CONVERTER *self, const char *text, const ELEMENT_STACK *stack,
       if (possible_encoding)
         {
           int encoding_index = -1;
-          int i;
+          size_t i;
           if (!strcmp (normalized_encoding, "utf-8"))
             {
               free (normalized_encoding);
@@ -427,7 +427,7 @@ int unicode_point_decoded_in_encoding (const char *encoding,
                                       (encoding, &possible_encoding);
       if (possible_encoding)
         {
-          int i;
+          size_t i;
           if (!strcmp (normalized_encoding, "utf-8"))
             {
               free (normalized_encoding);
@@ -444,7 +444,7 @@ int unicode_point_decoded_in_encoding (const char *encoding,
                   if (point_nr < 127)
                     {
                       free (normalized_encoding);
-                      return i + 1;
+                      return (int) i + 1;
                     }
                   char *found = (char *)bsearch (&codepoint,
                              unicode_to_eight_bit[i].codepoints,
@@ -453,7 +453,7 @@ int unicode_point_decoded_in_encoding (const char *encoding,
                   if (found)
                     {
                       free (normalized_encoding);
-                      return i + 1;
+                      return (int) i + 1;
                     }
                   break;
                 }

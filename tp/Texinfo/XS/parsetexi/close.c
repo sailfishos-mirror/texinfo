@@ -225,7 +225,8 @@ close_command_cleanup (ELEMENT *current)
 
   if (current->e.c->cmd == CM_multitable)
     {
-      int in_head_or_rows = -1, i;
+      int in_head_or_rows = -1;
+      size_t i;
       ELEMENT_LIST old_contents = current->e.c->contents;
 
       /* Clear current contents. */
@@ -319,7 +320,8 @@ close_command_cleanup (ELEMENT *current)
           if (current->e.c->contents.number == 1)
             {
        /* no @*item, only before_item.  Warn if before_item is not empty */
-              int empty_before_item = 1, i;
+              int empty_before_item = 1;
+              size_t i;
               /* Check if contents consist solely of @comment's. */
               for (i = 0; i < before_item->e.c->contents.number; i++)
                 {

@@ -2465,6 +2465,8 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
         return;
     }
 
+  /* FIXME output_unit->index is size_t, there will be an overflow if
+     output_unit->index > max of IV */
   sv = newSViv ((IV) output_unit->index);
   STORE("unit_index");
 
@@ -2739,7 +2741,7 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
 static HV *
 build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
 {
-  int i;
+  size_t i;
   HV *expanded_hv;
 
   dTHX;

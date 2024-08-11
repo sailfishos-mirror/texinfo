@@ -200,7 +200,8 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
 {
 #define ADD(x,n) text_append_n (&result, x, n)
 
-  TEXT result; int i;
+  TEXT result;
+  size_t i;
 
   text_init (&result);
   for (i = 0; i < e->e.c->contents.number; i++)
@@ -755,7 +756,7 @@ do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
         {
           SOURCE_MARK_LIST *source_mark_list = e->source_mark_list;
 
-          int i;
+          size_t i;
           for (i = 0; i < source_mark_list->number; i++)
             place_source_mark (current, source_mark_list->list[i]);
           free_element_source_mark_list (e);
@@ -786,7 +787,7 @@ ELEMENT *
 merge_text (ELEMENT *current, const char *text, size_t len_text,
             ELEMENT *transfer_marks_element)
 {
-  int leading_spaces = 0;
+  size_t leading_spaces = 0;
   ELEMENT *e;
   ELEMENT *last_element = last_contents_child (current);
 

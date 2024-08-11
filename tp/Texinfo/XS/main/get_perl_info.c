@@ -246,7 +246,8 @@ apply_sv_parser_conf (SV *parser_sv)
   parser_conf_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
   if (parser_conf_descriptor_sv && SvOK (*parser_conf_descriptor_sv))
     {
-      size_t parser_conf_descriptor = (size_t) SvIV (*parser_conf_descriptor_sv);
+      size_t parser_conf_descriptor
+        = (size_t) SvIV (*parser_conf_descriptor_sv);
 
       if (parser_conf_descriptor == global_parser_conf.descriptor)
         {
@@ -265,7 +266,7 @@ apply_sv_parser_conf (SV *parser_sv)
 
       if (!parser_conf)
         {
-          fprintf (stderr, "ERROR: get_sv_parser_conf: descriptor %d not found\n",
+          fprintf (stderr, "ERROR: get_sv_parser_conf: descriptor %zu not found\n",
                            parser_conf_descriptor);
           return;
         }
@@ -882,7 +883,7 @@ html_get_button_specification_list (const CONVERTER *converter,
   BUTTON_SPECIFICATION_LIST *result;
   AV *buttons_av;
   SSize_t buttons_nr;
-  SSize_t i;
+  size_t i;
 
   dTHX;
 
@@ -915,7 +916,7 @@ html_get_button_specification_list (const CONVERTER *converter,
 
   for (i = 0; i < result->number; i++)
     {
-      SV **button_sv = av_fetch (result->av, i, 0);
+      SV **button_sv = av_fetch (result->av, (SSize_t) i, 0);
       BUTTON_SPECIFICATION *button = &result->list[i];
 
       if (!button_sv || !SvOK (*button_sv))
@@ -1256,7 +1257,7 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
 
           if (unit_index_sv)
             {
-              int unit_index = SvIV (*unit_index_sv);
+              size_t unit_index = (size_t) SvIV (*unit_index_sv);
               const OUTPUT_UNIT_LIST *output_units
                = retrieve_output_units (document, output_units_descriptor);
 
@@ -1464,7 +1465,8 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
           EXTRA(global_command_number)
           if (global_command_number_sv)
             {
-              int global_command_number = SvIV (*global_command_number_sv);
+              size_t global_command_number
+                = (size_t) SvIV (*global_command_number_sv);
               const ELEMENT_LIST *global_cmd_list
                 = get_cmd_global_multi_command (
                               &document->global_commands, cmd);

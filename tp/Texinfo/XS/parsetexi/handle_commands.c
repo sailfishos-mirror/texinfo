@@ -69,7 +69,7 @@ int
 check_no_text (const ELEMENT *current)
 {
   int after_paragraph = 0;
-  int i, j;
+  size_t i, j;
   for (i = 0; i < current->e.c->contents.number; i++)
     {
       enum element_type t;
@@ -577,7 +577,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       int has_comment = 0;
       int special_arg = 0;
       int ignored = 0;
-      int i;
+      size_t i;
 
       if (cmd == CM_insertcopying)
         {
@@ -679,7 +679,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         }
       else if (!ignored)
         {
-          int i;
+          size_t i;
           size_t args_nr = args->number;
           command_e = new_command_element (ET_lineraw_command, cmd);
 

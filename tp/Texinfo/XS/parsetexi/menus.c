@@ -41,7 +41,7 @@
 ELEMENT *
 register_extra_menu_entry_information (ELEMENT *current)
 {
-  int i;
+  size_t i;
   ELEMENT *menu_entry_node = 0;
 
   for (i = 0; i < current->e.c->contents.number; i++)
@@ -392,7 +392,7 @@ end_line_menu_entry (ELEMENT *current)
           debug ("THEN MENU_COMMENT OPEN");
         }
       {
-      int i, j;
+      size_t i, j;
       for (i = 0; i < menu_entry->e.c->contents.number; i++)
         {
           ELEMENT *arg = contents_child_by_index (menu_entry, i);

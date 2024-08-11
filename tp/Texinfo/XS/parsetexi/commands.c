@@ -36,7 +36,7 @@ enum command_id
 lookup_command (const char *cmdname)
 {
   enum command_id cmd;
-  int i;
+  size_t i;
 
   /* Check for user-defined commands: macros, indexes, etc. */
   /* Do this before looking in the built-in commands, in case the user uses
@@ -130,7 +130,7 @@ remove_texinfo_command (enum command_id cmd)
 void
 wipe_user_commands (void)
 {
-  int i;
+  size_t i;
   for (i = 0; i < user_defined_number; i++)
     free (user_defined_command_data[i].cmdname);
   user_defined_number = 0;

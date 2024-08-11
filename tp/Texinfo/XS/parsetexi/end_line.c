@@ -681,7 +681,7 @@ end_line_def_line (ELEMENT *current)
   ELEMENT *def_info_name = 0;
   ELEMENT *def_info_class = 0;
   ELEMENT *def_info_category = 0;
-  int i = 0;
+  size_t i;
   enum context top_context = pop_context ();
 
   if (top_context != ct_def)
@@ -827,7 +827,10 @@ end_line_starting_block (ELEMENT *current)
     }
   else if (command == CM_multitable)
     {
-      int i;
+      size_t i;
+      /* NOTE max_columns could overflow, as in general max (int) < max (size_t).
+         We do not do anything special as this would be for unrealistically big
+         numbers for columns */
       int max_columns = 0;
 
       for (i = 0; i < current->e.c->contents.number; i++)
@@ -972,7 +975,7 @@ end_line_starting_block (ELEMENT *current)
          otherwise it is not a command_as_argument */
           if (k_command_as_arg)
             {
-              int i;
+              size_t i;
               ELEMENT *e = args_child_by_index (current, 0);
               ELEMENT *command_as_arg_e = k_command_as_arg->k.element;
 
@@ -1377,7 +1380,7 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->e.c->cmd == CM_documentencoding)
             {
-              int i;
+              size_t i;
               char *normalized_text;
               int possible_encoding = 0;
 
@@ -1574,7 +1577,7 @@ end_line_misc_line (ELEMENT *current)
     }
   else if (current->e.c->cmd == CM_node)
     {
-      int i;
+      size_t i;
       ELEMENT *label_element;
 
       for (i = 1; i < current->e.c->args.number && i < 4; i++)

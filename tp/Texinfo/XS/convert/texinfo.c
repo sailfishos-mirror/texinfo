@@ -62,7 +62,7 @@ txi_parser (const char *file_path, const char *locale_encoding,
 {
   char *input_file_name_and_directory[2];
   char *input_directory;
-  int i;
+  size_t i;
   int debug = 0;
   int includes_set = 0;
 

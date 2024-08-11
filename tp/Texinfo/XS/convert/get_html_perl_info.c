@@ -234,7 +234,7 @@ html_converter_initialize_sv (SV *converter_sv,
                               SV *customized_direction_strings
                              )
 {
-  int i;
+  size_t i;
   HV *converter_hv;
   HV *default_formatting_references_hv;
   HV *default_css_string_formatting_references_hv;
@@ -1191,7 +1191,7 @@ html_converter_initialize_sv (SV *converter_sv,
 
           if (SvOK (stage_sv))
             {
-              size_t k;
+              SSize_t k;
               AV *stage_av = (AV *)SvRV (stage_sv);
               HTML_STAGE_HANDLER_INFO_LIST *stage_handler_list
                 = &converter->html_stage_handlers[stage];
@@ -1792,7 +1792,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       int number = SvIV (args_sv[1]);
       if (converter->document && converter->document->listoffloats.number > 0)
         {
-          int i;
+          size_t i;
           const LISTOFFLOATS_TYPE_LIST
             *listoffloats = &converter->document->listoffloats;
           for (i = 0; i < listoffloats->number; i++)

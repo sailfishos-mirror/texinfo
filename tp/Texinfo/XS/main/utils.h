@@ -230,7 +230,7 @@ EXPANDED_FORMAT *new_expanded_formats (void);
 void clear_expanded_formats (EXPANDED_FORMAT *formats);
 void add_expanded_format (EXPANDED_FORMAT *formats, const char *format);
 int format_expanded_p (const EXPANDED_FORMAT *formats, const char *format);
-int expanded_formats_number (void);
+size_t expanded_formats_number (void);
 void set_expanded_formats_from_options (EXPANDED_FORMAT *formats,
                                         const OPTIONS *options);
 

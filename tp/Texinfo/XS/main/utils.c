@@ -368,7 +368,9 @@ get_encoding_conversion (const char *encoding,
                          ENCODING_CONVERSION_LIST *encodings_list)
 {
   const char *conversion_encoding = encoding;
-  int encoding_index = -1;
+  size_t encoding_nr = 0;
+  size_t encoding_index = 0;
+  int utf8_missing = 0;
 
   /* should correspond to
      Texinfo::Common::encoding_name_conversion_map.
@@ -381,31 +383,30 @@ get_encoding_conversion (const char *encoding,
   if (!strcasecmp (encoding, "utf-8"))
     {
       if (encodings_list->number > 0)
-        encoding_index = 0;
+        encoding_nr = 1;
       else
-        encoding_index = -2;
+        utf8_missing = 1;
     }
   else if (encodings_list->number > 1)
     {
-      int i;
+      size_t i;
       for (i = 1; i < encodings_list->number; i++)
         {
           if (!strcasecmp (conversion_encoding,
                            encodings_list->list[i].encoding_name))
             {
-              encoding_index = i;
+              encoding_nr = i+1;
               break;
             }
         }
     }
 
-  if (encoding_index < 0)
+  if (encoding_nr == 0)
     {
       if (encodings_list->number == 0)
         encodings_list->number++;
-      if (encoding_index == -2) /* utf-8 */
-        encoding_index = 0;
-      else
+
+      if (!utf8_missing) /* !utf-8 */
         {
           encoding_index = encodings_list->number;
           encodings_list->number++;
@@ -416,7 +417,6 @@ get_encoding_conversion (const char *encoding,
           encodings_list->list = realloc (encodings_list->list,
               (encodings_list->space += 3) * sizeof (ENCODING_CONVERSION));
         }
-
       encodings_list->list[encoding_index].encoding_name
            = strdup (conversion_encoding);
       /* Initialize conversions for the first time.  iconv_open returns
@@ -428,6 +428,8 @@ get_encoding_conversion (const char *encoding,
         encodings_list->list[encoding_index].iconv
            = iconv_open (conversion_encoding, "UTF-8");
     }
+  else
+   encoding_index = encoding_nr - 1;
 
   if (encodings_list->list[encoding_index].iconv == (iconv_t) -1)
     return 0;
@@ -443,7 +445,7 @@ get_encoding_conversion (const char *encoding,
 void
 reset_encoding_list (ENCODING_CONVERSION_LIST *encodings_list)
 {
-  int i;
+  size_t i;
   /* never reset the utf-8 encoding in position 0 */
   if (encodings_list->number > 1)
     {
@@ -589,7 +591,7 @@ encode_string (char *input_string, const char *encoding, int *status,
 void
 clear_expanded_formats (EXPANDED_FORMAT *formats)
 {
-  int i;
+  size_t i;
   for (i = 0; i < sizeof (default_expanded_formats)
                             / sizeof (*default_expanded_formats);
        i++)
@@ -601,7 +603,7 @@ clear_expanded_formats (EXPANDED_FORMAT *formats)
 void
 add_expanded_format (EXPANDED_FORMAT *formats, const char *format)
 {
-  int i;
+  size_t i;
   for (i = 0; i < sizeof (default_expanded_formats)
                       / sizeof (*default_expanded_formats);
        i++)
@@ -629,7 +631,7 @@ new_expanded_formats (void)
 int
 format_expanded_p (const EXPANDED_FORMAT *formats, const char *format)
 {
-  int i;
+  size_t i;
   for (i = 0; i < sizeof (default_expanded_formats)
                            / sizeof (*default_expanded_formats);
        i++)
@@ -640,7 +642,7 @@ format_expanded_p (const EXPANDED_FORMAT *formats, const char *format)
   return 0;
 }
 
-int
+size_t
 expanded_formats_number (void)
 {
   return sizeof (default_expanded_formats)
@@ -1038,7 +1040,8 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
 {
   char *fullpath;
   struct stat dummy;
-  int i, status;
+  int status;
+  size_t i;
 
   /* Checks if filename is absolute or relative to current directory. */
   /* Note: the Perl code (in Common.pm, 'locate_include_file') handles
@@ -1072,7 +1075,7 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
 void
 clear_strings_list (STRING_LIST *strings)
 {
-  int i;
+  size_t i;
   for (i = 0; i < strings->number; i++)
     {
       free (strings->list[i]);
@@ -1146,7 +1149,7 @@ wipe_values (VALUE_LIST *values)
 void
 delete_global_info (GLOBAL_INFO *global_info)
 {
-  int i;
+  size_t i;
   free_strings_list (&global_info->included_files);
 
   free (global_info->input_encoding_name);
@@ -1246,7 +1249,7 @@ informative_command_value (const ELEMENT *element)
       else if (element->e.c->args.number > 0)
         {
           TEXT text;
-          int i;
+          size_t i;
           char *text_seen = 0;
           for (i = 0; i < element->e.c->args.number; i++)
             {
@@ -1372,7 +1375,7 @@ get_global_document_command (const GLOBAL_COMMANDS *global_commands,
                 }
               else
                 {
-                  int i;
+                  size_t i;
                   for (i = 0; i < command_list->number; i++)
                     {
                       ELEMENT *command_element = command_list->list[i];
@@ -1477,7 +1480,7 @@ section_level_adjusted_command_name (const ELEMENT *element)
 int
 is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries)
 {
-  int i;
+  size_t i;
   if (!tree || !tree->e.c->contents.number)
     return 1;
 

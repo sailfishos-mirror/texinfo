@@ -489,7 +489,7 @@ get_unclosed_stream (SV *converter_in, file_path)
          unclosed_files = &output_files_information->unclosed_files;
          if (unclosed_files->number > 0)
            {
-             int i;
+             size_t i;
              for (i = 0; i < unclosed_files->number; i++)
                {
                  FILE_STREAM *file_stream = &unclosed_files->list[i];
@@ -2235,7 +2235,7 @@ html_close_registered_sections_level (SV *converter_in, filename, int level)
 
              if (closed_elements->number > 0)
                {
-                 int i;
+                 size_t i;
                  for (i = 0; i < closed_elements->number; i++)
                    {
                      SV *close_string_sv
@@ -2308,7 +2308,7 @@ html_get_css_elements_classes (SV *converter_in, ...)
                {
                  if (result->number)
                    {
-                     int i;
+                     size_t i;
                      for (i = 0; i < result->number; i++)
                        {
                          SV *selector_sv
@@ -2428,8 +2428,8 @@ html_register_footnote (SV *converter_in, SV *command, footid, docid, int number
                                 strlen ("global_command_number"), 0);
                  if (global_command_number_sv)
                    {
-                     int global_command_number
-                       = SvIV (*global_command_number_sv);
+                     size_t global_command_number
+                       = (size_t) SvIV (*global_command_number_sv);
                      if (global_command_number > 0
                          && global_command_number - 1 < footnotes->number)
                        {

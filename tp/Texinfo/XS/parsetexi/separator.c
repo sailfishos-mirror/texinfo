@@ -262,7 +262,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
 int
 check_empty_expansion (ELEMENT *e)
 {
-  int i;
+  size_t i;
   for (i = 0; i < e->e.c->contents.number; i++)
     {
       ELEMENT *f = e->e.c->contents.list[i];

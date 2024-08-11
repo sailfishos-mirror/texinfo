@@ -1,5 +1,52 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (get_encoding_conversion): use a separate
+	variable for utf8_missing case.  Use size_t encoding_nr to find he
+	number of the encoding, using 0 for not found.  Also use size_t for
+	encoding_index and set it when the case is known.
+
+	* tp/Texinfo/XS/parsetexi/macro.c (lookup_macro_parameter)
+	(expand_macro_body): have lookup_macro_parameter return index of
+	argument +1, to be able to return a size_t and use 0 for not found.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (get_unclosed_stream)
+	(html_close_registered_sections_level, html_get_css_elements_classes)
+	(html_register_footnote), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_initialize_sv, html_set_shared_conversion_state),
+	tp/Texinfo/XS/convert/texinfo.c (txi_parser),
+	tp/Texinfo/XS/main/build_perl_info.c (build_expanded_formats),
+	tp/Texinfo/XS/main/get_perl_info.c (apply_sv_parser_conf)
+	(html_get_button_specification_list, find_root_command)
+	(find_element_from_sv), tp/Texinfo/XS/main/translations.c
+	(replace_substrings, substitute_element_array)
+	(replace_convert_substrings), tp/Texinfo/XS/main/unicode.c
+	(encoded_accents, unicode_point_decoded_in_encoding),
+	tp/Texinfo/XS/main/utils.c (reset_encoding_list)
+	(clear_expanded_formats, add_expanded_format, format_expanded_p)
+	(expanded_formats_number, locate_include_file, clear_strings_list)
+	(delete_global_info, get_global_document_command, is_content_empty),
+	tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup),
+	tp/Texinfo/XS/parsetexi/commands.c (lookup_command)
+	(wipe_user_commands), tp/Texinfo/XS/parsetexi/def.c (parse_def),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_def_line)
+	(end_line_starting_block, end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (check_no_text)
+	(handle_line_command), tp/Texinfo/XS/parsetexi/indices.c
+	(space_for_indices, associate_command_to_index, init_index_commands)
+	(set_non_ignored_space_in_index_before_command, complete_indices),
+	tp/Texinfo/XS/parsetexi/macro.c (lookup_macro, expand_macro_arguments)
+	(expand_linemacro_arguments, wipe_macros, handle_macro, store_value)
+	(clear_value, fetch_value, lookup_infoenclose, add_infoenclose),
+	tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information, end_line_menu_entry),
+	tp/Texinfo/XS/parsetexi/parser.c (text_contents_to_plain_text)
+	(merge_text), tp/Texinfo/XS/parsetexi/separator.c
+	(check_empty_expansion): use size_t instead of int where the variable
+	could reach a value outside of the int range and also when the index
+	is better represented by a size_t.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/parser_conf.h (PARSER_CONF): use size_t for the
 	descriptor field.
 

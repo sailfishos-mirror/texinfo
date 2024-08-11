@@ -358,8 +358,8 @@ parse_def (enum command_id command, ELEMENT *current)
   size_t contents_idx = 0;
   int type, set_type_not_arg;
   size_t i;
-  int i_def;
-  int arg_types_nr;
+  size_t i_def;
+  size_t arg_types_nr;
   ELEMENT *e, *e1;
   enum element_type *arguments_types_list;
   int inserted_category = 0;
