@@ -1,5 +1,43 @@
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/build_html_perl_state.c
+	(build_no_arg_commands_formatting, build_html_files_source_info)
+	(build_html_elements_in_file_count, build_html_translated_names)
+	(build_html_command_formatted_args, build_replaced_substrings),
+	tp/Texinfo/XS/convert/convert_html.c (html_get_tree_root_element)
+	(add_associated_file_info_integer, lookup_associated_file_info)
+	(html_register_opened_section_level, prepare_special_units)
+	(set_special_units_targets_files)
+	(prepare_associated_special_units_targets)
+	(set_root_commands_targets_node_files, html_get_css_elements_classes)
+	(html_attribute_class, prepare_index_entries_targets)
+	(prepare_footnotes_targets, set_heading_commands_targets)
+	(html_prepare_output_units_global_targets, find_file_source_info)
+	(html_reset_files_source_info, html_set_pages_files)
+	(prepare_special_units_directions)
+	(html_prepare_units_directions_files, html_default_format_contents)
+	(html_default_format_end_file, get_links)
+	(html_default_format_navigation_panel)
+	(html_default_format_element_header, html_default_format_element_footer)
+	(convert_heading_command, convert_inline_command, convert_sp_command)
+	(convert_quotation_command, convert_tab_command, convert_unit_type)
+	(default_format_special_body_about, html_converter_init_special_unit)
+	(determine_non_default_special_unit_directions)
+	(html_converter_customize, reset_html_targets_list)
+	(html_initialize_output_state, html_conversion_finalization)
+	(clear_type_explanations, html_reset_converter, html_free_converter)
+	(html_translate_names, destroy_args_formatted)
+	(html_convert_type_update_context, debug_print_html_contexts)
+	(convert_to_html_internal, convert_output_unit)
+	(convert_convert_output_unit_internal, html_convert_convert)
+	(convert_output_output_unit_internal, html_convert_output)
+	(html_node_redirections): use size_t instead of int where the variable
+	could reach a value outside of the int range and also when the index
+	is better represented by a size_t.  Cast to/from int and size_t when
+	needed.
+
+2024-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/structuring_transfo/transformations.c
 	(fill_gaps_in_sectioning, move_index_entries_after_items)
 	(reassociate_to_node): use number of elements and size_t in a first

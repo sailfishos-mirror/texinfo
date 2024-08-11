@@ -94,7 +94,7 @@ SV *
 build_no_arg_commands_formatting (const CONVERTER *converter)
 {
   HV *no_arg_commands_formatting_hv;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -303,7 +303,7 @@ html_pass_converter_setup_state (const CONVERTER *converter,
 SV *
 build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
 {
-  int i;
+  size_t i;
   HV *hv;
 
   dTHX;
@@ -468,7 +468,7 @@ HV *
 build_html_elements_in_file_count (
                  FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
-  int i;
+  size_t i;
   HV *hv;
 
   dTHX;
@@ -608,7 +608,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)
     {
-      int j;
+      size_t j;
       HV *no_arg_commands_formatting_hv;
       FETCH(no_arg_commands_formatting);
       no_arg_commands_formatting_hv
@@ -728,7 +728,7 @@ SV *
 build_html_command_formatted_args (const HTML_ARGS_FORMATTED *args_formatted)
 {
   AV *av;
-  int i;
+  size_t i;
 
   dTHX;
 
@@ -771,7 +771,7 @@ SV *
 build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {
   HV *hv;
-  int i;
+  size_t i;
 
   dTHX;
 
