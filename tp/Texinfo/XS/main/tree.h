@@ -18,9 +18,9 @@ void add_to_element_list (ELEMENT_LIST *list, ELEMENT *e);
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_to_contents_as_array (ELEMENT *parent, ELEMENT *e);
 void add_to_element_args (ELEMENT *parent, ELEMENT *e);
-void insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, int where);
-void insert_into_contents (ELEMENT *parent, ELEMENT *e, int where);
-void insert_into_args (ELEMENT *parent, ELEMENT *e, int where);
+void insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, size_t where);
+void insert_into_contents (ELEMENT *parent, ELEMENT *e, size_t where);
+void insert_into_args (ELEMENT *parent, ELEMENT *e, size_t where);
 ELEMENT *remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e);
 void add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e);
 void insert_list_slice_into_list (ELEMENT_LIST *to, int where,

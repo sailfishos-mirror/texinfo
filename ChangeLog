@@ -1,5 +1,12 @@
 2024-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/tree.c (insert_into_element_list)
+	(insert_into_contents, insert_into_args): have indices be size_t.
+	Remove the possibility to add at the end with a negative index, it is
+	not used and the caller should be able to compute the index.
+
+2024-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (retrieve_converter)
 	(unregister_converter_descriptor),
 	tp/Texinfo/XS/convert/get_converter_perl_info.c (get_sv_converter),

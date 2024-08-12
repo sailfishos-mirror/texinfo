@@ -1197,7 +1197,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   for (i = 0; i < menus->number; i++)
     {
-      size_t detailmenu_index = 0;
+      size_t detailmenu_index;
       /* cast to remove const to be able to replace the detailmenu */
       ELEMENT *menu = (ELEMENT *)menus->list[i];
       for (detailmenu_index = 0; detailmenu_index < menu->e.c->contents.number;

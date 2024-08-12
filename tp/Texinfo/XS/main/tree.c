@@ -404,14 +404,11 @@ add_to_element_args (ELEMENT *parent, ELEMENT *e)
 
 /* Add the element E into the LIST at index WHERE. */
 void
-insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, int where)
+insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, size_t where)
 {
   reallocate_list (list);
 
-  if (where < 0)
-    where = list->number + where;
-
-  if (where < 0 || where > list->number)
+  if (where > list->number)
     fatal ("elements list index out of bounds");
 
   memmove (&list->list[where + 1], &list->list[where],
@@ -422,7 +419,7 @@ insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, int where)
 
 /* Add the element E into the contents of PARENT at index WHERE. */
 void
-insert_into_contents (ELEMENT *parent, ELEMENT *e, int where)
+insert_into_contents (ELEMENT *parent, ELEMENT *e, size_t where)
 {
   ELEMENT_LIST *list = &parent->e.c->contents;
   insert_into_element_list (list, e, where);
@@ -431,7 +428,7 @@ insert_into_contents (ELEMENT *parent, ELEMENT *e, int where)
 
 /* Add the element E into the arguments of PARENT at index WHERE. */
 void
-insert_into_args (ELEMENT *parent, ELEMENT *e, int where)
+insert_into_args (ELEMENT *parent, ELEMENT *e, size_t where)
 {
   ELEMENT_LIST *list = &parent->e.c->args;
   insert_into_element_list (list, e, where);
