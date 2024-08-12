@@ -588,15 +588,15 @@ begin_paragraph (ELEMENT *current)
 {
   ELEMENT *e;
   enum command_id indent = 0;
+  size_t j;
 
   /* Check if an @indent precedes the paragraph (to record it
      in the 'extra' key). */
   if (current->e.c->contents.number > 0)
     {
-      int i = current->e.c->contents.number - 1;
-      while (i >= 0)
+      for (j = current->e.c->contents.number; j > 0; j--)
         {
-          ELEMENT *child = contents_child_by_index (current, i);
+          ELEMENT *child = contents_child_by_index (current, j - 1);
           if (child->type == ET_empty_line
               || child->type == ET_paragraph)
             break;
@@ -622,7 +622,6 @@ begin_paragraph (ELEMENT *current)
             fprintf(stderr, "INDENT search skipping through %s\n",
                     print_element_debug_parser(child, 0));
             */
-          i--;
         }
     }
 
@@ -1528,7 +1527,7 @@ process_macro_block_contents (ELEMENT *current, const char **line_out)
                   ELEMENT *e;
                   char *name;
                   enum command_id existing;
-                  int n;
+                  size_t n;
 
                   n = strspn (line, whitespace_chars);
 

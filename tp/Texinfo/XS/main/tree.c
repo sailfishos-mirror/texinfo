@@ -630,24 +630,18 @@ last_contents_child (const ELEMENT *current)
 }
 
 ELEMENT *
-contents_child_by_index (const ELEMENT *e, int index)
+contents_child_by_index (const ELEMENT *e, size_t index)
 {
-  if (index < 0)
-    index = e->e.c->contents.number + index;
-
-  if (index < 0 || index >= e->e.c->contents.number)
+  if (index >= e->e.c->contents.number)
     return 0;
 
   return e->e.c->contents.list[index];
 }
 
 ELEMENT *
-args_child_by_index (const ELEMENT *e, int index)
+args_child_by_index (const ELEMENT *e, size_t index)
 {
-  if (index < 0)
-    index = e->e.c->args.number + index;
-
-  if (index < 0 || index >= e->e.c->args.number)
+  if (index >= e->e.c->args.number)
     return 0;
 
   return e->e.c->args.list[index];
