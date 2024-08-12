@@ -122,9 +122,9 @@ void converter_setup (int texinfo_uninstalled, const char *tp_builddir,
 
 enum converter_format find_format_data_index (const char *format);
 
-CONVERTER *retrieve_converter (int converter_descriptor);
+CONVERTER *retrieve_converter (size_t converter_descriptor);
 size_t new_converter (enum converter_format format, unsigned long flags);
-void unregister_converter_descriptor (int converter_descriptor);
+void unregister_converter_descriptor (size_t converter_descriptor);
 
 void set_converter_init_information (CONVERTER *converter,
                             enum converter_format converter_format,

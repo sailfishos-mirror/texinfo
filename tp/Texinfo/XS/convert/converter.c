@@ -183,7 +183,7 @@ find_format_data_index (const char *format)
 }
 
 CONVERTER *
-retrieve_converter (int converter_descriptor)
+retrieve_converter (size_t converter_descriptor)
 {
   if (converter_descriptor <= converter_number
       && converter_list[converter_descriptor -1] != 0)
@@ -221,13 +221,13 @@ init_generic_converter (CONVERTER *self)
 
 /* descriptor starts at 1, 0 is not found or an error */
 /* flags set low-level implementation choices, currently using Perl hash
- * map or (slower) string lists */
+   map or (slower) string lists */
 size_t
 new_converter (enum converter_format format, unsigned long flags)
 {
   size_t converter_index;
   int slot_found = 0;
-  int i;
+  size_t i;
   CONVERTER *registered_converter;
 
   for (i = 0; i < converter_number; i++)
@@ -372,7 +372,7 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 }
 
 void
-unregister_converter_descriptor (int converter_descriptor)
+unregister_converter_descriptor (size_t converter_descriptor)
 {
   CONVERTER *converter = retrieve_converter (converter_descriptor);
   if (converter)
@@ -849,7 +849,7 @@ id_to_filename (CONVERTER *self, char **id_ref)
   if (self->conf->BASEFILENAME_LENGTH.o.integer < 0)
     return;
   char *id = *id_ref;
-  if (strlen (id) > self->conf->BASEFILENAME_LENGTH.o.integer)
+  if (strlen (id) > (size_t) self->conf->BASEFILENAME_LENGTH.o.integer)
     {
       id[self->conf->BASEFILENAME_LENGTH.o.integer] = '\0';
     }
@@ -1288,7 +1288,7 @@ void
 free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
 {
   /* destroy separator elements */
-  int i;
+  size_t i;
   for (i = 0; i < element_list->number; i++)
     {
       ELEMENT *content = element_list->list[i];
@@ -1392,7 +1392,7 @@ find_output_unit_file (const CONVERTER *self, const char *filename, int *status)
 {
   const FILE_NAME_PATH_COUNTER_LIST *output_unit_files
     = &self->output_unit_files;
-  int i;
+  size_t i;
   *status = 0;
 
   for (i = 0; i < output_unit_files->number; i++)
@@ -1558,7 +1558,7 @@ set_file_path (CONVERTER *self, const char *filename, const char *filepath,
 static void
 free_output_unit_files_file (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
-  int i;
+  size_t i;
   for (i = 0; i < output_unit_files->number; i++)
     {
       FILE_NAME_PATH_COUNTER *output_unit_file = &output_unit_files->list[i];

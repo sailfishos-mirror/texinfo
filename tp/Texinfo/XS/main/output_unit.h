@@ -10,11 +10,11 @@
 extern const char *relative_unit_direction_name[];
 
 OUTPUT_UNIT_LIST *retrieve_output_units (const DOCUMENT *document,
-                                         int output_units_descriptor);
+                                         size_t output_units_descriptor);
 size_t new_output_units_descriptor (DOCUMENT *document);
 
-int split_by_node (DOCUMENT *document);
-int split_by_section (DOCUMENT *document);
+size_t split_by_node (DOCUMENT *document);
+size_t split_by_section (DOCUMENT *document);
 int unsplit (DOCUMENT *document);
 void split_pages (OUTPUT_UNIT_LIST *output_units, const char *split);
 

@@ -50,7 +50,7 @@ const char *relative_unit_direction_name[] = {
 
 
 OUTPUT_UNIT_LIST *
-retrieve_output_units (const DOCUMENT *document, int output_units_descriptor)
+retrieve_output_units (const DOCUMENT *document, size_t output_units_descriptor)
 {
   const OUTPUT_UNIT_LISTS *output_units_lists = &document->output_units_lists;
 
@@ -79,7 +79,7 @@ new_output_units_descriptor (DOCUMENT *document)
 {
   size_t output_units_index;
   int slot_found = 0;
-  int i;
+  size_t i;
   OUTPUT_UNIT_LISTS *output_units_lists = &document->output_units_lists;
 
   for (i = 0; i < output_units_lists->number; i++)
@@ -139,16 +139,16 @@ add_to_output_unit_list (OUTPUT_UNIT_LIST *list, OUTPUT_UNIT *output_unit)
 }
 
 /* in addition to splitting, register the output_units list */
-int
+size_t
 split_by_node (DOCUMENT *document)
 {
   const ELEMENT *root = document->tree;
-  int output_units_descriptor = new_output_units_descriptor (document);
+  size_t output_units_descriptor = new_output_units_descriptor (document);
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (document, output_units_descriptor);
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
   ELEMENT_LIST *pending_parts = new_list ();
-  int i;
+  size_t i;
 
   add_to_output_unit_list (output_units, current);
 
@@ -181,7 +181,7 @@ split_by_node (DOCUMENT *document)
         }
       if (pending_parts->number > 0)
         {
-          int j;
+          size_t j;
           for (j = 0; j < pending_parts->number; j++)
             {
               ELEMENT *part = pending_parts->list[j];
@@ -196,7 +196,7 @@ split_by_node (DOCUMENT *document)
 
   if (pending_parts->number > 0)
     {
-      int j;
+      size_t j;
       for (j = 0; j < pending_parts->number; j++)
         {
           ELEMENT *part = pending_parts->list[j];
@@ -212,15 +212,15 @@ split_by_node (DOCUMENT *document)
 }
 
 /* in addition to splitting, register the output_units list */
-int
+size_t
 split_by_section (DOCUMENT *document)
 {
   const ELEMENT *root = document->tree;
-  int output_units_descriptor = new_output_units_descriptor (document);
+  size_t output_units_descriptor = new_output_units_descriptor (document);
   OUTPUT_UNIT_LIST *output_units
     = retrieve_output_units (document, output_units_descriptor);
   OUTPUT_UNIT *current = new_output_unit (OU_unit);
-  int i;
+  size_t i;
 
   if (root->e.c->contents.number > 0)
     document->modified_information |= F_DOCM_tree;
@@ -280,7 +280,7 @@ unsplit (DOCUMENT *document)
 {
   const ELEMENT *root = document->tree;
   int unsplit_needed = 0;
-  int i;
+  size_t i;
 
   if (root->type != ET_document_root || root->e.c->contents.number <= 0)
     return 0;
@@ -409,6 +409,7 @@ split_pages (OUTPUT_UNIT_LIST *output_units, const char *split)
 {
   int split_level = -2;
   int i;
+  size_t j;
   OUTPUT_UNIT *current_first_in_page = 0;
 
   if (!output_units || !output_units->number)
@@ -416,9 +417,9 @@ split_pages (OUTPUT_UNIT_LIST *output_units, const char *split)
 
   if (!split || !strlen (split))
     {
-      for (i = 0; i < output_units->number; i++)
+      for (j = 0; j < output_units->number; j++)
         {
-          OUTPUT_UNIT *output_unit = output_units->list[i];
+          OUTPUT_UNIT *output_unit = output_units->list[j];
           output_unit->first_in_page = output_units->list[0];
         }
       return;
@@ -438,9 +439,9 @@ split_pages (OUTPUT_UNIT_LIST *output_units, const char *split)
       split_level = -1; /* split by node */
     }
 
-  for (i = 0; i < output_units->number; i++)
+  for (j = 0; j < output_units->number; j++)
     {
-      OUTPUT_UNIT *output_unit = output_units->list[i];
+      OUTPUT_UNIT *output_unit = output_units->list[j];
       const ELEMENT *section = output_unit_section (output_unit);
       int level = -3;
       if (section)
@@ -574,7 +575,7 @@ units_directions (const LABEL_LIST *identifiers_target,
                   OUTPUT_UNIT_LIST *external_node_target_units,
                   int print_debug)
 {
-  int i;
+  size_t i;
   ELEMENT_STACK up_list;
   ELEMENT *node_top;
 
@@ -656,7 +657,7 @@ units_directions (const LABEL_LIST *identifiers_target,
                   while (1)
                     {
                       const ELEMENT * const *up_node_directions;
-                      int i;
+                      size_t i;
                       int in_up = 0;
                       for (i = 0; i < up_list.top; i++)
                         if (up == up_list.stack[i])
@@ -841,7 +842,7 @@ units_directions (const LABEL_LIST *identifiers_target,
   free (up_list.stack);
   if (print_debug > 0)
     {
-      int i;
+      size_t i;
       for (i = 0; i < output_units->number; i++)
         {
           const OUTPUT_UNIT *output_unit = output_units->list[i];
@@ -856,7 +857,7 @@ units_directions (const LABEL_LIST *identifiers_target,
 void
 units_file_directions (OUTPUT_UNIT_LIST *output_units)
 {
-  int i;
+  size_t i;
   char *current_filename = 0;
   OUTPUT_UNIT *first_unit_in_file = 0;
 

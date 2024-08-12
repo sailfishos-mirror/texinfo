@@ -2,12 +2,14 @@
 #ifndef GET_HTML_PERL_INFO_H
 #define GET_HTML_PERL_INFO_H
 
+#include <stddef.h>
+
 #include "EXTERN.h"
 #include "perl.h"
 
 #include "convert_html.h"
 
-int get_output_units_descriptor_converter_sv (SV *converter_in);
+size_t get_output_units_descriptor_converter_sv (SV *converter_in);
 
 void html_converter_init_special_unit_sv (SV *converter_sv,
                               SV *customized_special_unit_info);
@@ -35,7 +37,7 @@ void html_conversion_initialization_sv (SV *converter_sv,
 
 const ELEMENT *html_find_element_from_sv (CONVERTER *converter,
                                     const SV *element_sv,
-                                    int output_units_descriptor);
+                                    size_t output_units_descriptor);
 
 const ELEMENT *element_converter_from_sv (SV *converter_in,
                                           const SV *element_sv,

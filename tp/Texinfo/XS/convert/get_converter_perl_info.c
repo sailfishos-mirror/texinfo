@@ -46,7 +46,7 @@
 CONVERTER *
 get_sv_converter (SV *sv_in, const char *warn_string)
 {
-  int converter_descriptor = 0;
+  size_t converter_descriptor = 0;
   CONVERTER *converter = 0;
   SV** converter_descriptor_sv;
   HV *hv_in;
@@ -58,7 +58,7 @@ get_sv_converter (SV *sv_in, const char *warn_string)
   converter_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
   if (converter_descriptor_sv)
     {
-      converter_descriptor = SvIV (*converter_descriptor_sv);
+      converter_descriptor = (size_t) SvIV (*converter_descriptor_sv);
       converter = retrieve_converter (converter_descriptor);
     }
   else if (warn_string)
@@ -68,7 +68,7 @@ get_sv_converter (SV *sv_in, const char *warn_string)
     }
   if (! converter && warn_string)
     {
-      fprintf (stderr, "ERROR: %s: no converter %d\n", warn_string,
+      fprintf (stderr, "ERROR: %s: no converter %zu\n", warn_string,
                                                       converter_descriptor);
     }
   return converter;

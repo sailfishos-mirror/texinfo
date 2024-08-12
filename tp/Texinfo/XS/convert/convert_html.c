@@ -1564,15 +1564,16 @@ compare_special_units (const void *a, const void *b)
 }
 
 void
-prepare_special_units (CONVERTER *self, int output_units_descriptor)
+prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
 {
   size_t i;
   STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
   SPECIAL_UNIT_ORDER *special_units_order;
   OUTPUT_UNIT *previous_output_unit = 0;
 
-  int special_units_descriptor = new_output_units_descriptor (self->document);
-  int associated_special_units_descriptor
+  size_t special_units_descriptor
+         = new_output_units_descriptor (self->document);
+  size_t associated_special_units_descriptor
          = new_output_units_descriptor (self->document);
 
   /* retrieve after reallocating */
@@ -1832,7 +1833,7 @@ static const enum command_id conf_for_documentlanguage[]
 void
 html_prepare_conversion_units (CONVERTER *self)
 {
-  int output_units_descriptor;
+  size_t output_units_descriptor;
 
   if (self->conf->USE_NODES.o.integer > 0)
     output_units_descriptor = split_by_node (self->document);
@@ -5442,7 +5443,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   const OUTPUT_UNIT *top_output_unit = get_top_unit (self->document,
                                                      output_units);
 
-  int special_output_units_lists[2] = {
+  size_t special_output_units_lists[2] = {
     self->output_units_descriptors[OUDT_special_units],
     self->output_units_descriptors[OUDT_associated_special_units]};
 
@@ -5529,7 +5530,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
      directions */
   for (i = 0; i < 2; i++)
     {
-      int special_units_descriptor = special_output_units_lists[i];
+      size_t special_units_descriptor = special_output_units_lists[i];
       const OUTPUT_UNIT_LIST *units_list
        = retrieve_output_units (self->document, special_units_descriptor);
       if (units_list && units_list->number)
@@ -5544,7 +5545,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
   s = 0;
   for (i = 0; i < 2; i++)
     {
-      int special_units_descriptor = special_output_units_lists[i];
+      size_t special_units_descriptor = special_output_units_lists[i];
       const OUTPUT_UNIT_LIST *units_list
         = retrieve_output_units (self->document, special_units_descriptor);
       if (units_list && units_list->number)
@@ -6291,7 +6292,7 @@ html_prepare_units_directions_files (CONVERTER *self,
 {
   size_t i;
   FILE_SOURCE_INFO_LIST *files_source_info = 0;
-  int external_nodes_units_descriptor
+  size_t external_nodes_units_descriptor
      = new_output_units_descriptor (self->document);
   OUTPUT_UNIT_LIST *external_node_target_units
     = retrieve_output_units (self->document, external_nodes_units_descriptor);

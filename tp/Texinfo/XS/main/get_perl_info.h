@@ -2,6 +2,8 @@
 #ifndef GET_PERL_INFO_H
 #define GET_PERL_INFO_H
 
+#include <stddef.h>
+
 #include "EXTERN.h"
 #include "perl.h"
 
@@ -29,7 +31,7 @@ int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 
-int get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
+size_t get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
 OUTPUT_UNIT_LIST *get_sv_output_units (const DOCUMENT *document,
                                        SV *output_units_in,
                                        char *warn_string);
@@ -67,7 +69,7 @@ void html_get_direction_icons_sv (const CONVERTER *converter,
 
 const ELEMENT *find_element_from_sv (const CONVERTER *converter,
                                      const DOCUMENT *document_in,
-                          const SV *element_sv, int output_units_descriptor);
+                          const SV *element_sv, size_t output_units_descriptor);
 
 SV *get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
                       const char *language, HV **out_sorted_indices_hv);

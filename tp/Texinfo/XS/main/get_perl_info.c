@@ -163,10 +163,10 @@ get_sv_document_document (SV *document_in, char *warn_string)
 }
 
 /* caller should ensure that OUTPUT_UNIT_IN is defined */
-int
+size_t
 get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
 {
-  int output_units_descriptor = 0;
+  size_t output_units_descriptor = 0;
   AV *av_in;
   SSize_t output_units_nr;
   SV** first_output_unit_sv;
@@ -194,10 +194,11 @@ get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
             = hv_fetch (hv_in, key, strlen (key), 0);
           if (output_units_descriptor_sv)
             {
-              output_units_descriptor = SvIV (*output_units_descriptor_sv);
+              output_units_descriptor
+                 = (size_t) SvIV (*output_units_descriptor_sv);
 
               if (!output_units_descriptor && warn_string)
-                fprintf (stderr, "ERROR: %s: units descriptor %d\n",
+                fprintf (stderr, "ERROR: %s: units descriptor %zu\n",
                                 warn_string, output_units_descriptor);
             }
           else if (warn_string)
@@ -220,13 +221,13 @@ get_sv_output_units (const DOCUMENT *document, SV *output_units_in,
                      char *warn_string)
 {
   OUTPUT_UNIT_LIST *output_units = 0;
-  int output_units_descriptor
+  size_t output_units_descriptor
      = get_sv_output_units_descriptor (output_units_in, warn_string);
   if (output_units_descriptor)
     {
       output_units = retrieve_output_units (document, output_units_descriptor);
       if (!output_units && warn_string)
-        fprintf (stderr, "ERROR: %s: no units %d\n", warn_string,
+        fprintf (stderr, "ERROR: %s: no units %zu\n", warn_string,
                                              output_units_descriptor);
     }
   return output_units;
@@ -1233,9 +1234,9 @@ find_element_extra_index_entry_sv (const DOCUMENT *document,
 
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen (#key), 0);
 /* find C tree root element corresponding to perl tree element element_hv */
-const ELEMENT *
+static const ELEMENT *
 find_root_command (const DOCUMENT *document, HV *element_hv,
-                   int output_units_descriptor)
+                   size_t output_units_descriptor)
 {
   SV **associated_unit_sv;
   const ELEMENT *root;
@@ -1406,7 +1407,7 @@ find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
  */
 const ELEMENT *
 find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
-                      const SV *element_sv, int output_units_descriptor)
+                      const SV *element_sv, size_t output_units_descriptor)
 {
   enum command_id cmd = 0;
   HV *element_hv;

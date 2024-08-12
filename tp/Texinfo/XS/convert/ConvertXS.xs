@@ -1764,7 +1764,7 @@ html_get_target (SV *converter_in, SV *element_sv)
                                   "html_get_target");
          if (self)
            {
-             int output_units_descriptor
+             size_t output_units_descriptor
                = get_output_units_descriptor_converter_sv (converter_in);
              const ELEMENT *element;
              element = html_find_element_from_sv (self, element_sv,

@@ -1558,7 +1558,7 @@ html_get_jslicenses_sv (SV *jslicenses_sv, CONVERTER *converter)
    Only for elements that can be targets of links. */
 const ELEMENT *
 html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
-                           int output_units_descriptor)
+                           size_t output_units_descriptor)
 {
   HV *element_hv;
   SV **type_sv;
@@ -1610,7 +1610,7 @@ html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
 #undef FETCH
 
 /* Not sure if it is generic or HTML specific */
-int
+size_t
 get_output_units_descriptor_converter_sv (SV *converter_in)
 {
   HV *converter_hv;
@@ -1618,7 +1618,7 @@ get_output_units_descriptor_converter_sv (SV *converter_in)
 
   dTHX;
 
-  int output_units_descriptor = 0;
+  size_t output_units_descriptor = 0;
 
   converter_hv = (HV *) SvRV (converter_in);
 
@@ -1637,7 +1637,7 @@ const ELEMENT *
 element_converter_from_sv (SV *converter_in, const SV *element_sv,
                            const char *warn_string, CONVERTER **converter_out)
 {
-  int output_units_descriptor;
+  size_t output_units_descriptor;
 
   *converter_out = get_sv_converter (converter_in, warn_string);
 

@@ -855,7 +855,7 @@ typedef struct CONVERTER {
     const char **direction_unit_direction_name;
 
     /* set for a document */
-    int output_units_descriptors[OUDT_external_nodes_units+1];
+    size_t output_units_descriptors[OUDT_external_nodes_units+1];
     enum htmlxref_split_type document_htmlxref_split_type;
     const OUTPUT_UNIT **global_units_directions;
     SPECIAL_UNIT_DIRECTION *special_units_direction_name;

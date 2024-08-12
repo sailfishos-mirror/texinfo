@@ -1,3 +1,36 @@
+2024-08-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/converter.c (retrieve_converter)
+	(unregister_converter_descriptor),
+	tp/Texinfo/XS/convert/get_converter_perl_info.c (get_sv_converter),
+	tp/Texinfo/XS/main/build_perl_info.c: use size_t for converter
+	descriptor consistently.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_get_target),
+	tp/Texinfo/XS/convert/convert_html.c (prepare_special_units)
+	(html_prepare_conversion_units)
+	(html_prepare_output_units_global_targets)
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/get_html_perl_info.c (html_find_element_from_sv)
+	(get_output_units_descriptor_converter_sv)
+	(element_converter_from_sv), tp/Texinfo/XS/main/build_perl_info.c,
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/main/get_perl_info.c (get_sv_output_units_descriptor)
+	(get_sv_output_units, find_root_command, find_element_from_sv),
+	tp/Texinfo/XS/main/output_unit.c (retrieve_output_units)
+	(split_by_node, split_by_section),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(split_by_node, split_by_section, rebuild_output_units): use size_t
+	for output units descriptor consistently.
+
+	* tp/Texinfo/XS/convert/converter.c (new_converter, id_to_filename)
+	(free_comma_index_subentries_tree, find_output_unit_file)
+	(free_output_unit_files_file), tp/Texinfo/XS/main/output_unit.c
+	(unsplit, split_pages, units_directions, units_file_directions): use
+	size_t instead of int where the variable could reach a value outside
+	of the int range and also when the index is better represented by a
+	size_t.  Cast to/from int and size_t when needed.
+
 2024-08-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/build_html_perl_state.c
