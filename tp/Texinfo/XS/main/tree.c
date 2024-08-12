@@ -350,7 +350,7 @@ reallocate_const_element_list (CONST_ELEMENT_LIST *list)
 
 /* Make sure there is space for at least N more elements. */
 static void
-reallocate_list_for (int n, ELEMENT_LIST *list)
+reallocate_list_for (size_t n, ELEMENT_LIST *list)
 {
   if (list->number + n >= list->space)
     {
@@ -372,6 +372,9 @@ add_to_const_element_list (CONST_ELEMENT_LIST *list, const ELEMENT *e)
 void
 add_to_element_list (ELEMENT_LIST *list, ELEMENT *e)
 {
+  /* NOTE there could be theoretically an overflow if
+     list->number + 1 > max (size_t).  The numbers are big, this is unlikely
+     to happen */
   reallocate_list (list);
 
   list->list[list->number++] = e;
@@ -441,7 +444,10 @@ void
 insert_list_slice_into_list (ELEMENT_LIST *to, size_t where,
                              const ELEMENT_LIST *from, size_t start, size_t end)
 {
-  int num = end - start;
+  /* NOTE there could be theoretically an overflow if
+     list->number + num > max (size_t).  The numbers are big, this is unlikely
+     to happen */
+  size_t num = end - start;
   reallocate_list_for (num, to);
 
   memmove (&to->list[where + num],
@@ -584,7 +590,7 @@ add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e)
 /* Remove elements from START inclusive to END exclusive.  Do not
    free any of them. */
 void
-remove_slice_from_contents (ELEMENT *parent, int start, int end)
+remove_slice_from_contents (ELEMENT *parent, size_t start, size_t end)
 {
   memmove (&parent->e.c->contents.list[start],
            &parent->e.c->contents.list[end],

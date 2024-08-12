@@ -40,7 +40,7 @@ const ELEMENT *remove_from_const_element_list (CONST_ELEMENT_LIST *list,
                                                size_t where);
 ELEMENT *remove_from_contents (ELEMENT *parent, size_t where);
 ELEMENT *remove_from_args (ELEMENT *parent, size_t where);
-void remove_slice_from_contents (ELEMENT *parent, int start, int end);
+void remove_slice_from_contents (ELEMENT *parent, size_t start, size_t end);
 ELEMENT *last_args_child (const ELEMENT *current);
 ELEMENT *last_contents_child (const ELEMENT *current);
 ELEMENT *pop_element_from_args (ELEMENT *parent);
