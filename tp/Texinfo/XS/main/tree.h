@@ -31,12 +31,12 @@ void insert_list_slice_into_contents (ELEMENT *to, int idx, ELEMENT_LIST *from,
                                       int start, int end);
 void insert_list_slice_into_args (ELEMENT *to, int where, ELEMENT_LIST *from,
                                       int start, int end);
-void list_set_empty_contents (ELEMENT_LIST *e_list, int n);
-ELEMENT *remove_from_element_list (ELEMENT_LIST *list, int where);
+void list_set_empty_contents (ELEMENT_LIST *e_list, size_t n);
+ELEMENT *remove_from_element_list (ELEMENT_LIST *list, size_t where);
 const ELEMENT *remove_from_const_element_list (CONST_ELEMENT_LIST *list,
-                                               int where);
-ELEMENT *remove_from_contents (ELEMENT *parent, int where);
-ELEMENT *remove_from_args (ELEMENT *parent, int where);
+                                               size_t where);
+ELEMENT *remove_from_contents (ELEMENT *parent, size_t where);
+ELEMENT *remove_from_args (ELEMENT *parent, size_t where);
 void remove_slice_from_contents (ELEMENT *parent, int start, int end);
 ELEMENT *last_args_child (const ELEMENT *current);
 ELEMENT *last_contents_child (const ELEMENT *current);

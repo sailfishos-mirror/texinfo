@@ -19,7 +19,7 @@
 #include <stdio.h>
 
 #include "tree_types.h"
-/* for new_list list_set_empty_contents */
+/* for new_list */
 #include "tree.h"
 /* for fatal and directions_length */
 #include "utils.h"

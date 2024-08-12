@@ -1,5 +1,13 @@
 2024-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/tree.c (list_set_empty_contents)
+	(remove_from_element_list, remove_from_const_element_list)
+	(remove_from_contents, remove_from_args): use size_t for indices.
+	Remove the possibility to add at the end with a negative index, it is
+	not used and the caller should be able to compute the index.
+
+2024-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c (insert_into_element_list)
 	(insert_into_contents, insert_into_args): have indices be size_t.
 	Remove the possibility to add at the end with a negative index, it is

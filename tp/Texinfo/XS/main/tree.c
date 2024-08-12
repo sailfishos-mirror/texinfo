@@ -483,10 +483,11 @@ insert_list_slice_into_contents (ELEMENT *to, int where, ELEMENT_LIST *from,
 }
 
 /* ensure that there are n slots, and void them */
+/* Unused */
 void
-list_set_empty_contents (ELEMENT_LIST *e_list, int n)
+list_set_empty_contents (ELEMENT_LIST *e_list, size_t n)
 {
-  int i;
+  size_t i;
   if (n <= 0)
     return;
 
@@ -500,14 +501,11 @@ list_set_empty_contents (ELEMENT_LIST *e_list, int n)
 }
 
 ELEMENT *
-remove_from_element_list (ELEMENT_LIST *list, int where)
+remove_from_element_list (ELEMENT_LIST *list, size_t where)
 {
   ELEMENT *removed;
 
-  if (where < 0)
-    where = list->number + where;
-
-  if (where < 0 || where > list->number -1)
+  if (where > list->number -1)
     fatal ("element list index out of bounds");
 
   removed = list->list[where];
@@ -519,14 +517,11 @@ remove_from_element_list (ELEMENT_LIST *list, int where)
 }
 
 const ELEMENT *
-remove_from_const_element_list (CONST_ELEMENT_LIST *list, int where)
+remove_from_const_element_list (CONST_ELEMENT_LIST *list, size_t where)
 {
   const ELEMENT *removed;
 
-  if (where < 0)
-    where = list->number + where;
-
-  if (where < 0 || where > list->number -1)
+  if (where > list->number -1)
     fatal ("element list index out of bounds");
 
   removed = list->list[where];
@@ -538,14 +533,14 @@ remove_from_const_element_list (CONST_ELEMENT_LIST *list, int where)
 }
 
 ELEMENT *
-remove_from_contents (ELEMENT *parent, int where)
+remove_from_contents (ELEMENT *parent, size_t where)
 {
   ELEMENT_LIST *list = &parent->e.c->contents;
   return remove_from_element_list (list, where);
 }
 
 ELEMENT *
-remove_from_args (ELEMENT *parent, int where)
+remove_from_args (ELEMENT *parent, size_t where)
 {
   ELEMENT_LIST *list = &parent->e.c->args;
   return remove_from_element_list (list, where);
