@@ -1,5 +1,16 @@
 2024-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/tree.c (insert_list_slice_into_list)
+	(insert_slice_into_contents, insert_list_slice_into_args)
+	(insert_list_slice_into_contents): use size_t for indices.
+
+	* tp/Texinfo/XS/structuring_transfo/structuring.c
+	(insert_menu_comment_content): use size_t for index_in_preformatted.
+
+	* tp/Texinfo/XS/parsetexi/def.c: reindent.
+
+2024-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/menus.c (handle_menu_entry_separators):
 	determine a positive index for entry_name.
 

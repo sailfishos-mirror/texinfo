@@ -86,15 +86,13 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
 
       def_item = new_element (type);
 
-      insert_slice_into_contents (def_item, 0, current,
-                           pos, contents_count);
+      insert_slice_into_contents (def_item, 0, current, pos, contents_count);
       for (j = contents_count; j > pos; j--)
         {
           ELEMENT *e = contents_child_by_index (current, j-1);
           e->parent = def_item;
         }
-      remove_slice_from_contents (current,
-                           pos, contents_count);
+      remove_slice_from_contents (current, pos, contents_count);
       add_to_element_contents (current, def_item);
     }
 }

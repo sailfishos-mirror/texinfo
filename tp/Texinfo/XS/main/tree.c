@@ -438,8 +438,8 @@ insert_into_args (ELEMENT *parent, ELEMENT *e, size_t where)
 /* Insert elements to TO at position WHERE from FROM from START inclusive
    to END exclusive. */
 void
-insert_list_slice_into_list (ELEMENT_LIST *to, int where, const ELEMENT_LIST *from,
-                             int start, int end)
+insert_list_slice_into_list (ELEMENT_LIST *to, size_t where,
+                             const ELEMENT_LIST *from, size_t start, size_t end)
 {
   int num = end - start;
   reallocate_list_for (num, to);
@@ -457,8 +457,8 @@ insert_list_slice_into_list (ELEMENT_LIST *to, int where, const ELEMENT_LIST *fr
 /* Insert elements to the contents of TO at position WHERE from FROM contents
    from START inclusive to END exclusive.  Do not set the parent fields. */
 void
-insert_slice_into_contents (ELEMENT *to, int where, const ELEMENT *from,
-                            int start, int end)
+insert_slice_into_contents (ELEMENT *to, size_t where, const ELEMENT *from,
+                            size_t start, size_t end)
 {
   insert_list_slice_into_list (&to->e.c->contents, where,
                                &from->e.c->contents, start, end);
@@ -467,8 +467,9 @@ insert_slice_into_contents (ELEMENT *to, int where, const ELEMENT *from,
 /* Insert elements to the args of TO at position WHERE from FROM
    from START inclusive to END exclusive. */
 void
-insert_list_slice_into_args (ELEMENT *to, int where, ELEMENT_LIST *from,
-                             int start, int end)
+insert_list_slice_into_args (ELEMENT *to, size_t where,
+                             const ELEMENT_LIST *from,
+                             size_t start, size_t end)
 {
   insert_list_slice_into_list (&to->e.c->args, where, from, start, end);
 }
@@ -476,8 +477,9 @@ insert_list_slice_into_args (ELEMENT *to, int where, ELEMENT_LIST *from,
 /* Insert elements to the contents of TO at position WHERE from FROM
    from START inclusive to END exclusive. */
 void
-insert_list_slice_into_contents (ELEMENT *to, int where, ELEMENT_LIST *from,
-                                 int start, int end)
+insert_list_slice_into_contents (ELEMENT *to, size_t where,
+                                 const ELEMENT_LIST *from,
+                                 size_t start, size_t end)
 {
   insert_list_slice_into_list (&to->e.c->contents, where, from, start, end);
 }

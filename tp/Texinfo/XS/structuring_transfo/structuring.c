@@ -1799,7 +1799,7 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
   ELEMENT *preformatted = new_element (ET_preformatted);
   ELEMENT *empty_line_first_after = new_text_element (ET_empty_line);
   ELEMENT *empty_line_second_after = new_text_element (ET_empty_line);
-  int index_in_preformatted = 0;
+  size_t index_in_preformatted = 0;
   size_t i;
 
   add_to_element_contents (menu_comment, preformatted);
