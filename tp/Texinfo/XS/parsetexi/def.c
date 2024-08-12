@@ -41,15 +41,16 @@
 void
 gather_def_item (ELEMENT *current, enum command_id next_command)
 {
-  int contents_count, i;
+  size_t contents_count;
+  size_t pos;
 
   if (!current->e.c->cmd)
     return;
 
   /* Check this isn't an "x" type command.
-     "This may happen for a construct like:
+     This may happen for a construct like:
      @deffnx a b @section
-     but otherwise the end of line will lead to the command closing." */
+     but otherwise the end of line will lead to the command closing. */
   if (command_data(current->e.c->cmd).flags & CF_line)
     return;
 
@@ -59,23 +60,23 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
 
   /* Starting from the end, determine the number of elements that are not
      an ET_def_line */
-  for (i = 0; i < contents_count; i++)
+  for (pos = contents_count; pos > 0; pos--)
     {
-      ELEMENT *last_child = contents_child_by_index (current, -(i+1));
+      ELEMENT *last_child = contents_child_by_index (current, pos -1);
       if (last_child->flags & EF_def_line)
         break;
     }
 
-  if (i > 0)
+  if (pos < contents_count)
     {
       /* there are elements after def_line, put them in a def item */
       enum element_type type;
-      int j;
+      size_t j;
       ELEMENT *def_item;
 
       if (current->e.c->cmd == CM_defblock
        /* all content between @defblock and first @def*line */
-          && i == contents_count)
+          && pos == 0)
         type = ET_before_defline;
       else if (next_command
           && next_command != CM_defline && next_command != CM_deftypeline)
@@ -86,14 +87,14 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       def_item = new_element (type);
 
       insert_slice_into_contents (def_item, 0, current,
-                           contents_count -i, contents_count);
-      for (j = 0; j < i; j++)
+                           pos, contents_count);
+      for (j = contents_count; j > pos; j--)
         {
-          ELEMENT *e = contents_child_by_index (current, -(j+1));
+          ELEMENT *e = contents_child_by_index (current, j-1);
           e->parent = def_item;
         }
       remove_slice_from_contents (current,
-                           contents_count -i, contents_count);
+                           pos, contents_count);
       add_to_element_contents (current, def_item);
     }
 }

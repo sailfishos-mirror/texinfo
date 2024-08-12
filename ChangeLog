@@ -1,5 +1,11 @@
 2024-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/def.c (gather_def_item): start indices from
+	the end of the contents for a more readable code and avoid negative
+	argument for contents_child_by_index.
+
+2024-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c (list_set_empty_contents)
 	(remove_from_element_list, remove_from_const_element_list)
 	(remove_from_contents, remove_from_args): use size_t for indices.
