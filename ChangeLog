@@ -1,5 +1,13 @@
 2024-08-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs: reindent.
+
+	* tp/Texinfo/XS/main/manipulate_tree.c: minor change.
+
+	Changes in comments.
+
+2024-08-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/tree.c (reallocate_list_for)
 	(insert_list_slice_into_list): use size_t for added elements number.
 

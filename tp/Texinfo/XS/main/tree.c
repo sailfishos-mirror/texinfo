@@ -690,7 +690,7 @@ void
 destroy_node_spec (NODE_SPEC_EXTRA *nse)
 {
   if (nse->out_of_tree_elements)
-    {
+    {/* always 3 elements maximum added, to be freed */
       int i;
       for (i = 0; i < 3; i++)
         if (nse->out_of_tree_elements[i])

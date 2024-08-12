@@ -569,7 +569,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
   ELEMENT *node_content = 0;
   size_t idx = 0; /* index into node->e.c->contents */
 
-  result = malloc (sizeof (NODE_SPEC_EXTRA));
+  result = (NODE_SPEC_EXTRA *) malloc (sizeof (NODE_SPEC_EXTRA));
   result->manual_content = result->node_content = 0;
   /* if not modifying the tree, and there is a manual name, the elements
      added for the manual name and for the node content that are based
