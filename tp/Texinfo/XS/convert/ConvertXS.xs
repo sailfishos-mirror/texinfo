@@ -531,10 +531,7 @@ reset_converter (SV *converter_in)
       CODE:
         self = get_sv_converter (converter_in, 0);
         if (self)
-          {
-            if (self->format == COF_html)
-              html_reset_converter (self);
-          }
+          reset_converter (self);
 
 void
 destroy (SV *converter_in)
@@ -543,12 +540,7 @@ destroy (SV *converter_in)
       CODE:
         self = get_sv_converter (converter_in, 0);
         if (self)
-          {
-            if (self->format == COF_html)
-              html_free_converter (self);
-
-            unregister_converter_descriptor (self->converter_descriptor);
-          }
+          destroy_converter (self);
 
 SV *
 plain_texinfo_convert_tree (SV *tree_in)

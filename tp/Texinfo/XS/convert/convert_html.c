@@ -19617,6 +19617,7 @@ html_reset_converter (CONVERTER *self)
     clear_registered_ids_hv (self);
   else
     clear_strings_list (self->registered_ids);
+
   for (i = 0; i < ST_footnote_location+1; i++)
     {
       reset_html_targets_list (self, &self->html_special_targets[i]);
@@ -19792,8 +19793,6 @@ html_free_converter (CONVERTER *self)
   int nr_dir_str_contexts = TDS_context_string + 1;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
-
-  free_generic_converter (self);
 
   /* useful only if html_reset_converter was not called previously */
   reset_translated_special_unit_info_tree (self);

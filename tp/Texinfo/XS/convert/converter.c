@@ -60,11 +60,16 @@
 #include "manipulate_indices.h"
 #include "document.h"
 #include "html_converter_init_options.h"
+#include "html_converter_finish.h"
 #include "call_perl_function.h"
 #include "converter.h"
 
+/* table used to dispatch format specific functions.
+   Same purpose as inherited methods in Texinfo::Convert::Converter */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
-  {"html", "Texinfo::Convert::HTML", &html_converter_defaults, &html_converter_initialize},
+  {"html", "Texinfo::Convert::HTML", &html_converter_defaults,
+   &html_converter_initialize, &html_reset_converter,
+   &html_free_converter},
 };
 
 /* associate lower case no brace accent command to the upper case
@@ -228,7 +233,7 @@ new_converter (enum converter_format format, unsigned long flags)
   size_t converter_index;
   int slot_found = 0;
   size_t i;
-  CONVERTER *registered_converter;
+  CONVERTER *converter;
 
   for (i = 0; i < converter_number; i++)
     {
@@ -250,27 +255,40 @@ new_converter (enum converter_format format, unsigned long flags)
       converter_index = converter_number;
       converter_number++;
     }
-  registered_converter = (CONVERTER *) malloc (sizeof (CONVERTER));
-  memset (registered_converter, 0, sizeof (CONVERTER));
+  converter = (CONVERTER *) malloc (sizeof (CONVERTER));
+  memset (converter, 0, sizeof (CONVERTER));
 
-  registered_converter->format = format;
+  converter->format = format;
 
   /* set low level data representations options */
   if (flags & CONVF_string_list)
-    registered_converter->ids_data_type = IDT_string_list;
+    converter->ids_data_type = IDT_string_list;
   else
-    registered_converter->ids_data_type = IDT_perl_hashmap;
+    converter->ids_data_type = IDT_perl_hashmap;
 
-  init_generic_converter (registered_converter);
+  init_generic_converter (converter);
 
-  converter_list[converter_index] = registered_converter;
-  registered_converter->converter_descriptor = converter_index +1;
+  converter_list[converter_index] = converter;
+  converter->converter_descriptor = converter_index +1;
 
   /*
-  fprintf (stderr, "REGISTER CONVERTER %zu %p %p %p\n", converter_index +1,
-                       converter, registered_converter, converter->document);
+  fprintf (stderr, "REGISTER CONVERTER %zu %d %p %p\n", converter_index +1,
+                                   format, converter, converter->document);
    */
   return converter_index +1;
+}
+
+void
+destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
+{
+  TRANSLATED_COMMAND *translated_command;
+
+  for (translated_command = translated_commands;
+       translated_command->translation; translated_command++)
+    {
+      free (translated_command->translation);
+    }
+  free (translated_commands);
 }
 
 /* apply initialization information from one source */
@@ -301,7 +319,9 @@ apply_converter_info (CONVERTER *converter,
 }
 
 /* apply format_defaults and user_conf initialization information and call
-   format specific options setting and initialization functions */
+   format specific options setting and initialization functions.
+   Correspond to Perl _generic_converter_init and part of converter_initialize.
+ */
 void
 set_converter_init_information (CONVERTER *converter,
                             enum converter_format converter_format,
@@ -313,10 +333,10 @@ set_converter_init_information (CONVERTER *converter,
   if (converter_format != COF_none
       && converter_format_data[converter_format].converter_defaults)
     {
-      void (* converter_defaults) (CONVERTER *self,
+      void (* format_converter_defaults) (CONVERTER *self,
                  CONVERTER_INITIALIZATION_INFO *conf)
         = converter_format_data[converter_format].converter_defaults;
-      converter_defaults (converter, user_conf);
+      format_converter_defaults (converter, user_conf);
     }
 
   apply_converter_info (converter, user_conf, 1);
@@ -341,9 +361,11 @@ set_converter_init_information (CONVERTER *converter,
   if (converter_format != COF_none
       && converter_format_data[converter_format].converter_initialize)
     {
-      void (* converter_initialize) (CONVERTER *self)
+      /* beginning of Perl converter_initialize always done in C even when
+         called from Perl */
+      void (* format_converter_initialize) (CONVERTER *self)
         = converter_format_data[converter_format].converter_initialize;
-      converter_initialize (converter);
+      format_converter_initialize (converter);
     }
 }
 
@@ -369,17 +391,6 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 
   free_strings_list (&init_info->non_valid_customization);
   free (init_info);
-}
-
-void
-unregister_converter_descriptor (size_t converter_descriptor)
-{
-  CONVERTER *converter = retrieve_converter (converter_descriptor);
-  if (converter)
-    {
-      converter_list[converter_descriptor-1] = 0;
-      free (converter);
-    }
 }
 
 void
@@ -1586,17 +1597,29 @@ free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 
 
 
+/* reset parser structures tied to a document to be ready for a
+   new conversion */
 void
-destroy_translated_commands (TRANSLATED_COMMAND *translated_commands)
+reset_generic_converter (CONVERTER *self)
 {
-  TRANSLATED_COMMAND *translated_command;
+  clear_output_files_information (&self->output_files_information);
+  clear_output_unit_files (&self->output_unit_files);
+}
 
-  for (translated_command = translated_commands;
-       translated_command->translation; translated_command++)
+void
+reset_converter (CONVERTER *self)
+{
+  enum converter_format converter_format = self->format;
+
+  if (converter_format != COF_none
+      && converter_format_data[converter_format].converter_reset)
     {
-      free (translated_command->translation);
+      void (* format_converter_reset) (CONVERTER *self)
+        = converter_format_data[converter_format].converter_reset;
+      format_converter_reset (self);
     }
-  free (translated_commands);
+
+  reset_generic_converter (self);
 }
 
 void
@@ -1653,6 +1676,35 @@ free_generic_converter (CONVERTER *self)
   wipe_error_message_list (&self->error_messages);
 
   free_strings_list (&self->small_strings);
+}
+
+void
+free_converter (CONVERTER *self)
+{
+  enum converter_format converter_format = self->format;
+
+  if (converter_format != COF_none
+      && converter_format_data[converter_format].converter_free)
+    {
+      void (* format_converter_free) (CONVERTER *self)
+        = converter_format_data[converter_format].converter_free;
+      format_converter_free (self);
+    }
+
+  free_generic_converter (self);
+}
+
+void
+destroy_converter (CONVERTER *converter)
+{
+  size_t converter_descriptor = converter->converter_descriptor;
+
+  free_converter (converter);
+
+  if (converter_descriptor)
+    converter_list[converter_descriptor-1] = 0;
+
+  free (converter);
 }
 
 

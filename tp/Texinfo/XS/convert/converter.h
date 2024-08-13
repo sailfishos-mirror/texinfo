@@ -96,6 +96,8 @@ typedef struct CONVERTER_FORMAT_DATA {
     void (* converter_defaults) (CONVERTER *self,
                                CONVERTER_INITIALIZATION_INFO *conf);
     void (* converter_initialize) (CONVERTER *self);
+    void (* converter_reset) (CONVERTER *self);
+    void (* converter_free) (CONVERTER *self);
 } CONVERTER_FORMAT_DATA;
 
 extern enum command_id no_brace_command_accent_upper_case[][2];
@@ -124,7 +126,6 @@ enum converter_format find_format_data_index (const char *format);
 
 CONVERTER *retrieve_converter (size_t converter_descriptor);
 size_t new_converter (enum converter_format format, unsigned long flags);
-void unregister_converter_descriptor (size_t converter_descriptor);
 
 void set_converter_init_information (CONVERTER *converter,
                             enum converter_format converter_format,
@@ -136,6 +137,9 @@ void destroy_converter_initialization_info (
                             CONVERTER_INITIALIZATION_INFO *defaults);
 
 void converter_set_document (CONVERTER *converter, DOCUMENT *document);
+
+void reset_converter (CONVERTER *converter);
+void destroy_converter (CONVERTER *converter);
 
 void determine_files_and_directory (CONVERTER *self, const char *output_format,
                                     char **result);
@@ -199,9 +203,6 @@ void set_file_path (CONVERTER *self, const char *filename, const char *filepath,
                     const char *destination_directory);
 void clear_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 void free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
-
-void destroy_translated_commands (TRANSLATED_COMMAND *translated_commands);
-void free_generic_converter (CONVERTER *self);
 
 void xml_format_text_with_numeric_entities (const char *text, TEXT *result);
 char *xml_numeric_entity_accent (enum command_id cmd, const char *text);

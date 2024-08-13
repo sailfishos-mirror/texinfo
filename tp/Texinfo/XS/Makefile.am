@@ -390,6 +390,7 @@ C_libtexinfo_convert_sources = \
                        convert/create_buttons.h \
                        convert/html_converter_init_options.c \
                        convert/html_converter_init_options.h \
+                       convert/html_converter_finish.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 
@@ -406,7 +407,7 @@ libtexinfo_convert_la_SOURCES = \
    $(XS_libtexinfo_convert_sources)
 
 # locate include files under out-of-source builds.
-# parsetexi will only be needed for texinfo.c
+# parsetexi is only needed for texinfo.c
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_convert_la_LIBADD = libtexinfo.la libtexinfoxs.la $(top_builddir)/gnulib/lib/libgnu.la

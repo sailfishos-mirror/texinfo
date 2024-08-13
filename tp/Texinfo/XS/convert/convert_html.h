@@ -267,8 +267,6 @@ int html_finish_output (CONVERTER *self, const char *output_file,
                         const char *destination_directory);
 
 void html_check_transfer_state_finalization (CONVERTER *self);
-void html_free_converter (CONVERTER *self);
-void html_reset_converter (CONVERTER *self);
 void html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
 
 #endif

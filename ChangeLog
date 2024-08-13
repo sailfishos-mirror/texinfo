@@ -1,5 +1,34 @@
 2024-08-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (new_converter): rename
+	registered_converter as converter.
+
+	* tp/Texinfo/XS/convert/converter.c (set_converter_init_information):
+	rename converter_defaults as format_converter_defaults and
+	converter_initialize as format_converter_initialize.
+
+	* tp/Texinfo/XS/convert/converter.c (reset_generic_converter): add
+	a function to reset parser structures tied to a document to be ready
+	for a new conversion.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_format_data)
+	(reset_converter, free_converter, destroy_converter),
+	tp/Texinfo/XS/convert/converter.h (CONVERTER_FORMAT_DATA),
+	tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
+	tp/Texinfo/XS/convert/ConvertXS.xs (reset_converter, destroy),
+	tp/Texinfo/XS/convert/convert_html.c (html_reset_converter):
+	add references to specific format reset_converter and free_converter
+	functions in CONVERTER_FORMAT_DATA.  Set them for HTML, with
+	declarations in the new file convert/html_converter_finish.h.
+	Add reset_converter and free_converter in converter.c that call both
+	the generic converter functions and function references from
+	converter_format_data.  Call those functions in ConvertXS.xs.  Do not
+	call free_generic_converter anymore in html_reset_converter.
+	Add destroy_converter function with code of
+	unregister_converter_descriptor, and call to free_converter.
+
+2024-08-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): destroy PlainTexinfo converter.
 
 2024-08-12  Patrice Dumas  <pertusus@free.fr>
