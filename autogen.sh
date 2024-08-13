@@ -42,15 +42,16 @@ fi
 : ${AUTOHEADER=autoheader}
 : ${AUTOMAKE=automake}
 : ${AUTOCONF=autoconf}
-cmd="$ACLOCAL -I gnulib/m4 && $AUTOCONF && $AUTOHEADER && $AUTOMAKE"
+cmd="$ACLOCAL -I gnulib/m4 && $AUTOCONF && $AUTOHEADER && $AUTOMAKE -a -c"
 echo "  $cmd $*"
 $chicken eval $cmd "$@" || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
 cmd="(cd tp/Texinfo/XS && ${LIBTOOLIZE} \
- && $ACLOCAL -I gnulib/m4 && $AUTOCONF && $AUTOHEADER && $AUTOMAKE)"
+ && AUTOPOINT=true autoreconf --force --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
+# We set AUTOPOINT=true to avoid rewriting files with older versions.
 
 echo
 echo "Now run configure with your desired options, for instance:"
