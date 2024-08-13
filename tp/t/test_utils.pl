@@ -1509,6 +1509,8 @@ sub test($$)
 
     my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
     my $texi_string_result = $converter_to_texinfo->convert($document);
+    $converter_to_texinfo->reset_converter();
+    $converter_to_texinfo->destroy();
     #my $texi_string_result
     #    = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
@@ -1644,12 +1646,15 @@ sub test($$)
     # NOTE either a PlainTexinfo converter or a direct call to
     # convert_to_texinfo can be used to test conversion to raw text,
     # both for pure Perl and XS.
+    #my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
     my $texi_result;
     if ($document) {
       $texi_result = $converter_to_texinfo->convert($document);
     }
-    #my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+    $converter_to_texinfo->reset_converter();
+    $converter_to_texinfo->destroy();
+
     is ($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {
