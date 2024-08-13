@@ -36,9 +36,6 @@
 #include "convert_to_texinfo.h"
  */
 #include "create_buttons.h"
-/* html_free_converter */
-#include "html_converter_finish.h"
-#include "convert_html.h"
 #include "texinfo.h"
 
 #define LOCALEDIR DATADIR "/locale"
@@ -216,8 +213,12 @@ main (int argc, char *argv[])
     = txi_handle_converter_error_messages (converter, 0, 1, locale_encoding);
   errors_count += errors_nr;
 
+  /* free after output */
+  txi_reset_converter (converter);
+
+
   /* destroy converter */
-  html_free_converter (converter);
+  txi_destroy_converter (converter);
   /* destroy document */
   txi_remove_document (document);
 

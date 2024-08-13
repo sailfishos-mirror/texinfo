@@ -452,7 +452,7 @@ txi_html_output (CONVERTER *converter, DOCUMENT *document)
 
 
 
-/* high level interface hiding some details of the data */
+/* high level interface, possibly hiding some details of the data */
 
 DOCUMENT *
 txi_parse_texi_file (const char *input_file_path, int *status)
@@ -465,6 +465,18 @@ void
 txi_remove_document (DOCUMENT *document)
 {
   remove_document_descriptor (document->descriptor);
+}
+
+void
+txi_reset_converter (CONVERTER *converter)
+{
+  reset_converter (converter);
+}
+
+void
+txi_destroy_converter (CONVERTER *converter)
+{
+  destroy_converter (converter);
 }
 
 size_t

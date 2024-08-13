@@ -60,4 +60,7 @@ size_t txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
 
 void txi_remove_document (DOCUMENT *document);
 
+void txi_reset_converter (CONVERTER *converter);
+void txi_destroy_converter (CONVERTER *converter);
+
 #endif
