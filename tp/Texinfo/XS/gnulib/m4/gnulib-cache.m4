@@ -33,7 +33,7 @@
 #  --m4-base=gnulib/m4 \
 #  --doc-base=doc \
 #  --tests-base=tests \
-#  --aux-dir=. \
+#  --aux-dir=build-aux \
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \

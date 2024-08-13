@@ -281,17 +281,18 @@ tp/Texinfo/XS/TestXS.c
 tp/Texinfo/XS/MiscXS.c
 tp/Texinfo/XS/XSParagraph.c
 tp/Texinfo/XS/ar-lib
-tp/Texinfo/XS/compile
-tp/Texinfo/XS/config.guess
 tp/Texinfo/XS/config.h
-tp/Texinfo/XS/config.sub
 tp/Texinfo/XS/config.log
-tp/Texinfo/XS/depcomp
-tp/Texinfo/XS/install-sh
 tp/Texinfo/XS/libtool
-tp/Texinfo/XS/ltmain.sh
-tp/Texinfo/XS/missing
 tp/Texinfo/XS/stamp-h1
+
+tp/Texinfo/XS/build-aux/compile
+tp/Texinfo/XS/build-aux/config.guess
+tp/Texinfo/XS/build-aux/config.sub
+tp/Texinfo/XS/build-aux/depcomp
+tp/Texinfo/XS/build-aux/install-sh
+tp/Texinfo/XS/build-aux/ltmain.sh
+tp/Texinfo/XS/build-aux/missing
 
 tp/Texinfo/XS/gnulib/lib/.libs
 tp/Texinfo/XS/gnulib/lib/*.lo

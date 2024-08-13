@@ -28,7 +28,7 @@
 #  --m4-base=gnulib/m4 \
 #  --doc-base=doc \
 #  --tests-base=tests \
-#  --aux-dir=. \
+#  --aux-dir=build-aux \
 #  --no-conditional-dependencies \
 #  --libtool \
 #  --macro-prefix=gl \
@@ -319,7 +319,7 @@ V_GPERF_0 = @echo "  GPERF   " $@;
 ## begin gnulib module havelib
 
 
-EXTRA_DIST += $(top_srcdir)/config.rpath
+EXTRA_DIST += $(top_srcdir)/build-aux/config.rpath
 
 ## end   gnulib module havelib
 

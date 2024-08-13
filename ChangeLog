@@ -1,3 +1,10 @@
+2024-08-14  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Add tp/Texinfo/XS/build-aux
+
+	* tp/Texinfo/XS/configure.ac: Add AC_CONFIG_AUX_DIR to use
+	"build-aux" to store some auxiliary build files.  From Bruno.
+
 2024-08-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* autogen.sh: Run autoreconf under tp/Texinfo/XS/ with
