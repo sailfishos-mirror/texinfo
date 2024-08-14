@@ -10,6 +10,16 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/html_prepare_converter.c (html_id_is_registered)
+	(html_register_id): move html_id_is_registered and html_register_id to
+	html_prepare_converter.c.
+
+	* tp/Texinfo/XS/convert/convert_html.c: move translations related
+	code around to group code, and move the whole above.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c: move code around to group code
 	for different phases better together and get a more logical order of
 	code phases.

@@ -44,8 +44,12 @@ void html_setup_convert (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self);
 
+int html_id_is_registered (CONVERTER *self, const char *string);
+void html_register_id (CONVERTER *self, const char *string);
+
 void html_prepare_conversion_units_targets (CONVERTER *self,
                                      const char *document_name);
+
 
 void html_prepare_output_units_global_targets (CONVERTER *self);
 void html_setup_global_units_direction_names (CONVERTER *self);

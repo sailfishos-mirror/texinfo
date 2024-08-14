@@ -110,24 +110,6 @@ const enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1]
 static void convert_to_html_internal (CONVERTER *self, const ELEMENT *e,
                                       TEXT *result, const char *explanation);
 
-int
-html_id_is_registered (CONVERTER *self, const char *string)
-{
-  if (self->ids_data_type == IDT_perl_hashmap)
-    return is_hv_registered_id (self, string);
-  else
-    return find_string (self->registered_ids, string);
-}
-
-void
-html_register_id (CONVERTER *self, const char *string)
-{
-  if (self->ids_data_type == IDT_perl_hashmap)
-    hv_register_id (self, string);
-  else
-    add_string (string, self->registered_ids);
-}
-
 /*
  if OUTPUT_UNITS is defined, the first output unit is used if a proper
  top output unit is not found.
@@ -1349,31 +1331,6 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   html_pop_document_context (self);
 
   return result;
-}
-
-void
-html_clear_direction_string_type (const CONVERTER *self,
-                                  char ***type_directions_strings)
-{
-  int i;
-  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                      + self->special_unit_varieties.number;
-  int nr_dir_str_contexts = TDS_context_string + 1;
-
-  for (i = 0; i < nr_string_directions; i++)
-    {
-      char **direction_strings = type_directions_strings[i];
-      int j;
-      /* NULL only happens for customized_directions_strings */
-      if (direction_strings != NULL)
-        {
-          for (j = 0; j < nr_dir_str_contexts; j++)
-            {
-              free (direction_strings[j]);
-              direction_strings[j] = 0;
-            }
-        }
-    }
 }
 
 const char *
@@ -13180,250 +13137,32 @@ html_default_format_special_body_about (CONVERTER *self,
 
 
 
-static const enum command_id simpletitle_cmds[] =
- {CM_settitle, CM_shorttitlepage, 0};
+/* reset translated data and translate no args commands */
 
 void
-html_prepare_simpletitle (CONVERTER *self)
+html_clear_direction_string_type (const CONVERTER *self,
+                                  char ***type_directions_strings)
 {
   int i;
-  for (i = 0; simpletitle_cmds[i]; i++)
+  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                      + self->special_unit_varieties.number;
+  int nr_dir_str_contexts = TDS_context_string + 1;
+
+  for (i = 0; i < nr_string_directions; i++)
     {
-      enum command_id cmd = simpletitle_cmds[i];
-      const ELEMENT *command
-        = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
-      if (command && command->e.c->args.number > 0
-          && command->e.c->args.list[0]->e.c->contents.number > 0)
+      char **direction_strings = type_directions_strings[i];
+      int j;
+      /* NULL only happens for customized_directions_strings */
+      if (direction_strings != NULL)
         {
-          self->simpletitle_tree = command->e.c->args.list[0];
-          self->simpletitle_cmd = cmd;
-          break;
+          for (j = 0; j < nr_dir_str_contexts; j++)
+            {
+              free (direction_strings[j]);
+              direction_strings[j] = 0;
+            }
         }
     }
 }
-
-void
-html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
-                              const char *output_filename)
-{
-  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
-    (self->document, self->output_units_descriptors[OUDT_units]);
-
-  if (strlen (output_file))
-    {
-      self->current_filename.filename = output_units->list[0]->unit_filename;
-      self->current_filename.file_number
-        = self->output_unit_file_indices[0]+1;
-    }
-  else
-    {
-      /* case of convert() call.  Need to setup the page here */
-      if (self->page_name_number.number <= 0)
-         html_setup_output_simple_page (self, output_filename);
-      self->current_filename.filename = output_filename;
-      self->current_filename.file_number = 1;
-    }
-
-  self->title_titlepage = format_title_titlepage (self);
-  memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
-}
-
-static const enum command_id fulltitle_cmds[] =
- {CM_settitle, CM_title, CM_shorttitlepage, CM_top, 0};
-
-
-int
-html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
-                                    const char *output_filename)
-{
-  int i;
-  ELEMENT *fulltitle_tree = 0;
-  char *html_title_string = 0;
-  char *default_document_language = 0;
-  char *preamble_document_language = 0;
-  int init_handler_status;
-  int handler_fatal_error_level
-     = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
-
-  int structure_handler_status
-    = html_run_stage_handlers (self, HSHT_type_structure);
-
-  if (structure_handler_status < handler_fatal_error_level
-      && structure_handler_status > -handler_fatal_error_level)
-    {}
-  else
-    return 0;
-
-  if (self->conf->documentlanguage.o.string)
-    default_document_language = strdup (self->conf->documentlanguage.o.string);
-
-  set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
-
-  if (self->conf->documentlanguage.o.string)
-    preamble_document_language = strdup (self->conf->documentlanguage.o.string);
-
-  if (! (!default_document_language && !preamble_document_language)
-      && (!default_document_language || !preamble_document_language
-          || strcmp (default_document_language, preamble_document_language)))
-    html_translate_names (self);
-
-  /*
-   prepare title.  fulltitle uses more possibility than simpletitle for
-   title, including @-commands found in @titlepage only.  Therefore
-   simpletitle is more in line with what makeinfo in C did.
-   */
-
-  html_prepare_simpletitle (self);
-
-  for (i = 0; fulltitle_cmds[i]; i++)
-    {
-      enum command_id cmd = fulltitle_cmds[i];
-      const ELEMENT *command
-        = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
-      if (command && command->e.c->args.number > 0
-          && command->e.c->args.list[0]->e.c->contents.number > 0)
-        {
-          fulltitle_tree = command->e.c->args.list[0];
-          break;
-        }
-    }
-
-  if (!fulltitle_tree
-      && self->document->global_commands.titlefont.number > 0
-      && self->document->global_commands.titlefont.list[0]->e.c->args.number > 0
-      && self->document->global_commands.titlefont.list[0]->e.c->args.list[0]
-                                    ->e.c->contents.number > 0)
-    {
-      fulltitle_tree = self->document->global_commands.titlefont.list[0];
-    }
-
-  if (fulltitle_tree)
-    {
-      self->title_tree = fulltitle_tree;
-
-      html_title_string = convert_string_tree_new_formatting_context (self,
-                                       fulltitle_tree, "title_string", 0);
-      if (html_title_string[strspn (html_title_string, whitespace_chars)]
-           == '\0')
-        {
-          free (html_title_string);
-          html_title_string = 0;
-        }
-    }
-
-  if (!html_title_string)
-    {
-      ELEMENT *default_title = html_cdt_tree ("Untitled Document",
-                                              self, 0, 0);
-      SOURCE_INFO cmd_source_info;
-
-      self->title_tree = default_title;
-
-      html_title_string = convert_string_tree_new_formatting_context (self,
-                                       default_title, "title_string", 0);
-
-      self->added_title_tree = 1;
-
-      if (self->document->global_info.input_file_name)
-        {
-          /* setup a source info with file only */
-          memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
-          cmd_source_info.file_name
-           = self->document->global_info.input_file_name;
-          /* this is more in line with the Perl function used, as DEBUG is
-             checked in the called function */
-          message_list_line_error_ext (&self->error_messages, self->conf,
-                                  MSG_warning, 0, &cmd_source_info,
-                      "must specify a title with a title command or @top");
-        }
-      else
-        {
-          message_list_document_warn (&self->error_messages, self->conf, 0,
-                      "must specify a title with a title command or @top");
-        }
-    }
-
-  self->title_string = html_title_string;
-
-  /* copying comment */
-
-  if (self->document->global_commands.copying)
-    {
-      char *copying_comment;
-      ELEMENT *tmp = new_element (ET_NONE);
-
-      tmp->e.c->contents = self->document->global_commands.copying->e.c->contents;
-
-      copying_comment = convert_to_text (tmp, self->convert_text_options);
-
-      tmp->e.c->contents.list = 0;
-      destroy_element (tmp);
-
-      if (copying_comment && strlen (copying_comment) > 0)
-        {
-          self->copying_comment = format_comment (self, copying_comment);
-        }
-      free (copying_comment);
-    }
-
-  /* documentdescription */
-  if (self->conf->documentdescription.o.string)
-    self->documentdescription_string
-     = strdup (self->conf->documentdescription.o.string);
-  else if (self->document->global_commands.documentdescription)
-    {
-      ELEMENT *tmp = new_element (ET_NONE);
-      char *documentdescription_string;
-      size_t documentdescription_string_len;
-
-      tmp->e.c->contents
-        = self->document->global_commands.documentdescription->e.c->contents;
-
-      documentdescription_string
-                 = convert_string_tree_new_formatting_context (self,
-                                       tmp, "documentdescription", 0);
-
-      tmp->e.c->contents.list = 0;
-      destroy_element (tmp);
-
-      documentdescription_string_len = strlen (documentdescription_string);
-      if (documentdescription_string_len > 0
-          && documentdescription_string[documentdescription_string_len -1]
-             == '\n')
-        documentdescription_string[documentdescription_string_len -1] = '\0';
-
-      self->documentdescription_string = documentdescription_string;
-    }
-
-  init_handler_status = html_run_stage_handlers (self, HSHT_type_init);
-
-  if (init_handler_status < handler_fatal_error_level
-      && init_handler_status > -handler_fatal_error_level)
-    {}
-  else
-    {
-      free (default_document_language);
-      free (preamble_document_language);
-
-      return 0;
-    }
-
-  html_prepare_title_titlepage (self, output_file, output_filename);
-
-  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
-
-  if (! (!default_document_language && !preamble_document_language)
-      && (!default_document_language || !preamble_document_language
-          || strcmp (default_document_language, preamble_document_language)))
-    html_translate_names (self);
-
-  free (default_document_language);
-  free (preamble_document_language);
-
-  return 1;
-}
-
-
 
 void
 html_reset_translated_special_unit_info_tree (CONVERTER *self)
@@ -13711,6 +13450,254 @@ html_translate_names (CONVERTER *self)
     fprintf (stderr, "END TRANSLATE_NAMES\n\n");
 
   self->modified_state |= HMSF_translations;
+}
+
+
+
+/* last preparations of conversion.  At this point conversion of
+   Texinfo tree is possible */
+
+static const enum command_id simpletitle_cmds[] =
+ {CM_settitle, CM_shorttitlepage, 0};
+
+void
+html_prepare_simpletitle (CONVERTER *self)
+{
+  int i;
+  for (i = 0; simpletitle_cmds[i]; i++)
+    {
+      enum command_id cmd = simpletitle_cmds[i];
+      const ELEMENT *command
+        = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
+      if (command && command->e.c->args.number > 0
+          && command->e.c->args.list[0]->e.c->contents.number > 0)
+        {
+          self->simpletitle_tree = command->e.c->args.list[0];
+          self->simpletitle_cmd = cmd;
+          break;
+        }
+    }
+}
+
+void
+html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
+                              const char *output_filename)
+{
+  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+    (self->document, self->output_units_descriptors[OUDT_units]);
+
+  if (strlen (output_file))
+    {
+      self->current_filename.filename = output_units->list[0]->unit_filename;
+      self->current_filename.file_number
+        = self->output_unit_file_indices[0]+1;
+    }
+  else
+    {
+      /* case of convert() call.  Need to setup the page here */
+      if (self->page_name_number.number <= 0)
+         html_setup_output_simple_page (self, output_filename);
+      self->current_filename.filename = output_filename;
+      self->current_filename.file_number = 1;
+    }
+
+  self->title_titlepage = format_title_titlepage (self);
+  memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
+}
+
+static const enum command_id fulltitle_cmds[] =
+ {CM_settitle, CM_title, CM_shorttitlepage, CM_top, 0};
+
+
+int
+html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
+                                    const char *output_filename)
+{
+  int i;
+  ELEMENT *fulltitle_tree = 0;
+  char *html_title_string = 0;
+  char *default_document_language = 0;
+  char *preamble_document_language = 0;
+  int init_handler_status;
+  int handler_fatal_error_level
+     = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
+
+  int structure_handler_status
+    = html_run_stage_handlers (self, HSHT_type_structure);
+
+  if (structure_handler_status < handler_fatal_error_level
+      && structure_handler_status > -handler_fatal_error_level)
+    {}
+  else
+    return 0;
+
+  if (self->conf->documentlanguage.o.string)
+    default_document_language = strdup (self->conf->documentlanguage.o.string);
+
+  set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
+
+  if (self->conf->documentlanguage.o.string)
+    preamble_document_language = strdup (self->conf->documentlanguage.o.string);
+
+  if (! (!default_document_language && !preamble_document_language)
+      && (!default_document_language || !preamble_document_language
+          || strcmp (default_document_language, preamble_document_language)))
+    html_translate_names (self);
+
+  /*
+   prepare title.  fulltitle uses more possibility than simpletitle for
+   title, including @-commands found in @titlepage only.  Therefore
+   simpletitle is more in line with what makeinfo in C did.
+   */
+
+  html_prepare_simpletitle (self);
+
+  for (i = 0; fulltitle_cmds[i]; i++)
+    {
+      enum command_id cmd = fulltitle_cmds[i];
+      const ELEMENT *command
+        = get_cmd_global_uniq_command (&self->document->global_commands, cmd);
+      if (command && command->e.c->args.number > 0
+          && command->e.c->args.list[0]->e.c->contents.number > 0)
+        {
+          fulltitle_tree = command->e.c->args.list[0];
+          break;
+        }
+    }
+
+  if (!fulltitle_tree
+      && self->document->global_commands.titlefont.number > 0
+      && self->document->global_commands.titlefont.list[0]->e.c->args.number > 0
+      && self->document->global_commands.titlefont.list[0]->e.c->args.list[0]
+                                    ->e.c->contents.number > 0)
+    {
+      fulltitle_tree = self->document->global_commands.titlefont.list[0];
+    }
+
+  if (fulltitle_tree)
+    {
+      self->title_tree = fulltitle_tree;
+
+      html_title_string = convert_string_tree_new_formatting_context (self,
+                                       fulltitle_tree, "title_string", 0);
+      if (html_title_string[strspn (html_title_string, whitespace_chars)]
+           == '\0')
+        {
+          free (html_title_string);
+          html_title_string = 0;
+        }
+    }
+
+  if (!html_title_string)
+    {
+      ELEMENT *default_title = html_cdt_tree ("Untitled Document",
+                                              self, 0, 0);
+      SOURCE_INFO cmd_source_info;
+
+      self->title_tree = default_title;
+
+      html_title_string = convert_string_tree_new_formatting_context (self,
+                                       default_title, "title_string", 0);
+
+      self->added_title_tree = 1;
+
+      if (self->document->global_info.input_file_name)
+        {
+          /* setup a source info with file only */
+          memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
+          cmd_source_info.file_name
+           = self->document->global_info.input_file_name;
+          /* this is more in line with the Perl function used, as DEBUG is
+             checked in the called function */
+          message_list_line_error_ext (&self->error_messages, self->conf,
+                                  MSG_warning, 0, &cmd_source_info,
+                      "must specify a title with a title command or @top");
+        }
+      else
+        {
+          message_list_document_warn (&self->error_messages, self->conf, 0,
+                      "must specify a title with a title command or @top");
+        }
+    }
+
+  self->title_string = html_title_string;
+
+  /* copying comment */
+
+  if (self->document->global_commands.copying)
+    {
+      char *copying_comment;
+      ELEMENT *tmp = new_element (ET_NONE);
+
+      tmp->e.c->contents = self->document->global_commands.copying->e.c->contents;
+
+      copying_comment = convert_to_text (tmp, self->convert_text_options);
+
+      tmp->e.c->contents.list = 0;
+      destroy_element (tmp);
+
+      if (copying_comment && strlen (copying_comment) > 0)
+        {
+          self->copying_comment = format_comment (self, copying_comment);
+        }
+      free (copying_comment);
+    }
+
+  /* documentdescription */
+  if (self->conf->documentdescription.o.string)
+    self->documentdescription_string
+     = strdup (self->conf->documentdescription.o.string);
+  else if (self->document->global_commands.documentdescription)
+    {
+      ELEMENT *tmp = new_element (ET_NONE);
+      char *documentdescription_string;
+      size_t documentdescription_string_len;
+
+      tmp->e.c->contents
+        = self->document->global_commands.documentdescription->e.c->contents;
+
+      documentdescription_string
+                 = convert_string_tree_new_formatting_context (self,
+                                       tmp, "documentdescription", 0);
+
+      tmp->e.c->contents.list = 0;
+      destroy_element (tmp);
+
+      documentdescription_string_len = strlen (documentdescription_string);
+      if (documentdescription_string_len > 0
+          && documentdescription_string[documentdescription_string_len -1]
+             == '\n')
+        documentdescription_string[documentdescription_string_len -1] = '\0';
+
+      self->documentdescription_string = documentdescription_string;
+    }
+
+  init_handler_status = html_run_stage_handlers (self, HSHT_type_init);
+
+  if (init_handler_status < handler_fatal_error_level
+      && init_handler_status > -handler_fatal_error_level)
+    {}
+  else
+    {
+      free (default_document_language);
+      free (preamble_document_language);
+
+      return 0;
+    }
+
+  html_prepare_title_titlepage (self, output_file, output_filename);
+
+  set_global_document_commands (self, CL_before, conf_for_documentlanguage);
+
+  if (! (!default_document_language && !preamble_document_language)
+      && (!default_document_language || !preamble_document_language
+          || strcmp (default_document_language, preamble_document_language)))
+    html_translate_names (self);
+
+  free (default_document_language);
+  free (preamble_document_language);
+
+  return 1;
 }
 
 
@@ -14811,8 +14798,8 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
 
 
 
-/* This function cleans up the conversion state that would only be relevant
-   during conversion.  Other information is removed when calling reset_parser
+/* This function cleans up the conversion state that is relevant during
+   conversion.  Other information is removed when calling reset_parser
    later on and should not be freed here */
 void
 html_conversion_finalization (CONVERTER *self)

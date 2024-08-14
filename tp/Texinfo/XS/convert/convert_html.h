@@ -40,9 +40,6 @@ extern const char *direction_string_context_names[];
 
 extern const char *html_stage_handler_stage_type_names[];
 
-int html_id_is_registered (CONVERTER *self, const char *string);
-void html_register_id (CONVERTER *self, const char *string);
-
 OUTPUT_UNIT *html_get_top_unit (DOCUMENT *document,
                                 const OUTPUT_UNIT_LIST *output_units);
 
@@ -87,9 +84,6 @@ int html_run_stage_handlers (CONVERTER *self,
                              enum html_stage_handler_stage_type stage);
 
 void html_default_format_protect_text (const char *text, TEXT *result);
-
-void html_clear_direction_string_type (const CONVERTER *self,
-                                       char ***type_directions_strings);
 
 
 int html_special_unit_variety_direction_index (const CONVERTER *self,
@@ -299,13 +293,8 @@ SPECIAL_BODY_FORMATTING_FUNCTION(about)
 #undef SPECIAL_BODY_FORMATTING_FUNCTION
 
 
-void html_prepare_simpletitle (CONVERTER *self);
-void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
-                                   const char *output_filename);
-int html_prepare_converted_output_info (CONVERTER *self,
-                                        const char *output_file,
-                                        const char *output_filename);
-
+void html_clear_direction_string_type (const CONVERTER *self,
+                                       char ***type_directions_strings);
 
 void html_complete_no_arg_commands_formatting (CONVERTER *self,
                                                enum command_id cmd,
@@ -313,6 +302,14 @@ void html_complete_no_arg_commands_formatting (CONVERTER *self,
 void html_reset_translated_special_unit_info_tree (CONVERTER *self);
 
 void html_translate_names (CONVERTER *self);
+
+
+void html_prepare_simpletitle (CONVERTER *self);
+void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
+                                   const char *output_filename);
+int html_prepare_converted_output_info (CONVERTER *self,
+                                        const char *output_file,
+                                        const char *output_filename);
 
 
 char *debug_print_html_contexts (const CONVERTER *self);

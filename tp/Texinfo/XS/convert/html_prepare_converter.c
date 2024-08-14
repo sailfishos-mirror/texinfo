@@ -3137,6 +3137,24 @@ html_prepare_conversion_units (CONVERTER *self)
 
 
 
+int
+html_id_is_registered (CONVERTER *self, const char *string)
+{
+  if (self->ids_data_type == IDT_perl_hashmap)
+    return is_hv_registered_id (self, string);
+  else
+    return find_string (self->registered_ids, string);
+}
+
+void
+html_register_id (CONVERTER *self, const char *string)
+{
+  if (self->ids_data_type == IDT_perl_hashmap)
+    hv_register_id (self, string);
+  else
+    add_string (string, self->registered_ids);
+}
+
 /* used for diverse elements: tree units, indices, footnotes, special
   elements, contents elements... */
 static HTML_TARGET *
