@@ -13178,6 +13178,8 @@ html_default_format_special_body_about (CONVERTER *self,
   text_append (result, "</li>\n    </ul>\n  </li>\n</ul>\n");
 }
 
+
+
 static const enum command_id simpletitle_cmds[] =
  {CM_settitle, CM_shorttitlepage, 0};
 
@@ -13198,6 +13200,32 @@ html_prepare_simpletitle (CONVERTER *self)
           break;
         }
     }
+}
+
+void
+html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
+                              const char *output_filename)
+{
+  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+    (self->document, self->output_units_descriptors[OUDT_units]);
+
+  if (strlen (output_file))
+    {
+      self->current_filename.filename = output_units->list[0]->unit_filename;
+      self->current_filename.file_number
+        = self->output_unit_file_indices[0]+1;
+    }
+  else
+    {
+      /* case of convert() call.  Need to setup the page here */
+      if (self->page_name_number.number <= 0)
+         html_setup_output_simple_page (self, output_filename);
+      self->current_filename.filename = output_filename;
+      self->current_filename.file_number = 1;
+    }
+
+  self->title_titlepage = format_title_titlepage (self);
+  memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
 }
 
 static const enum command_id fulltitle_cmds[] =
@@ -13395,6 +13423,8 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
   return 1;
 }
 
+
+
 void
 html_reset_translated_special_unit_info_tree (CONVERTER *self)
 {
@@ -13419,7 +13449,6 @@ html_reset_translated_special_unit_info_tree (CONVERTER *self)
         }
     }
 }
-
 
 static void
 reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
@@ -13533,112 +13562,6 @@ html_complete_no_arg_commands_formatting (CONVERTER *self, enum command_id cmd,
                                                   HCC_type_preformatted, translate);
   reset_unset_no_arg_commands_formatting_context (self, cmd, HCC_type_css_string,
                                                   HCC_type_string, translate);
-}
-
-void
-html_conversion_finalization (CONVERTER *self)
-{
-  size_t i;
-  for (i = 0; i < self->html_files_information.number; i++)
-    {
-      free (self->html_files_information.list[i].info);
-    }
-  free (self->html_files_information.list);
-
-  /* should not be possible with default code, as
-     close_registered_sections_level(..., 0)
-     is called at the end of processing or at the end of each file.
-     However, it could happen if the conversion functions are user
-     defined.
-   */
-  for (i = 0; i < self->pending_closes.number; i++)
-    {
-      STRING_STACK *file_pending_closes = &self->pending_closes.list[i];
-      if (file_pending_closes->top > 0)
-        {
-          FILE_NAME_PATH_COUNTER *file_counter
-            = &self->output_unit_files.list[i];
-          const char *page_name = file_counter->filename;
-
-          message_list_document_warn (&self->error_messages, self->conf, 0,
-             "%s: %zu registered opened sections not closed",
-              page_name, file_pending_closes->top);
-          clear_string_stack (file_pending_closes);
-        }
-    }
-
-  if (self->pending_inline_content.top > 0)
-    {
-      char *inline_content = html_get_pending_formatted_inline_content (self);
-      message_list_document_warn (&self->error_messages, self->conf, 0,
-         "%zu registered inline contents: %s",
-           self->pending_inline_content.top, inline_content);
-      free (inline_content);
-    }
-
-  for (i = 0; i < self->associated_inline_content.number; i++)
-    {
-      HTML_ASSOCIATED_INLINE_CONTENT *associated_content
-        = &self->associated_inline_content.list[i];
-      if (associated_content->inline_content.space > 0)
-        {
-          char *inline_content = associated_content->inline_content.text;
-          if (associated_content->element)
-            {
-              char *element_str
-                = print_element_debug (associated_content->element, 0);
-              message_list_document_warn (&self->error_messages, self->conf, 0,
-                "left inline content associated to %s: '%s'", element_str,
-                inline_content);
-              free (element_str);
-            }
-          else if (associated_content->hv)
-            {
-              message_list_document_warn (&self->error_messages, self->conf, 0,
-                "left inline content of %p: '%s'", associated_content->hv,
-                inline_content);
-            }
-          else
-            message_list_document_warn (&self->error_messages, self->conf, 0,
-               "left inline content associated: '%s'", inline_content);
-          free (associated_content->inline_content.text);
-        }
-    }
-  self->associated_inline_content.number = 0;
-
-  html_pop_document_context (self);
-
-  /* could change to 0 in releases? */
-  if (1)
-    {
-      if (self->html_document_context.top > 0)
-        fprintf (stderr, "BUG: document context top > 0: %zu\n",
-                         self->html_document_context.top);
-      if (self->document_global_context)
-        fprintf (stderr, "BUG: document_global_context: %d\n",
-                         self->document_global_context);
-      if (self->multiple_conversions)
-        fprintf (stderr, "BUG: multiple_conversions: %d\n",
-                         self->multiple_conversions);
-    }
-}
-
-void
-html_check_transfer_state_finalization (CONVERTER *self)
-{
-  /* could change to 0 in releases? */
-  if (1)
-    {
-      /* check that all the state changes have been transmitted */
-      /*
-      if (self->tree_to_build.number > 0)
-        fprintf (stderr, "BUG: tree_to_build: %zu\n",
-                         self->tree_to_build.number);
-       */
-      if (self->no_arg_formatted_cmd_translated.number)
-        fprintf (stderr, "BUG: no_arg_formatted_cmd_translated: %zu\n",
-                         self->no_arg_formatted_cmd_translated.number);
-    }
 }
 
 void
@@ -13790,6 +13713,9 @@ html_translate_names (CONVERTER *self)
   self->modified_state |= HMSF_translations;
 }
 
+
+
+/* conversion */
 
 void
 destroy_args_formatted (HTML_ARGS_FORMATTED *args_formatted)
@@ -14714,31 +14640,289 @@ convert_output_output_unit_internal (CONVERTER *self,
   return 1;
 }
 
-void
-html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
-                              const char *output_filename)
+char *
+html_convert_output (CONVERTER *self, const ELEMENT *root,
+                     const char *output_file, const char *destination_directory,
+                     const char *output_filename, const char *document_name)
 {
+  int status = 1;
+  TEXT result;
+  TEXT text; /* reused for all the output units */
+
   const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
     (self->document, self->output_units_descriptors[OUDT_units]);
+  const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
+  char *encoded_destination_directory;
+  char *dir_encoding;
+  int succeeded;
 
-  if (strlen (output_file))
+  /* cast to remove const since the encoded_output_file_name argument cannot
+     be const even though the string is not modified */
+  encoded_destination_directory = encoded_output_file_name (self->conf,
+                                            &self->document->global_info,
+                                           (char *)destination_directory,
+                                                       &dir_encoding, 0);
+  free (dir_encoding);
+
+  succeeded = create_destination_directory (self,
+                                     encoded_destination_directory,
+                                           destination_directory);
+
+  free (encoded_destination_directory);
+
+  if (!succeeded)
+    return 0;
+
+  text_init (&result);
+  text_init (&text);
+
+  /* set self->date_in_header to format it only once */
+  if (self->conf->DATE_IN_HEADER.o.integer > 0)
     {
-      self->current_filename.filename = output_units->list[0]->unit_filename;
-      self->current_filename.file_number
-        = self->output_unit_file_indices[0]+1;
+      ELEMENT *today_element = new_command_element (ET_brace_noarg_command,
+                                                    CM_today);
+      char *today;
+
+      add_tree_to_build (self, today_element);
+      today = convert_tree_new_formatting_context (self, today_element,
+                                                   "DATE_IN_HEADER", 0, 0, 0);
+      remove_tree_to_build (self, today_element);
+      destroy_element (today_element);
+
+      text_printf (&text,
+                   "<meta name=\"date\" content=\"%s\"", today);
+      free (today);
+      close_html_lone_element (self, &text);
+      text_append_n (&text, "\n", 1);
+      self->date_in_header = strdup (text.text);
+      text_reset (&text);
+    }
+
+  text_append (&result, "");
+
+
+  if (!strlen (output_file))
+    {
+      char *file_end;
+      char *file_beginning;
+      size_t unit_nr = 0;
+      size_t i;
+
+      self->current_filename.filename = output_filename;
+      self->current_filename.file_number = 1;
+
+      text_append (&text, "");
+
+      for (i = 0; i < output_units->number; i++)
+        {
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          convert_convert_output_unit_internal (self, &text, output_unit,
+                         unit_nr, "UNIT NO-PAGE", "no-page output unit");
+          unit_nr++;
+        }
+      if (special_units && special_units->number)
+        {
+          for (i = 0; i < special_units->number; i++)
+            {
+              const OUTPUT_UNIT *special_unit = special_units->list[i];
+              convert_convert_output_unit_internal (self, &text,
+                             special_unit, unit_nr, "UNIT NO-PAGE",
+                             "no-page output unit");
+              unit_nr++;
+            }
+        }
+
+      /* do end file first, in case it needs some CSS */
+      file_end = format_end_file (self, output_filename, 0);
+      file_beginning = format_begin_file (self, output_filename, 0);
+      if (file_beginning)
+        {
+          text_append (&result, file_beginning);
+          free (file_beginning);
+        }
+      text_append (&result, text.text);
+      if (file_end)
+        {
+          text_append (&result, file_end);
+          free (file_end);
+        }
+      self->current_filename.filename = 0;
     }
   else
     {
-      /* case of convert() call.  Need to setup the page here */
-      if (self->page_name_number.number <= 0)
-         html_setup_output_simple_page (self, output_filename);
-      self->current_filename.filename = output_filename;
-      self->current_filename.file_number = 1;
+      size_t unit_nr = 0;
+      size_t i;
+      const ENCODING_CONVERSION *conversion = 0;
+
+      if (self->conf->OUTPUT_ENCODING_NAME.o.string
+          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
+        {
+          conversion
+             = get_encoding_conversion (
+                              self->conf->OUTPUT_ENCODING_NAME.o.string,
+                                              &output_conversions);
+        }
+
+      if (self->conf->DEBUG.o.integer > 0)
+        fprintf (stderr, "DO Units with filenames\n");
+
+      for (i = 0; i < output_units->number; i++)
+        {
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          status = convert_output_output_unit_internal (self, conversion,
+                                               &text, output_unit, unit_nr);
+          if (!status)
+            {
+              /*
+              fprintf (stderr, "   FAILED U(%d %d): %s\n", i, unit_nr,
+                       output_unit_texi (output_unit));
+               */
+              goto out;
+            }
+          unit_nr++;
+        }
+      if (special_units && special_units->number)
+        {
+          for (i = 0; i < special_units->number; i++)
+            {
+              const OUTPUT_UNIT *special_unit = special_units->list[i];
+              status = convert_output_output_unit_internal (self, conversion,
+                                                &text, special_unit, unit_nr);
+              if (!status)
+                goto out;
+              unit_nr++;
+            }
+        }
+      memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
     }
 
-  self->title_titlepage = format_title_titlepage (self);
-  memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
+ out:
+  free (text.text);
+
+  if (status)
+    return result.text;
+  else
+    {
+      free (result.text);
+      return 0;
+    }
 }
+
+
+
+/* This function cleans up the conversion state that would only be relevant
+   during conversion.  Other information is removed when calling reset_parser
+   later on and should not be freed here */
+void
+html_conversion_finalization (CONVERTER *self)
+{
+  size_t i;
+  for (i = 0; i < self->html_files_information.number; i++)
+    {
+      free (self->html_files_information.list[i].info);
+    }
+  free (self->html_files_information.list);
+
+  /* should not be possible with default code, as
+     close_registered_sections_level(..., 0)
+     is called at the end of processing or at the end of each file.
+     However, it could happen if the conversion functions are user
+     defined.
+   */
+  for (i = 0; i < self->pending_closes.number; i++)
+    {
+      STRING_STACK *file_pending_closes = &self->pending_closes.list[i];
+      if (file_pending_closes->top > 0)
+        {
+          FILE_NAME_PATH_COUNTER *file_counter
+            = &self->output_unit_files.list[i];
+          const char *page_name = file_counter->filename;
+
+          message_list_document_warn (&self->error_messages, self->conf, 0,
+             "%s: %zu registered opened sections not closed",
+              page_name, file_pending_closes->top);
+          clear_string_stack (file_pending_closes);
+        }
+    }
+
+  if (self->pending_inline_content.top > 0)
+    {
+      char *inline_content = html_get_pending_formatted_inline_content (self);
+      message_list_document_warn (&self->error_messages, self->conf, 0,
+         "%zu registered inline contents: %s",
+           self->pending_inline_content.top, inline_content);
+      free (inline_content);
+    }
+
+  for (i = 0; i < self->associated_inline_content.number; i++)
+    {
+      HTML_ASSOCIATED_INLINE_CONTENT *associated_content
+        = &self->associated_inline_content.list[i];
+      if (associated_content->inline_content.space > 0)
+        {
+          char *inline_content = associated_content->inline_content.text;
+          if (associated_content->element)
+            {
+              char *element_str
+                = print_element_debug (associated_content->element, 0);
+              message_list_document_warn (&self->error_messages, self->conf, 0,
+                "left inline content associated to %s: '%s'", element_str,
+                inline_content);
+              free (element_str);
+            }
+          else if (associated_content->hv)
+            {
+              message_list_document_warn (&self->error_messages, self->conf, 0,
+                "left inline content of %p: '%s'", associated_content->hv,
+                inline_content);
+            }
+          else
+            message_list_document_warn (&self->error_messages, self->conf, 0,
+               "left inline content associated: '%s'", inline_content);
+          free (associated_content->inline_content.text);
+        }
+    }
+  self->associated_inline_content.number = 0;
+
+  html_pop_document_context (self);
+
+  /* could change to 0 in releases? */
+  if (1)
+    {
+      if (self->html_document_context.top > 0)
+        fprintf (stderr, "BUG: document context top > 0: %zu\n",
+                         self->html_document_context.top);
+      if (self->document_global_context)
+        fprintf (stderr, "BUG: document_global_context: %d\n",
+                         self->document_global_context);
+      if (self->multiple_conversions)
+        fprintf (stderr, "BUG: multiple_conversions: %d\n",
+                         self->multiple_conversions);
+    }
+}
+
+void
+html_check_transfer_state_finalization (CONVERTER *self)
+{
+  /* could change to 0 in releases? */
+  if (1)
+    {
+      /* check that all the state changes have been transmitted */
+      /*
+      if (self->tree_to_build.number > 0)
+        fprintf (stderr, "BUG: tree_to_build: %zu\n",
+                         self->tree_to_build.number);
+       */
+      if (self->no_arg_formatted_cmd_translated.number)
+        fprintf (stderr, "BUG: no_arg_formatted_cmd_translated: %zu\n",
+                         self->no_arg_formatted_cmd_translated.number);
+    }
+}
+
+
+
+/* code run after the conversion when called as output */
 
 /* return 0 on success, -1 on write or close error, -2 if file_fh is 0,
    which should mean a failure to open */
@@ -15119,175 +15303,6 @@ html_do_js_files (CONVERTER *self)
 
   if (self->jslicenses.number > 0)
     do_jslicenses_file (self);
-}
-
-char *
-html_convert_output (CONVERTER *self, const ELEMENT *root,
-                     const char *output_file, const char *destination_directory,
-                     const char *output_filename, const char *document_name)
-{
-  int status = 1;
-  TEXT result;
-  TEXT text; /* reused for all the output units */
-
-  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
-    (self->document, self->output_units_descriptors[OUDT_units]);
-  const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
-    (self->document, self->output_units_descriptors[OUDT_special_units]);
-  char *encoded_destination_directory;
-  char *dir_encoding;
-  int succeeded;
-
-  /* cast to remove const since the encoded_output_file_name argument cannot
-     be const even though the string is not modified */
-  encoded_destination_directory = encoded_output_file_name (self->conf,
-                                            &self->document->global_info,
-                                           (char *)destination_directory,
-                                                       &dir_encoding, 0);
-  free (dir_encoding);
-
-  succeeded = create_destination_directory (self,
-                                     encoded_destination_directory,
-                                           destination_directory);
-
-  free (encoded_destination_directory);
-
-  if (!succeeded)
-    return 0;
-
-  text_init (&result);
-  text_init (&text);
-
-  /* set self->date_in_header to format it only once */
-  if (self->conf->DATE_IN_HEADER.o.integer > 0)
-    {
-      ELEMENT *today_element = new_command_element (ET_brace_noarg_command,
-                                                    CM_today);
-      char *today;
-
-      add_tree_to_build (self, today_element);
-      today = convert_tree_new_formatting_context (self, today_element,
-                                                   "DATE_IN_HEADER", 0, 0, 0);
-      remove_tree_to_build (self, today_element);
-      destroy_element (today_element);
-
-      text_printf (&text,
-                   "<meta name=\"date\" content=\"%s\"", today);
-      free (today);
-      close_html_lone_element (self, &text);
-      text_append_n (&text, "\n", 1);
-      self->date_in_header = strdup (text.text);
-      text_reset (&text);
-    }
-
-  text_append (&result, "");
-
-
-  if (!strlen (output_file))
-    {
-      char *file_end;
-      char *file_beginning;
-      size_t unit_nr = 0;
-      size_t i;
-
-      self->current_filename.filename = output_filename;
-      self->current_filename.file_number = 1;
-
-      text_append (&text, "");
-
-      for (i = 0; i < output_units->number; i++)
-        {
-          const OUTPUT_UNIT *output_unit = output_units->list[i];
-          convert_convert_output_unit_internal (self, &text, output_unit,
-                         unit_nr, "UNIT NO-PAGE", "no-page output unit");
-          unit_nr++;
-        }
-      if (special_units && special_units->number)
-        {
-          for (i = 0; i < special_units->number; i++)
-            {
-              const OUTPUT_UNIT *special_unit = special_units->list[i];
-              convert_convert_output_unit_internal (self, &text,
-                             special_unit, unit_nr, "UNIT NO-PAGE",
-                             "no-page output unit");
-              unit_nr++;
-            }
-        }
-
-      /* do end file first, in case it needs some CSS */
-      file_end = format_end_file (self, output_filename, 0);
-      file_beginning = format_begin_file (self, output_filename, 0);
-      if (file_beginning)
-        {
-          text_append (&result, file_beginning);
-          free (file_beginning);
-        }
-      text_append (&result, text.text);
-      if (file_end)
-        {
-          text_append (&result, file_end);
-          free (file_end);
-        }
-      self->current_filename.filename = 0;
-    }
-  else
-    {
-      size_t unit_nr = 0;
-      size_t i;
-      const ENCODING_CONVERSION *conversion = 0;
-
-      if (self->conf->OUTPUT_ENCODING_NAME.o.string
-          && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
-        {
-          conversion
-             = get_encoding_conversion (
-                              self->conf->OUTPUT_ENCODING_NAME.o.string,
-                                              &output_conversions);
-        }
-
-      if (self->conf->DEBUG.o.integer > 0)
-        fprintf (stderr, "DO Units with filenames\n");
-
-      for (i = 0; i < output_units->number; i++)
-        {
-          const OUTPUT_UNIT *output_unit = output_units->list[i];
-          status = convert_output_output_unit_internal (self, conversion,
-                                               &text, output_unit, unit_nr);
-          if (!status)
-            {
-              /*
-              fprintf (stderr, "   FAILED U(%d %d): %s\n", i, unit_nr,
-                       output_unit_texi (output_unit));
-               */
-              goto out;
-            }
-          unit_nr++;
-        }
-      if (special_units && special_units->number)
-        {
-          for (i = 0; i < special_units->number; i++)
-            {
-              const OUTPUT_UNIT *special_unit = special_units->list[i];
-              status = convert_output_output_unit_internal (self, conversion,
-                                                &text, special_unit, unit_nr);
-              if (!status)
-                goto out;
-              unit_nr++;
-            }
-        }
-      memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
-    }
-
- out:
-  free (text.text);
-
-  if (status)
-    return result.text;
-  else
-    {
-      free (result.text);
-      return 0;
-    }
 }
 
 /* return string to be freed by the caller */

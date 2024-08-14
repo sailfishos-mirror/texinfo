@@ -40,8 +40,6 @@ extern const char *direction_string_context_names[];
 
 extern const char *html_stage_handler_stage_type_names[];
 
-void html_conversion_finalization (CONVERTER *self);
-
 int html_id_is_registered (CONVERTER *self, const char *string);
 void html_register_id (CONVERTER *self, const char *string);
 
@@ -301,14 +299,21 @@ SPECIAL_BODY_FORMATTING_FUNCTION(about)
 #undef SPECIAL_BODY_FORMATTING_FUNCTION
 
 
-void html_translate_names (CONVERTER *self);
-
 void html_prepare_simpletitle (CONVERTER *self);
+void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
+                                   const char *output_filename);
 int html_prepare_converted_output_info (CONVERTER *self,
                                         const char *output_file,
                                         const char *output_filename);
-void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
-                                   const char *output_filename);
+
+
+void html_complete_no_arg_commands_formatting (CONVERTER *self,
+                                               enum command_id cmd,
+                                               int translate);
+void html_reset_translated_special_unit_info_tree (CONVERTER *self);
+
+void html_translate_names (CONVERTER *self);
+
 
 char *debug_print_html_contexts (const CONVERTER *self);
 
@@ -322,6 +327,12 @@ char *html_convert_output (CONVERTER *self, const ELEMENT *root,
                            const char *output_filename,
                            const char *document_name);
 
+
+void html_conversion_finalization (CONVERTER *self);
+
+void html_check_transfer_state_finalization (CONVERTER *self);
+
+
 void html_do_js_files (CONVERTER *self);
 
 char *html_prepare_node_redirection_page (CONVERTER *self,
@@ -332,14 +343,6 @@ int html_node_redirections (CONVERTER *self,
 
 int html_finish_output (CONVERTER *self, const char *output_file,
                         const char *destination_directory);
-
-void html_check_transfer_state_finalization (CONVERTER *self);
-
-void html_reset_translated_special_unit_info_tree (CONVERTER *self);
-
-void html_complete_no_arg_commands_formatting (CONVERTER *self,
-                                               enum command_id cmd,
-                                               int translate);
 
 
 #endif

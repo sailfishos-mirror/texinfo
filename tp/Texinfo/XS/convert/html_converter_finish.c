@@ -17,11 +17,14 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stddef.h>
 
 #include "converter_types.h"
 #include "document_types.h"
 #include "html_converter_types.h"
 #include "tree.h"
+/* clear_strings_list free_strings_list destroy_strings_list */
+#include "utils.h"
 #include "convert_to_texinfo.h"
 #include "convert_utils.h"
 #include "converter.h"
