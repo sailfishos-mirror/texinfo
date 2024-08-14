@@ -13927,9 +13927,6 @@ html_free_converter (CONVERTER *self)
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
 
-  /* useful only if html_reset_converter was not called previously */
-  reset_translated_special_unit_info_tree (self);
-
   free_special_unit_info_list (&self->customized_special_unit_info);
 
   free_strings_list (&self->customized_special_unit_varieties);
@@ -14220,8 +14217,6 @@ html_free_converter (CONVERTER *self)
 
   free (self->html_document_context.stack);
 
-  /* already cleared if html_clear_converter was called */
-  clear_type_explanations (type_explanations);
   free (type_explanations->list);
 
   free_strings_list (&self->special_unit_varieties);

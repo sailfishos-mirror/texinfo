@@ -10,6 +10,12 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_free_converter): remove
+	the two duplications of html_reset_converter code, they are not useful
+	as html_reset_converter should always be called.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_prepare_converter.h: get declaration of
 	functions in html_prepare_converter.c.
 
