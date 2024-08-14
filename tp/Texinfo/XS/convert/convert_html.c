@@ -153,9 +153,6 @@ static enum element_type ignored_types[] = {
 };
 
 
-const char *count_elements_in_filename_type_names[] = {
- "total", "remaining", "current"};
-
 const char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
    HTML_GLOBAL_DIRECTIONS_LIST
@@ -203,11 +200,6 @@ const char *direction_string_context_names[] =
 const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1] =
 {
   "mono", "node", "section", "chapter"
-};
-
-const char *css_info_type_names[] =
-{
-  "element_classes", "imports", "rules"
 };
 
 const enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1][htmlxref_split_type_chapter + 1] = {
@@ -2186,103 +2178,6 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
   return (result.text);
 }
 
-static void
-push_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack,
-                              char *context_name)
-{
-  if (stack->top >= stack->space)
-    {
-      stack->stack
-        = realloc (stack->stack,
-                   (stack->space += 5) * sizeof (HTML_FORMATTING_CONTEXT));
-    }
-
-  memset (&stack->stack[stack->top], 0, sizeof (HTML_FORMATTING_CONTEXT));
-
-  stack->stack[stack->top].context_name = strdup (context_name);
-
-  stack->top++;
-}
-
-static void
-pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
-{
-  if (stack->top == 0)
-    fatal ("HTML formatting context stack empty");
-
-  free (stack->stack[stack->top - 1].context_name);
-  stack->top--;
-}
-
-void
-html_new_document_context (CONVERTER *self,
-        const char *context_name, const char *document_global_context,
-        enum command_id block_command)
-{
-  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
-  HTML_DOCUMENT_CONTEXT *doc_context;
-
-  if (stack->top >= stack->space)
-    {
-      stack->stack
-        = realloc (stack->stack,
-                   (stack->space += 5) * sizeof (HTML_DOCUMENT_CONTEXT));
-    }
-
-  doc_context = &stack->stack[stack->top];
-  memset (doc_context, 0, sizeof (HTML_DOCUMENT_CONTEXT));
-  doc_context->context = strdup (context_name);
-  if (document_global_context)
-    doc_context->document_global_context = strdup (document_global_context);
-
-  push_integer_stack_integer (&doc_context->monospace, 0);
-  push_integer_stack_integer (&doc_context->preformatted_context, 0);
-  push_command_or_type (&doc_context->composition_context, 0, 0);
-  if (block_command)
-    push_command (&doc_context->block_commands, block_command);
-
-  if (document_global_context)
-    {
-      self->document_global_context++;
-    }
-
-  push_html_formatting_context (&doc_context->formatting_context,
-                                "_format");
-
-  stack->top++;
-}
-
-void
-html_pop_document_context (CONVERTER *self)
-{
-  HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
-  HTML_DOCUMENT_CONTEXT *document_ctx;
-
-  if (stack->top == 0)
-    fatal ("HTML document context stack empty for pop");
-
-  document_ctx = &stack->stack[stack->top -1];
-
-  free (document_ctx->context);
-  free (document_ctx->document_global_context);
-  free (document_ctx->monospace.stack);
-  free (document_ctx->preformatted_context.stack);
-  free (document_ctx->composition_context.stack);
-  free (document_ctx->preformatted_classes.stack);
-  if (document_ctx->block_commands.top > 0)
-    pop_command (&document_ctx->block_commands);
-  free (document_ctx->block_commands.stack);
-  pop_html_formatting_context (&document_ctx->formatting_context);
-  free (document_ctx->formatting_context.stack);
-
-  if (document_ctx->document_global_context)
-    {
-      self->document_global_context--;
-    }
-
-  stack->top--;
-}
-
 /* returned string to be freed by the caller */
 char *
 html_convert_tree (CONVERTER *self, const ELEMENT *tree,
@@ -2294,20 +2189,6 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree,
   convert_to_html_internal (self, tree, &result, explanation);
 
   return result.text;
-}
-
-void
-html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass)
-{
-  self->multiple_conversions++;
-  push_string_stack_string (&self->multiple_pass, multiple_pass);
-}
-
-void
-html_unset_multiple_conversions (CONVERTER *self)
-{
-  self->multiple_conversions--;
-  pop_string_stack (&self->multiple_pass);
 }
 
 /* Call convert_tree out of the main conversion flow.
@@ -2547,55 +2428,6 @@ find_htmlxref_manual
                 compare_htmlxref_manual);
 
   return result;
-}
-
-/* to be freed by caller */
-static char *
-source_info_id (const SOURCE_INFO *source_info)
-{
-  TEXT result;
-
-  text_init (&result);
-  if (source_info->file_name)
-    text_append (&result, source_info->file_name);
-  text_append_n (&result, "-", 1);
-  if (source_info->macro)
-    text_append (&result, source_info->macro);
-  text_append_n (&result, "-", 1);
-  text_printf (&result, "%d", source_info->line_nr);
-  return result.text;
-}
-
-size_t
-html_check_htmlxref_already_warned (CONVERTER *self, const char *manual_name,
-                                    const SOURCE_INFO *source_info)
-{
-  STRING_LIST *htmlxref_warned_list
-    = &self->check_htmlxref_already_warned;
-  char *node_manual_key;
-  char *info_id;
-  size_t entry_nr;
-
-  if (source_info)
-    info_id = source_info_id (source_info);
-  else
-    info_id = strdup ("UNDEF");
-
-  xasprintf (&node_manual_key, "%s-%s", info_id, manual_name);
-  free (info_id);
-
-  entry_nr = find_string (htmlxref_warned_list, node_manual_key);
-
-  if (entry_nr)
-    {
-      free (node_manual_key);
-      return entry_nr;
-    }
-
-  add_string (node_manual_key, htmlxref_warned_list);
-  free (node_manual_key);
-
-  return 0;
 }
 
 char *
@@ -8433,51 +8265,6 @@ convert_email_command (CONVERTER *self, const enum command_id cmd,
       text_printf (result, " href=\"%s\">%s</a>", protected_mailto, text);
       free (protected_mailto);
     }
-}
-
-EXPLAINED_COMMAND_TYPE *
-find_explained_command_string (
-                      const EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
-                               const enum command_id cmd, const char *type)
-{
-  size_t i;
-  for (i = 0; i < type_explanations->number; i++)
-    {
-      EXPLAINED_COMMAND_TYPE *type_explanation = &type_explanations->list[i];
-      if (type_explanation->cmd == cmd
-          && !strcmp (type_explanation->type, type))
-        return type_explanation;
-    }
-  return 0;
-}
-
-void
-register_explained_command_string (
-               EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
-                    const enum command_id cmd,
-                    const char *type, const char *explanation)
-{
-  EXPLAINED_COMMAND_TYPE *type_explanation
-    = find_explained_command_string (type_explanations, cmd, type);
-  if (!type_explanation)
-    {
-      if (type_explanations->number == type_explanations->space)
-        {
-          type_explanations->list
-           = realloc (type_explanations->list,
-            sizeof (EXPLAINED_COMMAND_TYPE) * (type_explanations->space += 5));
-        }
-      type_explanation = &type_explanations->list[type_explanations->number];
-      type_explanation->cmd = cmd;
-      type_explanation->type = strdup (type);
-
-      type_explanation = &type_explanations->list[type_explanations->number];
-      type_explanations->number++;
-    }
-  else
-    free (type_explanation->explanation);
-
-  type_explanation->explanation = strdup (explanation);
 }
 
 void
@@ -16450,16 +16237,6 @@ initialize_jslicense_files (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
   jslicences_files_info->number = size;
 }
 
-void
-initialize_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles,
-                                    size_t size)
-{
-  selector_styles->list = (CSS_SELECTOR_STYLE *)
-        malloc (size * sizeof (CSS_SELECTOR_STYLE));
-  selector_styles->space = size;
-  selector_styles->number = size;
-}
-
 HTML_DIRECTION_STRING_TRANSLATED *
 new_directions_strings_translated_type (int nr_string_directions)
 {
@@ -19315,238 +19092,6 @@ destroy_args_formatted (HTML_ARGS_FORMATTED *args_formatted)
   free (args_formatted);
 }
 
-
-int
-html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
-{
-  int convert_to_latex = 0;
-  int preformatted = 0;
-
-  HTML_DOCUMENT_CONTEXT *top_document_ctx;
-  HTML_FORMATTING_CONTEXT *top_formating_ctx;
-
-  if (builtin_command_data[data_cmd].flags & CF_brace
-      && builtin_command_data[data_cmd].data == BRACE_context)
-    {
-      html_new_document_context (self,
-                       builtin_command_data[data_cmd].cmdname, 0, 0);
-
-    }
-  top_document_ctx = html_top_document_context (self);
-
-  if (html_commands_data[data_cmd].flags & HF_format_context)
-    {
-      char *context_str;
-      xasprintf (&context_str, "@%s",
-                 builtin_command_data[data_cmd].cmdname);
-      push_html_formatting_context (
-                 &top_document_ctx->formatting_context,
-                 context_str);
-      free (context_str);
-    }
-
-  top_formating_ctx
-    = html_top_formatting_context (&top_document_ctx->formatting_context);
-
-  if (builtin_command_data[data_cmd].flags & CF_block)
-    {
-      push_command (&top_document_ctx->block_commands, data_cmd);
-    }
-
-  if (html_commands_data[data_cmd].flags & HF_pre_class)
-    {
-      push_command_or_type (&top_document_ctx->preformatted_classes,
-                            html_commands_data[data_cmd].pre_class_cmd, 0);
-      if (builtin_command_data[data_cmd].flags & CF_preformatted)
-        {
-          preformatted = 1;
-          top_document_ctx->inside_preformatted++;
-        }
-      else if (builtin_command_data[data_cmd].data == BLOCK_menu
-               && top_document_ctx->inside_preformatted)
-        preformatted = 1;
-    }
-
-  if (html_commands_data[data_cmd].flags & HF_composition_context)
-    {
-      push_command_or_type (&top_document_ctx->composition_context,
-                            data_cmd, 0);
-      push_integer_stack_integer (&top_document_ctx->preformatted_context,
-                                preformatted);
-    }
-
-  if (html_commands_data[data_cmd].flags & HF_format_raw)
-    {
-      top_document_ctx->raw_ctx++;
-    }
-  else if (data_cmd == CM_verbatim)
-    {
-      top_document_ctx->verbatim_ctx++;
-    }
-
-  if (builtin_command_data[data_cmd].other_flags & CF_brace_code
-      || builtin_command_data[data_cmd].flags & CF_preformatted_code)
-    {
-      push_integer_stack_integer (&top_document_ctx->monospace, 1);
-    }
-  else if (builtin_command_data[data_cmd].flags & CF_brace
-           && builtin_command_data[data_cmd].data == BRACE_style_no_code)
-    {
-      push_integer_stack_integer (&top_document_ctx->monospace, 0);
-    }
-  else if (self->upper_case[data_cmd])
-    {
-      top_formating_ctx->upper_case_ctx++;
-    }
-  else if (builtin_command_data[data_cmd].flags & CF_math)
-    {
-      top_document_ctx->math_ctx++;
-      if (self->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-        convert_to_latex = 1;
-    }
-  if (data_cmd == CM_verb)
-    {
-      top_formating_ctx->space_protected++;
-    }
-  else if (data_cmd == CM_w)
-    {
-      top_formating_ctx->no_break++;
-    }
-  return convert_to_latex;
-}
-
-void
-html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
-{
-  HTML_DOCUMENT_CONTEXT *top_document_ctx;
-  HTML_FORMATTING_CONTEXT *top_formating_ctx;
-
-  top_document_ctx = html_top_document_context (self);
-
-  top_formating_ctx
-    = html_top_formatting_context (&top_document_ctx->formatting_context);
-
-  if (html_commands_data[data_cmd].flags & HF_composition_context)
-    {
-      pop_command_or_type (&top_document_ctx->composition_context);
-      pop_integer_stack (&top_document_ctx->preformatted_context);
-    }
-
-  if (html_commands_data[data_cmd].flags & HF_pre_class)
-    {
-      pop_command_or_type (&top_document_ctx->preformatted_classes);
-      if (builtin_command_data[data_cmd].flags & CF_preformatted)
-        top_document_ctx->inside_preformatted--;
-    }
-
-  if (data_cmd == CM_verb)
-    {
-      top_formating_ctx->space_protected--;
-    }
-  else if (data_cmd == CM_w)
-    {
-      top_formating_ctx->no_break--;
-    }
-
-  if (builtin_command_data[data_cmd].flags & CF_preformatted_code
-      || (builtin_command_data[data_cmd].flags & CF_brace
-          && builtin_command_data[data_cmd].data == BRACE_style_no_code)
-      || builtin_command_data[data_cmd].other_flags & CF_brace_code)
-    {
-      pop_integer_stack (&top_document_ctx->monospace);
-    }
-  else if (self->upper_case[data_cmd])
-    {
-      top_formating_ctx->upper_case_ctx--;
-    }
-  else if (builtin_command_data[data_cmd].flags & CF_math)
-    {
-      top_document_ctx->math_ctx--;
-    }
-
-  if (html_commands_data[data_cmd].flags & HF_format_raw)
-    {
-      top_document_ctx->raw_ctx--;
-    }
-  else if (data_cmd == CM_verbatim)
-    {
-      top_document_ctx->verbatim_ctx--;
-    }
-
-  if (builtin_command_data[data_cmd].flags & CF_block)
-    {
-      pop_command (&top_document_ctx->block_commands);
-    }
-
-  if (html_commands_data[data_cmd].flags & HF_format_context)
-    {
-      pop_html_formatting_context (
-                 &top_document_ctx->formatting_context);
-    }
-
-  if (builtin_command_data[data_cmd].flags & CF_brace
-      && builtin_command_data[data_cmd].data == BRACE_context)
-    {
-      html_pop_document_context (self);
-    }
-}
-
-void
-html_open_type_update_context (CONVERTER *self, enum element_type type)
-{
-  HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
-  HTML_FORMATTING_CONTEXT *top_formating_ctx
-    = html_top_formatting_context (&top_document_ctx->formatting_context);
-
-  if (type == ET_paragraph)
-    {
-      top_formating_ctx->paragraph_number++;
-    }
-  else if (type == ET_preformatted || type == ET_rawpreformatted)
-    {
-      top_formating_ctx->preformatted_number++;
-    }
-  else if (self->pre_class_types[type])
-    {
-      push_command_or_type (&top_document_ctx->preformatted_classes, 0, type);
-      push_command_or_type (&top_document_ctx->composition_context,
-                            0, type);
-      push_integer_stack_integer (&top_document_ctx->preformatted_context, 1);
-    }
-
-  if (self->code_types[type])
-    {
-      push_integer_stack_integer (&top_document_ctx->monospace, 1);
-    }
-
-  if (type == ET__string)
-    {
-      top_document_ctx->string_ctx++;
-    }
-}
-
-void
-html_convert_type_update_context (CONVERTER *self, enum element_type type)
-{
-  HTML_DOCUMENT_CONTEXT *top_document_ctx = html_top_document_context (self);
-
-  if (self->code_types[type])
-    {
-      pop_integer_stack (&top_document_ctx->monospace);
-    }
-
-  if (type == ET__string)
-    {
-      top_document_ctx->string_ctx--;
-    }
-
-  if (self->pre_class_types[type])
-    {
-      pop_command_or_type (&top_document_ctx->preformatted_classes);
-      pop_command_or_type (&top_document_ctx->composition_context);
-      pop_integer_stack (&top_document_ctx->preformatted_context);
-    }
-}
 
 #define ADD(x) text_append (result, x)
 

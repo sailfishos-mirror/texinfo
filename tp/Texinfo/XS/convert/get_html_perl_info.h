@@ -50,6 +50,4 @@ SV *html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const char *cmdname, const char *state_name,
                                const int args_nr, SV **args_sv);
 
-enum css_info_type html_get_css_info_spec (const char *spec);
-
 #endif

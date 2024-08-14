@@ -20,12 +20,8 @@ extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 extern const char *special_unit_info_type_names[SUI_type_heading + 1];
 extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
-extern const char *css_info_type_names[];
-
 extern const char *direction_string_type_names[];
 extern const char *direction_string_context_names[];
-
-extern const char *count_elements_in_filename_type_names[];
 
 extern const char *html_stage_handler_stage_type_names[];
 extern COMMAND_ID_LIST no_arg_formatted_cmd;
@@ -53,9 +49,6 @@ void initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
 void initialize_jslicense_files
                        (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
                                  const char *category, size_t size);
-void initialize_css_selector_style_list
-                   (CSS_SELECTOR_STYLE_LIST *selector_styles,
-                                         size_t size);
 HTML_DIRECTION_STRING_TRANSLATED *new_directions_strings_translated_type
   (int nr_string_directions);
 char ***new_directions_strings_type (int nr_string_directions,
@@ -70,32 +63,6 @@ SPECIAL_UNIT_INFO *html_add_special_unit_info (
 
 int html_id_is_registered (CONVERTER *self, const char *string);
 void html_register_id (CONVERTER *self, const char *string);
-
-int html_open_command_update_context (CONVERTER *self,
-                                      enum command_id data_cmd);
-void html_convert_command_update_context (CONVERTER *self,
-                                          enum command_id data_cmd);
-void html_open_type_update_context (CONVERTER *self,
-                                    enum element_type type);
-void html_convert_type_update_context (CONVERTER *self, enum element_type type);
-void html_new_document_context (CONVERTER *self,
-        const char *context_name, const char *document_global_context,
-        enum command_id block_command);
-void html_pop_document_context (CONVERTER *self);
-void html_set_code_context (CONVERTER *self, int code);
-void html_pop_code_context (CONVERTER *self);
-void html_set_string_context (CONVERTER *self);
-void html_unset_string_context (CONVERTER *self);
-void html_set_raw_context (CONVERTER *self);
-void html_unset_raw_context (CONVERTER *self);
-void html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass);
-void html_unset_multiple_conversions (CONVERTER *self);
-
-char *debug_print_html_contexts (const CONVERTER *self);
-
-size_t html_count_elements_in_filename (const CONVERTER *self,
-                 enum count_elements_in_filename_type type,
-                 const char *filename);
 
 int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);
@@ -129,23 +96,11 @@ char *html_internal_command_text (CONVERTER *self, const ELEMENT *command,
 char *html_command_description (CONVERTER *self, const ELEMENT *command,
                                 const enum html_text_type type);
 
-EXPLAINED_COMMAND_TYPE *find_explained_command_string
-                      (const EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
-                               const enum command_id cmd, const char *type);
-void register_explained_command_string (
-               EXPLAINED_COMMAND_TYPE_LIST *type_explanations,
-                    const enum command_id cmd,
-                    const char *type, const char *explanation);
-
 FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
                                            const char *footnote_id);
 
 char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);
-
-size_t html_check_htmlxref_already_warned (CONVERTER *self,
-                                           const char *manual_name,
-                                           const SOURCE_INFO *source_info);
 
 void html_prepare_conversion_units (CONVERTER *self);
 
@@ -169,6 +124,8 @@ int html_prepare_converted_output_info (CONVERTER *self,
                                         const char *output_filename);
 void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                                    const char *output_filename);
+
+char *debug_print_html_contexts (const CONVERTER *self);
 
 char *html_convert_convert (CONVERTER *self, const ELEMENT *root);
 char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,

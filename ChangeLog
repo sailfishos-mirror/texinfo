@@ -6,6 +6,26 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/get_html_perl_info.c,
+	tp/Texinfo/XS/convert/html_conversion_state.c
+	(html_get_css_info_spec): move from get_html_perl_info.c to
+	html_conversion_state.c.
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/html_conversion_state.c (css_info_type_names)
+	(count_elements_in_filename_type_names, push_html_formatting_context)
+	(pop_html_formatting_context, html_new_document_context)
+	(html_pop_document_context, html_open_command_update_context)
+	(html_convert_command_update_context, html_open_type_update_context)
+	(html_convert_type_update_context, html_set_multiple_conversions)
+	(html_unset_multiple_conversions, find_explained_command_string)
+	(register_explained_command_string, source_info_id)
+	(html_check_htmlxref_already_warned)
+	(initialize_css_selector_style_list): move from convert_html.c
+	to html_conversion_state.c.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
 	tp/Texinfo/XS/convert/html_converter_types.h (HTML_COMMAND_STRUCT)
 	(enum count_elements_in_filename_type, enum css_info_type),

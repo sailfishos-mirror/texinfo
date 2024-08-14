@@ -43,6 +43,7 @@
 #include "convert_to_texinfo.h"
 #include "output_unit.h"
 #include "converter.h"
+#include "html_conversion_state.h"
 #include "convert_html.h"
 #include "get_perl_info.h"
 #include "get_converter_perl_info.h"
@@ -1902,20 +1903,4 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
   else if (!strcmp (state_name, "in_skipped_node_top"))
     return newSViv (converter->shared_conversion_state.in_skipped_node_top);
   return newSV (0);
-}
-
-enum css_info_type
-html_get_css_info_spec (const char *spec)
-{
-  int i;
-  enum css_info_type type = CI_css_info_element_classes;
-  for (i = 0; i < CI_css_info_rules +1; i++)
-    {
-      if (!strcmp (css_info_type_names[i], spec))
-        {
-          type = i;
-          break;
-        }
-    }
-  return type;
 }
