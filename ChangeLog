@@ -1,3 +1,61 @@
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/html_converter_types.h
+	(SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD, COMMAND_ARGS_SPECIFICATION)
+	(MAX_COMMAND_ARGS_NR, html_command_args_flags)
+	(special_list_mark_css_string_no_arg_command, no_arg_formatted_cmd)
+	(style_formatted_cmd, accent_cmd, format_raw_cmd),
+	tp/Texinfo/XS/convert/convert_html.c: rename command_args_flags as
+	html_command_args_flags, substitute_html_non_breaking_space as
+	html_substitute_non_breaking_space.  Declare in
+	html_converter_types.h.
+
+	* tp/Texinfo/XS/convert/convert_html.h (ROOT_AND_UNIT),
+	tp/Texinfo/XS/convert/convert_html.c (html_get_tree_root_element)
+	(html_after_escaped_characters, html_substitute_non_breaking_space)
+	(html_special_unit_info, html_default_format_protect_text)
+	(html_complete_no_arg_commands_formatting): declare ROOT_AND_UNIT and
+	html_get_tree_root_element in header file.  Rename
+	substitute_html_non_breaking_space as
+	html_substitute_non_breaking_space.  Prepend html_ for some functions
+	and declare them in header file.  Update callers.
+
+	* tp/Texinfo/XS/convert/convert_html.h,
+	tp/Texinfo/XS/convert/convert_html.c: prepend html_ for
+	css_string_convert*, convert_*command, command_conversion_external,
+	command_open_external, open_*command, type_conversion_external,
+	convert_*type, css_string_convert_*type, type_open_external,
+	output_unit_conversion_external, convert_*unit,
+	special_unit_body_formatting_external, default_format_special_body_*
+	and declare in header file.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (html_format_setup)
+	(html_converter_customize, html_initialize_output_state)
+	(new_directions_strings_type, new_directions_strings_translated_type)
+	(CMD_VARIETY, COMMAND_INTERNAL_CONVERSION, COMMAND_INTERNAL_OPEN)
+	(TYPE_INTERNAL_CONVERSION, TYPE_INTERNAL_OPEN)
+	(OUTPUT_UNIT_INTERNAL_CONVERSION)
+	(SPECIAL_UNIT_BODY_INTERNAL_CONVERSION)
+	(base_default_css_element_class_styles, default_code_types)
+	(default_pre_class_types, quoted_style_commands, ignored_types)
+	(htmlxref_split_type_names, command_special_unit_variety)
+	(default_no_arg_commands_formatting, special_characters_formatting)
+	(default_style_commands_formatting, html_commands_data)
+	(default_commands_args, register_special_unit, SPECIAL_UNIT_ORDER)
+	(compare_special_units, prepare_special_units)
+	(additional_format_context_cmd, HTML_align_cmd)
+	(register_format_context_command, register_pre_class_command)
+	(conf_for_special_units, html_prepare_conversion_units)
+	(compare_index_name, html_prepare_conversion_units): move code related
+	to converter and conversion preparation to a new file,
+	html_prepare_converter.c.
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_converter_init_special_unit): move
+	html_converter_init_special_unit to html_prepare_converter.c.
+
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/html_conversion_state.h: declare

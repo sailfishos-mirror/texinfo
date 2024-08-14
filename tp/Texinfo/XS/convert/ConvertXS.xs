@@ -56,7 +56,7 @@
 #include "build_html_perl_state.h"
 #include "html_conversion_state.h"
 #include "convert_html.h"
-#include "get_converter_perl_info.h"
+#include "html_prepare_converter.h"
 #include "get_html_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to

@@ -44,6 +44,8 @@
 #include "output_unit.h"
 #include "converter.h"
 #include "html_conversion_state.h"
+/* new_directions_strings_type */
+#include "html_prepare_converter.h"
 #include "convert_html.h"
 #include "get_perl_info.h"
 #include "get_converter_perl_info.h"

@@ -39,6 +39,7 @@
 #include "transformations.h"
 #include "converter.h"
 #include "convert_html.h"
+#include "html_prepare_converter.h"
 #include "texinfo.h"
 
 /* initialization of the library. */

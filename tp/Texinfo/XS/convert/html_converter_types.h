@@ -31,6 +31,19 @@ enum css_info_type {
    CI_css_info_rules,
 };
 
+/* HTML arguments flags */
+/* used to set flags to non-zero with a flag that does nothing */
+#define F_AFT_none              0x0001
+
+#define F_AFT_normal            0x0002
+#define F_AFT_string            0x0004
+#define F_AFT_monospace         0x0008
+#define F_AFT_monospacetext     0x0010
+#define F_AFT_monospacestring   0x0020
+#define F_AFT_filenametext      0x0040
+#define F_AFT_url               0x0080
+#define F_AFT_raw               0x0100
+
 /* HTML command data flags */
 #define HF_composition_context  0x0001
 #define HF_format_context       0x0002
@@ -48,6 +61,30 @@ typedef struct HTML_COMMAND_STRUCT {
     enum command_id upper_case_cmd;
 } HTML_COMMAND_STRUCT;
 
+typedef struct SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD {
+    enum command_id cmd;
+    char *string;
+    char *saved;
+} SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD;
+
+/* in specification of args.  Number max +1 for a trailing 0 */
+#define MAX_COMMAND_ARGS_NR 6
+
+typedef struct COMMAND_ARGS_SPECIFICATION {
+    int status;
+    unsigned long flags[MAX_COMMAND_ARGS_NR];
+} COMMAND_ARGS_SPECIFICATION;
+
+extern COMMAND_ARGS_SPECIFICATION html_command_args_flags[BUILTIN_CMD_NUMBER];
+
 extern HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];
+
+extern SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD
+            special_list_mark_css_string_no_arg_command[];
+
+extern COMMAND_ID_LIST no_arg_formatted_cmd;
+extern COMMAND_ID_LIST style_formatted_cmd;
+extern COMMAND_ID_LIST accent_cmd;
+extern COMMAND_ID_LIST format_raw_cmd;
 
 #endif
