@@ -58,6 +58,11 @@ const char *html_special_unit_info (const CONVERTER *self,
                                     enum special_unit_info_type type,
                                     const char *special_unit_variety);
 
+char *html_normalized_to_id (const char *id);
+TARGET_FILENAME *html_normalized_label_id_file (CONVERTER *self,
+                                                const char *normalized,
+                                                const ELEMENT* label_element);
+
 int html_run_stage_handlers (CONVERTER *self,
                              enum html_stage_handler_stage_type stage);
 
@@ -117,9 +122,6 @@ FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
 
 char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);
-
-void html_prepare_conversion_units_targets (CONVERTER *self,
-                                     const char *document_name);
 
 FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
           const char *output_file, const char *destination_directory,

@@ -20,4 +20,7 @@ void html_setup_convert (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self);
 
+void html_prepare_conversion_units_targets (CONVERTER *self,
+                                     const char *document_name);
+
 #endif

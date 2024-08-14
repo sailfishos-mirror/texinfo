@@ -29,6 +29,7 @@
 #include "conversion_data.h"
 /* new_element */
 #include "tree.h"
+#include "extra.h"
 #include "utils.h"
 #include "errors.h"
 /* unicode_character_brace_no_arg_commands */
@@ -36,6 +37,9 @@
 #include "builtin_commands.h"
 #include "command_stack.h"
 #include "customization_options.h"
+#include "convert_to_texinfo.h"
+#include "node_name_normalization.h"
+#include "manipulate_indices.h"
 /* nobrace_symbol_text text_brace_no_arg_commands */
 #include "convert_to_text.h"
 #include "output_unit.h"
@@ -3039,3 +3043,774 @@ html_prepare_conversion_units (CONVERTER *self)
   /* reset to the default */
   set_global_document_commands (self, CL_before, conf_for_special_units);
 }
+
+
+
+/* used for diverse elements: tree units, indices, footnotes, special
+  elements, contents elements... */
+static HTML_TARGET *
+add_element_target_to_list (HTML_TARGET_LIST *targets,
+                            const ELEMENT *element, const char *target)
+{
+  HTML_TARGET *element_target;
+
+  if (targets->number == targets->space)
+    {
+      targets->list = realloc (targets->list,
+                   sizeof (HTML_TARGET) * (targets->space += 5));
+    }
+  element_target = &targets->list[targets->number];
+  memset (element_target, 0, sizeof (HTML_TARGET));
+  element_target->element = element;
+  if (target)
+    element_target->target = strdup (target);
+
+  targets->number++;
+  return element_target;
+}
+
+/* setup a list per command id.  Note that elements associated to targets
+   without cmd are all associated to 0.  This is the case for the special
+   units associated elements with type ET_special_unit_element and cmd 0 */
+static HTML_TARGET *
+add_element_target (CONVERTER *self, const ELEMENT *element,
+                    const char *target)
+{
+  enum command_id cmd = element_builtin_cmd (element);
+  HTML_TARGET_LIST *targets = &self->html_targets[cmd];
+  return add_element_target_to_list (targets, element, target);
+}
+
+static HTML_TARGET *
+add_special_target (CONVERTER *self, enum special_target_type type,
+                    const ELEMENT *element, const char *target)
+{
+  HTML_TARGET_LIST *targets = &self->html_special_targets[type];
+  return add_element_target_to_list (targets, element, target);
+}
+
+static char *
+unique_target (CONVERTER *self, const char *target_base)
+{
+  int nr = 1;
+  char *target = strdup (target_base);
+  while (1)
+    {
+      if (html_id_is_registered (self, target))
+        {
+          free (target);
+          xasprintf (&target, "%s-%d", target_base, nr);
+          nr++;
+          if (nr == 0)
+            fatal ("overflow");
+        }
+      else
+        return target;
+    }
+}
+
+/* calls customization function requiring output units */
+void
+set_special_units_targets_files (CONVERTER *self, const char *document_name)
+{
+  size_t i;
+  TEXT text_name;
+  OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
+
+  char *extension = "";
+  if (self->conf->EXTENSION.o.string)
+    extension = self->conf->EXTENSION.o.string;
+
+  text_init (&text_name);
+
+  for (i = 0; i < special_units->number; i++)
+    {
+      TARGET_FILENAME *target_filename;
+      char *default_filename = 0;
+      char *filename = 0;
+      OUTPUT_UNIT *special_unit = special_units->list[i];
+      const char *special_unit_variety = special_unit->special_unit_variety;
+
+      /* refers to self->special_unit_info */
+      const char *target = html_special_unit_info (self, SUI_type_target,
+                                                   special_unit_variety);
+
+      if (!target)
+        continue;
+
+      if (((self->conf->SPLIT.o.string && strlen (self->conf->SPLIT.o.string))
+           || self->conf->MONOLITHIC.o.integer <= 0)
+    /* in general document_name not defined means called through convert */
+          && document_name)
+        {
+          const char *special_unit_file_string
+            = html_special_unit_info (self, SUI_type_file_string,
+                                      special_unit_variety);
+          text_reset (&text_name);
+          if (!special_unit_file_string)
+            special_unit_file_string = "";
+          text_append (&text_name, document_name);
+          text_append (&text_name, special_unit_file_string);
+          if (extension && strlen (extension))
+            {
+              text_append (&text_name, ".");
+              text_append (&text_name, extension);
+            }
+          default_filename = strdup (text_name.text);
+        }
+      target_filename = call_file_id_setting_special_unit_target_file_name (
+                               self, special_unit, target, default_filename);
+      if (target_filename)
+        {
+          if (target_filename->target)
+            target = target_filename->target;
+          if (target_filename->filename)
+            {
+              filename = target_filename->filename;
+              free (default_filename);
+            }
+          else
+            filename = default_filename;
+        }
+      else
+        filename = default_filename;
+
+      if (self->conf->DEBUG.o.integer > 0)
+        {
+          const char *fileout = filename;
+          if (!fileout)
+            fileout = "UNDEF";
+          fprintf (stderr, "Add special %s: target %s,\n    filename %s\n",
+                            special_unit_variety, target, fileout);
+        }
+
+      HTML_TARGET *element_target
+        = add_element_target (self, special_unit->uc.special_unit_command,
+                              target);
+      element_target->special_unit_filename = filename;
+      html_register_id (self, target);
+
+      if (target_filename)
+        {
+          if (target_filename->target)
+            free (target_filename->target);
+
+          free (target_filename);
+        }
+    }
+  free (text_name.text);
+}
+
+/* calls customization function requiring output units */
+static void
+prepare_associated_special_units_targets (CONVERTER *self)
+{
+  OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
+   (self->document,
+    self->output_units_descriptors[OUDT_associated_special_units]);
+
+  if (associated_special_units && associated_special_units->number > 0)
+    {
+      size_t i;
+      for (i = 0; i < associated_special_units->number; i++)
+        {
+          HTML_TARGET *element_target;
+          TARGET_FILENAME *target_filename;
+          char *filename = 0;
+          OUTPUT_UNIT *special_unit = associated_special_units->list[i];
+          char *special_unit_variety = special_unit->special_unit_variety;
+
+          /* it may be undef'ined in user customization code */
+          const char *target = html_special_unit_info (self, SUI_type_target,
+                                                       special_unit_variety);
+          target_filename
+            = call_file_id_setting_special_unit_target_file_name (
+                               self, special_unit, target, filename);
+          if (target_filename)
+            {
+              if (target_filename->target)
+                target = target_filename->target;
+              if (target_filename->filename)
+                filename = target_filename->filename;
+            }
+
+          if (self->conf->DEBUG.o.integer > 0)
+            {
+              const char *str_filename;
+              const char *str_target;
+              if (filename)
+                str_filename = filename;
+              else
+                str_filename = "UNDEF (default)";
+              if (target)
+                str_target = target;
+              else
+                str_target = "UNDEF";
+              fprintf (stderr, "Add content %s: target %s,\n"
+                                "    filename %s\n", special_unit_variety,
+                                str_target, str_filename);
+            }
+          element_target
+           = add_element_target (self, special_unit->uc.special_unit_command,
+             target);
+          if (target)
+            html_register_id (self, target);
+          if (filename)
+            element_target->special_unit_filename = filename;
+
+          if (target_filename)
+            {
+              if (target_filename->target)
+                free (target_filename->target);
+
+              free (target_filename);
+            }
+        }
+    }
+}
+
+/* calls customization function requiring elements */
+static void
+new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
+{
+  char *normalized_name;
+  char *filename;
+  char *target_base;
+  char *target;
+  char *target_contents = 0;
+  char *target_shortcontents = 0;
+  TARGET_CONTENTS_FILENAME *target_contents_filename;
+
+  TARGET_FILENAME *target_filename
+    = normalized_sectioning_command_filename (self, command);
+
+  /* should not be needed for a sectioning command, as it should not
+     be possible for that command to be a user-defined command,
+     but it is better to be consistent, and it may change in the future */
+  enum command_id data_cmd = element_builtin_data_cmd (command);
+  unsigned long flags = builtin_command_data[data_cmd].flags;
+
+  normalized_name = target_filename->target;
+  filename = target_filename->filename;
+
+  free (target_filename);
+
+  target_base = html_normalized_to_id (normalized_name);
+
+  if (!strlen (target_base) && command->e.c->cmd == CM_top)
+    {
+      /* @top is allowed to be empty.  In that case it gets this target name */
+      free (target_base);
+      target_base = strdup ("SEC_Top");
+      free (normalized_name);
+      normalized_name = strdup (target_base);
+    }
+
+  if (strlen (target_base))
+    target = unique_target (self, target_base);
+  else
+    target = strdup ("");
+
+  free (target_base);
+
+  if (strlen (target)
+      && (flags & CF_sectioning_heading))
+    {
+      char *target_base_contents;
+      char *target_base_shortcontents;
+      xasprintf (&target_base_contents, "toc-%s", normalized_name);
+      target_contents = unique_target (self, target_base_contents);
+      free (target_base_contents);
+
+      xasprintf (&target_base_shortcontents, "stoc-%s", normalized_name);
+      target_shortcontents = unique_target (self, target_base_shortcontents);
+      free (target_base_shortcontents);
+    }
+
+  free (normalized_name);
+
+  target_contents_filename
+    = call_file_id_setting_sectioning_command_target_name (self, command,
+                  target, target_contents, target_shortcontents, filename);
+  if (target_contents_filename)
+    {
+      free (target);
+      target = target_contents_filename->target;
+      free (filename);
+      filename = target_contents_filename->filename;
+      free (target_contents);
+      target_contents = target_contents_filename->target_contents;
+      free (target_shortcontents);
+      target_shortcontents = target_contents_filename->target_shortcontents;
+
+      free (target_contents_filename);
+    }
+
+  if (self->conf->DEBUG.o.integer > 0)
+    {
+      const char *command_name = element_command_name (command);
+      fprintf (stderr, "XS|Register %s %s\n", command_name, target);
+    }
+
+  HTML_TARGET *element_target
+    = add_element_target (self, command, target);
+  element_target->section_filename = filename;
+  html_register_id (self, target);
+
+  free (target);
+
+  if (target_contents)
+    {
+      element_target->contents_target = target_contents;
+      html_register_id (self, target_contents);
+    }
+  else
+    element_target->contents_target = strdup ("");
+
+  if (target_shortcontents)
+    {
+      element_target->shortcontents_target = target_shortcontents;
+      html_register_id (self, target_shortcontents);
+    }
+  else
+    element_target->shortcontents_target = strdup ("");
+}
+
+/* calls customization function requiring elements */
+/*
+ This set with two different codes
+  * the target information, id and normalized filename of 'identifiers_target',
+    ie everything that may be the target of a ref, @node, @float label,
+    @anchor.
+  * The target information of sectioning elements
+ @node and section commands targets are therefore both set.
+
+ conversion to HTML is done on-demand, upon call to command_text
+ and similar functions.
+ Note that 'node_filename', which is set here for Top target information
+ too, is not used later for Top anchors or links, see the NOTE below
+ associated with setting TOP_NODE_FILE_TARGET.
+ */
+void
+set_root_commands_targets_node_files (CONVERTER *self)
+{
+
+  if (self->document->identifiers_target.number > 0)
+    {
+      const char *extension = 0;
+
+      if (self->conf->EXTENSION.o.string)
+        extension = self->conf->EXTENSION.o.string;
+      /* use labels_list and not identifiers_target to process in the
+         document order */
+      const LABEL_LIST *label_targets = &self->document->labels_list;
+      size_t i;
+      for (i = 0; i < label_targets->number; i++)
+        {
+          int called = 0;
+          char *target;
+          char *node_filename;
+          char *user_node_filename;
+          const ELEMENT *label_element;
+          const ELEMENT *target_element;
+          LABEL *label = &label_targets->list[i];
+
+          if (!label->identifier || label->reference)
+            continue;
+
+          target_element = label->element;
+          label_element = get_label_element (target_element);
+
+          TARGET_FILENAME *target_filename =
+              html_normalized_label_id_file (self, label->identifier,
+                                             label_element);
+          target = target_filename->target;
+          if (extension)
+            xasprintf (&node_filename, "%s.%s", target_filename->filename,
+                                                extension);
+          else
+            node_filename = strdup (target_filename->filename);
+
+          free (target_filename->filename);
+          free (target_filename);
+
+          /* a non defined filename is ok if called with convert, but not
+             if output in files.  We reset if undef, silently unless verbose
+             in case called by convert. */
+
+          user_node_filename = call_file_id_setting_node_file_name (self,
+                                               target_element, node_filename,
+                                               &called);
+          if (user_node_filename)
+            {
+              free (node_filename);
+              node_filename = user_node_filename;
+            }
+          else if (called)
+            {
+              if (self->conf->VERBOSE.o.integer > 0)
+                {
+                  message_list_document_warn (&self->error_messages, self->conf,
+                             0, "user-defined node file name not set for `%s'",
+                             node_filename);
+                }
+              else if (self->conf->DEBUG.o.integer > 0)
+                {
+                  fprintf (stderr,
+                     "user-defined node file name undef for `%s'\n",
+                       node_filename);
+                }
+            }
+
+          if (self->conf->DEBUG.o.integer > 0)
+            {
+              const char *command_name = element_command_name (target_element);
+              fprintf (stderr, "Label @%s %s, %s\n", command_name, target,
+                               node_filename);
+            }
+
+          HTML_TARGET *element_target
+            = add_element_target (self, target_element, target);
+          element_target->node_filename = node_filename;
+          html_register_id (self, target);
+
+          free (target);
+        }
+    }
+
+  if (self->document->sections_list)
+    {
+      const CONST_ELEMENT_LIST *sections_list = self->document->sections_list;
+      size_t i;
+      for (i = 0; i < sections_list->number; i++)
+        {
+          const ELEMENT *root_element = sections_list->list[i];
+          new_sectioning_command_target (self, root_element);
+        }
+    }
+}
+
+void
+prepare_index_entries_targets (CONVERTER *self)
+{
+  if (self->document->indices_info.number > 0)
+    {
+      size_t i;
+      self->shared_conversion_state.formatted_index_entries
+        = (int **) malloc (self->sorted_index_names.number * sizeof (int *));
+      for (i = 0; i < self->sorted_index_names.number; i++)
+        {
+          size_t j;
+          const INDEX *idx = self->sorted_index_names.list[i];
+          /* no need to test for idx->entries_number > 0 as indices without
+             entries are not kept in sorted_index_names. */
+          self->shared_conversion_state.formatted_index_entries[i]
+            = (int *) malloc (idx->entries_number * sizeof (int));
+          memset (self->shared_conversion_state.formatted_index_entries[i],
+                  0, idx->entries_number * sizeof (int));
+          for (j = 0; j < idx->entries_number; j++)
+            {
+              INDEX_ENTRY *index_entry;
+              const ELEMENT *main_entry_element;
+              const ELEMENT *seeentry;
+              const ELEMENT *seealso;
+              ELEMENT *entry_reference_content_element;
+              ELEMENT *normalize_index_element;
+              ELEMENT_LIST *subentries_tree;
+              const ELEMENT *target_element;
+              TEXT target_base;
+              char *normalized_index;
+              char *region = 0;
+              char *target;
+
+              index_entry = &idx->index_entries[j];
+              main_entry_element = index_entry->entry_element;
+              seeentry = lookup_extra_element (main_entry_element,
+                                               AI_key_seeentry);
+              if (seeentry)
+                continue;
+              seealso = lookup_extra_element (main_entry_element,
+                                              AI_key_seealso);
+              if (seealso)
+                continue;
+
+              region = lookup_extra_string (main_entry_element,
+                                            AI_key_element_region);
+              entry_reference_content_element
+               = index_content_element (main_entry_element, 1);
+        /* construct element to convert to a normalized identifier to use as
+           hrefs target */
+              normalize_index_element = new_element (ET_NONE);
+              add_to_contents_as_array (normalize_index_element,
+                                        entry_reference_content_element);
+
+              subentries_tree
+               = comma_index_subentries_tree (main_entry_element, " ");
+              if (subentries_tree)
+                {
+                  insert_list_slice_into_contents (normalize_index_element,
+                                   normalize_index_element->e.c->contents.number,
+                                   subentries_tree, 0,
+                                   subentries_tree->number);
+                }
+              normalized_index
+                = normalize_transliterate_texinfo (normalize_index_element,
+                                            (self->conf->TEST.o.integer > 0));
+
+              destroy_element (normalize_index_element);
+              if (subentries_tree)
+                free_comma_index_subentries_tree (subentries_tree);
+
+              text_init (&target_base);
+              text_append (&target_base, "index-");
+              if (region)
+                {
+                  text_append (&target_base, region);
+                  text_append (&target_base, "-");
+                }
+              text_append (&target_base, normalized_index);
+              free (normalized_index);
+              target = unique_target (self, target_base.text);
+              free (target_base.text);
+              if (index_entry->entry_associated_element)
+                target_element = index_entry->entry_associated_element;
+              else
+                target_element = main_entry_element;
+
+              add_element_target (self, target_element, target);
+              html_register_id (self, target);
+
+              free (target);
+            }
+        }
+    }
+}
+
+static int
+compare_footnote_id (const void *a, const void *b)
+{
+  const FOOTNOTE_ID_NUMBER *fid_a = (const FOOTNOTE_ID_NUMBER *) a;
+  const FOOTNOTE_ID_NUMBER *fid_b = (const FOOTNOTE_ID_NUMBER *) b;
+
+  return strcmp (fid_a->footnote_id, fid_b->footnote_id);
+}
+
+static const char *footid_base = "FOOT";
+static const char *docid_base = "DOCF";
+
+static void
+prepare_footnotes_targets (CONVERTER *self)
+{
+  const ELEMENT_LIST *global_footnotes
+    = &self->document->global_commands.footnotes;
+  if (global_footnotes->number > 0)
+    {
+      size_t i;
+      self->shared_conversion_state.footnote_id_numbers
+        = (FOOTNOTE_ID_NUMBER *) malloc (global_footnotes->number *
+                                         sizeof (FOOTNOTE_ID_NUMBER));
+      for (i = 0; i < global_footnotes->number; i++)
+        {
+          const HTML_TARGET *element_target;
+          const ELEMENT *footnote = global_footnotes->list[i];
+          TEXT footid;
+          TEXT docid;
+          int nr = i+1;
+
+          text_init (&footid);
+          text_init (&docid);
+          text_printf (&footid, "%s%d", footid_base, nr);
+          text_printf (&docid, "%s%d", docid_base, nr);
+
+          while (1)
+            {
+              if (html_id_is_registered (self, footid.text)
+                    || html_id_is_registered (self, docid.text))
+                {
+                  nr++;
+                  if (nr == 0)
+                    fatal ("overflow footnote target nr");
+
+                  text_init (&footid);
+                  text_init (&docid);
+                  text_printf (&footid, "%s%d", footid_base, nr);
+                  text_printf (&docid, "%s%d", docid_base, nr);
+                }
+              else
+                break;
+            }
+          html_register_id (self, footid.text);
+          html_register_id (self, docid.text);
+
+          element_target = add_element_target (self, footnote, footid.text);
+          add_special_target (self, ST_footnote_location, footnote,
+                              docid.text);
+
+          if (self->conf->DEBUG.o.integer > 0)
+            {
+              char *footnote_txi = convert_to_texinfo (footnote);
+              fprintf (stderr, "Enter footnote: target %s, nr %d\n%s\n",
+                       footid.text, nr, footnote_txi);
+              free (footnote_txi);
+            }
+          self->shared_conversion_state.footnote_id_numbers[i].footnote_id
+             = element_target->target;
+          self->shared_conversion_state.footnote_id_numbers[i].number = 0;
+          free (footid.text);
+          free (docid.text);
+        }
+      qsort (self->shared_conversion_state.footnote_id_numbers,
+             global_footnotes->number,
+             sizeof (FOOTNOTE_ID_NUMBER), compare_footnote_id);
+    }
+}
+
+/* keep the command names sorted alphabetically to match order in perl */
+static const enum command_id heading_commands_list[] = {
+  CM_chapheading, CM_heading, CM_majorheading, CM_subheading, CM_subsubheading,
+  0,
+};
+
+/* indirectly calls customization function requiring elements */
+void
+set_heading_commands_targets (CONVERTER *self)
+{
+  int i;
+  for (i = 0; heading_commands_list[i]; i++)
+    {
+      enum command_id cmd = heading_commands_list[i];
+      const ELEMENT_LIST *global_command
+        = get_cmd_global_multi_command (&self->document->global_commands, cmd);
+
+      if (global_command->number > 0)
+        {
+          size_t j;
+          for (j = 0; j < global_command->number; j++)
+            {
+              const ELEMENT *command = global_command->list[j];
+              new_sectioning_command_target (self, command);
+            }
+        }
+    }
+}
+
+/* duplicate in convert_html.c */
+static int
+compare_element_target (const void *a, const void *b)
+{
+  const HTML_TARGET *ete_a = (const HTML_TARGET *) a;
+  const HTML_TARGET *ete_b = (const HTML_TARGET *) b;
+  /* we cast to uintptr_t because comparison of pointers from different
+     objects is undefined behaviour in C.  In practice it is probably
+     not an issue */
+  uintptr_t a_element_addr = (uintptr_t)ete_a->element;
+  uintptr_t b_element_addr = (uintptr_t)ete_b->element;
+
+  return (a_element_addr > b_element_addr) - (a_element_addr < b_element_addr);
+}
+
+/* For debug/check/optimization
+   used to check to what extent the targets are already ordered.
+   Return the number of elements ordered ok with respect to the
+   previous element
+ */
+size_t
+check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
+{
+  size_t i;
+  size_t result = 0;
+  if (element_targets->number <= 1)
+    return result;
+  for (i = 1; i < element_targets->number; i++)
+    {
+      if (compare_element_target (&element_targets->list[i-1],
+                                  &element_targets->list[i]) > 0)
+        {
+          fprintf (stderr, "no %s %zu %ld %p %s %zu %ld %p %s\n",
+           builtin_command_name (cmd), i-1,
+           (uintptr_t)element_targets->list[i-1].element,
+           element_targets->list[i-1].element, element_targets->list[i-1].target,
+           i, (uintptr_t)element_targets->list[i].element,
+           element_targets->list[i].element, element_targets->list[i].target);
+        }
+      else
+        result++;
+    }
+  return result;
+}
+
+/* It may not be efficient to sort and find back with bsearch if there is
+   a small number of elements.  However, some target elements are more
+   likely to already be ordered when they are accessed in their order of
+   appearance in the document.  There is no guarantee, as it is only in the
+   same array that adresses are guaranteed to be increasing.  A check done
+   in 2024 with gcc, using check_targets_order, and also looking at the
+   address of newly allocated elements shows that elements are
+   not that much allocated in order.  However, overall, the addresses are
+   more in order when elements are accessed in the document order.
+   For indices, it is not really possible to get them in document order,
+   within an index they are in document order, but not across indices.
+   The other data are in document order, for nodes and similar because
+   the labels list is used instead of identifiers_target on purpose.
+ */
+void
+sort_cmd_targets (CONVERTER *self)
+{
+  enum command_id cmd;
+  int type;
+
+  for (cmd = 0; cmd < BUILTIN_CMD_NUMBER; cmd++)
+    {
+      if (self->html_targets[cmd].number > 0)
+        {
+          HTML_TARGET_LIST *element_targets = &self->html_targets[cmd];
+           /* to check the order
+          size_t ordered_items = check_targets_order (cmd, element_targets);
+          fprintf (stderr, "ORDER %s %zu / %zu\n", builtin_command_name (cmd),
+                   ordered_items, element_targets->number -1);
+            */
+          qsort (element_targets->list,
+                 element_targets->number,
+                 sizeof (HTML_TARGET), compare_element_target);
+          push_command (&self->html_target_cmds, cmd);
+        }
+    }
+  for (type = 0; type < ST_footnote_location+1; type++)
+    {
+     if (self->html_special_targets[type].number > 0)
+        {
+          HTML_TARGET_LIST *element_targets = &self->html_special_targets[type];
+          qsort (element_targets->list,
+                 element_targets->number,
+                 sizeof (HTML_TARGET), compare_element_target);
+        }
+    }
+}
+
+/* indirectly calls all the functions calling customization function
+   requiring elements and output units except for external nodes formatting */
+/* for conversion units except for associated special units that require
+   files for document units to be set */
+void
+html_prepare_conversion_units_targets (CONVERTER *self,
+                                       const char *document_name)
+{
+  /*
+   Do that before the other elements, to be sure that special page ids
+   are registered before elements id are.
+   */
+  set_special_units_targets_files (self, document_name);
+
+  prepare_associated_special_units_targets (self);
+
+  set_root_commands_targets_node_files (self);
+
+  prepare_index_entries_targets (self);
+  prepare_footnotes_targets (self);
+
+  set_heading_commands_targets (self);
+
+  sort_cmd_targets (self);
+}
+

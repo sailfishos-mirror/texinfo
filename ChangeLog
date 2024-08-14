@@ -11,6 +11,34 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_normalized_to_id)
+	(html_normalized_label_id_file): prepend normalized_to_id and
+	normalized_label_id_file with html_ and declare in header file.
+	Update callers.
+
+	* tp/Texinfo/XS/convert/convert_html.c,
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(add_element_target_to_list, add_element_target, add_special_target)
+	(set_special_units_targets_files, unique_target)
+	(prepare_associated_special_units_targets)
+	(new_sectioning_command_target, set_root_commands_targets_node_files)
+	(prepare_index_entries_targets, compare_footnote_id)
+	(find_footnote_id_number, footid_base, docid_base)
+	(prepare_footnotes_targets, heading_commands_list)
+	(set_heading_commands_targets, check_targets_order, sort_cmd_targets)
+	(html_prepare_conversion_units_targets): move
+	add_element_target_to_list, add_element_target, add_special_target,
+	unique_target, set_special_units_targets_files,
+	prepare_associated_special_units_targets,
+	new_sectioning_command_target, set_root_commands_targets_node_files,
+	prepare_index_entries_targets, prepare_footnotes_targets,
+	heading_commands_list, set_heading_commands_targets,
+	check_targets_order, sort_cmd_targets and
+	html_prepare_conversion_units_targets to html_prepare_converter.c.
+	duplicate compare_footnote_id and compare_element_target.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_run_stage_handlers):
 	prefix run_stage_handlers with html_ and declare it in header file.
 	Update callers.
