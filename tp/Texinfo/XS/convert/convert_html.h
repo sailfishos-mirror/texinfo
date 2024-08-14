@@ -45,11 +45,7 @@ extern const char *direction_string_context_names[];
 extern const char *html_stage_handler_stage_type_names[];
 extern COMMAND_ID_LIST no_arg_formatted_cmd;
 
-void init_conversion_after_setup_handler (CONVERTER *self);
 void html_conversion_finalization (CONVERTER *self);
-
-int html_setup_output (CONVERTER *self, char **paths);
-void html_setup_convert (CONVERTER *self);
 
 ROOT_AND_UNIT *html_get_tree_root_element (CONVERTER *self,
                                            const ELEMENT *command,
@@ -61,6 +57,9 @@ char *html_substitute_non_breaking_space (CONVERTER *self, const char *text);
 const char *html_special_unit_info (const CONVERTER *self,
                                     enum special_unit_info_type type,
                                     const char *special_unit_variety);
+
+int html_run_stage_handlers (CONVERTER *self,
+                             enum html_stage_handler_stage_type stage);
 
 void html_default_format_protect_text (const char *text, TEXT *result);
 

@@ -15,6 +15,9 @@ char ***new_directions_strings_type (int nr_string_directions,
 
 void html_initialize_output_state (CONVERTER *self, const char *context);
 
+int html_setup_output (CONVERTER *self, char **paths);
+void html_setup_convert (CONVERTER *self);
+
 void html_prepare_conversion_units (CONVERTER *self);
 
 #endif
