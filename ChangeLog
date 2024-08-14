@@ -11,6 +11,31 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_get_target): call
+	directly find_element_target_search and not find_element_target.
+	Remove find_element_target, replace with html_get_target calls.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_get_top_unit)
+	(html_set_file_source_info, html_add_to_files_source_info)
+	(html_find_file_source_info, html_setup_output_simple_page):
+
+	* tp/Texinfo/XS/convert/html_prepare_converter.c (html_get_target)
+	(html_prepare_output_units_global_targets)
+	(compare_global_units_direction_name, add_to_unit_file_name_paths)
+	(html_setup_global_units_direction_names)
+	(html_find_direction_name_global_unit, html_set_pages_files)
+	(prepare_special_units_directions, compare_page_name_number)
+	(html_prepare_units_directions_files),
+	tp/Texinfo/XS/convert/convert_html.c: move html_get_target,
+	html_prepare_output_units_global_targets,
+	compare_global_units_direction_name,
+	html_setup_global_units_direction_names,
+	html_find_direction_name_global_unit, add_to_unit_file_name_paths,
+	html_set_pages_files, prepare_special_units_directions and
+	html_prepare_units_directions_files to html_prepare_converter.c.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_normalized_to_id)
 	(html_normalized_label_id_file): prepend normalized_to_id and
 	normalized_label_id_file with html_ and declare in header file.

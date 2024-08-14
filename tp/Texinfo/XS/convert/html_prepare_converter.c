@@ -29,14 +29,15 @@
 #include "conversion_data.h"
 /* new_element */
 #include "tree.h"
-#include "extra.h"
-#include "utils.h"
 #include "errors.h"
-/* unicode_character_brace_no_arg_commands */
-#include "unicode.h"
 #include "builtin_commands.h"
 #include "command_stack.h"
+#include "utils.h"
 #include "customization_options.h"
+#include "extra.h"
+#include "targets.h"
+/* unicode_character_brace_no_arg_commands */
+#include "unicode.h"
 #include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
 #include "manipulate_indices.h"
@@ -3812,5 +3813,827 @@ html_prepare_conversion_units_targets (CONVERTER *self,
   set_heading_commands_targets (self);
 
   sort_cmd_targets (self);
+}
+
+
+
+/* Associate output units to the global targets, First, Last, Top, Index.
+   and special output units */
+void
+html_prepare_output_units_global_targets (CONVERTER *self)
+{
+  int i;
+  int all_special_units_nr = 0;
+  int s;
+  const OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+   (self->document, self->output_units_descriptors[OUDT_units]);
+
+  const OUTPUT_UNIT *top_output_unit = html_get_top_unit (self->document,
+                                                          output_units);
+
+  size_t special_output_units_lists[2] = {
+    self->output_units_descriptors[OUDT_special_units],
+    self->output_units_descriptors[OUDT_associated_special_units]};
+
+  self->global_units_directions[D_First] = output_units->list[0];
+  self->global_units_directions[D_Last]
+    = output_units->list[output_units->number - 1];
+
+  self->global_units_directions[D_Top] = top_output_unit;
+
+  /* It is always the first printindex, even if it is not output (for example
+     it is in @copying and @titlepage, which are certainly wrong constructs).
+   */
+  if (self->document->global_commands.printindex.number > 0)
+    {
+      const ELEMENT *printindex
+        = self->document->global_commands.printindex.list[0];
+      ROOT_AND_UNIT *root_unit
+        = html_get_tree_root_element (self, printindex, 0);
+      if (root_unit->output_unit)
+        {
+          const OUTPUT_UNIT *document_unit = root_unit->output_unit;
+          const ELEMENT *root_command = root_unit->root;
+          if (root_command && root_command->e.c->cmd == CM_node)
+            {
+              const ELEMENT *associated_section
+                = lookup_extra_element (root_command,
+                                        AI_key_associated_section);
+              if (associated_section)
+                root_command = associated_section;
+            }
+       /* find the first level 1 sectioning element to associate the printindex
+           with */
+          if (root_command && root_command->e.c->cmd != CM_node)
+            {
+              while (1)
+                {
+                  int status;
+                  int section_level
+                    = lookup_extra_integer (root_command, AI_key_section_level,
+                                                               &status);
+                  if (!status && section_level <= 1)
+                    break;
+
+                  const ELEMENT * const *up_section_directions
+                    = lookup_extra_directions (root_command,
+                                         AI_key_section_directions);
+                  if (up_section_directions
+                      && up_section_directions[D_up]
+                      && up_section_directions[D_up]
+                                     ->e.c->associated_unit)
+                    {
+                      root_command = up_section_directions[D_up];
+                      document_unit = root_command->e.c->associated_unit;
+                    }
+                  else
+                    break;
+                }
+            }
+          self->global_units_directions[D_Index] = document_unit;
+        }
+      free (root_unit);
+    }
+
+  if (self->conf->DEBUG.o.integer > 0)
+    {
+      int i;
+      fprintf (stderr, "GLOBAL DIRECTIONS:\n");
+      for (i = 0; i < D_Last+1; i++)
+        {
+          if (self->global_units_directions[i])
+            {
+              const OUTPUT_UNIT *global_unit = self->global_units_directions[i];
+              char *unit_texi = output_unit_texi (global_unit);
+              fprintf (stderr, " %s: %s\n", html_global_unit_direction_names[i],
+                                            unit_texi);
+              free (unit_texi);
+            }
+        }
+      fprintf (stderr, "\n");
+    }
+
+  /* determine total number of special output units and fill
+     special_units_directions_name_unit.  Used to simplify building perl
+     directions */
+  for (i = 0; i < 2; i++)
+    {
+      size_t special_units_descriptor = special_output_units_lists[i];
+      const OUTPUT_UNIT_LIST *units_list
+       = retrieve_output_units (self->document, special_units_descriptor);
+      if (units_list && units_list->number)
+        all_special_units_nr += units_list->number;
+    }
+
+  self->special_units_direction_name = (SPECIAL_UNIT_DIRECTION *)
+   malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
+  memset (self->special_units_direction_name, 0,
+          sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
+
+  s = 0;
+  for (i = 0; i < 2; i++)
+    {
+      size_t special_units_descriptor = special_output_units_lists[i];
+      const OUTPUT_UNIT_LIST *units_list
+        = retrieve_output_units (self->document, special_units_descriptor);
+      if (units_list && units_list->number)
+        {
+          size_t j;
+          for (j = 0; j < units_list->number; j++)
+            {
+              const OUTPUT_UNIT *special_unit = units_list->list[j];
+              const char *special_unit_variety = special_unit->special_unit_variety;
+              int special_unit_direction_index
+                = html_special_unit_variety_direction_index (self,
+                                                special_unit_variety);
+              self->global_units_directions[special_unit_direction_index]
+                = special_unit;
+
+              self->special_units_direction_name[s].output_unit = special_unit;
+              self->special_units_direction_name[s].direction
+                = html_special_unit_info (self, SUI_type_direction,
+                                          special_unit_variety);
+              s++;
+            }
+        }
+    }
+}
+
+static int
+compare_global_units_direction_name (const void *a, const void *b)
+{
+  const SPECIAL_UNIT_DIRECTION *gudn_a = (const SPECIAL_UNIT_DIRECTION *) a;
+  const SPECIAL_UNIT_DIRECTION *gudn_b = (const SPECIAL_UNIT_DIRECTION *) b;
+
+  return strcmp (gudn_a->direction, gudn_b->direction);
+}
+
+/* To find more easily a global output unit based on a direction name, for an
+   XS interface, associate global output units to names and sort according
+   to names */
+void
+html_setup_global_units_direction_names (CONVERTER *self)
+{
+  SPECIAL_UNIT_DIRECTION *global_units_direction_names;
+  int i;
+  int global_directions_nr = 0;
+  int global_units_direction_idx = 0;
+  const SPECIAL_UNIT_DIRECTION *special_units_direction_name
+    = self->special_units_direction_name;
+
+  for (i = 0; i < D_Last+1; i++)
+    if (self->global_units_directions[i])
+      global_directions_nr++;
+
+  for (i = 0; special_units_direction_name[i].output_unit; i++)
+    global_directions_nr++;
+
+  global_units_direction_names = (SPECIAL_UNIT_DIRECTION *)
+   malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (global_directions_nr));
+
+  for (i = 0; i < D_Last+1; i++)
+    {
+      if (self->global_units_directions[i])
+        {
+          global_units_direction_names[global_units_direction_idx].direction
+            = html_global_unit_direction_names[i];
+          global_units_direction_names[global_units_direction_idx].output_unit
+            = self->global_units_directions[i];
+          global_units_direction_idx++;
+        }
+    }
+
+  for (i = 0; special_units_direction_name[i].output_unit; i++)
+    {
+      global_units_direction_names[global_units_direction_idx].direction
+        = special_units_direction_name[i].direction;
+      global_units_direction_names[global_units_direction_idx].output_unit
+        = special_units_direction_name[i].output_unit;
+      global_units_direction_idx++;
+    }
+
+  qsort (global_units_direction_names,
+         global_directions_nr,
+         sizeof (SPECIAL_UNIT_DIRECTION), compare_global_units_direction_name);
+
+  self->global_units_direction_name.list = global_units_direction_names;
+  self->global_units_direction_name.number = global_directions_nr;
+}
+
+/* Used from Perl through an XS override, in similar C codes the
+   direction indices are used instead of the direction names */
+const OUTPUT_UNIT *
+html_find_direction_name_global_unit (const CONVERTER *self,
+                                      const char *direction_name)
+{
+  SPECIAL_UNIT_DIRECTION *result = 0;
+  static SPECIAL_UNIT_DIRECTION searched_direction;
+
+  searched_direction.direction = direction_name;
+  result = (SPECIAL_UNIT_DIRECTION *) bsearch (&searched_direction,
+                self->global_units_direction_name.list,
+                self->global_units_direction_name.number,
+                sizeof (SPECIAL_UNIT_DIRECTION),
+                compare_global_units_direction_name);
+  if (!result)
+    return 0;
+  return result->output_unit;
+}
+
+
+static char *
+add_to_unit_file_name_paths (char **unit_file_name_paths,
+                             const char *filename,
+                             const OUTPUT_UNIT *output_unit)
+{
+  unit_file_name_paths[output_unit->index] = strdup (filename);
+
+  return unit_file_name_paths[output_unit->index];
+}
+
+/* calls customization function requiring output units */
+static FILE_SOURCE_INFO_LIST *
+html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
+                      const OUTPUT_UNIT_LIST *special_units,
+                      const OUTPUT_UNIT_LIST *associated_special_units,
+                      const char *output_file,
+                      const char *destination_directory, const char *output_filename,
+                      const char *document_name)
+{
+  FILE_SOURCE_INFO_LIST *files_source_info;
+  char **unit_file_name_paths;
+  size_t i;
+
+  initialize_output_units_files (self);
+
+  files_source_info = &self->files_source_info;
+
+  unit_file_name_paths = (char **)
+   malloc (output_units->number * sizeof (char *));
+  memset (unit_file_name_paths, 0,
+          output_units->number * sizeof (char *));
+
+  if (!self->conf->SPLIT.o.string || !strlen (self->conf->SPLIT.o.string))
+    {
+      size_t i;
+      html_add_to_files_source_info (files_source_info, output_filename,
+                                     "special_file", "non_split", 0,
+                                     output_file);
+      for (i = 0; i < output_units->number; i++)
+        {
+          add_to_unit_file_name_paths (unit_file_name_paths,
+                                       output_filename,
+                                       output_units->list[i]);
+        }
+    }
+  else
+    {
+      char *top_node_filename_str;
+      const OUTPUT_UNIT *node_top_output_unit = 0;
+      const char *extension = 0;
+      const ELEMENT *node_top = 0;
+      size_t file_nr = 0;
+      size_t i;
+
+      /* first determine the top node file name. */
+      if (self->document->identifiers_target.number > 0)
+        node_top = find_identifier_target (&self->document->identifiers_target,
+                                           "Top");
+
+      top_node_filename_str = top_node_filename (self, document_name);
+
+      if (node_top && top_node_filename_str)
+        {
+          size_t i;
+          node_top_output_unit = node_top->e.c->associated_unit;
+          for (i = 0; i < output_units->number; i++)
+            if (output_units->list[i] == node_top_output_unit)
+              break;
+          html_add_to_files_source_info (files_source_info,
+                                        top_node_filename_str,
+                                        "special_file", "Top", 0, 0);
+          add_to_unit_file_name_paths (unit_file_name_paths,
+                                       top_node_filename_str,
+                                       node_top_output_unit);
+        }
+
+      if (self->conf->EXTENSION.o.string
+          && strlen (self->conf->EXTENSION.o.string))
+        extension = self->conf->EXTENSION.o.string;
+
+      for (i = 0; i < output_units->number; i++)
+        {
+          const OUTPUT_UNIT *output_unit = output_units->list[i];
+          const OUTPUT_UNIT *file_output_unit;
+          const char *output_unit_file_name;
+          /* For Top node. */
+          if (node_top_output_unit && node_top_output_unit == output_unit)
+            continue;
+
+          file_output_unit = output_unit->first_in_page;
+          output_unit_file_name
+           = unit_file_name_paths[file_output_unit->index];
+          if (!output_unit_file_name)
+            {
+              const char *node_filename = 0;
+              size_t j;
+              for (j = 0; j < file_output_unit->unit_contents.number; j++)
+                {
+                  const ELEMENT *root_command
+                     = file_output_unit->unit_contents.list[j];
+                  if (root_command->e.c->cmd == CM_node)
+                    {
+                      const ELEMENT *node_target = 0;
+                      const char *normalized = lookup_extra_string (root_command,
+                                                               AI_key_normalized);
+                      if (normalized)
+                        node_target
+                         = find_identifier_target (
+                                  &self->document->identifiers_target,
+                                  normalized);
+                   /* double node are not normalized, they are handled here */
+                      if (!node_target)
+                        {
+                          const FILE_SOURCE_INFO *file_source_info = 0;
+
+                          TEXT file_name_text;
+                          text_init (&file_name_text);
+                          text_append (&file_name_text, "unknown_node");
+                          if (extension)
+                            {
+                              text_append (&file_name_text, ".");
+                              text_append (&file_name_text, extension);
+                            }
+                          file_source_info
+                            = html_find_file_source_info (files_source_info,
+                                                         file_name_text.text);
+                          if (!file_source_info)
+                            {
+                              file_source_info
+                                = html_add_to_files_source_info (
+                                                           files_source_info,
+                                                file_name_text.text, "node", 0,
+                                                              root_command, 0);
+                              node_filename = file_source_info->filename;
+                            }
+                          free (file_name_text.text);
+                        }
+                      else
+                        {
+          /* Nodes with {'extra'}->{'is_target'} should always be in
+            'identifiers_target', and thus in targets.  It is a bug otherwise. */
+                          FILE_SOURCE_INFO *file_source_info = 0;
+                          HTML_TARGET *node_target
+                            = html_get_target (self, root_command);
+                          node_filename = node_target->node_filename;
+
+                          file_source_info
+                            = html_find_file_source_info (files_source_info,
+                                                          node_filename);
+                          if (file_source_info)
+                            {
+                              if (!strcmp (file_source_info->type,
+                                           "stand_in_file"))
+                                {/* NOTE we keep the order, as in perl */
+                                  html_set_file_source_info (file_source_info,
+                                                             "node",
+                                                           0, root_command, 0);
+                                }
+                            }
+                          else
+                            html_add_to_files_source_info (files_source_info,
+                                                    node_filename, "node", 0,
+                                                      root_command, 0);
+                        }
+                      output_unit_file_name
+                        = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                       node_filename,
+                                                       file_output_unit);
+                      break;
+                    }
+                }
+              if (!node_filename)
+                {
+                  /* use section to do the file name if there is no node */
+                  const ELEMENT *command = file_output_unit->uc.unit_command;
+                  if (command)
+                    {
+                      if (command->e.c->cmd == CM_top && !node_top
+                          && top_node_filename_str)
+                        {
+                   /* existing top_node_filename can happen, see
+                      html_tests.t top_file_name_and_node_name_collision */
+                          FILE_SOURCE_INFO *file_source_info
+                            = html_find_file_source_info (files_source_info,
+                                                      top_node_filename_str);
+                          if (file_source_info)
+                            {/* NOTE we keep the order, as in perl */
+                              html_set_file_source_info (file_source_info,
+                                                        "special_file", "Top",
+                                                        0, 0);
+                            }
+                          else
+                            {
+                              html_add_to_files_source_info (files_source_info,
+                                                       top_node_filename_str,
+                                                       "special_file", "Top",
+                                                       0, 0);
+                            }
+                          output_unit_file_name
+                           = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                          top_node_filename_str,
+                                                           file_output_unit);
+                        }
+                      else
+                        {
+                          const HTML_TARGET *section_target
+                            = html_get_target (self, command);
+                          const char *section_filename
+                            = section_target->section_filename;
+
+                          FILE_SOURCE_INFO *file_source_info
+                            = html_find_file_source_info (files_source_info,
+                                                          section_filename);
+                          if (file_source_info)
+                            {
+                              if (!strcmp (file_source_info->type,
+                                           "stand_in_file"))
+                                {/* NOTE we keep the order, as in perl */
+                                  html_set_file_source_info (file_source_info,
+                                                            "section",
+                                                            0, command, 0);
+                                }
+                            }
+                          else
+                            html_add_to_files_source_info (files_source_info,
+                                                 section_filename, "section", 0,
+                                                 command, 0);
+                          output_unit_file_name
+                            = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                           section_filename,
+                                                           file_output_unit);
+                        }
+                    }
+                  else
+                    {
+                      /* when everything else has failed */
+                      if (file_nr == 0 && !node_top
+                          && top_node_filename_str)
+                        {
+                          const FILE_SOURCE_INFO *file_source_info
+                            = html_find_file_source_info (files_source_info,
+                                                       top_node_filename_str);
+                          if (!file_source_info)
+                            {
+                              html_add_to_files_source_info (files_source_info,
+                                                       top_node_filename_str,
+                                                       "stand_in_file", "Top",
+                                                       0, 0);
+                            }
+                          output_unit_file_name
+                           = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                         top_node_filename_str,
+                                                           file_output_unit);
+                        }
+                      else
+                        {
+                          const FILE_SOURCE_INFO *file_source_info;
+
+                          TEXT file_name_text;
+                          text_init (&file_name_text);
+                          text_printf (&file_name_text, "%s_%zu", document_name,
+                                                                  file_nr);
+                          if (extension)
+                            {
+                              text_append (&file_name_text, ".");
+                              text_append (&file_name_text, extension);
+                            }
+                          file_source_info
+                            = html_find_file_source_info (files_source_info,
+                                                        file_name_text.text);
+                          if (!file_source_info)
+                            {
+                              html_add_to_files_source_info (files_source_info,
+                                                       file_name_text.text,
+                                                       "stand_in_file",
+                                                       "unknown",
+                                                       0, 0);
+                            }
+                          output_unit_file_name
+                           = add_to_unit_file_name_paths (unit_file_name_paths,
+                                                          file_name_text.text,
+                                                           file_output_unit);
+                          free (file_name_text.text);
+                        }
+                      file_nr++;
+                    }
+                }
+            }
+          if (output_unit != file_output_unit)
+            add_to_unit_file_name_paths (unit_file_name_paths,
+                                         output_unit_file_name,
+                                         output_unit);
+        }
+      free (top_node_filename_str);
+    }
+
+  self->output_unit_file_indices = (size_t *)
+    malloc (output_units->number * sizeof (size_t));
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      size_t output_unit_file_idx = 0;
+      const FILE_NAME_PATH_COUNTER *output_unit_file;
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      char *filename = unit_file_name_paths[i];
+      const FILE_SOURCE_INFO *file_source_info
+        = html_find_file_source_info (files_source_info, filename);
+      const char *filepath = file_source_info->path;
+
+      FILE_NAME_PATH *file_name_path
+        = call_file_id_setting_unit_file_name (self, output_unit,
+                                               filename, filepath);
+      if (file_name_path)
+        {
+          if (file_name_path->filename)
+            {
+              FILE_SOURCE_INFO *file_source_info
+               = html_find_file_source_info (files_source_info,
+                                             file_name_path->filename);
+              if (file_source_info)
+                {
+          /*  It is likely that setting different paths for the same file is
+              not intended, so we warn. */
+                  if (file_source_info->path && file_name_path->filepath
+                      && strcmp (file_source_info->path,
+                                 file_name_path->filepath))
+                    {
+                      message_list_document_warn (&self->error_messages,
+                                                  self->conf, 0,
+                                     "resetting %s file path %s to %s",
+                                           file_name_path->filename,
+                                           file_source_info->path,
+                                           file_name_path->filepath);
+                    }
+                  else if (file_name_path->filepath
+                           && !file_source_info->path)
+                    {
+                      message_list_document_warn (&self->error_messages,
+                                                  self->conf, 0,
+                        "resetting %s file path from a relative path to %s",
+                                           file_name_path->filename,
+                                           file_name_path->filepath);
+                    }
+                  else if (!file_name_path->filepath
+                           && file_source_info->path)
+                    {
+                      message_list_document_warn (&self->error_messages,
+                                                  self->conf, 0,
+                        "resetting %s file path from %s to a relative path",
+                                           file_name_path->filename,
+                                           file_source_info->path);
+                    }
+                  html_set_file_source_info (file_source_info, "special_file",
+                                "user_defined", 0, file_name_path->filepath);
+                }
+              else
+                html_add_to_files_source_info (files_source_info,
+                                          file_name_path->filename,
+                                          "special_file", "user_defined",
+                                           0, file_name_path->filepath);
+              free (filename);
+              filename = file_name_path->filename;
+            }
+          free (file_name_path->filepath);
+          free (file_name_path);
+        }
+      output_unit_file_idx
+        = set_output_unit_file (self, output_unit, filename, 1);
+      self->output_unit_file_indices[i] = output_unit_file_idx;
+      output_unit_file = &self->output_unit_files.list[output_unit_file_idx];
+      if (self->conf->DEBUG.o.integer > 0)
+        {
+          char *output_unit_text = output_unit_texi (output_unit);
+          fprintf (stderr, "Page %s: %s(%d)\n", output_unit_text,
+                 output_unit->unit_filename, output_unit_file->counter);
+          free (output_unit_text);
+        }
+      free (filename);
+    }
+
+  free (unit_file_name_paths);
+
+  if (special_units && special_units->number)
+    {
+      size_t i;
+      self->special_unit_file_indices = (size_t *)
+        malloc (special_units->number * sizeof (size_t));
+      for (i = 0; i < special_units->number; i++)
+        {
+          size_t special_unit_file_idx = 0;
+          const FILE_NAME_PATH_COUNTER *special_unit_file;
+          OUTPUT_UNIT *special_unit = special_units->list[i];
+          const ELEMENT *unit_command = special_unit->uc.special_unit_command;
+          const HTML_TARGET *special_unit_target
+            = html_get_target (self, unit_command);
+          const char *filename = special_unit_target->special_unit_filename;
+
+        /* Associate the special elements that have no page with the main page.
+           This may only happen if not split. */
+          if (!filename && special_units->number
+              && output_units->list[0]->unit_filename)
+            {
+              filename = output_units->list[0]->unit_filename;
+            }
+
+          if (filename)
+            {
+              FILE_SOURCE_INFO *file_source_info
+               = html_find_file_source_info (files_source_info, filename);
+              if (file_source_info)
+                {
+                  if (!strcmp (file_source_info->type, "stand_in_file"))
+                    {/* NOTE we keep the order, as in perl */
+                      html_set_file_source_info (file_source_info,
+                                                 "special_unit",
+                                                 0, unit_command, 0);
+                    }
+                }
+              else
+                html_add_to_files_source_info (files_source_info, filename,
+                                               "special_unit", 0,
+                                               unit_command, 0);
+            }
+          special_unit_file_idx
+            = set_output_unit_file (self, special_unit, filename, 1);
+          self->special_unit_file_indices[i] = special_unit_file_idx;
+          special_unit_file
+             = &self->output_unit_files.list[special_unit_file_idx];
+          if (self->conf->DEBUG.o.integer > 0)
+            fprintf (stderr, "Special page: %s(%d)\n", filename,
+                             special_unit_file->counter);
+        }
+    }
+
+  for (i = 0; i < files_source_info->number; i++)
+    {
+      FILE_SOURCE_INFO *file_source_info = &files_source_info->list[i];
+      set_file_path (self, file_source_info->filename, file_source_info->path,
+                     destination_directory);
+    }
+
+  /*
+   to be able to associate to the output unit file the associated
+   output units will be output into, this is done after document output
+   units got files.
+   In practice only used for contents and shortcontents.
+   */
+  if (associated_special_units && associated_special_units->number > 0)
+    {
+      size_t i;
+      for (i = 0; i < associated_special_units->number; i++)
+        {
+          const char *filename = 0;
+          OUTPUT_UNIT *special_unit = associated_special_units->list[i];
+          const OUTPUT_UNIT *associated_output_unit
+            = special_unit->associated_document_unit;
+          const ELEMENT *unit_command = special_unit->uc.special_unit_command;
+          HTML_TARGET *element_target
+            = html_get_target (self, unit_command);
+
+          if (!element_target->special_unit_filename)
+            {/* set the file if not already set */
+              char *unit_filename = 0;
+              if (associated_output_unit)
+                unit_filename = strdup (associated_output_unit->unit_filename);
+              element_target->special_unit_filename = unit_filename;
+            }
+          filename = element_target->special_unit_filename;
+
+   /* set here the file name, but do not increment the counter as it is
+      already set for the output unit the special output unit is in. */
+          if (filename)
+            set_output_unit_file (self, special_unit, filename, 0);
+        }
+    }
+
+  /* 0 is for document_global_context_css, the remaining indices
+     for the output unit files */
+  self->page_css.number = self->output_unit_files.number +1;
+  self->page_css.space = self->page_css.number;
+  self->page_css.list = (CSS_LIST *)
+       malloc (self->page_css.space * sizeof (CSS_LIST));
+  memset (self->page_css.list, 0,
+          self->page_css.number * sizeof (CSS_LIST));
+
+  self->html_files_information.number = self->output_unit_files.number +1;
+  self->html_files_information.list = (FILE_ASSOCIATED_INFO *)
+   malloc (self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
+  memset (self->html_files_information.list, 0,
+          self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
+
+  return files_source_info;
+}
+
+static void
+prepare_special_units_directions (CONVERTER *self,
+                                  OUTPUT_UNIT_LIST *special_units)
+{
+  size_t i;
+
+  if (!special_units)
+    return;
+
+  for (i = 0; i < special_units->number; i++)
+    {
+      OUTPUT_UNIT *special_unit = special_units->list[i];
+      special_unit->directions[RUD_type_This] = special_unit;
+    }
+}
+
+static int
+compare_page_name_number (const void *a, const void *b)
+{
+  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
+  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
+
+  return strcmp (pnn_a->page_name, pnn_b->page_name);
+}
+
+/* Return structure to be freed by the caller */
+FILE_SOURCE_INFO_LIST *
+html_prepare_units_directions_files (CONVERTER *self,
+          const char *output_file, const char *destination_directory,
+          const char *output_filename, const char *document_name)
+{
+  size_t i;
+  FILE_SOURCE_INFO_LIST *files_source_info = 0;
+  size_t external_nodes_units_descriptor
+     = new_output_units_descriptor (self->document);
+  OUTPUT_UNIT_LIST *external_node_target_units
+    = retrieve_output_units (self->document, external_nodes_units_descriptor);
+  OUTPUT_UNIT_LIST *output_units = retrieve_output_units
+    (self->document, self->output_units_descriptors[OUDT_units]);
+  OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+    (self->document, self->output_units_descriptors[OUDT_special_units]);
+  OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
+    (self->document,
+     self->output_units_descriptors[OUDT_associated_special_units]);
+
+   self->output_units_descriptors[OUDT_external_nodes_units]
+     = external_nodes_units_descriptor;
+
+  html_prepare_output_units_global_targets (self);
+
+  split_pages (output_units, self->conf->SPLIT.o.string);
+
+  if (strlen (output_file))
+    {
+      files_source_info =
+        html_set_pages_files (self, output_units, special_units,
+                        associated_special_units, output_file,
+                        destination_directory, output_filename, document_name);
+    }
+  else
+    html_setup_output_simple_page (self, output_filename);
+
+  units_directions (&self->document->identifiers_target, output_units,
+                    external_node_target_units,
+                    self->conf->DEBUG.o.integer);
+
+  prepare_special_units_directions (self, special_units);
+
+  units_file_directions (output_units);
+
+ /* elements_in_file_count is only set in HTML, not in
+    Texinfo::Convert::Converter */
+  if (self->output_unit_files.number)
+    {
+      /* set elements_in_file_count and prepare page_name_number
+         for sorting */
+      self->page_name_number.number = self->output_unit_files.number;
+      self->page_name_number.list = (PAGE_NAME_NUMBER *)
+        malloc (self->page_name_number.number * sizeof (PAGE_NAME_NUMBER));
+
+      for (i = 0; i < self->output_unit_files.number; i++)
+        {
+          FILE_NAME_PATH_COUNTER *file_counter
+            = &self->output_unit_files.list[i];
+          PAGE_NAME_NUMBER *page_name_number = &self->page_name_number.list[i];
+
+          /* counter is dynamic, decreased when the element is encountered
+             elements_in_file_count is not modified afterwards */
+          file_counter->elements_in_file_count = file_counter->counter;
+
+          page_name_number->number = i+1;
+          page_name_number->page_name = file_counter->filename;
+        }
+
+      qsort (self->page_name_number.list,
+             self->page_name_number.number,
+             sizeof (PAGE_NAME_NUMBER), compare_page_name_number);
+    }
+
+  return files_source_info;
 }
 

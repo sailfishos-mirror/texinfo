@@ -23,4 +23,8 @@ void html_prepare_conversion_units (CONVERTER *self);
 void html_prepare_conversion_units_targets (CONVERTER *self,
                                      const char *document_name);
 
+FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
+          const char *output_file, const char *destination_directory,
+          const char *output_filename, const char *document_name);
+
 #endif

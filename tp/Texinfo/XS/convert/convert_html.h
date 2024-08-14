@@ -47,12 +47,39 @@ extern COMMAND_ID_LIST no_arg_formatted_cmd;
 
 void html_conversion_finalization (CONVERTER *self);
 
+int html_id_is_registered (CONVERTER *self, const char *string);
+void html_register_id (CONVERTER *self, const char *string);
+
+OUTPUT_UNIT *html_get_top_unit (DOCUMENT *document,
+                                const OUTPUT_UNIT_LIST *output_units);
+
 ROOT_AND_UNIT *html_get_tree_root_element (CONVERTER *self,
                                            const ELEMENT *command,
                                            int find_container);
 
 char *html_after_escaped_characters (char *text);
 char *html_substitute_non_breaking_space (CONVERTER *self, const char *text);
+
+HTML_TARGET *html_get_target (const CONVERTER *self, const ELEMENT *element);
+
+void html_set_file_source_info (FILE_SOURCE_INFO *file_source_info,
+                                const char *file_info_type,
+                                const char *file_info_name,
+                                const ELEMENT *file_info_element,
+                                const char *filepath);
+FILE_SOURCE_INFO *html_add_to_files_source_info (
+                              FILE_SOURCE_INFO_LIST *files_source_info,
+                              const char *filename,
+                              const char *file_info_type,
+                              const char *file_info_name,
+                              const ELEMENT *file_info_element,
+                              const char *filepath);
+FILE_SOURCE_INFO *html_find_file_source_info (
+                            FILE_SOURCE_INFO_LIST *files_source_info,
+                            const char *filename);
+
+void html_setup_output_simple_page (CONVERTER *self,
+                                    const char *output_filename);
 
 const char *html_special_unit_info (const CONVERTER *self,
                                     enum special_unit_info_type type,
@@ -82,13 +109,9 @@ SPECIAL_UNIT_INFO *html_add_special_unit_info (
                             SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
                             int type, size_t variety_nr, const char *value);
 
-int html_id_is_registered (CONVERTER *self, const char *string);
-void html_register_id (CONVERTER *self, const char *string);
-
 int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);
 
-HTML_TARGET *html_get_target (const CONVERTER *self, const ELEMENT *element);
 const char *html_command_id (const CONVERTER *self, const ELEMENT *command);
 const char *html_command_contents_target (CONVERTER *self,
                                     const ELEMENT *command,
@@ -122,10 +145,6 @@ FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
 
 char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);
-
-FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
-          const char *output_file, const char *destination_directory,
-          const char *output_filename, const char *document_name);
 
 
 void
