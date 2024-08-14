@@ -8,7 +8,7 @@
 
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
 	tp/Texinfo/XS/convert/html_converter_types.h (HTML_COMMAND_STRUCT)
-	(,
+	(enum count_elements_in_filename_type, enum css_info_type),
 	tp/Texinfo/XS/convert/html_conversion_state.c (html_in_code)
 	(html_in_math, html_in_preformatted_context, html_inside_preformatted)
 	(html_in_non_breakable_space, html_in_raw, html_in_space_protected)
