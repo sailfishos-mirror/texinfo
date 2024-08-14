@@ -1507,12 +1507,12 @@ sub test($$)
       goto END_OUT_FILE;
     }
 
-    my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
-    my $texi_string_result = $converter_to_texinfo->convert($document);
-    $converter_to_texinfo->reset_converter();
-    $converter_to_texinfo->destroy();
-    #my $texi_string_result
-    #    = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+    #my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
+    #my $texi_string_result = $converter_to_texinfo->convert($document);
+    #$converter_to_texinfo->reset_converter();
+    #$converter_to_texinfo->destroy();
+    my $texi_string_result
+        = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
           .protect_perl_string($texi_string_result)."';\n\n";
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
@@ -1645,15 +1645,16 @@ sub test($$)
         $test_name.' indices sort');
     # NOTE either a PlainTexinfo converter or a direct call to
     # convert_to_texinfo can be used to test conversion to raw text,
-    # both for pure Perl and XS.
-    #my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-    my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
-    my $texi_result;
-    if ($document) {
-      $texi_result = $converter_to_texinfo->convert($document);
-    }
-    $converter_to_texinfo->reset_converter();
-    $converter_to_texinfo->destroy();
+    # both for pure Perl and XS.  We use convert_to_texinfo as is should
+    # require less resources as there is no need to create a converter.
+    my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+    #my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
+    #my $texi_result;
+    #if ($document) {
+    #  $texi_result = $converter_to_texinfo->convert($document);
+    #}
+    #$converter_to_texinfo->reset_converter();
+    #$converter_to_texinfo->destroy();
 
     is ($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {

@@ -1,3 +1,15 @@
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/test_utils.pl (test): call convert_to_texinfo for plaintext
+	test as it requires lessresources, no need to set up a Parser.
+
+2024-08-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_reset_converter)
+	(txi_destroy_converter), tp/Texinfo/XS/teximakehtml.c: add wrappers
+	for reset_converter and destroy_converter in texinfo.c and call them
+	in teximakehtml.c.
+
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/maintain/regenerate_C_options_info.pl: remove directory from
@@ -6,13 +18,6 @@
 2024-10-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/teximakehtml.c: add missing include.
-
-2024-08-13  Patrice Dumas  <pertusus@free.fr>
-
-	* tp/Texinfo/XS/convert/texinfo.c (txi_reset_converter)
-	(txi_destroy_converter), tp/Texinfo/XS/teximakehtml.c: add wrappers
-	for reset_converter and destroy_converter in texinfo.c and call them
-	in teximakehtml.c.
 
 2024-08-13  Patrice Dumas  <pertusus@free.fr>
 
