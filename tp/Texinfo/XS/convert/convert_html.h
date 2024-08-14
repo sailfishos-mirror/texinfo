@@ -90,6 +90,10 @@ int html_run_stage_handlers (CONVERTER *self,
 
 void html_default_format_protect_text (const char *text, TEXT *result);
 
+void html_clear_direction_string_type (const CONVERTER *self,
+                                       char ***type_directions_strings);
+
+
 int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);
 
@@ -330,7 +334,8 @@ int html_finish_output (CONVERTER *self, const char *output_file,
                         const char *destination_directory);
 
 void html_check_transfer_state_finalization (CONVERTER *self);
-void html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info);
+
+void html_reset_translated_special_unit_info_tree (CONVERTER *self);
 
 void html_complete_no_arg_commands_formatting (CONVERTER *self,
                                                enum command_id cmd,
