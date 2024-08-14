@@ -1,5 +1,41 @@
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
+	tp/Texinfo/XS/convert/html_converter_types.h (HTML_COMMAND_STRUCT)
+	(,
+	tp/Texinfo/XS/convert/html_conversion_state.c (html_in_code)
+	(html_in_math, html_in_preformatted_context, html_inside_preformatted)
+	(html_in_non_breakable_space, html_in_raw, html_in_space_protected)
+	(html_in_string, html_in_upper_case, html_in_verbatim)
+	(html_paragraph_number, html_preformatted_number, html_in_align)
+	(html_top_block_command, html_preformatted_classes_stack)
+	(html_set_code_context, html_pop_code_context)
+	(html_set_string_context, html_unset_string_context)
+	(html_set_raw_context, html_unset_raw_context, html_in_multi_expanded)
+	(find_page_name_number, count_elements_in_file_number)
+	(html_count_elements_in_filename, html_register_footnote)
+	(html_get_pending_footnotes, destroy_pending_footnotes)
+	(html_register_pending_formatted_inline_content)
+	(html_cancel_pending_formatted_inline_content)
+	(html_get_pending_formatted_inline_content)
+	(get_associated_inline_content_number)
+	(html_associate_pending_formatted_inline_content)
+	(html_get_associated_formatted_inline_content)
+	(add_associated_file_info_integer, html_register_file_information)
+	(lookup_associated_file_info, html_get_file_information)
+	(html_register_opened_section_level)
+	(html_close_registered_sections_level, compare_selector_style)
+	(sort_css_element_class_styles, find_css_selector_style)
+	(html_css_set_selector_style, html_css_get_selector_style)
+	(compare_strings, html_get_css_elements_classes, html_css_add_info)
+	(html_css_get_info), tp/Texinfo/XS/convert/convert_html.c: split code
+	related to setting or getting HTML conversion state information out of
+	convert_html.c to a separate file html_conversion_state.c.  Also add
+	html_converter_types.h for declarations needed by several files used
+	for the conversion to HTML.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): call convert_to_texinfo for plaintext
 	test as it requires lessresources, no need to set up a Parser.
 

@@ -388,9 +388,12 @@ C_libtexinfo_convert_sources = \
                        convert/converters_defaults.h \
                        convert/create_buttons.c \
                        convert/create_buttons.h \
+                       convert/html_converter_types.h \
                        convert/html_converter_init_options.c \
                        convert/html_converter_init_options.h \
                        convert/html_converter_finish.h \
+                       convert/html_conversion_state.c \
+                       convert/html_conversion_state.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 

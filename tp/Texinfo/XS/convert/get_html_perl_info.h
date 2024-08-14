@@ -7,7 +7,7 @@
 #include "EXTERN.h"
 #include "perl.h"
 
-#include "convert_html.h"
+#include "html_converter_types.h"
 
 size_t get_output_units_descriptor_converter_sv (SV *converter_in);
 

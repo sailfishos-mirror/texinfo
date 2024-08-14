@@ -6,18 +6,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "converter_types.h"
-
-enum count_elements_in_filename_type {
-  CEFT_total,
-  CEFT_remaining,
-  CEFT_current,
-};
-
-enum css_info_type {
-   CI_css_info_element_classes,
-   CI_css_info_imports,
-   CI_css_info_rules,
-};
+#include "html_converter_types.h"
 
 
 extern const char *html_conversion_context_type_names[];
@@ -102,34 +91,11 @@ void html_unset_raw_context (CONVERTER *self);
 void html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass);
 void html_unset_multiple_conversions (CONVERTER *self);
 
-int html_in_math (const CONVERTER *self);
-int html_in_preformatted_context (const CONVERTER *self);
-int html_inside_preformatted (const CONVERTER *self);
-int html_in_upper_case (const CONVERTER *self);
-int html_in_non_breakable_space (const CONVERTER *self);
-int html_in_space_protected (const CONVERTER *self);
-int html_in_code (const CONVERTER *self);
-int html_in_string (const CONVERTER *self);
-int html_in_verbatim (const CONVERTER *self);
-int html_in_raw (const CONVERTER *self);
-int html_paragraph_number (const CONVERTER *self);
-int html_preformatted_number (const CONVERTER *self);
-enum command_id html_top_block_command (const CONVERTER *self);
-const COMMAND_OR_TYPE_STACK *html_preformatted_classes_stack
-                                    (const CONVERTER *self);
-enum command_id html_in_align (const CONVERTER *self);
-const char *html_in_multi_expanded (CONVERTER *self);
-
 char *debug_print_html_contexts (const CONVERTER *self);
 
 size_t html_count_elements_in_filename (const CONVERTER *self,
                  enum count_elements_in_filename_type type,
                  const char *filename);
-
-void html_register_file_information (CONVERTER *self, const char *key,
-                                     int value);
-int html_get_file_information (const CONVERTER *self, const char *key,
-                               const char *filename, int *status);
 
 int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);
@@ -174,49 +140,8 @@ void register_explained_command_string (
 FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
                                            const char *footnote_id);
 
-void html_register_opened_section_level (CONVERTER *self, size_t file_number,
-                                         int level, const char *close_string);
-STRING_LIST *html_close_registered_sections_level (CONVERTER *self,
-                                                   size_t file_number,
-                                                   int level);
-void html_register_opened_filename_section_level (CONVERTER *self,
-                                             const char *filename,
-                                         int level, const char *close_string);
-STRING_LIST *html_close_registered_filename_sections_level (CONVERTER *self,
-                                      const char *filename, int level);
-
 char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);
-STRING_LIST *html_get_css_elements_classes (CONVERTER *self,
-                                            const char *filename);
-void html_css_add_info (CONVERTER *self, enum css_info_type type,
-                        const char *css_info);
-const STRING_LIST *html_css_get_info (CONVERTER *self, enum css_info_type type);
-void html_css_set_selector_style (
-                       CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
-                                  const char *css_info,
-                                  const char *css_style);
-const char *html_css_get_selector_style (CONVERTER* self, const char *css_info);
-
-void html_register_footnote (CONVERTER *self, const ELEMENT *command,
-     const char *footid, const char *docid, const int number_in_doc,
-     const char *footnote_location_filename, const char *multi_expanded_region);
-HTML_PENDING_FOOTNOTE_STACK *html_get_pending_footnotes (CONVERTER *self);
-void destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack);
-
-void html_register_pending_formatted_inline_content (CONVERTER *self,
-                             const char *category, const char *inline_content);
-char *html_cancel_pending_formatted_inline_content (CONVERTER *self,
-                                                    const char *category);
-char *html_get_pending_formatted_inline_content (CONVERTER *self);
-
-void html_associate_pending_formatted_inline_content (CONVERTER *self,
-                                            const ELEMENT *element,
-                                            const void *hv,
-                                            const char *inline_content);
-char *html_get_associated_formatted_inline_content (CONVERTER *self,
-                                              const ELEMENT *element,
-                                              const void *hv);
 
 size_t html_check_htmlxref_already_warned (CONVERTER *self,
                                            const char *manual_name,

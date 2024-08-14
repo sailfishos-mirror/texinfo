@@ -35,6 +35,7 @@
 #include "command_ids.h"
 #include "converter_types.h"
 #include "types_data.h"
+#include "html_converter_types.h"
 /* also for non_perl_* */
 #include "utils.h"
 #include "builtin_commands.h"
