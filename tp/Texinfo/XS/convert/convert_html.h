@@ -32,6 +32,7 @@ extern const char *html_conversion_context_type_names[];
 
 extern const char *html_argument_formatting_type_names[];
 
+/* in conversion_data.c */
 extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
 
 extern const char *direction_string_type_names[];
@@ -295,10 +296,6 @@ SPECIAL_BODY_FORMATTING_FUNCTION(about)
 
 #undef SPECIAL_BODY_FORMATTING_FUNCTION
 
-
-void html_prepare_output_units_global_targets (CONVERTER *self);
-const OUTPUT_UNIT *html_find_direction_name_global_unit (const CONVERTER *self,
-                                                   const char *direction_name);
 
 void html_translate_names (CONVERTER *self);
 

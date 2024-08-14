@@ -10,6 +10,11 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/html_prepare_converter.h: get declaration of
+	functions in html_prepare_converter.c.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c,
 	tp/Texinfo/XS/convert/html_prepare_converter.c
 	(html_global_unit_direction_names, html_formatting_reference_names)
