@@ -11,6 +11,14 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_html_convert_output, _setup_output),
+	tp/Texinfo/XS/convert/convert_html.c (html_setup_output)
+	(html_convert_output): create directory at the very beginning of
+	html_convert_output, not in setup_output, to delay modifications
+	to the start of the conversion.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_converter_types.h
 	(SPECIAL_LIST_MARK_CSS_NO_ARGS_CMD, COMMAND_ARGS_SPECIFICATION)
 	(MAX_COMMAND_ARGS_NR, html_command_args_flags)

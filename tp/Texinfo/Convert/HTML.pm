@@ -12650,6 +12650,15 @@ sub _html_convert_output($$$$$$$$)
   my ($self, $output_file, $destination_directory, $output_filename,
       $document_name, $document, $output_units, $special_units) = @_;
 
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_output_file_name($destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
+  if (!$succeeded) {
+    return undef;
+  }
+
   my $text_output = '';
   if ($output_file eq '') {
     $self->{'current_filename'} = $output_filename;
@@ -13095,14 +13104,6 @@ sub _setup_output($)
   # is mainly useful when split and 'document_name' that is generally useful.
   my ($output_file, $destination_directory, $output_filename, $document_name)
         = $self->determine_files_and_directory($self->{'output_format'});
-  my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_output_file_name($destination_directory);
-  my $succeeded
-    = $self->create_destination_directory($encoded_destination_directory,
-                                          $destination_directory);
-  unless ($succeeded) {
-    return undef;
-  }
 
   # set for init files
   $self->{'converter_info'}->{'document_name'} = $document_name;

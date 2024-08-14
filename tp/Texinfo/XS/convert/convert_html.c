@@ -15829,10 +15829,6 @@ html_setup_output (CONVERTER *self, char **paths)
   int setup_handler_status;
   int js_categories_list_nr = 0;
   const char *structure_preamble_document_language;
-  char *destination_directory;
-  char *encoded_destination_directory;
-  char *dir_encoding;
-  int succeeded;
 
   if (self->conf->OUTFILE.o.string)
     {
@@ -15984,26 +15980,8 @@ html_setup_output (CONVERTER *self, char **paths)
   /* ($output_file, $destination_directory, $output_filename, $document_name) */
   determine_files_and_directory (self, self->output_format, paths);
 
-  destination_directory = paths[1];
-
-  encoded_destination_directory = encoded_output_file_name (self->conf,
-                                            &self->document->global_info,
-                                                   destination_directory,
-                                                       &dir_encoding, 0);
-
-  free (dir_encoding);
-
-  succeeded = create_destination_directory (self,
-                                     encoded_destination_directory,
-                                           destination_directory);
-
-  free (encoded_destination_directory);
-
-  if (!succeeded)
-    return 0;
-
   self->document_name = strdup (paths[3]);
-  self->destination_directory = strdup (destination_directory);
+  self->destination_directory = strdup (paths[1]);
 
   return 1;
 }
@@ -18016,6 +17994,26 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
     (self->document, self->output_units_descriptors[OUDT_units]);
   const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
     (self->document, self->output_units_descriptors[OUDT_special_units]);
+  char *encoded_destination_directory;
+  char *dir_encoding;
+  int succeeded;
+
+  /* cast to remove const since the encoded_output_file_name argument cannot
+     be const even though the string is not modified */
+  encoded_destination_directory = encoded_output_file_name (self->conf,
+                                            &self->document->global_info,
+                                           (char *)destination_directory,
+                                                       &dir_encoding, 0);
+  free (dir_encoding);
+
+  succeeded = create_destination_directory (self,
+                                     encoded_destination_directory,
+                                           destination_directory);
+
+  free (encoded_destination_directory);
+
+  if (!succeeded)
+    return 0;
 
   text_init (&result);
   text_init (&text);
