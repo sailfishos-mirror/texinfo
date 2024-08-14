@@ -29,21 +29,15 @@ typedef struct ROOT_AND_UNIT {
 } ROOT_AND_UNIT;
 
 extern const char *html_conversion_context_type_names[];
-extern const char *html_global_unit_direction_names[];
-
-extern const char *html_formatting_reference_names[];
 
 extern const char *html_argument_formatting_type_names[];
 
 extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
-extern const char *special_unit_info_type_names[SUI_type_heading + 1];
-extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 extern const char *direction_string_type_names[];
 extern const char *direction_string_context_names[];
 
 extern const char *html_stage_handler_stage_type_names[];
-extern COMMAND_ID_LIST no_arg_formatted_cmd;
 
 void html_conversion_finalization (CONVERTER *self);
 
@@ -94,20 +88,6 @@ int html_run_stage_handlers (CONVERTER *self,
                              enum html_stage_handler_stage_type stage);
 
 void html_default_format_protect_text (const char *text, TEXT *result);
-
-HTMLXREF_MANUAL *new_htmlxref_manual_list (size_t size);
-void initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
-                                   size_t size);
-void initialize_jslicense_files
-                       (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
-                                 const char *category, size_t size);
-FORMATTING_REFERENCE *new_special_unit_formatting_references
-                                      (int special_units_varieties_nr);
-char **new_special_unit_info_type (int special_units_varieties_nr);
-
-SPECIAL_UNIT_INFO *html_add_special_unit_info (
-                            SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
-                            int type, size_t variety_nr, const char *value);
 
 int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);
@@ -317,7 +297,6 @@ SPECIAL_BODY_FORMATTING_FUNCTION(about)
 
 
 void html_prepare_output_units_global_targets (CONVERTER *self);
-void html_setup_global_units_direction_names (CONVERTER *self);
 const OUTPUT_UNIT *html_find_direction_name_global_unit (const CONVERTER *self,
                                                    const char *direction_name);
 

@@ -69,23 +69,10 @@
 #include "html_conversion_state.h"
 #include "convert_html.h"
 
-const char *html_global_unit_direction_names[] = {
-  #define hgdt_name(name) #name,
-   HTML_GLOBAL_DIRECTIONS_LIST
-  #undef hgdt_name
-   " ",
-};
-
 const char *html_conversion_context_type_names[] = {
   #define cctx_type(name) #name,
    HCC_CONTEXT_TYPES_LIST
   #undef cctx_type
-};
-
-const char *html_formatting_reference_names[] = {
-  #define html_fr_reference(name) #name,
-   HTML_FORMATTING_REFERENCES_LIST
-  #undef html_fr_reference
 };
 
 const char *html_argument_formatting_type_names[] = {
@@ -1488,29 +1475,6 @@ direction_string (CONVERTER *self, int direction,
         }
     }
   return self->directions_strings[string_type][direction][context];
-}
-
-SPECIAL_UNIT_INFO *
-html_add_special_unit_info (SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
-                            int type, size_t variety_nr, const char *value)
-{
-  SPECIAL_UNIT_INFO *special_unit_info;
-
-  if (special_unit_info_list->number == special_unit_info_list->space)
-    {
-      special_unit_info_list->list = realloc (special_unit_info_list->list,
-            sizeof (SPECIAL_UNIT_INFO) * (special_unit_info_list->space += 5));
-    }
-  special_unit_info
-    = &special_unit_info_list->list[special_unit_info_list->number];
-  memset (special_unit_info, 0, sizeof (SPECIAL_UNIT_INFO));
-  special_unit_info->type = type;
-  special_unit_info->variety_nr = variety_nr;
-  if (value)
-    special_unit_info->value = strdup (value);
-
-  special_unit_info_list->number++;
-  return special_unit_info;
 }
 
 const char *
@@ -13458,59 +13422,6 @@ reset_translated_special_unit_info_tree (CONVERTER *self)
 
 /* these constructors/initialization allow to use malloc from this
    file and not from a file including Perl headers */
-
-HTMLXREF_MANUAL *
-new_htmlxref_manual_list (size_t size)
-{
-  HTMLXREF_MANUAL *result = (HTMLXREF_MANUAL *)
-        malloc (size * sizeof (HTMLXREF_MANUAL));
-  memset (result, 0, size * sizeof (HTMLXREF_MANUAL));
-
-  return result;
-}
-
-void
-initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
-                              size_t size)
-{
-  js_files_info->list = (JSLICENSE_FILE_INFO_LIST *)
-           malloc (size * sizeof (JSLICENSE_FILE_INFO_LIST));
-  memset (js_files_info->list, 0,
-                  size * sizeof (JSLICENSE_FILE_INFO_LIST));
-  js_files_info->number = size;
-}
-
-void
-initialize_jslicense_files (JSLICENSE_FILE_INFO_LIST *jslicences_files_info,
-                            const char *category, size_t size)
-{
-  jslicences_files_info->category = strdup (category);
-  jslicences_files_info->list = (JSLICENSE_FILE_INFO *)
-              malloc (size * sizeof (JSLICENSE_FILE_INFO));
-  memset (jslicences_files_info->list, 0,
-          size * sizeof (JSLICENSE_FILE_INFO));
-  jslicences_files_info->number = size;
-}
-
-FORMATTING_REFERENCE *
-new_special_unit_formatting_references (int special_units_varieties_nr)
-{
-  FORMATTING_REFERENCE *formatting_references = (FORMATTING_REFERENCE *)
-    malloc (special_units_varieties_nr * sizeof (FORMATTING_REFERENCE));
-  memset (formatting_references, 0,
-          special_units_varieties_nr * sizeof (FORMATTING_REFERENCE));
-  return formatting_references;
-}
-
-char **
-new_special_unit_info_type (int special_units_varieties_nr)
-{
-  char **special_unit_info = (char **)
-        malloc ((special_units_varieties_nr +1) * sizeof (char *));
-  memset (special_unit_info, 0,
-          (special_units_varieties_nr +1) * sizeof (char *));
-  return special_unit_info;
-}
 
 void
 reset_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
