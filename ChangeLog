@@ -10,6 +10,12 @@
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c: group codes: string functions,
+	targets related code, conversion preparation code and node redirection
+	page code.
+
+2024-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c,
 	tp/Texinfo/XS/convert/html_prepare_converter.c (html_id_is_registered)
 	(html_register_id): move html_id_is_registered and html_register_id to

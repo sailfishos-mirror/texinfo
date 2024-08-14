@@ -40,56 +40,26 @@ extern const char *direction_string_context_names[];
 
 extern const char *html_stage_handler_stage_type_names[];
 
-OUTPUT_UNIT *html_get_top_unit (DOCUMENT *document,
-                                const OUTPUT_UNIT_LIST *output_units);
-
-ROOT_AND_UNIT *html_get_tree_root_element (CONVERTER *self,
-                                           const ELEMENT *command,
-                                           int find_container);
 
 char *html_after_escaped_characters (char *text);
 char *html_substitute_non_breaking_space (CONVERTER *self, const char *text);
 
+void html_default_format_protect_text (const char *text, TEXT *result);
+
+
 HTML_TARGET *html_get_target (const CONVERTER *self, const ELEMENT *element);
-
-void html_set_file_source_info (FILE_SOURCE_INFO *file_source_info,
-                                const char *file_info_type,
-                                const char *file_info_name,
-                                const ELEMENT *file_info_element,
-                                const char *filepath);
-FILE_SOURCE_INFO *html_add_to_files_source_info (
-                              FILE_SOURCE_INFO_LIST *files_source_info,
-                              const char *filename,
-                              const char *file_info_type,
-                              const char *file_info_name,
-                              const ELEMENT *file_info_element,
-                              const char *filepath);
-FILE_SOURCE_INFO *html_find_file_source_info (
-                            FILE_SOURCE_INFO_LIST *files_source_info,
-                            const char *filename);
-
-void html_setup_output_simple_page (CONVERTER *self,
-                                    const char *output_filename);
-
-const char *html_special_unit_info (const CONVERTER *self,
-                                    enum special_unit_info_type type,
-                                    const char *special_unit_variety);
-
+const char *html_command_id (const CONVERTER *self, const ELEMENT *command);
 char *html_normalized_to_id (const char *id);
 TARGET_FILENAME *html_normalized_label_id_file (CONVERTER *self,
                                                 const char *normalized,
                                                 const ELEMENT* label_element);
 
-int html_run_stage_handlers (CONVERTER *self,
-                             enum html_stage_handler_stage_type stage);
-
-void html_default_format_protect_text (const char *text, TEXT *result);
-
-
 int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);
+ROOT_AND_UNIT *html_get_tree_root_element (CONVERTER *self,
+                                           const ELEMENT *command,
+                                           int find_container);
 
-const char *html_command_id (const CONVERTER *self, const ELEMENT *command);
 const char *html_command_contents_target (CONVERTER *self,
                                     const ELEMENT *command,
                                     enum command_id contents_or_shortcontents);
@@ -117,8 +87,16 @@ char *html_internal_command_text (CONVERTER *self, const ELEMENT *command,
 char *html_command_description (CONVERTER *self, const ELEMENT *command,
                                 const enum html_text_type type);
 
+OUTPUT_UNIT *html_get_top_unit (DOCUMENT *document,
+                                const OUTPUT_UNIT_LIST *output_units);
+
 FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
                                            const char *footnote_id);
+
+
+const char *html_special_unit_info (const CONVERTER *self,
+                                    enum special_unit_info_type type,
+                                    const char *special_unit_variety);
 
 char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);
@@ -304,6 +282,12 @@ void html_reset_translated_special_unit_info_tree (CONVERTER *self);
 void html_translate_names (CONVERTER *self);
 
 
+int html_run_stage_handlers (CONVERTER *self,
+                             enum html_stage_handler_stage_type stage);
+
+void html_setup_output_simple_page (CONVERTER *self,
+                                    const char *output_filename);
+
 void html_prepare_simpletitle (CONVERTER *self);
 void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                                    const char *output_filename);
@@ -331,6 +315,22 @@ void html_check_transfer_state_finalization (CONVERTER *self);
 
 
 void html_do_js_files (CONVERTER *self);
+
+void html_set_file_source_info (FILE_SOURCE_INFO *file_source_info,
+                                const char *file_info_type,
+                                const char *file_info_name,
+                                const ELEMENT *file_info_element,
+                                const char *filepath);
+FILE_SOURCE_INFO *html_add_to_files_source_info (
+                              FILE_SOURCE_INFO_LIST *files_source_info,
+                              const char *filename,
+                              const char *file_info_type,
+                              const char *file_info_name,
+                              const ELEMENT *file_info_element,
+                              const char *filepath);
+FILE_SOURCE_INFO *html_find_file_source_info (
+                            FILE_SOURCE_INFO_LIST *files_source_info,
+                            const char *filename);
 
 char *html_prepare_node_redirection_page (CONVERTER *self,
                                           const ELEMENT *element,
