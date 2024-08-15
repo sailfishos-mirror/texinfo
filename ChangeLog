@@ -1,5 +1,16 @@
 2024-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Untrack some build files
+
+	* build-aux/compile, build-aux/config.guess, build-aux/config.sub,
+	build-aux/depcomp, build-aux/install-sh, build-aux/mdate-sh,
+	build-aux/missing, build-aux/tap-driver.sh, build-aux/test-driver:
+	Untrack in git.  These files are imported when autogen.sh runs
+	and this stops a divergence in the output of "git diff" if
+	a different version of automake etc. is installed.
+
+2024-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* autogen.sh: Do not append command line arguments ("$@") to
 	automake command line.  The purpose of this is unknown.  It
 	meant that an incorrect "-n" flag would be printed in "chicken"

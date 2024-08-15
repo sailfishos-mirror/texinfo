@@ -27,6 +27,16 @@ build
 
 **/test-suite.log
 
+build-aux/compile
+build-aux/config.guess
+build-aux/config.sub
+build-aux/depcomp
+build-aux/install-sh
+build-aux/mdate-sh
+build-aux/missing
+build-aux/tap-driver.sh
+build-aux/test-driver
+
 pre-inst-env
 
 po/*.gmo
