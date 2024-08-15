@@ -637,11 +637,11 @@ remove_tree_to_build (CONVERTER *self, ELEMENT *e)
     remove_element_from_list (&self->tree_to_build, e);
 }
 
-static void convert_to_html_internal (CONVERTER *self, const ELEMENT *e,
+static void convert_tree_append (CONVERTER *self, const ELEMENT *e,
                                       TEXT *result, const char *explanation);
 
 static void
-translate_convert_to_html_internal (const char *string,
+translate_convert_tree_append (const char *string,
                CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                const char *translation_context,
@@ -651,7 +651,7 @@ translate_convert_to_html_internal (const char *string,
                            replaced_substrings, translation_context);
 
   add_tree_to_build (self, translation_tree);
-  convert_to_html_internal (self, translation_tree, result, explanation);
+  convert_tree_append (self, translation_tree, result, explanation);
   remove_tree_to_build (self, translation_tree);
 
   destroy_element_and_children (translation_tree);
@@ -703,7 +703,7 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree,
   TEXT result;
   text_init (&result);
 
-  convert_to_html_internal (self, tree, &result, explanation);
+  convert_tree_append (self, tree, &result, explanation);
 
   return result.text;
 }
@@ -3579,7 +3579,7 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
       explanation = "Tr program string date";
     }
   add_tree_to_build (self, tree);
-  convert_to_html_internal (self, tree, result, explanation);
+  convert_tree_append (self, tree, result, explanation);
   remove_tree_to_build (self, tree);
   destroy_element_and_children (tree);
 }
@@ -3681,7 +3681,7 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
               tree = html_cdt_tree ("JavaScript license information",
                                      self, 0, 0);
               add_tree_to_build (self, tree);
-              convert_to_html_internal (self, tree, &result,
+              convert_tree_append (self, tree, &result,
                                         "Tr JS license header");
               remove_tree_to_build (self, tree);
 
@@ -5341,7 +5341,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   /* do it before in case there is CSS */
 
   text_init (&body);
-  translate_convert_to_html_internal (
+  translate_convert_tree_append (
           "The node you are looking for is at {href}.",
            self, substrings, 0, &body, "Tr redirection sentence");
   destroy_named_string_element_list (substrings);
@@ -5592,7 +5592,7 @@ html_convert_today_command (CONVERTER *self, const enum command_id cmd,
 
   add_tree_to_build (self, today_element);
 
-  convert_to_html_internal (self, today_element, result, "convert today");
+  convert_tree_append (self, today_element, result, "convert today");
 
   remove_tree_to_build (self, today_element);
   destroy_element_and_children (today_element);
@@ -5720,7 +5720,7 @@ html_convert_value_command (CONVERTER *self, const enum command_id cmd,
                         self, substrings, 0);
 
   add_tree_to_build (self, tree);
-  convert_to_html_internal (self, tree, result, "Tr missing value");
+  convert_tree_append (self, tree, result, "Tr missing value");
   remove_tree_to_build (self, tree);
 
   destroy_element_and_children (tree);
@@ -5907,7 +5907,7 @@ html_convert_explained_command (CONVERTER *self, const enum command_id cmd,
       xasprintf (&context_str, "convert explained %s",
                  builtin_command_name (cmd));
       add_tree_to_build (self, tree);
-      convert_to_html_internal (self, tree, result, context_str);
+      convert_tree_append (self, tree, result, context_str);
       remove_tree_to_build (self, tree);
       free (context_str);
       /* should destroy explained_*_element */
@@ -7096,7 +7096,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                   if (menu_node)
                     {
                       add_tree_to_build (self, menu_node);
-                      convert_to_html_internal (self, menu_node,
+                      convert_tree_append (self, menu_node,
                                                 &toc_or_mini_toc_or_auto_menu,
                                                 "master menu");
                       remove_tree_to_build (self, menu_node);
@@ -7917,7 +7917,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
       char *context_str;
       xasprintf (&context_str, "convert xref %s", builtin_command_name (cmd));
       add_tree_to_build (self, tree);
-      convert_to_html_internal (self, tree, result, context_str);
+      convert_tree_append (self, tree, result, context_str);
       remove_tree_to_build (self, tree);
       free (context_str);
       /* should destroy reference_element and book_element */
@@ -8507,7 +8507,7 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
                                       "author", author_arg_copy);
 
               /* TRANSLATORS: quotation author */
-              translate_convert_to_html_internal (
+              translate_convert_tree_append (
                              "@center --- @emph{{author}}",
                              self, substrings, 0, result,
                              "convert quotation author");
@@ -8931,7 +8931,7 @@ html_convert_verbatiminclude_command (CONVERTER *self,
   if (verbatim_include_verbatim)
     {
       add_tree_to_build (self, verbatim_include_verbatim);
-      convert_to_html_internal (self, verbatim_include_verbatim,
+      convert_tree_append (self, verbatim_include_verbatim,
                                 result, "convert verbatiminclude");
       remove_tree_to_build (self, verbatim_include_verbatim);
       destroy_element_and_children (verbatim_include_verbatim);
@@ -9283,7 +9283,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
           else
             converted_e = element->e.c->args.list[0];
 
-          convert_to_html_internal (self, converted_e, result,
+          convert_tree_append (self, converted_e, result,
                                     "convert table_item_tree");
 
           if (pre_class_close)
@@ -9409,7 +9409,7 @@ html_convert_insertcopying_command (CONVERTER *self, const enum command_id cmd,
     {
       ELEMENT *tmp = new_element (ET_NONE);
       tmp->e.c->contents = self->document->global_commands.copying->e.c->contents;
-      convert_to_html_internal (self, tmp, result, "convert insertcopying");
+      convert_tree_append (self, tmp, result, "convert insertcopying");
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
     }
@@ -9589,7 +9589,7 @@ printindex_letters_head_foot_internal (CONVERTER *self, const char *index_name,
   text_append_n (result, "><tr><th>", 9);
 
   /* TRANSLATORS: before list of letters and symbols grouping index entries */
-  translate_convert_to_html_internal ("Jump to", self, 0, 0, result,
+  translate_convert_tree_append ("Jump to", self, 0, 0, result,
                                       letters_header_explanation);
   text_append_n (result, ": ", 2);
   text_append_n (result,
@@ -10647,7 +10647,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
   text_append_n (result, ">", 1);
   /* TRANSLATORS: index entries column header in index formatting */
-  translate_convert_to_html_internal ("Index Entry", self, 0, 0, result,
+  translate_convert_tree_append ("Index Entry", self, 0, 0, result,
                                       "Tr th idx entries 1");
   text_append_n (result, "</th>", 5);
 
@@ -10661,7 +10661,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   free (attribute_class);
   text_append_n (result, ">", 1);
   /* TRANSLATORS: section of index entry column header in index formatting */
-  translate_convert_to_html_internal ("Section", self, 0, 0, result,
+  translate_convert_tree_append ("Section", self, 0, 0, result,
                                       "Tr th idx entries 2");
   text_append_n (result, "</th></tr>\n", 11);
   text_append_n (result, "<tr><td colspan=\"3\">", 20);
@@ -11367,7 +11367,7 @@ html_convert_untranslated_def_line_arg_type
 
   add_tree_to_build (self, translated);
 
-  convert_to_html_internal (self, translated, result,
+  convert_tree_append (self, translated, result,
                             "translated TEXT");
 
   remove_tree_to_build (self, translated);
@@ -11617,9 +11617,9 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
       if (name_entry)
         {
-          convert_to_html_internal (self, name_entry, result,
+          convert_tree_append (self, name_entry, result,
                                   "menu_arg menu_entry_name preformatted");
-          convert_to_html_internal (self,
+          convert_tree_append (self,
                      menu_entry_separators[entry_separators_idx],
                      result, "menu_arg name separator preformatted");
           entry_separators_idx++;
@@ -11638,7 +11638,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
           add_tree_to_build (self, root_code);
 
-          convert_to_html_internal (self, root_code, result,
+          convert_tree_append (self, root_code, result,
                                "menu_arg menu_entry_node preformatted");
 
           remove_tree_to_build (self, root_code);
@@ -11651,7 +11651,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
       if (entry_separators_idx < entry_separators_nr)
         {
-          convert_to_html_internal (self,
+          convert_tree_append (self,
                      menu_entry_separators[entry_separators_idx],
                      result, "menu_arg node separator preformatted");
           entry_separators_idx++;
@@ -11703,7 +11703,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
         }
       else if (menu_description)
         {
-          convert_to_html_internal (self, menu_description, result,
+          convert_tree_append (self, menu_description, result,
                                     "menu_arg description preformatted");
         }
     }
@@ -12120,7 +12120,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       free (attribute_class);
       text_append_n (&def_call, ">", 1);
 
-      convert_to_html_internal (self, root_code, &def_call, explanation);
+      convert_tree_append (self, root_code, &def_call, explanation);
 
       remove_tree_to_build (self, root_code);
       destroy_element (root_code);
@@ -12220,7 +12220,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       if (category_tree)
         {
           add_tree_to_build (self, category_tree);
-          convert_to_html_internal (self, category_tree, result, 0);
+          convert_tree_append (self, category_tree, result, 0);
           remove_tree_to_build (self, category_tree);
           destroy_element_and_children (category_tree);
         }
@@ -12311,7 +12311,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
             }
           free (attribute_open);
           add_tree_to_build (self, category_tree);
-          convert_to_html_internal (self, category_tree, result, explanation);
+          convert_tree_append (self, category_tree, result, explanation);
           remove_tree_to_build (self, category_tree);
           destroy_element_and_children (category_tree);
           if (open_len)
@@ -12667,7 +12667,7 @@ html_default_format_titlepage (CONVERTER *self)
     {
       ELEMENT *tmp = new_element (ET_NONE);
       tmp->e.c->contents = self->document->global_commands.titlepage->e.c->contents;
-      convert_to_html_internal (self, tmp, &result, "convert titlepage");
+      convert_tree_append (self, tmp, &result, "convert titlepage");
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
       titlepage_text = 1;
@@ -12835,39 +12835,38 @@ html_default_format_special_body_about (CONVERTER *self,
 
   if (!buttons)
     {
-      translate_convert_to_html_internal (
+      translate_convert_tree_append (
                "There are no buttons for this document.", self, 0, 0,
                 result, "ABOUT");
       text_append_n (result, "\n</p>\n", 6);
       return;
     }
 
-  translate_convert_to_html_internal (
+  translate_convert_tree_append (
    "  The buttons in the navigation panels have the following meaning:",
                                       self, 0, 0, result, "ABOUT");
-
   text_append_n (result, "\n</p>\n", 6);
   open_element_with_class (self, "table", &direction_about_classes, result);
   text_append (result, "\n  <tr>\n    ");
   open_element_with_class (self, "th", &button_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_to_html_internal ("Button", self, 0, 0, result, "ABOUT");
+  translate_convert_tree_append ("Button", self, 0, 0, result, "ABOUT");
   text_append_n (result, " </th>\n    ", 11);
   open_element_with_class (self, "th", &name_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_to_html_internal ("Name", self, 0, 0, result, "ABOUT");
+  translate_convert_tree_append ("Name", self, 0, 0, result, "ABOUT");
   text_append_n (result, " </th>\n    ", 11);
   open_element_with_class (self, "th", &description_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_to_html_internal ("Go to", self, 0, 0, result, "ABOUT");
+  translate_convert_tree_append ("Go to", self, 0, 0, result, "ABOUT");
   text_append_n (result, " </th>\n    ", 11);
   open_element_with_class (self, "th", &example_direction_about_classes,
                            result);
   text_append_n (result, " ", 1);
-  translate_convert_to_html_internal ("From 1.2.3 go to", self, 0, 0,
+  translate_convert_tree_append ("From 1.2.3 go to", self, 0, 0,
                                       result, "ABOUT");
   text_append (result, "</th>\n  </tr>\n");
 
@@ -12945,30 +12944,30 @@ html_default_format_special_body_about (CONVERTER *self,
 
   text_append_n (result, "</table>\n\n<p>\n", 14);
 
-  translate_convert_to_html_internal (
+  translate_convert_tree_append (
  "  where the @strong{ Example } assumes that the current position is at "
  "@strong{ Subsubsection One-Two-Three } of a document of the following "
  "structure:", self, 0, 0, result, "ABOUT");
 
   text_append_n (result, "\n</p>\n\n<ul>\n", 12);
   text_append (result, "  <li> 1. ");
-  translate_convert_to_html_internal ("Section One",
+  translate_convert_tree_append ("Section One",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "\n    <ul>\n      <li>1.1 ");
-  translate_convert_to_html_internal ("Subsection One-One",
+  translate_convert_tree_append ("Subsection One-One",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "\n        <ul>\n          <li>...</li>\n"
      "        </ul>\n      </li>\n      <li>1.2 ");
-  translate_convert_to_html_internal ("Subsection One-Two",
+  translate_convert_tree_append ("Subsection One-Two",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "\n        <ul>\n          <li>1.2.1 ");
-  translate_convert_to_html_internal ("Subsubsection One-Two-One",
+  translate_convert_tree_append ("Subsubsection One-Two-One",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n          <li>1.2.2 ");
-  translate_convert_to_html_internal ("Subsubsection One-Two-Two",
+  translate_convert_tree_append ("Subsubsection One-Two-Two",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n          <li>1.2.3 ");
-  translate_convert_to_html_internal ("Subsubsection One-Two-Three",
+  translate_convert_tree_append ("Subsubsection One-Two-Three",
                                       self, 0, 0, result, "ABOUT");
   text_append_n (result, " ", 1);
   text_append_n (result,
@@ -12981,17 +12980,17 @@ html_default_format_special_body_about (CONVERTER *self,
   text_append_n (result, "\n", 1);
 
   text_append (result, "            <strong>&lt;== ");
-  translate_convert_to_html_internal ("Current Position",
+  translate_convert_tree_append ("Current Position",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, " </strong></li>\n          <li>1.2.4 ");
-  translate_convert_to_html_internal ("Subsubsection One-Two-Four",
+  translate_convert_tree_append ("Subsubsection One-Two-Four",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n        </ul>\n      </li>\n      <li>1.3 ");
-  translate_convert_to_html_internal ("Subsection One-Three",
+  translate_convert_tree_append ("Subsection One-Three",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "\n        <ul>\n          <li>...</li>\n"
   "        </ul>\n      </li>\n      <li>1.4 ");
-  translate_convert_to_html_internal ("Subsection One-Four",
+  translate_convert_tree_append ("Subsection One-Four",
                                       self, 0, 0, result, "ABOUT");
   text_append (result, "</li>\n    </ul>\n  </li>\n</ul>\n");
 }
@@ -13738,7 +13737,7 @@ debug_print_html_contexts (const CONVERTER *self)
 
 /* EXPLANATION is used for debugging */
 void
-convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
+convert_tree_append (CONVERTER *self, const ELEMENT *element,
                           TEXT *result, const char *explanation)
 {
   /* for debugging, for explanations */
@@ -13925,7 +13924,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                       char *explanation;
                       xasprintf (&explanation, "%s c[%zu]", command_type.text,
                                 content_idx);
-                      convert_to_html_internal (self, content,
+                      convert_tree_append (self, content,
                                                 &content_formatted,
                                                 explanation);
                       free (explanation);
@@ -14000,7 +13999,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                             {
                               xasprintf (&explanation, "%s A[%zu]normal",
                                                    command_type.text, arg_idx);
-                              convert_to_html_internal (self, arg,
+                              convert_tree_append (self, arg,
                                                         &formatted_arg,
                                                         explanation);
                               free (explanation);
@@ -14018,7 +14017,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                           push_integer_stack_integer (
                                           &top_document_ctx->monospace, 1);
 
-                          convert_to_html_internal (self, arg, &formatted_arg,
+                          convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
                           pop_integer_stack
                               (&top_document_ctx->monospace);
@@ -14038,7 +14037,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
 
                           xasprintf (&explanation, "%s A[%zu]string",
                                                    command_type.text, arg_idx);
-                          convert_to_html_internal (self, arg, &formatted_arg,
+                          convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
@@ -14060,7 +14059,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                                &string_document_ctx->monospace, 1);
                           xasprintf (&explanation, "%s A[%zu]monospacestring",
                                                    command_type.text, arg_idx);
-                          convert_to_html_internal (self, arg, &formatted_arg,
+                          convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
@@ -14121,7 +14120,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
                           top_document_ctx->raw_ctx++;
                           xasprintf (&explanation, "%s A[%zu]raw",
                                                    command_type.text, arg_idx);
-                          convert_to_html_internal (self, arg, &formatted_arg,
+                          convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
@@ -14198,7 +14197,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
         {
           if (element->e.c->args.number > 0)
             {
-              convert_to_html_internal (self, element->e.c->args.list[0],
+              convert_tree_append (self, element->e.c->args.list[0],
                                         &content_formatted,
                                         "DEFINFOENCLOSE_ARG");
             }
@@ -14215,7 +14214,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
               char *explanation;
               xasprintf (&explanation, "%s c[%zu]", command_type.text,
                         content_idx);
-              convert_to_html_internal (self, content, &content_formatted,
+              convert_tree_append (self, content, &content_formatted,
                                         explanation);
               free (explanation);
             }
@@ -14260,7 +14259,7 @@ convert_to_html_internal (CONVERTER *self, const ELEMENT *element,
           const ELEMENT *content = element->e.c->contents.list[content_idx];
           char *explanation;
           xasprintf (&explanation, " C[%zu]", content_idx);
-          convert_to_html_internal (self, content, &content_formatted,
+          convert_tree_append (self, content, &content_formatted,
                                     explanation);
           free (explanation);
         }
@@ -14336,7 +14335,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
          char *content_explanation;
          xasprintf (&content_explanation, "%s c[%zu]",
                     output_unit_type_names[unit_type], content_idx);
-         convert_to_html_internal (self, content, &content_formatted,
+         convert_tree_append (self, content, &content_formatted,
                                    content_explanation);
          free (content_explanation);
        }
