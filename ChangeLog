@@ -1,3 +1,8 @@
+2024-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/pm_to_blib: Remove empty, apparently useless
+	file.
+
 2024-08-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Add tp/Texinfo/XS/build-aux
