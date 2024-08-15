@@ -36,6 +36,7 @@ void html_default_format_protect_text (const char *text, TEXT *result);
 void html_default_css_string_format_protect_text (const char *text,
                                                   TEXT *result);
 
+
 
 HTML_TARGET *html_get_target (const CONVERTER *self, const ELEMENT *element);
 const char *html_command_id (const CONVERTER *self, const ELEMENT *command);
@@ -83,13 +84,17 @@ OUTPUT_UNIT *html_get_top_unit (DOCUMENT *document,
 FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
                                            const char *footnote_id);
 
+
 
 const char *html_special_unit_info (const CONVERTER *self,
                                     enum special_unit_info_type type,
                                     const char *special_unit_variety);
+
 
 char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);
+
+
 
 char *html_format_comment (CONVERTER *self, const char *text);
 char *html_format_end_file (CONVERTER *self, const char *filename,
@@ -102,7 +107,9 @@ char *html_default_format_jslicense_file (CONVERTER *self,
 char *html_format_node_redirection_page (CONVERTER *self,
                                          const ELEMENT *element,
                                          const char *filename);
+char *html_format_title_titlepage (CONVERTER *self);
 
+
 
 void
 html_command_conversion_external (CONVERTER *self, const enum command_id cmd,
@@ -188,6 +195,8 @@ COMMAND_OPEN_FUNCTION(node_part_command)
 
 #undef COMMAND_OPEN_FUNCTION
 
+
+
 void html_type_conversion_external (CONVERTER *self,
                                     const enum element_type type,
                                     const ELEMENT *element, const char *content,
@@ -252,6 +261,8 @@ UNIT_CONVERSION_FUNCTION(special_unit_type);
 
 #undef UNIT_CONVERSION_FUNCTION
 
+
+
 void html_special_unit_body_formatting_external (CONVERTER *self,
                                     const size_t special_unit_number,
                                     const char *special_unit_variety,
@@ -271,8 +282,6 @@ SPECIAL_BODY_FORMATTING_FUNCTION(footnotes)
 SPECIAL_BODY_FORMATTING_FUNCTION(about)
 
 #undef SPECIAL_BODY_FORMATTING_FUNCTION
-
-char *html_format_title_titlepage (CONVERTER *self);
 
 
 #endif

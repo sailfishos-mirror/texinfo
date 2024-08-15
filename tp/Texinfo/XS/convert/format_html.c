@@ -87,6 +87,8 @@ const enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1]
  { htmlxref_split_type_chapter, htmlxref_split_type_section, htmlxref_split_type_node, htmlxref_split_type_mono },
 };
 
+
+
 /* string functions */
 
 void
@@ -2428,34 +2430,6 @@ html_attribute_class (CONVERTER *self, const char *element,
 
 
 /* formatting functions */
-
-/* this function allows to call a conversion function associated to
-   a COMMAND_CONVERSION different from the ELEMENT and CMD arguments
-   associated command conversion */
-static void
-conversion_function_cmd_conversion (CONVERTER *self,
-                       COMMAND_CONVERSION_FUNCTION *command_conversion,
-                    const enum command_id cmd, const ELEMENT *element,
-                    const HTML_ARGS_FORMATTED *args_formatted,
-                    const char *content, TEXT *result)
-{
-  if (command_conversion->status == FRS_status_internal)
-    {
-      (command_conversion->command_conversion)
-                   (self, cmd, element, args_formatted,
-                    content, result);
-    }
-  else
-    {
-      FORMATTING_REFERENCE *formatting_reference
-        = command_conversion->formatting_reference;
-      if (formatting_reference->status > 0)
-         call_commands_conversion (self, cmd, formatting_reference,
-                                 element, args_formatted, content,
-                                 result);
-
-    }
-}
 
 char *
 html_default_format_comment (CONVERTER *self, const char *text)
@@ -5311,6 +5285,274 @@ html_format_node_redirection_page (CONVERTER *self, const ELEMENT *element,
 }
 
 static void
+format_simpletitle (CONVERTER *self, TEXT *result)
+{
+  char *title_text;
+  char *context_str;
+  enum command_id cmd = self->simpletitle_cmd;
+
+  STRING_LIST *classes = new_string_list ();
+  add_string (builtin_command_name (cmd), classes);
+
+  xasprintf (&context_str, "%s simpletitle",
+             builtin_command_name (cmd));
+  title_text
+    = html_convert_tree_new_formatting_context (self,
+        self->simpletitle_tree, context_str, 0, 0, 0);
+  free (context_str);
+  format_heading_text (self, cmd, classes, title_text,
+                                    0, 0, 0, 0, result);
+  destroy_strings_list (classes);
+  free (title_text);
+}
+
+/* command is NULL unless called from @-command formatting function */
+static char *
+contents_inline_element (CONVERTER *self, const enum command_id cmd,
+                         const ELEMENT *element)
+{
+  char *table_of_contents;
+
+  if (self->conf->DEBUG.o.integer > 0)
+    fprintf (stderr, "CONTENTS_INLINE %s\n", builtin_command_name (cmd));
+
+  table_of_contents = format_contents (self, cmd, element, 0);
+  if (table_of_contents && strlen (table_of_contents))
+    {
+      int j;
+      for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
+        {
+          COMMAND_ID_INDEX cmd_variety_index
+                = self->command_special_variety_name_index[j];
+          if (cmd_variety_index.cmd == cmd)
+            {
+              const char *id;
+              char *heading = 0;
+              TEXT result;
+              STRING_LIST *classes;
+              const char *class_base;
+              char *class;
+              char *attribute_class;
+
+              const char *special_unit_variety
+                = self->special_unit_varieties.list[cmd_variety_index.index];
+              int special_unit_direction_index
+                    = html_special_unit_variety_direction_index (self,
+                                                special_unit_variety);
+              const OUTPUT_UNIT *special_unit
+                = self->global_units_directions[special_unit_direction_index];
+              const ELEMENT *unit_command
+                = special_unit->uc.special_unit_command;
+
+              text_init (&result);
+
+              classes = new_string_list ();
+              class_base = html_special_unit_info (self, SUI_type_class,
+                                                   special_unit_variety);
+              xasprintf (&class, "region-%s", class_base);
+
+              add_string (class, classes);
+              free (class);
+              attribute_class = html_attribute_class (self, "div", classes);
+              clear_strings_list (classes);
+
+              text_append (&result, attribute_class);
+              free (attribute_class);
+
+              id = html_command_id (self, unit_command);
+              if (id && strlen (id))
+                text_printf (&result, " id=\"%s\"", id);
+              heading = html_command_text (self, unit_command, 0);
+
+              text_append_n (&result, ">\n", 2);
+
+              xasprintf (&class, "%s-heading", class_base);
+
+              add_string (class, classes);
+              free (class);
+
+              if (!heading)
+                heading = strdup ("");
+              format_heading_text (self, 0, classes, heading,
+                                   self->conf->CHAPTER_HEADER_LEVEL.o.integer,
+                                   0, 0, 0, &result);
+              destroy_strings_list (classes);
+
+              free (heading);
+
+              text_append_n (&result, "\n", 1);
+
+              text_append (&result, table_of_contents);
+              text_append_n (&result, "</div>\n", 7);
+
+              free (table_of_contents);
+              return result.text;
+            }
+        }
+    }
+  return 0;
+}
+
+static void
+contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
+{
+  if (self->document->sections_list
+      && self->document->sections_list->number > 0
+      && self->conf->CONTENTS_OUTPUT_LOCATION.o.string
+      && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "after_title"))
+    {
+      enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
+      int i;
+      for (i = 0; i < 2; i++)
+        {
+          int contents_set = 0;
+          enum command_id cmd = contents_cmds[i];
+          const OPTION *contents_option_ref
+                           = get_command_option (self->conf, cmd);
+          if (contents_option_ref->o.integer > 0)
+            contents_set = 1;
+          if (contents_set)
+            {
+              char *contents_text
+                = contents_inline_element (self, cmd, 0);
+              if (contents_text)
+                {
+                  text_append (result, contents_text);
+                  if (self->conf->DEFAULT_RULE.o.string)
+                    {
+                      text_append (result, self->conf->DEFAULT_RULE.o.string);
+                      text_append_n (result, "\n", 1);
+                    }
+                  free (contents_text);
+                }
+            }
+        }
+    }
+}
+
+/* Convert @titlepage.  Falls back to simpletitle. */
+static char *
+html_default_format_titlepage (CONVERTER *self)
+{
+  int titlepage_text = 0;
+  TEXT result;
+  text_init (&result);
+  text_append (&result, "");
+  if (self->document->global_commands.titlepage)
+    {
+      ELEMENT *tmp = new_element (ET_NONE);
+      tmp->e.c->contents = self->document->global_commands.titlepage->e.c->contents;
+      html_convert_tree_append (self, tmp, &result, "convert titlepage");
+      tmp->e.c->contents.list = 0;
+      destroy_element (tmp);
+      titlepage_text = 1;
+    }
+  else if (self->simpletitle_tree)
+    {
+      format_simpletitle (self, &result);
+      titlepage_text = 1;
+    }
+  if (titlepage_text && self->conf->DEFAULT_RULE.o.string)
+    {
+      text_append (&result, self->conf->DEFAULT_RULE.o.string);
+      text_append_n (&result, "\n", 1);
+    }
+  contents_shortcontents_in_title (self, &result);
+  return result.text;
+}
+
+static char *
+format_titlepage (CONVERTER *self)
+{
+  const FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_titlepage];
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
+    {
+      return html_default_format_titlepage (self);
+    }
+  else
+    {
+      return call_formatting_function_format_titlepage (self,
+                                               formatting_reference);
+    }
+}
+
+char *
+html_default_format_title_titlepage (CONVERTER *self)
+{
+  if (self->conf->SHOW_TITLE.o.integer > 0)
+    {
+      if (self->conf->USE_TITLEPAGE_FOR_TITLE.o.integer)
+        {
+          return format_titlepage (self);
+        }
+      else
+        {
+          TEXT result;
+          text_init (&result);
+          text_append (&result, "");
+
+          if (self->simpletitle_tree)
+            format_simpletitle (self, &result);
+
+          contents_shortcontents_in_title (self, &result);
+          return result.text;
+        }
+    }
+  return strdup ("");
+}
+
+char *
+html_format_title_titlepage (CONVERTER *self)
+{
+  const FORMATTING_REFERENCE *formatting_reference
+   = &self->current_formatting_references[FR_format_title_titlepage];
+  if (formatting_reference->status == FRS_status_default_set
+      || formatting_reference->status == FRS_status_none)
+    {
+      return html_default_format_title_titlepage (self);
+    }
+  else
+    {
+      return call_formatting_function_format_title_titlepage (self,
+                                                      formatting_reference);
+    }
+}
+
+
+
+/* @-command elements conversion and open functions */
+
+/* this function allows to call a conversion function associated to
+   a COMMAND_CONVERSION different from the ELEMENT and CMD arguments
+   associated command conversion */
+static void
+conversion_function_cmd_conversion (CONVERTER *self,
+                       COMMAND_CONVERSION_FUNCTION *command_conversion,
+                    const enum command_id cmd, const ELEMENT *element,
+                    const HTML_ARGS_FORMATTED *args_formatted,
+                    const char *content, TEXT *result)
+{
+  if (command_conversion->status == FRS_status_internal)
+    {
+      (command_conversion->command_conversion)
+                   (self, cmd, element, args_formatted,
+                    content, result);
+    }
+  else
+    {
+      FORMATTING_REFERENCE *formatting_reference
+        = command_conversion->formatting_reference;
+      if (formatting_reference->status > 0)
+         call_commands_conversion (self, cmd, formatting_reference,
+                                 element, args_formatted, content,
+                                 result);
+
+    }
+}
+
+static void
 text_element_conversion (CONVERTER *self,
                          const HTML_NO_ARG_COMMAND_CONVERSION *specification,
                          const enum command_id cmd,
@@ -6679,93 +6921,6 @@ html_convert_U_command (CONVERTER *self, const enum command_id cmd,
       text_printf (result, "&#x%s;",
                    args_formatted->args[0].formatted[AFT_type_normal]);
     }
-}
-
-/* command is NULL unless called from @-command formatting function */
-static char *
-contents_inline_element (CONVERTER *self, const enum command_id cmd,
-                         const ELEMENT *element)
-{
-  char *table_of_contents;
-
-  if (self->conf->DEBUG.o.integer > 0)
-    fprintf (stderr, "CONTENTS_INLINE %s\n", builtin_command_name (cmd));
-
-  table_of_contents = format_contents (self, cmd, element, 0);
-  if (table_of_contents && strlen (table_of_contents))
-    {
-      int j;
-      for (j = 0; self->command_special_variety_name_index[j].cmd; j++)
-        {
-          COMMAND_ID_INDEX cmd_variety_index
-                = self->command_special_variety_name_index[j];
-          if (cmd_variety_index.cmd == cmd)
-            {
-              const char *id;
-              char *heading = 0;
-              TEXT result;
-              STRING_LIST *classes;
-              const char *class_base;
-              char *class;
-              char *attribute_class;
-
-              const char *special_unit_variety
-                = self->special_unit_varieties.list[cmd_variety_index.index];
-              int special_unit_direction_index
-                    = html_special_unit_variety_direction_index (self,
-                                                special_unit_variety);
-              const OUTPUT_UNIT *special_unit
-                = self->global_units_directions[special_unit_direction_index];
-              const ELEMENT *unit_command
-                = special_unit->uc.special_unit_command;
-
-              text_init (&result);
-
-              classes = new_string_list ();
-              class_base = html_special_unit_info (self, SUI_type_class,
-                                                   special_unit_variety);
-              xasprintf (&class, "region-%s", class_base);
-
-              add_string (class, classes);
-              free (class);
-              attribute_class = html_attribute_class (self, "div", classes);
-              clear_strings_list (classes);
-
-              text_append (&result, attribute_class);
-              free (attribute_class);
-
-              id = html_command_id (self, unit_command);
-              if (id && strlen (id))
-                text_printf (&result, " id=\"%s\"", id);
-              heading = html_command_text (self, unit_command, 0);
-
-              text_append_n (&result, ">\n", 2);
-
-              xasprintf (&class, "%s-heading", class_base);
-
-              add_string (class, classes);
-              free (class);
-
-              if (!heading)
-                heading = strdup ("");
-              format_heading_text (self, 0, classes, heading,
-                                   self->conf->CHAPTER_HEADER_LEVEL.o.integer,
-                                   0, 0, 0, &result);
-              destroy_strings_list (classes);
-
-              free (heading);
-
-              text_append_n (&result, "\n", 1);
-
-              text_append (&result, table_of_contents);
-              text_append_n (&result, "</div>\n", 7);
-
-              free (table_of_contents);
-              return result.text;
-            }
-        }
-    }
-  return 0;
 }
 
 static char *mini_toc_array[] = {"mini-toc"};
@@ -10724,6 +10879,9 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
   free (formatted_quotation_arg_to_prepend);
 }
 
+
+
+/* element types conversion and open functions */
 
 void
 html_type_conversion_external (CONVERTER *self, const enum element_type type,
@@ -12226,6 +12384,10 @@ html_open_inline_container_type (CONVERTER *self, const enum element_type type,
     }
 }
 
+
+
+/* output units conversion functions */
+
 void
 html_output_unit_conversion_external (CONVERTER *self,
                                const enum output_unit_type unit_type,
@@ -12412,154 +12574,9 @@ html_convert_special_unit_type (CONVERTER *self,
                          result);
 }
 
-void
-contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
-{
-  if (self->document->sections_list
-      && self->document->sections_list->number > 0
-      && self->conf->CONTENTS_OUTPUT_LOCATION.o.string
-      && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "after_title"))
-    {
-      enum command_id contents_cmds[2] = {CM_shortcontents, CM_contents};
-      int i;
-      for (i = 0; i < 2; i++)
-        {
-          int contents_set = 0;
-          enum command_id cmd = contents_cmds[i];
-          const OPTION *contents_option_ref
-                           = get_command_option (self->conf, cmd);
-          if (contents_option_ref->o.integer > 0)
-            contents_set = 1;
-          if (contents_set)
-            {
-              char *contents_text
-                = contents_inline_element (self, cmd, 0);
-              if (contents_text)
-                {
-                  text_append (result, contents_text);
-                  if (self->conf->DEFAULT_RULE.o.string)
-                    {
-                      text_append (result, self->conf->DEFAULT_RULE.o.string);
-                      text_append_n (result, "\n", 1);
-                    }
-                  free (contents_text);
-                }
-            }
-        }
-    }
-}
+
 
-static void
-format_simpletitle (CONVERTER *self, TEXT *result)
-{
-  char *title_text;
-  char *context_str;
-  enum command_id cmd = self->simpletitle_cmd;
-
-  STRING_LIST *classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
-
-  xasprintf (&context_str, "%s simpletitle",
-             builtin_command_name (cmd));
-  title_text
-    = html_convert_tree_new_formatting_context (self,
-        self->simpletitle_tree, context_str, 0, 0, 0);
-  free (context_str);
-  format_heading_text (self, cmd, classes, title_text,
-                                    0, 0, 0, 0, result);
-  destroy_strings_list (classes);
-  free (title_text);
-}
-
-/* Convert @titlepage.  Falls back to simpletitle. */
-char *
-html_default_format_titlepage (CONVERTER *self)
-{
-  int titlepage_text = 0;
-  TEXT result;
-  text_init (&result);
-  text_append (&result, "");
-  if (self->document->global_commands.titlepage)
-    {
-      ELEMENT *tmp = new_element (ET_NONE);
-      tmp->e.c->contents = self->document->global_commands.titlepage->e.c->contents;
-      html_convert_tree_append (self, tmp, &result, "convert titlepage");
-      tmp->e.c->contents.list = 0;
-      destroy_element (tmp);
-      titlepage_text = 1;
-    }
-  else if (self->simpletitle_tree)
-    {
-      format_simpletitle (self, &result);
-      titlepage_text = 1;
-    }
-  if (titlepage_text && self->conf->DEFAULT_RULE.o.string)
-    {
-      text_append (&result, self->conf->DEFAULT_RULE.o.string);
-      text_append_n (&result, "\n", 1);
-    }
-  contents_shortcontents_in_title (self, &result);
-  return result.text;
-}
-
-char *
-format_titlepage (CONVERTER *self)
-{
-  const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_titlepage];
-  if (formatting_reference->status == FRS_status_default_set
-      || formatting_reference->status == FRS_status_none)
-    {
-      return html_default_format_titlepage (self);
-    }
-  else
-    {
-      return call_formatting_function_format_titlepage (self,
-                                               formatting_reference);
-    }
-}
-
-char *
-html_default_format_title_titlepage (CONVERTER *self)
-{
-  if (self->conf->SHOW_TITLE.o.integer > 0)
-    {
-      if (self->conf->USE_TITLEPAGE_FOR_TITLE.o.integer)
-        {
-          return format_titlepage (self);
-        }
-      else
-        {
-          TEXT result;
-          text_init (&result);
-          text_append (&result, "");
-
-          if (self->simpletitle_tree)
-            format_simpletitle (self, &result);
-
-          contents_shortcontents_in_title (self, &result);
-          return result.text;
-        }
-    }
-  return strdup ("");
-}
-
-char *
-html_format_title_titlepage (CONVERTER *self)
-{
-  const FORMATTING_REFERENCE *formatting_reference
-   = &self->current_formatting_references[FR_format_title_titlepage];
-  if (formatting_reference->status == FRS_status_default_set
-      || formatting_reference->status == FRS_status_none)
-    {
-      return html_default_format_title_titlepage (self);
-    }
-  else
-    {
-      return call_formatting_function_format_title_titlepage (self,
-                                                      formatting_reference);
-    }
-}
+/* special unit body formatting functions */
 
 void
 html_special_unit_body_formatting_external (CONVERTER *self,

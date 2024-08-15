@@ -10,6 +10,12 @@
 
 2024-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/format_html.c: move code around to have all
+	formatting functions together.  Add more sections delimited by line
+	feeds.
+
+2024-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_append):
 	rename convert_tree_append as html_convert_tree_append.  Update
 	callers.
