@@ -3378,7 +3378,7 @@ html_default_format_program_string (CONVERTER *self, TEXT *result)
       explanation = "Tr program string date";
     }
   add_tree_to_build (self, tree);
-  convert_tree_append (self, tree, result, explanation);
+  html_convert_tree_append (self, tree, result, explanation);
   remove_tree_to_build (self, tree);
   destroy_element_and_children (tree);
 }
@@ -3480,7 +3480,7 @@ html_default_format_end_file (CONVERTER *self, const char *filename,
               tree = html_cdt_tree ("JavaScript license information",
                                      self, 0, 0);
               add_tree_to_build (self, tree);
-              convert_tree_append (self, tree, &result,
+              html_convert_tree_append (self, tree, &result,
                                         "Tr JS license header");
               remove_tree_to_build (self, tree);
 
@@ -5458,7 +5458,7 @@ html_convert_today_command (CONVERTER *self, const enum command_id cmd,
 
   add_tree_to_build (self, today_element);
 
-  convert_tree_append (self, today_element, result, "convert today");
+  html_convert_tree_append (self, today_element, result, "convert today");
 
   remove_tree_to_build (self, today_element);
   destroy_element_and_children (today_element);
@@ -5586,7 +5586,7 @@ html_convert_value_command (CONVERTER *self, const enum command_id cmd,
                         self, substrings, 0);
 
   add_tree_to_build (self, tree);
-  convert_tree_append (self, tree, result, "Tr missing value");
+  html_convert_tree_append (self, tree, result, "Tr missing value");
   remove_tree_to_build (self, tree);
 
   destroy_element_and_children (tree);
@@ -5773,7 +5773,7 @@ html_convert_explained_command (CONVERTER *self, const enum command_id cmd,
       xasprintf (&context_str, "convert explained %s",
                  builtin_command_name (cmd));
       add_tree_to_build (self, tree);
-      convert_tree_append (self, tree, result, context_str);
+      html_convert_tree_append (self, tree, result, context_str);
       remove_tree_to_build (self, tree);
       free (context_str);
       /* should destroy explained_*_element */
@@ -6962,7 +6962,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
                   if (menu_node)
                     {
                       add_tree_to_build (self, menu_node);
-                      convert_tree_append (self, menu_node,
+                      html_convert_tree_append (self, menu_node,
                                                 &toc_or_mini_toc_or_auto_menu,
                                                 "master menu");
                       remove_tree_to_build (self, menu_node);
@@ -7815,7 +7815,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
       char *context_str;
       xasprintf (&context_str, "convert xref %s", builtin_command_name (cmd));
       add_tree_to_build (self, tree);
-      convert_tree_append (self, tree, result, context_str);
+      html_convert_tree_append (self, tree, result, context_str);
       remove_tree_to_build (self, tree);
       free (context_str);
       /* should destroy reference_element and book_element */
@@ -8743,7 +8743,7 @@ html_convert_verbatiminclude_command (CONVERTER *self,
   if (verbatim_include_verbatim)
     {
       add_tree_to_build (self, verbatim_include_verbatim);
-      convert_tree_append (self, verbatim_include_verbatim,
+      html_convert_tree_append (self, verbatim_include_verbatim,
                                 result, "convert verbatiminclude");
       remove_tree_to_build (self, verbatim_include_verbatim);
       destroy_element_and_children (verbatim_include_verbatim);
@@ -9095,7 +9095,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
           else
             converted_e = element->e.c->args.list[0];
 
-          convert_tree_append (self, converted_e, result,
+          html_convert_tree_append (self, converted_e, result,
                                     "convert table_item_tree");
 
           if (pre_class_close)
@@ -9221,7 +9221,7 @@ html_convert_insertcopying_command (CONVERTER *self, const enum command_id cmd,
     {
       ELEMENT *tmp = new_element (ET_NONE);
       tmp->e.c->contents = self->document->global_commands.copying->e.c->contents;
-      convert_tree_append (self, tmp, result, "convert insertcopying");
+      html_convert_tree_append (self, tmp, result, "convert insertcopying");
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
     }
@@ -11181,7 +11181,7 @@ html_convert_untranslated_def_line_arg_type
 
   add_tree_to_build (self, translated);
 
-  convert_tree_append (self, translated, result,
+  html_convert_tree_append (self, translated, result,
                             "translated TEXT");
 
   remove_tree_to_build (self, translated);
@@ -11431,9 +11431,9 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
       if (name_entry)
         {
-          convert_tree_append (self, name_entry, result,
+          html_convert_tree_append (self, name_entry, result,
                                   "menu_arg menu_entry_name preformatted");
-          convert_tree_append (self,
+          html_convert_tree_append (self,
                      menu_entry_separators[entry_separators_idx],
                      result, "menu_arg name separator preformatted");
           entry_separators_idx++;
@@ -11452,7 +11452,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
           add_tree_to_build (self, root_code);
 
-          convert_tree_append (self, root_code, result,
+          html_convert_tree_append (self, root_code, result,
                                "menu_arg menu_entry_node preformatted");
 
           remove_tree_to_build (self, root_code);
@@ -11465,7 +11465,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
       if (entry_separators_idx < entry_separators_nr)
         {
-          convert_tree_append (self,
+          html_convert_tree_append (self,
                      menu_entry_separators[entry_separators_idx],
                      result, "menu_arg node separator preformatted");
           entry_separators_idx++;
@@ -11518,7 +11518,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
         }
       else if (menu_description)
         {
-          convert_tree_append (self, menu_description, result,
+          html_convert_tree_append (self, menu_description, result,
                                     "menu_arg description preformatted");
         }
     }
@@ -11936,7 +11936,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       free (attribute_class);
       text_append_n (&def_call, ">", 1);
 
-      convert_tree_append (self, root_code, &def_call, explanation);
+      html_convert_tree_append (self, root_code, &def_call, explanation);
 
       remove_tree_to_build (self, root_code);
       destroy_element (root_code);
@@ -12036,7 +12036,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       if (category_tree)
         {
           add_tree_to_build (self, category_tree);
-          convert_tree_append (self, category_tree, result, 0);
+          html_convert_tree_append (self, category_tree, result, 0);
           remove_tree_to_build (self, category_tree);
           destroy_element_and_children (category_tree);
         }
@@ -12127,7 +12127,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
             }
           free (attribute_open);
           add_tree_to_build (self, category_tree);
-          convert_tree_append (self, category_tree, result, explanation);
+          html_convert_tree_append (self, category_tree, result, explanation);
           remove_tree_to_build (self, category_tree);
           destroy_element_and_children (category_tree);
           if (open_len)
@@ -12483,7 +12483,7 @@ html_default_format_titlepage (CONVERTER *self)
     {
       ELEMENT *tmp = new_element (ET_NONE);
       tmp->e.c->contents = self->document->global_commands.titlepage->e.c->contents;
-      convert_tree_append (self, tmp, &result, "convert titlepage");
+      html_convert_tree_append (self, tmp, &result, "convert titlepage");
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
       titlepage_text = 1;

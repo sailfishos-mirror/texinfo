@@ -221,9 +221,6 @@ remove_tree_to_build (CONVERTER *self, ELEMENT *e)
     remove_element_from_list (&self->tree_to_build, e);
 }
 
-void convert_tree_append (CONVERTER *self, const ELEMENT *e,
-                          TEXT *result, const char *explanation);
-
 void
 html_translate_convert_tree_append (const char *string,
                      CONVERTER *self,
@@ -235,7 +232,7 @@ html_translate_convert_tree_append (const char *string,
                            replaced_substrings, translation_context);
 
   add_tree_to_build (self, translation_tree);
-  convert_tree_append (self, translation_tree, result, explanation);
+  html_convert_tree_append (self, translation_tree, result, explanation);
   remove_tree_to_build (self, translation_tree);
 
   destroy_element_and_children (translation_tree);
@@ -249,7 +246,7 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree,
   TEXT result;
   text_init (&result);
 
-  convert_tree_append (self, tree, &result, explanation);
+  html_convert_tree_append (self, tree, &result, explanation);
 
   return result.text;
 }
@@ -1150,7 +1147,7 @@ debug_print_html_contexts (const CONVERTER *self)
 
 /* EXPLANATION is used for debugging */
 void
-convert_tree_append (CONVERTER *self, const ELEMENT *element,
+html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                           TEXT *result, const char *explanation)
 {
   /* for debugging, for explanations */
@@ -1337,7 +1334,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
                       char *explanation;
                       xasprintf (&explanation, "%s c[%zu]", command_type.text,
                                 content_idx);
-                      convert_tree_append (self, content,
+                      html_convert_tree_append (self, content,
                                                 &content_formatted,
                                                 explanation);
                       free (explanation);
@@ -1412,7 +1409,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
                             {
                               xasprintf (&explanation, "%s A[%zu]normal",
                                                    command_type.text, arg_idx);
-                              convert_tree_append (self, arg,
+                              html_convert_tree_append (self, arg,
                                                         &formatted_arg,
                                                         explanation);
                               free (explanation);
@@ -1430,7 +1427,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
                           push_integer_stack_integer (
                                           &top_document_ctx->monospace, 1);
 
-                          convert_tree_append (self, arg, &formatted_arg,
+                          html_convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
                           pop_integer_stack
                               (&top_document_ctx->monospace);
@@ -1450,7 +1447,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
                           xasprintf (&explanation, "%s A[%zu]string",
                                                    command_type.text, arg_idx);
-                          convert_tree_append (self, arg, &formatted_arg,
+                          html_convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
@@ -1472,7 +1469,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
                                &string_document_ctx->monospace, 1);
                           xasprintf (&explanation, "%s A[%zu]monospacestring",
                                                    command_type.text, arg_idx);
-                          convert_tree_append (self, arg, &formatted_arg,
+                          html_convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
@@ -1533,7 +1530,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
                           top_document_ctx->raw_ctx++;
                           xasprintf (&explanation, "%s A[%zu]raw",
                                                    command_type.text, arg_idx);
-                          convert_tree_append (self, arg, &formatted_arg,
+                          html_convert_tree_append (self, arg, &formatted_arg,
                                                     explanation);
 
                           free (explanation);
@@ -1610,7 +1607,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
         {
           if (element->e.c->args.number > 0)
             {
-              convert_tree_append (self, element->e.c->args.list[0],
+              html_convert_tree_append (self, element->e.c->args.list[0],
                                         &content_formatted,
                                         "DEFINFOENCLOSE_ARG");
             }
@@ -1627,7 +1624,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
               char *explanation;
               xasprintf (&explanation, "%s c[%zu]", command_type.text,
                         content_idx);
-              convert_tree_append (self, content, &content_formatted,
+              html_convert_tree_append (self, content, &content_formatted,
                                         explanation);
               free (explanation);
             }
@@ -1672,7 +1669,7 @@ convert_tree_append (CONVERTER *self, const ELEMENT *element,
           const ELEMENT *content = element->e.c->contents.list[content_idx];
           char *explanation;
           xasprintf (&explanation, " C[%zu]", content_idx);
-          convert_tree_append (self, content, &content_formatted,
+          html_convert_tree_append (self, content, &content_formatted,
                                     explanation);
           free (explanation);
         }
@@ -1748,7 +1745,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
          char *content_explanation;
          xasprintf (&content_explanation, "%s c[%zu]",
                     output_unit_type_names[unit_type], content_idx);
-         convert_tree_append (self, content, &content_formatted,
+         html_convert_tree_append (self, content, &content_formatted,
                                    content_explanation);
          free (content_explanation);
        }

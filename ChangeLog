@@ -10,6 +10,12 @@
 
 2024-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_append):
+	rename convert_tree_append as html_convert_tree_append.  Update
+	callers.
+
+2024-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_converter_types.h: declare
 	translated_special_unit_info, direction_string_type_names,
 	direction_string_context_names, html_conversion_context_type_names,
