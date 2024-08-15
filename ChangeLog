@@ -1,5 +1,12 @@
 2024-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* autogen.sh: Do not append command line arguments ("$@") to
+	automake command line.  The purpose of this is unknown.  It
+	meant that an incorrect "-n" flag would be printed in "chicken"
+	mode.
+
+2024-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/pm_to_blib: Remove empty, apparently useless
 	file.
 

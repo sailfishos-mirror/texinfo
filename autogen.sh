@@ -43,8 +43,8 @@ fi
 : ${AUTOMAKE=automake}
 : ${AUTOCONF=autoconf}
 cmd="$ACLOCAL -I gnulib/m4 && $AUTOCONF && $AUTOHEADER && $AUTOMAKE -a -c"
-echo "  $cmd $*"
-$chicken eval $cmd "$@" || exit 1
+echo "  $cmd"
+$chicken eval $cmd || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
 cmd="(cd tp/Texinfo/XS && ${LIBTOOLIZE} \
