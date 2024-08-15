@@ -280,7 +280,6 @@ tp/Texinfo/XS/.libs
 tp/Texinfo/XS/TestXS.c
 tp/Texinfo/XS/MiscXS.c
 tp/Texinfo/XS/XSParagraph.c
-tp/Texinfo/XS/ar-lib
 tp/Texinfo/XS/config.h
 tp/Texinfo/XS/config.log
 tp/Texinfo/XS/libtool
