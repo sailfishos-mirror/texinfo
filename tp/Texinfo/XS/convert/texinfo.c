@@ -38,8 +38,7 @@
 #include "structuring.h"
 #include "transformations.h"
 #include "converter.h"
-#include "convert_html.h"
-#include "html_prepare_converter.h"
+#include "html_converter_api.h"
 #include "texinfo.h"
 
 /* initialization of the library. */
@@ -372,83 +371,14 @@ txi_converter_initialize (CONVERTER *converter,
 char *
 txi_html_output (CONVERTER *converter, DOCUMENT *document)
 {
-  int i;
-  char *paths[5];
-  const char *output_file;
-  const char *destination_directory;
-  const char *output_filename;
-  const char *document_name;
-  char *result = 0;
-  int status;
+  return html_output (converter, document);
+}
 
-  /* prepare conversion to HTML */
-  converter_set_document (converter, document);
-
-  html_initialize_output_state (converter, "_output");
-
-  status = html_setup_output (converter, paths);
-
-  if (!status)
-   {
-     memset (paths, 0, 5 * sizeof (char *));
-     goto finalization;
-   }
-
-  output_file = paths[0];
-  destination_directory = paths[1];
-  output_filename = paths[2];
-  document_name = paths[3];
-
-  html_prepare_conversion_units (converter);
-
-  html_prepare_conversion_units_targets (converter, converter->document_name);
-
-  html_translate_names (converter);
-
-  html_prepare_units_directions_files (converter,
-                   output_file, destination_directory, output_filename,
-                                document_name);
-  status = html_prepare_converted_output_info (converter, output_file,
-                                                     output_filename);
-
-  if (!status)
-    goto finalization;
-
-  /* conversion */
-  if (converter->document)
-    {
-      result = html_convert_output (converter, converter->document->tree,
-                  output_file, destination_directory, output_filename,
-                        document_name);
-    }
-
-  if (!result)
-    goto finalization;
-
-  if (strlen (result) && !strlen (output_file))
-    {
-      if (converter->conf->TEST.o.integer <= 0 )
-        {
-    /* This case is unlikely to happen, as there is no output file
-       only if formatting is called as convert, which only happens in tests.
-     */
-          html_do_js_files (converter);
-        }
-      goto finalization;
-    }
-
-  status = html_finish_output (converter, output_file, destination_directory);
-
- finalization:
-
-  for (i = 0; i < 5; i++)
-    {
-      free (paths[i]);
-    }
-
-  html_conversion_finalization (converter);
-
-  return result;
+/* similar to Texinfo::Convert::HTML->convert */
+char *
+txi_html_convert (CONVERTER *converter, DOCUMENT *document)
+{
+  return html_convert (converter, document);
 }
 
 
@@ -506,5 +436,4 @@ txi_handle_converter_error_messages (CONVERTER *converter, int no_warn,
 {
   return handle_error_messages (&converter->error_messages, no_warn,
                          use_filename, message_encoding);
-
 }

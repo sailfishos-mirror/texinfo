@@ -694,7 +694,7 @@ html_converter_init_special_unit (CONVERTER *self)
     }
 }
 
-/* Used to get Perl formatting references.  Initalize in C */
+/* Used to get Perl formatting references.  Initialize in C */
 FORMATTING_REFERENCE *
 new_special_unit_formatting_references (int special_units_varieties_nr)
 {
@@ -705,7 +705,7 @@ new_special_unit_formatting_references (int special_units_varieties_nr)
   return formatting_references;
 }
 
-/* sed to get htmlxref info from Perl.  Initalize in C */
+/* Used to get htmlxref info from Perl.  Initialize in C */
 HTMLXREF_MANUAL *
 new_htmlxref_manual_list (size_t size)
 {

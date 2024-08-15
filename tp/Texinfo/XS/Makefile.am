@@ -399,6 +399,8 @@ C_libtexinfo_convert_sources = \
                        convert/html_conversion_state.h \
                        convert/html_prepare_converter.c \
                        convert/html_prepare_converter.h \
+                       convert/html_converter_api.c \
+                       convert/html_converter_api.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 

@@ -14,15 +14,19 @@ extern const char *html_formatting_reference_names[];
 
 extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
+
+
 void html_format_setup (void);
 
 
 
+/* called from XS only */
 FORMATTING_REFERENCE *new_special_unit_formatting_references
                                       (int special_units_varieties_nr);
-
+/* Called from XS only */
 HTMLXREF_MANUAL *new_htmlxref_manual_list (size_t size);
 
+/* Called from XS only */
 SPECIAL_UNIT_INFO *html_add_special_unit_info (
                             SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
                             int type, size_t variety_nr, const char *value);
@@ -64,6 +68,7 @@ void html_prepare_output_units_global_targets (CONVERTER *self);
 /* called from XS only */
 void html_setup_global_units_direction_names (CONVERTER *self);
 
+/* only called for output() */
 FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
           const char *output_file, const char *destination_directory,
           const char *output_filename, const char *document_name);

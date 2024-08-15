@@ -76,9 +76,11 @@ int html_run_stage_handlers (CONVERTER *self,
 void html_setup_output_simple_page (CONVERTER *self,
                                     const char *output_filename);
 
+/* next two called separately for convert() */
 void html_prepare_simpletitle (CONVERTER *self);
 void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
                                    const char *output_filename);
+/* only for output() */
 int html_prepare_converted_output_info (CONVERTER *self,
                                         const char *output_file,
                                         const char *output_filename);
@@ -87,8 +89,6 @@ int html_prepare_converted_output_info (CONVERTER *self,
 char *debug_print_html_contexts (const CONVERTER *self);
 
 char *html_convert_convert (CONVERTER *self, const ELEMENT *root);
-char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,
-                         const char *explanation);
 
 char *html_convert_output (CONVERTER *self, const ELEMENT *root,
                            const char *output_file,
