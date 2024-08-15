@@ -109,6 +109,15 @@ const enum htmlxref_split_type htmlxref_entries[htmlxref_split_type_chapter + 1]
 
 /* string functions */
 
+void
+close_html_lone_element (const CONVERTER *self, TEXT *result)
+{
+  if (self->conf->USE_XML_SYNTAX.o.integer > 0)
+    text_append_n (result, "/>", 2);
+  else
+    text_append_n (result, ">", 1);
+}
+
 /* same as matching the regex /^\\[a-zA-Z0-9]+ /
  */
 char *
@@ -494,7 +503,7 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
 
 
 
-/* translation and tree conversion */
+/* string translation and tree conversion */
 
 char *
 format_translate_message (CONVERTER *self,
@@ -743,7 +752,7 @@ convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
 
 
 
-/* target, links, href, root command text interface */
+/* target, links, href and root command text formatting, with caching */
 
 /* this number should be safe to use even after targets list has been
    reallocated */
@@ -2396,8 +2405,6 @@ from_element_direction (CONVERTER *self, int direction,
 
 
 
-/* misc low level functions */
-
 const char *
 html_special_unit_info (const CONVERTER *self,
                         enum special_unit_info_type type,
@@ -2410,6 +2417,10 @@ html_special_unit_info (const CONVERTER *self,
 
   return self->special_unit_info[type][i];
 }
+
+
+
+/* html_attribute_class */
 
 static void
 add_new_css_page (PAGES_CSS_LIST *css_pages, const char *page_name)
@@ -2491,15 +2502,6 @@ collect_css_element_class (CONVERTER *self, const char *selector)
       page_css_list->list[page_css_list->number] = strdup (selector);
       page_css_list->number++;
     }
-}
-
-void
-close_html_lone_element (const CONVERTER *self, TEXT *result)
-{
-  if (self->conf->USE_XML_SYNTAX.o.integer > 0)
-    text_append_n (result, "/>", 2);
-  else
-    text_append_n (result, ">", 1);
 }
 
 static char *

@@ -1,12 +1,7 @@
-2024-10-04  Patrice Dumas  <pertusus@free.fr>
+2024-08-15  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/convert_html.c
-	(html_setup_output_simple_page),
-	tp/Texinfo/XS/convert/html_prepare_converter.c (html_set_pages_files):
-	readd self->pending_closes initialization that disappeared.
-
-	* tp/Texinfo/XS/convert/convert_html.c (html_command_description):
-	call html_get_target instead of find_element_target.
+	* tp/Texinfo/XS/convert/convert_html.c: add a form feed delimited code
+	section for html_attribute_class.
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
@@ -73,6 +68,16 @@
 	(new_special_unit_formatting_references, new_htmlxref_manual_list)
 	(initialize_js_categories_list, initialize_jslicense_files): move
 	functions and variables to html_prepare_converter.c.
+
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_setup_output_simple_page),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (html_set_pages_files):
+	readd self->pending_closes initialization that disappeared.
+
+	* tp/Texinfo/XS/convert/convert_html.c (html_command_description):
+	call html_get_target instead of find_element_target.
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
@@ -242,6 +247,12 @@
 	(html_check_htmlxref_already_warned)
 	(initialize_css_selector_style_list): move from convert_html.c
 	to html_conversion_state.c.
+
+2024-10-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/html_conversion_state.h: declare
+	html_register_opened_section_level and
+	html_close_registered_sections_level.
 
 2024-08-14  Patrice Dumas  <pertusus@free.fr>
 
