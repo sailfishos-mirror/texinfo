@@ -13,7 +13,7 @@ size_t get_output_units_descriptor_converter_sv (SV *converter_in);
 
 void html_converter_init_special_unit_sv (SV *converter_sv,
                               SV *customized_special_unit_info);
-void html_converter_initialize_sv (SV *converter_sv,
+void html_converter_get_customization_sv (SV *converter_sv,
                                   SV *default_formatting_references,
                                   SV *default_css_string_formatting_references,
                                   SV *default_commands_open,

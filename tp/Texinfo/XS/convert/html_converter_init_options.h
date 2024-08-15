@@ -8,5 +8,5 @@
 void html_converter_defaults (CONVERTER *self,
                               CONVERTER_INITIALIZATION_INFO *format_defaults);
 
-void html_converter_initialize (CONVERTER *self);
+void html_converter_initialize_beginning (CONVERTER *self);
 #endif

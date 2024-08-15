@@ -1091,10 +1091,10 @@ static const SPECIAL_UNIT_BODY_INTERNAL_CONVERSION
   {0, 0},
 };
 
-/* When initializing from Perl, html_converter_initialize_sv is called first
-   to set customization information based on Perl data.  Then this function
-   is called for the remainder of initialization that requires customization
-   information.
+/* When initializing from Perl, html_converter_get_customization_sv is called
+   first to set customization information based on Perl data.  Then this
+   function is called for the remainder of initialization that requires
+   customization information.
  */
 void
 html_converter_customize (CONVERTER *self)

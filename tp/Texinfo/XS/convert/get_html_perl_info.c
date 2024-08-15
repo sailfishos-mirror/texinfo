@@ -228,7 +228,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
 }
 
 void
-html_converter_initialize_sv (SV *converter_sv,
+html_converter_get_customization_sv (SV *converter_sv,
                               SV *default_formatting_references,
                               SV *default_css_string_formatting_references,
                               SV *default_commands_open,
@@ -284,7 +284,8 @@ html_converter_initialize_sv (SV *converter_sv,
 
   dTHX;
 
-  converter = get_sv_converter (converter_sv, "html_converter_initialize_sv");
+  converter = get_sv_converter (converter_sv,
+                                "html_converter_get_customization_sv");
 
   special_unit_varieties = &converter->special_unit_varieties;
 

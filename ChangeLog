@@ -10,6 +10,35 @@
 
 2024-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_XS_html_converter_get_customization)
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_converter_get_customization_sv),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): rename
+	html_converter_get_customization_sv as
+	_XS_html_converter_get_customization.
+
+	* tp/Texinfo/XS/convert/html_converter_init_options.c
+	(html_converter_initialize_beginning): rename
+	html_converter_initialize as html_converter_initialize_beginning.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(_XS_html_converter_initialize_beginning, converter_initialize),
+	tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_converter_initialize_beginning),
+	tp/Texinfo/XS/convert/converter.c (set_converter_init_information),
+	tp/Texinfo/XS/convert/texinfo.c (txi_converter_initialize): add an XS
+	override html_converter_initialize_beginning that is called at the
+	beginning of converter_initialize in Perl as
+	_XS_html_converter_initialize_beginning if XS is set.  Call
+	html_converter_initialize_beginning in this override and in
+	txi_converter_initialize.  Do not call
+	html_converter_initialize_beginning in set_converter_init_information
+	anymore.  The objective is to avoid to have the initialization
+	necessarily split in two in C.
+
+2024-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	TODO: update text on libraries as there are now private API at diverse
 	levels available for all the C codes with a good cover.
 

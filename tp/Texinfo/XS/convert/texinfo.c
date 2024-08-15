@@ -350,6 +350,7 @@ txi_converter_initialize (CONVERTER *converter,
   switch (converter_format)
     {
       case COF_html:
+        html_converter_initialize_beginning (converter);
         html_converter_init_special_unit (converter);
         html_converter_customize (converter);
 

@@ -59,16 +59,14 @@
 #include "unicode.h"
 #include "manipulate_indices.h"
 #include "document.h"
-#include "html_converter_init_options.h"
-#include "html_converter_finish.h"
-#include "call_perl_function.h"
+#include "html_converter_api.h"
 #include "converter.h"
 
 /* table used to dispatch format specific functions.
    Same purpose as inherited methods in Texinfo::Convert::Converter */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", &html_converter_defaults,
-   &html_converter_initialize, &html_reset_converter,
+   /* &html_converter_initialize */ 0, &html_reset_converter,
    &html_free_converter},
 };
 
@@ -320,7 +318,7 @@ apply_converter_info (CONVERTER *converter,
 
 /* apply format_defaults and user_conf initialization information and call
    format specific options setting and initialization functions.
-   Correspond to Perl _generic_converter_init and part of converter_initialize.
+   Correspond to Perl _generic_converter_init.
  */
 void
 set_converter_init_information (CONVERTER *converter,
@@ -358,15 +356,15 @@ set_converter_init_information (CONVERTER *converter,
                    converter->converted_format);
    */
 
+  /*
   if (converter_format != COF_none
       && converter_format_data[converter_format].converter_initialize)
     {
-      /* beginning of Perl converter_initialize always done in C even when
-         called from Perl */
       void (* format_converter_initialize) (CONVERTER *self)
         = converter_format_data[converter_format].converter_initialize;
       format_converter_initialize (converter);
     }
+  */
 }
 
 CONVERTER_INITIALIZATION_INFO *

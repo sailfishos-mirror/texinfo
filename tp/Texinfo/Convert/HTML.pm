@@ -111,8 +111,10 @@ my %XS_conversion_overrides = (
   # following are not called when output and convert are overriden
   "Texinfo::Convert::HTML::_XS_format_setup"
    => "Texinfo::Convert::ConvertXS::html_format_setup",
-  "Texinfo::Convert::HTML::_XS_html_converter_initialize"
-   => "Texinfo::Convert::ConvertXS::html_converter_initialize_sv",
+  "Texinfo::Convert::HTML::_XS_html_converter_initialize_beginning"
+   => "Texinfo::Convert::ConvertXS::html_converter_initialize_beginning",
+  "Texinfo::Convert::HTML::_XS_html_converter_get_customization"
+   => "Texinfo::Convert::ConvertXS::html_converter_get_customization_sv",
   "Texinfo::Convert::HTML::conversion_initialization"
    => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
   "Texinfo::Convert::HTML::_setup_convert"
@@ -8689,7 +8691,11 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize($$$$$$$$$$$$$$$$$$)
+sub _XS_html_converter_initialize_beginning($)
+{
+}
+
+sub _XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$)
 {
 }
 
@@ -8699,9 +8705,10 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  if (!($self->{'converter_descriptor'} and $XS_convert)) {
-    # initializatin done either in Perl or XS
-
+  # beginning of initialization done either in Perl or XS
+  if ($self->{'converter_descriptor'} and $XS_convert) {
+    _XS_html_converter_initialize_beginning($self);
+  } else {
     # used in initialization.  Set if undef
     if (!defined($self->get_conf('FORMAT_MENU'))) {
       $self->force_conf('FORMAT_MENU', '');
@@ -9086,7 +9093,7 @@ sub converter_initialize($)
   # XS parser initialization
   if ($self->{'converter_descriptor'} and $XS_convert) {
 
-    _XS_html_converter_initialize($self,
+    _XS_html_converter_get_customization($self,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
                              \%default_commands_open,

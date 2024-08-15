@@ -164,7 +164,7 @@ html_converter_defaults (CONVERTER *self,
 /* this code corresponds to the Perl converter_initialize code, only for
    code to be called before Perl customization setup information is passed */
 void
-html_converter_initialize (CONVERTER *self)
+html_converter_initialize_beginning (CONVERTER *self)
 {
   const char *split = self->conf->SPLIT.o.string;
   int max_header_level = self->conf->MAX_HEADER_LEVEL.o.integer;
