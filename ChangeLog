@@ -1,5 +1,10 @@
 2024-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* build-aux/ar-lib: Remove.  It does not appear to be
+	used anywhere.
+
+2024-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Untrack some build files
 
 	* build-aux/compile, build-aux/config.guess, build-aux/config.sub,
