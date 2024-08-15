@@ -49,6 +49,10 @@
    xml_text_entity_no_arg_commands_formatting */
 #include "converter.h"
 #include "call_html_perl_function.h"
+#include "format_html.h"
+/* html_complete_no_arg_commands_formatting html_run_stage_handlers
+   html_add_to_files_source_info html_find_file_source_info
+   html_setup_output_simple_page */
 #include "convert_html.h"
 #include "html_prepare_converter.h"
 

@@ -48,13 +48,10 @@
 #include "build_perl_info.h"
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
-/* for no_arg_formatted_cmd */
+/* for no_arg_formatted_cmd direction_string_type_names
+   direction_string_context_names html_conversion_context_type_names
+   html_argument_formatting_type_names translated_special_unit_info */
 #include "html_converter_types.h"
-/* for html_conversion_context_type_names direction_string_type_names
-   direction_string_context_names html_argument_formatting_type_names
-   translated_special_unit_info
- */
-#include "convert_html.h"
 /* for special_unit_info_type_names html_global_unit_direction_names
    html_setup_global_units_direction_names */
 #include "html_prepare_converter.h"

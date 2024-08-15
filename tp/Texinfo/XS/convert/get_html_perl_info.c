@@ -35,6 +35,9 @@
 #include "command_ids.h"
 #include "converter_types.h"
 #include "types_data.h"
+/* also for direction_string_type_names direction_string_context_names
+   html_conversion_context_type_names html_stage_handler_stage_type_names
+ */
 #include "html_converter_types.h"
 /* also for non_perl_* */
 #include "utils.h"
@@ -49,13 +52,10 @@
    new_htmlxref_manual_list htmlxref_split_type_names
    html_formatting_reference_names */
 #include "html_prepare_converter.h"
-/*
- for html_conversion_context_type_names direction_string_type_names
- direction_string_context_names html_stage_handler_stage_type_names
- html_special_unit_variety_direction_index html_get_target
- find_footnote_id_number
+/* html_special_unit_variety_direction_index html_get_target
+   find_footnote_id_number
  */
-#include "convert_html.h"
+#include "format_html.h"
 #include "get_perl_info.h"
 #include "get_converter_perl_info.h"
 /* for newSVpv_utf8 */

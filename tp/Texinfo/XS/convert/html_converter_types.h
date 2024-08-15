@@ -75,6 +75,18 @@ typedef struct COMMAND_ARGS_SPECIFICATION {
     unsigned long flags[MAX_COMMAND_ARGS_NR];
 } COMMAND_ARGS_SPECIFICATION;
 
+/* in conversion_data.c */
+extern const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[];
+
+/* in format_html.c */
+extern const char *direction_string_type_names[];
+extern const char *direction_string_context_names[];
+
+/* in convert_html.c */
+extern const char *html_conversion_context_type_names[];
+extern const char *html_argument_formatting_type_names[];
+extern const char *html_stage_handler_stage_type_names[];
+
 extern COMMAND_ARGS_SPECIFICATION html_command_args_flags[BUILTIN_CMD_NUMBER];
 
 extern HTML_COMMAND_STRUCT html_commands_data[BUILTIN_CMD_NUMBER];

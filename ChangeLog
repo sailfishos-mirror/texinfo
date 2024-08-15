@@ -1,5 +1,40 @@
 2024-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/html_converter_types.h: declare
+	translated_special_unit_info, direction_string_type_names,
+	direction_string_context_names, html_conversion_context_type_names,
+	html_argument_formatting_type_names and
+	html_stage_handler_stage_type_names.
+
+	* tp/Texinfo/XS/convert_html.c (html_close_lone_element)
+	(convert_tree_append): rename close_html_lone_element as
+	html_close_lone_element, convert_to_html_internal as
+	convert_tree_append and translate_convert_to_html_internal as
+	html_translate_convert_tree_append.
+
+	* tp/Texinfo/XS/convert_html.c (html_default_format_jslicense_file)
+	(html_default_format_date_in_header): split functions formatting HTML
+	out of do_jslicenses_file and html_convert_output.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
+	tp/Texinfo/XS/format_html.c, tp/Texinfo/XS/convert_html.c: split
+	convert_html.c, moving the formatting to HTML to format_html.c,
+	including html_default_format_jslicense_file and
+	html_default_format_date_in_header, keeping only higher level
+	conversion functions in convert_html.c.
+
+	* tp/Texinfo/XS/convert_html.c
+	(html_convert_string_tree_new_formatting_context)
+	(html_convert_tree_new_formatting_context, html_convert_css_string):
+	prepend html_ and declare in header file.
+
+	* tp/Texinfo/XS/format_html.c (html_format_title_titlepage)
+	(html_format_node_redirection_page, html_format_comment)
+	(html_format_end_file, html_format_begin_file): prepend html_ and
+	declare in header file.
+
+2024-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c: rename
 	convert_to_html_internal as convert_tree_append.
 
