@@ -16,6 +16,8 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 void html_format_setup (void);
 
+
+
 FORMATTING_REFERENCE *new_special_unit_formatting_references
                                       (int special_units_varieties_nr);
 
@@ -27,6 +29,8 @@ SPECIAL_UNIT_INFO *html_add_special_unit_info (
 
 void html_converter_init_special_unit (CONVERTER *self);
 void html_converter_customize (CONVERTER *self);
+
+
 
 char ***new_directions_strings_type (int nr_string_directions,
                                      int nr_dir_str_contexts);
@@ -44,17 +48,21 @@ void html_setup_convert (CONVERTER *self);
 
 void html_prepare_conversion_units (CONVERTER *self);
 
+
+
 int html_id_is_registered (CONVERTER *self, const char *string);
 void html_register_id (CONVERTER *self, const char *string);
 
 void html_prepare_conversion_units_targets (CONVERTER *self,
                                      const char *document_name);
 
+
 
+/* called separately for convert() */
 void html_prepare_output_units_global_targets (CONVERTER *self);
+
+/* called from XS only */
 void html_setup_global_units_direction_names (CONVERTER *self);
-const OUTPUT_UNIT *html_find_direction_name_global_unit (const CONVERTER *self,
-                                                   const char *direction_name);
 
 FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,
           const char *output_file, const char *destination_directory,

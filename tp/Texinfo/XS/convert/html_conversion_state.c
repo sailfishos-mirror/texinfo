@@ -1165,6 +1165,35 @@ html_check_htmlxref_already_warned (CONVERTER *self, const char *manual_name,
   return 0;
 }
 
+static int
+compare_global_units_direction_name (const void *a, const void *b)
+{
+  const SPECIAL_UNIT_DIRECTION *gudn_a = (const SPECIAL_UNIT_DIRECTION *) a;
+  const SPECIAL_UNIT_DIRECTION *gudn_b = (const SPECIAL_UNIT_DIRECTION *) b;
+
+  return strcmp (gudn_a->direction, gudn_b->direction);
+}
+
+/* Used from Perl through an XS override, in similar C codes the
+   direction indices are used instead of the direction names */
+const OUTPUT_UNIT *
+html_find_direction_name_global_unit (const CONVERTER *self,
+                                      const char *direction_name)
+{
+  SPECIAL_UNIT_DIRECTION *result = 0;
+  static SPECIAL_UNIT_DIRECTION searched_direction;
+
+  searched_direction.direction = direction_name;
+  result = (SPECIAL_UNIT_DIRECTION *) bsearch (&searched_direction,
+                self->global_units_direction_name.list,
+                self->global_units_direction_name.number,
+                sizeof (SPECIAL_UNIT_DIRECTION),
+                compare_global_units_direction_name);
+  if (!result)
+    return 0;
+  return result->output_unit;
+}
+
 
 
 void

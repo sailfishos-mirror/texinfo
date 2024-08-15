@@ -101,6 +101,9 @@ size_t html_check_htmlxref_already_warned (CONVERTER *self,
                                            const char *manual_name,
                                            const SOURCE_INFO *source_info);
 
+const OUTPUT_UNIT *html_find_direction_name_global_unit (const CONVERTER *self,
+                                                   const char *direction_name);
+
 void initialize_css_selector_style_list
                    (CSS_SELECTOR_STYLE_LIST *selector_styles,
                                          size_t size);

@@ -10,6 +10,15 @@
 
 2024-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/html_conversion_state.c
+	(compare_global_units_direction_name)
+	(html_find_direction_name_global_unit),
+	tp/Texinfo/XS/convert/html_prepare_converter.c: move
+	html_find_direction_name_global_unit to html_conversion_state.c and
+	duplicate compare_global_units_direction_name.
+
+2024-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/format_html.c: move code around to have all
 	formatting functions together.  Add more sections delimited by line
 	feeds.

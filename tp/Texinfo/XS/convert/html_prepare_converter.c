@@ -196,6 +196,10 @@ COMMAND_ID_LIST style_formatted_cmd;
 COMMAND_ID_LIST accent_cmd;
 COMMAND_ID_LIST format_raw_cmd;
 
+
+
+/* Initialization code called only once.  Setup some base/default data */
+
 void
 register_format_context_command (enum command_id cmd)
 {
@@ -599,6 +603,11 @@ html_format_setup (void)
   free (css_string_text.text);
 }
 
+
+
+/* setup special units info, apply defaults based on customization variables.
+   Apply specific customizations (from Perl) */
+
 /* for customized special_unit_info (coming from Perl) */
 SPECIAL_UNIT_INFO *
 html_add_special_unit_info (SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
@@ -623,7 +632,7 @@ html_add_special_unit_info (SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
   return special_unit_info;
 }
 
-char **
+static char **
 new_special_unit_info_type (int special_units_varieties_nr)
 {
   char **special_unit_info = (char **)
@@ -685,6 +694,7 @@ html_converter_init_special_unit (CONVERTER *self)
     }
 }
 
+/* Used to get Perl formatting references.  Initalize in C */
 FORMATTING_REFERENCE *
 new_special_unit_formatting_references (int special_units_varieties_nr)
 {
@@ -695,6 +705,7 @@ new_special_unit_formatting_references (int special_units_varieties_nr)
   return formatting_references;
 }
 
+/* sed to get htmlxref info from Perl.  Initalize in C */
 HTMLXREF_MANUAL *
 new_htmlxref_manual_list (size_t size)
 {
@@ -1778,6 +1789,16 @@ html_converter_customize (CONVERTER *self)
     */
 }
 
+
+
+/* Initialize output state.  Sequence of:
+     html_initialize_output_state
+     html_setup_output for output() or html_setup_convert for convert()
+
+   To be followed by setting up output units
+     html_prepare_conversion_units
+ */
+
 static void
 copy_html_no_arg_command_conversion (HTML_NO_ARG_COMMAND_CONVERSION *to,
                                      HTML_NO_ARG_COMMAND_CONVERSION *from)
@@ -1869,7 +1890,7 @@ close_lone_conf_element (OPTION *option)
     }
 }
 
-int
+static int
 compare_index_name (const void *a, const void *b)
 {
   const INDEX **idx_a = (const INDEX **) a;
@@ -1878,7 +1899,9 @@ compare_index_name (const void *a, const void *b)
   return strcmp ((*idx_a)->name, (*idx_b)->name);
 }
 
-const enum command_id spaces_cmd[] = {CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie};
+static const enum command_id spaces_cmd[] = {
+  CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie
+};
 
 /* called very early in conversion functions, before updating
    customization, before calling user-defined functions...  */
@@ -2906,7 +2929,7 @@ typedef struct SPECIAL_UNIT_ORDER {
     const char *variety;
 } SPECIAL_UNIT_ORDER;
 
-int
+static int
 compare_special_units (const void *a, const void *b)
 {
   const SPECIAL_UNIT_ORDER *spu_order_a = (const SPECIAL_UNIT_ORDER *) a;
@@ -2918,7 +2941,7 @@ compare_special_units (const void *a, const void *b)
   return strcmp (spu_order_a->variety, spu_order_b->variety);
 }
 
-void
+static void
 prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
 {
   size_t i;
@@ -3141,6 +3164,16 @@ html_prepare_conversion_units (CONVERTER *self)
 
 
 
+/* prepare HTML targets for nodes, floats, sections, footnotes, heading
+   commands, index entries and special output units.  Also prepare
+   normalized file names for root commands.
+
+   Both for output() and convert().
+   NOTE: in Perl done in prepare_conversion_units, separated here to
+   be able, in XS, to setup some Perl data between html_prepare_conversion_units
+   and html_prepare_conversion_units_targets.
+ */
+
 int
 html_id_is_registered (CONVERTER *self, const char *string)
 {
@@ -3223,7 +3256,7 @@ unique_target (CONVERTER *self, const char *target_base)
 }
 
 /* calls customization function requiring output units */
-void
+static void
 set_special_units_targets_files (CONVERTER *self, const char *document_name)
 {
   size_t i;
@@ -3505,7 +3538,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
  too, is not used later for Top anchors or links, see the NOTE below
  associated with setting TOP_NODE_FILE_TARGET.
  */
-void
+static void
 set_root_commands_targets_node_files (CONVERTER *self)
 {
 
@@ -3604,7 +3637,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
     }
 }
 
-void
+static void
 prepare_index_entries_targets (CONVERTER *self)
 {
   if (self->document->indices_info.number > 0)
@@ -3786,7 +3819,7 @@ static const enum command_id heading_commands_list[] = {
 };
 
 /* indirectly calls customization function requiring elements */
-void
+static void
 set_heading_commands_targets (CONVERTER *self)
 {
   int i;
@@ -3867,7 +3900,7 @@ check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
    The other data are in document order, for nodes and similar because
    the labels list is used instead of identifiers_target on purpose.
  */
-void
+static void
 sort_cmd_targets (CONVERTER *self)
 {
   enum command_id cmd;
@@ -3928,6 +3961,14 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 }
 
 
+
+/* For output() prepare pages and associate them to files, setup unit
+   direction and file counters.  In that case
+   html_prepare_output_units_global_targets is called in
+   html_prepare_units_directions_files.
+
+   For convert() html_prepare_output_units_global_targets only is called.
+ */
 
 /* Associate output units to the global targets, First, Last, Top, Index.
    and special output units */
@@ -4082,7 +4123,7 @@ compare_global_units_direction_name (const void *a, const void *b)
 
 /* To find more easily a global output unit based on a direction name, for an
    XS interface, associate global output units to names and sort according
-   to names */
+   to names.  Only called from Perl/XS, not need to call when doing C only */
 void
 html_setup_global_units_direction_names (CONVERTER *self)
 {
@@ -4131,27 +4172,6 @@ html_setup_global_units_direction_names (CONVERTER *self)
   self->global_units_direction_name.list = global_units_direction_names;
   self->global_units_direction_name.number = global_directions_nr;
 }
-
-/* Used from Perl through an XS override, in similar C codes the
-   direction indices are used instead of the direction names */
-const OUTPUT_UNIT *
-html_find_direction_name_global_unit (const CONVERTER *self,
-                                      const char *direction_name)
-{
-  SPECIAL_UNIT_DIRECTION *result = 0;
-  static SPECIAL_UNIT_DIRECTION searched_direction;
-
-  searched_direction.direction = direction_name;
-  result = (SPECIAL_UNIT_DIRECTION *) bsearch (&searched_direction,
-                self->global_units_direction_name.list,
-                self->global_units_direction_name.number,
-                sizeof (SPECIAL_UNIT_DIRECTION),
-                compare_global_units_direction_name);
-  if (!result)
-    return 0;
-  return result->output_unit;
-}
-
 
 static char *
 add_to_unit_file_name_paths (char **unit_file_name_paths,
