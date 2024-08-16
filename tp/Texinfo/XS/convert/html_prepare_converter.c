@@ -55,6 +55,8 @@
    html_setup_output_simple_page */
 #include "convert_html.h"
 #include "html_prepare_converter.h"
+#include "html_conversion_api.h"
+#include "html_converter_api.h"
 
 typedef struct CMD_VARIETY {
     enum command_id cmd;

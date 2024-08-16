@@ -66,6 +66,7 @@
 #include "html_conversion_state.h"
 #include "format_html.h"
 #include "convert_html.h"
+#include "html_conversion_api.h"
 
 const char *html_conversion_context_type_names[] = {
   #define cctx_type(name) #name,

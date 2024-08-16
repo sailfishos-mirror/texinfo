@@ -23,6 +23,8 @@
 #include "html_converter_types.h"
 
 
+/* NOTE the intermediate level functions are declared in
+        html_conversion_api.h */
 
 ELEMENT *html_cdt_tree (const char *string, CONVERTER *self,
                NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -67,7 +69,7 @@ void html_complete_no_arg_commands_formatting (CONVERTER *self,
                                                int translate);
 void html_reset_translated_special_unit_info_tree (CONVERTER *self);
 
-void html_translate_names (CONVERTER *self);
+/* void html_translate_names (CONVERTER *self); */
 
 
 int html_run_stage_handlers (CONVERTER *self,
@@ -77,32 +79,32 @@ void html_setup_output_simple_page (CONVERTER *self,
                                     const char *output_filename);
 
 /* next two called separately for convert() */
-void html_prepare_simpletitle (CONVERTER *self);
-void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
-                                   const char *output_filename);
+/* void html_prepare_simpletitle (CONVERTER *self); */
+/* void html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
+                                   const char *output_filename); */
 /* only for output() */
-int html_prepare_converted_output_info (CONVERTER *self,
+/* int html_prepare_converted_output_info (CONVERTER *self,
                                         const char *output_file,
-                                        const char *output_filename);
+                                        const char *output_filename); */
 
 
 char *debug_print_html_contexts (const CONVERTER *self);
 
-char *html_convert_convert (CONVERTER *self, const ELEMENT *root);
+/* char *html_convert_convert (CONVERTER *self, const ELEMENT *root); */
 
-char *html_convert_output (CONVERTER *self, const ELEMENT *root,
+/* char *html_convert_output (CONVERTER *self, const ELEMENT *root,
                            const char *output_file,
                            const char *destination_directory,
                            const char *output_filename,
-                           const char *document_name);
+                           const char *document_name); */
 
 
-void html_conversion_finalization (CONVERTER *self);
+/* void html_conversion_finalization (CONVERTER *self); */
 
 void html_check_transfer_state_finalization (CONVERTER *self);
 
 
-void html_do_js_files (CONVERTER *self);
+/* void html_do_js_files (CONVERTER *self); */
 
 void html_set_file_source_info (FILE_SOURCE_INFO *file_source_info,
                                 const char *file_info_type,
@@ -126,8 +128,8 @@ char *html_prepare_node_redirection_page (CONVERTER *self,
 int html_node_redirections (CONVERTER *self,
             const char *output_file, const char *destination_directory);
 
-int html_finish_output (CONVERTER *self, const char *output_file,
-                        const char *destination_directory);
+/* int html_finish_output (CONVERTER *self, const char *output_file,
+                        const char *destination_directory); */
 
 
 #endif

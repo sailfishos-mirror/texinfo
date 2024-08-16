@@ -1,5 +1,12 @@
 2024-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.h,
+	tp/Texinfo/XS/convert/html_prepare_converter.h: comment out function
+	definitions already done in html_conversion_api.h or
+	html_converter_api.h.
+
+2024-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
 	tp/Texinfo/XS/convert/html_converter_api.h,
 	tp/Texinfo/XS/convert/html_conversion_api.h: split

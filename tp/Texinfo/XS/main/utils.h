@@ -209,7 +209,6 @@ void set_output_encoding (OPTIONS *customization_information,
                           DOCUMENT *document);
 /* in options_init_free.c */
 OPTION *get_command_option (OPTIONS *options, enum command_id cmd);
-void html_fill_options_directions (OPTIONS *options, const CONVERTER *converter);
 
 void add_include_directory (const char *filename,
                             STRING_LIST *include_dirs_list);

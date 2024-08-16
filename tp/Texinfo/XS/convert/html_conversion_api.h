@@ -34,6 +34,7 @@ void html_converter_customize (CONVERTER *self);
 /* in options_init_free.c */
 void html_fill_options_directions (OPTIONS *options, const CONVERTER *converter);
 
+/* in html_prepare_converter.c */
 void html_initialize_output_state (CONVERTER *self, const char *context);
 
 int html_setup_output (CONVERTER *self, char **paths);
@@ -51,6 +52,7 @@ FILE_SOURCE_INFO_LIST *html_prepare_units_directions_files (CONVERTER *self,
           const char *output_file, const char *destination_directory,
           const char *output_filename, const char *document_name);
 
+/* in convert_html.c */
 void html_translate_names (CONVERTER *self);
 
 /* next two called separately for convert() */
