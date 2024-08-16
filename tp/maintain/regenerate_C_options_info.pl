@@ -401,15 +401,26 @@ print OHDEF "#undef PACKAGE_VERSION\n\n";
 
 foreach my $category (sort(keys(%option_categories))) {
   print OCDEF "\n/* ${category} */\n\n";
-  my $fun = "void set_${category}_regular_defaults (OPTIONS *options)";
+  my $options_fun = "void set_${category}_regular_defaults (OPTIONS *options)";
+  my $list_fun = "void add_${category}_regular_options_defaults (OPTIONS_LIST *options_list)";
 
-  print OHDEF "$fun;\n\n";
+  print OHDEF "$options_fun;\n\n";
+  print OHDEF "$list_fun;\n\n";
 
-  print OCDEF "$fun\n{\n";
+  print OCDEF "$options_fun\n{\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
     print OCDEF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+  }
+  print OCDEF "}\n\n";
+
+  print OCDEF "$list_fun\n{\n";
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    my ($int_value, $char_value) = get_value($type, $value);
+    print OCDEF "  add_new_option_value (options_list, GOT_$type, "
+                 ."\"$option\", $int_value, $char_value);\n";
   }
   print OCDEF "}\n\n";
 }
@@ -417,17 +428,32 @@ foreach my $category (sort(keys(%option_categories))) {
 my @sorted_formats = sort(keys(%converter_defaults));
 
 foreach my $format (@sorted_formats) {
-  my $fun = "void set_${format}_regular_options_defaults (OPTIONS *options)";
+  my $options_fun
+    = "void set_${format}_regular_options_defaults (OPTIONS *options)";
+  my $list_fun
+    = "void add_${format}_regular_options_defaults (OPTIONS_LIST *options_list)";
 
-  print OHDEF "$fun;\n\n";
+  print OHDEF "$options_fun;\n\n";
+  print OHDEF "$list_fun;\n\n";
 
-  print OCDEF "$fun\n{\n";
+  print OCDEF "$options_fun\n{\n";
   foreach my $option_spec (@{$converter_defaults{$format}}) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};
     my ($option_unused, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
     print OCDEF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+  }
+  print OCDEF "}\n\n";
+
+  print OCDEF "$list_fun\n{\n";
+  foreach my $option_spec (@{$converter_defaults{$format}}) {
+    my ($option, $value) = @$option_spec;
+    my $option_info = $options{$option};
+    my ($option_unused, $main_default, $type) = @$option_info;
+    my ($int_value, $char_value) = get_value($type, $value);
+    print OCDEF "  add_new_option_value (options_list, GOT_$type, "
+                 ."\"$option\", $int_value, $char_value);\n";
   }
   print OCDEF "}\n\n";
 }

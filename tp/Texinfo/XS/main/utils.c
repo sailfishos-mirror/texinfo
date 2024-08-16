@@ -1700,6 +1700,19 @@ html_get_direction_index (const CONVERTER *converter, const char *direction)
   return -1;
 }
 
+const char *
+direction_unit_direction_name (int direction, const CONVERTER *converter)
+{
+  if (direction < 0)
+    return 0;
+  else if (direction < NON_SPECIAL_DIRECTIONS_NR)
+    return html_button_direction_names[direction];
+  else if (converter && converter->direction_unit_direction_name)
+    return converter->direction_unit_direction_name[direction];
+  else
+   return 0;
+}
+
 
 
 void
@@ -1726,8 +1739,9 @@ html_fill_button_directions_specification_list (const CONVERTER *converter,
           if (button->b.button_info->direction < 0)
             {
               fprintf (stderr,
-                  "BUG: still unknown button %zu array direction: %d: %s\n",
-                     i, button->b.button_info->direction, direction_name);
+                  "BUG: %p: still unknown button %zu array direction: %d: %s\n",
+                     button, i, button->b.button_info->direction,
+                     direction_name);
             }
          */
         }
@@ -1737,15 +1751,16 @@ html_fill_button_directions_specification_list (const CONVERTER *converter,
           if (button->b.direction < 0)
             {
               direction_name = button->direction_string;
+              if (direction_name)
+                button->b.direction = html_get_direction_index (converter,
+                                                                direction_name);
             }
-          if (direction_name)
-            button->b.direction = html_get_direction_index (converter,
-                                                          direction_name);
+
         /* this would happen in test with redefined special unit direction
           if (button->b.direction < 0)
             fprintf (stderr,
-                     "BUG: still unknown button %zu string direction: %s\n",
-                     i, direction_name);
+                     "BUG: %p: still unknown button %zu string direction: %s\n",
+                     button, i, direction_name);
          */
         }
     }

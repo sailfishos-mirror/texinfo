@@ -2212,12 +2212,12 @@ can define two methods:
 
 =over
 
-=item \%defaults = $converter->converter_defaults($options)
+=item \%defaults = $converter_or_class->converter_defaults($options)
 X<C<converter_defaults>>
 
 The module can provide the reference on a hash with defaults for converter
 customization options.  The I<$options> hash reference holds options for the
-converter.
+converter.  The function can be called both through a class or a converter.
 
 =item converter_initialize
 X<C<converter_initialize>>

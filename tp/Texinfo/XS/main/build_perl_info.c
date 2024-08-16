@@ -46,6 +46,7 @@
 #include "types_data.h"
 #include "tree_types.h"
 #include "global_commands_types.h"
+#include "option_types.h"
 /* for GLOBAL_INFO ERROR_MESSAGE CL_* */
 #include "document_types.h"
 /* CONVERTER sv_string_type */
@@ -2866,7 +2867,16 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
           direction_name = button->direction_string;
         else
           direction_name
-            = converter->direction_unit_direction_name[button->b.direction];
+            = direction_unit_direction_name (button->b.direction,
+                                             converter);
+        if (!direction_name)
+          {
+            char *msg;
+            xasprintf (&msg, "No name for button direction %d",
+                       button->b.direction);
+            fatal (msg);
+            free (msg);
+          }
         return newSVpv_utf8 (direction_name, 0);
         break;
 
@@ -2879,7 +2889,16 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
             direction_name = button->direction_string;
           else
             direction_name
-            = converter->direction_unit_direction_name[button_spec->direction];
+              = direction_unit_direction_name (button_spec->direction,
+                                               converter);
+          if (!direction_name)
+            {
+              char *msg;
+              xasprintf (&msg, "No name for array button direction %d",
+                              button_spec->direction);
+              fatal (msg);
+              free (msg);
+            }
 
           if (button_spec->type == BIT_function)
             {
@@ -2940,7 +2959,8 @@ html_build_buttons_specification (CONVERTER *converter,
                                          &user_function_number);
       buttons->BIT_user_function_number += user_function_number;
 
-      converter->external_references_number += user_function_number;
+      if (converter)
+        converter->external_references_number += user_function_number;
 
       button->sv = button_sv;
 
@@ -3058,6 +3078,39 @@ build_sv_option_from_name (OPTION **sorted_options, CONVERTER *converter,
       return result;
     }
   return newSV (0);
+}
+
+/* not much used, as in general the options are only stored in C and
+   accessed through the API and built when accessed through a converter.
+   This is only used when there is no converter, when a function is called with
+   a class name only and returns an option hash */
+SV *
+build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
+                                    CONVERTER *converter)
+{
+  size_t i;
+  HV *options_hv;
+
+  dTHX;
+
+  options_hv = newHV ();
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      const OPTION *option = options_list->list[i];
+      const char *key = option->name;
+      SV *option_sv = build_sv_option (option, converter);
+
+      /* we store all values as they appear, the later overriding earlier
+         values, and do not treat undef nor C option  configured field
+         especially */
+      if (SvOK (option_sv))
+        SvREFCNT_inc (option_sv);
+
+      hv_store (options_hv, key, strlen (key), option_sv, 0);
+    }
+
+  return newRV_noinc ((SV *)options_hv);
 }
 
 

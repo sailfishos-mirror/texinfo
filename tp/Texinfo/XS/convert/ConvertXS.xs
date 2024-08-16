@@ -46,6 +46,7 @@
 /* for command_location_names non_perl_free new_string_list ... */
 #include "utils.h"
 #include "command_stack.h"
+#include "customization_options.h"
 /* for call_common_set_output_perl_encoding */
 #include "call_perl_function.h"
 #include "document.h"
@@ -97,45 +98,53 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
         RETVAL
 
 SV *
-html_converter_defaults (SV *converter_in, SV *conf_sv)
+converter_defaults (SV *converter_in, SV *conf_sv)
       PREINIT:
-        HV *format_defaults_hv;
-        HV *converter_hv;
-        CONVERTER *self;
         CONVERTER_INITIALIZATION_INFO *conf;
+        CONVERTER_INITIALIZATION_INFO *format_defaults;
+        /* we need sorted options to be able to find the type of options
+           in functions called from get_converter_info_from_sv*/
+        OPTIONS *options;
+        OPTION **sorted_options;
+        const char *class_name;
+        enum converter_format converter_format;
         /* int has_conf; */
       CODE:
-        /* FIXME if SvROK (converter_in) == 0, the Perl method should have
-           been called like Texinfo::Convert::HTML->converter_defaults
-           (from texi2any).  In that case, the options should be returned
-           even though there is no converter */
+        options = new_options ();
+        sorted_options = setup_sorted_options (options);
 
-        self = get_or_create_sv_converter (converter_in, 0);
+        if (SvOK (converter_in))
+          {
+            if (SvROK (converter_in))
+              {
+                HV *stash = SvSTASH (SvRV (converter_in));
+                class_name = HvNAME (stash);
+              }
+            else
+              class_name = SvPV_nolen (converter_in);
+          }
+
+        converter_format
+          = find_perl_converter_class_converter_format (class_name);
 
         conf = new_converter_initialization_info ();
-        /* FIXME check where/if converted_format is set */
-        /* conf->converted_format = strdup ("html"); */
 
         /*
         has_conf =
          */
-          get_converter_info_from_sv (conf_sv, 0, self,
-                                               self->sorted_options, conf);
-        html_converter_defaults (self, conf);
+          get_converter_info_from_sv (conf_sv, 0, 0,
+                                      sorted_options, conf);
+
+        free (sorted_options);
+        free_options (options);
+        free (options);
+
+        format_defaults = converter_defaults (converter_format, conf);
 
         destroy_converter_initialization_info (conf);
 
-        converter_hv = (HV *)SvRV (converter_in);
-        hv_store (converter_hv, "converter_descriptor",
-                  strlen ("converter_descriptor"),
-                  newSViv ((IV)self->converter_descriptor), 0);
-
-        /* return empty options, such that when run through
-           generic_converter_init -> set_converter_init_information nothing
-           more is set, as the defaults have already been set by
-           html_converter_defaults */
-        format_defaults_hv = newHV ();
-        RETVAL = newRV_noinc ((SV *) format_defaults_hv);
+        RETVAL = build_sv_options_from_options_list (&format_defaults->conf, 0);
+        destroy_converter_initialization_info (format_defaults);
     OUTPUT:
         RETVAL
 

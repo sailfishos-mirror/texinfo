@@ -285,7 +285,7 @@ txi_converter_setup (const char *format_str,
                      const char *program_file, OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
-    = find_format_data_index (format_str);
+    = find_format_name_converter_format (format_str);
   CONVERTER_INITIALIZATION_INFO *conf;
   CONVERTER *self;
 

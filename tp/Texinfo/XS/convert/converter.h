@@ -94,7 +94,7 @@ typedef struct CONVERTER_FORMAT_DATA {
     const char *default_format;
     const char *perl_converter_class;
     CONVERTER_INITIALIZATION_INFO *
-       (* converter_defaults) (CONVERTER *self,
+       (* converter_defaults) (enum converter_format format,
                                CONVERTER_INITIALIZATION_INFO *conf);
     void (* converter_initialize) (CONVERTER *self);
     void (* converter_reset) (CONVERTER *self);
@@ -123,7 +123,9 @@ extern CONVERTER_FORMAT_DATA converter_format_data[];
 void converter_setup (int texinfo_uninstalled, const char *tp_builddir,
                       const char *pkgdatadir, const char *top_srcdir);
 
-enum converter_format find_format_data_index (const char *format);
+enum converter_format find_format_name_converter_format (const char *format);
+enum converter_format find_perl_converter_class_converter_format (
+                                                 const char *class_name);
 
 CONVERTER *retrieve_converter (size_t converter_descriptor);
 size_t new_converter (enum converter_format format, unsigned long flags);
@@ -133,6 +135,9 @@ void set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf);
 
+CONVERTER_INITIALIZATION_INFO *converter_defaults (
+                    enum converter_format converter_format,
+                    CONVERTER_INITIALIZATION_INFO *user_conf);
 CONVERTER *converter_converter (enum converter_format format,
                            const CONVERTER_INITIALIZATION_INFO *user_conf);
 

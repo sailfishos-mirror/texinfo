@@ -258,6 +258,8 @@ void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 void html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons);
 int html_get_direction_index (const CONVERTER *converter,
                               const char *direction);
+const char *direction_unit_direction_name (int direction,
+                                           const CONVERTER *converter);
 
 TARGET_FILENAME *new_target_filename (void);
 TARGET_CONTENTS_FILENAME *new_target_contents_filename (void);

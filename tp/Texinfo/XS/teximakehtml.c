@@ -58,19 +58,6 @@ add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
   options_list_add_option (options_list, option);
 }
 
-static OPTION *
-add_new_button_option (OPTIONS_LIST *options_list, const char *option_name,
-                       BUTTON_SPECIFICATION_LIST *buttons)
-{
-  OPTION *option = new_option (GOT_buttons, option_name, 0);
-
-  option->o.buttons = buttons;
-
-  options_list_add_option (options_list, option);
-
-  return option;
-}
-
 /* this function or a variation could be added to customization_options.c */
 static OPTION *
 add_new_option_strlist_value (OPTIONS_LIST *options_list,

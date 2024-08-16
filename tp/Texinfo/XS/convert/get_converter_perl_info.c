@@ -85,31 +85,23 @@ get_or_create_sv_converter (SV *converter_in, const char *input_class)
   converter = get_sv_converter (converter_in, 0);
   if (!converter)
     {
-      HV *stash;
-      const char *class = 0;
+      const char *class_name = 0;
       enum converter_format converter_format = COF_none;
-      int i;
 
       if (input_class)
-        class = input_class;
+        class_name = input_class;
       else
         {
+          HV *stash;
           stash = SvSTASH (SvRV (converter_in));
-          class = HvNAME (stash);
+          class_name = HvNAME (stash);
         }
 
-      if (class)
+      if (class_name)
         {
           /* determine the converter format, if handled in C */
-          for (i =0; i < TXI_CONVERSION_FORMAT_NR; i++)
-            {
-              if (!strcmp (converter_format_data[i].perl_converter_class,
-                           class))
-                {
-                  converter_format = i;
-                  break;
-                }
-            }
+          converter_format
+             = find_perl_converter_class_converter_format (class_name);
         }
 
       converter_descriptor = new_converter (converter_format,
@@ -222,7 +214,7 @@ set_translated_commands (SV *translated_commands_sv)
 }
 
 static OPTION *
-new_option_from_sv (SV *option_sv, CONVERTER *converter,
+new_numbered_option_from_sv (SV *option_sv, CONVERTER *converter,
                     OPTION **sorted_options, const char *option_name,
                     int *status)
 {
@@ -273,7 +265,7 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
           char *key;
           I32 retlen;
           SV *value = hv_iternextsv (conf_hv, &key, &retlen);
-          OPTION *option = new_option_from_sv (value, converter,
+          OPTION *option = new_numbered_option_from_sv (value, converter,
                                                sorted_options, key, &status);
 
           if (!status)

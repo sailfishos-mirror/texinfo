@@ -1,5 +1,89 @@
 2024-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	No converter information in converter_defaults, and XS override
+
+	* tp/Texinfo/XS/main/customization_options.c (copy_option): copy
+	direction_string field.
+
+	* tp/Texinfo/XS/main/customization_options.c (add_new_button_option):
+	add based on tp/Texinfo/XS/teximakehtml.c code.
+
+	* tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(new_numbered_option_from_sv): rename new_option_from_sv as
+	new_numbered_option_from_sv.
+
+	* tp/Texinfo/XS/convert/converter.c
+	(find_format_name_converter_format): rename find_format_data_index as
+	find_format_name_converter_format.  Update callers.
+
+	* tp/Texinfo/XS/convert/converter.c (set_generic_converter_options):
+	new separate function for clearer code.
+
+	* tp/Texinfo/XS/main/utils.c (direction_unit_direction_name),
+	tp/Texinfo/XS/main/build_perl_info.c (html_build_button): add the
+	direction_unit_direction_name function that directly uses
+	html_button_direction_names for directions that are not special units
+	directions, such as to have a direction name for those directions even
+	if there is no converter.  Use in html_build_button.
+
+	* tp/Texinfo/XS/main/build_perl_info.c
+	(html_build_buttons_specification): update external_references_number
+	only if there is a converter.  With the change in html_build_button,
+	the function can be used with a NULL converter.
+
+	* tp/maintain/regenerate_C_options_info.pl,
+	tp/Texinfo/XS/convert/html_converter_init_options.c
+	(add_html_default_buttons_specifications)
+	(add_texi2html_default_buttons_specifications): generate
+	add_*_regular_options_defaults that add option categories or converter
+	options to an option list.  Add
+	add_html_default_buttons_specifications and
+	add_texi2html_default_buttons_specifications to similarily add buttons
+	to an option list.
+
+	* tp/Texinfo/XS/convert/html_converter_init_options.c
+	(html_converter_defaults), tp/Texinfo/XS/convert/converter.c
+	(converter_defaults, converter_converter),
+	tp/Texinfo/XS/convert/converter.h (CONVERTER_FORMAT_DATA): pass
+	converter_format instead of converter to converter_defaults.  Have
+	html_converter_defaults return the format_defaults options in the
+	CONVERTER_INITIALIZATION_INFO return value.  Do not consider that
+	options are numbered in converter_defaults.  Call number_options_list
+	on format_defaults returned by converter_defaults, as without
+	converter in format_defaults, it is unlikely for options to be
+	numbered.
+
+	* tp/Texinfo/XS/convert/converter.c
+	(find_perl_converter_class_converter_format),
+	tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_or_create_sv_converter): add
+	find_perl_converter_class_converter_format based on
+	get_or_create_sv_converter code to get converter_format based on Perl
+	class.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/ConvertXS.xs (converter_defaults),
+	tp/Texinfo/XS/main/build_perl_info.c
+	(build_sv_options_from_options_list): rename html_converter_defaults
+	in ConvertXS.xs as converter_defaults.  Add override of
+	converter_defaults for HTML.  Never use a converter to generate the
+	returned Perl information.  For that, determine the class name based on
+	SvSTASH or the converter_in SV considered as a string, then the
+	converter_format using find_perl_converter_class_converter_format.
+	Also setup asorted options without a converter, to be able to call
+	get_converter_info_from_sv.  Call converter_defaults to return a
+	CONVERTER_INITIALIZATION_INFO.  Add build_sv_options_from_options_list
+	to build Perl options hash based on a OPTIONS_LIST.  Call
+	build_sv_options_from_options_list in ConvertXS.xs converter_defaults
+	override in to return converter default Perl hash.
+
+	* tp/Texinfo/XS/convert/html_converter_init_options.c
+	(set_html_default_buttons_specifications)
+	(set_texi2html_default_buttons_specifications): pass converter and
+	options separately.
+
+2024-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.h,
 	tp/Texinfo/XS/convert/html_prepare_converter.h: comment out function
 	definitions already done in html_conversion_api.h or

@@ -174,12 +174,24 @@ converter_setup (int texinfo_uninstalled, const char *tp_builddir,
 
 
 enum converter_format
-find_format_data_index (const char *format)
+find_format_name_converter_format (const char *format)
 {
   int i;
 
   for (i = 0; i < TXI_CONVERSION_FORMAT_NR; i++)
     if (!strcmp (converter_format_data[i].default_format, format))
+      return i;
+
+  return COF_none;
+}
+
+enum converter_format
+find_perl_converter_class_converter_format (const char *class_name)
+{
+  int i;
+
+  for (i = 0; i < TXI_CONVERSION_FORMAT_NR; i++)
+    if (!strcmp (converter_format_data[i].perl_converter_class, class_name))
       return i;
 
   return COF_none;
@@ -194,6 +206,16 @@ retrieve_converter (size_t converter_descriptor)
   return 0;
 }
 
+static void
+set_generic_converter_options (OPTIONS *options)
+{
+  set_converter_cmdline_regular_defaults (options);
+  set_converter_customization_regular_defaults (options);
+  set_unique_at_command_regular_defaults (options);
+  set_multiple_at_command_regular_defaults (options);
+  set_common_regular_options_defaults (options);
+}
+
 /* initialize the converter */
 static void
 init_generic_converter (CONVERTER *self)
@@ -201,11 +223,7 @@ init_generic_converter (CONVERTER *self)
   self->conf = new_options ();
   self->sorted_options = setup_sorted_options (self->conf);
 
-  set_converter_cmdline_regular_defaults (self->conf);
-  set_converter_customization_regular_defaults (self->conf);
-  set_unique_at_command_regular_defaults (self->conf);
-  set_multiple_at_command_regular_defaults (self->conf);
-  set_common_regular_options_defaults (self->conf);
+  set_generic_converter_options (self->conf);
 
   self->init_conf = new_options ();
 
@@ -408,18 +426,18 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
    for pure C.
  */
 /* corresponds to Perl $converter->converter_defaults() Converter */
-static CONVERTER_INITIALIZATION_INFO *
-converter_defaults (CONVERTER *converter,
+CONVERTER_INITIALIZATION_INFO *
+converter_defaults (enum converter_format converter_format,
                     CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  if (converter->format != COF_none
-      && converter_format_data[converter->format].converter_defaults)
+  if (converter_format != COF_none
+      && converter_format_data[converter_format].converter_defaults)
     {
       CONVERTER_INITIALIZATION_INFO *
-         (* format_converter_defaults) (CONVERTER *self,
-                 CONVERTER_INITIALIZATION_INFO *conf)
-        = converter_format_data[converter->format].converter_defaults;
-      return format_converter_defaults (converter, user_conf);
+         (* format_converter_defaults) (enum converter_format format,
+                                  CONVERTER_INITIALIZATION_INFO *conf)
+        = converter_format_data[converter_format].converter_defaults;
+      return format_converter_defaults (converter_format, user_conf);
     }
   return 0;
 }
@@ -448,10 +466,14 @@ converter_converter (enum converter_format format,
 
   CONVERTER_INITIALIZATION_INFO *user_conf
      = new_converter_initialization_info ();
+
   copy_converter_initialization_info (user_conf, input_user_conf);
   number_options_list (&user_conf->conf, converter->sorted_options);
 
-  format_defaults = converter_defaults (converter, user_conf);
+  format_defaults = converter_defaults (converter->format, user_conf);
+
+  if (format_defaults)
+    number_options_list (&format_defaults->conf, converter->sorted_options);
 
   set_converter_init_information (converter, format, format_defaults,
                                   user_conf);

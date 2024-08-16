@@ -8,6 +8,7 @@
 #include "perl.h"
 
 #include "tree_types.h"
+#include "option_types.h"
 #include "options_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -91,6 +92,8 @@ SV *html_build_buttons_specification (CONVERTER *converter,
                                       BUTTON_SPECIFICATION_LIST *buttons);
 SV * build_sv_option_from_name (OPTION **sorted_options, CONVERTER *converter,
                                 const char *option_name);
+SV *build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
+                                        CONVERTER *converter);
 
 void pass_generic_converter_to_converter_sv (SV *converter_sv,
                                              const CONVERTER *converter);

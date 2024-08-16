@@ -319,7 +319,12 @@ copy_option (OPTION *destination, const OPTION *source)
                   else if (button->type == BST_string)
                     button->b.string = strdup (s_button->b.string);
                   else if (button->type == BST_direction)
-                    button->b.direction = s_button->b.direction;
+                    {
+                      button->b.direction = s_button->b.direction;
+                      if (button->b.direction < 0 && s_button->direction_string)
+                        button->direction_string
+                          = s_button->direction_string;
+                    }
                   else if (button->type == BST_direction_info)
                     {
                       BUTTON_SPECIFICATION_INFO *s_button_spec
@@ -332,6 +337,12 @@ copy_option (OPTION *destination, const OPTION *source)
                       button->b.button_info = button_spec;
                       button_spec->type = s_button_spec->type;
                       button_spec->direction = s_button_spec->direction;
+
+                      if (button_spec->direction < 0
+                          && s_button->direction_string)
+                        button->direction_string
+                          = s_button->direction_string;
+
                       if (button_spec->type == BIT_function)
                         {
                           button_spec->bi.button_function.type
@@ -507,6 +518,18 @@ add_new_option_value (OPTIONS_LIST *options_list,
   return option;
 }
 
+OPTION *
+add_new_button_option (OPTIONS_LIST *options_list, const char *option_name,
+                       BUTTON_SPECIFICATION_LIST *buttons)
+{
+  OPTION *option = new_option (GOT_buttons, option_name, 0);
+
+  option->o.buttons = buttons;
+
+  options_list_add_option (options_list, option);
+
+  return option;
+}
 
 void
 copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)

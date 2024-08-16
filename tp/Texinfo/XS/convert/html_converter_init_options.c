@@ -81,10 +81,9 @@ set_option_buttons_specification (OPTION *option,
   option->o.buttons = buttons;
 }
 
-static void
-set_html_default_buttons_specifications (CONVERTER *self)
+void
+set_html_default_buttons_specifications (OPTIONS *options, CONVERTER *self)
 {
-  OPTIONS *options = self->conf;
   set_option_buttons_specification (&options->SECTION_BUTTONS,
                                     new_base_navigation_section_buttons (self));
   set_option_buttons_specification (&options->SECTION_FOOTER_BUTTONS,
@@ -106,9 +105,32 @@ set_html_default_buttons_specifications (CONVERTER *self)
 }
 
 static void
-set_texi2html_default_buttons_specifications (CONVERTER *self)
+add_html_default_buttons_specifications (OPTIONS_LIST *options, CONVERTER *self)
 {
-  OPTIONS *options = self->conf;
+  add_new_button_option (options, "SECTION_BUTTONS",
+                                    new_base_navigation_section_buttons (self));
+  add_new_button_option (options, "SECTION_FOOTER_BUTTONS",
+                           new_base_navigation_section_footer_buttons (self));
+  add_new_button_option (options, "LINKS_BUTTONS",
+                                    new_base_links_buttons (self));
+  add_new_button_option (options, "NODE_FOOTER_BUTTONS",
+           new_base_navigation_buttons (self, BFT_type_panel_node_footer, 0));
+  add_new_button_option (options, "CHAPTER_BUTTONS",
+                                    new_base_navigation_section_buttons (self));
+  add_new_button_option (options, "MISC_BUTTONS",
+      new_directions_list_buttons_specifications (self, DEFAULT_MISC_BUTTONS));
+  add_new_button_option (options, "TOP_BUTTONS",
+                                    new_base_navigation_section_buttons (self));
+  add_new_button_option (options, "CHAPTER_FOOTER_BUTTONS",
+                          new_base_navigation_section_footer_buttons (self));
+  add_new_button_option (options, "TOP_FOOTER_BUTTONS",
+                            new_base_navigation_section_footer_buttons (self));
+}
+
+void
+set_texi2html_default_buttons_specifications (OPTIONS *options,
+                                              CONVERTER *self)
+{
   set_option_buttons_specification (&options->SECTION_BUTTONS,
       new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
 
@@ -134,35 +156,63 @@ set_texi2html_default_buttons_specifications (CONVERTER *self)
       new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
 }
 
-/* TODO we directly set the converter conf, so the conf list of
-   returned format_defaults is not set.  This should work,
-   but this is not the spirit of the corresponding Perl API */
+static void
+add_texi2html_default_buttons_specifications (OPTIONS_LIST *options,
+                                              CONVERTER *self)
+{
+  add_new_button_option (options, "SECTION_BUTTONS",
+      new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
+
+  add_new_button_option (options, "TOP_BUTTONS",
+      new_directions_list_buttons_specifications (self, T2H_TOP_BUTTONS));
+
+  add_new_button_option (options, "TOP_FOOTER_BUTTONS",
+      new_directions_list_buttons_specifications (self, T2H_TOP_BUTTONS));
+
+  add_new_button_option (options, "MISC_BUTTONS",
+      new_directions_list_buttons_specifications (self, DEFAULT_MISC_BUTTONS));
+
+  add_new_button_option (options, "CHAPTER_BUTTONS",
+      new_directions_list_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
+
+  add_new_button_option (options, "SECTION_FOOTER_BUTTONS",
+ new_directions_list_buttons_specifications (self, T2H_SECTION_FOOTER_BUTTONS));
+
+  add_new_button_option (options, "CHAPTER_FOOTER_BUTTONS",
+      new_directions_list_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
+
+  add_new_button_option (options, "NODE_FOOTER_BUTTONS",
+      new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
+}
+
 CONVERTER_INITIALIZATION_INFO *
-html_converter_defaults (CONVERTER *self,
+html_converter_defaults (enum converter_format format,
                          CONVERTER_INITIALIZATION_INFO *conf)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults
     = new_converter_initialization_info ();
+
   format_defaults->converted_format = strdup ("html");
 
-  set_html_regular_options_defaults (self->conf);
-  set_html_default_buttons_specifications (self);
+  add_html_regular_options_defaults (&format_defaults->conf);
+
+  add_html_default_buttons_specifications (&format_defaults->conf, 0);
 
   if (conf)
     {
-      size_t t2h_conf_number = self->conf->TEXI2HTML.number;
       size_t i;
 
       for (i = 0; i < conf->conf.number; i++)
         {
           OPTION *option = conf->conf.list[i];
-          if (option->number == t2h_conf_number)
+          if (!strcmp (option->name, "TEXI2HTML"))
             {
               if (option->o.integer >= 0)
                 {
-                  set_texi2html_regular_options_defaults (self->conf);
-                  set_texi2html_default_buttons_specifications (self);
-                  return format_defaults;
+                  add_texi2html_regular_options_defaults
+                                               (&format_defaults->conf);
+                  add_texi2html_default_buttons_specifications
+                                        (&format_defaults->conf, 0);
                 }
               break;
             }

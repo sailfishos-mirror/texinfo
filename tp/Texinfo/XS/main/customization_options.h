@@ -57,6 +57,9 @@ void options_list_add_option (OPTIONS_LIST *options_list, OPTION *option);
 OPTION *add_new_option_value (OPTIONS_LIST *options_list,
                   enum global_option_type type, const char *name,
                   int int_value, const char *char_value);
+OPTION *add_new_button_option (OPTIONS_LIST *options_list,
+                              const char *option_name,
+                              BUTTON_SPECIFICATION_LIST *buttons);
 
 void copy_options_list (OPTIONS_LIST *options_list,
                         const OPTIONS_LIST *options_src);
