@@ -25,6 +25,18 @@
 #include "converter.h"
 #include "html_converter_api.h"
 
+/* similar to Texinfo::Convert::HTML->converter_initialize */
+void
+html_converter_initialize (CONVERTER *converter)
+{
+  html_converter_initialize_beginning (converter);
+
+  html_converter_init_special_unit (converter);
+  html_converter_customize (converter);
+
+  html_fill_options_directions (converter->conf, converter);
+}
+
 /* similar to Texinfo::Convert::HTML->output */
 char *
 html_output (CONVERTER *converter, DOCUMENT *document)

@@ -66,7 +66,7 @@
    Same purpose as inherited methods in Texinfo::Convert::Converter */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", &html_converter_defaults,
-   /* &html_converter_initialize */ 0, &html_reset_converter,
+   &html_converter_initialize, &html_reset_converter,
    &html_free_converter},
 };
 
@@ -294,7 +294,8 @@ static void
 apply_converter_info (CONVERTER *converter,
               CONVERTER_INITIALIZATION_INFO *init_info, int set_configured)
 {
-  copy_options_list_options (converter->conf, converter->sorted_options,
+  copy_numbered_options_list_options (converter->conf,
+                             converter->sorted_options,
                              &init_info->conf, set_configured);
 
   if (init_info->output_format)
@@ -316,9 +317,8 @@ apply_converter_info (CONVERTER *converter,
     }
 }
 
-/* apply format_defaults and user_conf initialization information and call
-   format specific options setting and initialization functions.
-   Correspond to Perl _generic_converter_init.
+/* apply format_defaults and user_conf initialization information.
+   Corresponds to Perl _generic_converter_init.
  */
 void
 set_converter_init_information (CONVERTER *converter,
@@ -326,16 +326,11 @@ set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  apply_converter_info (converter, format_defaults, 0);
-
-  if (converter_format != COF_none
-      && converter_format_data[converter_format].converter_defaults)
-    {
-      void (* format_converter_defaults) (CONVERTER *self,
-                 CONVERTER_INITIALIZATION_INFO *conf)
-        = converter_format_data[converter_format].converter_defaults;
-      format_converter_defaults (converter, user_conf);
-    }
+  /* the case of format_defaults not set should correspond to
+     format_defaults C functions that sets the converter conf and return
+     0 */
+  if (format_defaults)
+    apply_converter_info (converter, format_defaults, 0);
 
   apply_converter_info (converter, user_conf, 1);
 
@@ -355,16 +350,6 @@ set_converter_init_information (CONVERTER *converter,
                    converter->output_format,
                    converter->converted_format);
    */
-
-  /*
-  if (converter_format != COF_none
-      && converter_format_data[converter_format].converter_initialize)
-    {
-      void (* format_converter_initialize) (CONVERTER *self)
-        = converter_format_data[converter_format].converter_initialize;
-      format_converter_initialize (converter);
-    }
-  */
 }
 
 CONVERTER_INITIALIZATION_INFO *
@@ -389,6 +374,96 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 
   free_strings_list (&init_info->non_valid_customization);
   free (init_info);
+}
+
+static void
+copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
+                               const CONVERTER_INITIALIZATION_INFO *src_info)
+{
+  if (src_info->converted_format)
+    {
+      free (dst_info->converted_format);
+      dst_info->converted_format = strdup (src_info->converted_format);
+    }
+  if (src_info->output_format)
+    {
+      free (dst_info->output_format);
+      dst_info->output_format = strdup (src_info->output_format);
+    }
+
+  copy_strings (&dst_info->non_valid_customization,
+                &src_info->non_valid_customization);
+
+  copy_options_list (&dst_info->conf, &src_info->conf);
+}
+
+/* Next three functions are not called from Perl as the Perl equivalent
+   functions are already called (and possibly overriden).  Inheritance
+   in Perl is replaced by dispatching using a table here.
+
+   converter_initialize cannot be overriden fully in HTML because Perl
+   code is needed to setup customization in Perl.  Therefore, there is
+   no prospect of overriding converter_initialize fully, and therefore
+   of overridding converter_converter.  Those functions are only meant
+   for pure C.
+ */
+/* corresponds to Perl $converter->converter_defaults() Converter */
+static CONVERTER_INITIALIZATION_INFO *
+converter_defaults (CONVERTER *converter,
+                    CONVERTER_INITIALIZATION_INFO *user_conf)
+{
+  if (converter->format != COF_none
+      && converter_format_data[converter->format].converter_defaults)
+    {
+      CONVERTER_INITIALIZATION_INFO *
+         (* format_converter_defaults) (CONVERTER *self,
+                 CONVERTER_INITIALIZATION_INFO *conf)
+        = converter_format_data[converter->format].converter_defaults;
+      return format_converter_defaults (converter, user_conf);
+    }
+  return 0;
+}
+
+/* corresponds to Perl $converter->converter_initialize() Converter */
+static void
+converter_initialize (CONVERTER *converter)
+{
+  if (converter->format != COF_none
+      && converter_format_data[converter->format].converter_initialize)
+    {
+      void (* format_converter_initialize) (CONVERTER *self)
+        = converter_format_data[converter->format].converter_initialize;
+      format_converter_initialize (converter);
+    }
+}
+
+/* Texinfo::Convert::XXXX->converter($conf) in Perl */
+CONVERTER *
+converter_converter (enum converter_format format,
+                     const CONVERTER_INITIALIZATION_INFO *input_user_conf)
+{
+  CONVERTER_INITIALIZATION_INFO *format_defaults;
+  size_t converter_descriptor = new_converter (format, CONVF_string_list);
+  CONVERTER *converter = retrieve_converter (converter_descriptor);
+
+  CONVERTER_INITIALIZATION_INFO *user_conf
+     = new_converter_initialization_info ();
+  copy_converter_initialization_info (user_conf, input_user_conf);
+  number_options_list (&user_conf->conf, converter->sorted_options);
+
+  format_defaults = converter_defaults (converter, user_conf);
+
+  set_converter_init_information (converter, format, format_defaults,
+                                  user_conf);
+
+  if (format_defaults)
+    destroy_converter_initialization_info (format_defaults);
+
+  destroy_converter_initialization_info (user_conf);
+
+  converter_initialize (converter);
+
+  return converter;
 }
 
 void

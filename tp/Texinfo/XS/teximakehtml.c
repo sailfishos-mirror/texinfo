@@ -40,8 +40,8 @@
 
 #define LOCALEDIR DATADIR "/locale"
 
-/* this function is generic, it could be added to customization_options.c */
-static void
+/* these functions are generic, could be added to customization_options.c */
+void
 add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
                    const char *option_name,
                    BUTTON_SPECIFICATION_LIST *buttons)
@@ -56,6 +56,19 @@ add_button_option (OPTIONS_LIST *options_list, OPTION **sorted_options,
   option->o.buttons = buttons;
 
   options_list_add_option (options_list, option);
+}
+
+static OPTION *
+add_new_button_option (OPTIONS_LIST *options_list, const char *option_name,
+                       BUTTON_SPECIFICATION_LIST *buttons)
+{
+  OPTION *option = new_option (GOT_buttons, option_name, 0);
+
+  option->o.buttons = buttons;
+
+  options_list_add_option (options_list, option);
+
+  return option;
 }
 
 /* this function or a variation could be added to customization_options.c */
@@ -182,28 +195,29 @@ main (int argc, char *argv[])
     = txi_handle_document_error_messages (document, 0, 1, locale_encoding);
   errors_count += errors_nr;
 
-  /* create converter and generic converter initializations */
-  converter = txi_converter (COF_html);
 
+  /* conversion intitialization */
   initialize_options_list (&convert_options, 2);
+
   /* customize buttons.  This is a bit silly to use link buttons for
      footer, it is for the demonstration */
   custom_node_footer_buttons = new_base_links_buttons (0);
-  add_button_option (&convert_options, converter->sorted_options,
+  add_new_button_option (&convert_options,
                      "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
-  add_option_string_value (&convert_options, converter->sorted_options,
+  add_new_option_value (&convert_options, GOT_integer,
                            "PROGRAM_NAME_IN_FOOTER", 1, 0);
   /* this is set to help with comparison with previous invokations */
-  add_option_string_value (&convert_options, converter->sorted_options,
+  add_new_option_value (&convert_options, GOT_integer,
                            "TEST", 1, 0);
 
-  /* setup converter */
-  txi_converter_initialize (converter, 0, 0, locale_encoding, program_file,
-                            &convert_options);
+  converter = txi_converter_setup ("html", "html", locale_encoding,
+                                   program_file, &convert_options);
 
   free_options_list (&convert_options);
   free (program_file);
 
+
+  /* conversion */
   /* return value can be NULL in case of errors or an empty string, but
      not anything else as parse_file is used with a file */
   result = txi_html_output (converter, document);

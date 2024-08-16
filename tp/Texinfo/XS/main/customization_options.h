@@ -28,7 +28,8 @@ void clear_options (OPTIONS *options);
 void free_options (OPTIONS *options);
 void copy_options (OPTIONS *destination, const OPTIONS *source);
 
-void copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
+void copy_numbered_options_list_options (OPTIONS *options,
+                                OPTION **sorted_options,
                                 OPTIONS_LIST *options_list, int set_configured);
 void initialize_options_list (OPTIONS_LIST *options_list, size_t number);
 void free_options_list (OPTIONS_LIST *options_list);
@@ -58,6 +59,7 @@ OPTION *add_new_option_value (OPTIONS_LIST *options_list,
                   int int_value, const char *char_value);
 
 void copy_options_list (OPTIONS_LIST *options_list,
-                   const OPTIONS_LIST *options_src, OPTION **sorted_options);
+                        const OPTIONS_LIST *options_src);
+void number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options);
 
 #endif

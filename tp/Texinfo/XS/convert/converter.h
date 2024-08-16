@@ -93,7 +93,8 @@ typedef struct PATHS_INFORMATION {
 typedef struct CONVERTER_FORMAT_DATA {
     const char *default_format;
     const char *perl_converter_class;
-    void (* converter_defaults) (CONVERTER *self,
+    CONVERTER_INITIALIZATION_INFO *
+       (* converter_defaults) (CONVERTER *self,
                                CONVERTER_INITIALIZATION_INFO *conf);
     void (* converter_initialize) (CONVERTER *self);
     void (* converter_reset) (CONVERTER *self);
@@ -131,6 +132,9 @@ void set_converter_init_information (CONVERTER *converter,
                             enum converter_format converter_format,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf);
+
+CONVERTER *converter_converter (enum converter_format format,
+                           const CONVERTER_INITIALIZATION_INFO *user_conf);
 
 CONVERTER_INITIALIZATION_INFO *new_converter_initialization_info (void);
 void destroy_converter_initialization_info (

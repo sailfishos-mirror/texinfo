@@ -103,6 +103,9 @@ my %XS_overrides = (
 );
 
 my %XS_conversion_overrides = (
+# not ready to be called as Texinfo::Convert::HTML->converter_defaults
+#  "Texinfo::Convert::HTML::converter_defaults"
+#   => "Texinfo::Convert::ConvertXS::html_converter_defaults",
   "Texinfo::Convert::HTML::output"
    => "Texinfo::Convert::ConvertXS::html_output",
   "Texinfo::Convert::HTML::convert"

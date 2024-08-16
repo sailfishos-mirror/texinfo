@@ -39,12 +39,13 @@ DOCUMENT *txi_parse_texi_file (const char *input_file_path, int *status);
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
-CONVERTER *txi_converter (enum converter_format format);
-void txi_converter_initialize (CONVERTER *converter,
-                               const char *output_format,
-                               const char *converted_format,
-                               const char *locale_encoding,
-                       const char *program_file, OPTIONS_LIST *customizations);
+CONVERTER *txi_converter (enum converter_format format,
+                          CONVERTER_INITIALIZATION_INFO *conf);
+CONVERTER *
+txi_converter_setup (const char *converter_format,
+                     const char *output_format,
+                     const char *locale_encoding,
+                     const char *program_file, OPTIONS_LIST *customizations);
 
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);
 

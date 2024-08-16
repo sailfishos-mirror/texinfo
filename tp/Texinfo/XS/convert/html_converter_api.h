@@ -28,7 +28,7 @@
 void html_format_setup (void);
 
 /* in html_converter_init_options.c */
-void html_converter_defaults (CONVERTER *self,
+CONVERTER_INITIALIZATION_INFO *html_converter_defaults (CONVERTER *self,
                               CONVERTER_INITIALIZATION_INFO *format_defaults);
 
 void html_converter_initialize_beginning (CONVERTER *self);
@@ -95,6 +95,8 @@ void html_free_converter (CONVERTER *self);
 
 
 /* implemented in html_converter_api.c using above functions */
+
+void html_converter_initialize (CONVERTER *converter);
 
 char *html_output (CONVERTER *converter, DOCUMENT *document);
 

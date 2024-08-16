@@ -95,34 +95,59 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
     OUTPUT:
         RETVAL
 
+SV *
+html_converter_defaults (SV *converter_in, SV *conf_sv)
+      PREINIT:
+        HV *format_defaults_hv;
+        HV *converter_hv;
+        CONVERTER *self;
+        CONVERTER_INITIALIZATION_INFO *conf;
+        /* int has_conf; */
+      CODE:
+        /* FIXME if SvROK (converter_in) == 0, the Perl method should have
+           been called like Texinfo::Convert::HTML->converter_defaults
+           (from texi2any).  In that case, the options should be returned
+           even though there is no converter */
+
+        self = get_or_create_sv_converter (converter_in, 0);
+
+        conf = new_converter_initialization_info ();
+        /* FIXME check where/if converted_format is set */
+        /* conf->converted_format = strdup ("html"); */
+
+        /*
+        has_conf =
+         */
+          get_converter_info_from_sv (conf_sv, 0, self,
+                                               self->sorted_options, conf);
+        html_converter_defaults (self, conf);
+
+        destroy_converter_initialization_info (conf);
+
+        converter_hv = (HV *)SvRV (converter_in);
+        hv_store (converter_hv, "converter_descriptor",
+                  strlen ("converter_descriptor"),
+                  newSViv ((IV)self->converter_descriptor), 0);
+
+        /* return empty options, such that when run through
+           generic_converter_init -> set_converter_init_information nothing
+           more is set, as the defaults have already been set by
+           html_converter_defaults */
+        format_defaults_hv = newHV ();
+        RETVAL = newRV_noinc ((SV *) format_defaults_hv);
+    OUTPUT:
+        RETVAL
+
 # NOTE not sure what the scope of class is.  When tested, valgrind did not
 # complain.
 void
 generic_converter_init (SV *converter_in, const char *class, SV *format_defaults_sv, SV *conf_sv=0)
       PREINIT:
-        size_t converter_descriptor;
         CONVERTER *self;
         CONVERTER_INITIALIZATION_INFO *format_defaults;
         CONVERTER_INITIALIZATION_INFO *conf;
-        enum converter_format converter_format = COF_none;
-        int i;
       CODE:
-        /* determine the converter format, if handled in C */
-        for (i =0; i < TXI_CONVERSION_FORMAT_NR; i++)
-          {
-            if (!strcmp (converter_format_data[i].perl_converter_class, class))
-              {
-                converter_format = i;
-                break;
-              }
-          }
-
-        converter_descriptor = new_converter (converter_format,
-                                              CONVF_perl_hashmap);
-                                              /*
-                                              CONVF_string_list);
-                                               */
-        self = retrieve_converter (converter_descriptor);
+        self = get_or_create_sv_converter (converter_in, class);
 
         format_defaults = new_converter_initialization_info ();
         conf = new_converter_initialization_info ();
@@ -131,7 +156,7 @@ generic_converter_init (SV *converter_in, const char *class, SV *format_defaults
                                     format_defaults_sv,
                                     conf_sv, format_defaults, conf);
 
-        set_converter_init_information (self, converter_format,
+        set_converter_init_information (self, self->format,
                                         format_defaults, conf);
 
         destroy_converter_initialization_info (format_defaults);
@@ -653,20 +678,6 @@ html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_re
         html_fill_sv_options (self->conf, self);
    /* fill options with C only information not associated with Perl data */
         html_fill_options_directions (self->conf, self);
-
-# do nothing as everything is already set in C
-# $converter, $conf
-SV *
-html_converter_defaults (...)
-      PROTOTYPE: $$
-      PREINIT:
-        HV *format_defaults_hv;
-      CODE:
-        format_defaults_hv = newHV ();
-        RETVAL = newRV_noinc ((SV *) format_defaults_hv);
-    OUTPUT:
-        RETVAL
-
 
 # Following XS functions are called in Perl output and convert functions
 # allowing to override functions separately.

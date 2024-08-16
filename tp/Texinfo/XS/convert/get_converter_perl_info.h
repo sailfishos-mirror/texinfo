@@ -11,6 +11,12 @@
 #include "convert_to_text.h"
 
 CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
+CONVERTER *get_or_create_sv_converter (SV *converter_in,
+                                       const char *input_class);
+int get_converter_info_from_sv (SV *conf_sv, const char *class,
+                                CONVERTER *converter,
+                                OPTION **sorted_options,
+                       CONVERTER_INITIALIZATION_INFO *initialization_info);
 int converter_get_info_from_sv (SV *converter_sv, const char *class,
                                 CONVERTER *converter,
                                 SV *format_defaults_sv, SV *conf_sv,

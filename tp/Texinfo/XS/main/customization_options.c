@@ -390,9 +390,12 @@ initialize_options_list (OPTIONS_LIST *options_list, size_t number)
 }
 
 /* copy OPTIONS_LIST options to an OPTIONS structure, using the sorted options
-   to find the struct fields. */
+   to find the struct fields.  The source options numbers need to be set
+   already.
+ */
 void
-copy_options_list_options (OPTIONS *options, OPTION **sorted_options,
+copy_numbered_options_list_options (OPTIONS *options,
+                                    OPTION **sorted_options,
                            OPTIONS_LIST *options_list, int set_configured)
 {
   size_t i;
@@ -475,8 +478,7 @@ add_option_string_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
 }
 
 OPTION *
-add_option_copy (OPTIONS_LIST *options_list, OPTION **sorted_options,
-                 const OPTION *src_option)
+add_option_copy (OPTIONS_LIST *options_list, const OPTION *src_option)
 {
   OPTION *option
     = new_option (src_option->type, src_option->name, src_option->number);
@@ -489,7 +491,7 @@ add_option_copy (OPTIONS_LIST *options_list, OPTION **sorted_options,
 }
 
 /* similar with new_option_string_value but in cases where there is no
-   sorted_options, and options are found with their names, in practice
+   sorted_options, and options are found with their names, for example
    for parser options */
 OPTION *
 add_new_option_value (OPTIONS_LIST *options_list,
@@ -507,17 +509,39 @@ add_new_option_value (OPTIONS_LIST *options_list,
 
 
 void
-copy_options_list (OPTIONS_LIST *options_list,
-                   const OPTIONS_LIST *options_src, OPTION **sorted_options)
+copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)
 {
   size_t i;
 
   if (options_src)
     {
       for (i = 0; i < options_src->number; i++)
-        add_option_copy (options_list, sorted_options, options_src->list[i]);
+        add_option_copy (options_list, options_src->list[i]);
     }
 }
+
+void
+number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options)
+{
+  size_t i;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      OPTION *option = options_list->list[i];
+      if (!option->number)
+        {
+          const OPTION *ref_option
+            = find_option_string (sorted_options, option->name);
+          if (ref_option)
+            option->number = ref_option->number;
+          else
+            fprintf (stderr, "ERROR: could not find option: %s\n",
+                             option->name);
+        }
+    }
+}
+
+
 
 void
 free_options_list (OPTIONS_LIST *options_list)

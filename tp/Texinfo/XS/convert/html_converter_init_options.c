@@ -27,6 +27,8 @@
 /* option_force_conf */
 #include "customization_options.h"
 #include "create_buttons.h"
+/* new_converter_initialization_info */
+#include "converter.h"
 #include "html_converter_init_options.h"
 
 /* HTML converter options setting and initialization.  Not with format
@@ -132,10 +134,17 @@ set_texi2html_default_buttons_specifications (CONVERTER *self)
       new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
 }
 
-void
+/* TODO we directly set the converter conf, so the conf list of
+   returned format_defaults is not set.  This should work,
+   but this is not the spirit of the corresponding Perl API */
+CONVERTER_INITIALIZATION_INFO *
 html_converter_defaults (CONVERTER *self,
                          CONVERTER_INITIALIZATION_INFO *conf)
 {
+  CONVERTER_INITIALIZATION_INFO *format_defaults
+    = new_converter_initialization_info ();
+  format_defaults->converted_format = strdup ("html");
+
   set_html_regular_options_defaults (self->conf);
   set_html_default_buttons_specifications (self);
 
@@ -153,12 +162,13 @@ html_converter_defaults (CONVERTER *self,
                 {
                   set_texi2html_regular_options_defaults (self->conf);
                   set_texi2html_default_buttons_specifications (self);
-                  return;
+                  return format_defaults;
                 }
               break;
             }
         }
     }
+  return format_defaults;
 }
 
 /* this code corresponds to the Perl converter_initialize code, only for

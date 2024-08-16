@@ -75,6 +75,54 @@ get_sv_converter (SV *sv_in, const char *warn_string)
 }
 
 CONVERTER *
+get_or_create_sv_converter (SV *converter_in, const char *input_class)
+{
+  size_t converter_descriptor = 0;
+  CONVERTER *converter = 0;
+
+  dTHX;
+
+  converter = get_sv_converter (converter_in, 0);
+  if (!converter)
+    {
+      HV *stash;
+      const char *class = 0;
+      enum converter_format converter_format = COF_none;
+      int i;
+
+      if (input_class)
+        class = input_class;
+      else
+        {
+          stash = SvSTASH (SvRV (converter_in));
+          class = HvNAME (stash);
+        }
+
+      if (class)
+        {
+          /* determine the converter format, if handled in C */
+          for (i =0; i < TXI_CONVERSION_FORMAT_NR; i++)
+            {
+              if (!strcmp (converter_format_data[i].perl_converter_class,
+                           class))
+                {
+                  converter_format = i;
+                  break;
+                }
+            }
+        }
+
+      converter_descriptor = new_converter (converter_format,
+                                            CONVF_perl_hashmap);
+                                             /*
+                                            CONVF_string_list);
+                                              */
+      converter = retrieve_converter (converter_descriptor);
+    }
+  return converter;
+}
+
+CONVERTER *
 converter_set_document_from_sv (SV *converter_in, SV *document_in)
 {
   CONVERTER *converter;
@@ -196,7 +244,7 @@ new_option_from_sv (SV *option_sv, CONVERTER *converter,
 
 /* class is Perl converter class for warning message in case the class
    cannot be found otherwise */
-static int
+int
 get_converter_info_from_sv (SV *conf_sv, const char *class,
                             CONVERTER *converter,
                             OPTION **sorted_options,

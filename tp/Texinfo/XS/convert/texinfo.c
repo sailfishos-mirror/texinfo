@@ -269,99 +269,70 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-/* converter creation, similar to the very first part of
-   Texinfo::Convert::Converter::converter and generic parts of
-   _generic_converter_init, + some customization options settings
-   that are done in Perl directly in texi2any.pl.
- */
 CONVERTER *
-txi_converter (enum converter_format format)
+txi_converter (enum converter_format format,
+               CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  size_t converter_descriptor = new_converter (format, CONVF_string_list);
-  return retrieve_converter (converter_descriptor);
+  return converter_converter (format, user_conf);
 }
 
-/* converter initialization. Similar to $converter->converter_defaults(),
-   _generic_converter_init and $converter->converter_initialize() calls */
-void
-txi_converter_initialize (CONVERTER *converter,
-                          const char *output_format,
-                          const char *converted_format,
-                          const char *locale_encoding,
-                   const char *program_file, OPTIONS_LIST *customizations)
+/* converter setup. Similar to an initialization of converter
+   from texi2any */
+CONVERTER *
+txi_converter_setup (const char *format_str,
+                     const char *output_format,
+                     const char *locale_encoding,
+                     const char *program_file, OPTIONS_LIST *customizations)
 {
-  enum converter_format converter_format = converter->format;
-  CONVERTER_INITIALIZATION_INFO *format_defaults;
+  enum converter_format converter_format
+    = find_format_data_index (format_str);
   CONVERTER_INITIALIZATION_INFO *conf;
-  const char *format;
-
-  if (converter_format == COF_none)
-    return;
-
-  format = converter_format_data[converter_format].default_format;
-
-  /* prepare specific information for the converter */
-  format_defaults = new_converter_initialization_info ();
-  if (converted_format)
-    format_defaults->converted_format = strdup (converted_format);
-  else
-    format_defaults->converted_format = strdup (format);
-  if (output_format)
-    format_defaults->output_format = strdup (output_format);
-  else
-    format_defaults->output_format = strdup (format);
+  CONVERTER *self;
 
   conf = new_converter_initialization_info ();
+
+  /* prepare specific information for the converter */
+  if (output_format)
+    conf->output_format = strdup (output_format);
+  else
+    conf->output_format = strdup (format_str);
+
   initialize_options_list (&conf->conf, 10);
 
-  add_option_string_value (&conf->conf, converter->sorted_options,
+  /* similar to options coming from texi2any */
+  add_new_option_value (&conf->conf, GOT_char, "PROGRAM", 0,
+                        program_file);
    /*
     */
-                    "PROGRAM", 0, program_file);
   /* comment the line above and uncomment below to compare with
      texi2any output
-                    "PROGRAM", 0, "texi2any");
-  add_option_string_value (&conf->conf, converter->sorted_options,
+                        "texi2any");
+  add_new_option_value (&conf->conf, GOT_char,
                     "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
    */
-  add_option_string_value (&conf->conf, converter->sorted_options,
+  add_new_option_value (&conf->conf, GOT_char,
                     "COMMAND_LINE_ENCODING", 0, locale_encoding);
-  add_option_string_value (&conf->conf, converter->sorted_options,
+  add_new_option_value (&conf->conf, GOT_char,
                     "MESSAGE_ENCODING", 0, locale_encoding);
-  add_option_string_value (&conf->conf, converter->sorted_options,
+  add_new_option_value (&conf->conf, GOT_char,
                     "LOCALE_ENCODING", 0, locale_encoding);
   /* filled here because it is the best we have in C */
-  add_option_string_value (&conf->conf, converter->sorted_options,
+  add_new_option_value (&conf->conf, GOT_char,
                     "XS_STRXFRM_COLLATION_LOCALE", 0, "en_US");
   /*
-  add_option_string_value (&conf->conf, converter->sorted_options,
+  add_new_option_value (&conf->conf, GOT_integer,
                     "DEBUG", 1, 0);
    */
+
   if (customizations)
     {
-      copy_options_list (&conf->conf, customizations,
-                         converter->sorted_options);
+      copy_options_list (&conf->conf, customizations);
     }
 
-  /* pass information to the converter and format specific initialization */
-  set_converter_init_information (converter, converter_format,
-                                  format_defaults, conf);
+  self = converter_converter (converter_format, conf);
 
-  switch (converter_format)
-    {
-      case COF_html:
-        html_converter_initialize_beginning (converter);
-        html_converter_init_special_unit (converter);
-        html_converter_customize (converter);
-
-        html_fill_options_directions (converter->conf, converter);
-        break;
-      default:
-        break;
-    }
-
-  destroy_converter_initialization_info (format_defaults);
   destroy_converter_initialization_info (conf);
+  return self;
 }
 
 
