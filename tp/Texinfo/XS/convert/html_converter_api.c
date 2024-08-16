@@ -23,6 +23,7 @@
 
 #include "document_types.h"
 #include "converter.h"
+#include "html_conversion_api.h"
 #include "html_converter_api.h"
 
 /* similar to Texinfo::Convert::HTML->converter_initialize */

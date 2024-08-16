@@ -29,7 +29,7 @@
 #include "create_buttons.h"
 /* new_converter_initialization_info */
 #include "converter.h"
-#include "html_converter_init_options.h"
+#include "html_converter_api.h"
 
 /* HTML converter options setting and initialization.  Not with format
    specific converter code, since this code is called from generic

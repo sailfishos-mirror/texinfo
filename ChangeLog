@@ -1,5 +1,18 @@
 2024-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES),
+	tp/Texinfo/XS/convert/html_converter_api.h,
+	tp/Texinfo/XS/convert/html_conversion_api.h: split
+	html_converter_api.h in two with high level API only remaining in
+	html_converter_api.h, lower level API goes to html_conversion_api.h.
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES): remove
+	tp/Texinfo/XS/convert/html_converter_init_options.h and
+	tp/Texinfo/XS/convert/html_converter_finish.h, html_converter_api.h
+	should be used instead.
+
+2024-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/customization_options.c
 	(copy_numbered_options_list_options): rename copy_options_list_options
 	to copy_numbered_options_list_options.  Update callers.

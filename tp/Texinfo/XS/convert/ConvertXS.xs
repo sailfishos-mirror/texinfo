@@ -58,7 +58,8 @@
 #include "convert_html.h"
 #include "format_html.h"
 #include "html_prepare_converter.h"
-#include "html_converter_init_options.h"
+#include "html_conversion_api.h"
+#include "html_converter_api.h"
 #include "get_html_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to

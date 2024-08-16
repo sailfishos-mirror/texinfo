@@ -33,7 +33,7 @@
 /* html_reset_translated_special_unit_info_tree
    html_clear_direction_string_type */
 #include "convert_html.h"
-#include "html_converter_finish.h"
+#include "html_converter_api.h"
 
 
 static void
