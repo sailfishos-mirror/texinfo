@@ -97,18 +97,28 @@ init (int texinfo_uninstalled, SV *pkgdatadir_sv, SV *tp_builddir_sv, SV *top_sr
     OUTPUT:
         RETVAL
 
+# this function could be called with a class name or a converter as first
+# argument.  In Perl code, the first argument is not used in the functions,
+# it is only used to locate the method to call through inheritance.
+# Here, if the argument is a converter, a C converter is created, the
+# result of converter_defaults is stored in the converter and an empty
+# hash is returned to avoid building to Perl and then getting from Perl
+# in generic_converter_init.
+#
+# NOTE this function is generic, but should only be overriden for formats
+# setting option defaults in C.
 SV *
 converter_defaults (SV *converter_in, SV *conf_sv)
       PREINIT:
         CONVERTER_INITIALIZATION_INFO *conf;
         CONVERTER_INITIALIZATION_INFO *format_defaults;
+        CONVERTER *self = 0;
         /* we need sorted options to be able to find the type of options
            in functions called from get_converter_info_from_sv*/
         OPTIONS *options;
         OPTION **sorted_options;
         const char *class_name;
         enum converter_format converter_format;
-        /* int has_conf; */
       CODE:
         options = new_options ();
         sorted_options = setup_sorted_options (options);
@@ -119,6 +129,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
               {
                 HV *stash = SvSTASH (SvRV (converter_in));
                 class_name = HvNAME (stash);
+                self = get_or_create_sv_converter (converter_in, class_name);
               }
             else
               class_name = SvPV_nolen (converter_in);
@@ -127,13 +138,8 @@ converter_defaults (SV *converter_in, SV *conf_sv)
         converter_format
           = find_perl_converter_class_converter_format (class_name);
 
-        conf = new_converter_initialization_info ();
-
-        /*
-        has_conf =
-         */
-          get_converter_info_from_sv (conf_sv, 0, 0,
-                                      sorted_options, conf);
+        conf = get_converter_info_from_sv (conf_sv, class_name, 0,
+                                           sorted_options);
 
         free (sorted_options);
         free_options (options);
@@ -141,36 +147,87 @@ converter_defaults (SV *converter_in, SV *conf_sv)
 
         format_defaults = converter_defaults (converter_format, conf);
 
-        destroy_converter_initialization_info (conf);
+        if (conf)
+          destroy_converter_initialization_info (conf);
 
-        RETVAL = build_sv_options_from_options_list (&format_defaults->conf, 0);
-        destroy_converter_initialization_info (format_defaults);
+        if (self)
+          {
+            const char *key = "converter_descriptor";
+            HV *converter_hv = (HV *)SvRV (converter_in);
+
+            self->format_defaults = format_defaults;
+
+           /* the converter needs to be found, nothing else to pass to
+              Perl */
+  /* FIXME converter->converter_descriptor is size_t, there will be an overflow
+           if > max of IV */
+            hv_store (converter_hv, key, strlen (key),
+                      newSViv ((IV)self->converter_descriptor), 0);
+
+            RETVAL = newSV (0);
+          }
+        else
+          {
+            RETVAL
+              = build_sv_options_from_options_list (&format_defaults->conf, 0);
+            destroy_converter_initialization_info (format_defaults);
+          }
     OUTPUT:
         RETVAL
 
 # NOTE not sure what the scope of class is.  When tested, valgrind did not
 # complain.
 void
-generic_converter_init (SV *converter_in, const char *class, SV *format_defaults_sv, SV *conf_sv=0)
+generic_converter_init (SV *converter_in, const char *class_name, SV *format_defaults_sv, SV *conf_sv=0)
       PREINIT:
         CONVERTER *self;
         CONVERTER_INITIALIZATION_INFO *format_defaults;
         CONVERTER_INITIALIZATION_INFO *conf;
+        HV *converter_hv;
       CODE:
-        self = get_or_create_sv_converter (converter_in, class);
+        self = get_or_create_sv_converter (converter_in, class_name);
+        converter_hv = (HV *)SvRV (converter_in);
+        self->hv = converter_hv;
 
-        format_defaults = new_converter_initialization_info ();
-        conf = new_converter_initialization_info ();
+        format_defaults = get_converter_info_from_sv (format_defaults_sv,
+                                       class_name, self, self->sorted_options);
+        /* if format_defaults_sv is undef, it means that format_defaults
+           should have been registered in the C converter */
+        if (!format_defaults)
+          {
+            format_defaults = self->format_defaults;
+            self->format_defaults = 0;
+            number_options_list (&format_defaults->conf, self->sorted_options);
+          }
 
-        converter_get_info_from_sv (converter_in, class, self,
-                                    format_defaults_sv,
-                                    conf_sv, format_defaults, conf);
+        conf = get_converter_info_from_sv (conf_sv, class_name, self,
+                                           self->sorted_options);
 
         set_converter_init_information (self, self->format,
                                         format_defaults, conf);
 
-        destroy_converter_initialization_info (format_defaults);
-        destroy_converter_initialization_info (conf);
+
+        if (format_defaults)
+          {
+    /* set directly Perl converter keys with non 'valid' customization info */
+            set_non_customization_sv (converter_hv, format_defaults_sv,
+                                &format_defaults->non_valid_customization);
+            destroy_converter_initialization_info (format_defaults);
+          }
+
+        if (conf)
+          {
+    /* set directly Perl converter keys with non 'valid' customization info */
+            set_non_customization_sv (converter_hv, conf_sv,
+                              &conf->non_valid_customization);
+
+            destroy_converter_initialization_info (conf);
+          }
+
+       /*
+           fprintf (stderr, "XS|CONVERTER Init from SV: %zu; \n",
+                    self->converter_descriptor);
+        */
 
         pass_generic_converter_to_converter_sv (converter_in, self);
 

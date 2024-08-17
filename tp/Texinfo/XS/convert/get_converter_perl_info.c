@@ -133,7 +133,7 @@ converter_set_document_from_sv (SV *converter_in, SV *document_in)
 
 /* add to converter hash the INIT_INFO_SV key values that are
    not customization variables, listed in NO_VALID_CUSTOMIZATION */
-static void
+void
 set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
                           STRING_LIST *non_valid_customization)
 {
@@ -236,12 +236,13 @@ new_numbered_option_from_sv (SV *option_sv, CONVERTER *converter,
 
 /* class is Perl converter class for warning message in case the class
    cannot be found otherwise */
-int
+CONVERTER_INITIALIZATION_INFO *
 get_converter_info_from_sv (SV *conf_sv, const char *class,
                             CONVERTER *converter,
-                            OPTION **sorted_options,
-                            CONVERTER_INITIALIZATION_INFO *initialization_info)
+                            OPTION **sorted_options)
 {
+  CONVERTER_INITIALIZATION_INFO *initialization_info = 0;
+
   dTHX;
 
   if (conf_sv && SvOK (conf_sv))
@@ -251,10 +252,12 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
 
       HV *conf_hv = (HV *)SvRV (conf_sv);
 
+      initialization_info = new_converter_initialization_info ();
+
       hv_number = hv_iterinit (conf_hv);
 
       if (!hv_number)
-        return 0;
+        return initialization_info;
 
       initialize_options_list (&initialization_info->conf, hv_number);
       initialization_info->conf.number = 0;
@@ -318,49 +321,8 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
                 }
             }
         }
-      return 1;
     }
-  return 0;
-}
-
-int
-converter_get_info_from_sv (SV *converter_sv, const char *class,
-                            CONVERTER *converter,
-                            SV *format_defaults_sv, SV *conf_sv,
-                            CONVERTER_INITIALIZATION_INFO *format_defaults,
-                            CONVERTER_INITIALIZATION_INFO *conf)
-{
-  HV *converter_hv;
-  int has_format_defaults;
-  int has_conf;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-  converter->hv = converter_hv;
-
-  has_format_defaults
-    = get_converter_info_from_sv (format_defaults_sv, class, converter,
-                              converter->sorted_options, format_defaults);
-
-  has_conf = get_converter_info_from_sv (conf_sv, class, converter,
-                               converter->sorted_options, conf);
-
-  /* set directly Perl converter keys with non 'valid' customization info */
-  set_non_customization_sv (converter_hv, format_defaults_sv,
-                            &format_defaults->non_valid_customization);
-
-  set_non_customization_sv (converter_hv, conf_sv,
-                            &conf->non_valid_customization);
-
-   /*
-  fprintf (stderr, "XS|CONVERTER Init from SV: %d; %d %d\n",
-                   converter->converter_descriptor, has_format_defaults,
-                   has_conf);
-    */
-
-  return has_format_defaults + has_conf;
+  return initialization_info;
 }
 
 void

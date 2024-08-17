@@ -350,7 +350,8 @@ set_converter_init_information (CONVERTER *converter,
   if (format_defaults)
     apply_converter_info (converter, format_defaults, 0);
 
-  apply_converter_info (converter, user_conf, 1);
+  if (user_conf)
+    apply_converter_info (converter, user_conf, 1);
 
   /* in Perl sets converter_init_conf, but in C we use only one
      structure for converter_init_conf and output_init_conf, which

@@ -756,6 +756,17 @@ typedef struct PRE_CLASS_TYPE_INFO {
     char *pre_class;
 } PRE_CLASS_TYPE_INFO;
 
+/* information on converter configuration from a source of configuration
+   (either output format or user customization) */
+typedef struct CONVERTER_INITIALIZATION_INFO {
+    char *converted_format;
+    char *output_format;
+    TRANSLATED_COMMAND *translated_commands;
+    OPTIONS_LIST conf;
+    /* gather strings that are not customization options */
+    STRING_LIST non_valid_customization;
+} CONVERTER_INITIALIZATION_INFO;
+
 typedef struct CONVERTER {
     int converter_descriptor;
   /* perl converter. This should be HV *hv,
@@ -765,6 +776,9 @@ typedef struct CONVERTER {
   /* this is the type of the converter, not of the output.  (Similar to
      a module name in Perl) */
     enum converter_format format;
+    /* used to pass converter_defaults result, if going through XS and
+       destroyed shortly after */
+    CONVERTER_INITIALIZATION_INFO *format_defaults;
     OPTIONS *conf;
     OPTIONS *init_conf;
     /* an array containing the fields of conf ordered by name */
@@ -933,17 +947,6 @@ typedef struct CONVERTER {
      */
     void *pl_info_hv; /* converter->{'converter_info'} */
 } CONVERTER;
-
-/* information on converter configuration from a source of configuration
-   (either output format or user customization) */
-typedef struct CONVERTER_INITIALIZATION_INFO {
-    char *converted_format;
-    char *output_format;
-    TRANSLATED_COMMAND *translated_commands;
-    OPTIONS_LIST conf;
-    /* gather strings that are not customization options */
-    STRING_LIST non_valid_customization;
-} CONVERTER_INITIALIZATION_INFO;
 
 typedef struct TRANSLATED_SUI_ASSOCIATION {
     enum special_unit_info_tree tree_type;
