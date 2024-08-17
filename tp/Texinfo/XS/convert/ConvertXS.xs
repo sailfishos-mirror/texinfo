@@ -37,6 +37,8 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "option_types.h"
+#include "options_types.h"
 #include "converter_types.h"
 #include "builtin_commands.h"
 #include "errors.h"
@@ -113,15 +115,9 @@ converter_defaults (SV *converter_in, SV *conf_sv)
         CONVERTER_INITIALIZATION_INFO *conf;
         CONVERTER_INITIALIZATION_INFO *format_defaults;
         CONVERTER *self = 0;
-        /* we need sorted options to be able to find the type of options
-           in functions called from get_converter_info_from_sv*/
-        OPTIONS *options;
-        OPTION **sorted_options;
         const char *class_name;
         enum converter_format converter_format;
       CODE:
-        options = new_options ();
-        sorted_options = setup_sorted_options (options);
 
         if (SvOK (converter_in))
           {
@@ -138,12 +134,10 @@ converter_defaults (SV *converter_in, SV *conf_sv)
         converter_format
           = find_perl_converter_class_converter_format (class_name);
 
+        /* use txi_base_sorted_options static data to find the type of
+           options by name */
         conf = get_converter_info_from_sv (conf_sv, class_name, 0,
-                                           sorted_options);
-
-        free (sorted_options);
-        free_options (options);
-        free (options);
+                                           txi_base_sorted_options);
 
         format_defaults = converter_defaults (converter_format, conf);
 

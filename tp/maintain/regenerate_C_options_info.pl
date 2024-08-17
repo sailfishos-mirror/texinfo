@@ -165,6 +165,9 @@ print HEADER "#undef PACKAGE_VERSION\n\n";
 
 print HEADER "#define TXI_OPTIONS_NR $options_nr\n\n";
 
+my $base_sorted_options_name = 'txi_base_sorted_options';
+print HEADER "extern OPTION *${base_sorted_options_name}\[TXI_OPTIONS_NR\];\n\n";
+
 print HEADER "typedef struct OPTIONS {\n";
 print HEADER "    size_t BIT_user_function_number;\n";
 
@@ -368,6 +371,29 @@ foreach my $command_name (@commands_order) {
   }
 }
 
+print CODE "};\n\n";
+
+# Sorted options by name.  Can be used to find the number and type.
+# First define the internal OPTION structures, in a second step set the
+# array.  Could not find a way to do it in one step.
+my $option_nr = 0;
+foreach my $option (sort(keys(%options))) {
+  $option_nr++;
+  my $option_info = $options{$option};
+  my ($category, $main_default, $type) = @$option_info;
+  print CODE "static OPTION _sorted_options_${option}_tmp = {GOT_${type}, \"$option\", $option_nr, 0, -1};  /* $category */\n";
+}
+
+print CODE "\n\n";
+
+print CODE "OPTION *${base_sorted_options_name}\[TXI_OPTIONS_NR\] = {\n";
+foreach my $option (sort(keys(%options))) {
+  $option_nr++;
+  my $option_info = $options{$option};
+  my ($category, $main_default, $type) = @$option_info;
+  #print CODE "{GOT_${type}, \"$option\", $option_nr, 0, -1},  /* $category */\n";
+  print CODE "&_sorted_options_${option}_tmp,\n";
+}
 print CODE "};\n\n";
 
 close(CODE);
