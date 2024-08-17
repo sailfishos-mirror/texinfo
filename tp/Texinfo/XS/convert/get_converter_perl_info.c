@@ -234,10 +234,10 @@ new_numbered_option_from_sv (SV *option_sv, CONVERTER *converter,
   return option;
 }
 
-/* class is Perl converter class for warning message in case the class
-   cannot be found otherwise */
+/* CLASS_NAME is Perl converter class for warning message.  If NULL, no message.
+   CONVERTER may be NULL (when called from converter_defaults). */
 CONVERTER_INITIALIZATION_INFO *
-get_converter_info_from_sv (SV *conf_sv, const char *class,
+get_converter_info_from_sv (SV *conf_sv, const char *class_name,
                             CONVERTER *converter,
                             OPTION **sorted_options)
 {
@@ -301,14 +301,8 @@ get_converter_info_from_sv (SV *conf_sv, const char *class,
                       /* TODO add to converter and set.  Only used for
                          htmlxref, so should wait for that to implement */
                     }
-                  else
+                  else if (class_name)
                     {
-                      const char *class_name;
-                      if (converter->format >= 0)
-                        class_name
-              = converter_format_data[converter->format].perl_converter_class;
-                       else
-                        class_name = class;
                       fprintf (stderr,
                                "%s: %s not a possible configuration\n",
                                class_name, key);

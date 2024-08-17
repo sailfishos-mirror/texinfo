@@ -37,6 +37,8 @@ use Texinfo::Convert::HTML;
 # Note that Texinfo::Convert::Utils::add_heading_number is called
 # from Texinfo::Convert::Plaintext converter for sectioning commands
 # with translations support.
+#
+# This tests an HTML converter initialization without options.
 
 
 # setup translated strings

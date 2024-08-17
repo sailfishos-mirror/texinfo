@@ -258,10 +258,9 @@ sub set_document($$)
 }
 
 # initialization either in generic XS converter or in Perl
-sub _generic_converter_init($$$;$)
+sub _generic_converter_init($$;$)
 {
   my $converter = shift;
-  my $class = shift;
   my $format_defaults = shift;
   my $conf = shift;
 
@@ -287,6 +286,7 @@ sub _generic_converter_init($$$;$)
       if (Texinfo::Common::valid_customization_option($key)) {
         $converter->{'conf'}->{$key} = $conf->{$key};
       } elsif (!exists($defaults{$key})) {
+        my $class = ref($converter);
         warn "$class: $key not a possible configuration\n";
       } else {
         $converter->{$key} = $conf->{$key};
@@ -331,8 +331,7 @@ sub converter($;$)
 
   my $format_defaults = $converter->converter_defaults($conf);
 
-  # if with XS, XS converter initialization.
-  _generic_converter_init($converter, $class, $format_defaults, $conf);
+  _generic_converter_init($converter, $format_defaults, $conf);
 
   $converter->converter_initialize();
 
