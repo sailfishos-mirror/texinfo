@@ -1,20 +1,20 @@
 # t/* test support for the Perl modules.
 #
 # Copyright 2010-2024 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 use strict;
@@ -324,7 +324,12 @@ my @contents_keys = ('contents', 'args', 'parent', 'source_info',
   'node_description', 'node_long_description', 'is_target',
   'unit_contents', 'global_command_number',
   # only set with the XS parser
-  'tree_document_descriptor', 'output_units_descriptor');
+  'tree_document_descriptor',
+  # only set with the XS.  Since there is no XS involved for the compared
+  # output units, currently there is no descriptor ending up associated
+  # with output units.
+  #'output_units_descriptor', 'output_units_document_descriptor'
+  );
 my @menus_keys = ('menu_directions', 'menus', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.
@@ -344,7 +349,12 @@ my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
     'associated_unit', 'global_command_number',
     'parent',
     # only set with the XS parser
-    'tree_document_descriptor', 'output_units_descriptor');
+    'tree_document_descriptor',
+    # only set with the XS.  Since there is no XS involved for the compared
+    # output units, currently there is no descriptor ending up associated
+    # with output units.
+    #'output_units_descriptor', 'output_units_document_descriptor'
+   );
 foreach my $avoided_key(@avoided_keys_tree) {
   $avoided_keys_tree{$avoided_key} = 1;
 }
@@ -1419,6 +1429,9 @@ sub test($$)
   # (units_directions has not, though there is an implementation in C),
   # otherwise some information will be missing in the rebuild_output_units
   # output units.
+  # Since there is no XS involved in setting up the output_units compared
+  # with reference, there are no descriptor (allowing to retrieve output units
+  # list and document) associated with the first output unit.
   my $output_units;
   if ($test_split eq 'node') {
     $output_units = Texinfo::OutputUnits::split_by_node($document);

@@ -2409,6 +2409,7 @@ build_sorted_indices_by_letter (
 }
 
 
+
 /* Build Output unit and output units lists to Perl*/
 
 static void
@@ -2622,6 +2623,9 @@ fill_output_units_descriptor_av (const DOCUMENT *document,
   hv_store (output_units->list[0]->hv, "output_units_descriptor",
             strlen ("output_units_descriptor"),
             newSViv ((IV)output_units_descriptor), 0);
+  hv_store (output_units->list[0]->hv, "output_units_document_descriptor",
+            strlen ("output_units_document_descriptor"),
+            newSViv ((IV)document->descriptor), 0);
   return 1;
 }
 

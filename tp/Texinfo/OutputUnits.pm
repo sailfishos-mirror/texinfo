@@ -75,7 +75,6 @@ my %XS_convert_overrides = (
   #    => "Texinfo::StructTransfXS::split_by_node");
   #  "Texinfo::OutputUnits::split_by_section"
   #    => "Texinfo::StructTransfXS::split_by_section");
-  # TODO the split_pages XS takes also a document as argument
   #  "Texinfo::OutputUnits::split_pages"
   #    => "Texinfo::StructTransfXS::split_pages"
 );

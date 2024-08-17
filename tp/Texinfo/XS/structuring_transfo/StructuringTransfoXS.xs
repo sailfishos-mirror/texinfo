@@ -445,22 +445,25 @@ rebuild_output_units (SV *document_in, SV *output_units_in)
         if (document)
           {
             output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in, 0);
+             = get_sv_output_units_descriptor (output_units_in, 0, 0);
             if (output_units_descriptor)
               rebuild_output_units_list (document, output_units_in,
                                          output_units_descriptor);
           }
 
 void
-split_pages (SV *document_in, SV *output_units_in, char *split)
+split_pages (SV *output_units_in, char *split)
     PREINIT:
+        size_t output_units_descriptor = 0;
         const DOCUMENT *document = 0;
-        OUTPUT_UNIT_LIST *output_units = 0;
      CODE:
-        document = get_sv_document_document (document_in,
-                                             "split_pages");
-        output_units = get_sv_output_units (document,
-                                            output_units_in, "split_pages");
-        if (output_units)
-          split_pages (output_units, split);
+        output_units_descriptor
+          = get_sv_output_units_descriptor (output_units_in, "split_pages",
+                                            &document);
 
+        if (output_units_descriptor && document)
+          {
+            OUTPUT_UNIT_LIST *output_units = retrieve_output_units (document,
+                                                    output_units_descriptor);
+            split_pages (output_units, split);
+          }

@@ -31,7 +31,8 @@ int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 
-size_t get_sv_output_units_descriptor (SV *output_units_in, char *warn_string);
+size_t get_sv_output_units_descriptor (SV *output_units_in, char *warn_string,
+                                       const DOCUMENT **document_out);
 OUTPUT_UNIT_LIST *get_sv_output_units (const DOCUMENT *document,
                                        SV *output_units_in,
                                        char *warn_string);

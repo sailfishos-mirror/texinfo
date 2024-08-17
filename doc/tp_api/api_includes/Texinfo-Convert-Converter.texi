@@ -224,13 +224,13 @@ To help with these initializations, the modules subclassing @code{Texinfo::Conve
 can define two methods:
 
 @table @asis
-@item \%defaults = $converter->converter_defaults($options)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter \%defaults = $converter->converter_defaults($options)}
+@item \%defaults = $converter_or_class->converter_defaults($options)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter \%defaults = $converter_or_class->converter_defaults($options)}
 @cindex @code{converter_defaults}
 
 The module can provide the reference on a hash with defaults for converter
 customization options.  The @emph{$options} hash reference holds options for the
-converter.
+converter.  The function can be called both through a class or a converter.
 
 @item converter_initialize
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter converter_initialize}

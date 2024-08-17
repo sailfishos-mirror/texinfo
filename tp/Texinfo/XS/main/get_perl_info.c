@@ -162,9 +162,13 @@ get_sv_document_document (SV *document_in, char *warn_string)
                                warn_string);
 }
 
-/* caller should ensure that OUTPUT_UNIT_IN is defined */
+/* caller should ensure that OUTPUT_UNIT_IN is defined.
+   If DOCUMENT_OUT is set, find the document associated with the output units
+   too.
+ */
 size_t
-get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
+get_sv_output_units_descriptor (SV *output_units_in, char *warn_string,
+                                const DOCUMENT **document_out)
 {
   size_t output_units_descriptor = 0;
   AV *av_in;
@@ -173,6 +177,9 @@ get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
   char *key = "output_units_descriptor";
 
   dTHX;
+
+  if (document_out)
+    *document_out = 0;
 
   if (!SvOK (output_units_in))
     {
@@ -203,6 +210,15 @@ get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
             }
           else if (warn_string)
             fprintf (stderr, "ERROR: %s: no %s\n", warn_string, key);
+
+          if (document_out)
+            {
+              DOCUMENT *document
+               = get_document_or_warn (*first_output_unit_sv,
+                                       "output_units_document_descriptor",
+                                       warn_string);
+              *document_out = document;
+            }
         }
       else
         fprintf (stderr, "BUG: get_sv_output_units: av_fetch failed\n");
@@ -215,17 +231,37 @@ get_sv_output_units_descriptor (SV *output_units_in, char *warn_string)
   return output_units_descriptor;
 }
 
-
+/* If DOCUMENT is NULL, it is found using the descriptor associated with
+   the first output unit in SV along with the output_units descriptor.
+   In general, the DOCUMENT is not NULL in current codes call to
+   get_sv_output_units, as previously there was no document descriptor
+   availalble.  In the future, it could make sense to get the document
+   from the output units SV instead. */
 OUTPUT_UNIT_LIST *
-get_sv_output_units (const DOCUMENT *document, SV *output_units_in,
-                     char *warn_string)
+get_sv_output_units (const DOCUMENT *document,
+                     SV *output_units_in, char *warn_string)
 {
   OUTPUT_UNIT_LIST *output_units = 0;
-  size_t output_units_descriptor
-     = get_sv_output_units_descriptor (output_units_in, warn_string);
-  if (output_units_descriptor)
+  const DOCUMENT *document_found = 0;
+  size_t output_units_descriptor = 0;
+
+  if (document)
     {
-      output_units = retrieve_output_units (document, output_units_descriptor);
+      document_found = document;
+      output_units_descriptor
+        = get_sv_output_units_descriptor (output_units_in, warn_string, 0);
+    }
+  else
+    {
+      output_units_descriptor
+        = get_sv_output_units_descriptor (output_units_in, warn_string,
+                                          &document_found);
+    }
+
+  if (output_units_descriptor && document_found)
+    {
+      output_units = retrieve_output_units (document_found,
+                                            output_units_descriptor);
       if (!output_units && warn_string)
         fprintf (stderr, "ERROR: %s: no units %zu\n", warn_string,
                                              output_units_descriptor);
@@ -1365,7 +1401,7 @@ find_subentry_index_command_sv (const DOCUMENT *document, HV *element_hv)
 /* find the INDEX_ENTRY associated element matching ELEMENT_HV.
 
    If the index entry was reassociated, the tree element the
-   index entry is reassociated to is not index_entry->entry_element
+   index entry is reassociated with is not index_entry->entry_element
    but index_entry->entry_associated_element.  The original
    tree element that was associated is index_entry->entry_element.
    Depending on the situation one or the other may be looked for
@@ -1375,7 +1411,7 @@ find_subentry_index_command_sv (const DOCUMENT *document, HV *element_hv)
    when doing a link to the tree from the index entry.  But it may
    also be the original tree element that is used, for example
    to get the index entry tree element content, for instance
-   when going through the elements associated to indices to setup
+   when going through the elements associated with indices to setup
    index entries sort strings.
  */
 static const ELEMENT *
@@ -1532,7 +1568,7 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
 
 /* returns the sorted index for a LANGUAGE if found.
    Also returns the hash containing the sorted index languages,
-   associated to KEY in the DOCUMENT_HV, created if it did not exist */
+   associated with KEY in the DOCUMENT_HV, created if it did not exist */
 SV *
 get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
                       const char *language, HV **out_sorted_indices_hv)

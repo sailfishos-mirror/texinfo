@@ -1,5 +1,28 @@
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c
+	(fill_output_units_descriptor_av): store a the document descriptor
+	along with output_units descriptor in the Perl output units data, as
+	both the document and output units list number in document are needed
+	to retrieve the output units list in C.
+
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_output_units_descriptor)
+	(get_sv_output_units): add a document out argument in
+	get_sv_output_units_descriptor and find the document associated with
+	the output units if set.  If the document argument of
+	get_sv_output_units is NULL, call get_sv_output_units_descriptor such
+	as to find the document.  Update callers.
+
+	* tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(split_pages): remove document SV argument, as there is no such
+	argument in Perl and get the document from the output units list SV.
+
+	* tp/t/test_utils.pl: add comments to explain why descriptors added to
+	output units by XS code to retrieve output units descriptor and
+	document descriptor do not show up in tests results.
+
+2024-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c
 	(get_converter_info_from_sv), tp/Texinfo/XS/main/build_perl_info.c
 	(pass_generic_converter_to_converter_sv): always pass output_format

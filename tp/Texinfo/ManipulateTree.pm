@@ -93,8 +93,8 @@ sub import {
   goto &Exporter::import;
 }
 
-
 
+
 # copy a Texinfo tree.
 
 # TODO document in POD?
@@ -338,6 +338,7 @@ sub copy_contentsNonXS($;$)
 }
 
 
+
 # Texinfo tree transformations used in main output formats conversion.
 
 sub modify_tree($$;$);
