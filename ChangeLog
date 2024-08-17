@@ -1,5 +1,9 @@
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/input_files/last_file_same_parser.texi: add an @include.
+
+2024-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/30sectioning.t (in_menu_only_special_spaces_node),
 	tp/t/40moresectioning.t (only_special_spaces_node),
 	tp/t/input_files/in_menu_only_special_spaces_node.texi,

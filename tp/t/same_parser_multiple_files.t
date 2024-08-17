@@ -185,9 +185,11 @@ my $last_file = File::Spec->catfile($srcdir, 't', 'input_files',
 
 my $t_include_include_dir = File::Spec->catdir($srcdir, 't', 'include');
 
-# TODO test setting specific values in parser initialization and checking
-# that they are used in both files, but also that the values @set in the first file
-# are not set in the second file.
+# Test setting specific values in parser initialization and checking
+# that they are used in both files, but also that the values @set in the
+# first file are not set in the second file.
+# The relevant common parser initialization is the first item in
+# 'INCLUDE_DIRECTORIES' in which the @include is found.
 
 my $test_include_dirs = [$t_include_include_dir,
                          $manual_include_dir, $coverage_include_dir, 'a'];
