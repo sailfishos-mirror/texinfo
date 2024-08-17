@@ -209,7 +209,6 @@ generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0)
         set_converter_init_information (self, self->format,
                                         format_defaults, conf);
 
-
         if (format_defaults)
           {
     /* set directly Perl converter keys with non 'valid' customization info */

@@ -281,31 +281,36 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
             {
               if (status == -2)
                 {
-                  add_string (key,
-                        &initialization_info->non_valid_customization);
-
-                  if (!strcmp (key, "translated_commands"))
-                    initialization_info->translated_commands
-                      = set_translated_commands (value);
-                  /* FIXME get deprecated_config_directories if needed */
-                  else if (!strcmp (key, "deprecated_config_directories"))
-                    {}
-                  else if (!strcmp (key, "output_format"))
+                  /* next two passed in
+                     pass_generic_converter_to_converter_sv */
+                  if (!strcmp (key, "output_format"))
                     initialization_info->output_format
                       = non_perl_strdup (SvPVutf8_nolen (value));
                   else if (!strcmp (key, "converted_format"))
                     initialization_info->converted_format
                       = non_perl_strdup (SvPVutf8_nolen (value));
-                  else if (!strcmp (key, "texinfo_language_config_dirs"))
+                  /* FIXME get deprecated_config_directories if needed */
+                  else if (!strcmp (key, "deprecated_config_directories"))
+                    {}
+                  else
                     {
-                      /* TODO add to converter and set.  Only used for
-                         htmlxref, so should wait for that to implement */
-                    }
-                  else if (class_name)
-                    {
-                      fprintf (stderr,
-                               "%s: %s not a possible configuration\n",
-                               class_name, key);
+                      add_string (key,
+                        &initialization_info->non_valid_customization);
+
+                      if (!strcmp (key, "translated_commands"))
+                        initialization_info->translated_commands
+                          = set_translated_commands (value);
+                      else if (!strcmp (key, "texinfo_language_config_dirs"))
+                        {
+                          /* TODO add to converter and set.  Only used for
+                             htmlxref, so should wait for that to implement */
+                        }
+                      else if (class_name)
+                        {
+                          fprintf (stderr,
+                                   "%s: %s not a possible configuration\n",
+                                   class_name, key);
+                        }
                     }
                 }
               else

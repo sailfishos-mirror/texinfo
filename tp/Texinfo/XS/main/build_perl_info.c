@@ -3174,6 +3174,12 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
     = build_translated_commands (converter->translated_commands);
   STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
 
+  if (converter->output_format)
+    STORE("output_format", newSVpv_utf8 (converter->output_format, 0));
+
+  if (converter->converted_format)
+    STORE("converted_format", newSVpv_utf8 (converter->converted_format, 0));
+
   /* store converter_descriptor in perl converter */
   /* FIXME converter->converter_descriptor is size_t, there will be an overflow
            if > max of IV */
