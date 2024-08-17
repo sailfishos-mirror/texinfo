@@ -770,16 +770,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         {
           "args" => [
             {
-              "text" => " TODO perl and XS code give different width.  Beside width, those character should\n",
-              "type" => "rawline_arg"
-            }
-          ],
-          "cmdname" => "c"
-        },
-        {
-          "args" => [
-            {
-              "text" => " be handled explicitly in formatting.\n",
+              "text" => " Perl and XS code give different width.\n",
               "type" => "rawline_arg"
             }
           ],
@@ -871,8 +862,7 @@ $result_texis{'in_menu_only_special_spaces_node'} = '
 @node          　
 @chapter THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 
-@c TODO perl and XS code give different width.  Beside width, those character should
-@c be handled explicitly in formatting.
+@c Perl and XS code give different width.
 @c @node   
 @c @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |
 
@@ -1510,8 +1500,7 @@ $result_converted{'xml'}->{'in_menu_only_special_spaces_node'} = '<preamblebefor
 <node name="_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" spaces=" "><nodename>         　</nodename><nodeprev automatic="on">᠎ </nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</sectiontitle>
 
-<!-- c TODO perl and XS code give different width.  Beside width, those character should -->
-<!-- c be handled explicitly in formatting. -->
+<!-- c Perl and XS code give different width. -->
 <!-- c @node    -->
 <!-- c @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| | -->
 

@@ -1,5 +1,13 @@
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/30sectioning.t (in_menu_only_special_spaces_node),
+	tp/t/40moresectioning.t (only_special_spaces_node),
+	tp/t/input_files/in_menu_only_special_spaces_node.texi,
+	tp/t/input_files/only_special_spaces_node.texi: move TODO information
+	out of texi files to .t files.
+
+2024-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c
 	(fill_output_units_descriptor_av): store a the document descriptor
 	along with output_units descriptor in the Perl output units data, as
