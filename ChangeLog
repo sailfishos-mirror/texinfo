@@ -1,5 +1,11 @@
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): use
+	add_option_string_value with txi_base_sorted_options instead of 
+	add_new_option_value to get the option type based on the name.
+
+2024-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_C_options_info.pl: setup
 	txi_base_sorted_options sorted options information, to be able to find
 	type and number of options, even without a converter.

@@ -14,7 +14,8 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 /* Interface similar to the Perl modules interface for Texinfo parsing,
-   Document structure and transformations and conversion */
+   and higher-level interface for document structure and transformations
+   and conversion */
 
 /* not used in code called from texi2any/Perl, meant to be used exclusively
    from C code */
@@ -27,6 +28,8 @@
 #include <stdio.h>
 
 #include "document_types.h"
+/* txi_base_sorted_options */
+#include "options_types.h"
 #include "api.h"
 #include "conf.h"
 #include "errors.h"
@@ -54,7 +57,9 @@ txi_setup (const char *localesdir, int texinfo_uninstalled,
   html_format_setup ();
 }
 
-/* parser initialization, similar to Texinfo::Parser::parser in Perl */
+/* parser initialization, similar to Texinfo::Parser::parser in Perl.
+   Also sets INCLUDE_DIRECTORIES minimally if not specified in options.
+   The implementation is similar to parsetexi/Parsetexi.pm on purpose. */
 void
 txi_parser (const char *file_path, const char *locale_encoding,
             const char **expanded_formats, const VALUE_LIST *values,
@@ -300,28 +305,28 @@ txi_converter_setup (const char *format_str,
   initialize_options_list (&conf->conf, 10);
 
   /* similar to options coming from texi2any */
-  add_new_option_value (&conf->conf, GOT_char, "PROGRAM", 0,
-                        program_file);
+  add_option_string_value (&conf->conf, txi_base_sorted_options,
+                           "PROGRAM", 0, program_file);
    /*
     */
   /* comment the line above and uncomment below to compare with
      texi2any output
                         "texi2any");
-  add_new_option_value (&conf->conf, GOT_char,
-                    "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
+  add_option_string_value (&conf->conf, txi_base_sorted_options,
+                      "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
    */
-  add_new_option_value (&conf->conf, GOT_char,
-                    "COMMAND_LINE_ENCODING", 0, locale_encoding);
-  add_new_option_value (&conf->conf, GOT_char,
-                    "MESSAGE_ENCODING", 0, locale_encoding);
-  add_new_option_value (&conf->conf, GOT_char,
-                    "LOCALE_ENCODING", 0, locale_encoding);
+  add_option_string_value (&conf->conf, txi_base_sorted_options,
+                        "COMMAND_LINE_ENCODING", 0, locale_encoding);
+  add_option_string_value (&conf->conf, txi_base_sorted_options,
+                        "MESSAGE_ENCODING", 0, locale_encoding);
+  add_option_string_value (&conf->conf, txi_base_sorted_options,
+                        "LOCALE_ENCODING", 0, locale_encoding);
   /* filled here because it is the best we have in C */
-  add_new_option_value (&conf->conf, GOT_char,
-                    "XS_STRXFRM_COLLATION_LOCALE", 0, "en_US");
+  add_option_string_value (&conf->conf, txi_base_sorted_options,
+                        "XS_STRXFRM_COLLATION_LOCALE", 0, "en_US");
   /*
-  add_new_option_value (&conf->conf, GOT_integer,
-                    "DEBUG", 1, 0);
+  add_option_string_value (&conf->conf, txi_base_sorted_options,
+                           "DEBUG", 1, 0);
    */
 
   if (customizations)
