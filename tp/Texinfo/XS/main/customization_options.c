@@ -22,7 +22,10 @@
 #include "options_types.h"
 #include "converter_types.h"
 #include "api_to_perl.h"
+/* *_strings_list html_clear_direction_icons html_free_button_specification_list
+ */
 #include "utils.h"
+#include "builtin_commands.h"
 #include "customization_options.h"
 
 
@@ -578,5 +581,49 @@ free_options_list (OPTIONS_LIST *options_list)
     }
 
   free (options_list->list);
+}
+
+
+void
+set_informative_command_value (OPTIONS *options, const ELEMENT *element)
+{
+  const char *value = 0;
+
+  value = informative_command_value (element);
+
+  if (value)
+    {
+      OPTION *option;
+      enum command_id cmd = element_builtin_cmd (element);
+      if (cmd == CM_summarycontents)
+        cmd = CM_shortcontents;
+
+      option = get_command_option (options, cmd);
+      if (option)
+        {
+          int int_value = -1;
+          if (option->type == GOT_integer)
+            int_value = strtoul (value, NULL, 10);
+          option_set_conf (option, int_value, value);
+        }
+    }
+}
+
+/*
+  Notice that the only effect is to use set_conf (directly or through
+  set_informative_command_value), no @-commands setting side effects are done
+  and associated customization variables are not set/reset either.
+ */
+const ELEMENT *
+set_global_document_command (GLOBAL_COMMANDS *global_commands, OPTIONS *options,
+                             enum command_id cmd,
+                             enum command_location command_location)
+{
+  const ELEMENT *element
+     = get_global_document_command (global_commands, cmd,
+                                    command_location);
+  if (element)
+    set_informative_command_value (options, element);
+  return element;
 }
 

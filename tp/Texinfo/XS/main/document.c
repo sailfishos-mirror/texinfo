@@ -124,6 +124,18 @@ register_document_options (DOCUMENT *document, OPTIONS *options,
   document->sorted_options = sorted_options;
 }
 
+/* In perl, OUTPUT_PERL_ENCODING is set too.  Note that if the perl
+   version is called later on, the OUTPUT_ENCODING_NAME value will be re-set */
+void
+set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
+{
+  if (customization_information
+      && document && document->global_info.input_encoding_name) {
+    option_set_conf (&customization_information->OUTPUT_ENCODING_NAME, -1,
+                     document->global_info.input_encoding_name);
+  }
+}
+
 /* not used when document options are set from Perl */
 void
 initialize_document_options (DOCUMENT *document)
@@ -143,9 +155,7 @@ initialize_document_options (DOCUMENT *document)
   if (document_language)
     {
       const char *language = informative_command_value (document_language);
-      /* TODO use set_conf_string? or add set_conf in utils.h */
-      document->options->documentlanguage.o.string
-       = strdup (language);
+      option_set_conf (&document->options->documentlanguage, -1, language);
     }
   set_output_encoding (document->options, document);
 }

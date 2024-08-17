@@ -19,6 +19,8 @@
 
 #include "option_types.h"
 #include "options_types.h"
+/* for enum command_location */
+#include "document_types.h"
 #include "converter_types.h"
 
 /* in options_init_free.c */
@@ -65,4 +67,8 @@ void copy_options_list (OPTIONS_LIST *options_list,
                         const OPTIONS_LIST *options_src);
 void number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options);
 
+void set_informative_command_value (OPTIONS *options, const ELEMENT *element);
+const ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
+                             OPTIONS *options, enum command_id cmd,
+                             enum command_location command_location);
 #endif

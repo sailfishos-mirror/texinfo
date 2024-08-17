@@ -187,8 +187,6 @@ void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 void wipe_index (INDEX *idx);
 void free_indices_info (INDEX_LIST *indices_info);
 
-void set_output_encoding (OPTIONS *customization_information,
-                          DOCUMENT *document);
 /* in options_init_free.c */
 OPTION *get_command_option (OPTIONS *options, enum command_id cmd);
 
@@ -222,10 +220,6 @@ const ELEMENT *get_global_document_command (
                                       enum command_id cmd,
                                       enum command_location command_location);
 char *informative_command_value (const ELEMENT *element);
-void set_informative_command_value (OPTIONS *options, const ELEMENT *element);
-const ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
-                             OPTIONS *options, enum command_id cmd,
-                             enum command_location command_location);
 const ELEMENT_LIST *get_cmd_global_multi_command (
                                     const GLOBAL_COMMANDS *global_commands_ref,
                                     enum command_id cmd);

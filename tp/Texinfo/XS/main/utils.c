@@ -1103,33 +1103,6 @@ destroy_strings_list (STRING_LIST *strings)
 
 
 
-/* FIXME does something similar as set_conf in converter.c */
-static void
-set_conf_string (OPTION *option, const char *value)
-{
-  if (option->type != GOT_char && option->type != GOT_bytes)
-    fatal ("set_conf_string bad option type\n");
-
-  if (option->configured > 0)
-    return;
-
-  free (option->o.string);
-  option->o.string = strdup (value);
-}
-
-/* In perl, OUTPUT_PERL_ENCODING is set too.  Note that if the perl
-   version is called later on, the OUTPUT_ENCODING_NAME value will be re-set */
-void
-set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
-{
-  if (customization_information
-      && document && document->global_info.input_encoding_name) {
-    set_conf_string (&customization_information->OUTPUT_ENCODING_NAME,
-                      document->global_info.input_encoding_name);
-  }
-}
-
-
 /* code related to values used in files not in parsetexi */
 void
 wipe_values (VALUE_LIST *values)
@@ -1293,34 +1266,6 @@ informative_command_value (const ELEMENT *element)
   return 0;
 }
 
-void
-set_informative_command_value (OPTIONS *options, const ELEMENT *element)
-{
-  char *value = 0;
-
-  value = informative_command_value (element);
-
-  if (value)
-    {
-      OPTION *option;
-      enum command_id cmd = element_builtin_cmd (element);
-      if (cmd == CM_summarycontents)
-        cmd = CM_shortcontents;
-
-      option = get_command_option (options, cmd);
-      if (option)
-        {
-          if (option->type == GOT_integer)
-            {
-              if (option->configured <= 0)
-                option->o.integer = strtoul (value, NULL, 10);
-            }
-          else
-            set_conf_string (option, value);
-        }
-    }
-}
-
 static int
 in_preamble (ELEMENT *element)
 {
@@ -1397,24 +1342,6 @@ get_global_document_command (const GLOBAL_COMMANDS *global_commands,
       if (command)
         element = command;
     }
-  return element;
-}
-
-/*
-  Notice that the only effect is to use set_conf (directly or through
-  set_informative_command_value), no @-commands setting side effects are done
-  and associated customization variables are not set/reset either.
- */
-const ELEMENT *
-set_global_document_command (GLOBAL_COMMANDS *global_commands, OPTIONS *options,
-                             enum command_id cmd,
-                             enum command_location command_location)
-{
-  const ELEMENT *element
-     = get_global_document_command (global_commands, cmd,
-                                    command_location);
-  if (element)
-    set_informative_command_value (options, element);
   return element;
 }
 

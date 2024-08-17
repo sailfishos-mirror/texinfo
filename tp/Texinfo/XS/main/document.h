@@ -51,6 +51,9 @@ ELEMENT *unregister_document_merge_with_document (size_t document_descriptor,
 void add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
                                    const char *key, const char *value);
 
+void set_output_encoding (OPTIONS *customization_information,
+                          DOCUMENT *document);
+
 void wipe_document_parser_errors (size_t document_descriptor);
 void wipe_document_errors (size_t document_descriptor);
 
