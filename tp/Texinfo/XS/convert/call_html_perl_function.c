@@ -31,11 +31,17 @@
 #undef context
 
 #include "text.h"
+#include "tree_types.h"
+/* *BUTTON* */
 #include "option_types.h"
 #include "converter_types.h"
 #include "types_data.h"
 /* for element_command_name (or could be builtin_command_data) */
 #include "builtin_commands.h"
+/* new_target_filename non_perl_strndup new_target_contents_filename
+   new_file_name_path new_target_directory_filename non_perl_free
+   new_formatted_button_info output_unit_type_names enum output_unit_type
+ */
 #include "utils.h"
 #include "debug.h"
 /* for newSVpv_utf8 build_texinfo_tree */
@@ -1777,7 +1783,6 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
 
   return result;
 }
-
 
 
 

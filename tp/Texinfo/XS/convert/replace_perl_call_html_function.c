@@ -1,13 +1,15 @@
+/* replacements for Perl functions calling.  Some are actually called, most are
+   defined to please the linker */
 
 #include <config.h>
 
 #include "tree_types.h"
+/* *BUTTON* */
 #include "option_types.h"
 #include "converter_types.h"
-/* for TARGET_CONTENTS_FILENAME FILE_NAME_PATH
-   TARGET_DIRECTORY_FILENAME */
+/* new_string_list find_string *string 
+ */
 #include "utils.h"
-#include "translations.h"
 #include "call_html_perl_function.h"
 
 TARGET_FILENAME *

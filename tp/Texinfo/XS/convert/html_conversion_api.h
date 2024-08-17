@@ -25,9 +25,8 @@
 #include "document_types.h"
 #include "converter_types.h"
 
-void html_converter_initialize_beginning (CONVERTER *self);
-
 /* in html_prepare_converter.c */
+void html_converter_initialize_beginning (CONVERTER *self);
 void html_converter_init_special_unit (CONVERTER *self);
 void html_converter_customize (CONVERTER *self);
 

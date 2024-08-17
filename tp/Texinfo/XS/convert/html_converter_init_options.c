@@ -24,16 +24,14 @@
 #include "converters_defaults.h"
 /* html_get_direction_index html_free_button_specification_list */
 #include "utils.h"
-/* option_force_conf */
+/* add_new_button_option */
 #include "customization_options.h"
 #include "create_buttons.h"
 /* new_converter_initialization_info */
 #include "converter.h"
 #include "html_converter_api.h"
 
-/* HTML converter options setting and initialization.  Not with format
-   specific converter code, since this code is called from generic
-   converter code. */
+/* HTML converter options setting and initialization -- converter_defaults. */
 
 static const int DEFAULT_MISC_BUTTONS[] = {
  D_direction_Top, BSUD_D_Contents, D_direction_Index, BSUD_D_About,
@@ -221,41 +219,3 @@ html_converter_defaults (enum converter_format format,
   return format_defaults;
 }
 
-/* this code corresponds to the Perl converter_initialize code, only for
-   code to be called before Perl customization setup information is passed */
-void
-html_converter_initialize_beginning (CONVERTER *self)
-{
-  const char *split = self->conf->SPLIT.o.string;
-  int max_header_level = self->conf->MAX_HEADER_LEVEL.o.integer;
-
-  if (!self->conf->FORMAT_MENU.o.string)
-    option_force_conf (&self->conf->FORMAT_MENU, 0, "");
-
- /* NOTE we reset silently if the split specification is not one known.
-    The main program warns if the specific command line option value is
-    not known.  We could add a warning here to catch mistakes in init
-    files.  Wait for user reports.
-  */
-  if (split && strlen (split) && strcmp (split, "chapter")
-      && strcmp (split, "section") && strcmp (split, "node"))
-    option_force_conf (&self->conf->SPLIT, 0, "node");
-
-  if (max_header_level < 0)
-    option_force_conf (&self->conf->MAX_HEADER_LEVEL, 4, 0);
-  else if (max_header_level < 1)
-    option_force_conf (&self->conf->MAX_HEADER_LEVEL, 1, 0);
-
-  /* For CONTENTS_OUTPUT_LOCATION
-     should lead to contents not output, but if not, it is not an issue,
-     the way to set contents to be output or not should be through the
-     contents and shortcontents @-commands and customization options.
-   */
-
-  if (!self->conf->CONTENTS_OUTPUT_LOCATION.o.string)
-    option_force_conf (&self->conf->CONTENTS_OUTPUT_LOCATION, 0, "");
-  if (!self->conf->INDEX_ENTRY_COLON.o.string)
-    option_force_conf (&self->conf->INDEX_ENTRY_COLON, 0, "");
-  if (!self->conf->MENU_ENTRY_COLON.o.string)
-    option_force_conf (&self->conf->MENU_ENTRY_COLON, 0, "");
-}

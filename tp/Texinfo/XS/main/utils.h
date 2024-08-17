@@ -129,24 +129,6 @@ typedef struct ACCENTS_STACK {
     ELEMENT *argument;
 } ACCENTS_STACK;
 
-typedef struct TARGET_CONTENTS_FILENAME {
-    char *target;
-    char *filename;
-    char *target_contents;
-    char *target_shortcontents;
-} TARGET_CONTENTS_FILENAME;
-
-typedef struct FILE_NAME_PATH {
-    char *filename;
-    char *filepath;
-} FILE_NAME_PATH;
-
-typedef struct TARGET_DIRECTORY_FILENAME {
-    char *filename;
-    char *directory;
-    char *target;
-} TARGET_DIRECTORY_FILENAME;
-
 void non_perl_free (void *ptr);
 void *non_perl_malloc (size_t size);
 char *non_perl_strdup (const char *s);

@@ -953,11 +953,29 @@ typedef struct TRANSLATED_SUI_ASSOCIATION {
     enum special_unit_info_type string_type;
 } TRANSLATED_SUI_ASSOCIATION;
 
-/* used in several converter codes, but not in this file */
+/* following types used in several converter codes, but not in this file */
 typedef struct TARGET_FILENAME {
     char *target;
     char *filename;
 } TARGET_FILENAME;
+
+typedef struct TARGET_CONTENTS_FILENAME {
+    char *target;
+    char *filename;
+    char *target_contents;
+    char *target_shortcontents;
+} TARGET_CONTENTS_FILENAME;
+
+typedef struct FILE_NAME_PATH {
+    char *filename;
+    char *filepath;
+} FILE_NAME_PATH;
+
+typedef struct TARGET_DIRECTORY_FILENAME {
+    char *filename;
+    char *directory;
+    char *target;
+} TARGET_DIRECTORY_FILENAME;
 
 
 #endif

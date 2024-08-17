@@ -5,9 +5,6 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
-/* for TARGET_CONTENTS_FILENAME FILE_NAME_PATH
-   TARGET_DIRECTORY_FILENAME */
-#include "utils.h"
 #include "translations.h"
 
 TARGET_FILENAME *call_file_id_setting_special_unit_target_file_name

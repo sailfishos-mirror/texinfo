@@ -1,5 +1,17 @@
 2024-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/html_converter_init_options.c,
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_converter_initialize_beginning): move
+	html_converter_initialize_beginning to html_prepare_converter.c.
+
+	* tp/Texinfo/XS/main/converter_types.h (TARGET_CONTENTS_FILENAME)
+	(FILE_NAME_PATH, TARGET_DIRECTORY_FILENAME),
+	tp/Texinfo/XS/main/utils.h: move struct declarations to
+	converter_types.h.
+
+2024-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): use
 	add_option_string_value with txi_base_sorted_options instead of 
 	add_new_option_value to get the option type based on the name.

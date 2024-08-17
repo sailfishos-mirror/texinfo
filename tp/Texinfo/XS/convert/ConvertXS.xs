@@ -134,8 +134,8 @@ converter_defaults (SV *converter_in, SV *conf_sv)
         converter_format
           = find_perl_converter_class_converter_format (class_name);
 
-        /* use txi_base_sorted_options static data to find the type of
-           options by name */
+        /* use txi_base_sorted_options to find the type of options
+           specified by name */
         conf = get_converter_info_from_sv (conf_sv, class_name, 0,
                                            txi_base_sorted_options);
 
@@ -146,6 +146,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
 
         if (self)
           {
+            /* store format_defaults in the C converter */
             const char *key = "converter_descriptor";
             HV *converter_hv = (HV *)SvRV (converter_in);
 
@@ -162,6 +163,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
           }
         else
           {
+            /* return format_defaults built to Perl */
             RETVAL
               = build_sv_options_from_options_list (&format_defaults->conf, 0);
             destroy_converter_initialization_info (format_defaults);
@@ -169,7 +171,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
     OUTPUT:
         RETVAL
 
-# NOTE not sure what the scope of class is.  When tested, valgrind did not
+# NOTE not sure what the scope of class_name is.  When tested, valgrind did not
 # complain.
 void
 generic_converter_init (SV *converter_in, const char *class_name, SV *format_defaults_sv, SV *conf_sv=0)
@@ -185,8 +187,8 @@ generic_converter_init (SV *converter_in, const char *class_name, SV *format_def
 
         format_defaults = get_converter_info_from_sv (format_defaults_sv,
                                        class_name, self, self->sorted_options);
-        /* if format_defaults_sv is undef, it means that format_defaults
-           should have been registered in the C converter */
+        /* if format_defaults_sv is undef, it should mean that format_defaults
+           has been registered in the C converter */
         if (!format_defaults)
           {
             format_defaults = self->format_defaults;

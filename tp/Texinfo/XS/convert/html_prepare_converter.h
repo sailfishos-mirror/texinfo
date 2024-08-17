@@ -24,6 +24,8 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 
 
+/* void html_converter_initialize_beginning (CONVERTER *self); */
+
 /* called from XS only */
 FORMATTING_REFERENCE *new_special_unit_formatting_references
                                       (int special_units_varieties_nr);
