@@ -1722,6 +1722,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     }
 
   entry = new_element (ET_menu_entry);
+  entry->source_info = node->source_info;
 
   menu_entry_node = copy_contents (node_name_element, ET_menu_entry_node);
   for (i = 0; i < menu_entry_node->contents.number; i++)
