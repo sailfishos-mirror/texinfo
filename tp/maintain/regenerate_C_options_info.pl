@@ -261,26 +261,6 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 print CODE "}\n\n";
 
-# set configured based on the name
-# NOTE currently unused, as there is another function that uses a bsearch
-print CODE 'void
-set_option_key_configured (OPTIONS *options, const char *key, int configured)
-{
-  if (0) {}
-';
-foreach my $category (sort(keys(%option_categories))) {
-  print CODE "\n/* ${category} */\n\n";
-  foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    print CODE "  else if (!strcmp (key, \"$option\"))
-    {
-      if (configured > 0)
-        options->$option.configured = configured;
-    }\n";
-  }
-}
-
-print CODE "}\n\n";
 
 # associate commands to options
 print CODE "#include \"command_ids.h\"\n\n";
