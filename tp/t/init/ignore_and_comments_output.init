@@ -26,7 +26,6 @@ sub convert_ignore_command($$$$$)
 
   $content = '' if (!defined($content));
 
-  # FIXME should the spacing be set differently for raw commands?
   return $self->xml_comment(" $content\n");
 }
 

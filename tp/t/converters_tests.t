@@ -153,7 +153,6 @@ my @test_cases = (
 ['empty_accent',
 '@`{}
 '],
-# FIXME remove duplication from t/03coverage_braces.t form_feed_in_brace_commands
 ['form_feeds',
 '@node Top
 
@@ -170,6 +169,9 @@ cc \f dd".'
 @code{'."\f".'begin in code}
 
 @code{middle'."\f".' in code}
+
+@anchor{aa}something @email{aaa,  fff}@footnote{
+ f1 } @footnote{  ggjj}.
 
 @xref{chap'."\f".'node}
 

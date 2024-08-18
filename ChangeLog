@@ -1,5 +1,13 @@
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/converters_tests.t (form_feeds), tp/Makefile.tres: add parts of
+	t/03coverage_braces.t form_feed_in_brace_commands test relevant.
+	Remove t/03coverage_braces.t form_feed_in_brace_commands.
+
+	Add an include, changes in TODO/comments/FIXME.
+
+2024-08-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (set_converter_init_information)
 	(free_generic_converter), tp/Texinfo/XS/main/converter_types.h
 	(CONVERTER):  add format_defaults_conf OPTIONS field to converter.

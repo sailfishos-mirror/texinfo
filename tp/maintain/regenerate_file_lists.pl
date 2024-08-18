@@ -30,9 +30,10 @@ sub wanted
 {
   if ((/\.pl$/ and $File::Find::dir =~ m:^t/results/[^/]+:)
       or (!/^CVS$/ and !/^\.svn$/ 
+          # it could have been interesting to list each file but this
+          # leads to an "Argument list too long" error for the shell in
+          # make dist.
           # to list each file
-          # FIXME it would be better to list each file but then this leads to
-          # an "Argument list too long" error for the shell in make dist
           #and $File::Find::dir =~ m:^t/results/[^/]+/[^/]+/res_[^/]+$:)) {
           # list only directories
           and $File::Find::name =~ m:^t/results/[^/]+/[^/]+/res_[^/]+$:)) {

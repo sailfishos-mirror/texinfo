@@ -3,6 +3,7 @@
 #include <config.h>
 
 #include "conversion_data.h"
+#include "tree_types.h"
 #include "converter_types.h"
 
 const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {

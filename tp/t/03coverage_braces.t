@@ -295,10 +295,6 @@ mail,
 
 text
 }'],
-['form_feed_in_brace_commands',
-'@option{ aa} @anchor{aa}something @email{aaa,  fff}@footnote{ 
- f1 } @footnote{  ggjj}.
-', {'test_formats' => ['xml']}],
 # here even if invalid as we want to see how the @sortas is in index
 ['contain_plain_text_nestings',
 '@node Top

@@ -418,7 +418,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/footnote_no_braces.pl \
   t/results/coverage_braces/footnote_no_node.pl \
   t/results/coverage_braces/footnote_not_closed.pl \
-  t/results/coverage_braces/form_feed_in_brace_commands.pl \
   t/results/coverage_braces/format_on_first_footnote_line.pl \
   t/results/coverage_braces/heading_in_footnote.pl \
   t/results/coverage_braces/hyphenation_no_braces.pl \
