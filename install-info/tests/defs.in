@@ -72,10 +72,7 @@ else
   path_sep=":"
 fi
 
-diff=diff
-if echo '@host_os@' | $EGREP 'mingw' >/dev/null; then
-  diff='diff --strip-trailing-cr'
-fi
+diff="diff @DIFF_OPTIONS@"
 
 # Return true if PROG is somewhere in PATH, else false.
 findprog ()

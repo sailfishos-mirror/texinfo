@@ -1,3 +1,33 @@
+2024-08-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Check for diff --strip-trailing-cr.
+
+	* configure.ac (DIFF_OPTIONS, DIFF_U_OPTION, DIFF_A_OPTION):
+	Do not AC_SUBST DIFF_U_OPTION or DIFF_A_OPTION, using DIFF_OPTIONS
+	instead.
+	(DIFF_CR_OPTION) [mingw]: Check if --strip-trailing-cr option
+	works and include it in DIFF_OPTIONS if so.
+
+	* tp/tests/run_parser_all.sh,
+	* tp/defs.in,
+	* tp/tests/many_input_files/different_encodings.sh,
+	* tp/tests/many_input_files/different_languages_gen_master_menu.sh,
+	* tp/tests/many_input_files/input_dir_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_file_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_l2h.sh,
+	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
+	* tp/tests/many_input_files/tex_t4ht.sh,
+	* tp/tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh,
+	Use DIFF_OPTIONS instead of DIFF_A_OPTION and/or DIFF_U_OPTION
+	in order to have --strip-trailing-cr possibly included.
+
+	* install-info/defs.in: Remove handling of --strip-trailing-cr,
+	using DIFF_OPTIONS instead.
+
+	Test failures due to carriage returns on mingw reported by
+	Bruno Haible, bug-texinfo 2024-06-09.
+
 2024-07-20  Andreas Schwab  <schwab@linux-m68k.org>
 
 	* info/variables.c (set_variable_to_value): Add end marker to
