@@ -29,7 +29,9 @@
 #include "customization_options.h"
 
 
-/* options and converters */
+
+/* single option and options structure functions */
+
 OPTIONS *
 new_options (void)
 {
@@ -37,48 +39,6 @@ new_options (void)
   memset (options, 0, sizeof (OPTIONS));
   initialize_options (options);
   return options;
-}
-
-static int
-compare_option_str (const void *a, const void *b)
-{
-  const OPTION **opt_a = (const OPTION **) a;
-  const OPTION **opt_b = (const OPTION **) b;
-
-  return strcmp ((*opt_a)->name, (*opt_b)->name);
-}
-
-/* sort options and set the index in the option structure to the index in
-   the sorted array */
-OPTION **
-setup_sorted_options (OPTIONS *options)
-{
-  size_t i;
-  OPTION **sorted_options = setup_sortable_options (options);
-  qsort (sorted_options, TXI_OPTIONS_NR, sizeof (OPTION *), compare_option_str);
-
-  for (i = 0; i < TXI_OPTIONS_NR; i++)
-    {
-      sorted_options[i]->number = i + 1;
-    }
-
-  return sorted_options;
-}
-
-OPTION *
-find_option_string (OPTION **sorted_options, const char *name)
-{
-  static OPTION option_key;
-  OPTION *option_ref = &option_key;
-  OPTION **result;
-
-  option_key.name = name;
-  result = (OPTION **)bsearch (&option_ref, sorted_options, TXI_OPTIONS_NR,
-                               sizeof (OPTION *), compare_option_str);
-  if (result)
-    return *result;
-  else
-    return 0;
 }
 
 void
@@ -186,6 +146,19 @@ initialize_option (OPTION *option, enum global_option_type type,
       default:
         break;
     }
+}
+
+/* note that the value in union o is not initialized */
+OPTION *
+new_option (enum global_option_type type, const char *name, size_t number)
+{
+  OPTION *option = (OPTION *) malloc (sizeof (OPTION));
+
+  initialize_option (option, type, name);
+  option->number = number;
+  option->configured = 0;
+
+  return option;
 }
 
 /* only for strings and integers */
@@ -376,31 +349,50 @@ copy_option (OPTION *destination, const OPTION *source)
     }
 }
 
-void
-set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
-                                  int configured)
-{
-  if (configured > 0)
-    {
-      OPTION *option = find_option_string (sorted_options, key);
+
 
-      if (option)
-        option->configured = configured;
-    }
+/* functions setup and use sorted options */
+
+static int
+compare_option_str (const void *a, const void *b)
+{
+  const OPTION **opt_a = (const OPTION **) a;
+  const OPTION **opt_b = (const OPTION **) b;
+
+  return strcmp ((*opt_a)->name, (*opt_b)->name);
 }
 
-void
-initialize_options_list (OPTIONS_LIST *options_list, size_t number)
+/* sort options and set the index in the option structure to the index in
+   the sorted array */
+OPTION **
+setup_sorted_options (OPTIONS *options)
 {
-  options_list->number = 0;
-  options_list->space = number;
-  if (number > 0)
+  size_t i;
+  OPTION **sorted_options = setup_sortable_options (options);
+  qsort (sorted_options, TXI_OPTIONS_NR, sizeof (OPTION *), compare_option_str);
+
+  for (i = 0; i < TXI_OPTIONS_NR; i++)
     {
-      options_list->list = (OPTION **) malloc (sizeof (OPTION *) * number);
-      memset (options_list->list, 0, sizeof (OPTION *) * number);
+      sorted_options[i]->number = i + 1;
     }
+
+  return sorted_options;
+}
+
+OPTION *
+find_option_string (OPTION **sorted_options, const char *name)
+{
+  static OPTION option_key;
+  OPTION *option_ref = &option_key;
+  OPTION **result;
+
+  option_key.name = name;
+  result = (OPTION **)bsearch (&option_ref, sorted_options, TXI_OPTIONS_NR,
+                               sizeof (OPTION *), compare_option_str);
+  if (result)
+    return *result;
   else
-    options_list->list = 0;
+    return 0;
 }
 
 /* copy OPTIONS_LIST options to an OPTIONS structure, using the sorted options
@@ -435,17 +427,17 @@ copy_numbered_options_list_options (OPTIONS *options,
     }
 }
 
-/* note that the value in union o is not initialized */
-OPTION *
-new_option (enum global_option_type type, const char *name, size_t number)
+void
+set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
+                                  int configured)
 {
-  OPTION *option = (OPTION *) malloc (sizeof (OPTION));
+  if (configured > 0)
+    {
+      OPTION *option = find_option_string (sorted_options, key);
 
-  initialize_option (option, type, name);
-  option->number = number;
-  option->configured = 0;
-
-  return option;
+      if (option)
+        option->configured = configured;
+    }
 }
 
 static OPTION *
@@ -465,6 +457,25 @@ new_option_string_value (OPTION **sorted_options,
   return option;
 }
 
+
+
+/* functions to set and use options list.  Functions in this section do
+   not need options to be numbered */
+
+void
+initialize_options_list (OPTIONS_LIST *options_list, size_t number)
+{
+  options_list->number = 0;
+  options_list->space = number;
+  if (number > 0)
+    {
+      options_list->list = (OPTION **) malloc (sizeof (OPTION *) * number);
+      memset (options_list->list, 0, sizeof (OPTION *) * number);
+    }
+  else
+    options_list->list = 0;
+}
+
 void
 options_list_add_option (OPTIONS_LIST *options_list, OPTION *option)
 {
@@ -477,21 +488,7 @@ options_list_add_option (OPTIONS_LIST *options_list, OPTION *option)
   options_list->number++;
 }
 
-OPTION *
-add_option_string_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
-                         const char *option_name, int int_value,
-                         const char *char_value)
-{
-  OPTION *option = new_option_string_value (sorted_options, option_name,
-                                            int_value, char_value);
-
-  if (option)
-    options_list_add_option (options_list, option);
-
-  return option;
-}
-
-OPTION *
+static OPTION *
 add_option_copy (OPTIONS_LIST *options_list, const OPTION *src_option)
 {
   OPTION *option
@@ -547,6 +544,38 @@ copy_options_list (OPTIONS_LIST *options_list, const OPTIONS_LIST *options_src)
 }
 
 void
+free_options_list (OPTIONS_LIST *options_list)
+{
+  size_t i;
+
+  for (i = 0; i < options_list->number; i++)
+    {
+      free_option (options_list->list[i]);
+      free (options_list->list[i]);
+    }
+
+  free (options_list->list);
+}
+
+
+
+/* options list functions for numbered options */
+
+OPTION *
+add_option_string_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
+                         const char *option_name, int int_value,
+                         const char *char_value)
+{
+  OPTION *option = new_option_string_value (sorted_options, option_name,
+                                            int_value, char_value);
+
+  if (option)
+    options_list_add_option (options_list, option);
+
+  return option;
+}
+
+void
 number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options)
 {
   size_t i;
@@ -567,22 +596,9 @@ number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options)
     }
 }
 
+
 
-
-void
-free_options_list (OPTIONS_LIST *options_list)
-{
-  size_t i;
-
-  for (i = 0; i < options_list->number; i++)
-    {
-      free_option (options_list->list[i]);
-      free (options_list->list[i]);
-    }
-
-  free (options_list->list);
-}
-
+/* misc other functions */
 
 void
 set_informative_command_value (OPTIONS *options, const ELEMENT *element)
