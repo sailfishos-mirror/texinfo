@@ -417,31 +417,61 @@ print ODHF "#undef PACKAGE_NAME\n";
 print ODHF "#undef PACKAGE_URL\n";
 print ODHF "#undef PACKAGE_VERSION\n\n";
 
+my $call_all_options_defaults = '';
+
 foreach my $category (sort(keys(%option_categories))) {
   print ODCF "\n/* ${category} */\n\n";
-  my $options_fun = "void set_${category}_regular_defaults (OPTIONS *options)";
-  my $list_fun = "void add_${category}_regular_defaults (OPTIONS_LIST *options_list)";
+  my $options_fun = "set_${category}_options_defaults (OPTIONS *options)";
+  my $list_fun = "add_${category}_options_defaults (OPTIONS_LIST *options_list)";
 
-  print ODHF "$options_fun;\n\n";
-  print ODHF "$list_fun;\n\n";
+  print ODHF "void $options_fun;\n\n";
+  print ODHF "void $list_fun;\n\n";
 
-  print ODCF "$options_fun\n{\n";
+  my $fun_call = $options_fun;
+  $fun_call =~ s/OPTIONS \*//;
+  $call_all_options_defaults .= "  $fun_call;\n";
+
+  # determine if an option declaration is needed for the next file, ie non
+  # string nor integer options are present.
+  my $need_option_declaration = 0;
+
+  print ODCF "void\n$options_fun\n{\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    my ($int_value, $char_value) = get_value($type, $value);
-    print ODCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+      my ($int_value, $char_value) = get_value($type, $value);
+      print ODCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+    } else {
+      $need_option_declaration = 1;
+      print ODCF "  clear_option (&options->${option});\n";
+    }
   }
   print ODCF "}\n\n";
 
-  print ODCF "$list_fun\n{\n";
+  print ODCF "void\n$list_fun\n{\n";
+  if ($need_option_declaration) {
+    print ODCF "  OPTION *option;\n\n";
+  }
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
-    my ($int_value, $char_value) = get_value($type, $value);
-    print ODCF "  add_new_option_value (options_list, GOT_$type, "
-                 ."\"$option\", $int_value, $char_value);\n";
+    if ($type eq 'char' or $type eq 'bytes' or $type eq 'integer') {
+      my ($int_value, $char_value) = get_value($type, $value);
+      print ODCF "  add_new_option_value (options_list, GOT_$type, "
+                   ."\"$option\", $int_value, $char_value);\n";
+    } else {
+      print ODCF "  option = new_option (GOT_$type, \"$option\", 0);\n";
+      print ODCF "  options_list_add_option (options_list, option);\n";
+    }
   }
   print ODCF "}\n\n";
 }
+
+my $all_options_fun = 'set_all_options_defaults (OPTIONS *options)';
+print ODCF "void\n$all_options_fun\n{\n";
+print ODCF $call_all_options_defaults;
+print ODCF "}\n\n";
+
+print ODHF "void $all_options_fun;\n\n";
 
 close (ODCF);
 
@@ -482,14 +512,14 @@ my @sorted_formats = sort(keys(%converter_defaults));
 
 foreach my $format (@sorted_formats) {
   my $options_fun
-    = "void set_${format}_regular_options_defaults (OPTIONS *options)";
+    = "set_${format}_regular_options_defaults (OPTIONS *options)";
   my $list_fun
-    = "void add_${format}_regular_options_defaults (OPTIONS_LIST *options_list)";
+    = "add_${format}_regular_options_defaults (OPTIONS_LIST *options_list)";
 
-  print CDHF "$options_fun;\n\n";
-  print CDHF "$list_fun;\n\n";
+  print CDHF "void $options_fun;\n\n";
+  print CDHF "void $list_fun;\n\n";
 
-  print CDCF "$options_fun\n{\n";
+  print CDCF "void\n$options_fun\n{\n";
   foreach my $option_spec (@{$converter_defaults{$format}}) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};
@@ -499,7 +529,7 @@ foreach my $format (@sorted_formats) {
   }
   print CDCF "}\n\n";
 
-  print CDCF "$list_fun\n{\n";
+  print CDCF "void\n$list_fun\n{\n";
   foreach my $option_spec (@{$converter_defaults{$format}}) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};

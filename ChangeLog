@@ -1,5 +1,11 @@
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl: rename functions setting
+	options defaults.  Set correctly non integer/string options.  Add a
+	function to set all options defaults.
+
+2024-08-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/customization_options.c: reorder code, add
 	form feed delimited sections.
 

@@ -7,7 +7,8 @@
 #include "customization_options.h"
 #include "converters_defaults.h"
 
-void set_common_regular_options_defaults (OPTIONS *options)
+void
+set_common_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->PACKAGE_AND_VERSION, -2, "texinfo");
   option_set_conf (&options->PACKAGE_VERSION, -2, "");
@@ -15,7 +16,8 @@ void set_common_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->PROGRAM, -2, "");
 }
 
-void add_common_regular_options_defaults (OPTIONS_LIST *options_list)
+void
+add_common_regular_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_char, "PACKAGE_AND_VERSION", -2, "texinfo");
   add_new_option_value (options_list, GOT_char, "PACKAGE_VERSION", -2, "");
@@ -23,17 +25,20 @@ void add_common_regular_options_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_char, "PROGRAM", -2, "");
 }
 
-void set_converter_regular_options_defaults (OPTIONS *options)
+void
+set_converter_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->documentlanguage, -2, 0);
 }
 
-void add_converter_regular_options_defaults (OPTIONS_LIST *options_list)
+void
+add_converter_regular_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_char, "documentlanguage", -2, 0);
 }
 
-void set_html_regular_options_defaults (OPTIONS *options)
+void
+set_html_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->BIG_RULE, -2, "<hr>");
   option_set_conf (&options->BODY_ELEMENT_ATTRIBUTES, -2, 0);
@@ -89,7 +94,8 @@ void set_html_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->xrefautomaticsectiontitle, -2, "on");
 }
 
-void add_html_regular_options_defaults (OPTIONS_LIST *options_list)
+void
+add_html_regular_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_char, "BIG_RULE", -2, "<hr>");
   add_new_option_value (options_list, GOT_char, "BODY_ELEMENT_ATTRIBUTES", -2, 0);
@@ -145,7 +151,8 @@ void add_html_regular_options_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_char, "xrefautomaticsectiontitle", -2, "on");
 }
 
-void set_texi2html_regular_options_defaults (OPTIONS *options)
+void
+set_texi2html_regular_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->FORMAT_MENU, -2, "menu");
   option_set_conf (&options->USE_SETFILENAME_EXTENSION, 0, 0);
@@ -172,7 +179,8 @@ void set_texi2html_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->FOOTNOTE_SEPARATE_HEADER_LEVEL, 1, 0);
 }
 
-void add_texi2html_regular_options_defaults (OPTIONS_LIST *options_list)
+void
+add_texi2html_regular_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_char, "FORMAT_MENU", -2, "menu");
   add_new_option_value (options_list, GOT_integer, "USE_SETFILENAME_EXTENSION", 0, 0);

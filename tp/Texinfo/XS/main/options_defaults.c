@@ -10,28 +10,38 @@
 
 /* array_cmdline */
 
-void set_array_cmdline_regular_defaults (OPTIONS *options)
+void
+set_array_cmdline_options_defaults (OPTIONS *options)
 {
-  option_set_conf (&options->CSS_FILES, -2, 0);
-  option_set_conf (&options->CSS_REFS, -2, 0);
-  option_set_conf (&options->EXPANDED_FORMATS, -2, 0);
-  option_set_conf (&options->INCLUDE_DIRECTORIES, -2, 0);
-  option_set_conf (&options->TEXINFO_LANGUAGE_DIRECTORIES, -2, 0);
+  clear_option (&options->CSS_FILES);
+  clear_option (&options->CSS_REFS);
+  clear_option (&options->EXPANDED_FORMATS);
+  clear_option (&options->INCLUDE_DIRECTORIES);
+  clear_option (&options->TEXINFO_LANGUAGE_DIRECTORIES);
 }
 
-void add_array_cmdline_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_array_cmdline_options_defaults (OPTIONS_LIST *options_list)
 {
-  add_new_option_value (options_list, GOT_bytes_string_list, "CSS_FILES", -2, 0);
-  add_new_option_value (options_list, GOT_char_string_list, "CSS_REFS", -2, 0);
-  add_new_option_value (options_list, GOT_bytes_string_list, "EXPANDED_FORMATS", -2, 0);
-  add_new_option_value (options_list, GOT_file_string_list, "INCLUDE_DIRECTORIES", -2, 0);
-  add_new_option_value (options_list, GOT_file_string_list, "TEXINFO_LANGUAGE_DIRECTORIES", -2, 0);
+  OPTION *option;
+
+  option = new_option (GOT_bytes_string_list, "CSS_FILES", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_char_string_list, "CSS_REFS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_bytes_string_list, "EXPANDED_FORMATS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_file_string_list, "INCLUDE_DIRECTORIES", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_file_string_list, "TEXINFO_LANGUAGE_DIRECTORIES", 0);
+  options_list_add_option (options_list, option);
 }
 
 
 /* converter_cmdline */
 
-void set_converter_cmdline_regular_defaults (OPTIONS *options)
+void
+set_converter_cmdline_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->SPLIT_SIZE, 300000, 0);
   option_set_conf (&options->FILLCOLUMN, 72, 0);
@@ -47,7 +57,8 @@ void set_converter_cmdline_regular_defaults (OPTIONS *options)
   option_set_conf (&options->ENABLE_ENCODING, 1, 0);
 }
 
-void add_converter_cmdline_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_converter_cmdline_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_integer, "SPLIT_SIZE", 300000, 0);
   add_new_option_value (options_list, GOT_integer, "FILLCOLUMN", 72, 0);
@@ -66,7 +77,8 @@ void add_converter_cmdline_regular_defaults (OPTIONS_LIST *options_list)
 
 /* converter_customization */
 
-void set_converter_customization_regular_defaults (OPTIONS *options)
+void
+set_converter_customization_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->TOP_NODE_UP, -2, "(dir)");
   option_set_conf (&options->BASEFILENAME_LENGTH, 255-10, 0);
@@ -210,7 +222,8 @@ void set_converter_customization_regular_defaults (OPTIONS *options)
   option_set_conf (&options->_INLINE_STYLE_WIDTH, -1, 0);
 }
 
-void add_converter_customization_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_char, "TOP_NODE_UP", -2, "(dir)");
   add_new_option_value (options_list, GOT_integer, "BASEFILENAME_LENGTH", 255-10, 0);
@@ -357,40 +370,56 @@ void add_converter_customization_regular_defaults (OPTIONS_LIST *options_list)
 
 /* converter_other */
 
-void set_converter_other_regular_defaults (OPTIONS *options)
+void
+set_converter_other_options_defaults (OPTIONS *options)
 {
-  option_set_conf (&options->LINKS_BUTTONS, -2, 0);
-  option_set_conf (&options->TOP_BUTTONS, -2, 0);
-  option_set_conf (&options->TOP_FOOTER_BUTTONS, -2, 0);
-  option_set_conf (&options->SECTION_BUTTONS, -2, 0);
-  option_set_conf (&options->CHAPTER_FOOTER_BUTTONS, -2, 0);
-  option_set_conf (&options->SECTION_FOOTER_BUTTONS, -2, 0);
-  option_set_conf (&options->NODE_FOOTER_BUTTONS, -2, 0);
-  option_set_conf (&options->MISC_BUTTONS, -2, 0);
-  option_set_conf (&options->CHAPTER_BUTTONS, -2, 0);
-  option_set_conf (&options->ACTIVE_ICONS, -2, 0);
-  option_set_conf (&options->PASSIVE_ICONS, -2, 0);
+  clear_option (&options->LINKS_BUTTONS);
+  clear_option (&options->TOP_BUTTONS);
+  clear_option (&options->TOP_FOOTER_BUTTONS);
+  clear_option (&options->SECTION_BUTTONS);
+  clear_option (&options->CHAPTER_FOOTER_BUTTONS);
+  clear_option (&options->SECTION_FOOTER_BUTTONS);
+  clear_option (&options->NODE_FOOTER_BUTTONS);
+  clear_option (&options->MISC_BUTTONS);
+  clear_option (&options->CHAPTER_BUTTONS);
+  clear_option (&options->ACTIVE_ICONS);
+  clear_option (&options->PASSIVE_ICONS);
 }
 
-void add_converter_other_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_converter_other_options_defaults (OPTIONS_LIST *options_list)
 {
-  add_new_option_value (options_list, GOT_buttons, "LINKS_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "TOP_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "TOP_FOOTER_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "SECTION_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "CHAPTER_FOOTER_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "SECTION_FOOTER_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "NODE_FOOTER_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "MISC_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_buttons, "CHAPTER_BUTTONS", -2, 0);
-  add_new_option_value (options_list, GOT_icons, "ACTIVE_ICONS", -2, 0);
-  add_new_option_value (options_list, GOT_icons, "PASSIVE_ICONS", -2, 0);
+  OPTION *option;
+
+  option = new_option (GOT_buttons, "LINKS_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "TOP_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "TOP_FOOTER_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "SECTION_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "CHAPTER_FOOTER_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "SECTION_FOOTER_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "NODE_FOOTER_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "MISC_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_buttons, "CHAPTER_BUTTONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_icons, "ACTIVE_ICONS", 0);
+  options_list_add_option (options_list, option);
+  option = new_option (GOT_icons, "PASSIVE_ICONS", 0);
+  options_list_add_option (options_list, option);
 }
 
 
 /* multiple_at_command */
 
-void set_multiple_at_command_regular_defaults (OPTIONS *options)
+void
+set_multiple_at_command_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->allowcodebreaks, -2, "true");
   option_set_conf (&options->clickstyle, -2, "@arrow");
@@ -419,7 +448,8 @@ void set_multiple_at_command_regular_defaults (OPTIONS *options)
   option_set_conf (&options->xrefautomaticsectiontitle, -2, "off");
 }
 
-void add_multiple_at_command_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_multiple_at_command_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_char, "allowcodebreaks", -2, "true");
   add_new_option_value (options_list, GOT_char, "clickstyle", -2, "@arrow");
@@ -451,7 +481,8 @@ void add_multiple_at_command_regular_defaults (OPTIONS_LIST *options_list)
 
 /* program_cmdline */
 
-void set_program_cmdline_regular_defaults (OPTIONS *options)
+void
+set_program_cmdline_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->MACRO_EXPAND, -2, 0);
   option_set_conf (&options->INTERNAL_LINKS, -2, 0);
@@ -463,7 +494,8 @@ void set_program_cmdline_regular_defaults (OPTIONS *options)
   option_set_conf (&options->FORMAT_MENU, -2, "menu");
 }
 
-void add_program_cmdline_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_program_cmdline_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_bytes, "MACRO_EXPAND", -2, 0);
   add_new_option_value (options_list, GOT_bytes, "INTERNAL_LINKS", -2, 0);
@@ -478,7 +510,8 @@ void add_program_cmdline_regular_defaults (OPTIONS_LIST *options_list)
 
 /* program_customization */
 
-void set_program_customization_regular_defaults (OPTIONS *options)
+void
+set_program_customization_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->CHECK_NORMAL_MENU_STRUCTURE, 1, 0);
   option_set_conf (&options->CHECK_MISSING_MENU_ENTRY, 1, 0);
@@ -491,7 +524,8 @@ void set_program_customization_regular_defaults (OPTIONS *options)
   option_set_conf (&options->TREE_TRANSFORMATIONS, -2, 0);
 }
 
-void add_program_customization_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_program_customization_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_integer, "CHECK_NORMAL_MENU_STRUCTURE", 1, 0);
   add_new_option_value (options_list, GOT_integer, "CHECK_MISSING_MENU_ENTRY", 1, 0);
@@ -507,7 +541,8 @@ void add_program_customization_regular_defaults (OPTIONS_LIST *options_list)
 
 /* unique_at_command */
 
-void set_unique_at_command_regular_defaults (OPTIONS *options)
+void
+set_unique_at_command_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->afivepaper, -2, 0);
   option_set_conf (&options->afourpaper, -2, 0);
@@ -530,7 +565,8 @@ void set_unique_at_command_regular_defaults (OPTIONS *options)
   option_set_conf (&options->smallbook, -2, 0);
 }
 
-void add_unique_at_command_regular_defaults (OPTIONS_LIST *options_list)
+void
+add_unique_at_command_options_defaults (OPTIONS_LIST *options_list)
 {
   add_new_option_value (options_list, GOT_char, "afivepaper", -2, 0);
   add_new_option_value (options_list, GOT_char, "afourpaper", -2, 0);
@@ -551,5 +587,18 @@ void add_unique_at_command_regular_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_char, "setchapternewpage", -2, "on");
   add_new_option_value (options_list, GOT_char, "setfilename", -2, 0);
   add_new_option_value (options_list, GOT_char, "smallbook", -2, 0);
+}
+
+void
+set_all_options_defaults (OPTIONS *options)
+{
+  set_array_cmdline_options_defaults (options);
+  set_converter_cmdline_options_defaults (options);
+  set_converter_customization_options_defaults (options);
+  set_converter_other_options_defaults (options);
+  set_multiple_at_command_options_defaults (options);
+  set_program_cmdline_options_defaults (options);
+  set_program_customization_options_defaults (options);
+  set_unique_at_command_options_defaults (options);
 }
 

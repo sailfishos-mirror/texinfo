@@ -145,6 +145,8 @@ compare_type_index_fn (const void *a, const void *b)
   return strcmp (ta->name, tb->name);
 }
 
+/* Setup sorted type name and identifier pairs to find identifier associated
+   with name with bsearch */
 void
 set_element_type_name_info (void)
 {

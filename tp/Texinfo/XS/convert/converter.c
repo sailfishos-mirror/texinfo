@@ -210,10 +210,10 @@ retrieve_converter (size_t converter_descriptor)
 static void
 set_generic_converter_options (OPTIONS *options)
 {
-  set_converter_cmdline_regular_defaults (options);
-  set_converter_customization_regular_defaults (options);
-  set_unique_at_command_regular_defaults (options);
-  set_multiple_at_command_regular_defaults (options);
+  set_converter_cmdline_options_defaults (options);
+  set_converter_customization_options_defaults (options);
+  set_unique_at_command_options_defaults (options);
+  set_multiple_at_command_options_defaults (options);
   set_common_regular_options_defaults (options);
 }
 
