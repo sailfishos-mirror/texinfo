@@ -13,7 +13,7 @@ if test z"$srcdir" = "z"; then
   srcdir=.
 fi
 
-# for DIFF_U_OPTION and PERL
+# for DIFF_OPTIONS and PERL
 . $testdir/../tp/defs || exit 1
 
 mkdir -p out_tests
@@ -27,7 +27,7 @@ if [ $ret != 0 ]; then
   return_code=1
 fi
 
-diff $DIFF_U_OPTION ${srcdir}/tests/reference_sectioning_gap.texi out_tests/sectioning_gap.texi
+diff $DIFF_OPTIONS ${srcdir}/tests/reference_sectioning_gap.texi out_tests/sectioning_gap.texi
 diff_ret=$?
 if [ $diff_ret != 0 ]; then
   return_code=1
@@ -35,7 +35,7 @@ elif [ $return_code = 0 ]; then
   rm -f out_tests/sectioning_gap.texi
 fi
 
-diff $DIFF_U_OPTION ${srcdir}/tests/reference_Th1.texi out_tests/Th1.texi
+diff $DIFF_OPTIONS ${srcdir}/tests/reference_Th1.texi out_tests/Th1.texi
 if [ $diff_ret != 0 ]; then
   return_code=1
 elif [ $return_code = 0 ]; then
@@ -48,7 +48,7 @@ if [ $ret != 0 ]; then
   return_code=1
 fi
 
-diff $DIFF_U_OPTION ${srcdir}/tests/reference_modules_main.texi out_tests/modules_main.texi
+diff $DIFF_OPTIONS ${srcdir}/tests/reference_modules_main.texi out_tests/modules_main.texi
 diff_ret=$?
 if [ $diff_ret != 0 ]; then
   return_code=1
@@ -56,7 +56,7 @@ elif [ $return_code = 0 ]; then
   rm -f out_tests/modules_main.texi
 fi
 
-diff $DIFF_U_OPTION -r ${srcdir}/tests/reference_includes out_tests/includes
+diff $DIFF_OPTIONS -r ${srcdir}/tests/reference_includes out_tests/includes
 diff_ret=$?
 if [ $diff_ret != 0 ]; then
   return_code=1

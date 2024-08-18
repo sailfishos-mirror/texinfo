@@ -11,7 +11,7 @@ if test z"$srcdir" = "z"; then
   srcdir=.
 fi
 
-# for DIFF_U_OPTION and PERL
+# for DIFF_OPTIONS and PERL
 . $testdir/../tp/defs || exit 1
 
 mkdir -p out_tests_empty_head2
@@ -28,7 +28,7 @@ if [ $ret != 0 ]; then
   return_code=1
 fi
 
-diff $DIFF_U_OPTION ${srcdir}/tests/reference_test_empty_head2.texi out_tests_empty_head2/empty_head2.texi
+diff $DIFF_OPTIONS ${srcdir}/tests/reference_test_empty_head2.texi out_tests_empty_head2/empty_head2.texi
 diff_ret=$?
 if [ $diff_ret != 0 ]; then
   return_code=1
