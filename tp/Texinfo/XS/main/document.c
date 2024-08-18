@@ -55,6 +55,7 @@ void
 txi_setup_lib_data (void)
 {
   set_element_type_name_info ();
+  txi_initialise_base_options ();
 }
 
 DOCUMENT *
@@ -157,7 +158,7 @@ void
 initialize_document_options (DOCUMENT *document)
 {
   OPTIONS *options = new_options ();
-  OPTION **sorted_options = setup_sorted_options (options);
+  OPTION **sorted_options = new_sorted_options (options);
   const ELEMENT *document_language;
 
   register_document_options (document, options, sorted_options);

@@ -23,13 +23,20 @@
 #include "document_types.h"
 #include "converter_types.h"
 
+extern OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
+
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);
-OPTION **setup_sortable_options (OPTIONS *options);
+void setup_sortable_options (OPTION **to_sort, OPTIONS *options);
 void clear_options (OPTIONS *options);
 void free_options (OPTIONS *options);
 void copy_options (OPTIONS *destination, const OPTIONS *source);
 
+
+
+void txi_initialise_base_options (void);
+
+
 
 OPTIONS *new_options (void);
 
@@ -45,7 +52,8 @@ void copy_option (OPTION *destination, const OPTION *source);
 
 
 
-OPTION **setup_sorted_options (OPTIONS *options);
+void setup_sorted_options (OPTION **sorted_options, OPTIONS *options);
+OPTION **new_sorted_options (OPTIONS *options);
 OPTION *find_option_string (OPTION **sorted_options, const char *name);
 void copy_numbered_options_list_options (OPTIONS *options,
                                 OPTION **sorted_options,

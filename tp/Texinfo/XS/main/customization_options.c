@@ -21,12 +21,26 @@
 #include "option_types.h"
 #include "options_types.h"
 #include "converter_types.h"
+#include "options_defaults.h"
 #include "api_to_perl.h"
 /* *_strings_list html_clear_direction_icons html_free_button_specification_list
  */
 #include "utils.h"
 #include "builtin_commands.h"
 #include "customization_options.h"
+
+OPTIONS txi_base_options;
+OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
+
+/* initialization */
+
+void
+txi_initialise_base_options (void)
+{
+  initialize_options (&txi_base_options);
+  set_all_options_defaults (&txi_base_options);
+  setup_sorted_options (txi_base_sorted_options, &txi_base_options);
+}
 
 
 
@@ -364,18 +378,26 @@ compare_option_str (const void *a, const void *b)
 
 /* sort options and set the index in the option structure to the index in
    the sorted array */
-OPTION **
-setup_sorted_options (OPTIONS *options)
+void
+setup_sorted_options (OPTION **sorted_options, OPTIONS *options)
 {
   size_t i;
-  OPTION **sorted_options = setup_sortable_options (options);
+  setup_sortable_options (sorted_options, options);
   qsort (sorted_options, TXI_OPTIONS_NR, sizeof (OPTION *), compare_option_str);
 
   for (i = 0; i < TXI_OPTIONS_NR; i++)
     {
       sorted_options[i]->number = i + 1;
     }
+}
 
+OPTION **
+new_sorted_options (OPTIONS *options)
+{
+  OPTION **sorted_options
+    = (OPTION **) malloc (sizeof (OPTION *) * TXI_OPTIONS_NR);
+
+  setup_sorted_options (sorted_options, options);
   return sorted_options;
 }
 

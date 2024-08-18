@@ -4,8 +4,13 @@
 
 #include "option_types.h"
 #include "options_types.h"
+#include "converters_options.h"
+
+/* for html_fill_button_directions_specification_list */
+#include "utils.h"
 #include "customization_options.h"
-#include "converters_defaults.h"
+/* external definition of html_fill_options_directions */
+#include "html_conversion_api.h"
 
 void
 set_common_regular_options_defaults (OPTIONS *options)
@@ -205,5 +210,37 @@ add_texi2html_regular_options_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_char, "BIG_RULE", -2, "<hr style=\"height: 6px;\">");
   add_new_option_value (options_list, GOT_integer, "FOOTNOTE_END_HEADER_LEVEL", 3, 0);
   add_new_option_value (options_list, GOT_integer, "FOOTNOTE_SEPARATE_HEADER_LEVEL", 1, 0);
+}
+
+void
+html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
+{
+  if (options->LINKS_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->LINKS_BUTTONS.o.buttons);
+
+  if (options->TOP_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->TOP_BUTTONS.o.buttons);
+
+  if (options->TOP_FOOTER_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->TOP_FOOTER_BUTTONS.o.buttons);
+
+  if (options->SECTION_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->SECTION_BUTTONS.o.buttons);
+
+  if (options->CHAPTER_FOOTER_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->CHAPTER_FOOTER_BUTTONS.o.buttons);
+
+  if (options->SECTION_FOOTER_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->SECTION_FOOTER_BUTTONS.o.buttons);
+
+  if (options->NODE_FOOTER_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->NODE_FOOTER_BUTTONS.o.buttons);
+
+  if (options->MISC_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->MISC_BUTTONS.o.buttons);
+
+  if (options->CHAPTER_BUTTONS.o.buttons)
+    html_fill_button_directions_specification_list (converter, options->CHAPTER_BUTTONS.o.buttons);
+
 }
 

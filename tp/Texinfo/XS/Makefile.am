@@ -242,8 +242,8 @@ libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(
 
 BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 convert/cmd_converter.c \
-                convert/converters_defaults.c \
-                convert/converters_defaults.h \
+                convert/converters_options.c \
+                convert/converters_options.h \
                 main/cmd_normalization.c \
                 main/cmd_structuring.c \
                 main/cmd_text.c \
@@ -269,6 +269,8 @@ EXTRA_DIST+=main/element_types.txt main/element_types.awk \
 EXTRA_DIST += convert/cmd_converter.c
 EXTRA_DIST += convert/converters_defaults.c
 EXTRA_DIST += convert/converters_defaults.h
+EXTRA_DIST += convert/converters_options.c
+EXTRA_DIST += convert/converters_options.h
 
 $(srcdir)/main/element_types.c $(srcdir)/main/element_types.h: main/element_types.txt main/element_types.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/element_types.awk \
@@ -318,7 +320,7 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../../maintain/setup_a
 
 MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_defaults.c $(srcdir)/convert/converters_defaults.h $(srcdir)/main/options_get_perl.c: ../options_data.txt ../Convert/converters_defaults.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_options.c $(srcdir)/convert/converters_options.h $(srcdir)/main/options_get_perl.c: ../options_data.txt ../Convert/converters_defaults.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
 	        < $(srcdir)/../options_data.txt \
 	              $(srcdir)/main/command_data.c \
@@ -327,14 +329,14 @@ $(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main
 	              $(srcdir)/main/options_types.h \
 	              $(srcdir)/main/options_defaults.c \
 	              $(srcdir)/main/options_defaults.h \
-	              $(srcdir)/convert/converters_defaults.c \
-	              $(srcdir)/convert/converters_defaults.h \
+	              $(srcdir)/convert/converters_options.c \
+	              $(srcdir)/convert/converters_options.h \
 	              $(srcdir)/main/options_get_perl.c
 
 MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
                         main/options_defaults.c main/options_defaults.h \
-                        convert/converters_defaults.c \
-                        convert/converters_defaults.h \
+                        convert/converters_options.c \
+                        convert/converters_options.h \
                         main/options_get_perl.c
 
 $(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_data.c $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
@@ -390,8 +392,8 @@ C_libtexinfo_convert_sources = \
                        convert/converter.c \
                        convert/converter.h \
                        convert/cmd_converter.c \
-                       convert/converters_defaults.c \
-                       convert/converters_defaults.h \
+                       convert/converters_options.c \
+                       convert/converters_options.h \
                        convert/create_buttons.c \
                        convert/create_buttons.h \
                        convert/convert_html.h \
@@ -400,9 +402,7 @@ C_libtexinfo_convert_sources = \
                        convert/format_html.c \
                        convert/html_converter_types.h \
                        convert/html_converter_init_options.c \
-                       convert/html_converter_init_options.h \
                        convert/html_converter_finish.c \
-                       convert/html_converter_finish.h \
                        convert/html_conversion_state.c \
                        convert/html_conversion_state.h \
                        convert/html_prepare_converter.c \

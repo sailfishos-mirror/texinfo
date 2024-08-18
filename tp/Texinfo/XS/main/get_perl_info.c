@@ -557,7 +557,7 @@ init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
                       OPTION ***sorted_options_out)
 {
   OPTIONS *options = new_options ();
-  OPTION **sorted_options = setup_sorted_options (options);
+  OPTION **sorted_options = new_sorted_options (options);
   get_sv_options (sv_in, options, sorted_options, converter, force);
   if (sorted_options_out)
     *sorted_options_out = sorted_options;

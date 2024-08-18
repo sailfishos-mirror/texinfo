@@ -1,5 +1,36 @@
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (BUILT_SOURCES, options_init_free.c),
+	(libtexinfo_convert_la_SOURCES, EXTRA_DIST): rename
+	convert/converters_defaults.c as convert/converters_options.c.
+	Update users.
+
+	* tp/Texinfo/XS/convert/converter.c (init_generic_converter),
+	tp/Texinfo/XS/main/customization_options.c (setup_sorted_options)
+	(new_sorted_options), tp/Texinfo/XS/main/get_perl_info.c
+	(init_copy_sv_options), tp/Texinfo/XS/main/document.c
+	(initialize_document_options),
+	tp/maintain/regenerate_C_options_info.pl: pass OPTION pointers array
+	to setup_sortable_options and to setup_sorted_options.  Add
+	new_sorted_options that allocate an OPTION pointers array and call
+	setup_sortable_options and setup_sorted_options.  Update callers.
+
+	* tp/Texinfo/XS/main/customization_options.c
+	(txi_initialise_base_options, txi_base_options)
+	(txi_base_sorted_options), tp/maintain/regenerate_C_options_info.pl,
+	tp/Texinfo/XS/main/document.c (txi_setup_lib_data): put
+	txi_base_sorted_options in customization_options.c.  Add
+	txi_base_options with the options set to their default values.  Set
+	txi_base_sorted_options dynamically, associated to txi_base_options
+	in txi_initialise_base_options in customization_options.c.  Call
+	txi_initialise_base_options in txi_setup_lib_data.
+
+	* tp/maintain/regenerate_C_options_info.pl: generate
+	html_fill_options_directions in converters_options.c.  Add all header
+	files where functions are defined.
+
+2024-08-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/document.c (txi_setup_lib_data),
 	tp/Texinfo/XS/convert/converter.c (converter_setup): add
 	txi_setup_lib_data in document.c for library main initialization.

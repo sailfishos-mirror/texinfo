@@ -173,9 +173,6 @@ print HEADER "#undef PACKAGE_VERSION\n\n";
 
 print HEADER "#define TXI_OPTIONS_NR $options_nr\n\n";
 
-my $base_sorted_options_name = 'txi_base_sorted_options';
-print HEADER "extern OPTION *${base_sorted_options_name}\[TXI_OPTIONS_NR\];\n\n";
-
 print HEADER "typedef struct OPTIONS {\n";
 print HEADER "    size_t BIT_user_function_number;\n";
 
@@ -204,9 +201,9 @@ print CODE '#include <string.h>'."\n\n";
 print CODE '#include "option_types.h"'."\n";
 print CODE '#include "options_types.h"'."\n";
 print CODE '#include "converter_types.h"'."\n";
-# for html_fill_button_directions_specification_list
+print CODE '/* for COMMAND_OPTION_DEFAULT */'."\n";
 print CODE '#include "utils.h"'."\n";
-print CODE '#include "customization_options.h"'."\n\n";
+print CODE '#include "customization_options.h"'."\n";
 
 print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";
 print CODE "  options->BIT_user_function_number = 0;\n";
@@ -256,60 +253,16 @@ print CODE "}\n\n";
 my @sorted_options = sort(keys(%options));
 
 # returns an array of options ready to be sorted (and already sorted).
-print CODE "OPTION **\nsetup_sortable_options (OPTIONS *options)\n{\n";
-print CODE "  OPTION **result = (OPTION **)\n"
-           ."    malloc (sizeof (OPTION *) * TXI_OPTIONS_NR);\n\n";
+print CODE "void\nsetup_sortable_options (OPTION **to_sort, OPTIONS *options)\n{\n";
 my $index = 0;
 foreach my $option (@sorted_options) {
   my $option_info = $options{$option};
   my ($category, $main_default, $type) = @$option_info;
-  print CODE "  result[$index] = &options->$option;   /* ${category} */\n";
+  print CODE "  to_sort[$index] = &options->$option;   /* ${category} */\n";
   $index++;
 }
 
-print CODE "\n  return result;\n"
-."}\n\n\n";
-
-# Static sorted options by name.  Can be used to find the number and type.
-# First define the internal OPTION structures, in a second step set the
-# array.  Could not find a way to do it in one step.
-print CODE "/* static OPTION structure pointers used as fields of sorted options just below */\n";
-my $option_nr = 0;
-foreach my $option (@sorted_options) {
-  $option_nr++;
-  my $option_info = $options{$option};
-  my ($category, $main_default, $type) = @$option_info;
-  print CODE "static OPTION _sorted_options_${option}_tmp = {GOT_${type}, \"$option\", $option_nr, 0, -1};  /* $category */\n";
-}
-
-print CODE "\n\n";
-
-print CODE "/* sorted options pointers array (for number and type, without values) */\n";
-print CODE "OPTION *${base_sorted_options_name}\[TXI_OPTIONS_NR\] = {\n";
-foreach my $option (@sorted_options) {
-  $option_nr++;
-  my $option_info = $options{$option};
-  my ($category, $main_default, $type) = @$option_info;
-  #print CODE "{GOT_${type}, \"$option\", $option_nr, 0, -1},  /* $category */\n";
-  print CODE "&_sorted_options_${option}_tmp,\n";
-}
-print CODE "};\n\n";
-
-# call function to fill options directions for all the buttons options
-print CODE 'void
-html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
-{
-';
-foreach my $category (sort(keys(%option_categories))) {
-  foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    if ($type eq 'buttons') {
-      print CODE "  if (options->$option.o.buttons)\n"
-                ."    html_fill_button_directions_specification_list (converter, options->$option.o.buttons);\n\n";
-    }
-  }
-}
-print CODE "}\n\n";
+print CODE "}\n\n\n";
 
 
 # associate commands to options
@@ -388,6 +341,7 @@ print CODE "};\n\n";
 
 close(CODE);
 
+
 open(ODCF, ">$options_defaults_code_file")
  or die "Open $options_defaults_code_file: $!\n";
 
@@ -404,6 +358,8 @@ open(ODHF, ">$options_defaults_header_file")
  or die "Open $options_defaults_header_file: $!\n";
 
 print ODHF "#ifndef OPTIONS_DEFAULTS_H\n#define OPTIONS_DEFAULTS_H\n\n";
+
+print ODHF "/* Automatically generated from $program_name */\n\n";
 
 print ODHF "#include \"main/option_types.h\"\n";
 print ODHF "#include \"main/options_types.h\"\n\n";
@@ -476,6 +432,7 @@ print ODHF "void $all_options_fun;\n\n";
 close (ODCF);
 
 print ODHF "#endif\n";
+
 close(ODHF);
 
 
@@ -488,13 +445,19 @@ print CDCF '#include <config.h>'."\n\n";
 
 print CDCF '#include "option_types.h"'."\n";
 print CDCF '#include "options_types.h"'."\n";
+print CDCF '#include "converters_options.h"'."\n\n";
+print CDCF '/* for html_fill_button_directions_specification_list */'."\n";
+print CDCF '#include "utils.h"'."\n";
 print CDCF '#include "customization_options.h"'."\n";
-print CDCF '#include "converters_defaults.h"'."\n\n";
+print CDCF '/* external definition of html_fill_options_directions */'."\n";
+print CDCF '#include "html_conversion_api.h"'."\n\n";
 
 open(CDHF, ">$converter_defaults_header_file")
  or die "Open $converter_defaults_header_file: $!\n";
 
 print CDHF "#ifndef CONVERTERS_DEFAULTS_H\n#define CONVERTERS_DEFAULTS_H\n\n";
+
+print CDHF "/* Automatically generated from $program_name */\n\n";
 
 print CDHF "#include \"main/option_types.h\"\n";
 print CDHF "#include \"main/options_types.h\"\n\n";
@@ -541,9 +504,26 @@ foreach my $format (@sorted_formats) {
   print CDCF "}\n\n";
 }
 
+# call function to fill options directions for all the buttons options
+print CDCF 'void
+html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
+{
+';
+foreach my $category (sort(keys(%option_categories))) {
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    if ($type eq 'buttons') {
+      print CDCF "  if (options->$option.o.buttons)\n"
+                ."    html_fill_button_directions_specification_list (converter, options->$option.o.buttons);\n\n";
+    }
+  }
+}
+print CDCF "}\n\n";
+
 close(CDCF);
 
 print CDHF "#endif\n";
+
 close(CDHF);
 
 

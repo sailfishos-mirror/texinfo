@@ -40,7 +40,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 #include "options_defaults.h"
-#include "converters_defaults.h"
+#include "converters_options.h"
 #include "tree.h"
 #include "extra.h"
 /* for COMMAND_OPTION_DEFAULT ACCENTS_STACK
@@ -222,7 +222,7 @@ static void
 init_generic_converter (CONVERTER *self)
 {
   self->conf = new_options ();
-  self->sorted_options = setup_sorted_options (self->conf);
+  self->sorted_options = new_sorted_options (self->conf);
 
   set_generic_converter_options (self->conf);
 

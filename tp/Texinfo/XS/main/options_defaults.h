@@ -1,6 +1,8 @@
 #ifndef OPTIONS_DEFAULTS_H
 #define OPTIONS_DEFAULTS_H
 
+/* Automatically generated from regenerate_C_options_info.pl */
+
 #include "main/option_types.h"
 #include "main/options_types.h"
 
