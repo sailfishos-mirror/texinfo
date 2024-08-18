@@ -30,6 +30,9 @@
 /* for delete_global_info and wipe_index */
 #include "utils.h"
 #include "customization_options.h"
+/* for library initialization, not for document code.
+   set_element_type_name_info */
+#include "builtin_commands.h"
 #include "floats.h"
 #include "manipulate_indices.h"
 #include "convert_to_text.h"
@@ -40,6 +43,19 @@
 static DOCUMENT **document_list;
 static size_t document_number;
 static size_t document_space;
+
+
+/* Call code only called once needed for the library data initialization.
+   This function is not related to the Texinfo document, but needs to be
+   in a code file that can include all the headers needed for the
+   initialization, and is included in all the codes that need to initialize
+   the library, so the current file was chosen.
+ */
+void
+txi_setup_lib_data (void)
+{
+  set_element_type_name_info ();
+}
 
 DOCUMENT *
 retrieve_document (size_t document_descriptor)

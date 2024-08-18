@@ -1,5 +1,15 @@
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/document.c (txi_setup_lib_data),
+	tp/Texinfo/XS/convert/converter.c (converter_setup): add
+	txi_setup_lib_data in document.c for library main initialization.
+	Call set_element_type_name_info in txi_setup_lib_data, and call
+	txi_setup_lib_data in converter_setup.
+
+	Minor other changes.
+
+2024-08-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_C_options_info.pl: rename functions setting
 	options defaults.  Set correctly non integer/string options.  Add a
 	function to set all options defaults.

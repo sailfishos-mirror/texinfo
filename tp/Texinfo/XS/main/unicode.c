@@ -16,24 +16,29 @@
 /* In sync with Texinfo::Convert::Unicode */
 
 #include <config.h>
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <stddef.h>
 #include <stdbool.h>
 #include "unictype.h"
 #include "uninorm.h"
 #include "unistr.h"
 
-#include "tree_types.h"
 #include "text.h"
+#include "command_ids.h"
+#include "tree_types.h"
+#include "converter_types.h"
 #include "errors.h"
 /* for element_builtin_cmd */
 #include "builtin_commands.h"
-/* for xasprintf */
+/* for fatal xasprintf to_upper_or_lower_multibyte normalize_encoding_name */
 #include "utils.h"
 #include "unicode.h"
 
+/* define unicode_diacritics and unicode_character_brace_no_arg_commands */
 #include "cmd_unicode.c"
 
 #include "accent_tables_8bit_codepoints.c"
@@ -228,7 +233,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
     At this point we have the unicode character results for the accent
     commands stack, with all the intermediate results.
     For each one we'll check if it is possible to encode it in the
-    current eight bit output encoding table and, if so set the result
+    current eight bit output encoding table and, if so, set the result
     to the character.
    */
 
@@ -273,7 +278,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
     # -> there are 2 characters in accent. This could happen, for example
     #    if an accent that cannot be rendered is found and it leads to
     #    appending or prepending a character. For example this happens for
-    #    @={@,{@~{n}}}, where @,{@~{n}} is expanded to a 2 character:
+    #    @={@,{@~{n}}}, where @,{@~{n}} is expanded to 2 characters:
     #    n with a tilde, followed by a ,
     #    In that case, the additional diacritic is appended, which
     #    means that it is composed with the , and leaves n with a tilde
@@ -460,12 +465,12 @@ int unicode_point_decoded_in_encoding (const char *encoding,
             }
         }
       free (normalized_encoding);
+      /* unknown encoding or not represented in encoding */
+      return 0;
     }
   else
-    /* if encoding is undef, consider that it is the default, utf-8 */
+    /* if encoding is not set, consider that it is the default, utf-8 */
     return -1;
-
-  return 0;
 }
 
 const char *

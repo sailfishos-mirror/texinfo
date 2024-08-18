@@ -61,6 +61,7 @@ open (UEB, '>', $unicode_to_eight_bit_file_name)
 
 print UEB "/* Automatically generated from $program_name */\n\n";
 
+print UEB "/* NOTE encodings codepoints are sorted as strings */\n";
 print UEB "const struct ENCODING_CODEPOINTS unicode_to_eight_bit[] = {\n";
 
 my %unicode_to_eight_bit = %Texinfo::Convert::Unicode::unicode_to_eight_bit;

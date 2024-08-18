@@ -150,6 +150,8 @@ converter_setup (int texinfo_uninstalled, const char *tp_builddir,
   setup_converter_paths_information (texinfo_uninstalled,
                              pkgdatadir, tp_builddir, top_srcdir);
 
+  txi_setup_lib_data ();
+
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {
       if (xml_text_entity_no_arg_commands[i])
@@ -161,8 +163,6 @@ converter_setup (int texinfo_uninstalled, const char *tp_builddir,
         xml_text_entity_no_arg_commands_formatting[i]
           = text_brace_no_arg_commands[i];
     }
-
-  set_element_type_name_info ();
 
   /* For translation of in document string. */
   if (0)
