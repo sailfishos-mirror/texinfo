@@ -1,5 +1,10 @@
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_C_options_info.pl: reorder code, add comments
+	in output.  Pre-sort setup_sortable_options output.
+
+2024-08-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_C_options_info.pl: do not generate
 	set_option_key_configured anymore, it is unused and there is a better
 	version.

@@ -213,22 +213,6 @@ foreach my $category (sort(keys(%option_categories))) {
 
 print CODE "}\n\n";
 
-print CODE "OPTION **\nsetup_sortable_options (OPTIONS *options)\n{\n";
-print CODE "  OPTION **result = (OPTION **)\n"
-           ."    malloc (sizeof (OPTION *) * TXI_OPTIONS_NR);\n\n";
-my $index = 0;
-foreach my $category (sort(keys(%option_categories))) {
-  print CODE "\n/* ${category} */\n\n";
-  foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    print CODE "  result[$index] = &options->$option;\n";
-    $index++;
-  }
-}
-
-print CODE "\n  return result;\n"
-."}\n\n";
-
 print CODE "void\nfree_options (OPTIONS *options)\n{\n";
 foreach my $category (sort(keys(%option_categories))) {
   print CODE "\n/* ${category} */\n\n";
@@ -257,6 +241,64 @@ foreach my $category (sort(keys(%option_categories))) {
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     print CODE "  copy_option (&destination->$option, &source->$option);\n";
+  }
+}
+print CODE "}\n\n";
+
+my @sorted_options = sort(keys(%options));
+
+# returns an array of options ready to be sorted (and already sorted).
+print CODE "OPTION **\nsetup_sortable_options (OPTIONS *options)\n{\n";
+print CODE "  OPTION **result = (OPTION **)\n"
+           ."    malloc (sizeof (OPTION *) * TXI_OPTIONS_NR);\n\n";
+my $index = 0;
+foreach my $option (@sorted_options) {
+  my $option_info = $options{$option};
+  my ($category, $main_default, $type) = @$option_info;
+  print CODE "  result[$index] = &options->$option;   /* ${category} */\n";
+  $index++;
+}
+
+print CODE "\n  return result;\n"
+."}\n\n\n";
+
+# Static sorted options by name.  Can be used to find the number and type.
+# First define the internal OPTION structures, in a second step set the
+# array.  Could not find a way to do it in one step.
+print CODE "/* static OPTION structure pointers used as fields of sorted options just below */\n";
+my $option_nr = 0;
+foreach my $option (@sorted_options) {
+  $option_nr++;
+  my $option_info = $options{$option};
+  my ($category, $main_default, $type) = @$option_info;
+  print CODE "static OPTION _sorted_options_${option}_tmp = {GOT_${type}, \"$option\", $option_nr, 0, -1};  /* $category */\n";
+}
+
+print CODE "\n\n";
+
+print CODE "/* sorted options pointers array (for number and type, without values) */\n";
+print CODE "OPTION *${base_sorted_options_name}\[TXI_OPTIONS_NR\] = {\n";
+foreach my $option (@sorted_options) {
+  $option_nr++;
+  my $option_info = $options{$option};
+  my ($category, $main_default, $type) = @$option_info;
+  #print CODE "{GOT_${type}, \"$option\", $option_nr, 0, -1},  /* $category */\n";
+  print CODE "&_sorted_options_${option}_tmp,\n";
+}
+print CODE "};\n\n";
+
+# call function to fill options directions for all the buttons options
+print CODE 'void
+html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
+{
+';
+foreach my $category (sort(keys(%option_categories))) {
+  foreach my $option_info (@{$option_categories{$category}}) {
+    my ($option, $value, $type) = @$option_info;
+    if ($type eq 'buttons') {
+      print CODE "  if (options->$option.o.buttons)\n"
+                ."    html_fill_button_directions_specification_list (converter, options->$option.o.buttons);\n\n";
+    }
   }
 }
 print CODE "}\n\n";
@@ -292,23 +334,6 @@ print CODE "
       return 0;
     }
 }\n\n";
-
-print CODE 'void
-html_fill_options_directions (OPTIONS *options, const CONVERTER *converter)
-{
-';
-foreach my $category (sort(keys(%option_categories))) {
-  foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    if ($type eq 'buttons') {
-      print CODE "  if (options->$option.o.buttons)\n"
-                ."    html_fill_button_directions_specification_list (converter, options->$option.o.buttons);\n\n";
-    }
-  }
-}
-print CODE '}
-
-';
 
 # table of defaults for options corresponding to commands
 print CODE "COMMAND_OPTION_DEFAULT command_option_default_table[] = {\n";
@@ -351,29 +376,6 @@ foreach my $command_name (@commands_order) {
   }
 }
 
-print CODE "};\n\n";
-
-# Sorted options by name.  Can be used to find the number and type.
-# First define the internal OPTION structures, in a second step set the
-# array.  Could not find a way to do it in one step.
-my $option_nr = 0;
-foreach my $option (sort(keys(%options))) {
-  $option_nr++;
-  my $option_info = $options{$option};
-  my ($category, $main_default, $type) = @$option_info;
-  print CODE "static OPTION _sorted_options_${option}_tmp = {GOT_${type}, \"$option\", $option_nr, 0, -1};  /* $category */\n";
-}
-
-print CODE "\n\n";
-
-print CODE "OPTION *${base_sorted_options_name}\[TXI_OPTIONS_NR\] = {\n";
-foreach my $option (sort(keys(%options))) {
-  $option_nr++;
-  my $option_info = $options{$option};
-  my ($category, $main_default, $type) = @$option_info;
-  #print CODE "{GOT_${type}, \"$option\", $option_nr, 0, -1},  /* $category */\n";
-  print CODE "&_sorted_options_${option}_tmp,\n";
-}
 print CODE "};\n\n";
 
 close(CODE);
