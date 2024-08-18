@@ -345,11 +345,18 @@ set_converter_init_information (CONVERTER *converter,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf)
 {
-  /* the case of format_defaults not set should correspond to
-     format_defaults C functions that sets the converter conf and return
-     0 */
-  if (format_defaults)
-    apply_converter_info (converter, format_defaults, 0);
+  OPTION **format_defaults_sorted_options;
+
+  apply_converter_info (converter, format_defaults, 0);
+
+  /* Also keep format_defaults options as an OPTIONS structure */
+  converter->format_defaults_conf = new_options ();
+  format_defaults_sorted_options
+    = new_sorted_options (converter->format_defaults_conf);
+  copy_numbered_options_list_options (converter->format_defaults_conf,
+                                      format_defaults_sorted_options,
+                                      &format_defaults->conf, 0);
+  free (format_defaults_sorted_options);
 
   if (user_conf)
     apply_converter_info (converter, user_conf, 1);
@@ -474,14 +481,12 @@ converter_converter (enum converter_format format,
 
   format_defaults = converter_defaults (converter->format, user_conf);
 
-  if (format_defaults)
-    number_options_list (&format_defaults->conf, converter->sorted_options);
+  number_options_list (&format_defaults->conf, converter->sorted_options);
 
   set_converter_init_information (converter, format, format_defaults,
                                   user_conf);
 
-  if (format_defaults)
-    destroy_converter_initialization_info (format_defaults);
+  destroy_converter_initialization_info (format_defaults);
 
   destroy_converter_initialization_info (user_conf);
 
@@ -1751,15 +1756,25 @@ free_generic_converter (CONVERTER *self)
   free (self->expanded_formats);
 
   if (self->init_conf)
-    free_options (self->init_conf);
-  free (self->init_conf);
+    {
+      free_options (self->init_conf);
+      free (self->init_conf);
+    }
 
   if (self->sorted_options)
     free (self->sorted_options);
 
   if (self->conf)
-    free_options (self->conf);
-  free (self->conf);
+    {
+      free_options (self->conf);
+      free (self->conf);
+    }
+
+  if (self->format_defaults_conf)
+    {
+      free_options (self->format_defaults_conf);
+      free (self->format_defaults_conf);
+    }
 
   if (self->convert_index_text_options)
     destroy_text_options (self->convert_index_text_options);

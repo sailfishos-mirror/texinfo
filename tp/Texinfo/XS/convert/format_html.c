@@ -2685,21 +2685,8 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
 
   if (level < 1)
     heading_level = 1;
-  else
-    {
-      /* TODO if defaults of converter options become more used in C code,
-         it could be relevant to predefine a table with code generated
-         by a specific Perl script with options defaults instead of
-         hardcoding */
-      int max_header_level = 4;
-      if (self->conf->MAX_HEADER_LEVEL.o.integer >= 1)
-        max_header_level = self->conf->MAX_HEADER_LEVEL.o.integer;
-      else if (self->conf->MAX_HEADER_LEVEL.o.integer == 0)
-        max_header_level = 1;
-
-      if (level > max_header_level)
-        heading_level = max_header_level;
-    }
+  else if (level > self->conf->MAX_HEADER_LEVEL.o.integer)
+    heading_level = self->conf->MAX_HEADER_LEVEL.o.integer;
   xasprintf (&heading_html_element, "h%d", heading_level);
 
   char *attribute_class

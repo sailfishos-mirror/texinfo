@@ -635,7 +635,8 @@ html_converter_initialize_beginning (CONVERTER *self)
     option_force_conf (&self->conf->SPLIT, 0, "node");
 
   if (max_header_level < 0)
-    option_force_conf (&self->conf->MAX_HEADER_LEVEL, 4, 0);
+    option_force_conf (&self->conf->MAX_HEADER_LEVEL,
+                  self->format_defaults_conf->MAX_HEADER_LEVEL.o.integer, 0);
   else if (max_header_level < 1)
     option_force_conf (&self->conf->MAX_HEADER_LEVEL, 1, 0);
 
@@ -2828,8 +2829,8 @@ html_setup_output (CONVERTER *self, char **paths)
   handler_fatal_error_level = self->conf->HANDLER_FATAL_ERROR_LEVEL.o.integer;
   if (handler_fatal_error_level < 0)
     {
-      handler_fatal_error_level = 100;
-      /* see options_data.txt. TODO automate? */
+      handler_fatal_error_level
+        = txi_base_options.HANDLER_FATAL_ERROR_LEVEL.o.integer;
       option_force_conf (&self->conf->HANDLER_FATAL_ERROR_LEVEL,
                          handler_fatal_error_level, 0);
     }

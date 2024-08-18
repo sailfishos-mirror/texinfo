@@ -1,5 +1,27 @@
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c (set_converter_init_information)
+	(free_generic_converter), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER):  add format_defaults_conf OPTIONS field to converter.
+	Set format_defaults_conf OPTIONS structure based on format_defaults
+	options list in set_converter_init_information.
+
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_converter_initialize_beginning): use self->format_defaults_conf
+	to set MAX_HEADER_LEVEL if < 0.
+
+	* tp/Texinfo/XS/convert/html_prepare_converter.c (html_setup_output):
+	use txi_base_options to set HANDLER_FATAL_ERROR_LEVEL if < 0.
+
+	* tp/Texinfo/XS/convert/format_html.c
+	(html_default_format_heading_text): simplify setting heading level,
+	doing as in Perl.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_converter): assume that
+	format_defaults is always set.
+
+2024-08-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (BUILT_SOURCES, options_init_free.c),
 	(libtexinfo_convert_la_SOURCES, EXTRA_DIST): rename
 	convert/converters_defaults.c as convert/converters_options.c.

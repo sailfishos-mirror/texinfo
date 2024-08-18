@@ -780,9 +780,10 @@ typedef struct CONVERTER {
        destroyed shortly after */
     CONVERTER_INITIALIZATION_INFO *format_defaults;
     OPTIONS *conf;
-    OPTIONS *init_conf;
     /* an array containing the fields of conf ordered by name */
     OPTION **sorted_options;
+    OPTIONS *init_conf;
+    OPTIONS *format_defaults_conf;
     char *output_format;
     char *converted_format;
     EXPANDED_FORMAT *expanded_formats;
