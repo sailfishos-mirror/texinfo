@@ -154,6 +154,8 @@ C_libtexinfo_sources = \
 		      main/targets.c \
 		      main/targets.h \
 		      main/options_init_free.c \
+		      main/options_defaults.c \
+		      main/options_defaults.h \
 		      main/option_types.h \
 		      main/options_types.h \
 		      main/global_commands_types.h \
@@ -256,6 +258,8 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 main/global_multi_commands_case.c \
                 main/global_unique_commands_case.c \
                 main/options_init_free.c \
+                main/options_defaults.c \
+                main/options_defaults.h \
                 main/options_get_perl.c \
                 main/options_types.h
 
@@ -314,20 +318,24 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../../maintain/setup_a
 
 MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_get_perl.c $(srcdir)/convert/converters_defaults.c $(srcdir)/convert/converters_defaults.h: ../options_data.txt ../Convert/converters_defaults.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_types.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_defaults.c $(srcdir)/convert/converters_defaults.h $(srcdir)/main/options_get_perl.c: ../options_data.txt ../Convert/converters_defaults.txt main/command_data.c $(srcdir)/../../maintain/regenerate_C_options_info.pl
 	$(PERL) $(srcdir)/../../maintain/regenerate_C_options_info.pl \
 	        < $(srcdir)/../options_data.txt \
 	              $(srcdir)/main/command_data.c \
 	              $(srcdir)/../Convert/converters_defaults.txt \
 	              $(srcdir)/main/options_init_free.c \
 	              $(srcdir)/main/options_types.h \
+	              $(srcdir)/main/options_defaults.c \
+	              $(srcdir)/main/options_defaults.h \
 	              $(srcdir)/convert/converters_defaults.c \
 	              $(srcdir)/convert/converters_defaults.h \
 	              $(srcdir)/main/options_get_perl.c
 
 MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
-                        main/options_get_perl.c convert/converters_defaults.c \
-                        convert/converters_defaults.h
+                        main/options_defaults.c main/options_defaults.h \
+                        convert/converters_defaults.c \
+                        convert/converters_defaults.h \
+                        main/options_get_perl.c
 
 $(srcdir)/main/conversion_data.c $(srcdir)/main/conversion_data.h: main/command_data.c $(srcdir)/../Data/default_css_element_class_styles.csv $(srcdir)/../Data/default_direction_strings.csv $(srcdir)/../Data/default_special_unit_info.csv $(srcdir)/../Data/html_style_commands_element.csv $(srcdir)/../../maintain/generate_code_convert_data.pl
 	$(PERL) $(srcdir)/../../maintain/generate_code_convert_data.pl \

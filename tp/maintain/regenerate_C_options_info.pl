@@ -133,15 +133,23 @@ die "Need a code file\n" if (!defined($code_file));
 my $header_file = $ARGV[3];
 die "Need a header file\n" if (!defined($header_file));
 
-my $converter_defaults_code_file = $ARGV[4];
+my $options_defaults_code_file = $ARGV[4];
+die "Need an options code defaults file\n"
+   if (!defined($options_defaults_code_file));
+
+my $options_defaults_header_file = $ARGV[5];
+die "Need a options header defaults file\n"
+   if (!defined($options_defaults_header_file));
+
+my $converter_defaults_code_file = $ARGV[6];
 die "Need a converter code defaults file\n"
    if (!defined($converter_defaults_code_file));
 
-my $converter_defaults_header_file = $ARGV[5];
+my $converter_defaults_header_file = $ARGV[7];
 die "Need a converter header defaults file\n"
    if (!defined($converter_defaults_header_file));
 
-my $get_file = $ARGV[6];
+my $get_file = $ARGV[8];
 die "Need an XS code file\n" if (!defined($get_file));
 
 my $program_name = basename($0);
@@ -380,58 +388,95 @@ print CODE "};\n\n";
 
 close(CODE);
 
-open(OCDEF, ">$converter_defaults_code_file")
- or die "Open $converter_defaults_code_file: $!\n";
+open(ODCF, ">$options_defaults_code_file")
+ or die "Open $options_defaults_code_file: $!\n";
 
-print OCDEF "/* Automatically generated from $program_name */\n\n";
+print ODCF "/* Automatically generated from $program_name */\n\n";
 
-print OCDEF '#include <config.h>'."\n\n";
+print ODCF '#include <config.h>'."\n\n";
 
-print OCDEF '#include "options_types.h"'."\n";
-print OCDEF '#include "customization_options.h"'."\n";
-print OCDEF '#include "converters_defaults.h"'."\n\n";
+print ODCF '#include "option_types.h"'."\n";
+print ODCF '#include "options_types.h"'."\n";
+print ODCF '#include "customization_options.h"'."\n";
+print ODCF '#include "options_defaults.h"'."\n\n";
 
-open(OHDEF, ">$converter_defaults_header_file")
- or die "Open $converter_defaults_header_file: $!\n";
+open(ODHF, ">$options_defaults_header_file")
+ or die "Open $options_defaults_header_file: $!\n";
 
-print OHDEF "#ifndef CONVERTERS_DEFAULTS_H\n#define CONVERTERS_DEFAULTS_H\n\n";
+print ODHF "#ifndef OPTIONS_DEFAULTS_H\n#define OPTIONS_DEFAULTS_H\n\n";
 
-print OHDEF "#include \"main/option_types.h\"\n\n";
+print ODHF "#include \"main/option_types.h\"\n";
+print ODHF "#include \"main/options_types.h\"\n\n";
 
-print OHDEF "/* Undefine values set from autoconf as we use these as\n";
-print OHDEF "   customization variable names.  The original values are\n";
-print OHDEF "   available with a _CONFIG suffix, e.g. PACKAGE_CONFIG for\n";
-print OHDEF "   PACKAGE. */\n";
-print OHDEF "#undef PACKAGE\n";
-print OHDEF "#undef PACKAGE_NAME\n";
-print OHDEF "#undef PACKAGE_URL\n";
-print OHDEF "#undef PACKAGE_VERSION\n\n";
+print ODHF "/* Undefine values set from autoconf as we use these as\n";
+print ODHF "   customization variable names.  The original values are\n";
+print ODHF "   available with a _CONFIG suffix, e.g. PACKAGE_CONFIG for\n";
+print ODHF "   PACKAGE. */\n";
+print ODHF "#undef PACKAGE\n";
+print ODHF "#undef PACKAGE_NAME\n";
+print ODHF "#undef PACKAGE_URL\n";
+print ODHF "#undef PACKAGE_VERSION\n\n";
 
 foreach my $category (sort(keys(%option_categories))) {
-  print OCDEF "\n/* ${category} */\n\n";
+  print ODCF "\n/* ${category} */\n\n";
   my $options_fun = "void set_${category}_regular_defaults (OPTIONS *options)";
-  my $list_fun = "void add_${category}_regular_options_defaults (OPTIONS_LIST *options_list)";
+  my $list_fun = "void add_${category}_regular_defaults (OPTIONS_LIST *options_list)";
 
-  print OHDEF "$options_fun;\n\n";
-  print OHDEF "$list_fun;\n\n";
+  print ODHF "$options_fun;\n\n";
+  print ODHF "$list_fun;\n\n";
 
-  print OCDEF "$options_fun\n{\n";
+  print ODCF "$options_fun\n{\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print OCDEF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+    print ODCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
   }
-  print OCDEF "}\n\n";
+  print ODCF "}\n\n";
 
-  print OCDEF "$list_fun\n{\n";
+  print ODCF "$list_fun\n{\n";
   foreach my $option_info (@{$option_categories{$category}}) {
     my ($option, $value, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print OCDEF "  add_new_option_value (options_list, GOT_$type, "
+    print ODCF "  add_new_option_value (options_list, GOT_$type, "
                  ."\"$option\", $int_value, $char_value);\n";
   }
-  print OCDEF "}\n\n";
+  print ODCF "}\n\n";
 }
+
+close (ODCF);
+
+print ODHF "#endif\n";
+close(ODHF);
+
+
+open(CDCF, ">$converter_defaults_code_file")
+ or die "Open $converter_defaults_code_file: $!\n";
+
+print CDCF "/* Automatically generated from $program_name */\n\n";
+
+print CDCF '#include <config.h>'."\n\n";
+
+print CDCF '#include "option_types.h"'."\n";
+print CDCF '#include "options_types.h"'."\n";
+print CDCF '#include "customization_options.h"'."\n";
+print CDCF '#include "converters_defaults.h"'."\n\n";
+
+open(CDHF, ">$converter_defaults_header_file")
+ or die "Open $converter_defaults_header_file: $!\n";
+
+print CDHF "#ifndef CONVERTERS_DEFAULTS_H\n#define CONVERTERS_DEFAULTS_H\n\n";
+
+print CDHF "#include \"main/option_types.h\"\n";
+print CDHF "#include \"main/options_types.h\"\n\n";
+
+print CDHF "/* Undefine values set from autoconf as we use these as\n";
+print CDHF "   customization variable names.  The original values are\n";
+print CDHF "   available with a _CONFIG suffix, e.g. PACKAGE_CONFIG for\n";
+print CDHF "   PACKAGE. */\n";
+print CDHF "#undef PACKAGE\n";
+print CDHF "#undef PACKAGE_NAME\n";
+print CDHF "#undef PACKAGE_URL\n";
+print CDHF "#undef PACKAGE_VERSION\n\n";
 
 my @sorted_formats = sort(keys(%converter_defaults));
 
@@ -441,35 +486,35 @@ foreach my $format (@sorted_formats) {
   my $list_fun
     = "void add_${format}_regular_options_defaults (OPTIONS_LIST *options_list)";
 
-  print OHDEF "$options_fun;\n\n";
-  print OHDEF "$list_fun;\n\n";
+  print CDHF "$options_fun;\n\n";
+  print CDHF "$list_fun;\n\n";
 
-  print OCDEF "$options_fun\n{\n";
+  print CDCF "$options_fun\n{\n";
   foreach my $option_spec (@{$converter_defaults{$format}}) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};
     my ($option_unused, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print OCDEF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
+    print CDCF "  option_set_conf (&options->${option}, $int_value, $char_value);\n";
   }
-  print OCDEF "}\n\n";
+  print CDCF "}\n\n";
 
-  print OCDEF "$list_fun\n{\n";
+  print CDCF "$list_fun\n{\n";
   foreach my $option_spec (@{$converter_defaults{$format}}) {
     my ($option, $value) = @$option_spec;
     my $option_info = $options{$option};
     my ($option_unused, $main_default, $type) = @$option_info;
     my ($int_value, $char_value) = get_value($type, $value);
-    print OCDEF "  add_new_option_value (options_list, GOT_$type, "
+    print CDCF "  add_new_option_value (options_list, GOT_$type, "
                  ."\"$option\", $int_value, $char_value);\n";
   }
-  print OCDEF "}\n\n";
+  print CDCF "}\n\n";
 }
 
-close(OCDEF);
+close(CDCF);
 
-print OHDEF "#endif\n";
-close(OHDEF);
+print CDHF "#endif\n";
+close(CDHF);
 
 
 open(GET, ">$get_file") or die "Open $get_file: $!\n";

@@ -39,6 +39,7 @@
 #include "options_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+#include "options_defaults.h"
 #include "converters_defaults.h"
 #include "tree.h"
 #include "extra.h"
