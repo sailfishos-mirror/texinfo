@@ -1,5 +1,9 @@
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
+	Comments on potential overflows, change in associated comments
+
+2024-08-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/converters_tests.t (form_feeds), tp/Makefile.tres: add parts of
 	t/03coverage_braces.t form_feed_in_brace_commands test relevant.
 	Remove t/03coverage_braces.t form_feed_in_brace_commands.

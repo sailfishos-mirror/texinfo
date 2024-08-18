@@ -373,7 +373,7 @@ void
 add_to_element_list (ELEMENT_LIST *list, ELEMENT *e)
 {
   /* NOTE there could be theoretically an overflow if
-     list->number + 1 > max (size_t).  The numbers are big, this is unlikely
+     list->number + 1 > SIZE_MAX.  The numbers are big, this is unlikely
      to happen */
   reallocate_list (list);
 
@@ -445,7 +445,7 @@ insert_list_slice_into_list (ELEMENT_LIST *to, size_t where,
                              const ELEMENT_LIST *from, size_t start, size_t end)
 {
   /* NOTE there could be theoretically an overflow if
-     list->number + num > max (size_t).  The numbers are big, this is unlikely
+     list->number + num > SIZE_MAX.  The numbers are big, this is unlikely
      to happen */
   size_t num = end - start;
   reallocate_list_for (num, to);

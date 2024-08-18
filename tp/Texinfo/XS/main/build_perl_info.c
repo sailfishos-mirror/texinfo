@@ -13,13 +13,26 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-/* TODO there are many places where there is a theoretical possibility of overflow
-   if the size of a Perl array is not enough to accomodate the number of Texinfo
-   objects stored.  This is possible if max of SSize_t < max of size_t.  This is
-   only theoretical, though as these are big numbers, and according to internet
-   memory could be exhausted before reaching SSize_t.  It sould be checked
-   if the max of SSize_t was available, but it does not seems to be in Perl
-   documentation. */
+/* NOTE we store in AV lists indexed as size_t.  AV max size seems to be
+   the max of SSize_t, if it is < SIZE_MAX there could theoretically be
+   overflows.  However, Perl documentation says sizeof(SSize_t) == sizeof(Size_t)
+   and "Size_t ... is usually size_t".  In addition these are very big numbers.
+   In Perl documentation there is no description of a constant that would
+   give the max of SSize_t.
+
+   We build index numbers, document, output units and converter descriptors
+   indexed as size_t to Perl SV using newSViv ((IV)descriptor).  There
+   could theoretically be and overflow of IV if PERL_QUAD_MAX < SIZE_MAX.
+   (PERL_QUAD_MAX is the max size of IV in Perl).  On an Intel 64 bit
+   GNU Linux, PERL_QUAD_MAX is half of SIZE_MAX.  However those are
+   big numbers, while the Texinfo command numbers are quite small and other
+   descriptor numbers should be very small so this should not be an issue
+   in practice.
+
+   We also get IV and cast to size_t when getting info from Perl, like
+   descriptor = (size_t) SvIV (descriptor_sv).  In that case there is no
+   reason to overflow.
+ */
 
 #include <config.h>
 #include <stdlib.h>
@@ -224,7 +237,6 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
               element_to_perl_hash (e_l->list[i], avoid_recursion);
             }
         }
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (av, (SSize_t) i, newRV_inc ((SV *) e_l->list[i]->hv));
     }
   return sv;
@@ -269,7 +281,6 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
               element_to_perl_hash (f, avoid_recursion);
             }
         }
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (av, (SSize_t) i, newRV_inc ((SV *) e_l->list[i]->hv));
     }
   return sv;
@@ -614,7 +625,6 @@ store_source_mark_list (const ELEMENT *e)
                 break;
             }
 
-          /* NOTE theoretical overflow if max(SSize_t) < i */
           av_push (av, newRV_noinc ((SV *)source_mark));
 #undef STORE
         }
@@ -958,7 +968,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
          released when the element is destroyed, by calling
          unregister_perl_tree_element */
           sv = newRV_inc ((SV *) child->hv);
-         /* NOTE theoretical overflow if max(SSize_t) < i */
           av_store (av, i, sv);
         }
     }
@@ -979,7 +988,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           if (!child->hv || !avoid_recursion)
             element_to_perl_hash (child, avoid_recursion);
           sv = newRV_inc ((SV *) child->hv);
-          /* NOTE theoretical overflow if max(SSize_t) < i */
           av_store (av, i, sv);
         }
     }
@@ -1077,7 +1085,6 @@ build_string_list (const STRING_LIST *strings_list, enum sv_string_type type)
   for (i = 0; i < strings_list->number; i++)
     {
       const char *value = strings_list->list[i];
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       if (!value)
         av_push (av, newSV (0));
       else if (type == svt_char)
@@ -1104,7 +1111,6 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
   for (i = 0; i < list->number; i++)
     {
       sv = newRV_inc (list->list[i]->hv);
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (list_av, i, sv);
     }
 
@@ -1206,7 +1212,6 @@ build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
   for (i = 0; i < error_number; i++)
     {
       SV *sv = convert_error (error_list[i]);
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_push (av, sv);
     }
 
@@ -1272,7 +1277,6 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
               const ERROR_MESSAGE error_msg = error_messages->list[i];
               SV *sv = convert_error (error_msg);
 
-              /* NOTE theoretical overflow if max(SSize_t) < i */
               av_push (av, sv);
             }
 
@@ -1384,7 +1388,6 @@ build_target_elements_list (const LABEL_LIST *labels_list)
   for (i = 0; i < labels_list->number; i++)
     {
       sv = newRV_inc (labels_list->list[i].element->hv);
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (target_array, i, sv);
     }
 
@@ -1429,7 +1432,6 @@ build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
   for (i = 0; i < internal_xref_list->number; i++)
     {
       sv = newRV_inc (internal_xref_list->list[i]->hv);
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_store (list_av, i, sv);
     }
 
@@ -1474,7 +1476,6 @@ build_float_types_list (const FLOAT_RECORD_LIST *floats)
                         newRV_noinc ((SV *)av), 0);
         }
       sv = newRV_inc ((SV *)floats->list[i].element->hv);
-      /* NOTE theoretical overflow if max(SSize_t) < i */
       av_push (av, sv);
     }
 
@@ -1528,10 +1529,9 @@ build_single_index_data (const INDEX *index)
           if (e->entry_associated_element)
             STORE2("entry_associated_element",
                    newRV_inc ((SV *)e->entry_associated_element->hv));
-          /* FIXME if there is some overflow here there is gonna be trouble */
+          /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
           STORE2("entry_number", newSViv ((IV) entry_number));
 
-          /* NOTE theoretical overflow if max(SSize_t) < j */
           av_store (entries, j, newRV_noinc ((SV *)entry));
 
           entry_number++;
@@ -1672,7 +1672,6 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.dircategory_direntry.number; i++)
         {
           const ELEMENT *e = global_commands.dircategory_direntry.list[i];
-          /* NOTE theoretical overflow if max(SSize_t) < i */
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
@@ -1688,7 +1687,6 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.footnotes.number; i++)
         {
           const ELEMENT *e = global_commands.footnotes.list[i];
-          /* NOTE theoretical overflow if max(SSize_t) < i */
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
@@ -1703,7 +1701,6 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.floats.number; i++)
         {
           const ELEMENT *e = global_commands.floats.list[i];
-          /* NOTE theoretical overflow if max(SSize_t) < i */
           if (e->hv)
             av_push (av, newRV_inc ((SV *) e->hv));
         }
@@ -1718,7 +1715,6 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
       for (i = 0; i < global_commands.cmd.number; i++)             \
         {                                                               \
           const ELEMENT *e = global_commands.cmd.list[i];            \
-          /* NOTE theoretical overflow if max(SSize_t) < i */          \
           if (e->hv)                                                    \
             av_push (av, newRV_inc ((SV *) e->hv));                     \
         }                                                               \
@@ -2467,8 +2463,7 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
         return;
     }
 
-  /* FIXME output_unit->index is size_t, there will be an overflow if
-     output_unit->index > max of IV */
+  /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
   sv = newSViv ((IV) output_unit->index);
   STORE("unit_index");
 
@@ -2537,7 +2532,6 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
           sv = newRV_inc ((SV *) element_hv);
 
-          /* NOTE theoretical overflow if max(SSize_t) < i */
           av_push (av, sv);
 
           unit_sv = newRV_inc ((SV *) output_unit->hv);
@@ -2618,8 +2612,7 @@ fill_output_units_descriptor_av (const DOCUMENT *document,
     }
 
   /* store in the first perl output unit of the list */
-  /* FIXME output_units_descriptor is size_t, there will be an overflow
-           if > max of IV */
+  /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
   hv_store (output_units->list[0]->hv, "output_units_descriptor",
             strlen ("output_units_descriptor"),
             newSViv ((IV)output_units_descriptor), 0);
@@ -3185,8 +3178,7 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
     STORE("converted_format", newSVpv_utf8 (converter->converted_format, 0));
 
   /* store converter_descriptor in perl converter */
-  /* FIXME converter->converter_descriptor is size_t, there will be an overflow
-           if > max of IV */
+  /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
   STORE("converter_descriptor", newSViv ((IV)converter->converter_descriptor));
 
 #undef STORE

@@ -71,8 +71,7 @@ register_parser_conf (SV *parser)
     CODE:
       hv_in = (HV *)SvRV (parser);
       parser_conf = register_conf ();
-      /* FIXME parser_conf->descriptor is size_t, there will be an overflow
-         if parser_conf->descriptor > max of IV, which seems to be PERL_QUAD_MAX */
+      /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
       hv_store (hv_in, key, strlen (key),
                 newSViv ((IV) parser_conf->descriptor), 0);
 

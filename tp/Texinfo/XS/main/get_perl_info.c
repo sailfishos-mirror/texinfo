@@ -127,7 +127,6 @@ get_document_or_warn (SV *sv_in, char *key, char *warn_string)
   document_descriptor_sv = hv_fetch (hv_in, key, strlen (key), 0);
   if (document_descriptor_sv && SvOK (*document_descriptor_sv))
     {
-      /* NOTE if size_t size is more than IV we could have overflow here */
       document_descriptor = (size_t) SvIV (*document_descriptor_sv);
       document = retrieve_document (document_descriptor);
     }

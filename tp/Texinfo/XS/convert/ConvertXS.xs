@@ -158,8 +158,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
 
            /* the converter needs to be found, nothing else to pass to
               Perl */
-  /* FIXME converter->converter_descriptor is size_t, there will be an overflow
-           if > max of IV */
+           /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
             hv_store (converter_hv, key, strlen (key),
                       newSViv ((IV)self->converter_descriptor), 0);
 

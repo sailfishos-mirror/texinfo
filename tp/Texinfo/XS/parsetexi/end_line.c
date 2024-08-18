@@ -828,9 +828,8 @@ end_line_starting_block (ELEMENT *current)
   else if (command == CM_multitable)
     {
       size_t i;
-      /* NOTE max_columns could overflow, as in general max (int) < max (size_t).
-         We do not do anything special as this would be for unrealistically big
-         numbers for columns */
+      /* NOTE max_columns could overflow, as in general INT_MAX < SIZE_MAX.
+         We ignore as this would be for unrealistic column numbers */
       int max_columns = 0;
 
       for (i = 0; i < current->e.c->contents.number; i++)
