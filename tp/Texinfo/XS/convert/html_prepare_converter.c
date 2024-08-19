@@ -20,6 +20,8 @@
 #include <stddef.h>
 #include <string.h>
 #include <errno.h>
+/* for euidaccess.  Not portable, use gnulib */
+#include <unistd.h>
 
 #include "text.h"
 #include "command_ids.h"
@@ -46,6 +48,8 @@
 #include "convert_to_text.h"
 #include "output_unit.h"
 #include "html_conversion_state.h"
+/* encoded_output_file_name */
+#include "convert_utils.h"
 /* no_brace_command_accent_upper_case
    xml_text_entity_no_arg_commands_formatting */
 #include "converter.h"
@@ -614,6 +618,45 @@ html_format_setup (void)
    defaults based on customization variables.
    Apply specific customizations (from Perl) */
 
+
+
+void
+load_htmlxref_files (CONVERTER *self)
+{
+  const char *htmlxref_mode = self->conf->HTMLXREF_MODE.o.string;
+  const char *htmlxref_file_name = "htmlxref.cnf";
+  STRING_LIST htmlxref_files;
+
+  if (htmlxref_mode && !strcmp (htmlxref_mode, "none"))
+    return;
+
+  memset (&htmlxref_files, 0, sizeof (STRING_LIST));
+  if (htmlxref_mode && !strcmp (htmlxref_mode, "file"))
+    {
+      char *encoded_htmlxref_file_name;
+      char *path_encoding;
+      const char *htmlxref_file = self->conf->HTMLXREF_FILE.o.string;
+
+      if (htmlxref_file)
+        htmlxref_file_name = htmlxref_file;
+
+      /* cast to remove const */
+      encoded_htmlxref_file_name
+         = encoded_output_file_name (self->conf, &self->document->global_info,
+                                     (char *)htmlxref_file_name,
+                                     &path_encoding, 0);
+      free (path_encoding);
+
+      if (euidaccess (encoded_htmlxref_file_name, R_OK) == 0)
+        add_string (encoded_htmlxref_file_name, &htmlxref_files);
+      else
+        message_list_document_warn (&self->error_messages,
+                 self->conf, 0, "could not find html refs config file %s",
+                                         htmlxref_file_name);
+      free (encoded_htmlxref_file_name);
+    }
+}
+
 /* this code corresponds to the Perl converter_initialize code, only for
    code to be called before Perl customization setup information is passed */
 void
@@ -652,6 +695,8 @@ html_converter_initialize_beginning (CONVERTER *self)
     option_force_conf (&self->conf->INDEX_ENTRY_COLON, 0, "");
   if (!self->conf->MENU_ENTRY_COLON.o.string)
     option_force_conf (&self->conf->MENU_ENTRY_COLON, 0, "");
+
+  load_htmlxref_files (self);
 }
 
 /* for customized special_unit_info (coming from Perl) */

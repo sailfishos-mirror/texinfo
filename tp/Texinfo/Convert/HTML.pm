@@ -6145,6 +6145,7 @@ sub _convert_printindex_command($$$$)
 
   }
 
+  # FIXME not part of the API
   $self->_new_document_context($cmdname);
 
   my $rule = $self->get_conf('DEFAULT_RULE');
@@ -13248,7 +13249,7 @@ sub _open_command_update_context($$)
   if (exists($brace_commands{$command_name})
       and $brace_commands{$command_name} eq 'context') {
     $self->_new_document_context($command_name);
-      }
+  }
   if (exists($format_context_commands{$command_name})) {
     push @{$self->{'document_context'}->[-1]->{'formatting_context'}},
                                   {'context_name' => '@'.$command_name};

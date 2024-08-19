@@ -40,6 +40,7 @@
 #  --macro-prefix=gl \
 #  --po-domain=texinfo_tp \
 #  copy-file \
+#  euidaccess \
 #  getline \
 #  iconv \
 #  libunistring \
@@ -79,6 +80,7 @@
 gl_LOCAL_DIR([])
 gl_MODULES([
   copy-file
+  euidaccess
   getline
   iconv
   libunistring

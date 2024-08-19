@@ -23,6 +23,7 @@
 
 # List of files which contain translatable strings.
 gnulib/lib/_Noreturn.h
+gnulib/lib/access.c
 gnulib/lib/acl-errno-valid.c
 gnulib/lib/acl-internal.c
 gnulib/lib/acl-internal.h
@@ -60,6 +61,7 @@ gnulib/lib/dup2.c
 gnulib/lib/errno.in.h
 gnulib/lib/error.c
 gnulib/lib/error.in.h
+gnulib/lib/euidaccess.c
 gnulib/lib/exitfail.c
 gnulib/lib/exitfail.h
 gnulib/lib/fcntl.c
@@ -77,12 +79,14 @@ gnulib/lib/full-write.h
 gnulib/lib/get-permissions.c
 gnulib/lib/getdelim.c
 gnulib/lib/getdtablesize.c
+gnulib/lib/getgroups.c
 gnulib/lib/getline.c
 gnulib/lib/getprogname.c
 gnulib/lib/getprogname.h
 gnulib/lib/gettext.h
 gnulib/lib/gettime.c
 gnulib/lib/gettimeofday.c
+gnulib/lib/group-member.c
 gnulib/lib/hard-locale.c
 gnulib/lib/hard-locale.h
 gnulib/lib/ialloc.c
@@ -137,6 +141,7 @@ gnulib/lib/rawmemchr.valgrind
 gnulib/lib/read.c
 gnulib/lib/realloc.c
 gnulib/lib/reallocarray.c
+gnulib/lib/root-uid.h
 gnulib/lib/safe-read.c
 gnulib/lib/safe-read.h
 gnulib/lib/safe-write.c

@@ -35,6 +35,7 @@
 #  --macro-prefix=gl \
 #  --po-domain=texinfo_tp \
 #  copy-file \
+#  euidaccess \
 #  getline \
 #  iconv \
 #  libunistring \

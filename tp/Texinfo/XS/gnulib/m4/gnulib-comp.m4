@@ -318,6 +318,12 @@ AC_DEFUN([gl_INIT],
      AM_][XGETTEXT_OPTION([--flag=error_at_line:5:c-format])])
   gl_ERROR_H
   AC_PROG_MKDIR_P
+  gl_FUNC_EUIDACCESS
+  gl_CONDITIONAL([GL_COND_OBJ_EUIDACCESS], [test $HAVE_EUIDACCESS = 0])
+  AM_COND_IF([GL_COND_OBJ_EUIDACCESS], [
+    gl_PREREQ_EUIDACCESS
+  ])
+  gl_UNISTD_MODULE_INDICATOR([euidaccess])
   AC_REQUIRE([gl_EXTERN_INLINE])
   gl_FUNC_FCNTL
   gl_CONDITIONAL([GL_COND_OBJ_FCNTL],
@@ -1016,6 +1022,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/errno.in.h
   lib/error.c
   lib/error.in.h
+  lib/euidaccess.c
   lib/exitfail.c
   lib/exitfail.h
   lib/fcntl.c
@@ -1266,6 +1273,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/errno_h.m4
   m4/error.m4
   m4/error_h.m4
+  m4/euidaccess.m4
   m4/exponentd.m4
   m4/extensions-aix.m4
   m4/extensions.m4
@@ -1283,6 +1291,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/gettime.m4
   m4/gettimeofday.m4
   m4/gnulib-common.m4
+  m4/group-member.m4
   m4/host-cpu-c-abi.m4
   m4/iconv.m4
   m4/include_next.m4
