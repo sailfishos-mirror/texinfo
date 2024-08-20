@@ -72,7 +72,7 @@ else
   path_sep=":"
 fi
 
-diff="diff @DIFF_OPTIONS@"
+DIFF_OPTIONS="@DIFF_OPTIONS@"
 
 # Return true if PROG is somewhere in PATH, else false.
 findprog ()
