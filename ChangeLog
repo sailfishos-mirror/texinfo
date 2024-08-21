@@ -1,3 +1,44 @@
+2024-08-21  Patrice Dumas  <pertusus@free.fr>
+
+	Implement reading xhtmlxref in C and XS
+
+	* tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files): encode file name
+	for error message if close failed.
+
+	* tp/Texinfo/XS/convert/converter.c (apply_converter_info)
+	(destroy_converter_initialization_info)
+	(copy_converter_initialization_info),
+	tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_converter_info_from_sv), tp/Texinfo/XS/main/converter_types.h
+	(CONVERTER_INITIALIZATION_INFO, CONVERTER): add
+	texinfo_language_config_dirs field in CONVERTER and in
+	texinfo_language_config_dirs in CONVERTER_INITIALIZATION_INFO,
+	pass information in apply_converter_info and get from Perl.
+
+	* tp/Texinfo/XS/main/utils.c (locate_file_in_dirs): add.
+
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(STRING_VARIABLE_INFO, STRING_VARIABLES_LIST, set_variable_value)
+	(read_var_len, substitute_variables, get_create_htmlxref_manual)
+	(fill_source_info_file, parse_htmlxref_files, load_htmlxref_files),
+	tp/Texinfo/XS/main/converter_types.h (HTMLXREF_MANUAL_LIST):
+	implement reading xhtmlxref files in C.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_converter_initialize_beginning),
+	tp/Texinfo/XS/convert/build_html_perl_state.c (build_htmlxref)
+	(html_pass_xtmlxref), tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): XS interface to build xhtmlxref
+	information to Perl.  Do not get xhtmlxref information from Perl
+	anymore.
+
+	* tp/Texinfo/XS/Makefile.am (AM_CPPFLAGS),
+	tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup),
+	tp/Texinfo/XS/teximakehtml.c (main): pass sysconfidir in AM_CPPFLAGS.
+	Add texinfo_language_config_dirs argument to txi_converter_setup to
+	setup texinfo_language_config_dirs, and set the list of
+	texinfo_language_config_dirs in teximakehtml.c main.
+
 2024-08-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS: run

@@ -8478,9 +8478,14 @@ sub _parse_htmlxref_files($$)
       $htmlxref->{$manual}->{$split_or_mono} = $href;
     }
     if (!close (HTMLXREF)) {
+      my $htmlxref_file_name = $file;
+      my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+      if (defined($encoding)) {
+        $htmlxref_file_name = decode($encoding, $htmlxref_file_name);
+      }
       $self->converter_document_warn(sprintf(__(
                        "error on closing html refs config file %s: %s"),
-                             $file, $!));
+                             $htmlxref_file_name, $!));
     }
   }
   return $htmlxref;
@@ -8745,9 +8750,9 @@ sub converter_initialize($)
         $self->force_conf($conf, '');
       }
     }
-  }
 
-  _load_htmlxref_files($self);
+    _load_htmlxref_files($self);
+  }
 
   $self->{'output_units_conversion'} = {};
   my $customized_output_units_conversion

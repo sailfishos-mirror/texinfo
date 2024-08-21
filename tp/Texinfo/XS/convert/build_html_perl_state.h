@@ -10,6 +10,8 @@
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
 
+void html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv);
+
 HV *build_html_target (const HTML_TARGET *html_target);
 void build_html_translated_names (HV *hv, CONVERTER *converter);
 

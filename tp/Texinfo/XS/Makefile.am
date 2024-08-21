@@ -33,7 +33,7 @@ EXTRA_DIST+=gnulib/m4/gnulib-cache.m4
 
 ################### End Gnulib section #########################
 
-AM_CPPFLAGS += -DDATADIR=\"$(datadir)\"
+AM_CPPFLAGS += -DDATADIR=\"$(datadir)\" -DSYSCONFDIR=\"$(sysconfdir)\"
 
 ######################## Perl ################################
 

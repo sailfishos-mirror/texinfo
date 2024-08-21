@@ -93,6 +93,7 @@ static CSS_SELECTOR_STYLE_LIST default_css_element_class_styles;
 
 COMMAND_ARGS_SPECIFICATION html_command_args_flags[BUILTIN_CMD_NUMBER];
 
+/* should match enum htmlxref_split_type */
 const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1] =
 {
   "mono", "node", "section", "chapter"
@@ -618,9 +619,434 @@ html_format_setup (void)
    defaults based on customization variables.
    Apply specific customizations (from Perl) */
 
+/* Also used to get htmlxref info from Perl.  Initialize in C */
+HTMLXREF_MANUAL *
+new_htmlxref_manual_list (size_t size)
+{
+  HTMLXREF_MANUAL *result = (HTMLXREF_MANUAL *)
+        malloc (size * sizeof (HTMLXREF_MANUAL));
+  memset (result, 0, size * sizeof (HTMLXREF_MANUAL));
 
+  return result;
+}
 
-void
+/* This variable setting/substitution is quite generic and could be used
+   in other codes, but it is only needed here for now */
+typedef struct STRING_VARIABLE_INFO {
+    char *name;
+    char *string;
+} STRING_VARIABLE_INFO;
+
+typedef struct STRING_VARIABLES_LIST {
+    size_t number;
+    size_t space;
+    STRING_VARIABLE_INFO *list;
+} STRING_VARIABLES_LIST;
+
+static void
+set_variable_value (STRING_VARIABLES_LIST *variables,
+                    const char *name, const char *value)
+{
+  size_t i;
+
+  for (i = 0; i < variables->number; i++)
+    {
+      STRING_VARIABLE_INFO *variable = &variables->list[i];
+      if (!strcmp (variable->name, name))
+        {
+          free (variable->string);
+          variable->string = strdup (value);
+          return;
+        }
+    }
+
+  if (variables->number == variables->space)
+    {
+      variables->list = (STRING_VARIABLE_INFO *) realloc
+        (variables->list,
+                   sizeof (STRING_VARIABLE_INFO) * (variables->space += 5));
+    }
+
+  variables->list[variables->number].name = strdup (name);
+  variables->list[variables->number].string = strdup (value);
+
+  variables->number++;
+}
+
+/* generic, similar to Perl re (\w+) with /a modifier */
+static size_t
+read_var_len (const char *text)
+{
+  const char *q = text;
+
+  while (*q && (isascii_alnum (*q) || *q == '_'))
+    q++;
+
+  return q - text;
+}
+
+static char *
+substitute_variables (const char *input_text,
+                      const STRING_VARIABLES_LIST *variables)
+{
+  TEXT substituted;
+  const char *p = input_text;
+
+  text_init (&substituted);
+  text_append (&substituted, "");
+
+  while (*p)
+    {
+      const char *q = strchr (p, '$');
+      if (q)
+        {
+          int found = 0;
+          size_t var_len;
+
+          if (q - p)
+            text_append_n (&substituted, p, q - p);
+          p = q;
+          q++; /* past $ */
+          if (*q == '{')
+            {
+              /* past { */
+              q++;
+              var_len = read_var_len (q);
+              if (var_len)
+                {
+                  if (*(q + var_len) == '}')
+                    {
+                      size_t i;
+                      char *flag = strndup (q, var_len);
+
+                      /* past } */
+                      q += var_len +1;
+                      for (i = 0; i < variables->number; i++)
+                        {
+                          if (!strcmp (variables->list[i].name, flag))
+                            {
+                              text_append (&substituted,
+                                           variables->list[i].string);
+                              found = 1;
+                              break;
+                            }
+                        }
+                      free (flag);
+                    }
+                }
+            }
+
+          if (!found)
+            text_append_n (&substituted, p, q - p);
+          p = q;
+        }
+      else
+        {
+          text_append (&substituted, p);
+          break;
+        }
+    }
+
+  return substituted.text;
+}
+
+static HTMLXREF_MANUAL *
+get_create_htmlxref_manual (HTMLXREF_MANUAL_LIST *htmlxref_list,
+                            const char *manual_name)
+{
+  size_t i;
+  HTMLXREF_MANUAL *htmlxref_manual;
+
+  for (i = 0; i < htmlxref_list->number; i++)
+    {
+      htmlxref_manual = &htmlxref_list->list[i];
+      if (!strcmp (htmlxref_manual->manual, manual_name))
+        return htmlxref_manual;
+    }
+
+  if (htmlxref_list->number == htmlxref_list->space)
+    {
+      htmlxref_list->list = (HTMLXREF_MANUAL *) realloc
+        (htmlxref_list->list,
+                   sizeof (HTMLXREF_MANUAL) * (htmlxref_list->space += 5));
+    }
+
+  htmlxref_manual = &htmlxref_list->list[htmlxref_list->number];
+  memset (htmlxref_manual, 0, sizeof (HTMLXREF_MANUAL));
+  htmlxref_manual->manual = strdup (manual_name);
+
+  htmlxref_list->number++;
+
+  return htmlxref_manual;
+}
+
+static void
+fill_source_info_file (SOURCE_INFO *source_info, CONVERTER *self,
+                       size_t line_nr, const char *file)
+{
+  source_info->macro = 0;
+  source_info->line_nr = line_nr;
+
+  if (self->conf->TEST.o.integer > 0)
+    {
+      char *filename_and_directory[2];
+     /* strip directories for out-of-source builds reproducible file names */
+      parse_file_path (file, filename_and_directory);
+      free (filename_and_directory[1]);
+      source_info->file_name = add_string (filename_and_directory[0],
+                                           &self->small_strings);
+      free (filename_and_directory[0]);
+    }
+  else
+    source_info->file_name = add_string (file, &self->small_strings);
+}
+
+static void
+parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
+                      STRING_LIST *htmlxref_files)
+{
+  size_t i;
+  int line_nr = 0;
+
+  STRING_VARIABLES_LIST variables;
+  memset (&variables, 0, sizeof (STRING_VARIABLES_LIST));
+
+  for (i = 0; i < htmlxref_files->number; i++)
+    {
+      const char *file = htmlxref_files->list[i];
+      FILE *stream = 0;
+
+      if (self->conf->DEBUG.o.integer > 0)
+        fprintf (stderr, "html refs config file: %s\n", file);
+
+      stream = fopen (file, "r");
+      if (!stream)
+        {
+          char *decoded_file;
+          const char *encoding = self->conf->COMMAND_LINE_ENCODING.o.string;
+
+          if (encoding)
+            {
+              int status;
+              /* cast to remove const */
+              decoded_file = decode_string ((char *)file,
+                                            encoding, &status, 0);
+            }
+          else
+            decoded_file = strdup (file);
+
+          message_list_document_warn (&self->error_messages,
+                 self->conf, 0, "could not open html refs config file %s: %s",
+                                      decoded_file, strerror (errno));
+
+          free (decoded_file);
+
+          continue;
+        }
+
+      while (1)
+        {
+          const char *p;
+          size_t n;
+          char *line = 0;
+          ssize_t status = getline (&line, &n, stream);
+          size_t len;
+          char *split_or_mono = 0;
+          char *manual;
+          char *href = 0;
+          enum htmlxref_split_type htmlxref_type = htmlxref_split_type_none;
+          const char *q;
+          size_t spaces_len;
+          char *subst_href;
+          HTMLXREF_MANUAL *htmlxref_manual;
+
+          if (status == -1)
+            {
+              free (line);
+              break;
+            }
+          line_nr++;
+
+                    /*
+          fprintf (stderr, "LLL %s:%d: %s", file, line_nr, line);
+                    */
+
+          p = line;
+
+          p += strspn (p, whitespace_chars);
+          if (*p == '#' || *p == '\0')
+            continue;
+
+          len = read_var_len (p);
+          if (len)
+            {
+              q = p;
+              q += len;
+              q += strspn (q, whitespace_chars);
+              if (*q == '=')
+                {
+                  char *name = strndup (p, len);
+                  char *definition;
+                  char *end_line;
+                  q++;
+                  q += strspn (q, whitespace_chars);
+                  definition = substitute_variables (q, &variables);
+                  end_line = strchr (definition, '\n');
+                  if (end_line)
+                    *end_line = '\0';
+                  set_variable_value (&variables, name, definition);
+                    /*
+                  fprintf (stderr, "VVV %s='%s'\n", name, definition);
+                     */
+                  free (definition);
+                  free (name);
+                  continue;
+                }
+            }
+          len = strcspn (p, whitespace_chars);
+          /* should always be true as we already handled a spaces only line */
+          if (len)
+            {
+              q = p + len;
+              spaces_len = strspn (q, whitespace_chars);
+
+              if (spaces_len && *q)
+                {
+                  size_t spec_len;
+
+                  q += spaces_len;
+                  spec_len = strcspn (q, whitespace_chars);
+
+                  if (spec_len)
+                    {
+                      split_or_mono = strndup (q, spec_len);
+                      q += spec_len;
+
+                      enum htmlxref_split_type i;
+
+                      for (i = 0; i < htmlxref_split_type_chapter+1; i++)
+                        {
+                          if (!strcmp (split_or_mono,
+                                       htmlxref_split_type_names[i]))
+                            {
+                              htmlxref_type = i;
+                              break;
+                            }
+                        }
+                    }
+                }
+            }
+            /*
+          fprintf (stderr, "SOM %s %d\n", split_or_mono, htmlxref_type);
+             */
+          if (!split_or_mono)
+            {
+              SOURCE_INFO source_info;
+              fill_source_info_file (&source_info, self, line_nr, file);
+
+              message_list_line_error_ext (&self->error_messages,
+                self->conf, MSG_warning, 0, &source_info, "missing type");
+              continue;
+            }
+          else if (htmlxref_type == htmlxref_split_type_none)
+            {
+              SOURCE_INFO source_info;
+              fill_source_info_file (&source_info, self, line_nr, file);
+
+              message_list_line_error_ext (&self->error_messages,
+                self->conf, MSG_warning, 0, &source_info,
+                "unrecognized type: %s", split_or_mono);
+              free (split_or_mono);
+              continue;
+            }
+
+          manual = strndup (p, len);
+
+          spaces_len = strspn (q, whitespace_chars);
+          if (spaces_len && *q)
+            {
+              q += spaces_len;
+              size_t spec_len = strcspn (q, whitespace_chars);
+              if (spec_len)
+                {
+                  href = strndup (q, spec_len);
+                }
+            }
+
+          if (!href)
+            {
+              SOURCE_INFO source_info;
+              fill_source_info_file (&source_info, self, line_nr, file);
+
+              message_list_line_error_ext (&self->error_messages,
+                self->conf, MSG_warning, 0, &source_info,
+                "missing %s URL prefix for `%s'", split_or_mono, manual);
+              free (split_or_mono);
+              free (manual);
+              continue;
+            }
+
+          free (split_or_mono);
+
+          htmlxref_manual
+            = get_create_htmlxref_manual (htmlxref_list, manual);
+          free (manual);
+
+           /*
+          fprintf (stderr, "FFF %s '%s' %d '%s'\n", htmlxref_manual->manual,
+                             href, htmlxref_type, htmlxref_manual->urlprefix[htmlxref_type]);
+            */
+          if (htmlxref_manual->urlprefix[htmlxref_type])
+            {
+              free (href);
+              continue;
+            }
+
+          subst_href = substitute_variables (href, &variables);
+
+          free (href);
+
+          if (htmlxref_type != htmlxref_split_type_mono)
+            {
+              size_t j;
+              for (j = strlen (subst_href); j > 0; j--)
+                if (subst_href[j-1] == '/')
+                  subst_href[j-1] = '\0';
+            }
+
+           /*
+          fprintf (stderr, "HHH %s '%s' %d\n", htmlxref_manual->manual,
+                             subst_href, htmlxref_type);
+           */
+
+          htmlxref_manual->urlprefix[htmlxref_type] = strdup (subst_href);
+          free (subst_href);
+        }
+
+      if (fclose (stream) == EOF)
+        {
+          char *decoded_file;
+          const char *encoding = self->conf->COMMAND_LINE_ENCODING.o.string;
+
+          if (encoding)
+            {
+              int status;
+              /* cast to remove const */
+              decoded_file = decode_string ((char *)file, encoding,
+                                            &status, 0);
+            }
+          else
+            decoded_file = strdup (file);
+          message_list_document_warn (&self->error_messages,
+                 self->conf, 0, "error on closing html refs config file %s: %s",
+                                      decoded_file, strerror (errno));
+
+          free (decoded_file);
+        }
+    }
+}
+
+static void
 load_htmlxref_files (CONVERTER *self)
 {
   const char *htmlxref_mode = self->conf->HTMLXREF_MODE.o.string;
@@ -654,6 +1080,67 @@ load_htmlxref_files (CONVERTER *self)
                  self->conf, 0, "could not find html refs config file %s",
                                          htmlxref_file_name);
       free (encoded_htmlxref_file_name);
+    }
+  else
+    {
+      STRING_LIST htmlxref_dirs;
+      memset (&htmlxref_dirs, 0, sizeof (STRING_LIST));
+
+      add_string (".", &htmlxref_dirs);
+
+      if (self->conf->TEST.o.integer > 0)
+        {
+          /* to have reproducible tests, do not use system or user
+             directories if TEST is set. */
+          if (conversion_paths_info.texinfo_uninstalled)
+            {
+              if (conversion_paths_info.p.uninstalled.top_srcdir)
+                {
+                  char *path;
+                  xasprintf (&path, "%s/tp/t/input_files",
+                             conversion_paths_info.p.uninstalled.top_srcdir);
+                  add_string (path, &htmlxref_dirs);
+                  free (path);
+                }
+              else
+                add_string ("tp/t/input_files", &htmlxref_dirs);
+            }
+          add_string (".texinfo", &htmlxref_dirs);
+        }
+      else
+        {
+          copy_strings (&htmlxref_dirs, &self->texinfo_language_config_dirs);
+        }
+
+      if (self->conf->TEST.o.integer > 0)
+        htmlxref_file_name = self->conf->HTMLXREF_FILE.o.string;
+      else if (self->conf->HTMLXREF_FILE.o.string)
+        htmlxref_file_name = self->conf->HTMLXREF_FILE.o.string;
+
+      if (htmlxref_file_name)
+        {
+          char *encoded_htmlxref_file_name;
+          char *path_encoding;
+
+          /* cast to remove const */
+          encoded_htmlxref_file_name
+            = encoded_output_file_name (self->conf,
+                                        &self->document->global_info,
+                                        (char *)htmlxref_file_name,
+                                        &path_encoding, 0);
+          free (path_encoding);
+
+          locate_file_in_dirs (encoded_htmlxref_file_name,
+                               &htmlxref_dirs, &htmlxref_files);
+          free (encoded_htmlxref_file_name);
+        }
+      free_strings_list (&htmlxref_dirs);
+    }
+
+  if (htmlxref_files.number > 0)
+    {
+      parse_htmlxref_files (self, &self->htmlxref, &htmlxref_files);
+      free_strings_list (&htmlxref_files);
     }
 }
 
@@ -794,17 +1281,6 @@ new_special_unit_formatting_references (int special_units_varieties_nr)
   memset (formatting_references, 0,
           special_units_varieties_nr * sizeof (FORMATTING_REFERENCE));
   return formatting_references;
-}
-
-/* Used to get htmlxref info from Perl.  Initialize in C */
-HTMLXREF_MANUAL *
-new_htmlxref_manual_list (size_t size)
-{
-  HTMLXREF_MANUAL *result = (HTMLXREF_MANUAL *)
-        malloc (size * sizeof (HTMLXREF_MANUAL));
-  memset (result, 0, size * sizeof (HTMLXREF_MANUAL));
-
-  return result;
 }
 
 static HTML_DIRECTION_STRING_TRANSLATED *

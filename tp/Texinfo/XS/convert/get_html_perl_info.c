@@ -258,7 +258,7 @@ html_converter_get_customization_sv (SV *converter_sv,
   HV *default_types_conversion_hv;
   HV *default_css_string_types_conversion_hv;
   HV *default_output_units_conversion_hv;
-  SV **htmlxref_sv;
+  SV **htmlxref_sv = 0;
   SV **formatting_function_sv;
   SV **stage_handlers_sv;
   SV **special_unit_body_sv;
@@ -892,8 +892,14 @@ html_converter_get_customization_sv (SV *converter_sv,
     }
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
+   /*
   FETCH(htmlxref)
+    */
 
+  /* Get htmlxref from Perl.
+     this is always 0 as it is not fetch so this code is never run, htmlxref
+     information is setup in C.
+   */
   if (htmlxref_sv)
     {
       I32 hv_number;
@@ -906,6 +912,7 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       if (hv_number > 0)
         {
+          converter->htmlxref.space = hv_number;
           converter->htmlxref.list = new_htmlxref_manual_list (hv_number);
 
           for (i = 0; i < hv_number; i++)

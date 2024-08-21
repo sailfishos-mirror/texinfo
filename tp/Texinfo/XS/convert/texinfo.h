@@ -41,11 +41,12 @@ void txi_complete_document (DOCUMENT *document, unsigned long flags,
 
 CONVERTER *txi_converter (enum converter_format format,
                           CONVERTER_INITIALIZATION_INFO *conf);
-CONVERTER *
-txi_converter_setup (const char *converter_format,
+CONVERTER *txi_converter_setup (const char *converter_format,
                      const char *output_format,
                      const char *locale_encoding,
-                     const char *program_file, OPTIONS_LIST *customizations);
+                     const char *program_file,
+                     char *const *texinfo_language_config_dirs,
+                     OPTIONS_LIST *customizations);
 
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);
 

@@ -28,6 +28,8 @@
 #include "unicase.h"
 #include "uniwidth.h"
 #include <unictype.h>
+/* for euidaccess.  Not portable, use gnulib */
+#include <unistd.h>
 
 #include "conversion_data.h"
 /* also for xvasprintf */
@@ -270,7 +272,9 @@ isascii_upper (int c)
 }
 
 
+
 /* operations on strings considered as multibytes.  Use libunistring */
+
 /* count characters, not bytes. */
 size_t
 count_multibyte (const char *text)
@@ -360,7 +364,9 @@ word_bytes_len_multibyte (const char *text)
 }
 
 
+
 /* encoding and decoding. Use iconv. */
+
 /* conversion to or from utf-8 should always be set before other
    conversion */
 ENCODING_CONVERSION *
@@ -586,8 +592,10 @@ encode_string (char *input_string, const char *encoding, int *status,
 }
 
 
+
 /* code related to the EXPANDED_FORMAT structure holding informations on the
    expanded formats (html, info, tex...) */
+
 void
 clear_expanded_formats (EXPANDED_FORMAT *formats)
 {
@@ -1032,6 +1040,35 @@ find_string (const STRING_LIST *strings_list, const char *target)
   return 0;
 }
 
+void
+clear_strings_list (STRING_LIST *strings)
+{
+  size_t i;
+  for (i = 0; i < strings->number; i++)
+    {
+      free (strings->list[i]);
+    }
+  strings->number = 0;
+}
+
+void
+free_strings_list (STRING_LIST *strings)
+{
+  size_t i;
+  for (i = 0; i < strings->number; i++)
+    {
+      free (strings->list[i]);
+    }
+  free (strings->list);
+}
+
+void
+destroy_strings_list (STRING_LIST *strings)
+{
+  free_strings_list (strings);
+  free (strings);
+}
+
 /* Return value to be freed by caller. */
 /* try to locate a file called FILENAME, looking for it in the list of include
    directories. */
@@ -1072,33 +1109,57 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
   return 0;
 }
 
-void
-clear_strings_list (STRING_LIST *strings)
-{
-  size_t i;
-  for (i = 0; i < strings->number; i++)
-    {
-      free (strings->list[i]);
-    }
-  strings->number = 0;
-}
+/* Return value to be freed by caller. */
+/* Used in main program, tests and HTML Converter.
 
-void
-free_strings_list (STRING_LIST *strings)
-{
-  size_t i;
-  for (i = 0; i < strings->number; i++)
-    {
-      free (strings->list[i]);
-    }
-  free (strings->list);
-}
+ FILENAME     file name to locate. It can be a file path. Binary string.
+ DIRECTORIES  list of directories to search the file in. Binary strings.
+ ALL_FILES    if set collect all the files with that name, otherwise stop
+              at first match.
 
-void
-destroy_strings_list (STRING_LIST *strings)
+ If ALL_FILES is not set:
+   - if FILENAME is an absolute path: if found, return it;
+   - otherwise return the first file found in the directories;
+   - otherwise return NULL.
+ If ALL_FILES is set return NULL and:
+   - if FILENAME is an absolute path: if found, add to ALL_FILES;
+   - otherwise add all files found to ALL_FILES.
+ */
+
+char *
+locate_file_in_dirs (const char *filename,
+                     const STRING_LIST *directories,
+                     STRING_LIST *all_files)
 {
-  free_strings_list (strings);
-  free (strings);
+  if (!memcmp (filename, "/", 1))
+    {
+      if (euidaccess (filename, R_OK) == 0)
+        {
+          if (all_files)
+            add_string (filename, all_files);
+          else
+            return strdup (filename);
+        }
+    }
+  else
+    {
+      size_t i;
+      for (i = 0; i < directories->number; i++)
+        {
+          char *fullpath;
+
+          xasprintf (&fullpath, "%s/%s", directories->list[i], filename);
+          if (euidaccess (fullpath, R_OK) == 0)
+            {
+              if (all_files)
+                add_string (fullpath, all_files);
+              else
+                return fullpath;
+            }
+          free (fullpath);
+        }
+    }
+  return 0;
 }
 
 

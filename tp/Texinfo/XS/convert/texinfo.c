@@ -287,7 +287,9 @@ CONVERTER *
 txi_converter_setup (const char *format_str,
                      const char *output_format,
                      const char *locale_encoding,
-                     const char *program_file, OPTIONS_LIST *customizations)
+                     const char *program_file,
+                     char * const*texinfo_language_config_dirs,
+                     OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
     = find_format_name_converter_format (format_str);
@@ -301,6 +303,16 @@ txi_converter_setup (const char *format_str,
     conf->output_format = strdup (output_format);
   else
     conf->output_format = strdup (format_str);
+
+  if (texinfo_language_config_dirs)
+    {
+      int i;
+      for (i = 0; texinfo_language_config_dirs[i]; i++)
+        {
+          add_string (texinfo_language_config_dirs[i],
+                      &conf->texinfo_language_config_dirs);
+        }
+    }
 
   initialize_options_list (&conf->conf, 10);
 

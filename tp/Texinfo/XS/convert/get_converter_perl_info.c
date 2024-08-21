@@ -302,8 +302,9 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
                           = set_translated_commands (value);
                       else if (!strcmp (key, "texinfo_language_config_dirs"))
                         {
-                          /* TODO add to converter and set.  Only used for
-                             htmlxref, so should wait for that to implement */
+                          add_svav_to_string_list (value,
+                            &initialization_info->texinfo_language_config_dirs,
+                            svt_dir);
                         }
                       else if (class_name)
                         {

@@ -676,6 +676,7 @@ typedef struct HTMLXREF_MANUAL {
 
 typedef struct HTMLXREF_MANUAL_LIST {
     size_t number;
+    size_t space;
     HTMLXREF_MANUAL *list;
 } HTMLXREF_MANUAL_LIST;
 
@@ -763,6 +764,7 @@ typedef struct CONVERTER_INITIALIZATION_INFO {
     char *converted_format;
     char *output_format;
     TRANSLATED_COMMAND *translated_commands;
+    STRING_LIST texinfo_language_config_dirs;
     OPTIONS_LIST conf;
     /* gather strings that are not customization options */
     STRING_LIST non_valid_customization;
@@ -785,6 +787,7 @@ typedef struct CONVERTER {
     OPTION **sorted_options;
     OPTIONS *init_conf;
     OPTIONS *format_defaults_conf;
+    STRING_LIST texinfo_language_config_dirs;
     char *output_format;
     char *converted_format;
     EXPANDED_FORMAT *expanded_formats;

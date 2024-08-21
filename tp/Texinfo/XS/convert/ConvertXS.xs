@@ -701,7 +701,10 @@ html_converter_initialize_beginning (SV *converter_in)
         self = get_sv_converter (converter_in,
                                  "html_converter_initialize_beginning");
         if (self)
-          html_converter_initialize_beginning (self);
+          {
+            html_converter_initialize_beginning (self);
+            html_pass_xtmlxref (&self->htmlxref, converter_in);
+          }
 
 void
 html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_type_formatting, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)

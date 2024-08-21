@@ -100,6 +100,10 @@ main (int argc, char *argv[])
   OPTIONS_LIST convert_options;
   size_t errors_count = 0;
   size_t errors_nr;
+  char *texinfo_language_config_dirs[5] = {".texinfo"};
+  int txi_language_idx = 1;
+  char *home_dir;
+  char *home_texinfo_language_config_dirs = 0;
 
   /*
   const char *texinfo_text;
@@ -122,6 +126,33 @@ main (int argc, char *argv[])
     exit (1);
 
   txi_setup (LOCALEDIR, 0, 0, 0, 0);
+
+
+  home_dir = getenv ("HOME");
+  if (home_dir)
+    {
+      xasprintf (&home_texinfo_language_config_dirs, "%s/.texinfo",
+                 home_dir);
+      texinfo_language_config_dirs[txi_language_idx]
+        = home_texinfo_language_config_dirs;
+      txi_language_idx++;
+    }
+  if (strlen (SYSCONFDIR))
+    {
+      texinfo_language_config_dirs[txi_language_idx]
+        = SYSCONFDIR "/texinfo";
+      txi_language_idx++;
+    }
+
+  if (strlen (DATADIR))
+    {
+      texinfo_language_config_dirs[txi_language_idx]
+        = DATADIR "/texinfo";
+      txi_language_idx++;
+    }
+
+  texinfo_language_config_dirs[txi_language_idx] = 0;
+
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -194,14 +225,19 @@ main (int argc, char *argv[])
   add_new_option_value (&convert_options, GOT_integer,
                            "PROGRAM_NAME_IN_FOOTER", 1, 0);
   /* this is set to help with comparison with previous invokations */
+  /*
   add_new_option_value (&convert_options, GOT_integer,
                            "TEST", 1, 0);
+   */
 
   converter = txi_converter_setup ("html", "html", locale_encoding,
-                                   program_file, &convert_options);
+                                   program_file,
+                                   texinfo_language_config_dirs,
+                                   &convert_options);
 
   free_options_list (&convert_options);
   free (program_file);
+  free (home_texinfo_language_config_dirs);
 
 
   /* conversion */

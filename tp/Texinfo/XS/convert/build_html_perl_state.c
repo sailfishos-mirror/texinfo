@@ -62,6 +62,60 @@
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
 
+static HV *
+build_htmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list)
+{
+  HV *htmlxref_hv;
+  size_t i;
+
+  dTHX;
+
+  htmlxref_hv = newHV ();
+
+  for (i = 0; i < htmlxref_list->number; i++)
+    {
+      HTMLXREF_MANUAL *htmlxref_manual = &htmlxref_list->list[i];
+      const char *manual_name = htmlxref_manual->manual;
+      SV *manual_name_sv = newSVpv_utf8 (manual_name, 0);
+      HV *htmlxref_manual_hv = newHV ();
+      SV *htmlxref_manual_sv = newRV_noinc ((SV *) htmlxref_manual_hv);
+      enum htmlxref_split_type j;
+
+      hv_store_ent (htmlxref_hv, manual_name_sv, htmlxref_manual_sv, 0);
+
+      for (j = 0; j < htmlxref_split_type_chapter+1; j++)
+        {
+          if (htmlxref_manual->urlprefix[j])
+            {
+              const char *split_type_name = htmlxref_split_type_names[j];
+              const char *href = htmlxref_manual->urlprefix[j];
+
+              hv_store (htmlxref_manual_hv, split_type_name,
+                        strlen (split_type_name),
+                        newSVpv_utf8 (href, 0), 0);
+            }
+        }
+    }
+
+  return htmlxref_hv;
+}
+
+void
+html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv)
+{
+  HV *converter_hv;
+  HV *htmlxref_hv;
+
+  dTHX;
+
+  converter_hv = (HV *) SvRV (converter_sv);
+
+  htmlxref_hv = build_htmlxref (htmlxref_list);
+
+  hv_store (converter_hv, "htmlxref", strlen ("htmlxref"),
+            newRV_noinc ((SV *) htmlxref_hv), 0);
+}
+
 #define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
 HV *
 build_html_target (const HTML_TARGET *html_target)
