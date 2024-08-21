@@ -10,6 +10,14 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+A Perl hash map is used for fast access, see interface in
+call_html_perl_function.c.
+If a hash without Perl dependency is needed, C++ std::unordered_map could
+be used instead of a Perl hash map, by setting up an interface with
+functions similar with the call_html_perl_function.c defined as extern "C".
+
+Update libintl-perl
+
 Bugs
 ====
 
@@ -28,8 +36,8 @@ Issues
 ------
 
 Some private function used in conversion
- _convert_printindex_command
-  _new_document_context
+_convert_printindex_command
+ _new_document_context
 _convert_def_line_type
  _set_code_context
  _pop_code_context
@@ -54,7 +62,8 @@ special_unit_element type (only in HTML code)
 Other
 -----
 
-For converter writers,
+For converter writers, after the difference with C has been resolved or
+confirmed
 'output_init_conf' and 'converter_init_conf'.
 
 Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
@@ -111,8 +120,11 @@ the context command stack.
  @end defun
 
 
-Modules included in tp/maintain/lib/ need to be updated from time to
-time.
+Modules included in tp/maintain/lib/ are stable, but still need
+to be updated from time to time.
+Unicode::EastAsianWidth \p{InFullwidth} could be replaced
+by native \p{East_Asian_Width=Fullwidth} + \p{East_Asian_Width=Wide}
+when we the oldest Perl version we support is 5.12.0 (released in 2010).
 
 
 Transliteration/protection with iconv in C leads to a result different from Perl
@@ -130,8 +142,8 @@ alphanumeric characters.  It is because in Perl we set
 http://www.unicode.org/reports/tr10/#Variable_Weighting).
 For spaces, the output with Non-Ignorable Variable Weighting looks better for
 index sorting, as it allows to have spaces and punctuation marks sort before
-letters.  Right now, the C code calls Perl to get the sorting
-collation strings with Non-Ignorable Variable Weighting.  In texi2any, the
+letters.  Right now, the XS code calls Perl to get the sorting
+collation strings with Non-Ignorable Variable Weighting.  The
 undocumented XS_STRXFRM_COLLATION_LOCALE customization variable can be used
 to specify a locale and use it with strxfrm_l to sort, but it is only
 for testing and should not be kept in the long term, the plan is to replace by
@@ -140,35 +152,6 @@ calling Perl.
 Related glibc enhancement request:
  request for Non-Ignorable Variable Weighting Unicode collation
  https://sourceware.org/bugzilla/show_bug.cgi?id=31658
-
-
-HTML5 validation errors that do not need fixing
------------------------------------------------
-
-Some can also be validation errors in other HTML versions.
-
-missing </a> before <a>
-discarding unexpected </a>
-nested <a> which happens for @url in @xref, which is valid Texinfo.
-
-Warning: <a> anchor "..." already defined
-Should only happen with multiple insertcopying.
-
-Warning: trimming empty <code>
-Normally happens only for invalid Texinfo, missing @def* name, empty
-@def* line...
-
-<td> attribute "width" not allowed for HTML5
-<th> attribute "width" not allowed for HTML5
-These attributes are obsolete (though the elements are 
-still part of the language), and must not be used by authors.
-The CSS replacement would be style="width: 40%".
-However, width is kept as an attribute in texi2any @multitable output and not
-as CSS because it is not style, but table or even line specific formatting.
-If the _INLINE_STYLE_WIDTH undocumented option is set, CSS is used.
-It is set for EPUB.
-See
-https://lists.gnu.org/archive/html/bug-texinfo/2024-09/msg00065.html
 
 
 Missing tests
@@ -201,7 +184,6 @@ anchor in flushright, on an empty line, with a current byte offset.
 Future features
 ===============
 
-
 Add the possibility to add text to a parsed document by restarting
 parsing, when called as parse_texi_piece or parse_texi_line, by
 storing the parser document state not already in document in document.
@@ -210,11 +192,6 @@ restartable, and then parse_texi_piece and parse_texi_line could pass
 a document to retrieve the parsing state.  This should probably
 wait for a clear use case. Currently, the parser is never reused
 for different documents in the main codes, only in specific tests.
-
-
-For converters in C, agreed with Gavin that it is better not to
-translate a perl tree in input, but access directly the C tree that
-was setup by the XS parser.
 
 
 From Gavin on the preamble_before_beginning implementation:
@@ -247,35 +224,6 @@ Default is false.
 
 In Plaintext, @quotation text could have the right margin narrowed to be more
 in line with other output formats.
-
-Punctuation and spaces before @image do not lead to a doubling of space.
-In fact @image is completly formatted outside of usual formatting containers.
-Not sure what should be the right way?
-test in info_test/image_and_punctuation
-
-in info_tests/error_in_footnote there is an error message for each
-listoffloats;  Line numbers are right, though, so maybe this is not
-an issue.
-
-converters_tests/things_before_setfilename there is no error
-for anchor and footnote before setfilename.  It is not completly
-clear that there should be, though.
-
-In Info, image special directive on sectioning command line length
-is taken into account for the underlying characters line count inserted
-below the section title.  There is no reason to underline the image
-special directive.  Since the image rendering and length of replacement
-text depends on the Info viewer, howere, there is no way to know in
-advance the lenght of text to underline (if any).  It is therefore unclear
-what would be the correct underlying characters count.
-An example in formats_encodings/at_commands_in_refs.
-
-When using Perl modules, many strings in debugging output are internal
-Perl strings not encoded before being output, leading to
-'Wide character in print' messages (in C those strings are always encoded
-in UTF-8).  Not clear that it is an issue.  For example with
-export TEXINFO_XS=omit
-/usr/bin/perl -w ./..//texi2any.pl  --force --conf-dir ./../t/init/ --conf-dir ./../init --conf-dir ./../ext -I ./coverage/ -I coverage// -I ./ -I . -I built_input --error-limit=1000 -c TEST=1  --output coverage//out_parser/formatting_macro_expand/ --macro-expand=coverage//out_parser/formatting_macro_expand/formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure ./coverage//formatting.texi --debug=1 2>t.err
 
 
 DocBook
@@ -566,39 +514,35 @@ Labels in Info (not index entries, in index entries the last : not in
 Interrogations and remarks
 ==========================
 
-A Perl hash map is used for fast access, see USE_PERL_HASHMAP in
-convert_html.c and interface in call_html_perl_function.c.
-If a hash without Perl dependency is needed, C++ std::unordered_map could
-be used instead of a Perl hash map, by setting up an interface with
-functions similar with the call_html_perl_function.c defined as extern "C".
+For converters in C, agreed with Gavin that it is better not to
+translate a perl tree in input, but access directly the C tree that
+was setup by the XS parser.
 
 There is no forward looking code anymore, so maybe a lex/yacc parser
 could be used for the main loop.  More simply, a binary tokenizer, at
 least, could make for a notable speedup.
 
-def/end_of_lines_protected_in_footnote.pl the footnote is
-   (1)  -- category: deffn_name arguments arg2 more args with end of line
-and not
-   (1)
- -- category: deffn_name arguments arg2 more args with end of line
-It happens this way because the paragraph starts right after the footnote
-number.
+From vincent Belaïche. About svg image files in HTML:
 
-in HTML, the argument of a quotation is ignored if the quotation is empty,
-as in
- @quotation thing
- @end quotation
-Is it really a bug?
-
-In @copying things like some raw formats may be expanded.  However it is
-not clear that it should be the same than in the main converter.  Maybe a
-specific list of formats could be passed to Convert::Text::convert, which
-would be different (for example Info and Plaintext even if converting HTML).
-This requires a test, to begin with.
-
-In HTML, HEADERS is used.  But not in other modules, especially not in
-Plaintext.pm or Info.pm, this is determined by the module used (Plaintext.pm
-or Info.pm).  No idea whether it is right or wrong.
+I don't think that supporting svg would be easy: its seems that to embed an
+svg picture you need to declare the width x height of the frame in
+which you embed it, and this information cannot be derived quite
+straightforwardly from the picture.
+With @image you can declare width and height but this is intended for
+scaling. I am not sure whether or not that these arguments can be used
+for the purpose of defining that frame...
+What I did in 5x5 is that coded the height of the frame directly in
+the macro @FIGURE with which I embed the figure, without going through
+an argument.
+The @FIGURE @macro is, for html:
+@macro FIGURE {F,W}
+@html
+<div align="center">
+<embed src="5x5_\F\.svg" height="276"
+ type="image/svg+xml"
+ pluginspage="http://www.adobe.com/svg/viewer/install/" /></div>
+@end html
+@end macro
 
 
 In general, the htmlxref.cnf file should be filled and used to determine
@@ -627,27 +571,97 @@ And, in the <body> tag of manual.html:
   <body onLoad="redirect();">
 
 
-From vincent Belaïche. About svg image files in HTML:
+Need to make sure that a fix needed
+-----------------------------------
 
-I don't think that supporting svg would be easy: its seems that to embed an
-svg picture you need to declare the width x height of the frame in
-which you embed it, and this information cannot be derived quite
-straightforwardly from the picture.
-With @image you can declare width and height but this is intended for
-scaling. I am not sure whether or not that these arguments can be used
-for the purpose of defining that frame...
-What I did in 5x5 is that coded the height of the frame directly in
-the macro @FIGURE with which I embed the figure, without going through
-an argument.
-The @FIGURE @macro is, for html:
-@macro FIGURE {F,W}
-@html
-<div align="center">
-<embed src="5x5_\F\.svg" height="276"
- type="image/svg+xml"
- pluginspage="http://www.adobe.com/svg/viewer/install/" /></div>
-@end html
-@end macro
+In HTML, HEADERS is used.  But not in other modules, especially not in
+Plaintext.pm or Info.pm, this is determined by the module used (Plaintext.pm
+or Info.pm).  No idea whether it is right or wrong.
+
+def/end_of_lines_protected_in_footnote.pl the footnote is
+   (1)  -- category: deffn_name arguments arg2 more args with end of line
+and not
+   (1)
+ -- category: deffn_name arguments arg2 more args with end of line
+It happens this way because the paragraph starts right after the footnote
+number.
+
+in HTML, the argument of a quotation is ignored if the quotation is empty,
+as in
+ @quotation thing
+ @end quotation
+Is it really a bug?
+
+In @copying things like some raw formats may be expanded.  However it is
+not clear that it should be the same than in the main converter.  Maybe a
+specific list of formats could be passed to Convert::Text::convert, which
+would be different (for example Info and Plaintext even if converting HTML).
+Not clear that it is a good idea.  Also this requires a test, to begin with.
+
+Punctuation and spaces before @image do not lead to a doubling of space.
+In fact @image is completly formatted outside of usual formatting containers.
+Not sure what should be the right way?
+test in info_test/image_and_punctuation
+
+in info_tests/error_in_footnote there is an error message for each
+listoffloats;  Line numbers are right, though, so maybe this is not
+an issue.
+
+converters_tests/things_before_setfilename there is no error
+for anchor and footnote before setfilename.  It is not clear that
+there should be, though.
+
+In Info, image special directive on sectioning command line length
+is taken into account for the underlying characters line count inserted
+below the section title.  There is no reason to underline the image
+special directive.  Since the image rendering and length of replacement
+text depends on the Info viewer, however, there is no way to know in
+advance the lenght of text to underline (if any).  It is therefore unclear
+what would be the correct underlying characters count.
+An example in formats_encodings/at_commands_in_refs.
+
+When using Perl modules, many strings in debugging output are internal
+Perl strings not encoded before being output, leading to
+'Wide character in print' messages (in C those strings are always encoded
+in UTF-8).  Not clear that it is an issue.  For example with
+export TEXINFO_XS=omit
+/usr/bin/perl -w ./..//texi2any.pl  --force --conf-dir ./../t/init/ --conf-dir ./../init --conf-dir ./../ext -I ./coverage/ -I coverage// -I ./ -I . -I built_input --error-limit=1000 -c TEST=1  --output coverage//out_parser/formatting_macro_expand/ --macro-expand=coverage//out_parser/formatting_macro_expand/formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure ./coverage//formatting.texi --debug=1 2>t.err
+
+
+HTML5 validation tidy errors that do not need fixing
+----------------------------------------------------
+
+# to get only errors:
+tidy -qe *.html
+
+Some can also be validation errors in other HTML versions.
+
+missing </a> before <a>
+discarding unexpected </a>
+nested <a> which happens for @url in @xref, which is valid Texinfo.
+
+Warning: <a> anchor "..." already defined
+Should only happen with multiple insertcopying.
+
+Warning: trimming empty <code>
+Normally happens only for invalid Texinfo, missing @def* name, empty
+@def* line...
+
+<td> attribute "width" not allowed for HTML5
+<th> attribute "width" not allowed for HTML5
+These attributes are obsolete (though the elements are 
+still part of the language), and must not be used by authors.
+The CSS replacement would be style="width: 40%".
+However, width is kept as an attribute in texi2any @multitable output and not
+as CSS because it is not style, but table or even line specific formatting.
+If the _INLINE_STYLE_WIDTH undocumented option is set, CSS is used.
+It is set for EPUB.
+See
+https://lists.gnu.org/archive/html/bug-texinfo/2024-09/msg00065.html
+
+
+Specialized synopsis in DocBook
+-------------------------------
 
 Use of specialized synopsis in DocBook is not a priority and it is not even
 obvious that it is interesting to do so.  The following notes explain the
