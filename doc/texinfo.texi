@@ -17340,7 +17340,6 @@ the files and directories needed for the EPUB file by setting the
 
 
 @node EPUB Output File and Directory
-@nodedescription Use syntax highlighting in code excerpts.
 @subsection Container Directory and Output Files
 
 @cindex Container directory for EPUB
@@ -17381,7 +17380,7 @@ is left after the final EPUB file has been generated if
 
 
 @node EPUB Cross-References
-@nodedescription Cross-references in HTML output.
+@nodedescription No cross-references in EPUB output.
 @subsection EPUB Cross-References
 
 The EPUB format does not support references from an EPUB file to
@@ -17423,7 +17422,8 @@ customization set by the user.
 
 
 @node Syntax Highlighting
-@nodedescription Using external programs.
+@c @nodedescription Using external programs.
+@nodedescription Use syntax highlighting in code excerpts.
 @section Code Examples Syntax Highlighting in HTML
 @cindex @command{source-highlight}
 
@@ -17457,6 +17457,7 @@ Use @command{source-highlight} (@pxref{,,,source-highlight, GNU Source-highlight
 
 @node HTML Xref
 @nodedescription Standard algorithm for interoperability.
+@c @nodedescription Cross-references in HTML output.
 @section HTML Cross-references
 @cindex HTML cross-references
 @cindex Cross-references, in HTML output
