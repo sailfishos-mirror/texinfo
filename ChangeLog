@@ -1,5 +1,10 @@
 2024-08-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: add extra build system checks.  From Patrice
+	and Bruno.
+
+2024-08-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	No 'local' in shell script
 
 	* install-info/tests/defs.in (findprog): Remove use of

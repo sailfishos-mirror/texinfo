@@ -339,6 +339,46 @@ Check "make ccheck" and "make vcheck" work in "doc/refcard".
 make V=1 pdf and fix underfull/overfull boxes.
 
 -------------------------------------------------------------------------
+- Distribution checking
+
+In addition to "make distcheck", there are other build system checks
+which you can run manually.
+
+# 'make dist' without 'make'
+make distclean
+./configure
+make dist
+
+# test distcheck after maintainer-clean
+./configure
+make maintainer-clean
+./configure
+make distcheck
+
+# test distcheck in out-of-source build after maintainer-clean
+./autogen.sh
+./configure
+make maintainer-clean
+rm -rf build
+mkdir build
+cd build
+../configure
+make distcheck
+
+# test that distributed files are not generated in builddir after
+# maintainer-clean (make distcheck only checks this for distclean).
+./configure
+make maintainer-clean
+rm -rf build
+mkdir build
+cd build
+../configure
+make
+make distclean
+find . -type f
+
+
+-------------------------------------------------------------------------
 - Final steps for making a release
 
 (Keep a copy of README-hacking open in a text editor to update these
