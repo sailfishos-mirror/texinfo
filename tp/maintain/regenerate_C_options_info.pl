@@ -160,7 +160,7 @@ print HEADER "/* Automatically generated from $program_name */\n\n";
 
 print HEADER "#ifndef OPTIONS_TYPES_H\n#define OPTIONS_TYPES_H\n\n";
 
-print HEADER "#include \"main/option_types.h\"\n\n";
+print HEADER "#include \"option_types.h\"\n\n";
 
 print HEADER "/* Undefine values set from autoconf as we use these as\n";
 print HEADER "   customization variable names.  The original values are\n";
