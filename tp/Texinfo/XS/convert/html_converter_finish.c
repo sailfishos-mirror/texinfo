@@ -157,7 +157,7 @@ html_reset_converter (CONVERTER *self)
 
   if (self->ids_data_type == IDT_perl_hashmap)
     clear_registered_ids_hv (self);
-  else
+  else if (self->registered_ids)
     clear_strings_list (self->registered_ids);
 
   for (i = 0; i < ST_footnote_location+1; i++)
@@ -177,7 +177,8 @@ html_reset_converter (CONVERTER *self)
 
   /* formatted_index_entries may not be initialized if there was an error
      early and prepare_conversion_units_targets was never called */
-  if (self->document->indices_info.number
+  if (self->document
+      && self->document->indices_info.number
       && self->shared_conversion_state.formatted_index_entries)
     {
       for (i = 0; i < self->sorted_index_names.number; i++)
@@ -335,7 +336,8 @@ html_free_converter (CONVERTER *self)
     free_registered_ids_hv (self);
   else
     {
-      destroy_strings_list (self->registered_ids);
+      if (self->registered_ids)
+        destroy_strings_list (self->registered_ids);
       self->registered_ids = 0;
     }
 
@@ -444,12 +446,16 @@ html_free_converter (CONVERTER *self)
     {
       int j;
       char ***type_dir_strings = self->directions_strings[i];
-      html_clear_direction_string_type (self, type_dir_strings);
-      for (j = 0; j < nr_string_directions; j++)
+  /* type_dir_strings not set if converter is destroyed before output */
+      if (type_dir_strings)
         {
-          free (type_dir_strings[j]);
+          html_clear_direction_string_type (self, type_dir_strings);
+          for (j = 0; j < nr_string_directions; j++)
+            {
+              free (type_dir_strings[j]);
+            }
+          free (type_dir_strings);
         }
-      free (type_dir_strings);
     }
 
   for (i = 0; i < (TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR); i++)
@@ -497,16 +503,20 @@ html_free_converter (CONVERTER *self)
       int j;
       HTML_DIRECTION_STRING_TRANSLATED *translated
         = self->translated_direction_strings[i];
-      for (j = 0; j < nr_string_directions; j++)
+  /* translated not set if converter is destroyed before setting defaults */
+      if (translated)
         {
-          int k;
-          free (translated[j].to_convert);
-          for (k = 0; k < nr_dir_str_contexts; k++)
+          for (j = 0; j < nr_string_directions; j++)
             {
-              free (translated[j].converted[k]);
+              int k;
+              free (translated[j].to_convert);
+              for (k = 0; k < nr_dir_str_contexts; k++)
+                {
+                  free (translated[j].converted[k]);
+                }
             }
+          free (translated);
         }
-      free (translated);
     }
 
   for (j = 0; j < self->htmlxref.number; j++)

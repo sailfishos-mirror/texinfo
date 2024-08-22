@@ -1,5 +1,16 @@
 2024-08-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_html_perl_function.c
+	(clear_registered_ids_hv, free_registered_ids_hv),
+	tp/Texinfo/XS/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter),
+	tp/Texinfo/XS/convert/replace_perl_call_html_function.c
+	(clear_registered_ids_hv, free_registered_ids_hv): reset or free data
+	only if it has been set, in particular if a converter is free'd right
+	after having been setup.
+
+2024-08-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_C_options_info.pl: remove leading directory
 	in #include generated for options_types.h.
 

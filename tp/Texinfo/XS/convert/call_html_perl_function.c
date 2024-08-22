@@ -2435,7 +2435,8 @@ clear_registered_ids_hv (CONVERTER *self)
 {
   dTHX;
 
-  hv_clear (self->registered_ids_hv);
+  if (self->registered_ids_hv)
+    hv_clear (self->registered_ids_hv);
 }
 
 void
@@ -2443,5 +2444,6 @@ free_registered_ids_hv (CONVERTER *self)
 {
   dTHX;
 
-  hv_undef (self->registered_ids_hv);
+  if (self->registered_ids_hv)
+    hv_undef (self->registered_ids_hv);
 }

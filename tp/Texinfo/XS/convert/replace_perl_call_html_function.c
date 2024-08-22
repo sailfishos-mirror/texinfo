@@ -361,13 +361,15 @@ hv_register_id (CONVERTER *self, const char *string)
 void
 clear_registered_ids_hv (CONVERTER *self)
 {
-  clear_strings_list (self->registered_ids);
+  if (self->registered_ids)
+    clear_strings_list (self->registered_ids);
 }
 
 void
 free_registered_ids_hv (CONVERTER *self)
 {
-  destroy_strings_list (self->registered_ids);
+  if (self->registered_ids)
+    destroy_strings_list (self->registered_ids);
   self->registered_ids = 0;
 }
 
