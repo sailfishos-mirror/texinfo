@@ -1,5 +1,9 @@
 2024-08-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.cnf: Add eglot.  Report from Eli.
+
+2024-08-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: add extra build system checks.  From Patrice
 	and Bruno.
 

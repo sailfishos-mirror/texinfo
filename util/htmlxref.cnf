@@ -1,6 +1,6 @@
 # htmlxref.cnf - reference file for free Texinfo manuals on the web.
 
-htmlxrefversion=2024-07-20.12; # UTC
+htmlxrefversion=2024-08-22.20; # UTC
 
 # Copyright 2010-2024 Free Software Foundation, Inc.
 # 
@@ -173,6 +173,9 @@ emacs		node	${EMACS}/html_node/emacs/
  #
  ediff		mono	${EMACS}/html_mono/ediff.html
  ediff		node	${EMACS}/html_node/ediff/
+ #
+ eglot		mono	${EMACS}/html_mono/eglot.html
+ eglot		node	${EMACS}/html_node/eglot/
  #
  eieio		mono	${EMACS}/html_mono/eieio.html
  eieio		node	${EMACS}/html_node/eieio/
