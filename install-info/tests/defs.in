@@ -77,7 +77,7 @@ DIFF_OPTIONS="@DIFF_OPTIONS@"
 # Return true if PROG is somewhere in PATH, else false.
 findprog ()
 {
-  local saveIFS="$IFS"
+  saveIFS="$IFS"
   IFS=$path_sep  # break path components at the path separator
   for dir in $PATH; do
     IFS=$saveIFS

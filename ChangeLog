@@ -1,3 +1,10 @@
+2024-08-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	No 'local' in shell script
+
+	* install-info/tests/defs.in (findprog): Remove use of
+	'local' for saving the value of IFS (input field separator).
+
 2024-08-08  Bruno Haible  <bruno@clisp.org>
 
 	* texindex/Makefile.am (texindex.awk): Move the generated
