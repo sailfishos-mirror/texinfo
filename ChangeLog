@@ -1,3 +1,13 @@
+2024-08-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	No 'local' in shell script
+
+	* install-info/tests/defs.in (findprog): Remove use of
+	'local' for saving the value of IFS (input field separator).
+	On Solaris 10 there is a warning "local: not found" and it
+	is likely stopping IFS from being reset correctly, leading
+	to subsequent errors.
+
 2024-08-21  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi: modify, reassociate and comment out
