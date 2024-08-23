@@ -1,5 +1,9 @@
 2024-08-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/lib/libintl-perl: update to libintl-perl-1.33.
+
+2024-08-23  Patrice Dumas  <pertusus@free.fr>
+
 	Add C++ code to have an hashmap when Perl is not used
 
 	* tp/Texinfo/XS/configure.ac (AC_PROG_CXX, HAVE_CXX_HASHMAP): call

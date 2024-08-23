@@ -10,14 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-A Perl hash map is used for fast access, see interface in
-call_html_perl_function.c.
-If a hash without Perl dependency is needed, C++ std::unordered_map could
-be used instead of a Perl hash map, by setting up an interface with
-functions similar with the call_html_perl_function.c defined as extern "C".
-
-Update libintl-perl
-
 Bugs
 ====
 
