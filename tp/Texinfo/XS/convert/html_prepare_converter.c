@@ -54,6 +54,7 @@
    xml_text_entity_no_arg_commands_formatting */
 #include "converter.h"
 #include "call_html_perl_function.h"
+#include "call_html_cxx_function.h"
 #include "format_html.h"
 /* html_complete_no_arg_commands_formatting html_run_stage_handlers
    html_add_to_files_source_info html_find_file_source_info
@@ -1696,6 +1697,10 @@ html_converter_customize (CONVERTER *self)
 
   if (self->ids_data_type == IDT_perl_hashmap)
     init_registered_ids_hv (self);
+#ifdef HAVE_CXX_HASHMAP
+  else if (self->ids_data_type == IDT_cxx_hashmap)
+    init_registered_ids_hashmap (self);
+#endif
   else
     self->registered_ids = new_string_list ();
 
@@ -3753,6 +3758,10 @@ html_id_is_registered (CONVERTER *self, const char *string)
 {
   if (self->ids_data_type == IDT_perl_hashmap)
     return is_hv_registered_id (self, string);
+#ifdef HAVE_CXX_HASHMAP
+  else if (self->ids_data_type == IDT_cxx_hashmap)
+    return is_hashmap_registered_id (self, string);
+#endif
   else
     return find_string (self->registered_ids, string);
 }
@@ -3762,6 +3771,10 @@ html_register_id (CONVERTER *self, const char *string)
 {
   if (self->ids_data_type == IDT_perl_hashmap)
     hv_register_id (self, string);
+#ifdef HAVE_CXX_HASHMAP
+  else if (self->ids_data_type == IDT_cxx_hashmap)
+    hashmap_register_id (self, string);
+#endif
   else
     add_string (string, self->registered_ids);
 }

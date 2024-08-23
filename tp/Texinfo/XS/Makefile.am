@@ -411,7 +411,8 @@ C_libtexinfo_convert_sources = \
                        convert/html_converter_api.c \
                        convert/html_converter_api.h \
                        convert/texinfo.c \
-                       convert/texinfo.h
+                       convert/texinfo.h \
+                       convert/call_html_cxx_function.h
 
 XS_libtexinfo_convert_sources = \
                        convert/build_html_perl_state.h \

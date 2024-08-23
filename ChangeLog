@@ -1,3 +1,35 @@
+2024-08-23  Patrice Dumas  <pertusus@free.fr>
+
+	Add C++ code to have an hashmap when Perl is not used
+
+	* tp/Texinfo/XS/configure.ac (AC_PROG_CXX, HAVE_CXX_HASHMAP): call
+	AC_PROG_CXX to find a C++ compiler, test that a code with an
+	unordered map compiles, and set HAVE_CXX_HASHMAP if so.
+
+	* tp/Texinfo/XS/main/text.c (xvasprintf): use format instead of
+	template, template seems to be reserved when compiled as C++, even in
+	extern "C".
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_SOURCES)
+	(EXTRA_DIST), tp/Texinfo/XS/convert/call_html_cxx_function.cpp
+	(init_registered_ids_hashmap, is_hashmap_registered_id)
+	(hashmap_register_id, clear_registered_ids_hashmap)
+	(free_registered_ids_hashmap), tp/Texinfo/XS/main/converter_types.h
+	(enum ids_data_type, CONVERTER): add an implementation of the
+	registered id interface using an unordered_map in
+	call_html_cxx_function.cpp.  Add converter registered_ids_hashmap
+	field and associated ids_data_type.
+
+	* tp/Texinfo/XS/convert/converter.c (new_converter),
+	tp/Texinfo/XS/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_converter_customize, html_id_is_registered, html_register_id):
+	call C++ hashmap interface functions if ids_data_type is
+	IDT_cxx_hashmap.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_converter): set
+	CONVF_cxx_hashmap.
+
 2024-08-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/call_html_perl_function.c

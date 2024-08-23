@@ -19,7 +19,7 @@
 #include <stddef.h>
 #include <stdarg.h>
 
-int xvasprintf (char **ptr, const char *template, va_list ap);
+int xvasprintf (char **ptr, const char *format, va_list ap);
 
 typedef struct TEXT {
     char *text;

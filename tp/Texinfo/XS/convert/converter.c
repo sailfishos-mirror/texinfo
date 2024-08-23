@@ -280,6 +280,10 @@ new_converter (enum converter_format format, unsigned long flags)
   /* set low level data representations options */
   if (flags & CONVF_string_list)
     converter->ids_data_type = IDT_string_list;
+#ifdef HAVE_CXX_HASHMAP
+  else if (flags & CONVF_cxx_hashmap)
+    converter->ids_data_type = IDT_cxx_hashmap;
+#endif
   else
     converter->ids_data_type = IDT_perl_hashmap;
 
@@ -478,7 +482,13 @@ converter_converter (enum converter_format format,
                      const CONVERTER_INITIALIZATION_INFO *input_user_conf)
 {
   CONVERTER_INITIALIZATION_INFO *format_defaults;
+  /* NOTE if HAVE_CXX_HASHMAP is not defined, even with CONVF_cxx_hashmap
+     string lists will be used */
+  size_t converter_descriptor = new_converter (format, CONVF_cxx_hashmap);
+   /*
+   To use a string list.  Slower.
   size_t converter_descriptor = new_converter (format, CONVF_string_list);
+    */
   CONVERTER *converter = retrieve_converter (converter_descriptor);
 
   CONVERTER_INITIALIZATION_INFO *user_conf

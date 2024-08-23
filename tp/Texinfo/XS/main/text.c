@@ -23,10 +23,10 @@
 
 /* wrapper for vasprintf */
 int
-xvasprintf (char **ptr, const char *template, va_list ap)
+xvasprintf (char **ptr, const char *format, va_list ap)
 {
   int ret;
-  ret = vasprintf (ptr, template, ap);
+  ret = vasprintf (ptr, format, ap);
   if (ret < 0)
     abort (); /* out of memory */
   return ret;

@@ -142,6 +142,8 @@ AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
 AC_PROG_CC
 
+AC_PROG_CXX
+
 gl_EARLY
 
 # i18n support.  We need to use the same GNU gettext version as the main
@@ -167,6 +169,34 @@ LT_INIT([disable-static])
 
 # Note that the above have to be outside the disable_xs block
 # otherwise it causes an error with configure.
+
+AC_LANG_PUSH([C++])
+
+AC_CACHE_CHECK([if C++ hashmap can be used], [texinfo_cv_cxx_hashmap],
+[
+texinfo_cv_cxx_hashmap=no
+
+AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
+#include <unordered_map>
+
+void
+init_registered_ids_hashmap (void)
+{
+  std::unordered_map<std::string, int> registered_ids_hashmap;
+  registered_ids_hashmap["toto"] = 1;
+}
+]])], [texinfo_cv_cxx_hashmap=yes])
+])
+
+if test $texinfo_cv_cxx_hashmap = yes; then
+  AC_DEFINE([HAVE_CXX_HASHMAP], [1], [Define if C++ hashmap can be used])
+fi
+
+AM_CONDITIONAL([HAVE_CXX_HASHMAP],
+               [test "x$texinfo_cv_cxx_hashmap" = "xyes"])
+
+AC_LANG_POP([C++])
+
 
 # Disable gnulib provision of "Microsoft deprecated alias" functions on
 # MS-Windows to prevent a clash with definitions in Perl header files

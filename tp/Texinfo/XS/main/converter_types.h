@@ -40,12 +40,14 @@ enum converter_format {
 
 enum ids_data_type {
    IDT_perl_hashmap,
+   IDT_cxx_hashmap,
    IDT_string_list,
 };
 
 /* converter low level customization */
 #define CONVF_perl_hashmap        0x0001
 #define CONVF_string_list         0x0002
+#define CONVF_cxx_hashmap         0x0004
 
 /* for string information passing to/from perl */
 enum sv_string_type {
@@ -886,6 +888,10 @@ typedef struct CONVERTER {
     STRING_LIST *registered_ids;
     /* actually HV * but we do not want to drag in Perl headers */
     void *registered_ids_hv;
+#ifdef HAVE_CXX_HASHMAP
+    /* a pointer on C++ data */
+    void *registered_ids_hashmap;
+#endif
     /* potentially one target list per command (only for some actually) */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
