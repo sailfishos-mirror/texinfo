@@ -1,5 +1,9 @@
 2024-08-23  Patrice Dumas  <pertusus@free.fr>
 
+	* INSTALL: correct a typo.
+
+2024-08-23  Patrice Dumas  <pertusus@free.fr>
+
 	EPUB Conformance issues documentation, workarounds and TODO
 
 	* TODO, doc/texinfo.texi (EPUB Conformance),

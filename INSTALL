@@ -79,7 +79,7 @@ Installation notes specific to Texinfo:
 
   Specific focused XS modules are only controlled by TEXINFO_XS.
   XS modules replacing perl code for the main processing steps can be
-  controlled more finaly.  Three steps are distinguished: the parsing
+  controlled more finely.  Three steps are distinguished: the parsing
   step, the structure step for the determination of sectioning and node
   structures, and the conversion step.  If the XS modules are not used
   for a step, they cannot be used for the following steps.
