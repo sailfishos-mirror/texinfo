@@ -1,3 +1,14 @@
+2024-08-23  Patrice Dumas  <pertusus@free.fr>
+
+	EPUB Conformance issues documentation, workarounds and TODO
+
+	* TODO, doc/texinfo.texi (EPUB Conformance),
+	contrib/EPUB_conformance/*.patch, contrib/EPUB_conformance/README:
+	document that EPUB generated is not conformant.  Add patches from
+	Daniel Cerqueira in contrib/EPUB_conformance/ that cannot be applied
+	as is, but are necessary for EPUB conformance.  Add TODO entries that
+	should allow to fix more permanently this issue.
+
 2024-08-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/htmlxref.cnf: Add eglot.  Report from Eli.

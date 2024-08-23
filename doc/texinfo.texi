@@ -17394,6 +17394,17 @@ missing cross-references information.  If these warnings are unwanted,
 set @code{CHECK_HTMLXREF} to 0.
 
 
+@node EPUB Conformance
+@subsection Unresolved EPUB Conformance Issues
+
+Strict conformance of EPUB generated from Texinfo is still a work in
+progress.  In particular, the last modified date @samp{dcterms:modified}
+property is not generated and conformance checkers flag @code{border="0"}
+HTML table element attribute as invalid.  Before these issues are
+definitively fixed, patches in the Texinfo source directory
+@file{contrib/EPUB_conformance/} can be applied to workaround those issues.
+
+
 @node EPUB HTML
 @nodedescription Variables set internally.
 @subsection HTML Generated for EPUB
