@@ -449,6 +449,7 @@ copy_numbered_options_list_options (OPTIONS *options,
     }
 }
 
+/* Unused */
 void
 set_sorted_option_key_configured (OPTION **sorted_options, const char *key,
                                   int configured)

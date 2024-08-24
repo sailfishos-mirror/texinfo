@@ -509,24 +509,7 @@ get_sv_option (OPTION *option, SV *value, int force,
   return 0;
 }
 
-
-/* return values:
-  0: success
-  -1: already set (only if !force)
-  -2: unknown
-  -3: type error
- */
-int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
-                                      const char *key, SV *value,
-                                      int force, const CONVERTER *converter)
-{
-  OPTION *option = find_option_string (sorted_options, key);
-  if (option)
-    return get_sv_option (option, value, force, options, converter);
-  return -2;
-}
-
-void
+static void
 get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                 CONVERTER *converter, int force)
 {
@@ -544,9 +527,10 @@ get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
       char *key;
       I32 retlen;
       SV *value = hv_iternextsv (hv, &key, &retlen);
+      OPTION *option = find_option_string (sorted_options, key);
 
-      get_sorted_options_key_sv_option (options, sorted_options, key,
-                                        value, force, converter);
+      if (option)
+        get_sv_option (option, value, force, options, converter);
     }
 }
 

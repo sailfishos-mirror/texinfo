@@ -22,12 +22,6 @@ extern const char *html_button_function_type_string[];
 int get_sv_option (OPTION *option, SV *value, int force,
                    OPTIONS *options, const CONVERTER *converter);
 
-void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
-                     CONVERTER *converter, int force);
-int get_sorted_options_key_sv_option (OPTIONS *options, OPTION **sorted_options,
-                                      const char *key, SV *value,
-                                      int force, const CONVERTER *converter);
-
 DOCUMENT *get_sv_tree_document (SV *tree_in, char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, char *warn_string);
 

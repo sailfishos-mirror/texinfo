@@ -1,5 +1,13 @@
 2024-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_options): inline
+	get_sorted_options_key_sv_option in get_sv_options.  Remove
+	get_sorted_options_key_sv_option.
+
+	* tp/Texinfo/XS/main/get_perl_info.c: remove get_sv_configured_options.
+
+2024-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, get_conf, set_conf):
 	(force_conf), tp/Texinfo/XS/convert/ConvertXS.xs (set_conf, get_conf)
 	(force_conf): directly override get_conf, set_conf and force_conf.
