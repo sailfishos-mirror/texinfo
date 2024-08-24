@@ -114,9 +114,10 @@ the context command stack.
 
 Modules included in tp/maintain/lib/ are stable, but still need
 to be updated from time to time.
+
 Unicode::EastAsianWidth \p{InFullwidth} could be replaced
 by native \p{East_Asian_Width=Fullwidth} + \p{East_Asian_Width=Wide}
-when we the oldest Perl version we support is 5.12.0 (released in 2010).
+when the oldest supported Perl version is 5.12.0 (released in 2010).
 
 
 Transliteration/protection with iconv in C leads to a result different from Perl
