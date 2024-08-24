@@ -3001,7 +3001,7 @@ html_build_direction_icons (const CONVERTER *converter,
   return newRV_noinc ((SV *)icons_hv);
 }
 
-static SV *
+SV *
 build_sv_option (const OPTION *option, CONVERTER *converter)
 {
   dTHX;
@@ -3056,23 +3056,6 @@ build_sv_option (const OPTION *option, CONVERTER *converter)
 
       default:
         break;
-    }
-  return newSV (0);
-}
-
-SV *
-build_sv_option_from_name (OPTION **sorted_options, CONVERTER *converter,
-                           const char *option_name)
-{
-  dTHX;
-
-  const OPTION *option
-   = find_option_string (sorted_options, option_name);
-
-  if (option)
-    {
-      SV *result = build_sv_option (option, converter);
-      return result;
     }
   return newSV (0);
 }
@@ -3444,11 +3427,16 @@ latex_build_options_for_convert_to_latex_math (CONVERTER *converter)
   for (i = 0; latex_math_options[i]; i++)
     {
       const char *option_name = latex_math_options[i];
-      SV *option_sv = build_sv_option_from_name (converter->sorted_options,
-                                                 converter, option_name);
-      SvREFCNT_inc (option_sv);
-      hv_store (options_latex_math_hv, option_name,
-                strlen (option_name), option_sv, 0);
+      const OPTION *option = find_option_string (converter->sorted_options,
+                                                 option_name);
+      /* no testing if option is NULL, we know that latex_math_options exist */
+      SV *option_sv = build_sv_option (option, converter);
+      if (SvOK (option_sv))
+        {
+          SvREFCNT_inc (option_sv);
+          hv_store (options_latex_math_hv, option_name,
+                    strlen (option_name), option_sv, 0);
+        }
     }
 
   return options_latex_math_hv;

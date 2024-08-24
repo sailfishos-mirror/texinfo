@@ -824,31 +824,6 @@ get_sv_index_entries_sorted_by_letter (INDEX_LIST *indices_info,
   return indices_entries_by_letter;
 }
 
-int
-set_sv_conf (CONVERTER *converter, const char *conf, SV *value)
-{
-  if (converter->conf)
-    {
-      int status = get_sorted_options_key_sv_option (converter->conf,
-                       converter->sorted_options, conf, value, 0, converter);
-      if (status == 0)
-        return 1;
-    }
-   /* Too early to have options set
-  else
-    fprintf (stderr, "HHH no converter conf %s\n", conf);
-    */
-  return 0;
-}
-
-void
-force_sv_conf (CONVERTER *converter, const char *conf, SV *value)
-{
-  if (converter->conf)
-    get_sorted_options_key_sv_option (converter->conf,
-                       converter->sorted_options, conf, value, 1, converter);
-}
-
 /* output format specific */
 
 /* should be consistent with enum button_function_type */

@@ -90,8 +90,7 @@ SV *html_build_direction_icons (const CONVERTER *converter,
                             const DIRECTION_ICON_LIST *direction_icons);
 SV *html_build_buttons_specification (CONVERTER *converter,
                                       BUTTON_SPECIFICATION_LIST *buttons);
-SV * build_sv_option_from_name (OPTION **sorted_options, CONVERTER *converter,
-                                const char *option_name);
+SV *build_sv_option (const OPTION *option, CONVERTER *converter);
 SV *build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
                                         CONVERTER *converter);
 

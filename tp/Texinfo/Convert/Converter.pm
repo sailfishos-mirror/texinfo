@@ -70,19 +70,17 @@ my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 our $module_loaded = 0;
 
 my %XS_overrides = (
-  # XS only called if there is an associated XS converter
-  "Texinfo::Convert::Converter::_XS_set_conf"
-   => "Texinfo::Convert::ConvertXS::set_conf",
-  "Texinfo::Convert::Converter::_XS_force_conf"
-   => "Texinfo::Convert::ConvertXS::force_conf",
-  "Texinfo::Convert::Converter::_XS_get_conf"
-   => "Texinfo::Convert::ConvertXS::get_conf",
-
   # fully overriden for all the converters
   "Texinfo::Convert::Converter::_generic_converter_init",
    => "Texinfo::Convert::ConvertXS::generic_converter_init",
   "Texinfo::Convert::Converter::set_document"
    => "Texinfo::Convert::ConvertXS::converter_set_document",
+  "Texinfo::Convert::Converter::set_conf"
+   => "Texinfo::Convert::ConvertXS::set_conf",
+  "Texinfo::Convert::Converter::force_conf"
+   => "Texinfo::Convert::ConvertXS::force_conf",
+  "Texinfo::Convert::Converter::get_conf"
+   => "Texinfo::Convert::ConvertXS::get_conf",
   "Texinfo::Convert::Converter::get_converter_errors"
    => "Texinfo::Convert::ConvertXS::get_converter_errors",
   "Texinfo::Convert::Converter::converter_line_error"
@@ -543,34 +541,16 @@ sub get_converter_errors($)
 # Implementation of the customization API that is used in many
 # Texinfo modules
 
-# Those functions are not overriden when XS is used as it is possible
-# that some converters do not use XS.
-
-sub _XS_get_conf($$)
-{
-}
-
 sub get_conf($$)
 {
   my $self = shift;
   my $conf = shift;
+
   if (!Texinfo::Common::valid_customization_option($conf)) {
     confess("CBUG: unknown option $conf\n");
     #return undef;
   }
-
-  # Check that the package was loaded as we should only use perl if not.
-  if ($self->{'converter_descriptor'} and $XS_convert
-      and $Texinfo::Convert::ConvertXS::XS_package) {
-    my $result = _XS_get_conf($self, $conf);
-    return $result;
-  }
-
   return $self->{'conf'}->{$conf};
-}
-
-sub _XS_set_conf($$$)
-{
 }
 
 sub set_conf($$$)
@@ -578,26 +558,18 @@ sub set_conf($$$)
   my $self = shift;
   my $conf = shift;
   my $value = shift;
+
   if (!Texinfo::Common::valid_customization_option($conf)) {
     die "BUG: set_conf: unknown option $conf\n";
     return undef;
   }
+
   if ($self->{'configured'}->{$conf}) {
     return 0;
   } else {
-    my $set = 1;
-    if ($self->{'converter_descriptor'} and $XS_convert) {
-      $set = _XS_set_conf($self, $conf, $value);
-    }
-    if ($set) {
-      $self->{'conf'}->{$conf} = $value;
-    }
-    return $set;
+    $self->{'conf'}->{$conf} = $value;
+    return 1;
   }
-}
-
-sub _XS_force_conf($$$)
-{
 }
 
 sub force_conf($$$)
@@ -609,9 +581,7 @@ sub force_conf($$$)
     die "BUG: force_conf: unknown option $conf\n";
     return undef;
   }
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    _XS_force_conf($self, $conf, $value);
-  }
+
   $self->{'conf'}->{$conf} = $value;
   return 1;
 }

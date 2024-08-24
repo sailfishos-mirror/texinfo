@@ -246,31 +246,55 @@ converter_set_document (SV *converter_in, SV *document_in)
         call_common_set_output_perl_encoding (self);
 
 int
-set_conf (SV *converter_in, conf, SV *value)
-        const char *conf = (char *)SvPVbyte_nolen($arg);
+set_conf (SV *converter_in, option_name, SV *value)
+        const char *option_name = (char *)SvPVbyte_nolen($arg);
       PREINIT:
         CONVERTER *self;
         int status = 0;
       CODE:
-        /* Calling code checks 'converter_descriptor' is set */
-        self = get_sv_converter (converter_in, 0);
+        self = get_sv_converter (converter_in, "set_conf");
         if (self)
-          status = set_sv_conf (self, conf, value);
+          {
+            int get_sv_status;
+            OPTION *option
+              = find_option_string (self->sorted_options, option_name);
+
+            if (!option)
+              croak_nocontext ("BUG: set_conf: unknown option %s\n",
+                               option_name);
+
+            get_sv_status = get_sv_option (option, value, 0, self->conf, self);
+            if (get_sv_status == 0)
+              status = 1;
+          }
         RETVAL = status;
     OUTPUT:
         RETVAL
 
 int
-force_conf (SV *converter_in, conf, SV *value)
-        const char *conf = (char *)SvPVbyte_nolen($arg);
+force_conf (SV *converter_in, option_name, SV *value)
+        const char *option_name = (char *)SvPVbyte_nolen($arg);
       PREINIT:
         CONVERTER *self;
+        int status = 0;
       CODE:
-        /* Calling code checks 'converter_descriptor' is set */
-        self = get_sv_converter (converter_in, 0);
+        self = get_sv_converter (converter_in, "force_conf");
         if (self)
-          force_sv_conf (self, conf, value);
-        RETVAL = 1;
+          {
+            int get_sv_status;
+            OPTION *option
+              = find_option_string (self->sorted_options, option_name);
+
+            if (!option)
+              croak_nocontext ("BUG: force_conf: unknown option %s\n",
+                               option_name);
+
+            /* only possible error would be a type error */
+            get_sv_status = get_sv_option (option, value, 1, self->conf, self);
+            if (get_sv_status == 0)
+              status = 1;
+          }
+        RETVAL = status;
     OUTPUT:
         RETVAL
 
@@ -282,8 +306,16 @@ get_conf (SV *converter_in, option_name)
       CODE:
         self = get_sv_converter (converter_in, 0);
         if (self && self->sorted_options)
-          RETVAL = build_sv_option_from_name (self->sorted_options, self,
-                                              option_name);
+          {
+            const OPTION *option
+             = find_option_string (self->sorted_options, option_name);
+
+            if (!option)
+              /* in Perl confess is called, we do not bother here */
+              croak_nocontext ("CBUG: unknown option %s\n", option_name);
+
+            RETVAL = build_sv_option (option, self);
+          }
         else
           RETVAL = newSV (0);
     OUTPUT:

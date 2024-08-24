@@ -47,8 +47,6 @@ void get_line_message (CONVERTER *self, enum error_type type, int continuation,
                        SV *error_location_info, const char *message);
 OPTIONS *init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
                                OPTION ***sorted_options_out);
-int set_sv_conf (CONVERTER *converter, const char *conf, SV *value);
-void force_sv_conf (CONVERTER *converter, const char *conf, SV *value);
 
 INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
                      INDEX_LIST *indices_info,

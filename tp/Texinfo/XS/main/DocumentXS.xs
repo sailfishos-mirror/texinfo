@@ -33,6 +33,7 @@
 #include "extra.h"
 /* for non_perl_* */
 #include "utils.h"
+#include "customization_options.h"
 /* for clear_error_message_list */
 #include "errors.h"
 #include "document.h"
@@ -173,8 +174,14 @@ document_get_conf (SV *document_in, option_name)
       document = get_sv_document_document (document_in,
                                            "document_get_conf");
       if (document && document->sorted_options)
-        RETVAL = build_sv_option_from_name (document->sorted_options,
-                                            0, option_name);
+        {
+          const OPTION *option
+            = find_option_string (document->sorted_options, option_name);
+          if (option)
+            RETVAL = build_sv_option (option, 0);
+          else
+            RETVAL = newSV (0);
+        }
       else
         RETVAL = newSV (0);
   OUTPUT:
