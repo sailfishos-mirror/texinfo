@@ -1,5 +1,12 @@
 2024-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	 * tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files)
+	 (_external_node_href), tp/Texinfo/XS/convert/convert_html.c
+	 (external_node_href): use an empty string for an htmlxref manual
+	 entry without URL prefix instead of undef.
+
+2024-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files): no warning for
 	an empty URL prefix as it is the only way to override an entry
 	appearing in a file processed later on.

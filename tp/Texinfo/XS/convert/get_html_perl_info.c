@@ -213,9 +213,6 @@ html_converter_initialize_sv (SV *converter_sv,
                   const char *split_type_name = htmlxref_split_type_names[j];
                   SV **urlprefix_sv = hv_fetch (split_type_hv, split_type_name,
                                                 strlen (split_type_name), 0);
-                  /* can be undef if there is an entry in the htmlxref.cnf file
-                     without the urlprefix.  We ignore completely, in perl
-                     it is ignored later on when checking an external href */
                   if (urlprefix_sv && SvOK (*urlprefix_sv))
                     {
                       const char *urlprefix = SvPVutf8_nolen (*urlprefix_sv);

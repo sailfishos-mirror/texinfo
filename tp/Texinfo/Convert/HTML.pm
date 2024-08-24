@@ -8670,13 +8670,15 @@ sub _parse_htmlxref_files($$)
       #           {'file_name' => $fname, 'line_nr' => $line_nr});
       #}
       next if ($htmlxref->{$manual}
-               and exists($htmlxref->{$manual}->{$split_or_mono}));
+               and defined($htmlxref->{$manual}->{$split_or_mono}));
 
       if (defined($href)) { # substitute 'variables'
         my $re = join '|', map { quotemeta $_ } keys %variables;
         $href =~ s/\$\{($re)\}/defined $variables{$1} ? $variables{$1}
                                                       : "\${$1}"/ge;
         $href =~ s/\/*$// if ($split_or_mono ne 'mono');
+      } else {
+        $href = '';
       }
       $htmlxref->{$manual} = {} if (!$htmlxref->{$manual});
       $htmlxref->{$manual}->{$split_or_mono} = $href;
@@ -10771,7 +10773,8 @@ sub _external_node_href($$$)
       my $document_split = $self->get_conf('SPLIT');
       $document_split = 'mono' if (!$document_split);
       foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
-        if (defined($htmlxref_info->{$split_ordered})) {
+        if (defined($htmlxref_info->{$split_ordered})
+            and $htmlxref_info->{$split_ordered} ne '') {
           $split_found = $split_ordered;
           $htmlxref_href
             = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
