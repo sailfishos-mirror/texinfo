@@ -736,6 +736,27 @@ system gawk may be too old, openCSW may be needed.  For example:
 Misc notes
 ==========
 
+# differences between dist in and out source after maintainer-clean
+rm -f texinfo-7.*.*.tar.gz
+./autogen.sh
+./configure
+make maintainer-clean
+./autogen.sh
+./configure
+make dist
+rm -rf in_source_dist_contents
+mkdir in_source_dist_contents
+(cd in_source_dist_contents && tar xvf ../texinfo-7.*.*.tar.gz)
+make maintainer-clean
+rm -rf bb
+mkdir bb
+cd bb
+../configure
+make dist
+tar xvf texinfo-7.*.*.tar.gz
+diff -u -r ../in_source_dist_contents/texinfo-7.*.*/ texinfo-7.*.*/ > ../build_in_out_source_differences.diff
+
+
 Test validity of Texinfo XML or docbook
 export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml
