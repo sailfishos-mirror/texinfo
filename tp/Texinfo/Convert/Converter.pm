@@ -140,8 +140,8 @@ my $common_defaults = Texinfo::Options::get_converter_regular_options('common');
 # but is available directly in the converter as a hash key.
 # FIXME separate the two types of information and check that those
 # items are not valid customization options?
-# NOTE converters for now do not add more and set, rarely, output_format.
-# It would be good to keep it that way and add customization options instead.
+# NOTE converters for now only set customization variables.
+# It would be good to keep it that way.
 my %common_converters_defaults = (
   # Following are set in the main program
   'output_format'        => undef,

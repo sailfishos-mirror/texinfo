@@ -41,11 +41,6 @@ our $VERSION = '7.1.90';
 
 
 my %defaults = (
-  # next is replaced by the main program value if called from
-  # the main program.  'output_format' is also 'ixinsxml' when set by
-  # the main program.
-  'output_format'        => 'ixinsxml',
-
   # Customization option variables
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'ixin',

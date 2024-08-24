@@ -1,5 +1,10 @@
 2024-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/IXINSXML.pm (%defaults): do not set
+	output_format, let it be set by the caller.
+
+2024-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),
 	tp/Texinfo/Convert/DocBook.pm (%defaults), tp/Texinfo/Convert/HTML.pm
 	(%defaults), tp/Texinfo/Convert/IXINSXML.pm (%defaults)
