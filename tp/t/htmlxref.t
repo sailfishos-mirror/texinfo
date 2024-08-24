@@ -42,6 +42,22 @@ my @test_cases = (
    'SPLIT' => 'node',
    'USE_NODES' => 1}
 ],
+['htmlxref_no_urlprefix_first',
+'@node top
+@top top
+
+@node chap
+@chapter Chap
+
+@xref{,,,manual}.
+
+@xref{,,,manual2}.
+
+',
+{'full_document' => 1,
+ 'test_input_file_name' => 'htmlxref_no_urlprefix_first.texi'},
+{'HTMLXREF_FILE' => 'htmlxref-no_urlprefix_first.cnf'}
+],
 
 );
 

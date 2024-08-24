@@ -798,6 +798,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/xml_protected_in_verb.pl \
   t/results/htmlxref/htmlxref.pl \
   t/results/htmlxref/htmlxref/res_html \
+  t/results/htmlxref/htmlxref_no_urlprefix_first.pl \
+  t/results/htmlxref/htmlxref_no_urlprefix_first/res_html \
   t/results/htmlxref/htmlxref_nodes.pl \
   t/results/htmlxref/htmlxref_nodes/res_html \
   t/results/htmlxref/htmlxref_only_mono.pl \

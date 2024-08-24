@@ -2916,14 +2916,6 @@ $result_floats{'htmlxref'} = {};
 
 $result_converted_errors{'file_html'}->{'htmlxref'} = [
   {
-    'error_line' => 'warning: missing section URL prefix for `manual\'
-',
-    'file_name' => 'htmlxref.cnf',
-    'line_nr' => 12,
-    'text' => 'missing section URL prefix for `manual\'',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: unrecognized type: foo
 ',
     'file_name' => 'htmlxref.cnf',

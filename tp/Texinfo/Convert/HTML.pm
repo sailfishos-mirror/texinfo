@@ -8662,11 +8662,13 @@ sub _parse_htmlxref_files($$)
         next;
       }
       my $href = shift @htmlxref;
-      if (!defined($href)) {
-        $self->converter_line_warn(sprintf(
-             __("missing %s URL prefix for `%s'"), $split_or_mono, $manual),
-                 {'file_name' => $fname, 'line_nr' => $line_nr});
-      }
+      # No warning for an empty URL prefix as it is the only way to
+      # override an entry appearing in a file processed later on
+      #if (!defined($href)) {
+      #  $self->converter_line_warn(sprintf(
+      #       __("missing %s URL prefix for `%s'"), $split_or_mono, $manual),
+      #           {'file_name' => $fname, 'line_nr' => $line_nr});
+      #}
       next if ($htmlxref->{$manual}
                and exists($htmlxref->{$manual}->{$split_or_mono}));
 

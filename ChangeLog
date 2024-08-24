@@ -1,3 +1,14 @@
+2024-08-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files): no warning for
+	an empty URL prefix as it is the only way to override an entry
+	appearing in a file processed later on.
+
+	* tp/t/htmlxref.t (htmlxref_no_urlprefix_first), tp/Makefile.tres,
+	tp/t/input_files/htmlxref-no_urlprefix_first.cnf, tp/Makefile.am
+	(test_files): new test with htmlxref entry with an empty URL prefix
+	before an entry with URL prefix.
+
 2024-08-23  Patrice Dumas  <pertusus@free.fr>
 
 	* INSTALL: correct a typo.

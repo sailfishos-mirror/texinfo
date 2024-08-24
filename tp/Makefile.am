@@ -289,6 +289,7 @@ test_files = \
  t/input_files/transliterated_names_conflicts.texi \
  t/input_files/htmlxref.cnf \
  t/input_files/htmlxref-mono.cnf \
+ t/input_files/htmlxref-no_urlprefix_first.cnf \
  t/input_files/htmlxref-split.cnf \
  #
 
