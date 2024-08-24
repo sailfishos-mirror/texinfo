@@ -131,7 +131,6 @@ CONVERTER *retrieve_converter (size_t converter_descriptor);
 size_t new_converter (enum converter_format format, unsigned long flags);
 
 void set_converter_init_information (CONVERTER *converter,
-                            enum converter_format converter_format,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf);
 

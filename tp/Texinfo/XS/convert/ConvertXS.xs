@@ -205,8 +205,7 @@ generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0)
         conf = get_converter_info_from_sv (conf_sv, class_name, self,
                                            self->sorted_options);
 
-        set_converter_init_information (self, self->format,
-                                        format_defaults, conf);
+        set_converter_init_information (self, format_defaults, conf);
 
         if (format_defaults)
           {

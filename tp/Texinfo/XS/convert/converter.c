@@ -348,7 +348,6 @@ apply_converter_info (CONVERTER *converter,
  */
 void
 set_converter_init_information (CONVERTER *converter,
-                            enum converter_format converter_format,
                             CONVERTER_INITIALIZATION_INFO *format_defaults,
                             CONVERTER_INITIALIZATION_INFO *user_conf)
 {
@@ -501,8 +500,7 @@ converter_converter (enum converter_format format,
 
   number_options_list (&format_defaults->conf, converter->sorted_options);
 
-  set_converter_init_information (converter, format, format_defaults,
-                                  user_conf);
+  set_converter_init_information (converter, format_defaults, user_conf);
 
   destroy_converter_initialization_info (format_defaults);
 
