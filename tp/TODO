@@ -756,7 +756,6 @@ make dist
 tar xvf texinfo-7.*.*.tar.gz
 diff -u -r ../in_source_dist_contents/texinfo-7.*.*/ texinfo-7.*.*/ > ../build_in_out_source_differences.diff
 
-
 Test validity of Texinfo XML or docbook
 export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml

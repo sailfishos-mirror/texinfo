@@ -1,5 +1,14 @@
 2024-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Info.pm (format_warn_strong_note),
+	tp/Texinfo/Convert/Plaintext.pm (format_warn_strong_note, _convert):
+	add format_warn_strong_note methods to Plaintext.pm and Info.pm to
+	determine if Note in @strong requires a warning, instead of using
+	'converted_format'.  That way it is certain that it is a property of
+	the Converter.
+
+2024-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/get_perl_info.c (get_sv_options): inline
 	get_sorted_options_key_sv_option in get_sv_options.  Remove
 	get_sorted_options_key_sv_option.

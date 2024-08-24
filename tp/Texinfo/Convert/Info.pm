@@ -479,6 +479,11 @@ sub _info_header($$$)
   return $result;
 }
 
+sub format_warn_strong_note($)
+{
+  return 1;
+}
+
 sub format_contents($$$)
 {
   my $self = shift;

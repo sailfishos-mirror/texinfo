@@ -1503,6 +1503,11 @@ sub _align_environment($$$$)
   return $result;
 }
 
+sub format_warn_strong_note($)
+{
+  return 0;
+}
+
 # format @contents or @shortcontents
 sub format_contents($$$)
 {
@@ -2912,8 +2917,7 @@ sub _convert($$)
               and defined($element->{'args'}->[0]->{'contents'}->[0]->{'text'})
               and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
                     =~ /^Note\s/i
-              and $self->{'converted_format'}
-              and $self->{'converted_format'} eq 'info') {
+              and $self->format_warn_strong_note()) {
             $self->plaintext_line_warn($self, __(
       "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"),
                              $element->{'source_info'});

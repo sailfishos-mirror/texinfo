@@ -550,6 +550,7 @@ sub get_conf($$)
     confess("CBUG: unknown option $conf\n");
     #return undef;
   }
+
   return $self->{'conf'}->{$conf};
 }
 
@@ -577,6 +578,7 @@ sub force_conf($$$)
   my $self = shift;
   my $conf = shift;
   my $value = shift;
+
   if (!Texinfo::Common::valid_customization_option($conf)) {
     die "BUG: force_conf: unknown option $conf\n";
     return undef;
