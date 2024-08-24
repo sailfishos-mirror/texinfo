@@ -1949,7 +1949,6 @@ while(@input_files) {
   # for instance to have some consistent information for Structuring
   # and Converters.
   $converter_options->{'output_format'} = $format;
-  $converter_options->{'converted_format'} = $converted_format;
   $converter_options->{'deprecated_config_directories'}
      = \%deprecated_directories;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
@@ -2076,12 +2075,6 @@ while(@input_files) {
                                            %$file_cmdline_options,
                                          };
 
-    # This is not clear that this is correct.  On the one hand it could
-    # be more consistent with the formatting to have nothing here or a
-    # format corresponding to Texinfo::Convert::TextContent.  On the other
-    # hand, the information of the format could be useful.  Not very
-    # important as long as this information is not used.
-    $sort_element_converter_options->{'converted_format'} = $converted_format;
     unshift @{$sort_element_converter_options->{'INCLUDE_DIRECTORIES'}},
             @prepended_include_directories;
 

@@ -39,9 +39,6 @@ our $VERSION = '7.1.90';
 
 # TexinfoXML specific
 my %defaults = (
-  # Not a customization option variable
-  'converted_format'     => 'xml',
-
   # Customization option variables
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'xml',

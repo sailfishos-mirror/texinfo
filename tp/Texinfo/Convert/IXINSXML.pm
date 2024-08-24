@@ -41,12 +41,9 @@ our $VERSION = '7.1.90';
 
 
 my %defaults = (
-  # Not customization option variables
-  # next two are replaced by the main program value if called from
+  # next is replaced by the main program value if called from
   # the main program.  'output_format' is also 'ixinsxml' when set by
-  # the main program, but 'converted_format' is set to 'ixinsxml'.
-  # More on that subject below.
-  'converted_format'     => 'texinfosxml',
+  # the main program.
   'output_format'        => 'ixinsxml',
 
   # Customization option variables
@@ -63,20 +60,8 @@ sub converter_defaults($$)
   return \%defaults;
 }
 
-# In the main program, the 'converted_format' needs to be 'ixinsxml'
-# to find the right module used for conversion (this module).  However in
-# the Texinfo::Convert::IXIN output_ixin() function, and maybe in
-# Texinfo::Convert::TexinfoSXML convert_tree(), called from output_ixin(),
-# it may be better to have 'converted_format' set to the format converted
-# from the Texinfo tree, which is texinfosxml.  So far it is not needed,
-# inheriting format specific functions is used to select the output format,
-# but it could theoretically be needed for a flexible conversion
-# (since the IXIN project is inactive, the corresponding code is not updated
-# actively either, so it is unlikely to change, though).
 sub converter_initialize($) {
   my $self = shift;
-
-  $self->{'converted_format'} = $defaults{'converted_format'};
 
   # need to call parent module converter_initialize, to initialize
   # the converter state.  This method is actually implemented in

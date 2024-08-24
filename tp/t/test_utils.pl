@@ -418,9 +418,7 @@ sub set_converter_option_defaults($$;$)
   if (!defined($converter_options->{'output_format'})) {
     $converter_options->{'output_format'} = $format;
   }
-  if (!defined($converter_options->{'converted_format'})) {
-    $converter_options->{'converted_format'} = $format;
-  }
+
   if (!defined($converter_options->{'DEBUG'})) {
     $converter_options->{'DEBUG'} = $debug;
   }

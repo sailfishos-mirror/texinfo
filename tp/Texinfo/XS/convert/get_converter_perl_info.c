@@ -286,9 +286,6 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
                   if (!strcmp (key, "output_format"))
                     initialization_info->output_format
                       = non_perl_strdup (SvPVutf8_nolen (value));
-                  else if (!strcmp (key, "converted_format"))
-                    initialization_info->converted_format
-                      = non_perl_strdup (SvPVutf8_nolen (value));
                   /* FIXME get deprecated_config_directories if needed */
                   else if (!strcmp (key, "deprecated_config_directories"))
                     {}

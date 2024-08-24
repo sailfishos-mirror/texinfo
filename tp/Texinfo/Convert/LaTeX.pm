@@ -782,9 +782,6 @@ foreach my $command (keys(%{$LaTeX_style_brace_commands{'cmd_text'}})) {
 
 
 my %defaults = (
-  # Not customization option variables
-  'converted_format'     => 'latex',
-
   # For LaTeX in general, it could make sense to have some customization,
   # for example of packages, fonts, document type, to be discussed/though
   # about how to setup this customization.

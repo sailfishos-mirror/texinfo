@@ -763,7 +763,6 @@ typedef struct PRE_CLASS_TYPE_INFO {
 /* information on converter configuration from a source of configuration
    (either output format or user customization) */
 typedef struct CONVERTER_INITIALIZATION_INFO {
-    char *converted_format;
     char *output_format;
     TRANSLATED_COMMAND *translated_commands;
     STRING_LIST texinfo_language_config_dirs;
@@ -779,7 +778,8 @@ typedef struct CONVERTER {
     void *hv;
 
   /* this is the type of the converter, not of the output.  (Similar to
-     a module name in Perl) */
+     a module name in Perl).  Should only be used to determine which
+     functions are to be called */
     enum converter_format format;
     /* used to pass converter_defaults result, if going through XS and
        destroyed shortly after */
@@ -791,7 +791,6 @@ typedef struct CONVERTER {
     OPTIONS *format_defaults_conf;
     STRING_LIST texinfo_language_config_dirs;
     char *output_format;
-    char *converted_format;
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND *translated_commands;
 

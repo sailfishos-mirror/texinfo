@@ -1,5 +1,30 @@
 2024-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),
+	tp/Texinfo/Convert/DocBook.pm (%defaults), tp/Texinfo/Convert/HTML.pm
+	(%defaults), tp/Texinfo/Convert/IXINSXML.pm (%defaults)
+	(converter_initialize), tp/Texinfo/Convert/LaTeX.pm (%defaults),
+	tp/Texinfo/Convert/Plaintext.pm (%defaults),
+	tp/Texinfo/Convert/TexinfoSXML.pm (%defaults),
+	tp/Texinfo/Convert/TexinfoXML.pm (%defaults),
+	tp/Texinfo/XS/convert/converter.c (apply_converter_info)
+	(destroy_converter_initialization_info)
+	(copy_converter_initialization_info, free_generic_converter),
+	tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_converter_info_from_sv),
+	tp/Texinfo/XS/convert/html_converter_init_options.c
+	(html_converter_defaults), tp/Texinfo/XS/main/build_perl_info.c
+	(pass_generic_converter_to_converter_sv),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER_INITIALIZATION_INFO)
+	(CONVERTER): remove 'converted_format' from converters defaults.  It
+	should never give a different information than the module name.
+	Remove the similar information in C too.
+
+	* tp/t/test_converter_option.t: remove tests related to
+	converted_format.
+
+2024-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c (set_converter_init_information):
 	remove enum converter_format argument.  Update callers.
 

@@ -51,9 +51,6 @@ my %brace_commands = %Texinfo::Commands::brace_commands;
 my $nbsp = '&#'.hex('00A0').';';
 
 my %defaults = (
-  # Not a customization option variable
-  'converted_format'     => 'docbook',
-
   # Customization option variables
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'xml', # dbk?

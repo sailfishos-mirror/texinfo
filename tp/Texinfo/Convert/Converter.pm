@@ -140,15 +140,10 @@ my $common_defaults = Texinfo::Options::get_converter_regular_options('common');
 # but is available directly in the converter as a hash key.
 # FIXME separate the two types of information and check that those
 # items are not valid customization options?
-# NOTE converters for now do not add more, set converted_format, and,
-# rarely, output_format.  It would be good to keep it that way and add
-# customization options instead.
+# NOTE converters for now do not add more and set, rarely, output_format.
+# It would be good to keep it that way and add customization options instead.
 my %common_converters_defaults = (
   # Following are set in the main program
-  'converted_format'     => undef, # also in converter defaults, but
-                                   # in general set by the caller
-  # can be different from the converted_format, for example, epub3
-  # output format converted format is html.
   'output_format'        => undef,
   'deprecated_config_directories' => undef,
 
@@ -548,7 +543,6 @@ sub get_conf($$)
 
   if (!Texinfo::Common::valid_customization_option($conf)) {
     confess("CBUG: unknown option $conf\n");
-    #return undef;
   }
 
   return $self->{'conf'}->{$conf};
@@ -562,7 +556,6 @@ sub set_conf($$$)
 
   if (!Texinfo::Common::valid_customization_option($conf)) {
     die "BUG: set_conf: unknown option $conf\n";
-    return undef;
   }
 
   if ($self->{'configured'}->{$conf}) {
@@ -581,7 +574,6 @@ sub force_conf($$$)
 
   if (!Texinfo::Common::valid_customization_option($conf)) {
     die "BUG: force_conf: unknown option $conf\n";
-    return undef;
   }
 
   $self->{'conf'}->{$conf} = $value;
@@ -1688,6 +1680,8 @@ sub XS_get_unclosed_stream($$)
 {
   return undef;
 }
+
+
 
 ########################################################################
 # XML related methods and variables that may be used in different

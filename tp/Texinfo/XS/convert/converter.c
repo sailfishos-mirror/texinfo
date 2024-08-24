@@ -326,11 +326,6 @@ apply_converter_info (CONVERTER *converter,
       free (converter->output_format);
       converter->output_format = strdup (init_info->output_format);
     }
-  if (init_info->converted_format)
-    {
-      free (converter->converted_format);
-      converter->converted_format = strdup (init_info->converted_format);
-    }
 
   if (init_info->translated_commands)
     {
@@ -380,8 +375,7 @@ set_converter_init_information (CONVERTER *converter,
   /*
   fprintf (stderr, "XS|CONVERTER Fill conf: %d; %s, %s\n",
                    converter->converter_descriptor,
-                   converter->output_format,
-                   converter->converted_format);
+                   converter->output_format);
    */
 }
 
@@ -400,7 +394,6 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
   if (init_info->translated_commands)
     destroy_translated_commands (init_info->translated_commands);
 
-  free (init_info->converted_format);
   free (init_info->output_format);
 
   free_strings_list (&init_info->texinfo_language_config_dirs);
@@ -415,11 +408,6 @@ static void
 copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
                                const CONVERTER_INITIALIZATION_INFO *src_info)
 {
-  if (src_info->converted_format)
-    {
-      free (dst_info->converted_format);
-      dst_info->converted_format = strdup (src_info->converted_format);
-    }
   if (src_info->output_format)
     {
       free (dst_info->output_format);
@@ -1768,7 +1756,6 @@ free_generic_converter (CONVERTER *self)
     }
 
   free (self->output_format);
-  free (self->converted_format);
   free (self->expanded_formats);
 
   if (self->init_conf)

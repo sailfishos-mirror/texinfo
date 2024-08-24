@@ -353,9 +353,6 @@ foreach my $command ('var', 'cite', 'dmn', keys(%brace_code_commands)) {
 }
 
 my %defaults = (
-  # Not a customization option variable
-  'converted_format'     => '',
-
   # Customization options
   'ENABLE_ENCODING'      => 1,
   'ASCII_DASHES_AND_QUOTES' => 1,

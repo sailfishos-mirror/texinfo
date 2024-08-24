@@ -2517,9 +2517,6 @@ sub convert_tree_new_formatting_context($$$;$$$)
 my $regular_defaults = Texinfo::Options::get_converter_regular_options('html');
 
 my %defaults = (
-  # Not a customization option variable
-  'converted_format'   => 'html',
-
   # Customization option variables
   %{$regular_defaults},
 
