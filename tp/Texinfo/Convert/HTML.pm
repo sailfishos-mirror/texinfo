@@ -8724,9 +8724,9 @@ sub _load_htmlxref_files {
         unshift @htmlxref_dirs, File::Spec->catdir(
           $Texinfo::ModulePath::top_srcdir, 'tp', 't', 'input_files');
       }
-    } elsif ($self->{'language_config_dirs'}
-             and @{$self->{'language_config_dirs'}}) {
-      @htmlxref_dirs = @{$self->{'language_config_dirs'}};
+    } elsif ($self->{'texinfo_language_config_dirs'}
+             and @{$self->{'texinfo_language_config_dirs'}}) {
+      @htmlxref_dirs = @{$self->{'texinfo_language_config_dirs'}};
     }
     unshift @htmlxref_dirs, '.';
 

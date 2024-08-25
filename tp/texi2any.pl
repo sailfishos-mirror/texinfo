@@ -381,15 +381,15 @@ my $main_program_default_options = {
 # used as part of binary strings
 my $conf_file_name = 'texi2any-config.pm';
 
-# directories for texinfo configuration files, used as part of binary strings.
-my @language_config_dirs = File::Spec->catdir($curdir, '.texinfo');
-push @language_config_dirs, File::Spec->catdir($ENV{'HOME'}, '.texinfo')
+# directories for Texinfo configuration files, as far as possible
+# implementation independent.  Used as part of binary strings.
+my @texinfo_language_config_dirs = File::Spec->catdir($curdir, '.texinfo');
+push @texinfo_language_config_dirs, File::Spec->catdir($ENV{'HOME'}, '.texinfo')
                                 if (defined($ENV{'HOME'}));
-push @language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo')
+push @texinfo_language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo')
                                if (defined($sysconfdir));
-push @language_config_dirs, File::Spec->catdir($datadir, 'texinfo')
+push @texinfo_language_config_dirs, File::Spec->catdir($datadir, 'texinfo')
                                if (defined($datadir));
-my @texinfo_config_dirs = ($curdir, @language_config_dirs);
 
 # these variables are used as part of binary strings.
 my @program_config_dirs;
@@ -405,7 +405,7 @@ push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
   if (defined($datadir));
 
 @program_init_dirs = @program_config_dirs;
-foreach my $texinfo_config_dir (@language_config_dirs) {
+foreach my $texinfo_config_dir (@texinfo_language_config_dirs) {
   push @program_init_dirs, File::Spec->catdir($texinfo_config_dir, 'init');
 }
 
@@ -1759,7 +1759,8 @@ while(@input_files) {
   # and Converters.
   $converter_options->{'output_format'} = $format;
   $converter_options->{'converted_format'} = $converted_format;
-  $converter_options->{'language_config_dirs'} = \@language_config_dirs;
+  $converter_options->{'texinfo_language_config_dirs'}
+    = \@texinfo_language_config_dirs;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
@@ -1871,8 +1872,8 @@ while(@input_files) {
     # hand, the information of the format could be useful.  Not very
     # important as long as this information is not used.
     $sort_element_converter_options->{'converted_format'} = $converted_format;
-    $sort_element_converter_options->{'language_config_dirs'}
-       = \@language_config_dirs;
+    $sort_element_converter_options->{'texinfo_language_config_dirs'}
+       = \@texinfo_language_config_dirs;
     unshift @{$sort_element_converter_options->{'INCLUDE_DIRECTORIES'}},
             @prepended_include_directories;
 
