@@ -301,8 +301,6 @@ Should we warn if output is on STDOUT and OUTPUT_ENCODING_NAME != MESSAGE_OUTPUT
 
 Handle better @exdent in html? (there is a FIXME in the code)
 
-Implement what is proposed in HTML Cross Reference Mismatch.
-
 For plaintext, implement an effect of NO_TOP_NODE_OUTPUT
 * if true, output some title, possibly based on titlepage
   and do not output the Top node.
@@ -657,6 +655,33 @@ This requires a test, to begin with.
 In HTML, HEADERS is used.  But not in other modules, especially not in
 Plaintext.pm or Info.pm, this is determined by the module used (Plaintext.pm
 or Info.pm).  No idea whether it is right or wrong.
+
+
+In general, the htmlxref.cnf file should be filled and used to determine
+the split of a reference manual, and if no htmlxref.cnf file is used, it
+is a good idea to generate both a mono and a split manual.  Therefore the
+following situation is not something that needs to be supported/implemented,
+however we keep the information on the javascript code here.
+
+If a manual is split and the person generating the manual wants that
+references to a mono manual to be redirected to the split files, it should
+be possible to create a manual.html file that redirects to the
+manual_html/node.html files using the following javascript function:
+
+ function redirect() {
+   switch (location.hash) {
+     case "#Node1":
+       location.replace("manual_html/Node1.html#Node1"); break;
+     case "#Node2" :
+       location.replace("manual_html/Node2.html#Node2"); break;
+     ...
+     default:;
+   }
+ }
+
+And, in the <body> tag of manual.html:
+  <body onLoad="redirect();">
+
 
 From vincent Belaïche. About svg image files in HTML:
 

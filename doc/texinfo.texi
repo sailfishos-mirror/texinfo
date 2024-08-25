@@ -17495,7 +17495,6 @@ The algorithm was primarily devised by Patrice Dumas in 2003--04.
 * Node Expansion:    HTML Xref Node Name Expansion.
 * Command Expansion: HTML Xref Command Expansion.
 * 8-bit Expansion:   HTML Xref 8-bit Character Expansion.
-* Mismatch:          HTML Xref Mismatch.
 * Configuration:     HTML Xref Configuration.
 @end menu
 
@@ -17573,15 +17572,18 @@ Finally, the @var{target} part is always the expanded node name.
 Whether the present manual is split or mono is determined by user
 option; @command{texi2any} defaults to split, with the
 @option{--no-split} option overriding this.
-
 Whether the referent manual is split or mono, however, is another bit
-of the external information (@pxref{HTML Xref Configuration}).  By
-default, @command{texi2any} uses the same form of the referent manual
-as the present manual.
+of the external information (@pxref{HTML Xref Configuration}).
 
-Thus, there can be a mismatch between the format of the referent
-manual that the generating software assumes, and the format it's
-actually present in.  @xref{HTML Xref Mismatch}.
+By default, @command{texi2any} uses the same form of the referent manual as the
+present manual.  Thus, there can be a mismatch between the format of the
+referent manual that the generating software assumes, and the format it's
+actually present in.  If there is no external information, both mono
+and split form should be generated to be sure that the cross-references
+work irrespective of the split option.  This is something the software
+which generated the @emph{referent} manual has to do in advance, it's
+not something the software generating the cross-reference in the present
+manual can control.
 
 
 @node HTML Xref Node Name Expansion
@@ -17816,56 +17818,13 @@ related documents and implementations are available elsewhere on the
 web.
 
 
-@node HTML Xref Mismatch
-@subsection HTML Cross-reference Mismatch
-@cindex HTML cross-references @subentry mismatch
-@cindex Mismatched HTML cross-reference source and target
-
-As mentioned earlier (@pxref{HTML Xref Link Basics}), the generating
-software may need to guess whether a given manual being cross-referenced is available in split or monolithic form---and, inevitably,
-it might guess wrong.  However, when the @emph{referent} manual is
-generated, it is possible to handle at least some mismatches.
-
-In the case where we assume the referent is split, but it is actually
-available in mono, the only recourse would be to generate a
-@file{manual_html/} subdirectory full of HTML files which redirect back to
-the monolithic @file{manual.html}.  Since this is essentially the same
-as a split manual in the first place, it's not very appealing.
-
-On the other hand, in the case where we assume the referent is mono,
-but it is actually available in split, it is possible to use
-JavaScript to redirect from the putatively monolithic
-@file{manual.html} to the different @file{manual_html/node.html} files.
-Here's an example:
-
-@example
-function redirect() @{
-  switch (location.hash) @{
-    case "#Node1":
-      location.replace("manual_html/Node1.html#Node1"); break;
-    case "#Node2" :
-      location.replace("manual_html/Node2.html#Node2"); break;
-    @dots{}
-    default:;
-  @}
-@}
-@end example
-
-Then, in the @code{<body>} tag of @file{manual.html}:
-
-@example
-<body onLoad="redirect();">
-@end example
-
-Once again, this is something the software which generated the
-@emph{referent} manual has to do in advance, it's not something the
-software generating the cross-reference in the present manual can
-control.
-
-
 @node HTML Xref Configuration
 @nodedescription @file{htmlxref.cnf}.
 @subsection HTML Cross-reference Configuration: @file{htmlxref.cnf}
+
+@c the "HTML Xref Mismatch" was removed.  Placing the anchor here as
+@c it is the most relevant node for that subject.
+@anchor{HTML Xref Mismatch}
 
 @pindex htmlxref.cnf
 @cindex HTML cross-references @subentry configuration
