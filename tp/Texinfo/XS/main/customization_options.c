@@ -365,7 +365,7 @@ copy_option (OPTION *destination, const OPTION *source)
 
 
 
-/* functions setup and use sorted options */
+/* functions to setup and use sorted options */
 
 static int
 compare_option_str (const void *a, const void *b)
@@ -594,6 +594,29 @@ add_option_string_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
 
   if (option)
     options_list_add_option (options_list, option);
+
+  return option;
+}
+
+OPTION *
+add_option_strlist_value (OPTIONS_LIST *options_list, OPTION **sorted_options,
+                          const char *option_name, const STRING_LIST *strlist)
+{
+  OPTION *option;
+  const OPTION *ref_option = find_option_string (sorted_options, option_name);
+  if (!ref_option)
+    return 0;
+
+  if (ref_option->type != GOT_char_string_list
+      && ref_option->type != GOT_bytes_string_list
+      && ref_option->type != GOT_file_string_list)
+    return 0;
+
+  option = new_option (ref_option->type, ref_option->name, ref_option->number);
+
+  copy_strings (option->o.strlist, strlist);
+
+  options_list_add_option (options_list, option);
 
   return option;
 }

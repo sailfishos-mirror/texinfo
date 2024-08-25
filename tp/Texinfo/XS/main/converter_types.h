@@ -765,7 +765,6 @@ typedef struct PRE_CLASS_TYPE_INFO {
 typedef struct CONVERTER_INITIALIZATION_INFO {
     char *output_format;
     TRANSLATED_COMMAND *translated_commands;
-    STRING_LIST texinfo_language_config_dirs;
     OPTIONS_LIST conf;
     /* gather strings that are not customization options */
     STRING_LIST non_valid_customization;
@@ -789,7 +788,6 @@ typedef struct CONVERTER {
     OPTION **sorted_options;
     OPTIONS *init_conf;
     OPTIONS *format_defaults_conf;
-    STRING_LIST texinfo_language_config_dirs;
     char *output_format;
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND *translated_commands;

@@ -297,12 +297,6 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
                       if (!strcmp (key, "translated_commands"))
                         initialization_info->translated_commands
                           = set_translated_commands (value);
-                      else if (!strcmp (key, "texinfo_language_config_dirs"))
-                        {
-                          add_svav_to_string_list (value,
-                            &initialization_info->texinfo_language_config_dirs,
-                            svt_dir);
-                        }
                       else if (class_name)
                         {
                           fprintf (stderr,

@@ -288,7 +288,7 @@ txi_converter_setup (const char *format_str,
                      const char *output_format,
                      const char *locale_encoding,
                      const char *program_file,
-                     char * const*texinfo_language_config_dirs,
+                     const STRING_LIST *texinfo_language_config_dirs,
                      OPTIONS_LIST *customizations)
 {
   enum converter_format converter_format
@@ -304,29 +304,26 @@ txi_converter_setup (const char *format_str,
   else
     conf->output_format = strdup (format_str);
 
+  initialize_options_list (&conf->conf, 10);
+
   if (texinfo_language_config_dirs)
     {
-      int i;
-      for (i = 0; texinfo_language_config_dirs[i]; i++)
-        {
-          add_string (texinfo_language_config_dirs[i],
-                      &conf->texinfo_language_config_dirs);
-        }
+      add_option_strlist_value (&conf->conf, txi_base_sorted_options,
+                               "TEXINFO_LANGUAGE_DIRECTORIES",
+                               texinfo_language_config_dirs);
     }
-
-  initialize_options_list (&conf->conf, 10);
 
   /* similar to options coming from texi2any */
   add_option_string_value (&conf->conf, txi_base_sorted_options,
-                           "PROGRAM", 0, program_file);
    /*
+                           "PROGRAM", 0, program_file);
     */
   /* comment the line above and uncomment below to compare with
      texi2any output
-                        "texi2any");
+   */
+                           "PROGRAM", 0, "texi2any");
   add_option_string_value (&conf->conf, txi_base_sorted_options,
                       "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
-   */
   add_option_string_value (&conf->conf, txi_base_sorted_options,
                         "COMMAND_LINE_ENCODING", 0, locale_encoding);
   add_option_string_value (&conf->conf, txi_base_sorted_options,
@@ -355,6 +352,14 @@ txi_converter_setup (const char *format_str,
 
 
 /* formats conversion */
+
+/*
+char *
+txi_output (CONVERTER *converter, DOCUMENT *document)
+{
+  return converter_output (converter, document);
+}
+*/
 
 /* similar to Texinfo::Convert::HTML->output */
 char *

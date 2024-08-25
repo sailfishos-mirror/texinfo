@@ -674,6 +674,20 @@ set_variable_value (STRING_VARIABLES_LIST *variables,
   variables->number++;
 }
 
+static void
+clear_string_variables_list (STRING_VARIABLES_LIST *variables)
+{
+  size_t i;
+
+  for (i = 0; i < variables->number; i++)
+    {
+      STRING_VARIABLE_INFO *variable = &variables->list[i];
+      free (variable->name);
+      free (variable->string);
+    }
+  variables->number = 0;
+}
+
 /* generic, similar to Perl re (\w+) with /a modifier */
 static size_t
 read_var_len (const char *text)
@@ -876,7 +890,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
 
           p += strspn (p, whitespace_chars);
           if (*p == '#' || *p == '\0')
-            continue;
+            goto next_line;
 
           len = read_var_len (p);
           if (len)
@@ -901,7 +915,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
                      */
                   free (definition);
                   free (name);
-                  continue;
+                  goto next_line;
                 }
             }
           len = strcspn (p, whitespace_chars);
@@ -947,7 +961,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
 
               message_list_line_error_ext (&self->error_messages,
                 self->conf, MSG_warning, 0, &source_info, "missing type");
-              continue;
+              goto next_line;
             }
           else if (htmlxref_type == htmlxref_split_type_none)
             {
@@ -958,7 +972,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
                 self->conf, MSG_warning, 0, &source_info,
                 "unrecognized type: %s", split_or_mono);
               free (split_or_mono);
-              continue;
+              goto next_line;
             }
 
           manual = strndup (p, len);
@@ -986,7 +1000,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
                 "missing %s URL prefix for `%s'", split_or_mono, manual);
               free (split_or_mono);
               free (manual);
-              continue;
+              goto next_line;
             }
            */
           free (split_or_mono);
@@ -1002,7 +1016,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
           if (htmlxref_manual->urlprefix[htmlxref_type])
             {
               free (href);
-              continue;
+              goto next_line;
             }
 
           if (href)
@@ -1015,8 +1029,12 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
                 {
                   size_t j;
                   for (j = strlen (subst_href); j > 0; j--)
-                    if (subst_href[j-1] == '/')
-                      subst_href[j-1] = '\0';
+                    {
+                      if (subst_href[j-1] == '/')
+                        subst_href[j-1] = '\0';
+                      else
+                        break;
+                    }
                 }
             }
           else
@@ -1029,7 +1047,11 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
 
           htmlxref_manual->urlprefix[htmlxref_type] = strdup (subst_href);
           free (subst_href);
+        next_line:
+          free (line);
         }
+
+      clear_string_variables_list (&variables);
 
       if (fclose (stream) == EOF)
         {
@@ -1052,6 +1074,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
           free (decoded_file);
         }
     }
+  free (variables.list);
 }
 
 static void
@@ -1117,7 +1140,8 @@ load_htmlxref_files (CONVERTER *self)
         }
       else
         {
-          copy_strings (&htmlxref_dirs, &self->texinfo_language_config_dirs);
+          copy_strings (&htmlxref_dirs,
+                        self->conf->TEXINFO_LANGUAGE_DIRECTORIES.o.strlist);
         }
 
       if (self->conf->TEST.o.integer > 0)

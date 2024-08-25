@@ -82,6 +82,9 @@ OPTION *add_option_string_value (OPTIONS_LIST *options_list,
                          OPTION **sorted_options,
                          const char *option_name, int int_value,
                          const char *char_value);
+OPTION *add_option_strlist_value (OPTIONS_LIST *options_list,
+                                  OPTION **sorted_options,
+                          const char *option_name, const STRING_LIST *strlist);
 void number_options_list (OPTIONS_LIST *options_list, OPTION **sorted_options);
 
 

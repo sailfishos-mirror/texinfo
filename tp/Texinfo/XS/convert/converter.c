@@ -336,9 +336,6 @@ apply_converter_info (CONVERTER *converter,
       converter->translated_commands = init_info->translated_commands;
       init_info->translated_commands = 0;
     }
-
-  copy_strings (&converter->texinfo_language_config_dirs,
-                &init_info->texinfo_language_config_dirs);
 }
 
 /* apply format_defaults and user_conf initialization information.
@@ -399,8 +396,6 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
 
   free (init_info->output_format);
 
-  free_strings_list (&init_info->texinfo_language_config_dirs);
-
   free_options_list (&init_info->conf);
 
   free_strings_list (&init_info->non_valid_customization);
@@ -416,9 +411,6 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
       free (dst_info->output_format);
       dst_info->output_format = strdup (src_info->output_format);
     }
-
-  copy_strings (&dst_info->texinfo_language_config_dirs,
-                &src_info->texinfo_language_config_dirs);
 
   copy_strings (&dst_info->non_valid_customization,
                 &src_info->non_valid_customization);

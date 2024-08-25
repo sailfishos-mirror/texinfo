@@ -45,7 +45,7 @@ CONVERTER *txi_converter_setup (const char *converter_format,
                      const char *output_format,
                      const char *locale_encoding,
                      const char *program_file,
-                     char *const *texinfo_language_config_dirs,
+                     const STRING_LIST *texinfo_language_config_dirs,
                      OPTIONS_LIST *customizations);
 
 char *txi_html_output (CONVERTER *converter, DOCUMENT *document);

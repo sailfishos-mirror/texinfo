@@ -92,6 +92,7 @@ main (int argc, char *argv[])
   int status;
   char *program_file_name_and_directory[2];
   char *program_file;
+  char *input_directory;
   DOCUMENT *document;
   CONVERTER *converter;
   char *result;
@@ -100,10 +101,10 @@ main (int argc, char *argv[])
   OPTIONS_LIST convert_options;
   size_t errors_count = 0;
   size_t errors_nr;
-  char *texinfo_language_config_dirs[5] = {".texinfo"};
-  int txi_language_idx = 1;
+  STRING_LIST texinfo_language_config_dirs;
+  STRING_LIST converter_texinfo_language_config_dirs;
   char *home_dir;
-  char *home_texinfo_language_config_dirs = 0;
+  const char *curdir = ".";
 
   /*
   const char *texinfo_text;
@@ -127,36 +128,30 @@ main (int argc, char *argv[])
 
   txi_setup (LOCALEDIR, 0, 0, 0, 0);
 
+  memset (&texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
+  add_string (".config", &texinfo_language_config_dirs);
 
   home_dir = getenv ("HOME");
   if (home_dir)
     {
+      char *home_texinfo_language_config_dirs;
       xasprintf (&home_texinfo_language_config_dirs, "%s/.texinfo",
                  home_dir);
-      texinfo_language_config_dirs[txi_language_idx]
-        = home_texinfo_language_config_dirs;
-      txi_language_idx++;
+      add_string (home_texinfo_language_config_dirs,
+                  &texinfo_language_config_dirs);
+      free (home_texinfo_language_config_dirs);
     }
+
   if (strlen (SYSCONFDIR))
-    {
-      texinfo_language_config_dirs[txi_language_idx]
-        = SYSCONFDIR "/texinfo";
-      txi_language_idx++;
-    }
+    add_string (SYSCONFDIR "/texinfo", &texinfo_language_config_dirs);
 
   if (strlen (DATADIR))
-    {
-      texinfo_language_config_dirs[txi_language_idx]
-        = DATADIR "/texinfo";
-      txi_language_idx++;
-    }
-
-  texinfo_language_config_dirs[txi_language_idx] = 0;
+    add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
-  free (program_file_name_and_directory[1]);
+  input_directory = program_file_name_and_directory[1];
 
 /*
  if ($^O eq 'MSWin32') {
@@ -214,30 +209,46 @@ main (int argc, char *argv[])
   errors_count += errors_nr;
 
 
-  /* conversion intitialization */
+  /* conversion initialization */
   initialize_options_list (&convert_options, 2);
 
-  /* customize buttons.  This is a bit silly to use link buttons for
+  /* customize buttons.  It is a bit silly to use link buttons for
      footer, it is for the demonstration */
   custom_node_footer_buttons = new_base_links_buttons (0);
+  /*
   add_new_button_option (&convert_options,
                      "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
   add_new_option_value (&convert_options, GOT_integer,
                            "PROGRAM_NAME_IN_FOOTER", 1, 0);
+   */
   /* this is set to help with comparison with previous invokations */
   /*
   add_new_option_value (&convert_options, GOT_integer,
                            "TEST", 1, 0);
    */
+  add_new_option_value (&convert_options, GOT_integer,
+                        "CHECK_HTMLXREF", 1, 0);
+
+  memset (&converter_texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
+
+  add_string (curdir, &converter_texinfo_language_config_dirs);
+  if (strcmp (curdir, input_directory))
+    add_string (input_directory, &converter_texinfo_language_config_dirs);
+  free (input_directory);
+
+  copy_strings (&converter_texinfo_language_config_dirs,
+                &texinfo_language_config_dirs);
 
   converter = txi_converter_setup ("html", "html", locale_encoding,
                                    program_file,
-                                   texinfo_language_config_dirs,
+                                   &converter_texinfo_language_config_dirs,
                                    &convert_options);
+
+  free_strings_list (&converter_texinfo_language_config_dirs);
+  free_strings_list (&texinfo_language_config_dirs);
 
   free_options_list (&convert_options);
   free (program_file);
-  free (home_texinfo_language_config_dirs);
 
 
   /* conversion */
