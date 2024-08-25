@@ -1,5 +1,12 @@
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Invoking @command{texi2any}): correct -I and -P
+	documentation, texi2any always search in the current directory and the
+	input file path leading directory if there is one , irrespective of
+	the -I and -P values given.
+
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Modifying Main Program Array Variables),
 	tp/Texinfo/Config.pm (texinfo_add_to_option_list): add a $prepend
 	optional argument to texinfo_add_to_option_list, in which case the

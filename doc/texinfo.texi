@@ -14808,11 +14808,11 @@ into a subdirectory based on the name of the input file.
 @opindex -I @var{dir}
 Append @var{dir} to the directory search list for finding files that
 are included using the @code{@@include} command.  By default,
-@command{texi2any} searches only the current directory.  If @var{dir} is
-not given, the current directory is appended.  The @var{dir} value
-can be a single directory or a list of several directories separated
-by the usual path separator character (@samp{:} on Unix-like systems,
-@samp{;} on Windows).
+@command{texi2any} searches the current directory and the input file
+path leading directory if there is one (and it is not the current directory).
+The @var{dir} value can be a single directory or a list of several
+directories separated by the usual path separator character (@samp{:} on
+Unix-like systems, @samp{;} on Windows).
 
 @item --ifdocbook
 @opindex --ifdocbook
@@ -15042,8 +15042,7 @@ to alter indentation in XML/DocBook output.)
 @item -P @var{path}
 @opindex -P @var{path}
 Prepend @var{path} to the directory search list for @code{@@include}.
-If @var{path} is not given, the current directory is prepended.  See
-@samp{-I} above.
+See @samp{-I} above.
 
 @item --paragraph-indent=@var{indent}
 @itemx -p @var{indent}
