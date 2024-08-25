@@ -2,7 +2,7 @@
 #
 # latex2html.pm: interface to LaTeX2HTML
 #
-#    Copyright (C) 1999, 2000, 2003, 2005, 2006, 2009, 2011-2023
+#    Copyright (C) 1999, 2000, 2003, 2005, 2006, 2009, 2011-2024
 #                  Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -206,12 +206,22 @@ sub l2h_process($$)
   # as dir of enclosing html document --
   $destination_directory = $self->get_info('destination_directory');
   $destination_directory = '' if (!defined($destination_directory));
-  my $dir = $destination_directory;
-  $dir = File::Spec->curdir() if ($dir eq '');
+  my $dir;
+  if ($destination_directory eq '') {
+    $dir = File::Spec->curdir();
+  } else {
+    $dir = $destination_directory;
+  }
   my $dir_encoding;
   # $destination_directory_string is used in binary file path strings
   ($destination_directory_string, $dir_encoding)
     = $self->encoded_output_file_name($dir);
+
+  if ($destination_directory ne '') {
+    $self->create_destination_directory($destination_directory_string,
+                                        $dir);
+
+  }
 
   $l2h_name = "${docu_name}_l2h";
   my $l2h_latex_file_name = "${l2h_name}.tex";

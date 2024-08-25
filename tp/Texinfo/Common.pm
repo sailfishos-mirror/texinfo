@@ -1125,8 +1125,8 @@ sub encode_file_name($$)
   } else {
     $encoding = $input_encoding;
   }
-  $file_name = Encode::encode($encoding, $file_name);
-  return ($file_name, $encoding);
+  my $encoded_file_name = Encode::encode($encoding, $file_name);
+  return ($encoded_file_name, $encoding);
 }
 
 sub locate_include_file($;$)

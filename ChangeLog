@@ -1,5 +1,14 @@
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/latex2html.pm (l2h_process), tp/ext/tex4ht.pm
+	(tex4ht_prepare): create destination directory unless it is sure that
+	it is the current directory.
+
+	* tp/Texinfo/Common.pm (encode_file_name): add an intermediary
+	variable.
+
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/converter.c
 	(find_perl_converter_class_converter_format): handle class_name being
 	NULL.

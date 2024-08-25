@@ -156,8 +156,15 @@ sub tex4ht_prepare($$)
 
   $tex4ht_initial_dir = Cwd::abs_path;
   $tex4ht_out_dir = $self->get_info('destination_directory');
-  $tex4ht_out_dir = File::Spec->curdir()
-    if (!defined($tex4ht_out_dir) or $tex4ht_out_dir =~ /^\s*$/);
+
+  if (!defined($tex4ht_out_dir) or $tex4ht_out_dir =~ /^\s*$/) {
+    $tex4ht_out_dir = File::Spec->curdir();
+  } else {
+    my ($encoded_tex4ht_out_dir, $tex4ht_out_dir_encoding)
+      = $self->encoded_output_file_name($tex4ht_out_dir);
+    $self->create_destination_directory($encoded_tex4ht_out_dir,
+                                        $tex4ht_out_dir);
+  }
 
   my $document_name = $self->get_info('document_name');
   my $tex4ht_basename = "${document_name}_tex4ht";
