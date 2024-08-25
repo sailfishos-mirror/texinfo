@@ -1,7 +1,16 @@
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (locate_file_in_dirs): if the input file path
+	contains directories, returns it if it is found but do not search it
+	in directories.
+
+	* doc/texi2any_api.texi (Loading Init Files), doc/texinfo.texi (File
+	Names and Links Customization for HTML): update documentation.
+
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (HTML Xref Link Basics, HTML Xref Configuration):
-	remove teh "HTML Xref Mismatch" node, it is not the best way to go and
+	remove the "HTML Xref Mismatch" node, it is not the best way to go and
 	somewhat obsolete.  Keep the information in tp/TODO.  Add some
 	information on mismatched cross-references in the last paragraphs of
 	"HTML Xref Link Basics".

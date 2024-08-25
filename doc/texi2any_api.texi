@@ -133,10 +133,12 @@ Thus, @file{./texi2any-config.pm} can override entries in, say,
 
 @c @opindex --init-file
 @cindex @option{--init-file}
-However, the most common way to load an initialization file is with
-the @option{--init-file} option, explicitly specifying the file to be
-loaded.  By default the following directories are searched, in the
-following order.  Only the first file found is used:
+However, the most common way to load an initialization file path is with
+the @option{--init-file} option, explicitly specifying the file path to be
+loaded.  If the initialization file path contains directories, it is loaded
+if found.  Otherwise, if the file path is a simple file name, the following
+directories are searched, in the following order by default.  Only the first
+file found is used:
 
 @enumerate
 @item The current directory @file{./};

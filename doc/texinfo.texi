@@ -18230,9 +18230,10 @@ as the source of information.  If @code{HTMLXREF_MODE} is set to @samp{none}
 no information is used.  The default case is obtained with @code{HTMLXREF_MODE}
 not defined or set to any other value.  The @code{HTMLXREF_FILE} customization
 variable sets the file used for HTML Xref configuration to another value than
-the default, @file{htmlxref.cnf}.  By default, the distant manual
-is considered to be split or monolithic based on the splitting of the manual
-being output.  You can set it explicitely, instead, by setting
+the default, @file{htmlxref.cnf}.  If @code{HTMLXREF_FILE} contains directories,
+it is loaded if found, but is not searched for in directories.  By default, the
+distant manual is considered to be split or monolithic based on the splitting
+of the manual being output.  You can set it explicitely, instead, by setting
 @code{EXTERNAL_CROSSREF_SPLIT}.
 
 @cindex Cross-references customization, in HTML
