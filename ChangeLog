@@ -1,5 +1,12 @@
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (HTML Xref Configuration), tp/texi2any.pl
+	(@texinfo_language_config_dirs): prepend curdir before the call of
+	converter, and also add the leading input file path directory if
+	there is a leading directory and it is not the current directory.
+
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Invoking @command{texi2any}): correct -I and -P
 	documentation, texi2any always search in the current directory and the
 	input file path leading directory if there is one , irrespective of

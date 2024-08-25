@@ -383,7 +383,8 @@ my $conf_file_name = 'texi2any-config.pm';
 
 # directories for Texinfo configuration files, as far as possible
 # implementation independent.  Used as part of binary strings.
-my @texinfo_language_config_dirs = File::Spec->catdir($curdir, '.texinfo');
+# curdir and the input file path directory are prepended later on.
+my @texinfo_language_config_dirs = File::Spec->catdir('.texinfo');
 push @texinfo_language_config_dirs, File::Spec->catdir($ENV{'HOME'}, '.texinfo')
                                 if (defined($ENV{'HOME'}));
 push @texinfo_language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo')
@@ -405,7 +406,7 @@ push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
   if (defined($datadir));
 
 @program_init_dirs = @program_config_dirs;
-foreach my $texinfo_config_dir (@texinfo_language_config_dirs) {
+foreach my $texinfo_config_dir ($curdir, @texinfo_language_config_dirs) {
   push @program_init_dirs, File::Spec->catdir($texinfo_config_dir, 'init');
 }
 
@@ -1766,6 +1767,13 @@ while(@input_files) {
   $converter_options->{'converted_format'} = $converted_format;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
+
+  my @prepended_texinfo_language_directories = ($curdir);
+  push @prepended_texinfo_language_directories, $input_directory
+      if ($input_directory ne $curdir);
+
+  unshift @{$converter_options->{'TEXINFO_LANGUAGE_DIRECTORIES'},
+           @prepended_texinfo_language_directories;
 
   my $converter = &{$formats_table{$converted_format}
         ->{'converter'}}($converter_options);

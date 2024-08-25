@@ -17838,6 +17838,11 @@ is looked for in the following directories:
 @item ./
 (the current directory)
 
+@item leading input file path directory
+If there is a leading directory and it is not the current directory.
+For example, if the input file is @file{some/dir/mymanual.texi},
+@file{htmlxref.cnf} is searched for in @file{some/dir}.
+
 @item ./.texinfo/
 (under the current directory)
 
