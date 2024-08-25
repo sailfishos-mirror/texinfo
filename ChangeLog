@@ -1,5 +1,9 @@
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: fix a typo.
+
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (HTML Xref Configuration), tp/texi2any.pl
 	(@texinfo_language_config_dirs): prepend curdir before the call of
 	converter, and also add the leading input file path directory if

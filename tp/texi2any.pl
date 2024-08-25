@@ -1772,7 +1772,7 @@ while(@input_files) {
   push @prepended_texinfo_language_directories, $input_directory
       if ($input_directory ne $curdir);
 
-  unshift @{$converter_options->{'TEXINFO_LANGUAGE_DIRECTORIES'},
+  unshift @{$converter_options->{'TEXINFO_LANGUAGE_DIRECTORIES'}},
            @prepended_texinfo_language_directories;
 
   my $converter = &{$formats_table{$converted_format}
