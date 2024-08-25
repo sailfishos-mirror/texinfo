@@ -310,16 +310,24 @@ sub GNUT_set_customization_default($$)
 
 # called both from main program and init files, for %options_as_lists
 # options with lists set in main program.
-sub texinfo_add_to_option_list($$)
+sub texinfo_add_to_option_list($$;$)
 {
   my $var = shift;
   my $values_array_ref = shift;
+  my $prepend = shift;
+
   if (not $options_as_lists{$var}) {
     return 0;
   }
-  foreach my $value (@$values_array_ref) {
-    push @{$cmdline_options->{$var}}, $value
-      unless (grep {$_ eq $value} @{$cmdline_options->{$var}});
+  if ($prepend) {
+    # accept duplicates in that case, as prepending should in general
+    # be used to override by being first
+    unshift @{$cmdline_options->{$var}}, @$values_array_ref;
+  } else {
+    foreach my $value (@$values_array_ref) {
+      push @{$cmdline_options->{$var}}, $value
+        unless (grep {$_ eq $value} @{$cmdline_options->{$var}});
+    }
   }
   return 1;
 }

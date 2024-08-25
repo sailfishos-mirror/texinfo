@@ -358,12 +358,15 @@ are handled differently. You can use @code{texinfo_add_to_option_list} to
 add values to the array and @code{texinfo_remove_from_option_list} to
 remove values from the array associated with the customization variable:
 
-@defun texinfo_add_to_option_list ($variable_name, $variable_values_array_reference)
+@defun texinfo_add_to_option_list ($variable_name, $variable_values_array_reference, $prepend)
 @defunx texinfo_remove_from_option_list ($variable_name, $variable_values_array_reference)
 @var{$variable_name} is the name of the variable; the values in the
 array reference @var{$variable_values_array_reference} are added to the
 list associated with the variable with @code{texinfo_add_to_option_list}, and removed with
 @code{texinfo_remove_from_option_list}.
+
+If the optional argument of @code{texinfo_add_to_option_list} @var{$prepend}
+is set, the values are prepended instead of being appended.
 @end defun
 
 
