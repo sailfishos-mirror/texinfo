@@ -703,10 +703,6 @@ my $cmdline_options = { 'CSS_FILES' => \@css_files,
                         'EXPANDED_FORMATS' => \@expanded_formats };
 
 my $format = 'info';
-# this is the format associated with the output format, which is replaced
-# when the output format changes.  It may also be removed if there is the
-# corresponding --no-ifformat.
-my $default_expanded_format = [ $format ];
 my @conf_dirs = ();
 my @prepend_dirs = ();
 
@@ -759,6 +755,7 @@ if (defined($set_translations_encoding)
 
 
 # Parse command line
+my %ignored_formats;
 
 sub set_expansion($$) {
   my $region = shift;
@@ -766,10 +763,10 @@ sub set_expansion($$) {
   $set = 1 if (!defined($set));
   if ($set) {
     add_to_option_list('EXPANDED_FORMATS', [$region]);
+    delete $ignored_formats{$region};
   } else {
     remove_from_option_list('EXPANDED_FORMATS', [$region]);
-    @{$default_expanded_format}
-       = grep {$_ ne $region} @{$default_expanded_format};
+    $ignored_formats{$region} = 1;
   }
 }
 
@@ -910,39 +907,48 @@ sub set_format($;$$)
     if ($format_from_command_line and $do_not_override_command_line) {
       $new_output_format = $previous_format;
     } else {
-      my $converter_format;
-      my $expanded_region;
-
-      if ($formats_table{$new_output_format}->{'texi2dvi_format'}) {
-        $call_texi2dvi = 1;
-        push @texi2dvi_args, '--'.$new_output_format;
-        $converter_format = 'tex';
-      } elsif ($formats_table{$new_output_format}->{'converted_format'}) {
-        $converter_format
-          = $formats_table{$new_output_format}->{'converted_format'};
-      } else {
-        $converter_format = $new_output_format;
-      }
-
-      if ($converter_format_expanded_region_name{$converter_format}) {
-        $expanded_region
-          = $converter_format_expanded_region_name{$converter_format};
-      } else {
-        $expanded_region = $converter_format;
-      }
-
-      if ($Texinfo::Common::texinfo_output_formats{$expanded_region}) {
-        if ($expanded_region eq 'plaintext') {
-          $default_expanded_format = [$expanded_region, 'info'];
-        } else {
-          $default_expanded_format = [$expanded_region];
-        }
-      }
       $format_from_command_line = 1
         unless ($do_not_override_command_line);
     }
   }
   return $new_output_format;
+}
+
+sub _format_expanded_formats($)
+{
+  my $new_output_format = shift;
+
+  my $default_expanded_formats = {};
+
+  my $converter_format;
+  my $expanded_region;
+
+  if ($formats_table{$new_output_format}->{'texi2dvi_format'}) {
+    $call_texi2dvi = 1;
+    push @texi2dvi_args, '--'.$new_output_format;
+    $converter_format = 'tex';
+  } elsif ($formats_table{$new_output_format}->{'converted_format'}) {
+    $converter_format
+      = $formats_table{$new_output_format}->{'converted_format'};
+  } else {
+    $converter_format = $new_output_format;
+  }
+
+  if ($converter_format_expanded_region_name{$converter_format}) {
+    $expanded_region
+      = $converter_format_expanded_region_name{$converter_format};
+  } else {
+    $expanded_region = $converter_format;
+  }
+
+  if ($Texinfo::Common::texinfo_output_formats{$expanded_region}) {
+    if ($expanded_region eq 'plaintext') {
+      $default_expanded_formats = {$expanded_region => 1, 'info' => 1};
+    } else {
+      $default_expanded_formats = {$expanded_region => 1};
+    }
+  }
+  return $default_expanded_formats;
 }
 
 sub _get_converter_default($)
@@ -1308,7 +1314,7 @@ if (defined($set_translations_encoding)
 }
 
 # Change some options depending on the settings of other ones set formats
-sub process_config {
+sub process_config($) {
   my $conf = shift;
 
   if (defined($conf->{'TEXINFO_OUTPUT_FORMAT'})) {
@@ -1547,7 +1553,11 @@ if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
   set_from_cmdline('SPLIT', '');
 }
 
-add_to_option_list('EXPANDED_FORMATS', $default_expanded_format);
+my $default_expanded_formats = _format_expanded_formats($format);
+foreach my $ignored_format (keys(%ignored_formats)) {
+  delete $default_expanded_formats->{$ignored_format};
+}
+add_to_option_list('EXPANDED_FORMATS', [sort(keys(%$default_expanded_formats))]);
 
 if (defined($formats_table{$converted_format}->{'module'})) {
   # Speed up initialization by only loading the module we need.

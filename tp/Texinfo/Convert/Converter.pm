@@ -2164,8 +2164,7 @@ These options are Texinfo customization options and a few other options that can
 be passed to the converter. Most of the customization options
 are described in the Texinfo manual or in the customization API manual.
 Those customization options, when appropriate, override the document content.
-B<TODO what about the other options (all are used in converters). Describe
-in converter_defaults?>
+B<TODO what about the other options?>
 
 The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations.

@@ -1,3 +1,11 @@
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl (%ignored_formats, %converter_format_format_name)
+	(_format_expanded_formats, set_format): do not set default expanded
+	formats in set_format, but after the format has been setup.  Keep
+	track of ignored formats to be able to remove them from defaults
+	expanded formats at that time.
+
 2024-08-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/IXINSXML.pm (%defaults): do not set
