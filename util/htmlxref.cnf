@@ -1,6 +1,6 @@
 # htmlxref.cnf - reference file for free Texinfo manuals on the web.
 
-htmlxrefversion=2024-08-22.20; # UTC
+htmlxrefversion=2024-08-25.10; # UTC
 
 # Copyright 2010-2024 Free Software Foundation, Inc.
 # 
@@ -285,8 +285,8 @@ emacs		node	${EMACS}/html_node/emacs/
  sieve		mono	${EMACS}/html_mono/sieve.html
  sieve		node	${EMACS}/html_node/sieve/
  #
- smtp		mono	${EMACS}/html_mono/smtpmail.html
- smtp		node	${EMACS}/html_node/smtpmail/
+ smtpmail	mono	${EMACS}/html_mono/smtpmail.html
+ smtpmail	node	${EMACS}/html_node/smtpmail/
  #
  speedbar	mono	${EMACS}/html_mono/speedbar.html
  speedbar	node	${EMACS}/html_node/speedbar/
