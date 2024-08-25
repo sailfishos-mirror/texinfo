@@ -536,10 +536,15 @@ my @css_refs = ();
 my @include_dirs = ();
 my @expanded_formats = ();
 # note that CSS_FILES and INCLUDE_DIRECTORIES are not decoded when
-# read from the command line and should be binary strings
+# read from the command line and should be binary strings.
+# TEXINFO_LANGUAGE_DIRECTORIES is not actually read from the command
+# line, but it is still best to have it here, and it should also
+# contain binary strings.
 my $cmdline_options = { 'CSS_FILES' => \@css_files,
                         'CSS_REFS' => \@css_refs,
                         'INCLUDE_DIRECTORIES' => \@include_dirs,
+                        'TEXINFO_LANGUAGE_DIRECTORIES'
+                            => \@texinfo_language_config_dirs,
                         'EXPANDED_FORMATS' => \@expanded_formats };
 
 my $format = 'info';
@@ -1759,8 +1764,6 @@ while(@input_files) {
   # and Converters.
   $converter_options->{'output_format'} = $format;
   $converter_options->{'converted_format'} = $converted_format;
-  $converter_options->{'texinfo_language_config_dirs'}
-    = \@texinfo_language_config_dirs;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
@@ -1872,8 +1875,6 @@ while(@input_files) {
     # hand, the information of the format could be useful.  Not very
     # important as long as this information is not used.
     $sort_element_converter_options->{'converted_format'} = $converted_format;
-    $sort_element_converter_options->{'texinfo_language_config_dirs'}
-       = \@texinfo_language_config_dirs;
     unshift @{$sort_element_converter_options->{'INCLUDE_DIRECTORIES'}},
             @prepended_include_directories;
 

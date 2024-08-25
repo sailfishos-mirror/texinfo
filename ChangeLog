@@ -1,3 +1,14 @@
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
+	Add TEXINFO_LANGUAGE_DIRECTORIES customization option
+
+	* tp/Texinfo/Convert/Converter.pm (%defaults),
+	tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files),
+	tp/Texinfo/options_data.txt, tp/texi2any.pl ($cmdline_options): add
+	TEXINFO_LANGUAGE_DIRECTORIES to replace the
+	'texinfo_language_config_dirs' information passed directly to
+	converters.
+
 2024-08-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),

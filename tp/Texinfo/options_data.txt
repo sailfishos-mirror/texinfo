@@ -351,14 +351,14 @@ ACTIVE_ICONS                       converter_other undef   icons
 PASSIVE_ICONS                      converter_other undef   icons
 
 
-# set from command line.
+# set from command line or in main program.
 # --css-include
-CSS_FILES            array_cmdline  undef   bytes_string_list
+CSS_FILES                    array_cmdline  undef   bytes_string_list
 # --css-ref
-CSS_REFS             array_cmdline  undef   char_string_list
+CSS_REFS                     array_cmdline  undef   char_string_list
 # --if*
-EXPANDED_FORMATS     array_cmdline  undef   bytes_string_list
+EXPANDED_FORMATS             array_cmdline  undef   bytes_string_list
 # -I
-INCLUDE_DIRECTORIES  array_cmdline  undef   file_string_list
-
+INCLUDE_DIRECTORIES          array_cmdline  undef   file_string_list
+TEXINFO_LANGUAGE_DIRECTORIES array_cmdline  undef   file_string_list
 
