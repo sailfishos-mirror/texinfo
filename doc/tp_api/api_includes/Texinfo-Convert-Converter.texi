@@ -212,8 +212,7 @@ These options are Texinfo customization options and a few other options that can
 be passed to the converter. Most of the customization options
 are described in the Texinfo manual or in the customization API manual.
 Those customization options, when appropriate, override the document content.
-@strong{TODO what about the other options (all are used in converters). Describe
-in converter_defaults?}
+@strong{TODO what about the other options?}
 
 The @code{converter} function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations.

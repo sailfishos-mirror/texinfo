@@ -115,7 +115,7 @@ converter_defaults (SV *converter_in, SV *conf_sv)
         CONVERTER_INITIALIZATION_INFO *conf;
         CONVERTER_INITIALIZATION_INFO *format_defaults;
         CONVERTER *self = 0;
-        const char *class_name;
+        const char *class_name = 0;
         enum converter_format converter_format;
       CODE:
 

@@ -1,5 +1,14 @@
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/converter.c
+	(find_perl_converter_class_converter_format): handle class_name being
+	NULL.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (converter_defaults): initialize
+	class_name.
+
+2024-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl (%ignored_formats, %converter_format_format_name)
 	(_format_expanded_formats, set_format): do not set default expanded
 	formats in set_format, but after the format has been setup.  Keep

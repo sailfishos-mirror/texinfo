@@ -191,9 +191,12 @@ find_perl_converter_class_converter_format (const char *class_name)
 {
   int i;
 
-  for (i = 0; i < TXI_CONVERSION_FORMAT_NR; i++)
-    if (!strcmp (converter_format_data[i].perl_converter_class, class_name))
-      return i;
+  if (class_name)
+    {
+      for (i = 0; i < TXI_CONVERSION_FORMAT_NR; i++)
+        if (!strcmp (converter_format_data[i].perl_converter_class, class_name))
+          return i;
+    }
 
   return COF_none;
 }
