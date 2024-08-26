@@ -30,7 +30,6 @@ BEGIN {
       undef,
       "DocumentXS",
       undef,
-      0,
   );
 }
 

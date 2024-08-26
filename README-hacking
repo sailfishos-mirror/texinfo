@@ -416,7 +416,8 @@ Update version number:
   version number in txirefcard.tex (offical releases only)
   (cd texindex ; rm texindex.awk ; make)
   (cd tp && ./maintain/change_perl_modules_version.sh auto)
-    -- this updates all the version numbers in the Perl modules
+    -- this updates all the version numbers in the Perl modules and
+       in tp/Texinfo/XS/configure.ac
 check up to date copyright years in files relevant to --version calls
 (tp/texi2any.pl, info/info.c, install-info/install-info.c, texindex/ti.twjr,
 Pod-Simple-Texinfo/pod2texi)

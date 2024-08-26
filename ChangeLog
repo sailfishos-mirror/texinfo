@@ -1,3 +1,21 @@
+2024-08-26  Patrice Dumas  <pertusus@free.fr>
+
+	* README-hacking, tp/Texinfo/XSLoader.pm (init),
+	tp/Texinfo/XS/configure.ac (AC_INIT),
+	tp/maintain/change_perl_modules_version.sh: in XSLoader.pm init,
+	pass the module version as argument to the bootstrap XS object
+	function to compare to the XS_VERSION value.  Set
+	tp/Texinfo/XS/configure.ac AC_INIT version to the same version as the
+	top-level configure.ac in change_perl_modules_version.sh.  Since
+	XS_VERSION is set based on the configure.ac AC_INIT version through
+	Makefile.am for all the XS objects, the version check should pass.
+
+	* tp/Texinfo/XSLoader.pm (init), tp/Texinfo/Convert/ConvertXS.pm,
+	tp/Texinfo/Convert/Paragraph.pm, tp/Texinfo/DocumentXS.pm,
+	tp/Texinfo/IndicesXS.pm, tp/Texinfo/MiscXS.pm, tp/Texinfo/Parser.pm,
+	tp/Texinfo/StructTransfXS.pm, tp/Texinfo/XS/TestXS.pm: remove the
+	XSLoader.pm init module interface number argument.
+
 2024-08-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/html_prepare_converter.c

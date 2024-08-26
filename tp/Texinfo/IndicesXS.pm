@@ -30,7 +30,6 @@ BEGIN {
       undef,
       "IndicesXS",
       undef,
-      0,
     );
   }
 }

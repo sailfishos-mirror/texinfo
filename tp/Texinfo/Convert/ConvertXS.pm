@@ -34,7 +34,6 @@ BEGIN {
       undef,
       "ConvertXS",
       undef,
-      0,
     );
   }
 }

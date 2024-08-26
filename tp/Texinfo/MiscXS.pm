@@ -31,7 +31,6 @@ BEGIN {
     "Texinfo::MiscXS",
     "MiscXS",
     undef,
-    0,
   );
 }
 

@@ -26,8 +26,8 @@ BEGIN {
     "TestXS",
     undef,
     "TestXS",
-    undef,
-    0);
+    undef
+  );
 }
 
 1;

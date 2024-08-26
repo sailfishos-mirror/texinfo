@@ -56,7 +56,6 @@ BEGIN {
     "Texinfo::Convert::ParagraphNonXS",
     "XSParagraph",
     undef,
-    0,
   );
 
   no strict 'refs';
