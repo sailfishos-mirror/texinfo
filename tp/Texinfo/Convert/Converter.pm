@@ -313,6 +313,7 @@ sub _generic_converter_init($$;$)
 }
 
 # this function is designed so as to be used in specific Converters
+# and not redefined.
 sub converter($;$)
 {
   my $class = shift;
@@ -343,6 +344,7 @@ sub convert_output_unit($$)
   return $result;
 }
 
+# should be redefined by specific converters
 sub conversion_output_begin($;$$)
 {
   my $self = shift;
@@ -426,12 +428,12 @@ sub output_tree($$)
   return $result;
 }
 
-# Nothing to do in perl.  XS function resets converter
+# Nothing to do in Perl.  XS function resets converter
 sub reset_converter($)
 {
 }
 
-# Nothing to do in perl.  XS function frees memory
+# Nothing to do in Perl.  XS function frees memory
 sub destroy($)
 {
 }
@@ -642,7 +644,7 @@ sub determine_files_and_directory($$)
     my ($directories, $suffix);
     ($input_basefile, $directories, $suffix) = fileparse($input_file_name);
   } else {
-    # This could happen if called on a piece of texinfo
+    # This could happen if called on a piece of Texinfo and not a full manual.
     $input_basefile = '';
   }
 
@@ -1107,7 +1109,7 @@ sub set_output_units_files($$$$$$)
        if (!exists($self->{'file_counters'}->{$output_unit_filename}));
     $self->{'file_counters'}->{$output_unit_filename}++;
     print STDERR 'Page '
-     # uncomment for perl object name
+     # uncomment for Perl object name
      #."$output_unit "
      .Texinfo::OutputUnits::output_unit_texi($output_unit)
      .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
@@ -2061,10 +2063,10 @@ the converted output.
 X<C<output>>X<C<output_tree>>
 
 The C<output> method is used by converters as entry point for conversion
-to a file with headers and so on.  Although not called from other
-modules, this method should in general be implemented by converters.
-C<output> is called from C<texi2any>.  C<output> takes a I<$converter> and a
-Texinfo parsed document C<Texinfo::Document> I<$document> as arguments.
+to a file with headers and so on.  This method should be implemented by
+converters.  C<output> is called from C<texi2any>.  C<output> takes a
+I<$converter> and a Texinfo parsed document C<Texinfo::Document> I<$document>
+as arguments.
 
 C<Texinfo::Convert::Converter> implements a generic C<output_tree>
 function suitable for conversion of the Texinfo tree, with the conversion
@@ -2083,20 +2085,18 @@ C<output> is in general defined as:
 In general, C<output> and C<output_tree> output to files and return C<undef>.
 When the output file name is an empty string, however, it is customary
 for C<output> and C<output_tree> to return the output as a character string
-instead.
-
-For output formats based on output units conversion, the
-C<Texinfo::Convert::Plaintext> C<output> method could be a good starting
-point.
+instead.  The output file name is obtained in C<output_tree> through a call to
+L<<< determine_files_and_directory|/($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory($output_format) >>>.
+In general C<determine_files_and_directory> is also used when C<output_tree> is not used.
 
 =item $result = $converter->convert($document)
 X<C<convert>>
 
-Entry point for the conversion of a Texinfo parsed document without
-the headers done when outputting to a file.  C<convert> takes a I<$converter>
-and a Texinfo parsed document C<Texinfo::Document> I<$document> as arguments.
-Returns the output as a character string.  Not mandatory, not called from
-other modules nor from C<texi2any>, but used in the C<texi2any> test suite.
+Entry point for the conversion of a Texinfo parsed document to an output
+format, without the headers usually done when outputting to a file.  C<convert>
+takes a I<$converter> and a Texinfo parsed document C<Texinfo::Document>
+I<$document> as arguments.  Returns the output as a character string.  Not
+mandatory, not called from C<texi2any>, but used in the C<texi2any> test suite.
 
 =item $result = $converter->convert_output_unit($output_unit)
 X<C<convert_output_unit>>
@@ -2109,9 +2109,6 @@ many cases.  Output units are typically returned by L<Texinfo::OutputUnits
 split_by_section|Texinfo::OutputUnits/$output_units = split_by_section($document)>
 or L<Texinfo::OutputUnits split_by_node|Texinfo::OutputUnits/$output_units =
 split_by_node($document)>.
-
-Output units are not relevant for all the formats, the Texinfo tree can also be
-converted directly, in general by using C<output_tree>.
 
 =back
 
@@ -2128,20 +2125,26 @@ C<conversion_finalization> is generally called at the end of C<output_tree>,
 C<output> and C<convert>.  C<output_tree> also calls the
 C<conversion_output_begin> method before the Texinfo tree conversion to obtain
 the beginning of the output. C<output_tree> calls the
-C<conversion_output_begin> method after the Texinfo tree conversion to obtain
+C<conversion_output_end> method after the Texinfo tree conversion to obtain
 the end of the output.
 
-Existing backends may be used as examples that implement and use those
-methods.  C<Texinfo::Convert::Texinfo> together with
-C<Texinfo::Convert::PlainTexinfo>, as well as
-C<Texinfo::Convert::TextContent> are trivial examples.
-C<Texinfo::Convert::Text> is less trivial, although still simple,
-while C<Texinfo::Convert::DocBook> is a real converter
-that is also not too complex.
+For output formats based on output units conversion, the
+C<Texinfo::Convert::Plaintext> C<output> method could be a good starting
+point.  HTML and Info output are also based on output units conversion.
+Output units are not relevant for all the formats, the Texinfo tree can also be
+converted directly, in general by using C<output_tree>.  This is how the other
+Converters are implemented.
 
-The documentation of L<Texinfo::Common>, L<Texinfo::Convert::Unicode>
-describes modules or additional function that may be useful for backends,
-while the parsed Texinfo tree is described in L<Texinfo::Parser>.
+Existing backends based on C<output_tree> may be used as examples.
+C<Texinfo::Convert::Texinfo> together with C<Texinfo::Convert::PlainTexinfo>,
+as well as C<Texinfo::Convert::TextContent> are trivial examples.
+C<Texinfo::Convert::Text> is less trivial, although still simple, while
+C<Texinfo::Convert::DocBook> is a real converter that is also not too complex.
+
+The documentation of L<Texinfo::Common>, L<Texinfo::OutputUnits>,
+L<Texinfo::Convert::Unicode> and L<Texinfo::Convert::Text> describes modules or
+additional function that may be useful for backends, while the parsed Texinfo
+tree is described in L<Texinfo::Parser>.
 
 
 =head1 METHODS
@@ -2160,18 +2163,16 @@ C<Texinfo::Convert::Converter>.
 =item $converter = MyConverter->converter($options)
 
 The I<$options> hash reference holds options for the converter.
-These options are Texinfo customization options and a few other options that can
-be passed to the converter. Most of the customization options
-are described in the Texinfo manual or in the customization API manual.
-Those customization options, when appropriate, override the document content.
-B<TODO what about the other options?>
+These options should be Texinfo customization options.  The
+customization options are described in the Texinfo manual or in the
+customization API manual.
 
 The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations.
 
 =back
 
-To help with these initializations, the modules subclassing C<Texinfo::Convert::Converter>
+To help with the initializations, the modules subclassing C<Texinfo::Convert::Converter>
 can define two methods:
 
 =over
@@ -2179,9 +2180,11 @@ can define two methods:
 =item \%defaults = $converter_or_class->converter_defaults($options)
 X<C<converter_defaults>>
 
-The module can provide the reference on a hash with defaults for converter
-customization options.  The I<$options> hash reference holds options for the
-converter.  The function can be called both through a class or a converter.
+Returns a reference on a hash with defaults for the converter module
+customization options or C<undef>.  The I<$options> hash reference holds
+options for the converter.  This method is called through a converter by L<<<
+converter|/$converter = MyConverter->converter($options) >>>, but it may also
+be called through a converter module class.
 
 =item converter_initialize
 X<C<converter_initialize>>
@@ -2274,6 +2277,11 @@ functions from diverse Texinfo modules needing customization
 information expect an object implementing C<get_conf> and/or
 C<set_conf>.  The converter itself can therefore be used in
 such cases.
+
+Customization variables are typically setup when
+initializing a converter with L<<< converter|/$converter = MyConverter->converter($options) >>>
+and completed by Texinfo informative @-commands tree element values,
+for commands such as C<@frenchspacing> or C<@footnotestyle>.
 
 =over
 
@@ -2375,7 +2383,7 @@ I<$replaced_substrings> hash reference identifies what is to be substituted.
 In the string to be translated word in brace matching keys of
 I<$replaced_substrings> are replaced.
 For C<cdt>, the value is a Texinfo tree that is substituted in the
-resulting texinfo tree. For C<cdt_string>, the value is a string that
+resulting Texinfo tree. For C<cdt_string>, the value is a string that
 is replaced in the resulting string.
 
 The I<$translation_context> is optional.  If not C<undef> this is a translation
@@ -2534,7 +2542,7 @@ split, the directory where the files should be created.  I<$output_filename>
 is, in general, the file name portion of I<$output_file> (without directory)
 but can also be set based on C<@setfilename>, in particular when
 I<$output_file> is an empty string. I<$document_name> is I<$output_filename>
-without extension.  I<$input_basefile> is based on the input texinfo file name,
+without extension.  I<$input_basefile> is based on the input Texinfo file name,
 with the file name portion only (without directory).
 
 The strings returned are text strings.
@@ -2556,23 +2564,23 @@ the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 
 Note that C<encoded_output_file_name> is a wrapper around the
-function with the same name in L<<< Texinfo::Convert::Utils::encoded_output_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name) >>>,
+function with the same name in L<<< Texinfo::Convert::Utils::encoded_output_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name) >>>,
 and C<encoded_input_file_name> is a wrapper around the
-function with the same name in L<<< Texinfo::Convert::Utils::encoded_input_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_input_file_name($converter, $character_string_name, $input_file_encoding) >>>.
+function with the same name in L<<< Texinfo::Convert::Utils::encoded_input_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding) >>>.
 
 =item ($caption, $prepended) = $converter->float_name_caption($float)
 X<C<float_name_caption>>
 
-I<$float> is a texinfo tree C<@float> element.  This function
+I<$float> is a Texinfo tree C<@float> element.  This function
 returns the caption element that should be used for the float formatting
-and the I<$prepended> texinfo tree combining the type and label
+and the I<$prepended> Texinfo tree combining the type and label
 of the float.
 
 =item $tree = $converter->float_type_number($float)
 X<C<float_type_number>>
 
-I<$float> is a texinfo tree C<@float> element.  This function
-returns the type and number of the float as a texinfo tree with
+I<$float> is a Texinfo tree C<@float> element.  This function
+returns the type and number of the float as a Texinfo tree with
 translations.
 
 =item $end_line = $converter->format_comment_or_return_end_line($element)

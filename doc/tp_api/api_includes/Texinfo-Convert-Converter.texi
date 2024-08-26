@@ -103,10 +103,10 @@ the converted output.
 @cindex @code{output_tree}
 
 The @code{output} method is used by converters as entry point for conversion
-to a file with headers and so on.  Although not called from other
-modules, this method should in general be implemented by converters.
-@code{output} is called from @code{texi2any}.  @code{output} takes a @emph{$converter} and a
-Texinfo parsed document @code{Texinfo::Document} @emph{$document} as arguments.
+to a file with headers and so on.  This method should be implemented by
+converters.  @code{output} is called from @code{texi2any}.  @code{output} takes a
+@emph{$converter} and a Texinfo parsed document @code{Texinfo::Document} @emph{$document}
+as arguments.
 
 @code{Texinfo::Convert::Converter} implements a generic @code{output_tree}
 function suitable for conversion of the Texinfo tree, with the conversion
@@ -127,21 +127,19 @@ takes a @emph{$converter} and a Texinfo parsed document @code{Texinfo::Document}
 In general, @code{output} and @code{output_tree} output to files and return @code{undef}.
 When the output file name is an empty string, however, it is customary
 for @code{output} and @code{output_tree} to return the output as a character string
-instead.
-
-For output formats based on output units conversion, the
-@code{Texinfo::Convert::Plaintext} @code{output} method could be a good starting
-point.
+instead.  The output file name is obtained in @code{output_tree} through a call to
+@ref{Texinfo@asis{::}Convert@asis{::}Converter ($output_file@comma{} $destination_directory@comma{} $output_filename@comma{} $document_name@comma{} $input_basefile) = $converter->determine_files_and_directory($output_format),, determine_files_and_directory}.
+In general @code{determine_files_and_directory} is also used when @code{output_tree} is not used.
 
 @item $result = $converter->convert($document)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert($document)}
 @cindex @code{convert}
 
-Entry point for the conversion of a Texinfo parsed document without
-the headers done when outputting to a file.  @code{convert} takes a @emph{$converter}
-and a Texinfo parsed document @code{Texinfo::Document} @emph{$document} as arguments.
-Returns the output as a character string.  Not mandatory, not called from
-other modules nor from @code{texi2any}, but used in the @code{texi2any} test suite.
+Entry point for the conversion of a Texinfo parsed document to an output
+format, without the headers usually done when outputting to a file.  @code{convert}
+takes a @emph{$converter} and a Texinfo parsed document @code{Texinfo::Document}
+@emph{$document} as arguments.  Returns the output as a character string.  Not
+mandatory, not called from @code{texi2any}, but used in the @code{texi2any} test suite.
 
 @item $result = $converter->convert_output_unit($output_unit)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert_output_unit($output_unit)}
@@ -155,9 +153,6 @@ many cases.  Output units are typically returned by @ref{Texinfo@asis{::}OutputU
 split_by_section}
 or @ref{Texinfo@asis{::}OutputUnits $output_units =
 split_by_node($document),, Texinfo::OutputUnits split_by_node}.
-
-Output units are not relevant for all the formats, the Texinfo tree can also be
-converted directly, in general by using @code{output_tree}.
 
 @end table
 
@@ -174,20 +169,26 @@ called at the beginning of @code{output}, @code{output_tree} and @code{convert}.
 @code{output} and @code{convert}.  @code{output_tree} also calls the
 @code{conversion_output_begin} method before the Texinfo tree conversion to obtain
 the beginning of the output. @code{output_tree} calls the
-@code{conversion_output_begin} method after the Texinfo tree conversion to obtain
+@code{conversion_output_end} method after the Texinfo tree conversion to obtain
 the end of the output.
 
-Existing backends may be used as examples that implement and use those
-methods.  @code{Texinfo::Convert::Texinfo} together with
-@code{Texinfo::Convert::PlainTexinfo}, as well as
-@code{Texinfo::Convert::TextContent} are trivial examples.
-@code{Texinfo::Convert::Text} is less trivial, although still simple,
-while @code{Texinfo::Convert::DocBook} is a real converter
-that is also not too complex.
+For output formats based on output units conversion, the
+@code{Texinfo::Convert::Plaintext} @code{output} method could be a good starting
+point.  HTML and Info output are also based on output units conversion.
+Output units are not relevant for all the formats, the Texinfo tree can also be
+converted directly, in general by using @code{output_tree}.  This is how the other
+Converters are implemented.
 
-The documentation of @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common}, @ref{Texinfo@asis{::}Convert@asis{::}Unicode NAME,, Texinfo::Convert::Unicode}
-describes modules or additional function that may be useful for backends,
-while the parsed Texinfo tree is described in @ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser}.
+Existing backends based on @code{output_tree} may be used as examples.
+@code{Texinfo::Convert::Texinfo} together with @code{Texinfo::Convert::PlainTexinfo},
+as well as @code{Texinfo::Convert::TextContent} are trivial examples.
+@code{Texinfo::Convert::Text} is less trivial, although still simple, while
+@code{Texinfo::Convert::DocBook} is a real converter that is also not too complex.
+
+The documentation of @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common}, @ref{Texinfo@asis{::}OutputUnits NAME,, Texinfo::OutputUnits},
+@ref{Texinfo@asis{::}Convert@asis{::}Unicode NAME,, Texinfo::Convert::Unicode} and @ref{Texinfo@asis{::}Convert@asis{::}Text NAME,, Texinfo::Convert::Text} describes modules or
+additional function that may be useful for backends, while the parsed Texinfo
+tree is described in @ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser}.
 
 @node Texinfo@asis{::}Convert@asis{::}Converter METHODS
 @section Texinfo::Convert::Converter METHODS
@@ -208,18 +209,16 @@ the @code{converter} method that should be inherited from
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options)}
 
 The @emph{$options} hash reference holds options for the converter.
-These options are Texinfo customization options and a few other options that can
-be passed to the converter. Most of the customization options
-are described in the Texinfo manual or in the customization API manual.
-Those customization options, when appropriate, override the document content.
-@strong{TODO what about the other options?}
+These options should be Texinfo customization options.  The
+customization options are described in the Texinfo manual or in the
+customization API manual.
 
 The @code{converter} function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations.
 
 @end table
 
-To help with these initializations, the modules subclassing @code{Texinfo::Convert::Converter}
+To help with the initializations, the modules subclassing @code{Texinfo::Convert::Converter}
 can define two methods:
 
 @table @asis
@@ -227,9 +226,10 @@ can define two methods:
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter \%defaults = $converter_or_class->converter_defaults($options)}
 @cindex @code{converter_defaults}
 
-The module can provide the reference on a hash with defaults for converter
-customization options.  The @emph{$options} hash reference holds options for the
-converter.  The function can be called both through a class or a converter.
+Returns a reference on a hash with defaults for the converter module
+customization options or @code{undef}.  The @emph{$options} hash reference holds
+options for the converter.  This method is called through a converter by @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, converter}, but it may also
+be called through a converter module class.
 
 @item converter_initialize
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter converter_initialize}
@@ -329,6 +329,11 @@ functions from diverse Texinfo modules needing customization
 information expect an object implementing @code{get_conf} and/or
 @code{set_conf}.  The converter itself can therefore be used in
 such cases.
+
+Customization variables are typically setup when
+initializing a converter with @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, converter}
+and completed by Texinfo informative @@-commands tree element values,
+for commands such as @code{@@frenchspacing} or @code{@@footnotestyle}.
 
 @table @asis
 @item $converter->force_conf($variable_name, $variable_value)
@@ -441,7 +446,7 @@ some substitution to be done after the translation.  The key of the
 In the string to be translated word in brace matching keys of
 @emph{$replaced_substrings} are replaced.
 For @code{cdt}, the value is a Texinfo tree that is substituted in the
-resulting texinfo tree. For @code{cdt_string}, the value is a string that
+resulting Texinfo tree. For @code{cdt_string}, the value is a string that
 is replaced in the resulting string.
 
 The @emph{$translation_context} is optional.  If not @code{undef} this is a translation
@@ -615,7 +620,7 @@ split, the directory where the files should be created.  @emph{$output_filename}
 is, in general, the file name portion of @emph{$output_file} (without directory)
 but can also be set based on @code{@@setfilename}, in particular when
 @emph{$output_file} is an empty string. @emph{$document_name} is @emph{$output_filename}
-without extension.  @emph{$input_basefile} is based on the input texinfo file name,
+without extension.  @emph{$input_basefile} is based on the input Texinfo file name,
 with the file name portion only (without directory).
 
 The strings returned are text strings.
@@ -640,25 +645,25 @@ the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 
 Note that @code{encoded_output_file_name} is a wrapper around the
-function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($converter@comma{} $character_string_name),, Texinfo::Convert::Utils::encoded_output_file_name},
+function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($character_string_name),, Texinfo::Convert::Utils::encoded_output_file_name},
 and @code{encoded_input_file_name} is a wrapper around the
-function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($converter@comma{} $character_string_name@comma{} $input_file_encoding),, Texinfo::Convert::Utils::encoded_input_file_name}.
+function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($character_string_name@comma{} $input_file_encoding),, Texinfo::Convert::Utils::encoded_input_file_name}.
 
 @item ($caption, $prepended) = $converter->float_name_caption($float)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter ($caption@comma{} $prepended) = $converter->float_name_caption($float)}
 @cindex @code{float_name_caption}
 
-@emph{$float} is a texinfo tree @code{@@float} element.  This function
+@emph{$float} is a Texinfo tree @code{@@float} element.  This function
 returns the caption element that should be used for the float formatting
-and the @emph{$prepended} texinfo tree combining the type and label
+and the @emph{$prepended} Texinfo tree combining the type and label
 of the float.
 
 @item $tree = $converter->float_type_number($float)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $tree = $converter->float_type_number($float)}
 @cindex @code{float_type_number}
 
-@emph{$float} is a texinfo tree @code{@@float} element.  This function
-returns the type and number of the float as a texinfo tree with
+@emph{$float} is a Texinfo tree @code{@@float} element.  This function
+returns the type and number of the float as a Texinfo tree with
 translations.
 
 @item $end_line = $converter->format_comment_or_return_end_line($element)

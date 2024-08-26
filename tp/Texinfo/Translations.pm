@@ -567,8 +567,8 @@ some substitution to be done after the translation.  The key of the
 I<$replaced_substrings> hash reference identifies what is to be substituted.
 In the string to be translated word in brace matching keys of
 I<$replaced_substrings> are replaced.
-For C<gdt>, the value is a Texinfo tree that is substituted in the
-resulting texinfo tree. For C<gdt_string>, the value is a string that
+For C<gdt>, the value is a Texinfo tree element that is substituted in the
+resulting Texinfo tree. For C<gdt_string>, the value is a string that
 is replaced in the resulting string.
 
 I<$debug_level> is an optional debugging level supplied to C<gdt>, similar to
@@ -583,7 +583,7 @@ For example, in the following call, the string
 C<See {reference} in @cite{{book}}> is translated, then
 parsed as a Texinfo string, with I<{reference}> substituted by
 I<$tree_reference> in the resulting tree, and I<{book}>
-replaced by the associated texinfo tree text element:
+replaced by the associated Texinfo tree text element:
 
   $tree = gdt('See {reference} in @cite{{book}}', "ca",
               {'reference' => $tree_reference,

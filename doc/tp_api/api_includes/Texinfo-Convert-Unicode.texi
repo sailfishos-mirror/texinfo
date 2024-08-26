@@ -91,8 +91,8 @@ conversion of the @emph{$stack}.  @emph{$converter} is a converter object option
 used by @emph{$format_accent}.  It may be @code{undef} if there is no need of
 converter object in @emph{$format_accent}.
 
-If @emph{$set_case} is positive, the result is upper-cased, while if it is negative,
-the result is lower-cased.
+The @emph{$set_case} argument is optional.  If @emph{$set_case} is positive, the result
+is upper-cased, while if it is negative, the result is lower-cased.
 
 @item $width = string_width($string)
 @anchor{Texinfo@asis{::}Convert@asis{::}Unicode $width = string_width($string)}

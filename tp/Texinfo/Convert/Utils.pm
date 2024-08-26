@@ -751,9 +751,9 @@ I<$def_line> taking the class into account, if there is one.
 If I<$converter> is not defined, the resulting string won't be
 translated.
 
-=item ($encoded_name, $encoding) = $converter->encoded_input_file_name($converter, $character_string_name, $input_file_encoding)
+=item ($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding)
 
-=item ($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name)
+=item ($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name)
 X<C<encoded_input_file_name>> X<C<encoded_output_file_name>>
 
 Encode I<$character_string_name> in the same way as other file names are

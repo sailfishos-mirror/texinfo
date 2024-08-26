@@ -84,8 +84,8 @@ some substitution to be done after the translation.  The key of the
 @emph{$replaced_substrings} hash reference identifies what is to be substituted.
 In the string to be translated word in brace matching keys of
 @emph{$replaced_substrings} are replaced.
-For @code{gdt}, the value is a Texinfo tree that is substituted in the
-resulting texinfo tree. For @code{gdt_string}, the value is a string that
+For @code{gdt}, the value is a Texinfo tree element that is substituted in the
+resulting Texinfo tree. For @code{gdt_string}, the value is a string that
 is replaced in the resulting string.
 
 @emph{$debug_level} is an optional debugging level supplied to @code{gdt}, similar to
@@ -100,7 +100,7 @@ For example, in the following call, the string
 @code{See @{reference@} in @@cite@{@{book@}@}} is translated, then
 parsed as a Texinfo string, with @emph{@{reference@}} substituted by
 @emph{$tree_reference} in the resulting tree, and @emph{@{book@}}
-replaced by the associated texinfo tree text element:
+replaced by the associated Texinfo tree text element:
 
 @verbatim
   $tree = gdt('See {reference} in @cite{{book}}', "ca",

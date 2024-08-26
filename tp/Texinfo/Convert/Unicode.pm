@@ -1818,8 +1818,8 @@ conversion of the I<$stack>.  I<$converter> is a converter object optionaly
 used by I<$format_accent>.  It may be C<undef> if there is no need of
 converter object in I<$format_accent>.
 
-If I<$set_case> is positive, the result is upper-cased, while if it is negative,
-the result is lower-cased.
+The I<$set_case> argument is optional.  If I<$set_case> is positive, the result
+is upper-cased, while if it is negative, the result is lower-cased.
 
 =item $width = string_width($string)
 X<C<string_width>>

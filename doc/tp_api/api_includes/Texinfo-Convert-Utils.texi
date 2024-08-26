@@ -84,11 +84,11 @@ returns a Texinfo tree corresponding to the category of the
 If @emph{$converter} is not defined, the resulting string won't be
 translated.
 
-@item ($encoded_name, $encoding) = $converter->encoded_input_file_name($converter, $character_string_name, $input_file_encoding)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($converter@comma{} $character_string_name@comma{} $input_file_encoding)}
+@item ($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($character_string_name@comma{} $input_file_encoding)}
 
-@item ($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($converter@comma{} $character_string_name)}
+@item ($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($character_string_name)}
 @cindex @code{encoded_input_file_name}
 @cindex @code{encoded_output_file_name}
 
