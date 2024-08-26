@@ -618,6 +618,10 @@ my %possible_split = (
 
 my $format_from_command_line = 0;
 
+my %converter_format_expanded_region_name = (
+  'texinfoxml' => 'xml',
+);
+
 my %format_command_line_names = (
   'xml' => 'texinfoxml',
 );
@@ -728,41 +732,54 @@ sub set_format($;$$)
   $previous_format = $format if (!defined($previous_format));
   my $do_not_override_command_line = shift;
 
-  my $new_format;
+  my $new_output_format;
   if ($format_command_line_names{$set_format}) {
-    $new_format = $format_command_line_names{$set_format};
+    $new_output_format = $format_command_line_names{$set_format};
   } else {
-    $new_format = $set_format;
+    $new_output_format = $set_format;
   }
-  my $expanded_format = $set_format;
-  if (!$formats_table{$new_format}) {
+  if (!$formats_table{$new_output_format}) {
     document_warn(sprintf(__(
                    "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"),
-                         $new_format));
-    $new_format = $previous_format;
+                         $set_format));
+    $new_output_format = $previous_format;
   } else {
     if ($format_from_command_line and $do_not_override_command_line) {
-      $new_format = $previous_format;
+      $new_output_format = $previous_format;
     } else {
-      if ($formats_table{$new_format}->{'texi2dvi_format'}) {
+      my $converter_format;
+      my $expanded_region;
+
+      if ($formats_table{$new_output_format}->{'texi2dvi_format'}) {
         $call_texi2dvi = 1;
-        push @texi2dvi_args, '--'.$new_format;
-        $expanded_format = 'tex';
-      } elsif ($formats_table{$new_format}->{'converted_format'}) {
-        $expanded_format = $formats_table{$new_format}->{'converted_format'};
+        push @texi2dvi_args, '--'.$new_output_format;
+        $converter_format = 'tex';
+      } elsif ($formats_table{$new_output_format}->{'converted_format'}) {
+        $converter_format
+          = $formats_table{$new_output_format}->{'converted_format'};
+      } else {
+        $converter_format = $new_output_format;
       }
-      if ($Texinfo::Common::texinfo_output_formats{$expanded_format}) {
-        if ($expanded_format eq 'plaintext') {
-          $default_expanded_format = [$expanded_format, 'info'];
+
+      if ($converter_format_expanded_region_name{$converter_format}) {
+        $expanded_region
+          = $converter_format_expanded_region_name{$converter_format};
+      } else {
+        $expanded_region = $converter_format;
+      }
+
+      if ($Texinfo::Common::texinfo_output_formats{$expanded_region}) {
+        if ($expanded_region eq 'plaintext') {
+          $default_expanded_format = [$expanded_region, 'info'];
         } else {
-          $default_expanded_format = [$expanded_format];
+          $default_expanded_format = [$expanded_region];
         }
       }
       $format_from_command_line = 1
         unless ($do_not_override_command_line);
     }
   }
-  return $new_format;
+  return $new_output_format;
 }
 
 sub _get_converter_default($)
