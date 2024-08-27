@@ -1,3 +1,26 @@
+2024-08-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	texi2any_internals.texi build fixes
+
+	* doc/tp_api/Makefile.am (texi2any_internals.texi):
+	Generate .info file in builddir.  Change working directory to
+	$(srcdir) before running pod2texi.  This allows pod2texi to
+	generate @include directives correctly with the --subdir option.
+	(texi2any_internals_dependencies): List dependencies with
+	../../ prefix instead of $(top_srcdir)/.
+	(MAKEINFO_ENVIRONMENT): Use abs_top_srcdir and abs_top_buildir
+	instead of top_srcdir and top_buildir.
+
+	Report from Bruno Haible and analysis by Patrice.
+
+	* tp/Makefile.am (Texinfo/Commands.pm): Generate in srcdir.
+	Remove from modules_DATA and DISTCLEANFILES, and add to
+	dist_modules_DATA and MAINTAINERCLEANFILES.
+	* tp/maintain/regenerate_commands_perl_info.pl:
+	Receive generated file name as argument.
+	(Based on Patrice's change to git 'master' branch on 2023-10-22,
+	commit 3cc99724; and 2023-10-19, commit bec1b4b3).
+
 2024-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* Makefile.am (BUILT_SOURCES): Add tp/Texinfo/ModulePath.pm along
