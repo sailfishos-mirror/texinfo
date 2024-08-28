@@ -1,3 +1,10 @@
+2023-10-22  Patrice Dumas  <pertusus@free.fr>
+
+	* man/Makefile.am (generated_mans, MAINTAINERCLEANFILES): distinguish
+	generated man pages in generated_mans variable and
+	MAINTAINERCLEANFILES, manually written man pages should not be
+	cleaned.
+
 2024-08-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	texi2any_internals.texi build fixes

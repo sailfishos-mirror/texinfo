@@ -10,31 +10,33 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# These are hand-written.
+man_MANS = info.5 texinfo.5
+
+# These are just .so's to the common program.
+man_MANS += texi2any.1 texi2pdf.1 pdftexi2dvi.1
+
 # These are generated using help2man.
-man_MANS = install-info.1 makeinfo.1 texindex.1 texi2dvi.1
+generated_mans = install-info.1 makeinfo.1 texindex.1 texi2dvi.1
 
 # These require the build in info/, thus can't do if we failed to find a
 # terminal library.
 if HAVE_TERMLIBS
-man_MANS += info.1
+generated_mans += info.1
 endif
 
-# These are hand-written.
-man_MANS += info.5 texinfo.5
-
-man_MANS += pod2texi.1
+generated_mans += pod2texi.1
 
 $(srcdir)/pod2texi.1: $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl
 	$(POD2MAN) $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl >"$@"
 
 
-# These are just .so's to the common program.
-man_MANS += texi2any.1 texi2pdf.1 pdftexi2dvi.1
+man_MANS += $(generated_mans)
 
 EXTRA_DIST = $(man_MANS) ginfo.h2m
 
 # Maintainers should be able to regenerate.
-MAINTAINERCLEANFILES = $(man_MANS)
+MAINTAINERCLEANFILES = $(generated_mans)
 
 # 
 # Use the programs built in our distribution, taking account of possible
