@@ -1196,26 +1196,27 @@ and the @code{description} for a more detailed description (@pxref{Direction
 Strings}).
 
 @item function reference
-The function is called with one boolean argument, true if the
-navigation panel should be vertical.  Should return the formatted
-button text.
+The functions is called with one arguments, the converter object.
+The function should return two scalars, the button text and
+a boolean set if a delimiter is desired before the button.
 
 @item scalar reference
 The scalar value is printed.
 
 @item array reference of length 2
 Here, the first array item should be a an output unit direction.
-A link to the output unit associated with the output unit direction
-is generated.  The text of the link depends on the second array item.
+The text of the link depends on the second array item.
 
 @table @emph
 @item reference to a text string
-In that case, the corresponding text is used.
+A link to the output unit associated with the output unit direction
+is generated with the corresponding text used for the text link.
 
 @item reference to a function
-The functions is called with two arguments, the converter object and the
-output unit direction and should return two scalars, the link href and text and
-a boolean set if a delimiter is needed after that button.
+The functions is called with three arguments, the converter object, the
+output unit direction and the source Texinfo tree element (possibly undef).
+The function should return two scalars, the button text and
+a boolean set if a delimiter is desired before the button.
 
 @c This buttons specification is not used anywhere in code nor
 @c tests, it is certainly not worth maintaining in the long run.
@@ -1240,6 +1241,9 @@ based on the name of the node associated with the next section output unit.
 
 @end table
 
+No delimiter is printed before the first button.  Leading space buttons
+mixed with directions not found may be omitted of the navigation panel output.
+
 @vindex USE_ACCESSKEY
 @anchor{Accesskey and @code{rel} Navigation}
 @cindex @code{accesskey} navigation
@@ -1254,9 +1258,6 @@ Similarly, if the @code{USE_REL_REV} customization variable is set,
 the @code{rel} attribute is used in navigation.  In that case the
 @code{rel} direction string is used for the @code{rel}
 attribute (@pxref{Direction Strings}).
-
-Leading space buttons mixed with directions not found may be omitted
-of the navigation panel output.
 
 
 @node User Defined Functions
