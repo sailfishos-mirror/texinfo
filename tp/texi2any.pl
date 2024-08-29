@@ -381,33 +381,122 @@ my $main_program_default_options = {
 # used as part of binary strings
 my $conf_file_name = 'texi2any-config.pm';
 
+# When we replace a directory, we emit a warning for some time,
+# using %deprecated_directories to match to the directory that
+# should be used.
+# In 2024 we switched to using the XDG Base Directory Specification,
+# https://specifications.freedesktop.org/basedir-spec/latest/index.html
+#  $HOME/texinfo should be $XDG_CONFIG_HOME default: $HOME/.config/texinfo
+my %deprecated_directories;
+
+# We use first the environment variable, then the installation directory
+# and last the SDG basedir specification default, even if the environment
+# variable was set, to be sure to have implementation independent locations
+# used.
+sub add_config_paths($$$$) {
+  my $env_string = shift;
+  my $subdir = shift;
+  my $default_base_dirs = shift;
+  my $installation_dir = shift;
+
+  my @result_dirs;
+  my %used_base_dirs;
+  if (defined($ENV{$env_string}) and $ENV{$env_string} ne '') {
+    foreach my $dir (split(':', $ENV{$env_string})) {
+      if ($dir ne '') {
+        push @result_dirs, File::Spec->catdir($dir, $subdir);
+        $used_base_dirs{$dir} = 1;
+      }
+    }
+  }
+  if (defined($installation_dir)
+      and not $used_base_dirs{$installation_dir}) {
+    my $install_result_dir = File::Spec->catdir($installation_dir, $subdir);
+    push @result_dirs, $install_result_dir;
+    $used_base_dirs{$installation_dir} = 1;
+  }
+
+  foreach my $dir (@$default_base_dirs) {
+    if (!$used_base_dirs{$dir}) {
+      push @result_dirs, File::Spec->catdir($dir, $subdir);
+    }
+  }
+  return \@result_dirs;
+}
+
+sub set_subdir_directories($$) {
+  my $subdir = shift;
+  my $deprecated_dirs = shift;
+
+  my @result = File::Spec->catdir('.'.$subdir);
+
+  my $config_home;
+  my $deprecated_config_home;
+  if (defined($ENV{'XDG_CONFIG_HOME'}) and $ENV{'XDG_CONFIG_HOME'} ne '') {
+    $config_home = File::Spec->catdir($ENV{'XDG_CONFIG_HOME'}, $subdir);
+  } else {
+    if (defined($ENV{'HOME'})) {
+      $config_home = File::Spec->catdir($ENV{'HOME'}, '.config', $subdir);
+      $deprecated_config_home = File::Spec->catdir($ENV{'HOME'}, '.'.$subdir);
+      $deprecated_dirs->{$deprecated_config_home} = $config_home;
+    }
+  }
+  push @result, $config_home
+    if (defined($config_home));
+
+  push @result, $deprecated_config_home
+    if (defined($deprecated_config_home));
+
+  my $config_dirs = add_config_paths('XDG_CONFIG_DIRS', $subdir,
+                       ['/etc/xdg'], $sysconfdir);
+  push @result, @$config_dirs;
+
+  my $data_dirs = add_config_paths('XDG_DATA_DIRS', 'texinfo',
+      ['/usr/local/share/', '/usr/share/'], $datadir);
+
+  push @result, @$data_dirs;
+
+  return \@result;
+}
+
 # directories for Texinfo configuration files, as far as possible
 # implementation independent.  Used as part of binary strings.
 # curdir and the input file path directory are prepended later on.
-my @texinfo_language_config_dirs = File::Spec->catdir('.texinfo');
-push @texinfo_language_config_dirs, File::Spec->catdir($ENV{'HOME'}, '.texinfo')
-                                if (defined($ENV{'HOME'}));
-push @texinfo_language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo')
-                               if (defined($sysconfdir));
-push @texinfo_language_config_dirs, File::Spec->catdir($datadir, 'texinfo')
-                               if (defined($datadir));
+my $language_config_dirs
+  = set_subdir_directories('texinfo', \%deprecated_directories);
+my @texinfo_language_config_dirs = @$language_config_dirs;
+
+#push @texinfo_language_config_dirs, File::Spec->catdir($sysconfdir, 'texinfo')
+#                               if (defined($sysconfdir));
+#push @texinfo_language_config_dirs, File::Spec->catdir($datadir, 'texinfo')
+#                               if (defined($datadir));
 
 # these variables are used as part of binary strings.
 my @program_config_dirs;
 my @program_init_dirs;
 
 my $program_name = 'texi2any';
-@program_config_dirs = ($curdir, File::Spec->catdir($curdir, ".$program_name"));
-push @program_config_dirs, File::Spec->catdir($ENV{'HOME'}, ".$program_name")
-       if (defined($ENV{'HOME'}));
-push @program_config_dirs, File::Spec->catdir($sysconfdir, $program_name)
-       if (defined($sysconfdir));
-push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
-  if (defined($datadir));
+my $program_config_dirs_array_ref
+  = set_subdir_directories($program_name, \%deprecated_directories);
+
+@program_config_dirs = ($curdir, @$program_config_dirs_array_ref);
+
+#@program_config_dirs = ($curdir, File::Spec->catdir($curdir, ".$program_name"));
+#push @program_config_dirs, File::Spec->catdir($ENV{'HOME'}, ".$program_name")
+#       if (defined($ENV{'HOME'}));
+#push @program_config_dirs, File::Spec->catdir($sysconfdir, $program_name)
+#       if (defined($sysconfdir));
+#push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
+#  if (defined($datadir));
 
 @program_init_dirs = @program_config_dirs;
 foreach my $texinfo_config_dir ($curdir, @texinfo_language_config_dirs) {
-  push @program_init_dirs, File::Spec->catdir($texinfo_config_dir, 'init');
+  my $init_dir = File::Spec->catdir($texinfo_config_dir, 'init');
+  push @program_init_dirs, $init_dir;
+  if ($deprecated_directories{$texinfo_config_dir}) {
+    $deprecated_directories{$init_dir}
+   = File::Spec->catdir($deprecated_directories{$texinfo_config_dir}, 'init');
+  }
 }
 
 # add texi2any extensions dir too, such as the init files there
@@ -454,19 +543,44 @@ sub _decode_input($)
   }
 }
 
+sub _warn_deprecated_dirs($$)
+{
+  my $deprecated_dirs = shift;
+  my $deprecated_dirs_used = shift;
+
+  if (defined($deprecated_dirs_used)) {
+    foreach my $dir (@$deprecated_dirs_used) {
+      my $dir_name = _decode_input($dir);
+      my $replacement_dir = _decode_input($deprecated_dirs->{$dir});
+
+      document_warn(sprintf(__(
+                      "%s directory is deprecated. Use %s instead"),
+                             $dir_name, $replacement_dir));
+    }
+  }
+}
+
 # arguments are binary strings.
-sub locate_and_load_init_file($$)
+sub locate_and_load_init_file($$;$)
 {
   my $filename = shift;
   my $directories = shift;
+  my $deprecated_dirs = shift;
 
-  my $file = Texinfo::Common::locate_file_in_dirs($filename, $directories, 0);
-  if (defined($file)) {
+  my ($files, $deprecated_dirs_used)
+     = Texinfo::Common::locate_file_in_dirs($filename, $directories, 0,
+                                            $deprecated_dirs);
+  if (defined($files)) {
+    my $file = $files->[0];
     # evaluate the code in the Texinfo::Config namespace
     Texinfo::Config::GNUT_load_init_file($file);
   } else {
     document_warn(sprintf(__("could not read init file %s"),
                           _decode_input($filename)));
+  }
+
+  if ($deprecated_dirs and $deprecated_dirs_used) {
+    _warn_deprecated_dirs($deprecated_dirs, $deprecated_dirs_used);
   }
 }
 
@@ -478,9 +592,12 @@ sub locate_and_load_extension_file($$)
   my $filename = shift;
   my $directories = shift;
 
-  my $file = Texinfo::Common::locate_file_in_dirs($filename, $directories, 0);
-  if (defined($file)) {
+  # no possible deprecated dirs with the path passed to this sub
+  my ($files, $deprecated_dirs_used)
+     = Texinfo::Common::locate_file_in_dirs($filename, $directories, 0);
+  if (defined($files)) {
     # evaluate the code in the Texinfo::Config namespace
+    my $file = $files->[0];
     Texinfo::Config::GNUT_load_init_file($file);
   } else {
     die _encode_message(sprintf(__("could not read extension file %s"),
@@ -580,9 +697,18 @@ set_translations_encoding($translations_encoding);
 # read initialization files.  Better to do that after
 # Texinfo::Config::GNUT_initialize_customization() in case loaded
 # files replace default options.
-foreach my $file (Texinfo::Common::locate_file_in_dirs($conf_file_name,
-                  [ reverse(@program_config_dirs) ], 1)) {
-  Texinfo::Config::GNUT_load_init_file($file);
+my ($config_init_files, $deprecated_dirs_for_config_init)
+ = Texinfo::Common::locate_file_in_dirs($conf_file_name,
+                             [ reverse(@program_config_dirs) ], 1,
+                                        \%deprecated_directories);
+if (defined($config_init_files)) {
+  foreach my $file (@$config_init_files) {
+    Texinfo::Config::GNUT_load_init_file($file);
+  }
+}
+if ($deprecated_dirs_for_config_init) {
+  _warn_deprecated_dirs(\%deprecated_directories,
+                        $deprecated_dirs_for_config_init);
 }
 
 # reset translations encodings if COMMAND_LINE_ENCODING was reset
@@ -1064,7 +1190,8 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
     if (get_conf('TEST')) {
       locate_and_load_init_file($_[1], [ @conf_dirs ]);
     } else {
-      locate_and_load_init_file($_[1], [ @conf_dirs, @program_init_dirs ]);
+      locate_and_load_init_file($_[1], [ @conf_dirs, @program_init_dirs ],
+                                \%deprecated_directories);
     }
  },
  'set-customization-variable|c=s' => sub {
@@ -1782,6 +1909,8 @@ while(@input_files) {
   # and Converters.
   $converter_options->{'output_format'} = $format;
   $converter_options->{'converted_format'} = $converted_format;
+  $converter_options->{'deprecated_config_directories'}
+     = \%deprecated_directories;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 

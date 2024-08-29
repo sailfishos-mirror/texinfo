@@ -8695,6 +8695,8 @@ sub _parse_htmlxref_files($$)
 sub _load_htmlxref_files {
   my ($self) = @_;
 
+  my $deprecated_dirs = $self->{'deprecated_config_directories'};
+
   my @htmlxref_files;
   my $htmlxref_mode = $self->get_conf('HTMLXREF_MODE');
   return if (defined($htmlxref_mode) and $htmlxref_mode eq 'none');
@@ -8744,9 +8746,30 @@ sub _load_htmlxref_files {
     if (defined($htmlxref_file_name)) {
       my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
         = $self->encoded_output_file_name($htmlxref_file_name);
-      @htmlxref_files
+      my ($htmlxref_files_array_ref, $deprecated_dirs_used)
         = Texinfo::Common::locate_file_in_dirs($encoded_htmlxref_file_name,
-                                               \@htmlxref_dirs, 1);
+                                               \@htmlxref_dirs, 1,
+                                               $deprecated_dirs);
+      if (defined($htmlxref_files_array_ref)) {
+        @htmlxref_files = @$htmlxref_files_array_ref;
+
+        if (defined($deprecated_dirs_used)) {
+          foreach my $dir (@$deprecated_dirs_used) {
+            my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+            my ($dir_name, $replacement_dir);
+            if (defined($encoding)) {
+              $dir_name = decode($encoding, $dir);
+              $replacement_dir = decode($encoding, $deprecated_dirs->{$dir})
+            } else {
+              $dir_name = $dir;
+              $replacement_dir = $deprecated_dirs->{$dir};
+            }
+            $self->converter_document_warn(sprintf(__(
+                      "%s directory is deprecated. Use %s instead"),
+                             $dir_name, $replacement_dir));
+          }
+        }
+      }
     }
   }
 
@@ -8758,6 +8781,9 @@ sub _load_htmlxref_files {
 }
 
 # converter state
+#
+#   No API
+#  deprecated_config_directories
 #
 #  output_init_conf
 #

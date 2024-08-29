@@ -30,6 +30,12 @@ See the manual for detailed information.
    the linguistic tailoring of index sorting
  . new variable USE_UNICODE_COLLATION to allow turning off the slower
    use of Unicode collation when sorting indices
+ . Add XDG Base Directory Specification support for search paths.
+   The dot directories directly found in users home, ~/.texinfo and
+   ~/.texi2any are deprecated and should be replaced by texinfo or
+   texi2any directories in XDG_CONFIG_HOME or in ~/.config/.  In future
+   versions the ~/.texinfo and ~/.texi2any directories will not be
+   in search paths.
  . remove SIMPLE_MENU customization option and tree transformation.
  . remove FRAMES and FRAMESET_DOCTYPE customization options.
  . remove AVOID_MENU_REDUNDANCY, NO_USE_SETFILENAME and

@@ -891,9 +891,11 @@ sub test($$)
       $symbols_before_init_file->{$symbol} = 1;
     }
     foreach my $filename (@{$parser_options->{'init_files'}}) {
-      my $file = Texinfo::Common::locate_file_in_dirs($filename,
-                                            $init_file_directories, 0);
-      if (defined($file)) {
+      my ($files, $deprecated_dirs_used)
+          = Texinfo::Common::locate_file_in_dirs($filename,
+                                                 $init_file_directories, 0);
+      if (defined($files)) {
+        my $file = $files->[0];
         Texinfo::Config::GNUT_load_init_file($file);
       } else {
         warn (sprintf("could not read init file %s", $filename));

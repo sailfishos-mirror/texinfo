@@ -1,5 +1,44 @@
 2024-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	Use XDG Base Directory Specification for directory lookups
+
+	* tp/Texinfo/Common.pm (locate_file_in_dirs), tp/t/test_utils.pl
+	(test), tp/texi2any.pl (locate_and_load_init_file)
+	(locate_and_load_extension_file): add deprecated directories argument
+	and return deprecated directories used.  Update callers.
+
+	* tp/texi2any.pl (add_config_paths): add function to setup directories
+	using XDG Base Directory Specification environment variable,
+	installation directory and default XDG Base Directory Specification
+	directories.  The default XDG Base Directory Specification directories
+	are added (last) even if the environment variable is set, such as to
+	always have directories searched implementation and user-configuration
+	independent.
+
+	* tp/texi2any.pl (set_subdir_directories): set all the directories
+	where files are searched for in a subdirectory.  In current directory,
+	in HOME, following the XDG Base Directory Specification and by calling
+	add_config_paths.  Set deprecated_dirs information with dot directory
+	directly found in HOME that is deprecated by XDG Base Directory
+	Specification HOME directories.  Use set_subdir_directories to set
+	@texinfo_language_config_dirs, @program_config_dirs.
+
+	* tp/texi2any.pl (_warn_deprecated_dirs, $config_init_files)
+	(locate_and_load_init_file): warn for deprecated directories.
+
+	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults),
+	tp/texi2any.pl: pass main program deprecated directories information
+	to converter through deprecated_config_directories key value.
+
+	* tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files): pass
+	deprecated_config_directories to locate_file_in_dirs and warn about
+	deprecated directories used.
+
+	* NEWS, doc/texi2any_api.texi (Loading Init Files), doc/texinfo.texi
+	(HTML Xref Configuration): update directory lookup descriptions.
+
+2024-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Simple Navigation Panel Customization): the
 	boolean set by button formatting function specifies that a delimiter
 	is desired before the button.  Also update the description of the

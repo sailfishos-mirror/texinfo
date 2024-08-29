@@ -1147,14 +1147,23 @@ sub output_files_unclosed_files($)
 #               search the file in. Binary strings.
 # $ALL_FILES:   if true collect all the files with that name, otherwise stop
 #               at first match.
-sub locate_file_in_dirs($$$)
+# $DEPRECATED_DIRS:  optional argument.  If set, associates deprecated directory
+#                    names with the directory name that should be used
+#
+# Return an array reference with the files found, only one if $ALL_FILES
+# is false, and an array reference with the deprecated directories used.
+sub locate_file_in_dirs($$$;$)
 {
   my $input_file_path = shift;
   my $directories = shift;
   my $all_files = shift;
+  my $deprecated_dirs = shift;
+
+  my $deprecated_dirs_used;
 
   if (File::Spec->file_name_is_absolute($input_file_path)) {
-    return $input_file_path if (-e $input_file_path and -r $input_file_path);
+    return ([$input_file_path], undef)
+       if (-e $input_file_path and -r $input_file_path);
   } else {
     my ($volume, $path_directories, $file)
        = File::Spec->splitpath($input_file_path);
@@ -1162,23 +1171,30 @@ sub locate_file_in_dirs($$$)
     if (scalar(@path_directories) > 0) {
       # do not search in directories if the file name already contains
       # directories.
-      return $input_file_path if (-e $input_file_path and -r $input_file_path);
+      return ([$input_file_path], undef)
+         if (-e $input_file_path and -r $input_file_path);
     } else {
       my @files;
       foreach my $dir (@$directories) {
         next unless (-d $dir);
         my $possible_file = File::Spec->catfile($dir, $input_file_path);
-        if ($all_files) {
-          push (@files, $possible_file)
-            if (-e $possible_file and -r $possible_file);
-        } else {
-          return $possible_file if (-e $possible_file and -r $possible_file);
+        if (-e $possible_file and -r $possible_file) {
+          if ($deprecated_dirs->{$dir}) {
+            $deprecated_dirs_used = [] if (!defined($deprecated_dirs_used));
+            push @$deprecated_dirs_used, $dir;
+          }
+          if ($all_files) {
+            push (@files, $possible_file);
+          } else {
+            return [$possible_file], $deprecated_dirs_used;
+          }
         }
       }
-      return @files if ($all_files);
+      return (\@files, $deprecated_dirs_used)
+        if ($all_files and scalar(@files));
     }
   }
-  return undef;
+  return undef, undef;
 }
 
 sub element_associated_processing_encoding($)

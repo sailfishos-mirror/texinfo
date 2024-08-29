@@ -107,18 +107,45 @@ of @file{texi2any-config.pm} files is not definitive.
 You can write so-called @dfn{initialization files}, or @dfn{init
 files} for short, to modify almost every aspect of output formatting.
 The program loads init files named @file{texi2any-config.pm} each time it
-is run.  Those files are looked for in the following directories:
+is run.  The directories lookup is based on the @url{https://specifications.freedesktop.org/basedir-spec/latest/, XDG Base
+Directory Specification} with additional possibilities.
+The @file{texi2any-config.pm} files are looked for in the
+following directories:
 
 @table @file
+@item /usr/share/texi2any/
+(with @file{/usr/share/} the second default directory for @env{XDG_DATA_DIRS}
+in the XDG Base Directory Specification)
+
+@item /usr/local/share/texi2any/
+(with @file{/usr/local/share} the first default directory for
+@env{XDG_DATA_DIRS} in the XDG Base Directory Specification)
+
 @item @var{datadir}/texi2any/
 (where @var{datadir} is the system data directory specified at
 compile-time, e.g., @file{/usr/local/share})
 
-@item @var{sysconfdir}/texi2any/
-(likewise specified at compile time, e.g., @file{/usr/local/etc})
+@item @env{XDG_DATA_DIRS}/texi2any
+(for each directory in the @code{:} delimited @env{XDG_DATA_DIRS} environment
+variable, in reverse order)
 
-@item ~/.texi2any/
-(where @code{~} is the current user's home directory)
+@item /etc/xdg/texi2any/
+(with @file{/etc/xdg} the default directory for @env{XDG_CONFIG_DIRS}
+in the XDG Base Directory Specification)
+
+@item @var{sysconfdir}/texi2any/
+(specified at compile time, e.g., @file{/usr/local/etc})
+
+@item @env{XDG_CONFIG_DIRS}/texi2any
+(for each directory in the @code{:} delimited @env{XDG_CONFIG_DIRS}
+environment variable, in reverse order)
+
+@item ~/.config/texi2any/
+(where @code{~} is the current user's home directory, only if
+@env{XDG_CONFIG_HOME} is not set)
+
+@item @env{XDG_CONFIG_HOME}/texi2any
+(with @env{XDG_CONFIG_HOME} an environment variable)
 
 @item ./.texi2any/
 (under the current directory)
@@ -129,7 +156,7 @@ compile-time, e.g., @file{/usr/local/share})
 
 All @file{texi2any-config.pm} files found are loaded, in the above order.
 Thus, @file{./texi2any-config.pm} can override entries in, say,
-@file{/usr/local/share/makeinfo/texi2any-config.pm}.
+@file{/usr/local/share/texi2any/texi2any-config.pm}.
 
 @c @opindex --init-file
 @cindex @option{--init-file}
@@ -145,24 +172,57 @@ file found is used:
 
 @item @file{./.texi2any/} under the current directory;
 
-@item @file{~/.texi2any/}
-where @code{~} is the current user's home directory;
+@item @env{XDG_CONFIG_HOME}/texi2any if the @env{XDG_CONFIG_HOME} environment 
+is set, otherwise ~/.config/texi2any/ where @code{~} is the current user's home
+directory;
+
+@item if the environment variable @env{XDG_CONFIG_DIRS} is set,
+@var{directory}/texi2any for each @var{directory} in the
+@code{:} delimited @env{XDG_CONFIG_DIRS} environment variable value;
 
 @item @file{@var{sysconfdir}/texi2any/}
 where @var{sysconfdir} is the system configuration directory
 specified at compile-time, e.g., @file{/usr/local/etc};
 
+@item @file{/etc/xdg/texi2any/}
+
+@item if the environment variable @env{XDG_DATA_DIRS} is set,
+@var{directory}/texi2any for each @var{directory} in the
+@code{:} delimited @env{XDG_DATA_DIRS} environment variable value;
+
 @item @file{@var{datadir}/texi2any/}
-Where @var{datadir} is the system data directory likewise specified at
+Where @var{datadir} is the system data directory specified at
 compile time, e.g., @file{/usr/local/share};
+
+@item @file{/usr/local/share/texi2any/}
+
+@item @file{/usr/share/texi2any/}
 
 @item @file{./.texinfo/init/} under the current directory;
 
 @item @file{~/.texinfo/init/} under the current home directory;
 
+@item @env{XDG_CONFIG_HOME}/texinfo/init if the @env{XDG_CONFIG_HOME}
+environment is set, otherwise ~/.config/texinfo/init/ where @code{~} is the
+current user's home directory;
+
+@item if the environment variable @env{XDG_CONFIG_DIRS} is set,
+@var{directory}/texinfo/init for each @var{directory} in the
+@code{:} delimited @env{XDG_CONFIG_DIRS} environment variable value;
+
 @item @file{@var{sysconfdir}/texinfo/init/} with @var{sysconfdir} as above;
 
+@item @file{/etc/xdg/texinfo/init/}
+
+@item if the environment variable @env{XDG_DATA_DIRS} is set,
+@var{directory}/texinfo/init for each @var{directory} in the
+@code{:} delimited @env{XDG_DATA_DIRS} environment variable value;
+
 @item @file{@var{datadir}/texinfo/init/} with @var{datadir} as above.
+
+@item @file{/usr/local/share/texinfo/init/}
+
+@item @file{/usr/share/texinfo/init/}
 
 @item @file{@var{datadir}/texinfo/ext/} with @var{datadir} as above.
 @end enumerate
