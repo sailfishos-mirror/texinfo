@@ -387,6 +387,10 @@ release instructions.)
 Check on correct branch (master or release/*) and rebuild.
 ./autogen.sh ; ./configure ; make
 
+* For release/7.1 branch only: need to "rm -f doc/refcard/Makefile.in"
+after switching to prevent manually written Makefile being clobbered.
+[Remove this note once release/7.1 no longer relevant.]
+
 Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.  Check for leftover result
   files under tp/tests which should be removed.
@@ -419,6 +423,8 @@ Pod-Simple-Texinfo/pod2texi)
 
 Ensure texinfo.tex, htmlxref.cnf are updated on ftp.gnu.org.
 Upload texi2dvi, texi2pdf (official releases only)
+
+* For release/* branch only: propagate htmlxref.cnf from master
 
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
