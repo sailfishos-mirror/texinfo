@@ -847,6 +847,8 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
               TEXT dir_path;
               char *url_encoded_path;
               text_init (&dir_path);
+              const char *output_format
+                = self->conf->TEXINFO_OUTPUT_FORMAT.o.string;
 
               if (self->conf->EXTERNAL_DIR.o.string)
                 {
@@ -859,10 +861,10 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                   text_append_n (&dir_path, "../", 3);
                   text_append (&dir_path, manual_base);
                 }
-              if (self->output_format && strlen (self->output_format))
+              if (output_format && strlen (output_format))
                 {
                   text_append_n (&dir_path, "_", 1);
-                  text_append (&dir_path, self->output_format);
+                  text_append (&dir_path, output_format);
                 }
               url_encoded_path = url_protect_file_text (self, dir_path.text);
               free (dir_path.text);

@@ -15336,7 +15336,8 @@ Those associated with @@-commands; for example,
 @item
 Those associated with command-line options; for example, the
 customization variable @code{SPLIT} is associated with the
-@option{--split} command-line option, and @code{TEXINFO_OUTPUT_FORMAT}
+@option{--split} command-line option. @code{TEXINFO_OUTPUT_FORMAT}
+is set based on output format command line options and
 allows specifying the output format.
 
 @item
@@ -15513,7 +15514,10 @@ forms:
 @itemx xml
 These correspond to the command-line options (and
 @code{TEXINFO_OUTPUT_FORMAT} environment variable values) of the same
-name.  @xref{Invoking @command{texi2any}}.
+name.  The @code{TEXINFO_OUTPUT_FORMAT} customization variable value
+is set when command-line options (or @code{TEXINFO_OUTPUT_FORMAT}
+environment variable values) set the output format.
+@xref{Invoking @command{texi2any}}.
 
 @cindex tree representation, for debugging
 @cindex debugging document, with tree representation
@@ -15774,6 +15778,20 @@ If set to true, some variables which are normally dynamically
 generated anew for each run (date, program name, version) are set to
 fixed and given values.  This is useful to compare the output to a
 reference file, as is done for the tests.  The default is false.
+
+@item TEXINFO_OUTPUT_FORMAT
+The generated output format.  Set from command line with options such as
+@option{--html}, as the @env{TEXINFO_OUTPUT_FORMAT} environment variable
+value (@pxref{@command{texi2any} Environment Variables}) or as a customization
+option.  @xref{Customization Variables and Options}
+
+The value set in the @code{TEXINFO_OUTPUT_FORMAT} variable is in general the
+same as the name used to set the format, but not always.  If the format is set
+to @code{xml}, with @option{--xml}, with the @env{TEXINFO_OUTPUT_FORMAT}
+environment variable or with a customization variable the
+@code{TEXINFO_OUTPUT_FORMAT} customization variable is set to a more
+specific output format name @code{texinfoxml}.  That kind of difference
+in naming should not have any user-visible consequence.
 
 @item TREE_TRANSFORMATIONS
 The associated value is a comma separated list of transformations that

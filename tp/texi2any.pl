@@ -1972,7 +1972,6 @@ while(@input_files) {
   # It could be possible to pass some information if it allows
   # for instance to have some consistent information for Structuring
   # and Converters.
-  $converter_options->{'output_format'} = $output_format;
   $converter_options->{'deprecated_config_directories'}
      = \%deprecated_directories;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},

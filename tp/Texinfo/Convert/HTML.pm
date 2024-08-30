@@ -10732,9 +10732,9 @@ sub _external_node_href($$$)
         } elsif ($self->get_conf('SPLIT')) {
           $directory = "../$manual_base";
         }
-        if (defined($self->{'output_format'})
-            and $self->{'output_format'} ne '') {
-          $directory .= '_'.$self->{'output_format'};
+        my $output_format = $self->get_conf('TEXINFO_OUTPUT_FORMAT');
+        if (defined($output_format) and $output_format ne '') {
+          $directory .= '_'.$output_format;
         }
         $directory = $self->url_protect_file_text($directory);
       }
@@ -13115,7 +13115,8 @@ sub _setup_output($)
   # particular when output_file is '', 'destination_directory' that
   # is mainly useful when split and 'document_name' that is generally useful.
   my ($output_file, $destination_directory, $output_filename, $document_name)
-        = $self->determine_files_and_directory($self->{'output_format'});
+        = $self->determine_files_and_directory(
+                              $self->get_conf('TEXINFO_OUTPUT_FORMAT'));
 
   # set for init files
   $self->{'converter_info'}->{'document_name'} = $document_name;

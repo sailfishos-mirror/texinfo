@@ -298,13 +298,15 @@ txi_converter_setup (const char *format_str,
 
   conf = new_converter_initialization_info ();
 
+  initialize_options_list (&conf->conf, 10);
+
   /* prepare specific information for the converter */
   if (output_format)
-    conf->output_format = strdup (output_format);
+    add_option_string_value (&conf->conf, txi_base_sorted_options,
+                        "TEXINFO_OUTPUT_FORMAT", 0, output_format);
   else
-    conf->output_format = strdup (format_str);
-
-  initialize_options_list (&conf->conf, 10);
+    add_option_string_value (&conf->conf, txi_base_sorted_options,
+                        "TEXINFO_OUTPUT_FORMAT", 0, format_str);
 
   if (texinfo_language_config_dirs)
     {
@@ -316,14 +318,14 @@ txi_converter_setup (const char *format_str,
   /* similar to options coming from texi2any */
   add_option_string_value (&conf->conf, txi_base_sorted_options,
    /*
-                           "PROGRAM", 0, program_file);
     */
+                           "PROGRAM", 0, program_file);
   /* comment the line above and uncomment below to compare with
      texi2any output
-   */
                            "PROGRAM", 0, "texi2any");
   add_option_string_value (&conf->conf, txi_base_sorted_options,
                       "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
+   */
   add_option_string_value (&conf->conf, txi_base_sorted_options,
                         "COMMAND_LINE_ENCODING", 0, locale_encoding);
   add_option_string_value (&conf->conf, txi_base_sorted_options,

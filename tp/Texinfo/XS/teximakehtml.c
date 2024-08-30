@@ -215,19 +215,19 @@ main (int argc, char *argv[])
   /* customize buttons.  It is a bit silly to use link buttons for
      footer, it is for the demonstration */
   custom_node_footer_buttons = new_base_links_buttons (0);
-  /*
   add_new_button_option (&convert_options,
                      "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
   add_new_option_value (&convert_options, GOT_integer,
                            "PROGRAM_NAME_IN_FOOTER", 1, 0);
+  /*
    */
   /* this is set to help with comparison with previous invokations */
-  /*
   add_new_option_value (&convert_options, GOT_integer,
                            "TEST", 1, 0);
-   */
+  /*
   add_new_option_value (&convert_options, GOT_integer,
                         "CHECK_HTMLXREF", 1, 0);
+   */
 
   memset (&converter_texinfo_language_config_dirs, 0, sizeof (STRING_LIST));
 

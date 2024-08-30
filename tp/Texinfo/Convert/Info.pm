@@ -76,7 +76,8 @@ sub output($$)
 
   my ($output_file, $destination_directory, $output_filename,
       $document_name, $input_basefile)
-        = $self->determine_files_and_directory($self->{'output_format'});
+        = $self->determine_files_and_directory(
+                               $self->get_conf('TEXINFO_OUTPUT_FORMAT'));
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);
   my ($succeeded, $created_directory)

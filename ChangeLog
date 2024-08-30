@@ -1,5 +1,34 @@
 2024-08-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults)
+	(output_tree), tp/Texinfo/Convert/HTML.pm (_external_node_href)
+	(_setup_output), tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/Info.pm (output), tp/Texinfo/Convert/LaTeX.pm
+	(output), tp/Texinfo/Convert/Plaintext.pm (output),
+	tp/Texinfo/XS/convert/converter.c (apply_converter_info)
+	(destroy_converter_initialization_info)
+	(copy_converter_initialization_info, free_generic_converter),
+	tp/Texinfo/XS/convert/format_html.c (external_node_href),
+	tp/Texinfo/XS/convert/get_converter_perl_info.c
+	(get_converter_info_from_sv),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (html_setup_output),
+	tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup),
+	tp/Texinfo/XS/main/build_perl_info.c
+	(pass_generic_converter_to_converter_sv),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER_INITIALIZATION_INFO)
+	(CONVERTER), tp/t/test_converter_option.t, tp/t/test_utils.pl
+	(set_converter_option_defaults), tp/texi2any.pl: use
+	TEXINFO_OUTPUT_FORMAT customization variable value instead of
+	self->{'output_format'}.  Remove self->{'output_format'} and similar C
+	data.
+
+	* doc/texinfo.texi (Customization Variables and Options)
+	(Customization Variables, Global Customization Variables): document
+	TEXINFO_OUTPUT_FORMAT in global customization variables, and explain
+	that TEXINFO_OUTPUT_FORMAT is alwyas set.
+
+2024-08-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl ($output_format): rename $format as $output_format.
 
 2024-08-30  Patrice Dumas  <pertusus@free.fr>

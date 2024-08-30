@@ -324,12 +324,6 @@ apply_converter_info (CONVERTER *converter,
                              converter->sorted_options,
                              &init_info->conf, set_configured);
 
-  if (init_info->output_format)
-    {
-      free (converter->output_format);
-      converter->output_format = strdup (init_info->output_format);
-    }
-
   if (init_info->translated_commands)
     {
       destroy_translated_commands (converter->translated_commands);
@@ -375,7 +369,7 @@ set_converter_init_information (CONVERTER *converter,
   /*
   fprintf (stderr, "XS|CONVERTER Fill conf: %d; %s, %s\n",
                    converter->converter_descriptor,
-                   converter->output_format);
+                   converter->conf->TEXINFO_OUTPUT_FORMAT.o.string);
    */
 }
 
@@ -394,8 +388,6 @@ destroy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *init_info)
   if (init_info->translated_commands)
     destroy_translated_commands (init_info->translated_commands);
 
-  free (init_info->output_format);
-
   free_options_list (&init_info->conf);
 
   free_strings_list (&init_info->non_valid_customization);
@@ -406,12 +398,6 @@ static void
 copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
                                const CONVERTER_INITIALIZATION_INFO *src_info)
 {
-  if (src_info->output_format)
-    {
-      free (dst_info->output_format);
-      dst_info->output_format = strdup (src_info->output_format);
-    }
-
   copy_strings (&dst_info->non_valid_customization,
                 &src_info->non_valid_customization);
 
@@ -1750,7 +1736,6 @@ free_generic_converter (CONVERTER *self)
       destroy_translated_commands (self->translated_commands);
     }
 
-  free (self->output_format);
   free (self->expanded_formats);
 
   if (self->init_conf)

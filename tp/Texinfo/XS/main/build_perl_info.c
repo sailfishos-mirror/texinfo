@@ -3154,9 +3154,6 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
     = build_translated_commands (converter->translated_commands);
   STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
 
-  if (converter->output_format)
-    STORE("output_format", newSVpv_utf8 (converter->output_format, 0));
-
   /* store converter_descriptor in perl converter */
   /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
   STORE("converter_descriptor", newSViv ((IV)converter->converter_descriptor));

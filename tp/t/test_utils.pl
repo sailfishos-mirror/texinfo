@@ -415,9 +415,11 @@ sub set_converter_option_defaults($$;$)
   if (!defined($converter_options->{'EXPANDED_FORMATS'})) {
     $converter_options->{'EXPANDED_FORMATS'} = [$format];
   }
-  if (!defined($converter_options->{'output_format'})) {
-    $converter_options->{'output_format'} = $format;
-  }
+
+  # NOTE not the same as in texi2any if the format and the output
+  # format name do not match, the case of xml, which output format
+  # name is texinfoxml.
+  $converter_options->{'TEXINFO_OUTPUT_FORMAT'} = $format;
 
   if (!defined($converter_options->{'DEBUG'})) {
     $converter_options->{'DEBUG'} = $debug;

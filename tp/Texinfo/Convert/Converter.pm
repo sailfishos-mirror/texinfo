@@ -144,7 +144,6 @@ my $common_defaults = Texinfo::Options::get_converter_regular_options('common');
 # It would be good to keep it that way.
 my %common_converters_defaults = (
   # Following are set in the main program
-  'output_format'        => undef,
   'deprecated_config_directories' => undef,
 
   # Not set in the main program
@@ -371,7 +370,8 @@ sub output_tree($$)
   my $root = $document->tree();
 
   my ($output_file, $destination_directory, $output_filename)
-    = $self->determine_files_and_directory($self->{'output_format'});
+    = $self->determine_files_and_directory(
+                              $self->get_conf('TEXINFO_OUTPUT_FORMAT'));
 
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);

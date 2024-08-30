@@ -763,7 +763,6 @@ typedef struct PRE_CLASS_TYPE_INFO {
 /* information on converter configuration from a source of configuration
    (either output format or user customization) */
 typedef struct CONVERTER_INITIALIZATION_INFO {
-    char *output_format;
     TRANSLATED_COMMAND *translated_commands;
     OPTIONS_LIST conf;
     /* gather strings that are not customization options */
@@ -788,7 +787,6 @@ typedef struct CONVERTER {
     OPTION **sorted_options;
     OPTIONS *init_conf;
     OPTIONS *format_defaults_conf;
-    char *output_format;
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND *translated_commands;
 

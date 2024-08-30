@@ -3500,7 +3500,8 @@ html_setup_output (CONVERTER *self, char **paths)
   html_prepare_css (self);
 
   /* ($output_file, $destination_directory, $output_filename, $document_name) */
-  determine_files_and_directory (self, self->output_format, paths);
+  determine_files_and_directory (self,
+                          self->conf->TEXINFO_OUTPUT_FORMAT.o.string, paths);
 
   self->document_name = strdup (paths[3]);
   self->destination_directory = strdup (paths[1]);
