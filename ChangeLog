@@ -1,3 +1,17 @@
+2024-08-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl ($main_program_set_options, $format)
+	(set_cmdline_format, set_format): set $format from the
+	TEXINFO_OUTPUT_FORMAT customization variable.  Set
+	TEXINFO_OUTPUT_FORMAT to 'info' in $main_program_set_options.  Add
+	the set_cmdline_format function to set TEXINFO_OUTPUT_FORMAT from
+	command line, using directly the texinfoxml format name for xml.
+	Modify set_format to call Texinfo::Config::texinfo_set_from_init_file
+	to set TEXINFO_OUTPUT_FORMAT.  Call set_format for
+	TEXINFO_OUTPUT_FORMAT environment variable, for
+	GNUT_get_format_from_init_file value, but also for
+	TEXINFO_OUTPUT_FORMAT set from the command line.
+
 2024-08-26  Patrice Dumas  <pertusus@free.fr>
 
 	* README-hacking, tp/Texinfo/XSLoader.pm (init),

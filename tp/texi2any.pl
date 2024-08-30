@@ -339,7 +339,9 @@ my $main_program_set_options = {
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'COMMAND_LINE_ENCODING' => $locale_encoding,
     'MESSAGE_ENCODING' => $locale_encoding,
-    'LOCALE_ENCODING' => $locale_encoding
+    'LOCALE_ENCODING' => $locale_encoding,
+ # better than making it the default value independently of the implementation
+    'TEXINFO_OUTPUT_FORMAT' => 'info',
 };
 
 # set configure information as constants
@@ -702,7 +704,6 @@ my $cmdline_options = { 'CSS_FILES' => \@css_files,
                             => \@texinfo_language_config_dirs,
                         'EXPANDED_FORMATS' => \@expanded_formats };
 
-my $format = 'info';
 my @conf_dirs = ();
 my @prepend_dirs = ();
 
@@ -883,14 +884,15 @@ my %formats_table = (
 my $call_texi2dvi = 0;
 my @texi2dvi_args = ();
 
-# previous_format should be in argument if there is a possibility of error.
-# as a fallback, the $format global variable is used.
-sub set_format($;$$)
+sub set_cmdline_format($)
 {
   my $set_format = shift;
-  my $previous_format = shift;
-  $previous_format = $format if (!defined($previous_format));
-  my $do_not_override_command_line = shift;
+  set_from_cmdline('TEXINFO_OUTPUT_FORMAT', $set_format);
+}
+
+sub set_format($)
+{
+  my $set_format = shift;
 
   my $new_output_format;
   if ($format_command_line_names{$set_format}) {
@@ -902,16 +904,10 @@ sub set_format($;$$)
     document_warn(sprintf(__(
                    "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"),
                          $set_format));
-    $new_output_format = $previous_format;
   } else {
-    if ($format_from_command_line and $do_not_override_command_line) {
-      $new_output_format = $previous_format;
-    } else {
-      $format_from_command_line = 1
-        unless ($do_not_override_command_line);
-    }
+    Texinfo::Config::texinfo_set_from_init_file('TEXINFO_OUTPUT_FORMAT',
+                                                $new_output_format);
   }
-  return $new_output_format;
 }
 
 sub _format_expanded_formats($)
@@ -1188,7 +1184,12 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
                        set_from_cmdline('FORMAT_MENU',
                                   'set_format_menu_from_cmdline_header_option');
                      }
-                     $format = 'plaintext' if (!$_[1] and $format eq 'info'); },
+                     if (!$_[1]
+                         and get_conf('TEXINFO_OUTPUT_FORMAT') eq 'info') {
+                       set_main_program_default('TEXINFO_OUTPUT_FORMAT',
+                                                'plaintext');
+                     }
+                   },
  'output|out|o=s' => sub {
     my $var = 'OUTFILE';
     if ($_[1] ne '-' and ($_[1] =~ m:/$: or -d $_[1])) {
@@ -1250,7 +1251,21 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
      if ($value =~ /^undef$/i) {
        $value = undef;
      }
-     set_from_cmdline($var, $value);
+     # TODO verify that it is the best.  It is inconsistent with other
+     # customization options that have the same precedence as command
+     # line option when specified on the command line.  This is because
+     # in the manual, it is said:
+     # "The customization variable of the same name is also read; if set,
+     # that overrides an environment variable setting, but not a command-line
+     # option."
+     # If read means "read from an init file" then we could change here, but
+     # if it means "read from the command line or an init file" we should
+     # keep it as it is.
+     if ($var eq 'TEXINFO_OUTPUT_FORMAT') {
+       set_format($value);
+     } else {
+       set_from_cmdline($var, $value);
+     }
    }
  },
  'css-include=s' => \@css_files,
@@ -1282,17 +1297,17 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2024");
  'reference-limit=i' => sub { ;},
  'Xopt=s' => sub {push @texi2dvi_args, $_[1]; $Xopt_arg_nr++},
  'silent|quiet' => sub { push @texi2dvi_args, '--'.$_[0];},
- 'plaintext' => sub {$format = set_format($_[0].'');},
- 'html' => sub {$format = set_format($_[0].'');},
- 'epub3' => sub {$format = set_format($_[0].'');},
- 'latex' => sub {$format = set_format($_[0].'');},
- 'info' => sub {$format = set_format($_[0].'');},
- 'docbook' => sub {$format = set_format($_[0].'');},
- 'xml' => sub {$format = set_format($_[0].'');},
- 'dvi' => sub {$format = set_format($_[0].'');},
- 'dvipdf' => sub {$format = set_format($_[0].'');},
- 'ps' => sub {$format = set_format($_[0].'');},
- 'pdf' => sub {$format = set_format($_[0].'');},
+ 'plaintext' => sub {set_cmdline_format($_[0].'');},
+ 'html' => sub {set_cmdline_format($_[0].'');},
+ 'epub3' => sub {set_cmdline_format($_[0].'');},
+ 'latex' => sub {set_cmdline_format($_[0].'');},
+ 'info' => sub {set_cmdline_format($_[0].'');},
+ 'docbook' => sub {set_cmdline_format($_[0].'');},
+ 'xml' => sub {set_cmdline_format('texinfoxml');},
+ 'dvi' => sub {set_cmdline_format($_[0].'');},
+ 'dvipdf' => sub {set_cmdline_format($_[0].'');},
+ 'ps' => sub {set_cmdline_format($_[0].'');},
+ 'pdf' => sub {set_cmdline_format($_[0].'');},
  'debug=i' => sub {set_from_cmdline('DEBUG', $_[1]);
                    push @texi2dvi_args, '--'.$_[0]; },
 );
@@ -1317,10 +1332,8 @@ if (defined($set_translations_encoding)
 sub process_config($) {
   my $conf = shift;
 
-  if (defined($conf->{'TEXINFO_OUTPUT_FORMAT'})) {
-    $format = set_format($conf->{'TEXINFO_OUTPUT_FORMAT'}, $format, 1);
-  } elsif (defined($conf->{'TEXI2HTML'})) {
-    $format = set_format('html', $format, 1);
+  if (defined($conf->{'TEXI2HTML'})) {
+    set_format('html');
     $parser_options->{'values'}->{'texi2html'} = 1;
   }
 }
@@ -1384,15 +1397,15 @@ sub format_name($)
 
 my $init_file_format = Texinfo::Config::GNUT_get_format_from_init_file();
 if (defined($init_file_format)) {
-  $format = set_format($init_file_format, $format, 1);
+  set_format($init_file_format);
 }
 
 if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'})
     and $ENV{'TEXINFO_OUTPUT_FORMAT'} ne '') {
-  $format = set_format(_decode_input($ENV{'TEXINFO_OUTPUT_FORMAT'}),
-                       $format, 1);
+  set_format(_decode_input($ENV{'TEXINFO_OUTPUT_FORMAT'}));
 }
 
+my $format = get_conf('TEXINFO_OUTPUT_FORMAT');
 # for a format setup with an init file
 if (defined ($formats_table{$format}->{'init_file'})) {
   locate_and_load_extension_file($formats_table{$format}->{'init_file'},
