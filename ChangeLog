@@ -1,5 +1,10 @@
 2024-08-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm: changes in POD documentation and
+	comment.
+
+2024-08-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (%common_converters_defaults)
 	(output_tree), tp/Texinfo/Convert/HTML.pm (_external_node_href)
 	(_setup_output), tp/Texinfo/Convert/IXIN.pm,

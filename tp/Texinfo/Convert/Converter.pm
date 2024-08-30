@@ -139,7 +139,8 @@ my $common_defaults = Texinfo::Options::get_converter_regular_options('common');
 # as "configuration/customization". It is not available through get_conf()
 # but is available directly in the converter as a hash key.
 # FIXME separate the two types of information and check that those
-# items are not valid customization options?
+# items are not valid customization options?  Or make them customization
+# variables that can only be set from init files, like buttons or icons?
 # NOTE converters for now only set customization variables.
 # It would be good to keep it that way.
 my %common_converters_defaults = (
@@ -2086,7 +2087,7 @@ In general, C<output> and C<output_tree> output to files and return C<undef>.
 When the output file name is an empty string, however, it is customary
 for C<output> and C<output_tree> to return the output as a character string
 instead.  The output file name is obtained in C<output_tree> through a call to
-L<<< determine_files_and_directory|/($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory($output_format) >>>.
+L<<< C<determine_files_and_directory>|/($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory($output_format) >>>.
 In general C<determine_files_and_directory> is also used when C<output_tree> is not used.
 
 =item $result = $converter->convert($document)
@@ -2105,9 +2106,9 @@ Can be used for the conversion of output units by converters.
 C<convert_output_unit> takes a I<$converter> and an output unit
 I<$output_unit> as argument.  The implementation of
 C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
-many cases.  Output units are typically returned by L<Texinfo::OutputUnits
-split_by_section|Texinfo::OutputUnits/$output_units = split_by_section($document)>
-or L<Texinfo::OutputUnits split_by_node|Texinfo::OutputUnits/$output_units =
+many cases.  Output units are typically returned by L<C<Texinfo::OutputUnits>
+C<split_by_section>|Texinfo::OutputUnits/$output_units = split_by_section($document)>
+or L<C<Texinfo::OutputUnits> C<split_by_node>|Texinfo::OutputUnits/$output_units =
 split_by_node($document)>.
 
 =back
@@ -2183,7 +2184,7 @@ X<C<converter_defaults>>
 Returns a reference on a hash with defaults for the converter module
 customization options or C<undef>.  The I<$options> hash reference holds
 options for the converter.  This method is called through a converter by L<<<
-converter|/$converter = MyConverter->converter($options) >>>, but it may also
+C<converter>|/$converter = MyConverter->converter($options) >>>, but it may also
 be called through a converter module class.
 
 =item converter_initialize
@@ -2210,7 +2211,7 @@ X<C<set_document>>
 Associate I<$document> to I<$converter>.  Also set the encoding related customization
 options based on I<$converter> customization information and information on
 document encoding, and setup converter hash C<convert_text_options> value that
-can be used to call L<Texinfo::Convert::Text::convert_to_text|Texinfo::Convert::Text/$result = convert_to_text($tree, $text_options)>.
+can be used to call L<C<Texinfo::Convert::Text::convert_to_text>|Texinfo::Convert::Text/$result = convert_to_text($tree, $text_options)>.
 
 =back
 
@@ -2279,7 +2280,7 @@ C<set_conf>.  The converter itself can therefore be used in
 such cases.
 
 Customization variables are typically setup when
-initializing a converter with L<<< converter|/$converter = MyConverter->converter($options) >>>
+initializing a converter with L<<< C<converter>|/$converter = MyConverter->converter($options) >>>
 and completed by Texinfo informative @-commands tree element values,
 for commands such as C<@frenchspacing> or C<@footnotestyle>.
 
@@ -2564,9 +2565,9 @@ the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 
 Note that C<encoded_output_file_name> is a wrapper around the
-function with the same name in L<<< Texinfo::Convert::Utils::encoded_output_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name) >>>,
+function with the same name in L<<< C<Texinfo::Convert::Utils::encoded_output_file_name>|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name) >>>,
 and C<encoded_input_file_name> is a wrapper around the
-function with the same name in L<<< Texinfo::Convert::Utils::encoded_input_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding) >>>.
+function with the same name in L<<< C<Texinfo::Convert::Utils::encoded_input_file_name>|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding) >>>.
 
 =item ($caption, $prepended) = $converter->float_name_caption($float)
 X<C<float_name_caption>>
@@ -2648,7 +2649,7 @@ variable value, no @-command side effects are run, no associated customization
 variables are set.
 
 For more information on the function used to set the value for each of the command, see
-L<Texinfo::Common set_global_document_command|Texinfo::Common/$element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)>.
+L<C<Texinfo::Common> C<set_global_document_command>|Texinfo::Common/$element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)>.
 
 =item $table_item_tree = $converter->table_item_content_tree($element)
 X<C<table_item_content_tree>>

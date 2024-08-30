@@ -128,7 +128,7 @@ In general, @code{output} and @code{output_tree} output to files and return @cod
 When the output file name is an empty string, however, it is customary
 for @code{output} and @code{output_tree} to return the output as a character string
 instead.  The output file name is obtained in @code{output_tree} through a call to
-@ref{Texinfo@asis{::}Convert@asis{::}Converter ($output_file@comma{} $destination_directory@comma{} $output_filename@comma{} $document_name@comma{} $input_basefile) = $converter->determine_files_and_directory($output_format),, determine_files_and_directory}.
+@ref{Texinfo@asis{::}Convert@asis{::}Converter ($output_file@comma{} $destination_directory@comma{} $output_filename@comma{} $document_name@comma{} $input_basefile) = $converter->determine_files_and_directory($output_format),, @code{determine_files_and_directory}}.
 In general @code{determine_files_and_directory} is also used when @code{output_tree} is not used.
 
 @item $result = $converter->convert($document)
@@ -149,10 +149,10 @@ Can be used for the conversion of output units by converters.
 @code{convert_output_unit} takes a @emph{$converter} and an output unit
 @emph{$output_unit} as argument.  The implementation of
 @code{convert_output_unit} of @code{Texinfo::Convert::Converter} could be suitable in
-many cases.  Output units are typically returned by @ref{Texinfo@asis{::}OutputUnits $output_units = split_by_section($document),, Texinfo::OutputUnits
-split_by_section}
+many cases.  Output units are typically returned by @ref{Texinfo@asis{::}OutputUnits $output_units = split_by_section($document),, @code{Texinfo::OutputUnits}
+@code{split_by_section}}
 or @ref{Texinfo@asis{::}OutputUnits $output_units =
-split_by_node($document),, Texinfo::OutputUnits split_by_node}.
+split_by_node($document),, @code{Texinfo::OutputUnits} @code{split_by_node}}.
 
 @end table
 
@@ -228,7 +228,7 @@ can define two methods:
 
 Returns a reference on a hash with defaults for the converter module
 customization options or @code{undef}.  The @emph{$options} hash reference holds
-options for the converter.  This method is called through a converter by @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, converter}, but it may also
+options for the converter.  This method is called through a converter by @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, @code{converter}}, but it may also
 be called through a converter module class.
 
 @item converter_initialize
@@ -257,7 +257,7 @@ implementations.
 Associate @emph{$document} to @emph{$converter}.  Also set the encoding related customization
 options based on @emph{$converter} customization information and information on
 document encoding, and setup converter hash @code{convert_text_options} value that
-can be used to call @ref{Texinfo@asis{::}Convert@asis{::}Text $result = convert_to_text($tree@comma{} $text_options),, Texinfo::Convert::Text::convert_to_text}.
+can be used to call @ref{Texinfo@asis{::}Convert@asis{::}Text $result = convert_to_text($tree@comma{} $text_options),, @code{Texinfo::Convert::Text::convert_to_text}}.
 
 @end table
 
@@ -331,7 +331,7 @@ information expect an object implementing @code{get_conf} and/or
 such cases.
 
 Customization variables are typically setup when
-initializing a converter with @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, converter}
+initializing a converter with @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, @code{converter}}
 and completed by Texinfo informative @@-commands tree element values,
 for commands such as @code{@@frenchspacing} or @code{@@footnotestyle}.
 
@@ -645,9 +645,9 @@ the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 
 Note that @code{encoded_output_file_name} is a wrapper around the
-function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($character_string_name),, Texinfo::Convert::Utils::encoded_output_file_name},
+function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($character_string_name),, @code{Texinfo::Convert::Utils::encoded_output_file_name}},
 and @code{encoded_input_file_name} is a wrapper around the
-function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($character_string_name@comma{} $input_file_encoding),, Texinfo::Convert::Utils::encoded_input_file_name}.
+function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($character_string_name@comma{} $input_file_encoding),, @code{Texinfo::Convert::Utils::encoded_input_file_name}}.
 
 @item ($caption, $prepended) = $converter->float_name_caption($float)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter ($caption@comma{} $prepended) = $converter->float_name_caption($float)}
@@ -739,7 +739,7 @@ variable value, no @@-command side effects are run, no associated customization
 variables are set.
 
 For more information on the function used to set the value for each of the command, see
-@ref{Texinfo@asis{::}Common $element = set_global_document_command($customization_information@comma{} $global_commands_information@comma{} $cmdname@comma{} $command_location),, Texinfo::Common set_global_document_command}.
+@ref{Texinfo@asis{::}Common $element = set_global_document_command($customization_information@comma{} $global_commands_information@comma{} $cmdname@comma{} $command_location),, @code{Texinfo::Common} @code{set_global_document_command}}.
 
 @item $table_item_tree = $converter->table_item_content_tree($element)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $table_item_tree = $converter->table_item_content_tree($element)}
