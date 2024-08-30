@@ -1405,10 +1405,10 @@ if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'})
   set_format(_decode_input($ENV{'TEXINFO_OUTPUT_FORMAT'}));
 }
 
-my $format = get_conf('TEXINFO_OUTPUT_FORMAT');
+my $output_format = get_conf('TEXINFO_OUTPUT_FORMAT');
 # for a format setup with an init file
-if (defined ($formats_table{$format}->{'init_file'})) {
-  locate_and_load_extension_file($formats_table{$format}->{'init_file'},
+if (defined ($formats_table{$output_format}->{'init_file'})) {
+  locate_and_load_extension_file($formats_table{$output_format}->{'init_file'},
                                  $internal_extension_dirs);
 }
 
@@ -1417,7 +1417,7 @@ if ($call_texi2dvi) {
     die _encode_message(
       sprintf(
  __('%s: when generating %s, only one input FILE may be specified with -o'."\n"),
-                $real_command_name, format_name($format)));
+                $real_command_name, format_name($output_format)));
   }
 } elsif($Xopt_arg_nr) {
   document_warn(__('--Xopt option without printed output'));
@@ -1546,19 +1546,19 @@ if (get_conf('TREE_TRANSFORMATIONS')) {
 # in general the format name is the format being converted.  If this is
 # not the case, the converted format is set here.  For example, for
 # the epub3 format, the converted format is html.  The converted format
-# should be the format actually used for conversion, in practice
+# should be the format actually used for conversion code, in practice
 # this means that the module associated with the converted format in
 # $format_table will be used to find the converter methods.
-my $converted_format = $format;
-if ($formats_table{$format}->{'converted_format'}) {
-  $converted_format = $formats_table{$format}->{'converted_format'};
+my $converted_format = $output_format;
+if ($formats_table{$output_format}->{'converted_format'}) {
+  $converted_format = $formats_table{$output_format}->{'converted_format'};
 }
 
 if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
-  if ($converted_format ne $format) {
+  if ($converted_format ne $output_format) {
     document_warn(sprintf(
               __('ignoring splitting for converted format %s (for %s)'),
-                      format_name($converted_format), format_name($format)));
+                format_name($converted_format), format_name($output_format)));
   } else {
     document_warn(sprintf(__('ignoring splitting for format %s'),
                           format_name($converted_format)));
@@ -1566,7 +1566,7 @@ if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
   set_from_cmdline('SPLIT', '');
 }
 
-my $default_expanded_formats = _format_expanded_formats($format);
+my $default_expanded_formats = _format_expanded_formats($output_format);
 foreach my $ignored_format (keys(%ignored_formats)) {
   delete $default_expanded_formats->{$ignored_format};
 }
@@ -1739,7 +1739,7 @@ while(@input_files) {
     print STDERR Data::Dumper->Dump([$tree]);
   }
   # object registering errors and warnings
-  if (!defined($document) or $format eq 'parse') {
+  if (!defined($document) or $output_format eq 'parse') {
     handle_errors($parser->errors(), $error_count, \%opened_files);
     goto NEXT;
   }
@@ -1851,7 +1851,8 @@ while(@input_files) {
       _exit($error_count, \%opened_files);
     }
   }
-  if (get_conf('DUMP_TEXI') or $formats_table{$format}->{'texi2dvi_format'}) {
+  if (get_conf('DUMP_TEXI')
+      or $formats_table{$output_format}->{'texi2dvi_format'}) {
     handle_errors($parser->errors(), $error_count, \%opened_files);
     goto NEXT;
   }
@@ -1941,7 +1942,7 @@ while(@input_files) {
   _handle_errors($errors);
   _exit($error_count, \%opened_files);
 
-  if ($format eq 'structure') {
+  if ($output_format eq 'structure') {
     goto NEXT;
   }
   # a shallow copy is not sufficient for arrays and hashes to make
@@ -1971,7 +1972,7 @@ while(@input_files) {
   # It could be possible to pass some information if it allows
   # for instance to have some consistent information for Structuring
   # and Converters.
-  $converter_options->{'output_format'} = $format;
+  $converter_options->{'output_format'} = $output_format;
   $converter_options->{'deprecated_config_directories'}
      = \%deprecated_directories;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
@@ -2105,8 +2106,9 @@ while(@input_files) {
       = Texinfo::Convert::TextContent->converter(
                                          $sort_element_converter_options);
 
-    # here could be $format or $converted_format.  Since $converted_format
-    # is used above for ->{'nodes_tree'}, use it here again.
+    # here could be $output_format or $converted_format.
+    # Since $converted_format is used above for ->{'nodes_tree'}, use it
+    # here again.
     my $use_sections
         = (! $formats_table{$converted_format}->{'nodes_tree'}
            or (defined($converter_element_count->get_conf('USE_NODES'))

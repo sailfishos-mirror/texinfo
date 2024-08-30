@@ -1,5 +1,9 @@
 2024-08-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl ($output_format): rename $format as $output_format.
+
+2024-08-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl ($main_program_set_options, $format)
 	(set_cmdline_format, set_format): set $format from the
 	TEXINFO_OUTPUT_FORMAT customization variable.  Set
