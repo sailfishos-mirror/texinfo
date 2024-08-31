@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2023-09-19 20:23+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -39,41 +39,41 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Eroare de sistem necunoscută"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: opțiunea „%s%s” este ambiguă\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: opțiunea „%s%s” este ambiguă; posibilități:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: opțiunea nerecunoscută „%s%s”\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: opțiunea „%s%s” nu permite un argument\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: opțiunea „%s%s” necesită un argument\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: opțiune nevalidă -- „%c”\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: opțiunea necesită un argument -- „%c”\n"
@@ -150,8 +150,8 @@ msgstr ") sau \\) fără pereche"
 msgid "No previous regular expression"
 msgstr "Nicio expresie regulată anterioară"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "memorie epuizată"
 
@@ -2286,8 +2286,7 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "Încercați «%s --help» pentru informații suplimentare.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgid "%s: ignoring %s without content\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr "%s: se ignoră %s fără conținut\n"
 
@@ -4590,38 +4589,6 @@ msgstr "argument formal @%s greșit sau gol: "
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s este învechit; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Trimiteți prin e-mail rapoartele de eroare la bug-texinfo@gnu.org.\n"
-#~ "Întrebări generale și discuții la adresa de e-mail help-texinfo@gnu.org.\n"
-#~ "Pagina principală a Texinfo: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr ""
-#~ "numele nodului „%s” de la intrarea @%s, este diferit de numele %s „%s”"
-
-#, fuzzy, c-format, perl-format
-#~| msgctxt "Texinfo source file warning"
-#~| msgid "warning: %s (possibly involving @%s)"
-#~ msgctxt "Texinfo source file error in macro"
-#~ msgid "%s (possibly involving @%s)"
-#~ msgstr "avertisment: %s (eventual implicând @%s)"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: eroare la închiderea fișierului cu legături interne %s: %s\n"
 
 #~ msgid "%c%s requires a name"
 #~ msgstr "%c%s necesită un nume"

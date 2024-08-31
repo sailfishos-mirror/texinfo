@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2023-10-01 13:02+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -25,41 +25,41 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Onbekende systeemfout"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: optie '%s%s' is niet eenduidig\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: optie '%s%s' is niet eenduidig; mogelijkheden zijn:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: onbekende optie '%s%s'\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: optie '%s%s' staat geen argument toe\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: optie '%s%s' vereist een argument\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: ongeldige optie -- '%c'\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: optie vereist een argument -- '%c'\n"
@@ -136,8 +136,8 @@ msgstr "Ongepaarde ) of \\)"
 msgid "No previous regular expression"
 msgstr "Geen eerdere reguliere expressie"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "onvoldoende geheugen beschikbaar"
 
@@ -2135,8 +2135,7 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "Typ '%s --help' voor meer informatie.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgid "%s: ignoring %s without content\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr "%s: '%s' zonder inhoud wordt genegeerd\n"
 
@@ -4364,38 +4363,6 @@ msgstr "onjuist of leeg formeel argument van @%s: "
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s is verouderd; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Stuur foutrapportages naar <bug-texinfo@gnu.org>,\n"
-#~ "algemene vragen en commentaar naar <help-texinfo@gnu.org>,\n"
-#~ "en opmerkingen over de vertaling naar <vertaling@vrijschrift.org>.\n"
-#~ "De Texinfo-webpagina is: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "@%s-paginanaam '%s' verschilt van %s-naam '%s'"
-
-#, fuzzy, c-format, perl-format
-#~| msgctxt "Texinfo source file warning"
-#~| msgid "warning: %s (possibly involving @%s)"
-#~ msgctxt "Texinfo source file error in macro"
-#~ msgid "%s (possibly involving @%s)"
-#~ msgstr "waarschuwing: %s (heeft mogelijk te maken met @%s)"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: fout bij sluiten van %s, bestand met interne koppelingen: %s\n"
 
 #, perl-format
 #~ msgid "%c%s requires a name"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2020-10-22 14:08+0200\n"
 "Last-Translator: Francesco Groccia <f.g@disroot.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -19,41 +19,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Editor: Vim with po plugin\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Errore di sistema sconosciuto"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: l'opzione \"%s%s\" è ambigua\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: l'opzione «%s%s» è ambigua; possibilità:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: opzione non riconosciuta «%s%s»\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: l'opzione «%s%s» non accetta argomenti\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: l'opzione «%s%s» richiede un argomento\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: opzione non valida: «%c»\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: l'opzione richiede un argomento: «%c»\n"
@@ -130,8 +130,8 @@ msgstr ") \\) non accoppiate"
 msgid "No previous regular expression"
 msgstr "Nessuna espressione regolare precedente"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "memoria esaurita"
 
@@ -4442,31 +4442,6 @@ msgstr "argomento formale @%s errato o vuoto: "
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s è obsoleto; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Per segnalare un bug inviare un'email a bug-texinfo@gnu.org,\n"
-#~ "per domande generali e discussioni: help-texinfo@gnu.org.\n"
-#~ "Sito web di Texinfo: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "@%s nome del nodo della voce di menù «%s» diverso dal nome %s «%s»"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr ""
-#~ "%s: errore durante la chiusura del file dei collegamenti interni %s: %s\n"
 
 #~ msgid "  -O, --show-options, --usage  go to command-line options node"
 #~ msgstr ""

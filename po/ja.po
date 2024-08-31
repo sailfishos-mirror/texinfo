@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2014-11-07 08:03+0000\n"
 "Last-Translator: Yasuaki Taniguchi <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -24,46 +24,46 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "不明なシステムエラー"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, fuzzy, c-format
 #| msgid "%s: option '-W %s' is ambiguous\n"
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: オプション '-W %s' は曖昧です\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, fuzzy, c-format
 #| msgid "%s: option '%s' is ambiguous; possibilities:"
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: オプション '%s' は曖昧です:次のものが可能です:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, fuzzy, c-format
 #| msgid "%s: unrecognized option '%c%s'\n"
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: オプション '%c%s' を認識できません\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, fuzzy, c-format
 #| msgid "%s: option '%c%s' doesn't allow an argument\n"
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: オプション '%c%s' は引数を取ることができません\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, fuzzy, c-format
 #| msgid "%s: option '--%s' requires an argument\n"
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: オプション '--%s' は引数が必要です\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: 無効なオプション -- '%c'\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: オプションには引数が必要です -- '%c'\n"
@@ -142,8 +142,8 @@ msgstr ") または \\) が不一致です"
 msgid "No previous regular expression"
 msgstr "以前に正規表現がありません"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "メモリを使い果たしました"
 
@@ -4509,30 +4509,6 @@ msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 #| msgid "%c%s is obsolete; %s"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s は廃止予定 (または廃止済み) です; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Email によるバグレポートは bug-texinfo@gnu.org に報告してください。\n"
-#~ "翻訳に関するバグは<translation-team-ja@lists.sourceforge.net>に報告してく"
-#~ "ださい。\n"
-#~ "一般的な質問や議論は help-texinfo@gnu.org に連絡してください。\n"
-#~ "Texinfoホームページ: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "名前の取得に失敗しました: %s"
-
-#, fuzzy, perl-format
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
 #, c-format
 #~ msgid "%s: option '--%s' doesn't allow an argument\n"

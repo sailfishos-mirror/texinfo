@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2023-04-22 17:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -19,41 +19,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "სისტემის უცნობი შეცდომა"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: პარამეტრი '%s%s' გაურკვეველია\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: პარამეტრი '%s%s' გაურკვეველია; შესაძლო ვარიანტები:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: უცნობი პარამეტრი '%s'%s'\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: პარამეტრს \"%s%s' არგუმენტი არ სჭირდება\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: პარამეტრს \"%s%s\" არგუმენტი ესაჭიროება\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: არასწორი პარამეტრი -- '%c'\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: პარამეტრს ესაჭიროება არგუმენტი -- '%c'\n"
@@ -130,8 +130,8 @@ msgstr "არ ემთხვევა ) ან \\)"
 msgid "No previous regular expression"
 msgstr "წინა რეგულარული გამოსახულება არ არსებობს"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "მეხსიერება გადავსებულია"
 
@@ -1932,11 +1932,9 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "მეტი ინფორმაციისთვის სცადეთ '%s --help'\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgctxt "whole document warning"
-#| msgid "%s: warning: %s\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr "%s: გაფრთხილება: %s\n"
+msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:434 Pod-Simple-Texinfo/pod2texi.pl:523
 #: tp/texi2any.pl:1741 tp/texi2any.pl:1811
@@ -2213,16 +2211,14 @@ msgid ""
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:10567
-#, fuzzy, perl-format
-#| msgid "error loading %s: %s"
+#, perl-format
 msgid "error on closing frame file %s: %s"
-msgstr "%s-ის ჩატვირთვის შეცდომა: %s"
+msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:10604
-#, fuzzy, perl-format
-#| msgid "error loading %s: %s"
+#, perl-format
 msgid "error on closing TOC frame file %s: %s"
-msgstr "%s-ის ჩატვირთვის შეცდომა: %s"
+msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:10821
 #, perl-format
@@ -4050,6 +4046,11 @@ msgstr "@%s მოძველებულია; %s"
 #, perl-format
 #~ msgid "empty @%s"
 #~ msgstr "ცარიელი @%s"
+
+#, perl-format
+#~ msgctxt "whole document warning"
+#~ msgid "%s: warning: %s\n"
+#~ msgstr "%s: გაფრთხილება: %s\n"
 
 #, perl-format
 #~ msgctxt "program name: warning: warning_message"

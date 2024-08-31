@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2021-07-01 15:36+0200\n"
 "Last-Translator: Johnny A. Solbu <johnny@solbu.net>\n"
 "Language-Team: Norwegian Bokmaal <l10n-no@lister.huftis.org>\n"
@@ -21,41 +21,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.2.3\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Ukjent systemfeil"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: valget «%s%s» er flertydig\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: valget «%s%s» er flertydig; muligheter:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: ukjent valg «%s%s»\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: valget «%s%s» tillater ikke argumenter\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: valget «%s%s» krever et argument\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: ugyldig valg -- «%c»\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: valget krever et argument -- «%c»\n"
@@ -132,8 +132,8 @@ msgstr "Ubalansert ) eller \\)"
 msgid "No previous regular expression"
 msgstr "Intet foregående regulært uttrykk"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "minnet er oppbrukt"
 
@@ -4337,25 +4337,6 @@ msgstr ""
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s er foreldet; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Send feilrapporter til bug-texinfo@gnu.org,\n"
-#~ "generelle spørsmål og diskusjoner til help-texinfo@gnu.org.\n"
-#~ "Websiden for Texinfo: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: feil ved lukking av intern lenkefil %s: %s\n"
 
 #, fuzzy
 #~| msgid ""

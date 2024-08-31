@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.13\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2012-08-10 18:31+0100\n"
 "Last-Translator: Klemen Košir <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
@@ -19,47 +19,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Neznana sistemska napaka"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, fuzzy, c-format
 #| msgid "%s: option `%s' is ambiguous\n"
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: možnost `%s' je dvoumna\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, fuzzy, c-format
 #| msgid "%s: option `%s' is ambiguous\n"
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: možnost `%s' je dvoumna\n"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, fuzzy, c-format
 #| msgid "%s: unrecognized option `%c%s'\n"
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: neprepoznana možnost `%c%s'\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, fuzzy, c-format
 #| msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: možnost `%c%s' ne dovoljuje argumenta\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, fuzzy, c-format
 #| msgid "%s: option `%s' requires an argument\n"
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: možnost `%s' zahteva argument\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, fuzzy, c-format
 #| msgid "%s: invalid option -- %c\n"
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: neveljavna možnost -- %c\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, fuzzy, c-format
 #| msgid "%s: option requires an argument -- %c\n"
 msgid "%s: option requires an argument -- '%c'\n"
@@ -159,8 +159,8 @@ msgstr "Neujemajoč }"
 msgid "No previous regular expression"
 msgstr "Brez niza predhodnega iskanja"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "pomnilnik je izčrpan"
 
@@ -4730,20 +4730,6 @@ msgstr ""
 #| msgid "%c%s is obsolete"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s je zastarel"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Poročila o hroščih pošljite z e-pošto na bug-texinfo@gnu.org,\n"
-#~ "splošna vprašanja in razprave na help-texinfo@gnu.org.\n"
-#~ "Domača stran texinfo: http://www.gnu.org/software/texinfo/"
 
 #, c-format
 #~ msgid "%s: illegal option -- %c\n"

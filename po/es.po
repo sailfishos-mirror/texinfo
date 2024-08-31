@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2023-09-22 20:05+0200\n"
 "Last-Translator: Antonio Ceballos <aceballos@gmail.com>\n"
 "Language-Team: Spanish <es@tp.org.es>\n"
@@ -20,41 +20,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Error de sistema desconocido"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: la opción '%s%s' es ambigua\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: la opción '%s%s' es ambigua; las posibilidades son:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: opción desconocida '%s%s'\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: la opción '%s%s' no permite argumento alguno\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: la opción '%s%s' requiere un argumento\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: opción no válida -- '%c'\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: la opción requiere un argumento -- '%c'\n"
@@ -131,8 +131,8 @@ msgstr "')' o '\\)' desemparejado"
 msgid "No previous regular expression"
 msgstr "No hay expresión regular anterior"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "no hay más memoria disponible"
 
@@ -2224,8 +2224,7 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "Pruebe `%s --help' para obtener más información.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgid "%s: ignoring %s without content\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr "%s: se hace caso omiso de %s sin contenido\n"
 
@@ -4569,41 +4568,6 @@ msgstr "argumento formal @%s incorrecto o vacío: "
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s es una sintaxis ya obsoleta; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Reporte cualquier tipo de problema que usted encuentre en el "
-#~ "funcionamiento\n"
-#~ "de esta programa a <bug-texinfo@gnu.org>.  Las preguntas y discusiones "
-#~ "sobre\n"
-#~ "Texinfo en general pueden ser dirigidas a <help-texinfo@gnu.org>.\n"
-#~ "El sitio web de Texinfo es: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr ""
-#~ "el nombre de nodo `%s' de la entrada @%s difiere del nombre de %s `%s'"
-
-#, fuzzy, c-format, perl-format
-#~| msgctxt "Texinfo source file warning"
-#~| msgid "warning: %s (possibly involving @%s)"
-#~ msgctxt "Texinfo source file error in macro"
-#~ msgid "%s (possibly involving @%s)"
-#~ msgstr "precaución: %s (posible involucración de @%s)"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: error al cerrar el fichero de enlaces internos %s: %s\n"
 
 #~ msgid "%c%s requires a name"
 #~ msgstr "la construcción `%c%s' requiere un nombre"

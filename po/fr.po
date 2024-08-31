@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2023-09-18 20:00+0200\n"
 "Last-Translator: Jean-Charles Malahieude <lilyfan@orange.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -26,41 +26,41 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Erreur système inconnue"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s : l'option « %s%s » est ambiguë\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s : l'option « %s%s » est ambiguë ; options possibles :"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s : l'option « %s%s » n'a pas été reconnue\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s : l'option « %s%s » n'autorise pas d'argument\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s : l'option « %s%s » a besoin d'un argument\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s : option non valide -- « %c »\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s : l'option a besoin d'un argument -- « %c »\n"
@@ -138,8 +138,8 @@ msgstr ") ou \\) sans correspondance"
 msgid "No previous regular expression"
 msgstr "Aucune expression rationnelle antérieure"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "mémoire épuisée"
 
@@ -2136,8 +2136,7 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "Consultez « %s --help » pour plus d'informations.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgid "%s: ignoring %s without content\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr "%s : %s est vide, et ignoré\n"
 
@@ -4421,35 +4420,3 @@ msgstr "argument formel à @%s erroné ou vide :"
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s est obsolète ; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Signalez (en anglais) toute anomalie à bug-texinfo@gnu.org.\n"
-#~ "Pour les discussions et questions générales, écrivez à help-texinfo@gnu."
-#~ "org.\n"
-#~ "Site Texinfo : http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "entrée @%s du nœud nommé « %s » différente du nom de %s « %s »"
-
-#, fuzzy, c-format, perl-format
-#~| msgctxt "Texinfo source file warning"
-#~| msgid "warning: %s (possibly involving @%s)"
-#~ msgctxt "Texinfo source file error in macro"
-#~ msgid "%s (possibly involving @%s)"
-#~ msgstr "avertissement : %s (concerne probablement @%s)"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s : erreur de fermeture du fichiers de liens internes %s : %s\n"

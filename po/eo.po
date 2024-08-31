@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2021-03-17 15:12-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -23,41 +23,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Nekonata sistemeraro"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: opcio '%s%s' estas ambigua\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: opcio '%s%s' estas ambigua; eblaĵoj estas:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: nekonata opcio '%s%s'\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: opcio '%s%s' ne toleras argumenton\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: opcio '%s%s' bezonas argumenton\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: nevalida opcio -- '%c'\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: opcio bezonas argumenton -- '%c'\n"
@@ -134,8 +134,8 @@ msgstr "Senpara ) aŭ \\)"
 msgid "No previous regular expression"
 msgstr "Mankas antaŭa regulesprimo"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "mankas sufiĉa memoro"
 
@@ -2095,10 +2095,9 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "Por pluaj detaloj tajpu “%s --help”.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgid "%s:%d: warning: %s\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr "%s:%d: averto: %s\n"
+msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:434 Pod-Simple-Texinfo/pod2texi.pl:523
 #: tp/texi2any.pl:1741 tp/texi2any.pl:1811
@@ -4389,37 +4388,6 @@ msgstr "misa aŭ vaka formala argumento de @%s: "
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s arkaikiĝis; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Raportu programmisojn al <bug-texinfo@nu.org>;\n"
-#~ "sendu ĝeneralajn demandojn kaj opiniojn al <help-texinfo@gnu.org>.\n"
-#~ "La hejmpaĝo de Texinfo estas: http://www.gnu.org/software/texinfo/.\n"
-#~ "Diskutu Esperantotradukon je <translation-team-eo@lists.sourceforge.net>"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "@%s-era nodnomo '%s' malsamas de %s-nomo '%s'"
-
-#, fuzzy, c-format, perl-format
-#~| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-#~ msgctxt "Texinfo source file error in macro"
-#~ msgid "%s (possibly involving @%s)"
-#~ msgstr "%s:%d: averto: %s (eble koncernas @%s)\n"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: eraro dum fermo de %s (dosiero de internaj ligoj): %s\n"
 
 #~ msgid "  -O, --show-options, --usage  go to command-line options node"
 #~ msgstr "  -O, --show-options, --usage  iri al nodo de komand-liniaj opcioj"

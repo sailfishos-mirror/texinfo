@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2014-08-11 17:30+0700\n"
 "Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -18,46 +18,46 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Sistem error tidak diketahui"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, fuzzy, c-format
 #| msgid "%s: option '-W %s' is ambiguous\n"
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: opsi '-W %s' adalah ambigu\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, fuzzy, c-format
 #| msgid "%s: option '%s' is ambiguous; possibilities:"
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: opsi `%s' adalah ambigu"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, fuzzy, c-format
 #| msgid "%s: unrecognized option '%c%s'\n"
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: opsi tidak dikenal '%c%s'\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, fuzzy, c-format
 #| msgid "%s: option '%c%s' doesn't allow an argument\n"
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: opsi '%c%s' tidak mengijinkan sebuah argumen\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, fuzzy, c-format
 #| msgid "%s: option '--%s' requires an argument\n"
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: opsi '--%s' membutuhkan sebuah argumen\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: opsi tidak valid -- '%c'\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: opsi membutuhkan sebuah argumen -- '%c'\n"
@@ -136,8 +136,8 @@ msgstr "Tidak cocok ) atau \\)"
 msgid "No previous regular expression"
 msgstr "Tidak ada string pencarian sebelumnya"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "kehabisan memori"
 
@@ -4677,30 +4677,6 @@ msgstr "bad or empty @%s formal argument: %s"
 #| msgid "%c%s is obsolete; %s"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s sudah ditinggalkan %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Email laporan bug ke bug-texinfo@gnu.org,\n"
-#~ "pertanyaan umum dan diskusi ke help-texinfo@gnu.org.\n"
-#~ "Texinfo halaman rumah: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "@%s entry node name `%s' different from %s name `%s'"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: mengabaikan keluaran link internal kedua `%s'. %s\n"
 
 #, c-format
 #~ msgid "%s: option '--%s' doesn't allow an argument\n"

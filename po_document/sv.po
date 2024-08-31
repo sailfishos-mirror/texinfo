@@ -2,14 +2,14 @@
 # Copyright (C) 2019 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
 # Sebastian Rasmussen <sebras@gmail.com>, 2019.
-# Luna Jernberg <droidbittin@gmail.com>, 2021, 2022, 2023.
+# Luna Jernberg <droidbittin@gmail.com>, 2021, 2022, 2023, 2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo_document 7.0.92\n"
+"Project-Id-Version: GNU texinfo_document 7.1.0.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:09+0100\n"
-"PO-Revision-Date: 2023-11-06 14:47+0100\n"
+"POT-Creation-Date: 2024-08-29 20:38+0100\n"
+"PO-Revision-Date: 2024-06-19 06:43+0200\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: tp/ext/epub3.pm:672
 msgid "Table of contents"
@@ -847,18 +847,16 @@ msgstr "`{section}'"
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
 #: tp/Texinfo/Convert/HTML.pm:5670
-#, fuzzy, perl-brace-format
-#| msgid "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
+#, perl-brace-format
 msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}"
-msgstr "@code{{main_index_entry}}, @emph{See} @code{{seenentry}}"
+msgstr "@code{{main_index_entry}}, @emph{See@:} @code{{seenentry}}"
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
 #: tp/Texinfo/Convert/HTML.pm:5677
-#, fuzzy, perl-brace-format
-#| msgid "{main_index_entry}, @emph{See} {seenentry}"
+#, perl-brace-format
 msgid "{main_index_entry}, @emph{See@:} {seenentry}"
-msgstr "{main_index_entry}, @emph{See} {seenentry}"
+msgstr "{main_index_entry}, @emph{See@:} {seenentry}"
 
 #. TRANSLATORS: refer to another index entry
 #: tp/Texinfo/Convert/HTML.pm:5694

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -22,41 +22,41 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Gặp lỗi hệ thống chưa biết"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: tùy chọn “%s%s” chưa rõ ràng\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: tùy chọn “%s%s” chưa rõ ràng; khả năng là:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: không nhận ra tùy chọn “%s%s”\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: tùy chọn “%s%s” không không cho phép một đối số\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: tùy chọn “%s%s” cần một đối số\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: tùy chọn không hợp lệ -- “%c”\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: tùy chọn cần một đối số -- “%c”\n"
@@ -133,8 +133,8 @@ msgstr "Có một ký tự “)” hay “\\)” lẻ đôi"
 msgid "No previous regular expression"
 msgstr "Không có biểu thức chính quy đi trước"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "hết bộ nhớ hoàn toàn"
 
@@ -2104,10 +2104,9 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "Hãy thử lệnh trợ giúp “%s --help” để xem thông tin thêm.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgid "%s:%d: warning: %s\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr "%s:%d: cảnh báo: %s\n"
+msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:434 Pod-Simple-Texinfo/pod2texi.pl:523
 #: tp/texi2any.pl:1741 tp/texi2any.pl:1811
@@ -4497,37 +4496,6 @@ msgstr "đối số có dạng thức sai hoặc trống rỗng @%s: %s"
 #| msgid "%c%s is obsolete; %s"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s quá cũ; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Hãy thông báo lỗi cho địa chỉ “bug-texinfo@gnu.org”,\n"
-#~ "và gửi câu hỏi chung, thảo luận v.v.. cho help-texinfo@gnu.org.\n"
-#~ "Thông báo lỗi dịch cho: <http://translationproject.org/team/vi.html>.\n"
-#~ "Trang chủ texinfo: http://www.gnu.org/software/texinfo/"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "@%s tên nút mục trình đơn “%s” khác biệt với %s tên “%s”"
-
-#, fuzzy, c-format, perl-format
-#~| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-#~ msgctxt "Texinfo source file error in macro"
-#~ msgid "%s (possibly involving @%s)"
-#~ msgstr "%s:%d: cảnh báo: %s (có lẽ gọi @%s)\n"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: gặp lỗi khi đóng tập tin liên kết nội tại %s: %s\n"
 
 #~ msgid "  -O, --show-options, --usage  go to command-line options node"
 #~ msgstr "  -O, --show-options, --usage  đi đến nút tùy chọn dòng-lệnh"

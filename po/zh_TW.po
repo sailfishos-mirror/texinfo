@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.1\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
 "PO-Revision-Date: 2002-03-08 04:56+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -16,47 +16,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr ""
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, fuzzy, c-format
 #| msgid "%s: option `%s' is ambiguous\n"
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: 選項 `%s' 不明\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, fuzzy, c-format
 #| msgid "%s: option `%s' is ambiguous\n"
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: 選項 `%s' 不明\n"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, fuzzy, c-format
 #| msgid "%s: unrecognized option `%c%s'\n"
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: 未知的選項 `%c%s'\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, fuzzy, c-format
 #| msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: 選項 `%c%s' 不可含有引數\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, fuzzy, c-format
 #| msgid "%s: option `%s' requires an argument\n"
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: 選項 `%s' 必須含有引數\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, fuzzy, c-format
 #| msgid "%s: invalid option -- %c\n"
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: 無效的選項 -- %c\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, fuzzy, c-format
 #| msgid "%s: option requires an argument -- %c\n"
 msgid "%s: option requires an argument -- '%c'\n"
@@ -146,8 +146,8 @@ msgstr "未配對的 }"
 msgid "No previous regular expression"
 msgstr "沒有前一次的搜尋字串"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 #, fuzzy
 #| msgid "virtual memory exhausted"
 msgid "memory exhausted"
@@ -4370,20 +4370,6 @@ msgstr ""
 #| msgid "%c%s is obsolete"
 msgid "@%s is obsolete; %s"
 msgstr "%c%s 已廢止不用"
-
-#, fuzzy
-#~| msgid ""
-#~| "\n"
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "\n"
-#~ "程式臭蟲, 請以電子郵件 (英文) 回報至 bug-texinfo@gnu.org,\n"
-#~ "一般問題與討論, 請以電子郵件 (英文) 寄到 help-texinfo@gnu.org.\n"
 
 #~ msgid "One completion:\n"
 #~ msgstr "一個完成句:\n"

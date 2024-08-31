@@ -6,13 +6,13 @@
 #
 # Mirsad Todorovac <mtodorov_69@yahoo.com>, 2002.
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2012, 2013.
-# Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021, 2022, 2023.
+# Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo-7.0.92\n"
+"Project-Id-Version: GNU texinfo-7.1.0.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-06-08 10:26+0100\n"
-"PO-Revision-Date: 2023-09-20 17:07+0200\n"
+"POT-Creation-Date: 2024-08-31 20:08+0100\n"
+"PO-Revision-Date: 2024-06-16 17:57-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -24,41 +24,41 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: gnulib/lib/error.c:194
+#: gnulib/lib/error.c:208
 msgid "Unknown system error"
 msgstr "Nepoznata greška sustava"
 
-#: gnulib/lib/getopt.c:278
+#: gnulib/lib/getopt.c:282
 #, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
 msgstr "%s: opcija „%s%s“ je dvosmislena\n"
 
-#: gnulib/lib/getopt.c:284
+#: gnulib/lib/getopt.c:288
 #, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
 msgstr "%s: opcija „%s%s“ je dvosmislena; mogućnosti su:"
 
-#: gnulib/lib/getopt.c:319
+#: gnulib/lib/getopt.c:322
 #, c-format
 msgid "%s: unrecognized option '%s%s'\n"
 msgstr "%s: neprepoznata opcija „%s%s“\n"
 
-#: gnulib/lib/getopt.c:345
+#: gnulib/lib/getopt.c:348
 #, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
 msgstr "%s: opcija „%s%s“ ne dopušta argument\n"
 
-#: gnulib/lib/getopt.c:360
+#: gnulib/lib/getopt.c:363
 #, c-format
 msgid "%s: option '%s%s' requires an argument\n"
 msgstr "%s: opcija „%s%s“ zahtijeva argument\n"
 
-#: gnulib/lib/getopt.c:621
+#: gnulib/lib/getopt.c:624
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: nevaljana opcija -- „%c“\n"
 
-#: gnulib/lib/getopt.c:636 gnulib/lib/getopt.c:682
+#: gnulib/lib/getopt.c:639 gnulib/lib/getopt.c:685
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
 msgstr "%s: opcija zahtijeva argument -- „%c“\n"
@@ -135,8 +135,8 @@ msgstr "Nesparena ) ili \\)"
 msgid "No previous regular expression"
 msgstr "Nema prethodnog regularnog izraza"
 
-#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:337
-#: tp/Texinfo/XS/gnulib/lib/obstack.c:339
+#: gnulib/lib/xalloc-die.c:34 tp/Texinfo/XS/gnulib/lib/obstack.c:317
+#: tp/Texinfo/XS/gnulib/lib/obstack.c:319
 msgid "memory exhausted"
 msgstr "nema dovoljno memorije"
 
@@ -2128,8 +2128,7 @@ msgid "Try `%s --help' for more information.\n"
 msgstr "Pokušajte s „%s --help“ za više informacija.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:233
-#, fuzzy, perl-format
-#| msgid "%s: ignoring %s without content\n"
+#, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr "%s: ignoriramo besadržajni %s\n"
 
@@ -4376,38 +4375,6 @@ msgstr "nevaljani ili prazni formalni argument @%s: "
 #, c-format
 msgid "@%s is obsolete; %s"
 msgstr "@%s je zastarjelo; %s"
-
-#, fuzzy
-#~| msgid ""
-#~| "Email bug reports to bug-texinfo@gnu.org,\n"
-#~| "general questions and discussion to help-texinfo@gnu.org.\n"
-#~| "Texinfo home page: http://www.gnu.org/software/texinfo/"
-#~ msgid ""
-#~ "Email bug reports to bug-texinfo@gnu.org,\n"
-#~ "general questions and discussion to help-texinfo@gnu.org.\n"
-#~ "Texinfo home page: https://www.gnu.org/software/texinfo/"
-#~ msgstr ""
-#~ "Prijavite greške na bug-texinfo@gnu.org,\n"
-#~ "opća pitanja i diskusije na help-texinfo@gnu.org.\n"
-#~ "Texinfo web stranica: http://www.gnu.org/software/texinfo/\n"
-#~ "Prijavite primjedbe i greške u prijevodu na lokalizacija@linux.hr"
-
-#, fuzzy, perl-format
-#~| msgid "@%s entry node name `%s' different from %s name `%s'"
-#~ msgid "%s: same manual name `%s' for different files: %s and %s"
-#~ msgstr "@%s ime stavke čvora „%s“ je različito od %s imena „%s“"
-
-#, fuzzy, c-format, perl-format
-#~| msgctxt "Texinfo source file warning"
-#~| msgid "warning: %s (possibly involving @%s)"
-#~ msgctxt "Texinfo source file error in macro"
-#~ msgid "%s (possibly involving @%s)"
-#~ msgstr "upozorenje: %s (vjerojatno uključuje @%s)"
-
-#, fuzzy, perl-format
-#~| msgid "%s: error on closing internal links file %s: %s\n"
-#~ msgid "%s: error on closing elements size file %s: %s\n"
-#~ msgstr "%s: greška pri zatvaranju datoteke internih poveznica %s: %s\n"
 
 #~ msgid "%c%s requires a name"
 #~ msgstr "%c%s zahtijeva ime"
