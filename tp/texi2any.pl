@@ -269,9 +269,9 @@ if ($configured_version ne $Texinfo::Common::VERSION
 }
 
 my $configured_package = '@PACKAGE@';
-$configured_package = 'Texinfo' if ($configured_package eq '@' . 'PACKAGE@');
+$configured_package = 'texinfo' if ($configured_package eq '@' . 'PACKAGE@');
 my $configured_name = '@PACKAGE_NAME@';
-$configured_name = $configured_package
+$configured_name = 'GNU Texinfo'
   if ($configured_name eq '@' .'PACKAGE_NAME@');
 my $configured_name_version = "$configured_name $configured_version";
 my $configured_url = '@PACKAGE_URL@';

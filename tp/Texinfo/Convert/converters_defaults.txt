@@ -30,6 +30,8 @@ documentlanguage undef
 # values are what is used in tests of the Converters.  These variables are
 # customization options, set in the main program when a converter is
 # called from the main program.
+PACKAGE               texinfo
+PACKAGE_NAME          GNU Texinfo
 PACKAGE_AND_VERSION   texinfo
 PACKAGE_VERSION       
 PACKAGE_URL           http://www.gnu.org/software/texinfo/

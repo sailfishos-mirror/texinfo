@@ -1,5 +1,12 @@
 2024-08-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl ($configured_package, $configured_name),
+	tp/Texinfo/Convert/converters_defaults.txt (PACKAGE, PACKAGE_NAME):
+	more consistent PACKAGE and PACKAGE_NAME values when not using
+	values set by configure.
+
+2024-08-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac (AC_INIT): use the same package name as
 	in the top-level configure.ac, such that the config.h variables are
 	the same.
