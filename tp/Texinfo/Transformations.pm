@@ -46,7 +46,7 @@ reference_to_arg_in_tree
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '7.1.0.90';
+$VERSION = '7.1.0.91';
 
 # Add raise/lowersections to be back at the normal level
 sub _correct_level($$;$)
