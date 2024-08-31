@@ -1,5 +1,10 @@
 2024-08-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl ($configured_url): replace http by https in
+	$configured_url.
+
+2024-08-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/converters_defaults.txt (PACKAGE_URL),
 	tp/texi2any.pl (%test_conf): replace http by https in
 	converters_defaults.txt and for tests.

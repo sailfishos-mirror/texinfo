@@ -275,7 +275,7 @@ $configured_name = 'GNU Texinfo'
   if ($configured_name eq '@' .'PACKAGE_NAME@');
 my $configured_name_version = "$configured_name $configured_version";
 my $configured_url = '@PACKAGE_URL@';
-$configured_url = 'http://www.gnu.org/software/texinfo/'
+$configured_url = 'https://www.gnu.org/software/texinfo/'
   if ($configured_url eq '@' .'PACKAGE_URL@');
 
 my $texinfo_dtd_version = '@TEXINFO_DTD_VERSION@';
