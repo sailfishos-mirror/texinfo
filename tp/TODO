@@ -10,6 +10,12 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+
+Update search directories in C codes for the XDG Base Directory Specification
+based on what is done in Perl.  Need to wait to be clear on what is done
+in Perl.
+
+
 Bugs
 ====
 

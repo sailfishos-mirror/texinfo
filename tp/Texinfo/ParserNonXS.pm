@@ -9347,7 +9347,7 @@ If there is a translation context, it should be in I<translation_context>.
 
 =head1 SEE ALSO
 
-L<Texinfo manual|http://www.gnu.org/software/texinfo/manual/texinfo/>.
+L<Texinfo manual|https://www.gnu.org/software/texinfo/manual/texinfo/>.
 
 =head1 AUTHOR
 

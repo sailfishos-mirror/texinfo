@@ -1226,7 +1226,7 @@ If there is a translation context, it should be in @emph{translation_context}.
 @node Texinfo@asis{::}Parser SEE ALSO
 @section Texinfo::Parser SEE ALSO
 
-@url{http://www.gnu.org/software/texinfo/manual/texinfo/, Texinfo manual}.
+@url{https://www.gnu.org/software/texinfo/manual/texinfo/, Texinfo manual}.
 
 @node Texinfo@asis{::}Parser AUTHOR
 @section Texinfo::Parser AUTHOR
