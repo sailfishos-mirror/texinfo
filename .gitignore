@@ -54,6 +54,8 @@ gnulib/lib/getopt.h
 gnulib/lib/inttypes.h
 gnulib/lib/langinfo.h
 gnulib/lib/locale.h
+gnulib/lib/pthread.h
+gnulib/lib/sched.h
 gnulib/lib/stdarg.h
 gnulib/lib/stdbool.h
 gnulib/lib/stdint.h
@@ -88,6 +90,8 @@ tp/Texinfo/XS/gnulib/lib/iconv.h
 tp/Texinfo/XS/gnulib/lib/stdckdint.h
 tp/Texinfo/XS/gnulib/lib/uniconv.h
 tp/Texinfo/XS/gnulib/lib/unistr.h
+tp/Texinfo/XS/gnulib/lib/obstack.h
+tp/Texinfo/XS/gnulib/lib/float.h
 
 gnulib/lib/**/.dirstamp
 
