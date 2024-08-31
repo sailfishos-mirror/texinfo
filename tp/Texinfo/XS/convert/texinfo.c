@@ -295,6 +295,12 @@ txi_converter_setup (const char *format_str,
     = find_format_name_converter_format (format_str);
   CONVERTER_INITIALIZATION_INFO *conf;
   CONVERTER *self;
+  const char *configured_version = PACKAGE_VERSION_CONFIG;
+  const char *configured_package = PACKAGE_CONFIG;
+  const char *configured_name = PACKAGE_NAME_CONFIG;
+  const char *configured_url = PACKAGE_URL_CONFIG;
+  const char *configured_name_version
+    = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG;
 
   conf = new_converter_initialization_info ();
 
@@ -317,15 +323,19 @@ txi_converter_setup (const char *format_str,
 
   /* similar to options coming from texi2any */
   add_option_string_value (&conf->conf, txi_base_sorted_options,
-   /*
-    */
                            "PROGRAM", 0, program_file);
-  /* comment the line above and uncomment below to compare with
-     texi2any output
-                           "PROGRAM", 0, "texi2any");
-  add_option_string_value (&conf->conf, txi_base_sorted_options,
-                      "PACKAGE_AND_VERSION", 0, "Texinfo 7.1.90+dev");
-   */
+#define set_configured_information(varname,postfix) \
+  add_option_string_value (&conf->conf, txi_base_sorted_options, \
+                           #varname, 0, configured_ ## postfix); \
+  add_option_string_value (&conf->conf, txi_base_sorted_options, \
+                           #varname "_CONF", 0, configured_ ## postfix);
+  set_configured_information(PACKAGE_VERSION, version)
+  set_configured_information(PACKAGE, package)
+  set_configured_information(PACKAGE_NAME, name)
+  set_configured_information(PACKAGE_AND_VERSION, name_version)
+  set_configured_information(PACKAGE_URL, url)
+#undef set_configured_information
+
   add_option_string_value (&conf->conf, txi_base_sorted_options,
                         "COMMAND_LINE_ENCODING", 0, locale_encoding);
   add_option_string_value (&conf->conf, txi_base_sorted_options,

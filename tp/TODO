@@ -916,6 +916,8 @@ Setting flags
 # some features are only enabled at -O2, but sometime -O0 is better
 # for debugging with valgrind
 our_CFLAGS='-g -O0 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -Wextra'
+# keep cpp expanded files
+# -save-temps
 # Without -Wstack-protector there is no message on functions not protected.
 # All these are in gnulib or gettext for now.
 # -fno-omit-frame-pointer is better for debugging with valgrind, but has

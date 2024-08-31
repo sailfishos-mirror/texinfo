@@ -21,6 +21,8 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <ctype.h>
 #include <langinfo.h>
 #include <locale.h>
 #ifdef ENABLE_NLS
@@ -106,6 +108,14 @@ main (int argc, char *argv[])
   char *home_dir;
   const char *curdir = ".";
 
+  /* there are two modes, depending on test value.
+      - if test is set, the output is setup to test specific output
+        options, use the true program name and try to generate
+        reproducible output.
+      - if test is unset, the program tries to mimic texi2any.
+   */
+  int test = 0;
+
   /*
   const char *texinfo_text;
    */
@@ -123,8 +133,41 @@ main (int argc, char *argv[])
 
   locale_encoding = nl_langinfo (CODESET);
 
-  if (argc <= 1)
-    exit (1);
+  parse_file_path (argv[0], program_file_name_and_directory);
+  program_file = program_file_name_and_directory[0];
+  input_directory = program_file_name_and_directory[1];
+
+  while (1)
+    {
+      int option_character;
+
+      option_character = getopt (argc, argv, "t");
+      if (option_character == -1)
+        break;
+
+      switch (option_character)
+        {
+        case 't':
+          test = 1;
+          break;
+          /*
+        case '?':
+          if (isprint (optopt))
+            fprintf (stderr, "Unknown option `-%c'\n", optopt);
+          else
+            fprintf (stderr,
+                     "Unknown option character `\\x%x'\n",
+                     optopt);
+          break;
+           */
+        default:
+          fprintf (stderr, "Usage: %s [-t] input_file\n", program_file);
+          exit (EXIT_FAILURE);
+        }
+    }
+
+  if (optind >= argc)
+    exit (EXIT_FAILURE);
 
   txi_setup (LOCALEDIR, 0, 0, 0, 0);
 
@@ -149,10 +192,6 @@ main (int argc, char *argv[])
     add_string (DATADIR "/texinfo", &texinfo_language_config_dirs);
 
 
-  parse_file_path (argv[0], program_file_name_and_directory);
-  program_file = program_file_name_and_directory[0];
-  input_directory = program_file_name_and_directory[1];
-
 /*
  if ($^O eq 'MSWin32') {
   $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
@@ -160,7 +199,7 @@ main (int argc, char *argv[])
 */
 
   /* Texinfo file parsing */
-  input_file_path = argv[1];
+  input_file_path = argv[optind];
 
   initialize_options_list (&parser_options, 2);
   /*
@@ -183,7 +222,7 @@ main (int argc, char *argv[])
     {
       txi_handle_parser_error_messages (document, 0, 1, locale_encoding);
       txi_remove_document (document);
-      exit (1);
+      exit (EXIT_FAILURE);
     }
 
   errors_nr
@@ -212,18 +251,23 @@ main (int argc, char *argv[])
   /* conversion initialization */
   initialize_options_list (&convert_options, 2);
 
-  /* customize buttons.  It is a bit silly to use link buttons for
-     footer, it is for the demonstration */
-  custom_node_footer_buttons = new_base_links_buttons (0);
-  add_new_button_option (&convert_options,
+  if (test)
+    {
+      /* customize buttons.  It is a bit silly to use link buttons for
+         footer, it is for the demonstration */
+      custom_node_footer_buttons = new_base_links_buttons (0);
+      add_new_button_option (&convert_options,
                      "NODE_FOOTER_BUTTONS", custom_node_footer_buttons);
-  add_new_option_value (&convert_options, GOT_integer,
+      add_new_option_value (&convert_options, GOT_integer,
                            "PROGRAM_NAME_IN_FOOTER", 1, 0);
-  /*
-   */
-  /* this is set to help with comparison with previous invokations */
-  add_new_option_value (&convert_options, GOT_integer,
-                           "TEST", 1, 0);
+      /* this is set to help with comparison with previous invokations */
+      add_new_option_value (&convert_options, GOT_integer,
+                            "TEST", 1, 0);
+    }
+  else
+    {
+      program_file = strdup ("texi2any");
+    }
   /*
   add_new_option_value (&convert_options, GOT_integer,
                         "CHECK_HTMLXREF", 1, 0);
@@ -271,5 +315,5 @@ main (int argc, char *argv[])
   txi_remove_document (document);
 
   if (errors_count > 0)
-    exit (1);
+    exit (EXIT_FAILURE);
 }
