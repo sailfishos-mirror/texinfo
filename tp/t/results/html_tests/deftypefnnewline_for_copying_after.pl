@@ -774,7 +774,7 @@ $result_indices_sort_strings{'deftypefnnewline_for_copying_after'} = {
 
 $result_converted{'html'}->{'deftypefnnewline_for_copying_after'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Function: TYPE NAME ARGUMENTS...

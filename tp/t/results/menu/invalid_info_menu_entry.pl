@@ -622,7 +622,7 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
 
 $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

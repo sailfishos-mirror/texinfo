@@ -1362,9 +1362,9 @@ if ($cmdline_options->{'HIGHLIGHT_SYNTAX'}) {
 my %test_conf = (
     'PACKAGE_VERSION' => '',
     'PACKAGE' => 'texinfo',
-    'PACKAGE_NAME' => 'texinfo',
+    'PACKAGE_NAME' => 'GNU Texinfo',
     'PACKAGE_AND_VERSION' => 'texinfo',
-    'PACKAGE_URL' => 'http://www.gnu.org/software/texinfo/',
+    'PACKAGE_URL' => 'https://www.gnu.org/software/texinfo/',
 # maybe don't set this?
     'PROGRAM' => 'texi2any',
 );

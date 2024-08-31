@@ -317,7 +317,7 @@ $result_converted{'plaintext'}->{'verb_in_menu_description'} = 'top
 
 $result_converted{'html'}->{'verb_in_menu_description'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>top</title>

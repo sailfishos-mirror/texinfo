@@ -121,7 +121,7 @@ $result_converted{'plaintext'}->{'two_unnumbered_no_argument'} = '';
 
 $result_converted{'html'}->{'two_unnumbered_no_argument'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

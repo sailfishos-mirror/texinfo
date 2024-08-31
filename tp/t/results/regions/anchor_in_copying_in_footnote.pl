@@ -437,7 +437,7 @@ $result_converted_errors{'info'}->{'anchor_in_copying_in_footnote'} = [
 
 $result_converted{'html'}->{'anchor_in_copying_in_footnote'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- 

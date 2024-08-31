@@ -390,7 +390,7 @@ in chap
 
 $result_converted{'html'}->{'node_sectop_before_lone_node_Top'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>top sectionning</title>

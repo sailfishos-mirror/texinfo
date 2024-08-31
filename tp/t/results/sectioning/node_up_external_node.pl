@@ -588,7 +588,7 @@ $result_converted{'plaintext'}->{'node_up_external_node'} = '';
 
 $result_converted{'html'}->{'node_up_external_node'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

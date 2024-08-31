@@ -248,7 +248,7 @@ $result_converted_errors{'info'}->{'one_node_explicit_directions_anchor_no_use_n
 
 $result_converted{'html'}->{'one_node_explicit_directions_anchor_no_use_node'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

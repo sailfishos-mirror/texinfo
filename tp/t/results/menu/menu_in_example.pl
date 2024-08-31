@@ -561,7 +561,7 @@ $result_converted{'plaintext'}->{'menu_in_example'} = '* Menu:
 
 $result_converted{'html'}->{'menu_in_example'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

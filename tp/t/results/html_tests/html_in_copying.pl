@@ -287,7 +287,7 @@ $result_floats{'html_in_copying'} = {};
 
 $result_converted{'html'}->{'html_in_copying'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Copying

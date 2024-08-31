@@ -3759,7 +3759,7 @@ See Text 1: text with a lot of features.
 
 $result_converted{'html'}->{'complex_float'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Test floats</title>

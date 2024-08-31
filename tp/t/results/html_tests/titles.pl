@@ -295,7 +295,7 @@ $result_floats{'titles'} = {};
 
 $result_converted{'html'}->{'titles'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>@title HTML test</title>

@@ -389,7 +389,7 @@ $result_converted{'plaintext'}->{'double_recursive_self_section_node_reference'}
 
 $result_converted{'html'}->{'double_recursive_self_section_node_reference'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>top</title>

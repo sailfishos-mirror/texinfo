@@ -812,7 +812,7 @@ $result_indices_sort_strings{'anchor_on_vtable_item'} = {
 
 $result_converted{'html'}->{'anchor_on_vtable_item'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>top</title>

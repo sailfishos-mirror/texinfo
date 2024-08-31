@@ -1884,7 +1884,7 @@ $result_converted{'plaintext'}->{'nodedescriptionblock_descriptions'} = 'test of
 
 $result_converted{'html'}->{'nodedescriptionblock_descriptions'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>test of nodedescriptionblock used in menu</title>

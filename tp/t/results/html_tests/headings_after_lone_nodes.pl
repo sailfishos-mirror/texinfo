@@ -1630,7 +1630,7 @@ $result_floats{'headings_after_lone_nodes'} = {};
 
 $result_converted{'html'}->{'headings_after_lone_nodes'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>top</title>

@@ -154,7 +154,7 @@ $result_converted{'plaintext'}->{'heading_in_quotation'} = '     in quotation @ 
 
 $result_converted{'html'}->{'heading_in_quotation'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

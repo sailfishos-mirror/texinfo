@@ -502,7 +502,7 @@ $result_converted{'plaintext'}->{'menu_entry_name_comment'} = '* Menu:
 
 $result_converted{'html'}->{'menu_entry_name_comment'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

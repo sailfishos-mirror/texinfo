@@ -268,7 +268,7 @@ Some $a - b \\geq{} Å ê$.
 
 $result_converted{'html'}->{'mathjax_with_texinfo_enable_encoding'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

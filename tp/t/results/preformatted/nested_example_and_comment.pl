@@ -511,7 +511,7 @@ $result_converted{'plaintext'}->{'nested_example_and_comment'} = '     First lin
 
 $result_converted{'html'}->{'nested_example_and_comment'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

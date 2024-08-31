@@ -222,7 +222,7 @@ $result_converted{'plaintext'}->{'example_at_commands_arguments'} = '     exampl
 
 $result_converted{'html'}->{'example_at_commands_arguments'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

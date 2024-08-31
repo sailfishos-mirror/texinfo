@@ -111,7 +111,7 @@ $result_converted{'plaintext'}->{'quote_dash_in_display'} = '     and now - yes-
 
 $result_converted{'html'}->{'quote_dash_in_display'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

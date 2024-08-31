@@ -6484,7 +6484,7 @@ numbered subsection2 4
 
 $result_converted{'html'}->{'section_in_unnumbered_plaintext'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Test section in unnumbered</title>

@@ -409,7 +409,7 @@ $result_converted{'plaintext'}->{'comment_example_and_blank_lines'} = 'Para.
 
 $result_converted{'html'}->{'comment_example_and_blank_lines'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

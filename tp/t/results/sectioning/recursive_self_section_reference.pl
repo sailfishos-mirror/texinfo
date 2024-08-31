@@ -175,7 +175,7 @@ $result_converted{'plaintext'}->{'recursive_self_section_reference'} = '1 sharp 
 
 $result_converted{'html'}->{'recursive_self_section_reference'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>

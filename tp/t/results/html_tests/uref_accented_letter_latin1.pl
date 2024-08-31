@@ -128,7 +128,7 @@ $result_floats{'uref_accented_letter_latin1'} = {};
 
 $result_converted{'html'}->{'uref_accented_letter_latin1'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Untitled Document</title>

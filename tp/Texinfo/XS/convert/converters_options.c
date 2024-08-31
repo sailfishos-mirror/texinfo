@@ -19,7 +19,7 @@ set_common_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->PACKAGE_NAME, -2, "GNU Texinfo");
   option_set_conf (&options->PACKAGE_AND_VERSION, -2, "texinfo");
   option_set_conf (&options->PACKAGE_VERSION, -2, "");
-  option_set_conf (&options->PACKAGE_URL, -2, "http://www.gnu.org/software/texinfo/");
+  option_set_conf (&options->PACKAGE_URL, -2, "https://www.gnu.org/software/texinfo/");
   option_set_conf (&options->PROGRAM, -2, "");
 }
 
@@ -30,7 +30,7 @@ add_common_regular_options_defaults (OPTIONS_LIST *options_list)
   add_new_option_value (options_list, GOT_char, "PACKAGE_NAME", -2, "GNU Texinfo");
   add_new_option_value (options_list, GOT_char, "PACKAGE_AND_VERSION", -2, "texinfo");
   add_new_option_value (options_list, GOT_char, "PACKAGE_VERSION", -2, "");
-  add_new_option_value (options_list, GOT_char, "PACKAGE_URL", -2, "http://www.gnu.org/software/texinfo/");
+  add_new_option_value (options_list, GOT_char, "PACKAGE_URL", -2, "https://www.gnu.org/software/texinfo/");
   add_new_option_value (options_list, GOT_char, "PROGRAM", -2, "");
 }
 

@@ -15758,7 +15758,7 @@ $result_converted_errors{'plaintext'}->{'at_commands_in_refs'} = [
 
 $result_converted{'html'}->{'at_commands_in_refs'} = '<!DOCTYPE html>
 <html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Top</title>

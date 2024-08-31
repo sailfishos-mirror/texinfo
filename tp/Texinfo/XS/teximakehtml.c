@@ -266,7 +266,19 @@ main (int argc, char *argv[])
     }
   else
     {
+      /* mimics what is done in texi2any.pl, under the assumption that
+         teximakehtml output will be compared to calls of in-source
+         texi2any.pl */
+      const char *configured_version = PACKAGE_VERSION_CONFIG "+dev";
+      const char *configured_name_version
+         = PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+dev";
+
       program_file = strdup ("texi2any");
+
+      add_new_option_value (&convert_options, GOT_char,
+                            "PACKAGE_VERSION", 0, configured_version);
+      add_new_option_value (&convert_options, GOT_char,
+                            "PACKAGE_AND_VERSION", 0, configured_name_version);
     }
   /*
   add_new_option_value (&convert_options, GOT_integer,
