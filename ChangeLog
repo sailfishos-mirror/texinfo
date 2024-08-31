@@ -1,5 +1,19 @@
 2024-08-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	gettext infrastructure upgrade
+
+	* tp/Texinfo/XS/configure.ac: specify AM_GNU_GETTEXT_VERSION([0.21])
+	* tp/Texinfo/XS: run autopoint -f to upgrapde to gettext 0.21,
+	and revert any file downgrades
+
+	* autogen.sh: set AUTOPOINT=true when running autoreconf under
+	tp/Texinfo/XS in order to avoid overwriting files with older
+	versions
+
+	Report from Bruno Haible, bug-texinfo, 2024-08-06.
+
+2024-08-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac: bump to version 7.1.0.91.
 
 2024-08-31  Gavin Smith <gavinsmith0123@gmail.com>

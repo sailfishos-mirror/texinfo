@@ -48,7 +48,7 @@ $chicken eval $cmd "$@" || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
 cmd="(cd tp/Texinfo/XS && ${LIBTOOLIZE} \
- && autoreconf --force --verbose --install)"
+ && AUTOPOINT=true autoreconf --force --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
