@@ -1,5 +1,11 @@
 2024-08-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac (AC_INIT): use the same package name as
+	in the top-level configure.ac, such that the config.h variables are
+	the same.
+
+2024-08-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/texinfo.c (txi_converter_setup): set PACKAGE_*
 	and PACKAGE_*_CONFIG customization variables.
 
