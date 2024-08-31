@@ -439,6 +439,22 @@ sub destroy($)
 {
 }
 
+sub XS_get_unclosed_stream($$)
+{
+  return undef;
+}
+
+sub output_files_information($)
+{
+  my $self = shift;
+  return $self->{'output_files'};
+}
+
+
+
+
+# translations
+
 sub cdt($$;$$)
 {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
@@ -466,6 +482,10 @@ sub pcdt($$;$$)
 
   return $self->cdt($string, $replaced_substrings, $translation_context);
 }
+
+
+
+# errors and warnings
 
 sub converter_line_error($$$;$)
 {
@@ -535,6 +555,8 @@ sub get_converter_errors($)
   return $self->{'error_warning_messages'};
 }
 
+
+
 ###############################################################
 # Implementation of the customization API that is used in many
 # Texinfo modules
@@ -583,16 +605,399 @@ sub force_conf($$$)
   return 1;
 }
 
-sub output_files_information($)
+
+
+#####################################################################
+# Elements and output units file names
+#
+# - default file names setting for sectioning commands and nodes
+# - output units files API
+# - set_output_units_files, which uses both default file names setting
+#   and output units files API
+
+sub _id_to_filename($$)
 {
   my $self = shift;
-  return $self->{'output_files'};
+  my $id = shift;
+  my $basefilename_length = $self->get_conf('BASEFILENAME_LENGTH');
+  if (defined($basefilename_length) and $basefilename_length >= 0) {
+    return substr($id, 0, $basefilename_length);
+  } else {
+    return $id;
+  }
 }
 
+sub normalized_sectioning_command_filename($$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $no_unidecode;
 
-####################################################################
-# Useful functions.  Those in this section are used in the module and can
-# also be used in other Converter modules.
+  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
+                        and !$self->get_conf('USE_UNIDECODE'));
+
+  my $normalized_name
+    = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+         {'contents' => $command->{'args'}->[0]->{'contents'}},
+                  $no_unidecode);
+
+  my $filename = $self->_id_to_filename($normalized_name);
+  $filename .= '.'.$self->get_conf('EXTENSION')
+    if (defined($self->get_conf('EXTENSION'))
+      and $self->get_conf('EXTENSION') ne '');
+  return ($normalized_name, $filename);
+}
+
+sub node_information_filename($$$)
+{
+  my $self = shift;
+  my $normalized = shift;
+  my $label_element = shift;
+
+  my $no_unidecode;
+  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
+                        and !$self->get_conf('USE_UNIDECODE'));
+
+  my $filename;
+  if (defined($normalized)) {
+    if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
+      $filename
+  = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+       {'contents' => $label_element->{'contents'}},
+            $no_unidecode);
+    } else {
+      $filename = $normalized;
+    }
+  } elsif (defined($label_element)) {
+    $filename = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+             { 'contents' => $label_element->{'contents'} });
+  } else {
+    $filename = '';
+  }
+  $filename = $self->_id_to_filename($filename);
+  return $filename;
+}
+
+sub top_node_filename($$)
+{
+  my $self = shift;
+  my $document_name = shift;
+
+  if (defined($self->get_conf('TOP_FILE'))
+      and $self->get_conf('TOP_FILE') ne '') {
+    return $self->get_conf('TOP_FILE');
+  } elsif (defined($document_name)) {
+    my $top_node_filename = $document_name;
+    if (defined($self->get_conf('EXTENSION'))
+        and $self->get_conf('EXTENSION') ne '') {
+      $top_node_filename .= '.'.$self->get_conf('EXTENSION')
+    }
+    return $top_node_filename
+  }
+  return undef;
+}
+
+sub initialize_output_units_files($)
+{
+  my $self = shift;
+
+  $self->{'out_filepaths'} = {};
+  $self->{'file_counters'} = {};
+  $self->{'filenames'} = {};
+}
+
+# If CASE_INSENSITIVE_FILENAMES is set, reuse the first
+# filename with the same name insensitive to the case.
+sub register_normalize_case_filename($$)
+{
+  my $self = shift;
+  my $filename = shift;
+
+  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
+    if (exists($self->{'filenames'}->{lc($filename)})) {
+      if ($self->get_conf('DEBUG')) {
+        print STDERR "Reusing case-insensitive ".
+                   $self->{'filenames'}->{lc($filename)}." for $filename\n";
+      }
+      $filename = $self->{'filenames'}->{lc($filename)};
+    } else {
+      $self->{'filenames'}->{lc($filename)} = $filename;
+    }
+  } else {
+    if (exists($self->{'filenames'}->{$filename})) {
+      if ($self->get_conf('DEBUG')) {
+        print STDERR "Reusing ".$self->{'filenames'}->{$filename}
+                     ." for $filename\n";
+      }
+    } else {
+      $self->{'filenames'}->{$filename} = $filename;
+    }
+  }
+  return $filename;
+}
+
+# return the registered filename if there is one, else return undef.
+# Note that it only tells that a file name has been its name considered,
+# not that the corresponding file is created.
+# currently unused.
+sub registered_filename($$)
+{
+  my $self = shift;
+  my $filename = shift;
+
+  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
+    if (exists($self->{'filenames'}->{lc($filename)})) {
+      return $self->{'filenames'}->{lc($filename)};
+    }
+  } elsif (exists($self->{'filenames'}->{$filename})) {
+    return $self->{'filenames'}->{$filename};
+  }
+  return undef;
+}
+
+# Sets $output_unit->{'unit_filename'}.
+sub set_output_unit_file($$$)
+{
+  my $self = shift;
+  my $output_unit = shift;
+  my $filename = shift;
+
+  if (!defined($filename)) {
+    cluck("set_output_unit_file: filename not defined\n");
+  }
+  if (!defined($output_unit)) {
+    cluck("set_output_unit_file: output_unit not defined\n");
+  }
+
+  $filename = $self->register_normalize_case_filename($filename);
+
+  # This should never happen, set_output_unit_file is called once per
+  # tree unit.
+  if (exists($output_unit->{'unit_filename'})) {
+    if ($output_unit->{'unit_filename'} eq $filename) {
+      print STDERR "set_output_unit_file: already set: $filename\n"
+         if ($self->get_conf('DEBUG'));
+    } else {
+      print STDERR  "set_output_unit_file: unit_filename reset: "
+        .$output_unit->{'unit_filename'}.", $filename\n"
+           if ($self->get_conf('DEBUG'));
+    }
+  }
+  $output_unit->{'unit_filename'} = $filename;
+}
+
+# sets out_filepaths converter state, associating a file name
+# to a file path.
+# $FILEPATH can be given explicitly, otherwise it is based on $FILENAME
+# and $DESTINATION_DIRECTORY
+sub set_file_path($$$;$)
+{
+  my $self = shift;
+  my $filename = shift;
+  my $destination_directory = shift;
+  my $filepath = shift;
+
+  if (!defined($filename)) {
+    cluck("set_file_path: filename not defined\n");
+  }
+
+  $filename = $self->register_normalize_case_filename($filename);
+
+  if (not defined($filepath)) {
+    if (defined($destination_directory) and $destination_directory ne '') {
+      $filepath = File::Spec->catfile($destination_directory, $filename);
+    } else {
+      $filepath = $filename;
+    }
+  }
+  # the file path should be set only once per file name.  With
+  # CASE_INSENSITIVE_FILENAMES the same file path can appear more
+  # than once when files differ in case.
+  if (defined($self->{'out_filepaths'}->{$filename})) {
+    if ($self->{'out_filepaths'}->{$filename} eq $filepath) {
+      print STDERR "set_file_path: filepath set: $filepath\n"
+         if ($self->get_conf('DEBUG'));
+    } else {
+      print STDERR  "set_file_path: filepath reset: "
+        .$self->{'out_filepaths'}->{$filename}.", $filepath\n"
+         if ($self->get_conf('DEBUG'));
+    }
+  }
+  $self->{'out_filepaths'}->{$filename} = $filepath;
+}
+
+sub _get_root_element($$)
+{
+  my $self = shift;
+  my $command = shift;
+
+  my $current = $command;
+
+  while (1) {
+    if ($current->{'associated_unit'}) {
+      return $current->{'associated_unit'};
+    }
+    if ($current->{'parent'}) {
+      $current = $current->{'parent'};
+    } else {
+      return undef;
+    }
+  }
+}
+
+# TODO document
+# set file_counters converter state
+sub set_output_units_files($$$$$$)
+{
+  my $self = shift;
+  my $output_units = shift;
+  my $output_file = shift;
+  my $destination_directory = shift;
+  my $output_filename = shift;
+  my $document_name = shift;
+
+  # Ensure that the document has pages
+  return undef if (!defined($output_units) or !@$output_units);
+
+  $self->initialize_output_units_files();
+
+  my $extension = '';
+  $extension = '.'.$self->get_conf('EXTENSION')
+            if (defined($self->get_conf('EXTENSION'))
+                and $self->get_conf('EXTENSION') ne '');
+
+  if (!$self->get_conf('SPLIT')) {
+    $self->set_file_path($output_filename, undef, $output_file);
+    foreach my $output_unit (@$output_units) {
+      $self->set_output_unit_file($output_unit, $output_filename);
+    }
+  } else {
+    my $node_top;
+
+    my $identifiers_target;
+    if ($self->{'document'}) {
+      $identifiers_target = $self->{'document'}->labels_information();
+    }
+
+    $node_top = $identifiers_target->{'Top'}
+                            if ($identifiers_target);
+
+    my $top_node_filename = $self->top_node_filename($document_name);
+    # first determine the top node file name.
+    if ($node_top and defined($top_node_filename)) {
+      my ($node_top_unit) = $self->_get_root_element($node_top);
+      if (!defined($node_top_unit)) {
+        print STDERR "No element for top node (".scalar(@$output_units)." units)\n"
+         if ($self->get_conf('DEBUG'));
+      } else {
+        $self->set_file_path($top_node_filename, $destination_directory);
+        $self->set_output_unit_file($node_top_unit, $top_node_filename);
+      }
+    }
+    my $file_nr = 0;
+    my $previous_page;
+    foreach my $output_unit (@$output_units) {
+      # For Top node.
+      next if (defined($output_unit->{'unit_filename'}));
+      my $file_output_unit = $output_unit->{'first_in_page'};
+      if (!$file_output_unit) {
+        cluck ("No first_in_page for $output_unit\n");
+      }
+      if (!defined($file_output_unit->{'unit_filename'})) {
+        foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
+          if ($root_command->{'cmdname'}
+              and $root_command->{'cmdname'} eq 'node') {
+            my $node_filename;
+            # double node are not normalized, they are handled here
+            if (!defined($root_command->{'extra'}->{'normalized'})
+                or !defined($identifiers_target->{
+                               $root_command->{'extra'}->{'normalized'}})) {
+              $node_filename = 'unknown_node';
+            } else {
+              $node_filename
+               = $self->node_information_filename(
+                               $root_command->{'extra'}->{'normalized'},
+                               $root_command->{'args'}->[0]);
+            }
+            $node_filename .= $extension;
+            $self->set_file_path($node_filename,$destination_directory);
+            $self->set_output_unit_file($file_output_unit, $node_filename);
+            last;
+          }
+        }
+        if (!defined($file_output_unit->{'unit_filename'})) {
+          # use section to do the file name if there is no node
+          my $command = $file_output_unit->{'unit_command'};
+          if ($command) {
+            if ($command->{'cmdname'} eq 'top' and !$node_top
+                and defined($top_node_filename)) {
+              $self->set_file_path($top_node_filename, $destination_directory);
+              $self->set_output_unit_file($file_output_unit, $top_node_filename);
+            } else {
+              my ($normalized_name, $filename)
+                 = $self->normalized_sectioning_command_filename($command);
+              $self->set_file_path($filename, $destination_directory);
+              $self->set_output_unit_file($file_output_unit, $filename);
+            }
+          } else {
+            # when everything else has failed
+            if ($file_nr == 0 and !$node_top and defined($top_node_filename)) {
+              $self->set_file_path($top_node_filename, $destination_directory);
+              $self->set_output_unit_file($file_output_unit, $top_node_filename);
+            } else {
+              my $filename = $document_name . "_$file_nr";
+              $filename .= $extension;
+              $self->set_file_path($filename, $destination_directory);
+              $self->set_output_unit_file($output_unit, $filename);
+            }
+            $file_nr++;
+          }
+        }
+      }
+      $self->set_output_unit_file($output_unit,
+                    $file_output_unit->{'unit_filename'});
+    }
+  }
+
+  foreach my $output_unit (@$output_units) {
+    my $output_unit_filename = $output_unit->{'unit_filename'};
+    $self->{'file_counters'}->{$output_unit_filename} = 0
+       if (!exists($self->{'file_counters'}->{$output_unit_filename}));
+    $self->{'file_counters'}->{$output_unit_filename}++;
+    print STDERR 'Page '
+     # uncomment for Perl object name
+     #."$output_unit "
+     .Texinfo::OutputUnits::output_unit_texi($output_unit)
+     .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
+              if ($self->get_conf('DEBUG'));
+  }
+}
+
+
+
+#############################################################
+# useful methods for Converters.
+# First methods are also used in this module.
+
+# Generic/overall document methods
+
+sub create_destination_directory($$$)
+{
+  my $self = shift;
+  my $destination_directory_path = shift;
+  my $destination_directory_name = shift;
+
+  if (defined($destination_directory_path)
+      and ! -d $destination_directory_path) {
+    if (!mkdir($destination_directory_path, oct(755))) {
+      $self->converter_document_error(sprintf(__(
+                                "could not create directory `%s': %s"),
+                                   $destination_directory_name, $!));
+      return 0;
+    }
+  }
+  return 1;
+}
 
 # output fo $fh if defined, otherwise return the text.
 sub write_or_return($$$)
@@ -760,386 +1165,6 @@ sub determine_files_and_directory($$)
           $document_name, $input_basefile);
 }
 
-sub _id_to_filename($$)
-{
-  my $self = shift;
-  my $id = shift;
-  my $basefilename_length = $self->get_conf('BASEFILENAME_LENGTH');
-  if (defined($basefilename_length) and $basefilename_length >= 0) {
-    return substr($id, 0, $basefilename_length);
-  } else {
-    return $id;
-  }
-}
-
-sub normalized_sectioning_command_filename($$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $no_unidecode;
-
-  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                        and !$self->get_conf('USE_UNIDECODE'));
-
-  my $normalized_name
-    = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-         {'contents' => $command->{'args'}->[0]->{'contents'}},
-                  $no_unidecode);
-
-  my $filename = $self->_id_to_filename($normalized_name);
-  $filename .= '.'.$self->get_conf('EXTENSION')
-    if (defined($self->get_conf('EXTENSION'))
-      and $self->get_conf('EXTENSION') ne '');
-  return ($normalized_name, $filename);
-}
-
-sub node_information_filename($$$)
-{
-  my $self = shift;
-  my $normalized = shift;
-  my $label_element = shift;
-
-  my $no_unidecode;
-  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                        and !$self->get_conf('USE_UNIDECODE'));
-
-  my $filename;
-  if (defined($normalized)) {
-    if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
-      $filename
-  = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-       {'contents' => $label_element->{'contents'}},
-            $no_unidecode);
-    } else {
-      $filename = $normalized;
-    }
-  } elsif (defined($label_element)) {
-    $filename = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-             { 'contents' => $label_element->{'contents'} });
-  } else {
-    $filename = '';
-  }
-  $filename = $self->_id_to_filename($filename);
-  return $filename;
-}
-
-sub initialize_output_units_files($)
-{
-  my $self = shift;
-
-  $self->{'out_filepaths'} = {};
-  $self->{'file_counters'} = {};
-  $self->{'filenames'} = {};
-}
-
-# If CASE_INSENSITIVE_FILENAMES is set, reuse the first
-# filename with the same name insensitive to the case.
-sub register_normalize_case_filename($$)
-{
-  my $self = shift;
-  my $filename = shift;
-
-  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
-    if (exists($self->{'filenames'}->{lc($filename)})) {
-      if ($self->get_conf('DEBUG')) {
-        print STDERR "Reusing case-insensitive ".
-                   $self->{'filenames'}->{lc($filename)}." for $filename\n";
-      }
-      $filename = $self->{'filenames'}->{lc($filename)};
-    } else {
-      $self->{'filenames'}->{lc($filename)} = $filename;
-    }
-  } else {
-    if (exists($self->{'filenames'}->{$filename})) {
-      if ($self->get_conf('DEBUG')) {
-        print STDERR "Reusing ".$self->{'filenames'}->{$filename}
-                     ." for $filename\n";
-      }
-    } else {
-      $self->{'filenames'}->{$filename} = $filename;
-    }
-  }
-  return $filename;
-}
-
-# return the registered filename if there is one, else return undef.
-# Note that it only tells that a file name has been its name considered,
-# not that the corresponding file is created.
-# currently unused.
-sub registered_filename($$)
-{
-  my $self = shift;
-  my $filename = shift;
-
-  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
-    if (exists($self->{'filenames'}->{lc($filename)})) {
-      return $self->{'filenames'}->{lc($filename)};
-    }
-  } elsif (exists($self->{'filenames'}->{$filename})) {
-    return $self->{'filenames'}->{$filename};
-  }
-  return undef;
-}
-
-# Sets $output_unit->{'unit_filename'}.
-sub set_output_unit_file($$$)
-{
-  my $self = shift;
-  my $output_unit = shift;
-  my $filename = shift;
-
-  if (!defined($filename)) {
-    cluck("set_output_unit_file: filename not defined\n");
-  }
-  if (!defined($output_unit)) {
-    cluck("set_output_unit_file: output_unit not defined\n");
-  }
-
-  $filename = $self->register_normalize_case_filename($filename);
-
-  # This should never happen, set_output_unit_file is called once per
-  # tree unit.
-  if (exists($output_unit->{'unit_filename'})) {
-    if ($output_unit->{'unit_filename'} eq $filename) {
-      print STDERR "set_output_unit_file: already set: $filename\n"
-         if ($self->get_conf('DEBUG'));
-    } else {
-      print STDERR  "set_output_unit_file: unit_filename reset: "
-        .$output_unit->{'unit_filename'}.", $filename\n"
-           if ($self->get_conf('DEBUG'));
-    }
-  }
-  $output_unit->{'unit_filename'} = $filename;
-}
-
-# sets out_filepaths converter state, associating a file name
-# to a file path.
-# $FILEPATH can be given explicitly, otherwise it is based on $FILENAME
-# and $DESTINATION_DIRECTORY
-sub set_file_path($$$;$)
-{
-  my $self = shift;
-  my $filename = shift;
-  my $destination_directory = shift;
-  my $filepath = shift;
-
-  if (!defined($filename)) {
-    cluck("set_file_path: filename not defined\n");
-  }
-
-  $filename = $self->register_normalize_case_filename($filename);
-
-  if (not defined($filepath)) {
-    if (defined($destination_directory) and $destination_directory ne '') {
-      $filepath = File::Spec->catfile($destination_directory, $filename);
-    } else {
-      $filepath = $filename;
-    }
-  }
-  # the file path should be set only once per file name.  With
-  # CASE_INSENSITIVE_FILENAMES the same file path can appear more
-  # than once when files differ in case.
-  if (defined($self->{'out_filepaths'}->{$filename})) {
-    if ($self->{'out_filepaths'}->{$filename} eq $filepath) {
-      print STDERR "set_file_path: filepath set: $filepath\n"
-         if ($self->get_conf('DEBUG'));
-    } else {
-      print STDERR  "set_file_path: filepath reset: "
-        .$self->{'out_filepaths'}->{$filename}.", $filepath\n"
-         if ($self->get_conf('DEBUG'));
-    }
-  }
-  $self->{'out_filepaths'}->{$filename} = $filepath;
-}
-
-sub top_node_filename($$)
-{
-  my $self = shift;
-  my $document_name = shift;
-
-  if (defined($self->get_conf('TOP_FILE'))
-      and $self->get_conf('TOP_FILE') ne '') {
-    return $self->get_conf('TOP_FILE');
-  } elsif (defined($document_name)) {
-    my $top_node_filename = $document_name;
-    if (defined($self->get_conf('EXTENSION'))
-        and $self->get_conf('EXTENSION') ne '') {
-      $top_node_filename .= '.'.$self->get_conf('EXTENSION')
-    }
-    return $top_node_filename
-  }
-  return undef;
-}
-
-sub _get_root_element($$)
-{
-  my $self = shift;
-  my $command = shift;
-
-  my $current = $command;
-
-  while (1) {
-    if ($current->{'associated_unit'}) {
-      return $current->{'associated_unit'};
-    }
-    if ($current->{'parent'}) {
-      $current = $current->{'parent'};
-    } else {
-      return undef;
-    }
-  }
-}
-
-# TODO document
-# set file_counters converter state
-sub set_output_units_files($$$$$$)
-{
-  my $self = shift;
-  my $output_units = shift;
-  my $output_file = shift;
-  my $destination_directory = shift;
-  my $output_filename = shift;
-  my $document_name = shift;
-
-  # Ensure that the document has pages
-  return undef if (!defined($output_units) or !@$output_units);
-
-  $self->initialize_output_units_files();
-
-  my $extension = '';
-  $extension = '.'.$self->get_conf('EXTENSION')
-            if (defined($self->get_conf('EXTENSION'))
-                and $self->get_conf('EXTENSION') ne '');
-
-  if (!$self->get_conf('SPLIT')) {
-    $self->set_file_path($output_filename, undef, $output_file);
-    foreach my $output_unit (@$output_units) {
-      $self->set_output_unit_file($output_unit, $output_filename);
-    }
-  } else {
-    my $node_top;
-
-    my $identifiers_target;
-    if ($self->{'document'}) {
-      $identifiers_target = $self->{'document'}->labels_information();
-    }
-
-    $node_top = $identifiers_target->{'Top'}
-                            if ($identifiers_target);
-
-    my $top_node_filename = $self->top_node_filename($document_name);
-    # first determine the top node file name.
-    if ($node_top and defined($top_node_filename)) {
-      my ($node_top_unit) = $self->_get_root_element($node_top);
-      if (!defined($node_top_unit)) {
-        print STDERR "No element for top node (".scalar(@$output_units)." units)\n"
-         if ($self->get_conf('DEBUG'));
-      } else {
-        $self->set_file_path($top_node_filename, $destination_directory);
-        $self->set_output_unit_file($node_top_unit, $top_node_filename);
-      }
-    }
-    my $file_nr = 0;
-    my $previous_page;
-    foreach my $output_unit (@$output_units) {
-      # For Top node.
-      next if (defined($output_unit->{'unit_filename'}));
-      my $file_output_unit = $output_unit->{'first_in_page'};
-      if (!$file_output_unit) {
-        cluck ("No first_in_page for $output_unit\n");
-      }
-      if (!defined($file_output_unit->{'unit_filename'})) {
-        foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
-          if ($root_command->{'cmdname'}
-              and $root_command->{'cmdname'} eq 'node') {
-            my $node_filename;
-            # double node are not normalized, they are handled here
-            if (!defined($root_command->{'extra'}->{'normalized'})
-                or !defined($identifiers_target->{
-                               $root_command->{'extra'}->{'normalized'}})) {
-              $node_filename = 'unknown_node';
-            } else {
-              $node_filename
-               = $self->node_information_filename(
-                               $root_command->{'extra'}->{'normalized'},
-                               $root_command->{'args'}->[0]);
-            }
-            $node_filename .= $extension;
-            $self->set_file_path($node_filename,$destination_directory);
-            $self->set_output_unit_file($file_output_unit, $node_filename);
-            last;
-          }
-        }
-        if (!defined($file_output_unit->{'unit_filename'})) {
-          # use section to do the file name if there is no node
-          my $command = $file_output_unit->{'unit_command'};
-          if ($command) {
-            if ($command->{'cmdname'} eq 'top' and !$node_top
-                and defined($top_node_filename)) {
-              $self->set_file_path($top_node_filename, $destination_directory);
-              $self->set_output_unit_file($file_output_unit, $top_node_filename);
-            } else {
-              my ($normalized_name, $filename)
-                 = $self->normalized_sectioning_command_filename($command);
-              $self->set_file_path($filename, $destination_directory);
-              $self->set_output_unit_file($file_output_unit, $filename);
-            }
-          } else {
-            # when everything else has failed
-            if ($file_nr == 0 and !$node_top and defined($top_node_filename)) {
-              $self->set_file_path($top_node_filename, $destination_directory);
-              $self->set_output_unit_file($file_output_unit, $top_node_filename);
-            } else {
-              my $filename = $document_name . "_$file_nr";
-              $filename .= $extension;
-              $self->set_file_path($filename, $destination_directory);
-              $self->set_output_unit_file($output_unit, $filename);
-            }
-            $file_nr++;
-          }
-        }
-      }
-      $self->set_output_unit_file($output_unit,
-                    $file_output_unit->{'unit_filename'});
-    }
-  }
-
-  foreach my $output_unit (@$output_units) {
-    my $output_unit_filename = $output_unit->{'unit_filename'};
-    $self->{'file_counters'}->{$output_unit_filename} = 0
-       if (!exists($self->{'file_counters'}->{$output_unit_filename}));
-    $self->{'file_counters'}->{$output_unit_filename}++;
-    print STDERR 'Page '
-     # uncomment for Perl object name
-     #."$output_unit "
-     .Texinfo::OutputUnits::output_unit_texi($output_unit)
-     .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
-              if ($self->get_conf('DEBUG'));
-  }
-}
-
-sub create_destination_directory($$$)
-{
-  my $self = shift;
-  my $destination_directory_path = shift;
-  my $destination_directory_name = shift;
-
-  if (defined($destination_directory_path)
-      and ! -d $destination_directory_path) {
-    if (!mkdir($destination_directory_path, oct(755))) {
-      $self->converter_document_error(sprintf(__(
-                                "could not create directory `%s': %s"),
-                                   $destination_directory_name, $!));
-      return 0;
-    }
-  }
-  return 1;
-}
-
-
-#############################################################
-# useful methods for Converters.
-
 # determine the default, with $INIT_CONF if set, or the default common
 # to all the converters
 sub _command_init($$)
@@ -1278,6 +1303,39 @@ sub encoded_output_file_name($$)
   return Texinfo::Convert::Utils::encoded_output_file_name($self, $file_name);
 }
 
+# This is used when the formatted text has no comment nor new line, but
+# one want to add the comment or new line from the original arg
+sub format_comment_or_return_end_line($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $end_line;
+
+  my $comment = $element->{'args'}->[-1]->{'info'}->{'comment_at_end'}
+    if $element->{'args'} and $element->{'args'}->[-1]->{'info'};
+
+  if ($comment) {
+    $end_line = $self->convert_tree($comment);
+  } elsif ($element->{'args'} and $element->{'args'}->[-1]->{'info'}
+      and $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}) {
+    my $text = $element->{'args'}->[-1]
+                   ->{'info'}->{'spaces_after_argument'}->{'text'};
+    if (chomp($text)) {
+      $end_line = "\n";
+    } else {
+      $end_line = '';
+    }
+  } else {
+    $end_line = '';
+  }
+  return $end_line;
+}
+
+
+
+# Specific elements formatting helper functions
+
 sub txt_image_text($$$)
 {
   my ($self, $element, $basefile) = @_;
@@ -1326,7 +1384,6 @@ sub txt_image_text($$$)
   }
   return undef, undef;
 }
-
 
 sub float_type_number($$)
 {
@@ -1411,35 +1468,6 @@ sub float_name_caption($$)
     }
   }
   return ($caption_element, $prepended);
-}
-
-# This is used when the formatted text has no comment nor new line, but
-# one want to add the comment or new line from the original arg
-sub format_comment_or_return_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  my $end_line;
-
-  my $comment = $element->{'args'}->[-1]->{'info'}->{'comment_at_end'}
-    if $element->{'args'} and $element->{'args'}->[-1]->{'info'};
-
-  if ($comment) {
-    $end_line = $self->convert_tree($comment);
-  } elsif ($element->{'args'} and $element->{'args'}->[-1]->{'info'}
-      and $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}) {
-    my $text = $element->{'args'}->[-1]
-                   ->{'info'}->{'spaces_after_argument'}->{'text'};
-    if (chomp($text)) {
-      $end_line = "\n";
-    } else {
-      $end_line = '';
-    }
-  } else {
-    $end_line = '';
-  }
-  return $end_line;
 }
 
 sub table_item_content_tree($$)
@@ -1611,6 +1639,10 @@ sub get_converter_indices_sorted_by_index($)
   return undef;
 }
 
+
+
+# sort_element_counts code
+
 sub _count_converted_text($$)
 {
   my $converted_text = shift;
@@ -1677,11 +1709,6 @@ sub sort_element_counts($$;$$)
                         $sorted_count->[0]);
   }
   return (\@sorted_name_counts_array, $result);
-}
-
-sub XS_get_unclosed_stream($$)
-{
-  return undef;
 }
 
 

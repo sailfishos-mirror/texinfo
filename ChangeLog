@@ -1,5 +1,10 @@
 2024-08-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm: reorder functions, add more
+	sections in file.
+
+2024-08-31  Patrice Dumas  <pertusus@free.fr>
+
 	Changes in POD, TODO.
 
 2024-08-31  Patrice Dumas  <pertusus@free.fr>
