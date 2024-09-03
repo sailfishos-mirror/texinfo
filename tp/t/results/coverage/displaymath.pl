@@ -524,17 +524,17 @@ a/2
 
 
 $result_converted{'html_text'}->{'displaymath'} = '<p>Simple
-</p><div class="displaymath"><em>--{x^i}\\over{\\tan y}
-</em></div>
+</p><pre class="displaymath">--{x^i}\\over{\\tan y}
+</pre>
 <p>Math with @-command
-</p><div class="displaymath"><em><code class="code">math code</code> a &lt; b \\sum<sub class="sub">i</sub> q<sup class="sup">2</sup>
-</em></div>
+</p><pre class="displaymath"><code class="code">math code</code> a &lt; b \\sum<sub class="sub">i</sub> q<sup class="sup">2</sup>
+</pre>
 <p>Complex
-</p><div class="displaymath"><em> \\underline{<code class="code">math \\hbox{ code }</code>} \\i \\sum_{i}{\\underline{f}}
-</em></div>
+</p><pre class="displaymath"> \\underline{<code class="code">math \\hbox{ code }</code>} \\i \\sum_{i}{\\underline{f}}
+</pre>
 <p>With a comment
-</p><div class="displaymath"><em>a/2
-</em></div>';
+</p><pre class="displaymath">a/2
+</pre>';
 
 
 $result_converted{'xml'}->{'displaymath'} = '<para>Simple

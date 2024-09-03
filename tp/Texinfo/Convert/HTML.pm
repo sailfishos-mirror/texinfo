@@ -2960,6 +2960,7 @@ my %css_element_class_styles = (
      'pre.menu-preformatted'  => 'font-family: serif',
      'a.summary-letter-printindex'  => 'text-decoration: none',
      'pre.display-preformatted'     => 'font-family: inherit',
+     'pre.displaymath'              => 'font-style: italic; font-family: serif',
      'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',
@@ -5306,16 +5307,23 @@ sub _convert_displaymath_command($$$$$)
   }
 
   my $result = '';
-  $result .= $self->html_attribute_class('div', [$cmdname]).'>';
+  my $pre_classes = [$cmdname];
+
+  my $use_mathjax = ($self->get_conf('HTML_MATH')
+        and $self->get_conf('HTML_MATH') eq 'mathjax');
+
+  if ($use_mathjax) {
+    $self->register_file_information('mathjax', 1);
+    push @$pre_classes, 'tex2jax_process';
+  }
+  $result .= $self->html_attribute_class('pre', $pre_classes).'>';
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
-    $self->register_file_information('mathjax', 1);
-    $result .= $self->html_attribute_class('em', ['tex2jax_process']).'>'
-          ."\\[$content\\]".'</em>';
+    $result .= "\\[$content\\]";
   } else {
-    $result .= $self->html_attribute_class('em').'>'."$content".'</em>';
+    $result .= $content;
   }
-  $result .= '</div>';
+  $result .= '</pre>';
   return $result;
 }
 

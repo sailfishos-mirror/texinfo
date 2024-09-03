@@ -10746,42 +10746,40 @@ convert_displaymath_command (CONVERTER *self, const enum command_id cmd,
 {
   char *attribute_class;
   STRING_LIST *classes;
+  int use_mathjax;
 
   if (html_in_string (self))
     {
       if (content)
         text_append (result, content);
+      return;
     }
+
+  use_mathjax = (self->conf->HTML_MATH.o.string
+      && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"));
 
   classes = new_string_list ();
   add_string (builtin_command_name (cmd), classes);
-  attribute_class = html_attribute_class (self, "div", classes);
+
+  if (use_mathjax)
+    {
+      html_register_file_information (self, "mathjax", 1);
+      add_string ("tex2jax_process", classes);
+    }
+
+  attribute_class = html_attribute_class (self, "pre", classes);
   text_append (result, attribute_class);
   free (attribute_class);
   text_append_n (result, ">", 1);
 
-  clear_strings_list (classes);
-
-  if (self->conf->HTML_MATH.o.string
-      && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))
-    {
-      html_register_file_information (self, "mathjax", 1);
-      add_string ("tex2jax_process", classes);
-      attribute_class = html_attribute_class (self, "em", classes);
-      text_append (result, attribute_class);
-      text_printf (result, ">\\[%s\\]</em>", content);
-      goto out;
-    }
-
-  attribute_class = html_attribute_class (self, "em", 0);
-  text_append (result, attribute_class);
-  text_printf (result, ">%s</em>", content);
-
- out:
-  text_append_n (result, "</div>", 6);
-
   destroy_strings_list (classes);
-  free (attribute_class);
+
+  if (use_mathjax)
+    text_printf (result, "\\[%s\\]", content);
+  else
+    text_printf (result, "%s", content);
+
+  text_append_n (result, "</pre>", 6);
 }
 
 void

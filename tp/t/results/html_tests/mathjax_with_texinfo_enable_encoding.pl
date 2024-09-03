@@ -279,6 +279,11 @@ $result_converted{'html'}->{'mathjax_with_texinfo_enable_encoding'} = '<!DOCTYPE
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+<!--
+pre.displaymath {font-style: italic; font-family: serif}
+-->
+</style>
 
 <script type=\'text/javascript\'>
 MathJax = {
@@ -294,8 +299,8 @@ MathJax = {
 </head>
 
 <body lang="en" class="tex2jax_ignore">
-<div class="displaymath"><em class="tex2jax_process">\\[a^{b - \\frac{\\xi}{phi \\copyright{}}} ı
-\\]</em></div>
+<pre class="displaymath tex2jax_process">\\[a^{b - \\frac{\\xi}{phi \\copyright{}}} ı
+\\]</pre>
 <p>Some <em class="math tex2jax_process">\\(a - b \\geq{} Å ê\\)</em>.
 </p>
 

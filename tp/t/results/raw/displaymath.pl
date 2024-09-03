@@ -240,6 +240,11 @@ $result_converted{'html'}->{'displaymath'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+<!--
+pre.displaymath {font-style: italic; font-family: serif}
+-->
+</style>
 
 <script type=\'text/javascript\'>
 MathJax = {
@@ -255,11 +260,11 @@ MathJax = {
 </head>
 
 <body lang="en" class="tex2jax_ignore">
-<div class="displaymath"><em class="tex2jax_process">\\[\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS
-\\]</em></div>
+<pre class="displaymath tex2jax_process">\\[\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS
+\\]</pre>
 <p>before
-</p><div class="displaymath"><em class="tex2jax_process">\\[\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS
-\\]</em></div><p>after
+</p><pre class="displaymath tex2jax_process">\\[\\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS
+\\]</pre><p>after
 </p>
 
 <a href="js_licenses.html" rel="jslicense"><small>JavaScript license information</small></a>

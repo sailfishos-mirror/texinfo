@@ -56,6 +56,7 @@ See the manual for detailed information.
  . HTML:
    . Do not remove .inf or .info at the end of manual name for
      cross-references to external nodes anymore.
+   . Use <pre> instead of <div><em> for displaymath formatting.
 
 * info
  . check for init file under ~/.config/texinfo/infokey before checking
