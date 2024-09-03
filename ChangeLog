@@ -7,7 +7,7 @@
 	tp/Texinfo/XS/convert/convert_html.c (convert_displaymath_command):
 	use <pre> for @displaymath formatting such that Texinfo source
 	indentation is kept, in particular for text browsers.  Report from
-	Rudolf Adamkovič..
+	Rudolf Adamkovič.
 
 2024-09-03  Gavin Smith <gavinsmith0123@gmail.com>
 
