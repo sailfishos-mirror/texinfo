@@ -44,6 +44,7 @@ See the manual for detailed information.
  . rename COMPLEX_FORMAT_IN_TABLE customization option as
    INDENTED_BLOCK_COMMANDS_IN_TABLE.
  . Rename BODYTEXT customization option as BODY_ELEMENT_ATTRIBUTES.
+ . Add MATHJAX_CONFIGURATION customization variable.
  . some unused translation files have been removed for the
    "texinfo_document" domain
  . the us-ascii encoding is not tried anymore when looking for a document

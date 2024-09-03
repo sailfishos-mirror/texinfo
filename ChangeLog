@@ -1,3 +1,13 @@
+2024-09-03  Patrice Dumas  <pertusus@free.fr>
+
+	Add MATHJAX_CONFIGURATION customization variable
+
+	* tp/Texinfo/options_data.txt, doc/texinfo.texi (MathJax Customization
+	Variables), tp/Texinfo/Convert/HTML.pm (_file_header_information)
+	(output), NEWS: add MATHJAX_CONFIGURATION customization variable, for
+	user wanting to change the global MathJax object configuration.
+	Report from Rudolf Adamkovič.
+
 2024-08-28  Patrice Dumas  <pertusus@free.fr>
 
 	Use XDG Base Directory Specification for directory lookups

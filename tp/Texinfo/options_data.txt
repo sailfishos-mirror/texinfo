@@ -269,6 +269,7 @@ L2H_HTML_VERSION                   converter_customization undef   char
 L2H_L2H                            converter_customization undef   char
 L2H_SKIP                           converter_customization undef   integer
 L2H_TMP                            converter_customization undef   char
+MATHJAX_CONFIGURATION              converter_customization undef   char
 MATHJAX_SCRIPT                     converter_customization undef   char
 MATHJAX_SOURCE                     converter_customization undef   char
 MAX_HEADER_LEVEL                   converter_customization undef   integer

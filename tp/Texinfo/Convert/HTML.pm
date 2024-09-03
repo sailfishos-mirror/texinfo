@@ -11335,15 +11335,12 @@ sub _file_header_information($$;$)
        and $self->get_conf('HTML_MATH') eq 'mathjax')
       and ($self->get_file_information('mathjax', $filename))) {
     my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
+    my $mathjax_configuration = $self->get_conf('MATHJAX_CONFIGURATION');
 
     $extra_head .=
 "<script type='text/javascript'>
 MathJax = {
-  options: {
-    skipHtmlTags: {'[-]': ['pre']},
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
+$mathjax_configuration
 };
 </script>"
 .'<script type="text/javascript" id="MathJax-script" async
@@ -13076,6 +13073,16 @@ sub output($$)
     if (! defined($mathjax_source)) {
       $mathjax_source = 'http://docs.mathjax.org/en/latest/web/hosting.html#getting-mathjax-via-git';
       $self->set_conf('MATHJAX_SOURCE', $mathjax_source);
+    }
+
+    my $mathjax_configuration = $self->get_conf('MATHJAX_CONFIGURATION');
+    if (!defined($mathjax_configuration)) {
+      $mathjax_configuration = "  options: {
+    skipHtmlTags: {'[-]': ['pre']},
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },";
+      $self->set_conf('MATHJAX_CONFIGURATION', $mathjax_configuration);
     }
   }
 
