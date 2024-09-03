@@ -1,3 +1,16 @@
+2024-09-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Update FSF address
+
+	* doc/texinfo.texi,
+	* doc/info-fr.texi,
+	* doc/refcard/txirefcard.tex,
+	* texindex/jrtangle,
+	* texindex/jrweave:
+	Update FSF address or replace with link to website
+
+	* doc/refcard/txirefcard.tex: remove defunct www.gnupress.org link
+
 2024-08-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: add a couple of points for building from
