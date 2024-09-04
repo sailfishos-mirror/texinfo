@@ -21,6 +21,9 @@ if [ z"$srcdir" = 'z' ]; then
   srcdir='.'
 fi
 
+LC_ALL=C; export LC_ALL
+LANGUAGE=en; export LANGUAGE
+
 mdir=check_epubcheck
 mkdir -p $mdir
 
@@ -43,7 +46,7 @@ if test -n "$1"; then
       perl -w ${srcdir}/t/???$the_directory.t -c $the_test
     fi
   else
-    rm -rf $mdir/epubcheck_EPUB/$the_directory $mdir/epubcheck_check/$the_directory $mdir/epubcheck_logs/$the_directory.log
+    rm -rf $mdir/epubcheck_EPUB/$the_directory $mdir/epubcheck_package/$the_directory $mdir/epubcheck_check/$the_directory $mdir/epubcheck_logs/$the_directory.log
     if test -f ${srcdir}/t/$the_directory.t ; then
       perl -w ${srcdir}/t/$the_directory.t -c
     elif test -f ${srcdir}/t/??$the_directory.t ; then
@@ -53,7 +56,7 @@ if test -n "$1"; then
     fi
   fi
 else
-  rm -rf $mdir/epubcheck_EPUB $mdir/epubcheck_check $mdir/epubcheck_logs
+  rm -rf $mdir/epubcheck_EPUB $mdir/epubcheck_package $mdir/epubcheck_check $mdir/epubcheck_logs
   ${srcdir}/maintain/all_tests.sh texis > $mdir/all_tests_texis.log
 fi
 
@@ -68,7 +71,7 @@ for dir in `find t_texis/ -type d` ; do
     continue
   fi
   echo "doing $bdir"
-  mkdir -p $mdir/epubcheck_EPUB/$bdir $mdir/epubcheck_check/$bdir
+  mkdir -p $mdir/epubcheck_EPUB/$bdir $mdir/epubcheck_package/$bdir $mdir/epubcheck_check/$bdir
   if test $one_test = 'yes' ; then
     mkdir -p $mdir/onetest_logs
     logfile=$mdir/onetest_logs/$the_test.log
@@ -82,10 +85,11 @@ for dir in `find t_texis/ -type d` ; do
       continue
     fi
     echo "    -> $file: EPUB"
-    ${srcdir}/texi2any.pl --epub --force --error=100000 -o $mdir/epubcheck_EPUB/$bdir/$bfile.epub $file
+    ${srcdir}/texi2any.pl --epub --force --error=100000 -o $mdir/epubcheck_EPUB/$bdir/$bfile.epub -c SUBDIR=$mdir/epubcheck_package/$bdir/${bfile}_epub_package -c EPUB_STRICT=1 -c EPUB_KEEP_CONTAINER_FOLDER=1 $file
     echo "              epubcheck"
     epubcheck $mdir/epubcheck_EPUB/$bdir/$bfile.epub 2>$mdir/epubcheck_check/$bdir/$bfile.out
   done
   ) > $logfile 2>&1
 done
 
+head -1000 $mdir/epubcheck_check/*/*.out > $mdir/epubcheck_all.log

@@ -1,5 +1,17 @@
 2024-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/options_data.txt (EPUB_STRICT): add.
+
+	* tp/ext/epub3.pm (epub_finish): if EPUB_STRICT is set, use the EPUB
+	generation time for dcterms:modified.  Based on patch from Daniel
+	Cerqueira <dan.git@lispclub.com>.
+
+	* tp/maintain/check_epubcheck_texi_t.sh: set LC_ALL and LANGUAGE for
+	reproducible errors.  Use EPUB_STRICT in call.  Keep the epub_package
+	directory.
+
+2024-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/check_epubcheck_texi_t.sh: check systematically EPUB
 	t/*.t tests validity.
 
