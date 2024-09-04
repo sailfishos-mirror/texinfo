@@ -27,7 +27,7 @@ LANGUAGE=en; export LANGUAGE
 mdir=check_epubcheck
 mkdir -p $mdir
 
-set -x
+#set -x
 
 echo "generate t directory Texinfo files"
 one_directory=no

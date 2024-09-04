@@ -13,6 +13,10 @@
 #
 # Originally written by Patrice Dumas.
 
+if [ z"$srcdir" = 'z' ]; then
+  srcdir='.'
+fi
+
 command=$1
 if [ $# -gt 0 ]; then 
  shift
@@ -31,20 +35,20 @@ if [ "$command" = 'clean' ]; then
   rm -rf t/results/*/*/out_*/
 elif [ "$command" = 'diff' ]; then
   if [ z"$test_name" = 'z' ]; then
-    for result in t/results/*/*.pl; do
-      diff -a -U 3 $result $result.new
+    for result in `cd $srcdir && echo t/results/*/*.pl`; do
+      diff -a -U 3 ${srcdir}/$result $result.new
     done
-    for result in t/results/*/*/res*/; do
+    for result in `cd $srcdir && echo t/results/*/*/res*/`; do
       out=`echo $result | sed 's;res\([^/]*/\)$;out\1;'`
-      diff -a -u -r $result $out
+      diff -a -u -r ${srcdir}/$result $out
     done
   else
-    for result in t/results/$test_name/*.pl; do
-      diff -a -u $result $result.new
+    for result in `cd $srcdir && echo t/results/$test_name/*.pl`; do
+      diff -a -u ${srcdir}/$result $result.new
     done
-    for result in t/results/$test_name/*/res*/; do
+    for result in `cd $srcdir && echo t/results/$test_name/*/res*/`; do
       out=`echo $result | sed 's;res\([^/]*/\)$;out\1;'`
-      diff -a -u -r $result $out
+      diff -a -u -r ${srcdir}/$result $out
     done
   fi 
 else
@@ -52,17 +56,17 @@ else
   . ./defs || exit 1
 
   if [ "$command" = 'generate' ]; then
-    for file in $srcdir/t/*.t; do
+    for file in ${srcdir}/t/*.t; do
       set -e
       echo "$file" >&2
       $PERL -w $file -g
     done
   elif [ "$command" = 'output' ]; then
-    for file in t/*.t; do
+    for file in ${srcdir}/t/*.t; do
       $PERL -w $file -o
     done
   elif [ "$command" = 'texis' ]; then
-    for file in t/*.t; do
+    for file in ${srcdir}/t/*.t; do
       echo "$file"
       $PERL -w $file -c
     done
