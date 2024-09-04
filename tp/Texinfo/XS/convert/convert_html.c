@@ -12216,7 +12216,12 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
             }
           else if (self->conf->XREF_USE_NODE_NAME_ARG.o.integer <= 0
                    && (self->conf->XREF_USE_NODE_NAME_ARG.o.integer == 0
-                       || !html_in_preformatted_context (self)))
+                       || !html_in_preformatted_context (self))
+        /* this condition avoids infinite recursions, example with
+           USE_NODES=0 and node referring to the section and section referring
+           to the node */
+                   && !command_is_in_referred_command_stack (
+                         &self->referred_command_stack, target_root, 0))
             {
               name = html_command_text (self, target_root, HTT_text_nonumber);
             }

@@ -353,6 +353,15 @@ in chap
 
 @node to @ref{node1}
 '],
+['double_recursive_self_section_node_reference_no_use_node',
+'@node Top
+@top top
+
+@node node1
+@chapter @ref{to node1}
+
+@node to @ref{node1}
+', {}, {'USE_NODES' => 0},]
 );
 
 

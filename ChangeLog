@@ -1,5 +1,17 @@
 2024-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands),
+	tp/Texinfo/XS/convert/convert_html.c (convert_xref_commands): avoid an
+	infinite recursion going through ref to node on sectioning command
+	line and ref to sectioning command on node line, in case USE_NODES is
+	0.
+
+	* tp/Makefile.tres, tp/t/30sectioning.t
+	(double_recursive_self_section_node_reference_no_use_node): test
+	double recursive self section node reference with USE_NODES=0.
+
+2024-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/all_tests.sh: use $srcdir, adapt for out of source
 	build.
 

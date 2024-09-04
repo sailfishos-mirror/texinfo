@@ -6143,7 +6143,12 @@ sub _convert_xref_commands($$$$)
         }
       } elsif (!$self->get_conf('XREF_USE_NODE_NAME_ARG')
                and (defined($self->get_conf('XREF_USE_NODE_NAME_ARG'))
-                    or !in_preformatted_context($self))) {
+                    or !in_preformatted_context($self))
+         # this condition avoids infinite recursions, example with
+         # USE_NODES=0 and node referring to the section and section referring
+         # to the node
+              and not _command_is_in_referred_command_stack($self,
+                                                            $target_root)) {
         $name = $self->command_text($target_root, 'text_nonumber');
         #die "$target_root $target_root->{'normalized'}" if (!defined($name));
       } elsif (defined($args->[0]->{'monospace'})) {

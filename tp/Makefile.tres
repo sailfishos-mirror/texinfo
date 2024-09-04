@@ -1902,6 +1902,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/double_node_anchor_float.pl \
   t/results/sectioning/double_part.pl \
   t/results/sectioning/double_recursive_self_section_node_reference.pl \
+  t/results/sectioning/double_recursive_self_section_node_reference_no_use_node.pl \
   t/results/sectioning/double_recursive_self_section_reference.pl \
   t/results/sectioning/double_top.pl \
   t/results/sectioning/double_top_in_menu.pl \
