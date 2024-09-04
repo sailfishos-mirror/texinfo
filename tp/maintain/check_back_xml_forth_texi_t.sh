@@ -23,6 +23,10 @@
 
 #set -e
 
+if [ z"$srcdir" = 'z' ]; then
+  srcdir='.'
+fi
+
 mdir=check_back_xml_forth_texi
 mkdir -p $mdir
 
@@ -35,26 +39,26 @@ if test -n "$1"; then
   if test -n "$2" ; then
     one_test=yes
     the_test=$2
-    if test -f t/$the_directory.t ; then
-      perl -w t/$the_directory.t -c $the_test
-    elif test -f t/??$the_directory.t ; then
-      perl -w t/??$the_directory.t -c $the_test
+    if test -f ${srcdir}/t/$the_directory.t ; then
+      perl -w ${srcdir}/t/$the_directory.t -c $the_test
+    elif test -f ${srcdir}/t/??$the_directory.t ; then
+      perl -w ${srcdir}/t/??$the_directory.t -c $the_test
     else
-      perl -w t/???$the_directory.t -c $the_test
+      perl -w ${srcdir}/t/???$the_directory.t -c $the_test
     fi
   else
     rm -rf $mdir/backforth_xmltexi/$the_directory $mdir/backforth_checktexi/$the_directory $mdir/backforth_plaintexi/$the_directory $mdir/backforth_logs/$the_directory.log
-    if test -f t/$the_directory.t ; then
-      perl -w t/$the_directory.t -c
-    elif test -f t/??$the_directory.t ; then
-      perl -w t/??$the_directory.t -c
+    if test -f ${srcdir}/t/$the_directory.t ; then
+      perl -w ${srcdir}/t/$the_directory.t -c
+    elif test -f ${srcdir}/t/??$the_directory.t ; then
+      perl -w ${srcdir}/t/??$the_directory.t -c
     else
-      perl -w t/???$the_directory.t -c
+      perl -w ${srcdir}/t/???$the_directory.t -c
     fi
   fi
 else
   rm -rf $mdir/backforth_xmltexi $mdir/backforth_checktexi $mdir/backforth_plaintexi $mdir/backforth_logs
-  ./maintain/all_tests.sh texis > $mdir/all_tests_texis.log
+  ${srcdir}/maintain/all_tests.sh texis > $mdir/all_tests_texis.log
 fi
 
 export XML_CATALOG_FILES=./maintain/catalog.xml
@@ -93,13 +97,13 @@ for dir in `find t_texis/ -type d` ; do
     # This concerns a few files only, and those files are more or less
     # the same whether the file or the directory is specified.
     #./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/$bfile.texi $file
-    ./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
+    ${srcdir}/texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
     echo "              Texinfo XML"
-    ./texi2any.pl --xml --force --error=100000 -o $mdir/backforth_xmltexi/$bdir/ $file
+    ${srcdir}/texi2any.pl --xml --force --error=100000 -o $mdir/backforth_xmltexi/$bdir/ $file
     echo "              xmllint"
     xmllint --nonet --noout --valid $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/xmllint/$bdir/${bfile}_lint.1 2>$mdir/xmllint/$bdir/${bfile}_lint.2
     echo "              Back"
-    ../util/txixml2texi.pl $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/backforth_checktexi/$bdir/$bfile.texi
+    ${srcdir}/../util/txixml2texi.pl $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/backforth_checktexi/$bdir/$bfile.texi
   done
   ) > $logfile 2>&1
 done
