@@ -1,5 +1,10 @@
 2024-09-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm (epub_convert_special_unit_type): rename
+	$element variable as $output_unit. 
+
+2024-09-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/Makefile.tres, tp/t/html_tests.t
 	(simple_only_special_spaces_node), t/init/no_navigation.pm,
 	t/input_files/simple_only_special_spaces_node.texi: add a simpler

@@ -401,15 +401,15 @@ sub epub_convert_special_unit_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $element = shift;
+  my $output_unit = shift;
   my $content = shift;
 
   push @epub_special_elements_filenames,
-   $element->{'unit_filename'}
-    unless grep {$_ eq $element->{'unit_filename'}}
+   $output_unit->{'unit_filename'}
+    unless grep {$_ eq $output_unit->{'unit_filename'}}
             @epub_special_elements_filenames;
   return &{$self->default_output_unit_conversion($type)}($self,
-                                      $type, $element, $content);
+                                      $type, $output_unit, $content);
 }
 
 sub _epub_remove_container_folder($$)
