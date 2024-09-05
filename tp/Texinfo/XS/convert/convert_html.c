@@ -1389,35 +1389,67 @@ html_get_file_information (const CONVERTER *self, const char *key,
 }
 
 void
-html_register_opened_section_level (CONVERTER *self, int level,
-                                    const char *close_string)
+html_register_opened_section_level (CONVERTER *self, size_t file_number,
+                                    int level, const char *close_string)
 {
-  STRING_STACK *pending_closes = &self->pending_closes;
+  STRING_STACK *file_pending_closes
+    = &self->pending_closes.list[file_number -1];
 
-  while (pending_closes->top < level)
+  while (file_pending_closes->top < level)
     {
-      push_string_stack_string (pending_closes, "");
+      push_string_stack_string (file_pending_closes, "");
     }
-  push_string_stack_string (pending_closes, close_string);
+  push_string_stack_string (file_pending_closes, close_string);
+}
+
+/* called from Perl */
+void
+html_register_opened_filename_section_level (CONVERTER *self,
+                                    const char *filename,
+                                    int level, const char *close_string)
+{
+  size_t page_number = find_page_name_number (&self->page_name_number,
+                                              filename);
+
+  if (!page_number)
+    return;
+
+  html_register_opened_section_level (self, page_number, level, close_string);
 }
 
 STRING_LIST *
-html_close_registered_sections_level (CONVERTER *self, int level)
+html_close_registered_sections_level (CONVERTER *self, size_t file_number,
+                                      int level)
 {
-  STRING_STACK *pending_closes = &self->pending_closes;
+  STRING_STACK *file_pending_closes
+    = &self->pending_closes.list[file_number -1];
   STRING_LIST *closed_elements = new_string_list ();
 
-  while (pending_closes->top > level)
+  while (file_pending_closes->top > level)
     {
-      const char *close_string = top_string_stack (pending_closes);
+      const char *close_string = top_string_stack (file_pending_closes);
       if (strlen (close_string))
         {
           add_string (close_string, closed_elements);
         }
-      pop_string_stack (pending_closes);
+      pop_string_stack (file_pending_closes);
     }
 
   return closed_elements;
+}
+
+/* called from Perl */
+STRING_LIST *
+html_close_registered_filename_sections_level (CONVERTER *self,
+                                      const char *filename, int level)
+{
+  size_t page_number = find_page_name_number (&self->page_name_number,
+                                              filename);
+
+  if (!page_number)
+    return 0;
+
+  return html_close_registered_sections_level (self, page_number, level);
 }
 
 OUTPUT_UNIT *
@@ -5759,6 +5791,12 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (ASSOCIATED_INFO));
 
+  self->pending_closes.number = self->output_unit_files.number +1;
+  self->pending_closes.list = (STRING_STACK *)
+    malloc (self->pending_closes.number * sizeof (STRING_STACK));
+  memset (self->pending_closes.list, 0,
+          self->pending_closes.number * sizeof (STRING_STACK));
+
   return files_source_info;
 }
 
@@ -5780,6 +5818,12 @@ setup_output_simple_page (CONVERTER *self, const char *output_filename)
        malloc (self->html_files_information.number * sizeof (ASSOCIATED_INFO));
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (ASSOCIATED_INFO));
+
+  self->pending_closes.number = 1+1;
+  self->pending_closes.list = (STRING_STACK *)
+       malloc (self->pending_closes.number * sizeof (STRING_STACK));
+  memset (self->pending_closes.list, 0,
+          self->pending_closes.number * sizeof (STRING_STACK));
 
   self->page_name_number.number = 1;
   self->page_name_number.list = (PAGE_NAME_NUMBER *)
@@ -8222,7 +8266,8 @@ html_default_format_element_footer (CONVERTER *self,
   if (end_page)
     {
       STRING_LIST *closed_strings;
-      closed_strings = html_close_registered_sections_level (self, 0);
+      closed_strings = html_close_registered_sections_level (self,
+                                       self->current_filename.file_number, 0);
 
       if (closed_strings->number)
         {
@@ -10295,7 +10340,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       if (status != 0)
         level = section_level (opening_section);
 
-      closed_strings = html_close_registered_sections_level (self, level);
+      closed_strings = html_close_registered_sections_level (self,
+                                 self->current_filename.file_number, level);
 
       if (closed_strings->number)
         {
@@ -10309,7 +10355,8 @@ convert_heading_command (CONVERTER *self, const enum command_id cmd,
       free (closed_strings->list);
       free (closed_strings);
 
-      html_register_opened_section_level (self, level, "</div>\n");
+      html_register_opened_section_level (self,
+                        self->current_filename.file_number, level, "</div>\n");
 
     /* use a specific class name to mark that this is the start of
        the section extent. It is not necessary where the section is. */
@@ -15390,7 +15437,8 @@ convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
 
     /* do it here, as it is won't be done at end of page in
        format_element_footer */
-          closed_strings = html_close_registered_sections_level (self, 0);
+          closed_strings = html_close_registered_sections_level (self,
+                                   self->current_filename.file_number, 0);
 
           if (closed_strings->number)
             {
@@ -15444,7 +15492,8 @@ convert_special_unit_type (CONVERTER *self,
   number = find_string (&self->special_unit_varieties,
                         special_unit_variety);
 
-  closed_strings = html_close_registered_sections_level (self, 0);
+  closed_strings = html_close_registered_sections_level (self,
+                                self->current_filename.file_number, 0);
 
   if (closed_strings->number)
     {
@@ -17110,17 +17159,25 @@ html_conversion_finalization (CONVERTER *self)
   free (self->html_files_information.list);
 
   /* should not be possible with default code, as
-     close_registered_sections_level(0)
+     close_registered_sections_level(..., 0)
      is called at the end of processing or at the end of each file.
      However, it could happen if the conversion functions are user
      defined.
    */
-  if (self->pending_closes.top > 0)
+  for (i = 0; i < self->pending_closes.number; i++)
     {
-      message_list_document_warn (&self->error_messages, self->conf, 0,
-         "%zu registered opened sections not closed",
-          self->pending_closes.top);
-      clear_string_stack (&self->pending_closes);
+      STRING_STACK *file_pending_closes = &self->pending_closes.list[i];
+      if (file_pending_closes->top > 0)
+        {
+          FILE_NAME_PATH_COUNTER *file_counter
+            = &self->output_unit_files.list[i];
+          const char *page_name = file_counter->filename;
+
+          message_list_document_warn (&self->error_messages, self->conf, 0,
+             "%s: %zu registered opened sections not closed",
+              page_name, file_pending_closes->top);
+          clear_string_stack (file_pending_closes);
+        }
     }
 
   if (self->pending_inline_content.top > 0)
@@ -17513,7 +17570,13 @@ html_free_converter (CONVERTER *self)
 
   free (self->style_formatted_cmd.list);
 
-  free (self->pending_closes.stack);
+  for (i = 0; i < self->pending_closes.number; i++)
+    {
+      STRING_STACK *file_pending_closes = &self->pending_closes.list[i];
+      free (file_pending_closes->stack);
+    }
+  free (self->pending_closes.list);
+
   free (self->pending_inline_content.stack);
 
   free (self->associated_inline_content.list);

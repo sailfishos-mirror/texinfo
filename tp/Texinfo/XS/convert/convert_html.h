@@ -153,10 +153,16 @@ void register_explained_command_string (
 FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
                                            const char *footnote_id);
 
-void html_register_opened_section_level (CONVERTER *self, int level,
-                                         const char *close_string);
+void html_register_opened_section_level (CONVERTER *self, size_t file_number,
+                                         int level, const char *close_string);
 STRING_LIST *html_close_registered_sections_level (CONVERTER *self,
+                                                   size_t file_number,
                                                    int level);
+void html_register_opened_filename_section_level (CONVERTER *self,
+                                             const char *filename,
+                                         int level, const char *close_string);
+STRING_LIST *html_close_registered_filename_sections_level (CONVERTER *self,
+                                      const char *filename, int level);
 
 char *html_attribute_class (CONVERTER *self, const char *element,
                             const STRING_LIST *classes);

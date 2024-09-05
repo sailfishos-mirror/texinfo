@@ -4727,27 +4727,41 @@ sub _default_format_element_header($$$$)
   return $result;
 }
 
-sub register_opened_section_level($$$)
+sub register_opened_section_level($$$$)
 {
   my $self = shift;
+  my $filename = shift;
   my $level = shift;
   my $close_string = shift;
-  while (@{$self->{'pending_closes'}} < $level) {
-    push(@{$self->{'pending_closes'}}, "");
+
+  if (!exists($self->{'pending_closes'}->{$filename})) {
+    $self->{'pending_closes'}->{$filename} = [];
   }
-  push(@{$self->{'pending_closes'}}, $close_string);
+  my $pending_closes = $self->{'pending_closes'}->{$filename};
+  while (@$pending_closes < $level) {
+    push(@$pending_closes, "");
+  }
+  push(@$pending_closes, $close_string);
 }
 
-sub close_registered_sections_level($$)
+sub close_registered_sections_level($$$)
 {
   my $self = shift;
+  my $filename = shift;
   my $level = shift;
+
   if (not defined($level)) {
     cluck 'close_registered_sections_level $level not defined';
   }
+
   my @closed_elements;
-  while (@{$self->{'pending_closes'}} > $level) {
-      my $close_string = pop @{$self->{'pending_closes'}};
+  if (!exists($self->{'pending_closes'}->{$filename})) {
+    return \@closed_elements;
+  }
+
+  my $pending_closes = $self->{'pending_closes'}->{$filename};
+  while (@$pending_closes > $level) {
+      my $close_string = pop @$pending_closes;
       push(@closed_elements, $close_string)
         if ($close_string ne "");
   }
@@ -4992,9 +5006,11 @@ sub _convert_heading_command($$$$$)
       # document (cannot happen in main program or test_utils.pl tests)
       $level = Texinfo::Common::section_level($opening_section);
     }
-    my $closed_strings = $self->close_registered_sections_level($level);
+    my $closed_strings = $self->close_registered_sections_level(
+                                  $self->current_filename(), $level);
     $result .= join('', @{$closed_strings});
-    $self->register_opened_section_level($level, "</div>\n");
+    $self->register_opened_section_level($self->current_filename(), $level,
+                                         "</div>\n");
 
     # use a specific class name to mark that this is the start of
     # the section extent. It is not necessary where the section is.
@@ -8060,7 +8076,8 @@ sub _convert_special_unit_type($$$$)
   my $result = '';
 
   my $special_unit_variety = $output_unit->{'special_unit_variety'};
-  my $closed_strings = $self->close_registered_sections_level(0);
+  my $closed_strings = $self->close_registered_sections_level(
+                                            $self->current_filename(), 0);
   $result .= join('', @{$closed_strings});
 
   my $special_unit_body
@@ -8144,7 +8161,8 @@ sub _convert_unit_type($$$$)
           and defined($self->get_conf('DEFAULT_RULE')));
       # do it here, as it is won't be done at end of page in
       # format_element_footer
-      my $closed_strings = $self->close_registered_sections_level(0);
+      my $closed_strings = $self->close_registered_sections_level(
+                                            $self->current_filename(), 0);
       $result .= join('', @{$closed_strings});
       return $result;
     }
@@ -8307,7 +8325,8 @@ sub _default_format_element_footer($$$$;$)
   my $buttons;
 
   if ($end_page) {
-    my $closed_strings = $self->close_registered_sections_level(0);
+    my $closed_strings = $self->close_registered_sections_level(
+                                            $self->current_filename(), 0);
     $result .= join('', @{$closed_strings});
 
     my $split = $self->get_conf('SPLIT');
@@ -11954,7 +11973,7 @@ sub _initialize_output_state($$)
 
   # other
   $self->{'pending_footnotes'} = [];
-  $self->{'pending_closes'} = [];
+  $self->{'pending_closes'} = {};
 
   $self->{'css_rule_lines'} = [];
   $self->{'css_import_lines'} = [];

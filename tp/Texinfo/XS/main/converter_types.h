@@ -664,6 +664,11 @@ typedef struct ASSOCIATED_INFO_LIST {
     ASSOCIATED_INFO *list;
 } ASSOCIATED_INFO_LIST;
 
+typedef struct STRING_STACK_LIST {
+    size_t number;
+    STRING_STACK *list;
+} STRING_STACK_LIST;
+
 typedef struct JSLICENSE_FILE_INFO {
     char *filename;
     char *license;
@@ -824,7 +829,7 @@ typedef struct CONVERTER {
     const OUTPUT_UNIT *current_output_unit;
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
     STRING_STACK multiple_pass;
-    STRING_STACK pending_closes;
+    STRING_STACK_LIST pending_closes;
     FILE_NUMBER_NAME current_filename;
     ELEMENT_REFERENCE_STACK referred_command_stack;
     HTML_SHARED_CONVERSION_STATE shared_conversion_state;

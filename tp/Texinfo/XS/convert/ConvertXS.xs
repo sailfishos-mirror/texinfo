@@ -1472,7 +1472,8 @@ html_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
          RETVAL
 
 void
-html_register_opened_section_level (SV *converter_in, int level, close_string)
+html_register_opened_section_level (SV *converter_in, filename, int level, close_string)
+         const char *filename = (char *)SvPVutf8_nolen($arg);
          const char *close_string = (char *)SvPVutf8_nolen($arg);
      PREINIT:
          CONVERTER *self;
@@ -1481,11 +1482,13 @@ html_register_opened_section_level (SV *converter_in, int level, close_string)
                                   "html_register_opened_section_level");
          if (self)
            {
-             html_register_opened_section_level (self, level, close_string);
+             html_register_opened_filename_section_level (self, filename,
+                                                          level, close_string);
            }
 
 SV *
-html_close_registered_sections_level (SV *converter_in, int level)
+html_close_registered_sections_level (SV *converter_in, filename, int level)
+         const char *filename = (char *)SvPVutf8_nolen($arg);
      PREINIT:
          CONVERTER *self;
          AV *closed_elements_av;
@@ -1496,7 +1499,8 @@ html_close_registered_sections_level (SV *converter_in, int level)
          if (self)
            {
              STRING_LIST *closed_elements
-               = html_close_registered_sections_level (self, level);
+               = html_close_registered_filename_sections_level (self,
+                                                             filename, level);
 
              if (closed_elements->number > 0)
                {

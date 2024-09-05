@@ -3022,7 +3022,9 @@ done in the sectioning commands conversion function only.
 The function for registering opened section extent is
 @code{register_opened_section_level}:
 
-@defun @var{$converter}->register_opened_section_level ($level, $closing_text)
+@defun @var{$converter}->register_opened_section_level ($filename, $level, $closing_text)
+@var{$filename} is the filename the section belongs to.  You could use
+@code{$converter->current_filename()} for @var{$filename}.
 @var{$level} is the sectioning command level.  It is typically
 obtained with @code{section->@{'extra'@}->@{'section_level'@}}
 (@pxref{Texinfo Tree Elements in User Defined Functions}).
@@ -3033,7 +3035,9 @@ section level @var{$level} is closed.
 The function for closing registered section extents is
 @code{close_registered_sections_level}:
 
-@deftypefun {@var{\@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$level})
+@deftypefun {@var{\@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$filename}, @var{$level})
+@var{$filename} is the filename the closed sections belong to.  You could use
+@code{$converter->current_filename()} for @var{$filename}.
 @var{$level} is the sectioning command level.  Opened section are closed
 down to section level @var{$level}.  The closing texts are returned in the
 @var{\@@closing_texts} array reference in order.
@@ -3044,12 +3048,14 @@ Example of use:
 @group
 my $level = $opening_section->@{'extra'@}->@{'section_level'@};
 my $closed_strings
-   = $converter->close_registered_sections_level($level);
+   = $converter->close_registered_sections_level(
+                    $converter->current_filename(), $level);
 $result .= join('', @@@{$closed_strings@});
 
 # ....
 
-$converter->register_opened_section_level($level, "</div>\n");
+$converter->register_opened_section_level(
+                 $converter->current_filename(), $level, "</div>\n");
 @end group
 @end example
 
@@ -4362,7 +4368,7 @@ to format the table of contents (@pxref{Converter General Information}),
 and @code{command_contents_href} and @code{command_href}
 (@pxref{Target Tree Element Link})
 are used for links.  If @var{$filename} is unset, the current file name
-is used, using @code{$converter->get_info('current_filename')}.
+is used, using @code{$converter->current_filename()}.
 
 Return formatted table of contents or short table of contents.
 @end deftypefn

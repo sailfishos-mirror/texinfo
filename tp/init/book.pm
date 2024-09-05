@@ -378,9 +378,11 @@ sub book_convert_heading_command($$$$$)
       # document (cannot happen in main program or test_utils.pl tests)
       $level = Texinfo::Common::section_level($opening_section);
     }
-    my $closed_strings = $self->close_registered_sections_level($level);
+    my $closed_strings = $self->close_registered_sections_level(
+                                  $self->current_filename(), $level);
     $result .= join('', @{$closed_strings});
-    $self->register_opened_section_level($level, "</div>\n");
+    $self->register_opened_section_level($self->current_filename(), $level,
+                                         "</div>\n");
 
     # use a specific class name to mark that this is the start of
     # the section extent. It is not necessary where the section is.
