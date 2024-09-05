@@ -1512,6 +1512,14 @@ $info_js_dir_test, {}, {'INFO_JS_DIR' => 'js', 'JS_WEBLABELS_FILE' => undef}],
 $css_init_file_texinfo,],
 ['text_css_info_in_init',
 $css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
+# the objective is not to test the init file, the init files allows
+# to remove navigation in output files to have simpler output easier to
+# interpret.  This was set for a bug with div closed in the wrong file.
+['simple_only_special_spaces_node',
+undef, {'test_file' => 'simple_only_special_spaces_node.texi',
+        'init_files' => ['no_navigation.pm']},
+       # needed to test for the bug
+       {'SPLIT' => 'node'}],
 );
 
 

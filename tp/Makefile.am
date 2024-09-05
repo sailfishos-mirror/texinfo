@@ -188,6 +188,7 @@ test_files = \
  t/init/l2h.init \
  t/init/mini_ker_t2h.init \
  t/init/misc_file_collision.init \
+ t/init/no_navigation.pm \
  t/init/only_toc_out.init \
  t/init/redefine_need.init \
  t/init/redefined_buttons.pm \
@@ -280,6 +281,7 @@ test_files = \
  t/input_files/section_in_unnumbered_text.texi \
  t/input_files/simplest.texi \
  t/input_files/split_chapter_index.texi \
+ t/input_files/simple_only_special_spaces_node.texi \
  t/input_files/simplest_no_node_section.texi \
  t/input_files/special_spaces_in_nodes.texi \
  t/input_files/test_refs.texi \

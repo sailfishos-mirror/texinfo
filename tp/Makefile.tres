@@ -739,6 +739,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/set_unit_file_name_filepath/res_html \
   t/results/html_tests/shortcontents_no_top.pl \
   t/results/html_tests/shorttitlepage.pl \
+  t/results/html_tests/simple_only_special_spaces_node.pl \
+  t/results/html_tests/simple_only_special_spaces_node/res_html \
   t/results/html_tests/simplest_test_date_in_header.pl \
   t/results/html_tests/simplest_test_date_in_header/res_html \
   t/results/html_tests/spaces_in_line_break_in_verb_w.pl \
