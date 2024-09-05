@@ -1,3 +1,17 @@
+2024-09-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command)
+	(_open_node_part_command), tp/Texinfo/XS/convert/convert_html.c
+	(convert_heading_command, open_node_part_command): set
+	in_skipped_node_top when opening a @node (or associated @part), not
+	after processing the contents.
+
+	* tp/Makefile.tres, tp/t/40moresectioning.t
+	(nodes_no_section_footnote_no_top_node_output): add test with
+	footnote in a node after a skipped Top node, with USE_NODES=0.
+
+	* tp/t/*.t: Use the hash notation to set USE_NODES.
+
 2024-09-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands),

@@ -307,7 +307,7 @@ in @code{documentdescri---ption} --- @bullet{} @enddots{} @verb{:"verb:} @aa{} @
 
 @cindex entry
 @printindex cp
-', {'test_split' => 'section'}, {'USE_NODES', 0}],
+', {'test_split' => 'section'}, {'USE_NODES' => 0}],
 ['letter_command_in_index',
 '@node Top
 @top top
@@ -1163,7 +1163,7 @@ Need 2 elements for separate footnotes.
 
 @top top
 
-', {}, {'TOP_FILE' => 'my-node.html', 'USE_NODES', 0}],
+', {}, {'TOP_FILE' => 'my-node.html', 'USE_NODES' => 0}],
 ['command_in_node_redirection',
 '@node Top
 @top t @r{in r}
@@ -1266,7 +1266,7 @@ $itemize_arguments_text
 ],
 ['check_htmlxref_no_use_nodes',
 $check_htmlxref_text
-, {}, {'CHECK_HTMLXREF' => 1, 'USE_NODES', 0}],
+, {}, {'CHECK_HTMLXREF' => 1, 'USE_NODES' => 0}],
 ['check_htmlxref_menu',
 $check_htmlxref_text
 , {'FORMAT_MENU' => 'menu',}, {'FORMAT_MENU' => 'menu', 'CHECK_HTMLXREF' => 1}],

@@ -140,6 +140,9 @@ In float
 @caption{}
 @end float
 '],
+# NOTE for formats that ignore the node Top, most of the test
+# is skipped.  This could be considered a feature, to check
+# ignore top node output, or could be changed.
 ['complex_float',
 '@node Top
 @top Test floats

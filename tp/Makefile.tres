@@ -1630,6 +1630,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/no_element.pl \
   t/results/moresectioning/nodes_before_after_top_xref.pl \
   t/results/moresectioning/nodes_before_after_top_xref/res_latex \
+  t/results/moresectioning/nodes_no_section_footnote_no_top_node_output.pl \
   t/results/moresectioning/non_automatic_internal_top_node_up.pl \
   t/results/moresectioning/non_automatic_top_node_up_and_url.pl \
   t/results/moresectioning/non_automatic_top_node_up_url.pl \

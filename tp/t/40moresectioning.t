@@ -63,6 +63,14 @@ $test_text
 ['section_in_unnumbered_plaintext',
 undef, {'test_file' => 'section_in_unnumbered_text.texi'},
 ],
+# tests that the footnotes segment is output in HTML
+['nodes_no_section_footnote_no_top_node_output',
+'@node Top
+@node chap
+
+a@footnote{my feet}
+', {}, {'USE_NODES' => 0, 'NO_TOP_NODE_OUTPUT' => 1},
+],
 );
 
 

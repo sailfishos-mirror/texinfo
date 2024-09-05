@@ -1287,13 +1287,13 @@ undef,{'test_file' => 'simplest.texi',},
 ],
 ['indices_in_begin_tables_lists',
 undef, {'test_file' => '../../tests/formatting/indices_in_begin_tables_lists.texi'},
-{'SPLIT' => '', 'USE_NODES', 0}],
+{'SPLIT' => '', 'USE_NODES' => 0}],
 # HTML still different from tests/indices indices_in_begin_tables_lists,
 # as there is no relate_index_entries_to_items tree transformation
 ['indices_in_begin_tables_lists_entries_after_item',
 undef, {'test_file' => '../../tests/formatting/indices_in_begin_tables_lists.texi',
         'TREE_TRANSFORMATIONS' => 'move_index_entries_after_items'},
-{'SPLIT' => '', 'USE_NODES', 0}],
+{'SPLIT' => '', 'USE_NODES' => 0}],
 ['combined_fonts',
 '@setfilename combined_fonts.info
 

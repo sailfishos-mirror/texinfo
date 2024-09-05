@@ -4887,26 +4887,6 @@ sub _convert_heading_command($$$$$)
     my $in_skipped_node_top
       = $self->get_shared_conversion_state('top', 'in_skipped_node_top');
     $in_skipped_node_top = 0 if (!defined($in_skipped_node_top));
-    my $node_element;
-    if ($cmdname eq 'node') {
-      $node_element = $element;
-    } elsif ($cmdname eq 'part' and $element->{'extra'}
-             and $element->{'extra'}->{'part_following_node'}) {
-      $node_element = $element->{'extra'}->{'part_following_node'};
-    }
-    if ($node_element or $cmdname eq 'part') {
-      if ($node_element and $node_element->{'extra'}
-          and $node_element->{'extra'}->{'normalized'}
-          and $node_element->{'extra'}->{'normalized'} eq 'Top') {
-        $in_skipped_node_top = 1;
-        $self->set_shared_conversion_state('top', 'in_skipped_node_top',
-                                           $in_skipped_node_top);
-      } elsif ($in_skipped_node_top == 1) {
-        $in_skipped_node_top = -1;
-        $self->set_shared_conversion_state('top', 'in_skipped_node_top',
-                                           $in_skipped_node_top);
-      }
-    }
     if ($in_skipped_node_top == 1) {
       my $id_class = $cmdname;
       $result .= &{$self->formatting_function('format_separate_anchor')}($self,
@@ -6363,7 +6343,7 @@ sub _convert_printindex_command($$$$)
   }
 
   #foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
-  #  print STDERR "IIIIIII $letter_entry->{'letter'}\n";
+  #  print STDERR "IDXLETTER $letter_entry->{'letter'}\n";
   #  foreach my $index_entry (@{$letter_entry->{'entries'}}) {
   #    print STDERR "   ".join('|', keys(%$index_entry))."||| $index_entry->{'key'}\n";
   #  }
@@ -6995,6 +6975,43 @@ foreach my $small_command (keys(%small_block_associated_command)) {
   $default_commands_conversion{$small_command}
     = $default_commands_conversion{$small_block_associated_command{$small_command}};
 }
+
+sub _open_node_part_command($$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $element = shift;
+
+  if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
+    my $in_skipped_node_top
+      = $self->get_shared_conversion_state('top', 'in_skipped_node_top');
+    $in_skipped_node_top = 0 if (!defined($in_skipped_node_top));
+    my $node_element;
+    if ($cmdname eq 'node') {
+      $node_element = $element;
+    } elsif ($cmdname eq 'part' and $element->{'extra'}
+             and $element->{'extra'}->{'part_following_node'}) {
+      $node_element = $element->{'extra'}->{'part_following_node'};
+    }
+    if ($node_element or $cmdname eq 'part') {
+      if ($node_element and $node_element->{'extra'}
+          and $node_element->{'extra'}->{'normalized'}
+          and $node_element->{'extra'}->{'normalized'} eq 'Top') {
+        $in_skipped_node_top = 1;
+        $self->set_shared_conversion_state('top', 'in_skipped_node_top',
+                                           $in_skipped_node_top);
+      } elsif ($in_skipped_node_top == 1) {
+        $in_skipped_node_top = -1;
+        $self->set_shared_conversion_state('top', 'in_skipped_node_top',
+                                           $in_skipped_node_top);
+      }
+    }
+  }
+  return '';
+}
+
+$default_commands_open{'node'} = \&_open_node_part_command;
+$default_commands_open{'part'} = \&_open_node_part_command;
 
 sub _open_quotation_command($$$)
 {
