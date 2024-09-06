@@ -1,5 +1,10 @@
 2024-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/init/t2h_singular.init (singular_format_footer): update for
+	close_registered_sections_level call change.
+
+2024-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/latex2html.pm (l2h_to_html): do not set latex2html -dir
 	option if the destination directory is the current directory.
 	Report by Jeremy Bryant.

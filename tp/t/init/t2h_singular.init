@@ -94,7 +94,8 @@ sub singular_format_footer($$$$)
     $result .= $self->get_conf('DEFAULT_RULE')."\n"
        if (defined($self->get_conf('DEFAULT_RULE')));
     if ($end_page) {
-      my $closed_strings = $self->close_registered_sections_level(0);
+      my $closed_strings = $self->close_registered_sections_level(
+                                       $self->current_filename(), 0);
       $result .= join('', @{$closed_strings});
       $result .= &{$self->formatting_function('format_navigation_panel')}($self,
                                             $buttons, undef, $output_unit);
