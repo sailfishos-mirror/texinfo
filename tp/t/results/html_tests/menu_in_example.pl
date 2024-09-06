@@ -607,7 +607,7 @@ span:hover a.copiable-link {visibility: visible}
 <h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <div class="example">
-<table class="menu" border="0" cellspacing="0"><tr><td>
+<table class="menu" cellspacing="0"><tr><td>
 <pre class="menu-preformatted">&bull; <a href="entry.html#Top" accesskey="1">(entry)</a>::</pre><pre class="menu-entry-description-preformatted">
 
 </pre><table class="cartouche" border="1"><tr><td>

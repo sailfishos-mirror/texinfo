@@ -870,7 +870,7 @@ td.menu-entry-destination {vertical-align: top}
 <p>Ref to float
 <a class="ref" href="#float-anchor">1</a>.
 </p>
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#An-anchor" accesskey="1">An anchor</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">menu entry pointing to the anchor.
 </td></tr>
 </table>

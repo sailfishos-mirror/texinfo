@@ -536,7 +536,7 @@ $result_converted{'html_text'}->{'subentries_and_comments'} = '<div class="top-l
 <a class="index-entry-id" id="index-ab-cc"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter-one_cp_letter-A">A</th></tr>

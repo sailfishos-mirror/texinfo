@@ -595,7 +595,7 @@ Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#chap" accesskey="1">chap</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Here we begin</td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
@@ -615,7 +615,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#sec" accesskey="1">sec</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Here in section</td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#sec-after" accesskey="2">sec after</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>

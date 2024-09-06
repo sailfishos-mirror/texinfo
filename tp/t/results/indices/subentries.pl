@@ -1190,7 +1190,7 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 <a class="summary-letter-printindex" href="#chapter-index_cp_letter-G"><b>G</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter-index_cp_letter-A">A</th></tr>
@@ -1222,7 +1222,7 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 </td></tr></table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex" border="0">
+<table class="fn-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter-index_fn_letter-F">F</th></tr>

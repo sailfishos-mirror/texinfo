@@ -988,7 +988,7 @@ Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="1">chap  b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="2">chap  b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">

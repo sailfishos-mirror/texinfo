@@ -594,7 +594,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1">
 <tr><td>[ &lt; ]</td>
 <td>[<a href="#Chapter" title="Next section in reading order"> &gt; </a>]</td>
 <td> &nbsp; </td>
@@ -605,14 +605,14 @@ ul.toc-numbered-mark {list-style: none}
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <p>Top node
 </p>
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination"><a href="#section-node">1.1 section</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
 <hr style="height: 6px;">
 <div class="chapter-level-extent" id="Chapter">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1">
 <tr><td>[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td>[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
 <td>[<a href="#Top" title="Up section"> Up </a>]</td>
@@ -633,7 +633,7 @@ ul.toc-numbered-mark {list-style: none}
 </p>
 <hr>
 <div class="section-level-extent" id="section-node">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1">
 <tr><td>[<a href="#Chapter" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td>[<a href="#Chapter" title="Previous section in reading order"> &lt; </a>]</td>
 <td>[<a href="#Chapter" title="Up section"> Up </a>]</td>
@@ -670,7 +670,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <div class="element-about" id="SEC_About">
-<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1">
 <tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
 <td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[Index]</td>

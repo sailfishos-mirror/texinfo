@@ -255,7 +255,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 
 <a class="index-entry-id" id="index-node-1"></a>
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="index-node_cp_letter-N">N</th></tr>

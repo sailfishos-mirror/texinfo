@@ -786,7 +786,7 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 </p></dd></dl>
 
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex" border="0">
+<table class="fn-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chap_fn_letter-M">M</th></tr>

@@ -367,7 +367,7 @@ td.menu-entry-destination {vertical-align: top}
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
 
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#first" accesskey="1">first</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>

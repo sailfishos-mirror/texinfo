@@ -288,7 +288,7 @@ th.menu-comment {text-align:left}
 
 <body lang="en">
 
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Your rights.
 </td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">

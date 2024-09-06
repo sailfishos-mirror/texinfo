@@ -220,7 +220,7 @@ th.menu-comment {text-align:left}
 
 <body lang="en">
 
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="manual.html#n_002d_002d_002dode" accesskey="1">entry&mdash;in</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description &mdash; in.
 </td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">

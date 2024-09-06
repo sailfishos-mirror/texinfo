@@ -746,17 +746,17 @@ span:hover a.copiable-link {visibility: visible}
 
 in example
 
-</pre><table class="menu" border="0" cellspacing="0"><tr><td>
+</pre><table class="menu" cellspacing="0"><tr><td>
 <pre class="menu-comment-preformatted">in submenu
 
 </pre><pre class="menu-comment-preformatted">
 
-</pre><table class="menu" border="0" cellspacing="0"><tr><td>
+</pre><table class="menu" cellspacing="0"><tr><td>
 <pre class="menu-comment-preformatted">in submenu
 </pre></td></tr></table>
 <pre class="menu-comment-preformatted">
 
-</pre><table class="menu" border="0" cellspacing="0"><tr><td>
+</pre><table class="menu" cellspacing="0"><tr><td>
 <blockquote class="quotation">
 <pre class="menu-comment-preformatted">A quot---ation in submenu
 </pre></blockquote>

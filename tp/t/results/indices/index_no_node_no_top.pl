@@ -1814,7 +1814,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 <a class="summary-letter-printindex" href="#t_i_cp_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-C">C</th></tr>
@@ -1869,7 +1869,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 <a class="summary-letter-printindex" href="#unnumbered_cp_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="unnumbered_cp_letter-C">C</th></tr>
@@ -1928,7 +1928,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 <a class="summary-letter-printindex" href="#top-_0028chapter_0029-section_cp_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="top-_0028chapter_0029-section_cp_letter-C">C</th></tr>
@@ -1984,7 +1984,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 <a class="summary-letter-printindex" href="#second_cp_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="second_cp_letter-C">C</th></tr>
@@ -2034,7 +2034,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 <a class="summary-letter-printindex" href="#second_cp_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="second_cp_letter-C">C</th></tr>
@@ -2086,7 +2086,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top'} = '<a class="index-entr
 <a class="summary-letter-printindex" href="#Chapter_cp_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Chapter_cp_letter-C">C</th></tr>

@@ -746,7 +746,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 <p>Copying<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Top_cp_letter-C">C</th></tr>
@@ -772,7 +772,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 <p>Copying<a class="footnote" id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>.
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter_cp_letter-C">C</th></tr>

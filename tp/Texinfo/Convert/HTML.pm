@@ -4326,7 +4326,7 @@ sub _default_format_button_icon_img($$$;$)
   }
   return $self->close_html_lone_element(
     '<img src="'.$self->url_protect_url_text($icon)
-       ."\" border=\"0\" alt=\"$alt\" align=\"middle\"");
+       ."\" alt=\"$alt\" align=\"middle\"");
 }
 
 sub _direction_href_attributes($$)
@@ -4598,7 +4598,7 @@ sub _default_format_navigation_panel($$$$;$)
 
   if ($self->get_conf('HEADER_IN_TABLE')) {
     $result .= $self->html_attribute_class('table', ['nav-panel'])
-        .' cellpadding="1" cellspacing="1" border="0">'."\n";
+        .' cellpadding="1" cellspacing="1">'."\n";
     $result .= "<tr>" unless $vertical;
   } else {
     $result .= $self->html_attribute_class('div', ['nav-panel']).">\n";
@@ -4626,7 +4626,7 @@ sub _default_format_navigation_header($$$$)
 
   my $result = '';
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
-    $result .= '<table border="0" cellpadding="0" cellspacing="0">
+    $result .= '<table cellpadding="0" cellspacing="0">
 <tr>
 <td>
 ';
@@ -5613,7 +5613,7 @@ sub _convert_menu_command($$$$$)
     $end_row = '</td></tr>';
   }
   return $self->html_attribute_class('table', [$cmdname])
-    ." border=\"0\" cellspacing=\"0\">${begin_row}\n"
+    ." cellspacing=\"0\">${begin_row}\n"
       . $content . "${end_row}</table>\n";
 }
 $default_commands_conversion{'menu'} = \&_convert_menu_command;
@@ -6869,7 +6869,7 @@ sub _convert_printindex_command($$$$)
   # now format the index entries
   $result
    .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
-   ." border=\"0\">\n" . '<tr><td></td>'
+   .">\n" . '<tr><td></td>'
    . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
      # TRANSLATORS: index entries column header in index formatting
    . $self->convert_tree($self->cdt('Index Entry'), 'Tr th idx entries 1')

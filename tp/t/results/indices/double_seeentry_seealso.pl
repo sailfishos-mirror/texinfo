@@ -767,7 +767,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 <a class="summary-letter-printindex" href="#node-index_cp_letter-G"><b>G</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="node-index_cp_symbol-1"></th></tr>

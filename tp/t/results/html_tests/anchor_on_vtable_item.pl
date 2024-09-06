@@ -883,7 +883,7 @@ Previous: <a href="#chap" accesskey="p" rel="prev">Chap</a>, Up: <a href="#Top" 
 <h2 class="chapter" id="Idx-1"><span>2 Idx<a class="copiable-link" href="#Idx-1"> &para;</a></span></h2>
 
 <div class="printindex vr-printindex">
-<table class="vr-entries-printindex" border="0">
+<table class="vr-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Idx_vr_letter-L">L</th></tr>

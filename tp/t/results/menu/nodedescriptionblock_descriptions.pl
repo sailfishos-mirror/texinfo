@@ -1918,7 +1918,7 @@ Next: <a href="#toto" accesskey="n" rel="next">Toto</a> &nbsp; </p>
 </div>
 <h1 class="top" id="test-of-nodedescriptionblock-used-in-menu"><span>test of nodedescriptionblock used in menu<a class="copiable-link" href="#test-of-nodedescriptionblock-used-in-menu"> &para;</a></span></h1>
 
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#toto" accesskey="1">toto</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">toto is there:: and the <em class="emph">is a description</em>slightly&nbsp;long<!-- /@w --> and <code class="verb">vv&nbsp;somewhat</code> &aring;nexpected</td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#titi" accesskey="2">titi</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">desc of titi
 </td></tr>

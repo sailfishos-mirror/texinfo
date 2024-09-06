@@ -7424,7 +7424,7 @@ html_default_format_button_icon_img (CONVERTER *self,
   text_append (&result, icon_protected);
   free (icon_protected);
 
-  text_append_n (&result, "\" border=\"0\" alt=\"", 18);
+  text_append_n (&result, "\" alt=\"", 7);
   if (name)
     {
       if (button_name)
@@ -7921,7 +7921,7 @@ html_default_format_navigation_panel (CONVERTER *self,
                                               &nav_panel_classes);
       text_append (result, attribute_class);
       text_append (result,
-                   " cellpadding=\"1\" cellspacing=\"1\" border=\"0\">\n");
+                   " cellpadding=\"1\" cellspacing=\"1\">\n");
       free (attribute_class);
 
       if (!vertical)
@@ -7989,7 +7989,7 @@ html_default_format_navigation_header (CONVERTER *self,
     vertical = 1;
   if (vertical)
     text_append (result,
-     "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n"
+     "<table cellpadding=\"0\" cellspacing=\"0\">\n"
      "<tr>\n<td>\n");
 
   /* keep the current index in result to be able to determine if text was
@@ -11260,7 +11260,7 @@ convert_menu_command (CONVERTER *self, const enum command_id cmd,
 
   attribute_class = html_attribute_class (self, "table", classes);
   text_append (result, attribute_class);
-  text_append (result, " border=\"0\" cellspacing=\"0\">");
+  text_append (result, " cellspacing=\"0\">");
   if (html_inside_preformatted (self))
     text_append_n (result, "<tr><td>", 8);
   text_append_n (result, "\n", 1);
@@ -13649,7 +13649,7 @@ convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   clear_strings_list (entry_classes);
   text_append (result, attribute_class);
   free (attribute_class);
-  text_append_n (result, " border=\"0\">\n<tr><td></td>", 26);
+  text_append_n (result, ">\n<tr><td></td>", 15);
 
   xasprintf (&index_name_cmd_class, "entries-header-%s",
              builtin_command_name (cmd));

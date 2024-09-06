@@ -524,7 +524,7 @@ td.menu-entry-destination {vertical-align: top}
 </head>
 
 <body lang="en">
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#b" accesskey="1">a</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#b" accesskey="2">a</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#b1c_002ec" accesskey="3">a</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>

@@ -378,7 +378,7 @@ td.menu-entry-destination {vertical-align: top}
 </head>
 
 <body lang="en">
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a1" accesskey="1">(f)a1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a2" accesskey="2">(f)a2</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">

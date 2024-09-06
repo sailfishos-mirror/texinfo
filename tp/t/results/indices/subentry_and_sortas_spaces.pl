@@ -795,7 +795,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas_spaces'} = '<div class="to
 <a class="index-entry-id" id="index-aaa-bbb-ccc-1"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter-index_cp_letter-A">A</th></tr>

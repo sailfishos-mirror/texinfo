@@ -854,7 +854,7 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<a class="node-id" id="Top"
 <a class="index-entry-id" id="index-function1-1"></a>
 
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex" border="0">
+<table class="fn-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chap_fn_letter-F">F</th></tr>
@@ -867,7 +867,7 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<a class="node-id" id="Top"
 </div>
 
 <div class="printindex vr-printindex">
-<table class="vr-entries-printindex" border="0">
+<table class="vr-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chap_vr_letter-V">V</th></tr>

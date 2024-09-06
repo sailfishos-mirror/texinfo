@@ -483,7 +483,7 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <a class="summary-letter-printindex" href="#chap_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chap_cp_letter-S">S</th></tr>

@@ -1816,7 +1816,7 @@ ul.mark-bullet {list-style-type: disc}
 
 <div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
-<table class="menu" border="0" cellspacing="0">
+<table class="menu" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="ggg.html#Top" accesskey="1">(ggg)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description
 <ul class="itemize mark-bullet">
 <li><pre class="menu-preformatted">idescr

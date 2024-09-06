@@ -666,7 +666,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '<div class="top-level
 <a class="index-entry-id" id="index-xxx-zzz"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter-index_cp_letter-A">A</th></tr>
@@ -676,7 +676,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '<div class="top-level
 </table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-entries-printindex" border="0">
+<table class="fn-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter-index_fn_letter-X">X</th></tr>

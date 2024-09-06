@@ -2201,7 +2201,7 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <a class="summary-letter-printindex" href="#chapter-second_cp_letter-H"><b>H</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chapter-second_cp_letter-A">A</th></tr>

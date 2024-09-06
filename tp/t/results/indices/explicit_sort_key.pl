@@ -848,7 +848,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 <a class="summary-letter-printindex" href="#chap_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="SK-entries-printindex" border="0">
+<table class="SK-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chap_SK_symbol-1">0</th></tr>
