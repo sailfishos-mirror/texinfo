@@ -289,7 +289,7 @@ test_files = \
  t/input_files/things_before_setfilename_no_element.texi \
  t/input_files/things_before_setfilename.texi \
  t/input_files/transliterated_names_conflicts.texi \
- t/input_files/htmlxref.cnf \
+ t/input_files/htmlxref-test.cnf \
  t/input_files/htmlxref-mono.cnf \
  t/input_files/htmlxref-no_urlprefix_first.cnf \
  t/input_files/htmlxref-split.cnf \

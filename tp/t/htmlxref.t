@@ -8,13 +8,13 @@ require 't/test_utils.pl';
 my @test_cases = (
 ['htmlxref',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF_FILE' => 'htmlxref.cnf',
+  {'HTMLXREF_FILE' => 'htmlxref-test.cnf',
    'SPLIT' => '', 'NODE_NAME_IN_MENU' => 0,
    'USE_NODES' => 0}
 ],
 ['htmlxref_nodes',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF_FILE' => 'htmlxref.cnf',
+  {'HTMLXREF_FILE' => 'htmlxref-test.cnf',
    'SPLIT' => 'node',,
    'USE_NODES' => 1}
 ],

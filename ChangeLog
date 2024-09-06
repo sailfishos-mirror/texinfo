@@ -1,4 +1,12 @@
-2024-09-05  Patrice Dumas  <pertusus@free.fr>
+2024-09-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Makefile.am (test_files), tp/t/input_files/htmlxref-test.cnf,
+	tp/t/htmlxref.t: rename t/input_files/htmlxref.cnf as
+	t/input_files/htmlxref-test.cnf as now the htmlxref.cnf file found
+	along with source files is used and could therefore interact with
+	in-source conversions.
+
+2024-09-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/init/book.pm (book_convert_heading_command): sync with HTML.pm.
 
