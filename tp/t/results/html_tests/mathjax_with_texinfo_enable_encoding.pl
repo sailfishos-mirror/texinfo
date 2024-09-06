@@ -281,7 +281,7 @@ $result_converted{'html'}->{'mathjax_with_texinfo_enable_encoding'} = '<!DOCTYPE
 
 <style type="text/css">
 <!--
-pre.displaymath {font-style: italic; font-family: serif}
+pre.displaymath {font-style: italic; font-family: serif; display: flex; justify-content: center}
 -->
 </style>
 

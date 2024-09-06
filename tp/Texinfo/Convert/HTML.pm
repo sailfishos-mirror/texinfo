@@ -2960,7 +2960,9 @@ my %css_element_class_styles = (
      'pre.menu-preformatted'  => 'font-family: serif',
      'a.summary-letter-printindex'  => 'text-decoration: none',
      'pre.display-preformatted'     => 'font-family: inherit',
-     'pre.displaymath'              => 'font-style: italic; font-family: serif',
+     # 'display: flex; justify-content: center' centers the pre as a whole
+     'pre.displaymath'
+           => 'font-style: italic; font-family: serif; display: flex; justify-content: center',
      'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',

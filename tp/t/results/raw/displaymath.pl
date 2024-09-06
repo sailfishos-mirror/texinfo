@@ -242,7 +242,7 @@ $result_converted{'html'}->{'displaymath'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-pre.displaymath {font-style: italic; font-family: serif}
+pre.displaymath {font-style: italic; font-family: serif; display: flex; justify-content: center}
 -->
 </style>
 
