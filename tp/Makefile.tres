@@ -737,6 +737,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/sectioning_check_menu_structure/res_html \
   t/results/html_tests/set_unit_file_name_filepath.pl \
   t/results/html_tests/set_unit_file_name_filepath/res_html \
+  t/results/html_tests/setfilename_on_top_and_after_node_epub.pl \
+  t/results/html_tests/setfilename_on_top_and_after_node_epub/res_html \
   t/results/html_tests/shortcontents_no_top.pl \
   t/results/html_tests/shorttitlepage.pl \
   t/results/html_tests/simple_only_special_spaces_node.pl \

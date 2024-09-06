@@ -1520,6 +1520,16 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm']},
        # needed to test for the bug
        {'SPLIT' => 'node'}],
+# also in *sectioning.t.  Here we are interested by testing spaces
+# in filenames.
+['setfilename_on_top_and_after_node_epub',
+'@node Top
+@top In top @setfilename very badly placed setfilename
+
+@setfilename a bit too late
+', {'init_files' => ['epub3.pm'],
+    'test_input_file_name' => 'very badly placed setfilename.texi'},
+   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
 );
 
 
@@ -1531,7 +1541,8 @@ foreach my $test (@test_cases_text) {
 }
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
-  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi'
+    unless (exists($test->[2]->{'test_input_file_name'}));
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 foreach my $test (@test_cases_file_text) {

@@ -881,7 +881,8 @@ sub test($$)
   my $init_files_options
       = Texinfo::Config::GNUT_initialize_customization('',
                                    $test_customization_defaults, {});
-  my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
+  my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/',
+                               $srcdir.'ext/'];
   # the init file names should be binary strings.  Since they
   # are not encoded here, ascii file names should be used or they
   # should be encoded in test specification files.

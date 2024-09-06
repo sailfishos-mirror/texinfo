@@ -1,5 +1,17 @@
 2024-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm (epub_finish): use transliterate_protect_file_name
+	on opf file name to replace spaces, and avoid non ascii characters.
+
+	* tp/t/test_utils.pl (test): add $srcdir.'ext/' to init files search
+	path.
+
+	* tp/Makefile.tres, tp/t/html_tests.t
+	(setfilename_on_top_and_after_node_epub): add test of EPUB generation,
+	tesing EPUB generation with files with spaces in their names.
+
+2024-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	Percent encode file name in internal href
 
 	* tp/Texinfo/Convert/HTML.pm (_internal_command_href),

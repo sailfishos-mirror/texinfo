@@ -98,6 +98,7 @@ use Encode qw(decode);
 
 # also for __(
 use Texinfo::Common;
+use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 
@@ -628,7 +629,12 @@ sub epub_finish($$)
     return 1;
   }
   my $document_name = $self->get_info('document_name');
-  my $opf_filename = $document_name . '.opf';
+  # We do not only percent encode the file name, as in that case the
+  # checker tells that the file cannot be found, however we can set the
+  # opf file name to anything as long as we are consistent.
+  my $opf_filename
+   = Texinfo::Convert::NodeNameNormalization::transliterate_protect_file_name(
+         $document_name) . '.opf';
   print $container_fh <<EOT;
 <?xml version="1.0"?>
 <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
