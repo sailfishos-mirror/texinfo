@@ -436,7 +436,8 @@ sub l2h_to_html($$$)
   # set output dir
   my $encoded_destination_dir_option = ' -no_subdir';
   my $destination_dir_option = $encoded_destination_dir_option;
-  if ($destination_directory ne '') {
+  my $curdir = File::Spec->curdir();
+  if ($destination_directory ne '' and $destination_directory ne $curdir) {
     $encoded_destination_dir_option = " -dir ".$destination_directory_string;
     $destination_dir_option = " -dir ".$destination_directory;
   }

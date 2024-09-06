@@ -1,5 +1,11 @@
 2024-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/latex2html.pm (l2h_to_html): do not set latex2html -dir
+	option if the destination directory is the current directory.
+	Report by Jeremy Bryant.
+
+2024-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files), tp/t/input_files/htmlxref-test.cnf,
 	tp/t/htmlxref.t: rename t/input_files/htmlxref.cnf as
 	t/input_files/htmlxref-test.cnf as now the htmlxref.cnf file found
