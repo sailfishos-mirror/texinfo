@@ -3566,7 +3566,12 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
         {
           const ELEMENT *command_root_element
              = html_command_root_element_command (self, command);
-          text_append (&href, target_filename->filename);
+          char *protected_filename
+            = url_protect_file_text (self, target_filename->filename);
+
+          text_append (&href, protected_filename);
+          free (protected_filename);
+
      /* omit target if the command is an element command, there is only
         one element in file and there is a file in the href */
           if (filename_from && command_root_element)

@@ -1085,7 +1085,7 @@ sub _internal_command_href($$;$$)
   if (defined($target_filename)) {
     if (!defined($source_filename)
          or $source_filename ne $target_filename) {
-      $href .= $target_filename;
+      $href .= $self->url_protect_file_text($target_filename);
       # omit target if the command is an element command, there is only
       # one element in file and there is a file in the href
       my $command_root_element_command
