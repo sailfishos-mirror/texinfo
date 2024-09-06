@@ -1,5 +1,9 @@
 2024-09-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/book.pm (book_convert_heading_command): sync with HTML.pm.
+
+2024-09-05  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Heading Commands Formatting),
 	tp/Texinfo/Convert/HTML.pm (register_opened_section_level)
 	(close_registered_sections_level, _initialize_output_state),
