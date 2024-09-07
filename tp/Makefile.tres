@@ -648,6 +648,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/double_contents_separate_element_nodes/res_html \
   t/results/html_tests/double_contents_separate_element_section.pl \
   t/results/html_tests/double_contents_separate_element_section/res_html \
+  t/results/html_tests/double_recursive_self_section_reference_node_no_use_node.pl \
+  t/results/html_tests/double_recursive_self_section_reference_node_no_use_node/res_html \
   t/results/html_tests/empty_chapter_in_html_title.pl \
   t/results/html_tests/empty_chapter_in_html_title/res_html \
   t/results/html_tests/empty_chapter_in_html_title_no_node_no_use_nodes.pl \

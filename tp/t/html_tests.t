@@ -1520,6 +1520,18 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm']},
        # needed to test for the bug
        {'SPLIT' => 'node'}],
+# also in *sectioning.t.  Here we are interested both by the infinite
+# recursion and by the title strings to verify that they do not end up
+# with attributes
+['double_recursive_self_section_reference_node_no_use_node',
+'@node n1
+@chapter @ref{n2}
+
+@node n2
+@chapter @ref{n1}
+', {}, {'USE_NODES' => 0,
+        # needed for the test
+        'SPLIT' => 'node'}],
 # also in *sectioning.t.  Here we are interested by testing spaces
 # in filenames.
 ['setfilename_on_top_and_after_node_epub',

@@ -6112,7 +6112,10 @@ sub _convert_xref_commands($$$$)
          if (!$target_node->{'extra'}->{'associated_section'}
              or $target_node->{'extra'}->{'associated_section'} ne $target_root);
 
-    my $href = $self->command_href($target_root, undef, $command);
+    my $href;
+    if (!in_string($self)) {
+      $href = $self->command_href($target_root, undef, $command);
+    }
 
     if (!defined($name)) {
       if ($self->get_conf('xrefautomaticsectiontitle') eq 'on'
@@ -6127,10 +6130,19 @@ sub _convert_xref_commands($$$$)
          and not _command_is_in_referred_command_stack($self,
                           $target_node->{'extra'}->{'associated_section'})) {
         $target_root = $target_node->{'extra'}->{'associated_section'};
-        $name = $self->command_text($target_root, 'text_nonumber');
+        if (in_string($self)) {
+          $name = $self->command_text($target_root, 'string');
+        } else {
+          $name = $self->command_text($target_root, 'text_nonumber');
+        }
       } elsif ($target_node->{'cmdname'} eq 'float') {
         if (!$self->get_conf('XREF_USE_FLOAT_LABEL')) {
-          $name = $self->command_text($target_root);
+          if (in_string($self)) {
+            # not tested
+            $name = $self->command_text($target_root, 'string');
+          } else {
+            $name = $self->command_text($target_root);
+          }
         }
         if (!defined($name) or $name eq '') {
           if (defined($args->[0]->{'monospace'})) {
@@ -6147,7 +6159,11 @@ sub _convert_xref_commands($$$$)
          # to the node
               and not _command_is_in_referred_command_stack($self,
                                                             $target_root)) {
-        $name = $self->command_text($target_root, 'text_nonumber');
+        if (in_string($self)) {
+          $name = $self->command_text($target_root, 'string');
+        } else {
+          $name = $self->command_text($target_root, 'text_nonumber');
+        }
         #die "$target_root $target_root->{'normalized'}" if (!defined($name));
       } elsif (defined($args->[0]->{'monospace'})) {
         $name = $args->[0]->{'monospace'};
@@ -6156,9 +6172,10 @@ sub _convert_xref_commands($$$$)
       }
     }
     my $reference = $name;
-    $reference = $self->html_attribute_class('a', [$cmdname])
-                      ." href=\"$href\">$name</a>" if (defined($href)
-                                                       and !in_string($self));
+    if (defined($href)) {
+      $reference = $self->html_attribute_class('a', [$cmdname])
+                      ." href=\"$href\">$name</a>";
+    }
     my $substrings
       = { 'reference_name' => {'type' => '_converted', 'text' => $reference} };
 

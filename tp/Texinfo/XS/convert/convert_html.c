@@ -12180,7 +12180,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
   /* internal reference */
   if (target_node)
     {
-      char *href;
+      char *href = 0;
       STRING_LIST *classes = 0;
      /* This is the node if USE_NODES, otherwise this may be the sectioning
         command (if the sectioning command is really associated to the node) */
@@ -12195,7 +12195,8 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
       if (!associated_section || associated_section != target_root)
         target_root = target_node;
 
-      href = html_command_href (self, target_root, 0, element, 0);
+      if (!html_in_string (self))
+        href = html_command_href (self, target_root, 0, element, 0);
 
       if (!name)
         {
@@ -12213,13 +12214,19 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                    &self->referred_command_stack, associated_section, 0))
             {
               target_root = associated_section;
-              name = html_command_text (self, target_root, HTT_text_nonumber);
+              if (html_in_string (self))
+                name = html_command_text (self, target_root, HTT_string);
+              else
+                name = html_command_text (self, target_root, HTT_text_nonumber);
             }
           else if (target_node->cmd == CM_float)
             {
               if (self->conf->XREF_USE_FLOAT_LABEL.o.integer <= 0)
                 {
-                  name = html_command_text (self, target_root, 0);
+                  if (html_in_string (self))
+                    name = html_command_text (self, target_root, HTT_string);
+                  else
+                    name = html_command_text (self, target_root, 0);
                 }
               if (!name || !strlen (name))
                 {
@@ -12243,7 +12250,10 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
                    && !command_is_in_referred_command_stack (
                          &self->referred_command_stack, target_root, 0))
             {
-              name = html_command_text (self, target_root, HTT_text_nonumber);
+              if (html_in_string (self))
+                name = html_command_text (self, target_root, HTT_string);
+              else
+                name = html_command_text (self, target_root, HTT_text_nonumber);
             }
           else if (args_formatted->number > 0
                    && args_formatted->args[0].formatted[AFT_type_monospace])
@@ -12255,7 +12265,7 @@ convert_xref_commands (CONVERTER *self, const enum command_id cmd,
             name = strdup ("");
         }
 
-      if (href && !html_in_string (self))
+      if (href)
         {
           char *attribute_class;
 

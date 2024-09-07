@@ -1,3 +1,17 @@
+2024-09-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands),
+	tp/Texinfo/XS/convert/convert_html.c (convert_xref_commands): handle
+	better formatting of internal ref in string context with nested
+	references.
+
+	* tp/maintain/check_epubcheck_texi_t.sh: call with
+	NO_TOP_NODE_OUTPUT=0 to avoid lots of false positives.
+
+	* tp/Makefile.tres, tp/t/html_tests.t
+	(double_recursive_self_section_reference_node_no_use_node): new test
+	of recursive references, split with USE_NODES=0.
+
 2024-09-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/ext/epub3.pm (epub_finish): use transliterate_protect_file_name
