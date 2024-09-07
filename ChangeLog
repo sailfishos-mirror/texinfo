@@ -1,5 +1,10 @@
 2024-09-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: manual build of pod2texi.html not required
+	(since 2022-11-19).
+
+2024-09-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: add 7.1.1 release notice
 
 2024-09-07  Patrice Dumas  <pertusus@free.fr>

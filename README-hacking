@@ -483,7 +483,7 @@ git tag texinfo-6.6
 git push --tags
 
 #  ... set up dtd directory on web pages:
-cd $HOME/gnu/www/texinfo/dtd # or wherever webpages checkout is
+cd CVS_WEB/dtd # or wherever webpages checkout is
 mkdir $ver && cvs add $ver
 cp $tutil/texinfo.dtd $ver
 cvs add -kb $ver/texinfo.dtd
@@ -493,10 +493,6 @@ cvs commit -m$ver $ver
 
 
 - When official release is out there ...
-update home page (texinfo.html) and commit as needed.
-including:
-  pod2html $txi/Pod-Simple-Texinfo/pod2texi.pl \
-  | grep -Fv 'rev="made"' >manual/pod2texi.html
 
 Make sure texi2any and texinfo.tex are both installed, then build
 web documentation with
@@ -511,7 +507,8 @@ been replaced, followed by cvs rm -f.  Check for added files with
 "cvs -qn update | less", followed by cvs add for lines beginning "?".
 When done, run cvs commit.
 
-
+update date and version number on home page (texinfo.html) and commit
+as needed.
 
 -------------------------------------------------------------------------
 
