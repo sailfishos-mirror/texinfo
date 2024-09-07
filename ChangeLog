@@ -1,3 +1,7 @@
+2024-09-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: add 7.1.1 release notice
+
 2024-09-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/ext/epub3.pm (epub_finish): fix nav file formatting with a
