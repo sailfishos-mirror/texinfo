@@ -85,7 +85,9 @@ for dir in `find t_texis/ -type d` ; do
       continue
     fi
     echo "    -> $file: EPUB"
-    ${srcdir}/texi2any.pl --epub --force --error=100000 -o $mdir/epubcheck_EPUB/$bdir/$bfile.epub -c SUBDIR=$mdir/epubcheck_package/$bdir/${bfile}_epub_package -c EPUB_STRICT=1 -c EPUB_KEEP_CONTAINER_FOLDER=1 -c NO_TOP_NODE_OUTPUT=0 -c SHOW_TITLE=1 $file
+    cmd="${srcdir}/texi2any.pl --epub --force --error=100000 -o $mdir/epubcheck_EPUB/$bdir/$bfile.epub -c SUBDIR=$mdir/epubcheck_package/$bdir/${bfile}_epub_package -c EPUB_STRICT=1 -c EPUB_KEEP_CONTAINER_FOLDER=1 -c NO_TOP_NODE_OUTPUT=0 -c SHOW_TITLE=1 $file"
+    echo $cmd
+    $cmd
     echo "              epubcheck"
     epubcheck $mdir/epubcheck_EPUB/$bdir/$bfile.epub 2>$mdir/epubcheck_check/$bdir/$bfile.out
   done

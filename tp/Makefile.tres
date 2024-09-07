@@ -571,6 +571,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/automatic_menus.pl \
   t/results/html_tests/base_for_css_info_in_init_test.pl \
   t/results/html_tests/base_for_css_info_in_init_test/res_html \
+  t/results/html_tests/chapter_before_top_epub.pl \
+  t/results/html_tests/chapter_before_top_epub/res_html \
   t/results/html_tests/character_number_leading_toc_stoc.pl \
   t/results/html_tests/check_htmlxref.pl \
   t/results/html_tests/check_htmlxref_ignore_ref_top_up.pl \

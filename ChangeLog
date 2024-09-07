@@ -1,5 +1,17 @@
 2024-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm (epub_finish): fix nav file formatting with a
+	command with a zero section level not appearing first, by consistently
+	using $section_level.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (chapter_before_top_epub): test
+	chapter before top in epub for nav file formatting.
+
+	* tp/maintain/check_epubcheck_texi_t.sh: show the command used to
+	generate EPUB in log.
+
+2024-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands),
 	tp/Texinfo/XS/convert/convert_html.c (convert_xref_commands): handle
 	better formatting of internal ref in string context with nested

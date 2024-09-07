@@ -743,7 +743,7 @@ EOT
           print $nav_fh "\n". " " x $level . "<ol>\n";
           $level++;
         }
-      } elsif ($level > $section->{'extra'}->{'section_level'}) {
+      } elsif ($level > $section_level) {
         # on the same line as the a element for the first </li>
         print $nav_fh "</li>\n". " " x ($level -1) . "</ol>\n";
         $level--;

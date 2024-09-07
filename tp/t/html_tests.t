@@ -1542,6 +1542,18 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
 ', {'init_files' => ['epub3.pm'],
     'test_input_file_name' => 'very badly placed setfilename.texi'},
    {'EPUB_CREATE_CONTAINER_FILE' => 0}],
+# test for the nav file
+['chapter_before_top_epub',
+'@node Top
+
+@node chapter
+@chapter chapter
+
+@part part
+
+@top top
+', {'init_files' => ['epub3.pm']},
+   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
 );
 
 
