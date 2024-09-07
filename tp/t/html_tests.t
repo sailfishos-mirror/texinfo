@@ -1554,6 +1554,13 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
 @top top
 ', {'init_files' => ['epub3.pm']},
    {'EPUB_CREATE_CONTAINER_FILE' => 0}],
+['section_part_epub',
+'@node Top
+@section section
+
+@part part
+', {'init_files' => ['epub3.pm']},
+   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
 );
 
 

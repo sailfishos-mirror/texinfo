@@ -9,6 +9,15 @@
 
 2024-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm (epub_finish): fix nav file formatting with gap
+	in sectioning.
+
+	* tp/Makefile.tres, tp/t/html_tests.t (section_part_epub): add a test
+	of epub, with @part and starting at @section, leading to a gap in
+	sectioning.
+
+2024-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/epub3.pm (epub_finish): fix nav file formatting with a
 	command with a zero section level not appearing first, by consistently
 	using $section_level.

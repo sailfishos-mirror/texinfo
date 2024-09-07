@@ -736,11 +736,18 @@ EOT
       next if ($section->{'cmdname'} eq 'part');
       my $section_level = $section->{'extra'}->{'section_level'};
       $section_level = 1 if ($section_level == 0);
-      # FIXME with gaps in sectioning there could be nesting issues?
       if ($level < $section_level) {
+        print $nav_fh "\n". " " x $level . "<ol>\n";
+        $level++;
         while ($level < $section_level) {
-          my $leading_spaces = '';
-          print $nav_fh "\n". " " x $level . "<ol>\n";
+          # case of gap in sectioning.  The Navigation document requirements
+          # in EPUB mandates a span (or a) after a <li>, and mandates that
+          # it is not empty.  We use a "0" for this text for a lack of
+          # anything better.
+          # There should be a warning/error emitted by texi2any for such a
+          # sectioning structure.
+          print $nav_fh " " x $level . "<li><span>0</span>\n"
+                             . " " x $level . "<ol>\n";
           $level++;
         }
       } elsif ($level > $section_level) {
@@ -748,7 +755,7 @@ EOT
         print $nav_fh "</li>\n". " " x ($level -1) . "</ol>\n";
         $level--;
         while ($level > $section_level) {
-          print $nav_fh " " x $level . "</li>\n". " " x ($level -1) . "</ol>\n";
+          print $nav_fh " " x $level . "</li>\n"." " x ($level -1) . "</ol>\n";
           $level--;
         }
         print $nav_fh " " x $level ."</li>\n";
@@ -770,7 +777,7 @@ EOT
       $level--;
     }
     while ($level > $root_level) {
-      print $nav_fh " " x $level . "</li>\n". " " x ($level -1) . "</ol>\n";
+      print $nav_fh " " x $level . "</li>\n"." " x ($level -1) . "</ol>\n";
       $level--;
     }
 
