@@ -33,7 +33,7 @@ BEGIN {
 
 our $TEXINFO_XS;
 
-our $VERSION = '7.1.0.91';
+our $VERSION = '7.1.1';
 
 our $disable_XS;
 

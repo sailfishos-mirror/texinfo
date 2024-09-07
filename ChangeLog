@@ -1,3 +1,13 @@
+2024-09-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Increase version
+
+	* NEWS,
+	* configure.ac,
+	* js/info.js,
+	* util/texi2dvi,
+	* util/texi2pdf: Incread version to 7.1.1.
+
 2024-09-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Update FSF address
