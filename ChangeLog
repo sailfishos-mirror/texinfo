@@ -1,5 +1,9 @@
 2024-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/check_epubcheck_texi_t.sh: sort first level directories.
+
+2024-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/epub_tests.t, tp/Makefile.tres, tp/t/html_tests.t: new
 	t/epub_tests.t file for epub related tests.  Move epub related tests
 	from html_tests.t to epub_tests.t.

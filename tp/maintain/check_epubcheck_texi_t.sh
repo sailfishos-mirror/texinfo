@@ -61,7 +61,7 @@ else
 fi
 
 mkdir -p $mdir/epubcheck_logs
-for dir in `find t_texis/ -type d` ; do
+for dir in `find t_texis/ -type d | sort` ; do
   bdir=`echo $dir | sed 's;t_texis/;;'`
   if test z"$bdir" = 'z' ; then
     # for the t_texis/ directory
@@ -85,6 +85,8 @@ for dir in `find t_texis/ -type d` ; do
       continue
     fi
     echo "    -> $file: EPUB"
+    # we set NO_TOP_NODE_OUTPUT=0 to avoid false positives for missing anchors
+    # in particular, although it would have been nice not to need that
     cmd="${srcdir}/texi2any.pl --epub --force --error=100000 -o $mdir/epubcheck_EPUB/$bdir/$bfile.epub -c SUBDIR=$mdir/epubcheck_package/$bdir/${bfile}_epub_package -c EPUB_STRICT=1 -c EPUB_KEEP_CONTAINER_FOLDER=1 -c NO_TOP_NODE_OUTPUT=0 -c SHOW_TITLE=1 $file"
     echo $cmd
     $cmd
