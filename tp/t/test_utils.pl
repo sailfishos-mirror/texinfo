@@ -47,6 +47,7 @@ use Test::More;
 # result when regenerating
 use I18N::Langinfo qw(langinfo CODESET);
 use Encode ();
+use File::Spec;
 #use File::Basename;
 #use File::Copy;
 use Data::Dumper ();
@@ -872,6 +873,8 @@ sub test($$)
      %Texinfo::Common::default_main_program_customization_options
     };
 
+  my $doing_epub = 0;
+
   # get symbols in Texinfo::Config namespace before calling the init files
   # such that the added symbols can be removed after running the tests to have
   # isolated tests and be able to load the same init file multiple times.
@@ -898,6 +901,9 @@ sub test($$)
       if (defined($files)) {
         my $file = $files->[0];
         Texinfo::Config::GNUT_load_init_file($file);
+        if ($filename eq 'epub3.pm') {
+          $doing_epub = 1;
+        }
       } else {
         warn (sprintf("could not read init file %s", $filename));
       }
@@ -1557,6 +1563,66 @@ sub test($$)
             $reference_exists = 1;
             $tests_count += 1;
             my $errors = compare_dirs_files($reference_dir, $results_dir);
+
+            # compare *_epub_package/EPUB and *_epub_package/EPUB/xhtml
+            # contents too for epub
+            if ($format_type eq 'html' and $doing_epub) {
+              my @epub_package_dirs;
+              if (opendir(RDIR, $reference_dir)) {
+                my @files = readdir (RDIR);
+                foreach my $file (@files) {
+                  if ($file =~ /_epub_package$/) {
+                    push @epub_package_dirs, $file;
+                  }
+                }
+              }
+              my $used_dir;
+              foreach my $dir_name (@epub_package_dirs) {
+                my $reference_EPUB_dir;
+                my $reference_xhtml_dir;
+                my $ref_epub_package = File::Spec->catdir($reference_dir,
+                                                          $dir_name);
+                if (-r $ref_epub_package and -d $ref_epub_package) {
+                  $reference_EPUB_dir = File::Spec->catdir($ref_epub_package,
+                                                           'EPUB');
+                  if (-r $reference_EPUB_dir and -d $reference_EPUB_dir) {
+                    $used_dir = 1;
+
+                    my $results_EPUB_dir
+                      = File::Spec->catdir($results_dir, $dir_name, 'EPUB');
+                    my $EPUB_dir_errors
+                      = compare_dirs_files($reference_EPUB_dir,
+                                           $results_EPUB_dir);
+                    if ($EPUB_dir_errors) {
+                      if (!$errors) {
+                        $errors = [];
+                      }
+                      push @$errors, @$EPUB_dir_errors;
+                    }
+
+                    $reference_xhtml_dir
+                      = File::Spec->catdir($reference_EPUB_dir, 'xhtml');
+                    if (-r $reference_xhtml_dir and -d $reference_xhtml_dir) {
+                      my $results_xhtml_dir
+                        = File::Spec->catdir($results_EPUB_dir, 'xhtml');
+                      my $xhtml_dir_errors
+                        = compare_dirs_files($reference_xhtml_dir,
+                                             $results_xhtml_dir);
+                      if ($xhtml_dir_errors) {
+                        if (!$errors) {
+                          $errors = [];
+                        }
+                        push @$errors, @$xhtml_dir_errors;
+                      }
+                    }
+                  }
+                }
+              }
+              if (!$used_dir) {
+                print STDERR "WARNING: $format $test_name: ".
+                                "no suitable epub_package dir\n";
+              }
+            }
             if ($todos{$format}) {
               SKIP: {
                 skip $todos{$format}, 1;
