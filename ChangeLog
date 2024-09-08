@@ -1,5 +1,10 @@
 2024-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm (epub_finish): remove a spurious tab character in
+	container file.
+
+2024-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/options_data.txt (_INLINE_STYLE_WIDTH), tp/ext/epub3.pm
 	(epub_setup), tp/Texinfo/Convert/HTML.pm (_convert_tab_command)
 	(_convert_def_command), tp/Texinfo/XS/convert/convert_html.c

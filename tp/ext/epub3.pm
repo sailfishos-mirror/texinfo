@@ -645,7 +645,7 @@ sub epub_finish($$)
 <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
     <rootfiles>
         <rootfile full-path="${epub_document_dir_name}/${opf_filename}"
-            media-type="application/oebps-package+xml" />	
+            media-type="application/oebps-package+xml" />
     </rootfiles>
 </container>
 EOT
