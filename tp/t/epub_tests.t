@@ -16,8 +16,7 @@ my @file_tests = (
 
 @setfilename a bit too late
 ', {'init_files' => ['epub3.pm'],
-    'test_input_file_name' => 'very badly placed setfilename.texi'},
-   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
+    'test_input_file_name' => 'very badly placed setfilename.texi'},],
 # test for the nav file
 ['chapter_before_top_epub',
 '@node Top
@@ -28,15 +27,13 @@ my @file_tests = (
 @part part
 
 @top top
-', {'init_files' => ['epub3.pm']},
-   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
+', {'init_files' => ['epub3.pm']},],
 ['section_part_epub',
 '@node Top
 @section section
 
 @part part
-', {'init_files' => ['epub3.pm']},
-   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
+', {'init_files' => ['epub3.pm']},],
 );
 
 foreach my $test (@file_tests) {

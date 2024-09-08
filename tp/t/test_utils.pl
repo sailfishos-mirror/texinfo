@@ -903,6 +903,11 @@ sub test($$)
         Texinfo::Config::GNUT_load_init_file($file);
         if ($filename eq 'epub3.pm') {
           $doing_epub = 1;
+          # we override init_files_options, as the priority between
+          # converter_options and init_files_options is not well defined.
+          if (!defined($converter_options->{'EPUB_CREATE_CONTAINER_FILE'})) {
+            $init_files_options->{'EPUB_CREATE_CONTAINER_FILE'} = 0;
+          }
         }
       } else {
         warn (sprintf("could not read init file %s", $filename));
@@ -1157,6 +1162,8 @@ sub test($$)
 
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
+      # FIXME is it ok in term of priority?  If a key is in both, last
+      # one is kept, which means priority for init_files_options.
       my $format_converter_options = {%$converter_options,
                                       %$init_files_options};
       my $format_type = $format;
