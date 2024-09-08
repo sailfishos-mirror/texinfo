@@ -1,5 +1,10 @@
 2024-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/Makefile.am (wwwdoc-build): fix Pod/Simple/Texinfo.pm out of
+	source path.
+
+2024-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/Makefile.am (gendocs_envvars, wwwdoc-build): fix out of source
 	wwwdoc-build build.
 

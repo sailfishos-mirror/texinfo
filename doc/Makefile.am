@@ -168,7 +168,7 @@ wwwdoc-build:
 	&& ln -s ../$(srcdir)/*.texi . \
 	&& ln -s ../$(srcdir)/tp_api/*.texi . \
 	&& ln -s ../$(srcdir)/tp_api/api_includes . \
-	&& ln -s ../$(srcdir)/../../../Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm Pod/Simple \
+	&& ln -s ../../../$(srcdir)/../Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm Pod/Simple \
 	&& $(gendocs_invoke) -o $(manual1) $(manual1) $(manual1_title) \
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \
 	&& $(gendocs_invoke) $(manual3_flags) \
