@@ -1532,50 +1532,24 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
 ', {}, {'USE_NODES' => 0,
         # needed for the test
         'SPLIT' => 'node'}],
-# also in *sectioning.t.  Here we are interested by testing spaces
-# in filenames.
-['setfilename_on_top_and_after_node_epub',
-'@node Top
-@top In top @setfilename very badly placed setfilename
-
-@setfilename a bit too late
-', {'init_files' => ['epub3.pm'],
-    'test_input_file_name' => 'very badly placed setfilename.texi'},
-   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
-# test for the nav file
-['chapter_before_top_epub',
-'@node Top
-
-@node chapter
-@chapter chapter
-
-@part part
-
-@top top
-', {'init_files' => ['epub3.pm']},
-   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
-['section_part_epub',
-'@node Top
-@section section
-
-@part part
-', {'init_files' => ['epub3.pm']},
-   {'EPUB_CREATE_CONTAINER_FILE' => 0}],
 );
 
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html';
 }
+
 foreach my $test (@test_cases_text) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
 }
+
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi'
     unless (exists($test->[2]->{'test_input_file_name'}));
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
+
 foreach my $test (@test_cases_file_text) {
   if (defined($test->[1])) {
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
