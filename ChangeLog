@@ -1,5 +1,15 @@
 2024-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/test_utils.pl (test): if $arg_output is set, output EPUB as an
+	epub file if Archive::Zip is installed, by simply setting OUTFILE.
+
+	* tp/t/test_utils.pl (_set_outfile_name, test): separate code setting
+	output file name for $arg_output as _set_outfile_name.  Use
+	_set_outfile_name both for converted output for the diverse formats
+	and for epub.
+
+2024-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): if doing epub, set init_files_options
 	EPUB_CREATE_CONTAINER_FILE in the default case.
 

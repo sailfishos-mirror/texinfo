@@ -710,6 +710,34 @@ sub output_preamble_postamble_latex($$)
   }
 }
 
+sub _set_outfile_name($$$$)
+{
+  my $test_file_name = shift;
+  my $test_name = shift;
+  my $extension = shift;
+  my $format = shift;
+
+  my $original_test_outfile = "$test_file_name/$test_name.$extension";
+  my $test_outfile = $original_test_outfile;
+  if ($output_files{$original_test_outfile}) {
+    warn "WARNING: $test_file_name: $test_name: $format: same name: $original_test_outfile "
+             ."(".join("|", @{$output_files{$original_test_outfile}}).")\n";
+    push @{$output_files{$original_test_outfile}}, $format;
+    $test_outfile = "$test_file_name/${test_name}_${format}.$extension";
+    # we also check that the file name with the format in name
+    # has not already been output
+    if ($output_files{$test_outfile}) {
+      warn "ERROR: $test_file_name: $test_name: $format: same name with format: $test_outfile\n";
+    } else {
+      $output_files{$test_outfile} = [$format];
+    }
+  } else {
+    $output_files{$original_test_outfile} = [$format];
+  }
+
+  return $test_outfile;
+}
+
 my %tested_transformations;
 
 # Run a single test case.  Each test case is an array
@@ -903,9 +931,26 @@ sub test($$)
         Texinfo::Config::GNUT_load_init_file($file);
         if ($filename eq 'epub3.pm') {
           $doing_epub = 1;
+          my $create_epub_file = $arg_output;
+          if ($arg_output) {
+            eval { require Archive::Zip; };
+            my $archive_zip_loading_error = $@;
+
+            $create_epub_file = 0 if ($archive_zip_loading_error);
+          }
+          if ($create_epub_file) {
+            # output EPUB as an epub publication file by setting OUTFILE.
+            # EPUB_CREATE_CONTAINER_FILE should be set in the default case.
+            my $extension = 'epub';
+            mkdir ("$output_files_dir/$self->{'name'}")
+              if (! -d "$output_files_dir/$self->{'name'}");
+            my $test_outfile = _set_outfile_name($self->{'name'}, $test_name,
+                                                  $extension, 'epub');
+            my $outfile = "$output_files_dir/$test_outfile";
+            $converter_options->{'OUTFILE'} = $outfile;
+          } elsif (!defined($converter_options->{'EPUB_CREATE_CONTAINER_FILE'})) {
           # we override init_files_options, as the priority between
           # converter_options and init_files_options is not well defined.
-          if (!defined($converter_options->{'EPUB_CREATE_CONTAINER_FILE'})) {
             $init_files_options->{'EPUB_CREATE_CONTAINER_FILE'} = 0;
           }
         }
@@ -1157,6 +1202,8 @@ sub test($$)
       = Texinfo::Convert::Text::convert_to_text($tree, {'TEST' => 1,
                           'expanded_formats' => \%expanded_formats});
 
+  # holds conversion function output returned as text for each format.
+  # Should not be set for formats outputting to files.
   my %converted;
   my %converted_errors;
 
@@ -1225,25 +1272,10 @@ sub test($$)
         } else {
           $extension = $format_type;
         }
-
         if (defined ($converted{$format})) {
-          my $original_test_outfile = "$self->{'name'}/$test_name.$extension";
-          my $test_outfile = $original_test_outfile;
-          if ($output_files{$original_test_outfile}) {
-            warn "WARNING: $self->{'name'}: $test_name: $format: same name: $original_test_outfile "
-                     ."(".join("|", @{$output_files{$original_test_outfile}}).")\n";
-            push @{$output_files{$original_test_outfile}}, $format;
-            $test_outfile = "$self->{'name'}/${test_name}_${format}.$extension";
-            # we also check that the file name with the format in name
-            # has not already been output
-            if ($output_files{$test_outfile}) {
-              warn "ERROR: $self->{'name'}: $test_name: $format: same name with format: $test_outfile\n";
-            } else {
-              $output_files{$test_outfile} = [$format];
-            }
-          } else {
-            $output_files{$original_test_outfile} = [$format];
-          }
+          my $test_outfile
+            = _set_outfile_name($self->{'name'}, $test_name,
+                                $extension, $format);
           my $outfile = "$output_files_dir/$test_outfile";
           if (!open(OUTFILE, ">$outfile")) {
             warn "ERROR: open $outfile: $!\n";
