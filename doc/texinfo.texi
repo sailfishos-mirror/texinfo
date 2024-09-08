@@ -17394,14 +17394,37 @@ set @code{CHECK_HTMLXREF} to 0.
 
 
 @node EPUB Conformance
-@subsection Unresolved EPUB Conformance Issues
+@subsection Achieving strict EPUB conformance
 
-Strict conformance of EPUB generated from Texinfo is still a work in
-progress.  In particular, the last modified date @samp{dcterms:modified}
-property is not generated and conformance checkers flag @code{border="0"}
-HTML table element attribute as invalid.  Before these issues are
-definitively fixed, patches in the Texinfo source directory
-@file{contrib/EPUB_conformance/} can be applied to workaround those issues.
+@vindex EPUB_STRICT
+You should set the @code{EPUB_STRICT} customization variable to achieve
+stricter conformance of EPUB generated from Texinfo.  Indeed, strict
+conformance of EPUB generated from Texinfo is not achieved by default
+because some metadata cannot be specified yet.  Setting @code{EPUB_STRICT}
+triggers automatic metadata generation and XHTML more consistent with EPUB
+conformance checkers@footnote{The need to set a variable for
+EPUB conformance is supposed to be temporary.  The @code{EPUB_STRICT}
+customization variable may be removed in future releases.}.
+
+For example:
+@example
+texi2any --epub -c EPUB_STRICT=1 mymanual.texi
+@end example
+
+In addition, you may need to adjust the Texinfo manual to achieve full
+conformance:
+@itemize
+@item Make sure that references to external manuals resolve to URLs
+(@pxref{EPUB Cross-References}).
+@item Avoid Texinfo code more forgiving than XHTML.  In general
+valid Texinfo is converted to valid XHTML, but there are exceptions.
+For example, you should avoid nested references and nested sectioning
+commands and references, content before @code{@@table}
+first @code{@@item} and omitting the second column of @code{@@table}
+@code{@@item}.
+@item Remove spaces in Texinfo input file names.
+@item Remove form feeds that end up in output.
+@end itemize
 
 
 @node EPUB HTML

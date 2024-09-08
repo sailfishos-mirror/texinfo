@@ -1,5 +1,10 @@
 2024-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS, TODO, doc/texinfo.texi (Achieving strict EPUB conformance):
+	document EPUB_STRICT and give other information on EPUB conformance.
+
+2024-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl (test): if $arg_output is set, output EPUB as an
 	epub file if Archive::Zip is installed, by simply setting OUTFILE.
 
