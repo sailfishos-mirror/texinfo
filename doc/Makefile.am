@@ -114,7 +114,8 @@ gendocs_envvars = GENDOCS_TEMPLATE_DIR=$(gendocs_templates) \
                        top_srcdir="../$(top_srcdir)" \
                        top_builddir="../$(top_builddir)" \
         TEXI2DVI=../$(srcdir)/../util/texi2dvi \
-        TEXINDEX=../$(srcdir)/../texindex/texindex
+        TEXINDEX=../../texindex/texindex \
+        TEXINDEX_SCRIPT=../$(srcdir)/../texindex/texindex.awk
 
 #
 gendocs_email = bug-texinfo@gnu.org
@@ -163,11 +164,11 @@ wwwdoc-build:
 	rm -rf $(doctemp) && mkdir $(doctemp)
 	cd $(doctemp) \
 	&& $(MKDIR_P) Pod/Simple \
-	&& ln -s ../texinfo.tex . \
-	&& ln -s ../*.texi . \
-	&& ln -s ../tp_api/*.texi . \
-	&& ln -s ../tp_api/api_includes . \
-	&& ln -s ../../../../Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm Pod/Simple \
+	&& ln -s ../$(srcdir)/texinfo.tex . \
+	&& ln -s ../$(srcdir)/*.texi . \
+	&& ln -s ../$(srcdir)/tp_api/*.texi . \
+	&& ln -s ../$(srcdir)/tp_api/api_includes . \
+	&& ln -s ../$(srcdir)/../../../Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm Pod/Simple \
 	&& $(gendocs_invoke) -o $(manual1) $(manual1) $(manual1_title) \
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \
 	&& $(gendocs_invoke) $(manual3_flags) \
