@@ -463,6 +463,11 @@ sub epub_setup($)
   $nav_filename = $default_nav_filename;
   $epub_file_nr = 1;
 
+
+  if ($self->get_conf('EPUB_STRICT')) {
+    $self->set_conf('_INLINE_STYLE_WIDTH', 1);
+  }
+
   if (not defined($self->get_conf('EPUB_CREATE_CONTAINER_FILE'))) {
     if (not $self->get_conf('TEST')) {
       $self->set_conf('EPUB_CREATE_CONTAINER_FILE', 1);

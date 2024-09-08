@@ -6043,7 +6043,12 @@ sub _convert_tab_command($$$$$)
     if (exists($cf->{'extra'}->{'misc_args'}->[$cell_nr-1])) {
       my $percent = sprintf('%.0f',
                             100. * $cf->{'extra'}->{'misc_args'}->[$cell_nr-1]);
-      $fractions = " width=\"$percent%\"";
+      my $width = "$percent%";
+      if ($self->get_conf('_INLINE_STYLE_WIDTH')) {
+        $fractions = " style=\"width: $width\"";
+      } else {
+        $fractions = " width=\"$width\"";
+      }
     }
   }
 
@@ -6994,7 +6999,14 @@ sub _convert_def_command($$$$$) {
     return $self->html_attribute_class('dl', \@classes).">\n"
                                         . $content ."</dl>\n";
   } else {
-    return $self->html_attribute_class('table', \@classes)." width=\"100%\">\n"
+    my $width = '100%';
+    my $width_attr;
+    if ($self->get_conf('_INLINE_STYLE_WIDTH')) {
+      $width_attr = "style=\"width: $width\"";
+    } else {
+      $width_attr = "width=\"$width\"";
+    }
+    return $self->html_attribute_class('table', \@classes)." $width_attr>\n"
                                                      . $content . "</table>\n";
   }
 }

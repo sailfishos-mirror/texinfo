@@ -12100,7 +12100,10 @@ convert_tab_command (CONVERTER *self, const enum command_id cmd,
           const char *fraction_str
             = cf_misc_args->contents.list[cell_nr -1]->text.text;
           double fraction = strtod (fraction_str, NULL);
-          text_printf (result, " width=\"%0.f%%\"", 100 * fraction);
+          if (self->conf->_INLINE_STYLE_WIDTH.o.integer > 0)
+            text_printf (result, " style=\"width: %0.f%%\"", 100 * fraction);
+          else
+            text_printf (result, " width=\"%0.f%%\"", 100 * fraction);
         }
     }
   text_append_n (result, ">", 1);
@@ -13835,7 +13838,10 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
     {
       attribute_class = html_attribute_class (self, "table", classes);
       text_append (result, attribute_class);
-      text_append_n (result, " width=\"100%\">\n", 15);
+      if (self->conf->_INLINE_STYLE_WIDTH.o.integer > 0)
+        text_append_n (result, " style=\"width: 100%\">\n", 22);
+      else
+        text_append_n (result, " width=\"100%\">\n", 15);
       if (content)
         text_append (result, content);
       text_append_n (result, "</table>\n", 9);

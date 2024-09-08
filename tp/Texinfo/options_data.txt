@@ -340,6 +340,9 @@ XS_EXTERNAL_FORMATTING             converter_customization undef   integer
 # used for development tests, not sure that it will stay in the long term
 XS_STRXFRM_COLLATION_LOCALE        converter_customization undef   char
 
+# used internally for EPUB
+_INLINE_STYLE_WIDTH                converter_customization undef   integer
+
 # Not strings
 LINKS_BUTTONS                      converter_other undef   buttons
 TOP_BUTTONS                        converter_other undef   buttons
