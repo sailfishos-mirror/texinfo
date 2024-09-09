@@ -162,8 +162,14 @@ my %formats = (
   'info' => \&convert_to_info,
   'file_info' => \&convert_to_info,
   'html' => \&convert_to_html,
+  # Can also be used for epub, the only difference is the name of the
+  # output directory.
   'file_html' => \&convert_to_html,
   'html_text' => \&convert_to_html,
+  # NOTE setting file_epub format does not automatically loads epub3.pm,
+  # since init files are handled before parsing.  The init file should
+  # also be added to init_files.
+  'file_epub' => \&convert_to_html,
   'xml' => \&convert_to_xml,
   'file_xml' => \&convert_to_xml,
   'docbook' => \&convert_to_docbook,
@@ -1015,7 +1021,7 @@ sub test($$)
   }
 
   if (not defined($document)) {
-    print STDERR "ERROR: parsing result undef\n";
+    warn "ERROR: parsing result undef\n";
     my ($parser_errors, $parser_error_count) = $parser->errors();
     foreach my $error_message (@$parser_errors) {
       warn $error_message->{'error_line'}
@@ -1215,17 +1221,23 @@ sub test($$)
                                       %$init_files_options};
       my $format_type = $format;
       if ($format_type =~ s/^file_//) {
+        if ($format_type eq 'epub' and !$doing_epub) {
+          warn "ERROR: $self->{'name'}: $test_name: $format: init file not loaded\n";
+        }
         # the information that the results is a file is passed
-        # through $format_converter_options->{'SUBDIR'} being defined
-        my $base = "t/results/$self->{'name'}/$test_name/";
+        # through $format_converter_options->{'SUBDIR'} being defined,
+        # except for EPUB, which set (and reuse) SUBDIR internally.
+        my $test_base_dir = "t/results/$self->{'name'}/$test_name/";
+        my $base;
         my $test_out_dir;
         if ($self->{'generate'}) {
-          $base = $srcdir.$base;
+          $base = $srcdir.$test_base_dir;
           $test_out_dir = $base.'res_'.$format_type;
           if (-d $test_out_dir) {
             unlink_dir_files($test_out_dir);
           }
         } else {
+          $base = $test_base_dir;
           $test_out_dir = $base.'out_'.$format_type;
         }
         if (!defined($format_converter_options->{'SUBDIR'})) {
@@ -1605,7 +1617,8 @@ sub test($$)
 
             # compare *_epub_package/EPUB and *_epub_package/EPUB/xhtml
             # contents too for epub
-            if ($format_type eq 'html' and $doing_epub) {
+            if (($format_type eq 'html' or $format_type eq 'epub')
+                and $doing_epub) {
               my @epub_package_dirs;
               if (opendir(RDIR, $reference_dir)) {
                 my @files = readdir (RDIR);
@@ -1658,7 +1671,7 @@ sub test($$)
                 }
               }
               if (!$used_dir) {
-                print STDERR "WARNING: $format $test_name: ".
+                warn "WARNING: $format $test_name: ".
                                 "no suitable epub_package dir\n";
               }
             }

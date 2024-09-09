@@ -1,3 +1,11 @@
+2024-09-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/test_utils.pl (%formats, test): add the epub_file format,
+	associated to convert_to_html.
+	Minor changes in code.
+
+	* tp/Makefile.tres, tp/t/epub_tests.t: use epub_file format.
+
 2024-09-08  Patrice Dumas  <pertusus@free.fr>
 
 	* NEWS, TODO, doc/texinfo.texi (Achieving strict EPUB conformance):

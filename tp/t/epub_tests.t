@@ -37,7 +37,7 @@ my @file_tests = (
 );
 
 foreach my $test (@file_tests) {
-  push @{$test->[2]->{'test_formats'}}, 'file_html';
+  push @{$test->[2]->{'test_formats'}}, 'file_epub';
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi'
     unless (exists($test->[2]->{'test_input_file_name'}));
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
