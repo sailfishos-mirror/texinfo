@@ -1,3 +1,8 @@
+2024-09-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/terminal.c (terminal_prep_terminal_hook): Return void not
+	int.  Report from Biswapriyo Nath.
+
 2024-09-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Texinfo 7.1.1

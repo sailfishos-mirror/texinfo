@@ -61,7 +61,7 @@ extern void (*terminal_get_screen_size_hook) (void);
 extern int terminal_prep_terminal (void);
 extern void terminal_unprep_terminal (void);
 
-extern int (*terminal_prep_terminal_hook) (void);
+extern void (*terminal_prep_terminal_hook) (void);
 extern void (*terminal_unprep_terminal_hook) (void);
 
 /* Re-initialize the terminal to TERMINAL_NAME. */

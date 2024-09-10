@@ -56,7 +56,7 @@ extern int tputs ();
 
 void (*terminal_initialize_terminal_hook) (char *terminal_name) = NULL;
 void (*terminal_get_screen_size_hook) (void) = NULL;
-int (*terminal_prep_terminal_hook) (void) = NULL;
+void (*terminal_prep_terminal_hook) (void) = NULL;
 void (*terminal_unprep_terminal_hook) (void) = NULL;
 void (*terminal_new_terminal_hook) (char *terminal_name) = NULL;
 void (*terminal_goto_xy_hook) (int x, int y) = NULL;
