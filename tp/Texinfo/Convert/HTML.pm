@@ -13158,9 +13158,17 @@ sub output($$)
     my $mathjax_configuration = $self->get_conf('MATHJAX_CONFIGURATION');
     if (!defined($mathjax_configuration)) {
       $mathjax_configuration = "  options: {
-    skipHtmlTags: {'[-]': ['pre']},
+    skipHtmlTags: {'[-]': ['pre']},       // do not skip pre
     ignoreHtmlClass: 'tex2jax_ignore',
     processHtmlClass: 'tex2jax_process'
+  },
+  tex: {
+    processEscapes: false,      // do not use \\\$ to produce a literal dollar sign
+    processEnvironments: false, // do not process \\begin{xxx}...\\end{xxx} outside math mode
+    processRefs: false,         // do not process \\ref{...} outside of math mode
+    displayMath: [             // start/end delimiter pairs for display math
+      ['\\\\[', '\\\\]']
+    ],
   },";
       $self->set_conf('MATHJAX_CONFIGURATION', $mathjax_configuration);
     }

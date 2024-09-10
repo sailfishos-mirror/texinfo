@@ -1,3 +1,15 @@
+2024-09-10  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (MathJax Customization Variables),
+	tp/Texinfo/Convert/HTML.pm (output): add tex MathJax option block that
+	tighten the configuration to what is really needed for MathJax in
+	texi2any output.
+
+2024-09-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/tests/Makefile.am (parser_tests_environment): add srcdir in the
+	environment for parser_tests.sh calls.
+
 2024-09-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/test_utils.pl (%formats, test): add the epub_file format,

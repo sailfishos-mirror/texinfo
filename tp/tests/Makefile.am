@@ -28,19 +28,21 @@ other_tests_dirs = other
 DIST_SUBDIRS = many_input_files $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
 SUBDIRS = . many_input_files
 
+parser_tests_environment = srcdir="$(srcdir)"; export srcdir;
+
 copy-tests:
-	$(srcdir)/parser_tests.sh -copy $(base_tests_dirs)
+	$(parser_tests_environment) $(srcdir)/parser_tests.sh -copy $(base_tests_dirs)
 	cd many_input_files && $(MAKE) copy-tests
 
 copy-tex-html:
-	$(srcdir)/parser_tests.sh -copy $(tex_html_tests_dirs)
+	$(parser_tests_environment) $(srcdir)/parser_tests.sh -copy $(tex_html_tests_dirs)
 	cd many_input_files && $(MAKE) copy-tex-html
 
 copy-other-tests:
-	$(srcdir)/parser_tests.sh -copy $(other_tests_dirs)
+	$(parser_tests_environment) $(srcdir)/parser_tests.sh -copy $(other_tests_dirs)
 
 clean-tests:
-	$(srcdir)/parser_tests.sh -clean $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
+	$(parser_tests_environment) $(srcdir)/parser_tests.sh -clean $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
 
 TESTS = $(one_test_files_generated_list)
 

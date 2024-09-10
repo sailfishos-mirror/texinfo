@@ -18684,13 +18684,21 @@ is set to @samp{mathjax}.
 @vtable @code
 @item MATHJAX_CONFIGURATION
 Global @samp{MathJax} object configuration (inside the object braces).
-If @code{undef}, @command{texi2any} provides a default with an
-@samp{option} component, which could be, for example:
+If @code{undef}, @command{texi2any} provides a defaults, which could be,
+for example:
 @example
   options: @{
-    skipHtmlTags: @{'[-]': ['pre']@},
+    skipHtmlTags: @{'[-]': ['pre']@},       // do not skip pre
     ignoreHtmlClass: 'tex2jax_ignore',
     processHtmlClass: 'tex2jax_process'
+  @},
+  tex: @{
+    processEscapes: false,
+    processEnvironments: false,
+    processRefs: false,
+    displayMath: [
+      ['\\[', '\\]']
+    ],
   @},
 @end example
 
