@@ -2493,9 +2493,11 @@ my %defaults = (
 
 );
 
-foreach my $buttons ('CHAPTER_BUTTONS', 'MISC_BUTTONS', 'TOP_BUTTONS') {
+foreach my $buttons ('CHAPTER_BUTTONS', 'TOP_BUTTONS') {
   $defaults{$buttons} = [@{$defaults{'SECTION_BUTTONS'}}];
 }
+
+$defaults{'MISC_BUTTONS'} = ['Top', 'Contents', 'Index', 'About'];
 
 foreach my $buttons ('CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
   $defaults{$buttons} = [@{$defaults{'SECTION_FOOTER_BUTTONS'}}];

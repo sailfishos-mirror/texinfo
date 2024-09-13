@@ -734,7 +734,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
 <p>
-[<a href="#First" title="Index" rel="index">Index</a>]</p>
+[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>][<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="footnotes-heading">Footnotes</h4>
 

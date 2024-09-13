@@ -714,6 +714,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
+<div class="nav-panel">
+<p>
+[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</p>
+</div>
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>

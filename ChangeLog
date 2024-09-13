@@ -1,3 +1,11 @@
+2024-09-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%defaults): do not set MISC_BUTTONS to
+	SECTION_BUTTONS in the default case, as there are no regular
+	directions set for special output units.  Add Top button instead of 
+	regular directions, with default now being the same as with TEXI2HTML
+	style.  Report from Rudolf Adamkovič.
+
 2024-09-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/terminal.c (terminal_prep_terminal_hook): Return void not
