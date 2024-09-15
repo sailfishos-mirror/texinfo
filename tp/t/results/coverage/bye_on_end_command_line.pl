@@ -113,7 +113,7 @@ $result_converted{'plaintext'}->{'bye_on_end_command_line'} = 'in cartouche.
 ';
 
 
-$result_converted{'html_text'}->{'bye_on_end_command_line'} = '<table class="cartouche" border="1"><tr><td>
+$result_converted{'html_text'}->{'bye_on_end_command_line'} = '<table class="cartouche"><tr><td>
 <p>in cartouche.
 </p></td></tr></table>
 ';

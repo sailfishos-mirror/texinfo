@@ -190,11 +190,11 @@ $result_converted{'plaintext'}->{'cartouche'} = 'in cartouche.
 ';
 
 
-$result_converted{'html_text'}->{'cartouche'} = '<table class="cartouche" border="1"><tr><td>
+$result_converted{'html_text'}->{'cartouche'} = '<table class="cartouche"><tr><td>
 <p>in cartouche.
 </p></td></tr></table>
 
-<table class="cartouche" border="1"><tr><th>
+<table class="cartouche"><tr><th>
 <em class="emph">Title of box</em></th></tr><tr><td>
 <p>Out of main text
 </p></td></tr></table>

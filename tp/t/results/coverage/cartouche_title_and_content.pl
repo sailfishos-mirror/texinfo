@@ -129,7 +129,7 @@ flow of the text.
 ';
 
 
-$result_converted{'html_text'}->{'cartouche_title_and_content'} = '<table class="cartouche" border="1"><tr><th>
+$result_converted{'html_text'}->{'cartouche_title_and_content'} = '<table class="cartouche"><tr><th>
 Box title on <em class="emph">documentation</em></th></tr><tr><td>
 <p>Text on documentation explaining something important out of the main
 flow of the text.

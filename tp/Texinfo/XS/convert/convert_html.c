@@ -11556,7 +11556,7 @@ convert_cartouche_command (CONVERTER *self, const enum command_id cmd,
 
   attribute_class = html_attribute_class (self, "table", classes);
   text_append (result, attribute_class);
-  text_append (result, " border=\"1\">");
+  text_append_n (result, ">", 1);
   if (do_title)
     {
       text_append_n (result, "<tr><th>\n", 9);

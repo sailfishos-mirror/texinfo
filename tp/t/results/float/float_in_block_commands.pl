@@ -621,6 +621,7 @@ $result_converted{'html'}->{'float_in_block_commands'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
+table.cartouche {border-style: solid; border-radius: 10%}
 -->
 </style>
 
@@ -638,7 +639,7 @@ div.example {margin-left: 3.2em}
 <div class="float" id="in-quotation">
 <div class="caption"><p><strong class="strong">Text 2: </strong>float in quotation</p></div></div></blockquote>
 
-<table class="cartouche" border="1"><tr><td>
+<table class="cartouche"><tr><td>
 <div class="float" id="in-cartouche">
 <div class="caption"><p><strong class="strong">Text 3: </strong>float in cartouche</p></div></div></td></tr></table>
 

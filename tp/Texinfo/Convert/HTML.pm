@@ -2965,6 +2965,7 @@ my %css_element_class_styles = (
      # 'display: flex; justify-content: center' centers the pre as a whole
      'pre.displaymath'
            => 'font-style: italic; font-family: serif; display: flex; justify-content: center',
+     'table.cartouche'    => 'border-style: solid; border-radius: 10%',
      'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',
@@ -5777,7 +5778,7 @@ sub _convert_cartouche_command($$$$$)
   }
   if ($cartouche_content ne '' or $title_content ne '') {
     return $self->html_attribute_class('table', [$cmdname])
-       . " border=\"1\">${title_content}${cartouche_content}"
+       . ">${title_content}${cartouche_content}"
        . "</table>\n";
   }
   return $content;

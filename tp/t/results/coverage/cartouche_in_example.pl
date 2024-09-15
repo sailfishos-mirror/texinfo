@@ -171,7 +171,7 @@ $result_converted{'plaintext'}->{'cartouche_in_example'} = '     In example
 
 $result_converted{'html_text'}->{'cartouche_in_example'} = '<div class="example">
 <pre class="example-preformatted">In example
-</pre><table class="cartouche" border="1"><tr><td>
+</pre><table class="cartouche"><tr><td>
 <pre class="example-preformatted">In cartouche in example
 </pre></td></tr></table>
 <pre class="example-preformatted">end example
