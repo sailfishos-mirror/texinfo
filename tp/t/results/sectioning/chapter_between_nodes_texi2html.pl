@@ -612,7 +612,7 @@ ul.toc-numbered-mark {list-style: none}
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <p>Top node
 </p>
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination"><a href="#section-node">1.1 section</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>

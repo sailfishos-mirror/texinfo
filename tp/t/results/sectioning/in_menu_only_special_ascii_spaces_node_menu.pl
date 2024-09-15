@@ -558,7 +558,7 @@ Next: CARRIAGE RETURN|'."\r".'| &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; :</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; :</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">

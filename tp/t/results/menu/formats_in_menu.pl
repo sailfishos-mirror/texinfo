@@ -807,7 +807,7 @@ th.menu-comment {text-align:left}
 <body lang="en">
 <h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="gcc.html#Top" accesskey="1">(gcc)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">text
 <dl class="table">
 <dt>item</dt>

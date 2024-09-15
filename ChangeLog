@@ -1,5 +1,12 @@
 2024-09-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_menu_command),
+	tp/Texinfo/XS/convert/convert_html.c (convert_menu_command): remove
+	cellspacing in @menu formatting table.  It is not really useful,
+	and, if set, should be set with CSS such as to be customizable.
+
+2024-09-15  Patrice Dumas  <pertusus@free.fr>
+
 	Format HTML About directions explanations table with CSS
 
 	* TODO, tp/Texinfo/Convert/HTML.pm (%css_element_class_styles)

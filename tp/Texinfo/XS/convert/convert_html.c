@@ -11261,7 +11261,7 @@ convert_menu_command (CONVERTER *self, const enum command_id cmd,
 
   attribute_class = html_attribute_class (self, "table", classes);
   text_append (result, attribute_class);
-  text_append (result, " cellspacing=\"0\">");
+  text_append_n (result, ">", 1);
   if (html_inside_preformatted (self))
     text_append_n (result, "<tr><td>", 8);
   text_append_n (result, "\n", 1);

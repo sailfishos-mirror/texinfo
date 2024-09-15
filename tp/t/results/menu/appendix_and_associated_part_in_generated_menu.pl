@@ -828,7 +828,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="#chapter" accesskey="1">chapter</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
@@ -862,7 +862,7 @@ Next: <a href="#chap2" accesskey="n" rel="next">Chap 2</a>, Previous: <a href="#
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="#sec" accesskey="1">sec</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>

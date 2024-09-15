@@ -5623,8 +5623,7 @@ sub _convert_menu_command($$$$$)
     $end_row = '</td></tr>';
   }
   return $self->html_attribute_class('table', [$cmdname])
-    ." cellspacing=\"0\">${begin_row}\n"
-      . $content . "${end_row}</table>\n";
+    .">${begin_row}\n" . $content . "${end_row}</table>\n";
 }
 $default_commands_conversion{'menu'} = \&_convert_menu_command;
 $default_commands_conversion{'detailmenu'} = \&_convert_menu_command;

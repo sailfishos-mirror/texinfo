@@ -649,7 +649,7 @@ td.menu-entry-destination {vertical-align: top}
 <body lang="en">
 <h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a_003a" accesskey="1">(f)a:</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#node" accesskey="2">name:</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">

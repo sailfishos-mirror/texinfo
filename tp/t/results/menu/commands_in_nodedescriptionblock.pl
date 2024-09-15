@@ -1419,7 +1419,7 @@ Next: <a href="#node1" accesskey="n" rel="next">chap1</a> &nbsp; [<a href="#node
 </div>
 <h1 class="top" id="test-commands-in-nodedescriptionblock"><span>test commands in nodedescriptionblock<a class="copiable-link" href="#test-commands-in-nodedescriptionblock"> &para;</a></span></h1>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><a class="anchor" id="in-nodescription"></a>
 <a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>. Some text to see
 where the max column could be. in&nbsp;w<!-- /@w -->.
@@ -1456,7 +1456,7 @@ Previous: <a href="#node1" accesskey="p" rel="prev">chap1</a>, Up: <a href="#Top
 
 <p><a class="ref" href="#in-nodescription">in nodescription</a>, <a class="ref" href="#f1">tfloat 1.1</a>.
 </p>
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 <a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="t_fnode-description-2_DOCF1_2" href="#t_fnode-description-2_FOOT1_2"><sup>2</sup></a>. Some text to see
 where the max column could be. in&nbsp;w<!-- /@w -->.

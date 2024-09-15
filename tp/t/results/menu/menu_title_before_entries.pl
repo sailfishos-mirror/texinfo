@@ -310,7 +310,7 @@ Next: <a href="#chap-subnode" accesskey="n" rel="next">chap subnode</a> &nbsp; <
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">Horizontal space
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#chap-subnode" accesskey="1">chap subnode</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>

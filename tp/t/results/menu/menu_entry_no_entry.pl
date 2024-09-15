@@ -220,7 +220,7 @@ th.menu-comment {text-align:left}
 </head>
 
 <body lang="en">
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">* a1:
 * a2:  
 * a1c:* a2c:  * a4<b class="b">a</b>: 

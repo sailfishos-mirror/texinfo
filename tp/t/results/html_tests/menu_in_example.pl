@@ -608,7 +608,7 @@ table.cartouche {border-style: solid; border-radius: 10%}
 <h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <div class="example">
-<table class="menu" cellspacing="0"><tr><td>
+<table class="menu"><tr><td>
 <pre class="menu-preformatted">&bull; <a href="entry.html#Top" accesskey="1">(entry)</a>::</pre><pre class="menu-entry-description-preformatted">
 
 </pre><table class="cartouche"><tr><td>

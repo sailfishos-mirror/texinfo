@@ -301,7 +301,7 @@ td.menu-entry-destination {vertical-align: top}
 </head>
 
 <body lang="en">
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">begin description
 * not an entry ?
 </td></tr>

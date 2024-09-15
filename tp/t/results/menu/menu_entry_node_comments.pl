@@ -404,7 +404,7 @@ td.menu-entry-destination {vertical-align: top}
 </head>
 
 <body lang="en">
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a1c" accesskey="1">(f)a1c</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a2c" accesskey="2">(f)a2c</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="f.html#a3c" accesskey="3">(f)a3c</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">d</td></tr>

@@ -496,7 +496,7 @@ th.menu-comment {text-align:left}
 
 <p>Before menu.
 </p>
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">comment
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; menu entry name :</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description
 </td></tr>

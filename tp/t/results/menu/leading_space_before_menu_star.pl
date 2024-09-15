@@ -189,7 +189,7 @@ th.menu-comment {text-align:left}
 <body lang="en">
 <h4 class="node" id="a-node"><span>a node<a class="copiable-link" href="#a-node"> &para;</a></span></h4>
 
-<table class="menu" cellspacing="0">
+<table class="menu">
 <tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted"> * a node::
 </pre></th></tr></table>
 

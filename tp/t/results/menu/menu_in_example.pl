@@ -592,7 +592,7 @@ table.cartouche {border-style: solid; border-radius: 10%}
 <h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <div class="example">
-<table class="menu" cellspacing="0"><tr><td>
+<table class="menu"><tr><td>
 <pre class="menu-preformatted">&bull; <a href="entry.html#Top" accesskey="1">(entry)</a>::</pre><pre class="menu-entry-description-preformatted">
 
 </pre><table class="cartouche"><tr><td>
