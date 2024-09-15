@@ -7831,6 +7831,20 @@ format_button (CONVERTER *self,
     }
 }
 
+static void
+open_element_with_class (CONVERTER *self, const char *element_name,
+                         const STRING_LIST *classes, TEXT *result)
+{
+  char *attribute_class = html_attribute_class (self, element_name,
+                                                classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">", 1);
+}
+
+static char *nav_button_array[] = {"nav-button"};
+static const STRING_LIST nav_button_classes = {nav_button_array, 1, 1};
+
 static char *nav_panel_array[] = {"nav-panel"};
 static const STRING_LIST nav_panel_classes = {nav_panel_array, 1, 1};
 
@@ -7843,7 +7857,6 @@ html_default_format_navigation_panel (CONVERTER *self,
   int i;
   int nr_of_buttons_shown = 0;
   TEXT result_buttons;
-  char *attribute_class;
 
   if (!buttons)
     return;
@@ -7883,7 +7896,8 @@ html_default_format_navigation_panel (CONVERTER *self,
         {
           if (vertical)
             text_append_n (&result_buttons, "<tr>\n", 5);
-          text_append_n (&result_buttons, "<td>", 4);
+          open_element_with_class (self, "td", &nav_button_classes,
+                                   &result_buttons);
 
           if (active)
             text_append (&result_buttons, active);
@@ -7918,22 +7932,16 @@ html_default_format_navigation_panel (CONVERTER *self,
 
   if (self->conf->HEADER_IN_TABLE.o.integer > 0)
     {
-      attribute_class = html_attribute_class (self, "table",
-                                              &nav_panel_classes);
-      text_append (result, attribute_class);
-      text_append (result,
-                   " cellpadding=\"1\" cellspacing=\"1\">\n");
-      free (attribute_class);
+      open_element_with_class (self, "table", &nav_panel_classes, result);
+      text_append_n (result, "\n", 1);
 
       if (!vertical)
         text_append_n (result, "<tr>", 4);
     }
   else
     {
-      attribute_class = html_attribute_class (self, "div", &nav_panel_classes);
-      text_append (result, attribute_class);
-      text_append_n (result, ">\n", 2);
-      free (attribute_class);
+      open_element_with_class (self, "div", &nav_panel_classes, result);
+      text_append_n (result, "\n", 1);
 
       text_append_n (result, "<p>\n", 4);
     }
@@ -15803,17 +15811,6 @@ static const STRING_LIST description_direction_about_classes
 static char *example_direction_about_array[] = {"example-direction-about"};
 static const STRING_LIST example_direction_about_classes
     = {example_direction_about_array, 1, 1};
-
-static void
-open_element_with_class (CONVERTER *self, const char *element_name,
-                         const STRING_LIST *classes, TEXT *result)
-{
-  char *attribute_class = html_attribute_class (self, element_name,
-                                                classes);
-  text_append (result, attribute_class);
-  free (attribute_class);
-  text_append_n (result, ">", 1);
-}
 
 void
 default_format_special_body_about (CONVERTER *self,

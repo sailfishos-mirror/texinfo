@@ -4574,7 +4574,7 @@ sub _default_format_navigation_panel($$$$;$)
                                                             $source_command);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       $result_buttons .= '<tr>'."\n" if $vertical;
-      $result_buttons .= '<td>';
+      $result_buttons .= $self->html_attribute_class('td', ['nav-button']).'>';
 
       if (defined($active)) {
         $result_buttons .= $active;
@@ -4607,8 +4607,7 @@ sub _default_format_navigation_panel($$$$;$)
   # header_navigation
 
   if ($self->get_conf('HEADER_IN_TABLE')) {
-    $result .= $self->html_attribute_class('table', ['nav-panel'])
-        .' cellpadding="1" cellspacing="1">'."\n";
+    $result .= $self->html_attribute_class('table', ['nav-panel']).'>'."\n";
     $result .= "<tr>" unless $vertical;
   } else {
     $result .= $self->html_attribute_class('div', ['nav-panel']).">\n";
