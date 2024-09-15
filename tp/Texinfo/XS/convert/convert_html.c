@@ -7986,6 +7986,10 @@ format_navigation_panel (CONVERTER *self,
     }
 }
 
+static char *vertical_navigation_array[] = {"vertical-navigation"};
+static const STRING_LIST vertical_navigation_classes
+    = {vertical_navigation_array, 1, 1};
+
 void
 html_default_format_navigation_header (CONVERTER *self,
                           const BUTTON_SPECIFICATION_LIST *buttons,
@@ -7997,9 +8001,15 @@ html_default_format_navigation_header (CONVERTER *self,
   if (self->conf->VERTICAL_HEAD_NAVIGATION.o.integer > 0)
     vertical = 1;
   if (vertical)
-    text_append (result,
-     "<table cellpadding=\"0\" cellspacing=\"0\">\n"
-     "<tr>\n<td>\n");
+    {
+      open_element_with_class (self, "table",
+                               &vertical_navigation_classes, result);
+      text_append_n (result, "\n", 1);
+      text_append (result, "<tr>\n");
+      open_element_with_class (self, "td",
+                               &vertical_navigation_classes, result);
+      text_append_n (result, "\n", 1);
+    }
 
   /* keep the current index in result to be able to determine if text was
      added by format_navigation_panel */

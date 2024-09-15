@@ -1,5 +1,13 @@
 2024-09-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_header),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_default_format_navigation_header): do not set cellpadding nor
+	cellspacing for VERTICAL_HEAD_NAVIGATION, it is not really useful and,
+	if set, should be set with CSS.  Add classes.
+
+2024-09-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel),
 	tp/Texinfo/XS/convert/convert_html.c
 	(html_default_format_navigation_panel): do not set cellpadding nor

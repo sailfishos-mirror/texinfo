@@ -4635,10 +4635,11 @@ sub _default_format_navigation_header($$$$)
 
   my $result = '';
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
-    $result .= '<table cellpadding="0" cellspacing="0">
-<tr>
-<td>
-';
+    $result .= $self->html_attribute_class('table',
+                                           ['vertical-navigation']).'>'."\n";
+    $result .= "<tr>\n";
+    $result .= $self->html_attribute_class('td',
+                                           ['vertical-navigation']).'>'."\n";
   }
   $result .= &{$self->formatting_function('format_navigation_panel')}($self,
                                    $buttons, $cmdname, $element,
