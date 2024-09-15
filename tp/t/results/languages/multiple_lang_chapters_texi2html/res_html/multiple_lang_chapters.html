@@ -17,10 +17,17 @@ a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span.program-in-footer {font-size: smaller}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
-td.button-direction-about {text-align:center}
+table.direction-about {border-collapse: collapse}
+td.button-direction-about {text-align: center; border-width: thin; border-right-style: solid}
+td.description-direction-about {border-width: thin; border-right-style: solid; border-left-style: solid}
+td.example-direction-about {border-width: thin; border-left-style: solid}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
-td.name-direction-about {text-align:center}
+td.name-direction-about {text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid}
+th.button-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid}
+th.description-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
+th.example-direction-about {border-width: thin; border-bottom-style: solid; border-left-style: solid}
+th.name-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 -->
 </style>
 
@@ -186,66 +193,66 @@ td.name-direction-about {text-align:center}
 <p>
   Os bot&otilde;es nos pain&eacute;is de navega&ccedil;&atilde;o possuem os seguintes significados:
 </p>
-<table border="1">
+<table class="direction-about">
   <tr>
-    <th> Bot&atilde;o </th>
-    <th> Nome </th>
-    <th> V&aacute; para </th>
-    <th> De 1.2.3 v&aacute; para</th>
+    <th class="button-direction-about"> Bot&atilde;o </th>
+    <th class="name-direction-about"> Nome </th>
+    <th class="description-direction-about"> V&aacute; para </th>
+    <th class="example-direction-about"> De 1.2.3 v&aacute; para</th>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt;&lt; ] </td>
     <td class="name-direction-about">Voltar R&aacute;pido</td>
-    <td>Come&ccedil;o desse cap&iacute;tulo ou cap&iacute;tulo anterior</td>
-    <td>1</td>
+    <td class="description-direction-about">Come&ccedil;o desse cap&iacute;tulo ou cap&iacute;tulo anterior</td>
+    <td class="example-direction-about">1</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt; ] </td>
     <td class="name-direction-about">Volta</td>
-    <td>Se&ccedil;&atilde;o anterior na ordem de leitura</td>
-    <td>1.2.2</td>
+    <td class="description-direction-about">Se&ccedil;&atilde;o anterior na ordem de leitura</td>
+    <td class="example-direction-about">1.2.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ Acima ] </td>
     <td class="name-direction-about">Acima</td>
-    <td>Se&ccedil;&atilde;o acima</td>
-    <td>1.2</td>
+    <td class="description-direction-about">Se&ccedil;&atilde;o acima</td>
+    <td class="example-direction-about">1.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &gt; ] </td>
     <td class="name-direction-about">Avan&ccedil;ar</td>
-    <td>Pr&oacute;xima se&ccedil;&atilde;o na ordem de leitura</td>
-    <td>1.2.4</td>
+    <td class="description-direction-about">Pr&oacute;xima se&ccedil;&atilde;o na ordem de leitura</td>
+    <td class="example-direction-about">1.2.4</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &gt;&gt; ] </td>
     <td class="name-direction-about">Avan&ccedil;ar R&aacute;pido</td>
-    <td>Pr&oacute;ximo cap&iacute;tulo</td>
-    <td>2</td>
+    <td class="description-direction-about">Pr&oacute;ximo cap&iacute;tulo</td>
+    <td class="example-direction-about">2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Topo] </td>
     <td class="name-direction-about">Topo</td>
-    <td>In&iacute;cio (topo) do documento</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">In&iacute;cio (topo) do documento</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Conte&uacute;do] </td>
     <td class="name-direction-about">Conte&uacute;do</td>
-    <td>Sum&aacute;rio</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Sum&aacute;rio</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [&Iacute;ndice] </td>
     <td class="name-direction-about">&Iacute;ndice</td>
-    <td>&Iacute;ndice</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">&Iacute;ndice</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ ? ] </td>
     <td class="name-direction-about">Sobre</td>
-    <td>Sobre (ajuda)</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Sobre (ajuda)</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
 </table>
 

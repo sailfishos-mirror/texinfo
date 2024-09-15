@@ -2996,8 +2996,15 @@ my %css_element_class_styles = (
      'th.menu-comment'               => 'text-align:left',
      'td.category-def'               => 'text-align:right',
      'td.call-def'                   => 'text-align:left',
-     'td.button-direction-about'     => 'text-align:center',
-     'td.name-direction-about'       => 'text-align:center',
+     'table.direction-about'         => 'border-collapse: collapse',
+     'th.button-direction-about'     => 'border-width: thin; border-bottom-style: solid; border-right-style: solid',
+     'th.name-direction-about'       => 'border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid',
+     'th.description-direction-about' => 'border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid',
+     'th.example-direction-about'    => 'border-width: thin; border-bottom-style: solid; border-left-style: solid',
+     'td.button-direction-about'     => 'text-align: center; border-width: thin; border-right-style: solid',
+     'td.name-direction-about'       => 'text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid',
+     'td.description-direction-about' => 'border-width: thin; border-right-style: solid; border-left-style: solid',
+     'td.example-direction-about'    => 'border-width: thin; border-left-style: solid',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -11688,22 +11695,33 @@ sub _default_format_special_body_about($$$)
     $self->cdt('  The buttons in the navigation panels have the following meaning:'),
                                'ABOUT')
             . "\n";
+  my $table = $self->html_attribute_class('table', ['direction-about']).'>';
   $about .= <<EOT;
 </p>
-<table border="1">
+$table
   <tr>
 EOT
+  my $button_th = $self->html_attribute_class('th',
+                                              ['button-direction-about']).'>';
+  my $name_th = $self->html_attribute_class('th',
+                                               ['name-direction-about']).'>';
+  my $description_th = $self->html_attribute_class('th',
+                                           ['description-direction-about']).'>';
+  my $example_th = $self->html_attribute_class('th',
+                                           ['example-direction-about']).'>';
    # TRANSLATORS: direction column header in the navigation help
-  $about .= '    <th> '. $self->convert_tree($self->cdt('Button'), 'ABOUT')
+  $about .= "    $button_th "
+                . $self->convert_tree($self->cdt('Button'), 'ABOUT')
    ." </th>\n".
    # TRANSLATORS: button label column header in the navigation help
-   '    <th> ' . $self->convert_tree($self->cdt('Name'), 'ABOUT')
+   "    $name_th " . $self->convert_tree($self->cdt('Name'), 'ABOUT')
    . " </th>\n" .
    # TRANSLATORS: direction description column header in the navigation help
-   '    <th> ' . $self->convert_tree($self->cdt('Go to'), 'ABOUT')
+   "    $description_th " . $self->convert_tree($self->cdt('Go to'), 'ABOUT')
    . " </th>\n" .
    # TRANSLATORS: section reached column header in the navigation help
-   '    <th> ' . $self->convert_tree($self->cdt('From 1.2.3 go to'), 'ABOUT')
+   "    $example_th "
+       . $self->convert_tree($self->cdt('From 1.2.3 go to'), 'ABOUT')
    ."</th>\n". "  </tr>\n";
 
   my $active_icons;
@@ -11748,11 +11766,15 @@ EOT
     $direction_description = '' if (!defined($direction_description));
     my $direction_example = $self->direction_string($direction, 'example');
     $direction_example = '' if (!defined($direction_example));
+    my $description_td = $self->html_attribute_class('td',
+                                        ['description-direction-about']).'>';
+    my $example_td = $self->html_attribute_class('td',
+                                            ['example-direction-about']).'>';
     $about .=
 '    '.$self->html_attribute_class('td', ['name-direction-about']).'>'
     ."$button_name</td>
-    <td>$direction_description</td>
-    <td>$direction_example</td>
+    ${description_td}$direction_description</td>
+    ${example_td}$direction_example</td>
   </tr>
 ";
   }

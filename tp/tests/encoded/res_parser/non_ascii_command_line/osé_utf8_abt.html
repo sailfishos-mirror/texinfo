@@ -27,8 +27,15 @@
 @import ("strânge\" ;file") ;
 
 
-td.button-direction-about {text-align:center}
-td.name-direction-about {text-align:center}
+table.direction-about {border-collapse: collapse}
+td.button-direction-about {text-align: center; border-width: thin; border-right-style: solid}
+td.description-direction-about {border-width: thin; border-right-style: solid; border-left-style: solid}
+td.example-direction-about {border-width: thin; border-left-style: solid}
+td.name-direction-about {text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid}
+th.button-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid}
+th.description-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
+th.example-direction-about {border-width: thin; border-bottom-style: solid; border-left-style: solid}
+th.name-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 @media tv { h3 {text-align: left} }
 ul.mark-euro {list-style-type: "€"}
 ul.mark-néni {list-style-type: "vàça"}
@@ -53,48 +60,48 @@ ul.mark-néni {list-style-type: "vàça"}
 <p>
   The buttons in the navigation panels have the following meaning:
 </p>
-<table border="1">
+<table class="direction-about">
   <tr>
-    <th> Button </th>
-    <th> Name </th>
-    <th> Go to </th>
-    <th> From 1.2.3 go to</th>
+    <th class="button-direction-about"> Button </th>
+    <th class="name-direction-about"> Name </th>
+    <th class="description-direction-about"> Go to </th>
+    <th class="example-direction-about"> From 1.2.3 go to</th>
   </tr>
   <tr>
     <td class="button-direction-about"></td>
     <td class="name-direction-about">Next</td>
-    <td>Next section on same level</td>
-    <td>1.2.4</td>
+    <td class="description-direction-about">Next section on same level</td>
+    <td class="example-direction-about">1.2.4</td>
   </tr>
   <tr>
     <td class="button-direction-about"></td>
     <td class="name-direction-about">Prev</td>
-    <td>Previous section on same level</td>
-    <td>1.2.2</td>
+    <td class="description-direction-about">Previous section on same level</td>
+    <td class="example-direction-about">1.2.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"></td>
     <td class="name-direction-about">Up</td>
-    <td>Up section</td>
-    <td>1.2</td>
+    <td class="description-direction-about">Up section</td>
+    <td class="example-direction-about">1.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Contents] </td>
     <td class="name-direction-about">Contents</td>
-    <td>Table of contents</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Table of contents</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Index] </td>
     <td class="name-direction-about">Index</td>
-    <td>Index</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Index</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ ? ] </td>
     <td class="name-direction-about">About</td>
-    <td>About (help)</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">About (help)</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
 </table>
 

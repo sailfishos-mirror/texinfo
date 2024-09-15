@@ -23,14 +23,21 @@ pre.display-preformatted {font-family: inherit}
 pre.menu-comment-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
 span:hover a.copiable-link {visibility: visible}
-td.button-direction-about {text-align:center}
+table.direction-about {border-collapse: collapse}
+td.button-direction-about {text-align: center; border-width: thin; border-right-style: solid}
+td.description-direction-about {border-width: thin; border-right-style: solid; border-left-style: solid}
+td.example-direction-about {border-width: thin; border-left-style: solid}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
-td.name-direction-about {text-align:center}
+td.name-direction-about {text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
+th.button-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid}
+th.description-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 th.entries-header-printindex {text-align:left}
+th.example-direction-about {border-width: thin; border-bottom-style: solid; border-left-style: solid}
 th.menu-comment {text-align:left}
+th.name-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 th.sections-header-printindex {text-align:left; padding-left: 1em}
 ul.toc-numbered-mark {list-style: none}
 -->
@@ -246,66 +253,66 @@ Appendices
 <p>
   Przyciski w panelach nawigacyjnych mają następujące znaczenie:
 </p>
-<table border="1">
+<table class="direction-about">
   <tr>
-    <th> Przycisk </th>
-    <th> Nazwa </th>
-    <th> Przechodzi do </th>
-    <th> Z 1.2.3 przechodzi do</th>
+    <th class="button-direction-about"> Przycisk </th>
+    <th class="name-direction-about"> Nazwa </th>
+    <th class="description-direction-about"> Przechodzi do </th>
+    <th class="example-direction-about"> Z 1.2.3 przechodzi do</th>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt;&lt; ] </td>
     <td class="name-direction-about">SzybkoWstecz</td>
-    <td>Początek tego rozdziału lub rozdział poprzedni</td>
-    <td>1</td>
+    <td class="description-direction-about">Początek tego rozdziału lub rozdział poprzedni</td>
+    <td class="example-direction-about">1</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt; ] </td>
     <td class="name-direction-about">Wstecz</td>
-    <td>Sekcja poprzednia w kolejności czytania</td>
-    <td>1.2.2</td>
+    <td class="description-direction-about">Sekcja poprzednia w kolejności czytania</td>
+    <td class="example-direction-about">1.2.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ W górę ] </td>
     <td class="name-direction-about">Wyższy</td>
-    <td>Sekcja w górę</td>
-    <td>1.2</td>
+    <td class="description-direction-about">Sekcja w górę</td>
+    <td class="example-direction-about">1.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Forward] </td>
     <td class="name-direction-about">WPrzód</td>
-    <td>Sekcja następna w kolejności czytania</td>
-    <td>1.2.4</td>
+    <td class="description-direction-about">Sekcja następna w kolejności czytania</td>
+    <td class="example-direction-about">1.2.4</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &gt;&gt; ] </td>
     <td class="name-direction-about">SzybkoWPrzód</td>
-    <td>Następny rozdział</td>
-    <td>2</td>
+    <td class="description-direction-about">Następny rozdział</td>
+    <td class="example-direction-about">2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Wierzchni] </td>
     <td class="name-direction-about">Wierzchni</td>
-    <td>Okładka (wierzch) dokumentu</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Okładka (wierzch) dokumentu</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Treść] </td>
     <td class="name-direction-about">Treść</td>
-    <td>Spis treści</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Spis treści</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Indeks] </td>
     <td class="name-direction-about">Indeks</td>
-    <td>Indeks</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Indeks</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ ? ] </td>
     <td class="name-direction-about">O</td>
-    <td>O dokumencie (pomoc)</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">O dokumencie (pomoc)</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
 </table>
 

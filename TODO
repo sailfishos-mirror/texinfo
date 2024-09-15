@@ -53,8 +53,7 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - HTML: support thumbnails.
   - HTML: have a library of different CSS styles.
     http://mail.gnu.org/archive/html/bug-texinfo/2004-01/msg00025.html
-  - HTML: use CSS for <table> border.  Also for cellpadding and similar
-    if someone knows what should be done as now it seems to be
+  - HTML: use CSS for <table> cellpadding and similar.  Now it seems to be
     properties of the cells.
   - HTML: for printindex, not using <table> could be better.
     remove the letter column?

@@ -899,17 +899,24 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 table.cartouche {border-style: solid; border-radius: 10%}
-td.button-direction-about {text-align:center}
+table.direction-about {border-collapse: collapse}
+td.button-direction-about {text-align: center; border-width: thin; border-right-style: solid}
+td.description-direction-about {border-width: thin; border-right-style: solid; border-left-style: solid}
+td.example-direction-about {border-width: thin; border-left-style: solid}
 td.index-entry-level-1 {padding-left: 1.5em}
 td.index-entry-level-2 {padding-left: 3.0em}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
-td.name-direction-about {text-align:center}
+td.name-direction-about {text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 td.printindex-index-see-also {vertical-align: top; padding-left: 1em}
+th.button-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid}
+th.description-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 th.entries-header-printindex {text-align:left}
+th.example-direction-about {border-width: thin; border-bottom-style: solid; border-left-style: solid}
 th.menu-comment {text-align:left}
+th.name-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 th.sections-header-printindex {text-align:left; padding-left: 1em}
 ul.mark-bullet {list-style-type: disc}
 ul.mark-minus {list-style-type: "\2212"}
@@ -7964,48 +7971,48 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <p>
   The buttons in the navigation panels have the following meaning:
 </p>
-<table border="1">
+<table class="direction-about">
   <tr>
-    <th> Button </th>
-    <th> Name </th>
-    <th> Go to </th>
-    <th> From 1.2.3 go to</th>
+    <th class="button-direction-about"> Button </th>
+    <th class="name-direction-about"> Name </th>
+    <th class="description-direction-about"> Go to </th>
+    <th class="example-direction-about"> From 1.2.3 go to</th>
   </tr>
   <tr>
     <td class="button-direction-about"></td>
     <td class="name-direction-about">Next</td>
-    <td>Next section on same level</td>
-    <td>1.2.4</td>
+    <td class="description-direction-about">Next section on same level</td>
+    <td class="example-direction-about">1.2.4</td>
   </tr>
   <tr>
     <td class="button-direction-about"></td>
     <td class="name-direction-about">Prev</td>
-    <td>Previous section on same level</td>
-    <td>1.2.2</td>
+    <td class="description-direction-about">Previous section on same level</td>
+    <td class="example-direction-about">1.2.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"></td>
     <td class="name-direction-about">Up</td>
-    <td>Up section</td>
-    <td>1.2</td>
+    <td class="description-direction-about">Up section</td>
+    <td class="example-direction-about">1.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Contents] </td>
     <td class="name-direction-about">Contents</td>
-    <td>Table of contents</td>
-    <td>   </td>
+    <td class="description-direction-about">Table of contents</td>
+    <td class="example-direction-about">   </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [Index] </td>
     <td class="name-direction-about">Index</td>
-    <td>Index</td>
-    <td>   </td>
+    <td class="description-direction-about">Index</td>
+    <td class="example-direction-about">   </td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ ? ] </td>
     <td class="name-direction-about">About</td>
-    <td>About (help)</td>
-    <td>   </td>
+    <td class="description-direction-about">About (help)</td>
+    <td class="example-direction-about">   </td>
   </tr>
 </table>
 

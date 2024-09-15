@@ -895,17 +895,24 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 table.cartouche {border-style: solid; border-radius: 10%}
-td.button-direction-about {text-align:center}
+table.direction-about {border-collapse: collapse}
+td.button-direction-about {text-align: center; border-width: thin; border-right-style: solid}
+td.description-direction-about {border-width: thin; border-right-style: solid; border-left-style: solid}
+td.example-direction-about {border-width: thin; border-left-style: solid}
 td.index-entry-level-1 {padding-left: 1.5em}
 td.index-entry-level-2 {padding-left: 3.0em}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
-td.name-direction-about {text-align:center}
+td.name-direction-about {text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 td.printindex-index-see-also {vertical-align: top; padding-left: 1em}
+th.button-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid}
+th.description-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 th.entries-header-printindex {text-align:left}
+th.example-direction-about {border-width: thin; border-bottom-style: solid; border-left-style: solid}
 th.menu-comment {text-align:left}
+th.name-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 th.sections-header-printindex {text-align:left; padding-left: 1em}
 ul.mark-bullet {list-style-type: disc}
 ul.mark-minus {list-style-type: "\2212"}
@@ -8088,66 +8095,66 @@ Menu comment
 <p>
   Les boutons du panneau de navigation ont la signification suivante&nbsp;:
 </p>
-<table border="1">
+<table class="direction-about">
   <tr>
-    <th> Bouton </th>
-    <th> Nom </th>
-    <th> Aller &agrave; </th>
-    <th> Depuis 1.2.3 aller &agrave;</th>
+    <th class="button-direction-about"> Bouton </th>
+    <th class="name-direction-about"> Nom </th>
+    <th class="description-direction-about"> Aller &agrave; </th>
+    <th class="example-direction-about"> Depuis 1.2.3 aller &agrave;</th>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_leftdouble.png" alt="RetourRapide" align="middle"></td>
     <td class="name-direction-about">RetourRapide</td>
-    <td>D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
-    <td>1</td>
+    <td class="description-direction-about">D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
+    <td class="example-direction-about">1</td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_left.png" alt="Arri&egrave;re" align="middle"></td>
     <td class="name-direction-about">Arri&egrave;re</td>
-    <td>Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
-    <td>1.2.2</td>
+    <td class="description-direction-about">Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
+    <td class="example-direction-about">1.2.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_up.png" alt="Monter" align="middle"></td>
     <td class="name-direction-about">Monter</td>
-    <td>Section sup&eacute;rieure</td>
-    <td>1.2</td>
+    <td class="description-direction-about">Section sup&eacute;rieure</td>
+    <td class="example-direction-about">1.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_right.png" alt="Avant" align="middle"></td>
     <td class="name-direction-about">Avant</td>
-    <td>Section suivante dans l&rsquo;ordre de lecture</td>
-    <td>1.2.4</td>
+    <td class="description-direction-about">Section suivante dans l&rsquo;ordre de lecture</td>
+    <td class="example-direction-about">1.2.4</td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_rightdouble.png" alt="AvanceRapide" align="middle"></td>
     <td class="name-direction-about">AvanceRapide</td>
-    <td>Chapitre suivant</td>
-    <td>2</td>
+    <td class="description-direction-about">Chapitre suivant</td>
+    <td class="example-direction-about">2</td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_top.png" alt="Racine" align="middle"></td>
     <td class="name-direction-about">Racine</td>
-    <td>Couverture (top) du document</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Couverture (top) du document</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_tableofcon.png" alt="Contenu" align="middle"></td>
     <td class="name-direction-about">Contenu</td>
-    <td>Table des mati&egrave;res</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Table des mati&egrave;res</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_index.png" alt="Index" align="middle"></td>
     <td class="name-direction-about">Index</td>
-    <td>Index</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">Index</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
   <tr>
     <td class="button-direction-about"><img src="a_help.png" alt="A propos" align="middle"></td>
     <td class="name-direction-about">A propos</td>
-    <td>A propos (page d&rsquo;aide)</td>
-    <td> &nbsp; </td>
+    <td class="description-direction-about">A propos (page d&rsquo;aide)</td>
+    <td class="example-direction-about"> &nbsp; </td>
   </tr>
 </table>
 

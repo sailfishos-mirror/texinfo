@@ -15783,6 +15783,10 @@ default_format_special_body_footnotes (CONVERTER *self,
   format_footnotes_sequence (self, result);
 }
 
+static char *direction_about_array[] = {"direction-about"};
+static const STRING_LIST direction_about_classes
+    = {direction_about_array, 1, 1};
+
 static char *button_direction_about_array[] = {"button-direction-about"};
 static const STRING_LIST button_direction_about_classes
     = {button_direction_about_array, 1, 1};
@@ -15790,6 +15794,26 @@ static const STRING_LIST button_direction_about_classes
 static char *name_direction_about_array[] = {"name-direction-about"};
 static const STRING_LIST name_direction_about_classes
     = {name_direction_about_array, 1, 1};
+
+static char *description_direction_about_array[]
+    = {"description-direction-about"};
+static const STRING_LIST description_direction_about_classes
+    = {description_direction_about_array, 1, 1};
+
+static char *example_direction_about_array[] = {"example-direction-about"};
+static const STRING_LIST example_direction_about_classes
+    = {example_direction_about_array, 1, 1};
+
+static void
+open_element_with_class (CONVERTER *self, const char *element_name,
+                         const STRING_LIST *classes, TEXT *result)
+{
+  char *attribute_class = html_attribute_class (self, element_name,
+                                                classes);
+  text_append (result, attribute_class);
+  free (attribute_class);
+  text_append_n (result, ">", 1);
+}
 
 void
 default_format_special_body_about (CONVERTER *self,
@@ -15823,13 +15847,28 @@ default_format_special_body_about (CONVERTER *self,
   translate_convert_to_html_internal (
    "  The buttons in the navigation panels have the following meaning:",
                                       self, 0, 0, result, "ABOUT");
-  text_append (result, "\n</p>\n<table border=\"1\">\n  <tr>\n    <th> ");
+
+  text_append_n (result, "\n</p>\n", 6);
+  open_element_with_class (self, "table", &direction_about_classes, result);
+  text_append (result, "\n  <tr>\n    ");
+  open_element_with_class (self, "th", &button_direction_about_classes,
+                           result);
+  text_append_n (result, " ", 1);
   translate_convert_to_html_internal ("Button", self, 0, 0, result, "ABOUT");
-  text_append (result, " </th>\n    <th> ");
+  text_append_n (result, " </th>\n    ", 11);
+  open_element_with_class (self, "th", &name_direction_about_classes,
+                           result);
+  text_append_n (result, " ", 1);
   translate_convert_to_html_internal ("Name", self, 0, 0, result, "ABOUT");
-  text_append (result, " </th>\n    <th> ");
+  text_append_n (result, " </th>\n    ", 11);
+  open_element_with_class (self, "th", &description_direction_about_classes,
+                           result);
+  text_append_n (result, " ", 1);
   translate_convert_to_html_internal ("Go to", self, 0, 0, result, "ABOUT");
-  text_append (result, " </th>\n    <th> ");
+  text_append_n (result, " </th>\n    ", 11);
+  open_element_with_class (self, "th", &example_direction_about_classes,
+                           result);
+  text_append_n (result, " ", 1);
   translate_convert_to_html_internal ("From 1.2.3 go to", self, 0, 0,
                                       result, "ABOUT");
   text_append (result, "</th>\n  </tr>\n");
@@ -15837,7 +15876,6 @@ default_format_special_body_about (CONVERTER *self,
   for (i = 0; i < buttons->number; i++)
     {
       const BUTTON_SPECIFICATION *button = &buttons->list[i];
-      char * attribute_class;
       int direction = -1;
       const char *button_name;
       const char *button_description;
@@ -15852,11 +15890,8 @@ default_format_special_body_about (CONVERTER *self,
         continue;
 
       text_append_n (result, "  <tr>\n    ", 11);
-      attribute_class = html_attribute_class (self, "td",
-                                              &button_direction_about_classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
-      text_append_n (result, ">", 1);
+      open_element_with_class (self, "td", &button_direction_about_classes,
+                               result);
 
    /* if the button spec is an array we do not know what the button
       looks like, so we do not show the button but still show explanations. */
@@ -15887,21 +15922,23 @@ default_format_special_body_about (CONVERTER *self,
             }
         }
       text_append_n (result, "</td>\n    ", 10);
-      attribute_class = html_attribute_class (self, "td",
-                                              &name_direction_about_classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
-      text_append_n (result, ">", 1);
+      open_element_with_class (self, "td", &name_direction_about_classes,
+                               result);
 
       button_name = direction_string (self, direction, TDS_type_button, 0);
       if (button_name)
         text_append (result, button_name);
-      text_append_n (result, "</td>\n    <td>", 14);
+      text_append_n (result, "</td>\n    ", 10);
+      open_element_with_class (self, "td",
+                               &description_direction_about_classes,
+                               result);
       button_description = direction_string (self, direction,
                                              TDS_type_description, 0);
       if (button_description)
         text_append (result, button_description);
-      text_append_n (result, "</td>\n    <td>", 14);
+      text_append_n (result, "</td>\n    ", 10);
+      open_element_with_class (self, "td", &example_direction_about_classes,
+                               result);
       button_example = direction_string (self, direction, TDS_type_example, 0);
       if (button_example)
         text_append (result, button_example);
