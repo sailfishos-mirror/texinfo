@@ -7240,15 +7240,11 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
                                 self->conf->MATHJAX_SCRIPT.o.string);
       text_printf (&text, "<script type='text/javascript'>\n"
 "MathJax = {\n"
-"  options: {\n"
-"    skipHtmlTags: {'[-]': ['pre']},\n"
-"    ignoreHtmlClass: 'tex2jax_ignore',\n"
-"    processHtmlClass: 'tex2jax_process'\n"
-"  },\n"
+"%s\n"
 "};\n"
 "</script><script type=\"text/javascript\" id=\"MathJax-script\" async\n"
 "  src=\"%s\">\n"
-"</script>", mathjax_script);
+"</script>", self->conf->MATHJAX_CONFIGURATION.o.string, mathjax_script);
       free (mathjax_script);
     }
   begin_info->extra_head = text.text;
