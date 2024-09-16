@@ -641,7 +641,7 @@ $result_converted{'html'}->{'entry_after_detailmenu'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.menu-comment-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
 -->
@@ -658,19 +658,19 @@ Next: <a href="#chap-first" accesskey="n" rel="next">chap first</a> &nbsp; </p>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="1">second</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="1">second</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 Menu comment
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#chap-first" accesskey="2">chap first</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#chap-first" accesskey="2">chap first</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="3">second</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="3">second</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="4">second</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="4">second</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

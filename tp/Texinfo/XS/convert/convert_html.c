@@ -14729,15 +14729,11 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
     }
   else
     {
-      char *attribute_class;
       char *description = 0;
       char *name_no_number = 0;
       text_append_n (result, "<tr>", 4);
-      attribute_class = html_attribute_class (self, "td",
-                             &menu_entry_destination_classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
-      text_append_n (result, ">", 1);
+      open_element_with_class (self, "td",
+                               &menu_entry_destination_classes, result);
 
       if (section && href)
         {
@@ -14828,20 +14824,10 @@ convert_menu_entry_type (CONVERTER *self, const enum element_type type,
 
       if (self->conf->MENU_ENTRY_COLON.o.string)
         text_append (result, self->conf->MENU_ENTRY_COLON.o.string);
-      text_append_n (result, "</td><td>", 9);
-      text_append_n (result,
-                self->special_character[SC_non_breaking_space].string,
-                self->special_character[SC_non_breaking_space].len);
-      text_append_n (result,
-                self->special_character[SC_non_breaking_space].string,
-                self->special_character[SC_non_breaking_space].len);
       text_append_n (result, "</td>", 5);
 
-      attribute_class = html_attribute_class (self, "td",
-                             &menu_entry_description_classes);
-      text_append (result, attribute_class);
-      free (attribute_class);
-      text_append_n (result, ">", 1);
+      open_element_with_class (self, "td",
+                               &menu_entry_description_classes, result);
 
       if (formatted_nodedescription_nr > 0)
         {
@@ -14918,7 +14904,7 @@ convert_menu_comment_type (CONVERTER *self, const enum element_type type,
                                 &menu_comment_classes);
   text_append (result, attribute_class);
   free (attribute_class);
-  text_append_n (result, " colspan=\"3\">", 13);
+  text_append_n (result, " colspan=\"2\">", 13);
 
   if (content)
     text_append (result, content);

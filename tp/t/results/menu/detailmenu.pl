@@ -277,7 +277,7 @@ $result_converted{'html'}->{'detailmenu'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 pre.menu-comment-preformatted {font-family: serif}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
 -->
@@ -289,11 +289,11 @@ th.menu-comment {text-align:left}
 <body lang="en">
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Your rights.
+<tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td class="menu-entry-description">Your rights.
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; detailmenu:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; detailmenu:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

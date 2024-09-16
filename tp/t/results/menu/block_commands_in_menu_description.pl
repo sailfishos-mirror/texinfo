@@ -694,7 +694,7 @@ $result_converted{'html'}->{'block_commands_in_menu_description'} = '<!DOCTYPE h
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.menu-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 ul.mark-bullet {list-style-type: disc}
 -->
@@ -708,7 +708,7 @@ ul.mark-bullet {list-style-type: disc}
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td class="menu-entry-description">
 <ul class="itemize mark-bullet">
 <li><pre class="menu-preformatted">
 

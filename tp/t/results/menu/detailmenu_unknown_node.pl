@@ -271,7 +271,7 @@ $result_converted{'html'}->{'detailmenu_unknown_node'} = '<!DOCTYPE html>
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>
@@ -283,7 +283,7 @@ td.menu-entry-destination {vertical-align: top}
 <h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; unknown:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; unknown:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

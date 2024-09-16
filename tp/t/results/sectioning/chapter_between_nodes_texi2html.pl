@@ -585,7 +585,7 @@ table.direction-about {border-collapse: collapse}
 td.button-direction-about {text-align: center; border-width: thin; border-right-style: solid}
 td.description-direction-about {border-width: thin; border-right-style: solid; border-left-style: solid}
 td.example-direction-about {border-width: thin; border-left-style: solid}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 td.name-direction-about {text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid}
 th.button-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid}
@@ -613,7 +613,7 @@ ul.toc-numbered-mark {list-style: none}
 <p>Top node
 </p>
 <table class="menu">
-<tr><td class="menu-entry-destination"><a href="#section-node">1.1 section</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination"><a href="#section-node">1.1 section</a></td><td class="menu-entry-description">
 </td></tr>
 </table>
 

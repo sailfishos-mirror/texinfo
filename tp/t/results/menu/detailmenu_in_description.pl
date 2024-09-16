@@ -258,7 +258,7 @@ $result_converted{'html'}->{'detailmenu_in_description'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>
@@ -269,9 +269,9 @@ td.menu-entry-destination {vertical-align: top}
 <body lang="en">
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Your rights.
+<tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td class="menu-entry-description">Your rights.
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; detailmenu:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; detailmenu:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

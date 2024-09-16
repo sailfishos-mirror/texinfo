@@ -275,7 +275,7 @@ $result_converted{'html'}->{'example_in_menu_comment'} = '<!DOCTYPE html>
 <!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
 -->
@@ -286,9 +286,9 @@ th.menu-comment {text-align:left}
 
 <body lang="en">
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; entry:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; entry:</td><td class="menu-entry-description">
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 </pre><div class="example">
 <pre class="example-preformatted">in 

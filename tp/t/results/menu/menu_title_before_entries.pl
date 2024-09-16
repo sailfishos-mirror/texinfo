@@ -294,7 +294,7 @@ $result_converted{'html'}->{'menu_title_before_entries'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.menu-comment-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
 -->
@@ -311,8 +311,8 @@ Next: <a href="#chap-subnode" accesskey="n" rel="next">chap subnode</a> &nbsp; <
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu">
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">Horizontal space
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#chap-subnode" accesskey="1">chap subnode</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">Horizontal space
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#chap-subnode" accesskey="1">chap subnode</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

@@ -1399,7 +1399,7 @@ $result_converted{'html'}->{'commands_in_nodedescriptionblock'} = '<!DOCTYPE htm
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
@@ -1420,7 +1420,7 @@ Next: <a href="#node1" accesskey="n" rel="next">chap1</a> &nbsp; [<a href="#node
 <h1 class="top" id="test-commands-in-nodedescriptionblock"><span>test commands in nodedescriptionblock<a class="copiable-link" href="#test-commands-in-nodedescriptionblock"> &para;</a></span></h1>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><a class="anchor" id="in-nodescription"></a>
+<tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td class="menu-entry-description"><a class="anchor" id="in-nodescription"></a>
 <a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>. Some text to see
 where the max column could be. in&nbsp;w<!-- /@w -->.
 <a class="index-entry-id" id="index-in-nodedescriptionblock"></a>
@@ -1430,7 +1430,7 @@ where the max column could be. in&nbsp;w<!-- /@w -->.
 <div class="caption"><p><strong class="strong">tfloat 1.1: </strong>Cap1</p></div></div>
 
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#node2" rel="index" accesskey="2">node2</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#node2" rel="index" accesskey="2">node2</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
@@ -1457,7 +1457,7 @@ Previous: <a href="#node1" accesskey="p" rel="prev">chap1</a>, Up: <a href="#Top
 <p><a class="ref" href="#in-nodescription">in nodescription</a>, <a class="ref" href="#f1">tfloat 1.1</a>.
 </p>
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#node1" accesskey="1">node1</a>:</td><td class="menu-entry-description">
 <a class="ref" href="#node2">chap2</a>. Footnote<a class="footnote" id="t_fnode-description-2_DOCF1_2" href="#t_fnode-description-2_FOOT1_2"><sup>2</sup></a>. Some text to see
 where the max column could be. in&nbsp;w<!-- /@w -->.
 

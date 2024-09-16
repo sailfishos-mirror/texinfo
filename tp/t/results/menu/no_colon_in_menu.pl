@@ -190,7 +190,7 @@ th.menu-comment {text-align:left}
 <h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu">
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">* a
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">* a
 </pre></th></tr></table>
 
 

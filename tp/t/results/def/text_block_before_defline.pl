@@ -705,7 +705,7 @@ a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>
@@ -722,7 +722,7 @@ Next: <a href="#chapt" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="#chapt" accesskey="1">chapt</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chapt" accesskey="1">chapt</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 <hr>
@@ -741,7 +741,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </pre></div>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="other_manual.html#Top" accesskey="1">(other_manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="other_manual.html#Top" accesskey="1">(other_manual)</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

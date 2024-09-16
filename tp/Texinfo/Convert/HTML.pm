@@ -2990,7 +2990,7 @@ my %css_element_class_styles = (
      'td.printindex-index-section'   => 'vertical-align: top; padding-left: 1em',
      'td.printindex-index-see-also'  => 'vertical-align: top; padding-left: 1em',
      'td.menu-entry-destination'     => 'vertical-align: top',
-     'td.menu-entry-description'     => 'vertical-align: top',
+     'td.menu-entry-description'     => 'vertical-align: top; padding-left: 1em',
      'th.entries-header-printindex'  => 'text-align:left',
      'th.sections-header-printindex' => 'text-align:left; padding-left: 1em',
      'th.menu-comment'               => 'text-align:left',
@@ -7791,7 +7791,6 @@ sub _convert_menu_entry_type($$$)
   return '<tr>'
      .$self->html_attribute_class('td', ['menu-entry-destination']).'>'
                                            ."$name$MENU_ENTRY_COLON</td>"
-    ."<td>${non_breaking_space}${non_breaking_space}</td>"
     .$self->html_attribute_class('td', ['menu-entry-description']).'>'
                                 ."$description</td></tr>\n";
 }
@@ -7811,7 +7810,7 @@ sub _convert_menu_comment_type($$$$)
     return $content;
   } else {
     return '<tr>'.$self->html_attribute_class('th', ['menu-comment'])
-      . ' colspan="3">'.$content .'</th></tr>';
+      . ' colspan="2">'.$content .'</th></tr>';
   }
 }
 

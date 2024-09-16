@@ -789,6 +789,8 @@ Test validity of Texinfo XML or docbook
 export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml
 
+tidy does not seems to be released and/or maintained anymore.  It incorrectly
+emits an error for ol type attribute.
 tidy -qe *.html
 
 profiling: package on debian:

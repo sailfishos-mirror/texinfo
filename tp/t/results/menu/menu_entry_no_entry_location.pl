@@ -292,7 +292,7 @@ $result_converted{'html'}->{'menu_entry_no_entry_location'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>
@@ -302,15 +302,15 @@ td.menu-entry-destination {vertical-align: top}
 
 <body lang="en">
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">begin description
+<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td class="menu-entry-description">begin description
 * not an entry ?
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="2">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">an entry
+<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="2">(manual)</a>:</td><td class="menu-entry-description">an entry
   in description
 * and here ?
 with text.
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="last%20manual.html#Top" accesskey="3">(last manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="last%20manual.html#Top" accesskey="3">(last manual)</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

@@ -1802,7 +1802,7 @@ $result_converted{'html'}->{'menu'} = '<!DOCTYPE html>
 <!--
 pre.menu-comment-preformatted {font-family: serif}
 pre.menu-preformatted {font-family: serif}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
 ul.mark-bullet {list-style-type: disc}
@@ -1817,14 +1817,14 @@ ul.mark-bullet {list-style-type: disc}
 <div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="ggg.html#Top" accesskey="1">(ggg)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description
+<tr><td class="menu-entry-destination">&bull; <a href="ggg.html#Top" accesskey="1">(ggg)</a>:</td><td class="menu-entry-description">description
 <ul class="itemize mark-bullet">
 <li><pre class="menu-preformatted">idescr
 </pre></li></ul>
 in html
 AAA
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 CCC
 
@@ -1840,27 +1840,27 @@ BBB
 </pre><ul class="itemize mark-bullet">
 <li><pre class="menu-comment-preformatted">ibb
 </pre></li></ul>
-</th></tr><tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="2">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</th></tr><tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="2">(manual)</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 comment
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="after_comment.html#Top" accesskey="3">(after_comment)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="after_comment.html#Top" accesskey="3">(after_comment)</a>:</td><td class="menu-entry-description">description
 in description
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="after_description.html#Top" accesskey="4">(after_description)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="after_description.html#Top" accesskey="4">(after_description)</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="detailggg.html#Top" accesskey="5">(detailggg)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">detaildescription
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="detailggg.html#Top" accesskey="5">(detailggg)</a>:</td><td class="menu-entry-description">detaildescription
 <ul class="itemize mark-bullet">
 <li><pre class="menu-preformatted">idetaildescr
 </pre></li></ul>
 detailin detailhtml
 detailAAA
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 detailCCC
 
@@ -1876,18 +1876,18 @@ detailBBB
 </pre><ul class="itemize mark-bullet">
 <li><pre class="menu-comment-preformatted">detailibb
 </pre></li></ul>
-</th></tr><tr><td class="menu-entry-destination">&bull; <a href="detailmanual.html#Top" accesskey="6">(detailmanual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</th></tr><tr><td class="menu-entry-destination">&bull; <a href="detailmanual.html#Top" accesskey="6">(detailmanual)</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 detailcomment
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="detailafter_comment.html#Top" accesskey="7">(detailafter_comment)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">detaildescription
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="detailafter_comment.html#Top" accesskey="7">(detailafter_comment)</a>:</td><td class="menu-entry-description">detaildescription
 in detaildescription
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="detailafter_description.html#Top" accesskey="8">(detailafter_description)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="detailafter_description.html#Top" accesskey="8">(detailafter_description)</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
 </pre></th></tr></table>
 </div>

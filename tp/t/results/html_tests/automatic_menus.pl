@@ -578,7 +578,7 @@ $result_converted{'html'}->{'automatic_menus'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.menu-comment-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
 -->
@@ -596,15 +596,15 @@ Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="#chap" accesskey="1">chap</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Here we begin</td></tr>
-<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap" accesskey="1">chap</a>:</td><td class="menu-entry-description">Here we begin</td></tr>
+<tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted"> &mdash; The Detailed Node Listing &mdash;
+</pre></th></tr><tr><th class="menu-comment" colspan="2"><pre class="menu-comment-preformatted"> &mdash; The Detailed Node Listing &mdash;
 
 Chap
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#sec" accesskey="2">sec</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Here in section</td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#sec-after" accesskey="3">sec after</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#sec" accesskey="2">sec</a>:</td><td class="menu-entry-description">Here in section</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#sec-after" accesskey="3">sec after</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 <hr>
@@ -616,8 +616,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="#sec" accesskey="1">sec</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Here in section</td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#sec-after" accesskey="2">sec after</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#sec" accesskey="1">sec</a>:</td><td class="menu-entry-description">Here in section</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#sec-after" accesskey="2">sec after</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 <hr>

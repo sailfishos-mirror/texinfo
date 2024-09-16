@@ -369,7 +369,7 @@ $result_converted{'html'}->{'menu_entry_node'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-td.menu-entry-description {vertical-align: top}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>
@@ -379,13 +379,13 @@ td.menu-entry-destination {vertical-align: top}
 
 <body lang="en">
 <table class="menu">
-<tr><td class="menu-entry-destination">&bull; <a href="f.html#a1" accesskey="1">(f)a1</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="f.html#a1" accesskey="1">(f)a1</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="f.html#a2" accesskey="2">(f)a2</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="f.html#a2" accesskey="2">(f)a2</a>:</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="f.html#a3" accesskey="3">(f)a3</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">d
+<tr><td class="menu-entry-destination">&bull; <a href="f.html#a3" accesskey="3">(f)a3</a>:</td><td class="menu-entry-description">d
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="f.html#g_t_0040a" accesskey="4">(f)@a</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="f.html#g_t_0040a" accesskey="4">(f)@a</a>:</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
