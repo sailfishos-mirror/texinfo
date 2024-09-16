@@ -7406,6 +7406,9 @@ format_begin_file (CONVERTER *self, const char *filename,
     }
 }
 
+static char *nav_icon_array[] = {"nav-icon"};
+static const STRING_LIST nav_icon_classes = {nav_icon_array, 1, 1};
+
 /* return string to be freed by the caller */
 char *
 html_default_format_button_icon_img (CONVERTER *self,
@@ -7414,13 +7417,19 @@ html_default_format_button_icon_img (CONVERTER *self,
 {
   TEXT result;
   char *icon_protected;
+  char *attribute_class;
 
   if (!icon)
     return strdup ("");
 
   text_init (&result);
 
-  text_append_n (&result, "<img src=\"", 10);
+  attribute_class = html_attribute_class (self, "img",
+                                          &nav_icon_classes);
+  text_append (&result, attribute_class);
+  free (attribute_class);
+
+  text_append_n (&result, " src=\"", 6);
   icon_protected = url_protect_url_text (self, icon);
   text_append (&result, icon_protected);
   free (icon_protected);
@@ -7436,7 +7445,7 @@ html_default_format_button_icon_img (CONVERTER *self,
   else if (button_name)
     text_append (&result, button_name);
 
-  text_append_n (&result, "\" align=\"middle\"", 16);
+  text_append_n (&result, "\"", 1);
   close_html_lone_element (self, &result);
 
   return result.text;

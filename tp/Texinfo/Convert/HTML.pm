@@ -3005,6 +3005,7 @@ my %css_element_class_styles = (
      'td.name-direction-about'       => 'text-align: center; border-width: thin; border-right-style: solid; border-left-style: solid',
      'td.description-direction-about' => 'border-width: thin; border-right-style: solid; border-left-style: solid',
      'td.example-direction-about'    => 'border-width: thin; border-left-style: solid',
+     'img.nav-icon'                  => 'vertical-align: middle',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -4334,9 +4335,10 @@ sub _default_format_button_icon_img($$$;$)
   } else {
     $alt = $button;
   }
+
+  my $img = $self->html_attribute_class('img', ['nav-icon']);
   return $self->close_html_lone_element(
-    '<img src="'.$self->url_protect_url_text($icon)
-       ."\" alt=\"$alt\" align=\"middle\"");
+    "$img src=\"".$self->url_protect_url_text($icon)."\" alt=\"$alt\"");
 }
 
 sub _direction_href_attributes($$)
