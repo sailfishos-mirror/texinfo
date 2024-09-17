@@ -1,5 +1,10 @@
 2024-09-17  Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS, TODO: remove from TODO add to NEWS that attributes have been
+	replaced by CSS.
+
+2024-09-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/html_tests.t (simple_only_special_spaces_node): skip if Perl
 	too old.
 
