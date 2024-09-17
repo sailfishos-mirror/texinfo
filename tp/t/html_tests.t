@@ -1517,7 +1517,9 @@ $css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
 # interpret.  This was set for a bug with div closed in the wrong file.
 ['simple_only_special_spaces_node',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
-        'init_files' => ['no_navigation.pm']},
+        'init_files' => ['no_navigation.pm'],
+        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
+       },
        # needed to test for the bug
        {'SPLIT' => 'node'}],
 # also in *sectioning.t.  Here we are interested both by the infinite
