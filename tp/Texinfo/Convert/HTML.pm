@@ -3006,6 +3006,7 @@ my %css_element_class_styles = (
      'td.description-direction-about' => 'border-width: thin; border-right-style: solid; border-left-style: solid',
      'td.example-direction-about'    => 'border-width: thin; border-left-style: solid',
      'img.nav-icon'                  => 'vertical-align: middle',
+     'table.def-block'               => 'width: 100%',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -7012,15 +7013,8 @@ sub _convert_def_command($$$$$) {
     return $self->html_attribute_class('dl', \@classes).">\n"
                                         . $content ."</dl>\n";
   } else {
-    my $width = '100%';
-    my $width_attr;
-    if ($self->get_conf('_INLINE_STYLE_WIDTH')) {
-      $width_attr = "style=\"width: $width\"";
-    } else {
-      $width_attr = "width=\"$width\"";
-    }
-    return $self->html_attribute_class('table', \@classes)." $width_attr>\n"
-                                                     . $content . "</table>\n";
+    return $self->html_attribute_class('table', \@classes).">\n"
+                                       . $content . "</table>\n";
   }
 }
 

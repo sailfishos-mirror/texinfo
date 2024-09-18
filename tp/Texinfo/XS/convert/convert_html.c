@@ -13803,7 +13803,6 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
                     const HTML_ARGS_FORMATTED *args_formatted,
                     const char *content, TEXT *result)
 {
-  char *attribute_class;
   STRING_LIST *classes;
   enum command_id original_cmd = cmd;
   char *class;
@@ -13852,27 +13851,21 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
 
   if (self->conf->DEF_TABLE.o.integer <= 0)
     {
-      attribute_class = html_attribute_class (self, "dl", classes);
-      text_append (result, attribute_class);
-      text_append_n (result, ">\n", 2);
+      open_element_with_class (self, "dl", classes, result);
+      text_append_n (result, "\n", 1);
       if (content)
         text_append (result, content);
       text_append_n (result, "</dl>\n", 6);
     }
   else
     {
-      attribute_class = html_attribute_class (self, "table", classes);
-      text_append (result, attribute_class);
-      if (self->conf->_INLINE_STYLE_WIDTH.o.integer > 0)
-        text_append_n (result, " style=\"width: 100%\">\n", 22);
-      else
-        text_append_n (result, " width=\"100%\">\n", 15);
+      open_element_with_class (self, "table", classes, result);
+      text_append_n (result, "\n", 1);
       if (content)
         text_append (result, content);
       text_append_n (result, "</table>\n", 9);
     }
 
-  free (attribute_class);
   destroy_strings_list (classes);
 }
 
