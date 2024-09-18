@@ -1,3 +1,10 @@
+2024-09-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_command)
+	(_convert_def_line_type), tp/Texinfo/XS/convert/convert_html.c
+	(convert_def_command, convert_def_line_type): add 'generic' def-block
+	and def-line classes for @def* commands.
+
 2024-09-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/htmlxref.cnf: add gprofng.  From Thérèse Godefroy

@@ -291,10 +291,10 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 </head>
 
 <body lang="en">
-<dl class="defblock">
+<dl class="defblock def-block">
 <dd><a class="index-entry-id" id="index-entry"></a>
 
-</dd><dt class="defline"><span class="category-def">a: </span><strong class="def-name">b</strong> <var class="def-var-arguments">c d</var></dt>
+</dd><dt class="defline def-line"><span class="category-def">a: </span><strong class="def-name">b</strong> <var class="def-var-arguments">c d</var></dt>
 </dl>
 
 

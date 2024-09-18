@@ -739,40 +739,40 @@ $result_converted{'html'}->{'all_empty_def'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<dl class="first-deffn">
-<dt class="deffn"></dt>
+<dl class="first-deffn def-block">
+<dt class="deffn def-line"></dt>
 </dl>
 
-<dl class="first-defvr">
-<dt class="defvr"></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line"></dt>
 </dl>
 
-<dl class="first-deftypefn">
-<dt class="deftypefn"></dt>
+<dl class="first-deftypefn def-block">
+<dt class="deftypefn def-line"></dt>
 </dl>
 
-<dl class="first-deftypeop">
-<dt class="deftypeop"></dt>
+<dl class="first-deftypeop def-block">
+<dt class="deftypeop def-line"></dt>
 </dl>
 
-<dl class="first-deftypevr">
-<dt class="deftypevr"></dt>
+<dl class="first-deftypevr def-block">
+<dt class="deftypevr def-line"></dt>
 </dl>
 
-<dl class="first-defcv">
-<dt class="defcv"></dt>
+<dl class="first-defcv def-block">
+<dt class="defcv def-line"></dt>
 </dl>
 
-<dl class="first-deftypecv">
-<dt class="deftypecv"></dt>
+<dl class="first-deftypecv def-block">
+<dt class="deftypecv def-line"></dt>
 </dl>
 
-<dl class="first-defop">
-<dt class="defop"></dt>
+<dl class="first-defop def-block">
+<dt class="defop def-line"></dt>
 </dl>
 
-<dl class="first-deftp">
-<dt class="deftp"></dt>
+<dl class="first-deftp def-block">
+<dt class="deftp def-line"></dt>
 </dl>
 
 

@@ -13848,6 +13848,8 @@ convert_def_command (CONVERTER *self, const enum command_id cmd,
   else
     add_string (builtin_command_name (cmd), classes);
 
+  add_string ("def-block", classes);
+
   if (self->conf->DEF_TABLE.o.integer <= 0)
     {
       attribute_class = html_attribute_class (self, "dl", classes);
@@ -15073,6 +15075,8 @@ convert_def_line_type (CONVERTER *self, const enum element_type type,
       add_string (class, classes);
       free (class);
     }
+
+  add_string ("def-line", classes);
 
   text_init (&def_call);
   text_append (&def_call, "");

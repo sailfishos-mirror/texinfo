@@ -7006,6 +7006,8 @@ sub _convert_def_command($$$$$) {
     push @classes, $cmdname;
   }
 
+  push @classes, 'def-block';
+
   if (!$self->get_conf('DEF_TABLE')) {
     return $self->html_attribute_class('dl', \@classes).">\n"
                                         . $content ."</dl>\n";
@@ -7905,6 +7907,8 @@ sub _convert_def_line_type($$$$)
   if ($base_command_name ne $original_command_name) {
     push @classes, "def-cmd-$base_command_name";
   }
+
+  push @classes, 'def-line';
 
   my $def_call = '';
   if ($type_element) {

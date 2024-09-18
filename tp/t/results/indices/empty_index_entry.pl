@@ -341,8 +341,8 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<a class="node-id" id="
 </div>
 <h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 
-<dl class="first-deffn">
-<dt class="deffn"><span class="category-def">: </span><strong class="def-name"></strong></dt>
+<dl class="first-deffn def-block">
+<dt class="deffn def-line"><span class="category-def">: </span><strong class="def-name"></strong></dt>
 </dl>
 
 ';
