@@ -14,9 +14,7 @@
 # texi2any_internals_indices.texi soes not appear in any menu.
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0 -c TREE_TRANSFORMATIONS=complete_tree_nodes_menus
 
-# Use the programs built in our distribution.  Use absolute directory
-# names so we can run from a different working directory as is the
-# case for the texi2any_internals.texi target.
+# Use the programs built in our distribution.
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
                        top_srcdir="$(top_srcdir)" \
                        top_builddir="$(top_builddir)"
@@ -55,8 +53,6 @@ BUILT_SOURCES = texi2any_internals.texi
 
 # all the modules with some interesting public interfaces.
 # The order matters for the result.
-# Note that these relative file names are correct from srcdir, and will be
-# found from builddir in VPATH builds.
 texi2any_internals_dependencies = \
   $(top_srcdir)/tp/Texinfo/Commands.pod \
   $(top_srcdir)/tp/Texinfo/Common.pm \
