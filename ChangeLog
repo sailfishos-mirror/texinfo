@@ -1,5 +1,13 @@
 2024-09-20  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/tp_api/Makefile.am (MAKEINFO_ENVIRONMENT)
+	(texi2any_internals_dependencies, texi2any_internals.texi): instead of
+	going to srcdir, use --outdir pod2texi.pl option to specify a
+	different output directory from the include directory and generate
+	Texinfo files from the build directory.
+
+2024-09-20  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (@included): fix included files
 	information order in array reference.
 
