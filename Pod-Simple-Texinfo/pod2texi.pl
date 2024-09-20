@@ -123,12 +123,14 @@ and all the \@include is generated.");
   $pod2texi_help .= __("    --no-fill-section-gaps  do not fill sectioning gaps")."\n";
   $pod2texi_help .= __("    --no-section-nodes      use anchors for sections instead of nodes")."\n";
   $pod2texi_help .= __("    --menus                 generate node menus")."\n";
+  $pod2texi_help .= __("    --outdir=NAME           output included files in NAME.
+                                                    Defaults to --subdir")."\n";
   $pod2texi_help .= __("    --output=NAME           output to NAME for the first or main manual
                             instead of standard output")."\n";
   $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate.
                             Defaults to a minimal Texinfo document beginning")."\n";
   $pod2texi_help .= __("    --setfilename           \@setfilename for the main manual")."\n";
-  $pod2texi_help .= __("    --subdir=NAME           put files included in the main manual in NAME")."\n";
+  $pod2texi_help .= __("    --subdir=NAME           include files from NAME in the main manual")."\n";
   $pod2texi_help .= __("    --top                   top for the main manual")."\n";
   $pod2texi_help .= __("    --unnumbered-sections   do not number sections")."\n";
   $pod2texi_help .= __("    --version               display version information and exit");
@@ -145,6 +147,7 @@ my $unnumbered_sections = 0;
 my $appendix_sections = 0;
 my $headings_as_sections = 0;
 my $generate_node_menus = 0;
+my $outdir;
 my $output = '-';
 my $top = 'top';
 my $setfilename = undef;
@@ -176,6 +179,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
   'fill-section-gaps!' => \$fill_sectioning_gaps,
   'headings-as-sections!' => \$headings_as_sections,
   'menus!' => \$generate_node_menus,
+  'outdir' => \$outdir,
   'output|o=s' => \$output,
   'preamble=s' => \$preamble,
   'setfilename=s' => \$setfilename,
@@ -188,11 +192,15 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
 
 exit 1 if (!$result_options);
 
-if (defined($subdir)) {
-  if (! -d $subdir) {
-    if (!mkdir($subdir)) {
+if (!defined($outdir) and defined($subdir)) {
+  $outdir = $subdir;
+}
+
+if (defined($outdir)) {
+  if (! -d $outdir) {
+    if (!mkdir($outdir)) {
       die sprintf(__("%s: could not create directory %s: %s"),
-                  $real_command_name, $subdir, $!);
+                  $real_command_name, $outdir, $!);
     }
   }
 }
@@ -393,6 +401,7 @@ my @included;
 foreach my $file (@input_files) {
   my $manual_texi = '';
   my $outfile;
+  my $incfile;
   my $outfile_name;
   my $name = shift @all_manual_names;
   if ($base_level == 0 and !$file_nr) {
@@ -413,10 +422,15 @@ foreach my $file (@input_files) {
         $outfile_name .= '.texi';
       }
     }
-    if (defined($subdir)) {
-      $outfile = File::Spec->catfile($subdir, $outfile_name);
+    if (defined($outdir)) {
+      $outfile = File::Spec->catfile($outdir, $outfile_name);
     } else {
       $outfile = $outfile_name;
+    }
+    if (defined($subdir)) {
+      $incfile = File::Spec->catfile($subdir, $outfile_name);
+    } else {
+      $incfile = $outfile_name;
     }
   }
 
@@ -425,7 +439,7 @@ foreach my $file (@input_files) {
 
   my $new = Pod::Simple::Texinfo->new();
 
-  push @included, [$name, $outfile, $file] if ($base_level > 0);
+  push @included, [$name, $outfile, $incfile, $file] if ($base_level > 0);
   my $fh;
   if ($outfile eq '-') {
     $fh = *STDOUT;
@@ -498,18 +512,29 @@ foreach my $file (@input_files) {
       if (defined($short_title) and $short_title =~ /\S/) {
         push @manuals, $short_title;
         pop @included;
-        my $new_outfile
+        my $new_outfile_name
          = Pod::Simple::Texinfo::_pod_title_to_file_name($short_title);
-        $new_outfile .= '.texi';
-        $new_outfile = File::Spec->catfile($subdir, $new_outfile)
-           if (defined($subdir));
+        $new_outfile_name .= '.texi';
+        my $new_outfile;
+        if (defined($outdir)) {
+          $new_outfile = File::Spec->catfile($outdir, $new_outfile_name);
+        } else {
+          $new_outfile = $new_outfile_name;
+        }
+        my $new_incfile;
+        if (defined($subdir)) {
+          $new_incfile = File::Spec->catfile($subdir, $new_outfile_name);
+        } else {
+          $new_incfile = $new_outfile_name;
+        }
+
         if ($new_outfile ne $outfile) {
           unless (rename ($outfile, $new_outfile)) {
             die sprintf(__("%s: rename %s failed: %s\n"),
                         $real_command_name, $outfile, $!);
           }
         }
-        push @included, [$short_title, $new_outfile, $file];
+        push @included, [$short_title, $new_outfile, $new_incfile, $file];
       }
     }
   }
@@ -563,8 +588,8 @@ if ($base_level > 0) {
     print $fh $menu."\n";
   }
   foreach my $include (@included) {
-    my $file = $include->[1];
-    print $fh "\@include ".Pod::Simple::Texinfo::_protect_text($file)."\n";
+    my $incfile = $include->[2];
+    print $fh "\@include ".Pod::Simple::Texinfo::_protect_text($incfile)."\n";
   }
   print $fh "\n\@bye\n";
   
@@ -665,6 +690,12 @@ Output node menus. If there is a main manual, its Top node menu
 is always output, since a master menu is generated. Other nodes
 menus are not output in the default case.
 
+=item B<--outdir>=I<NAME>
+
+If there is a main manual with include files (each corresponding to
+an input Pod file), then the generated Texinfo files are put in
+directory I<NAME>.  Default is based on C<--subdir>.
+
 =item B<--output>=I<NAME>
 
 Name for the first manual, or the main manual if there is a main manual.
@@ -693,7 +724,10 @@ No C<@setfilename> is output in the default case.
 =item B<--subdir>=I<NAME>
 
 If there is a main manual with include files (each corresponding to
-an input Pod file), then those include files are put in directory I<NAME>.
+an input Pod file), then those include files are included from I<NAME>.
+
+If C<--outdir> is set, I<NAME> should in general be set to the relative
+directory between the main manual and C<--outdir> argument.
 
 =item B<--unnumbered-sections>
 

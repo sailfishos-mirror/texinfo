@@ -1,3 +1,10 @@
+2024-09-20  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/pod2texi.pl ($pod2texi_help, $outdir)
+	(@included): add --outdir to specify the directory where included
+	files are output, with default based on --subdir.  --subdir is now
+	only used to specify include files directory from the main manual.
+
 2024-09-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/terminal.c (terminal_prep_terminal_hook): Return void not

@@ -15,7 +15,8 @@
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0 -c TREE_TRANSFORMATIONS=complete_tree_nodes_menus
 
 # Use the programs built in our distribution.  Use absolute directory
-# names so we can run from a different working directory.
+# names so we can run from a different working directory as is the
+# case for the texi2any_internals.texi target.
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
                        top_srcdir="$(abs_top_srcdir)" \
                        top_builddir="$(abs_top_builddir)"
