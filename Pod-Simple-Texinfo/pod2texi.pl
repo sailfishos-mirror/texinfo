@@ -492,7 +492,7 @@ foreach my $file (@input_files) {
 
   my $new = Pod::Simple::Texinfo->new();
 
-  push @included, [$manual_name, $incfile, $outfile, $file]
+  push @included, [$manual_name, $outfile, $incfile, $file]
     if ($base_level > 0);
   my $fh;
   if ($outfile eq '-') {
