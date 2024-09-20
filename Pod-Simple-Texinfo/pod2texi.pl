@@ -179,7 +179,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
   'fill-section-gaps!' => \$fill_sectioning_gaps,
   'headings-as-sections!' => \$headings_as_sections,
   'menus!' => \$generate_node_menus,
-  'outdir' => \$outdir,
+  'outdir=s' => \$outdir,
   'output|o=s' => \$output,
   'preamble=s' => \$preamble,
   'setfilename=s' => \$setfilename,
