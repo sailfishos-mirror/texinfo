@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-09-07 18:40+0100\n"
+"POT-Creation-Date: 2024-09-20 09:50+0200\n"
 "PO-Revision-Date: 2023-05-19 12:55+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -414,7 +414,7 @@ msgid "Try --help for more information.\n"
 msgstr "Пробајте „--help“ за више информација.\n"
 
 #: info/info.c:872 install-info/install-info.c:2261
-#: Pod-Simple-Texinfo/pod2texi.pl:160 tp/texi2any.pl:943
+#: Pod-Simple-Texinfo/pod2texi.pl:163 tp/texi2any.pl:943
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -566,7 +566,7 @@ msgstr ""
 "претражујући директоријум"
 
 #: info/info.c:1162 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:137 tp/texi2any.pl:925
+#: Pod-Simple-Texinfo/pod2texi.pl:139 tp/texi2any.pl:925
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2062,6 +2062,18 @@ msgid "    --menus                 generate node menus"
 msgstr "    --menus                 ствара изборнике чвора"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
+#, fuzzy
+#| msgid ""
+#| "    --output=NAME           output to NAME for the first or main manual\n"
+#| "                            instead of standard output"
+msgid ""
+"    --outdir=NAME           output included files in NAME.\n"
+"                                                    Defaults to --subdir"
+msgstr ""
+"    --output=НАЗИВ          шаље излаз у НАЗИВ за прво или главно упутство\n"
+"                            уместо на стандардни излаз"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
@@ -2069,7 +2081,7 @@ msgstr ""
 "    --output=НАЗИВ          шаље излаз у НАЗИВ за прво или главно упутство\n"
 "                            уместо на стандардни излаз"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:128
+#: Pod-Simple-Texinfo/pod2texi.pl:130
 msgid ""
 "    --preamble=STR          insert STR as beginning boilerplate.\n"
 "                            Defaults to a minimal Texinfo document beginning"
@@ -2078,83 +2090,85 @@ msgstr ""
 "                            Подразумева минимални почетак „Texinfo“ "
 "документа beginning"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:130
+#: Pod-Simple-Texinfo/pod2texi.pl:132
 msgid "    --setfilename           @setfilename for the main manual"
 msgstr ""
 "    --setfilename           „@поставља_назив_датотеке“ за главно упутство"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:131
-msgid ""
-"    --subdir=NAME           put files included in the main manual in NAME"
+#: Pod-Simple-Texinfo/pod2texi.pl:133
+#, fuzzy
+#| msgid ""
+#| "    --subdir=NAME           put files included in the main manual in NAME"
+msgid "    --subdir=NAME           include files from NAME in the main manual"
 msgstr ""
 "    --subdir=НАЗИВ          ставља датотеке обухваћене у главном упутству у "
 "НАЗИВ"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:132
+#: Pod-Simple-Texinfo/pod2texi.pl:134
 msgid "    --top                   top for the main manual"
 msgstr "    --top                   врх за главно упутство"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:133
+#: Pod-Simple-Texinfo/pod2texi.pl:135
 msgid "    --unnumbered-sections   do not number sections"
 msgstr "    --unnumbered-sections   не нумерише одељке"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:134
+#: Pod-Simple-Texinfo/pod2texi.pl:136
 msgid "    --version               display version information and exit"
 msgstr "    --version               исписује податке о издању и излази"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:171
+#: Pod-Simple-Texinfo/pod2texi.pl:174
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
 msgstr "%s: погрешан аргумент за „--base-level“\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:194
+#: Pod-Simple-Texinfo/pod2texi.pl:202
 #, perl-format
 msgid "%s: could not create directory %s: %s"
 msgstr "%s: не могу да направим директоријум „%s“: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:209
+#: Pod-Simple-Texinfo/pod2texi.pl:217
 #, perl-format
 msgid "%s: missing file argument\n"
 msgstr "%s: недостаје аргумент датотеке\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:210 tp/texi2any.pl:1396
+#: Pod-Simple-Texinfo/pod2texi.pl:218 tp/texi2any.pl:1396
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Покушајте „%s --help“ за више информација.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:233
+#: Pod-Simple-Texinfo/pod2texi.pl:241
 #, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr "%s: занемарујем „%s“ без садржаја\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:434 Pod-Simple-Texinfo/pod2texi.pl:523
+#: Pod-Simple-Texinfo/pod2texi.pl:448 Pod-Simple-Texinfo/pod2texi.pl:548
 #: tp/texi2any.pl:1741 tp/texi2any.pl:1811
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: не могу да отворим „%s“ ради уписа: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:471
+#: Pod-Simple-Texinfo/pod2texi.pl:485
 #, perl-format
 msgid "%s: could not open %s: %s\n"
 msgstr "%s: не могу да отворим „%s“: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:484 Pod-Simple-Texinfo/pod2texi.pl:572
+#: Pod-Simple-Texinfo/pod2texi.pl:498 Pod-Simple-Texinfo/pod2texi.pl:597
 #: tp/texi2any.pl:1705 tp/texi2any.pl:1831
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: грешка при затварању „%s“: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:491
+#: Pod-Simple-Texinfo/pod2texi.pl:505
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr "%s: уклањам „%s“ јер улазна датотека „%s“ нема садржај\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:508
+#: Pod-Simple-Texinfo/pod2texi.pl:533
 #, perl-format
 msgid "%s: rename %s failed: %s\n"
 msgstr "%s: преименовање „%s“ није успело: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:578
+#: Pod-Simple-Texinfo/pod2texi.pl:603
 #, perl-format
 msgid "%s: error on closing stdout: %s\n"
 msgstr "%s: грешка при затварању стандардног излаза: %s\n"
@@ -4691,8 +4705,8 @@ msgstr "„@%s“ је застарело; %s"
 #~ "      --disable-encoding          не шаље акцентоване и специјалне знаке\n"
 #~ "                                  у Инфо излаз на основу "
 #~ "„@documentencoding“-а.\n"
-#~ "      --enable-encoding           преписује „--disable-"
-#~ "encoding“ (основно).\n"
+#~ "      --enable-encoding           преписује „--disable-encoding“ "
+#~ "(основно).\n"
 #~ "      --fill-column=БРОЈ          прелама Инфо редове на БРОЈ знакова "
 #~ "(основно је %d).\n"
 #~ "      --footnote-style=СТИЛ       исписује фусноте у Инфоу у складу са "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-09-07 18:40+0100\n"
+"POT-Creation-Date: 2024-09-20 09:50+0200\n"
 "PO-Revision-Date: 2020-10-22 14:08+0200\n"
 "Last-Translator: Francesco Groccia <f.g@disroot.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -411,7 +411,7 @@ msgid "Try --help for more information.\n"
 msgstr "Usare «--help» per maggiori informazioni.\n"
 
 #: info/info.c:872 install-info/install-info.c:2261
-#: Pod-Simple-Texinfo/pod2texi.pl:160 tp/texi2any.pl:943
+#: Pod-Simple-Texinfo/pod2texi.pl:163 tp/texi2any.pl:943
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -557,7 +557,7 @@ msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
 #: info/info.c:1162 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:137 tp/texi2any.pl:925
+#: Pod-Simple-Texinfo/pod2texi.pl:139 tp/texi2any.pl:925
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2065,94 +2065,99 @@ msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid ""
+"    --outdir=NAME           output included files in NAME.\n"
+"                                                    Defaults to --subdir"
+msgstr ""
+
+#: Pod-Simple-Texinfo/pod2texi.pl:128
+msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:128
+#: Pod-Simple-Texinfo/pod2texi.pl:130
 msgid ""
 "    --preamble=STR          insert STR as beginning boilerplate.\n"
 "                            Defaults to a minimal Texinfo document beginning"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:130
+#: Pod-Simple-Texinfo/pod2texi.pl:132
 msgid "    --setfilename           @setfilename for the main manual"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:131
-msgid ""
-"    --subdir=NAME           put files included in the main manual in NAME"
-msgstr ""
-
-#: Pod-Simple-Texinfo/pod2texi.pl:132
-msgid "    --top                   top for the main manual"
-msgstr ""
-
 #: Pod-Simple-Texinfo/pod2texi.pl:133
-msgid "    --unnumbered-sections   do not number sections"
+msgid "    --subdir=NAME           include files from NAME in the main manual"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:134
+msgid "    --top                   top for the main manual"
+msgstr ""
+
+#: Pod-Simple-Texinfo/pod2texi.pl:135
+msgid "    --unnumbered-sections   do not number sections"
+msgstr ""
+
+#: Pod-Simple-Texinfo/pod2texi.pl:136
 msgid "    --version               display version information and exit"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:171
+#: Pod-Simple-Texinfo/pod2texi.pl:174
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:194
+#: Pod-Simple-Texinfo/pod2texi.pl:202
 #, fuzzy, perl-format
 #| msgid "could not create directory `%s': %s"
 msgid "%s: could not create directory %s: %s"
 msgstr "impossibile creare le directory «%s»: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:209
+#: Pod-Simple-Texinfo/pod2texi.pl:217
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
 msgid "%s: missing file argument\n"
 msgstr "%s: nome file mancante.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:210 tp/texi2any.pl:1396
+#: Pod-Simple-Texinfo/pod2texi.pl:218 tp/texi2any.pl:1396
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Usare «%s --help» per maggiori informazioni.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:233
+#: Pod-Simple-Texinfo/pod2texi.pl:241
 #, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:434 Pod-Simple-Texinfo/pod2texi.pl:523
+#: Pod-Simple-Texinfo/pod2texi.pl:448 Pod-Simple-Texinfo/pod2texi.pl:548
 #: tp/texi2any.pl:1741 tp/texi2any.pl:1811
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: impossibile aprire %s per la scrittura: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:471
+#: Pod-Simple-Texinfo/pod2texi.pl:485
 #, fuzzy, perl-format
 #| msgid "@%s: could not open %s: %s"
 msgid "%s: could not open %s: %s\n"
 msgstr "@%s: impossibile aprire %s: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:484 Pod-Simple-Texinfo/pod2texi.pl:572
+#: Pod-Simple-Texinfo/pod2texi.pl:498 Pod-Simple-Texinfo/pod2texi.pl:597
 #: tp/texi2any.pl:1705 tp/texi2any.pl:1831
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: errore durante la chiusura %s: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:491
+#: Pod-Simple-Texinfo/pod2texi.pl:505
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:508
+#: Pod-Simple-Texinfo/pod2texi.pl:533
 #, fuzzy, perl-format
 #| msgid "rename %s failed: %s"
 msgid "%s: rename %s failed: %s\n"
 msgstr "rinomina di %s fallita: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:578
+#: Pod-Simple-Texinfo/pod2texi.pl:603
 #, fuzzy, perl-format
 #| msgid "%s: error on closing %s: %s\n"
 msgid "%s: error on closing stdout: %s\n"
@@ -4715,8 +4720,8 @@ msgstr "@%s è obsoleto; %s"
 #~ "speciali\n"
 #~ "                                nel file in formato Info basati su "
 #~ "@documentencoding.\n"
-#~ "      --enable-encoding       ignora l'opzione «--disable-"
-#~ "encoding» (predefinito).\n"
+#~ "      --enable-encoding       ignora l'opzione «--disable-encoding» "
+#~ "(predefinito).\n"
 #~ "      --fill-column=NUM       non generare un file con righe maggiori di "
 #~ "NUM caratteri (predefinito %d).\n"
 #~ "      --footnote-style=STILE  scrivi le note a piè di pagina in accordo "

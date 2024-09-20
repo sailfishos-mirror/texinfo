@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo-7.1.0.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2024-09-07 18:40+0100\n"
+"POT-Creation-Date: 2024-09-20 09:50+0200\n"
 "PO-Revision-Date: 2024-06-16 17:57-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -418,7 +418,7 @@ msgid "Try --help for more information.\n"
 msgstr "Pokušajte --help za više informacija.\n"
 
 #: info/info.c:872 install-info/install-info.c:2261
-#: Pod-Simple-Texinfo/pod2texi.pl:160 tp/texi2any.pl:943
+#: Pod-Simple-Texinfo/pod2texi.pl:163 tp/texi2any.pl:943
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -569,7 +569,7 @@ msgstr ""
 "direktorij"
 
 #: info/info.c:1162 install-info/install-info.c:578
-#: Pod-Simple-Texinfo/pod2texi.pl:137 tp/texi2any.pl:925
+#: Pod-Simple-Texinfo/pod2texi.pl:139 tp/texi2any.pl:925
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2068,6 +2068,19 @@ msgid "    --menus                 generate node menus"
 msgstr "    --menus                 generira izbornike čvorova"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
+#, fuzzy
+#| msgid ""
+#| "    --output=NAME           output to NAME for the first or main manual\n"
+#| "                            instead of standard output"
+msgid ""
+"    --outdir=NAME           output included files in NAME.\n"
+"                                                    Defaults to --subdir"
+msgstr ""
+"    --output=IME            ispiše podatke u IME za prvi ili glavni "
+"priručnik\n"
+"                            umjesto na standardni izlaz"
+
+#: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
@@ -2076,7 +2089,7 @@ msgstr ""
 "priručnik\n"
 "                            umjesto na standardni izlaz"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:128
+#: Pod-Simple-Texinfo/pod2texi.pl:130
 msgid ""
 "    --preamble=STR          insert STR as beginning boilerplate.\n"
 "                            Defaults to a minimal Texinfo document beginning"
@@ -2084,82 +2097,84 @@ msgstr ""
 "    --preamble=STR          umetne string STR kao početak predloška\n"
 "                            Zadano, započinje kao minimalni Texinfo dokument"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:130
+#: Pod-Simple-Texinfo/pod2texi.pl:132
 msgid "    --setfilename           @setfilename for the main manual"
 msgstr "    --setfilename           @setfilename za glavni priručnik"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:131
-msgid ""
-"    --subdir=NAME           put files included in the main manual in NAME"
+#: Pod-Simple-Texinfo/pod2texi.pl:133
+#, fuzzy
+#| msgid ""
+#| "    --subdir=NAME           put files included in the main manual in NAME"
+msgid "    --subdir=NAME           include files from NAME in the main manual"
 msgstr ""
 "    --subdir=IME            umetne datoteke uključene u glavni priručnik u "
 "IME"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:132
+#: Pod-Simple-Texinfo/pod2texi.pl:134
 msgid "    --top                   top for the main manual"
 msgstr "    --top                   vrh glavnog priručnika"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:133
+#: Pod-Simple-Texinfo/pod2texi.pl:135
 msgid "    --unnumbered-sections   do not number sections"
 msgstr "    --unnumbered-sections   ne numerira odlomke"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:134
+#: Pod-Simple-Texinfo/pod2texi.pl:136
 msgid "    --version               display version information and exit"
 msgstr "    --version               pokaže podatke o inačici i iziđe"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:171
+#: Pod-Simple-Texinfo/pod2texi.pl:174
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
 msgstr "%s: loš argument za --base-level\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:194
+#: Pod-Simple-Texinfo/pod2texi.pl:202
 #, perl-format
 msgid "%s: could not create directory %s: %s"
 msgstr "%s: nije (bilo) moguće napraviti direktorij %s: %s"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:209
+#: Pod-Simple-Texinfo/pod2texi.pl:217
 #, perl-format
 msgid "%s: missing file argument\n"
 msgstr "%s: nedostaje datotečni argument\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:210 tp/texi2any.pl:1396
+#: Pod-Simple-Texinfo/pod2texi.pl:218 tp/texi2any.pl:1396
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Pokušajte s „%s --help“ za više informacija.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:233
+#: Pod-Simple-Texinfo/pod2texi.pl:241
 #, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr "%s: ignoriramo besadržajni %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:434 Pod-Simple-Texinfo/pod2texi.pl:523
+#: Pod-Simple-Texinfo/pod2texi.pl:448 Pod-Simple-Texinfo/pod2texi.pl:548
 #: tp/texi2any.pl:1741 tp/texi2any.pl:1811
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: nije (bilo) moguće otvoriti %s za pisanje: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:471
+#: Pod-Simple-Texinfo/pod2texi.pl:485
 #, perl-format
 msgid "%s: could not open %s: %s\n"
 msgstr "%s: nije (bilo) moguće otvoriti %s: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:484 Pod-Simple-Texinfo/pod2texi.pl:572
+#: Pod-Simple-Texinfo/pod2texi.pl:498 Pod-Simple-Texinfo/pod2texi.pl:597
 #: tp/texi2any.pl:1705 tp/texi2any.pl:1831
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: greška pri zatvaranju %s: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:491
+#: Pod-Simple-Texinfo/pod2texi.pl:505
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr "%s: brišemo %s jer ulazna datoteka %s nema sadržaja\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:508
+#: Pod-Simple-Texinfo/pod2texi.pl:533
 #, perl-format
 msgid "%s: rename %s failed: %s\n"
 msgstr "%s: nije uspjelo preimenovati %s: %s\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:578
+#: Pod-Simple-Texinfo/pod2texi.pl:603
 #, perl-format
 msgid "%s: error on closing stdout: %s\n"
 msgstr "%s: greška pri zatvaranju stdout: %s\n"
