@@ -1,3 +1,11 @@
+2024-09-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/configure.ac (fetch_conf): remove carriage return \r
+	for the specific case of a Cygwin shell calling native Windows Perl,
+	as it should be the only case where a carriage return could happen.
+	Use a sed substitution based on a printf carriage return expansion
+	for portability.
+
 2024-09-20  Patrice Dumas  <pertusus@free.fr>
 
 	* configure.ac: redirect STDERR to AS_MESSAGE_LOG_FD for tests of Perl

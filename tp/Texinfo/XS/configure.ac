@@ -31,9 +31,18 @@ s/ *; *$//
 s/'$d//
 s/$b$b/$b//g"
 
+# In general there is no need to remove a carriage return explicitely,
+# either there is none to begin with (on Unix, with Cygwin Perl) or
+# the shell (case of mingw on MSYS) does it already.  When doing a
+# mingw on Cygwin 'fake' cross-compilation using native Perl, however,
+# the shell is the Cygwin shell that do not remove carriage returns
+# automatically, while the native Perl emits carriage returns.
+# we use something complicated because \r does not work in some
+# sed implementations.
+subst_cr=`printf 's/\r//g'`
 fetch_conf ()
 {
-          conf_value=`${PERL} -V:$1`
+          conf_value=`${PERL} -V:$1 | sed $subst_cr`
           conf_value=`echo $conf_value | sed "$sed_script"`
 } 
 
