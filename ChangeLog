@@ -1,5 +1,11 @@
 2024-09-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/formats_encodings.t (japanese_shift_jis): assume that test
+	should be skipped if there is no conversion from EUC-CN as an evidence
+	of problematic iconv implementation.
+
+2024-09-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac (fetch_conf): remove carriage return with
 	a sed substitution based on a printf carriage return expansion.
 
