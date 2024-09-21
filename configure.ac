@@ -521,9 +521,7 @@ AC_ARG_ENABLE([tp-tests],
        tp_tests='yes'
      fi],
     [
-     if test "z$PROVE" = 'z'; then
-       tp_tests='no'
-     elif $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     if $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&AS_MESSAGE_LOG_FD;
      then
        tp_tests='yes'
      else

@@ -300,8 +300,6 @@ document_domain = $(PACKAGE)_document
 # $(document_strings_mo_files) comes from the generated Makefile.docstr.
 all-local: maintain/catalog.xml $(document_strings_mo_files)
 
-tp_tests = prove.sh
-
 if TP_TESTS
 TESTS = $(test_tap_files_generated_list)
 endif
@@ -338,7 +336,7 @@ EXTRA_DIST = \
   texi2any.supp \
   $(test_files_generated_list) \
   $(test_files) \
-  $(tp_tests) \
+  prove.sh \
   $(maintenance_files) \
   maintain/lib \
   Texinfo/command_data.txt \

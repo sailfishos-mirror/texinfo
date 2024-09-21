@@ -1,5 +1,12 @@
 2024-09-21  Patrice Dumas  <pertusus@free.fr>
 
+	* configure.ac (tp-tests): do not conditionalize tp tests on prove, it
+	is not needed since we switched to automake tap implementation.
+
+	* tp/Makefile.am: inline tp_tests variable.
+
+2024-09-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac (perl_conf_LDFLAGS): use string
 	concatenation instead of += to add -no-undefined and associated flags.
 	The previous code triggers an error in Cygwin in CI.
