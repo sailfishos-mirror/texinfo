@@ -23,24 +23,22 @@ c='@:>@' dnl quadrigraph for ]
 # Afterwards, convert \ into / in case \ is a path separator,
 # so it is not interpreted as a special character by the shell.
 
-# In general there is no need to remove a carriage return explicitely,
-# either  there is non to begin with (on Unix, with Cygwin Perl) or
-# the shell (case of mingw on MSYS) does it already.  When doing a
-# mingw on Cygwin 'fake' cross-compilation using native Perl, however,
-# the shell is the Cygwin shell that do not remove carriage returns
-# automatically, while the native Perl emits carriage returns.  The
-# first substitution should only be needed in that case.
 sed_script="
-s/\\r//g
 s/^$o^=$c*= *//
 s/^'//
 s/ *; *$//
 s/'$d//
 s/$b$b/$b//g"
 
+# In general there is no need to remove a carriage return explicitely,
+# either  there is non to begin with (on Unix, with Cygwin Perl) or
+# the shell (case of mingw on MSYS) does it already.  When doing a
+# mingw on Cygwin 'fake' cross-compilation using native Perl, however,
+# the shell is the Cygwin shell that do not remove carriage returns
+# automatically, while the native Perl emits carriage returns.
 fetch_conf ()
 {
-          conf_value=`${PERL} -V:$1`
+          conf_value=`${PERL} -V:$1 | ${PERL} -pe 's/\r//'`
           conf_value=`echo $conf_value | sed "$sed_script"`
 } 
 
