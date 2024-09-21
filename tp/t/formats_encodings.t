@@ -381,7 +381,12 @@ undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'}
 undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'}
 ],
 ['japanese_shift_jis',
-undef, {'test_file' => 'japanese_shift_jis.texi'}
+# test fails on solaris11 with recent Perl, with encoding errors.  Could
+# be because of solaris iconv.  Use conversion from EUC-CN as an evidence
+# for problematic iconv even though it is not the actual issue.
+undef, {'test_file' => 'japanese_shift_jis.texi',
+        'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
+         ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,}
 ],
 ['sample_utf8',
 undef, {'test_file' => 'sample_utf8.texi'}
