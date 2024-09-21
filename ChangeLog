@@ -1,5 +1,11 @@
 2024-09-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac (perl_conf_LDFLAGS): use string
+	concatenation instead of += to add -no-undefined and associated flags.
+	The previous code triggers an error in Cygwin in CI.
+
+2024-09-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/options_data.txt, tp/ext/epub3.pm (epub_setup),
 	tp/maintain/check_epubcheck_texi_t.sh: set dcterms:modified to the
 	generation time in the default case as it is not a publication date,

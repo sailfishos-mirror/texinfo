@@ -191,7 +191,7 @@ LDFLAGS=$PERL_EXT_LDFLAGS
 # `(gnulib)Libtool and Windows'.  The -L and -l options after it show
 # where to find the undefined symbols.
 case "$host" in *-mingw32 | *-mingw64 | *-msdosdjgpp | *-cygwin )
-  perl_conf_LDFLAGS += -no-undefined -L$PERL_INC $PERL_CONF_libperl
+  perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined -L$PERL_INC $PERL_CONF_libperl"
 esac
 
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
