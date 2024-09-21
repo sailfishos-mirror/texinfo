@@ -31,7 +31,7 @@ c='@:>@' dnl quadrigraph for ]
 # automatically, while the native Perl emits carriage returns.  The
 # first substitution should only be needed in that case.
 sed_script="
-s/\r//g
+s/\\r//g
 s/^$o^=$c*= *//
 s/^'//
 s/ *; *$//
