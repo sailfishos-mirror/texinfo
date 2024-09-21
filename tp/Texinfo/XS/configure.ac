@@ -36,9 +36,12 @@ s/$b$b/$b//g"
 # mingw on Cygwin 'fake' cross-compilation using native Perl, however,
 # the shell is the Cygwin shell that do not remove carriage returns
 # automatically, while the native Perl emits carriage returns.
+# we use something complicated because \r does not work in some
+# sed implementations.
+subst_cr=`printf 's/\r//g'`
 fetch_conf ()
 {
-          conf_value=`${PERL} -V:$1 | ${PERL} -pe 's/\r//'`
+          conf_value=`${PERL} -V:$1 | sed $subst_cr`
           conf_value=`echo $conf_value | sed "$sed_script"`
 } 
 
