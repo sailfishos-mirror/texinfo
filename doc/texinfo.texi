@@ -17318,7 +17318,7 @@ This will produce the following output in the @samp{<head>} of the HTML:
 @cindex Outputting EPUB
 
 EPUB is a format designed for reading electronic books on portable
-devices.  @command{texi2any} generated EPUB 3.2 in 2022.  An EPUB
+devices.  @command{texi2any} generated EPUB 3.3 in 2024.  An EPUB
 file is a ZIP archive container, holding informative files as
 well as the manual rendered in HTML.
 
@@ -17396,23 +17396,9 @@ set @code{CHECK_HTMLXREF} to 0.
 @node EPUB Conformance
 @subsection Achieving strict EPUB conformance
 
-@vindex EPUB_STRICT
-You should set the @code{EPUB_STRICT} customization variable to achieve
-stricter conformance of EPUB generated from Texinfo.  Indeed, strict
-conformance of EPUB generated from Texinfo is not achieved by default
-because some metadata cannot be specified yet.  Setting @code{EPUB_STRICT}
-triggers automatic metadata generation and XHTML more consistent with EPUB
-conformance checkers@footnote{The need to set a variable for
-EPUB conformance is supposed to be temporary.  The @code{EPUB_STRICT}
-customization variable may be removed in future releases.}.
-
-For example:
-@example
-texi2any --epub -c EPUB_STRICT=1 mymanual.texi
-@end example
-
-In addition, you may need to adjust the Texinfo manual to achieve full
-conformance:
+By default, @command{texi2any} produces EPUB expected by conformance
+checkers as far as possible.   You may still need to adjust your Texinfo
+manual to achieve full conformance to:
 @itemize
 @item Make sure that references to external manuals resolve to URLs
 (@pxref{EPUB Cross-References}).

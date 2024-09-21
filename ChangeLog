@@ -1,5 +1,17 @@
 2024-09-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/options_data.txt, tp/ext/epub3.pm (epub_setup),
+	tp/maintain/check_epubcheck_texi_t.sh: set dcterms:modified to the
+	generation time in the default case as it is not a publication date,
+	but a last modified date for the whole publication.  Also set
+	_INLINE_STYLE_WIDTH unconditionaly.  Remove EPUB_STRICT.
+
+	* NEWS, TODO, doc/texinfo.texi (EPUB Conformance), tp/TODO: update.
+
+	* doc/texinfo.texi (Generating EPUB): update EPUB generated version.
+
+2024-09-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/formats_encodings.t (japanese_shift_jis): assume that test
 	should be skipped if there is no conversion from EUC-CN as an evidence
 	of problematic iconv implementation.

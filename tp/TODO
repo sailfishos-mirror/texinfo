@@ -205,11 +205,8 @@ Related glibc enhancement request:
  https://sourceware.org/bugzilla/show_bug.cgi?id=31658
 
 
-HTML5 validation tidy errors that do not need fixing
-----------------------------------------------------
-
-# to get only errors:
-tidy -qe *.html
+HTML5 validation errors that do not need fixing
+-----------------------------------------------
 
 Some can also be validation errors in other HTML versions.
 
@@ -229,8 +226,12 @@ Normally happens only for invalid Texinfo, missing @def* name, empty
 These attributes are obsolete (though the elements are 
 still part of the language), and must not be used by authors.
 The CSS replacement would be style="width: 40%".
-However, width is kept as an attribute in texi2nay output and not
+However, width is kept as an attribute in texi2any @multitable output and not
 as CSS because it is not style, but table or even line specific formatting.
+If the _INLINE_STYLE_WIDTH undocumented option is set, CSS is used.
+It is set for EPUB.
+See
+https://lists.gnu.org/archive/html/bug-texinfo/2024-09/msg00065.html
 
 
 Missing tests

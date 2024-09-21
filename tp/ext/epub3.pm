@@ -24,7 +24,8 @@
 #
 # Discuss unique identifier on the mailing list
 #
-# Discuss last change date on the mailing list
+# Implement publication date and last change date customization
+# (see main TODO file).
 #
 # Currently the titlepage is used if available, while the Top node
 # is not shown.  There is a possibility to use an image as cover in
@@ -463,10 +464,7 @@ sub epub_setup($)
   $nav_filename = $default_nav_filename;
   $epub_file_nr = 1;
 
-
-  if ($self->get_conf('EPUB_STRICT')) {
-    $self->set_conf('_INLINE_STYLE_WIDTH', 1);
-  }
+  $self->set_conf('_INLINE_STYLE_WIDTH', 1);
 
   if (not defined($self->get_conf('EPUB_CREATE_CONTAINER_FILE'))) {
     if (not $self->get_conf('TEST')) {
@@ -812,15 +810,21 @@ EOT
   # The last modification date MUST be expressed in Coordinated Universal Time (UTC) and MUST be terminated by the "Z" (Zulu) time zone indicator.
   # FIXME add a way for the user to set $dcterms_modified_str
   my $dcterms_modified_str;
-  if ($self->get_conf('EPUB_STRICT')) {
-    # dcterms:modified is a publication date.  If the user did not specify
-    # one, we use the EPUB generation time.
+  if (not $self->get_conf('TEST')) {
+    # dcterms:modified is a last modified date of the whole publication.
+    # By default, we use the EPUB generation time.
     my $datetime_zulu = POSIX::strftime("%Y-%m-%dT%TZ", gmtime());
     $dcterms_modified_str = $datetime_zulu;
+  } else {
+    # Fixed date for tests
+    $dcterms_modified_str = '1976-11-04T12:00:00Z';
   }
 
   # to discuss
   # <dc:rights>
+
+  # Cf TODO, publication date
+  # <dc:date>
 
   my $opf_file_path_name = File::Spec->catfile($epub_destination_directory,
                                         $epub_document_dir_name, $opf_filename);

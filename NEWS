@@ -60,8 +60,7 @@ See the manual for detailed information.
    . Remove border, cellpadding, cellspacing and align attributes, add
      classes and use CSS when needed.
  . EPUB:
-   add EPUB_STRICT customization variable for EPUB conformance, hopefully
-   temporarily.
+   stricter conformance for conformance checkers.
 
 * info
  . check for init file under ~/.config/texinfo/infokey before checking
