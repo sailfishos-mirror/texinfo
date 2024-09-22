@@ -2371,6 +2371,75 @@ call_button_direction_function (CONVERTER *self,
   return result;
 }
 
+
+
+/* not in a more generic code file because it depends on build_tree_to_build */
+
+char *
+call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
+{
+  int count;
+  char *result;
+  char *result_ret;
+  STRLEN len;
+  SV *result_sv;
+  SV **options_latex_math_sv;
+  SV *options_latex_math;
+
+  dTHX;
+
+  if (!self->hv)
+    return 0;
+
+  build_tree_to_build (&self->tree_to_build);
+
+  dSP;
+
+  options_latex_math_sv = hv_fetch (self->hv, "options_latex_math",
+                                 strlen ("options_latex_math"), 0);
+
+  if (options_latex_math_sv)
+    {
+      options_latex_math = *options_latex_math_sv;
+      SvREFCNT_inc (options_latex_math);
+    }
+  else
+    {
+      options_latex_math = newSV (0);
+    }
+
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 3);
+
+  PUSHs(sv_2mortal (newSV (0)));
+  PUSHs(sv_2mortal (newRV_inc (element->hv)));
+  PUSHs(sv_2mortal (options_latex_math));
+  PUTBACK;
+
+  count = call_pv (
+    "Texinfo::Convert::LaTeX::convert_to_latex_math",
+    G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 1)
+    croak ("convert_to_latex_math should return 1 item\n");
+
+  result_sv = POPs;
+  result_ret = SvPVutf8 (result_sv, len);
+  result = non_perl_strndup (result_ret, len);
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+  return result;
+}
 
 
 /* Interface with Perl hash map for registered ids */

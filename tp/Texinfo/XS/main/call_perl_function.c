@@ -32,11 +32,23 @@
 #include "document_types.h"
 /* for non_perl_strndup and similar */
 #include "utils.h"
-#include "build_perl_info.h"
 #include "call_perl_function.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
+
+/* Used to create a "Perl-internal" string that represents a sequence
+   of Unicode codepoints with no specific encoding. */
+SV *
+newSVpv_utf8 (const char *str, STRLEN len)
+{
+  SV *sv;
+  dTHX;
+
+  sv = newSVpv (str, len);
+  SvUTF8_on (sv);
+  return sv;
+}
 
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text)
@@ -68,72 +80,6 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
 
   if (count != 1)
     croak ("_unicode_to_transliterate should return 1 item\n");
-
-  result_sv = POPs;
-  result_ret = SvPVutf8 (result_sv, len);
-  result = non_perl_strndup (result_ret, len);
-
-  PUTBACK;
-
-  FREETMPS;
-  LEAVE;
-
-  return result;
-}
-
-char *
-call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
-{
-  int count;
-  char *result;
-  char *result_ret;
-  STRLEN len;
-  SV *result_sv;
-  SV **options_latex_math_sv;
-  SV *options_latex_math;
-
-  dTHX;
-
-  if (!self->hv)
-    return 0;
-
-  build_tree_to_build (&self->tree_to_build);
-
-  dSP;
-
-  options_latex_math_sv = hv_fetch (self->hv, "options_latex_math",
-                                 strlen ("options_latex_math"), 0);
-
-  if (options_latex_math_sv)
-    {
-      options_latex_math = *options_latex_math_sv;
-      SvREFCNT_inc (options_latex_math);
-    }
-  else
-    {
-      options_latex_math = newSV (0);
-    }
-
-
-  ENTER;
-  SAVETMPS;
-
-  PUSHMARK(SP);
-  EXTEND(SP, 3);
-
-  PUSHs(sv_2mortal (newSV (0)));
-  PUSHs(sv_2mortal (newRV_inc (element->hv)));
-  PUSHs(sv_2mortal (options_latex_math));
-  PUTBACK;
-
-  count = call_pv (
-    "Texinfo::Convert::LaTeX::convert_to_latex_math",
-    G_SCALAR);
-
-  SPAGAIN;
-
-  if (count != 1)
-    croak ("convert_to_latex_math should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);

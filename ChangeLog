@@ -1,5 +1,20 @@
 2024-09-22  Patrice Dumas  <pertusus@free.fr>
 
+	* p/Texinfo/XS/convert/call_html_perl_function.c
+	(call_latex_convert_to_latex_math),
+	tp/Texinfo/XS/main/call_perl_function.c: move
+	call_latex_convert_to_latex_math to call_html_perl_function.c to avoid
+	a dependency to build_tree_to_build in call_perl_function.c.
+
+	* tp/Texinfo/XS/main/build_perl_info.c,
+	tp/Texinfo/XS/main/build_perl_info.h,
+	tp/Texinfo/XS/main/call_perl_function.c (newSVpv_utf8): move
+	newSVpv_utf8 to call_perl_function.c as it is used here.  Still declare
+	newSVpv_utf8 in build_perl_info.h to avoid bringing Perl headers in
+	call_perl_function.h.
+
+2024-09-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_SOURCES)
 	(libtexinfo_la_CPPFLAGS, libtexinfo_la_CFLAGS, libtexinfo_la_LDFLAGS)
 	(libtexinfoxs_la_SOURCES): move api_to_perl.c and call_perl_function.c

@@ -264,19 +264,6 @@ build_perl_directions (const ELEMENT_LIST *e, int avoid_recursion)
 }
 
 
-/* Used to create a "Perl-internal" string that represents a sequence
-   of Unicode codepoints with no specific encoding. */
-SV *
-newSVpv_utf8 (const char *str, STRLEN len)
-{
-  SV *sv;
-  dTHX;
-
-  sv = newSVpv (str, len);
-  SvUTF8_on (sv);
-  return sv;
-}
-
 /* Used to create a string considered as bytes by perl */
 SV *
 newSVpv_byte (const char *str, STRLEN len)

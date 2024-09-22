@@ -46,7 +46,6 @@
 #include "translations.h"
 #include "convert_utils.h"
 #include "convert_to_text.h"
-#include "call_perl_function.h"
 #include "call_html_perl_function.h"
 /* for unregister_document_merge_with_document */
 #include "document.h"

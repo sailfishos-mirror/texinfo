@@ -149,6 +149,9 @@ FORMATTED_BUTTON_INFO *call_button_direction_function (CONVERTER *self,
                              int direction, const ELEMENT *element);
 
 
+char *call_latex_convert_to_latex_math (CONVERTER *self,
+                                        const ELEMENT *element);
+
 /* Interface with Perl hash map for registered ids */
 void init_registered_ids_hv (CONVERTER *self);
 int is_hv_registered_id (CONVERTER *self, const char *string);

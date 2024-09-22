@@ -25,8 +25,12 @@ int init (int texinfo_uninstalled, char *srcdir_in);
 SV *build_sv_option (const OPTIONS *options, const char *key,
                      const CONVERTER *converter);
 
+/* in call_perl_function.c, but declared here to avoid pulling in Perl
+   headers in call_perl_function.h */
 /* does not exist as perl macro */
 SV *newSVpv_utf8 (const char *str, STRLEN len);
+
+/* does not exist as perl macro */
 SV *newSVpv_byte (const char *str, STRLEN len);
 
 void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
