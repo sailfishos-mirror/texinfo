@@ -110,6 +110,8 @@ endif
 # in main but not the other way around.
 # Files in structuring_transfo depend only on the files in main and not
 # the other way around.
+# api_to_perl.c and call_perl_function.c functions are called in other
+# parts of the code and need to be linked against Perl
 libtexinfo_la_SOURCES= \
 		      main/tree_types.h \
 		      main/document_types.h \
@@ -200,7 +202,11 @@ libtexinfo_la_SOURCES= \
 		      parsetexi/source_marks.c \
 		      parsetexi/source_marks.h \
 		      structuring_transfo/structuring.c \
-		      structuring_transfo/structuring.h
+		      structuring_transfo/structuring.h \
+		      main/api_to_perl.c \
+		      main/api_to_perl.h \
+		      main/call_perl_function.c \
+		      main/call_perl_function.h
 
 EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
@@ -212,10 +218,10 @@ EXTRA_DIST += main/global_multi_commands_case.c
 EXTRA_DIST += main/global_unique_commands_case.c
 
 # locate include files under out-of-source builds.
-libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
+libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
-# platform_LDFLAGS should be -no-undefined on Windows
-libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(platform_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
               main/cmd_normalization.c \
@@ -293,23 +299,18 @@ MAINTAINERCLEANFILES += main/options_init_free.c main/options_types.h \
                         main/options_get_perl.c
 
 ########################## shared perl XS library for texinfo XS codes
-# it is separate from libtexinfo because of different dependencies
-# and flags; it depends on perl and not on gnulib.  Both libraries
-# are used by following XS.
+# it is separate from libtexinfo because of different dependencies; it
+# does not depend on gnulib.  Both libraries are used by following XS.
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfoxs.la
 endif
 
 libtexinfoxs_la_SOURCES= \
-		      main/api_to_perl.c \
-		      main/api_to_perl.h \
 		      main/build_perl_info.c \
 		      main/build_perl_info.h \
 		      main/get_perl_info.c \
 		      main/get_perl_info.h \
-		      main/call_perl_function.c \
-		      main/call_perl_function.h \
 		      main/options_get_perl.c
 
 # locate include files under out-of-source builds.
