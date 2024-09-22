@@ -195,11 +195,17 @@ case "$host" in *-mingw32 | *-mingw64 | *-msdosdjgpp | *-cygwin )
   perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined -L$PERL_INC $PERL_CONF_libperl"
   # used for shared libraries not linked against Perl.
   platform_LDFLAGS='-no-undefined'
+  ;;
+ *)
+  # can be used to explicitly link against Perl when not in perl_conf_LDFLAGS
+  perl_conf_PERL_LINK="-L$PERL_INC $PERL_CONF_libperl"
+  ;;
 esac
 
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
+AC_SUBST([perl_conf_PERL_LINK], [$perl_conf_PERL_LINK])
 
 AC_CHECK_FUNCS(newlocale strxfrm_l)
 
