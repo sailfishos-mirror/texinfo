@@ -65,7 +65,6 @@ See the manual for detailed information.
 * info
  . check for init file under ~/.config/texinfo/infokey before checking
   ~/.infokey, in accordance with the XDG Base Directory Specification
- . fixed crash when setting 'link-style' variable to unsupported value
 
 
 7.1.1 (7 September 2024)
