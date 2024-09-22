@@ -248,8 +248,25 @@ AC_TYPE_OFF_T
 # Checks for library functions.
 AC_CHECK_FUNCS(setlocale sigaction sigprocmask posix_openpt)
 
-# Used for Info tests
-AM_CONDITIONAL([have_ptys], [test x$ac_cv_func_posix_openpt = xyes])
+ptys_tests='yes'
+AC_ARG_ENABLE([ptys-tests],
+    AS_HELP_STRING([--enable-ptys-tests],[run tests using pseudottys (default: detected)]),
+    [if test $enableval = 'no'; then
+       ptys_tests='no'
+     else
+       ptys_tests='yes'
+     fi],
+    [
+     if test x$ac_cv_func_posix_openpt = xyes; then
+       ptys_tests='yes'
+     else
+       ptys_tests='no'
+     fi
+    ])
+
+AC_MSG_CHECKING([pseudottys tests requirements])
+AC_MSG_RESULT([$ptys_tests])
+AM_CONDITIONAL([PTYS_TESTS], [test "z$ptys_tests" = 'zyes'])
 
 # We want to recognize djgpp to avoid the useless warning about no
 # term library.

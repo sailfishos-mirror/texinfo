@@ -1,3 +1,17 @@
+2024-09-22  Patrice Dumas  <pertusus@free.fr>
+
+	* configure.ac (--enable-ptys-tests, PTYS_TESTS): add
+	--enable-ptys-tests, replacing have_ptys with PTYS_TESTS conditional.
+
+	* info/Makefile.am (info_tests_with_pseudotty, info_tests, TESTS)
+	(EXTRA_DIST): split TESTS in two, with info_tests_with_pseudotty tests
+	that are only run if PTYS_TESTS is true.  That way
+	--disable-ptys-tests is acknowledged even if there is a pseudotty
+	program present in the info directory.
+
+	* info/Makefile.am (CLEANFILES): add pseudotty to CLEANFILES if it is
+	not built.
+
 2024-09-21  Patrice Dumas  <pertusus@free.fr>
 
 	* configure.ac (tp-tests): do not conditionalize tp tests on prove, it

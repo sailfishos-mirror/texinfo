@@ -127,7 +127,9 @@ init_interactive_test ()
   test $initialization_done -eq 1 && return 0
   initialization_done=1
 
-  # Skip test if pseudotty wasn't built
+  # Skip test if pseudotty wasn't built.
+  # Note that this should not happen as tests requiring pseudotty
+  # are only run in the same situation where pseudotty is built.
   test -x pseudotty || exit 77
   
   # Avoid ginfo complaining that terminal is too dumb
