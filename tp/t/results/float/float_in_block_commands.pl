@@ -621,7 +621,7 @@ $result_converted{'html'}->{'float_in_block_commands'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-table.cartouche {border-style: solid; border-radius: 10%}
+table.cartouche {border-style: solid; border-radius: 0.5em}
 -->
 </style>
 

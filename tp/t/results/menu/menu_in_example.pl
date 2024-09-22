@@ -581,7 +581,7 @@ pre.menu-comment-preformatted {font-family: serif}
 pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
-table.cartouche {border-style: solid; border-radius: 10%}
+table.cartouche {border-style: solid; border-radius: 0.5em}
 -->
 </style>
 
