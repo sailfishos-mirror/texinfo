@@ -1,5 +1,12 @@
 2024-09-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_la_LDFLAGS),
+	tp/Texinfo/XS/configure.ac (platform_LDFLAGS): add platform_LDFLAGS to
+	contain -no-undefined on Windows to be used for shared libraries not
+	linked against Perl.
+
+2024-09-22  Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac (--enable-ptys-tests, PTYS_TESTS): add
 	--enable-ptys-tests, replacing have_ptys with PTYS_TESTS conditional.
 

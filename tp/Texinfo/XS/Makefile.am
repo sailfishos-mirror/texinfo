@@ -214,7 +214,8 @@ EXTRA_DIST += main/global_unique_commands_case.c
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
-libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+# platform_LDFLAGS should be -no-undefined on Windows
+libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(platform_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 BUILT_SOURCES=main/accent_tables_8bit_codepoints.c \
               main/cmd_normalization.c \
