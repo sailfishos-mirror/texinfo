@@ -49,6 +49,7 @@
 #include "build_html_perl_state.h"
 #include "converter.h"
 #include "convert_html.h"
+#include "get_converter_perl_info.h"
 #include "get_html_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to

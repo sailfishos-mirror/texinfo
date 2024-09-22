@@ -41,11 +41,6 @@ void copy_converter_conf_sv (HV *hv, CONVERTER *converter,
 void set_conf (CONVERTER *converter, const char *conf, SV *value);
 void force_conf (CONVERTER *converter, const char *conf, SV *value);
 
-CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
-int converter_initialize (SV *converter_sv);
-void reset_output_init_conf (SV *sv_in);
-void converter_set_document (SV *converter_in, SV *document_in);
-
 INDEX_ENTRY *find_index_entry_sv (const SV *index_entry_sv,
                      INDEX_LIST *indices_info,
                      const char *warn_string, const INDEX **entry_idx,

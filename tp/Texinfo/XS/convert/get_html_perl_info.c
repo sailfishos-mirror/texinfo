@@ -44,6 +44,7 @@
 #include "get_perl_info.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
+#include "get_converter_perl_info.h"
 #include "get_html_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
