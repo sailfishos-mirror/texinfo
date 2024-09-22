@@ -347,7 +347,7 @@ libtexinfo_convert_la_SOURCES= \
 # locate include files under out-of-source builds.
 # parsetexi will only be needed for texinfo.c
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
+libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
 libtexinfo_convert_la_LIBADD = libtexinfo.la libtexinfoxs.la $(top_builddir)/gnulib/lib/libgnu.la
 libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 #libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_PERL_LINK) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)

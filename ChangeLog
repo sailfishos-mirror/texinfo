@@ -4,6 +4,10 @@
 
 2024-09-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_CFLAGS): fix.
+
+2024-09-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am: change order of xs_LTLIBRARIES for
 	relinking in make distcheck.
 
